@@ -23,6 +23,7 @@ Para los administradores de TI, Azure AD proporciona una solución asequible y f
 
 Para los desarrolladores de aplicaciones, Azure AD permite al usuario centrarse en la creación de su aplicación facilitando y acelerando la integración de la misma con una solución de administración de identidades de clase mundial usada por millones de organizaciones de todo el mundo.
 
+
 Azure AD también incluye una serie completa de capacidades de administración de identidades, incluida Multi-Factor Authentication, el registro de dispositivos, la administración de contraseñas de autoservicio, la administración de grupos de autoservicio, la administración de cuentas con privilegios, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la auditoría enriquecida y la supervisión y alertas de seguridad. Estas funcionalidades pueden ayudar a proteger aplicaciones basadas en la nube, optimizar los procesos de TI, reducir costos y asegurar que se cumplen los objetivos de cumplimiento normativo corporativos.
 
 Además, con solo [cuatro clics](http://blogs.technet.com/b/ad/archive/2014/08/04/connecting-ad-and-azure-ad-only-4-clicks-with-azure-ad-connect.aspx), Azure AD puede integrarse con un Windows Server Active Directory existente, lo que da a las organizaciones la capacidad de aprovechar sus inversiones en identidad locales existentes para administrar el acceso a aplicaciones SaaS basadas en la nube.
@@ -69,5 +70,8 @@ Tenemos una gran cantidad de excelentes recursos en línea para ayudarle a apren
 * [Administración del acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md)
 * [¿Qué es la licencia de Microsoft Azure Active Directory?](active-directory-licensing-what-is.md)
 * [¿Cómo puedo detectar aplicaciones en la nube no sancionadas que se usan dentro de mi organización?](active-directory-cloudappdiscovery-whatis.md)
+
+##Recursos Adicionales
+Presentación / Video Microsoft Virtual Academy: [Azure Active Directory desde cero](https://mva.microsoft.com/es-es/training-courses/azure-active-directory-desde-cero-16859?l=LXR2zLy7C_4005192797)
 
 <!---HONumber=AcomDC_0928_2016-->
