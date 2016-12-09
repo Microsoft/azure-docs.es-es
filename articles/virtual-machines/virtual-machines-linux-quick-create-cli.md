@@ -20,8 +20,8 @@ ms.openlocfilehash: fd75ab9a37dfc75679427a16c3ecb36adb1c9925
 
 
 ---
-# <a name="create-a-linux-vm-on-azure-by-using-the-cli"></a>Creación de una máquina virtual Linux en Azure mediante la CLI
-En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando `azure vm quick-create` en la interfaz de la línea de comandos (CLI) de Azure. El comando `quick-create` implementa una máquina virtual dentro de una infraestructura básica y segura que puede usar para crear un prototipo o hacer una prueba de concepto rápidamente. Este artículo requiere:
+# <a name="create-a-linux-vm-on-azure-by-using-the-cli"></En este artículo se muestra cómo implementar rápidamente una máquina virtual Linux en Azure mediante el comando `azure vm quick-create` en la interfaz de la línea de comandos (CLI) de Azure. El comando `quick-create` implementa una máquina virtual dentro de una infraestructura básica y segura que puede usar para crear un prototipo o hacer una prueba de concepto rápidamente. Este artículo requiere:
+a>Creación de una máquina virtual Linux en Azure mediante la CLI
 
 * una cuenta de Azure ([obtenga aquí una prueba gratuita](https://azure.microsoft.com/pricing/free-trial/));
 * la [CLI de Azure](../xplat-cli-install.md) en la que se inició sesión con `azure login`;
