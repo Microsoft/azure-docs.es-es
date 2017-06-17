@@ -17,34 +17,34 @@ ms.lasthandoff: 05/25/2017
 
 ---
 
-# <a name="computer-vision-c-quick-starts"></a>Computer Vision C# Quick Starts
+# <a name="computer-vision-c-quick-starts"></a>Inicios rápidos de Computer Vision con C#
 
-This article provides information and code samples to help you quickly get started using the Computer Vision API with C# to accomplish the following tasks:
-* [Analyze an image](#AnalyzeImage)
-* [Use a Domain-Specific Model](#DomainSpecificModel)
-* [Intelligently generate a thumbnail](#GetThumbnail)
-* [Detect and extract printed text from an image](#OCR)
-* [Detect and extract handwritten text from an image](#RecognizeText)
+Este artículo proporciona información y ejemplos de código para ayudarle a comenzar rápidamente a utilizar la API de Computer Vision con C# y lograr las siguientes tareas:
+* [Analizar una imagen](#AnalyzeImage)
+* [Usar un modelo de dominio específico](#DomainSpecificModel)
+* [Generar inteligentemente una miniatura](#GetThumbnail)
+* [Detectar y extraer texto impreso de una imagen](#OCR)
+* [Detectar y extraer texto manuscrito de una imagen](#RecognizeText)
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerrequisitos
 
-* Get the Microsoft Computer Vision API Windows SDK [here](https://github.com/Microsoft/Cognitive-vision-windows).
-* To use the Computer Vision API, you need a subscription key. You can get free subscription keys [here](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
+* Obtenga el SDK de Windows de la API de Microsoft Computer Vision [aquí](https://github.com/Microsoft/Cognitive-vision-windows).
+* Para usar la API de Computer Vision, necesita una clave de suscripción. Puede obtener claves de suscripción gratuitas [aquí](https://docs.microsoft.com/en-us/azure/cognitive-services/Computer-vision/Vision-API-How-to-Topics/HowToSubscribe).
 
-## Analyze an Image With Computer Vision API Using C# <a name="AnalyzeImage"> </a>
+## Analizar una imagen usando Computer Vision API en C# <a name="AnalyzeImage"> </a>
 
-With the [Analyze Image method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), you can extract visual features based on image content. You can upload an image or specify an image URL and choose which features to return, including:
-* The category defined in this [taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
-* A detailed list of tags related to the image content.
-* A description of image content in a complete sentence.
-* The coordinates, gender, and age of any faces contained in the image.
-* The ImageType (clip art or a line drawing).
-* The dominant color, the accent color, or whether an image is black & white.
-* Does the image contain adult or sexually suggestive content?
+Con el [método Analyze Image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fa), puede extraer características visuales basadas en el contenido de la imagen. Puede subir una imagen o especificar una URL de imagen y elegir las características que desee recibir como resultado, por ejemplo:
+* La categoría definida en esta [taxonomía](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+* Una lista detallada de etiquetas relacionadas con el contenido de la imagen.
+* Una descripción del contenido de la imagen en una oración completa.
+* Las coordenadas, el sexo y la edad de las caras encontradas en la imagen.
+* El ImageType (imágenes prediseñadas o un dibujo lineal).
+* El color dominante, el *color accent*, o si una imagen está en blanco y negro.
+* ¿La imagen contiene contenido para adultos o sexualmente sugestivo?
 
-### <a name="analyze-an-image-c-example-request"></a>Analyze an Image C# Example Request
+### <a name="analyze-an-image-c-example-request"></a>Ejemplo de solicitud para analizar una imagen con C#
 
-Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+Cree una nueva Aplicación de Consola en Visual Studio y, a continuación, reemplace Program.cs con el siguente código. Cambie el `string uri` para usar la ubicación donde obtuvo sus claves de suscripción y reemplace el valor de "Ocp-Apim-Subscription-Key" por su clave de suscripción.
 
 ```c#
 using System;
@@ -106,9 +106,9 @@ namespace CSHttpClientSample
     }
 }
 ```
-### <a name="analyze-an-image-response"></a>Analyze an Image Response
+### <a name="analyze-an-image-response"></a>Ejemplo de respuesta del análisis de imagen
 
-A successful response is returned in JSON. Following is an example of a successful response:
+Una respuesta exitosa es retornada en formato JSON. A continuación se muestra un ejemplo:
 
 ```json
 {
@@ -211,13 +211,13 @@ A successful response is returned in JSON. Following is an example of a successf
 
 ```
 
-## Use a Domain-Specific Model <a name="DomainSpecificModel"> </a>
+## Usar un modelo de dominio específico <a name="DomainSpecificModel"> </a>
 
-The Domain-Specific Model is a model trained to identify a specific set of objects in an image. The two domain-specific models that are currently available are celebrities and landmarks. The following example identifies a landmark in an image.
+El modelo de dominio específico es un modelo entrenado para identificar un conjunto específico de objetos en una imagen. Los dos modelos de dominio específico que están disponibles actualmente son las celebridades y puntos de referencia. El siguiente ejemplo identifica un punto de referencia en una imagen.
 
-### <a name="landmark-c-example-request"></a>Landmark C# Example Request
+### <a name="landmark-c-example-request"></a>Ejemplo de solicitud para puntos de referencia
 
-Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+Cree una nueva Aplicación de Consola en Visual Studio, a continuación, reemplace Program.cs con el siguente código. Cambie el `string uri` para usar la ubicación donde obtuvo sus claves de suscripción y reemplace el valor de "Ocp-Apim-Subscription-Key" por su clave de suscripción.
 
 ```c#
 using System;
@@ -283,9 +283,9 @@ namespace CSHttpClientSample
 }
 ```
 
-### <a name="landmark-example-response"></a>Landmark Example Response
+### <a name="landmark-example-response"></a>Ejemplo de respuesta de punto de referencia
 
-A successful response is returned in JSON. Following is an example of a successful response:  
+Una respuesta exitosa es retornada en formato JSON. A continuación se muestra un ejemplo:
 
 ```json
 {
@@ -306,13 +306,13 @@ A successful response is returned in JSON. Following is an example of a successf
 }
 ```
 
-## Get a Thumbnail with Computer Vision API Using C# <a name="GetThumbnail"> </a>
+## Obtener una miniatura usando Computer Vision API en C# <a name="GetThumbnail"> </a>
 
-Use the [Get Thumbnail method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) to crop an image based on its region of interest (ROI) to the height and width you desire. You can even pick an aspect ratio that differs from the aspect ratio of the input image.
+Utilice el método [Get Thumbnail](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fb) para recortar una imagen basada en su región de interés con la altura y el ancho que desee. Puede elegir incluso una relación de aspecto distinta a la relación de aspecto de la imagen de entrada.
 
-### <a name="get-a-thumbnail-c-example-request"></a>Get a Thumbnail C# Example Request
+### <a name="get-a-thumbnail-c-example-request"></a>Ejemplo de solicitud para obtener una miniatura
 
-Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+Cree una nueva Aplicación de Consola en Visual Studio, a continuación, reemplace Program.cs con el siguente código. Cambie el `string uri` para usar la ubicación donde obtuvo sus claves de suscripción y reemplace el valor de "Ocp-Apim-Subscription-Key" por su clave de suscripción.
 
 ```c#
 using System;
@@ -373,17 +373,18 @@ namespace CSHttpClientSample
     }
 }
 ```
-### <a name="get-a-thumbnail-response"></a>Get a Thumbnail Response
+### <a name="get-a-thumbnail-response"></a>Respuesta al obtener una miniatura
 
-A successful response contains the thumbnail image binary. If the request fails, the response contains an error code and a message to help determine what went wrong.
+Si la respuesta es exitosa, contiene el binario de imagen en miniatura.
+En caso de fallo, se devuelve el código de error y un mensaje de error para ayudar a determinar lo que salió mal. El código de error podría ser uno de InvalidImageUrl, InvalidImageFormat, InvalidImageSize, InvalidThumbnailSize, NotSupportedImage, FailedToProcess, Timeout o InternalServerError.
 
-## Optical Character Recognition (OCR) with Computer Vision API Using C#<a name="OCR"> </a>
+## Reconocimiento óptico de caracteres (OCR) usando Computer Vision API en C#<a name="OCR"> </a>
 
-Use the [Optical Character Recognition (OCR) method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) to detect printed text in an image and extract recognized characters into a machine-usable character stream.
+Utilice  el [método Optical Character Recognition (OCR)](https://westcentralus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/56f91f2e778daf14a499e1fc) para detectar el texto impreso en una imagen y extraer los caracteres reconocidos en un flujo de datos utilizables por la máquina.
 
-### <a name="ocr-c-example-request"></a>OCR C# Example Request
+### <a name="ocr-c-example-request"></a>Ejemplo de solicitud de OCR con C#
 
-Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+Cree una nueva Aplicación de Consola en Visual Studio, a continuación, reemplace Program.cs con el siguente código. Cambie el `string uri` para usar la ubicación donde obtuvo sus claves de suscripción y reemplace el valor de "Ocp-Apim-Subscription-Key" por su clave de suscripción.
 
 ```c#
 using System;
@@ -445,9 +446,10 @@ namespace CSHttpClientSample
 }
 ```
 
-### <a name="ocr-example-response"></a>OCR Example Response
+### <a name="ocr-example-response"></a>Ejemplo de respuesta de OCR
 
-Upon success, the OCR results returned include text, bounding box for regions, lines, and words.
+En caso la respuesta sea exitosa, los resultados de OCR devueltos incluirán texto, cuadros delimitadores de regiones, líneas y palabras.
+En caso de fallo, se devolverá el código de error junto con un mensaje de error. El código de error puede ser InvalidImageUrl, InvalidImageFormat, InvalidImageSize, NotSupportedImage, NotSupportedLanguage o InternalServerError.
 
 ```json
 {
@@ -515,13 +517,13 @@ Upon success, the OCR results returned include text, bounding box for regions, l
 }
 ```
 
-## Text Recognition with Computer Vision API Using C# <a name="RecognizeText"> </a>
+## Reconocimiento de texto manuscrito usando Computer Vision API en C# <a name="RecognizeText"> </a>
 
-Use the [RecognizeText method](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) to detect handwritten or printed text in an image and extract recognized characters into a machine-usable character stream.
+Utilice el [método Recognize Handwritten Text](https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739/operations/587f2c6a154055056008f200) para detectar texto manuscrito en una imagen y extraer los caracteres reconocidos en un flujo de datos usable por la máquina.
 
-### <a name="handwriting-recognition-c-example"></a>Handwriting Recognition C# Example
+### <a name="handwriting-recognition-c-example"></a>Ejemplo de reconocimiento de manuscritos con C#
 
-Create a new Console solution in Visual Studio, then replace Program.cs with the following code. Change the `string uri` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key.
+Cree una nueva Aplicación de Consola en Visual Studio, a continuación, reemplace Program.cs con el siguente código. Cambie el `string uri` para usar la ubicación donde obtuvo sus claves de suscripción y reemplace el valor de "Ocp-Apim-Subscription-Key" por su clave de suscripción.
 
 ```c#
 using System;
