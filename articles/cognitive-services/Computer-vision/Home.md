@@ -17,37 +17,38 @@ ms.lasthandoff: 05/23/2017
 
 --- 
  
-# <a name="computer-vision-api-version-10"></a>Computer Vision API Version 1.0 
+# <a name="computer-vision-api-version-10"></a>API de Computer Vision Versión 1.0 
+La API de Computer Vision basada en la nube provee a los desarrolladores de acceso a algoritmos avanzados para el procesamiento de imágenes y retorno de información. Al subir una imagen o especificando una URL de imagen, los algoritmos del servicio de Computer Vision pueden analizar el contenido visual de diferentes maneras basándose en lo ingresado y las opciones del usuario. Con la API de Computer Vision los usuarios pueden analizar imágenes para:
+* [Etiquetar imágenes basado en su contenido.](#Tagging)
+* [Categorizar imágenes .](#Categorizing)
+* [Identificar el tipo y la calidad de las imágenes .](#Identifying)
+* [Detectar rostros humanos y regresar sus coordinadas.](#Faces)
+* [Reconocer el dominio específico del dominio.](#Domain-Specific)
+* [Generar descripciones de contenido.](#Descriptions)
+* [Reconimiento de texto manuscrito.](#RecognizeText)
+* [Distinguir esquemas de color.](#Color)
+* [Marcar contenido sólo para adultos.](#Adult)
+* [Utilizar reconocimiento óptico de caracteres para identificar texto encontrado dentro de las imagenes.](#OCR)
+* [Recortar fotografías que pueden usarse como miniaturas.](#Thumbnails)
 
-The cloud-based Computer Vision API provides developers with access to advanced algorithms for processing images and returning information. By uploading an image or specifying an image URL, Microsoft Computer Vision algorithms can analyze visual content in different ways based on inputs and user choices. With the Computer Vision API users can analyze images to:
-* [Tag images based on content.](#Tagging)
-* [Categorize images.](#Categorizing)
-* [Identify the type and quality of images.](#Identifying)
-* [Detect human faces and return their coordinates. ](#Faces)
-* [Recognize domain-specific content.](#Domain-Specific)
-* [Generate descriptions of the content.](#Descriptions)
-* [Use optical character recognition to identify printed text found in images.](#OCR)
-* [Recognize handwritten text.](#RecognizeText)
-* [Distinguish color schemes.](#Color)
-* [Flag adult content.](#Adult)
-* [Crop photos to be used as thumbnails.](#Thumbnails)
+## <a name="requirements"></a>Requisitos
+- Métodos de entrada soportados: Binarios de imagen RAW en el formato de un stream de application/octet stream o la URL de imagen.
+- Formatos de imagen soportados: JPEG, PNG, GIF, BMP.
+- Tamaño del archivo de imagen: Menor a 4 MB.
+- Dimensión de la imagen: Más de 50 x 50 pixeles
 
-## <a name="requirements"></a>Requirements
-- Supported input methods: Raw image binary in the form of an application/octet stream or image URL.
-- Supported image formats: JPEG, PNG, GIF, BMP.
-- Image file size: Less than 4 MB.
-- Image dimension: Greater than 50 x 50 pixels.
+## <a name="Tagging">Etiquetado de imágenes</a>
+La API de Computer Vision regresa etiquetas basadas en más de 2000 objetos reconocidos, seres vivos, paisajes y acciones. Cuando las etiquetas son ambiguas o no muy comunes, la respuesta de la API regresa 'pistas' para aclarar el significado de la etiqueta en el contexto de una configuración conocida. 
 
-## <a name="Tagging">Tagging Images</a>
-Computer Vision API returns tags based on more than 2000 recognizable objects, living beings, scenery, and actions. When tags are ambiguous or not common knowledge, the API response provides 'hints' to clarify the meaning of the tag in context of a known setting. Tags are not organized as a taxonomy and no inheritance hierarchies exist. A collection of content tags forms the foundation for an image 'description' displayed as human readable language formatted in complete sentences. Note, that at this point English is the only supported language for image description.
+Las etiquetas no están organizadas por su taxonomía y no existen jerarquías de herencia. Una colección de etiquetas de contenido es la base de la 'descripción' en la imagen mostrado en lenguaje legible formateado en oraciones completas. Como nota, por el momento inglés es el único lenguaje disponible para la lectura de la descripción de la imagen.
 
-After uploading an image or specifying an image URL, Computer Vision API's algorithms output tags based on the objects, living beings, and actions identified in the image. Tagging is not limited to the main subject, such as a person in the foreground, but also includes the setting (indoor or outdoor), furniture, tools, plants, animals, accessories, gadgets etc.
+Después de subir una imagen o especificar la URL de una imagen, los algoritmos de la API de Computer Vision regresa etiquetas basadas en los objetos, seres vivos, paisajes y acciones identificadas en la imagen. El etiquetado no se limita al sujeto principal, como una persona en primer plano, también incluyen configuraciones (interior o exterior), muebles, herramientas, plantas, animales, accesorios, gadgets, etc.
 
-### <a name="example"></a>Example
+### <a name="example"></a>Ejemplo
 ![House_Yard](./Images/house_yard.jpg) '
 
 ```json
-Returned Json
+Json de respuesta
 {
    'tags':[
       {
@@ -85,15 +86,15 @@ Returned Json
    ],
 }
 ```
-## <a name="Categorizing">Categorizing Images</a>
-In addition to tagging and descriptions, Computer Vision API returns the taxonomy-based categories defined in previous versions. These categories are organized as a taxonomy with parent/child hereditary hierarchies. All categories are in English. They can be used alone or with our new models.
+## <a name="Categorizing">Categorización de imagenes</a>
+Además del etiquetado y las descripciones, la API de Computer Vision regresa categorías basadas en la taxonomía de versiones anteriores. Estas categorías son organizadas como una taxonomía con herencia de padre/hijo hereditarias. Todas las categorías están en inglés. Se pueden usar solas o con nuestros nuevos modelos. 
 
-### <a name="the-86-category-concept"></a>The 86-category concept
-Based on a list of 86 concepts seen in the following diagram, visual features found in an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
+### <a name="the-86-category-concept"></a>El concepto de las 86 categorías
+Basándose en una lista de 86 conceptos que vemos en el siguiente diagrama, las características visuales que se encuentran en una imagen se pueden categorizar desde lo más amplio a lo más específico. Para el texto completo de la taxonomía, revisa [Taxonomía de las categorías](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/category-taxonomy).
 
 ![Analyze Categories](./Images/analyze_categories.jpg)
 
-Image                                                  | Response
+Imagen                                                 | Respuesta
 ------------------------------------------------------ | ----------------
 ![Woman Roof](./Images/woman_roof.jpg)                 | people
 ![Family Photo](./Images/family_photo.jpg)             | people_crowd
@@ -101,63 +102,62 @@ Image                                                  | Response
 ![Outdoor Mountain](./Images/mountain_vista.jpg)       | outdoor_mountain
 ![Vision Analyze Food Bread](./Images/bread.jpg)       | food_bread
 
-## <a name="Identifying">Identifying Image Types</a>
-There are several ways to categorize images. Computer Vision API can set a boolean flag to indicate whether an image is black and white or color. It can also set a flag to indicate whether an image is a line drawing or not. It can also indicate whether an image is clip art or not and indicate its quality as such on a scale of 0-3.
+## <a name="Identifying">Identificando los tipos de imagen</a>
+Hay varias maneras para categorizar las imágenes. La API de Computer Vision puede tener un identificador booleano para mostrar si una imagen está en blanco y negro o color. También se puede tener un identificador booleano para mostrar si una imagen es un dibujo o no. También para indicar si una imagen es un clip art o no indicando su calidad como escala de 0-3.
 
-### <a name="clip-art-type"></a>Clip-art type
-Detects whether an image is clip art or not.  
+### <a name="clip-art-type"></a>Tipo Clip-art 
+Detecta si una imagen es un clip art o no.  
 
-Value | Meaning
+Valor | Significado
 ----- | --------------
 0     | Non-clip-art
 1     | ambiguous
 2     | normal-clip-art
 3     | good-clip-art
 
-Image|Response
+Imagen|Respuesta
 ----|----
 ![Vision Analyze Cheese Clip Art](./Images/cheese_clipart.jpg)|3 good-clip-art
 ![Vision Analyze House Yard](./Images/house_yard.jpg)|0 Non-clip-art
 
-### <a name="line-drawing-type"></a>Line drawing type
-Detects whether an image is a line drawing or not.  
+### <a name="line-drawing-type"></a>Tipo dibujo
+Detecta su imagen es un dibujo o no.  
 
-Image|Response
+Imagen|Respuesta
 ----|----
 ![Vision Analyze Lion Drawing](./Images/lion_drawing.jpg)|True
 ![Vision Analyze Flower](./Images/flower.jpg)|False
 
-### <a name="Faces">Faces</a>
-Detects human faces within a picture and generates the face coordinates, the rectangle for the face, gender, and age. These visual features are a subset of metadata generated for face. For more extensive metadata generated for faces (facial identification, pose detection, and more), use the Face API.  
+### <a name="Faces">Rostros</a>
+Detecta rostros humanos dentro de una imagen y genera las coordinadas faciales, el rectángulo de un rostro, sexo y edad. Estas características visuales son un subconjunto de metadatos generados por rostro. Para un metadata más extensivo para rostros (identificación facial, detección de posición y más), usa la API de Face.
 
-Image|Response
+Imagen|Respuesta
 ----|----
 ![Vision Analyze Woman Roof Face](./Images/woman_roof_face.png) | [ { "age": 23, "gender": "Female", "faceRectangle": { "left": 1379, "top": 320, "width": 310, "height": 310 } } ]
 ![Vision Analyze Mom Daughter Face](./Images/mom_daughter_face.png) | [ { "age": 28, "gender": "Female", "faceRectangle": { "left": 447, "top": 195, "width": 162, "height": 162 } }, { "age": 10, "gender": "Male", "faceRectangle": { "left": 355, "top": 87, "width": 143, "height": 143 } } ]
 ![Vision Analyze Family Phot Face](./Images/family_photo_face.png) | [ { "age": 11, "gender": "Male", "faceRectangle": { "left": 113, "top": 314, "width": 222, "height": 222 } }, { "age": 11, "gender": "Female", "faceRectangle": { "left": 1200, "top": 632, "width": 215, "height": 215 } }, { "age": 41, "gender": "Male", "faceRectangle": { "left": 514, "top": 223, "width": 205, "height": 205 } }, { "age": 37, "gender": "Female", "faceRectangle": { "left": 1008, "top": 277, "width": 201, "height": 201 } } ]
 
 
-## <a name="Domain-Specific">Domain-Specific Content</a>
+## <a name="Domain-Specific">Contenido de un dominio específico</a>
+Adicional al etiquetado y a la categorización de un nivel superior, la API de Computer Vision también soporta la especialización (o dominio específico) de la información. Información especializada puede ser implementada como un método autónomo o con la categorización de alto nivel. Funciona como un método para mejorar la taxonomía de las 86 categorías a través de la adición de modelos de dominio específicos.
 
-In addition to tagging and top-level categorization, Computer Vision API also supports specialized (or domain-specific) information. Specialized information can be implemented as a standalone method or with the high-level categorization. It functions as a means to further refine the 86-category taxonomy through the addition of domain-specific models.
+Actualmente, la única información especializada soportada es el reconocimiento de celebridades y puntos de interés. Son refinamientos específicos para las categorías de personas y grupos de personas y puntos de interés en el mundo.
 
-Currently, the only specialized information supported are celebrity recognition and landmark recognition. They are domain-specific refinements for the people and people group categories, and landmarks around the world.
+Hay dos opciones para el uso de los modelos de dominios específicos:
 
-There are two options for using the domain-specific models:
+### <a name="option-one---scoped-analysis"></a>Opción Uno - Análisis del alcance
+Analizando solo un modelo elegido, por llamada en un HTTP POST. Para esta opción, si conoces qué tipo de modelo quieres usar, especificas el nombre del modelo y sólo obtienes información relevante para ese modelo. Por ejemplo, puedes usar esta opción para usarlo en reconocimiento de celebridades. La respuesta contiene una lista potencial de celebridades, acompañada de su puntuación.
 
-### <a name="option-one---scoped-analysis"></a>Option One - Scoped Analysis
-Analyze only a chosen model, by invoking an HTTP POST call. For this option, if you know which model you want to use, you specify the model's name, and you only get information relevant to that model. For example, you can use this option to only look for celebrity-recognition. The response contains a list of potential matching celebrities, accompanied by their confidence scores.
+### <a name="option-two---enhanced-analysis"></a>Opción Dos - Análisis mejorado
+Analiza para proporcionar detalles adicionales relacionados a las categorías de la taxonomía de las 86 categorías. Esta opción está disponible para el uso en aplicaciones donde los usuarios quieren obtener análisis genérico de imágenes adicional a los detalles de uno o más modelos de dominio específico. Cuando este método es llamado, el clasificador de la taxonomía de las 86 categorías es llamado primero. Si cualquiera de las categorías concuerda con los modelos conocidos/similares, el segundo paso es el clasificador de las llamadas. Por ejemplo, si 'details=all' o 'details' incluyen 'celebrities', el método llama al clasificador de celebridades después de que la clasificación de las 86 categorías es llamada. El resultado incluirá las etiquetas empezando por 'people_'.
 
-### <a name="option-two---enhanced-analysis"></a>Option Two - Enhanced Analysis
-Analyze to provide additional details related to categories from the 86-category taxonomy. This option is available for use in applications where users want to get generic image analysis in addition to details from one or more domain-specific models. When this method is invoked, the 86-category taxonomy classifier is called first. If any of the categories match that of known/matching models, a second pass of classifier invocations follows. For example, if 'details=all' or "details" include 'celebrities', the method calls the celebrity classifier after the 86-category classifier is called. The result includes tags starting with 'people_'.
+## <a name="Descriptions">Generando descripciones</a>   
+Los algoritmos de la API de Computer Vision analizan el contenido de una imagen. Este análisis forma la base de la 'descripción' mostrada en lenguaje legible formateado en oraciones completas. Esta descripción resume qué fue encontrado en la imagen. Los algoritmos de la API de Computer Vision generan varias descripciones basándose en los objetos identificados en la imagen. Estas descripciones son cada una evaluadas y un puntaje de confianza es generado. Se regresa una lista ordenando desde el confiable al menos confiable. Por ejemplo, en un bot se puede usar esta tecnología para generar la descripción de una imagen como [aquí](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
-## <a name="Descriptions">Generating Descriptions</a>   
-Computer Vision API's algorithms analyze the content in an image. This analysis forms the foundation for a 'description' displayed as human-readable language in complete sentences. The description summarizes what is found in the image. Computer Vision API's algorithms generate various descriptions based on the objects identified in the image. The descriptions are each evaluated and a confidence score generated. A list is then returned ordered from highest confidence score to lowest. An example of a bot that uses this technology to generate image captions can be found [here](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
-
-### <a name="example-description-generation"></a>Example Description Generation
+### <a name="example-description-generation"></a>Ejemplo de generación de descripción
 ![B&W Buildings](./Images/bw_buildings.jpg) '
 ```json
- Returned Json
+ Json de respuesta
 
 'description':{
    "captions":[
@@ -193,19 +193,19 @@ Computer Vision API's algorithms analyze the content in an image. This analysis 
 }
 ```
 
-## <a name="Color">Perceiving Color Schemes</a>
-The Computer Vision algorithm extracts colors from an image. The colors are analyzed in three different contexts: foreground, background, and whole. They are grouped into twelve 12 dominant accent colors. Those accent colors are black, blue, brown, gray, green, orange, pink, purple, red, teal, white, and yellow. Depending on the colors in an image, simple black and white or accent colors may be returned in hexadecimal color codes.
+## <a name="Color">Percibiendo esquemas de color</a>
+El algoritmo de Computer Vision extrae colores de una imagen. Los colores son analizados en tres diferentes contextos: primer plano, fondo y todo. Están agrupados dentro de 12 colores de acento dominantes. Estos acentos son negro, azul, café, gris, verde, naranja, rosa, purpura, rojo, verde azulado, blanco y amarillo. Dependiendo de los colores en la imagen, los colores blanco y negro y los de acento pueden ser regresados en hexadecimal. 
 
-Image                                                       | Foreground |Background| Colors
+Imagen                                                       | Primer Plano |Fondo| Colores
 ----------------------------------------------------------- | --------- | ------- | ------
-![Outdoor Mountain](./Images/mountain_vista.jpg)            | Black     | Black   | White
-![Vision Analyze Flower](./Images/flower.jpg)               | Black     | White   | White, Black, Green
-![Vision Analyze Train Station](./Images/train_station.jpg) | Black     | Black   | Black
+![Outdoor Mountain](./Images/mountain_vista.jpg)            | Negro     | Negro   | Blanco
+![Vision Analyze Flower](./Images/flower.jpg)               | Negro     | Blanco   | Blanco, Negro, Verde
+![Vision Analyze Train Station](./Images/train_station.jpg) | Negro     | Negro   | Negro
 
-### <a name="accent-color"></a>Accent color
-Color extracted from an image designed to represent the most eye-popping color to users via a mix of dominant colors and saturation.
+### <a name="accent-color"></a>Color de acento
+Color extraído de una imagen para representar el color más predominante al ojo a los usuarios por una mezcla de colores dominantes y saturación.
 
-Image                                                       | Response
+Imagen                                                       | Respuesta
 ----------------------------------------------------------- | ----
 ![Outdoor Mountain](./Images/mountain_vista.jpg)            | #BC6F0F
 ![Vision Analyze Flower](./Images/flower.jpg)               | #CAA501
@@ -215,60 +215,60 @@ Image                                                       | Response
 ### <a name="black--white"></a>Black & White
 Boolean flag that indicates whether an image is black&white or not.
 
-Image                                                      | Response
+Imagen                                                      | Respuesta
 ---------------------------------------------------------- | ----
-![Vision Analyze Building](./Images/bw_buildings.jpg)      | True
-![Vision Analyze House Yard](./Images/house_yard.jpg)      | False
+![Vision Analyze Building](./Images/bw_buildings.jpg)      | Verdadero
+![Vision Analyze House Yard](./Images/house_yard.jpg)      | Falso
 
-## <a name="Adult">Flagging Adult Content</a>
-Among the various visual categories is the adult and racy group, which enables detection of adult materials and restricts the display of images containing sexual content. The filter for adult and racy content detection can be set on a sliding scale to accommodate the user's preference.
+## <a name="Adult">Marcando contenido sólo para adultos</a>
+Entre las categorías visuales está el contenido para adultos y racismo, que permite la detección de contenido sólo para adultos y restringe la visualización de las imágenes que contienen contenido sexual. El filtro para adultos y racismo puede ser establecido en una escala para acomodar las preferencias del usuario.
 
-## <a name="OCR">Optical Character Recognition (OCR)</a>
-OCR technology detects text content in an image and extracts the identified text into a machine-readable character stream. You can use the result for search and numerous other purposes like medical records, security, and banking. It automatically detects the language. OCR saves time and provides convenience for users by allowing them to take photos of text instead of transcribing the text.
+## <a name="OCR">Reconocimiento Óptico de Caracteres (OCR)</a>
+La tecnología OCR ('Optical Character Recognition' por sus siglas en inglés) detecta el texto contenido en una imagen y extrae el texto identificado en un stream legible. Puedes usar el resultado para búsqueda y otros propósitos tales como medicina, seguridad y bancarios. Automáticamente detecta el lenguaje. OCR ahorra tiempo y ofrece una posibilidad de tomar fotos de textos, en lugar de transcribir el texto.
 
-OCR supports 21 languages. These languages are: Chinese Simplified, Chinese Traditional, Czech, Danish, Dutch, English, Finnish, French, German, Greek, Hungarian, Italian, Japanese, Korean, Norwegian, Polish, Portuguese, Russian, Spanish, Swedish, and Turkish.
+OCR soporta 21 lenguajes. Estos lenguajes son: Chino Simplificado, Chino Tradicional, Checo, Danés, Holandés, Inglés, Finlandés, Francés, Alemán, Griego, Húngaro, Italiano, Japonés, Coreano, Noruego, Polaco, Portugués, Ruso, Español, Sueco y Turco.
 
-If needed, OCR corrects the rotation of the recognized text, in degrees, around the horizontal image axis. OCR provides the frame coordinates of each word as seen in below illustration.
+Si es necesario, el OCR corrige la rotación del texto reconocido, en grados, alrededor del eje horizontal de la imagen. OCR proporciona las coordenadas de cada palabra como se muestra en la siguiente ilustración. 
 
-![OCR Overview](./Images/vision-overview-ocr.png) Requirements for OCR:
-- The size of the input image must be between 40 x 40 and 3200 x 3200 pixels.
-- The image cannot be bigger than 10 megapixels.
+![OCR Overview](./Images/vision-overview-ocr.png) Requisitos para OCR:
+- El tamaño de la imagen ingresada de ser entre 40 x 40 y 3200 x 3200 píxeles.
+- La imagen no puede ser mayor a 10 megapixeles.
 
-Input image can be rotated by any multiple of 90 degrees plus a small angle of up to '40 degrees.
+La imagen ingresada se puede rotar por cualquier multiplo de 90 grados más un pequeño ángulo de hasta 40 grados.
 
-The accuracy of text recognition depends on the quality of the image. An inaccurate reading may be caused by the following situations:
-- Blurry images.
-- Handwritten or cursive text.
-- Artistic font styles.
-- Small text size.
-- Complex backgrounds, shadows, or glare over text or perspective distortion.
-- Oversized or missing capital letters at the beginnings of words
-- Subscript, superscript, or strikethrough text.
+La presición del reconocimiento del texto depende de la calidad de la imagen. Una lectura incorrecta puede ser causada por las siguientes situaciones: 
 
-Limitations: On photos where text is dominant, false positives may come from partially recognized words. On some photos, especially photos without any text, precision can vary a lot depending on the type of image.
+- Imagenes borrosas.
+- Texto a mano o letras cursivas.
+- Estilos de fuente artísticos
+- Tamaño de fuente pequeño.
+- Fondos complejos, sombras, o luz sobre el texto o una mala perspectiva.
+- Letra mayúscula grande o falta de letras maúsculas en el inicio de las palabras.
+- Subíndice, superíndice o texto tachado.
 
-## <a name="RecognizeText">Recognize Handwritten Text</a>
-This technology allows you to detect and extract handwritten text from notes, letters, essays, whiteboards, forms, etc. It works with different surfaces and backgrounds, such as white paper, yellow sticky notes, and whiteboards.
+Limitaciones: En fotos donde el texto es dominante, los falsos positivos pueden venir de palabras parcialmente reconocidas. En algunas fotos, especialmente las que no tienen texto, la precisión puede variar dependiendo del tipo de imagen.
 
-Handwritten text recognition saves time and effort and can make you more productive by allowing you to take images of text, rather than having to transcribe it. It makes it possible to digitize notes. This digitization allows you to implement quick and easy search. It also reduces paper clutter.
+## <a name="RecognizeText">Reconimiento de texto manuscrito</a>
+Esta tecnología permite detectar y extraer texto escrito a mano de notas, cartas, ensayos, pizarrones, formatos, etc. Funciona con diferentes tipos de superficies y fondos, tales como papel blanco, notas adhesivas y pizarrones blancos. 
 
-Input requirements:
-- Supported image formats: JPEG, PNG, and BMP.
-- Image file size must be less than 4 MB.
-- Image dimensions must be at least 40 x 40, at most 3200 x 3200.
+El reconocimiento de texto manuscrito ahorra tiempo y esfuerzo y puede ayudarte en la productividad permitiendo tomar imágenes de texto, en lugar de transcribirlo. También hace posible el digitalizar las notas. Esta digitalización permite implementar una búsqueda rápida y sencilla, así como reducción del uso de papel.
 
-Note: this technology is currently in preview and is only available for English text.
+Requisitos de entrada:
+- Formatos de imagen soportados: JPEG, PNG, and BMP.
+- El tamaño de la imagen debe ser menor a 4 MB.
+- Las dimensiones de la imagen deben ser de al menos 40 x 40 y hasta 3200 x 3200.
 
-## <a name="Thumbnails">Generating Thumbnails</a>
-A thumbnail is a small representation of a full-size image. Varied devices such as phones, tablets, and PCs create a need for different user experience (UX) layouts and thumbnail sizes. Using smart cropping, this Computer Vision API feature helps solve the problem.
+Nota: Esta tecnología está actualmente en pruebas y sólo está disponible para texto en inglés.
 
-After uploading an image, a high-quality thumbnail gets generated and the Computer Vision API algorithm analyzes the objects within the image. It then crops the image to fit the requirements of the 'region of interest' (ROI). The output gets displayed within a special framework as seen in below illustration. The generated thumbnail can be presented using an aspect ration that is different from the aspect ratio of the original image to accommodate a user's needs.
+## <a name="Thumbnails">Generación de miniaturas</a>
+Una miniatura es una representación pequeña de una imagen de tamaño completo. Múltiples dispositivos como teléfonos, tablets y PCs crearon la necesidad de para una experiencia de usuario diferente. Mediante el recorte inteligente, esta característica de la API de Computer Vision ayudan a resolver el problema.
 
-The thumbnail algorithm works as follows:
+Después de subir una imagen, una miniatura de alta calidad es generada y el algoritmo de la API de Computer Vision analiza los objetos de la imagen. Después recorta la imagen para ajustarse a los requisitos de la "Región de Interés" ('ROI' por sus siglas en inglés). La salida se muestra dentro de un marco especial como se muestra en la imagen. La miniatura generada puede ser mostrada usando una relación de aspecto que es diferente a la relación de aspecto original de la imagen para ajustarse a las necesidades del usuario.
 
-1. Removes distracting elements from the image and recognizes the main object, the 'region of interest' (ROI).
-2. Crops the image based on the identified region of interest.
-3. Changes the aspect ratio to fit the target thumbnail dimensions.
+El algoritmo de la miniatura funciona de la siguiente manera:
+
+1. Elimina los elementos distractores de la imagen y reconoce el objeto principal, la "región de interés" (ROI).
+2. Se recorta la imagen basándose en la identificación de la región de interés. 
+3. Cambia la relación de aspecto para ajustarse a las dimensiones de las miniaturas requeridas.
 
 ![Thumbnails](./Images/thumbnail-demo.png)
-
