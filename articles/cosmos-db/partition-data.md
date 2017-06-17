@@ -97,7 +97,7 @@ await client.CreateDocumentCollectionAsync(
 Puede leer un elemento (documento) mediante el método `GET` de la API de REST o mediante `ReadDocumentAsync` en uno de los SDK.
 
 ```csharp
-// Read document. Needs the partition key and the ID to be specified
+// Lectura del documento. Se necesita especificar la clave de partición y el ID.
 DeviceReading document = await client.ReadDocumentAsync<DeviceReading>(
   UriFactory.CreateDocumentUri("db", "coll", "XMS-001-FE24C"), 
   new RequestOptions { PartitionKey = new PartitionKey("XMS-0001") });
@@ -129,7 +129,7 @@ Con Table API, especifica el rendimiento de las tablas en la configuración appS
 ```xml
 <configuration>
     <appSettings>
-      <!--Table creation options -->
+      <!--Opciones de la creación de la tabla -->
       <add key="TableThroughput" value="700"/>
     </appSettings>
 </configuration>
@@ -147,10 +147,10 @@ table.CreateIfNotExists();
 Puede recuperar una sola entidad mediante el siguiente fragmento de código:
 
 ```csharp
-// Create a retrieve operation that takes a customer entity.
+// Crea una operación para obtener la entidad de Customer
 TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
 
-// Execute the retrieve operation.
+// Ejecutar la operación de obtención
 TableResult retrievedResult = table.Execute(retrieveOperation);
 ```
 Consulte [Developing with the Table API](tutorial-develop-table-dotnet.md) (Desarrollo con Table API) para obtener más información.
