@@ -64,7 +64,7 @@ Guarde el URI que se muestra. La usará en el paso siguiente. `<username>` es el
 Agregue una instancia remota de Azure en el repositorio de Git local.
 
 ```bash
-git remote add azure <URI from previous step>
+git remote add azure <URI del paso anterior>
 ```
 
 Inserte en la instancia remota de Azure para implementar la aplicación. Se le pedirá la contraseña que proporcionó anteriormente al crear el usuario de implementación. Asegúrese de escribir la contraseña que creó en [Configuración de un usuario de implementación](#configure-a-deployment-user), no la contraseña que usa para iniciar sesión en Azure Portal.
