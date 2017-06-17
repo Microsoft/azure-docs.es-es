@@ -212,8 +212,8 @@ Imagen                                                       | Respuesta
 ![Vision Analyze Train Station](./Images/train_station.jpg) | #484B83
 
 
-### <a name="black--white"></a>Black & White
-Boolean flag that indicates whether an image is black&white or not.
+### <a name="black--white"></a>Blanco y negro
+Booleano para indicar si una imagen está en blanco y negro o color
 
 Imagen                                                      | Respuesta
 ---------------------------------------------------------- | ----
