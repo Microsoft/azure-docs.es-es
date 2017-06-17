@@ -29,7 +29,7 @@ sections:
 - title: Inicios rápidos en 5 minutos
   items:
   - type: paragraph
-    text: 'Learn how to deploy an NGINX web-server within a Virtual Machine running Ubuntu:'
+    text: 'Aprenda a desplegar un web server NGINX dentro de una maquina virtual corriendo Ubuntu:'
   - type: list
     style: icon48
     items: 
@@ -48,22 +48,22 @@ sections:
 - title: Tutoriales detallados
   items:
   - type: paragraph
-    text: Learn how to deploy, manage, and scale Linux VMs on Azure
+    text: Aprenda cómo desplegar, administrar y escalar máquinas  virtuales con Linux en Azure
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Create and manage Linux VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Create and manage VM disks</a></li>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automate VM configuration</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Create custom VM images</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Create highly available VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Create a VM scale set</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Load balance VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Manage VMs and virtual networks</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Backup VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Monitor VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Manage security on VMs</a>
-    - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Create a CI/CD infrastructure with Jenkins, Docker, and GitHub</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-vm">Creación y administración de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-manage-disks">Creación y administración de discos</a></li>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-automate-vm-deployment">Automatización de la configuración</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-custom-images">Creación de imágenes de máquina virtual</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-availability-sets">Maquinas virtuales de alta disponibilidad</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-create-vmss">Creación de un conjunto de escalado de máquina virtual</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-load-balancer">Equilibrio de carga de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-virtual-network">Administración de redes</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-backup-vms">Copia de seguridad de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-monitoring">Supervisión de máquinas virtuales</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-azure-security">Administración de la seguridad de la máquina virtual</a>
+    - html: <a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Creación de infraestructura para Integración Continua y Entrega Continua con Jenkins, Docker y GitHub</a>
 - title: Vídeo gratuito de aprendizaje de PluralSight
   items:
   - type: list
@@ -82,10 +82,10 @@ sections:
       image: 
         src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/video-training-iaas-monitoring.png
         href: https://www.pluralsight.com/courses/azure-iaas-monitoring-management-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02
-- title: Muestras
+- title: Ejemplos
   items:
   - type: paragraph
-    text: Deploy your first application to Azure.
+    text: Implemente su primera aplicación en Azure
   - type: list
     style: unordered
     className: spaced noBullet
