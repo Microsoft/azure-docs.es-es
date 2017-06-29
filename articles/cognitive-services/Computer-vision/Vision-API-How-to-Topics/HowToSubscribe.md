@@ -17,32 +17,30 @@ ms.lasthandoff: 05/25/2017
 
 ---
 
-## <a name="obtaining-subscription-keys"></a>Obtaining Subscription Keys
+## <a name="obtaining-subscription-keys"></a>Obteniendo las llaves de suscripción
 
-Computer Vision services require special subscription keys. Every call to the Computer Vision API requires a subscription key. This key needs to be either passed through a query string parameter or specified in the request header.
+Los servicios de Computer Vision requieren una llave de suscripción especial. Cada llamada a la API de Computer Vision requiere una llave de suscripción. Esta llave necesita ser pasada a través de un parámetro en el query string o especificado en el header de la petición.
 
-To sign up for subscription keys, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). It's free to sign up. Pricing for these services is subject to change.
+Para suscribirse a las llaves de suscripción, revisa [Suscripciones](https://azure.microsoft.com/try/cognitive-services/). Es gratis registrarse. El precio por los servicios está sujeto a cambios.
 
 >[!NOTE]
-Your subscription keys are valid for only one of these [Microsoft Azure Regions](https://azure.microsoft.com/regions/). 
+Tus llaves de suscripción son válidas únicamente para estas [Regiones de Microsoft Azure](https://azure.microsoft.com/regions/).
 
-| Region | Address |
+| Región | Dirección |
 |---|---|
-| West US | westus.api.cognitive.microsoft.com |
-| East US 2 | eastus2.api.cognitive.microsoft.com |
-| West Central US | westcentralus.api.cognitive.microsoft.com |
-| West Europe | westeurope.api.cognitive.microsoft.com |
-| Southeast Asia | southeastasia.api.cognitive.microsoft.com |
+| Oeste de EE. UU. | westus.api.cognitive.microsoft.com |
+| Este de EE. UU. 2 | eastus2.api.cognitive.microsoft.com |
+| Centro occidental de EE.UU. | westcentralus.api.cognitive.microsoft.com |
+| Europa Occidental | westeurope.api.cognitive.microsoft.com |
+| Sudeste de Asia | southeastasia.api.cognitive.microsoft.com |
 
+Si se registra usando la versión de prueba de Computer Vision, las llaves de suscripción serán válidas para la región **westcentral** (`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/`). Ese ese el caso más común. Aún así, si se registra a Computer Vision con su cuenta de Microsoft Azure a través del sitio [https://azure.microsoft.com/](https://azure.microsoft.com/), puede especificar la región para su versión de prueba de la lista de regiones antes mencionada.
 
-If you sign up using the Computer Vision free trial, your subscription keys are valid for the **westcentral** region (`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0/`). That is the most common case. However, if you sign-up for Computer Vision with your Microsoft Azure account through the [https://azure.microsoft.com/](https://azure.microsoft.com/) website, you specify the region for your trial from the preceding list of regions. 
+Por ejemplo, si se registró a Computer Vision con su cuenta de Microsoft Azure y especificó `westus` para su región, deberá usar la región `westus` para sus llamadas a la API REST (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
 
-For example, if you sign up for Computer Vision with your Microsoft Azure account and you specify `westus` for your region, you must use the `westus` region for your REST API calls (`https://westus.api.cognitive.microsoft.com/vision/v1.0/`).
+Si llega a olvidar la región de su suscripción después de obtener la llave de prueba, puede encontrar su región en [https://azure.microsoft.com/try/cognitive-services/my-apis/](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 
-If you forget the region for your subscription key after obtaining your trial key, you can find your region at [https://azure.microsoft.com/try/cognitive-services/my-apis/](https://azure.microsoft.com/try/cognitive-services/my-apis/).
+Suscripciones
 
-Subscriptions
-
-### <a name="related-links"></a>Related Links:
-* [Pricing Options for Microsoft Cognitive APIs](https://azure.microsoft.com/pricing/details/cognitive-services/)
-
+### <a name="related-links"></a>Links relacionados:
+* [Opciones de pago para las APIs de Microsoft Cognitive](https://azure.microsoft.com/pricing/details/cognitive-services/)
