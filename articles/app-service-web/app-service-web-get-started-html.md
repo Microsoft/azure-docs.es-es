@@ -71,7 +71,7 @@ Abra el archivo *index.html* . Realice un cambio en el marcado. Por ejemplo, cam
 Confirme los cambios en Git y, después, inserte los cambios de código en Azure.
 
 ```bash
-git commit -am "updated HTML"
+git commit -am "HTML actualizado"
 git push azure master
 ```
 
