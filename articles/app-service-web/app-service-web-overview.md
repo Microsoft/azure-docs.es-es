@@ -60,7 +60,7 @@ Además, una aplicación web puede aprovechar las características ofrecidas por
 Además de Aplicaciones web en el Servicio de aplicaciones, Azure ofrece otros servicios que se pueden utilizar para hospedar aplicaciones web y sitios web. En la mayoría de los casos, Aplicaciones web es la mejor opción.  Para arquitectura de microservicios, puede usar [Service Fabric](https://azure.microsoft.com/documentation/services/service-fabric) y, si necesita más control sobre las máquinas virtuales en las que se ejecuta el código, piense utilizar [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). Para más información sobre qué servicio de Azure elegir, consulte [Comparación de Servicio de aplicaciones de Azure, Servicios en la nube de Azure, Máquinas virtuales de Azure y Azure Service Fabric](choose-web-site-cloud-service-vm.md).
 
 ## <a name="getting-started"></a>Introducción
-Para comenzar mediante la implementación de código de ejemplo en una nueva aplicación web en el App Service, siga uno de los tutoriales del siguiente cuadro desplegable. Necesitará una cuenta gratis de Azure.
+Para comenzar mediante la implementación de código de ejemplo en una nueva aplicación web en el App Service. A continuación, siga uno de los siguientes tutoriales del cuadro desplegable. Necesitará una cuenta gratis de Azure.
 
 > [!div class="op_single_selector"]
 > * [Implementación de la primer aplicación web ASP.NET en 5 minutos](app-service-web-get-started-dotnet.md)
