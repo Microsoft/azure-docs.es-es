@@ -1,6 +1,6 @@
 ---
 title: Información general sobre las máquinas virtuales Windows | Microsoft Docs
-description: Aprenda a crear y administrar máquinas virtuales Windows en Azure.
+description: Aprenda a crear y administrar máquinas virtuales con Windows en Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: iainfoulds
