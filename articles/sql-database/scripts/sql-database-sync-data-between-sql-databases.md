@@ -219,11 +219,7 @@ foreach ($tableSchema in $databaseSchema.Tables)
         $fullColumnName = $tableSchema.QuotedName + "." + $columnSchema.QuotedName
         if ($addAllColumns -or $MetadataList.Contains($fullColumnName))
         {
-            if ((-not $addAllColumns) -and $tableSchema.HasError)
-            {
-                Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
-                Write-Host $tableSchema.ErrorId -foregroundcolor "Red"c            }
-            elseif ((-not $addAllColumns) -and $columnSchema.HasError)
+            if ($columnSchema.HasError)
             {
                 Write-Host "Can't add column $fullColumnName to the sync schema" -foregroundcolor "Red"
                 Write-Host $columnSchema.ErrorId -foregroundcolor "Red"
