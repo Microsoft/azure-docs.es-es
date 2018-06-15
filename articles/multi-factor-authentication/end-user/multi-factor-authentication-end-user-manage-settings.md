@@ -64,8 +64,8 @@ Dependiendo de la configuración de la organización, es posible que tenga una c
 1. En la página Comprobación de seguridad adicional, seleccione **Restaurar Multi-Factor Authentication en dispositivos en los que se confió anteriormente**.
 2. La próxima vez que inicie sesión en cualquier dispositivo, se le pedirá que realice la verificación en dos pasos.
 
-## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>¿Cómo puedo quitar Microsoft Authenticator del dispositivo anterior y moverlo a uno nuevo?
-Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se quita la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
+## <a name="how-do-i-clean-up-microsoft-authenticator-from-my-old-device-and-move-to-a-new-one"></a>¿Cómo puedo eliminar Microsoft Authenticator del dispositivo anterior y moverlo a uno nuevo?
+Cuando desinstala la aplicación del dispositivo o restablece el dispositivo, no se elimina la activación en el back-end. Para más información, vea [Microsoft Authenticator](microsoft-authenticator-app-how-to.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtener sugerencias para solucionar problemas y necesita ayuda [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md)
