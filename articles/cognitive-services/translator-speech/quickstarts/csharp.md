@@ -27,6 +27,7 @@ En este artículo se muestra cómo usar Translator Speech API para traducir pala
 ## <a name="prerequisites"></a>Requisitos previos
 
 Se requiere [Visual Studio 2017](https://www.visualstudio.com/downloads/) para ejecutar este código en Windows. (La edición gratuita Community Edition funcionará).
+Si utiliza Mac OS o Linux también puede utilizar como alternativa el editor de texto [Visual Studio Code](https://code.visualstudio.com/Download).
 
 Necesitará un archivo .wav denominado "speak.wav" en la misma carpeta que el ejecutable que compile con el código siguiente. Este archivo .wav debe estar en PCM estándar, formato mono de 16 bits, a 16 kHz.
 
