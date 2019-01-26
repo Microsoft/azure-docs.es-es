@@ -74,9 +74,9 @@ Puede crear una variable y declarar el tipo de datos y el valor inicial de la mi
 
    | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Escriba | SÍ | <*variable-type*> | El tipo de datos de la variable | 
-   | Valor | Sin  | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
+   | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
+   | Type | SÍ | <*variable-type*> | El tipo de datos de la variable | 
+   | Value | Sin  | <*start-value*> | Valor inicial de la variable <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor inicial de la variable. | 
    ||||| 
 
    ![Inicializar la variable](./media/logic-apps-create-variables-store-values/initialize-variable.png)
@@ -210,8 +210,8 @@ Para aumentar o *incrementar* una variable con un valor constante, agregue la ac
 
    | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
    |----------|----------|-------|--------------|
-   | NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
-   | Valor | Sin  | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
+   | Name | SÍ | <*variable-name*> | El nombre de la variable que se va a incrementar | 
+   | Value | Sin  | <*increment-value*> | El valor que se usa para incrementar la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para incrementar la variable. | 
    |||| 
 
    Por ejemplo:  
@@ -330,8 +330,8 @@ Estas son las propiedades para la acción **Reducir variable**:
 
 | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN |
 |----------|----------|-------|--------------|
-| NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a reducir | 
-| Valor | Sin  | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
+| Name | SÍ | <*variable-name*> | El nombre de la variable que se va a reducir | 
+| Value | Sin  | <*increment-value*> | El valor para reducir la variable. El valor predeterminado es uno. <p><p>**Sugerencia**: aunque es opcional, establezca este valor como procedimiento recomendado para que sepa siempre el valor específico para reducir la variable. | 
 ||||| 
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Reducir variable** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
@@ -365,8 +365,8 @@ Estas son las propiedades para la acción **Establecer variable**:
 
 | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
-| NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Valor | SÍ | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
+| Name | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
+| Value | SÍ | <*new-value*> | El valor al que quiere asignar la variable. Ambos deben tener los mismos tipos de datos. | 
 ||||| 
 
 > [!NOTE]
@@ -423,8 +423,8 @@ Estas son las propiedades para la acción **Anexar a...**:
 
 | Propiedad | Obligatorio | Valor |  DESCRIPCIÓN | 
 |----------|----------|-------|--------------| 
-| NOMBRE | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
-| Valor | SÍ | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
+| Name | SÍ | <*variable-name*> | El nombre de la variable que se va a establecer | 
+| Value | SÍ | <*append-value*> | El valor que quiere anexar, que puede ser de cualquier tipo. | 
 |||||  
 
 Si cambia del diseñador al editor de la vista de código, esta es la manera en que la acción **Anexar a la variable de la matriz** aparece en la definición de la aplicación lógica, que se encuentra en formato JSON.
