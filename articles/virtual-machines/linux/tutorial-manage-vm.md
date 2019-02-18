@@ -28,11 +28,11 @@ ms.locfileid: "55749149"
 Las máquinas virtuales de Azure proporcionan un entorno informático completamente configurable y flexible. En este tutorial se tratan elementos básicos de la implementación de máquinas virtuales de Azure, como la selección de su tamaño, la selección de una imagen de máquina virtual y la implementación de una máquina virtual. Aprenderá a:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual
-> * Seleccionar y usar imágenes de máquinas virtuales
-> * Ver y usar tamaños de una máquina virtual específicos
-> * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Crear y conectar elementos a una máquina virtual.
+> * Seleccionar y usar imágenes de máquinas virtuales.
+> * Ver y usar tamaños de una máquina virtual específicos.
+> * Cambiar el tamaño de una máquina virtual.
+> * Ver y entender el estado de las máquinas virtuales.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -141,7 +141,7 @@ CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20160309     
 CentOS            OpenLogic         6.5   OpenLogic:CentOS:6.5:6.5.20170207       6.5.20170207
 ```
 
-Para implementar una máquina virtual mediante una imagen específica, anote el valor de la columna *Urn*, que consta del publicador, la oferta, la SKU y, opcionalmente, un número de versión para [identificar](cli-ps-findimage.md#terminology) la imagen. Al especificar la imagen, se puede reemplazar el número de versión de la imagen por "latest", para que se seleccione la versión más reciente de la distribución. En este ejemplo, se emplea el argumento `--image` para especificar la versión más reciente de una imagen de CentOS 6.5.  
+Para implementar una máquina virtual mediante una imagen específica, anote el valor de la columna *Urn*, que consta del publicador, la oferta, la SKU y opcionalmente, un número de versión para [identificar](cli-ps-findimage.md#terminology) la imagen. Al especificar la imagen, se puede reemplazar el número de versión de la imagen por "latest", para que se seleccione la versión más reciente de la distribución. En este ejemplo, se emplea el argumento `--image` para especificar la versión más reciente de una imagen de CentOS 6.5.  
 
 ```azurecli-interactive 
 az vm create --resource-group myResourceGroupVM --name myVM2 --image OpenLogic:CentOS:6.5:latest --generate-ssh-keys
@@ -318,11 +318,11 @@ az group delete --name myResourceGroupVM --no-wait --yes
 En este tutorial, ha aprendido conceptos básicos sobre la creación y administración de máquinas virtuales. Por ejemplo:
 
 > [!div class="checklist"]
-> * Crear y conectar elementos a una máquina virtual
-> * Seleccionar y usar imágenes de máquinas virtuales
-> * Ver y usar tamaños de una máquina virtual específicos
-> * Cambiar el tamaño de una máquina virtual
-> * Ver y entender el estado de las máquinas virtuales
+> * Crear y conectar elementos a una máquina virtual.
+> * Seleccionar y usar imágenes de máquinas virtuales.
+> * Ver y usar tamaños de una máquina virtual específicos.
+> * Cambiar el tamaño de una máquina virtual.
+> * Ver y entender el estado de las máquinas virtuales.
 
 Prosiga con el siguiente tutorial para aprender sobre los discos en máquinas virtuales de Azure.  
 
