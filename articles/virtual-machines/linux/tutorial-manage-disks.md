@@ -29,13 +29,13 @@ ms.locfileid: "55459210"
 Las máquinas virtuales (VM) de Azure usan discos para almacenar el sistema operativo, las aplicaciones y los datos. Cuando se crea una máquina virtual es importante elegir un tamaño de disco y la configuración adecuada para la carga de trabajo esperada. En este tutorial se muestra cómo implementar y administrar los discos de una máquina virtual. Aprenderá sobre los siguientes temas:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
-> * Conectar y preparar los discos de datos
-> * Cambiar el tamaño de los discos
-> * Instantáneas de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
+> * Conectar y preparar los discos de datos.
+> * Cambiar el tamaño de los discos.
+> * Instantáneas de disco.
 
 
 ## <a name="default-azure-disks"></a>Discos de Azure predeterminados
@@ -54,7 +54,7 @@ Para instalar aplicaciones y almacenar datos, se pueden agregar más discos de d
 
 ## <a name="vm-disk-types"></a>Tipos de disco de máquina virtual
 
-Azure proporciona dos tipos de discos, Estándar y Premium.
+Azure proporciona dos tipos de discos: Estándar y Premium.
 
 ### <a name="standard-disk"></a>Disco estándar
 
@@ -271,13 +271,13 @@ az vm disk attach \
 En este tutorial, ha aprendido sobre temas relacionados con los discos de máquina virtual; por ejemplo:
 
 > [!div class="checklist"]
-> * Discos del SO y temporales
-> * Discos de datos
-> * Discos Estándar y Premium
-> * Rendimiento de disco
-> * Conectar y preparar los discos de datos
-> * Cambiar el tamaño de los discos
-> * Instantáneas de disco
+> * Discos del SO y temporales.
+> * Discos de datos.
+> * Discos Estándar y Premium.
+> * Rendimiento de disco.
+> * Conectar y preparar los discos de datos.
+> * Cambiar el tamaño de los discos.
+> * Instantáneas de disco.
 
 Siga con el siguiente tutorial para aprender sobre la automatización de la configuración de la máquina virtual.
 
