@@ -190,7 +190,7 @@ exit
 
 ## <a name="snapshot-a-disk"></a>Instantánea de un disco
 
-Cuando se toma una instantánea de un disco, Azure crea una copia de solo lectura y de un momento dado del disco. Las instantáneas de máquina virtual de Azure resultan útiles para guardar rápidamente el estado de una máquina virtual antes de realizar cambios en la configuración. Si se produce un error, se puede restaurar la máquina virtual mediante una instantánea. Cuando una máquina virtual tiene más de un disco, se toma una instantánea de cada uno con independencia de los demás. Para realizar copias de seguridad coherentes con la aplicación, considere la posibilidad de detener la máquina virtual antes de tomar instantáneas de disco. Como alternativa, use el [servicio Azure Backup](/azure/backup/), que permite realizar copias de seguridad automatizadas mientras se ejecuta la máquina virtual.
+Cuando se toma una instantánea de un disco, Azure crea una copia de seguridad de solo lectura y de un momento dado del disco. Las instantáneas de máquina virtual de Azure resultan útiles para guardar rápidamente el estado de una máquina virtual antes de realizar cambios en la configuración. Si se produce un error, se puede restaurar la máquina virtual mediante una instantánea. Cuando una máquina virtual tiene más de un disco, se toma una instantánea de cada uno con independencia de los demás. Para realizar copias de seguridad coherentes con la aplicación, se considera la posibilidad de detener la máquina virtual antes de tomar instantáneas de disco. Como alternativa, use el [servicio Azure Backup](/azure/backup/), que permite realizar copias de seguridad automatizadas mientras se ejecuta la máquina virtual.
 
 ### <a name="create-snapshot"></a>Creación de una instantánea
 
