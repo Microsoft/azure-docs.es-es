@@ -90,7 +90,7 @@ En lugar de tener que preocuparse de crear y administrar una aplicación complet
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita la compilación, el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. También proporciona capacidades de administración de aplicaciones completas para el aprovisionamiento, la implementación, la supervisión, la actualización/aplicación de revisiones y eliminación de aplicaciones implementadas. Las aplicaciones, que se ejecutan en un grupo compartido de máquinas, pueden empezar con pocas máquinas y escalar hasta cientos o miles de máquinas si es necesario.
+Azure Service Fabric es una plataforma de sistemas distribuidos que facilita la compilación, el empaquetamiento, la implementación , la administración de microservicios escalables y confiables. También proporciona capacidades de administración de aplicaciones completas para el aprovisionamiento, la implementación, la supervisión, la actualización/aplicación de revisiones y eliminación de aplicaciones implementadas. Las aplicaciones, que se ejecutan en un grupo compartido de máquinas, pueden empezar con pocas máquinas y escalar hasta cientos o miles de máquinas si es necesario.
 
 Service Fabric admite WebAPI con Open Web Interface para .NET (OWIN) y ASP.NET Core. Ofrece varios SDK para compilar servicios en Linux tanto en .NET Core como Java. Para obtener más información acerca de Service Fabric, consulte la [documentación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
 
@@ -115,7 +115,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 
     >**Cuándo se debe usar**: cuando la aplicación almacene datos no relacionales, como pares de clave-valor (tablas), blobs, recursos compartidos de archivos o mensajes (colas).
 
-    >**Para comenzar**: elija uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
+    >**Para comenzar**: elegir  uno de estos tipos de almacenamiento: [blobs](../../storage/blobs/storage-dotnet-how-to-use-blobs.md), [tablas](../../cosmos-db/table-storage-how-to-use-dotnet.md), [colas](../../storage/queues/storage-dotnet-how-to-use-queues.md) o [archivos](../../storage/files/storage-dotnet-how-to-use-files.md).
 
 -   **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
