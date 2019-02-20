@@ -82,7 +82,7 @@ El nivel de control que tiene con las máquinas virtuales le permite ejecutar un
 
 En lugar de tener que preocuparse de crear y administrar una aplicación completa o la infraestructura para ejecutar el código, ¿qué le parecería poder escribir el código y hacer que se ejecute en respuesta a eventos o según una programación?  [Azure Functions](../../azure-functions/functions-overview.md) es una oferta "sin servidor" que le permite escribir solo el código que necesita. Con Functions, la ejecución del código se desencadena mediante solicitudes HTTP, webhooks, eventos de servicios en la nube o según una programación. El desarrollo se puede realizar en el lenguaje que se prefiera, como C\#, F\#, Node.js, Python o PHP. Con la facturación basada en el consumo, solo paga por el tiempo que el código se ejecuta y Azure escala según sea necesario.
 
->**Cuándo se debe usar**: use Azure Functions si tiene código que se desencadena mediante otros servicios de Azure, por medio de eventos basados en web o según una programación. También puede usar Functions cuando no necesite la sobrecarga de un proyecto completo hospedado o si desea pagar solo por el tiempo que el código se ejecuta. Para más información, consulte [Introducción a Azure Functions](../../azure-functions/functions-overview.md).
+>**Cuándo se debe usar**: use Azure Functions si tiene código que se desencadena mediante otros servicios de Azure, por medio de eventos basados en web o según una programación. También puede usar Functions cuando no necesite la sobrecarga de un proyecto completo hospedado o si desea pagar solo por el tiempo que el código se ejecuta. Para más información, consulte [Introducción a Azure Functions](../../azure-functions/functions-overvimd).
 
 >**Para comenzar**: siga el tutorial de inicio rápido de Functions para [crear la primera función](../../azure-functions/functions-create-first-azure-function.md) desde el portal.
 
@@ -119,7 +119,7 @@ La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independient
 
 -   **Azure SQL Database**: versión para Azure del motor de Microsoft SQL Server para almacenar datos tabulares relacionales en la nube. SQL Database ofrece un rendimiento predecible, escalabilidad sin tiempo de inactividad, continuidad empresarial y protección de datos.
 
-    >**Cuándo se debe usar**: cuando la aplicación requiera almacenamiento de datos con integridad referencial, compatibilidad transaccional y compatibilidad con consultas TSQL.
+    >**Cuándo se debe usar**: cuando la aplicación requiera almacenamiento de datos con integridad referencial, compatibilidad transaccional y compatibilidad con consultas TSQL.c 
 
     >**Para comenzar**: [cree una base de datos SQL en cuestión de minutos con Azure Portal](../../sql-database/sql-database-get-started.md).
 
