@@ -20,7 +20,7 @@ metadata:
   ms.date: 07/26/18
   ms.author: cmcclister
 abstract:
-  description: Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Nuestros tutoriales y guías rápidas ofrecen información acerca de cómo empezar a trabajar con Security Center, aplicar directivas de seguridad en las cargas de trabajo, limitar la exposición a amenazas y detectar y responder a los ataques.
+  description: Azure Security Center proporciona administración unificada de la seguridad y protección avanzada contra amenazas para cargas de trabajo en la nube híbrida. Nuestros tutoriales y guías rápidas ofrecen información acerca de cómo empezar a trabajar con Security Center, la aplicacion de directivas de seguridad en las cargas de trabajo, limitar las exposiciones a amenazas, detectarlas y responder a los ataques.
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
