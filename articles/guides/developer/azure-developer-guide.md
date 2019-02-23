@@ -27,7 +27,7 @@ ms.locfileid: "54118258"
 
 Azure es una plataforma de nube completa que puede hospedar sus aplicaciones existentes, simplificar el desarrollo de nuevas aplicaciones e incluso mejorar las aplicaciones locales. Azure integra los servicios en la nube que necesita para desarrollar, probar, implementar y administrar sus aplicaciones, mientras aprovecha las ventajas de la informática en la nube.
 
-Con el hospedaje de las aplicaciones en Azure, puede empezar con tamaño pequeño y escalar fácilmente su aplicación a medida que aumente la demanda de los clientes. Azure ofrece también la confiabilidad que se necesita para las aplicaciones de alta disponibilidad, e incluye conmutación por error entre diferentes regiones. [Azure Portal](https://portal.azure.com) le permite administrar fácilmente todos los servicios de Azure. También puede administrar los servicios mediante programación, con las API y las plantillas específicas del servicio.
+Con el hospedaje de las aplicaciones en Azure, puede empezar con tamaño pequeño y escalar fácilmente su aplicación a medida que aumente la demanda de los clientes. Azure también ofrece la confiabilidad que se necesita para las aplicaciones de alta disponibilidad, incluso para la conmutación por error entre diferentes regiones. [Azure Portal](https://portal.azure.com) le permite administrar fácilmente todos los servicios de Azure. También puede administrar los servicios mediante programación, con las API y las plantillas específicas del servicio.
 
 **¿A quién va dirigida esta información?**: Esta guía es una introducción a la plataforma Azure para desarrolladores de aplicaciones. Proporciona instrucciones y orientación para iniciar la creación de nuevas aplicaciones en Azure, o para migrar aplicaciones existentes a Azure.
 
