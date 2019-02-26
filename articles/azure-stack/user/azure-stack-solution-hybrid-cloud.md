@@ -237,7 +237,7 @@ Debe configurar las aplicaciones web de Azure y Azure Stack para que usen certif
 
 Para agregar SSL en Azure:
 
-1. Asegúrese de que el certificado SSL que ha obtenido es válido para el subdominio que ha creado. (Es correcto usar certificados con caracteres comodín).
+1. Asegúrese de que el certificado SSL que ha obtenido es válido para el subdominio que ha creado. (Es correcto usar certificados con caracteres de comodín).
 
 2. En Azure, siga las instrucciones de las secciones **Preparación de la aplicación web** y **Enlace del certificado SSL** del artículo [Enlace de un certificado SSL personalizado existente con Azure Web Apps](https://docs.microsoft.com/Azure/app-service/app-service-web-tutorial-custom-ssl). Seleccione **SSL basado en SNI** como el **Tipo de SSL**.
 
