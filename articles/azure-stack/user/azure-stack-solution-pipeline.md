@@ -137,7 +137,7 @@ Una entidad de servicio requiere una clave para la autenticación. Siga estos pa
 
     ![Edición de la configuración de la aplicación](media/azure-stack-solution-hybrid-pipeline/000_03.png)
 
-4. Para generar una clave de autenticación, seleccione **Claves**.
+4. A continuacion, seleccione **Claves**.
 
     ![Configuración de la clave](media/azure-stack-solution-hybrid-pipeline/000_04.png)
 
