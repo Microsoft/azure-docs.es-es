@@ -106,7 +106,7 @@ Además de hospedar aplicaciones, Azure ofrece servicios que pueden mejorar la f
 
 La mayoría de las aplicaciones debe almacenar datos; por lo tanto, independientemente de cómo decida hospedar la aplicación en Azure, considere la posibilidad de usar uno o varios de los siguientes servicios de datos y almacenamiento.
 
--   **Azure Cosmos DB**: un servicio de base de datos multimodelo de distribución global que le permite escalar de forma flexible el rendimiento y el almacenamiento entre cualquier cantidad de regiones geográficas con un Acuerdo de Nivel de Servicio completo. 
+-   **Azure Cosmos DB**: un servicio de base de datos multi-modelo de distribución global que le permite escalar de forma flexible el rendimiento y el almacenamiento entre cualquier cantidad de regiones geográficas con un Acuerdo de Nivel de Servicio completo. 
     >**Cuándo se debe usar:** cuando la aplicación necesite bases de datos de grafos, tablas o documentos, incluidas las bases de datos de MongoDB, con varios modelos de coherencia bien definidos. 
 
     >**Para comenzar**: [cree una aplicación web de Azure Cosmos DB](../../cosmos-db/create-sql-api-dotnet.md). Si es desarrollador de MongoDB, consulte [Azure Cosmos DB: Compilar una aplicación web de API MongoDB con .NET y Azure Portal](../../cosmos-db/create-mongodb-dotnet.md).
