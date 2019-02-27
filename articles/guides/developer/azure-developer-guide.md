@@ -90,7 +90,7 @@ En lugar de tener que preocuparse de crear y administrar una aplicación complet
 
 #### <a name="azure-service-fabric"></a>Azure Service Fabric
 
-Azure Service Fabric es una plataforma de sistemas distribuidos que facilita la compilación, el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. También proporciona capacidades de administración de aplicaciones completas para el aprovisionamiento, la implementación, la supervisión, la actualización/aplicación de revisiones y eliminación de aplicaciones implementadas. Las aplicaciones, que se ejecutan en un grupo compartido de máquinas, pueden empezar con pocas máquinas y escalar hasta cientos o miles de máquinas si es necesario.
+Azure Service Fabric es una plataforma de sistemas distribuidos que facilita la compilación, el empaquetamiento, la implementación y la administración de microservicios escalables y confiables. También proporciona capacidades de administración de aplicaciones completas para el aprovisionamiento, la implementación, la supervisión, la actualización/revisión y eliminación de aplicaciones implementadas. Las aplicaciones, que se ejecutan en un grupo compartido de máquinas, pueden empezar con pocas máquinas y escalar hasta cientos o miles de máquinas si es necesario.
 
 Service Fabric admite WebAPI con Open Web Interface para .NET (OWIN) y ASP.NET Core. Ofrece varios SDK para compilar servicios en Linux tanto en .NET Core como Java. Para obtener más información acerca de Service Fabric, consulte la [documentación de Service Fabric](https://docs.microsoft.com/azure/service-fabric/).
 
