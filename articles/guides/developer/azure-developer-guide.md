@@ -257,7 +257,7 @@ Estas implementaciones se desarrollan usando una plantilla de Azure Resource Man
 
 ## <a name="understanding-accounts-subscriptions-and-billing"></a>Descripción de las cuentas, suscripciones y facturación
 
-Como a los desarrolladores, nos gusta bucear en el código e intentar que nuestras aplicaciones se pongan en marcha lo más rápidamente posible. Queremos que pueda a empezar a trabajar con Azure tan fácilmente como sea posible. Para ello, Azure ofrece una [evaluación gratuita](https://azure.microsoft.com/free/). Algunos servicios incluso tienen una funcionalidad "Pruébelo gratis", como [Azure App Service](https://tryappservice.azure.com/), que ni siquiera requiere crear una cuenta. Lanzarse a codificar e implementar su aplicación en Azure es tan divertido como importante es tomarse algún tiempo para comprender el funcionamiento de Azure desde la perspectiva de las cuentas de usuario, las suscripciones y la facturación.
+Como a los desarrolladores, nos gusta bucear en el código e intentar que nuestras aplicaciones se pongan en marcha lo más rápidamente posible. Sin duda, queremos alentarlo a empezar a trabajar en Azure con la mayor facilidad posible. Para ello, Azure ofrece una [evaluación gratuita](https://azure.microsoft.com/free/). Algunos servicios incluso tienen una funcionalidad "Pruébelo gratis", como [Azure App Service](https://tryappservice.azure.com/), que ni siquiera requiere crear una cuenta. Lanzarse a codificar e implementar su aplicación en Azure es tan divertido como importante es tomarse algún tiempo para comprender el funcionamiento de Azure desde la perspectiva de las cuentas de usuario, las suscripciones y la facturación.
 
 ### <a name="what-is-an-azure-account"></a>¿Qué es una cuenta de Azure?
 
