@@ -98,7 +98,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento. La definición de la directiva confirma que todos los recursos del ámbito son compatibles y se identifican cuáles no lo son.
+En esta guía de inicio rápido, se asigna una definición de directiva a un ámbito y se evalúa su informe de cumplimiento.La definición de la directiva confirma que todos los recursos del ámbito son compatibles e identifican cuáles no lo son.
 
 Para más información sobre la asignación de directivas para garantizar la compatibilidad de los nuevos recursos, continúe con el tutorial para:
 
