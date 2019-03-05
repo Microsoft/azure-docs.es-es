@@ -49,7 +49,7 @@ Más información:
 
 ## <a name="network-access-control"></a>Control de acceso de red
 
-El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una red virtual. El objetivo del control de acceso de red es limitar el acceso a las máquinas virtuales y los servicios a los usuarios y dispositivos aprobados. Los controles de acceso se basan en decisiones que permiten o deniegan la conexión a o desde la máquina virtual o el servicio.
+El control de acceso de red es el acto de limitar la conectividad entre subredes o dispositivos específicos dentro de una red virtual. El objetivo del control de acceso de red es limitar el acceso a las máquinas virtuales y los servicios a los usuarios y dispositivos aprobados. Los controles de acceso se basan en decisiones que permiten o deniegan las conexiones hacia y desde su máquina o servicio virtual.
 
 Azure admite varios tipos de controles de acceso de red, como:
 
