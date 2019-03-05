@@ -41,7 +41,7 @@ En este artículo se explican algunas de las opciones que Azure ofrece en el ár
 
 ## <a name="azure-networking"></a>Redes de Azure
 
-Es necesario que las máquinas virtuales de Azure estén conectadas a una instancia de Azure Virtual Network. Una red virtual es una construcción lógica creada encima del tejido de red físico de Azure. Cada red virtual está aislada de todas las demás redes virtuales. Esto contribuye a garantizar que otros clientes de Azure no puedan obtener acceso al tráfico de red de sus implementaciones.
+Es necesario que las máquinas virtuales de Azure estén conectadas a una instancia de Azure Virtual Network. Una red virtual es una construcción lógica creada sobre la estructura física de la red de Azure. Cada red virtual está aislada de todas las demás redes virtuales. Esto contribuye a garantizar que otros clientes de Azure no puedan obtener acceso al tráfico de red de sus implementaciones.
 
 Más información:
 
