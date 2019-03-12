@@ -36,7 +36,7 @@ En esta guía de inicio rápido:
 * Escribir código que registra valores dentro del área de trabajo.
 * Verá los valores registrados en el área de trabajo.
 
-Puede crear un área de trabajo y un archivo de configuración para usarlos como requisitos previos de otros artículos de procedimientos y tutoriales de Machine Learning. Igual que en otros servicios de Azure, ciertos límites y cuotas están asociados a Machine Learning. [Más información acerca de las cuotas y cómo solicitarlas.](how-to-manage-quotas.md)
+Puede crear un área de trabajo y un archivo de configuración para usarlos como requisitos previos de otros artículos prácticos y tutoriales de Machine Learning. Igual que en otros servicios de Azure, ciertos límites y cuotas están asociados a Machine Learning. [Más información acerca de las cuotas y cómo solicitarlas.](how-to-manage-quotas.md)
 
 Los siguientes recursos de Azure se agregan automáticamente al área de trabajo cuando estén disponibles por regiones:
  
