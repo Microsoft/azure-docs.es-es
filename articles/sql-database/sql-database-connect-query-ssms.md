@@ -143,16 +143,16 @@ Ejecute el código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms17
    SELECT * FROM [SalesLT].[Product] 
    WHERE Name='myNewProduct' 
 
-2. Select **Execute**. The following result appears. 
+Seleccione **Ejecutar**. Posteriormente, aparecerá el siguiente resultado
 
    ![result](./media/sql-database-connect-query-ssms/result.png)
 
  
 ## Update data
 
-Run this [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) Transact-SQL code to modify your new product.
+Ejecute el codigo Transact-SQL  [UPDATE](https://msdn.microsoft.com/library/ms177523.aspx) para modificar su nuevo producto.
 
-1. Replace the previous query with this one.
+1. Reemplace la consulta anterior con esta.
 
    ```sql
    UPDATE [SalesLT].[Product]
