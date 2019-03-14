@@ -142,7 +142,7 @@ Ejecute el código Transact-SQL [INSERT](https://msdn.microsoft.com/library/ms17
    ```sql
    SELECT * FROM [SalesLT].[Product] 
    WHERE Name='myNewProduct' 
-
+   ```
 Seleccione **Ejecutar**. Posteriormente, aparecerá el siguiente resultado
 
    ![result](./media/sql-database-connect-query-ssms/result.png)
