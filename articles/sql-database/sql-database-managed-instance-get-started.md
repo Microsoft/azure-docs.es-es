@@ -80,7 +80,7 @@ Cuando la implementación finalice correctamente, revise los recursos creados y 
 
    ![Tabla de rutas](./media/sql-database-managed-instance-get-started/route-table.png)
 
-3. En la tabla de rutas, revise las entradas para enrutar el tráfico desde y dentro de la red virtual de instancia administrada. Si va a crear o a configurar manualmente la tabla de rutas, debe asegurarse de crear estas entradas.
+3. En la tabla de rutas, revise las entradas para enrutar el tráfico desde la parte interior de la red virtual de instancia administrada. Si va a crear o a configurar manualmente la tabla de rutas, debe asegurarse de crear estas entradas.
 
    ![Entrada de la subred de Instancia administrada local](./media/sql-database-managed-instance-get-started/udr.png)
 
