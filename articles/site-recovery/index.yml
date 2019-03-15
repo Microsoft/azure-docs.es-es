@@ -19,7 +19,7 @@ metadata:
   ms.date: 11/27/2018
   ms.author: carolz
 abstract:
-  description: Azure Site Recovery orquesta y administra la recuperación ante desastres de las máquinas virtuales de Azure y de las máquinas virtuales y servidores físicos locales. Aprenda a replicar, conmutar por error y conmutar por recuperación con nuestros inicios rápidos y tutoriales.
+  description: Azure Site Recovery orquesta y administra la recuperación ante desastres de las máquinas virtuales en Azure, así como servidores físicos locales. Aprenda a replicar, conmutar por error y por recuperación con nuestros inicios rápidos y tutoriales.
 sections:
 - title: Inicios rápidos en 5 minutos
   items:
