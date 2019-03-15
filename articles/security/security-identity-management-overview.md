@@ -117,7 +117,7 @@ Más información:
 
 Azure AD B2C es un servicio de administración de identidades global y de alta disponibilidad para aplicaciones orientadas al consumidor que se puede escalar hasta cientos de millones de identidades. Se puede integrar en plataformas móviles y web. Los consumidores pueden conectarse a todas sus aplicaciones con una experiencia totalmente personalizable, usando sus cuentas de las redes sociales o mediante credenciales nuevas.
 
-En el pasado, los desarrolladores de aplicaciones que querían registrar clientes e iniciar sesión en sus aplicaciones tenían que escribir su propio código. Y usaban bases de datos o sistemas locales para almacenar nombres de usuario y contraseñas. Azure AD B2C ofrece a su organización una manera mejor de integrar la administración de identidades de consumidor en las aplicaciones gracias a la ayuda de una plataforma segura basada en estándares y un amplio conjunto de directivas extensibles.
+En el pasado, los desarrolladores de aplicaciones que querían registrar clientes e iniciar sesión en sus aplicaciones tenían que escribir su propio código. Y usaban bases de datos o sistemas locales para almacenar nombres de usuario y contraseñas. Azure AD B2C ofrece a su organización una mejor manera de integrar la administración de identidades del consumidor en las aplicaciones con la ayuda de una plataforma segura basada en estándares y un amplio conjunto de políticas extensibles.
 
 El uso de Azure AD B2C permite a los consumidores registrarse en las aplicaciones con sus cuentas de redes sociales existentes (Facebook, Google, Amazon, LinkedIn) o creando unas credenciales (dirección de correo electrónico y contraseña o nombre de usuario y contraseña).
 
