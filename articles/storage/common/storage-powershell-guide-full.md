@@ -135,7 +135,7 @@ Para cambiar la configuración de una cuenta de almacenamiento, utilice [Set-AzS
 
 * El **nivel de acceso** para las cuentas de Blob Storage. El valor del nivel de acceso se establece en **frecuente** o **esporádico** y permite minimizar los costes gracias a la selección del nivel de acceso que mejor se adapta a la forma de utilizar la cuenta de almacenamiento. Para más información, vea [Niveles de almacenamiento de archivo, esporádico y frecuente](../blobs/storage-blob-storage-tiers.md).
 
-* Permitir solo el tráfico HTTPS. 
+* Solo permite el tráfico HTTPS. 
 
 ### <a name="manage-the-access-keys"></a>Administrar las claves de acceso
 
