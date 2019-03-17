@@ -30,7 +30,7 @@ En este artículo de ayuda se tratan las operaciones comunes con los cmdlets del
 > * Proteger el acceso a la cuenta de almacenamiento 
 > * Habilitar Storage Analytics
 
-En este artículo se proporcionan vínculos a otros artículos de PowerShell para Storage como, por ejemplo, cómo habilitar y obtener acceso a Storage Analytics, cómo usar los cmdlets del plano de datos y cómo obtener acceso a las nubes independientes de Azure, como Nube de China, Nube de Alemania y Nube de Government.
+En este artículo se proporcionan vínculos a otros artículos de PowerShell para Storage como, por ejemplo, cómo habilitar y obtener acceso a Storage Analytics, cómo usar los cmdlets del plano de datos y cómo obtener acceso a las nubes independientes de Azure, como Nube de China, Nube de Alemania y Nube de Gobierno.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
