@@ -25,7 +25,7 @@ Para acceder a Azure Storage, necesitará una suscripción de Azure. Si todavía
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 del módulo Az de Azure PowerShell, o cualquier versión posterior. Ejecute `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
+Para realizar los pasos de este inicio rápido, se requiere la versión 0.7 o superior del módulo Az de Azure PowerShell. Ejecute `Get-InstalledModule -Name Az -AllVersions | select Name,Version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
 [!INCLUDE [storage-quickstart-tutorial-intro-include-powershell](../../../includes/storage-quickstart-tutorial-intro-include-powershell.md)]
 
