@@ -32,6 +32,6 @@ Los usuarios o las aplicaciones cliente pueden acceder a objetos en Blob Storage
 
 ## <a name="about-azure-data-lake-storage-gen2"></a>Acerca de Azure Data Lake Storage Gen2 
 
-Blob Storage es compatible con Azure Data Lake Storage Gen2, solución de análisis de macrodatos empresarial de Microsoft para la nube. Azure Data Lake Storage Gen2 ofrece un sistema de archivos jerárquico, así como las ventajas de Blob Storage, que incluyen las siguientes funcionalidades: almacenamiento de bajo costo y en niveles, alta disponibilidad, coherencia fuerte y recuperación ante desastres. 
+Blob Storage es compatible con Azure Data Lake Storage Gen2, solución de análisis de macrodatos empresariales de Microsoft para la nube. Azure Data Lake Storage Gen2 ofrece un sistema de archivos jerárquico, así como las ventajas de Blob Storage, que incluyen las siguientes funcionalidades: almacenamiento de bajo costo y en niveles, alta disponibilidad, coherencia fuerte y recuperación ante desastres. 
 
 Para más información sobre Data Lake Storage Gen2, consulte [Introduction to Azure Data Lake Storage Gen2 Preview](../articles/storage/data-lake-storage/introduction.md) (Introducción a la versión de preliminar de Azure Data Lake Storage Gen2).
