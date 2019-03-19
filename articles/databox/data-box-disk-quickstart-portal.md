@@ -41,7 +41,7 @@ Este paso tarda aproximadamente 5 minutos.
 1. Cree un nuevo recurso de Azure Data Box en Azure Portal. 
 2. Seleccione una suscripción habilitada para este servicio y elija el tipo de transferencia como de **importación**. Proporcione el **país de origen** donde residen los datos y la **región de destino de Azure** para la transferencia de datos.
 3. Seleccione **Data Box Disk**. La capacidad máxima de la solución es de 35 TB y puede crear varios pedidos de disco para los tamaños de datos mayores.  
-4. Escriba los detalles del pedido y la información de envío. Si el servicio está disponible en su región, proporcione las direcciones de correo electrónico de notificación, revise el resumen y, a continuación, cree el pedido. 
+4. Escriba los detalles del pedido y la información de envío. Si el servicio está disponible en su región, proporcione las direcciones de correo electrónico de notificación, revise el resumen, y a continuación, cree el pedido. 
 
 Una vez que se creó el pedido, los discos están preparados para su envío. 
 
