@@ -35,7 +35,7 @@ ms.locfileid: "59547311"
 
 ## <a name="create-a-web-app"></a>Creación de una aplicación web
 
-Cree una [aplicación web](../overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). No olvide reemplazar `<app name>` por un nombre de aplicación único global.
+Crear una [aplicación web](../overview.md) en el plan de App Service `myAppServicePlan` con el comando [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). No olvide reemplazar `<app name>` por un nombre de aplicación único global.
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --deployment-container-image-name microsoft/azure-appservices-go-quickstart
