@@ -119,8 +119,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
             {
                 var settings = config.Build();
                 config.AddAzureAppConfiguration(options => {
-                    options.Connect(settings["ConnectionStrings:AppConfig"])
-                           .SetOfflineCache(new OfflineFileCache());
+                    options.Connect(settings["ConnectionStrings:AppConfig"]);                          
                 });
             })
             .UseStartup<Startup>();
