@@ -3,8 +3,8 @@ title: Problemas al agregar una aplicación de la galería de Azure AD | Microso
 description: Conozca los problemas habituales a los que se enfrentan los usuarios al agregar aplicaciones de la galería de Azure AD y los pasos que se deben dar para resolverlos
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a898b5b235099109fcfeaaa4d647493e54caf57e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b2b42880f99f3e87d75854166047896860f9eb14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60438802"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784425"
 ---
 # <a name="problem-adding-an-azure-ad-gallery-application"></a>Problemas al agregar una aplicación de la galería de Azure AD
 
@@ -40,7 +40,7 @@ Si se produce un error al hacer clic en el botón **Agregar**, verá una **notif
 
 ## <a name="i-dont-know-how-to-set-up-my-application-once-ive-added-it"></a>No sé cómo configurar mi aplicación una vez que la he agregado
 
-Si necesita ayuda para obtener información sobre las aplicaciones, el artículo [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) es un buen punto de partida.
+Si necesita ayuda para obtener más información sobre las aplicaciones, el [lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) artículo es un buen lugar para comenzar.
 
 Además, la [biblioteca de documentos de las aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-apps-index) le ayudará a obtener más información sobre el inicio de sesión único con Azure AD y así poder saber cómo funciona.
 
@@ -48,7 +48,7 @@ Además, la [biblioteca de documentos de las aplicaciones de Azure AD](https://d
 
 Puede ver los detalles de cualquier notificación del portal si sigue los pasos siguientes:
 
-1.  Haga clic en el icono de **notificaciones** (con forma de campana) de la esquina superior derecha de Azure Portal.
+1.  Seleccione el **notificaciones** icono (la campana) en la esquina superior derecha del portal de Azure
 
 2.  Seleccione cualquier notificación con un estado de **Error** (aquellas con un icono (!) de color rojo situado junto a ellas).
 
@@ -93,7 +93,7 @@ Consulte las descripciones siguientes para más información acerca de las notif
 
   -   Por ejemplo: **2017-03-23T19:50:43.7583681Z**
 
-- **Identificador de transacción interno**: el identificador interno que podemos utilizar para buscar el error en nuestros sistemas
+- **Identificador de transacción interno** : el identificador interno que podemos usar para buscar el error en nuestros sistemas
 
   -   Por ejemplo: **71a2f329-ca29-402f-aa72-bc00a7aca603**
 

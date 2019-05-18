@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 03/15/2019
 ms.author: jnoller
-ms.openlocfilehash: 5ff1ee03b8ac170def03576d3bf99c70957b2a8b
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 9c67902f8a6c10552ea60fed145afc24f82b01a1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507971"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594297"
 ---
 # <a name="customize-coredns-with-azure-kubernetes-service"></a>Personalizar CoreDNS con Azure Kubernetes Service
 
@@ -86,7 +86,7 @@ metadata:
   namespace: kube-system
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
-    .:53 {
+    <domain to be rewritten>.com:53 {
         proxy foo.com 1.1.1.1
     }
 ```

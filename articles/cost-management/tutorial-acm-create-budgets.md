@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 04/09/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: eab45948b5f931377396d93d93e8955ba0f3e767
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61024969"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792852"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -26,6 +26,9 @@ Los presupuestos mensuales se evalúan en función del gasto cada cuatro horas. 
 Los presupuestos se restablecen automáticamente al final de un período (mensual, trimestral o anualmente) para el mismo importe presupuestario al seleccionar una fecha de expiración futura. Dado que se restablecen con el mismo importe presupuestario, deberá crear presupuestos independientes cuando los importes presupuestarios en moneda difieran para períodos futuros.
 
 Los ejemplos de este tutorial le guiarán a través de la creación y edición de un presupuesto para una suscripción de Contrato Enterprise (EA) de Azure.
+
+Inspección del [cómo crear un presupuesto para supervisar los gastos con Azure Cost Management](https://www.youtube.com/watch?v=ExIVG_Gr45A) vídeo para ver cómo puede crear los presupuestos de Azure para supervisar los gastos.
+
 
 En este tutorial, aprenderá a:
 
@@ -47,7 +50,7 @@ Los siguientes permisos de Azure, o ámbitos, se admiten por suscripción para l
 
 Para más información sobre cómo asignar permisos a los datos de Cost Management, consulte [Asignación del acceso a los datos de Cost Management](assign-access-acm-data.md).
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 - Inicie sesión en Azure Portal en https://portal.azure.com.
 

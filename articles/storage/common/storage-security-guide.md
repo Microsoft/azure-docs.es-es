@@ -9,18 +9,18 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 48ebbabca8d38db3a7c1344981f79991de29df80
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 3d5bfa2426d58fa5a09d2203272536eec7fa9c55
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154396"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789952"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
 Azure Storage proporciona un completo conjunto de funcionalidades de seguridad que, conjuntamente, permiten a los desarrolladores compilar aplicaciones seguras:
 
-- Todos los datos escritos en Azure Storage se cifran automáticamente con el [cifrado del servicio Storage (SSE)](storage-service-encryption.md). Para obtener más información, consulte [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Presentación del cifrado predeterminado de Azure Blobs, Files, Table y Queue Storage).
+- Todos los datos (incluidos los metadatos) escritos en Azure Storage se cifran automáticamente con [Storage Service Encryption (SSE)](storage-service-encryption.md). Para obtener más información, consulte [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Presentación del cifrado predeterminado de Azure Blobs, Files, Table y Queue Storage).
 - Azure Active Directory (Azure AD) y el control de acceso basado en rol (RBAC) son compatibles con Azure Storage para las operaciones de administración de recursos y las operaciones de datos, como se indica a continuación:   
     - Puede asignar roles de RBAC en el ámbito de la cuenta de almacenamiento para las entidades de seguridad y utilizar Azure AD para autorizar las operaciones de administración de recursos, como la administración de claves.
     - Integración de Azure AD se admite para las operaciones de datos de blob y cola. Puede asignar roles de RBAC en el ámbito de una suscripción, un grupo de recursos, una cuenta de almacenamiento, un contenedor individual o una cola a una entidad de seguridad o identidad administrada para los recursos de Azure. Para obtener más información, consulte [Autenticación del acceso a Azure Storage con Azure Active Directory](storage-auth-aad.md).   
@@ -238,10 +238,9 @@ Para más información sobre el uso de Firmas de acceso compartido y Directivas 
     Este artículo proporciona ejemplos de cómo utilizar una SAS de nivel de servicio con blobs, mensajes de cola, intervalos de tabla y archivos.
   * [Creación de una SAS de servicio](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Creación de una SAS de cuenta](https://msdn.microsoft.com/library/mt584140.aspx)
-* Se trata de tutoriales para usar la biblioteca de cliente .NET a fin de crear Firmas de acceso compartido y Directivas de acceso almacenadas.
 
-  * [Uso de Firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
-  * [Firmas de acceso compartido, Parte 2: Creación y uso de una Firma de acceso compartido con Blob service](../blobs/storage-dotnet-shared-access-signature-part-2.md)
+* Este es un tutorial para usar la biblioteca de cliente de .NET para crear firmas de acceso compartido y directivas de acceso almacenadas.
+  * [Uso de firmas de acceso compartido (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
 
     Este artículo incluye una explicación del modelo de SAS, ejemplos de SAS y recomendaciones para el mejor uso práctico de SAS. También trata la revocación de los permisos concedidos.
 
@@ -433,7 +432,7 @@ Puede utilizar el Analizador de mensajes de Microsoft para ver y analizar estos 
 
   Este artículo es la referencia para el Analizador de mensajes de Microsoft e incluye vínculos a un tutorial, al inicio rápido y al resumen de características.
 
-## <a name="cross-origin-resource-sharing-cors"></a>Uso compartido de recursos entre orígenes
+## <a name="cross-origin-resource-sharing-cors"></a>Uso compartido de recursos entre orígenes (CORS)
 ### <a name="cross-domain-access-of-resources"></a>Acceso entre dominios de recursos
 Cuando un explorador web que se ejecuta en un dominio realiza una solicitud HTTP para un recurso desde un dominio diferente, el proceso se denomina solicitud HTTP entre orígenes. Por ejemplo, una página HTML atendida desde contoso.com realiza una solicitud para un jpeg hospedado en fabrikam.blob.core.windows.net. Por motivos de seguridad, los exploradores restringen las solicitudes HTTP entre orígenes iniciadas desde scripts, como JavaScript. Esto significa que cuando el código JavaScript de una página web en contoso.com solicite jpeg en fabrikam.blob.core.windows.net, el explorador no permitirá la solicitud.
 

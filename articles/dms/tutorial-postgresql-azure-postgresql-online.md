@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/01/2019
-ms.openlocfilehash: 67212986e0478a03ac2ef1b5f30488cc1c7f869d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/08/2019
+ms.openlocfilehash: d7bd2555753df4c12404844c86be8f0339d88e23
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65137426"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65415705"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-database-for-postgresql-online-using-dms"></a>Tutorial: Migración de PostgreSQL a Azure Database for PostgreSQL en línea mediante DMS
 
@@ -24,7 +24,6 @@ Puede usar Azure Database Migration Service para migrar las bases de datos de un
 
 En este tutorial, aprenderá a:
 > [!div class="checklist"]
-
 > * Migre el esquema de ejemplo mediante la utilidad pg_dump.
 > * Crear una instancia de Azure Database Migration Service.
 > * Crear un proyecto de migración mediante Azure Database Migration Service.
@@ -46,10 +45,10 @@ Para completar este tutorial, necesita:
     Además, la versión de PostgreSQL local debe coincidir con la base de datos de Azure Database for PostgreSQL. Por ejemplo, PostgreSQL 9.5.11.5 solo puede migrarse a Azure Database for PostgreSQL 9.5.11 y no a la versión 9.6.7.
 
     > [!NOTE]
-    > Para PostgreSQL versión 10, DMS solo admite en la actualidad la migración de la versión 10.3 a Azure Database for PostgreSQL. Tenemos previsto admitir versiones más recientes de PostgreSQL muy pronto.
+    > Para PostgreSQL versión 10, DMS solo admite en la actualidad la migración de la versión 10.3 a Azure Database for PostgreSQL.
 
 * [Creación de una instancia en Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).  
-* Cree una instancia de Azure Virtual Network (VNET) para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+* Cree una red virtual de Azure para Azure Database Migration Service usando el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen locales mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Para más información acerca de cómo crear una red virtual, consulte la [documentación de Virtual Network](https://docs.microsoft.com/azure/virtual-network/) y, concretamente, los artículos de inicio rápido que proporcionan instrucciones paso a paso.
 
     > [!NOTE]
     > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de redes con Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
@@ -59,12 +58,13 @@ Para completar este tutorial, necesita:
     >
     > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a internet.
 
-* Asegúrese de que las reglas del grupo de seguridad de red (NSG) de VNET no bloquean los siguientes puertos de comunicación de entrada a Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, consulte el artículo [Planear redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+* Asegúrese de que las reglas del grupo de seguridad de red (NSG) de VNET no bloquean los siguientes puertos de comunicación de entrada a Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para más información sobre el filtrado del tráfico con grupos de seguridad de red para redes virtuales de Azure, consulte el artículo [Planeamiento de redes virtuales](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 * Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra el Firewall de Windows para permitir que Azure Database Migration Service tenga acceso al servidor PostgreSQL de origen que, de manera predeterminada, es el puerto TCP 5432.
 * Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 * Cree una [regla de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) en el nivel de servidor para que Azure Database for PostgreSQL permita a Azure Database Migration Service tener acceso a las bases de datos de destino. Proporcione el intervalo de subred de la red virtual usada para Azure Database Migration Service.
 * Hay dos métodos para invocar la CLI:
+
     * En la esquina superior derecha de Azure Portal, seleccione el botón Cloud Shell:
 
        ![Botón Cloud Shell en Azure Portal](media/tutorial-postgresql-to-azure-postgresql-online/cloud-shell-button.png)
@@ -210,6 +210,7 @@ Para completar todos los objetos de base de datos como esquemas de tabla, índic
    ```
 
    Por ejemplo, el comando siguiente creará un servicio en:
+
    * Ubicación: Este de EE. UU. 2
    * Suscripción: 97181df2-909d-420b-ab93-1bff15acb6b7
    * Nombre del grupo de recursos: PostgresDemo
@@ -525,4 +526,4 @@ Si necesita cancelar o eliminar cualquier tarea, proyecto o servicio de DMS, rea
 
 * Para información sobre problemas y limitaciones conocidos al realizar migraciones en línea a Azure Database for PostgreSQL, consulte el artículo [Known issues and workarounds with Azure Database for PostgreSQL online migrations](known-issues-azure-postgresql-online.md) (Problemas conocidos y soluciones alternativas con migraciones en línea de Azure Database for PostgreSQL).
 * Para más información sobre Azure Database Migration Service, consulte el artículo [¿Qué es Azure Database Migration Service?](https://docs.microsoft.com/azure/dms/dms-overview)
-* Para información sobre Azure Database for PostgreSQL, consulte el artículo [¿Qué es Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview)
+* Para más información sobre Azure Database for PostgreSQL, consulte el artículo [¿Qué es Azure Database for PostgreSQL?](https://docs.microsoft.com/azure/postgresql/overview)

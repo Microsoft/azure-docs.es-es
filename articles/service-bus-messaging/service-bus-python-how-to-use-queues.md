@@ -14,12 +14,12 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: f2605ee5688a86de0a8e7d036aa63edd604c6538
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59795022"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787193"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Uso de colas de Service Bus con Python
 
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a crear aplicaciones de Python para enviar y recibi
         > Creará un **cola** en el espacio de nombres de Service Bus con Python en este tutorial. 
 1. Instalar Python o el [paquete Python Azure Service Bus][Python Azure Service Bus package], consulte el [Guía de instalación de Python](../python-how-to-install.md). Consulte la documentación completa del SDK de Python de Bus de servicio [aquí](/python/api/overview/azure/servicebus?view=azure-python).
 
-## <a name="create-a-queue"></a>Creación de una cola
+## <a name="create-a-queue"></a>Crear una cola
 El **ServiceBusClient** objeto le permite trabajar con colas. Agregue el siguiente código cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Service Bus mediante programación:
 
 ```python
@@ -60,11 +60,7 @@ sb_client.create_queue("taskqueue")
 El método `create_queue` también admite opciones adicionales, que le permiten invalidar la configuración predeterminada de las colas, como el período de vida de los mensajes (TTL) o el tamaño máximo de las colas. En el siguiente ejemplo se establece el tamaño máximo de las colas en 5 GB y el valor de TTL en 1 minuto:
 
 ```python
-queue_options = Queue()
-queue_options.max_size_in_megabytes = '5120'
-queue_options.default_message_time_to_live = 'PT1M'
-
-sb_client.create_queue("taskqueue", queue_options)
+sb_client.create_queue("taskqueue", max_size_in_megabytes=5120, default_message_time_to_live=datetime.timedelta(minutes=1))
 ```
 
 Para obtener más información, consulte [documentación de Python de Azure Service Bus](/python/api/overview/azure/servicebus?view=azure-python).
@@ -82,7 +78,7 @@ queue_client = QueueClient.from_connection_string("<CONNECTION STRING>", "<QUEUE
 
 # Send a test message to the queue
 msg = Message(b'Test Message')
-queue_client.send(Message("Message"))
+queue_client.send(msg)
 ```
 
 El tamaño máximo de mensaje que admiten las colas de Service Bus es de 256 KB en el [nivel Estándar](service-bus-premium-messaging.md) y de 1 MB en el [nivel Premium](service-bus-premium-messaging.md). El encabezado, que incluye propiedades de la aplicación estándar y personalizadas, puede tener un tamaño máximo de 64 KB. No hay límite para el número de mensajes que contiene una cola, pero hay un tope para el tamaño total de los mensajes contenidos en una cola. El tamaño de la cola se define en el momento de la creación, con un límite de 5 GB. Para obtener más información sobre las cuotas, vea [Cuotas de Service Bus][Service Bus quotas].

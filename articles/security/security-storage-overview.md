@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 262ccc311b2b7ec634183eb4f914902048ba2c3b
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 74c24e05d974c4b3bb15a242185b645231f74580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872038"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792780"
 ---
 # <a name="azure-storage-security-overview"></a>Información general sobre seguridad de Azure Storage
 
@@ -34,7 +34,7 @@ Igualmente, en este artículo se ofrece información general de las característ
 
 Para obtener más información sobre la seguridad en Azure Storage, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md). En esta guía se proporciona información detallada de las características de seguridad de Azure Storage. Estas características incluyen las claves de cuenta de almacenamiento, el cifrado de datos en tránsito y en reposo y el análisis de almacenamiento.
 
-## <a name="role-based-access-control"></a>Control de acceso basado en roles
+## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
 Puede proteger su cuenta de almacenamiento mediante el control de acceso basado en roles (RBAC). En organizaciones que quieren aplicar directivas de seguridad para el acceso a los datos, es imperativo restringir el acceso en función de los principios de seguridad [necesidad de saber](https://en.wikipedia.org/wiki/Need_to_know) y [mínimo privilegio](https://en.wikipedia.org/wiki/Principle_of_least_privilege). Estos derechos de acceso se conceden al asignar el rol RBAC adecuado a grupos y aplicaciones de un determinado ámbito. Puede aprovechar los [roles integrados de RBAC](../role-based-access-control/built-in-roles.md), tales como el de colaborador de la cuenta de almacenamiento, para asignar privilegios a los usuarios.
 
@@ -51,7 +51,7 @@ La SAS es un URI que incluye en sus parámetros de consulta toda la información
 Más información:
 
 * [Firmas de acceso compartido, Parte 1: Descripción del modelo SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
-* [Crear y usar una SAS con Blob Storage](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md)
+* [Crear y usar una SAS con Blob Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md)
 
 ## <a name="encryption-in-transit"></a>Cifrado en tránsito
 
@@ -85,7 +85,7 @@ Azure Disk Encryption para máquinas virtuales le ayuda a abordar la seguridad d
 
 Cifrado de discos para máquinas virtuales funciona en sistemas operativos Linux y Windows. También utiliza Key Vault para ayudarle a proteger, administrar y auditar el uso de las claves de cifrado del disco. Todos los datos de los discos de máquinas virtuales se cifran en reposo mediante la tecnología de cifrado estándar del sector en las cuentas de Azure Storage. La solución Cifrado de discos para Windows se basa en la tecnología de [Cifrado de unidad BitLocker de Microsoft](https://technet.microsoft.com/library/cc732774.aspx), y la solución de Linux se basa en [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt).
 
-Más información
+Obtenga más información
 
 * [Azure Disk Encryption for Windows and Linux Azure Virtual Machines (Azure Disk Encryption para máquinas virtuales IaaS de Linux y Windows)](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
 
@@ -123,6 +123,6 @@ Más información:
 
 Azure Disk Encryption usa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) para ayudarle a controlar y administrar las claves y los secretos de cifrado de discos en la suscripción de Key Vault. Gracias a ello, se garantiza que todos los datos de los discos de máquinas virtuales se cifren en reposo en Azure Storage. Debe usar Key Vault para auditar el uso de la directiva y las claves.
 
-Más información
+Obtenga más información
 
 * [¿Qué es Azure Key Vault?](../key-vault/key-vault-overview.md)

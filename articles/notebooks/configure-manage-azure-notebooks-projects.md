@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234720"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596743"
 ---
 # <a name="manage-and-configure-projects"></a>Administración y configuración de proyectos
 
@@ -37,38 +37,7 @@ Azure Notebooks inicia la máquina virtual subyacente cada vez que ejecuta un cu
 
 ## <a name="compute-tier"></a>Nivel de proceso
 
-La lista desplegable **Ejecutar** del panel de proyecto es donde selecciona el nivel de proceso en el que se ejecuta el proyecto. De forma predeterminada, los proyectos se ejecutan en el nivel **Free Compute** (Proceso gratuito), que está limitado a 4 GB de memoria y 1 GB de datos para evitar abusos:
-
-![Lista desplegable de nivel de proceso del panel del proyecto](media/project-compute-tier-list.png)
-
-Puede omitir estas limitaciones mediante el uso de una máquina virtual diferente que se haya aprovisionado en una suscripción a Azure. Debe instalar y ejecutar JupyterHub en esa máquina virtual. Las imágenes de Data Science Virtual Machine (en cualquier sistema operativo) son opciones válidas porque incluyen JupyterHub de forma predeterminada.
-
-Ya con una máquina virtual de Azure configurada adecuadamente, seleccione la opción **Direct Compute** (Proceso directo) de la lista desplegable, que le pedirá un nombre (que mostrar en la lista), la dirección IP y puerto (normalmente 8000, el puerto predeterminado al que JupyterHub escucha) de la máquina virtual y sus credenciales:
-
-![Solicitud para recopilar información del servidor para la opción Direct Compute (Proceso directo)](media/project-compute-tier-direct.png)
-
-Si se cumplen las condiciones siguientes, la lista desplegable también muestra instancias de [Data Science Virtual Machine (DSVM)](/azure/machine-learning/data-science-virtual-machine). (Si no se cumple alguna de estas condiciones, todavía puede conectarse a la instancia de DSVM mediante la opción Direct Compute (Proceso directo) y la introducción de los valores obtenidos en Azure Portal).
-
-- Ha iniciado sesión en Azure Notebooks con una cuenta que usa Azure Active Directory (AAD), como una cuenta de empresa.
-- La cuenta está conectada a una suscripción a Azure.
-- Tiene una o varias máquinas virtuales en esa suscripción, con acceso de lectura por lo menos, que usan la imagen de Data Science Virtual Machine para Linux (Ubuntu).
-
-![Instancias de Data Science Virtual Machine en la lista desplegable del panel del proyecto](media/project-compute-tier-dsvm.png)
-
-Al seleccionar una instancia de DSVM, Azure Notebooks puede solicitar las credenciales de la máquina específica que usó cuando creó la VM.
-
-Para crear una nueva instancia de DSVM, siga las instrucciones de la sección [Create an Ubuntu Data Science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro) (Creación de un entorno de Data Science VM de Ubuntu). Use la imagen **Data Science Virtual Machine para Linux (Ubuntu)** si desea que DSVM aparezca en la lista desplegable de Azure Notebooks.  Si por otros motivos se debe usar la imagen de Windows o CentOS, puede usar la opción **Direct Compute** (Proceso directo) para conectarse a la instancia de DSVM manualmente.
-
-> [!IMPORTANT]
-> Al usar máquinas virtuales de ciencia de datos o un proceso directo, los blocs de notas que se ejecuta en ellos deben estar completamente autocontenidas. En la actualidad, Azure Notebooks copia únicamente la *.ipynb* archivo a la máquina virtual, pero no copiar ningún otro archivo en el proyecto. Como resultado, blocs de notas que se ejecutan en otras máquinas virtuales no encontrar otros archivos de proyecto.
->
-> Puede solucionar este comportamiento de dos maneras:
->
-> 1. Copiar manualmente los archivos de proyecto a la máquina virtual.
->
-> 2. Incrustar los archivos dentro de un bloc de notas de instalación que ejecute antes que el Bloc de notas principal. En el Bloc de notas de instalación, cree una celda de código para cada archivo donde la celda contiene el contenido del archivo. A continuación, en la parte superior de cada celda, inserte el comando `%%writefile <filename>`, donde `<filename>` es el nombre del archivo que recibe el contenido. Al ejecutar el Bloc de notas, crea todos esos archivos en la máquina virtual. Para obtener un ejemplo, vea el [setup.ipynb archivo en la demostración de Microsoft mascota Detector](https://github.com/Microsoft/connect-petdetector/blob/master/setup.ipynb) (GitHub).
->
->     ![Mediante un %% comando writefile al principio de una celda de código](media/setup-notebook-writefile-command.png)
+De forma predeterminada, los proyectos se ejecutan el **gratuitos Compute** nivel, que está limitado a 4 GB de memoria y 1 GB de datos para evitar abusos. Puede omitir estas limitaciones y aumentar la capacidad de proceso mediante el uso de una máquina virtual diferente que se ha aprovisionado en una suscripción de Azure. Para obtener más información, consulte [cómo usar Data Science Virtual Machines](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Edición de los metadatos del proyecto
 
@@ -76,8 +45,8 @@ En el panel del proyecto, seleccione **Configuración del proyecto** y la pesta�
 
 | Configuración | DESCRIPCIÓN |
 | --- | --- |
-| Nombre de proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. Por ejemplo, "Hola mundo en Python". |
-| Identificador del proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto. Este identificador puede usar solo letras, números y guiones, se limita a 30 caracteres y no puede ser un [reservado Id. de proyecto](create-clone-jupyter-notebooks.md#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
+| Nombre del proyecto | Un nombre descriptivo para el proyecto que usa Azure Notebooks para fines de presentación. Por ejemplo, "Hola mundo en Python". |
+| Id. de proyecto | Un identificador personalizado que se vuelve parte de la dirección URL que usa para compartir un proyecto. Este identificador puede usar solo letras, números y guiones, se limita a 30 caracteres y no puede ser un [reservado Id. de proyecto](create-clone-jupyter-notebooks.md#reserved-project-ids). Si no está seguro de qué usar, una convención común es usar una versión en minúsculas del nombre del proyecto, donde los espacios se convierten en guiones, como "mi-proyecto-de-cuaderno" (truncado si es necesario para que se ajuste al límite de longitud). |
 | Proyecto público | Si se establece, permite a cualquier usuario con el vínculo acceder al proyecto. Al crear un proyecto privado, desactive esta opción. |
 | Ocultar clones | Si se establece, otros usuario no podrán ver una lista de los clones que se han realizado para este proyecto. Ocultar clones resulta útil para los proyectos que se comparten con muchas personas que no forman parte de la misma organización, como cuando se usa un cuaderno para impartir una clase. |
 
@@ -100,7 +69,7 @@ El comando **+ Nuevo** (método abreviado de teclado: n) crea archivos o carpeta
 | **Archivo en blanco** | Un archivo donde puede almacenar cualquier contenido, como texto, datos, etc. | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre del archivo. |
 | **Markdown** | Un archivo Markdown. | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre del archivo. |
 
-### <a name="upload-files"></a>Carga de archivos
+### <a name="upload-files"></a>Cargar archivos
 
 El comando **Cargar** proporciona dos opciones para importar datos desde otras ubicaciones: **From URL** (Desde dirección URL) y **From Computer** (Desde equipo). Para más información, consulte [Trabajar con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md).
 
@@ -112,17 +81,17 @@ Cada elemento de la lista de archivos del proyecto proporciona comandos a travé
 
 | Get-Help | Métodos abreviados de teclado | . |
 | --- | --- | --- |
-| Ejecute | r (o clic) | Ejecuta un archivo de Notebook. Otros tipos de archivo se abren para su visualización.  |
+| Ejecutar | r (o clic) | Ejecuta un archivo de Notebook. Otros tipos de archivo se abren para su visualización.  |
 | Copiar vínculo | y | Copia un vínculo al archivo en el Portapapeles. |
 | Ejecutar en JupyterLab | j | Ejecuta un cuaderno en JupyterLab, que es una interfaz más orientada al desarrollador que la que Jupyter proporciona habitualmente. |
-| Vista previa | p | Abre una vista previa en HTML del archivo. En Notebooks, la vista previa es una representación de solo lectura del cuaderno. Para más información, consulte la sección [Vista previa](#preview). |
+| Preview | p | Abre una vista previa en HTML del archivo. En Notebooks, la vista previa es una representación de solo lectura del cuaderno. Para más información, consulte la sección [Vista previa](#preview). |
 | Editar archivo | i | Abre el archivo para edición. |
 | Descargar | d | Descarga un archivo ZIP que contiene el archivo o el contenido de una carpeta. |
-| Cambiar nombre | a | Solicita un nombre nuevo para el archivo o carpeta. |
+| Cambiar nombre | un | Solicita un nombre nuevo para el archivo o carpeta. |
 | Eliminar | x | Solicita confirmación y luego quita de manera permanente el archivo del proyecto. Las eliminaciones no se pueden deshacer. |
-| Move | m | Mueve un archivo a otra carpeta del mismo proyecto. |
+| Mover | min | Mueve un archivo a otra carpeta del mismo proyecto. |
 
-#### <a name="preview"></a>Vista previa
+#### <a name="preview"></a>Preview
 
 La vista previa de un archivo o cuaderno es una vista de solo lectura del contenido; la ejecución de las celdas del cuaderno está deshabilitada. Se muestra una vista previa a cualquier persona que tenga un vínculo al archivo o al cuaderno y que no haya iniciado sesión en Azure Notebooks. Una vez que haya iniciado sesión, un usuario puede clonar el cuaderno en su propia cuenta, o bien descargar el cuaderno a su equipo local.
 
@@ -131,8 +100,8 @@ La página de vista previa admite varios comandos de barra de herramientas con m
 | Get-Help | Métodos abreviados de teclado | . |
 | --- | --- | --- |
 | Compartir | s | Muestra la ventana emergente de uso compartido donde puede obtener un vínculo, compartir en las redes sociales, obtener el código HTML para insertarlo y enviar un correo electrónico. |
-| Clon | c  | Clone el cuaderno en su cuenta. |
-| Ejecute | r | Ejecute el cuaderno si tiene permiso para hacerlo. |
+| Clonar | c  | Clone el cuaderno en su cuenta. |
+| Ejecutar | r | Ejecute el cuaderno si tiene permiso para hacerlo. |
 | Descargar | d | Descarga una copia del cuaderno. |
 
 ## <a name="configure-the-project-environment"></a>Configuración del entorno del proyecto

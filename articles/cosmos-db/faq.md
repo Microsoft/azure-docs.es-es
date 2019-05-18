@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e4ae9b7c96677ce494bea31a49b8db83d6bcb3c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60890550"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793803"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -222,7 +222,7 @@ Azure Cosmos DB aplica estándares y requisitos de seguridad estrictos. Las cuen
 
 Para más información, consulte [Conectar una aplicación de MongoDB a Azure Cosmos DB](connect-mongodb-account.md).
 
-¿Existen otros códigos de error adicionales que tenga que solucionar al usar la API de Azure Cosmos DB para MongoDB?
+### <a name="are-there-additional-error-codes-that-i-need-to-deal-with-while-using-azure-cosmos-dbs-api-for-mongodb"></a>¿Existen otros códigos de error adicionales que tenga que solucionar al usar la API de Azure Cosmos DB para MongoDB?
 
 Además de los códigos de error comunes de MongoDB, la API de Azure Cosmos DB para MongoDB tiene sus propios códigos de error:
 

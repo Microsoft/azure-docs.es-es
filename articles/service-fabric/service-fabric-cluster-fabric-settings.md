@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e992aae17f1217803b411a49c5d942efc501fbdc
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60386829"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606982"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -41,7 +41,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |CrlCheckingFlag|uint, el valor predeterminado es 0x40000000 |Dinámica| Marcas para la validación de la cadena de certificados del servicio o aplicación; p. ej., comprobación de CRL 0x10000000 CERT_CHAIN_REVOCATION_CHECK_END_CERT 0x20000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN 0x40000000 CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT 0x80000000 CERT_CHAIN_REVOCATION_CHECK_CACHE_ONLY. Establecer la configuración en 0 deshabilita la comprobación de CRL. dwFlags de CertGetCertificateChain proporciona una lista completa de valores admitidos: https://msdn.microsoft.com/library/windows/desktop/aa376078(v=vs.85).aspx  |
 |DefaultHttpRequestTimeout |Tiempo en segundos. El valor predeterminado es 120 |Dinámica|Especifique el intervalo de tiempo en segundos.  Proporciona el tiempo de espera de solicitud predeterminado para las solicitudes HTTP que se van a procesar en la puerta de enlace de aplicaciones HTTP. |
 |ForwardClientCertificate|bool, el valor predeterminado es FALSE|Dinámica|Si se establece en false, el proxy inverso no solicitará el certificado de cliente. Si se establece en true, el proxy inverso solicitará el certificado de cliente durante el protocolo de enlace SSL y reenviará la cadena con formato PEM con codificación Base64 al servicio en un encabezado denominado X-Client-Certificate. El servicio puede producir un error en la solicitud con un código de estado apropiado después de inspeccionar los datos del certificado. Si el valor es true y el cliente no presenta un certificado, el proxy inverso reenviará un encabezado vacío y dejará que el servicio gestione el caso. El proxy inverso actuará como una capa transparente. Para más información, consulte [Configuración de la autenticación de certificado](service-fabric-reverseproxy-configure-secure-communication.md#setting-up-client-certificate-authentication-through-the-reverse-proxy). |
-|GatewayAuthCredentialType |string, el valor predeterminado es "None" |estática| Indica el tipo de credenciales de seguridad que se usarán en el punto de conexión de la puerta de enlace de aplicaciones HTTP. Valores válidos son "None/X509. |
+|GatewayAuthCredentialType |string, el valor predeterminado es "None" |estática| Indica el tipo de credenciales de seguridad que se usa en los valores válidos del punto de conexión de puerta de enlace de http aplicación son None / X 509. |
 |GatewayX509CertificateFindType |string, el valor predeterminado es "FindByThumbprint". |Dinámica| Indica cómo buscar el certificado en el almacén especificado mediante el valor admitido GatewayX509CertificateStoreName: FindByThumbprint; FindBySubjectName. |
 |GatewayX509CertificateFindValue | string, el valor predeterminado es "". |Dinámica| Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary. |
 |GatewayX509CertificateFindValueSecondary | string, el valor predeterminado es "". |Dinámica|Valor del filtro de búsqueda usado para encontrar el certificado de puerta de enlace de aplicaciones HTTP. Este certificado se configura en el punto de conexión HTTP y también puede usarse para comprobar la identidad de la aplicación en caso de que la necesiten los servicios. Primero se busca FindValue y, si no existe, se busca FindValueSecondary.|

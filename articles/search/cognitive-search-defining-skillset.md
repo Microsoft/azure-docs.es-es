@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9eedf0be6089764c8111ae81d558f7e65af0a66d
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 010880304c5011bd5a767650aa0ae6b6103bdde2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021784"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540860"
 ---
 # <a name="how-to-create-a-skillset-in-an-enrichment-pipeline"></a>Creación de un conjunto de aptitudes en una canalización de enriquecimiento
 
@@ -173,7 +173,7 @@ Echemos un vistazo a la primera aptitud, que está integrado [habilidad de recon
 
 * La aptitud tiene una salida denominada ```"organizations"```. Salidas existen únicamente durante el procesamiento. Para encadenar esta salida a la entrada de una aptitud de bajada, haga referencia a la salida como ```"/document/organizations"```.
 
-* Para un documento determinado, el valor de ```"/document/organizations"``` es una matriz de las organizaciones extraídas del texto. Por ejemplo: 
+* Para un documento determinado, el valor de ```"/document/organizations"``` es una matriz de las organizaciones extraídas del texto. Por ejemplo:
 
   ```json
   ["Microsoft", "LinkedIn"]
@@ -237,7 +237,7 @@ La salida, en este caso una descripción de la compañía, se genera para cada o
 
 ## <a name="add-structure"></a>Agregue estructura
 
-El conjunto de aptitudes genera información estructurada a partir de datos no estructurados. Considere el siguiente ejemplo:
+El conjunto de aptitudes genera información estructurada a partir de datos no estructurados. Considere el ejemplo siguiente:
 
 *"En el cuarto trimestre, Microsoft registró unos ingresos por valor de 1100 millones de dólares de LinkedIn, la compañía de red social que compró el año pasado. La adquisición permite a Microsoft combinar las funcionalidades de LinkedIn con su CRM y funcionalidades de Office. Los accionistas están satisfechos con el progreso hasta ahora.".*
 
@@ -249,7 +249,7 @@ Hasta ahora, ha sido esta estructura solo para uso interno, sólo en memoria y s
 
 ## <a name="add-a-knowledge-store"></a>Agregar un almacén de conocimiento
 
-[Conocimiento Store](knowledge-store-concept-intro.md) es una característica de vista previa de Azure Search para guardar el documento enriquecido. Un almacén de conocimiento que cree, respaldado por una cuenta de almacenamiento de Azure, es el repositorio donde llega los datos enriquecidos. 
+[Almacén de conocimiento](knowledge-store-concept-intro.md) es una característica de vista previa de Azure Search para guardar el documento enriquecido. Un almacén de conocimiento que cree, respaldado por una cuenta de almacenamiento de Azure, es el repositorio donde llega los datos enriquecidos. 
 
 Se agrega una definición de la tienda de conocimiento a un conjunto de habilidades. Para ver un tutorial de todo el proceso, consulte [cómo empezar a trabajar con el almacén de conocimiento](knowledge-store-howto.md).
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 7cc3a4d98901e618369c98ceee8125d2abbe94e3
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: dbf63ff47b11c2e75966b4a4b91fb1b00b40d216
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919962"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594278"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Peguntas más frecuentes sobre Azure App Service en Linux
 
@@ -39,13 +39,15 @@ Puede encontrar todos los archivos de Docker en [GitHub](https://github.com/azur
 
 **¿Cuáles son los valores previsibles para la sección del archivo de inicio cuando se configura la pila en tiempo de ejecución?**
 
-| Pila     | Valor esperado                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | un comando para iniciar su `.jar` aplicación                                    |
-| Tomcat    | la ubicación de una secuencia de comandos para ejecutar las configuraciones de la aplicación          |
-| Node.js   | el archivo de configuración de PM2 o el archivo de script                                |
-| .Net Core | el nombre de archivo DLL compilado como `dotnet <myapp>.dll`                                 |
-| Ruby      | el script de Ruby que se va a inicializar la aplicación con                     |
+| Pila           | Valor esperado                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | el comando para iniciar la aplicación del archivo JAR (por ejemplo, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | la ubicación de un script para realizar las configuraciones necesarias (por ejemplo, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | el archivo de configuración de PM2 o el archivo de script                                |
+| .Net Core       | el nombre de archivo DLL compilado como `dotnet <myapp>.dll`                                 |
+| Ruby            | el script de Ruby que se va a inicializar la aplicación con                     |
+
+Estos comandos o scripts se ejecutan después de que se inicia el contenedor de Docker integrado, pero antes de la aplicación se inicia el código.
 
 ## <a name="management"></a>Administración
 
@@ -202,5 +204,5 @@ Puede enviar su idea en el [foro de comentarios de Web Apps](https://aka.ms/weba
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [¿Qué es Azure App Service en Linux?](app-service-linux-intro.md)
-- [Configuración de entornos de ensayo en Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar entornos de ensayo en Azure App Service](../../app-service/deploy-staging-slots.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Implementación continua con Web App for Containers](./app-service-linux-ci-cd.md)

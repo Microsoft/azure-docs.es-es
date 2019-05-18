@@ -47,8 +47,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Presto:
 | type | La propiedad type debe establecerse en: **Presto** | Sí |
 | host | Dirección IP o nombre de host del servidor de Presto. (es decir, 192.168.222.160)  | Sí |
 | serverVersion | Versión del servidor de Presto. (es decir, 0.148-t)  | Sí |
-| catálogo | Contexto de catálogo para todas las solicitudes en el servidor.  | Sí |
-| puerto | Puerto TCP que el servidor de Presto utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8080.  | Sin  |
+| catalog | Contexto de catálogo para todas las solicitudes en el servidor.  | Sí |
+| port | Puerto TCP que el servidor de Presto utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8080.  | Sin  |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de Presto. <br/>Los valores permitidos son: **Anonymous** y **LDAP** | Sí |
 | username | Nombre de usuario que se usa para conectarse al servidor de Presto.  | Sin  |
 | password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |

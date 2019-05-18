@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: e64b18cef44a5fa6d63137f57fcada27adcd0299
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: da8d1000ebe2695dbc95d475027722962a3305d9
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205478"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555889"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -29,14 +29,14 @@ En este artículo se describen los cambios realizados en Azure Media Services v3
 Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de las [API heredadas de Media Services v2](../previous/media-services-overview.md), debe revisar las siguientes directrices y consideraciones antes de migrar a las API v3. Hay muchas ventajas y características nuevas de la API v3 que mejoran la experiencia del desarrollador y las funcionalidades de Media Services. Sin embargo, como se indica en la sección [Problemas conocidos](#known-issues) de este artículo, también hay algunas limitaciones debido a cambios entre las versiones de API. Se hará el mantenimiento de esta página, ya que el equipo de Media Services realiza mejoras continuas de las API v3 y aborda las deficiencias entre las versiones. 
 
 > [!NOTE]
-> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 ## <a name="benefits-of-media-services-v3"></a>Ventajas de Media Services v3
   
 ### <a name="api-is-more-approachable"></a>La API es más cercana
 
 *  v3 se basa en una superficie de API unificada que expone la funcionalidad de administración y operaciones creada en Azure Resource Manager. Las plantillas de Azure Resource Manager se pueden usar para crear e implementar transformaciones, puntos de conexión de streaming, Eventos en directo, etc.
-* Documento de la [especificación Open API (también conocida como Swagger)](https://aka.ms/ams-v3-rest-sdk).
+* [Especificación de OpenAPI (anteriormente denominado Swagger)](https://aka.ms/ams-v3-rest-sdk) documento.
     Expone el esquema para todos los componentes de servicio, incluida la codificación basada en archivos.
 * Diferentes SDK disponibles para [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref) y Ruby.
 * La integración de la [CLI de Azure](https://aka.ms/ams-v3-cli-ref) para la compatibilidad de scripting sencilla.
@@ -115,7 +115,7 @@ En la tabla siguiente se muestran las diferencias de código entre v2 y v3 para 
 > [!NOTE]
 > Se hará el mantenimiento de esta página, ya que el equipo de Media Services realiza mejoras continuas de las API v3 y aborda las deficiencias entre las versiones.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

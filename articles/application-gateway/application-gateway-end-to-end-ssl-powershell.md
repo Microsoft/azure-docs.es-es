@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: a4ce1ad347742886e7d89a32bbeb60c2e0281409
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8c715cb84dff6e2e739de59aba33041ec1b8db52
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65198556"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786282"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -231,6 +231,69 @@ Con todos los pasos anteriores, cree la puerta de enlace de aplicaciones. La cre
 $appgw = New-AzApplicationGateway -Name appgateway -SSLCertificates $cert -ResourceGroupName "appgw-rg" -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku -SSLPolicy $SSLPolicy -AuthenticationCertificates $authcert -Verbose
 ```
 
+## <a name="apply-a-new-certificate-if-the-back-end-certificate-is-expired"></a>Aplicar un certificado nuevo si ha caducado el certificado de back-end
+
+Utilice este procedimiento para aplicar un nuevo certificado si ha caducado el certificado de back-end.
+
+1. Recupere la puerta de enlace de aplicaciones que se actualizará.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Agregue el nuevo recurso de certificado desde el archivo .cer, que contiene la clave pública del certificado y también puede ser el mismo certificado que se agrega al agente de escucha para la terminación SSL en application gateway.
+
+   ```powershell
+   Add-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name 'NewCert' -CertificateFile "appgw_NewCert.cer" 
+   ```
+    
+3. Obtenga el nuevo objeto de certificado de autenticación en una variable (TypeName: Microsoft.Azure.Commands.Network.Models.PSApplicationGatewayAuthenticationCertificate).
+
+   ```powershell
+   $AuthCert = Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name NewCert
+   ```
+ 
+ 4. Asignar el nuevo certificado en el **BackendHttp** configuración y hacer referencia a él con la variable $AuthCert. (Especifique el nombre de la configuración de HTTP que desea cambiar.)
+ 
+   ```powershell
+   $out= Set-AzApplicationGatewayBackendHttpSetting -ApplicationGateway $gw -Name "HTTP1" -Port 443 -Protocol "Https" -CookieBasedAffinity Disabled -AuthenticationCertificates $Authcert
+   ```
+    
+ 5. Confirmar el cambio en la puerta de enlace de la aplicación y pasar la nueva configuración contenida en la variable $out.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw  
+   ```
+
+## <a name="remove-an-unused-expired-certificate-from-http-settings"></a>Quitar un certificado expirado sin usar de la configuración de HTTP
+
+Utilice este procedimiento para quitar un certificado expirado sin usar de la configuración de HTTP.
+
+1. Recupere la puerta de enlace de aplicaciones que se actualizará.
+
+   ```powershell
+   $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroupName AdatumAppGatewayRG
+   ```
+   
+2. Enumera el nombre del certificado de autenticación que desea quitar.
+
+   ```powershell
+   Get-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw | select name
+   ```
+    
+3. Quite el certificado de autenticación de una puerta de enlace de la aplicación.
+
+   ```powershell
+   $gw=Remove-AzApplicationGatewayAuthenticationCertificate -ApplicationGateway $gw -Name ExpiredCert
+   ```
+ 
+ 4. Confirmar el cambio.
+ 
+   ```powershell
+   Set-AzApplicationGateway -ApplicationGateway $gw
+   ```
+
+   
 ## <a name="limit-ssl-protocol-versions-on-an-existing-application-gateway"></a>Límite de las versiones del protocolo SSL en una puerta de aplicaciones existente
 
 Los pasos anteriores le han llevado por la creación de una aplicación con SSL de un extremo a otro y la deshabilitación de determinadas versiones del protocolo SSL. En el ejemplo siguiente se deshabilitan determinadas directivas SSL en una puerta de enlace de aplicaciones existente.

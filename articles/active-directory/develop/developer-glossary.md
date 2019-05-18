@@ -3,8 +3,8 @@ title: Guía del desarrollador de Microsoft identity platform | Azure
 description: Una lista de términos frecuente de las características y conceptos para desarrolladores de Microsoft identity platform.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -14,22 +14,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma, dadobali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 968da9212b52c1e7ea09d1472b312671c7a73449
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ea1dba09173b20d11a5022e6666e6c865ead62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410391"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540097"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Guía del desarrollador de plataforma de identidad de Microsoft
 
 En este artículo contiene las definiciones de algunos de los conceptos clave para desarrolladores y la terminología, que son útiles para obtener información sobre el desarrollo de aplicaciones con la plataforma Microsoft identity.
 
-## <a name="access-token"></a>de la aplicación Twitter
+## <a name="access-token"></a>token de acceso
 
 Un tipo de [token de seguridad](#security-token) emitido por un [servidor de autorización](#authorization-server) y usado por una [aplicación cliente](#client-application) para acceder a un [servidor de recursos protegidos](#resource-server). Normalmente en forma de [JSON Web Token (JWT)][JWT], el token personifica la autorización concedida al cliente por el [propietario del recurso](#resource-owner) para un nivel de acceso solicitado. El token contiene todas las [notificaciones](#claim) aplicables sobre el sujeto, lo que permite a la aplicación cliente utilizarlo como forma de credencial al acceder a un recurso determinado. Esto también elimina la necesidad de que el propietario del recurso exponga sus credenciales al cliente.
 
@@ -64,7 +64,7 @@ Para permitir que una aplicación integre y delegue las funciones de administrac
 
 Para más información, consulte [Integración de aplicaciones con Azure Active Directory][AAD-Integrating-Apps].
 
-## <a name="authentication"></a>Autenticación
+## <a name="authentication"></a>autenticación
 
 El acto de solicitar a un usuario credenciales legítimas, que proporciona la base para la creación de una entidad de seguridad que se utilizará para el control de identidades y de acceso. Por ejemplo, durante una [concesión de autorización de OAuth2](#authorization-grant), el usuario que se autentica está cumpliendo el rol de [propietario del recurso](#resource-owner) o de [aplicación cliente](#client-application), en función de la concesión usada.
 

@@ -1,23 +1,17 @@
 ---
 title: Bloqueo de recursos de Azure para impedir cambios | Microsoft Docs
 description: Impida que los usuarios actualicen o eliminen recursos de Azure esenciales aplicando un bloqueo para todos los usuarios y roles.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: 53c57e8f-741c-4026-80e0-f4c02638c98b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8942ae9a24613f7b7896cf7124b344d9d9315954
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a6c7983d22eed4a4232fbb2db490c1743684a04c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360449"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65813400"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloqueo de recursos para impedir cambios inesperados 
 
@@ -36,7 +30,13 @@ Al diferencia del control de acceso basado en rol, los bloqueos de administraci�
 
 Los bloqueos de Resource Manager solo se aplican a las operaciones que se producen en el plano de la administración, que consta de las operaciones enviadas a `https://management.azure.com`. Los bloqueos no restringen cómo los recursos realizan sus propias funciones. Los cambios de recursos están restringidos, pero no así las operaciones de recursos. Por ejemplo, un bloqueo ReadOnly en una instancia de SQL Database impide que elimine o modifique la base de datos. Pero no le impide crear, actualizar o eliminar datos de la base de datos. Las transacciones de datos se permiten porque esas operaciones no se envían a `https://management.azure.com`.
 
-Si aplica **ReadOnly** , pueden producirse resultados inesperados, ya que algunas operaciones que parecen ser similares a operaciones de lectura realmente requieren acciones adicionales. Por ejemplo, al colocar un bloqueo **ReadOnly** en una cuenta de almacenamiento, evita que se muestren las claves a todos los usuarios. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura. Otro ejemplo: al colocar un bloqueo **ReadOnly** en un recurso de servicio de App Service, evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
+Aplicar **ReadOnly** puede provocar resultados inesperados ya que algunas operaciones que no parecen modificar el recurso realmente requieren acciones que están bloqueadas por el bloqueo. El **ReadOnly** bloqueo puede aplicarse en el recurso o en el grupo de recursos que contiene el recurso. Algunos ejemplos comunes de las operaciones que están bloqueadas por un **ReadOnly** bloqueo son:
+
+* Un **ReadOnly** bloqueo en una cuenta de almacenamiento impide que todos los usuarios muestren las claves. La operación de visualización claves se administra mediante solicitudes POST debido a que las claves devueltas están disponibles para las operaciones de escritura.
+
+* Un bloqueo **ReadOnly** en un recurso de App Service evita que el Explorador de servidores de Visual Studio muestre los archivos del recurso, ya que esa interacción requiere acceso de escritura.
+
+* Un **ReadOnly** bloqueo en un grupo de recursos que contiene una máquina virtual, impide que todos los usuarios de iniciar o reiniciar la máquina virtual. Estas operaciones requieren una solicitud POST.
 
 ## <a name="who-can-create-or-delete-locks"></a>Quién puede crear o eliminar bloqueos
 Para crear o eliminar bloqueos de administración, debe tener acceso a las acciones `Microsoft.Authorization/*` o `Microsoft.Authorization/locks/*`. Entre los roles integrados, solamente se conceden esas acciones al **propietario** y al **administrador de acceso de usuarios**.
@@ -59,7 +59,7 @@ Tenga en cuenta el servicio incluye un vínculo para un **el grupo de recursos a
 
 Para eliminar todo el contenido para el servicio, incluido el grupo de recursos de infraestructura bloqueado, seleccione **eliminar** para el servicio.
 
-![Eliminar servicio](./media/resource-group-lock-resources/delete-service.png)
+![Eliminar el servicio](./media/resource-group-lock-resources/delete-service.png)
 
 ## <a name="portal"></a>Portal
 [!INCLUDE [resource-manager-lock-resources](../../includes/resource-manager-lock-resources.md)]

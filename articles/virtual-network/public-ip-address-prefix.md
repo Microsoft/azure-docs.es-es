@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: anavin
-ms.openlocfilehash: 68ca35590aaadba431d5f1dc06e0405162ebc69f
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 23cd77d4a2d0c8203670039dd44c878bf7217fd3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65154479"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799120"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
@@ -55,7 +55,7 @@ Puede asociar los siguientes recursos a una dirección IP pública estática des
 ## <a name="constraints"></a>Restricciones
 
 - No se pueden especificar las direcciones IP del prefijo. Azure asigna las direcciones IP para el prefijo, según el tamaño que especifique.
-- El tamaño predeterminado de un prefijo de es/28 o 16 direcciones IP públicas.
+- Puede crear un prefijo de hasta 16 direcciones IP o una de/28. Para más información, consulte [Límites de Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una vez que se ha creado el prefijo no se puede cambiar el intervalo.
 - El intervalo es solo para direcciones IPv4. El intervalo no contiene direcciones IPv6.
 - Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).

@@ -2,20 +2,20 @@
 title: Preguntas frecuentes sobre Azure SQL Data Warehouse | Microsoft Docs
 description: En este artículo se muestran las preguntas más frecuentes sobre Azure SQL Data Warehouse para clientes y desarrolladores
 services: sql-data-warehouse
-author: acomet
+author: happynicolle
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
 ms.date: 04/17/2018
-ms.author: acomet
+ms.author: nicw
 ms.reviewer: igorstan
-ms.openlocfilehash: 596ed857b39cf106ed2e37ad81c5fe9e939cca61
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c16d95ea15fc358cb81b17b42570cb35f2e8c52d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60747615"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795566"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>Preguntas más frecuentes de SQL Data Warehouse
 
@@ -31,7 +31,7 @@ A. Visite la página [Cumplimiento de Microsoft] para consultar diversas ofertas
 
 P: ¿Puedo conectar Power BI?
 
-A. Sí. Aunque Power BI admite la consulta directa con SQL Data Warehouse, no se ha diseñado para administrar gran cantidad de usuarios o datos en tiempo real. Para usar Power BI con fines de producción, se recomienda usar Power BI sobre IaaS de servicio de análisis o Azure Analysis Services. 
+A. ¡Sí! Aunque Power BI admite la consulta directa con SQL Data Warehouse, no se ha diseñado para administrar gran cantidad de usuarios o datos en tiempo real. Para usar Power BI con fines de producción, se recomienda usar Power BI sobre IaaS de servicio de análisis o Azure Analysis Services. 
 
 P: ¿Qué son los límites de capacidad de SQL Data Warehouse?
 

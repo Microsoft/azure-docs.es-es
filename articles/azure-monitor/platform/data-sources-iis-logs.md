@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 402cd4723791c0bc33db22c8857d1b785862f596
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5843ee11a615a2780e9fea2d89f7b18fb45706d8
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60614509"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604362"
 ---
 # <a name="collect-iis-logs-in-azure-monitor"></a>Recopilación de registros de IIS en Azure Monitor
 Internet Information Services (IIS) almacena la actividad de usuario en archivos de registro que Azure Monitor puede recopilar y almacenar como [datos de registro](data-platform.md).
 
-![Registros IIS](media/data-sources-iis-logs/overview.png)
+![Registros de IIS](media/data-sources-iis-logs/overview.png)
 
 ## <a name="configuring-iis-logs"></a>Configuración de registros de IIS
 Azure Monitor recopila entradas de archivos de registro creados por IIS, por lo que debe [configurar IIS para el registro](https://technet.microsoft.com/library/hh831775.aspx).
@@ -51,7 +51,7 @@ Los registros de IIS son del tipo **W3CIISLog** y tienen las propiedades que apa
 | csUriStem |El destino de la solicitud, como una página web. |
 | csUriQuery |La consulta que el cliente intentaba realizar, si corresponde. |
 | ManagementGroupName |Nombre del grupo de administración de agentes de Operations Manager.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
-| RemoteIPCountry |El país de la dirección IP del cliente. |
+| RemoteIPCountry |País o región de la dirección IP del cliente. |
 | RemoteIPLatitude |La latitud de la dirección IP del cliente. |
 | RemoteIPLongitude |La longitud de la dirección IP del cliente. |
 | scStatus |Código de estado HTTP. |

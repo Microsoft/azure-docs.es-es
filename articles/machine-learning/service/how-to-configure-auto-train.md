@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 64ba7096f181371a378708e024f46bce17449e98
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 194902cfa2992e4370b68bf140ec3a5e03f364ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510585"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597681"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurar automatizadas experimentos de aprendizaje automático en Python
 
@@ -79,8 +79,10 @@ Ejemplos:
 
     ```python
     import pandas as pd
+    from sklearn.model_selection import train_test_split
     df = pd.read_csv("https://automldemods.blob.core.windows.net/datasets/PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2.tsv", delimiter="\t", quotechar='"')
     # get integer labels
+    y = df["Label"]
     df = df.drop(["Label"], axis=1)
     df_train, _, y_train, _ = train_test_split(df, y, test_size=0.1, random_state=42)
     ```

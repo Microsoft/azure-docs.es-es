@@ -1,25 +1,18 @@
 ---
 title: Límites de solicitudes de Azure Resource Manager
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
-services: azure-resource-manager
-documentationcenter: na
-author: rockboyfor
-ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
+author: tfitzmac
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-origin.date: 03/05/2019
-ms.date: 03/18/2019
-ms.author: v-yeche
+ms.date: 05/14/2019
+ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fc731b1abec9c101356a0fa57eef498b58612ab9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60389736"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791354"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -33,7 +26,7 @@ Si la aplicación o el script alcanza estos límites, debe limitar las solicitud
 
 Cuando se alcanza este límite, recibirá el código de estado HTTP **429 Demasiadas solicitudes**.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+Recursos de Azure Graph limita el número de solicitudes para sus operaciones. Los pasos descritos en este artículo para determinar las solicitudes restantes y cómo responder cuando se alcanza el límite también se aplican a gráfico de recursos. Sin embargo, el gráfico de recursos establece su propio límite y restablecimiento de la velocidad. Para obtener más información, consulte [limitación de recursos de Azure Graph](../governance/resource-graph/overview.md#throttling).
 
 ## <a name="remaining-requests"></a>Solicitudes restantes
 Puede determinar el número de solicitudes restantes examinando los encabezados de respuesta. Las solicitudes de lectura devuelven un valor en el encabezado para el número de solicitudes de lectura restantes. Escribir las solicitudes incluyen un valor para el número de solicitudes de escritura restantes. En la tabla siguiente se describen los encabezados de respuesta que puede examinar para esos valores:
@@ -61,7 +54,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 En **PowerShell**, recupere el valor del encabezado de una operación Invoke-WebRequest.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -89,7 +82,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Para obtener los límites de escritura, utilice una operación de escritura: 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
+New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
 ```
 
 Esta operación devuelve muchos valores, incluidos los siguientes:
@@ -128,7 +121,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Para obtener los límites de escritura, utilice una operación de escritura: 
 
 ```azurecli
-az group create -n myresourcegroup --location chinanorth --verbose --debug
+az group create -n myresourcegroup --location westus --verbose --debug
 ```
 
 Esta operación devuelve muchos valores, incluidos los siguientes:
@@ -152,5 +145,3 @@ Cuando alcance el límite de solicitudes, Azure Resource Manager devuelve el có
 * Para obtener un ejemplo completo de PowerShell, consulte [comprobación de los límites de Resource Manager para una suscripción](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para más información acerca de límites y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 * Para obtener información sobre el control de solicitudes asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
-
-<!--Update_Description: update meta properties, update cmdlet -->

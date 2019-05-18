@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 04/19/2019
 ms.author: byvinyal
-ms.openlocfilehash: cb0203e3413ab525d6885f23c5936c64e1bef189
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: c8f1eaba726efe72e2b6845beaf1465d047c90d2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233706"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787656"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure
 Este documento enumeran algunos de los límites más comunes de Microsoft Azure, que a veces se denominan cuotas. Actualmente, este documento no cubre todos los servicios de Azure. Con el tiempo, se expande y actualizada para cubrir más servicios de la lista.
@@ -55,6 +55,7 @@ En la siguiente lista de límites, una nueva tabla refleja las diferencias en lo
 * [DNS de Azure](#azure-dns-limits)
 * [Azure Firewall](#azure-firewall-limits)
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
+* [Servicio Azure Machine Learning](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#monitor-limits)
 * [Azure Policy](#azure-policy-limits)
@@ -77,15 +78,22 @@ En la siguiente lista de límites, una nueva tabla refleja las diferencias en lo
 * [IoT Hub](#iot-hub-limits)
 * [Servicio IoT Hub Device Provisioning](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Equilibrador de carga](#load-balancer)
 * [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
 * [Redes](#networking-limits)
-* [Network Watcher](#network-watcher-limits)
+  * [Application Gateway](#application-gateway-limits)
+  * [DNS de Azure](#azure-dns-limits)
+  * [Servicio de puerta de Azure](#azure-front-door-service-limits)
+  * [Azure Firewall](#azure-firewall-limits)
+  * [ExpressRoute](#expressroute-limits)
+  * [Equilibrador de carga](#load-balancer)
+  * [Dirección IP pública](#publicip-address)
+  * [Network Watcher](#network-watcher-limits)
+  * [Traffic Manager](#traffic-manager-limits)
+  * [Virtual Network](#networking-limits)
 * [Centros de notificaciones](#notification-hubs-limits)
-* [Dirección IP pública](#publicip-address)
 * [Grupos de recursos](#resource-group-limits)
 * [Control de acceso basado en rol](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
@@ -97,7 +105,6 @@ En la siguiente lista de límites, una nueva tabla refleja las diferencias en lo
 * [Sistema de StorSimple](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [Suscripción](#subscription-limits)
-* [Traffic Manager](#traffic-manager-limits)
 * [Máquinas virtuales](#virtual-machines-limits)
 * [Conjuntos de escalado de máquinas virtuales](#virtual-machine-scale-sets-limits)
 
@@ -144,6 +151,11 @@ En la tabla siguiente se detallan las características y los límites de los [ni
 
 ### <a name="azure-kubernetes-service-limits"></a>Límites de Azure Kubernetes Service
 [!INCLUDE [container-service-limits](../includes/container-service-limits.md)]
+
+### <a name="azure-machine-learning-service-limits"></a>Límites de servicio de Azure Machine Learning
+Los valores más recientes para las cuotas de Azure Machine Learning Compute pueden encontrarse en el [página de cuotas de Azure Machine Learning](../articles/machine-learning/service/how-to-manage-quotas.md)
+
+[!INCLUDE [how-to-manage-quotas](../articles/machine-learning/service/how-to-manage-quotas.md)]
 
 ### <a name="networking-limits"></a>Límites de red
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]

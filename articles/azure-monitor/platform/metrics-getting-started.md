@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e611f1564896cfdecb3ce34ab7c5361e5200b48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3306e888970d99132d17d4ccf967f074302412ca
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60254137"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595457"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introducción al explorador de métricas de Azure
 
@@ -24,7 +24,7 @@ El explorador de métricas de Azure Monitor es un componente de Microsoft Azure 
 
 1. Pruebe [aplicar los filtros de dimensión y la división de](#apply-dimension-filters-and-splitting). Los filtros y le permiten analizar qué segmentos de la métrica que contribuyen al valor general métrico e identificar posibles valores atípicos de la división.
 
-1. Use [configuración avanzada](#advanced-chart-settings-and-next-steps) para personalizar el gráfico antes de anclar a paneles. [Configurar alertas](alerts-metric-overview.md) para recibir notificaciones cuando el valor de métrica supera o cae por debajo del umbral.
+1. Use [configuración avanzada](#advanced-chart-settings) para personalizar el gráfico antes de anclar a paneles. [Configurar alertas](alerts-metric-overview.md) para recibir notificaciones cuando el valor de métrica supera o cae por debajo del umbral.
 
 ## <a name="create-your-first-metric-chart"></a>Crear su primer gráfico de métricas
 
@@ -32,7 +32,7 @@ Para crear un gráfico de métricas desde su recurso, grupo de recursos, suscrip
 
 1. Con el selector de recursos, seleccione el recurso para el que desea ver las métricas. (El recurso se preselecciona si abrió **métricas** en el contexto de un recurso específico).
 
-    > ![Selección de un recurso](./media/metrics-getting-started/resource-picker.png)
+    > ![Seleccionar un recurso](./media/metrics-getting-started/resource-picker.png)
 
 2. Para algunos recursos, debe elegir un espacio de nombres. El espacio de nombres es una manera de organizar las métricas para que se puede encontrar fácilmente. Por ejemplo, las cuentas de almacenamiento tienen espacios de nombres independientes para almacenar las métricas de los archivos, tablas, Blobs y colas. Muchos tipos de recursos solo tienen un espacio de nombres.
 
@@ -45,7 +45,7 @@ Para crear un gráfico de métricas desde su recurso, grupo de recursos, suscrip
 > [!NOTE]
 > Use la **agregar métrica** botón y repita estos pasos si desea ver varias métricas trazadas en el mismo gráfico. Para varios gráficos en una vista, seleccione el **Agregar gráfico** botón en la parte superior.
 
-## <a name="select-a-time-range"></a>Selección de un intervalo de tiempo
+## <a name="select-a-time-range"></a>Seleccionar un intervalo de tiempo
 
 De forma predeterminada, el gráfico muestra las últimas 24 horas de datos de métricas. Use la **selector de hora** panel para cambiar el intervalo de tiempo, acercar o alejar en el gráfico. 
 
@@ -61,12 +61,13 @@ De forma predeterminada, el gráfico muestra las últimas 24 horas de datos de m
 
 Consulte [ejemplos de los gráficos](metric-chart-samples.md) que han filtrado y la división aplicado. El artículo muestra que los pasos utilizados para configurar los gráficos.
 
-## <a name="advanced-chart-settings-and-next-steps"></a>Configuración avanzada de los gráficos y los próximos pasos
+## <a name="advanced-chart-settings"></a>Configuración avanzada de los gráficos
 
 Puede personalizar el estilo del gráfico, título y modificar la configuración avanzada de los gráficos. Cuando haya terminado con la personalización, puede anclar al panel para guardar el trabajo. También puede configurar alertas de métricas. Siga [documentación del producto](metrics-charts.md) obtener información sobre estas y otras características avanzadas del explorador de métricas de Azure Monitor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ver una lista de métricas disponibles para servicios de Azure](metrics-supported.md)
 * [Obtenga información sobre las características avanzadas del explorador de métricas](metrics-charts.md)
+* [Solución de problemas de explorador de métricas](metrics-troubleshoot.md)
+* [Ver una lista de métricas disponibles para servicios de Azure](metrics-supported.md)
 * [Vea los ejemplos de gráficos configurados](metric-chart-samples.md)

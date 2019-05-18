@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.openlocfilehash: b36d721896bd7b4f95d831eded500a96969937c5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 33becd46747f957cce67fb7b2ace170a9aa402ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60631897"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606922"
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificaciones técnicas y cumplimiento normativo para el dispositivo StorSimple
 
@@ -93,7 +93,7 @@ En la tabla siguiente se enumeran las dimensiones del revestimiento en milímetr
 
 | Revestimiento | Milímetros | Pulgadas |
 | --- | --- | --- |
-| Alto |87,9 |3,46 |
+| Altura |87,9 |3,46 |
 | Ancho en brida de montaje |483 |19,02 |
 | Ancho en el cuerpo del revestimiento |443 |17,44 |
 | Profundidad desde la brida de montaje frontal hasta el extremo del cuerpo del revestimiento |577 |22,72 |
@@ -173,7 +173,7 @@ El dispositivo cumple con la norma EN 55024.
 
 ## <a name="ac-power-cord-compliance"></a>Cumplimiento de cable de alimentación de CA
 
-El enchufe y el conjunto completo del cable de alimentación deben cumplir los estándares apropiados del país en el que se usa el dispositivo, y deben contar con las homologaciones de seguridad aceptables en dicho país. Las tablas siguientes enumeran los estándares de los Estados Unidos y Europa.
+El enchufe y el cable toda la eficacia deben cumplir los estándares apropiados para el país o región en la que se usa el dispositivo, y deben tener las aprobaciones de seguridad que son aceptables en ese país o región. Las tablas siguientes enumeran los estándares de los Estados Unidos y Europa.
 
 ### <a name="ac-power-cords---usa-must-be-nrtl-listed"></a>Cables de alimentación de CA - Estados Unidos (debe estar contemplado por NRTL)
 
@@ -188,7 +188,7 @@ El enchufe y el conjunto completo del cable de alimentación deben cumplir los e
 | Componente | Especificación |
 | --- | --- |
 | Tipo de cable |Armonizado, H05-VVF-3G1.0 |
-| Toma de corriente |CEI 320 C-13, 250 V, 10 A |
+| Socket |CEI 320 C-13, 250 V, 10 A |
 
 ## <a name="supported-network-cables"></a>Cables de red admitidos
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/29/2018
 ms.author: alkohli;
 ms.subservice: common
-ms.openlocfilehash: b01c8a3fe9b0c0856dceb5c05f449504ce8c75d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42c8c9c89a69224b222aabe8e929d800d22162ce
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61483324"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604228"
 ---
 # <a name="open-a-support-ticket-for-an-importexport-job"></a>Abra un vale de soporte para un trabajo de Import/Export
 
@@ -22,7 +22,7 @@ Si tiene algún problema con el servicio Import/Export, puede crear una solicitu
 * Crear una solicitud de soporte.
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.
 
-## <a name="create-a-support-request"></a>Crear una solicitud de soporte
+## <a name="create-a-support-request"></a>Crear solicitud de soporte técnico
 
 Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
@@ -58,7 +58,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 4. En **Nueva solicitud de soporte**, haga clic en **Paso 3: Información de contacto**. En **Información de contacto**, siga estos pasos:
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
-   2. En la información de contacto, especifique su nombre, correo electrónico, contacto opcional y país. Active la casilla **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
+   2. En la información de contacto, proporcione su nombre, correo electrónico, póngase en contacto con opcional, país o región. Active la casilla **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
    3. Haga clic en **Create**(Crear).
    
        ![Información de contacto](./media/storage-import-export-contact-microsoft-support/import-export-support7.png)   

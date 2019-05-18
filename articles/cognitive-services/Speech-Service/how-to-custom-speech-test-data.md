@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: erhopf
-ms.openlocfilehash: 1e689d7ce65fda43e5657383ed44890c90c095cd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: af801600eebed7c0d4ff01dd1edf01fa595840eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025888"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785773"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar los datos de voz personalizado
 
@@ -27,9 +27,9 @@ Esta tabla enumeran los tipos de datos aceptados, cuándo se debe usar cada tipo
 
 | Tipo de datos | Se utiliza de las pruebas | Cantidad | Usado para el entrenamiento | Cantidad |
 |-----------|-----------------|----------|-------------------|----------|
-| [Audio](#audio-data-for-testing) | Sí<br>Utilizado para su inspección visual | archivos de audio de más de 5 | Sin  | N/a |
+| [Audio](#audio-data-for-testing) | Sí<br>Utilizado para su inspección visual | archivos de audio de más de 5 | No | N/a |
 | [Transcripciones de audio + humanos con etiqueta](#audio--human-labeled-transcript-data-for-testingtraining) | Sí<br>Utilizado para evaluar la precisión | 0.5 - 5 horas de audio | Sí | 1 - 1000 horas de audio |
-| [Texto relacionado](##related-text-data-for-training) | Sin  | N/a | Sí | 1-200 MB de texto relacionado |
+| [Texto relacionado](##related-text-data-for-training) | No | N/a | Sí | 1-200 MB de texto relacionado |
 
 Los archivos deben ser agrupados por tipo en un conjunto de datos y cargar como un archivo zip. Cada conjunto de datos solo puede contener un tipo de datos único.
 
@@ -55,7 +55,7 @@ Use esta tabla para asegurarse de que los archivos de audio tienen el formato co
 | Propiedad | Valor |
 |----------|-------|
 | Formato de archivo | RIFF (WAV) |
-| Velocidad de muestreo | 8.000 o 16.000 Hz |
+| Frecuencia de muestreo | 8.000 o 16.000 Hz |
 | Canales | 1 (mono) |
 | Longitud máxima por audio | 2 horas |
 | Formato de ejemplo | PCM, 16 bits |
@@ -76,7 +76,7 @@ Para medir la exactitud de la precisión de texto a voz de Microsoft al procesar
 | Propiedad | Valor |
 |----------|-------|
 | Formato de archivo | RIFF (WAV) |
-| Velocidad de muestreo | 8.000 o 16.000 Hz |
+| Frecuencia de muestreo | 8.000 o 16.000 Hz |
 | Canales | 1 (mono) |
 | Longitud máxima por audio | 60 s |
 | Formato de ejemplo | PCM, 16 bits |
@@ -85,7 +85,7 @@ Para medir la exactitud de la precisión de texto a voz de Microsoft al procesar
 
 Para solucionar problemas, como la eliminación de word o sustitución, una cantidad significativa de datos es necesario para mejorar el reconocimiento. Por lo general, se recomienda para proporcionar las transcripciones de palabra por palabra de aproximadamente el 10 y 1.000 horas de audio. Las transcripciones para todos los archivos WAV deben incluirse en un único archivo de texto sin formato. Cada línea del archivo de transcripción debe contener el nombre de uno de los archivos de audio, seguido de la transcripción correspondiente. El nombre de archivo y la transcripción deben estar separados por un carácter de tabulación (\t).
 
-  Por ejemplo: 
+  Por ejemplo:
 ```
   speech01.wav  speech recognition is awesome
   speech02.wav  the quick brown fox jumped all over the place
@@ -142,7 +142,7 @@ Esto incluye ejemplos de una declaración de voz y una pronunciación personaliz
 |--------------|--------------------------|
 | tres p c o | 3CPO |  
 | c n t k | CNTK |
-| i triple e | IEE |
+| i triple e | IEEE |
 
 La forma hablada es la secuencia fonética deletreada. Puede estar formada de letra, palabras, sílabas o una combinación de los tres.
 
@@ -150,7 +150,7 @@ Pronunciación personalizado está disponible en inglés (en-US) y en alemán (d
 
 | Idioma | Configuración regional | Caracteres |
 |----------|--------|------------|
-| English | en-US | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
+| Inglés | es-ES | a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 | Alemán | de-DE | ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z |
 
 Use esta tabla para asegurarse de que el archivo de datos relacionados para las pronunciaciones se formateó correctamente. Pronunciación de los archivos es pequeños y no debería superar KBs unos.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 22db43413b5c752decf6785a75dff22ff4a68039
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 057ec69db300c3ec95cbc63bd5056a78c24d5660
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596667"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601666"
 ---
 # <a name="best-practices-for-securing-paas-databases-in-azure"></a>Procedimientos recomendados para proteger bases de datos PaaS en Azure
 
@@ -78,7 +78,7 @@ Azure SQL administra los problemas relacionados con las claves para TDE. Al igua
 
 Azure SQL ofrece cifrado de columnas mediante [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine). Esta funcionalidad permite que solo las aplicaciones autorizadas accedan a las columnas confidenciales. Mediante este tipo de cifrado, se limitan las consultas SQL en las columnas cifradas a valores basados en la igualdad.
 
-También debe usarse el cifrado a nivel de aplicación para datos selectivos. Las cuestiones sobre la soberanía de los datos se pueden mitigar en ocasiones mediante el cifrado de datos con una clave que se mantiene en el país correcto. Esto impide incluso que las transferencias de datos accidentales causen algún error, ya que resultará imposible descifrar los datos sin la clave, suponiendo que se emplee un algoritmo seguro (como AES 256).
+También debe usarse el cifrado a nivel de aplicación para datos selectivos. Cuestiones de soberanía de datos se pueden mitigar mediante el cifrado de datos con una clave que se mantiene en el país o región correctos. Esto impide incluso que las transferencias de datos accidentales causen algún error, ya que resultará imposible descifrar los datos sin la clave, suponiendo que se emplee un algoritmo seguro (como AES 256).
 
 Puede tomar precauciones adicionales con las que proteger aún más la base de datos, como diseñar un sistema seguro, cifrar los recursos confidenciales e instalar un firewall alrededor de los servidores de base de datos.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9bc4167134bb70fa938ecd37d81482dc4e1508dd
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 6d9b68bda2a6cff533286d9ee944abf1c92cc2bf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021807"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523239"
 ---
 # <a name="ocr-cognitive-skill"></a>Aptitud cognitiva de OCR
 
@@ -36,9 +36,9 @@ La aptitud de **OCR** extrae texto de los archivos de imagen. Entre otros, estos
 + .TIFF
 
 > [!NOTE]
-> Expandir ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregar más algoritmos de inteligencia artificial, tendrá que [adjuntar un recurso de Cognitive Services facturable](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+> A medida que expanda el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de IA, tendrá que [asociar un recurso facturable de Cognitive Services](cognitive-search-attach-cognitive-services.md). Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> Ejecución de habilidades integrados se cobra a los existentes [Cognitive Services paga a medida que vaya precio](https://azure.microsoft.com/pricing/details/cognitive-services/). Precios de extracción de imagen se describen en el [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
+> La ejecución de aptitudes integradas se cobra según los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. Los precios de la extracción de imágenes se describen en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400).
 
 
 ## <a name="skill-parameters"></a>Parámetros de la aptitud
@@ -50,10 +50,11 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | detectOrientation | Permite la detección automática de la orientación de la imagen. <br/> Valores válidos: true / false.|
 |defaultLanguageCode | <p>  Código de idioma del texto de entrada. Los lenguajes compatibles incluyen: <br/> zh-Hans (chino simplificado) <br/> zh-Hant (chino tradicional) <br/>cs (checo) <br/>da (danés) <br/>nl (neerlandés) <br/>en (inglés) <br/>fi (finés)  <br/>fr (francés) <br/>  de (alemán) <br/>el (griego) <br/> hu (húngaro) <br/> it (italiano) <br/>  ja (japonés) <br/> ko (coreano) <br/> nb (noruego) <br/>   pl (polaco) <br/> pt (portugués) <br/>  ru (ruso) <br/>  es (español) <br/>  sv (sueco) <br/>  tr (turco) <br/> ar (árabe) <br/> ro (rumano) <br/> sr-Cyrl (serbio cirílico) <br/> sr-Latn (serbio latino) <br/>  sk (eslovaco) <br/>  unk (desconocido) <br/><br/> Si el código de idioma no está especificado o es nulo, el idioma que se establezca será "inglés". Si el idioma se establece explícitamente en "unk", el idioma se detectará automáticamente. </p> |
 | textExtractionAlgorithm | "impreso" o "manuscrito". El algoritmo OCR de reconocimiento de texto "manuscrito" se encuentra actualmente en versión preliminar y solo se admite en inglés. |
+|lineEnding | El valor que se usa entre cada detectado línea. Valores posibles: «Espacio», «CarriageReturn», '/ salto de línea'.  El valor predeterminado es «Espacio» |
 
-## <a name="skill-inputs"></a>Entradas de aptitudes
+## <a name="skill-inputs"></a>Entradas de la aptitud
 
-| Nombre de entrada      | DESCRIPCIÓN                                          |
+| Indicar nombre      | DESCRIPCIÓN                                          |
 |---------------|------------------------------------------------------|
 | image         | Tipo complejo. Actualmente, solo funciona con el campo "/document/normalized_images", que crea el indexador de Azure Blob cuando ```imageAction``` está establecido en un valor diferente a ```none```. Para obtener más información, consulte este [ejemplo](#sample-output).|
 

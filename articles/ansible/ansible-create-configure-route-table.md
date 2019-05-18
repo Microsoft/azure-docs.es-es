@@ -1,34 +1,42 @@
 ---
-title: Creación, modificación o eliminación de una tabla de rutas de Azure mediante Ansible
-description: Aprenda a usar Ansible para crear, modificar o eliminar una tabla de rutas.
-ms.service: azure
+title: 'Tutorial: Configuración de tablas de rutas de Azure con Ansible | Microsoft Docs'
+description: Aprenda a crear, cambiar y eliminar tablas de rutas de Azure con Ansible
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, redes, ruta, tabla de rutas
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/17/2018
-ms.openlocfilehash: 025a8182d32a7d0d00a48795c848d356eb1c3d4e
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792453"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230889"
 ---
-# <a name="create-change-or-delete-an-azure-route-table-using-ansible"></a>Creación, modificación o eliminación de una tabla de rutas de Azure mediante Ansible
-Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si desea cambiar algún enrutamiento predeterminado en Azure, debe crear una [tabla de rutas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Tutorial: Configuración de tablas de rutas de Azure con Ansible
 
-Ansible permite automatizar la implementación y la configuración de recursos en el entorno. Este artículo muestra cómo crear, modificar o eliminar una tabla de rutas de Azure y, también, cómo asociar la tabla de rutas a una subred. 
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
+
+Azure enruta automáticamente el tráfico entre redes locales, las redes virtuales y las subredes de Azure. Si necesita más control sobre el enrutamiento de su entorno, puede crear una [tabla de rutas](/azure/virtual-network/virtual-networks-udr-overview). 
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> Creación de una tabla de rutas Creación de una red virtual y una subred Asociación de una tabla de rutas con una subred Desasociación de una tabla de rutas de una subred Creación y eliminación de rutas Consulta de una tabla de rutas Eliminación de una tabla de rutas
 
 ## <a name="prerequisites"></a>Requisitos previos
-- **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Se requiere Ansible 2.7 para ejecutar los siguientes cuadernos de estrategias de ejemplo en este tutorial.
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Creación de una tabla de rutas
-En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que crea una tabla de rutas. Existe un límite para la cantidad de tablas de rutas que puede crear por suscripción y ubicación de Azure. Para más información, consulte el artículo acerca de los [límites de Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
+
+El código del cuaderno de estrategias de esta sección crea una tabla de rutas. Para más información sobre los límites de la tabla de rutas, consulte [límites de Azure](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+
+Guarde el siguiente cuaderno de estrategias como `route_table_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -42,16 +50,35 @@ En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo qu
         resource_group: "{{ resource_group }}"
 ```
 
-Guarde este cuaderno de estrategias como `route_table_create.yml`. Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_table_create.yml
 ```
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Asociación de una tabla de rutas a una subred
-Una subred puede tener una tabla de ruta asociada a ella o ninguna. Una tabla de rutas se puede asociar a varias subredes o a ninguna. Como las tablas de rutas no se asocian a las redes virtuales, debe asociar una tabla de rutas a cada subred con la que desea asociarla. Todo el tráfico que sale de la subred se enruta según las rutas que se crearon dentro de las tablas de rutas, las [rutas predeterminadas](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview#default) y las rutas propagadas desde una red local, si la red virtual está conectada a una puerta de enlace de red virtual de Azure (ExpressRoute, o VPN, si se usa BGP con una puerta de enlace de VPN). Solo puede asociar una tabla de rutas a las subredes de las redes virtuales que existen en la misma suscripción y ubicación de Azure de la tabla de rutas.
 
-En esta sección se muestra un cuaderno de estrategias de Ansible de ejemplo que crea una red virtual y una subred y, posteriormente, asocia una tabla de rutas a la subred.
+El código del cuaderno de estrategias de esta sección:
+
+* Crea una red virtual
+* Crea una subred dentro de la red virtual
+* Asocia una tabla de rutas a la subred
+
+Las tablas de rutas no se asocian a las redes virtuales. En su lugar, las tablas de rutas se asocian a la subred de una red virtual.
+
+La red virtual y la tabla de rutas deben coexistir en la misma suscripción y ubicación de Azure.
+
+Las subredes y las tablas de rutas tienen una relación de uno a varios. Se puede definir una subred sin ninguna tabla de rutas asociada o con una tabla de rutas. Las tablas de rutas se pueden asociar con una subred, con muchas o con ninguna. 
+
+El tráfico de la subred se enruta según:
+
+- las rutas definidas dentro de las tablas de rutas
+- las [rutas predeterminadas](/azure/virtual-network/virtual-networks-udr-overview#default)
+- las rutas propagadas desde una red local
+
+La red virtual debe estar conectada a una puerta de enlace de red virtual de Azure. La puerta de enlace puede ser ExpressRoute, o VPN si se usa BGP con una puerta de enlace de VPN.
+
+Guarde el siguiente cuaderno de estrategias como `route_table_associate.yml`:
 
 ```yml
 - hosts: localhost
@@ -80,14 +107,19 @@ En esta sección se muestra un cuaderno de estrategias de Ansible de ejemplo que
         route_table: "{ route_table_name }"
 ```
 
-Guarde este cuaderno de estrategias como `route_table_associate.yml`. Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_table_associate.yml
 ```
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Desasociación de una tabla de rutas de una subred
-Cuando desasocia una tabla de rutas de una subred, basta con establecer la `route_table` de una subred en `None`. A continuación se muestra un cuaderno de estrategias de Ansible de ejemplo. 
+
+El código del cuaderno de estrategias de esta sección permite desasociar una tabla de rutas de una subred.
+
+Al desasociar una tabla de rutas de una subred, establezca la `route_table` de la subred en `None`. 
+
+Guarde el siguiente cuaderno de estrategias como `route_table_dissociate.yml`:
 
 ```yml
 - hosts: localhost
@@ -104,14 +136,17 @@ Cuando desasocia una tabla de rutas de una subred, basta con establecer la `rout
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Guarde este cuaderno de estrategias como `route_table_dissociate.yml`. Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_table_dissociate.yml
 ```
 
 ## <a name="create-a-route"></a>Creación de una ruta
-En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que crea una ruta en la tabla de rutas. Se define `virtual_network_gateway` como `next_hop_type` y `10.1.0.0/16` como `address_prefix`. El prefijo no se puede duplicar en más de una ruta dentro de la tabla de rutas, aunque puede estar dentro de otro prefijo. Para más información sobre cómo Azure selecciona rutas y una descripción detallada de todos los tipos de próximo salto, consulte [Introducción al enrutamiento](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview).
+
+El código del cuaderno de estrategias de esta sección crea una ruta en la tabla de rutas. 
+
+Guarde el siguiente cuaderno de estrategias como `route_create.yml`:
 
 ```yml
 - hosts: localhost
@@ -128,14 +163,23 @@ En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo qu
         address_prefix: "10.1.0.0/16"
         route_table_name: "{{ route_table_name }}"
 ```
-Guarde este cuaderno de estrategias como `route_create.yml`. Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
+
+* `virtual_network_gateway` se define como `next_hop_type`. Para más información sobre cómo Azure selecciona las rutas, consulte [Introducción al enrutamiento](/azure/virtual-network/virtual-networks-udr-overview).
+* `address_prefix` se define como `10.1.0.0/16`. No se puede duplicar el prefijo dentro de la tabla de rutas.
+
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_create.yml
 ```
 
 ## <a name="delete-a-route"></a>Eliminación de una ruta
-En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que elimina una ruta de una tabla de rutas.
+
+El código del cuaderno de estrategias de esta sección permite eliminar una ruta de una tabla de rutas.
+
+Guarde el siguiente cuaderno de estrategias como `route_delete.yml`:
 
 ```yml
 - hosts: localhost
@@ -152,15 +196,17 @@ En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo qu
         state: absent
 ```
 
-Guarde este cuaderno de estrategias como `route_delete.yml`. Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_delete.yml
 ```
 
-## <a name="get-information-of-a-route-table"></a>Obtención de información de una tabla de rutas
-Puede ver los detalles de una route_table mediante el módulo de Ansible denominado `azure_rm_routetable_facts`. El módulo de hechos devolverá la información de la tabla de rutas con todas las rutas asociadas a ella.
-A continuación se muestra un cuaderno de estrategias de Ansible de ejemplo. 
+## <a name="get-route-table-information"></a>Obtención de información de la tabla de rutas
+
+El código del cuaderno de estrategias de esta sección usa el módulo de Ansible `azure_rm_routetable_facts` para recuperar la información de la tabla de rutas.
+
+Guarde el siguiente cuaderno de estrategias como `route_table_facts.yml`:
 
 ```yml
 - hosts: localhost
@@ -178,16 +224,21 @@ A continuación se muestra un cuaderno de estrategias de Ansible de ejemplo.
          var: query.route_tables[0]
 ```
 
-Guarde este cuaderno de estrategias como `route_table_facts.yml`. Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_table_facts.yml
 ```
 
 ## <a name="delete-a-route-table"></a>Eliminación de una tabla de rutas
-Una tabla de rutas no se puede eliminar si está asociada a alguna subred. [Desasocie](#dissociate-a-route-table-from-a-subnet) una tabla de rutas de todas las subredes antes de intentar eliminarla.
 
-Puede eliminar la tabla de rutas junto con todas las rutas. A continuación se muestra un cuaderno de estrategias de Ansible de ejemplo. 
+El código del cuaderno de estrategias de esta sección elimina una tabla de rutas.
+
+Cuando se elimina una tabla de rutas, se eliminan también todas sus rutas.
+
+Una tabla de rutas no se puede eliminar si está asociada con una subred. [Desasocie la tabla de rutas de todas las subredes](#dissociate-a-route-table-from-a-subnet) antes de intentar eliminarla. 
+
+Guarde el siguiente cuaderno de estrategias como `route_table_delete.yml`:
 
 ```yml
 - hosts: localhost
@@ -202,7 +253,7 @@ Puede eliminar la tabla de rutas junto con todas las rutas. A continuación se m
         state: absent
 ```
 
-Guarde este cuaderno de estrategias como `route_table_delete.yml`. Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
 ```bash
 ansible-playbook route_table_delete.yml
@@ -210,4 +261,4 @@ ansible-playbook route_table_delete.yml
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"] 
-> [Ansible en Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible en Azure](/azure/ansible/)

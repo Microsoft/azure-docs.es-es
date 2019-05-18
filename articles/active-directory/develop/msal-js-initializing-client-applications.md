@@ -4,7 +4,7 @@ description: Obtenga información sobre la inicialización de aplicaciones clien
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7990566ca9cd93e79b8356cfd15fda03a7469695
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cd26f36356affbc8c272bd093757a8482773baf2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138297"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544025"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>Inicializar aplicaciones cliente que utilizan MSAL.js
 Este artículo describe al inicializar Microsoft Authentication Library para JavaScript (MSAL.js) con una instancia de una aplicación de agente de usuario. La aplicación de agente de usuario es un formulario de aplicación de cliente público en el que se ejecuta el código de cliente en un agente de usuario como un explorador web. Estos clientes no almacenan secretos, puesto que el contexto del explorador es accesible públicamente. Para obtener más información sobre los tipos de aplicaciones cliente y las opciones de configuración de aplicación, lea el [Introducción](msal-client-applications.md).
@@ -123,7 +123,7 @@ A continuación es el conjunto total de opciones configurables que se admiten ac
 
 - **validateAuthority**: Opcional.  Valide al emisor de tokens. El valor predeterminado es `true`. Para las aplicaciones B2C, ya que el valor de autoridad se conoce y puede ser diferente según la directiva, la validación de la entidad de certificación no funcionará y tiene que establecerse en `false`.
 
-- **redirectUri**: Opcional.  El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. De manera predeterminada, su valor es `window.location.href`.
+- **redirectUri**: Opcional.  El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. Tiene como valor predeterminado `window.location.href`.
 
 - **postLogoutRedirectUri**: Opcional.  Redirige al usuario a `postLogoutRedirectUri` después de cierre de sesión. El valor predeterminado es `redirectUri`.
 
@@ -140,6 +140,6 @@ A continuación es el conjunto total de opciones configurables que se admiten ac
 - **tokenRenewalOffsetSeconds**: Opcional. El número de milisegundos que establece la ventana de desplazamiento es necesario renovar el token antes de que expire. Valor predeterminado es 300 milisegundos.
 
 Solo son aplicables a pasarse desde la biblioteca MSAL Angular del contenedor:
-- **unprotectedResources**: Opcional.  Matriz de identificadores URI que son los recursos desprotegidos. MSAL no asociará un token a las solicitudes salientes que tienen estos URI. De manera predeterminada, su valor es `null`.
+- **unprotectedResources**: Opcional.  Matriz de identificadores URI que son los recursos desprotegidos. MSAL no asociará un token a las solicitudes salientes que tienen estos URI. Tiene como valor predeterminado `null`.
 
-- **protectedResourceMap**: Opcional.  Esta es la asignación de recursos a los ámbitos que usa MSAL para asociar automáticamente los tokens de acceso en las llamadas de API web. Se obtiene un token de acceso único para el recurso. Para que pueda asignar una ruta de acceso de recurso específico como sigue: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, o la dirección URL de aplicación del recurso como: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. Esto es necesario para las llamadas de la CORS. De manera predeterminada, su valor es `null`.
+- **protectedResourceMap**: Opcional.  Esta es la asignación de recursos a los ámbitos que usa MSAL para asociar automáticamente los tokens de acceso en las llamadas de API web. Se obtiene un token de acceso único para el recurso. Para que pueda asignar una ruta de acceso de recurso específico como sigue: {"https://graph.microsoft.com/v1.0/me", ["user.read"]}, o la dirección URL de aplicación del recurso como: {"https://graph.microsoft.com/", ["user.read", "mail.send"]}. Esto es necesario para las llamadas de la CORS. Tiene como valor predeterminado `null`.

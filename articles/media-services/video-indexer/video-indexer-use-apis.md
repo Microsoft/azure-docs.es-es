@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce04e19022a9902c228079e866c192985694134c
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560595"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799244"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Tutorial: Uso de la API Video Indexer
 
@@ -46,7 +47,7 @@ En este artículo se muestra cómo los desarrolladores pueden sacar partido de [
     
     Después de suscribirse, podrá ver la suscripción y las claves principal y secundaria. Debe proteger las claves. Las claves solo debe usarlas el código del servidor. No deben estar disponibles en el lado cliente (.js, .html, etc.).
 
-    ![Suscripción](./media/video-indexer-use-apis/video-indexer-api03.png)
+    ![Regístrate](./media/video-indexer-use-apis/video-indexer-api03.png)
 
 > [!TIP]
 > El usuario de Video Indexer puede usar una clave de suscripción única para conectarse a varias cuentas de Video Indexer. A continuación, puede vincular estas cuentas de Video Indexer a diferentes cuentas de Media Services.

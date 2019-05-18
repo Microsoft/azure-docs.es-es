@@ -11,8 +11,7 @@
 - name: Guías de inicio rápido
   items:
     - name: 'Ejecución de consultas de Apache Hive: Apache Zeppelin'
-      href: ../hdinsight-connect-hive-zeppelin.md
-      maintainContext: true
+      href: ./hdinsight-connect-hive-zeppelin.md
 - name: Introducción
   items:
     - name: Introducción a Interactive Query

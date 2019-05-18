@@ -3,8 +3,8 @@ title: Problemas al iniciar sesión en una aplicación de la galería de Azure A
 description: Describe áreas problemáticas que proporcionan instrucciones para solucionar problemas relacionados con el inicio de sesión en aplicaciones de la galería de Azure AD configuradas para inicio de sesión único con contraseña
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11411a780333268e19d53ea2bd472fe36bc0eb62
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d95703166c3e1ed8034ea8c0d813c54759603fce
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60437888"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825050"
 ---
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-password-single-sign-on"></a>Problemas al iniciar sesión en una aplicación de la galería de Azure AD configurada para inicio de sesión único
 

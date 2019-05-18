@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: 8a0621d0261bfbc7ab396abf837ee7b1123352d1
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678656"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233448"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
@@ -33,7 +33,6 @@ Como _operador_, usará la interfaz de usuario de Azure IoT Central para adminis
 - Solucionar los problemas y errores de los dispositivos.
 - Aprovisionar dispositivos nuevos.
 
-
 ## <a name="use-the-left-navigation-menu"></a>Uso del menú de navegación izquierdo
 
 Use el menú de navegación izquierdo para acceder a las diferentes áreas de la aplicación. Puede expandir o contraer la barra de navegación mediante la selección de **<** o **>**:
@@ -51,11 +50,14 @@ El menú superior aparece en todas las páginas:
 - Para buscar plantillas de dispositivos y dispositivos, escriba un valor **Buscar**.
 - Para cambiar el idioma o el tema de la interfaz de usuario, elija el icono **Configuración**.
 - Para cerrar la sesión de la aplicación, elija el icono **Cuenta**.
-- Para obtener ayuda y soporte técnico, elija el menú desplegable **Ayuda** para obtener una lista de recursos.
+- Para obtener ayuda y soporte técnico, elija el menú desplegable **Ayuda** para obtener una lista de recursos. En una aplicación de prueba, los recursos de soporte técnico incluyen acceso al [chat en directo](howto-show-hide-chat.md).
 
 Puede elegir entre un tema claro o un tema oscuro para la interfaz de usuario:
 
 ![Elija un tema para la interfaz de usuario](media/overview-iot-central-tour/themes.png)
+
+> [!NOTE]
+> La opción de elegir entre temas claros y oscuros no está disponible si su administrador ha configurado un tema personalizado para la aplicación.
 
 ## <a name="dashboard"></a>panel
 

@@ -3,8 +3,8 @@ title: Descripción de las experiencias de consentimiento de la aplicación de A
 description: Más información sobre las experiencias de consentimiento de Azure AD para ver cómo se pueden usar al administrar y desarrollar aplicaciones en Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7de892143e1c69953cc60429ea0d24df194f0df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d71bfd5e560bb1509337ac371fbe101b4c6d63b5
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300283"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540641"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Descripción de las experiencias de consentimiento de la aplicación de Azure AD
 
@@ -47,7 +47,7 @@ En el diagrama y la tabla siguientes se proporciona información sobre los bloqu
 | # | Componente | Propósito |
 | ----- | ----- | ----- |
 | 1 | Identificador de usuario | Este identificador representa al usuario en cuyo nombre la aplicación cliente solicita acceso a recursos protegidos. |
-| 2 | Título | El título cambia en función de si los usuarios siguen el flujo de consentimiento del usuario o del administrador. En el flujo de consentimiento del usuario, el título será "Permisos solicitados", mientras que en el flujo de consentimiento del administrador, el título tendrá una línea adicional "Aceptar para su organización". |
+| 2 | Puesto | El título cambia en función de si los usuarios siguen el flujo de consentimiento del usuario o del administrador. En el flujo de consentimiento del usuario, el título será "Permisos solicitados", mientras que en el flujo de consentimiento del administrador, el título tendrá una línea adicional "Aceptar para su organización". |
 | 3 | Logotipo de la aplicación | Esta imagen debe ayudar a los usuarios a tener una indicación visual de si esta aplicación es la aplicación a la que pretenden acceder. Los desarrolladores de aplicaciones proporcionan esta imagen, y no se valida la propiedad de esta imagen. |
 | 4 | Nombre de la aplicación | Este valor debe informar a los usuarios qué aplicación solicita acceso a sus datos. Tenga en cuenta que los desarrolladores proporcionan este nombre, y no se valida la propiedad del nombre de esta aplicación. |
 | 5 | Dominio de editor | Este valor debe proporcionar a los usuarios un dominio cuya confiabilidad puedan evaluar. Los desarrolladores proporcionan este dominio, y no se valida la propiedad de este dominio de editor. |

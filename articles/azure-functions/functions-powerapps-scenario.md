@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: afb97c1c14422f15a3fc2c00b2101c4a36675556
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26f6502f63b39d3f1ecf8dfeb09c8df4daa63b68
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026006"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786105"
 ---
 # <a name="call-a-function-from-powerapps"></a>Llamada a una función desde PowerApps
 La plataforma [PowerApps](https://powerapps.microsoft.com) está diseñada para que expertos empresariales creen aplicaciones sin código de aplicación tradicional. Los desarrolladores profesionales pueden usar Azure Functions para ampliar las capacidades de PowerApps, evitándoles los detalles técnicos a los compiladores de aplicaciones de PowerApps.
@@ -39,8 +39,7 @@ En este tema, aprenderá cómo:
 > * Agregar controles para llamar a la función y mostrar los datos.
 > * Ejecutar la aplicación para determinar si una reparación es rentable.
 
-> [!IMPORTANT]
-> La característica OpenAPI está actualmente en versión preliminar y solo está disponible para la versión 1.x del runtime de Azure Functions.
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

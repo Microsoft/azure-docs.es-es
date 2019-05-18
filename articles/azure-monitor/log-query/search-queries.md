@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: 2df4cf994e118fef9048504daf40fabc1625c375
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5860243b6b605288aaf8d6dffe2260bc031a592
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61425918"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560840"
 ---
 # <a name="search-queries-in-azure-monitor-logs"></a>Consultas de búsqueda en registros de Azure Monitor
 
@@ -64,7 +64,7 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Si usa `==` en lugar de `:`, los resultados incluirían los registros en los que la columna *Source* tienen el valor exacto "error" y únicamente eso. El uso de ":" no incluirá los registros donde *Source* incluya valores como "código de error 404" o "Error".
+> Si usa `==` en lugar de `:`, los resultados incluirían los registros en los que la columna *Source* tienen el valor exacto "error" y únicamente eso. Uso de ':' incluirá los registros donde *origen* tiene valores como "código de error 404" o "Error".
 
 ## <a name="case-sensitivity"></a>Diferenciación entre mayúsculas y minúsculas
 De forma predeterminada, en la búsqueda de términos no se distingue entre mayúsculas y minúsculas, por lo que al buscar "dns" se pueden producir resultados como "DNS", "dns" o "Dns". Para que en la búsqueda se distinga entre mayúsculas y minúsculas, use la opción `kind`:

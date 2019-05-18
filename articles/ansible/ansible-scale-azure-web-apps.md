@@ -1,34 +1,52 @@
 ---
-title: Escalado de aplicaciones web de Azure App Service con Ansible
-description: Aprenda a usar Ansible para crear una aplicación web con Java 8 y el entorno de ejecución de contenedores Tomcat en App Service en Linux
-ms.service: azure
+title: 'Tutorial: Escalado de aplicaciones en Azure App Service con Ansible | Microsoft Docs'
+description: Aprenda a escalar verticalmente una aplicación en Azure App Service.
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, escala, Java
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 12/08/2018
-ms.openlocfilehash: 2bafb73afa35c7670ac45f7027545277c70075ef
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.date: 04/30/2019
+ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792283"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230949"
 ---
-# <a name="scale-azure-app-service-web-apps-by-using-ansible"></a>Escalado de aplicaciones web de Azure App Service con Ansible
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/overview) (o simplemente Web Apps) hospeda aplicaciones web, API de REST y servidores back-end para dispositivos móviles. Puede desarrollar en su lenguaje preferido, ya sea .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Tutorial: Escalado de aplicaciones en Azure App Service con Ansible
 
-Ansible permite automatizar la implementación y la configuración de recursos en el entorno. En este artículo se muestra cómo usar Ansible para escalar aplicaciones en Azure App Service.
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-app-service.md](../../includes/open-source-devops-intro-app-service.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Obtener datos de un plan de App Service existente
+> * Escalado vertical del plan de App Service a S2 con tres roles de trabajo
 
 ## <a name="prerequisites"></a>Requisitos previos
-- **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service Web Apps**: si aún no tiene una aplicación web de Azure App Service, puede [crear aplicaciones web de Azure mediante Ansible](ansible-create-configure-azure-web-apps.md).
 
-## <a name="scale-up-an-app-in-app-service"></a>Escalado vertical de aplicaciones en App Service
-Para escalar verticalmente, se cambia el plan de tarifa del plan de App Service al que pertenece la aplicación. En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que define la siguiente operación:
-- Obtener datos de un plan de App Service existente
-- Actualizar el plan de App Service a S2 con tres roles de trabajo
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
+- Una **aplicación de Azure App Service**: si no tiene una aplicación de Azure App Service, [configure una aplicación en Azure App Service con Ansible](ansible-create-configure-azure-web-apps.md).
+
+## <a name="scale-up-an-app"></a>Escalado vertical de una aplicación
+
+Existen dos flujos de trabajo de escalado: *escalado vertical* y *escalado horizontal*.
+
+**Escalado vertical:** Escalar verticalmente significa adquirir más recursos. Estos recursos incluyen CPU, memoria, espacio en disco, máquinas virtuales, etc. Para escalar verticalmente una aplicación, cambie el plan de tarifa del plan de App Service al que pertenece la aplicación. 
+**Escalado horizontal**: Significa aumentar el número de instancias de máquina virtual que ejecutan la aplicación. Según el plan de tarifa de App Service, puede escalar horizontalmente a un máximo de 20 instancias. El [escalado automático](/azure/azure-monitor/platform/autoscale-get-started) le permite escalar el total de instancias automáticamente en función de las programaciones y reglas predefinidas.
+
+El código del cuaderno de estrategias de esta sección define la siguiente operación:
+
+* Obtener datos de un plan de App Service existente
+* Actualizar el plan de App Service a S2 con tres roles de trabajo
+
+Guarde el siguiente cuaderno de estrategias como `webapp_scaleup.yml`:
 
 ```yml
 - hosts: localhost
@@ -66,26 +84,26 @@ Para escalar verticalmente, se cambia el plan de tarifa del plan de App Service 
       var: facts.appserviceplans[0].sku
 ```
 
-Guarde este cuaderno de estrategias como *webapp_scaleup.yml*.
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
-Para ejecutar el cuaderno de estrategias, use el comando **ansible-playbook** de la siguiente manera:
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-Tras ejecutar el cuaderno de estrategias, una salida similar a la del siguiente ejemplo muestra que el plan de App Service se ha actualizado correctamente a S2 con tres roles de trabajo:
-```Output
-PLAY [localhost] **************************************************************
+Tras ejecutar el cuaderno de estrategias, debería ver resultados similares a los siguientes:
 
-TASK [Gathering Facts] ********************************************************
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
 ok: [localhost]
 
-TASK [Get facts of existing App service plan] **********************************************************
+TASK [Get facts of existing App service plan] 
  [WARNING]: Azure API profile latest does not define an entry for WebSiteManagementClient
 
 ok: [localhost]
 
-TASK [debug] ******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 1,
@@ -96,13 +114,13 @@ ok: [localhost] => {
     }
 }
 
-TASK [Scale up the App service plan] *******************************************
+TASK [Scale up the App service plan] 
 changed: [localhost]
 
-TASK [Get facts] ***************************************************************
+TASK [Get facts] 
 ok: [localhost]
 
-TASK [debug] *******************************************************************
+TASK [debug] 
 ok: [localhost] => {
     "facts.appserviceplans[0].sku": {
         "capacity": 3,
@@ -113,10 +131,11 @@ ok: [localhost] => {
     }
 }
 
-PLAY RECAP **********************************************************************
+PLAY RECAP 
 localhost                  : ok=6    changed=1    unreachable=0    failed=0 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 > [!div class="nextstepaction"] 
-> [Ansible en Azure](https://docs.microsoft.com/azure/ansible/)
+> [Ansible en Azure](/azure/ansible/)

@@ -4,7 +4,7 @@ description: Obtenga información sobre las consideraciones específicas al util
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb07fa00b9e1d917cb64df18fff6466dd5c0193d
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: bf236bff2300129ec97d3b8946c4c2a2748bca77
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406983"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602134"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>Consideraciones de específica de iOS de Xamarin con MSAL.NET
 En Xamarin iOS, hay varias consideraciones que debe tener en cuenta al usar MSAL.NET
@@ -108,7 +108,7 @@ Se trata de *además* para habilitar el acceso a llaves en el `Entitlements.plis
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "https://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
   <key>keychain-access-groups</key>

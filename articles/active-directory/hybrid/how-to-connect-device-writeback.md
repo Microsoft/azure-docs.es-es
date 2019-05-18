@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64e3e7928d9f39b9ed2a681eb8ec9a63f73ea54a
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 977b599c26e8bb586cc47bd2f0aac80034f22834
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507958"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785727"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitación de la escritura diferida de dispositivo
 > [!NOTE]
@@ -31,7 +31,7 @@ ms.locfileid: "65507958"
 
 En la siguiente documentación se ofrece información sobre cómo habilitar la característica de escritura diferida de dispositivo en Azure AD Connect. La escritura diferida de dispositivo se usa en los siguientes escenarios:
 
-* Habilitar [Windows Hello para empresas mediante implementación híbrida de confianza de certificado](https://docs.microsoft.com/en-us/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
+* Habilitar [Windows Hello para empresas mediante implementación híbrida de confianza de certificado](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-cert-trust-prereqs#device-registration)
 * Habilite el acceso condicional basado en dispositivos para aplicaciones protegida de ADFS (2012 R2 o superior) (relaciones de confianza para usuario autenticado).
 
 Esto ofrece seguridad adicional y la garantía de que el acceso a las aplicaciones solo se concede para dispositivos de confianza. Para más información sobre el acceso condicional, consulte [Administración de riesgos con el acceso condicional](../active-directory-conditional-access-azure-portal.md) y [Configuración del acceso condicional local mediante el Registro de dispositivos de Azure Active Directory](../../active-directory/active-directory-device-registration-on-premises-setup.md).

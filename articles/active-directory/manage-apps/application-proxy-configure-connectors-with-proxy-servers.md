@@ -2,22 +2,22 @@
 title: Trabajo con servidores proxy locales existentes y Azure AD | Microsoft Docs
 description: Se explica cómo trabajar con servidores proxy locales existentes.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/12/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4cb1f6cc3da5230f510f57a56c7297341f82f3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 25b8669e5ca2abe2d763d9bc14f27ed9c4460886
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293688"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825947"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -106,7 +106,7 @@ Hay cuatro aspectos que se deben tener en cuenta en el servidor proxy saliente:
 #### <a name="proxy-outbound-rules"></a>Las reglas de salida del proxy
 Permita el acceso a las siguientes direcciones URL:
 
-| URL | Cómo se usa |
+| Dirección URL | Cómo se usa |
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | Azure utiliza estas direcciones URL para verificar los certificados. |

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: sstein, carlrab
 manager: craigg
 ms.date: 05/11/2019
-ms.openlocfilehash: ba79e2b9552f0c27ac11501b2b125a126e40eb1d
-ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
-ms.translationtype: HT
+ms.openlocfilehash: 72552f6335f3ad6742679708a639634362c49c0b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/13/2019
-ms.locfileid: "65551635"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823312"
 ---
 # <a name="sql-database-serverless-preview"></a>SQL Database sin servidor (versión preliminar)
 
@@ -66,7 +66,7 @@ La tabla siguiente resume las diferencias entre el nivel de proceso sin servidor
 |**Escenario de uso principal**| Bases de datos con uso impredecible e intermitente, intercalado con períodos de inactividad. | Bases de datos o grupos elásticos con uso más habitual.|
 | **Trabajo de administración del rendimiento** |Inferior|Superior|
 |**Escalado de proceso**|Automático|Manual|
-|**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediata|
+|**Capacidad de respuesta del proceso**|Menor después de períodos de inactividad|Inmediato|
 |**Granularidad de facturación**|Por segundo|Por hora|
 
 ## <a name="purchasing-model-and-service-tier"></a>Modelo de compra y nivel de servicio
@@ -100,7 +100,7 @@ La reanudación automática se desencadena si se cumple cualquiera de las siguie
 
 |Característica|Desencadenamiento de reanudación automática|
 |---|---|
-|Autenticación y autorización|Inicio de sesión|
+|Autenticación y autorización|Iniciar sesión|
 |Detección de amenazas|Habilitación o deshabilitación de la configuración de detección de amenazas en el nivel de base de datos o servidor<br>Modificación de la configuración de detección de amenazas en el nivel de base de datos o servidor|
 |Detección y clasificación de datos|Adición, modificación, eliminación o visualización de las etiquetas de confidencialidad|
 |Auditoría|Visualización de registros de auditoría<br>Actualización o visualización de la directiva de auditoría|
@@ -204,11 +204,11 @@ El máximo de núcleos virtuales se modifica mediante el comando [Set-AzSqlDatab
 
 ### <a name="minimum-vcores"></a>Mínimo de núcleos virtuales
 
-El mínimo de núcleos virtuales se modifica mediante el comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) en PowerShell con el argumento `MinVcore`.
+Modificación de los núcleos virtuales mínimos se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `MinVcore` argumento.
 
 ### <a name="autopause-delay"></a>Demora de pausa automática
 
-La demora de pausa automática se modifica mediante el comando [Set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) en PowerShell con el argumento `AutoPauseDelay`.
+Modificar el retraso pausarautomáticamente se realiza mediante el [conjunto AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) comando en PowerShell mediante el `AutoPauseDelay` argumento.
 
 ## <a name="monitor-serverless-database"></a>Supervisión de la base de datos sin servidor
 
@@ -277,19 +277,21 @@ La cantidad de proceso facturada se expone mediante la métrica siguiente:
 
 Esta cantidad se calcula cada segundo y se agrega en un intervalo de 1 minuto.
 
-**Ejemplo**: Piense en una base de datos que utiliza GP_S_Gen5_4 con el siguiente uso durante un período de una hora:
+Considere la posibilidad de una base de datos sin servidor configurado con núcleo virtual de 1 minuto y número de 4 núcleos virtuales.  Esto corresponde a aproximadamente 3 GB de memoria de mínimo y máximo de 12 GB de memoria.  Supongamos que el retraso de pausa automática se establece en 6 horas y la carga de trabajo de la base de datos está activa durante las primeras horas 2 de un período de 24 horas e inactiva en caso contrario.    
 
-|Tiempo (horas: minutos)|app_cpu_billed (segundos de núcleo virtual)|
-|---|---|
-|0:01|63|
-|0:02|123|
-|0:03|95|
-|0:04|54|
-|0:05|41|
-|0:06 - 1:00|1255|
-||Total: 1631|
+En este caso, la base de datos se factura por proceso y almacenamiento durante las primeras 8 horas.  Aunque la base de datos está iniciando inactiva después de la hora de 2, todavía se factura para el cálculo en las subsiguientes 6 horas, según el proceso mínimos aprovisionado mientras la base de datos está en línea.  Sólo almacenamiento se factura durante el resto del período de 24 horas mientras está en pausa la base de datos.
 
-Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/segundo. El proceso facturado para este período de una hora se determinará mediante la siguiente fórmula: **0,000073 $/núcleo virtual/segundo * 1631 segundos de núcleo virtual = 0,1191 $**
+Más concretamente, la factura de proceso en este ejemplo se calcula como sigue:
+
+|Intervalo de tiempo|núcleos virtuales que usa cada segundo.|Utilizar GB por segundo|Calcular la factura de dimensión|segundos de la memoria con núcleo virtual se factura en un intervalo de tiempo|
+|---|---|---|---|---|
+|0:00-1:00|4|9|núcleos virtuales que se usa|4 núcleos virtuales * 3600 segundos = 14400 segundos de memoria con núcleo virtual|
+|1:00-2:00|1|12|Memoria usada|12 Gb * 1/3 * 3600 segundos = 14400 segundos de memoria con núcleo virtual|
+|2:00-8:00|0|0|Memoria mínima aprovisionado|3 Gb * 1/3 * 21600 segundos = 21600 segundos de la memoria con núcleo virtual|
+|8:00-24:00|0|0|No hay ningún proceso de factura mientras está en pausa|núcleo virtual 0 segundos|
+|Segundos de núcleo virtual total facturadas más de 24 horas||||núcleo virtual 50400 segundos|
+
+Suponga que el precio de la unidad de proceso es 0,000073 $/núcleo virtual/segundo.  A continuación, la factura para este período de 24 horas de proceso es el producto de los segundos de precio y núcleo virtual de unidad proceso facturadas: $0.000073/vCore/second * 50400 segundos de la memoria con núcleo virtual = $3,68
 
 ## <a name="available-regions"></a>Regiones disponibles
 

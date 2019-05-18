@@ -59,7 +59,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP HANA:
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapHana** | Sí |
-| Servidor | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | Sí |
+| server | Nombre del servidor en el que reside la instancia de SAP HANA. Si el servidor usa un puerto personalizado, especifique `server:port`. | Sí |
 | authenticationType | Tipo de autenticación usado para conectarse a la base de datos SAP HANA.<br/>Los valores permitidos son: **Basic** y **Windows** | Sí |
 | userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
 | password | Contraseña del usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
@@ -162,23 +162,23 @@ Al copiar datos desde SAP HANA, se usan las siguientes asignaciones de tipos de 
 
 | Tipo de datos de SAP HANA | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| ALPHANUM | string |
+| ALPHANUM | String |
 | BIGINT | Int64 |
 | BLOB | Byte[] |
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
-| DATE | Datetime |
+| DATE | DateTime |
 | DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
-| NVARCHAR | string |
+| NVARCHAR | String |
 | REAL | Single |
-| SECONDDATE | Datetime |
+| SECONDDATE | DateTime |
 | SMALLINT | Int16 |
 | TIME | TimeSpan |
-| TIMESTAMP | Datetime |
+| TIMESTAMP | DateTime |
 | TINYINT | Byte |
-| VARCHAR | string |
+| VARCHAR | String |
 
 ## <a name="known-limitations"></a>Limitaciones conocidas
 

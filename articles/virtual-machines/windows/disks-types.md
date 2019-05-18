@@ -4,17 +4,17 @@ description: Obtenga información sobre los tipos de disco de Azure disponibles 
 services: virtual-machines-windows,storage
 author: roygara
 ms.author: rogarana
-ms.date: 02/11/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: windows
 ms.subservice: disks
-ms.openlocfilehash: 91318489e715fccd7c99b968c60509e4642afd5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 74dbe12a2df07218fbb369097b566a9dad4921c0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60787519"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65539508"
 ---
 [!INCLUDE [virtual-machines-disk-types](../../../includes/virtual-machines-managed-disks-types-overview.md)]
 

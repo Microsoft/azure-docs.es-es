@@ -17,11 +17,11 @@ ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 322615203d188581dd04aadeff2a08307b733d06
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450573"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65738297"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutorial: Integración de Azure Active Directory con varias cuentas de Amazon Web Services (AWS)
 
@@ -131,11 +131,11 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
 4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.
 
-    ![imagen](common/preintegrated.png)
+    ![image](common/preintegrated.png)
 
 5. La aplicación Amazon Web Services (AWS) espera las aserciones de SAML en un formato concreto. Configure las siguientes notificaciones para esta aplicación. Puede administrar los valores de estos atributos en la sección **User Attributes & Claims** (Atributos y notificaciones del usuario) de la página de integración de aplicaciones. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **User Attributes & Claims** (Atributos y notificaciones del usuario).
 
-    ![imagen](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
 
@@ -271,7 +271,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     f. En la lista de entidades de servicio que se capturan, seleccione la que debe modificar. También puede usar CTRL + F para buscar la aplicación en todas las entidades de servicio enumeradas. Para usar la siguiente consulta, utilice el valor de **Id. de objeto** que ha copiado de la página Propiedades de Azure AD para acceder a entidad de servicio correspondiente.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>` 
 
     ![Cuadro de diálogo del Probador de Graph](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
@@ -347,7 +347,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     > [!Note]
     > Tenga en cuenta que debe actualizar la sesión en Azure Portal para ver los nuevos roles.
 
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+### <a name="test-single-sign-on"></a>Probar el inicio de sesión único
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c9e62cf3dfc259d7064be9fd6b80cad0140336eb
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 1c1317726cf29f23e4729c67a5a5794fa459220b
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549276"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65410856"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server 2017 en Azure Portal
 
@@ -44,7 +44,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 1. En Azure Portal, haga clic en **Crear un recurso**. 
 
-1. En el cuadro de búsqueda, escriba `SQL Server 2017 Developer on Windows Server 2016` y presione ENTRAR.
+1. En el cuadro de búsqueda, escriba `SQL Server 2017 Developer on Windows Server 2016` y presione ENTRAR. Expanda la opción SQL Server 2017 en Windows Server 2016. 
 
 1. Seleccione la imagen de **Free SQL Server License: SQL Server 2017 Developer en Windows Server 2016**. La edición Developer se usa en este tutorial porque es una edición completa de SQL Server que es gratuita para desarrollo y pruebas. Solo paga por el costo de ejecutar la máquina virtual. Para conocer al detalle las consideraciones sobre precios, consulte la [guía de precios para máquinas virtuales de Azure de SQL Server](virtual-machines-windows-sql-server-pricing-guidance.md).
 

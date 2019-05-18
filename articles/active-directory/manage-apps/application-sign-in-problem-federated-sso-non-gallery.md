@@ -3,8 +3,8 @@ title: Problemas al iniciar sesión en una aplicación que no es de la galería 
 description: Instrucciones para resolver problemas específicos a los que se puede enfrentar al iniciar sesión en una aplicación configurada para el inicio de sesión único federado basado en SAML con Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7cb0139227012be610977df3240f74a03f53be7e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 38decf98707231c21427f7a22dd4d12adb41852b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440205"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825438"
 ---
 # <a name="problems-signing-in-to-a-non-gallery-application-configured-for-federated-single-sign-on"></a>Problemas al iniciar sesión en una aplicación que no es de la galería configurada para inicio de sesión único federado
 
@@ -58,7 +58,7 @@ Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valo
 
 7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8. Cuando se cargue la aplicación, abra **configuración SAML básica**. Compruebe que el valor en el cuadro de texto identificador coincide con el valor para el valor del identificador mostrado en el error.
+8. Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe que el valor en el cuadro de texto identificador coincide con el valor para el valor del identificador mostrado en el error.
 
 ## <a name="the-reply-address-does-not-match-the-reply-addresses-configured-for-the-application"></a>La dirección de respuesta no coincide con las direcciones de respuesta configuradas para la aplicación. 
 
@@ -88,7 +88,7 @@ Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valo
 
 7. Cuando se cargue la aplicación, haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación.
 
-8. Cuando se cargue la aplicación, abra **configuración SAML básica**. Compruebe o actualice el valor en el cuadro de texto dirección URL de respuesta para que coincida con el `AssertionConsumerServiceURL` valor en la solicitud SAML.    
+8. Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe o actualice el valor en el cuadro de texto dirección URL de respuesta para que coincida con el `AssertionConsumerServiceURL` valor en la solicitud SAML.    
     
 Después de que ha actualizado el valor de dirección URL de respuesta de Azure AD y coincide con el valor enviado por la aplicación en la solicitud SAML, debe poder iniciar sesión en la aplicación.
 
@@ -188,7 +188,7 @@ Asegúrese de que el `Issuer` atributo en la solicitud SAML coincide con el valo
 
 1.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-1.  Cuando se cargue la aplicación, abra **configuración SAML básica**. Compruebe que el valor en el cuadro de texto identificador coincide con el valor para el valor del identificador mostrado en el error.
+1.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. Compruebe que el valor en el cuadro de texto identificador coincide con el valor para el valor del identificador mostrado en el error.
 
 ## <a name="certificate-or-key-not-configured"></a>Certificado o clave no configurados
 
@@ -264,7 +264,7 @@ Elimine las URL de respuesta no usados para la aplicación.
 
 6.  Seleccione la aplicación que desea configurar para el inicio de sesión único.
 
-7.  Cuando se cargue la aplicación, abra **configuración SAML básica**. En el **dirección URL de respuesta (URL del servicio de consumidor de aserciones)**, delete sin usar o direcciones URL de respuesta predeterminada creada por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
+7.  Cuando se carga la aplicación, abra **Configuración básica de SAML**. En el **dirección URL de respuesta (URL del servicio de consumidor de aserciones)**, delete sin usar o direcciones URL de respuesta predeterminada creada por el sistema. Por ejemplo, `https://127.0.0.1:444/applications/default.aspx`.
 
 
 

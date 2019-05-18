@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 4e9bd4e9ea467446c2814cdb8956a40b1503b027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e15d6ad445c3fdde0632c3ad468eee7da836a394
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61020492"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785957"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Administrar conexiones en Azure Functions
 
@@ -21,7 +21,7 @@ Las funciones en una aplicación de función comparten recursos. Entre esos recu
 
 ## <a name="connection-limit"></a>Límite de conexiones
 
-El número de conexiones disponibles está limitado en parte porque una aplicación de función se ejecuta en un [entorno de recinto](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una de las restricciones que impone el recinto de seguridad en el código es un [límite del número de conexiones (actualmente en 600 conexiones activas y 1.200 total de conexiones)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) por instancia. Cuando se alcanza este límite, el runtime de las funciones crea un registro con el siguiente mensaje: `Host thresholds exceeded: Connections`.
+El número de conexiones disponibles está limitado en parte porque una aplicación de función se ejecuta en un [entorno de recinto](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una de las restricciones que impone el recinto de seguridad en el código es un límite en el número de conexiones (actualmente en 600 conexiones activas y 1.200 total de conexiones) por instancia. Cuando se alcanza este límite, el runtime de las funciones crea un registro con el siguiente mensaje: `Host thresholds exceeded: Connections`.
 
 Este límite es por instancia.  Cuando el [controlador de escala agrega instancias de function app](functions-scale.md#how-the-consumption-and-premium-plans-work) para controlar más solicitudes, cada instancia tiene un límite de conexiones independientes. Esto significa que no hay ningún límite de conexión global y puede tener mucho más de 600 conexiones activas a través de todas las instancias activas.
 

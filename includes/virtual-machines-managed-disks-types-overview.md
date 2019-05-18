@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d2daafa6bf5f9a28ad2b61a97e7a8bd2246ae18d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60618063"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538387"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>¿Qué tipos de disco están disponibles en Azure?
 
@@ -29,7 +29,7 @@ En la tabla siguiente se ofrece una comparación entre las unidades de estado s�
 |Escenario   |Cargas de trabajo con uso intensivo de E/S, como SAP HANA, bases de dato de capa superior (por ejemplo, SQL y Oracle) y otras cargas de trabajo con muchas transacciones.   |Cargas de trabajo confidenciales de producción y rendimiento   |Servidores web, aplicaciones empresariales poco utilizadas y desarrollo y pruebas   |Copia de seguridad, no crítico, acceso poco frecuente   |
 |Tamaño del disco   |65 536 gibibytes (GiB) (versión preliminar)   |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Rendimiento máx.   |2000 MiB/s (versión preliminar)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
-|IOPS máx.   |160 000 (versión preliminar)   |20.000   |6,000   |2.000   |
+|E/S máxima por segundo   |160 000 (versión preliminar)   |20.000   |6,000   |2.000   |
 
 ## <a name="ultra-ssd-preview"></a>SSD Ultra (versión preliminar)
 
@@ -44,6 +44,7 @@ Estas son algunas capacidades clave de los discos Ultra SSD:
 - Capacidad de disco: Intervalos de capacidad de SSD Ultra desde 4 GiB hasta 64 TiB.
 - IOPS de disco: los dispositivos SSD Ultra admiten límites de IOPS de 300 IOPS/GiB y hasta un máximo de 160 K IOPS por disco. Para recuperar la tasa de unidades IOPS que aprovisionó, asegúrese de que la cantidad de IOPS de disco seleccionadas sea menor que la cantidad de IOPS de la máquina virtual. El mínimo de IOPS de disco es de 100 IOPS.
 - Rendimiento del disco: con los discos SSD Ultra, el límite de rendimiento de un solo disco es de 256 KiB/s por cada IOPS aprovisionada, y hasta 2000 MBps como máximo por disco (donde MBps = 10^6 bytes por segundo). El rendimiento de disco mínimo es de 1 MiB.
+- SSDs Ultra admiten el ajuste de los atributos de rendimiento de disco (IOPS y rendimiento) en tiempo de ejecución sin desconectar el disco de la máquina virtual. Cuando se ha enviado una operación de cambio de tamaño del rendimiento del disco en un disco, este cambio puede tardar hasta una hora en surtir efecto.
 
 ### <a name="disk-size"></a>Tamaño del disco
 
@@ -58,6 +59,10 @@ Estas son algunas capacidades clave de los discos Ultra SSD:
 |256     |76 800         |2.000         |
 |512     |80 000         |2.000         |
 |1024 - 65 536 (los tamaños de este intervalo aumentan en incrementos de 1 TiB)     |160 000         |2.000         |
+
+### <a name="transactions"></a>Transacciones
+
+Para SSD ultra, cada operación de E/S menor o igual a 256 KiB de rendimiento se considera una sola operación de E/S. Las operaciones de E/S mayores que 256 KiB de rendimiento se consideran múltiples entradas y salidas del tamaño de 256 KiB.
 
 ### <a name="preview-scope-and-limitations"></a>Ámbito y limitaciones de la versión preliminar
 

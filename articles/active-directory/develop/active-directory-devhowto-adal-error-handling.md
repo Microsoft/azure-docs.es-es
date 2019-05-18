@@ -3,9 +3,9 @@ title: Prácticas recomendadas de control de errores para los clientes de la Bib
 description: Proporciona instrucciones y procedimientos recomendados de control de errores para las aplicaciones cliente de ADAL.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: celested
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/27/2017
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e92c3b302ab18aaaf20d187d61a488603ce81a7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 652175e99c800b8e4aa69c639f0bdb9aba838987
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411456"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544645"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Prácticas recomendadas de control de errores para los clientes de la Biblioteca de autenticación de Azure Active Directory (ADAL)
 

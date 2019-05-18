@@ -13,12 +13,12 @@ ms.date: 04/10/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: a575161be0a339973f9c59cc13c2320b38939d04
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 263316028e7b35a1a515322dddc4ee867011dcac
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60785105"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604108"
 ---
 # <a name="application-insights-cohorts"></a>Cohortes de Application Insights
 
@@ -123,20 +123,20 @@ Las dos cohortes anteriores se han definido mediante listas desplegables. Pero t
     | where client_CountryOrRegion == "United Kingdom"
     ```
 
-3. Seleccione **Ejecutar consulta**. Si no ve identificadores de usuarios en la tabla, cambie a un país donde haya usuarios de la aplicación.
+3. Seleccione **Ejecutar consulta**. Si no ve los identificadores de usuario aparecen en la tabla, cambie a un país o región donde la aplicación tenga usuarios.
 
 4. Guarde y dele un nombre a la cohorte.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-_He definido un cohortes de usuarios de un determinado país. Cuando comparo esta cohorte en la herramienta Usuarios con simplemente establecer un filtro en ese país, veo resultados diferentes. ¿Por qué?_
+_He definido a una cohorte de usuarios de un determinado país o región. Cuando comparo esta cohorte en la herramienta usuarios con simplemente establecer un filtro en ese país o región, veo resultados diferentes. ¿Por qué?_
 
 Las cohortes y los filtros son diferentes. Suponga que tiene una cohorte de usuarios del Reino Unido (definida como el ejemplo anterior) y compara sus resultados con configurar el filtro "Country or region = United Kingdom" (País o región = Reino Unido).
 
 * La versión de cohorte muestra todos los eventos de los usuarios que enviaron uno o varios eventos desde el Reino Unido en el intervalo de tiempo actual. Si se divide según el país o región, probablemente vea muchos países y regiones.
 * La versión de filtros solo muestra los eventos del Reino Unido. Pero si se divide según el país o región, solo verá el Reino Unido.
 
-## <a name="learn-more"></a>Más información
+## <a name="learn-more"></a>Obtenga más información
 
 * [Lenguaje de consulta de Analytics](https://go.microsoft.com/fwlink/?linkid=856587)
 * [Usuarios, sesiones, eventos](usage-segmentation.md)

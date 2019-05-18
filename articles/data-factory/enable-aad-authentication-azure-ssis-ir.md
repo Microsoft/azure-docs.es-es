@@ -8,16 +8,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 5/14/2019
 author: swinarko
 ms.author: sawinark
 manager: craigg
-ms.openlocfilehash: 58bdc0e698fc28929c2080b1737770275b1164ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: a67436f09d6e28db8d19679e446ac4cf98383709
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848735"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593799"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Habilitar la autenticación de Azure Active Directory para Azure-SSIS Integration Runtime
 
@@ -60,7 +60,7 @@ Puede utilizar un grupo de Azure AD existente o crear uno nuevo con Azure AD Pow
     6de75f3c-8b2f-4bf4-b9f8-78cc60a18050 SSISIrGroup
     ```
 
-3.  Agregue la identidad administrada de la instancia de ADF al grupo. Puede seguir el artículo [identiy administrado de factoría de datos](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obtener el identificador de identidad de servicio principal (por ejemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, pero no use el identificador de aplicación de identidad de servicio para este propósito).
+3.  Agregue la identidad administrada de la instancia de ADF al grupo. Puede seguir el artículo [identiy administrado de factoría de datos](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obtener el identificador de objeto de identidad administrada principal (por ejemplo, 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc, pero no use el identificador de la aplicación de identidad administrada para este propósito).
 
     ```powershell
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
@@ -170,12 +170,12 @@ En el paso siguiente, necesita  [Microsoft SQL Server Management Studio](https:
 
 4.  Haga clic con el botón derecho en la base de datos **maestra** y seleccione **Nueva consulta**.
 
-5.  Obtenga la identidad administrada de la instancia de ADF. Puede seguir el artículo [identiy administrado de factoría de datos](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obtener el identificador de aplicación de identidad de servicio principal (pero no use el Id. de identidad de servicio para este propósito).
+5.  Obtenga la identidad administrada de la instancia de ADF. Puede seguir el artículo [identiy administrado de factoría de datos](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) para obtener el identificador de aplicación de identidad administrada principal (pero no use el identificador de objeto de identidad administrada para este propósito).
 
 6.  En la ventana de consulta, ejecute el siguiente script de T-SQL para convertir la identidad administrada para ADF a tipo binario:
 
     ```sql
-    DECLARE @applicationId uniqueidentifier = '{your SERVICE IDENTITY APPLICATION ID}'
+    DECLARE @applicationId uniqueidentifier = '{your Managed Identity Application ID}'
     select CAST(@applicationId AS varbinary)
     ```
     
@@ -184,7 +184,7 @@ En el paso siguiente, necesita  [Microsoft SQL Server Management Studio](https:
 7.  Borre la ventana de consulta y ejecute el siguiente script de T-SQL para agregar la identidad administrada para ADF como usuario.
 
     ```sql
-    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your SERVICE IDENTITY APPLICATION ID as binary}, TYPE = E
+    CREATE LOGIN [{a name for the managed identity}] FROM EXTERNAL PROVIDER with SID = {your Managed Identity Application ID as binary}, TYPE = E
     ALTER SERVER ROLE [dbcreator] ADD MEMBER [{the managed identity name}]
     ALTER SERVER ROLE [securityadmin] ADD MEMBER [{the managed identity name}]
     ```

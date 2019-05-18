@@ -7,14 +7,13 @@ ms.author: jeanb
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/19/2019
-ms.custom: seodec18
-ms.openlocfilehash: cc62a6b9f03bdd6dc8671a6cf96113a2234fc092
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/15/2019
+ms.openlocfilehash: e784cfd2956479327cff9c97a09dd0ada6a154c2
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61480240"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826580"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-diagnostics-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de diagnóstico
 
@@ -83,7 +82,7 @@ Se recomienda activar los registros de diagnóstico y los envía a los registros
 
 ## <a name="diagnostics-log-categories"></a>Categorías de registro de diagnóstico
 
-Actualmente, se capturan dos categorías de registros de diagnóstico:
+Azure Stream Analytics captura dos categorías de registros de diagnóstico:
 
 * **Creación**: Captura registros de eventos relacionados con operaciones de creación de trabajos, como creación de trabajos, adición y eliminación de entradas y salidas, adición y actualización de la consulta, e inicio y detención del trabajo.
 
@@ -105,12 +104,12 @@ resourceId | Identificador del recurso en el que tuvo lugar la operación, en ma
 category | La categoría del registro: **Ejecución** o **Creación**.
 operationName | Nombre de la operación que se registra. Por ejemplo, **Envío de eventos: error de escritura de salida de SQL en mysqloutput**.
 status | Estado de la operación. Por ejemplo, **Erróneo** o **Correcto**.
-level | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
+nivel | Nivel de registro. Por ejemplo, **Error**, **Advertencia** o **Información**.
 properties | Detalle específico de entrada de registro, serializado como una cadena JSON. Para más información, consulte las siguientes secciones de este artículo.
 
 ### <a name="execution-log-properties-schema"></a>Esquema de propiedades de registros de ejecución
 
-Los registros de ejecución contienen información sobre eventos que se produjeron durante la ejecución del trabajo de Stream Analytics. El esquema de propiedades varía en función del tipo de evento. Actualmente, tenemos los siguientes tipos de registros de ejecución:
+Los registros de ejecución contienen información sobre eventos que se produjeron durante la ejecución del trabajo de Stream Analytics. El esquema de propiedades varía dependiendo de si el evento es un error de datos o un evento genérico.
 
 ### <a name="data-errors"></a>Errores de datos
 
@@ -124,10 +123,14 @@ Type | Tipo de error. Por ejemplo, **DataConversionError**, **CsvParserError** o
 Datos | Contiene datos útiles para localizar con exactitud el origen del error. Sujeto a truncamiento dependiendo del tamaño.
 
 En función del valor de **operationName**, los errores de datos tendrán el siguiente esquema:
-* **Eventos de serialización**. Los eventos de serialización se producen durante las operaciones de lectura de eventos. Tienen lugar cuando los datos en la entrada no satisfacen el esquema de consulta por una de las siguientes razones:
-    * *Discordancia de tipos durante la (de)serialización de eventos*: identifica el campo que provoca el error.
-    * *No se puede leer un evento, la serialización no es válida*: muestra información sobre la ubicación de los datos de entrada donde se produjo el error. Incluye el nombre de blob de la entrada de blob, el desplazamiento y una muestra de los datos.
-* **Eventos de envío**. Los eventos de envío se producen durante las operaciones de escritura. Identifican el evento de transmisión que produjo el error.
+
+* **Serializar eventos** se producen durante las operaciones de lectura de eventos. Tienen lugar cuando los datos en la entrada no satisfacen el esquema de consulta por una de las siguientes razones:
+
+   * *Discordancia de tipos durante la (de)serialización de eventos*: identifica el campo que provoca el error.
+
+   * *No se puede leer un evento, la serialización no es válida*: muestra información sobre la ubicación de los datos de entrada donde se produjo el error. Incluye el nombre de blob de la entrada de blob, el desplazamiento y una muestra de los datos.
+
+* **Enviar eventos** se producen durante las operaciones de escritura. Identifican el evento de transmisión que produjo el error.
 
 ### <a name="generic-events"></a>Eventos genéricos
 

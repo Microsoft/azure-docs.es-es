@@ -6,14 +6,14 @@ manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 07/03/2017
+ms.date: 05/11/2019
 ms.author: robinsh
-ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5dd93af7deec2b0c8c90f6a8586de905207ad0a6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61322804"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796362"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar y exportar identidades de dispositivo de IoT Hub de forma masiva
 
@@ -84,6 +84,10 @@ while(true)
   await Task.Delay(TimeSpan.FromSeconds(5));
 }
 ```
+
+## <a name="device-importexport-job-limits"></a>Límites de trabajo de importación/exportación de dispositivos
+
+Importar solo 1 dispositivos activos o trabajo de exportación se permite en un momento para todos los niveles de IoT Hub. IoT Hub también tiene los límites de velocidad de las operaciones de trabajos. Para obtener más información, consulte [referencia: cuotas y limitación IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="export-devices"></a>Exportación de dispositivos
 
@@ -256,7 +260,7 @@ Use la propiedad opcional **importMode** en los datos de serialización de impor
 | importMode | DESCRIPCIÓN |
 | --- | --- |
 | **createOrUpdate** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **crear** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **create** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
 | **update** |Si ya existe un dispositivo con los valores especificados **ID**, información existente se sobrescribe con los datos de entrada proporcionados sin respecto a la **ETag** valor. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
 | **updateIfMatchETag** |Si ya existe un dispositivo con los valores especificados **ID**, información existente se sobrescribe con los datos de entrada proporcionados solo si hay un **ETag** coinciden. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. |
 | **createOrUpdateIfMatchETag** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
@@ -390,7 +394,7 @@ while(true)
 
 ## <a name="get-the-container-sas-uri"></a>Obtención del identificador URI de SAS del contenedor
 
-El ejemplo de código siguiente muestra cómo generar un [identificador URI de SAS](../storage/blobs/storage-dotnet-shared-access-signature-part-2.md) con permisos de lectura, escritura y eliminación para un contenedor de blobs:
+El ejemplo de código siguiente muestra cómo generar un [identificador URI de SAS](../storage/common/storage-dotnet-shared-access-signature-part-1.md) con permisos de lectura, escritura y eliminación para un contenedor de blobs:
 
 ```csharp
 static string GetContainerSasUri(CloudBlobContainer container)
@@ -420,7 +424,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 En este artículo, aprendió a realizar operaciones de forma masiva en el Registro de identidad en un centro de IoT. Siga estos vínculos para más información sobre la administración de Azure IoT Hub:
 
 * [Métricas de IoT Hub](iot-hub-metrics.md)
-* [Supervisión de operaciones](iot-hub-operations-monitoring.md)
+* [Registros del centro de IoT](iot-hub-monitor-resource-health.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 

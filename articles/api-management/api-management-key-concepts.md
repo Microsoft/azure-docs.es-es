@@ -14,16 +14,18 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 3934dbb01c3b9f3219c5e649d97371850b8daadc
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793958"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230629"
 ---
-# <a name="what-is-api-management"></a>¿Qué es API Management?
+# <a name="about-api-management"></a>Acerca de API Management
 
-API Management ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos a fin de desbloquear el potencial de sus datos y servicios. Todas y cada una de las empresas pretenden extender sus operaciones como una plataforma digital creando nuevos canales, buscando nuevos clientes y estrechando la relación con los existentes. API Management proporciona las competencias esenciales para garantizar un programa de API de éxito mediante compromisos con desarrolladores, información detallada empresarial, análisis, seguridad y protección. Puede usar Azure API Management para tomar cualquier back-end e iniciar un programa de API completo basado en él.
+API Management (APIM) es una manera de crear puertas de enlace de API coherentes y modernas para servicios de back-end existentes.
+
+API Management ayuda a las organizaciones a publicar API para desarrolladores externos, asociados e internos para liberar el potencial de sus datos y servicios. Todas y cada una de las empresas pretenden extender sus operaciones como una plataforma digital creando nuevos canales, buscando nuevos clientes y estrechando la relación con los existentes. API Management proporciona las competencias esenciales para garantizar un programa de API de éxito mediante compromisos con desarrolladores, información detallada empresarial, análisis, seguridad y protección. Puede usar Azure API Management para tomar cualquier back-end e iniciar un programa de API completo basado en él.
 
 Este artículo proporciona información general de escenarios comunes que implican a APIM.  También ofrece una breve descripción de los componentes principales del sistema de APIM. El artículo, a continuación, proporciona una descripción más detallada de cada uno.
 

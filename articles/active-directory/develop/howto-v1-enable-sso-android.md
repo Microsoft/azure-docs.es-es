@@ -3,8 +3,8 @@ title: Habilitación del inicio de sesión único entre aplicaciones en Android 
 description: Cómo utilizar las características del SDK de ADAL para habilitar el inicio de sesión único entre las aplicaciones.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: android
 ms.devlang: java
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46537ac1ca0ee8b1a163656d14f325a93f3a8717
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: c11bf943adcacc39518ba0f290156761be0b78aa
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917271"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540387"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>Procedimientos para: Habilitación de SSO entre aplicaciones en Android mediante ADAL
 

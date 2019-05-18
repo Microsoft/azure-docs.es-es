@@ -5,27 +5,48 @@ services: sql-data-warehouse
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 04/10/2019
+ms.date: 05/13/2019
 author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: 4c5279d1ddf3153493ebc01dc010114ff7e6b5e7
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 519cec0951305db60e0994134f8c680f6c560752
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917242"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792427"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Notas de la versión de Azure SQL Data Warehouse
 
 En este artículo se resumen las nuevas características y mejoras de las versiones recientes de [Azure SQL Data Warehouse](sql-data-warehouse-overview-what-is.md). El artículo también enumeran actualizaciones importantes de contenido que no están directamente relacionados con la versión, pero publicadas en el mismo período de tiempo. Mejoras a otros servicios de Azure, consulte [las actualizaciones del servicio](https://azure.microsoft.com/updates).
 
+## <a name="check-your-azure-sql-data-warehouse-version"></a>Comprobar la versión de Azure SQL Data Warehouse
+
+Conéctese a su almacén de datos a través de SQL Server Management Studio (SSMS) y ejecute la siguiente sintaxis para devolver la versión actual de SQL Data Warehouse.
+
+```sql
+SELECT @@VERSION AS 'SQL Data Warehouse';
+```
+
+Salida de ejemplo: ![Versión de SQL Data Warehouse](./media/release-notes/sql_data_warehouse_version.png)
+
+Use el functoid fecha identificado para confirmar qué versión se ha aplicado a Azure SQL Data Warehouse.
+
+## <a name="may-2019"></a>Mayo de 2019
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+|**Enmascaramiento dinámico (versión preliminar)**|Enmascaramiento dinámico de datos (DDM) impide el acceso no autorizado a los datos confidenciales en el almacenamiento de datos ocultándola sobre la marcha en los resultados de consulta, según las reglas de enmascaramiento que defina. Para obtener más información, consulte [enmascaramiento dinámico de datos de SQL Database](/azure/sql-database/sql-database-dynamic-data-masking-get-started).|
+|**Importancia de la carga de trabajo ahora está disponible con carácter general**|Clasificación de la administración de cargas de trabajo y la importancia proporcionan la capacidad para influir en el orden de ejecución de consultas. Para obtener más información sobre la importancia de la carga de trabajo, consulte el [clasificación](sql-data-warehouse-workload-classification.md) y [importancia](sql-data-warehouse-workload-importance.md) artículos de información general de la documentación. Consulte la [crear CLASIFICADOR de carga de trabajo](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) también doc.<br/><br/>Vea la importancia de la carga de trabajo en acción en los siguientes vídeos:<br/> -[Conceptos de administración de cargas de trabajo](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[Escenarios de administración de cargas de trabajo](https://www.youtube.com/embed/_2rLMljOjw8)|
+|**Compatibilidad adicional de T-SQL**|El área expuesta de lenguaje Transact-SQL para SQL Data Warehouse se ha ampliado para incluir compatibilidad con: </br> - [EN LA ZONA HORARIA](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
+|**Funciones JSON**|Los analistas de negocios ahora pueden usar el familiar lenguaje Transact-SQL para consultar y manipular documentos con formato de datos JSON con las siguientes nuevas funciones JSON en Azure Data Warehouse:</br> - [ISJSON](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
+|**Caching (vista previa) del conjunto de resultados**|Almacenamiento en caché de conjunto de resultados permite tiempos de respuesta de consulta instantánea mientras reduce time-to-insight para analistas de negocios y usuarios de informes. Para más información, consulte:</br> - [ALTER DATABASE (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> - [Opciones de ALTER DATABASE SET (Transact-SQL)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> - [CONJUNTO de resultados de conjunto de almacenamiento en caché (Transact-SQL)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET Statement (Transact-SQL)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys.databases (Transact-SQL)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+
 ## <a name="march-2019"></a>Marzo de 2019
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-|**Importancia de la carga de trabajo ahora disponible en versión preliminar de Gen2**|Importancia de la carga de trabajo permite que los ingenieros de datos use importancia para clasificar las solicitudes. Las solicitudes con mayor importancia se garantiza un acceso más rápido a los recursos, lo que ayuda a cumplir los SLA.  Importancia de la carga de trabajo permite el trabajo de valor de alta en la empresa a cumplir los SLA en un entorno compartido con menos recursos.<br/><br/>Clasificación de la administración de cargas de trabajo y la importancia de vista previa es para las compilaciones con una fecha de lanzamiento de 9 de abril de 2019 o posterior. Los usuarios deben evitar usar compilaciones anteriores a esta fecha para realizar pruebas de administración de cargas de trabajo. Para determinar si la compilación es capaz de administración de cargas de trabajo, ejecute `select @@version` cuando se conecta a la instancia de SQL Data Warehouse.</br></br>Para obtener más información sobre la importancia de la carga de trabajo, consulte el [clasificación](sql-data-warehouse-workload-classification.md) y [importancia](sql-data-warehouse-workload-importance.md) artículos de información general de la documentación. Consulte la [crear CLASIFICADOR de carga de trabajo](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) también doc.<br/><br/>Vea la importancia de la carga de trabajo en acción en los siguientes vídeos:<br/>[Conceptos de administración de cargas de trabajo](  https://www.youtube.com/embed/QcCRBAhoXpM)<br/>[Escenarios de administración de cargas de trabajo](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**Clasificación y detección de datos**:|Clasificación y detección de datos se encuentra en versión preliminar pública para Azure SQL Data Warehouse. Es fundamental para proteger datos confidenciales y la privacidad de sus clientes. A medida que crecen su negocio y los recursos de datos de cliente, es imposible de administrar para detectar, clasificar y proteger los datos. La característica de detección y clasificación de datos que se está introduciendo en forma nativa con Azure SQL Data Warehouse ayuda a realizar la protección de los datos más fáciles de administrar. Las ventajas generales de esta funcionalidad son las siguientes:<br/>&bull; &nbsp; Estándares de privacidad de datos de reunión y requisitos de cumplimiento normativo.<br/>&bull; &nbsp; Restringir el acceso y mejorar la seguridad de datos de almacenes de datos altamente confidenciales que contienen.<br/>&bull; &nbsp; Supervisión y alertas con accesos anómalos a información confidencial.<br/>&bull; &nbsp; Visualización de información confidencial en un panel central en el portal de Azure. </br></br>Clasificación y detección de datos está disponible para Azure SQL Data Warehouse en todas las regiones de Azure, forma parte de la seguridad de datos avanzada incluida la evaluación de vulnerabilidades y la detección de amenazas. Para obtener más información acerca de la clasificación y detección de datos, vea el [entrada de blog](https://azure.microsoft.com/blog/announcing-public-preview-of-data-discovery-classification-for-microsoft-azure-sql-data-warehouse/) y nuestra [documentación](/azure/sql-database/sql-database-data-discovery-and-classification).|
 |**AGRUPAR POR EL PAQUETE ACUMULATIVO DE ACTUALIZACIONES**|Paquete acumulativo de actualizaciones es ahora una opción GROUP BY compatible en Azure Data Warehouse.   GROUP BY ROLLUP crea un grupo para cada combinación de expresiones de columna. GROUP BY también "acumula" los resultados en subtotales y totales generales. Procesa la función GROUP BY de derecha a izquierda, reduciendo el número de expresiones de columna que crea grupos y agregaciones.  El orden de las columnas afecta a la salida de ROLLUP y puede afectar al número de filas del conjunto de resultados.<br/><br/>Para obtener más información en GROUP BY ROLLUP, consulte [GROUP BY (Transact-SQL)](/sql/t-sql/queries/select-group-by-transact-sql?view=azure-sqldw-latest)
 |**Precisión mejorada para DWU usadas y las métricas del portal de CPU**|SQL Data Warehouse mejora considerablemente la precisión de métricas en Azure portal.  Esta versión incluye una corrección para la definición de métricas de CPU y DWU usadas para reflejar correctamente la carga de trabajo en todos los nodos de proceso. Antes de esta corrección, los valores de métrica se va a undereported. Esperar un aumento en la DWU usadas y las métricas de CPU en el portal de Azure. |
@@ -55,7 +76,7 @@ En este artículo se resumen las nuevas características y mejoras de las versio
 
 | Mejoras en la documentación | Detalles |
 | --- | --- |
-|None | |
+|ninguno | |
 | | |
 
 ## <a name="december-2018"></a>Diciembre de 2018

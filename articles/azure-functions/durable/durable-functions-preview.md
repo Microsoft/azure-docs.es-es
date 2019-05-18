@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/23/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 6b3b49049ea1ed36a08fad9619183017b0f07d99
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 8ceb84ab9e9c41ff6a9cbde62571fb12ae67d790
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65077746"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596085"
 ---
 # <a name="durable-functions-20-preview-azure-functions"></a>Durable Functions 2.0 preview (Azure Functions)
 
@@ -26,7 +26,7 @@ Durable Functions es una característica de GA (disponible con carácter general
 > [!NOTE]
 > Estas características forman parte de una versión de Durable Functions 2.0, que es actualmente un **versión alfa de calidad** con varios cambios importantes. Azure funciones duraderas compila el paquete de extensión puede encontrarse en nuget.org con las versiones en forma de **2.0.0-alpha**. Estas compilaciones no son adecuadas para las cargas de trabajo de producción, y versiones posteriores pueden contener cambios adicionales.
 
-## <a name="breaking-changes"></a>Cambios drásticos
+## <a name="breaking-changes"></a>Cambios importantes
 
 Se presentan varios cambios importantes en Durable Functions 2.0. No se esperan que las aplicaciones existentes para que sean compatibles con Durable Functions 2.0 sin cambios de código. En esta sección se enumera algunos de los cambios:
 
@@ -36,7 +36,7 @@ Se ha quitado la compatibilidad con .NET Framework (y, por tanto, las funciones 
 
 ### <a name="hostjson-schema"></a>Host.json schema
 
-El fragmento de código siguiente muestra el nuevo esquema de host.json. El cambio principal que tenga en cuenta de nosotros nuevo `"storageProvider"` sección y el `"azureStorage"` sección debajo de ella. Este cambio se realizó para admitir [alternativos de proveedores de almacenamiento](durable-functions-preview.md#alternate-storage-providers).
+El fragmento de código siguiente muestra el nuevo esquema de host.json. Tenga en cuenta el cambio principal es la nueva `"storageProvider"` sección y el `"azureStorage"` sección debajo de ella. Este cambio se realizó para admitir [alternativos de proveedores de almacenamiento](durable-functions-preview.md#alternate-storage-providers).
 
 ```json
 {
@@ -93,11 +93,12 @@ En el caso donde una clase base abstracta contiene métodos virtuales, se han re
 
 Las funciones de entidad definen las operaciones de lectura y actualización de pequeños fragmentos de estado, conocido como *entidades duraderas*. Al igual que las funciones de orquestador, las funciones de entidad son funciones con un tipo especial de desencadenador, *desencadenador entidad*. A diferencia de las funciones de orquestador, funciones de la entidad no tiene las restricciones de código específico. Funciones de la entidad administran también el estado de forma explícita en lugar de forma implícita que representa el estado a través del flujo de control.
 
-El código siguiente es un ejemplo de una función de entidad simple que define un *contador* entidad. La función define tres operaciones `add`, `remove`, y `reset`, cada uno de los que actualizar un valor entero, `currentValue`.
+El código siguiente es un ejemplo de una función de entidad simple que define un *contador* entidad. La función define tres operaciones `add`, `subtract`, y `reset`, cada uno de los que actualizar un valor entero, `currentValue`.
 
 ```csharp
+[FunctionName("Counter")]
 public static async Task Counter(
-    [EntityTrigger(EntityName = "Counter")] IDurableEntityContext ctx)
+    [EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
     int operand = ctx.GetInput<int>();
@@ -200,21 +201,25 @@ La sección crítica se liberan los extremos y todos los bloqueos, cuando finali
 Por ejemplo, considere la posibilidad de una orquestación que necesita para probar si dos jugadores deben estar disponibles y, a continuación, asignarlos a un juego. Esta tarea puede implementarse mediante una sección crítica como sigue:
 
 ```csharp
-
-EntityId player1 = /* ... */;
-EntityId player2 = /* ... */;
-
-using (await ctx.LockAsync(player1, player2))
+[FunctionName("Orchestrator")]
+public static async Task RunOrchestrator(
+    [OrchestrationTrigger] IDurableOrchestrationContext ctx)
 {
-    bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
-    bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
+    EntityId player1 = /* ... */;
+    EntityId player2 = /* ... */;
 
-    if (available1 && available2)
+    using (await ctx.LockAsync(player1, player2))
     {
-        Guid gameId = ctx.NewGuid();
+        bool available1 = await ctx.CallEntityAsync<bool>(player1, "is-available");
+        bool available2 = await ctx.CallEntityAsync<bool>(player2, "is-available");
 
-        await ctx.CallEntityAsync(player1, "assign-game", gameId);
-        await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        if (available1 && available2)
+        {
+            Guid gameId = ctx.NewGuid();
+
+            await ctx.CallEntityAsync(player1, "assign-game", gameId);
+            await ctx.CallEntityAsync(player2, "assign-game", gameId);
+        }
     }
 }
 ```

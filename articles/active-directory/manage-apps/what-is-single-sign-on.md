@@ -2,22 +2,22 @@
 title: 'Inicio de sesión único en aplicaciones: Azure Active Directory | Microsoft Docs'
 description: Aprenda a elegir un método de inicio de sesión único al configurar aplicaciones en Azure Active Directory (Azure AD). Use el inicio de sesión único, para que los usuarios no necesiten recordar las contraseñas de todas las aplicaciones y para simplificar la administración de cuentas.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/12/2019
-ms.author: celested
+ms.date: 05/15/2019
+ms.author: mimart
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75aa0f4755fe3d124094ace3c3e6b8e6ea3b65e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 51b3066a529183d7a8a13e4673d7879136aa0d7a
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441519"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824159"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
 
@@ -45,7 +45,7 @@ En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los
 | [OpenID Connect y OAuth](#openid-connect-and-oauth) | solo en la nube | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
 | [SAML](#saml-sso) | En la nube y locales | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
 | [Basado en contraseñas](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
-| [Vinculado](#linked-sso) | En la nube y locales | Elija el inicio de sesión único vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
+| [Vinculado](#linked-sign-on) | En la nube y locales | Elija el inicio de sesión vinculado cuando la aplicación está configurada para inicio de sesión único en otro servicio de proveedor de identidad. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
 | [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Los usuarios necesitan escribir su nombre de usuario y la contraseña cada vez que inician esta aplicación.|
 | [Autenticación integrada de Windows (IWA)](#integrated-windows-authentication-iwa-sso) | Solo en entornos locales | Elija el inicio de sesión único IWA para aplicaciones que usen la [autenticación integrada de Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) o aplicaciones compatibles con notificaciones. Para la autenticación integrada de Windows, los conectores del proxy de aplicación utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación. | 
 | [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  | 
@@ -68,7 +68,7 @@ Elija el inicio de sesión único basado en SAML cuando la aplicación lo admita
 El inicio de sesión único basado en SAML es compatible con aplicaciones que usan cualquiera de estos protocolos:
 
 - SAML 2.0
-- El certificado del proveedor de identidades de WS-Federation
+- WS-Federation
 
 Para configurar una aplicación SaaS para basado en SAML single sign-on, vea [basado en SAML de la configuración de sesión único](configure-single-sign-on-portal.md). Además, muchas aplicaciones de software como servicio (SaaS) tienen un [tutorial específico de la aplicación](../saas-apps/tutorial-list.md) que le guía por la configuración del inicio de sesión único basado en SAML.
 
@@ -122,12 +122,12 @@ Si el usuario final administra las credenciales:
 - Los administradores pueden seguir estableciendo nuevas credenciales para la aplicación.
 
 
-## <a name="linked-sso"></a>Inicio de sesión único vinculado
+## <a name="linked-sign-on"></a>Inicio de sesión vinculado
 El inicio de sesión único vinculado permite a Azure AD proporcionar inicio de sesión único a una aplicación que ya está configurada para el inicio de sesión único en otro servicio. La aplicación vinculada puede aparecer a los usuarios finales en el portal de Office 365 o el portal Mis aplicaciones de Azure AD. Por ejemplo, un usuario puede iniciar una aplicación que está configurada para el inicio de sesión único en Servicios de federación de Active Directory (AD FS) 2.0 desde el portal de Office 365. También hay informes adicionales disponibles para aplicaciones vinculadas que se inician desde el portal de Office 365 o el portal Mis aplicaciones de Azure AD. 
 
-### <a name="linked-sso-for-application-migration"></a>Inicio de sesión único vinculado para la migración de aplicaciones
+### <a name="linked-sign-on-for-application-migration"></a>Inicio de sesión vinculado para la migración de aplicaciones
 
-El inicio de sesión único vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar un inicio de sesión único vinculado para publicar rápidamente los vínculos a todas las aplicaciones que pretende migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md) o en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
+Inicio de sesión vinculado puede proporcionar una experiencia de usuario coherente durante la migración de aplicaciones durante un período de tiempo. Si va a migrar aplicaciones a Azure Active Directory, puede usar el inicio de sesión vinculado para publicar rápidamente los vínculos a todas las aplicaciones que se va a migrar.  Los usuarios pueden encontrar todos los vínculos en el [portal Mis aplicaciones](../user-help/active-directory-saas-access-panel-introduction.md) o en el [iniciador de aplicaciones de Office 365](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Los usuarios no saben que están accediendo a una aplicación vinculada o una aplicación migrada.  
 
 Una vez que el usuario se ha autenticado con una aplicación vinculada, se debe crear un registro de cuenta antes de proporcionar al usuario final el acceso de inicio de sesión único. El aprovisionamiento de este registro de cuenta puede producirse automáticamente o bien lo puede realizar manualmente un administrador.
 

@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 5/7/2019
+ms.date: 5/16/2019
 ms.author: victorh
-ms.openlocfilehash: dfb5b8b69b2ca9bea118603406f4747036d2641c
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0da5d8a3eec0faa4001ccf229c6748c253f1b6e5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510819"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827434"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway"></a>El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona 
 
@@ -62,7 +62,7 @@ Orientación de la unidad de proceso:
 | Standard_v2                                       |    0.20             | 0.0080                          |
 | WAF_v2                                            |    0.36             | 0.0144                          |
 
-El [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/) se actualizará para reflejar los precios regionales en 14 de mayo de 2019. La facturación está programada para que comience el 1 de junio de 2019.
+Para obtener más información sobre precios, consulte el [página de precios](https://azure.microsoft.com/pricing/details/application-gateway/). La facturación está programada para que comience el 1 de julio de 2019.
 
 **Ejemplo 1**
 
@@ -100,7 +100,7 @@ El [página de precios](https://azure.microsoft.com/pricing/details/application-
 WAF y Application Gateway pueden configurarse a escala en dos modos:
 
 - **El escalado automático** : con el escalado automático habilitado, la puerta de enlace de aplicaciones y WAF v2 SKU escalar o reducir verticalmente en función de los requisitos de tráfico de aplicación. Este modo ofrece elasticidad mejor a su aplicación y elimina la necesidad de adivinar el recuento de tamaño o la instancia de puerta de enlace de aplicaciones. Este modo también le permite ahorrar costos al no requerir para ejecutar las puertas de enlace en su capacidad máxima aprovisionada para la carga de tráfico máximo previsto. Los clientes deben especificar un recuento de instancias mínimas y máximas opcionalmente. Capacidad mínima que se garantiza que Application Gateway y WAF v2 no se encuentran por debajo del recuento de instancias mínimo especificado, incluso en ausencia de tráfico. Se le facturará esta capacidad mínima incluso en ausencia de todo el tráfico. Opcionalmente, también puede especificar un recuento máximo de instancias, lo que garantiza que la puerta de enlace de aplicaciones no escala más allá del número especificado de instancias. Seguirá facturando para la cantidad de tráfico atendido por la puerta de enlace. Los números de instancias pueden oscilar entre 0 y 125. El valor predeterminado de recuento de instancias máximo es 20 si no se especifica.
-- **Manual** -o bien puede elegir que no se escalará automáticamente la puerta de enlace de modo Manual. En este modo, si hay más tráfico que qué puerta de enlace de aplicaciones o WAF es capaz de manejar, podría provocar pérdida de tráfico. Con el modo manual, es obligatorio especificar el número de instancia. Recuento de instancias puede variar de 1 a 125 instancias.
+- **Manual** -o bien puede elegir que no se escalará automáticamente la puerta de enlace de modo Manual. En este modo, si hay más tráfico que lo que Application Gateway o WAF puede administrar, podría provocar pérdida de tráfico. Con el modo manual, es obligatorio especificar el número de instancia. Recuento de instancias puede variar de 1 a 125 instancias.
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparación de características entre SKU v1 y v2 SKU
 

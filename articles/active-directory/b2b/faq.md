@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 04/10/2019
 ms.author: mimart
 author: msmimart
-manager: celested
+manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d361a40e2efa80a677255c02c7e9cf155af09ffb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3b40fc631e84336b684f981a2fef1515a1febec0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60413668"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65811903"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -57,7 +57,7 @@ Totalmente. Para más información, consulte [Asignación de roles de administra
 A menos que un usuario está asignado el rol de administrador limitado, los usuarios de colaboración B2B no necesitarán acceso al portal de Azure. Sin embargo, los usuarios de colaboración de B2B que están asignados al rol de administrador limitado pueden acceder al portal. Además, si un usuario invitado al que no se le han asignado estos roles de administrador tuviera acceso al portal, podría acceder a determinadas partes de la experiencia. El rol de usuario invitado tiene algunos permisos en el directorio.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>¿Puedo bloquear el acceso a Azure Portal a los usuarios invitados?
-Sí. Cuando configure esta directiva tenga cuidado de evitar que se bloquee accidentalmente el acceso a los administradores y miembros.
+¡Sí! Cuando configure esta directiva tenga cuidado de evitar que se bloquee accidentalmente el acceso a los administradores y miembros.
 Para bloquear el acceso de un usuario invitado a [Azure Portal](https://portal.azure.com), use una directiva de acceso condicional en la API del modelo de implementación clásica de Azure:
 1. Modifique el grupo **Todos los usuarios** para que contenga solo miembros.
    ![Captura de pantalla muestra el grupo todos los usuarios que no sea invitado igual UserType](media/faq/modify-all-users-group.png)
@@ -83,7 +83,7 @@ Sí, Dynamics 365 (en línea) admite la colaboración B2B de Azure AD. Para más
 
 ### <a name="what-is-the-lifetime-of-an-initial-password-for-a-newly-created-b2b-collaboration-user"></a>¿Cuál es la duración de una contraseña inicial para un usuario de colaboración B2B recién creado?
 Azure AD tiene un conjunto fijo de requisitos de bloqueo de cuentas, seguridad de la contraseña y caracteres que se aplican igualmente a todas las cuentas de usuario en la nube de Azure AD. Las cuentas de usuario en la nube son cuentas que no están federadas con otro proveedor de identidades, como: 
-* Cuenta Microsoft
+* Cuenta de Microsoft
 * Facebook
 * Servicios de federación de Active Directory
 * Otro inquilino de nube (para la colaboración B2B)

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: bd9df12cbe941b868c769daccd02c1d81b39f7bd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 22494984ca45cde7255fb5e1a30548c859bfad68
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60776497"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826512"
 ---
 # <a name="security-model-of-azure-notification-hubs"></a>Modelo de seguridad de Azure Notification Hubs
 
@@ -46,7 +46,10 @@ De modo similar a otras entidades, las operaciones del Centro de notificaciones 
 | Notificación   | DESCRIPCIÓN                                          | Operaciones permitidas |
 | ------- | ---------------------------------------------------- | ------------------ |
 | Escuchar  | Crear o actualizar, leer y eliminar registros únicos | Crear o actualizar registro<br><br>Leer el registro<br><br>Leer todos los registros de un controlador<br><br>Eliminar registro |
-| Envío    | Enviar mensajes al Centro de notificaciones                | Enviar mensaje |
+| Enviar    | Enviar mensajes al Centro de notificaciones                | Enviar mensaje |
 | administración  | CRUD en Notification Hubs (incluida la actualización de las credenciales de PNS y claves de seguridad) y registros de lectura basados en etiquetas |Crear/Actualizar/Eliminar Centros de notificaciones<br><br>Leer registros por etiqueta |
 
 Notification Hubs acepta notificaciones concedidas por tokens de Microsoft Azure Access Control y tokens de firma generados con claves compartidas configuradas directamente en el centro de notificaciones.
+
+No es posible enviar una notificación a más de un espacio de nombres. Espacios de nombres son un contenedor lógico para notification hubs y no están implicados con el envío de notificaciones.
+Las directivas de acceso de nivel de espacio de nombres (credenciales) se pueden usar para las operaciones de nivel de espacio de nombres, por ejemplo: enumerar centros de notificaciones, crear o eliminar centros de notificaciones, etcetera. Solo las directivas de acceso de nivel de centro permitiría a enviar notificaciones.

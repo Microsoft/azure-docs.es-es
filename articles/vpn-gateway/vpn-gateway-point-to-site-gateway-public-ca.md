@@ -2,18 +2,17 @@
 title: Transición a certificados de entidad de certificación públicos para puertas de enlace P2S | Azure VPN Gateway | Microsoft Docs
 description: Este artículo lo ayuda a realizar una transición exitosa a los nuevos certificados de entidad de certificación públicos para puertas de enlace P2S.
 services: vpn-gateway
-author: WenJason
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-origin.date: 03/12/2019
-ms.date: 04/29/2019
-ms.author: v-jay
-ms.openlocfilehash: 29f2aeee53e07adfeafb8017c489c0b830f24b36
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/16/2019
+ms.author: cherylmc
+ms.openlocfilehash: 1d45e1a5e4053ead4330967c5e250c0797c19fe7
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60859654"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827468"
 ---
 # <a name="transition-to-a-public-ca-gateway-certificate-for-p2s"></a>Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
 
@@ -30,17 +29,7 @@ Anteriormente, un certificado autofirmado para la puerta de enlace (que emitía 
 Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el certificado de puerta de enlace se puede migrar, recibirá un aviso en Azure Portal. Puede ver si se ve afectada la puerta de enlace siguiendo los pasos de este artículo.
 
 > [!IMPORTANT]
-> La transición está programada para el 12 de marzo de 2019 a partir de las 18:00 UTC. Puede crear una incidencia de soporte técnico si prefiere un período diferente. Cree y finalice la solicitud con al menos 24 horas de antelación.  Puede solicitar una de las ventanas siguientes:
->
-> * El 25 de febrero a partir de las 06:00 UTC
-> * El 25 de febrero a partir de las 18:00 UTC
-> * El 1 de marzo a partir de las 06:00 UTC
-> * El 1 de marzo a partir de las 18:00 UTC
->
-> **Todas las puertas de enlace restantes realizarán la transición el 12 de marzo de 2019 a partir de las 18:00 UTC**.
->
-> Los clientes recibirán un correo electrónico cuando se haya completado el proceso de transición de su puerta de enlace.
-> 
+> Se ha completado la transición para certificados de entidad de certificación pública en el 12 de mayo de 2019. **Este documento se quitará en el 31 de mayo de 2019.**
 
 ## <a name="1-verify-your-certificate"></a>1. Comprobación del certificado
 
@@ -55,7 +44,7 @@ Solo las puertas de enlace anteriores se ven afectados por este cambio. Si el ce
    * `<ServerCertIssuerCn>DigiCert Global Root CA</ServerCertIssuerCn>`
 4. Si *ServerCertRotCn* y *ServerCertIssuerCn* son "DigiCert Global Root CA", no se verán afectados por esta actualización y no es necesario continuar con los pasos descritos en este artículo. Sin embargo, si aparece algo más, el certificado de puerta de enlace forma parte de la actualización y realizará la transición.
 
-### <a name="classic"></a>Clásico
+### <a name="classic"></a>Clásica
 
 1. En un equipo cliente, vaya a la ruta de acceso `%appdata%/Microsoft/Network/Connections/Cm/<gatewayID>`. En la carpeta con el identificador de la puerta de enlace, puede ver el certificado.
 2. En la pestaña General del certificado, compruebe que la entidad emisora es "DigiCert Global Root CA". Si tiene algo distinto a esta entidad emisora, el certificado de la puerta de enlace formará parte de la actualización y se realizará su transición.

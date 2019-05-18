@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: 35f970e81d27511bd35610bc2988a5ea4832906b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ed494cea1ccf8845a25a3ab49d3194cc6a55509
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60995751"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785676"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Migrar de Translator Speech API al servicio Voz
 

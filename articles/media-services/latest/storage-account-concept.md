@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/28/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 96c3a3eb5e4c07ad9cad8ea5060a27c0c33eec5f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9cbb995eb3310a2263185d6fd6dba20efce37f38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61466823"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550145"
 ---
 # <a name="cloud-upload-and-storage"></a>Carga y almacenamiento en la nube
 
@@ -51,6 +51,17 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 |[Cifrado en el lado de cliente de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Cifrado en el lado de cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault|No compatible|
 
 <sup>1</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2. Esto significa que la versión v3 funciona con los recursos cifrados de almacenamiento ya existentes pero no permitirá la creación de otros nuevos.
+
+## <a name="storage-account-errors"></a>Errores de la cuenta de almacenamiento
+
+El estado "Desconectado" de una cuenta de Media Services indica que la cuenta ya no tiene acceso a una o varias de las cuentas de almacenamiento conectado debido a un cambio en las claves de acceso de almacenamiento. Media Services requiere claves de acceso de almacenamiento actualizada para realizar muchas tareas en la cuenta.
+
+Las siguientes son los principales escenarios que daría lugar a una cuenta de Media Services si no tiene acceso a las cuentas de almacenamiento conectado. 
+
+|Problema|Solución|
+|---|---|
+|La cuenta de Media Services o cuentas de almacenamiento se han migrado para separar las suscripciones. |Migre las cuentas de almacenamiento o la cuenta de Media Services para que todos se encuentran en la misma suscripción. |
+|La cuenta de Media Services usa una cuenta de almacenamiento conectado en una suscripción diferente que tenía una cuenta de Media Services temprana donde esto se admite. Todas las cuentas de Media Services anticipadas se convirtieron en cuentas de administrador de recursos de Azure (ARM) en función moderna y tendrán un estado desconectado. |Migre la cuenta de almacenamiento o la cuenta de Media Services para que todos se encuentran en la misma suscripción.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

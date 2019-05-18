@@ -1,10 +1,10 @@
 ---
-title: Configuración de una aplicación para exponer API web (versión preliminar) | Azure
+title: 'Configuración de una aplicación para exponer API web: plataforma de identidad de Microsoft'
 description: Aprenda a configurar una aplicación para exponer un nuevo permiso o ámbito y rol para que la aplicación esté disponible para las aplicaciones cliente.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a8ff17656978e6e4e8741c19cda79743560481a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1148fb221e82963ea39ece3e18598e38d633238d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58080852"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413953"
 ---
-# <a name="quickstart-configure-an-application-to-expose-web-apis-preview"></a>Inicio rápido: Configuración de una aplicación para exponer API web (versión preliminar)
+# <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Inicio rápido: Configuración de una aplicación para exponer las API web
 
 Puede desarrollar una API web y ponerla a disposición de las aplicaciones cliente si expone los [permisos o ámbitos](developer-glossary.md#scopes) y los [roles](developer-glossary.md#roles). Una API web configurada correctamente se pone a disposición de otras aplicaciones del mismo modo que otras API web de Microsoft, incluidas Graph API y las API de Office 365.
 
@@ -37,7 +37,6 @@ Para comenzar, asegúrese de que completa estos requisitos previos:
 * Aprenda sobre los [permisos y consentimiento](v2-permissions-and-consent.md) admitidos, que son importantes comprender al crear aplicaciones que necesitan ser utilizadas por otros usuarios o aplicaciones.
 * Tiene un inquilino que tenga las aplicaciones registradas en él.
   * Si no tiene aplicaciones registradas, [aprenda a registrar aplicaciones con la plataforma de identidad de Microsoft](quickstart-register-app.md).
-* Participe en la experiencia de versión preliminar para los registros de aplicaciones en Azure Portal. Los pasos descritos en esta guía de inicio rápido corresponden a la nueva interfaz de usuario y solo funcionan si participa en la experiencia de versión preliminar.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Inicio de sesión en Azure Portal y selección de la aplicación
 
@@ -45,7 +44,7 @@ Antes de configurar la aplicación, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones (versión preliminar)**.
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**.
 1. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación o la de registro principal.
 1. Elija el método que desea utilizar, la interfaz de usuario o el manifiesto de aplicación, para exponer un ámbito nuevo:
     * [Exposición de un ámbito nuevo mediante la interfaz de usuario](#expose-a-new-scope-through-the-ui)

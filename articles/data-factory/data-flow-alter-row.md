@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: d842898ca700490ae99b46140be6609622a144df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f0ac5bb36079983b10e4d86cc776bd4e5ee6817d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627122"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65520157"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Transformación de fila Alter factoría de datos de Azure
 
@@ -24,7 +24,7 @@ Usar la transformación de fila Alter para establecer directivas de insert, dele
 > [!NOTE]
 > Las transformaciones de filas ALTER solo funcionará en la base de datos receptores en el flujo de datos. Las acciones que se asignan a las filas (insert, update, delete, upsert) no se producirán durante las sesiones de depuración. Debe agregar una tarea de ejecución de flujo de datos a una canalización y usar la depuración de la canalización o desencadenadores para aplicar las directivas de la fila de alter en las tablas de base de datos.
 
-## <a name="view-policies"></a>Visualización de directivas
+## <a name="view-policies"></a>Ver directivas
 
 Cambiar el modo de flujo de depuración de datos en y, a continuación, ver los resultados de las directivas de la fila alter en el panel de vista previa de datos. Ejecución de una fila de alter en el modo de datos de flujo de depuración no producirá las acciones de DDL o DML con respecto a su destino. Con el fin de que esas acciones que se produzca, ejecute el flujo de datos dentro de una actividad de flujo de datos ejecutar dentro de una canalización.
 

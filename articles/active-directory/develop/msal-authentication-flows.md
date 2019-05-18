@@ -4,7 +4,7 @@ description: Obtenga información sobre lo flujos de autenticación/concede util
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39f323c2ac86e8d42319b3d99221f6c20beff3e4
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: cb9a6f162a10408469669cf40b29efc6d2903944
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406686"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546049"
 ---
 # <a name="authentication-flows"></a>Flujos de autenticación
 

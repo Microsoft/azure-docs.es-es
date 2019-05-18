@@ -1,7 +1,7 @@
 ---
 title: 'Canalizaciones: optimización de los flujos de trabajo de Machine Learning'
 titleSuffix: Azure Machine Learning service
-description: En este artículo, obtenga información sobre las canalizaciones de Machine Learning que puede compilar con el SDK de Azure Machine Learning para Python y las ventajas de utilizar canalizaciones. Los científicos de datos usan canalizaciones de Machine Learning (ML) para crear, optimizar y administrar sus flujos de trabajo de aprendizaje automático.
+description: En este artículo, obtenga información sobre las canalizaciones de Machine Learning que puede compilar con el SDK de Azure Machine Learning para Python y las ventajas de utilizar canalizaciones. Los científicos de datos usan las canalizaciones de Machine Learning (ML) para crear, optimizar y administrar los flujos de trabajo de aprendizaje automático.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 12/04/2018
+ms.date: 05/14/2019
 ms.custom: seodec18
-ms.openlocfilehash: f9049e22d15dacb91e86fd0ba623d69c9d17c789
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: ff693ac34382ea5673989ecb6cbb38e19e176ad3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024819"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65801074"
 ---
 # <a name="build-machine-learning-pipelines-with-the-azure-machine-learning-service"></a>Creación de canalizaciones de aprendizaje automático con el servicio Azure Machine Learning
 
@@ -64,7 +64,7 @@ Las principales ventajas de la compilación de canalizaciones para los flujos de
 
 |Ventaja clave|DESCRIPCIÓN|
 |:-------:|-----------|
-|**Ejecuciones&nbsp;desatendidas**|Programe unos pocos pasos para la ejecución en paralelo o en secuencia de manera confiable y desatendida. Dado que la preparación y el modelado de los datos pueden tardar días o semanas, ahora puede centrarse en otras tareas mientras se ejecuta la canalización. |
+|**Ejecuciones&nbsp;desatendidas**|Programe unos pasos para ejecutar en paralelo o en secuencia de manera confiable y desatendida. Dado que la preparación y el modelado de los datos pueden tardar días o semanas, ahora puede centrarse en otras tareas mientras se ejecuta la canalización. |
 |**Proceso mixto y diverso**|Utilice varias canalizaciones coordinadas de forma confiable en procesos y almacenamientos heterogéneos y escalables. Puede ejecutar los pasos individuales de la canalización en diferentes destinos de proceso, como HDInsight, Data Science Virtual Machine de GPU y Databricks. De esta manera, se hace un uso eficiente de las opciones de proceso disponibles.|
 |**Reusabilidad**|Se pueden crear plantillas de canalizaciones en escenarios específicos, como reentrenamiento y puntuación por lotes. Y puede desencadenarlas desde sistemas externos mediante llamadas REST sencillas.|
 |**Seguimiento y control de versiones**|En lugar de hacer un seguimiento manual de los datos y los resultados conforme itera, use el SDK de canalizaciones para asignar de forma explícita un nombre y una versión a los orígenes de datos, las entradas y las salidas. También puede administrar scripts y datos por separado para aumentar la productividad.|

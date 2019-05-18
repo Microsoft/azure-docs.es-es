@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/26/2019
-ms.openlocfilehash: 584f30cc12aee722aed1079d5cefaee06d403cba
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.date: 05/14/2019
+ms.openlocfilehash: 7916e9493a5d572f844bca23a1dd7806e5fbe572
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867664"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790159"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -125,17 +125,11 @@ La compatibilidad de [Bring Your Own Key](transparent-data-encryption-byok-azure
 
 [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) es una característica creada para proteger la información confidencial almacenada en columnas específicas de bases de datos (por ejemplo, números de tarjeta de crédito, números de identificación nacional o datos según la _necesidad de conocimiento_). Esto incluye a administradores de bases de datos u otros usuarios con privilegios que tengan autorización para acceder a la base de datos para realizar tareas de administración, pero que no tienen necesidades empresariales de acceder a datos específicos de las columnas cifradas. Los datos están siempre cifrados, lo que significa que los datos cifrados se descifran solo para el procesamiento por parte de las aplicaciones cliente con acceso a la clave de cifrado.  La clave de cifrado nunca se expone a SQL y se pueden almacenar en el [almacén de certificados de Windows](sql-database-always-encrypted.md) o en [Azure Key Vault](sql-database-always-encrypted-azure-key-vault.md).
 
-### <a name="masking"></a>Enmascaramiento
+### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
 
 ![azure-database-ddm.png](media/sql-database-security-overview/azure-database-ddm.png)
 
-#### <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos
-
 El enmascaramiento dinámico de datos de SQL Database limita la exposición de información confidencial mediante su enmascaramiento a los usuarios sin privilegios. La característica Enmascaramiento dinámico de datos detecta automáticamente información potencialmente confidencial en Azure SQL Database y proporciona recomendaciones accionables para enmascarar estos campos, con un impacto mínimo en el nivel de aplicación. Su funcionamiento consiste en ocultar los datos confidenciales del conjunto de resultados de una consulta en los campos designados de la base de datos, mientras que los datos de la base de datos no cambian. Para más información, consulte [Enmascaramiento dinámico de datos de SQL Database](sql-database-dynamic-data-masking-get-started.md).
-
-#### <a name="static-data-masking"></a>Enmascaramiento de datos estáticos
-
-El [enmascaramiento de datos estáticos](/sql/relational-databases/security/static-data-masking) en una herramienta de cliente disponible en [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) 18.0 versión preliminar 5 y superior.  El enmascaramiento de datos estáticos permite a los usuarios crear una copia de una base de datos donde los datos de ciertas columnas se han enmascarado de forma permanente. Las funciones de enmascaramiento disponibles incluyen enmascaramiento NULL, enmascaramiento de valor único, enmascaramiento grupal y de ofuscación grupal, y enmascaramiento compuesto de cadena. Con la copia enmascarada de la base de datos, las organizaciones pueden separar los entornos de producción y prueba al compartir la copia enmascarada. La información confidencial está lo suficientemente protegida, y se han mantenido todas las otras características de base de datos. Se recomienda el enmascaramiento de bases de datos cuando se requiera acceso de terceros a las bases de datos.
 
 ## <a name="security-management"></a>Administración de la seguridad
 

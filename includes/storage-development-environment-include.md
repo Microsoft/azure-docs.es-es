@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 075e19ecb078bbbd5be0d46ed58405b18ebc8334
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 6882c46ec0e4925c42de86c87225e9509c84df84
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45738474"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "65757861"
 ---
-## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
+## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 A continuación, configure el entorno de desarrollo en Visual Studio para poder probar los ejemplos de código de esta guía.
 
 ### <a name="create-a-windows-console-application-project"></a>Creación de un proyecto de aplicación de consola de Windows
@@ -36,8 +36,8 @@ La biblioteca del cliente de Azure Storage se puede usar en cualquier tipo de ap
 ### <a name="use-nuget-to-install-the-required-packages"></a>Uso de NuGet para instalar los paquetes necesarios
 Para completar este tutorial, es preciso que haga referencia a dos paquetes en el proyecto:
 
-* [Biblioteca del cliente de Microsoft Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/): este paquete proporciona acceso mediante programación a los recursos de datos de la cuenta de almacenamiento.
-* [Biblioteca de Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
+* [Biblioteca de clientes de almacenamiento de Microsoft Azure para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/) Este paquete proporciona acceso mediante programación a los recursos de datos de la cuenta de almacenamiento.
+* [Biblioteca del Administrador de configuración de Microsoft Azure para .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): Este paquete proporciona una clase para analizar una cadena de conexión en un archivo de configuración, independientemente del lugar en que se ejecute la aplicación.
 
 Puede usar NuGet para obtener ambos paquetes. Siga estos pasos:
 

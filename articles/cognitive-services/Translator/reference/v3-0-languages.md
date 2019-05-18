@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6e0342d876db424454526637322d67d55c0432a8
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605115"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797295"
 ---
-# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
+# <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Idiomas
 
 Obtiene el conjunto de idiomas admitidos actualmente por otras operaciones de Translator Text API. 
 
@@ -40,7 +40,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser `3.0`.</td>
   </tr>
   <tr>
-    <td>scope</td>
+    <td>ámbito</td>
     <td>*Parámetro opcional*.<br/>Lista de nombres separados por comas que definen el grupo de idiomas que se devolverá. Los nombres de grupo permitidos son: `translation`, `transliteration` y `dictionary`. Si no se proporciona ningún ámbito, se devuelven todos los grupos, lo que es equivalente a pasar `scope=translation,transliteration,dictionary`. Para decidir qué conjunto de idiomas admitidos es adecuado para su escenario, vea la descripción del [objeto de respuesta](#response-body).</td>
   </tr>
 </table> 
@@ -48,7 +48,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 Los encabezados de solicitud son:
 
 <table width="100%">
-  <th width="20%">encabezados</th>
+  <th width="20%">Encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>Accept-Language</td>
@@ -229,7 +229,7 @@ La lista de idiomas admitidos no cambiará con frecuencia. Para ahorrar ancho de
 ## <a name="response-headers"></a>Encabezados de respuesta
 
 <table width="100%">
-  <th width="20%">encabezados</th>
+  <th width="20%">Encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>ETag</td>
@@ -251,7 +251,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>304</td>
@@ -263,7 +263,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>429</td>
-    <td>El autor de la llamada está enviando demasiadas solicitudes.</td>
+    <td>El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.</td>
   </tr>
   <tr>
     <td>500</td>

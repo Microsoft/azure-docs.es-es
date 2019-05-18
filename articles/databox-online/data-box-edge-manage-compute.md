@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 05/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 58c4f42859f735a81a3e3edc801daff5d26194a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a90475cfd1d166b8fae1c2b872cbbb9d48b50392
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60757975"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785808"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Administración de proceso en una instancia de Azure Data Box Edge
 
 En este artículo se describe cómo administrar el proceso en una instancia de Azure Data Box Edge. Puede administrar el proceso a través de Azure Portal o mediante la interfaz de usuario web local. Use Azure Portal para administrar los módulos, los desencadenadores y la configuración de proceso, y la interfaz de usuario web local para administrar los valores del proceso.
-
-> [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 En este artículo, aprenderá a:
 
@@ -38,7 +34,7 @@ Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo
 - **Scheduled**: estos desencadenadores surgen en respuesta a una programación que puede definir con una fecha de inicio, una hora de inicio y el intervalo de repetición.
 
 
-### <a name="add-a-trigger"></a>Incorporación de un desencadenador
+### <a name="add-a-trigger"></a>Agregar un desencadenador
 
 Para crear un desencadenador, siga estos pasos en Azure Portal.
 

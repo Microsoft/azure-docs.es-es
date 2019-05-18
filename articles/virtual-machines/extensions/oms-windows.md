@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/29/2019
 ms.author: roiyz
-ms.openlocfilehash: 2287a0c39a82509e21ff35d8c3786cf1c85b1b24
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 270b3ae49a815c9e12fce9377c8298192237f28a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142876"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790370"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Extensión de máquina virtual de Azure Monitor para Windows
 
@@ -36,6 +36,19 @@ La extensión del agente de Log Analytics para Windows es compatible con las sig
 
 - Windows Server 2019
 - Windows Server 2008 R2, 2012, 2012 R2, 2016, versión 1709 y 1803
+
+### <a name="agent-and-vm-extension-version"></a>Versión de extensión de agente y máquina virtual
+En la tabla siguiente proporciona una asignación de la versión de la extensión de máquina virtual de Azure Monitor y el paquete del agente de Log Analytics para cada versión. 
+
+| Versión de la extensión de máquina virtual Linux de Monitor Azure | Versión del paquete del agente de Log Analytics | Fecha de lanzamiento | Notas de la versión |
+|--------------------------------|--------------------------|--------------------------|--------------------------|
+| 8.0.11049.0 | 1.0.11049.1 | Febrero de 2017 | |
+| 8.0.11072.0 | 1.0.11072.1 | Septiembre de 2017 | |
+| 8.0.11081.0 | 1.0.11081.5 | Noviembre de 2017 | | 
+| 8.0.11103.0 | N/D |  2018 de abril de 2018 | |
+| 8.0.11136.0 | N/D | Septiembre de 2018 |  <ul><li> Se ha agregado compatibilidad para detectar el cambio de Id. de recurso en el movimiento de la máquina virtual </li><li> Se agregó compatibilidad para instalar identificador cuando se usa sin extensión de recurso de informes </li></ul>| 
+| 10.19.10006.0 | N/D | Diciembre de 2018 | <ul><li> Correcciones menores de estabilización </li></ul> | 
+| 10.19.13515.0 | 1.0.13515.1 | Marzo de 2019 | <ul><li>Correcciones menores de estabilización </li></ul> |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

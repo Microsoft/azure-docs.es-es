@@ -9,12 +9,12 @@ ms.date: 01/18/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 515081ca14d1c477f20d86e84ce302b5358bfaae
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 7006e19616be51d79dc3e1319064d19024400bcc
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150056"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789995"
 ---
 # <a name="azure-storage-redundancy"></a>Redundancia de Azure Storage
 
@@ -36,9 +36,9 @@ En la tabla siguiente se ofrece una rápida información general del ámbito de 
 | Escenario                                                                                                 | LRS                             | ZRS                              | GRS                                  | RA-GRS                               |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
 | Falta de disponibilidad del nodo en un centro de datos                                                                 | Sí                             | Sí                              | Sí                                  | Sí                                  |
-| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | Sin                               | Sí                              | Sí                                  | Sí                                  |
-| Una interrupción en toda la región                                                                                     | Sin                               | No                               | Sí                                  | Sí                                  |
-| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | Sin                               | No                               | No                                   | Sí                                  |
+| Un centro de datos completo (de zona o no de zona) deja de estar disponible                                           | No                              | Sí                              | Sí                                  | Sí                                  |
+| Una interrupción en toda la región                                                                                     | No                              | No                               | Sí                                  | Sí                                  |
+| Acceso de lectura a los datos (en una región remota y con replicación geográfica) en caso de no disponibilidad en toda la región. | No                              | No                               | No                                   | Sí                                  |
 | Diseñado para proporcionar una \_\_ durabilidad de objetos a lo largo de un año determinado.                                          | Como mínimo 99.999999999 % (once nueves) | Como mínimo 99.9999999999 % (doce nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) | Como mínimo 99.99999999999999 % (dieciséis nueves) |
 | Tipos de cuenta de almacenamiento admitidos                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | SLA de disponibilidad para las solicitudes de lectura | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,9 % (99 % para el nivel de acceso esporádico) | Al menos un 99,99 % (99,9 % para el nivel de acceso esporádico) |
@@ -52,7 +52,7 @@ Para obtener información acerca de las garantías de durabilidad y disponibilid
 > Premium Storage solo admite almacenamiento con redundancia local (LRS).
 
 ## <a name="changing-replication-strategy"></a>Cambio de estrategia de replicación
-Puede cambiar la estrategia de replicación de la cuenta de almacenamiento mediante el [portal Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), o uno de los [cliente de Azure bibliotecas](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
+Puede cambiar la estrategia de replicación de la cuenta de almacenamiento mediante el [portal Azure](https://portal.azure.com/), [Azure Powershell](storage-powershell-guide-full.md), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), o uno de los [cliente de Azure bibliotecas](https://docs.microsoft.com/azure/index#pivot=sdkstools). Si cambia el tipo de replicación de la cuenta de almacenamiento, no se producirá ningún tiempo de inactividad.
 
    > [!NOTE]
    > Actualmente, no se puede usar el Portal o la API para convertir la cuenta a ZRS. Si desea convertir la replicación de la cuenta en ZRS, consulte [Almacenamiento con redundancia de zona (ZRS)](storage-redundancy-zrs.md) para más información.

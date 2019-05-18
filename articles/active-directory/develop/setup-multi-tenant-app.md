@@ -3,8 +3,8 @@ title: Configuración de una nueva aplicación multiinquilino | Microsoft Docs
 description: Aprenda a configurar una aplicación como multiinquilino y cómo funcionan este tipo de aplicaciones
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26d6a1a8ebe8dd6ad09c842a19dae4799688a062
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4edaeb724da43a52c94847e19269dd65a2035f20
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918570"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540475"
 ---
 # <a name="how-to-configure-a-new-multi-tenant-application"></a>Configuración de una nueva aplicación multiinquilino
 

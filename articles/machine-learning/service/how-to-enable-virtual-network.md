@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: aashishb
 author: aashishb
 ms.date: 01/08/2019
-ms.openlocfilehash: a83661a63f784f62bf46ce75b8b4f47c57c87b19
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe51f4589075cb275e867c943c5d7df3e8d5d4a0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60819699"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795042"
 ---
 # <a name="securely-run-experiments-and-inferencing-inside-an-azure-virtual-network"></a>Ejecución de experimentos y realización de inferencias de forma segura dentro de una red virtual de Azure
 
@@ -34,9 +34,40 @@ Este documento se da por supuesto que está familiarizado con las redes virtuale
 
 ## <a name="storage-account-for-your-workspace"></a>Cuenta de almacenamiento para el área de trabajo
 
-Cuando se crea un área de trabajo del servicio Azure Machine Learning Service, requiere una cuenta de Azure Storage. No active las reglas de firewall para esta cuenta de almacenamiento. El servicio Azure Machine Learning Service requiere acceso sin restricciones a la cuenta de almacenamiento.
+> [!IMPORTANT]
+> Puede colocar la cuenta de almacenamiento que está conectada al área de trabajo de servicio de Azure Machine Learning detrás de la red virtual solo mientras se realiza la experimentación. Inferencia requiere acceso sin restricciones a la cuenta de almacenamiento. Si no está seguro de si ha modificado estos valores, consulte __Modificación de la regla de acceso de red predeterminada__ en [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use los pasos para permitir el acceso desde todas las redes mientras se realiza la inferencia.
 
-Si no está seguro de si ha modificado estos valores, consulte __Modificación de la regla de acceso de red predeterminada__ en [Configuración de redes virtuales y firewalls de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use los pasos para permitir el acceso desde todas las redes.
+Para usar la experimentación de Azure Machine Learning capacidades de una red virtual con el almacenamiento de Azure siguen estos pasos:
+
+1. Crear un proceso de experimentación ex. Machine Learning Compute detrás de una red virtual o adjuntar un proceso de experimentación en el área de trabajo ex. Máquina virtual o clúster de HDInsight. Para obtener más información, consulte [uso Machine Learning Compute](#use-machine-learning-compute) y [usar una máquina virtual o clúster de HDInsight](#use-a-virtual-machine-or-hdinsight-cluster) secciones de este documento
+2. Vaya al almacenamiento conectado al área de trabajo. ![Imagen de Azure portal que muestra el almacenamiento de Azure que está conectado al área de trabajo del servicio de Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-storage.png)
+3. En la página de Azure Storage, seleccione __Firewalls y redes virtuales__. ![Imagen de Azure portal que muestra los Firewalls y virtual networks sección en la página de Azure Storage](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks.png)
+4. En el __Firewalls y redes virtuales__ página Seleccione lo siguiente:
+    - Seleccione __Redes seleccionadas__.
+    - En __redes virtuales__ seleccione __agregar red virtual existente__ para agregar la red virtual donde reside el proceso de experimentación. (Vea el paso 1).
+    - Seleccione __permitir que los servicios de Microsoft para obtener acceso a esta cuenta de almacenamiento de confianza__.
+![Imagen de Azure portal que muestra los Firewalls y virtual networks página en el almacenamiento de Azure](./media/how-to-enable-virtual-network/storage-firewalls-and-virtual-networks-page.png) 
+
+5. Al ejecutar el experimento, en el código de la experimentación, cambie la configuración de ejecución para usar el almacenamiento de blobs:
+    ```python
+    run_config.source_directory_data_store = "workspaceblobstore"
+    ```
+    
+## <a name="key-vault-for-your-workspace"></a>Almacén de claves para el área de trabajo
+Instancia de Key Vault asociada con el área de trabajo se usa por el servicio de Azure Machine Learning para almacenar las credenciales de varias clases:
+* La cadena de conexión de la cuenta de almacenamiento asociada
+* Contraseñas para las instancias de Azure Container Repository
+* Cadenas de conexión a datos almacenes. 
+
+Para usar la experimentación de Azure Machine Learning capacidades con Key Vault detrás de una red virtual siguen los pasos siguientes:
+1. Vaya al almacén de claves asociado con el área de trabajo. ![Imagen de Azure portal que muestra el almacén de claves que está asociado con el área de trabajo del servicio de Azure Machine Learning](./media/how-to-enable-virtual-network/workspace-key-vault.png)
+2. En el almacén de claves página Seleccione __Firewalls y redes virtuales__ sección. ![Imagen de Azure portal que muestra los Firewalls y virtual networks sección en la página de Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks.png)
+3. En el __Firewalls y redes virtuales__ página Seleccione lo siguiente:
+    - Seleccione __Redes seleccionadas__.
+    - En el __redes virtuales__ seleccione __agregar redes virtuales existentes__ para agregar la red virtual donde reside el proceso de experimentación.
+    - Seleccione __permitir que los servicios de Microsoft para omitir este firewall confianza__.
+![Imagen de Azure portal que muestra los Firewalls y virtual networks página en Key Vault](./media/how-to-enable-virtual-network/key-vault-firewalls-and-virtual-networks-page.png) 
+
 
 ## <a name="use-machine-learning-compute"></a>Uso del Proceso de Machine Learning
 
@@ -74,15 +105,32 @@ El Proceso de Machine Learning usa actualmente el servicio Azure Batch para apro
  
 - Tráfico saliente en cualquier puerto para la red virtual.
 
-- Tráfico saliente en cualquier puerto para Internet.
+- Tráfico saliente en cualquier puerto para Internet. 
 
 Tenga cuidado si modifica reglas de entrada o de salida en los grupos de seguridad de red configurados para Batch o las agrega a ellos. Si un grupo de seguridad de red bloquea la comunicación a los nodos de proceso, los servicios de Proceso de Machine Learning establecen el estado de los nodos de proceso como inutilizables.
 
-No es necesario especificar los grupos de seguridad de red a nivel de subred, porque Batch configura los suyos propios. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se ha explicado antes. Las capturas de pantalla siguientes muestran cómo se ve la configuración de reglas en Azure Portal:
+No es necesario especificar los grupos de seguridad de red a nivel de subred, porque Batch configura los suyos propios. Sin embargo, si la subred especificada tiene asociados grupos de seguridad de red o un firewall, configure las reglas de seguridad de entrada y salida como se ha explicado antes. 
+
+Captura de pantalla siguiente muestra cómo se ve la configuración de reglas NSG en Azure portal:
 
 ![Captura de pantalla de las reglas de NSG de entrada para el Proceso de Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-inbound.png)
 
 ![Captura de pantalla de las reglas de NSG de salida para el Proceso de Machine Learning](./media/how-to-enable-virtual-network/experimentation-virtual-network-outbound.png)
+
+### <a id="limiting-outbound-from-vnet"></a> Limitar la conectividad saliente de la red virtual
+
+Si no desea usar las reglas de salida predeterminado y desea limitar el acceso de salida de la red virtual, siga estos pasos:
+
+- Denegar la conexión a internet saliente mediante las reglas de NSG 
+
+- Limitar el tráfico saliente al almacenamiento de Azure (mediante __etiqueta de servicio__ de __Storage.Region_Name__ ex. Storage.EastUS), Azure Container Registry (mediante __etiqueta de servicio__ de __AzureContainerRegistry.Region_Name__ ex. AzureContainerRegistry.EastUS) y el servicio de Azure Machine Learning (con __etiqueta de servicio__ de __AzureMachineLearning__)
+
+Captura de pantalla siguiente muestra cómo se ve la configuración de reglas NSG en Azure portal:
+
+![Captura de pantalla de las reglas de NSG de salida para el Proceso de Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)
+
+
+
 
 ### <a name="create-machine-learning-compute-in-a-virtual-network"></a>Creación del Proceso de Machine Learning en una red virtual
 
@@ -162,7 +210,7 @@ Para usar una máquina virtual o un clúster de HDInsight en una red virtual con
 
     * __Etiqueta de servicio de origen__: Seleccione __AzureMachineLearning__.
 
-    * __Intervalos de puertos de origen__: Seleccione *__.
+    * __Intervalos de puertos de origen__: Seleccione __*__.
 
     * __Destino__: Seleccione __Todo__.
 
@@ -175,6 +223,8 @@ Para usar una máquina virtual o un clúster de HDInsight en una red virtual con
    ![Captura de pantalla de las reglas de entrada para realizar la experimentación en una máquina virtual o un clúster de HDInsight dentro de una red virtual](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
     Mantenga las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
+
+    Si no desea usar las reglas de salida predeterminado y desea limitar el acceso de salida de la red virtual, consulte [limitan la conectividad saliente de la red virtual](#limiting-outbound-from-vnet)
     
 1. Conecte el clúster de HDInsight o de máquina virtual a su área de trabajo de Azure Machine Learning Service. Para más información, consulte [Configuración de destinos de proceso del entrenamiento del modelo](how-to-set-up-training-targets.md).
 
@@ -183,12 +233,17 @@ Para usar una máquina virtual o un clúster de HDInsight en una red virtual con
 > [!IMPORTANT]
 > Compruebe los requisitos previos y planee el direccionamiento IP para el clúster antes de continuar con los pasos que vienen a continuación. Para más información, consulte [Configuración de redes avanzadas en Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/configure-advanced-networking).
 > 
+
 > Mantenga las reglas de salida predeterminadas para el grupo de seguridad de red. Para más información, consulte las reglas de seguridad predeterminadas en [Grupos de seguridad](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 >
 > Azure Kubernetes Service y Azure Virtual Network deben estar en la misma región.
 
 Para agregar Azure Kubernetes Service de una red virtual al área de trabajo, siga estos pasos en Azure Portal:
 
+1. NSG realícela que los controles de la red virtual tiene la regla habilitada para el servicio de Azure Machine Learning con entrada __etiqueta de servicio__ de __AzureMachineLearning__
+
+    ![Cómo agregar un proceso en Azure Machine Learning Service](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-aml.png)     
+ 
 1. En [Azure Portal](https://portal.azure.com), seleccione el área de trabajo de Azure Machine Learning Service.
 
 1. En la sección __Aplicación__, seleccione __Proceso__. A continuación, seleccione __Agregar proceso__. 
@@ -205,13 +260,17 @@ Para agregar Azure Kubernetes Service de una red virtual al área de trabajo, si
 
     - __Subred__: Seleccione la subred.
 
-    - __Intervalo de direcciones del servicio de Kubernetes__: seleccione el intervalo de direcciones del servicio de Kubernetes. Este intervalo de direcciones utiliza un intervalo de IP de notación CIDR al definir las direcciones IP disponibles para el clúster. No debe superponerse con ningún intervalo IP de subred. Por ejemplo:  10.0.0.0/16.
+    - __Intervalo de direcciones del servicio de Kubernetes__: seleccione el intervalo de direcciones del servicio de Kubernetes. Este intervalo de direcciones utiliza un intervalo de IP de notación CIDR al definir las direcciones IP disponibles para el clúster. No debe superponerse con ningún intervalo IP de subred. Por ejemplo: 10.0.0.0/16.
 
-    - __Dirección IP del servicio DNS de Kubernetes__: Seleccione la dirección IP del servicio DNS de Kubernetes. Esta dirección IP se asigna al servicio DNS de Kubernetes. Debe estar dentro del intervalo de direcciones del servicio Kubernetes. Por ejemplo:  10.0.0.10.
+    - __Dirección IP del servicio DNS de Kubernetes__: Seleccione la dirección IP del servicio DNS de Kubernetes. Esta dirección IP se asigna al servicio DNS de Kubernetes. Debe estar dentro del intervalo de direcciones del servicio Kubernetes. Por ejemplo: 10.0.0.10.
 
-    - __Dirección del puente de Docker__: Seleccione la dirección del puente de Docker. Esta dirección IP se asigna al puente de Docker. No debe estar en ningún intervalo IP de subred o en el intervalo de direcciones del servicio Kubernetes. Por ejemplo:  172.17.0.1/16.
+    - __Dirección del puente de Docker__: Seleccione la dirección del puente de Docker. Esta dirección IP se asigna al puente de Docker. No debe estar en ningún intervalo IP de subred o en el intervalo de direcciones del servicio Kubernetes. Por ejemplo: 172.17.0.1/16.
 
    ![Azure Machine Learning Service: Configuración de la red virtual del Proceso de Machine Learning](./media/how-to-enable-virtual-network/aks-virtual-network-screen.png)
+
+1. NSG realícela que los controles de que la red virtual tiene la regla habilitada para el punto de conexión de puntuación para que se puede llamar desde fuera de la red virtual de entrada
+
+    ![Cómo agregar un proceso en Azure Machine Learning Service](./media/how-to-enable-virtual-network/aks-vnet-inbound-nsg-scoring.png)
 
     > [!TIP]
     > Si ya tiene un clúster de AKS en una red virtual, puede asociarlo al área de trabajo. Para más información, consulte [Implementación en AKS](how-to-deploy-to-aks.md).

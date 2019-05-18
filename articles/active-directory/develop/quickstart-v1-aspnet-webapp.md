@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo agregar inicio de sesión de Micro
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7aca42aa13ef78647b591eb0be7083f932ce0c35
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: f88643000b85965b2f275cc6e7494f427d0fe43e
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191041"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65231155"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -38,7 +38,7 @@ Al final de esta guía de inicio rápido, la aplicación aceptará inicios de se
 
 Para comenzar, asegúrese de que cumple estos requisitos previos:
 
-* Tener instalado Visual Studio 2015 Update 3 o Visual Studio 2019. ¿No lo tiene? [Descargar Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/)
+* Tener instalado Visual Studio 2015 Update 3 o una versión posterior. ¿No lo tiene? [Descargar Visual Studio 2019 de manera gratuita](https://www.visualstudio.com/downloads/)
 
 ## <a name="scenario-sign-in-users-from-work-and-school-accounts-in-your-aspnet-app"></a>Escenario: realice el inicio sesión de los usuarios desde cuentas profesionales y educativas en la aplicación ASP.NET
 
@@ -70,9 +70,10 @@ Para descargar este proyecto de Visual Studio de ejemplo en su lugar, siga estos
 ## <a name="step-2-create-your-aspnet-project"></a>Paso 2: Creación del proyecto de ASP.NET
 
 1. En Visual Studio, vaya a **Archivo -> Nuevo > Proyecto**.
-2. En **Visual C#\Web**, seleccione **Aplicación web ASP.NET (.NET Framework)**.
-3. Asigne un nombre a la aplicación y seleccione **Aceptar**.
-4. Seleccione **Vacío** y, a continuación, seleccione la casilla de verificación para agregar referencias de **MVC**.
+2. En **Tipo de proyecto**, seleccione **Web** y, después, **Aplicación web ASP.NET (.NET Framework)**.
+3. Asigne un nombre a la aplicación y seleccione **Crear**.
+4. Seleccione **Vacío** y, después, seleccione **MVC** en **Agregar carpetas y referencias principales** para agregar referencias de MVC.
+5. Seleccione **Crear**.
 
 ## <a name="step-3-add-authentication-components"></a>Paso 3: Adición de componentes de autenticación
 
@@ -125,7 +126,7 @@ Para crear una *clase de inicio* de middleware de OWIN:
 Cree un controlador para exponer los métodos de inicio de sesión y cierre de sesión.
 
 1.  Haga clic con el botón derecho en la carpeta **Controladores** y seleccione **Agregar > Controlador**.
-2.  Seleccione **Controlador MVC (versión .NET): vacío**.
+2.  Seleccione **Controlador MVC {version}: vacío**.
 3.  Seleccione **Agregar**.
 4.  Asígnele el nombre `HomeController` y seleccione **Agregar**.
 5.  Agregue espacios de nombres **OWIN** a la clase:

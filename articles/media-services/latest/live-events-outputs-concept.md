@@ -11,20 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/11/2019
 ms.author: juliako
-ms.openlocfilehash: 87620cb0c7aafb78b2c8fe610f42ad092313d305
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: c025a4c6e2a5a06e12e25ce226a327b099b95306
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153477"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550961"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
-Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, deberá comprender los conceptos tratados en este artículo. <br/>Se enumera la lista de secciones de la derecha de la página.
+Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, deberá comprender los conceptos tratados en este artículo.
 
-## <a name="live-events"></a>Eventos en vivo
+> [!TIP]
+> Para los clientes que migran desde las API de Media Services v2, la **evento en directo** entidad reemplaza **canal** en v2 y **Live salida** reemplaza **programa**.
+
+
+## <a name="live-events"></a>Eventos en directo
 
 Los objetos [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Al crear un objeto LiveEvent, se crea un punto de conexión de entrada que puede utilizar para enviar una señal en directo desde un codificador remoto. El codificador en directo remoto envía la fuente de contribución a ese punto de conexión de entrada mediante el protocolo [RTMP](https://www.adobe.com/devnet/rtmp.html) o [Smooth Streaming](https://msdn.microsoft.com/library/ff469518.aspx) (MP4 fragmentado). Para el protocolo de introducción Smooth Streaming, los esquemas de dirección URL admitidos son `http://` o `https://`. Para el protocolo de introducción RTMP, los esquemas de dirección URL admitidos son `rtmp://` o `rtmps://`. 
 
@@ -144,7 +148,7 @@ Si ha publicado el **recurso** del objeto **LiveOutput** mediante un objeto **St
 
 Para más información, consulte [Uso de una DVR en la nube](live-event-cloud-dvr.md).
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

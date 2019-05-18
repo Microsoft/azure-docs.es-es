@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/15/2019
 ms.author: diberry
-ms.openlocfilehash: 424396c7b92fb58993c74e672c4c3ea9c8f814c7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: e2ed29bb61f553f68b9f9802884169361d5d983f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65026226"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797925"
 ---
 # <a name="configure-speech-service-containers"></a>Configurar los contenedores de servicio de voz
 
@@ -23,7 +23,7 @@ Contenedores de voz permiten que los clientes creen una arquitectura de aplicaci
 
 El **voz** entorno en tiempo de ejecución del contenedor se configura mediante el `docker run` argumentos de comandos. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
 
-# <a name="configuration-settings"></a>Valores de configuración
+# <a name="configuration-settings"></a>Opciones de configuración
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
@@ -62,6 +62,10 @@ Este valor se puede encontrar en el siguiente lugar:
 
 [!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-fluentd.md)]
 
+## <a name="http-proxy-credentials-settings"></a>Configuración de las credenciales del proxy HTTP
+
+[!INCLUDE [Container shared configuration fluentd settings](../../../includes/cognitive-services-containers-configuration-shared-settings-http-proxy.md)]
+
 ## <a name="logging-settings"></a>Opción de configuración Logging
  
 [!INCLUDE [Container shared configuration logging settings](../../../includes/cognitive-services-containers-configuration-shared-settings-logging.md)]
@@ -76,8 +80,8 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 
 |Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
-|No permitida| `Input` | String | Contenedores de voz no usan.|
-|Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
+|No permitida| `Input` | string | Contenedores de voz no usan.|
+|Opcional| `Output` | String | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 

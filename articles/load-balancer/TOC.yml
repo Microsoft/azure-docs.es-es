@@ -126,23 +126,23 @@
       items:
         - name: Conexiones salientes (clásico)
           href: load-balancer-outbound-connections-classic.md
-    - name: Configuración de varias direcciones VIP para un servicio en la nube
-      href: load-balancer-multivip.md
-      items:
-        - name: Configuración de Load Balancer interno para Cloud Services
-          href: load-balancer-get-started-ilb-classic-cloud.md
+        - name: Configuración de varias direcciones VIP para un servicio en la nube
+          href: load-balancer-multivip.md
           items:
-            - name: Configuración de Load Balancer interno para Cloud Services (PowerShell)
-              href: load-balancer-get-started-ilb-classic-ps.md
-            - name: Configuración de Load Balancer interno para Cloud Services (CLI)
-              href: load-balancer-get-started-ilb-classic-cli.md
-        - name: Configuración de Load Balancer público (PowerShell clásico)
-          href: load-balancer-get-started-internet-classic-ps.md
-          items:
-            - name: Configuración de Load Balancer público (nube clásica)
-              href: load-balancer-get-started-internet-classic-cloud.md
-            - name: Configuración de Load Balancer público (CLI clásica)
-              href: load-balancer-get-started-internet-classic-cli.md
+            - name: Configuración de Load Balancer interno para Cloud Services
+              href: load-balancer-get-started-ilb-classic-cloud.md
+              items:
+                - name: Configuración de Load Balancer interno para Cloud Services (PowerShell)
+                  href: load-balancer-get-started-ilb-classic-ps.md
+                - name: Configuración de Load Balancer interno para Cloud Services (CLI)
+                  href: load-balancer-get-started-ilb-classic-cli.md
+            - name: Configuración de Load Balancer público (PowerShell clásico)
+              href: load-balancer-get-started-internet-classic-ps.md
+              items:
+                - name: Configuración de Load Balancer público (nube clásica)
+                  href: load-balancer-get-started-internet-classic-cloud.md
+                - name: Configuración de Load Balancer público (CLI clásica)
+                  href: load-balancer-get-started-internet-classic-cli.md
 - name: Referencia
   items:
     - name: Ejemplos de código

@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 42b6dde708e2a1dbda225fd95e3db964267ae48a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f57c2cacca9bb3e4526ec6261b8aa0ff6c18448a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60613797"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546694"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Información sobre los reinicios de máquinas virtuales: mantenimiento frente a tiempo de inactividad
 Hay tres escenarios que pueden afectar a la máquina virtual de Azure: mantenimiento de hardware no planeado, tiempo de inactividad inesperado y mantenimiento planeado.
 
-* **Un evento de mantenimiento de hardware no planeado** se produce cuando la plataforma Azure predice que en el hardware o en cualquier componente de plataforma asociado a una máquina física está a punto de producirse un error. Cuando la plataforma predice un error, se emitirá un evento de mantenimiento de hardware no planeado para reducir el efecto en las máquinas virtuales hospedadas en ese hardware. Azure usa tecnología de migración en vivo para migrar las máquinas virtuales del hardware en el que se producen errores a una máquina física en buen estado. La migración en vivo es una operación de conservación de máquinas virtuales que solo detiene la máquina virtual durante un breve período. Se mantienen la memoria, los archivos abiertos y las conexiones de red pero el rendimiento puede verse reducido antes o después del evento. En los casos en los que no se puede usar la migración en vivo, la máquina virtual experimentará tiempos de inactividad inesperados, tal y como se describe a continuación.
+* **Un evento de mantenimiento de hardware no planeado** se produce cuando la plataforma Azure predice que en el hardware o en cualquier componente de plataforma asociado a una máquina física está a punto de producirse un error. Cuando la plataforma predice un error, se emitirá un evento de mantenimiento de hardware no planeado para reducir el efecto en las máquinas virtuales hospedadas en ese hardware. Azure usa [migración en vivo](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) tecnología para migrar las máquinas virtuales del hardware con errores a una máquina física en buen estado. La migración en vivo es una operación de conservación de máquinas virtuales que solo detiene la máquina virtual durante un breve período. Se mantienen la memoria, los archivos abiertos y las conexiones de red pero el rendimiento puede verse reducido antes o después del evento. En los casos en los que no se puede usar la migración en vivo, la máquina virtual experimentará tiempos de inactividad inesperados, tal y como se describe a continuación.
 
 
 * **Un evento de tiempo de inactividad inesperado** se produce cuando el hardware o la infraestructura física de la máquina virtual produce un error de forma imprevista. Entre estos podemos encontrar errores de la red local, errores de los discos locales u otras errores a nivel de bastidor. Cuando se detecta, la plataforma Azure migra (recupera) automáticamente la máquina virtual a una máquina física en buen estado en el mismo centro de datos. Durante el procedimiento de recuperación, las máquinas virtuales experimentan tiempos de inactividad (reinicio) y, en algunos casos, pérdidas de la unidad temporal. El sistema operativo y los discos de datos asociados siempre se conservan. 

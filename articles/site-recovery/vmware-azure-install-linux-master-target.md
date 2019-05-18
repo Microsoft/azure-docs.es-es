@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: mayg
-ms.openlocfilehash: 98718709038d7fd753e5eb3d45c130085c5accd9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: bcfeca34eb11caaddac06971fe7f825a142586a2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60600194"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602075"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Instalación de un servidor de destino maestro de Linux para la conmutación por recuperación
 Después de conmutar por error las máquinas virtuales a Azure, puede conmutarlas por recuperación en el sitio local. Para ello, debe volver a proteger la máquina virtual de Azure en el sitio local. Para realizar este proceso, necesitará un servidor de destino maestro local que reciba el tráfico. 
@@ -67,7 +67,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 
 1.  Seleccione el **inglés** como idioma preferido y, a continuación, seleccione **Entrar**.
     
-    ![Selección de un idioma](./media/vmware-azure-install-linux-master-target/image1.png)
+    ![Seleccionar un idioma](./media/vmware-azure-install-linux-master-target/image1.png)
 1. Seleccione **Install Ubuntu Server** (Instalar servidor Ubuntu) y, a continuación, seleccione **Entrar**.
 
     ![Selección de instalación de servidor Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
@@ -83,7 +83,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 1. Seleccione **No** (opción predeterminada) y, a continuación, seleccione **Entrar**.
 
      ![Configuración del teclado](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Seleccione **English (US)** [Inglés (EE. UU.)] como país de origen para el teclado y, luego, seleccione **Entrar**.
+1. Seleccione **inglés (Estados Unidos)** como el país o región de origen para el teclado y, a continuación, seleccione **ENTRAR**.
 
 1. Seleccione **English (US)** [Inglés (EE. UU.)] como distribución del teclado y, luego, seleccione **Entrar**.
 
@@ -91,7 +91,7 @@ Coloque una imagen ISO de 64 bits mínima de Ubuntu 16.04.2 en la unidad de DVD 
 
 1. Para crear una cuenta de usuario, escriba el nombre de usuario y, luego, seleccione **Continue** (Continuar).
 
-      ![Crea una cuenta de usuario](./media/vmware-azure-install-linux-master-target/image9.png)
+      ![Crear una cuenta de usuario](./media/vmware-azure-install-linux-master-target/image9.png)
 
 1. Escriba la contraseña de la nueva cuenta de usuario y luego seleccione **Continue** (Continuar).
 
@@ -262,7 +262,7 @@ Use los pasos siguientes para crear un disco de retención:
     
     Seleccione **Insertar** para comenzar a editar el archivo. Cree una nueva línea y luego inserte el siguiente texto. Edite el identificador de múltiples rutas del disco basándose en el identificador de múltiples rutas resaltado del comando anterior.
 
-    **/dev/mapper/<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
+    **/dev/mapper/\<identificador de múltiples rutas de discos de retención >/mnt/retention ext4 rw 0 0**
 
     Seleccione **Esc** y luego escriba **:wq** (escribir y salir) para cerrar la ventana del editor.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: da796f8eeb6b24dfbbe8418cc728f09b424228cf
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 7b75e24e5d59206ee8330c3ca9eaf86eacbad13d
+ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528499"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65751514"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Almacenamiento de blobs de bloque de rendimiento Premium
 
@@ -23,11 +23,11 @@ Una cuenta de almacenamiento de blobs de premium rendimiento bloque está optimi
 
 Archivos Premium usan una cuenta de almacenamiento único llamada **FileStorage (versión preliminar)**. Este tipo de cuenta está diseñado para cargas de trabajo con una IOPS elevada, alto rendimiento, baja latencia coherente. Almacenamiento de archivos Premium se escala con el tamaño del recurso compartido aprovisionado.
 
-|Ámbito  |Destino  |
+|Área  |Destino  |
 |---------|---------|
-|Max aprovisionado tamaño     |(Versión preliminar pública) de 5 TB, 100 TB (versión preliminar pública limitada)     |
-|Recursos compartidos   |Ilimitado  |
-|E/S     |100.000 (versión preliminar pública limitada)    |
+|Max aprovisionado tamaño     |100 TB     |
+|Recursos compartidos   |Sin límite  |
+|E/S     |100 000    |
 |Entrada|4,136 MiB/s     |
 |Salida|6,204 MiB/s |
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
-ms.openlocfilehash: e0271c9212b093bd803518ebeaa4b7d9682cc773
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c1c64945aaa0bc4cd83cc769dab1c2a755896c01
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60868372"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603431"
 ---
 # <a name="example-2-build-a-perimeter-network-to-protect-applications-with-a-firewall-and-nsgs"></a>Ejemplo 2: Creación de una red perimetral para proteger las aplicaciones con un firewall y los NSG
 [Volver a la página de seguridad de red y servicios en la nube de Microsoft][HOME]
@@ -64,7 +64,7 @@ Después de la secuencia de comandos se ejecuta correctamente, pueden seguir est
 
 La siguiente sección explica la mayoría de las instrucciones del script que se relacionan con los NSG.
 
-## <a name="nsgs"></a>Grupos de seguridad de red
+## <a name="nsgs"></a>NSG
 En este ejemplo, se crea un grupo de seguridad de red y se cargan después seis reglas.
 
 > [!TIP]
@@ -550,7 +550,7 @@ Debe ejecutar este script de PowerShell localmente en un equipo conectado a inte
 Guarde este archivo XML con ubicaciones actualizadas y, a continuación, agregue un vínculo a este archivo en la variable $NetworkConfigFile en el script anterior.
 
 ```xml
-    <NetworkConfiguration xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+    <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>
         <Dns>
           <DnsServers>

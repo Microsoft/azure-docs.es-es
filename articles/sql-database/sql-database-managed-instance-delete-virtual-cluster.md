@@ -12,18 +12,18 @@ ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
 manager: craigg
 ms.date: 05/07/2019
-ms.openlocfilehash: 95d1681c9ff9981990d873a58a2d01833d690e0f
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 61f6c25031c4906e65c2f75a7679600741e8311a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65411992"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791373"
 ---
 # <a name="delete-subnet-after-deleting-azure-sql-database-managed-instance"></a>Eliminar la subred después de eliminar la base de datos de SQL Azure instancia administrada
 
 En este artículo proporciona instrucciones sobre cómo eliminar manualmente la subred después de eliminar el último de Azure SQL Database administre la instancia que residen en él.
 
-El [clúster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que ha incluido la eliminó una instancia administrada se conservará durante 12 horas desde la eliminación de la instancia. El clúster virtual se mantiene activo por cuestiones de diseño para habilitar la creación más rápida de las instancias administradas en la misma subred. Durante este período, no se puede eliminar la subred asociada con el clúster virtual.
+El [clúster virtual](sql-database-managed-instance-connectivity-architecture.md#virtual-cluster-connectivity-architecture) que ha incluido la eliminó una instancia administrada se conservará durante 12 horas desde la eliminación de la instancia. El clúster virtual se mantiene activo por cuestiones de diseño para habilitar la creación más rápida de las instancias administradas en la misma subred. Mantener un clúster virtual vacío es de forma gratuita. Durante este período, no se puede eliminar la subred asociada con el clúster virtual.
 
 Es posible a través de la eliminación manual del clúster virtual liberación inmediata de la subred usada por un clúster virtual vacío. Eliminación del clúster virtual se puede lograr a través de Azure portal o la API de clústeres virtuales.
 

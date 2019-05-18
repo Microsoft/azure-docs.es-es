@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e5404d1b85821458aedef64b72ae635ea49aa1ff
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60287581"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602474"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Usar un panel de recursos para realizar una revisión de acceso en PIM
 
@@ -31,9 +31,9 @@ Puede usar un panel de recursos para realizar una revisión de acceso en Azure A
 - Dos gráficos que muestran la distribución de las asignaciones de roles por tipo de asignación.
 - Un área de datos que pertenece a nuevas asignaciones de roles.
 
-![Captura de pantalla del panel de la vista de administrador, que muestra gráficos y tablas](media/azure-pim-resource-rbac/rbac-overview-top.png)
+![Captura de pantalla del panel de la vista de administrador, que muestra gráficos y tablas](media/pim-resource-roles-overview-dashboards/rbac-overview-top.png)
 
-![Captura de pantalla del panel de la vista de administrador, que muestra listas de datos](media/azure-pim-resource-rbac/role-settings.png)
+![Captura de pantalla del panel de la vista de administrador, que muestra listas de datos](media/pim-resource-roles-overview-dashboards/role-settings.png)
 
 La representación gráfica de las activaciones de rol de recursos de los últimos siete días. Estos datos se limitan al recurso seleccionado y muestran las activaciones de los roles más comunes (propietario, colaborador, administrador de acceso de usuario) y de la combinación de todos los roles.
 

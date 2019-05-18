@@ -368,7 +368,7 @@
   items:
     - name: Información general
       href: sql-database-howto.md
-    - name: Base de datos única
+    - name: Bases de datos únicas y grupos elásticos
       items:
         - name: Información general
           href: sql-database-howto-single-database.md
@@ -448,7 +448,7 @@
               href: elastic-jobs-tsql.md
             - name: Migración (de trabajos elásticos antiguos)
               href: elastic-jobs-migrate.md
-    - name: Instancia administrada
+    - name: Instancias administradas
       items:
         - name: Información general
           href: sql-database-howto-managed-instance.md
@@ -720,6 +720,10 @@
       href: sql-database-glossary-terms.md
     - name: Desarrollo de aptitudes con Microsoft Learn
       href: /learn/browse/?products=azure-sql-database
+    - name: Blog de SQL Server
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Blog de Microsoft Azure
+      href: 'https://azure.microsoft.com/blog/'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Conjuntos de datos públicos

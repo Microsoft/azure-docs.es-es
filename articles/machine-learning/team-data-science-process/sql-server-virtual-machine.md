@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7b3b4e0886f561cc66e2c02e4ea354c86b34453c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6adc5dfa740d440e78bf2f276447c4585503d7c0
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61044499"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606478"
 ---
 # <a name="heading"></a>Proceso de datos en una máquina virtual de SQL Server en Azure
 En este documento se aborda cómo explorar datos y generar características para los datos almacenados en una VM de SQL Server en Azure. Esto puede hacerse mediante la administración de datos usando SQL o mediante un lenguaje de programación como Python.
@@ -87,7 +87,7 @@ Aquí se incluye un breve manual sobre los datos de ubicación de latitud y long
 * La señal indica si estamos en el norte o sur, y este u oeste del mundo.
 * Un dígito de las centenas distinto de cero indica que se usa la longitud y no la latitud.
 * El dígito de las decenas ofrece una posición a aproximadamente 1.000 kilómetros. Nos brinda información útil sobre el continente u océano en el que nos encontramos.
-* El dígito de las unidades (un grado decimal) indica una posición de hasta 111 kilómetros (60 millas náuticas, aproximadamente 69 millas). Puede informarnos aproximadamente del estado grande o país en que nos encontramos.
+* El dígito de las unidades (un grado decimal) indica una posición de hasta 111 kilómetros (60 millas náuticas, aproximadamente 69 millas). Puede informarnos aproximadamente estado grande o país o región en que se encuentran.
 * La primera posición decimal tiene un valor de hasta 11,1 km: puede distinguir la posición de una ciudad grande de otra ciudad grande vecina.
 * La segundo posición decimal tiene un valor de hasta 1,1 km: puede separar un pueblo del siguiente.
 * La tercera posición decimal tiene un valor de hasta 110 m: puede identificar un campo agrícola extenso o campus universitario.

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 7d024dd958e6b29b52f095a9a55a67154bf6cde6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 414869833b894e2688505a91fed8fafe0c912b73
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61459800"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523733"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Configurar una directiva de firewall de aplicaciones web con Azure PowerShell
 Directiva de firewall (WAF) de aplicaciones web de Azure define inspecciones necesarias cuando llega una solicitud de acceso principal.
@@ -31,7 +31,7 @@ Azure PowerShell ofrece un conjunto de cmdlets que usan el modelo [Azure Resourc
 
 Puede instalar [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) en el equipo local y usarlo en cualquier sesión de PowerShell. Siga las instrucciones en la página, inicie sesión con sus credenciales de Azure e instale el módulo de PowerShell de Az.
 
-#### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+#### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 ```
 Connect-AzAccount
 
@@ -52,19 +52,19 @@ Para crear un perfil de Front Door siga las instrucciones que se describen en [I
 
 ## <a name="custom-rule-based-on-http-parameters"></a>Regla personalizada en función de los parámetros de http
 
-El ejemplo siguiente muestra cómo configurar una regla personalizada con dos condiciones de coincidencia con [New AzFrontDoorMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoormatchconditionobject). Las solicitudes proceden de un sitio especificado según se define en el origen de referencia y cadena de consulta no contiene "password". 
+El ejemplo siguiente muestra cómo configurar una regla personalizada con dos condiciones de coincidencia con [New AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject). Las solicitudes proceden de un sitio especificado según se define en el origen de referencia y cadena de consulta no contiene "password". 
 
 ```powershell-interactive
-$referer = New-AzFrontDoorMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
-$password = New-AzFrontDoorMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
+$referer = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestHeader -OperatorProperty Equal -Selector "Referer" -MatchValue "www.mytrustedsites.com/referpage.html"
+$password = New-AzFrontDoorWafMatchConditionObject -MatchVariable QueryString -OperatorProperty Contains -MatchValue "password"
 $AllowFromTrustedSites = New-AzFrontDoorCustomRuleObject -Name "AllowFromTrustedSites" -RuleType MatchRule -MatchCondition $referer,$password -Action Allow -Priority 1
 ```
 
 ## <a name="custom-rule-based-on-http-request-method"></a>Regla personalizada basada en método de solicitud http
-Crear una regla de bloqueo "PUT" utilizando método [New AzFrontDoorCustomRuleObject](/powershell/module/Az.FrontDoor/New-AzFrontDoorCustomRuleObject) como sigue:
+Crear una regla de bloqueo "PUT" utilizando método [New AzFrontDoorCustomRuleObject](/powershell/module/az.frontdoor/new-azfrontdoorwafcustomruleobject) como sigue:
 
 ```powershell-interactive
-$put = New-AzFrontDoorMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
+$put = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestMethod -OperatorProperty Equal -MatchValue PUT
 $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule -MatchCondition $put -Action Block -Priority 2
 ```
 
@@ -72,7 +72,7 @@ $BlockPUT = New-AzFrontDoorCustomRuleObject -Name "BlockPUT" -RuleType MatchRule
 
 El ejemplo siguiente crea una regla que bloquea las solicitudes con la dirección Url que tiene más de 100 caracteres con Azure PowerShell:
 ```powershell-interactive
-$url = New-AzFrontDoorMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
+$url = New-AzFrontDoorWafMatchConditionObject -MatchVariable RequestUri -OperatorProperty GreaterThanOrEqual -MatchValue 100
 $URLOver100 = New-AzFrontDoorCustomRuleObject -Name "URLOver100" -RuleType MatchRule -MatchCondition $url -Action Block -Priority 3
 ```
 ## <a name="add-managed-default-rule-set"></a>Agregar regla administrado predeterminado establecido
@@ -83,10 +83,10 @@ $managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "
 ```
 ## <a name="configure-a-security-policy"></a>Configurar una directiva de seguridad
 
-Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, configure una directiva de seguridad con las reglas creadas en los pasos anteriores con [New AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) en el grupo de recursos especificado que contiene el perfil de la puerta de entrada.
+Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, configure una directiva de seguridad con las reglas creadas en los pasos anteriores con [New AzFrontDoorWafPolicy](/powershell/module/az.frontdoor/new-azfrontdoorwafpolicy) en el grupo de recursos especificado que contiene el perfil de la puerta de entrada.
 
 ```powershell-interactive
-$myWAFPolicy=New-AzFrontDoorFireWallPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
+$myWAFPolicy=New-AzFrontDoorWafPolicy -Name $policyName -ResourceGroupName $resourceGroupName -Customrule $AllowFromTrustedSites,$BlockPUT,$URLOver100 -ManagedRule $managedRules -EnabledState Enabled -Mode Prevention
 ```
 
 ## <a name="link-policy-to-a-front-door-front-end-host"></a>Directiva de vínculo a un host de front-end de puerta de entrada

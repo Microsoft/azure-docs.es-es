@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: 7665050dfc9a561f42fec00c40d0a40dfa5cc183
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 92c55c7f15b3f350ad802157bf401f3e75983789
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941571"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606439"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -209,7 +209,7 @@ Por ejemplo, la mayoría de los nombres de recursos no pueden empezar con un dí
 
 Puede encontrar información adicional sobre las reglas y restricciones de nomenclatura de recursos en [este artículo](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
-### <a name="deployment-location"></a>Ubicación de implementación
+### <a name="deployment-location"></a>Ubicación de la implementación
 
 Puede poner la versión de prueba a disposición de los usuarios en distintas regiones de Azure. La idea es permitir que un usuario elija la región más cercana, para ofrecer la mejor experiencia del usuario.
 
@@ -382,7 +382,7 @@ En caso contrario, cree un inquilino en Azure Active Directory.
 
 ![Lista de inquilinos de Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails4.png)
 
-![Definición de la organización, el dominio y el país del inquilino de Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
+![Definir la organización, el dominio y el país o región para el inquilino de Azure AD](./media/azure-resource-manager-test-drive/subdetails5.png)
 
 ![Confirmación de la selección](./media/azure-resource-manager-test-drive/subdetails6.png)
 

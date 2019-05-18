@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: juliako
-ms.openlocfilehash: e64e980d42086603c9eb8ce39a96a9766a78afcb
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: 01b386c820a09af0e616698aabc58a886c30bb09
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472455"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550930"
 ---
 # <a name="transforms-and-jobs"></a>Transformaciones y trabajos
 
@@ -55,9 +55,15 @@ Una **transformación** ayuda a crear la receta una vez (paso 1), y enviar traba
 
 Use **transformaciones** para configurar tareas comunes para codificar o analizar vídeos. Cada **Transformación** describe una receta, o un flujo de trabajo simple de tareas para procesar los archivos de vídeo o audio. Una única transformación puede aplicar más de una regla. Por ejemplo, una transformación podría especificar que cada vídeo se codifique como un archivo MP4 con una velocidad de bits determinada, y que se genere una imagen en miniatura a partir del primer fotograma del vídeo. Tendría que agregar una entrada TransformOutput para cada regla que quiera incluir en la transformación. Usar los valores preestablecidos para indicar a la transformación de cómo se deben procesar los archivos multimedia de entrada.
 
+### <a name="viewing-schema"></a>Ver esquema
+
 En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Puede encontrar la definición de "schema" para estos objetos en [Open API Specification (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en el [API de REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (o en otra documentación de referencia SDK de Media Services v3).
 
+### <a name="creating-transforms"></a>Creación de transformaciones
+
 Puede crear transformaciones mediante REST, CLI, o usar cualquiera de los SDK publicados. Azure Resource Manager controla la API v3 de Media Services, por lo que también se pueden usar plantillas de Resource Manager para crear e implementar las transformaciones en la cuenta de Media Services. El control de acceso basado en rol se puede usar para bloquear el acceso a las transformaciones.
+
+### <a name="updating-transforms"></a>Actualizar las transformaciones
 
 Si necesita actualizar su [transformar](https://docs.microsoft.com/rest/api/media/transforms), utilice el **actualizar** operación. Se está diseñado para realizar cambios en la descripción o las prioridades de la TransformOutputs subyacente. Se recomienda realizar tales actualizaciones cuando se hayan completado todos los trabajos en curso. Si piensa volver a escribir la receta, deberá crear una nueva transformación.
 
@@ -71,11 +77,19 @@ El siguiente diagrama muestra la **transformar** objeto y los objetos que se hac
 
 Un **trabajo** es la solicitud real a Azure Media Services para aplicar la **transformación** a un contenido de vídeo o audio determinado. Una vez creada la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo de entrada mediante: direcciones URL HTTPS, direcciones URL SAS o [recursos](https://docs.microsoft.com/rest/api/media/assets).  
 
+### <a name="job-input-from-https"></a>Entrada del trabajo de HTTPS
+
 Use [trabajo entrada HTTPS](job-input-from-http-how-to.md) si el contenido ya sea accesible a través de una dirección URL y no es necesario almacenar el archivo de origen en Azure (por ejemplo, importación de S3). Este método también es adecuado si tiene el contenido en almacenamiento de blobs de Azure, pero no es necesario para el archivo debe estar en un recurso. Actualmente, este método solo admite un único archivo de entrada.
- 
+
+### <a name="asset-as-job-input"></a>Activos como entrada del trabajo
+
 Use [activos como entrada del trabajo](job-input-from-local-file-how-to.md) si el contenido de entrada ya está en un recurso o el contenido se almacena en el archivo local. También es una buena opción si va a publicar el recurso de entrada de streaming o descarga (digamos que desea publicar los mp4 para su descarga, pero también desea realizar la conversión de voz en texto o imagen de detección). Este método es compatible con varios archivos recursos (por ejemplo, MBR streaming conjuntos que se habían codificados de forma local).
- 
+
+### <a name="checking-job-progress"></a>Comprobando el progreso del trabajo
+
 El progreso y estado de los trabajos se pueden obtener mediante la supervisión de eventos con Event Grid. Para obtener más información, vea [Supervisión de eventos mediante EventGrid](job-state-events-cli-how-to.md).
+
+### <a name="updating-jobs"></a>Actualizar trabajos
 
 La operación de actualización en la entidad [Trabajo](https://docs.microsoft.com/rest/api/media/jobs) puede usarse para modificar las propiedades *description* y *priority* después de enviar el trabajo. Un cambio en la propiedad *priority* es eficaz solo si el trabajo todavía está en un estado en cola. Si el trabajo ha comenzado a procesarse o ha finalizado, cambiar la prioridad no tiene ningún efecto.
 

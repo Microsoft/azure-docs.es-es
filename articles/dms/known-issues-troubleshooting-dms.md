@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 05/09/2019
-ms.openlocfilehash: 7b470c20397aac456d34d5e3b877c7d4126d8279
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.date: 05/14/2019
+ms.openlocfilehash: dc8ba315d08f3a130ff0adf91afc90f545baf4e4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65465109"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604422"
 ---
 # <a name="troubleshoot-common-azure-database-migration-service-issues-and-errors"></a>Solucionar problemas de Azure Database Migration Service y errores comunes
 
@@ -24,7 +24,7 @@ En este artículo se describe algunos problemas comunes y errores que pueden exp
 
 ## <a name="migration-activity-in-queued-state"></a>Actividad de migración de estado en cola
 
-Al crear nuevas actividades en el proyecto de Azure Database Migration Service, las actividades permanecen en la cola.
+Al crear nuevas actividades en un proyecto de Azure Database Migration Service, las actividades permanecen en un estado en cola.
 
 | Causa         | Resolución |
 | ------------- | ------------- |
@@ -44,13 +44,13 @@ El siguiente error se produce cuando la instancia administrada de creación de u
 
 Al migrar desde MySQL a Azure Database for MySQL mediante Azure Database Migration Service, la actividad de migración genera el error siguiente:
 
-* **Error**: Error: Error de migración de base de datos - tarea 'TaskID' se ha suspendido debido a errores de recuperación sucesivos de [n].
+* **Error**: Error de migración de base de datos - tarea 'TaskID' se ha suspendido debido a errores de recuperación sucesivos de [n].
 
 | Causa         | Resolución |
 | ------------- | ------------- |
-| Este error puede producirse cuando el usuario que realiza la migración no tiene el rol ReplicationAdmin o privilegios del cliente de la replicación, la réplica de replicación y SUPER (versiones anteriores a MySQL 5.6.6).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Asegúrese de que el [privilegios previos](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para el usuario cuenta se configuran con precisión en la instancia de MySQL de Azure. Por ejemplo, se pueden seguir los pasos siguientes para crear un usuario denominado 'migrateuser' con los privilegios necesarios:<br>1. Crear usuario migrateuser@'%' identificado por 'secret'; <br>2. conceder todos los privilegios en db_name.* a 'migrateuser'@'%' identificado por 'secret'; Repita este paso para conceder acceso en varias bases de datos <br>3. conceder replicación esclavo en *.* para 'migrateuser'@'%' identificado por 'secret';<br>4. conceder el cliente de replicación en *.* para 'migrateuser'@'%' identificado por 'secret';<br>5. vaciar privilegios; |
+| Este error puede producirse cuando el usuario que realiza la migración no tiene el rol ReplicationAdmin o privilegios del cliente de la replicación, la réplica de replicación y SUPER (versiones anteriores a MySQL 5.6.6).<br> <br><br><br> <br> <br> <br> <br> <br> <br> | Asegúrese de que el [privilegios previos](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online#prerequisites) para el usuario cuenta están configuradas con precisión en la base de datos de Azure para la instancia de MySQL. Por ejemplo, se pueden seguir los pasos siguientes para crear un usuario denominado 'migrateuser' con los privilegios necesarios:<br>1. Crear usuario migrateuser@'%' identificado por 'secret'; <br>2. Conceder todos los privilegios en db_name.* a 'migrateuser'@'%' identificado por 'secret'; Repita este paso para conceder acceso en varias bases de datos <br>3. Subordinado de la replicación de concesión en *.* para 'migrateuser'@'%' identificado por 'secret';<br>4. Cliente de replicación de concesión en *.* para 'migrateuser'@'%' identificado por 'secret';<br>5. Privilegios de vaciado; |
 
-## <a name="error-when-attempting-to-stop-the-azure-database-migration-service-instance"></a>Error al intentar detener la instancia de Azure Database Migration Service
+## <a name="error-when-attempting-to-stop-azure-database-migration-service"></a>Error al intentar detener el servicio de migración de base de datos de Azure
 
 Recibe el siguiente error al detener la instancia de Azure Database Migration Service:
 
@@ -60,7 +60,7 @@ Recibe el siguiente error al detener la instancia de Azure Database Migration Se
 | ------------- | ------------- |
 | Este error se muestra cuando la instancia de servicio que está intentando detener incluye actividades que siguen en ejecución o presentan en los proyectos de migración. <br><br><br><br><br><br> | Asegúrese de que no hay ninguna actividad que se ejecuta en la instancia de Azure Database Migration Service está intentando detener. También puede eliminar las actividades o proyectos antes de intentar detener el servicio. Los siguientes pasos muestran cómo quitar proyectos para limpiar la instancia de servicio de migración mediante la eliminación de todas las tareas en ejecución:<br>1. Install-Module-nombre AzureRM.DataMigration <br>2. Login-AzureRmAccount <br>3. SELECT-AzureRmSubscription - SubscriptionName "<subName>" <br> 4. Remove-AzureRmDataMigrationProject -Name <projectName> -ResourceGroupName <rgName> -ServiceName <serviceName> -DeleteRunningTask |
 
-## <a name="error-restoring-database-while-migrating-from-sql-server-to-an-azure-sql-database-managed-instance"></a>Error al restaurar la base de datos mientras la instancia administrada de migración de SQL Server a una base de datos de SQL Azure
+## <a name="error-restoring-database-while-migrating-sql-to-azure-sql-db-managed-instance"></a>Error al restaurar la base de datos mientras la instancia administrada de SQL migrar a Azure SQL DB
 
 Al realizar una migración en línea de SQL Server a una instancia administrada de Azure SQL Database, la transición se produce un error con el siguiente error:
 
@@ -88,11 +88,11 @@ Al intentar conectarse al origen en el Asistente para proyecto de Azure Database
 | ------------- | ------------- |
 | Cuando se usa [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requiere](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) tres puntos de conexión de servicio en la subred de red Virtual asociada con el servicio de aprovisionamiento:<br> : Punto de conexión del Bus de servicio<br> : Punto de conexión de almacenamiento<br> --Punto de conexión de base de datos (por ejemplo, el punto de conexión SQL, el punto de conexión de Cosmos DB) de destino<br><br><br><br> | [Habilitar](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) los puntos de conexión de servicio necesaria para la conectividad de ExpressRoute entre el origen y Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
-## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-database-for-mysql"></a>Error de tiempo de espera al migrar una base de datos MySQL a Azure Database for MySQL
+## <a name="timeout-error-when-migrating-a-mysql-database-to-azure-mysql"></a>Error de tiempo de espera al migrar una base de datos MySQL a Azure para MySQL
 
 Al migrar una base de datos MySQL a una base de datos de Azure para la instancia de MySQL a través de Azure Database Migration Service, la migración se produce un error con el siguiente error de tiempo de espera:
 
-    * **Error**: Error: Error de migración de base de datos: no se pudo cargar el archivo: no se pudo iniciar el proceso de carga de archivo "n" RetCode: SQL_ERROR SqlState: NativeError HY000: Mensaje 1205: [MySQL] [controlador ODBC] [mysqld] espera de bloqueo de tiempo de espera superado; Pruebe a reiniciar la transacción
+* **Error**: Error de migración de base de datos: no se pudo cargar el archivo: no se pudo iniciar el proceso de carga de archivo "n" RetCode: SQL_ERROR SqlState: NativeError HY000: Mensaje 1205: [MySQL] [controlador ODBC] [mysqld] espera de bloqueo de tiempo de espera superado; Pruebe a reiniciar la transacción
 
 | Causa         | Resolución    |
 | ------------- | ------------- |
@@ -100,13 +100,13 @@ Al migrar una base de datos MySQL a una base de datos de Azure para la instancia
 
 ## <a name="additional-known-issues"></a>Otros problemas conocidos
 
-* [Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure SQL DB](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
-* [Limitaciones de migración y problemas conocidos con las migraciones en línea a la base de datos de Azure para MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
+* [Limitaciones de migración y problemas conocidos con las migraciones en línea a Azure SQL Database](https://docs.microsoft.com/azure/dms/known-issues-azure-sql-online)
+* [Limitaciones de migración y problemas conocidos con migraciones en línea a Azure Database for MySQL](https://docs.microsoft.com/azure/dms/known-issues-azure-mysql-online)
 * [Limitaciones de migración y problemas conocidos con las migraciones en línea a la base de datos de Azure Database for PostgreSQL](https://docs.microsoft.com/azure/dms/known-issues-azure-postgresql-online)
 
-## <a name="additional-resources"></a>Recursos adicionales
+## <a name="next-steps"></a>Pasos siguientes
 
-* [PowerShell del servicio de migración de base de datos de Azure](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration)
-* [Cómo configurar los parámetros del servidor de base de datos de Azure para MySQL mediante el portal de Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters)
-* [Información general sobre los requisitos previos para usar Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs)
-* [Preguntas más frecuentes sobre el uso de Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq)
+* Ver el artículo [PowerShell de Azure Database Migration Service](https://docs.microsoft.com/powershell/module/azurerm.datamigration/?view=azurermps-6.13.0#data_migration).
+* Ver el artículo [cómo configurar los parámetros del servidor de base de datos de Azure para MySQL mediante el portal de Azure](https://docs.microsoft.com/azure/mysql/howto-server-parameters).
+* Ver el artículo [información general sobre los requisitos previos para usar Azure Database Migration Service](https://docs.microsoft.com/azure/dms/pre-reqs).
+* Consulte la [preguntas más frecuentes sobre el uso de Azure Database Migration Service](https://docs.microsoft.com/azure/dms/faq).

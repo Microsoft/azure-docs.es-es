@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74afb98387172f6c58398673862274c7b1880d86
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6280068303e66ca9a930f94d9a754afe1f88f4f2
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64922950"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604255"
 ---
 # <a name="change-your-azure-account-profile-information"></a>Cambiar la información del perfil de cuenta de Azure
 
@@ -51,9 +51,9 @@ Actualizar la dirección de correo electrónico del perfil no actualiza su direc
 
 Para aprender a actualizar la información de facturación, consulte [Cambio de la tarjeta de crédito usada para pagar una suscripción de Azure](billing-how-to-change-credit-card.md).
 
-### <a name="you-cant-update-your-country"></a>No se puede actualizar su país
+### <a name="you-cant-update-your-countryregion"></a>No se puede actualizar su país o región
 
-Debido a limitaciones técnicas, no podemos cambiar el país para una cuenta existente. Sin embargo, puede crear una cuenta en el país deseado y después ponerse en contacto con el soporte técnico de Azure para migrar los servicios a esa cuenta.
+Debido a limitaciones técnicas, no podemos cambiar el país o región para una cuenta existente. Sin embargo, puede crear una cuenta en la región/país deseado y, a continuación, póngase en contacto con soporte técnico de Azure para migrar los servicios a esa cuenta.
 
 ## <a name="service-and-marketing-emails"></a>Correos electrónicos de marketing y servicio
 
@@ -61,7 +61,7 @@ El equipo de Microsoft Azure envía los correos electrónicos relacionados con e
 
 Se le pida en el [portal Azure](https://portal.azure.com) para comprobar o actualizar su dirección de correo electrónico cada 90 días. El propósito de notificación es asegurarse de que Microsoft ha actualizado la información de contacto en el caso de las notificaciones relacionadas con el servicio urgentes. Microsoft envía mensajes de correo electrónico a su dirección de correo electrónico del perfil con Azure información relacionada con la cuenta para:
 
-- Notificaciones de servicio
+- Notificaciones del servicio
 - Alertas de seguridad
 - Con fines de facturación
 - Soporte técnico
@@ -98,7 +98,7 @@ Para optar por no recibir correos electrónicos de marketing:
 
 Si proporcionó una dirección de correo electrónico para las comunicaciones, recibirá notificaciones del servicio, en función de su cuenta. Cuando participar, solo participar en comunicaciones de marketing, sigue recibiendo notificaciones del servicio.
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

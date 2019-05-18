@@ -10,14 +10,14 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 03/12/2019
+ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: b0329c8c0bfa56e5ae36c5f4223edca91e6510a0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42b7c2d86525c428253137b424fe58bb61edba70
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60733120"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762026"
 ---
 # <a name="how-to-encode-with-a-custom-transform---cli"></a>Cómo codificar con una transformación personalizada - CLI
 
@@ -46,90 +46,79 @@ Vamos a guardar esta transformación en un archivo. En este ejemplo, usamos el a
 
 ```json
 {
-    "properties": {
-        "description": "Basic Transform using a custom encoding preset",
-        "outputs": [
-            {
-                "onError": "StopProcessingJob",
-                "relativePriority": "Normal",
-                "preset": {
-                    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
-                    "codecs": [
-                        {
-                            "@odata.type": "#Microsoft.Media.AacAudio",
-                            "channels": 2,
-                            "samplingRate": 48000,
-                            "bitrate": 128000,
-                            "profile": "AacLc"
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.H264Video",
-                            "keyFrameInterval": "PT2S",
-                            "stretchMode": "AutoSize",
-                            "sceneChangeDetection": false,
-                            "complexity": "Balanced",
-                            "layers": [
-                                {
-                                    "width": "1280",
-                                    "height": "720",
-                                    "label": "HD",
-                                    "bitrate": 3400000,
-                                    "maxBitrate": 3400000,
-                                    "bFrames": 3,
-                                    "slices": 0,
-                                    "adaptiveBFrame": true,
-                                    "profile": "Auto",
-                                    "level": "auto",
-                                    "bufferWindow": "PT5S",
-                                    "referenceFrames": 3,
-                                    "entropyMode": "Cabac"
-                                },
-                                {
-                                    "width": "640",
-                                    "height": "360",
-                                    "label": "SD",
-                                    "bitrate": 1000000,
-                                    "maxBitrate": 1000000,
-                                    "bFrames": 3,
-                                    "slices": 0,
-                                    "adaptiveBFrame": true,
-                                    "profile": "Auto",
-                                    "level": "auto",
-                                    "bufferWindow": "PT5S",
-                                    "referenceFrames": 3,
-                                    "entropyMode": "Cabac"
-                                }
-                            ]
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.PngImage",
-                            "stretchMode": "AutoSize",
-                            "start": "25%",
-                            "step": "25%",
-                            "range": "80%",
-                            "layers": [
-                                {
-                                    "width": "50%",
-                                    "height": "50%"
-                                }
-                            ]
-                        }
-                    ],
-                    "formats": [
-                        {
-                            "@odata.type": "#Microsoft.Media.Mp4Format",
-                            "filenamePattern": "Video-{Basename}-{Label}{Extension}",
-                            "outputFiles": []
-                        },
-                        {
-                            "@odata.type": "#Microsoft.Media.PngFormat",
-                            "filenamePattern": "Thumbnail-{Basename}-{Index}{Extension}"
-                        }
-                    ]
+    "@odata.type": "#Microsoft.Media.StandardEncoderPreset",
+    "codecs": [
+        {
+            "@odata.type": "#Microsoft.Media.AacAudio",
+            "channels": 2,
+            "samplingRate": 48000,
+            "bitrate": 128000,
+            "profile": "AacLc"
+        },
+        {
+            "@odata.type": "#Microsoft.Media.H264Video",
+            "keyFrameInterval": "PT2S",
+            "stretchMode": "AutoSize",
+            "sceneChangeDetection": false,
+            "complexity": "Balanced",
+            "layers": [
+                {
+                    "width": "1280",
+                    "height": "720",
+                    "label": "HD",
+                    "bitrate": 3400000,
+                    "maxBitrate": 3400000,
+                    "bFrames": 3,
+                    "slices": 0,
+                    "adaptiveBFrame": true,
+                    "profile": "Auto",
+                    "level": "auto",
+                    "bufferWindow": "PT5S",
+                    "referenceFrames": 3,
+                    "entropyMode": "Cabac"
+                },
+                {
+                    "width": "640",
+                    "height": "360",
+                    "label": "SD",
+                    "bitrate": 1000000,
+                    "maxBitrate": 1000000,
+                    "bFrames": 3,
+                    "slices": 0,
+                    "adaptiveBFrame": true,
+                    "profile": "Auto",
+                    "level": "auto",
+                    "bufferWindow": "PT5S",
+                    "referenceFrames": 3,
+                    "entropyMode": "Cabac"
                 }
-            }
-        ]
-    }
+            ]
+        },
+        {
+            "@odata.type": "#Microsoft.Media.PngImage",
+            "stretchMode": "AutoSize",
+            "start": "25%",
+            "step": "25%",
+            "range": "80%",
+            "layers": [
+                {
+                    "width": "50%",
+                    "height": "50%"
+                }
+            ]
+        }
+    ],
+    "formats": [
+        {
+            "@odata.type": "#Microsoft.Media.Mp4Format",
+            "filenamePattern": "Video-{Basename}-{Label}-{Bitrate}{Extension}",
+            "outputFiles": []
+        },
+        {
+            "@odata.type": "#Microsoft.Media.PngFormat",
+            "filenamePattern": "Thumbnail-{Basename}-{Index}{Extension}"
+        }
+    ]
 }
 
 ```

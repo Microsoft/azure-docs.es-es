@@ -44,7 +44,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Phoenix:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Phoenix** | Sí |
 | host | Dirección IP o nombre de host del servidor de Phoenix. (es, decir 192.168.222.160)  | Sí |
-| puerto | Puerto TCP que el servidor de Phoenix utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8765. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin  |
+| port | Puerto TCP que el servidor de Phoenix utiliza para escuchar las conexiones del cliente. El valor predeterminado es 8765. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sin  |
 | httpPath | Dirección URL parcial correspondiente al servidor de Phoenix. (es decir, /gateway/sandbox/phoenix/version). Especifique `/hbasephoenix0` si se usa el clúster de HDInsights.  | Sin  |
 | authenticationType | Mecanismo de autenticación utilizado para conectarse al servidor de Phoenix. <br/>Los valores permitidos son: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Sí |
 | username | Nombre de usuario que se usa para conectarse al servidor de Phoenix.  | Sin  |

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pullabhk
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 3a424335a1e7d7775f6be0980e7009669e354ea7
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6d17d5c2c0eaebc694abe820318f6ac0c70b0be8
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64717913"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544609"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Copia de seguridad y restaurar bases de datos de SQL en máquinas virtuales de Azure con PowerShell
 
@@ -110,7 +110,7 @@ El almacén de Recovery Services es un recurso de Resource Manager, por lo que d
 3. Especifique el tipo de redundancia que se usará para el almacenamiento del almacén.
 
     * Puede usar [almacenamiento con redundancia local](../storage/common/storage-redundancy-lrs.md) o [almacenamiento con redundancia geográfica](../storage/common/storage-redundancy-grs.md).
-    * El ejemplo siguiente se establece la **- BackupStorageRedundancy** opción el[conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperties?view=azps-1.4.0) cmd para **testvault** establecido en  **Con redundancia geográfica**.
+    * El ejemplo siguiente se establece la **- BackupStorageRedundancy** opción el[conjunto AzRecoveryServicesBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd para **testvault** establecido en  **Con redundancia geográfica**.
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -489,7 +489,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManagementType AzureWorkload -WorkloadType MSSQL -VaultId $targetVault.ID
 ````
 
-### <a name="stop-protection"></a>Detener protección
+### <a name="stop-protection"></a>Detener la protección
 
 #### <a name="retain-data"></a>Conservar datos
 
@@ -530,7 +530,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 Es importante tener en cuenta que Azure Backup solo realiza el seguimiento de los trabajos de usuario que se desencadena en copia de seguridad SQL. Copias de seguridad programadas (incluidas las copias de seguridad del registro) no están visibles en el portal o powershell. Sin embargo, si cualquier programa trabajos producirá un error, un [alerta de copia de seguridad](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) se genera y se muestra en el portal. [Usar Azure Monitor](backup-azure-monitoring-use-azuremonitor.md) para realizar un seguimiento de todos los trabajos programados y otra información relevante.
 
-Los usuarios pueden seguir las operaciones de ad hoc o usuario desencadenada con JobID devuelto en el [salida](#on-demand-backup) de trabajos asincrónicos como copia de seguridad. Use [Get AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetails?view=azps-1.5.0) cmdlet PS para realizar un seguimiento del trabajo y sus detalles.
+Los usuarios pueden seguir las operaciones de ad hoc o usuario desencadenada con JobID devuelto en el [salida](#on-demand-backup) de trabajos asincrónicos como copia de seguridad. Use [Get AzRecoveryServicesBackupJobDetail](https://docs.microsoft.com/powershell/module/az.recoveryservices/Get-AzRecoveryServicesBackupJobDetail) cmdlet PS para realizar un seguimiento del trabajo y sus detalles.
 
 ````powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

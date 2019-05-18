@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 30cb6e49782b97d28b0d999f585d630477e8572f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 1a3382e560287502ae8afccae556bc5f56245904
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64684143"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812941"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -41,12 +41,12 @@ El elemento **TrustFrameworkPolicy** contiene los atributos siguientes:
 | Atributo | Obligatorio | DESCRIPCIÓN |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | Sí | Versión del esquema que se usará para ejecutar la directiva. El valor debe ser `0.3.0.0` |
-| TenantObjectId | Sin  | Identificador de objeto único del inquilino de Azure Active Directory (Azure AD) B2C. |
+| TenantObjectId | No | Identificador de objeto único del inquilino de Azure Active Directory (Azure AD) B2C. |
 | TenantId | Sí | Identificador único del inquilino al que pertenece esta directiva. |
-| PolicyId | Sí | Identificador único de la directiva. Es necesario agregar el prefijo *B2C_1A_* al identificador. |
+| `PolicyId` | Sí | Identificador único de la directiva. Es necesario agregar el prefijo *B2C_1A_* al identificador. |
 | PublicPolicyUri | Sí | URI de la directiva, que es una combinación del id. de inquilino y el id. de directiva. |
-| DeploymentMode | Sin  | Valores posibles: `Production`, `Debugging` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
-| UserJourneyRecorderEndpoint | Sin  | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
+| DeploymentMode | No | Valores posibles: `Production`, `Debugging` o `Development`. `Production` es el valor predeterminado. Use esta propiedad para depurar la directiva. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
+| UserJourneyRecorderEndpoint | No | Punto de conexión que se usará cuando **DeploymentMode** se establece en `Development`. El valor tiene que ser `urn:journeyrecorder:applicationinsights`. Para obtener más información, vea [Recopilación de registros](active-directory-b2c-troubleshoot-custom.md). |
 
 
 En el ejemplo siguiente, se muestra cómo especificar el elemento **TrustFrameworkPolicy**:
@@ -91,7 +91,7 @@ El elemento **BasePolicy** contiene los elementos siguientes:
 | Elemento | Repeticiones | DESCRIPCIÓN |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | El identificador del inquilino de Azure AD B2C. |
-| PolicyId | 1:1 | El identificador de la directiva principal. |
+| `PolicyId` | 1:1 | El identificador de la directiva principal. |
 
 
 En el ejemplo siguiente, se muestra cómo especificar una directiva de base. Esta directiva **B2C_1A_TrustFrameworkExtensions** se basa en la directiva **B2C_1A_TrustFrameworkBase**. 
@@ -116,7 +116,7 @@ En el ejemplo siguiente, se muestra cómo especificar una directiva de base. Est
 
 ## <a name="policy-execution"></a>Ejecución de directiva
 
-Una aplicación de usuario de confianza (como una aplicación de escritorio, móvil o web) realiza una llamada a la [directiva de usuario de confianza](relyingparty.md). El archivo de directiva de usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. La directiva del usuario de confianza configura la lista de notificaciones que recibirá la aplicación de usuario de confianza como parte del token emitido. Varias aplicaciones pueden usar la misma directiva. Todas las aplicaciones reciben el mismo token con notificaciones y el usuario pasará por el mismo recorrido del usuario. Una misma aplicación puede usar varias directivas.
+Una aplicación de usuario de confianza (como una aplicación de escritorio, móvil o web) realiza una llamada a la [directiva de usuario de confianza](relyingparty.md). El archivo de directiva de usuario de confianza ejecuta una tarea específica, como iniciar sesión, restablecer una contraseña o editar un perfil. La directiva del usuario de confianza configura la lista de notificaciones que recibirá la aplicación de usuario de confianza como parte del token emitido. Varias aplicaciones pueden usar la misma directiva. Todas las aplicaciones reciben el mismo token con notificaciones y el usuario pasa por el mismo recorrido de usuario. Una misma aplicación puede usar varias directivas.
 
 Dentro del archivo de directiva de usuario de confianza, especifique el elemento **DefaultUserJourney**, que apunta al elemento [UserJourney](userjourneys.md). El recorrido del usuario suele definirse en la directiva base o de extensiones.
 
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase o B2C_1A_TrustFrameworkExtensionPolicy:
 
 Un recorrido del usuario define la lógica empresarial del proceso por el que pasará el usuario. Cada recorrido del usuario es un conjunto de pasos de orquestación que realiza una serie de acciones, de forma secuencial y en términos de autenticación y recopilación de información. 
 
-El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos del usuario para otros escenarios, como cambiar la dirección de correo electrónico, vincular y desvincular una cuenta de red social, o restablecer una contraseña. 
+El archivo de directiva **SocialAndLocalAccounts** del [paquete inicial](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom#download-starter-pack-and-modify-policies) contiene los recorridos del usuario SignUpOrSignIn, ProfileEdit y PasswordReset. Puede agregar más recorridos de usuario para otros escenarios, como cambiar una dirección de correo electrónico o vincular y desvincular una cuenta de redes sociales. 
 
 Los pasos de orquestación pueden realizar una llamada a un [perfil técnico](technicalprofiles.md). Un perfil técnico proporciona un marco con un mecanismo integrado para comunicarse con distintos tipos de entidades. Por ejemplo, un perfil técnico puede realizar estas acciones, entre otras:
 
@@ -157,4 +157,3 @@ Los pasos de orquestación pueden realizar una llamada a un [perfil técnico](te
 - [ClaimsProviders](claimsproviders.md)
 - [UserJourneys](userjourneys.md)
 - [RelyingParty](relyingparty.md)
-

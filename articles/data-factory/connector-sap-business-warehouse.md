@@ -61,7 +61,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SAP Busines
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **SapBw** | Sí |
-| Servidor | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
+| server | Nombre del servidor en el que reside la instancia de SAP BW. | Sí |
 | systemNumber | Número del sistema de SAP BW.<br/>Valor permitido: número decimal de dos dígitos que se representa en forma de cadena. | Sí |
 | clientId | Identificador del cliente en el sistema SAP W.<br/>Valor permitido: número decimal de tres dígitos que se representa en forma de cadena. | Sí |
 | userName | Nombre del usuario que tiene acceso al servidor SAP. | Sí |
@@ -184,7 +184,7 @@ Al copiar datos desde SAP BW, se usan las siguientes asignaciones de tipos de da
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | String |
-| UNIDAD | String |
+| UNIT | String |
 | DATS | String |
 | NUMC | String |
 | TIMS | String |

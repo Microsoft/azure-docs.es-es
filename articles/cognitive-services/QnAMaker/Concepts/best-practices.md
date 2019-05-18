@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/10/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 78c445e70fcf972be81ef6dfd5d675f8e4843621
-ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
+ms.openlocfilehash: 2677c993b759988b0a9906b357bcd352b243b5a7
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2019
-ms.locfileid: "65541504"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792677"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedimientos recomendados para una base de conocimiento de QnA Maker
 El artículo sobre el [ciclo de vida de desarrollo de una base de conocimiento](../Concepts/development-lifecycle-knowledge-base.md) indica cómo administrar una base de conocimiento de principio a fin. Siga estos procedimientos recomendados para mejorar la base de conocimiento y ofrecer mejores resultados a los usuarios finales del bot de chat o de la aplicación.
@@ -87,7 +87,7 @@ La puntuación de confianza predeterminada que se usa como umbral es de 50, pero
 Los [metadatos](../How-To/edit-knowledge-base.md) permiten usar filtros para reducir los resultados de una consulta de usuario en función de etiquetas de metadatos. La respuesta de la base de conocimiento puede diferir según la etiqueta de metadatos, aunque la consulta sea la misma. Por ejemplo, *¿Dónde está ubicado el estacionamiento?* puede tener otra respuesta si la ubicación de la sucursal del restaurante es diferente; es decir, los metadatos son *ubicación: Seattle* frente a *ubicación: Redmond*.
 
 ### <a name="use-synonyms"></a>Usar sinónimos
-Aunque hay cierta compatibilidad con los sinónimos en inglés, use [alteraciones de palabras](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) que no distinguen mayúsculas de minúsculas para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos deben agregarse en el nivel del servicio QnA Maker y todas las bases de conocimiento del servicio deben compartirlos.
+Aunque hay cierta compatibilidad con los sinónimos en inglés, use [alteraciones de palabras](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) que no distinguen mayúsculas de minúsculas para agregar sinónimos a las palabras clave que tengan una forma diferente. Los sinónimos deben agregarse en el nivel del servicio QnA Maker y todas las bases de conocimiento del servicio deben compartirlos.
 
 |Palabra original|Sinónimos|
 |--|--|

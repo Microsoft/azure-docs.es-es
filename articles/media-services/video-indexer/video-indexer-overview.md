@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/24/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a8812e8a24082bd8c3a2e9bd489e12a12c80c76d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 2c72c7c493c0a887adab147054c725a2e1c0659f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574130"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799137"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
 

@@ -3,8 +3,8 @@ title: Automatización del aprovisionamiento de aplicaciones con SCIM en Azure A
 description: Azure Active Directory puede aprovisionar automáticamente los usuarios y grupos a cualquier aplicación o almacén de identidades proporcionado por un servicio web con la interfaz definida en la especificación del protocolo SCIM
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 5/06/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fba0a9bc0886b9487b0c61b6091bd122fe6e370d
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 143919cb804be771d547e2913818d486c7f8adda
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191539"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824481"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
 
@@ -202,7 +202,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="create-user"></a>Crear usuario
 
-###### <a name="request"></a>Solicitud
+###### <a name="request"></a>Solicitar
 */ Users POST*
 ```json
 {
@@ -229,7 +229,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 201 creado*
 ```json
 {
@@ -259,10 +259,10 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="get-user"></a>Obtener usuario
 
-###### <a name="request"></a>Solicitud
+###### <a name="request"></a>Solicitar
 *GET /Users/5d48a0a8e9f04aa38008* 
 
-###### <a name="response"></a>Response
+###### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -290,10 +290,10 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 ```
 #### <a name="get-user-by-query"></a>Obtener usuario por consulta
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -329,10 +329,10 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="get-user-by-query---zero-results"></a>Obtener usuario por consulta: cero da como resultado
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 */ Users GET? filtro = nombre de usuario eq "usuario inexistente"*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -347,7 +347,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="update-user-multi-valued-properties"></a>Actualizar usuario [propiedades con varios valores]
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *PATCH/usuarios/6764549bef60420686bc HTTP/1.1*
 ```json
 {
@@ -367,7 +367,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -396,7 +396,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="update-user-single-valued-properties"></a>Actualizar usuario [propiedades de un solo valor]
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
@@ -409,7 +409,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -439,10 +439,10 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="delete-user"></a>Eliminar usuario
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 204 Sin contenido*
 
 ### <a name="group-operations"></a>Operaciones de grupo
@@ -454,13 +454,12 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="create-group"></a>Crear grupo
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *POST /Groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
     "externalId": "8aa1a0c0-c4c3-4bc0-b4a5-2ef676900159",
-    "id": "c4d56c3c-bf3b-4e96-9b64-837018d6060e",
     "displayName": "displayName",
     "members": [],
     "meta": {
@@ -469,7 +468,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 201 creado*
 ```json
 {
@@ -489,10 +488,10 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="get-group"></a>Obtener grupo
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -510,10 +509,10 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 
 #### <a name="get-group-by-displayname"></a>Obtener grupo por displayName
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 200 OK*
 ```json
 {
@@ -537,7 +536,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 ```
 #### <a name="update-group-non-member-attributes"></a>Grupo de actualizaciones [atributos que no son miembro]
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *PATCH/grupos/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
@@ -550,12 +549,12 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 204 Sin contenido*
 
 ### <a name="update-group-add-members"></a>Grupo de actualizaciones [Agregar miembros]
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -571,12 +570,12 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 204 Sin contenido*
 
 #### <a name="update-group-remove-members"></a>Grupo de actualizaciones [quitar miembros]
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
@@ -592,15 +591,15 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 }
 ```
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 204 Sin contenido*
 
 #### <a name="delete-group"></a>Eliminar grupo
 
-##### <a name="request"></a>Solicitud
+##### <a name="request"></a>Solicitar
 *DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
 
-##### <a name="response"></a>Response
+##### <a name="response"></a>Respuesta
 *HTTP/1.1 204 Sin contenido*
 
 
@@ -1230,13 +1229,13 @@ Los recursos del grupo se identifican mediante el identificado de esquema `urn:i
 | Usuario de Azure Active Directory | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
 | IsSoftDeleted |active |
-| DisplayName |DisplayName |
+| displayName |displayName |
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |título |
-| mail |emails[type eq "work"].value |
+| correo |emails[type eq "work"].value |
 | mailNickname |externalId |
-| manager |manager |
+| administrador |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
 | objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
@@ -1249,12 +1248,12 @@ Los recursos del grupo se identifican mediante el identificado de esquema `urn:i
 
 ### <a name="table-2-default-group-attribute-mapping"></a>Tabla 2: Asignación de atributos de grupo predeterminada
 
-| Grupo de Azure Active Directory  | urn:ietf:params:scim:schemas:core:2.0:Group |
+| Grupo de Azure Active Directory | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
-| DisplayName |externalId |
-| mail |emails[type eq "work"].value |
-| mailNickname |DisplayName |
-| members |members |
+| displayName |externalId |
+| correo |emails[type eq "work"].value |
+| mailNickname |displayName |
+| miembros |miembros |
 | objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 

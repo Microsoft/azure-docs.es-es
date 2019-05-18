@@ -8,18 +8,20 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a440494b183d18c1d888b5d39836eb4317190d02
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: c034ed7164e67183b9a848d5210dcaf377476c6a
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64708321"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518161"
 ---
 # <a name="automation-with-service-principals"></a>Automatización con entidades de servicio
 
 Las entidades de servicio son un recurso de aplicación de Azure Active Directory que se crean en el inquilino para realizar operaciones desatendidas de recursos y a nivel de servicio. Son un tipo único de *identidad de usuario* con un identificador de la aplicación y una contraseña o un certificado. Una entidad de servicio tiene los permisos necesarios para realizar tareas definidas por los roles y permisos para los que se asigna. 
 
 En Analysis Services, las entidades de servicio se usan con Azure Automation, el modo desatendido de PowerShell, las aplicaciones cliente personalizadas y las aplicaciones web para automatizar tareas comunes. Por ejemplo, las tareas de aprovisionamiento de servidores, implementación de modelos, actualización de datos, escalado vertical y reducción vertical y pausa y reanudación pueden automatizarse con el uso de las entidades de servicio. Los permisos se asignan a las entidades de servicio con la pertenencia a roles, como las cuentas de UPN de Azure AD regulares.
+
+Analysis Services también admite las operaciones realizadas por las identidades administradas mediante entidades de servicio. Para obtener más información, consulte [administra las identidades de los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) y [que Azure AD admiten la autenticación de servicios de Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Creación de entidades de servicio
  

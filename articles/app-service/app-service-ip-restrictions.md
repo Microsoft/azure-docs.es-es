@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/22/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 558b67b5b0e1ce4f452ce2ca2e97dd7e785c80b6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: de898a7ebb9611f469f42bb23774b3b0a0c2410d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728706"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541682"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restricciones de acceso de Azure App Service #
 
@@ -32,7 +32,7 @@ Cuando se realiza una solicitud a la aplicación, la dirección FROM se evalúa 
 
 La funcionalidad de las restricciones de acceso se implementa en los roles de front-end de App Service, que son de nivel superior de los hosts de trabajo donde se ejecuta el código. Por lo tanto, las restricciones de acceso son eficazmente las ACL de red.
 
-Se llama a la capacidad para restringir el acceso a la aplicación web de Azure Virtual Network (VNet) [los extremos del servicio][serviceendpoints]. Los puntos de conexión de servicio le permiten restringir el acceso a un servicio multiempresa de subredes seleccionadas. Debe habilitarse en el lado de la red así como el servicio que se habilita con. 
+Se llama a la capacidad para restringir el acceso a la aplicación web de Azure Virtual Network (VNet) [los extremos del servicio][serviceendpoints]. Los puntos de conexión de servicio le permiten restringir el acceso a un servicio multiempresa de subredes seleccionadas. Debe habilitarse en el lado de la red así como el servicio que se habilita con. No funciona para restringir el tráfico a las aplicaciones que se hospedan en un entorno de App Service.  Si está en un entorno de App Service, puede controlar el acceso a la aplicación con reglas de direcciones IP.
 
 ![flujo de las restricciones de acceso](media/app-service-ip-restrictions/access-restrictions-flow.png)
 
@@ -59,6 +59,8 @@ Para establecer una dirección IP basada en reglas, seleccione un tipo de IPv4 o
 ![Agregar una regla de restricción de acceso de red virtual](media/app-service-ip-restrictions/access-restrictions-vnet-add.png)
 
 Para restringir el acceso a las subredes seleccionadas, seleccione un tipo de red Virtual. A continuación podrá elegir la suscripción, red virtual y subred que desea permitir o denegar el acceso con. Si los extremos de servicio no ya están habilitados con Microsoft.Web para la subred que seleccionó, automáticamente se habilitará automáticamente a menos que se active la casilla que se pregunta si no desea hacerlo. La situación donde desearía para habilitarlo en la aplicación pero no la subred está estrechamente relacionada si tiene los permisos para habilitar los puntos de conexión de servicio en la subred o no. Si necesita obtener nadie más para habilitar puntos de conexión de servicio en la subred, puede que la aplicación configurada para puntos de conexión de servicio en previsión de la misma que se va a habilitar más adelante en la subred y Active la casilla. 
+
+Los puntos de conexión de servicio no se puede usar para restringir el acceso a las aplicaciones que se ejecutan en un entorno de App Service. Cuando la aplicación está en un entorno de App Service, puede controlar el acceso a la aplicación con las reglas de acceso IP. 
 
 Puede hacer clic en cualquier fila para editar una regla de restricción de acceso existente. Las modificaciones son efectivas inmediatamente, incluidos los cambios en el orden de prioridad.
 

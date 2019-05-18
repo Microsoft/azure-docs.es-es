@@ -3,8 +3,8 @@ title: Metadatos de federación de Azure AD | Microsoft Docs
 description: En este artículo se describe el documento de metadatos de federación que Azure Active Directory publica para los servicios que aceptan tokens de este directorio.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: c2d5f80b-aa74-452c-955b-d8eb3ed62652
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, dastrock
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcabf51b3a368841f7f135a32c4824eb3db571ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 32f105c0d4f8807b53d400a1c198edd504c0aef3
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299828"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544504"
 ---
 # <a name="federation-metadata"></a>Metadatos de federación
 Azure Active Directory (Azure AD) publica un documento de metadatos de federación para los servicios que están configurados para aceptar los tokens de seguridad que emite Azure AD. El formato del documento de metadatos de federación se describe en la [versión 1.2 del lenguaje de federación de servicios web (WS-Federation)](https://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que amplía los [metadatos del lenguaje de marcado de aserción de seguridad (SAML) de la versión 2.0 de OASIS](https://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -50,7 +50,7 @@ Por ejemplo, un punto de conexión específico del inquilino podría ser `https:
 ## <a name="contents-of-federation-metadata"></a>Contenido de los metadatos de federación
 La siguiente sección proporciona la información necesaria para los servicios que consumen los tokens emitidos por Azure AD.
 
-### <a name="entity-id"></a>El identificador de entidad
+### <a name="entity-id"></a>Id. de entidad
 El elemento `EntityDescriptor` contiene un atributo `EntityID`. El valor del atributo `EntityID` representa al emisor; es decir, al servicio de token de seguridad (STS) que emitió el token. Es importante validar al emisor cuando reciba un token.
 
 Los metadatos siguientes muestran un ejemplo de un elemento `EntityDescriptor` específico del inquilino con un elemento `EntityID`.

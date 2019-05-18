@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 70712b68cc26a461f702850dbf6064b65b4ff130
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: afa332b40884a79b5114b3b8093cd27108c39984
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60494681"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65780005"
 ---
 # <a name="azure-monitor-for-containers-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Monitor para contenedores
 
@@ -76,6 +76,12 @@ Puede ver el siguiente error: **La respuesta a la dirección url especificada en
 ## <a name="why-cant-i-upgrade-cluster-after-onboarding"></a>¿Por qué no puedo actualizar el clúster después de la incorporación?
 
 Si después de habilitar Azure Monitor para los contenedores para un clúster de AKS, eliminar el área de trabajo de Log Analytics el clúster estaba enviando sus datos, al intentar actualizar el clúster se producirá un error. Para solucionar este problema, tendrá que deshabilitar la supervisión y, a continuación, volver a habilitarla que hacen referencia a un área de trabajo válido diferente en su suscripción. Al intentar volver a realizar la actualización del clúster, debe procesar y se completa correctamente.  
+
+## <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>¿Qué puertos y dominios necesito para abrir/lista de permitidos para el agente?
+- *.ods.opinsights.azure.com   443
+- *.oms.opinsights.azure.com   443
+- *.blob.core.windows.net      443
+- dc.services.visualstudio.com 443
 
 ## <a name="next-steps"></a>Pasos siguientes
 

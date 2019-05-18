@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: jenoller
-ms.openlocfilehash: 9b779021eca11638e8ee52ec11d082e5b0e89cd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 0d2c080be727d2ae13d6d9e5274f17cadffbe640
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506679"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786458"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -146,7 +146,7 @@ Características de vista previa o marca de características no están diseñada
 
 Características en versión preliminar pública son otoño de "mejor esfuerzo" support como estas características están en versión preliminar y no destinada a producción y son compatibles con los equipos de soporte técnico de AKS durante el horario comercial solo. Para obtener más información consulte:
 
-* [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/en-us/support/faq/)
+* [Preguntas más frecuentes de soporte técnico de Azure](https://azure.microsoft.com/support/faq/)
 
 > [!NOTE]
 > Características de vista previa tendrán efecto al Azure *suscripción* nivel. No instale las características de vista previa en una suscripción de producción. En una suscripción de producción, características de vista previa pueden cambiar el comportamiento de la API de forma predeterminada y afectan a las operaciones normales.

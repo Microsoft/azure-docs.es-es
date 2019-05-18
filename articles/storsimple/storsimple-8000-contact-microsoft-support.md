@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli;
-ms.openlocfilehash: fb8cfd4767f6bb9afe1b5731d3b4db1c68a73056
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 77050ad37862394785cf348a242f585cc089ba26
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60362632"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606866"
 ---
-# <a name="contact-microsoft-support"></a>Ponerse en contacto con el soporte técnico de Microsoft
+# <a name="contact-microsoft-support"></a>Póngase en contacto con el servicio de soporte técnico de Microsoft
 
 StorSimple Device Manager proporciona la posibilidad de **registrar una nueva solicitud de soporte técnico** en la hoja de resumen del servicio. Si tiene algún problema con la solución de StorSimple, puede crear una solicitud de servicio de soporte técnico. En una sesión en línea con su ingeniero de soporte técnico, también deberá iniciar una sesión de soporte técnico en su dispositivo StorSimple. Este artículo le enseñará a:
 
@@ -64,7 +64,7 @@ En función de su [plan de soporte técnico](https://azure.microsoft.com/support
 4. En la hoja **Nueva solicitud de soporte**, haga clic en **Step 3 Contact information** (Paso 3 Información de contacto). En la hoja **Información de contacto**, realice los siguientes pasos:
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
-   2. En la información de contacto, especifique su nombre, correo electrónico, contacto opcional y país. Seleccione la casilla de verificación **Guardar cambios de contacto para solicitudes futuras de soporte técnico** .
+   2. En la información de contacto, proporcione su nombre, correo electrónico, póngase en contacto con opcional, país o región. Seleccione la casilla de verificación **Guardar cambios de contacto para solicitudes futuras de soporte técnico** .
    3. Haga clic en **Create**(Crear).
    
        ![Ponerse en contacto con el soporte técnico de MS a través del nuevo portal](./media/storsimple-8000-contact-microsoft-support/contactsupport5.png)   

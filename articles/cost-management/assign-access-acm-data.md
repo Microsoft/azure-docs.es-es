@@ -5,23 +5,27 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2019
+ms.date: 05/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 89ba5b9641d156dfb098d51272b8bf8d3fd53f5b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60577130"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785854"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Asignar acceso a los datos de Cost Management
 
 En el caso de los usuarios con Contratos Enterprise de Azure, una combinación de permisos otorgados en Azure Portal y Enterprise Portal (Contrato Enterprise) define el nivel de acceso de un usuario a los datos de Azure Cost Management. Para los usuarios con otros tipos de cuenta de Azure, el nivel de acceso a los datos de Cost Management es más sencillo. Este artículo le guiará a través del proceso para asignar acceso a los datos de Cost Management. Una vez que se asigna la combinación de permisos, el usuario verá los datos en Cost Management en función del ámbito al que tenga acceso y del ámbito que se selecciona en Azure Portal.
 
 El ámbito que un usuario selecciona se usa en Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando se usan los ámbitos, los usuarios no pueden seleccionar varios de ellos. En su lugar, deben seleccionar un ámbito más amplio que abarque los ámbitos secundarios y filtrar lo que quieran ver. Es importante comprender la consolidación de datos porque algunas personas no deberían tener acceso a un ámbito principal que abarque los ámbitos secundarios.
+
+Inspección del [cómo asignar acceso con Azure Cost Management](https://www.youtube.com/watch?v=J997ckmwTa8) vídeo para obtener información sobre la asignación de acceso para ver los costos y gastos con control de acceso basado en roles de Azure.
+
+>[!VIDEO https://www.youtube.com/embed/J997ckmwTa8]
 
 ## <a name="cost-management-scopes"></a>Ámbitos de Cost Management
 
@@ -34,8 +38,8 @@ Un usuario debe tener, como mínimo, acceso de lectura a uno o varios de los sig
 | **Ámbito** | **Definido en** | **Acceso requerido para ver los datos** | **Configuración de EA como requisito previo** | **Consolida los datos en** |
 | --- | --- | --- | --- | --- |
 | Cuenta de facturación<sup>1</sup> | [https://ea.azure.com](https://ea.azure.com/) | Administrador de organización | None | Todas las suscripciones del contrato Enterprise |
-| department | [https://ea.azure.com](https://ea.azure.com/) | Administrador de departamento | **AD: ver los cargos** habilitado | Todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento |
-| Cuenta de inscripción<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Propietario de cuenta | **PC: ver los cargos** habilitado | Todas las suscripciones de la cuenta de inscripción |
+| Departamento | [https://ea.azure.com](https://ea.azure.com/) | Administrador de departamento | **AD: ver los cargos** habilitado | Todas las suscripciones que pertenecen a una cuenta de inscripción que esté vinculada al departamento |
+| Cuenta de inscripción<sup>2</sup> | [https://ea.azure.com](https://ea.azure.com/) | Propietario de la cuenta | **PC: ver los cargos** habilitado | Todas las suscripciones de la cuenta de inscripción |
 | Grupo de administración | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todas las suscripciones por debajo del grupo de administración |
 | Subscription | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los grupos de recursos o recursos en la suscripción |
 | Grupos de recursos | [https://portal.azure.com](https://portal.azure.com/) | Lector de Cost Management (o lector) | **PC: ver los cargos** habilitado | Todos los recursos del grupo de recurso |

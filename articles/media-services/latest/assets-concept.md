@@ -9,30 +9,27 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 05/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 0fc44bfdb98b81bf218cb2f1824f0f1bb14de4fa
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 2afcf2066238414cd08e32901ffccf2a44718b6d
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65235680"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551771"
 ---
 # <a name="assets"></a>Recursos
 
-En Azure Media Services, Un [recurso](https://docs.microsoft.com/rest/api/media/assets) contiene archivos digitales (como vídeos, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos) y metadatos de estos archivos. Una vez que los archivos digitales se cargan en un recurso, se pueden usar en los flujos de trabajo de codificación, streaming y análisis de contenido de Media Services. Para obtener más información, consulte la sección [Cargar archivos digitales en los recursos](#upload-digital-files-into-assets).
+En Azure Media Services, un [activos](https://docs.microsoft.com/rest/api/media/assets) contiene información acerca de los archivos digitales almacenados en Azure Storage (incluidos el vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos). 
 
 Un recurso se asigna a un contenedor de blobs en la [cuenta de Azure Storage](storage-account-concept.md) y los archivos del recurso se almacenan como blobs en bloques en ese contenedor. Azure Media Services admite los niveles de blob cuando la cuenta usa el almacenamiento de uso general v2 (GPv2). Con GPv2, puede mover los archivos al [almacenamiento de acceso esporádico o al almacenamiento en frío](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers). El almacenamiento de **archivos** es adecuado para guardar archivos de origen cuando ya no son necesarios (por ejemplo, una vez codificados).
 
 El nivel de almacenamiento de **archivos** solo se recomienda para archivos de origen muy grandes que ya se hayan codificado y cuya salida del trabajo de codificación se haya colocado en un contenedor de blobs de salida. Los blobs del contenedor de salida que quiera asociar con un recurso y usar para hacer streaming o analizar contenido, deben existir en un nivel de almacenamiento **frecuente** o **esporádico**.
 
-> [!NOTE]
-> Las propiedades del recurso del tipo Datetime siempre están en formato UTC.
-
 ## <a name="upload-digital-files-into-assets"></a>Cargar los archivos digitales en recursos
 
-Uno de los flujos de trabajo más comunes de Media Services es cargar, codificar y hacer streaming de un archivo. En esta sección se describen los pasos generales.
+Después de que los archivos digitales se cargan en el almacenamiento y asociados con un recurso, se puede usar en los servicios de multimedia, codificación, streaming, análisis de flujos de trabajo de contenido. Uno de los flujos de trabajo más comunes de Media Services es cargar, codificar y hacer streaming de un archivo. En esta sección se describen los pasos generales.
 
 > [!TIP]
 > Antes de empezar a desarrollar, revise [desarrollar con las API de Media Services v3](media-services-apis-overview.md) (incluye información sobre cómo acceder a las API, las convenciones de nomenclatura, etcetera.)
@@ -54,6 +51,9 @@ Uno de los flujos de trabajo más comunes de Media Services es cargar, codificar
 Para obtener un ejemplo de .NET completo que muestre cómo crear el recurso, obtener una dirección URL de SAS que se pueda escribir en el contenedor del recurso de almacenamiento, cargar el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS, consulte [Creación de una entrada de trabajo a partir de un archivo local](job-input-from-local-file-how-to.md).
 
 ### <a name="create-a-new-asset"></a>Crear un recurso nuevo
+
+> [!NOTE]
+> Las propiedades del recurso del tipo Datetime siempre están en formato UTC.
 
 #### <a name="rest"></a>REST
 

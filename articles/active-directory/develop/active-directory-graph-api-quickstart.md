@@ -3,8 +3,8 @@ title: Uso de Graph API de Azure AD
 description: Graph API de Azure Active Directory (Azure AD) proporciona acceso mediante programación a Azure AD a través de los puntos de conexión de la API REST OData. Las aplicaciones pueden usar Graph API de Azure AD para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio.
 services: active-directory
 documentationcenter: n/a
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 tags: ''
 ms.assetid: 9dc268a9-32e8-402c-a43f-02b183c295c5
@@ -15,16 +15,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dfbf920a0e1fc002f3bcbe90164e1fd13a0b978
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 05b3d749eb3e2bc767889831b4c1ff01833a3f39
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411508"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544676"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Procedimientos para: Usar Graph API de Azure AD
 

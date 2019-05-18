@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: ca1e66d20b19c1a5b85a4f4ff1c433331116bee7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ef5354a94ae707df8dd1f2767efe04dfbacd7ad
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553749"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799588"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Personalización de un modelo de lenguaje con las API de Video Indexer
 
@@ -53,7 +54,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountId|string|Sí|Identificador único global de la cuenta.|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 |modelName|string|Sí|El nombre del modelo de lenguaje.|
@@ -66,7 +67,7 @@ Para cargar los archivos que se agregarán al modelo de lenguaje, debe cargar lo
 1. La clave será el nombre de archivo y el valor será el archivo .txt.
 2. La clave será el nombre de archivo y el valor será una dirección URL al archivo .txt.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona metadatos sobre el modelo de lenguaje recién creado, junto con metadatos sobre cada uno de los archivos del modelo, siguiendo el formato de la salida JSON de ejemplo.
 
@@ -124,7 +125,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|El identificador del modelo de lenguaje (se genera cuando se crea el modelo de lenguaje).|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
@@ -133,7 +134,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona metadatos sobre el modelo de lenguaje recién entrenado, junto con metadatos sobre cada uno de los archivos del modelo, siguiendo el formato de la salida JSON de ejemplo.
 
@@ -189,7 +190,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|El identificador del modelo de lenguaje (se genera cuando se crea el modelo de lenguaje).|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
@@ -198,7 +199,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 No se devuelve ningún contenido cuando el modelo de lenguaje se elimina correctamente.
 
@@ -231,12 +232,12 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|El identificador del modelo de lenguaje (se genera cuando se crea el modelo de lenguaje).|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
-|modelName|string|Sin |Nuevo nombre que puede dar al modelo.|
-|enable|boolean|Sin |Elija si todos los archivos de este modelo están habilitados (true) o deshabilitados (false).|
+|modelName|string|No|Nuevo nombre que puede dar al modelo.|
+|habilitar|boolean|No|Elija si todos los archivos de este modelo están habilitados (true) o deshabilitados (false).|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
@@ -245,7 +246,7 @@ Para cargar los archivos que se agregarán al modelo de lenguaje, debe cargar lo
 1. La clave será el nombre de archivo y el valor será el archivo .txt.
 2. La clave será el nombre de archivo y el valor será una dirección URL al archivo .txt.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona metadatos sobre el modelo de lenguaje recién entrenado, junto con metadatos sobre cada uno de los archivos del modelo, siguiendo el formato de la salida JSON de ejemplo.
 
@@ -300,19 +301,19 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountId|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|Identificador del modelo de lenguaje que contiene el archivo (se genera cuando se crea el modelo de lenguaje).|
 |fileId|string|Sí|Identificador del archivo que se está actualizando (se genera cuando se carga el archivo al crearse o actualizarse el modelo de lenguaje).|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
-|fileName|string|Sin |Nombre al que se actualiza el nombre de archivo.|
-|enable|boolean|Sin |Actualizar si este archivo está habilitado (true) o deshabilitado (false) en el modelo de lenguaje.|
+|fileName|string|No|Nombre al que se actualiza el nombre de archivo.|
+|habilitar|boolean|No|Actualizar si este archivo está habilitado (true) o deshabilitado (false) en el modelo de lenguaje.|
 
 ### <a name="request-body"></a>Cuerpo de la solicitud
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona metadatos sobre el archivo que actualizó, siguiendo el formato de la salida JSON de ejemplo siguiente.
 
@@ -350,7 +351,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|El identificador del modelo de lenguaje (se genera cuando se crea el modelo de lenguaje).|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
@@ -359,7 +360,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona metadatos sobre el modelo de lenguaje especificado, junto con metadatos sobre cada uno de los archivos del modelo, siguiendo el formato de la salida JSON de ejemplo.
 
@@ -415,7 +416,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
@@ -423,7 +424,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona una lista de todos los modelos de lenguaje en su cuenta y cada uno de sus metadatos y archivos, siguiendo el formato de la salida JSON de ejemplo siguiente.
 
@@ -486,7 +487,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|Identificador del modelo de lenguaje que contiene el archivo (se genera cuando se crea el modelo de lenguaje).|
 |fileId|string|Sí|Identificador del archivo que se está actualizando (se genera cuando se carga el archivo al crearse o actualizarse el modelo de lenguaje).|
@@ -496,7 +497,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 No se devuelve ningún contenido cuando el archivo se elimina correctamente del modelo de lenguaje.
 
@@ -523,7 +524,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|Identificador del modelo de lenguaje que contiene el archivo (se genera cuando se crea el modelo de lenguaje).|
 |fileId|string|Sí|Identificador del archivo que se está actualizando (se genera cuando se carga el archivo al crearse o actualizarse el modelo de lenguaje).|
@@ -533,7 +534,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona el contenido y los metadatos del archivo en formato JSON, de forma parecida a la siguiente:
 
@@ -572,7 +573,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountID|string|Sí|Identificador único global de la cuenta.|
 |modelId|string|Sí|Identificador del modelo de lenguaje que contiene el archivo (se genera cuando se crea el modelo de lenguaje).|
 |fileId|string|Sí|Identificador del archivo que se está actualizando (se genera cuando se carga el archivo al crearse o actualizarse el modelo de lenguaje).|
@@ -582,7 +583,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta será la descarga de un archivo de texto con el contenido del archivo en formato JSON. 
 

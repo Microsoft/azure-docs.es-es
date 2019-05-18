@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/03/2019
+ms.date: 05/15/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8659ecab649216650403f3a992cc6e356e5de5d0
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357127"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823582"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
 Azure AD Terms of Use ofrece un método sencillo que pueden usar las organizaciones para presentar información a los usuarios finales. Esta presentación garantiza que los usuarios ven las declinaciones de responsabilidades pertinentes de los requisitos legales o de cumplimiento. En este artículo se describe cómo empezar a trabajar con Condiciones de uso.
@@ -61,7 +61,7 @@ Para usar y configurar Azure AD Terms of Use, debe cumplir los siguientes requis
     - Administrador de seguridad
     - Administrador de acceso condicional
 
-## <a name="terms-of-use-document"></a>Documento de términos de uso
+## <a name="terms-of-use-document"></a>Documento Términos de uso
 
 Azure AD Terms of Use emplea el formato PDF para presentar el contenido. Este archivo PDF puede tener cualquier contenido, como documentos de contratos existentes, lo que le permite recopilar acuerdos de usuario final durante el inicio de sesión de usuario. Para admitir usuarios en dispositivos móviles, el tamaño de fuente recomendado en el PDF es 24 puntos.
 
@@ -383,6 +383,9 @@ R: Puede [revisar los Términos de uso aceptados previamente](#how-users-can-rev
 
 **P: ¿Qué ocurre si también utilizo los términos y condiciones de Intune?**<br />
 R: Si ha configurado los Términos de uso de Azure AD y [los términos y condiciones de Intune](/intune/terms-and-conditions-create), se le pedirá al usuario que acepte ambos. Para obtener más información, consulte la entrada de blog [Choosing the right Terms solution for your organization](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) (Elección de la solución de términos adecuada para su organización).
+
+**P: ¿Qué puntos de conexión usa los términos de uso del servicio para la autenticación?**<br />
+R: Términos de uso utiliza los siguientes puntos de conexión para la autenticación: https://tokenprovider.termsofuse.identitygovernance.azure.com y https://account.activedirectory.windowsazure.com. Si su organización tiene una lista de permitidos de direcciones URL para la inscripción, deberá agregar estos puntos de conexión a la lista de permitidos, junto con los puntos de conexión de Azure AD para iniciar sesión.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

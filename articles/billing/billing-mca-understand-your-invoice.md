@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: aee51793c66ae57f740300797b8fdc1799e685cd
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371426"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604042"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Descripción de los términos en la factura del contrato de cliente de Microsoft
 
@@ -46,7 +46,7 @@ El **resumen de factura** en la parte superior de la primera página y muestra i
 | Dirección de venta |Dirección de la entidad jurídica, que se encuentra en las propiedades de cuenta de facturación|
 | Dirección de facturación |Dirección del perfil de facturación recibir la factura de facturación, se encuentra en las propiedades de perfil de facturación|
 | Perfil de facturación |El nombre del perfil de facturación recibe la factura |
-| P.O. número |Un número de pedido de compra opcional asignado por usted para el seguimiento |
+| P.O. de serie |Un número de pedido de compra opcional asignado por usted para el seguimiento |
 | Número de factura |Un número de factura único, generado por Microsoft utilizado con fines de seguimiento |
 | Fecha de la factura |Fecha en que se genera la factura, normalmente cinco a 12 días después del final del ciclo de facturación. Puede comprobar la fecha de factura de facturación de las propiedades de perfil.|
 | Términos de pago |Forma de pago para su factura de Microsoft. *30 días de NET* significa que paga dentro de 30 días de la fecha de factura. |
@@ -59,11 +59,11 @@ El **resumen de facturación** muestra los cargos en el perfil de facturación d
 
 | Término | DESCRIPCIÓN |
 | --- | --- |
-| Charges|Número total de cargos de Microsoft para este perfil de facturación desde el último período de facturación |
+| Cargos|Número total de cargos de Microsoft para este perfil de facturación desde el último período de facturación |
 | Créditos |Créditos que recibió de devoluciones |
 | Aplicar créditos de Azure | Créditos de Azure que se aplican automáticamente a Azure cobra cada período de facturación |
 | Subtotal |La cantidad sin descontar impuesta de vencimiento |
-| Impuestos |El tipo y el importe de impuesto que pagar, según el país de su perfil de facturación. Si no tiene que pagar impuestos, no verá impuestos en la factura. |
+| Impuestos |El tipo y el importe de impuesto que pagar, según el país o región de su perfil de facturación. Si no tiene que pagar impuestos, no verá impuestos en la factura. |
 | Ahorro total estimado |La cantidad total estimada que guardó en efectivos descuentos. Si procede, efectivas tarifas reducidas aparecen debajo de los elementos de línea de compra en detalles de la sección de factura. |
 
 ### <a name="invoice-sections"></a>Secciones de factura
@@ -88,7 +88,7 @@ El importe total debido de cada familia de servicios se calcula restando *crédi
 | Qty | Cantidad comprado o consumido durante el período de facturación |
 | Los cargos y créditos | Importe neto de cargos después de aplicar créditos y reembolsos |
 | Crédito de Azure | La cantidad de créditos de Azure aplicado a los créditos de cargos|
-| Tipo impositivo | Dependiendo del país o tipos impositivos |
+| Tipo impositivo | Tipos impositivos según el país o región |
 | Importe de impuestos | Importe de impuesto aplicado para comprar según el tipo impositivo |
 | Total | El importe total debido de la compra |
 
@@ -103,7 +103,7 @@ Si tiene servicios de terceros en su factura, el nombre y la dirección de cada 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobar el acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
+## <a name="need-help-contact-us"></a>¿Ayuda? Ponerse en contacto con nosotros
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

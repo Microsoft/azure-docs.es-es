@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4f4f22628d2c2a6beb7974aa9b776a2148a3fee0
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 80843abe130f1388a5d4081adab7b9128446763b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65238068"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761990"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Patrones de soluciones de Azure Stream Analytics
 
@@ -58,7 +58,7 @@ Puede crear visualizaciones personalizadas de en tiempo real, por ejemplo, panel
 
 La mayoría de los servicios web y aplicaciones web de hoy en día usan un modelo de solicitud/respuesta para atender la capa de presentación. El patrón de solicitud/respuesta es fácil de crear y se pueden escalar fácilmente con el tiempo de respuesta bajos con un front-end sin estado y los almacenes escalables, como Cosmos DB.
 
-Mayor volumen de datos suele crea cuellos de botella de rendimiento en un sistema basado en CRUD. El [solución patrón event sourcing](/azure/architecture/patterns/event-sourcing.md) se usa para resolver los cuellos de botella de rendimiento. Insights y patrones temporales también son difíciles y eficaz para extraer de un almacén de datos tradicionales. Los datos de gran volumen modernos a menudo aplicaciones controladas por adoptarán una arquitectura basada en el flujo de datos. Análisis de Stream de Azure como el motor de cálculo de datos en movimiento es una pieza clave en esa arquitectura.
+Mayor volumen de datos suele crea cuellos de botella de rendimiento en un sistema basado en CRUD. El [solución patrón event sourcing](/azure/architecture/patterns/event-sourcing) se usa para resolver los cuellos de botella de rendimiento. Insights y patrones temporales también son difíciles y eficaz para extraer de un almacén de datos tradicionales. Los datos de gran volumen modernos a menudo aplicaciones controladas por adoptarán una arquitectura basada en el flujo de datos. Análisis de Stream de Azure como el motor de cálculo de datos en movimiento es una pieza clave en esa arquitectura.
 
 ![Aplicación de abastecimiento de eventos ASA](media/stream-analytics-solution-patterns/eventsourcingapp.png)
 

@@ -18,12 +18,12 @@ ms.date: 12/14/2018
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9da23b0c0b0b0c0bfc238b1504811a9c1c55a9ef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60355785"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785377"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>¿Qué son las condiciones en el acceso condicional de Azure Active Directory? 
 
@@ -57,29 +57,23 @@ Al **Seleccionar usuarios y grupos**, puede establecer las siguientes opciones:
 
 * Los **Usuarios y grupos** tienen como destino conjuntos específicos de usuarios. Por ejemplo, puede seleccionar un grupo que contenga todos los miembros del departamento de Recursos Humanos cuando tenga una aplicación de Recursos Humanos seleccionada como aplicación en la nube. Un grupo puede ser cualquier tipo de grupo en Azure AD, como grupos de distribución y de seguridad dinámicos o asignados.
 
-También puede excluir determinados usuarios o grupos de una directiva. Un caso de uso común son las cuentas de servicio si su directiva aplica la autenticación multifactor (MFA). 
+También puede excluir determinados usuarios o grupos de una directiva. Un caso de uso común son las cuentas de servicio si su directiva aplica la autenticación multifactor (MFA).
 
-Dirigirse a grupos específicos de usuarios es útil para la implementación de una nueva directiva. En una nueva directiva, debería dirigir solo un conjunto inicial de usuarios para validar el comportamiento de la directiva. 
+Dirigirse a grupos específicos de usuarios es útil para la implementación de una nueva directiva. En una nueva directiva, debería dirigir solo un conjunto inicial de usuarios para validar el comportamiento de la directiva.
 
+## <a name="cloud-apps-and-actions"></a>Aplicaciones en la nube y acciones
 
+Una aplicación de nube es un sitio Web, servicio o punto de conexión protegida por Azure AD Application Proxy. Para obtener una descripción detallada de las aplicaciones en la nube admitidas, consulte la sección [Asignaciones de aplicaciones en la nube](technical-reference.md#cloud-apps-assignments). El **en la nube aplicaciones o acciones** condición es obligatoria en una directiva de acceso condicional. En la directiva, puede seleccionar **todas las aplicaciones en la nube** o especificar las aplicaciones con **seleccionar aplicaciones**.
 
-## <a name="cloud-apps"></a>Aplicaciones de nube 
+Las organizaciones pueden elegir entre las siguientes opciones:
 
-Una aplicación en la nube es un sitio web o servicio. Los sitios web protegidos por Azure AD Application Proxy también son aplicaciones en la nube. Para obtener una descripción detallada de las aplicaciones en la nube admitidas, consulte la sección [Asignaciones de aplicaciones en la nube](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference#cloud-apps-assignments). 
+* **Todas las aplicaciones en la nube** al aplicar las directivas de línea de base se aplican a toda la organización. Use esta selección para las directivas que requieren la autenticación multifactor cuando se detecta el riesgo de inicio de sesión para cualquier aplicación en la nube. Se aplica una directiva se aplica a todas las aplicaciones de nube para el acceso a todos los sitios Web y servicios. Esta configuración no se limita a las aplicaciones de nube que aparecen en la lista de aplicaciones seleccione.
+* **Seleccione aplicaciones** para dirigir servicios específicos por su directiva. Por ejemplo, puede requerir que los usuarios tengan un dispositivo compatible para tener acceso a SharePoint Online. Esta directiva también se aplica a otros servicios cuando se accede al contenido de SharePoint. Un ejemplo es Microsoft Teams.
 
-La condición de **aplicaciones en la nube** es obligatoria en una directiva de acceso condicional. En la directiva, puede seleccionar **Todas las aplicaciones en la nube** o bien usuarios y grupos específicos.
+> [!NOTE]
+> Puede excluir aplicaciones específicas de una directiva. Sin embargo, estas aplicaciones siguen estando sujetas a las directivas aplicadas a los servicios a los que acceden.
 
-![Inclusión de aplicaciones en la nube](./media/conditions/03.png)
-
-Seleccione:
-
-- **Todas las aplicaciones en la nube** para establecer como referencia las directivas de línea de base que se aplicarán a toda la organización. Use esta selección para directivas que requieren autenticación multifactor cuando se detecta un riesgo de inicio de sesión en cualquier aplicación en la nube. Una directiva que se aplica a **todas las aplicaciones en la nube** se aplica al acceso a todos los sitios web y servicios. Este valor no se limita solo a las aplicaciones en la nube que aparecen en la lista **Seleccionar aplicaciones**. 
-
-- **Seleccione aplicaciones** para dirigir servicios específicos por su directiva. Por ejemplo, puede requerir que los usuarios tengan un [dispositivo compatible](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-mam#app-based-or-compliant-device-policy-for-exchange-online-and-sharepoint-online) para acceder a SharePoint Online. Esta directiva también se aplica a otros servicios cuando se accede al contenido de SharePoint. Un ejemplo es Microsoft Teams. 
-
-Puede excluir aplicaciones específicas de una directiva. Sin embargo, estas aplicaciones siguen estando sujetas a las directivas aplicadas a los servicios a los que acceden. 
-
-
+**Las acciones del usuario** son tareas que se pueden realizar por el usuario. La única acción admitida actualmente es **registrar información de seguridad (versión preliminar)**, lo que permite la directiva de acceso condicional exigir cuando un usuario registra su información de seguridad.
 
 ## <a name="sign-in-risk"></a>Riesgo de inicio de sesión
 
@@ -170,11 +164,11 @@ Solo puede seleccionar **clientes de Exchange ActiveSync** si:
 
 - Microsoft Office 365 Exchange Online es la única aplicación en la nube que ha seleccionado.
 
-    ![Aplicaciones de nube](./media/conditions/32.png)
+    ![Aplicaciones en la nube](./media/conditions/32.png)
 
 - No tiene otras condiciones configuradas en una directiva. Sin embargo, puede restringir el ámbito de esta condición para que solo se aplique a las [plataformas compatibles](technical-reference.md#device-platform-condition).
  
-    ![Aplicación de directiva solo en las plataformas compatibles](./media/conditions/33.png)
+    ![Aplicar directiva solo en las plataformas compatibles](./media/conditions/33.png)
 
 
 Al bloquearse el acceso porque se requiere un [dispositivo administrado](require-managed-devices.md), los usuarios afectados reciben un solo correo electrónico que les guía en el uso de Intune. 

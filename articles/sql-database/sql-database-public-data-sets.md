@@ -7,18 +7,17 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: reference
-author: WenJason
-ms.author: v-jay
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
-manager: digimobile
-origin.date: 10/01/2018
-ms.date: 04/08/2019
-ms.openlocfilehash: e7d01a6512c2d39c86da9f7020aa3988c9680c6b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+manager: craigg
+ms.date: 10/01/2018
+ms.openlocfilehash: 6eabb65203ed8a37975e09271ce4aa11c9478498
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60584461"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779173"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Conjuntos de datos públicos para pruebas y prototipos
 

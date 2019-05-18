@@ -1,56 +1,60 @@
 ---
-title: Terminación SSL con certificados de Key Vault
-description: Obtenga información sobre cómo integrar puerta de enlace de aplicación de Azure Key Vault para certificados de servidor que se adjuntan a los agentes de escucha HTTPS habilitado.
+title: Terminación SSL con certificados de Azure Key Vault
+description: Obtenga información sobre cómo integrar Azure Application Gateway con Key Vault para certificados de servidor que se adjuntan a los agentes de escucha habilitado para HTTPS.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: victorh
-ms.openlocfilehash: 37707d56caabf0ae8b0020eb8714245a27501ea6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 18af315c58c838a7237acfbcc32f622a0edbd3b3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64696490"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827640"
 ---
 # <a name="ssl-termination-with-key-vault-certificates"></a>Terminación SSL con certificados de Key Vault
 
-[Azure Key Vault](../key-vault/key-vault-whatis.md) es un almacén de secretos administrados a la plataforma que puede usar para proteger los secretos, claves y certificados SSL. Application Gateway admite la integración con Key Vault (en versión preliminar pública) para los certificados de servidor que se adjuntan a los agentes de escucha HTTPS habilitado. Esta compatibilidad está limitada a v2 SKU de Application Gateway.
+[Azure Key Vault](../key-vault/key-vault-whatis.md) es un secreto administrado plataforma almacenar que puede usar para proteger los secretos, claves y certificados SSL. Azure Application Gateway admite la integración con Key Vault (en versión preliminar pública) para los certificados de servidor que se adjuntan a los agentes de escucha HTTPS habilitado. Esta compatibilidad está limitada a v2 SKU de Application Gateway.
 
 > [!IMPORTANT]
-> La integración de almacén de claves de puerta de enlace de aplicaciones está actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Integración de Application Gateway con Key Vault está actualmente en versión preliminar pública. Esta versión preliminar se proporciona sin un contrato de nivel de servicio (SLA) y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Hay dos modelos para la terminación SSL con esta versión preliminar pública:
+Esta versión preliminar pública ofrece dos modelos para la terminación SSL:
 
-- Puede proporcionar explícitamente los certificados SSL asociados al agente de escucha. Este es el modelo tradicional de pasar los certificados SSL en Application Gateway para la terminación SSL.
-- También puede proporcionar una referencia a un certificado de Key Vault existente o secreto durante HTTPS habilitado la creación del agente de escucha.
+- Puede proporcionar explícitamente los certificados SSL asociados al agente de escucha. Este modelo es la forma tradicional para pasar los certificados SSL en Application Gateway para la terminación SSL.
+- También puede proporcionar una referencia a un certificado de Key Vault existente o un secreto al crear un agente de escucha habilitado para HTTPS.
 
-Hay muchas ventajas con la integración de Key Vault, incluido:
+Integración de la puerta de enlace de aplicaciones con Key Vault ofrece muchas ventajas, como:
 
-- Una mayor seguridad, puesto que los certificados SSL no administran directamente con el equipo de desarrollo de aplicaciones. Integración con Key Vault permite a un equipo de seguridad independientes para aprovisionar, controlar el ciclo de vida y conceder los permisos apropiados para seleccionar las puertas de enlace de aplicaciones a los certificados de acceso almacenados en Key Vault.
-- Soporte técnico para importar los certificados existentes en Key Vault o usar API de Key Vault para crear y administrar certificados nuevos con cualquiera de los asociados de almacén de claves de confianza.
-- Compatibilidad con los certificados almacenados en Key Vault para renovar automáticamente.
+- Mayor seguridad, porque los certificados SSL no controlan directamente al equipo de desarrollo de aplicaciones. Integración permite que un equipo de seguridad independientes para:
+  * Configurar las puertas de enlace de la aplicación.
+  * Controlar los ciclos de vida de puerta de enlace de aplicaciones.
+  * Conceder permisos a las puertas de enlace de la aplicación seleccionada para tener acceso a los certificados que se almacenan en el almacén de claves.
+- Compatibilidad para la importación de certificados existentes en el almacén de claves. O use la API de Key Vault para crear y administrar certificados nuevos con cualquiera de los asociados de almacén de claves de confianza.
+- Compatibilidad con la renovación automática de certificados que se almacenan en el almacén de claves.
 
-Application Gateway admite actualmente solo certificados de software que se valida. No se admiten certificados de módulo (HSM) validado de seguridad de hardware. Una vez que la puerta de enlace de aplicaciones está configurado para usar certificados de Key Vault, sus instancias de recuperar el certificado de Key Vault e instalación localmente para la terminación SSL. Las instancias de sondean periódicamente también Key Vault en un intervalo de 24 horas para recuperar una versión renovada del certificado, si existe. Si se encuentra un certificado actualizado, el certificado SSL asociado actualmente con el agente de escucha HTTPS se gira automáticamente.
+Application Gateway admite actualmente sólo a certificados validados por software. Módulo de seguridad de hardware (HSM): no se admiten certificados validados. Después de Application Gateway está configurado para usar certificados de Key Vault, sus instancias de recuperar el certificado de Key Vault e instalación localmente para la terminación SSL. Además, las instancias sondean Key Vault a intervalos de 24 horas para recuperar una versión renovada del certificado, si existe. Si se encuentra un certificado actualizado, el certificado SSL asociado actualmente con el agente de escucha HTTPS se gira automáticamente.
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-integration-works"></a>Cómo funciona la integración
 
-Integración con Key Vault requiere un proceso de configuración de tres pasos:
+Integración de la puerta de enlace de aplicaciones con Key Vault requiere un proceso de configuración de tres pasos:
 
-1. **Crear la identidad administrada asignada por el usuario**
+1. **Cree una identidad administrada asignada por el usuario**
 
-   Debe crear o volver a usar un usuario existente que se asigna una identidad administrada que Application Gateway se usa para recuperar los certificados de Key Vault en su nombre. ¿Para obtener más información, consulte [What ' s identidades administradas para los recursos de Azure?](../active-directory/managed-identities-azure-resources/overview.md) Este paso crea una nueva identidad en el inquilino de Azure AD, que es la suscripción utilizada para crear la identidad de confianza.
+   Crear o volver a usar una asignada por el usuario identidad administrada existente, que Application Gateway se usa para recuperar los certificados de Key Vault en su nombre. Para más información, consulte [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md) Este paso crea una nueva identidad en el inquilino de Azure Active Directory. La identidad es de confianza mediante la suscripción que se usa para crear la identidad.
+
 1. **Configurar el almacén de claves**
 
-   A continuación, debe importarlos o crear un nuevo certificado en el almacén de claves utilizado por aplicaciones que se ejecutan a través de Application Gateway. Secreto de Key Vault que se almacena como archivo en PFX de base sin contraseña 64 codificado también se puede usar en este paso. Uso de un tipo de certificado es preferible debido a que se renueven automáticamente capacidades disponibles con objetos de tipo de certificado en Key Vault. Una vez creado un certificado o un secreto, se deben definir las directivas de acceso en el almacén de claves para permitir que la identidad que se deben conceder *obtener* acceso para capturar el secreto.
+   , A continuación, importe un certificado existente o crea uno nuevo en el almacén de claves. Las aplicaciones que se ejecutan a través de la puerta de enlace de la aplicación, se usará el certificado. En este paso, también puede usar un secreto de almacén de claves que se almacena como base, sin contraseña codificada en 64 archivo PFX. Se recomienda usar un tipo de certificado debido a la capacidad de renovación automática está disponible con los objetos de tipo de certificado en el almacén de claves. Después de crear un certificado o clave secreta, definir directivas de acceso en el almacén de claves para permitir que la identidad que se deben conceder *obtener* acceso al secreto.
 
-1. **Configuración de Application Gateway**
+1. **Configurar la puerta de enlace de aplicaciones**
 
-   Una vez completados los dos pasos anteriores, puede aprovisionar o modificar una puerta de enlace de aplicaciones existente para usar la identidad administrada de asignadas por el usuario. También configura certificado SSL de la escucha HTTP para que apunte a del completa URI de almacén de claves certificado o identificador de secreto.
+   Después de completar los dos pasos anteriores, puede configurar o modificar una puerta de enlace de aplicaciones existente para usar la identidad administrada asignada por el usuario. También puede configurar el certificado SSL de la escucha HTTP para que apunte al URI completo del certificado de Key Vault o identificador de secreto.
 
-![Certificados de Key Vault](media/key-vault-certs/ag-kv.png)
+   ![Certificados del almacén de claves](media/key-vault-certs/ag-kv.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configure la terminación SSL con certificados de Key Vault con Azure PowerShell](configure-keyvault-ps.md).
+[Configure la terminación SSL con certificados de Key Vault mediante Azure PowerShell](configure-keyvault-ps.md)

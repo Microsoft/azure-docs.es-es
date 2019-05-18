@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: ad4b40d649d4e4cbc17d6aec5d8bc7308012b927
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 42ca0c116521b7493c587271422fa760f2376533
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60913749"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767226"
 ---
 # <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Inicio rápido: Obtener respuesta de la base de conocimiento mediante cURL
 
@@ -52,7 +52,7 @@ Para generar una respuesta con CURL, complete los pasos siguientes:
           "questions": [
             "How do I programmatically update my Knowledge Base?"
           ],
-          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+          "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
           "score": 100.0,
           "id": 18,
           "source": "Custom Editorial",

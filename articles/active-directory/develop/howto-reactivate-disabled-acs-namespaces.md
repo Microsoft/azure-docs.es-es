@@ -3,8 +3,8 @@ title: Reactivación de los espacios de nombres deshabilitados de Azure Access C
 description: Aprenda a buscar y habilitar los espacios de nombres de Azure Access Control Service (ACS) y solicite una extensión para mantenerlos habilitados hasta el 4 de febrero de 2019.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 534c0463cd8aee9fccfa183586b946032dada722
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fe1517cce8a1f9b1024085340ffb927b282f0fb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299725"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540277"
 ---
 # <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>Procedimientos para: Reactivación de los espacios de nombres deshabilitados de Access Control Service
 
@@ -93,7 +93,7 @@ Ya no se aprobarán automáticamente más extensiones. Si necesita tiempo adicio
 1. Inicie sesión en Azure Portal y cree una [nueva solicitud de soporte](https://portal.azure.com/#create/Microsoft.Support).
 1. Rellene el formulario de solicitud de soporte técnico tal como se muestra en el ejemplo siguiente.
 
-    | Campo de solicitud de soporte técnico | Value |
+    | Campo de solicitud de soporte técnico | Valor |
     |-----------------------|--------------------|
     | **Tipo de problema** | `Technical` |
     | **Suscripción** | Establecimiento de la suscripción |

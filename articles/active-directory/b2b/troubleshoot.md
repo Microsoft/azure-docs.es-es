@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: mimart
 author: v-miegge
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2a0eaf75debf694421ac9e5f2f7eb13891a20cf
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 4185d29ff1770ed9549b4b63a2e5da579bcf054f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64917349"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767156"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Solución de problemas de colaboración B2B de Azure Active Directory
 

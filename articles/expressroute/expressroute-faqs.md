@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/12/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 17f596abda4febbd6e532adcb44d544cd4d104df
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: e4d4ac45ad0ba9516d863682015b9c07096ae106
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924663"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794773"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -79,7 +79,7 @@ ExpressRoute admite [tres dominios de enrutamiento](expressroute-circuit-peering
 
 * [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
-* Power BI
+* Power BI: disponible a través de una comunidad regionales de Azure, consulte [aquí](https://docs.microsoft.com/power-bi/service-admin-where-is-my-tenant-located) para información sobre la región de su inquilino de Power BI. 
 * Azure Active Directory
 * [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (comunidad de Servicios globales de Azure)
 * Se admiten la mayoría de los servicios de Azure. Compruébelo directamente con el servicio que desea utilizar para comprobar la compatibilidad.<br><br>**Los siguientes servicios no son compatibles**:
@@ -152,7 +152,7 @@ Si el proveedor de servicios ofrece ExpressRoute en ambos sitios, puede trabajar
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>¿Puedo tener varios circuitos ExpressRoute en el mismo metro? ¿Puedo vincularlos a la misma red virtual?
 
-Sí. Puede haber varios circuitos ExpressRoute con los mismos o distintos proveedores de servicios. Si el metro tiene varias ubicaciones de emparejamiento de ExpressRoute y los circuitos se crean en diferentes ubicaciones de emparejamiento, se pueden vincular a la misma red virtual. Si los circuitos se crean en la misma ubicación de emparejamiento, puede vincularlos a la misma red virtual, pero solo hasta 4 circuitos ExpressRoute en cada ubicación de emparejamiento. Por ejemplo, puede seleccionar las ubicaciones de emparejamiento "Singapore" y "Singapore2", y conectar los circuitos desde cada una de ellas a la misma red virtual. 
+Sí. Puede haber varios circuitos ExpressRoute con los mismos o distintos proveedores de servicios. Si el metro tiene varias ubicaciones de emparejamiento de ExpressRoute y los circuitos se crean en diferentes ubicaciones de emparejamiento, se pueden vincular a la misma red virtual. Si los circuitos se crean en la misma ubicación de emparejamiento, puede vincular hasta 4 circuitos a la misma red virtual.
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>¿Cómo conecto mis redes virtuales a un circuito ExpressRoute?
 
@@ -190,7 +190,7 @@ No. Todas las redes virtuales vinculadas al mismo circuito ExpressRoute forman p
 
 ### <a name="can-i-have-one-virtual-network-connected-to-more-than-one-expressroute-circuit"></a>¿Se puede conectar una red virtual a más de un circuito ExpressRoute?
 
-Sí. Puede vincular una única red virtual única con hasta cuatro circuitos ExpressRoute. Se deben solicitar mediante cuatro [ubicaciones de ExpressRoute](expressroute-locations.md) diferentes.
+Sí. Puede vincular una red virtual única con hasta cuatro circuitos de ExpressRoute en ambos la mismas o en diferentes ubicaciones de emparejamiento. 
 
 ### <a name="can-i-access-the-internet-from-my-virtual-networks-connected-to-expressroute-circuits"></a>¿Es posible obtener acceso a Internet desde mis redes virtuales conectadas a circuitos ExpressRoute?
 

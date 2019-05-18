@@ -2,23 +2,23 @@
 title: Personalice las notificaciones emitidas en tokens para una determinada aplicación de un inquilino de Azure AD (versión preliminar pública)
 description: En esta página se describe la asignación de notificaciones de Azure Active Directory.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8b770ee476fc5c1c334f53904539cc34cf962c62
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300485"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546198"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -105,7 +105,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | grant_type |
 | graph |
 | group_sids |
-| groups |
+| Grupos |
 | hasgroups |
 | hash_alg |
 | home_oid |
@@ -156,8 +156,8 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 | refresh_token |
 | refreshtoken |
 | request_nonce |
-| resource |
-| role |
+| Recurso |
+| rol |
 | roles |
 | ámbito |
 | scp |
@@ -288,9 +288,9 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 |-----|-----|-----|
 | Usuario | surname | Nombre de familia |
 | Usuario | givenname | Nombre propio |
-| Usuario | displayname | Display Name (Nombre para mostrar) |
+| Usuario | displayname | Nombre para mostrar |
 | Usuario | objectid | ObjectID |
-| Usuario | mail | Dirección de correo electrónico |
+| Usuario | correo | Dirección de correo electrónico |
 | Usuario | userprincipalname | Nombre principal de usuario |
 | Usuario | department|department|
 | Usuario | onpremisessamaccountname | Nombre de cuenta SAM local |
@@ -325,10 +325,10 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 | Usuario | jobtitle | Puesto |
 | Usuario | employeeid | Id. de empleado |
 | Usuario | facsimiletelephonenumber | Número de teléfono de fax |
-| application, resource, audience | displayname | Display Name (Nombre para mostrar) |
+| application, resource, audience | displayname | Nombre para mostrar |
 | application, resource, audience | objected | ObjectID |
-| application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
-| Compañía | tenantcountry | País del inquilino |
+| application, resource, audience | tags | Etiqueta de entidad de servicio |
+| Empresa | tenantcountry | País del inquilino |
 
 **TransformationID:** el elemento TransformationID solo debe indicarse si el elemento Source está establecido en “transformation”.
 
@@ -360,8 +360,8 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 |TransformationMethod|Entrada prevista|Salida prevista|DESCRIPCIÓN|
 |-----|-----|-----|-----|
-|Unión|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
-|ExtractMailPrefix|mail|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
+|Unir|string1, string2, separator|outputClaim|Se combinan las cadenas de entrada mediante un separador entre ellas. Por ejemplo: string1:"foo@bar.com" , string2:"sandbox" , separator:"." da como resultado outputClaim:"foo@bar.com.sandbox"|
+|ExtractMailPrefix|correo|outputClaim|Extrae la parte local de una dirección de correo electrónico. Por ejemplo: mail:"foo@bar.com" da como resultado outputClaim:"foo". Si no existe ningún signo \@, la cadena de entrada original se devuelve tal y como está.|
 
 **InputClaims:** use un elemento InputClaims para pasar los datos de una entrada de esquema de notificación a una transformación. Tiene dos atributos: **ClaimTypeReferenceId** y **TransformationClaimType**.
 
@@ -386,7 +386,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 |Origen|ID|DESCRIPCIÓN|
 |-----|-----|-----|
-| Usuario | mail|Dirección de correo electrónico|
+| Usuario | correo|Dirección de correo electrónico|
 | Usuario | userprincipalname|Nombre principal de usuario|
 | Usuario | onpremisessamaccountname|Nombre de cuenta SAM local|
 | Usuario | employeeid|Id. de empleado|
@@ -411,7 +411,7 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 | TransformationMethod | Restricciones |
 | ----- | ----- |
 | ExtractMailPrefix | None |
-| Unión | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
+| Unir | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 

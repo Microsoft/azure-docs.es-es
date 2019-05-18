@@ -11,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec62639988dca4b216087e8235be6053140644ee
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 443599e1b2876012bcbdf720bef7762a24e1ff90
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65406356"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790427"
 ---
-# <a name="understand-data-retention-in-time-series-insights"></a>Descripción de la retención de datos en Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
 
-En este artículo se describen dos parámetros de configuración que inciden en la retención de datos en el entorno Time Series Insights (TSI).
+En este artículo se describe dos opciones de configuración que afectan a la retención de datos en su entorno Azure Time Series Insights.
 
 ## <a name="video"></a>Vídeo
 
@@ -36,7 +36,7 @@ Además, el entorno de Azure Time Series tiene un **comportamiento ha superado e
 - **Pausar entradas**
 
 > [!NOTE]
-> De forma predeterminada, al crear un nuevo entorno, el período de retención está configurado en **Purgar datos antiguos**. Esta opción se puede activar o desactivar según sea necesario después de la creación en Azure Portal, en la página **Configurar** del entorno TSI.
+> De forma predeterminada, al crear un nuevo entorno, el período de retención está configurado en **Purgar datos antiguos**. Esta configuración se puede activar o desactivar según sea necesario después de la hora de creación mediante Azure portal, en la **configurar** página del entorno de Time Series Insights.
 
 Para obtener información acerca de cómo cambiar los comportamientos de retención, consulte [Configuring retention in Time Series Insights](time-series-insights-how-to-configure-retention.md) (Configuración de la retención en Time Series Insights).
 
@@ -44,8 +44,8 @@ Compare el comportamiento de retención de datos:
 
 ## <a name="purge-old-data"></a>Purgar datos antiguos
 
-- Este comportamiento es el comportamiento predeterminado para los entornos de TSI y exhibe el mismo comportamiento que los entornos de TSI han exhibido desde que se lanzaron en versión preliminar pública.  
-- Este comportamiento es preferible cuando los usuarios desean ver siempre sus *datos más recientes* en su entorno de TSI. 
+- Este comportamiento es el comportamiento predeterminado para los entornos de Time Series Insights.  
+- Este comportamiento es preferible cuando los usuarios desean ver siempre sus *datos más recientes* en su entorno de Time Series Insights.
 - Este comportamiento *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
 - Los datos introducidos hace más tiempo se purgan primero (enfoque FIFO [PEPS]).
 
@@ -75,7 +75,7 @@ En caso de que la tasa de entrada diaria del entorno sea superior a 0,166 GB por
 
 ### <a name="example-three"></a>Ejemplo 3
 
-Piense en un entorno con el comportamiento de retención configurado en **pausar entradas**. En este ejemplo, el **período de retención de datos** está configurado en 60 días. La **capacidad** se establece en 3 unidades de S1. Supongamos que este entorno tiene una entrada de datos de 2 GB cada día. En este entorno, la entrada se pausa una vez que se alcance la capacidad máxima.
+Piense en un entorno con el comportamiento de retención configurado en **pausar entradas**. En este ejemplo, el **período de retención de datos** está configurado en 60 días. **Capacidad** está establecido en tres (3) las unidades de S1. Supongamos que este entorno tiene una entrada de datos de 2 GB cada día. En este entorno, la entrada se pausa una vez que se alcance la capacidad máxima.
 
 En ese momento, el entorno muestra el mismo conjunto de datos hasta que reanude la entrada o hasta que **continuar entrada** está habilitada (que desea purgar los datos más antiguos para dejar espacio para los nuevos datos).
 
@@ -91,7 +91,7 @@ En los Event Hubs afectados, considere la posibilidad de ajustar la propiedad **
 
 [![Retención de mensajes del centro de eventos.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Si no hay propiedades se configuran en el origen del evento (`timeStampPropertyName`), TSI el valor predeterminado es la marca de tiempo de llegada al event hub como eje x. Si `timeStampPropertyName` está configurada para ser algo más, el entorno busca configurado `timeStampPropertyName` en el paquete de datos al analizar eventos.
+Si no hay propiedades se configuran en el origen del evento (`timeStampPropertyName`), Time Series Insights tiene como valor predeterminado la marca de tiempo de llegada al event hub como eje x. Si `timeStampPropertyName` está configurada para ser algo más, el entorno busca configurado `timeStampPropertyName` en el paquete de datos al analizar eventos.
 
 Si necesita escalar su entorno para dar cabida a una capacidad adicional o para aumentar la duración de retención, vea [Escalado de su entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md) para obtener más información.  
 

@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 593cd83dab6e0cd93cdd1aedac278f4d94a27cc5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e7ab2eba54aafda6bb00696939bf9bc32bb627ca
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64722427"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797008"
 ---
-# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
+# <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Trasladar
 
 Traduce el texto.
 
@@ -41,7 +41,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td><em>Parámetro obligatorio</em>.<br/>Versión de la API que el cliente solicitó. El valor debe ser <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>De</td>
+    <td>from</td>
     <td><em>Parámetro opcional</em>.<br/>Especifica el idioma del texto de entrada. Busque los idiomas que están disponibles desde los que realizar la traducción mediante la busca de <a href="./v3-0-languages.md">idiomas admitidos</a> con el ámbito <code>translation</code>. Si no se ha especificado el parámetro <code>from</code>, se aplica la detección de idioma automática para determinar el idioma de origen.</td>
   </tr>
   <tr>
@@ -94,7 +94,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
-  <th width="20%">encabezados</th>
+  <th width="20%">Encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>Encabezados de autenticación</td>
@@ -172,7 +172,7 @@ En la sección de [ejemplos](#examples) se proporcionan ejemplos de respuestas J
 ## <a name="response-headers"></a>Encabezados de respuesta
 
 <table width="100%">
-  <th width="20%">encabezados</th>
+  <th width="20%">Encabezados</th>
   <th>DESCRIPCIÓN</th>
     <tr>
     <td>X-RequestId</td>
@@ -193,7 +193,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -213,7 +213,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>429</td>
-    <td>El autor de la llamada está enviando demasiadas solicitudes.</td>
+    <td>El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.</td>
   </tr>
   <tr>
     <td>500</td>
@@ -401,7 +401,7 @@ En el caso de <code>ProfanityMarker=Tag</code>, las palabras soeces aparecerán 
   </tr>
 </table> 
 
-Por ejemplo: 
+Por ejemplo:
 
 # <a name="curltabcurl"></a>[curl](#tab/curl)
 

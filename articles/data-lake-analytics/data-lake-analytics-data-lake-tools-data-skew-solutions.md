@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: af55c161944447f2e6e2245fbb920803779984ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61399903"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606716"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Resuelva los problemas de asimetría de datos con Herramientas de Azure Data Lake para Visual Studio
 
@@ -36,7 +36,7 @@ Si esto no afecta a su lógica de negocios, puede filtrar los valores más frecu
 
 ### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Opción 2: Elegir una clave de partición o distribución diferente
 
-En el ejemplo anterior, si solo desea comprobar la carga de trabajo de auditoría fiscal de todo el país, puede mejorar la distribución de datos seleccionando el número de identificación como su clave. A veces, si elige una clave de partición o distribución diferente, puede distribuir los datos de manera más uniforme, aunque debe asegurarse de que esta elección no afecta a su lógica de negocios. Por ejemplo, para calcular la suma de impuestos para cada estado, puede designar _Estado_ como la clave de partición. Si sigue apareciendo el problema, pruebe a utilizar la opción 3.
+En el ejemplo anterior, si solo desea comprobar la carga de trabajo de auditoría fiscal por todo el país o región, puede mejorar la distribución de datos seleccionando el número de identificación como su clave. A veces, si elige una clave de partición o distribución diferente, puede distribuir los datos de manera más uniforme, aunque debe asegurarse de que esta elección no afecta a su lógica de negocios. Por ejemplo, para calcular la suma de impuestos para cada estado, puede designar _Estado_ como la clave de partición. Si sigue apareciendo el problema, pruebe a utilizar la opción 3.
 
 ### <a name="option-3-add-more-partition-or-distribution-keys"></a>Opción 3: Agregar más claves de partición o distribución
 

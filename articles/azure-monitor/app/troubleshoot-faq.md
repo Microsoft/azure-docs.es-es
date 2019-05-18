@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ab1327b42a76a6e76183d84cb1750cce8b85228f
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60373324"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604284"
 ---
-# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
+# <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas más frecuentes
 
 ## <a name="configuration-problems"></a>Problemas de configuración
 *Tengo problemas con la configuración de:*
@@ -132,7 +132,7 @@ Sí, en el servidor puede escribir:
 
 Más información sobre [ASP.NET](api-filtering-sampling.md) o [Java](java-filter-telemetry.md).
 
-## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>¿Cómo se calculan los datos de ciudad, país y otros datos de ubicación geográfica?
+## <a name="how-are-city-countryregion-and-other-geo-location-data-calculated"></a>¿Cómo se calculan ciudad, país o región y otros datos de ubicación geográfica?
 
 Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
@@ -162,7 +162,7 @@ Es posible si el código envía tales datos. También puede ocurrir si las varia
 
 Podría:
 
-* Use dos diferentes claves de instrumentación (separe los recursos de Application Insights), para los datos de cliente y servidor. o
+* Use dos diferentes claves de instrumentación (separe los recursos de Application Insights), para los datos de cliente y servidor. O
 * Escribir un servidor proxy que se ejecute en el servidor y hacer que el cliente web envíe datos a través de dicho servidor proxy.
 
 ## <a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?

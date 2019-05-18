@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 2b9e1c153c3fa9b17145eb6c3c8f3ed02e3bf40f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0580fe09c2cb6569724a9b4365233a3142645a47
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60304187"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546275"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Conexión a orígenes de datos locales desde Azure Logic Apps
 
@@ -36,7 +36,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 * La instalación de puerta de enlace no está asociada a un recurso de puerta de enlace en Azure. La instalación de puerta de enlace solo se puede vincular a un recurso de puerta de enlace, lo que sucede cuando se crea el recurso de puerta de enlace y se selecciona la instalación de puerta de enlace. Esta vinculación hace que la instalación de puerta de enlace no esté disponible para otros recursos.
 
-* Cuando inicie sesión en Azure Portal y cree el recurso de puerta de enlace, asegúrese de usar la misma cuenta de inicio de sesión que se usó previamente para [instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md#requirements) junto con la misma [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) que se utilizó para instalar la puerta de enlace. Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
+* Cuando inicie sesión en Azure Portal y cree el recurso de puerta de enlace, asegúrese de usar la misma cuenta de inicio de sesión que se usó previamente para [instalar la puerta de enlace de datos local](../logic-apps/logic-apps-gateway-install.md#requirements) junto con la misma [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) que se utilizó para instalar la puerta de enlace. Si aún no tiene ninguna suscripción de Azure, <a href="https://azure.microsoft.com/free/" target="_blank">regístrese para obtener una cuenta gratuita de Azure</a>.
 
 * Para crear y mantener el recurso de puerta de enlace en Azure Portal, la [cuenta del servicio de Windows](../logic-apps/logic-apps-gateway-install.md#windows-service-account) necesita al menos permisos de **Colaborador**. La puerta de enlace de datos local se ejecuta como un servicio de Windows y está configurada para usar `NT SERVICE\PBIEgwService` con las credenciales de inicio de sesión del servicio de Windows. 
 

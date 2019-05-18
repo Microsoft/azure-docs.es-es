@@ -31,6 +31,8 @@
       href: concept-audit-logs.md
     - name: Registros de inicio de sesión
       href: concept-sign-ins.md
+    - name: Uso e informes de Insights
+      href: concept-usage-insights-report.md
     - name: Inicios de sesión no seguros
       href: concept-risky-sign-ins.md
     - name: Eventos de riesgo

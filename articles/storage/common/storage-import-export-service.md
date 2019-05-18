@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/07/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 5bb68f3f0139a98f10e28957209f8530a762b76c
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 97a3ac275613b644dfd90144039e4f3127186997
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65413906"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603098"
 ---
 # <a name="what-is-azure-importexport-service"></a>¿Qué es el servicio Azure Import/Export?
 
@@ -74,9 +74,9 @@ En un nivel alto, un trabajo de importación implica los siguientes pasos:
 8. Las unidades se devuelven usando la cuenta de la empresa de transporte al remite indicado en el trabajo de importación.
 
 > [!NOTE]
-> Para los envíos locales (dentro del país del centro de datos), comparta una cuenta de transportista nacional 
+> Para los envíos locales (dentro de país/región del centro de datos), comparta una cuenta de transportista nacionales 
 >
-> Para los envíos al exterior (fuera del país del centro de datos), comparta una cuenta de transportista internacionales
+> Para los envíos al exterior (fuera del país/región del centro de datos), comparta una cuenta de transportista internacionales
 
  ![Figura 1: Importación de flujos de trabajo](./media/storage-import-export-service/importjob.png)
 
@@ -104,9 +104,9 @@ En un nivel alto, un trabajo de exportación implica los siguientes pasos:
 10. Las unidades se devuelven usando la cuenta de la empresa de transporte al remite indicado en el trabajo de importación.
 
 > [!NOTE]
-> Para los envíos locales (dentro del país del centro de datos), comparta una cuenta de transportista nacional 
+> Para los envíos locales (dentro de país/región del centro de datos), comparta una cuenta de transportista nacionales 
 >
-> Para los envíos al exterior (fuera del país del centro de datos), comparta una cuenta de transportista internacionales
+> Para los envíos al exterior (fuera del país/región del centro de datos), comparta una cuenta de transportista internacionales
   
  ![Figura 2: Exportación de flujos de trabajo](./media/storage-import-export-service/exportjob.png)
 
@@ -119,7 +119,7 @@ El servicio Azure Import/Export permite copiar datos en todas las cuentas de alm
 ### <a name="supported-shipping-locations"></a>Ubicaciones de envío admitidas
 
 
-|País  |País  |País  |País  |
+|País o región  |País o región  |País o región  |País o región  |
 |---------|---------|---------|---------|
 |Este de EE. UU    | Europa del Norte        | India Central        |US Gov Iowa         |
 |Oeste de EE. UU.     |Europa occidental         | Sur de la India        | US DoD oriental        |

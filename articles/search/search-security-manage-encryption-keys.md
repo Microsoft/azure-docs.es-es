@@ -1,5 +1,5 @@
 ---
-title: Cifrado en reposo con claves administradas por el cliente en Azure Key Vault - Azure Search
+title: Cifrado en reposo con claves administradas por el cliente en Azure Key Vault (versión preliminar) - Azure Search
 description: Cifrado del lado servidor de complemento a través de los índices y las asignaciones de sinónimos en Azure Search a través de las claves que se crean y administran en Azure Key Vault.
 author: NatiNimni
 manager: jlembicz
@@ -9,14 +9,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.custom: ''
-ms.openlocfilehash: 987b56a9571fd50f605dbe6fb4112ef857021530
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 9d2cd2a2f4b3143d58d0ef03d67de094ea03303e
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65029181"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523096"
 ---
 # <a name="azure-search-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado de Azure Search mediante claves administradas por el cliente en Azure Key Vault
+
+> [!Note]
+> Cifrado con claves administradas por el cliente está en versión preliminar y no se ha diseñado para su uso en producción. El [API de REST versión 2019-05-06-Preview](search-api-preview.md) proporciona esta característica. También puede usar la versión de .NET SDK 8.0-preview.
+>
+> Esta característica no está disponible para los servicios gratuitos. Debe usar un servicio de búsqueda facturables creado a partir de 2019-01-01. No hay ningún soporte técnico del portal en este momento.
 
 De forma predeterminada, Azure Search cifra el contenido de usuario en reposo con [claves administradas del servicio](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guiará a través de los pasos.
 
@@ -26,20 +31,17 @@ Cifrado con claves administradas por el cliente está configurado en el nivel de
 
 Puede usar claves diferentes de los almacenes de claves diferentes. Esto significa que un servicio de búsqueda solo puede hospedar varios mapas de indexes\synonym cifrados, cada uno se cifran potencialmente con una clave diferente administrada por el cliente, junto con los mapas de indexes\synonym que no se cifran mediante claves administradas por el cliente. 
 
->[!Note]
-> **Disponibilidad de características**: Cifrado con claves administradas por el cliente es una característica de versión preliminar que no está disponible para los servicios gratuitos. Para los servicios de pago, solo está disponible para los servicios de búsqueda creados en o después de 2019-01-01, mediante la api-versión de vista previa más reciente (api-version = 2019-05-06-versión preliminar). Actualmente no hay ningún soporte técnico del portal para esta característica.
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 Los siguientes servicios se usan en este ejemplo. 
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
++ [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
-[Crear un recurso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o buscar un almacén existente en su suscripción.
++ [Crear un recurso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o buscar un almacén existente en su suscripción.
 
-[Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se usa para tareas de configuración.
++ [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se usa para tareas de configuración.
 
-[Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) y [SDK de Azure Search](https://aka.ms/search-sdk-preview) puede usarse para llamar a la API de REST de vista previa. No hay ningún portal o la compatibilidad con el SDK de .NET para el cifrado administradas por el cliente en este momento.
++ [Postman](search-fiddler.md), [Azure PowerShell](search-create-index-rest-api.md) y [SDK de Azure Search](https://aka.ms/search-sdk-preview) puede usarse para llamar a la API de REST de vista previa. No hay ningún portal o la compatibilidad con el SDK de .NET para el cifrado administradas por el cliente en este momento.
 
 ## <a name="1---enable-key-recovery"></a>1: habilitar la recuperación de claves
 

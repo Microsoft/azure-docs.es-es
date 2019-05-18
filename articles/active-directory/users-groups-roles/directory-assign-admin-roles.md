@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0811ce1509b7886bf0061cba955ca5e18990cd1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3593324523340300279232e0e63392c9c127991d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920494"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823562"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -163,10 +163,15 @@ Los roles de administrador disponibles son los siguientes:
   * Los administradores de otros servicios fuera de Azure AD, como Exchange Online, Office Security y Compliance Center y sistemas de recursos humanos.
   * Usuarios no administradores como empleados ejecutivos, de asesoramiento jurídico y de recursos humanos que pueden tener acceso a información confidencial o privada.
 
+
+  > [!NOTE]
+  > Delegar permisos administrativos en subconjuntos de usuarios y aplicar directivas a un subconjunto de usuarios son posible con [unidades administrativas (versión preliminar)](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-administrative-units).
+
+
   > [!NOTE]
   > Este rol se llamaba anteriormente "Administrador de contraseñas" [portal Azure](https://portal.azure.com/). Nos estamos cambiando su nombre a "Administrador del departamento de soporte técnico" para que coincida con su nombre en Azure AD PowerShell, API de Azure AD Graph y Microsoft Graph API. Durante un breve período, se cambiará el nombre como "Administrador del departamento de soporte técnico (contraseña)" en el portal de Azure antes del cambio a "Administrador de soporte técnico".
-  >
-  
+
+
 * **[Administrador de Power BI](#power-bi-service-administrator)**: los usuarios con este rol tienen permisos globales en Microsoft Power BI, cuando existe el servicio, así como también la posibilidad de administrar incidencias de soporte técnico y supervisar el mantenimiento del servicio. Puede obtener más información en el artículo [Descripción del rol de administrador de Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
   > [!NOTE]
   > En Microsoft Graph API, Azure AD Graph API y Azure AD PowerShell, este rol se identifica como "Administrador de servicios de Power BI". En [Azure Portal](https://portal.azure.com) es "Administrador de Power BI".

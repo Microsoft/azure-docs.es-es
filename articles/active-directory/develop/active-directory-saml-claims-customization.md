@@ -3,8 +3,8 @@ title: Personalización de las notificaciones emitidas en el token SAML para apl
 description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b137b8cd4e3a2b7a308170904e9b3d09b11137f9
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 4c1f8640918d433956935e9428e23aac59e36334
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231348"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764664"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -121,7 +121,7 @@ También puede usar las funciones de transformación de notificaciones.
 | **Extract() - antes de coincidencia** | Devuelve la subcadena hasta que coincida con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "BSimon_US", el valor coincidente es "_US", entonces el resultado de la notificación es "BSimon". |
 | **Extract() - entre coincidentes** | Devuelve la subcadena hasta que coincida con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon_US", el primer valor coincidente es "Finance_", el segundo valor coincidente es "_US", entonces el resultado de la notificación es "BSimon". |
 | **ExtractAlpha() - Prefix** | Devuelve la parte alfabético de prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "BSimon_123", devuelve "BSimon". |
-| **ExtractAlpha() - Suffix** | Devuelve la parte alfabético de sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_Simon", devuelve "BSimon". |
+| **ExtractAlpha() - Suffix** | Devuelve la parte alfabético de sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_Simon", devuelve a "Simon". |
 | **ExtractNumeric() - Prefix** | Devuelve la parte numérica del prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_BSimon", devuelve "123". |
 | **ExtractNumeric() - sufijo** | Devuelve la parte numérica del sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "BSimon_123", devuelve "123". |
 | **IfEmpty()** | Genera un atributo o una constante si la entrada es nulo o está vacío.<br/>Por ejemplo, si desea dar salida a un atributo que se almacenan en un extensionattribute si el identificador de empleado para un usuario determinado está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1(input): user.employeeid<br/>Parámetro 2 (salida): extensionAttribute1<br/>Parámetro 3 (si no hay ninguna coincidencia de salida): user.employeeid |

@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: 71856f9de3d67590d524fa8bb1119a384d156d2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3d9a5ebb2e25cfbabf8cfdbd94c2d1d04ae1bbee
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64700158"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788470"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -43,7 +43,7 @@ Para seguir las instrucciones que aparecen en esta página, necesita de antemano
 
         (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
-3. Cree y guarde una plantilla de Resource Manager para las alertas de Resource Health como `resourcehealthalert.json` ([consulte los detalles a continuación](#resource-manager-template-for-resource-health-alerts))
+3. Cree y guarde una plantilla de Resource Manager para las alertas de Resource Health como `resourcehealthalert.json` ([consulte los detalles a continuación](#resource-manager-template-options-for-resource-health-alerts))
 
 4. Cree una nueva implementación de Azure Resource Manager con esta plantilla
 
@@ -76,7 +76,7 @@ Para seguir las instrucciones que aparecen en esta página, necesita de antemano
 
 Tenga en cuenta que si planea automatizar completamente este proceso, basta con editar la plantilla de Resource Manager para que no solicite los valores del paso 5.
 
-## <a name="resource-manager-template-for-resource-health-alerts"></a>Plantilla de Resource Manager para las alertas de Resource Health
+## <a name="resource-manager-template-options-for-resource-health-alerts"></a>Opciones de plantilla del Administrador de recursos para las alertas de estado de los recursos
 
 Para crear alertas de Resource Health puede usar esta plantilla base como punto de partida. Esta plantilla funcionará como se escriba y le permitirá recibir alertas de todos los eventos de estado de recurso que se activen a partir de ese momento en los recursos de una suscripción.
 
@@ -284,7 +284,9 @@ No obstante, cuando un recurso se notifica como "Desconocido", es probable que s
 },
 ```
 
-En este ejemplo, solo se notifican los eventos en los que el estado actual y anterior no son desconocidos. Este cambio puede resultar útil si las alertas se envían directamente al correo electrónico o teléfono móvil.
+En este ejemplo, solo se notifican los eventos en los que el estado actual y anterior no son desconocidos. Este cambio puede resultar útil si las alertas se envían directamente al correo electrónico o teléfono móvil. 
+
+Tenga en cuenta que es posible que las propiedades currentHealthStatus y previousHealthStatus para ser null, en algunos eventos. Por ejemplo, cuando un evento Updated se produce es probable que el estado de mantenimiento del recurso no ha cambiado desde el último informe, solo está disponible esa información adicional del evento (por ejemplo, producir). Por lo tanto, mediante la cláusula anterior puede generar algunas alertas no se desencadene, ya los valores properties.currentHealthStatus y properties.previousHealthStatus se establecerá en null.
 
 ### <a name="adjusting-the-alert-to-avoid-user-initiated-events"></a>Ajuste de la alerta para evitar eventos iniciados por el usuario
 
@@ -304,12 +306,12 @@ Es fácil de configurar la alerta para filtrar solo estos tipos de eventos:
     ]
 }
 ```
+Tenga en cuenta que es posible que el campo causa sea null, en algunos eventos. Es decir, una transición de estado tiene lugar (por ejemplo, disponible como no disponible) y se registra el evento inmediatamente evitar que la notificación se retrasa. Por lo tanto, mediante la cláusula anterior puede generar una alerta no se desencadene, ya se establecerá el valor de propiedad properties.clause en null.
 
-## <a name="recommended-resource-health-alert-template"></a>Plantilla de alerta de Resource Health recomendada
+## <a name="complete-resource-health-alert-template"></a>Plantilla de alerta de estado de los recursos completa
 
-Con los distintos ajustes que se describen en la sección anterior se crea una plantilla de alerta integral configurada para maximizar la relación señal/ruido.
+Aquí se usa los ajustes diferentes que se describe en la sección anterior, es una plantilla de ejemplo que está configurada para maximizar la señal en proporción de ruido. Tenga en cuenta las observaciones que se ha indicado anteriormente donde los currentHealthStatus, previousHealthStatus y valores de propiedad de la causa pueden ser nulos en algunos eventos.
 
-Recomendación de uso:
 ```json
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

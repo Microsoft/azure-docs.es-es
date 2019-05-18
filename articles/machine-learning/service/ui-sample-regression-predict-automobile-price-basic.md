@@ -1,7 +1,7 @@
 ---
-title: 'Regresión: Predecir el precio'
+title: 'Regresión: Predicción del precio'
 titleSuffix: Azure Machine Learning service
-description: Este experimento de ejemplo de la interfaz visual muestra cómo crear un modelo de regresión para predecir el precio de un automóvil. El proceso incluye aprendizaje, probar y evaluar el modelo en el conjunto de datos Automobile price data (Raw).
+description: Obtenga información sobre cómo crear un modelo de machine learning para predecir el precio de un automóvil sin necesidad de escribir una sola línea de código.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,30 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: fa9b9179cda767d69d08dcd357a03123bde901cb
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 9dfa4b62f5cb79a5716f6f29651e85d0f8a3a409
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028896"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787855"
 ---
-# <a name="sample-1---regression-predict-price"></a>Ejemplo 1: regresión: Predecir el precio
+# <a name="sample-1---regression-predict-price"></a>Ejemplo 1: regresión: Predicción del precio
 
-Este experimento de ejemplo de la interfaz visual muestra cómo crear un modelo de regresión para predecir el precio de un automóvil. El proceso incluye entrenar, probar y evaluar el modelo utilizando el **datos de precios de automóviles (Raw)** conjunto de datos.
+Obtenga información sobre cómo crear un modelo de regresión de aprendizaje sin necesidad de escribir una sola línea de código mediante la interfaz visual automático.
+
+Este experimento entrena un **regresor de bosque de decisión** para predecir un automóvil del precio en función de las características técnicas, como la marca, modelo, caballos de fuerza y tamaño. Dado que estamos intentando responder a la pregunta "¿cuánto?" Esto se denomina un problema de regresión. Sin embargo, puede aplicar los mismos pasos fundamentales en este experimento para abordar a cualquier tipo de problema del aprendizaje automático, ya sea una regresión, clasificación, agrupación en clústeres y así sucesivamente.
+
+Los pasos fundamentales de un modelo de aprendizaje automático de aprendizaje son:
+
+1. Obtener los datos
+1. Procesar previamente los datos
+1. Entrenamiento del modelo
+1. Evaluación del modelo
+
+Este es el gráfico final, completado del experimento que vamos a trabajar en. Le presentaremos el razonamiento de todos los módulos para que pueda tomar decisiones similares en sus propios.
+
+![Gráfico del experimento](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -28,23 +41,6 @@ Este experimento de ejemplo de la interfaz visual muestra cómo crear un modelo 
 4. Seleccione el **abierto** botón para el experimento de ejemplo 1:
 
     ![Abra el experimento](media/ui-sample-regression-predict-automobile-price-basic/open-sample1.png)
-
-## <a name="related-sample"></a>Ejemplo relacionado
-
-[Ejemplo 2: regresión: Predicción de precios de automóviles (comparar algoritmos)](ui-sample-regression-predict-automobile-price-compare-algorithms.md) proporciona un experimento de ejemplo más complicado que resuelve el mismo problema que este experimento mediante el uso de dos modelos diferentes de regresión. Muestra cómo comparar rápidamente los algoritmos diferentes. Consultarlo si desea obtener un ejemplo más avanzado.
-
-## <a name="experiment-summary"></a>Resumen del experimento
-
-Estos pasos se usa para generar el experimento:
-
-1. Obtener los datos.
-1. Procesar previamente los datos.
-1. Entrenar el modelo.
-1. Probar, evaluar y comparar los modelos.
-
-Este es el gráfico completo del experimento:
-
-![Gráfico del experimento](media/ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
 ## <a name="get-the-data"></a>Obtener los datos
 
@@ -59,6 +55,7 @@ Usamos el **Select Columns in Dataset** módulo para excluir normalized-losses q
 ![Procesamiento previo de los datos](./media/ui-sample-regression-predict-automobile-price-basic/data-processing.png)
 
 ## <a name="train-the-model"></a>Entrenamiento del modelo
+
 Problemas de aprendizaje automático varían. Tareas de aprendizaje automático comunes incluyen la clasificación, agrupación en clústeres, regresión y los sistemas de recomendación, cada uno de los cuales puede requerir un algoritmo diferente. La elección del algoritmo a menudo depende de los requisitos del caso de uso. Después de elegir un algoritmo, deberá ajustar sus parámetros para entrenar un modelo más preciso. A continuación, deberá evaluar todos los modelos basados en métricas, como la precisión, inteligibilidad y eficacia.
 
 Dado que el objetivo de este experimento es predecir precios de automóviles y porque la columna de etiqueta (precio) contiene números reales, un modelo de regresión es una buena elección. Teniendo en cuenta que el número de características es relativamente pequeño (inferior a 100) y estas características no están dispersas, el límite de decisión es probable que sea no lineal. Por lo que usamos **regresión de bosque de decisión** para este experimento.

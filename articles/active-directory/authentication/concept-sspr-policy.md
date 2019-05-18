@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 05/16/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d99169fc38f3976b35a0ebbdd6605450fbd3e2e9
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: f32952dff8f09db5b790818a5f98c527a04c2ef5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412875"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823404"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restricciones y directivas de contraseñas en Azure Active Directory
 
@@ -81,9 +81,9 @@ En la tabla siguiente se describe la configuración de directiva de contraseña 
 
 | Propiedad | Requisitos |
 | --- | --- |
-| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li></ul> |
-| Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li>Espacios.</li><li> No puede contener un carácter de punto "." inmediatamente anterior a la "\@ \" símbolos".</li></ul> |
-| Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 16 caracteres.</li><li>requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
+| Caracteres permitidos |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / \` ~ " ( ) ;</li> <li>espacio en blanco</li></ul> |
+| Caracteres no permitidos |<ul><li>Caracteres Unicode.</li><li> No puede contener un carácter de punto "." inmediatamente anterior a la "\@ \" símbolos".</li></ul> |
+| Restricciones de contraseña |<ul><li>Un mínimo de 8 caracteres y un máximo de 256 caracteres.</li><li>requiere al menos tres de los cuatro requisitos siguientes:<ul><li>Caracteres en minúsculas.</li><li>Caracteres en mayúsculas.</li><li>Números (0-9).</li><li>Símbolos (vea las anteriores restricciones de contraseña).</li></ul></li></ul> |
 | Duración de las contraseñas |<ul><li>Valor predeterminado: **90** días.</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`del módulo Active Directory para Windows PowerShell.</li></ul> |
 | Notificación de la expiración de contraseñas |<ul><li>Valor predeterminado: **14** días (antes de que expire la contraseña).</li><li>El valor se puede configurar con el cmdlet `Set-MsolPasswordPolicy`.</li></ul> |
 | Expiración de las contraseñas |<ul><li>Valor predeterminado: **false** días (indica que la expiración de la contraseña está habilitada).</li><li>El valor se puede configurar para cuentas de usuario individuales mediante el cmdlet `Set-MsolUser`.</li></ul> |
@@ -99,7 +99,6 @@ Esta guía se aplica a otros proveedores (como Intune y Office 365) que también
 
 > [!NOTE]
 > Solo las contraseñas de cuentas de usuario que no están sincronizadas a través de la sincronización de directorios pueden configurarse para que no caduquen. Para obtener más información sobre la sincronización de directorios, vea el artículo sobre cómo [conectar AD con Azure AD](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
->
 
 ## <a name="set-or-check-the-password-policies-by-using-powershell"></a>Establecer o comprobar directivas de contraseña mediante PowerShell
 
@@ -157,7 +156,7 @@ Para empezar, debe [descargar e instalar el módulo de Azure AD PowerShell](http
    ```
 
    > [!WARNING]
-   > La antigüedad de las contraseñas establecidas en `-PasswordPolicies DisablePasswordExpiration` sigue basándose en el atributo `pwdLastSet`. Si establece las contraseñas de usuario para que no expiren nunca y pasan más de 90 días, las contraseñas expiran. En función del `pwdLastSet` atributo, si cambia la expiración a `-PasswordPolicies None`, todas las contraseñas que tengan una `pwdLastSet` cuya antigüedad sea superior a 90 días requieren que el usuario las cambie la próxima vez que se inicie sesión. Este cambio puede afectar a gran cantidad de usuarios. 
+   > La antigüedad de las contraseñas establecidas en `-PasswordPolicies DisablePasswordExpiration` sigue basándose en el atributo `pwdLastSet`. Si establece las contraseñas de usuario para que no expiren nunca y pasan más de 90 días, las contraseñas expiran. En función del `pwdLastSet` atributo, si cambia la expiración a `-PasswordPolicies None`, todas las contraseñas que tengan una `pwdLastSet` cuya antigüedad sea superior a 90 días requieren que el usuario las cambie la próxima vez que se inicie sesión. Este cambio puede afectar a gran cantidad de usuarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 18a80af8422e30ce3e87395449fca7b5f6a73762
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: d02318db4deae6f0a6acdae9382ce47116c95110
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025051"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800870"
 ---
 # <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>MLOps: Administración, implementación y supervisión de modelos Azure Machine Learning Services
 
@@ -34,11 +34,14 @@ Cada paso puede realizarse de forma independiente o como parte de un único coma
 
 [!['Ciclo de implementación (CI/CD) continua e integración continua de azure Machine Learning'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
-> [!VIDEO https://www.youtube.com/embed/0MaHb070H_8]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GX]
 
 ## <a name="step-1-register-model"></a>Paso 1: Registro del modelo
 
 El registro del modelo permite almacenar y versionar los modelos en la nube de Azure, en su área de trabajo. El registro de modelo facilita organizar y mantener un seguimiento de los modelos entrenados.
+
+> [!TIP]
+> También puede registrar modelos entrenados fuera del servicio de Azure Machine Learning.
  
 Los modelos registrados se identifican por el nombre y la versión. Cada vez que registra un modelo con el mismo nombre que uno existente, el registro incrementa la versión. También puede proporciona etiquetas de metadatos adicionales durante el registro para usarlas al buscar modelos. El servicio de Azure Machine Learning es compatible con cualquier modelo que se puede cargar mediante Python 3.5.2 o superior.
 
@@ -52,11 +55,11 @@ Para un ejemplo de registro de un modelo almacenado en formato pickle, consulte 
 
 Modelos de Machine learning pueden usarse como un servicio web, en dispositivos IoT Edge, o para realizar análisis de servicios como Power BI.
 
-### <a name="web-service"></a>Servicio web
+### <a name="web-service"></a>Servicio Web
 
 Puede usar los modelos en **servicios web** con los siguientes destinos de proceso:
 
-* Azure Container Instances
+* Instancia de Azure Container
 * Azure Kubernetes Service
 
 Para implementar el modelo como un servicio web, debe proporcionar lo siguiente:
@@ -92,5 +95,7 @@ Las implementaciones se deben actualizar explícitamente. Para más información
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre [cómo y dónde puede implementar modelos](how-to-deploy-and-where.md) con el servicio Azure Machine Learning. Para obtener un ejemplo de implementación, consulte [Tutorial: Implementar un modelo de clasificación de imágenes en Azure Container Instances](tutorial-deploy-models-with-aml.md).
+
+Aprenda a crear [integración continua e implementación de modelos de aprendizaje automático con canalizaciones de Azure](/azure/devops/pipelines/targets/azure-machine-learning). 
 
 Obtenga información sobre cómo crear aplicaciones de cliente y servicios que [consumen un modelo implementado como servicio web](how-to-consume-web-service.md).

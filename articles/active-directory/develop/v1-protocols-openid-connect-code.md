@@ -3,8 +3,8 @@ title: Descripción del flujo de código de autenticación de OpenID Connect en 
 description: En este artículo se describe cómo utilizar mensajes HTTP para autorizar el acceso a aplicaciones y API web en su inquilino con Azure Active Directory y OpenID Connect.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 29142f7e-d862-4076-9a1a-ecae5bcd9d9b
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/4/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 051d3faf5cea24e33f1e6560abc2d039c1059c91
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251653"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784981"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
 
@@ -107,7 +107,7 @@ En este punto, se le pide al usuario que escriba sus credenciales y que complete
 
 ### <a name="sample-response"></a>Respuesta de muestra
 
-Una respuesta de muestra, una vez que se haya autenticado el usuario, podría tener este aspecto:
+Una respuesta de ejemplo enviada a la `redirect_uri` especificado en la solicitud de inicio de sesión después de que el usuario se ha autenticado, podría tener este aspecto:
 
 ```
 POST / HTTP/1.1
@@ -216,7 +216,7 @@ Con la inclusión de los ámbitos de permiso en la solicitud y el uso de `respon
 
 ### <a name="successful-response"></a>Respuesta correcta
 
-Una respuesta correcta al usar `response_mode=form_post` tiene el siguiente aspecto:
+Una respuesta correcta, enviada a la `redirect_uri` mediante `response_mode=form_post`, aspecto:
 
 ```
 POST /myapp/ HTTP/1.1
@@ -226,7 +226,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| . | DESCRIPCIÓN |
+| Parámetro | DESCRIPCIÓN |
 | --- | --- |
 | ID_token |El `id_token` que solicitó la aplicación. Puede usar el `id_token` para comprobar la identidad del usuario y comenzar una sesión con el usuario. |
 | código |El authorization_code que solicitó la aplicación. La aplicación puede utilizar el código de autorización para solicitar un token de acceso para el recurso de destino. Los authorization_codes son de corta duración y normalmente expiran después de unos 10 minutos. |

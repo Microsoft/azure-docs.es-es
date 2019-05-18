@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 634f3948f9a5e28454e9b2b29f950c3fb00f6c19
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/10/2019
+ms.openlocfilehash: a320f584ff82f2b8a2b3d784e1995aa043004587
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147746"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597492"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Información de límites y configuración para Azure Logic Apps
 
@@ -143,7 +143,7 @@ Algunas operaciones de conector realizan llamadas asincrónicas o escuchan las s
 
 | NOMBRE | Límite | Notas |
 | ---- | ----- | ----- |
-| Número de reintentos | 90 | El valor predeterminado es 4. Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
+| Intentos de reintento | 90 | El valor predeterminado es 4. Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Retraso máximo entre reintentos | 1 día | Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 | Retraso mínimo entre reintentos | 5 segundos | Para cambiar el valor predeterminado, use el [parámetro de directiva de reintentos](../logic-apps/logic-apps-workflow-actions-triggers.md). |
 ||||
@@ -182,7 +182,7 @@ Estos son los límites en cuanto al número de artefactos de cada cuenta de inte
 > [!NOTE] 
 > Use el nivel gratis solo para escenarios de exploración, no los escenarios de producción. Este nivel restringe el uso y el rendimiento, y no tiene ningún acuerdo de nivel de servicio (SLA).
 
-| Artefacto | Gratuito | Básica | Estándar |
+| Artefacto | Gratis | Básica | Estándar |
 |----------|------|-------|----------|
 | Acuerdos comerciales de EDI | 10 | 1 | 500 |
 | Socios comerciales de EDI | 25 | 2 | 500 |
@@ -199,7 +199,7 @@ Estos son los límites en cuanto al número de artefactos de cada cuenta de inte
 
 | Artefacto | Límite | Notas |
 | -------- | ----- | ----- |
-| Assembly | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
+| Ensamblado | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 | Asignación (archivo XSLT) | 8 MB | Para cargar archivos de más de 2 MB, use las [asignaciones de la API REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate). |
 | Esquema | 8 MB | Para cargar archivos de más de 2 MB, use una [cuenta de almacenamiento y un contenedor de blobs de Azure](../logic-apps/logic-apps-enterprise-integration-schemas.md). |
 ||||
@@ -257,7 +257,7 @@ Logic Apps no admite la conexión directa a las cuentas de Azure Storage a trav�
 
 ### <a name="inbound-ip-addresses---logic-apps-service-only"></a>Direcciones IP de entrada: solo del servicio Logic Apps
 
-| Region | IP |
+| Área | IP |
 |--------|----|
 | Este de Australia | 13.75.153.66, 52.187.231.161, 104.210.89.222, 104.210.89.244 |
 | Sudeste de Australia | 13.73.115.153, 40.115.78.70, 40.115.78.237, 52.189.216.28 |
@@ -289,7 +289,7 @@ Logic Apps no admite la conexión directa a las cuentas de Azure Storage a trav�
 
 ### <a name="outbound-ip-addresses---logic-apps-service--managed-connectors"></a>Direcciones IP de salida: servicio Logic Apps y conectores administrados
 
-| Region | IP de Logic Apps | IP de conectores administrados |
+| Área | IP de Logic Apps | IP de conectores administrados |
 |--------|---------------|-----------------------|
 | Este de Australia | 13.75.149.4, 52.187.226.96, 52.187.226.139, 52.187.227.245, 52.187.229.130, 52.187.231.184, 104.210.90.241, 104.210.91.55 | 13.70.72.192 - 13.70.72.207, 13.72.243.10, 40.126.251.213 |
 | Sudeste de Australia | 13.70.159.205, 13.73.114.207, 13.77.3.139, 13.77.56.167, 13.77.58.136, 52.189.214.42, 52.189.220.75, 52.189.222.77 | 13.70.136.174, 13.77.50.240 - 13.77.50.255, 40.127.80.34 |

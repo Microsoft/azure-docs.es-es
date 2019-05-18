@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 05/06/2019
-ms.openlocfilehash: 595d1b84aab55a77f21a9840c5bae9ee996424be
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: e999e4d96dcb5a1042806c0905ce331dc0a4dc0b
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65415934"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522850"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -42,7 +42,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 - **Grupo de conmutación por error (NIEBLA)**
 
-  Un grupo de conmutación por error es un grupo de bases de datos administradas por un único servidor de SQL Database o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria. Cuando se creó para las instancias administradas, un grupo de conmutación por error contiene todas las bases de datos de usuario en la instancia y, por tanto, se pueden configurar los grupos solo una conmutación por error en una instancia.
+  Un grupo de conmutación por error es un grupo de bases de datos administradas por un único servidor de SQL Database o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria. Cuando se crea para las instancias administradas, un grupo de conmutación por error contiene todas las bases de datos de usuario en la instancia y, por tanto, se puede configurar solo un grupo de conmutación por error en una instancia.
 
 - **Servidores de SQL Database**
 

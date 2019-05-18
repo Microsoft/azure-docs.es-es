@@ -187,7 +187,7 @@
           href: api-server-authorized-ip-ranges.md
         - name: Actualización de las credenciales de la entidad de servicio del clúster
           href: update-credentials.md
-        - name: Restricción y control del tráfico de salida del clúster
+        - name: Restricción y control del tráfico de salida del clúster (versión preliminar)
           href: limit-egress-traffic.md
         - name: Habilitar la integración de Azure Active Directory
           items:

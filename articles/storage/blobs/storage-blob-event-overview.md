@@ -9,18 +9,18 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: b03d7d98fe43eacab63f45ccacd7d8dea9598c8e
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 146b33c1a52838279f000a7f793902e2f35dbfaa
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65142164"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826503"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reacción ante eventos de Blob Storage
 
 Los eventos de Azure Storage permiten a las aplicaciones reaccionar a la creación y eliminación de blobs mediante arquitecturas sin servidor modernas. Esto se consigue sin necesidad de código complejo ni de servicios de sondeo costosos e ineficientes.  En su lugar, se insertan eventos a través de [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) a los suscriptores como [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), o incluso su propio agente de escucha http personalizado y solo paga por lo que utiliza.
 
-Los eventos de almacenamiento de blobs se envían de forma confiable a Event Grid Service, que proporciona servicios de entrega confiables para sus aplicaciones a través de directivas de reintento enriquecidas y la entrega de mensajes fallidos.
+Los eventos de almacenamiento de blobs se envían de forma confiable a Event Grid Service, que proporciona servicios de entrega confiables para sus aplicaciones a través de directivas de reintento enriquecidas y la entrega de mensajes fallidos. Para obtener más información, consulte [entrega de mensajes de Event Grid y vuelva a intentarlo](https://docs.microsoft.com/azure/event-grid/delivery-and-retry).
 
 Los escenarios habituales de los eventos de Blob Storage incluyen el procesamiento de imágenes o de vídeo, la indexación de búsqueda o cualquier flujo de trabajo orientado a archivos.  Cargas de archivos asincrónicas son una excelente elección para los eventos.  Cuando se realizan pocos cambios en el escenario, pero se requiere una respuesta inmediata, la arquitectura basada en eventos puede ser especialmente eficaz.
 
@@ -45,15 +45,15 @@ Los eventos de Blob Storage contienen toda la información necesaria para respon
 > |Propiedad|Escriba|DESCRIPCIÓN|
 > |-------------------|------------------------|-----------------------------------------------------------------------|
 > |topic|string|Identificador completo de Azure Resource Manager de la cuenta de almacenamiento que emite el evento.|
-> |subject|string|La ruta de acceso del recurso relativa al objeto que es el asunto del evento, con el mismo formato de Azure Resource Manager extendido que se usa para describir cuentas de almacenamiento, servicios y los contenedores de Azure RBAC.  Este formato incluye un nombre de blob que conservan las mayúsculas y minúsculas.|
+> |asunto|string|La ruta de acceso del recurso relativa al objeto que es el asunto del evento, con el mismo formato de Azure Resource Manager extendido que se usa para describir cuentas de almacenamiento, servicios y los contenedores de Azure RBAC.  Este formato incluye un nombre de blob que conservan las mayúsculas y minúsculas.|
 > |eventTime|string|Fecha y hora en que se generó el evento, en formato ISO 8601|
 > |eventType|string|"Microsoft.Storage.BlobCreated" o "Microsoft.Storage.BlobDeleted"|
-> |Id|string|Identificador único de este evento|
-> |dataVersion|string|Versión del esquema del objeto de datos.|
+> |Identificador|string|Identificador único de este evento|
+> |dataVersion|string|Versión de esquema del objeto de datos.|
 > |metadataVersion|string|Versión del esquema de propiedades de nivel superior.|
-> |data|objeto|Recopilación de datos de eventos específicos de Blob Storage|
+> |datos|objeto|Recopilación de datos de eventos específicos de Blob Storage|
 > |data.contentType|string|El tipo de contenido del blob, como se devolvería en el encabezado Content-Type del blob|
-> |data.contentLength|número|El tamaño del blob es un número entero que representa un número de bytes, como se devolverían en el encabezado Content-Length del blob.  Se envía con el evento BlobCreated, pero no con BlobDeleted.|
+> |data.contentLength|de serie|El tamaño del blob es un número entero que representa un número de bytes, como se devolverían en el encabezado Content-Length del blob.  Se envía con el evento BlobCreated, pero no con BlobDeleted.|
 > |data.url|string|La dirección URL del objeto que es el asunto del evento|
 > |data.eTag|string|El valor etag del objeto cuando se activa este evento.  No está disponible para el evento BlobDeleted.|
 > |data.api|string|El nombre de la operación de API que desencadenó este evento. En el caso de los eventos BlobCreated, este valor es "PutBlob", "PutBlockList" o "CopyBlob". En el caso de los eventos BlobDeleted, este valor es "DeleteBlob". Estos valores son los mismos nombres de API que se encuentran en los registros de diagnóstico de Azure Storage. Consulte [Logged Operations and Status Messages](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) (Operaciones registradas y mensajes de estado).|

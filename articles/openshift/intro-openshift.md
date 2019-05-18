@@ -7,14 +7,14 @@ ms.author: twhitney
 ms.service: container-service
 manager: jeconnoc
 ms.topic: overview
-ms.date: 05/06/2019
+ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 6121c0f654a61a147e84f0697f3ddb06b7c5db92
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bfa3e63a433a6948f05ece7ec3c3a6180933510b
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65079953"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466161"
 ---
 # <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure
 
@@ -38,9 +38,9 @@ Los nodos de Red Hat OpenShift en Azure se ejecutan en máquinas virtuales de Az
 
 ## <a name="virtual-networks-and-ingress"></a>Redes virtuales y entrada
 
-Puede implementar un clúster de Red Hat OpenShift en Azure en una red virtual existente. En esta configuración, cada pod del clúster tiene asignada una dirección IP en la red virtual y puede comunicarse directamente con los otros pods del clúster y otros nodos de la red virtual. Un pod se puede conectar también con otros servicios de una red virtual emparejada y con redes locales a través de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o conexiones VPN de sitio a sitio (S2S).
+Puede conectar un clúster de Red Hat OpenShift en Azure en una red virtual existente mediante emparejamiento. En esta configuración, los pods se pueden conectar con otros servicios de una red virtual emparejada, y con redes locales a través de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) o conexiones VPN de sitio a sitio (S2S).
 
-Para obtener más información, consulte [Create a Microsoft Red Hat OpenShift cluster on Azure](tutorial-create-cluster.md) (Creación de un clúster de Red Hat OpenShift en Microsoft Azure).
+See [Conexión de la red virtual del clúster a una red virtual existente](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) para obtener más información.
 
 ## <a name="kubernetes-certification"></a>Certificación de Kubernetes
 

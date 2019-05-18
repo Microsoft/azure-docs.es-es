@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 05/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 35e57dfcc7b1fd6f8de265ab75de29dedd8fdfc2
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 163b8e1f68b8d5a102465022c67f7d0da57a7215
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65501658"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596963"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Uso de la extensión de la CLI para Azure Machine Learning Service
 
@@ -192,4 +192,4 @@ Los siguientes comandos muestran cómo registrar un modelo entrenado e implement
 
 * [Referencia para la extensión de la CLI de Machine Learning del comando](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 
-* [Entrenar e implementar modelos de aprendizaje automático mediante canalizaciones de Azure](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Entrenar e implementar modelos de aprendizaje automático mediante canalizaciones de Azure](/azure/devops/pipelines/targets/azure-machine-learning)

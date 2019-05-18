@@ -10,21 +10,21 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/24/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1be88f0938a16302be4cf2308ba463900c067104
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 1de17429dfe89506445b2d47999b102f3becb15b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64920155"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604402"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configuración de la directiva de expiración de grupos de Office 365
 
-Ahora puede administrar el ciclo de vida de los grupos de Office 365 mediante el establecimiento de una directiva de expiración. Puede configurar la directiva de expiración solo para grupos de Office 365 en Azure Active Directory (Azure AD). 
+Ahora puede administrar el ciclo de vida de los grupos de Office 365 mediante el establecimiento de una directiva de expiración. Puede configurar la directiva de expiración solo para grupos de Office 365 en Azure Active Directory (Azure AD).
 
 Una vez establecido un grupo para establecer la expiración:
 
@@ -54,7 +54,7 @@ Si necesita más información sobre los permisos para restaurar los grupos elimi
 
 1. Abra el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta que tenga el rol de administrador global del inquilino de Azure AD.
 
-2. Seleccione **Grupos** y, luego, **Expiración** para abrir la configuración de expiración.
+2. Seleccione **grupos**, a continuación, seleccione **caducidad** para abrir la configuración de expiración.
   
    ![Configuración de expiración de grupos](./media/groups-lifecycle/expiration-settings.png)
 
@@ -66,8 +66,8 @@ Si necesita más información sobre los permisos para restaurar los grupos elimi
   * Guardar la configuración cuando haya terminado seleccionando **Guardar**.
 
 > [!NOTE]
-> * Cuando se configura por primera vez la expiración, todos los grupos que sean más antiguos que el intervalo de expiración se establecen en 30 días hasta la expiración. El primer correo de notificación de renovación se envía en un día. Por ejemplo, el grupo A se creó hace 400 días y el intervalo de expiración se ha establecido en 180 días. Cuando se aplica la configuración de expiración, el grupo A tiene 30 antes de que se elimine, salvo que el propietario lo renueve.
-> * Cuando un grupo dinámico se elimina y restaura, se considera un nuevo grupo y se vuelve a rellenar de acuerdo con la regla. Este proceso puede tardar hasta 24 horas.
+> Cuando se configura por primera vez la expiración, todos los grupos que sean más antiguos que el intervalo de expiración se establecen en 30 días hasta la expiración. El primer correo de notificación de renovación se envía en un día. Por ejemplo, el grupo A se creó hace 400 días y el intervalo de expiración se ha establecido en 180 días. Cuando se aplica la directiva de caducidad, grupo A tiene 30 días antes de eliminarla, a menos que el propietario lo renueve.
+> Cuando se elimina y se restaura un grupo dinámico, tiene visto como un nuevo grupo y vuelve a rellenar según la regla. Este proceso puede tardar hasta 24 horas.
 
 ## <a name="email-notifications"></a>Notificaciones por correo electrónico
 

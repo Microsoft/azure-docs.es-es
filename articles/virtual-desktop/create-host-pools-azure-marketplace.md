@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: c4ab209d63a01d9e1089eec351eff64fc116f403
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 21979f1dee50fa846fb7888cfc95908b9d833392
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924972"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236792"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -70,7 +70,7 @@ En la hoja de información del inquilino de Windows Virtual Desktop:
 
 1. En **Nombre de grupo de inquilinos de Windows Virtual Desktop**, escriba el grupo que contiene su inquilino. Si no tiene planeado un nombre de grupo de inquilinos específico, deje el valor predeterminado.
 2. En **Nombre de inquilino de Windows Virtual Desktop**, escriba el inquilino donde se creará este grupo de hosts.
-3. Especificar el tipo de credenciales que desea usar para autenticarse como propietario de RDS del inquilino de Windows Virtual Desktop. Si selecciona **Entidad de servicio**, también debe proporcionar el **Id. de inquilino de Azure AD** asociado con la entidad de servicio.
+3. Especificar el tipo de credenciales que desea usar para autenticarse como propietario de RDS del inquilino de Windows Virtual Desktop. Si completó el [tutorial Creación de entidades de servicio y asignaciones de roles con PowerShell](./create-service-principal-role-powershell.md), seleccione **serviceprincipal**. Ahora deberá escribir el **identificador de inquilino de Azure AD** de la instancia de Azure Active Directory que contiene la entidad de servicio.
 4. Escriba las credenciales de la cuenta de administrador del inquilino. Solo se admiten entidades de servicio con credenciales de contraseña.
 5. Seleccione **Aceptar**.
 

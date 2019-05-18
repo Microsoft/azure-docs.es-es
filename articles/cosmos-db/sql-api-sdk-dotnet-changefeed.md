@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 01/30/2019
 ms.author: maquaran
-ms.openlocfilehash: a878ab1937b06f06a27b18f793fc1bfa190969ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 56ec4d867abd5f2767c64b0800eeb017c0fb9923
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60627053"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793000"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>SDK para los procesadores de fuente de cambios de .NET: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -40,6 +40,11 @@ ms.locfileid: "60627053"
 ## <a name="release-notes"></a>Notas de la versión
 
 ### <a name="v2-builds"></a>compilaciones v2
+
+### <a name="a-name227227"></a><a name="2.2.7"/>2.2.7
+* Estrategia para el escenario de equilibrio al obtener todas las concesiones de carga mejorado tarda más tiempo que el intervalo de expiración de concesiones, por ejemplo, debido a problemas de red:
+  * Este algoritmo utilizado para erróneamente como caducada, tenga en cuenta las concesiones de equilibrio de carga de escenario, causando concesiones de robo de los propietarios de activos. Esto podría desencadenar necesario volver a equilibrar una gran cantidad de concesiones.
+  * Este problema está corregido en esta versión, ya que evita reintento en caso de conflicto mientras adquirir concesión expirada qué propietario no ha cambiado y adquirir posponing expirado concesión a la siguiente iteración de equilibrio de carga.
 
 ### <a name="a-name226226"></a><a name="2.2.6"/>2.2.6
 * Control mejorado de las excepciones del observador.
@@ -161,8 +166,9 @@ El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK
 
 <br/>
 
-| `Version` | Fecha de lanzamiento | Fecha de retirada |
+| Version | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
+| [2.2.7](#2.2.7) |14 de mayo de 2019 |--- |
 | [2.2.6](#2.2.6) |29 de enero de 2019 |--- |
 | [2.2.5](#2.2.5) |13 de diciembre de 2018 |--- |
 | [2.2.4](#2.2.4) |29 de noviembre de 2018 |--- |

@@ -7,12 +7,12 @@ ms.date: 03/28/2019
 ms.topic: conceptual
 ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a811a9cb1b124aff7c64d25cf71a1b84bff0c173
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880953"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541747"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilice canalizaciones de Azure para compilar e implementar soluciones de HPC
 
@@ -363,7 +363,7 @@ En este ejemplo, nos centraremos en el **aplicación: hpc** carpeta. El **aplica
 
 ## <a name="continuous-deployment"></a>Implementación continua
 
-Las canalizaciones de Azure también se usan para implementar la aplicación y la infraestructura subyacente. [Las canalizaciones de versiones](https://docs.microsoft.com/azure/devops/pipelines/release/what-is-release-management?view=azure-devops) es el componente que permite la implementación continua y automatiza el proceso de publicación.
+Las canalizaciones de Azure también se usan para implementar la aplicación y la infraestructura subyacente. [Las canalizaciones de versiones](https://docs.microsoft.com/azure/devops/pipelines/release) es el componente que permite la implementación continua y automatiza el proceso de publicación.
 
 ### <a name="deploying-your-application-and-underlying-infrastructure"></a>Implementación de la aplicación y la infraestructura subyacente
 

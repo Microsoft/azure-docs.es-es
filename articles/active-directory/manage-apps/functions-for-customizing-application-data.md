@@ -3,8 +3,8 @@ title: Escritura de expresiones para asignaciones de atributos en Azure Active D
 description: Obtenga información sobre cómo usar asignaciones de expresiones para transformar valores de atributos en un formato aceptable durante el aprovisionamiento automático de objetos de aplicaciones SaaS en Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/21/2019
-ms.author: chmutali
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ec1994169891d5256436ac4de741339c865bb268
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291439"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824642"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -29,13 +29,13 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 * Toda la expresión se tiene que definir en términos de funciones, que constan de un nombre seguido de argumentos entre paréntesis:  <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* Es posible anidar funciones dentro de otras. Por ejemplo:  <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* Es posible anidar funciones dentro de otras. Por ejemplo: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * Puede transformar tres tipos diferentes de argumentos en funciones:
   
   1. Atributos, que deben ir entre corchetes. Por ejemplo: [NombreAtributo]
-  2. Constantes de cadena, que deben ir entre comillas. Por ejemplo:  "Estados Unidos"
-  3. Otras funciones. Por ejemplo:  FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo:  "Nombre de la empresa: \\"Contoso\\""
+  2. Constantes de cadena, que deben ir entre comillas. Por ejemplo: "Estados Unidos"
+  3. Otras funciones. Por ejemplo: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
+* Para las constantes de cadena, si necesita una barra diagonal inversa (\) o comillas dobles (") en la cadena, se deben convertirse con el símbolo de barra diagonal inversa (\). Por ejemplo: "Nombre de la empresa: \\"Contoso\\""
 
 ## <a name="list-of-functions"></a>Lista de funciones
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
@@ -48,10 +48,10 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
-| **suffix** |Obligatorio |string |La cadena que se va a anexar al final del valor de origen. |
+| **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
+| **suffix** |Obligatorio |String |La cadena que se va a anexar al final del valor de origen. |
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,14 +61,14 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
+| **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
 | **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
-| **outputFormat** |Obligatorio |string |Formato de la fecha de salida. |
+| **outputFormat** |Obligatorio |String |Formato de la fecha de salida. |
 
 - - -
-### <a name="join"></a>Unión
+### <a name="join"></a>Unir
 **Función:**<br>  Join(separator, source1, source2, …)
 
 **Descripción:**<br> Join() es similar a Append(), excepto en que puede combinar varios valores de cadena de **source** en una sola cadena, y cada valor estará separado por una cadena de **separator**.
@@ -77,9 +77,9 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **separator** |Obligatorio |string |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
+| **separator** |Obligatorio |String |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
 | **source1  … sourceN** |Obligatorio, número variable de veces |string |Valores de cadena que se van a agrupar. |
 
 - - -
@@ -90,9 +90,9 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo. |
+| **de origen** |Obligatorio |String |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
 | **length** |Obligatorio |integer |Longitud de la subcadena. Si length acaba fuera de la cadena de **source**, la función devolverá una subcadena desde el índice de **start** hasta el final de la cadena de **source**. |
 
@@ -104,7 +104,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string | Normalmente un atributo de nombre o de apellido. |
 
@@ -116,12 +116,12 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
 - - -
-### <a name="replace"></a>Replace
+### <a name="replace"></a>Reemplazar
 **Función:**<br> Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Descripción:**<br>
@@ -143,15 +143,15 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **oldValue** |Opcional |string |Valor que se va a reemplazar en **source** o **template**. |
-| **regexPattern** |Opcional |string |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
+| **regexPattern** |Opcional |String |Patrón Regex del valor que se va a reemplazar en **source**. O bien, cuando se utiliza replacementPropertyName, patrón para extraer el valor de la propiedad de reemplazo. |
 | **regexGroupName** |Opcional |string |Nombre del grupo dentro de **regexPattern**. Sólo cuando se utilice replacementPropertyName, extraeremos el valor de este grupo como replacementValue de la propiedad de reemplazo. |
-| **replacementValue** |Opcional |string |Nuevo valor para  reemplazar uno anterior. |
-| **replacementAttributeName** |Opcional |string |Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
-| **template** |Opcional |string |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
+| **replacementValue** |Opcional |String |Nuevo valor para  reemplazar uno anterior. |
+| **replacementAttributeName** |Opcional |String |Nombre del atributo que se utilizará para el valor de reemplazo, cuando el origen no tiene ningún valor. |
+| **template** |Opcional |String |Cuando se proporcione el valor de **template**, buscaremos **oldValue** dentro de la plantilla y lo reemplazaremos por el valor de origen. |
 
 - - -
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -166,7 +166,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |string | Lista de reglas de generación de valor único para realizar la evaluación. |
 
@@ -179,7 +179,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatorio |string |Objeto **[appRoleAssignments]**. |
 
@@ -191,10 +191,10 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |**de origen** que se actualiza. |
-| **delimitador** |Obligatorio |string |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
+| **de origen** |Obligatorio |String |**de origen** que se actualiza. |
+| **delimitador** |Obligatorio |String |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
@@ -204,9 +204,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |**de origen** que se actualiza. |
+| **de origen** |Obligatorio |String |**de origen** que se actualiza. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -216,11 +216,11 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |**Source** que se actualiza. |
+| **de origen** |Obligatorio |String |**Source** que se actualiza. |
 | **defaultValue** |Opcional |string |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
-| **key** |Obligatorio |string |**Key** con que se compara el valor de **source**. |
+| **key** |Obligatorio |String |**Key** con que se compara el valor de **source**. |
 | **value** |Obligatorio |string |Valor de reemplazo para el **source** que coincide con la clave. |
 
 - - -
@@ -231,9 +231,9 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
+| **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen |
 | **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 - - -
@@ -244,10 +244,10 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| Name | Obligatorio/Repetición | Type | Notas |
+| NOMBRE | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
-| **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
-| **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
+| **de origen** |Obligatorio |String |Normalmente el nombre del atributo del objeto de origen. |
+| **referencia cultural** |Opcional |String |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
 
 ## <a name="examples"></a>Ejemplos
 ### <a name="strip-known-domain-name"></a>Seccionar un nombre de dominio conocido

@@ -9,14 +9,32 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 2b0d8b8a86c3105b1bda7fb0d72cbcb72ed82995
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4b4e449b9260debbe90523141cacc4ed76219490
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60816384"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787950"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notas de la versión de Custom Vision Service
+
+## <a name="may-2-2019-and-may-10-2019"></a>2 de mayo de 2019 y 10 de mayo de 2019
+
+- Mejoras de correcciones de errores y de back-end
+
+## <a name="may-23-2019"></a>23 de mayo de 2019
+
+- Portal mejorada experiencia UX relacionados con las suscripciones de Azure, lo que facilita seleccionar los directorios de Azure.
+
+## <a name="april-18-2019"></a>18 de abril de 2019 
+
+- Se ha agregado la exportación de detección de objetos para la visión de inteligencia artificial Dev Kit.
+- Ajustes de la interfaz de usuario, incluidos la búsqueda de proyecto.
+
+## <a name="april-3-2019"></a>3 de abril de 2019
+
+- Aumento del límite del número de rectángulos por imagen a 200. 
+- Correcciones de errores, incluida la actualización de rendimiento sustancial para los modelos exportado a TensorFlow. 
 
 ## <a name="march-26-2019"></a>26 de marzo de 2019
 

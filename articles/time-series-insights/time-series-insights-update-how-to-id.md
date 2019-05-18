@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/03/2018
+ms.date: 05/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 81877ad23728ad76cb5d4dc5084990511257c6df
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4b2f538831ee9410eaf1a2d272f01fd30a9236e6
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64695075"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519434"
 ---
 # <a name="best-practices-for-choosing-a-time-series-id"></a>Procedimientos recomendados al elegir un id. de serie temporal
 
@@ -29,6 +29,7 @@ Elegir un id. de serie temporal es como elegir una clave de partición para una 
 > El id. de serie temporal distingue entre mayúsculas y minúsculas y es inmutable (esto es, no se puede cambiar después de configurarse).
 
 Teniendo eso en cuenta, es fundamental seleccionar un id. de serie temporal adecuado. Cuando seleccione un id. de serie temporal, tenga en cuenta estos procedimientos recomendados:
+
 * Elija un nombre de propiedad que tenga una amplia gama de valores e incluso patrones de acceso. Se recomienda tener una clave de partición con muchos valores distintos (por ejemplo, centenares o miles). Para muchos clientes, esto será algo como DeviceID o SensorID en su JSON.
 * El id. de serie temporal debe ser único en el nivel de nodo hoja de su [Modelo de serie temporal](./time-series-insights-update-tsm.md).
 * Una cadena de caracteres para el nombre de propiedad del id. de serie temporal puede tener hasta 128 caracteres, y los valores de propiedad del id. de serie temporal pueden tener hasta 1024 caracteres.
@@ -41,13 +42,13 @@ Además, puede seleccionar hasta *tres* (3) propiedades clave como id. de serie 
 
 En los siguientes escenarios se describe la opción para seleccionar más de una propiedad clave como id. de serie temporal:  
 
-### <a name="scenario-1"></a>Escenario 1.
+### <a name="scenario-one"></a>Escenario uno
 
-* Tiene varios activos heredados, cada uno con una clave única. 
-* Por ejemplo, la propiedad *deviceId* se encarga de identificar de manera única un tipo de activo y la propiedad única *objectId* se encarga de otro tipo. Ninguno de los dos tipos de activos contiene la propiedad única del otro. En este ejemplo, debe seleccionar dos claves, deviceId y objectId, como claves únicas. 
+* Tiene varios activos heredados, cada uno con una clave única.
+* Por ejemplo, la propiedad *deviceId* se encarga de identificar de manera única un tipo de activo y la propiedad única *objectId* se encarga de otro tipo. Ninguno de los dos tipos de activos contiene la propiedad única del otro. En este ejemplo, debe seleccionar dos claves, deviceId y objectId, como claves únicas.
 * Como se aceptan valores de tipo NULL, si falta una propiedad en la carga del evento, esta cuenta como un valor de `null`. Esta es también la forma adecuada de manejar el envío de datos a dos orígenes de eventos diferentes donde los datos de cada origen de eventos tienen un id. de serie temporal único.
 
-### <a name="scenario-2"></a>Escenario 2.
+### <a name="scenario-two"></a>Escenario dos
 
 * Necesita que varias propiedades sean únicas dentro del mismo tipo de activos. 
 * Por ejemplo, digamos que es un fabricante de edificios inteligentes e implementa sensores en cada habitación. En cada habitación tendrá normalmente los mismos valores para *sensorId*, como *sensor1*, *sensor2* y *sensor3*.

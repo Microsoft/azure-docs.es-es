@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/13/2019
+ms.date: 05/16/2019
 ms.author: diberry
-ms.openlocfilehash: 87599817ba7b50b941612c13c07842644f979fb7
-ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
+ms.openlocfilehash: 43e35e8074922f45493bc635455d1d176078ce51
+ms.sourcegitcommit: 3ced637c8f1f24256dd6ac8e180fff62a444b03c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65619708"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65833528"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Compatibilidad con contenedores en Azure Cognitive Services
 
@@ -26,9 +26,12 @@ La compatibilidad con contenedores en Azure Cognitive Services permite a los des
 * [Face](Face/Overview.md)
 * [Reconocedor de formulario](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Comprensión del lenguaje](LUIS/luis-container-howto.md) (LUIS)
-* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
 * [Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Text Analytics](text-analytics/overview.md)
+
+<!--
+* [Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409)
+-->
 
 La creación de contenedores es un enfoque de distribución de software en el que una aplicación o servicio, incluidas sus dependencias y la configuración, se empaqueta como una imagen de contenedor. La imagen de contenedor puede implementarse en un host de contenedor con pocas o ningunas modificaciones. Los contenedores están aislados entre sí y del sistema operativo subyacente, con una superficie menor que una máquina virtual. Se pueden crear instancias de contenedores a partir de las imágenes de contenedor para las tareas a corto plazo y quitarlas cuando ya no se necesiten.
 
@@ -57,12 +60,15 @@ Los contenedores de Azure Cognitive Services proporcionan el siguiente conjunto 
 |[Face](Face/face-how-to-install-containers.md) |F0, S0|**Face** |Detecta caras humanas en imágenes e identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos caras en la misma o en diferentes imágenes son iguales mediante una puntuación de confianza, o bien comparar caras en una base de datos para ver si ya existe un aspecto similar o una cara idéntica. También puede organizar caras similares en grupos mediante rasgos visuales compartidos.<br>[Solicitar acceso](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Reconocedor de formulario](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409) |F0, S0|**Reconocedor de formulario** |Descripción del formulario aplica la tecnología de aprendizaje automático para identificar y extraer los pares de clave-valor y tablas de formularios.<br>[Solicitar acceso](https://aka.ms/FormRecognizerContainerRequestAccess)|
 |[LUIS](LUIS/luis-container-howto.md) |F0, S0|**LUIS** ([imagen](https://go.microsoft.com/fwlink/?linkid=2043204&clcid=0x409))|Carga un modelo de Language Understanding entrenado o publicado, lo que también se conoce como aplicación de LUIS, en un contenedor de Docker y proporciona acceso a las predicciones de consulta de los puntos de conexión de la API del contenedor. Puede recopilar registros de consultas en el contenedor y cargarlos de nuevo en el [portal de LUIS](https://www.luis.ai) para mejorar la precisión de predicción de la aplicación.|
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([imagen](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer es un servicio de API basado en la nube que permite elegir la mejor experiencia, mostrársela a los usuarios y aprender de su comportamiento en tiempo real.|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Voz a texto** |Permite transcribir en tiempo real voz en texto.<br>[Solicitar acceso](https://aka.ms/speechcontainerspreview/)|
 |[Speech Service API](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409) |F0, S0|**Texto a voz** |Convierte el texto a una voz que parece natural.<br>[Solicitar acceso](https://aka.ms/speechcontainerspreview/)|
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |F0, S|**Extracción de frases clave** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) |Extrae las frases clave para identificar los puntos principales. Por ejemplo, si el texto de entrada es "La comida estaba deliciosa y el personal era maravilloso", la API devuelve los principales puntos de conversación: "comida" y "personal maravilloso". |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Detección de idioma** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) |Se detecta el idioma (120 como máximo) en que está escrito el texto de entrada y se usa un código de idioma único para informar acerca de cada documento enviado en la solicitud. El código de idioma se empareja con una puntuación que indica la intensidad de esta. |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|F0, S|**Análisis de sentimiento** ([imagen](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) |Analiza el texto sin formato para obtener pistas sobre opiniones positivas o negativas. Esta API devuelve una puntuación de la opción, que oscila entre 0 y 1, con respecto a cada documento, donde 1 es la más positiva. Los modelos de análisis se entrenan previamente con una gran cantidad de cuerpo de texto y tecnologías de idioma natural de Microsoft. Para los [idiomas seleccionados](./text-analytics/language-support.md), la API puede analizar y puntuar cualquier texto sin formato que se proporcione, y devolver los resultados directamente a la aplicación que realiza la llamada. |
+
+<!--
+|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+-->
 
 Además, se admiten algunos contenedores en Cognitive Services [ **All-In-One oferta** ](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) las claves de recursos. Puede crear un único recurso de All-In-One Cognitive Services y usar la misma clave de facturación a través de servicios admitidos para los siguientes servicios:
 
@@ -101,6 +107,13 @@ Los contenedores individuales también pueden tener sus propios requisitos, incl
 
 Hay ejemplos para desarrolladores disponibles en nuestro [repositorio de GitHub](https://github.com/Azure-Samples/cognitive-services-containers-samples).
 
+## <a name="view-webinar"></a>Ver seminario de web 
+
+Únase a la [seminario Web](https://info.microsoft.com/AP-AZUREPLAT-WBNR-FY19-03Mar-20-Seamlesslyintegrateapplicationsdataandprocesses-MCW0012283_02OnDemandRegistration-ForminBody.html) para obtener información sobre:
+
+* Implementación de Cognitive Services a cualquier máquina con Docker
+* Cómo implementar servicios cognitivos en AKS
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Instale y explore la funcionalidad proporcionada por los contenedores en Azure Cognitive Services:
@@ -110,6 +123,8 @@ Instale y explore la funcionalidad proporcionada por los contenedores en Azure C
 * [Contenedores de cara](Face/face-how-to-install-containers.md)
 * [Formulario reconocedor contenedores](https://go.microsoft.com/fwlink/?linkid=2083826&clcid=0x409)
 * [Contenedores de Language Understanding (LUIS)](LUIS/luis-container-howto.md)
-* [Contenedores personalizer](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
 * [Contenedores de la API del servicio de voz](https://go.microsoft.com/fwlink/?linkid=2083926&clcid=0x409)
 * [Contenedores de análisis de texto](text-analytics/how-tos/text-analytics-how-to-install-containers.md)
+
+<!--* [Personalizer containers](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409)
+-->

@@ -1,57 +1,69 @@
 ---
-title: 'Inicio de sesión único en aplicaciones que no están en la galería: Azure Active Directory | Microsoft Docs'
-description: Configuración del inicio de sesión único (SSO) en aplicaciones que no estén en la galería en Azure Active Directory (Azure AD)
+title: Inicio de sesión único - ajena a la Galería de aplicaciones - plataforma Microsoft identity | Microsoft Docs
+description: Configurar el inicio de sesión único (SSO) a ajena a la Galería aplicaciones en la plataforma de identidad de Microsoft (Azure AD)
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: article
 ms.workload: identity
 ms.date: 01/08/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f003ec847ab3777a2174a1078a2d07eb012bb34
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f55de2d081f12f1bddf7e68a795133c4b394823
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292080"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825001"
 ---
-# <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configuración del inicio de sesión único en aplicaciones que no estén en la galería en Azure Active Directory
+# <a name="configure-single-sign-on-to-non-gallery-applications-in-microsoft-identity-platform"></a>Configurar inicio de sesión único para aplicaciones que no sean de la galería en la plataforma Microsoft identity
 
-En este artículo se trata de una característica que permite a los administradores configurar un inicio de sesión único a aplicaciones que no están presentes en la Galería de aplicaciones de Azure Active Directory *sin escribir código*. Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
+Este artículo trata sobre una característica que permite a los administradores configurar el inicio de sesión único de las aplicaciones no presentan en la Galería de aplicaciones de plataforma de identidad de Microsoft *sin escribir código*.
 
-La Galería de aplicaciones de Azure Active Directory proporciona una lista de las aplicaciones que se sabe que admiten un formulario de inicio de sesión único en Azure Active Directory, tal como se describe en [este artículo](what-is-single-sign-on.md). Una vez que un especialista en TI o un integrador de sistemas de la organización ha encontrado la aplicación que desea conectar, puede empezar por seguir las instrucciones detalladas que se proporcionan en Azure Portal para habilitar el inicio de sesión único.
+Si por el contrario desea obtener instrucciones para desarrolladores sobre cómo integrar aplicaciones personalizadas con Azure AD a través de código, consulte [Escenarios de autenticación para Azure AD](../develop/authentication-scenarios.md).
 
-Estas funcionalidades también están disponibles, según el contrato de licencia. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/active-directory/)para obtener más información. 
+La Galería de aplicaciones de plataforma de identidad de Microsoft proporciona una lista de aplicaciones que se sabe que admiten un formulario de inicio de sesión único con la plataforma de identidad de Microsoft, como se describe en [en este artículo](what-is-single-sign-on.md). Una vez que un especialista en TI o un integrador de sistemas de la organización ha encontrado la aplicación que desea conectar, puede empezar por seguir las instrucciones detalladas que se proporcionan en Azure Portal para habilitar el inicio de sesión único.
 
+Estas funcionalidades también están disponibles, según el contrato de licencia. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/active-directory/)para obtener más información.
+
+- Integración de autoservicio de una aplicación que use un protocolo modernos como [OpenId Connect y OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) para autenticar sus usuarios y obtener tokens para [Microsoft Graph](https://graph.microsoft.com).
 - Integración de autoservicio de cualquier aplicación que admita proveedores de identidades SAML 2.0 (iniciado por el proveedor de servicios o por el proveedor de identidades)
 - Integración de autoservicio de cualquier aplicación web que tenga una página de inicio de sesión basada en HTML que use [SSO basado en contraseña](what-is-single-sign-on.md#password-based-sso)
 - Conexión autoservicio de las aplicaciones que usan el protocolo SCIM para el aprovisionamiento de usuarios ([se describe aquí](use-scim-to-provision-users-and-groups.md))
-- Capacidad para agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o del [panel de acceso de Azure AD](what-is-single-sign-on.md#linked-sso)
+- Capacidad para agregar vínculos a cualquier aplicación del [iniciador de aplicaciones de Office 365](https://blogs.office.com/2014/10/16/organize-office-365-new-app-launcher-2/) o del [panel de acceso de Azure AD](what-is-single-sign-on.md#linked-sign-on)
 
 Aquí puede incluir no solo las aplicaciones SaaS que usa, pero que aún ha integrado en la Galería de aplicaciones de Azure AD, sino también las aplicaciones web de terceros que la organización ha implementado en los servidores que controla, ya sea en la nube o locales.
 
-Estas funcionalidades, también conocidas como *plantillas de integración de aplicaciones*, proporcionan puntos de conexión basados en estándares para aplicaciones que admiten SAML, SCIM o autenticación basada en formularios, e incluyen opciones y configuraciones flexibles para compatibilidad con un amplio número de aplicaciones. 
+Estas funcionalidades, también conocidas como *plantillas de integración de aplicaciones*, proporcionan puntos de conexión basados en estándares para aplicaciones que admiten SAML, SCIM o autenticación basada en formularios, e incluyen opciones y configuraciones flexibles para compatibilidad con un amplio número de aplicaciones.
 
 ## <a name="adding-an-unlisted-application"></a>Adición de una aplicación que no figura en la lista
-Para conectar una aplicación con una plantilla de integración de aplicaciones, inicie sesión en Azure Portal mediante su cuenta de administrador de Azure Active Directory. Vaya a la sección **Active Directory > Aplicaciones empresariales > Nueva aplicación > Aplicación situada fuera de la galería**, seleccione **Agregar** y, a continuación, **Agregar una aplicación de la galería** .
 
-  ![Agregar aplicación](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+La plataforma Microsoft Identity proporciona dos mecanismos para registrar aplicaciones.
 
-Si no se encontró la aplicación deseada en la galería de aplicaciones, puede agregar una aplicación que no figura en la lista mediante el icono **Aplicación situada fuera de la galería** que se muestra en los resultados de búsqueda. Después de escribir el nombre de la aplicación, puede configurar las opciones y el comportamiento de inicio de sesión único. 
+Una aplicación que utiliza un protocolo modernos como [OpenId Connect y OAuth](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols) autenticar sus usuarios se ha registrado mediante el [registro de la aplicación Portal de](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v2-register-an-app).
 
-**Sugerencia rápida**:  Como procedimiento recomendado, use la función de búsqueda para comprobar si la aplicación ya existe en la Galería de aplicaciones. Si se encuentra la aplicación y su descripción menciona el inicio de sesión único, la aplicación ya es compatible con el inicio de sesión único federado.
+El registro de las aplicaciones que usan todos los demás tipos de [admite mecanismos de autenticación](what-is-single-sign-on.md) como el [SAML](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol) protocolo utilice el **aplicaciones empresariales** hoja para Conéctese a sí mismos con la plataforma Microsoft Identity.
 
-  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+Para conectar una aplicación con una plantilla de integración de aplicaciones, inicie sesión en el portal de Azure con su cuenta de administrador de plataforma de identidad de Microsoft. Vaya a la sección **Active Directory > Aplicaciones empresariales > Nueva aplicación > Aplicación situada fuera de la galería**, seleccione **Agregar** y, a continuación, **Agregar una aplicación de la galería** .
+
+![Agregar aplicación](./media/configure-single-sign-on-non-gallery-applications/customapp1.png)
+
+Si no se encontró la aplicación deseada en la galería de aplicaciones, puede agregar una aplicación que no figura en la lista mediante el icono **Aplicación situada fuera de la galería** que se muestra en los resultados de búsqueda. Después de escribir el nombre de la aplicación, puede configurar las opciones y el comportamiento de inicio de sesión único.
+
+> [!TIP]
+> Como procedimiento recomendado, use la función de búsqueda para comprobar si la aplicación ya existe en la Galería de aplicaciones. Si se encuentra la aplicación y su descripción menciona el inicio de sesión único, la aplicación ya es compatible con el inicio de sesión único federado.
+
+![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 La adición de una aplicación de esta forma supone una experiencia parecida a la disponible para las aplicaciones preintegradas. Para comenzar, seleccione **Configurar inicio de sesión único** o haga clic en **Inicio de sesión único** desde el menú de navegación izquierdo de la aplicación. La siguiente pantalla presenta las opciones para configurar el inicio de sesión único. Las opciones se describen en las secciones siguientes de este artículo.
   
 ![Opciones de configuración](./media/configure-single-sign-on-non-gallery-applications/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>Inicio de sesión único basado en SAML
+
 Seleccione esta opción para configurar la autenticación basada en SAML para la aplicación. Esto requiere que la aplicación admita SAML 2.0. Se debe recopilar información acerca de cómo usar las funcionalidades de SAML de la aplicación antes de continuar. Complete las siguientes secciones para configurar el inicio de sesión único entre la aplicación y Azure AD.
 
 ### <a name="enter-basic-saml-configuration"></a>Especificación de la configuración básica de SAML
@@ -60,12 +72,12 @@ Para configurar Azure AD, especifique la configuración básica de SAML. Puede e
 
   ![Dominio y direcciones URL de Litware](./media/configure-single-sign-on-non-gallery-applications/customapp4.png)
 
-- **Dirección URL de inicio de sesión (iniciado solo por el proveedor de servicios)** : cuando el usuario va a iniciar sesión en esta aplicación. Si la aplicación está configurada para realizar el inicio de sesión único iniciado por el proveedor de servicios, cuando un usuario navega a esta dirección URL, el proveedor de servicios realizará la redirección necesaria a Azure AD para autenticar al usuario e iniciar sesión. Si este campo se rellena, Azure AD utilizará esta dirección URL para iniciar la aplicación desde el panel de acceso de Azure AD y Office 365. Si se omite este campo, Azure AD realizará de proveedor de identidades-inicia sesión cuando se inicia la aplicación de Office 365, el Panel de acceso de Azure AD, o desde el Azure único inicio de sesión en dirección URL de AD (se puede copiar desde la pestaña panel).
+- **Dirección URL de inicio de sesión (iniciado por SP sólo)** : donde el usuario va a iniciar sesión en esta aplicación. Si la aplicación está configurada para llevar a cabo servicio iniciado por el proveedor de sesión único, a continuación, cuando un usuario navega a esta dirección URL, el proveedor de servicios realizará la redirección necesaria a Azure AD para autenticar e iniciar sesión el usuario. Si este campo se rellena, Azure AD utilizará esta dirección URL para iniciar la aplicación desde el panel de acceso de Azure AD y Office 365. Si se omite este campo, Azure AD realizará de proveedor de identidades-inicia sesión cuando se inicia la aplicación de Office 365, el Panel de acceso de Azure AD, o desde el Azure único inicio de sesión en dirección URL de AD (se puede copiar desde la pestaña panel).
 - **Identificador**: debería identificar de forma exclusiva la aplicación para la que se configura el inicio de sesión único. Puede encontrar este valor como el elemento Issuer en el elemento AuthRequest (solicitud SAML) enviado por la aplicación. Este valor también aparece como el **Id. de entidad** en los metadatos SAML proporcionados por la aplicación. Compruebe la documentación de SAML de la aplicación para más información sobre qué es el identificador de entidad o el valor de Audiencia. 
 
     El siguiente es un ejemplo de cómo el identificador o el emisor aparecen en la solicitud de SAML enviada por la aplicación en Azure AD:
 
-    ```
+    ```XML
     <samlp:AuthnRequest
     xmlns="urn:oasis:names:tc:SAML:2.0:metadata"
     ID="id6c1c178c166d486687be4aaf5e482730"
@@ -86,7 +98,7 @@ Para configurar Azure AD, especifique la configuración básica de SAML. Puede e
     Set-AzureADServicePrincipal -ObjectId $sp.ObjectId -ReplyUrls "<ReplyURLs>"
     ```
 
-Para más información, consulte el artículo sobre [las solicitudes y respuestas de autenticación SAML 2.0 de Azure Active Directory (Azure AD) compatibles](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML).
+Para obtener más información, consulte [las solicitudes de autenticación de SAML 2.0 y las respuestas que admite la plataforma de identidad de Microsoft (Azure AD)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference?/?WT.mc_id=DOC_AAD_How_to_Debug_SAML)
 
 
 ### <a name="review-or-customize-the-claims-issued-in-the-saml-token"></a>Revisión o personalización de las notificaciones emitidas en el token SAML
@@ -100,11 +112,9 @@ Las notificaciones enviadas en el token SAML a la aplicación se pueden ver o ed
 Hay dos razones por las que tendría que editar las notificaciones emitidas en el token SAML:
 
 - La aplicación se ha creado para requerir un conjunto diferente de URI o valores de notificación.
-- La aplicación se ha implementado de forma que requiere que la notificación NameIdentifier tenga un valor que no sea el del nombre de usuario (también conocido como nombre principal de usuario) almacenado en Azure Active Directory. 
+- La aplicación se implementó de forma que requiere la notificación NameIdentifier no sea el nombre de usuario (es decir, nombre principal de usuario) almacenado en la plataforma Microsoft identity.
 
 Para más información, consulte [Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales](./../develop/../develop/active-directory-saml-claims-customization.md). 
-
-
 
 ### <a name="review-certificate-expiration-data-status-and-email-notification"></a>Revisión de los datos de expiración, el estado y la notificación por correo electrónico de los certificados
 
@@ -120,7 +130,7 @@ Compruebe que el certificado tiene:
 - Un estado activo. Si el estado está inactivo, cambie el estado a activo. Para cambiar el estado, active la casilla **Activo** y, guarde la configuración. 
 - El correo electrónico de notificación correcto. Cuando el certificado active esté cerca de la fecha de expiración, Azure AD enviará una notificación a la dirección de correo electrónico configurada en este campo.  
 
-Para más información, consulte [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md) (Administración de certificados para inicio de sesión único federado en Azure Active Directory).
+Para obtener más información, consulte [administrar certificados para federada single sign-on en la plataforma Microsoft identity](manage-certificates-for-federated-single-sign-on.md).
 
 ### <a name="set-up-target-application"></a>Configuración de la aplicación de destino
 
@@ -145,7 +155,7 @@ La asignación de un usuario permitirá a Azure AD emitir un token para el usuar
 
 ### <a name="test-the-saml-application"></a>Prueba de la aplicación SAML
 
-Antes de probar la aplicación SAML, debe tener configurada la aplicación con Azure AD y usuarios o grupos asignados a la aplicación. Para probar la aplicación SAML, consulte [Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md).
+Antes de probar la aplicación SAML, debe tener configurada la aplicación con Azure AD y usuarios o grupos asignados a la aplicación. Para probar la aplicación SAML, consulte [cómo depurar basado en SAML único inicio de sesión en aplicaciones en la plataforma Microsoft identity](../develop/howto-v1-debug-saml-sso-issues.md).
 
 ## <a name="password-single-sign-on"></a>Inicio de sesión único con contraseña
 
@@ -169,6 +179,7 @@ Después de seleccionar **Siguiente**, se le solicitará que escriba la direcci�
 >
 
 ## <a name="related-articles"></a>Artículos relacionados
+
 - [Personalización de notificaciones emitidas en el token SAML para aplicaciones previamente integradas en Azure Active Directory](../develop/active-directory-saml-claims-customization.md)
 - [Cómo depurar el inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory](../develop/howto-v1-debug-saml-sso-issues.md)
-
+- [Plataforma de identidad (Azure Active Directory para desarrolladores de Microsoft](https://aka.ms/aaddev)

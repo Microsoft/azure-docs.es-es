@@ -4,14 +4,14 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 0e55c372c6f5dc3484bd64cf4f328479d2d0b245
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9d87fd7929607da8407ae5bbfb2f6dd6d69dab
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60461329"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212044"
 ---
-## <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup>):
+#### <a name="key-transactions-maximum-transactions-allowed-in-10-seconds-per-vault-per-regionsup1sup"></a>Transacciones clave (número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup>):
 
 |Tipo de clave|Clave de HSM<br>Crear clave|Clave de HSM<br>Las restantes transacciones|Clave de software<br>Crear clave|Clave de software<br>Las restantes transacciones|
 |:---|---:|---:|---:|---:|
@@ -34,7 +34,7 @@ ms.locfileid: "60461329"
 > - 125 transacciones RSA 4096 bits clave de HSM GET
 > - Las transacciones de clave de HSM RSA 4096 bits GET 124 y 8 RSA 2048 bits clave de HSM GET
 
-## <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Los secretos, claves de cuenta de almacenamiento administrado y transacciones de almacén:
+#### <a name="secrets-managed-storage-account-keys-and-vault-transactions"></a>Los secretos, claves de cuenta de almacenamiento administrado y transacciones de almacén:
 | Tipo de transacciones | Número máximo de transacciones permitido en 10 segundos, por almacén y región<sup>1</sup> |
 | --- | --- |
 | Todas las transacciones |2.000 |

@@ -9,12 +9,12 @@ ms.date: 09/11/2018
 ms.topic: conceptual
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
-ms.openlocfilehash: 508fe597a494ed89b4c2f406337c6b565943387a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5b08a22aa3896fb7158ef3535b115e3e0189142
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64728813"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596975"
 ---
 # <a name="troubleshooting-guide"></a>Guía de solución de problemas
 
@@ -177,7 +177,7 @@ Una vez que tenga un Dockerfile adecuado en su lugar, puede continuar ejecutando
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Error "Error de conexión en dirección ascendente o desconexión o restablecimiento antes de los encabezados"
 Puede ver este error al intentar acceder al servicio. Por ejemplo, cuando vaya a la dirección URL del servicio en un explorador. 
 
-### <a name="reason"></a>Motivo 
+### <a name="reason"></a>Reason 
 El puerto de contenedor no está disponible. Las causas de este problema pueden ser: 
 * El contenedor está todavía en proceso de creación e implementación. Este problema puede producirse si ejecuta `azds up` o inicia el depurador y luego intenta acceder al contenedor antes de que se haya implementado correctamente.
 * La configuración del puerto no es coherente en _Dockerfile_, el gráfico de Helm y cualquier otro código de servidor que abre un puerto.
@@ -193,7 +193,7 @@ El puerto de contenedor no está disponible. Las causas de este problema pueden 
 ## <a name="config-file-not-found"></a>Archivo de configuración no encontrado
 Ejecuta `azds up` y aparece el siguiente error: `Config file not found: .../azds.yaml`
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 Debe ejecutar `azds up` desde el directorio raíz del código que desea ejecutar y debe inicializar la carpeta de código para que se ejecute con Azure Dev Spaces.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -210,7 +210,7 @@ El inicio del depurador de VS Code a veces produce este error.
 ## <a name="debugging-error-failed-to-find-debugger-extension-for-typecoreclr"></a>Error de depuración “No se pudo encontrar la extensión del depurador para type:coreclr”
 La ejecución del depurador de VS Code informa del error `Failed to find debugger extension for type:coreclr.`.
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 No tiene la extensión de VS Code para C# instalada en la máquina de desarrollo. El C# extensión incluye compatibilidad de depuración para .NET Core (CoreCLR).
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -219,7 +219,7 @@ Instale la [extensión de VS Code para C#](https://marketplace.visualstudio.com/
 ## <a name="debugging-error-configured-debug-type-coreclr-is-not-supported"></a>Error de depuración "El tipo de depuración "coreclr" configurado no es compatible."
 La ejecución del depurador de VS Code informa del error `Configured debug type 'coreclr' is not supported.`.
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 No tiene la extensión de VS Code para Azure Dev Spaces instalada en la máquina de desarrollo.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -228,7 +228,7 @@ Instale la [extensión de VS Code para Azure Dev Spaces](get-started-netcore.md)
 ## <a name="debugging-error-invalid-cwd-value-src-the-system-cannot-find-the-file-specified-or-launch-program-srcpath-to-project-binary-does-not-exist"></a>Error de depuración "Valor 'cwd' no válido '/src'. El sistema no encuentra el archivo especificado." o "launch: program '/src/[ruta de acceso al archivo binario del proyecto]' no existe"
 La ejecución del depurador de VS Code informa del error `Invalid 'cwd' value '/src'. The system cannot find the file specified.` o `launch: program '/src/[path to project executable]' does not exist`.
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 De forma predeterminada, la extensión de VS Code utiliza `src` como directorio de trabajo para el proyecto en el contenedor. Si ha actualizado `Dockerfile` para especificar un directorio de trabajo diferente, puede que vea este error.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -236,7 +236,7 @@ Actualizar el archivo `launch.json` en el subdirectorio `.vscode` de su carpeta 
 
 ## <a name="the-type-or-namespace-name-mylibrary-could-not-be-found"></a>No se encontró el tipo o el nombre de espacio de nombres "MyLibrary"
 
-### <a name="reason"></a>Motivo 
+### <a name="reason"></a>Reason 
 El contexto de compilación está en el nivel de proyecto o servicio de forma predeterminada; por tanto, si busca un proyecto de biblioteca, no lo encontrará.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -251,7 +251,7 @@ Puede encontrar un ejemplo en https://github.com/sgreenmsft/buildcontextsample.
 Necesita acceso de *propietario* o *colaborador* en su suscripción de Azure para administrar Azure Dev Spaces. Puede ver este error si intenta administrar Dev Spaces y no tiene acceso de *propietario* o *colaborador* a la suscripción de Azure asociada.
 `The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.`
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 La suscripción de Azure seleccionada no ha registrado el espacio de nombres `Microsoft.DevSpaces`.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -263,7 +263,7 @@ az provider register --namespace Microsoft.DevSpaces
 
 ## <a name="dev-spaces-times-out-at-waiting-for-container-image-build-step-with-aks-virtual-nodes"></a>Con los nodos virtuales de AKS, Dev Spaces agota el tiempo de espera en el paso *Esperando la compilación de la imagen de contenedor...*.
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 Este tiempo de espera se produce cuando se intenta usar espacios de desarrollo para ejecutar un servicio que está configurado para ejecutarse un [nodo virtual AKS](https://docs.microsoft.com/azure/aks/virtual-nodes-portal). Dev Spaces no admite actualmente la compilación o depuración de servicios en nodos virtuales.
 
 Si ejecuta `azds up` con el modificador `--verbose` o habilita el registro detallado en Visual Studio, verá más detalles:
@@ -287,7 +287,7 @@ Puede seguir usando un clúster de AKS con la característica de nodos virtuales
 
 ## <a name="error-could-not-find-a-ready-tiller-pod-when-launching-dev-spaces"></a>"Error: no se pudo encontrar un pod de Tiller listo" al iniciar Dev Spaces
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 Este error se produce si el cliente de Helm ya no puede comunicarse con el pod Tiller que se está ejecutando en el clúster.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -295,7 +295,7 @@ Reiniciar los nodos de agente en el clúster normalmente resuelve este problema.
 
 ## <a name="error-release-azds-identifier-spacename-servicename-failed-services-servicename-already-exists-or-pull-access-denied-for-servicename-repository-does-not-exist-or-may-require-docker-login"></a>"Error: la versión azds -\<identificador\>-\<nombredelespacio\>-\<servicename\> error: servicios\<servicename\>' ya existe "o" acceso denegado para el de extracción \<servicename\>, repositorio no existe o puede requerir 'inicio de sesión de docker' "
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 Estos errores pueden ocurrir si mezcla ejecutando los comandos de Helm directos (como `helm install`, `helm upgrade`, o `helm delete`) con los comandos de desarrollo espacios (como `azds up` y `azds down`) dentro del mismo espacio de desarrollo. Se producen porque los espacios de desarrollo tiene su propia instancia de caña, que entra en conflicto con su propia instancia de Tiller que se ejecutan en el mismo espacio de desarrollo.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -305,7 +305,7 @@ Por ejemplo, suponga que utiliza un comando Helm para ejecutar toda la aplicaci�
 
 ## <a name="azure-dev-spaces-proxy-can-interfere-with-other-pods-running-in-a-dev-space"></a>El proxy de Azure Dev Spaces puede interferir con otros pods que se ejecutan en un espacio de desarrollo
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 Cuando se habilita Dev Spaces en un espacio de nombres en el clúster de AKS, se instala un contenedor adicional denominado _mindaro-proxy_ en cada uno de los pods que se ejecutan dentro de ese espacio de nombres. Este contenedor intercepta las llamadas a los servicios del pod, lo que es parte integral de las funcionalidades de desarrollo del equipo de Dev Spaces; sin embargo, puede interferir con determinados servicios que se ejecutan en esos pods. Se sabe que interfieren con pods ejecutando la caché de Azure para Redis, provocando errores de conexión y errores de comunicación principal o secundaria.
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -313,7 +313,7 @@ Puede mover los pods afectados a un espacio de nombres dentro del clúster que _
 
 ## <a name="azure-dev-spaces-doesnt-seem-to-use-my-existing-dockerfile-to-build-a-container"></a>Azure Dev Spaces no parece usar mi Dockerfile existente para crear un contenedor
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 Azure Dev Spaces puede configurarse para que apunte a un _Dockerfile_ específico en el proyecto. Si cree que Azure Dev Spaces no usa el _Dockerfile_ esperado para compilar los contenedores, podría tener que indicar explícitamente a Azure Dev Spaces dónde se encuentra. 
 
 ### <a name="try"></a>Pruebe lo siguiente:
@@ -329,7 +329,7 @@ configurations:
 
 ## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Error "inspección interno no se pudo: ver ENOSPC" cuando se asocia a una aplicación de Node.js de depuración
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 
 El nodo que ejecuta el pod con la aplicación de Node.js está intentando adjuntar a con un depurador ha superado el *fs.inotify.max_user_watches* valor. En algunos casos, [el valor predeterminado de *fs.inotify.max_user_watches* puede ser demasiado pequeño para controlar asociar un depurador directamente a un pod](https://github.com/Azure/AKS/issues/772).
 
@@ -338,7 +338,7 @@ Una solución temporal para resolver este problema consiste en aumentar el valor
 
 ## <a name="new-pods-are-not-starting"></a>No se está iniciando nuevos pods
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 
 El inicializador de Kubernetes no puede aplicar el PodSpec para los nuevos pods debido a cambios de permiso de RBAC en el *cluster admin* rol en el clúster. El nuevo pod también puede tener un PodSpec no válido, por ejemplo ya no existe la cuenta de servicio asociada con el pod. Para ver los pods que se encuentran en un *pendiente* estado debido al problema de inicializador, use el `kubectl get pods` comando:
 
@@ -370,7 +370,7 @@ Una vez se reinstale el controlador, vuelva a implementar los pod.
 
 ## <a name="incorrect-rbac-permissions-for-calling-dev-spaces-controller-and-apis"></a>Permisos incorrectos de RBAC para llamar al controlador de espacios de desarrollo y las API
 
-### <a name="reason"></a>Motivo
+### <a name="reason"></a>Reason
 El usuario acceso al controlador de espacios de desarrollo de Azure debe tener acceso de lectura al administrador *kubeconfig* en el clúster de AKS. Por ejemplo, este permiso está disponible en el [integrados rol del Administrador de clúster de Azure Kubernetes Service](../aks/control-kubeconfig-access.md#available-cluster-roles-permissions). El usuario acceso al controlador de espacios de desarrollo de Azure también debe tener la *colaborador* o *propietario* rol de RBAC para el controlador.
 
 ### <a name="try"></a>Probar
@@ -389,3 +389,18 @@ Para actualizar el rol del usuario RBAC para el controlador:
     * Para *asignar acceso a* seleccione *usuario, grupo o entidad de servicio de Azure AD*.
     * Para *seleccione* busque el usuario que desea conceder permisos.
 1. Haga clic en *Save*(Guardar).
+
+## <a name="controller-create-failing-due-to-controller-name-length"></a>Crear el controlador de errores debido a la longitud del nombre de controlador
+
+### <a name="reason"></a>Reason
+Nombre de un controlador espacios de desarrollo de Azure no puede tener más de 31 caracteres. Si nombre de su dispositivo supera 31 caracteres al habilitar espacios de desarrollo en un clúster de AKS o crear un controlador, recibirá un error como:
+
+*No se pudo crear un controlador de espacios de desarrollo para el clúster 'a-controller-name-that-is-way-too-long-aks-east-us': Nombre del controlador de espacios de desarrollo de Azure 'a-controller-name-that-is-way-too-long-aks-east-us' no es válido. Infringido de restricciones: Nombres de controlador de espacios de desarrollo de Azure solo pueden tener como máximo 31 caracteres*
+
+### <a name="try"></a>Probar
+
+Crear un controlador con un nombre alternativo:
+
+```cmd
+azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
+```

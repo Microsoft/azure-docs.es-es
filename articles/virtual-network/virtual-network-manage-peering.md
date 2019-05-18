@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: 18d913339556c0d4b0a06bd62f4495da6a4d4223
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: ee7ffba182cdbc2a77df5edf112e29c49cd610ad
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925920"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65519652"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -46,7 +46,7 @@ Antes de crear un emparejamiento, familiarícese con los requisitos y las restri
 1. En el cuadro de búsqueda de la parte superior de Azure Portal, escriba *redes virtuales*. Cuando aparezca la opción **Redes virtuales** en los resultados de la búsqueda, selecciónela. No seleccione **Redes virtuales (clásico)** si aparece en la lista, ya que no se puede crear un emparejamiento de una red virtual implementada mediante el modelo de implementación clásica.
 2. Seleccione en la lista la red virtual que quiera emparejar.
 3. En **CONFIGURACIÓN**, seleccione **Emparejamientos**.
-4. Seleccione **+Agregar**. 
+4. Seleccione **+ agregar**. 
 5. <a name="add-peering"></a>Escriba o seleccione valores para la siguiente configuración:
     - **Nombre:** el nombre del emparejamiento debe ser único dentro de la red virtual.
     - **Modelo de implementación de red virtual:** seleccione con qué modelo de implementación se implementó la red virtual con la que quiere realizar el emparejamiento.
@@ -146,7 +146,7 @@ Si su cuenta no está asignada a uno de los roles anteriores, se debe asignar a 
 |---                                                              |---   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write  | Necesaria para crear un emparejamiento desde la red virtual A hasta la red virtual B. La red virtual A debe ser una red virtual (Resource Manager)          |
 | Microsoft.Network/virtualNetworks/peer/action                   | Necesaria para crear un emparejamiento desde la red virtual B (Resource Manager) a la red virtual A                                                       |
-| Microsoft.ClassicNetwork/virtualNetworks/peer                   | Necesaria para crear un emparejamiento desde la red virtual B (clásica) a la red virtual A                                                                |
+| Microsoft.ClassicNetwork/virtualNetworks/peer/action                   | Necesaria para crear un emparejamiento desde la red virtual B (clásica) a la red virtual A                                                                |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/read   | Lectura de un emparejamiento de redes virtuales   |
 | Microsoft.Network/virtualNetworks/virtualNetworkPeerings/delete | Eliminación de un emparejamiento de redes virtuales |
 

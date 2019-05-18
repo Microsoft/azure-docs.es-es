@@ -1,87 +1,92 @@
 ---
-title: Transformación del receptor del flujo de datos de asignación de Azure Data Factory
-description: Transformación del receptor del flujo de datos de asignación de Azure Data Factory
+title: Configurar una transformación de receptor en la característica de asignación de flujo de datos de Azure Data Factory
+description: Obtenga información sobre cómo configurar una transformación de receptor en el flujo de datos de asignación.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: a39fa0949276b7e86c7fdd0d0861492a9a0b723e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 4341cbb0e24330d535f5211c088f0068eab33af7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438639"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596267"
 ---
-# <a name="mapping-data-flow-sink-transformation"></a>Transformación del receptor del flujo de datos de asignación
+# <a name="sink-transformation-for-a-data-flow"></a>Transformación de un flujo de datos de receptor
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Opciones de receptor](media/data-flow/sink1.png "receptor 1")
+Una vez que transforma un flujo de datos, puede recibir los datos en un conjunto de datos de destino. En la transformación de receptor, elija una definición de conjunto de datos para los datos de salida de destino. Puede tener muchas transformaciones de receptor tal y como requiere el flujo de datos.
 
-Al finalizar la transformación del flujo de datos, puede recibir los datos transformados en un conjunto de datos de destino. En la transformación del receptor, puede elegir la definición del conjunto de datos que quiere usar para los datos de salida de destino. Puede tener tantas transformaciones del receptor como precise el flujo de datos.
+Para la cuenta para la desviación en el esquema y los cambios en los datos entrantes, los datos de salida de receptor en una carpeta sin un esquema definido en el conjunto de datos de salida. Puede también tener en cuenta los cambios de columna en los orígenes seleccionando **permitir desviación en el esquema** en el origen. A continuación, asignar todos los campos en el receptor.
 
-Una práctica común para justificar los cambios en los datos de entrada y el desfase de esquema es recibir los datos de salida en una carpeta sin un esquema definido en el conjunto de datos de salida. Puede justificar además todos los cambios de columna en los orígenes si selecciona la opción "Allow Schema Drift" (Permitir el desfase de esquema) en el origen y, luego, asigna automáticamente todos los campos en el receptor.
+![Opciones de la pestaña receptor, incluida la opción de asignación automática](media/data-flow/sink1.png "receptor 1")
 
-Si la recepción tiene lugar en un conjunto de datos, puede elegir sobrescribir o anexar el flujo de datos o darlo por erróneo.
+Para recibir todos los campos de entrada, activar **Autoasignar**. Para elegir los campos en el receptor al destino, o para cambiar los nombres de los campos en el destino, desactive la opción **Autoasignar**. A continuación, abra el **asignación** pestaña asignación de campos de salida.
 
-También puede elegir la asignación automática para recibir todos los campos de entrada. Si prefiere elegir los campos que quiere recibir en el destino, o si le gustaría cambiar los nombres de los campos en el destino, elija desactivar la asignación automática y luego haga clic en la pestaña de asignación para asignar los campos de salida:
+![Opciones de la pestaña asignación](media/data-flow/sink2.png "receptor 2")
 
-![Opciones del receptor](media/data-flow/sink2.png "receptor 2")
+## <a name="output"></a>Salida 
+Para Azure Blob storage o tipos de receptores de Data Lake Storage, salida de los datos transformados en una carpeta. Spark genera archivos de datos de salida con particiones según el esquema de partición que utiliza la transformación del receptor. 
 
-## <a name="output-to-one-file"></a>Salida a un solo archivo
-En los tipos de receptor de Azure Blob Storage o Data Lake, la salida de los datos transformados se genera en una carpeta. Spark genera los archivos de datos de salida con particiones según el esquema de partición que se va a usar en la transformación del receptor. Para establecer el esquema de partición, puede hacer clic en la pestaña "Optimize" (Optimizar). Si quiere que ADF combine la salida en un único archivo, haga clic en el botón de radio "Single Partition" (Partición única).
+Puede establecer el esquema de partición de la **optimizar** ficha. Si desea que la factoría de datos para combinar el resultado en un único archivo, seleccione **única partición**.
 
-![Opciones del receptor](media/data-flow/opt001.png "opciones del receptor")
+![Las opciones en la ficha Optimizar](media/data-flow/opt001.png "opciones de receptor")
 
 ## <a name="field-mapping"></a>Asignación de campos
 
-En la pestaña de asignación de la transformación del receptor, puede asignar las columnas de entrada (izquierda) al destino (derecha). Cuando recibe los flujos de datos en los archivos, ADF siempre escribe nuevos archivos en una carpeta. Cuando realiza la asignación a un conjunto de datos de base de datos, puede elegir generar una nueva tabla con este esquema (establezca "Save Policy" [Guardar directiva] en "Overwrite" [Sobrescribir]) o insertar nuevas filas en una tabla existente y asignan los campos al esquema existente.
+En el **asignación** pestaña de la transformación de receptor, puede asignar las columnas de entrada a la izquierda en los destinos de la derecha. Al receptor de flujos de datos a archivos, Data Factory siempre se escribe nuevos archivos en una carpeta. Cuando se asigna a un conjunto de datos de la base de datos, puede generar una nueva tabla que usa este esquema estableciendo **Guardar directiva** a **sobrescritura**. O insertar filas nuevas en una tabla existente y, a continuación, asignar los campos al esquema existente. 
 
-Puede usar una selección múltiple en la tabla de asignación para vincular varias columnas con un solo clic, desvincular varias columnas o asignar varias filas en el mismo nombre de columna.
+![La pestaña asignación](media/data-flow/sink2.png "receptores")
 
-Cuando desee siempre toman el conjunto de campos entrantes y asignarlas a un destino como-, establezca la opción "Permitir la desviación en el esquema".
+En la tabla de asignación puede multiselect para vincular varias columnas, desvincular varias columnas o asignar varias filas en el mismo nombre de columna.
 
-![Asignación de campos](media/data-flow/multi1.png "varias opciones")
+Para asignar siempre el conjunto de campos entrantes a un destino como están y Aceptar completamente las definiciones de esquema flexible, seleccione **permitir desviación en el esquema**.
 
-Si quiere restablecer las asignaciones de columnas, presione el botón "Remap" (Volver a asignar) y así restablecer las asignaciones.
+![La pestaña asignación, que muestra los campos se asignan a columnas del conjunto de datos](media/data-flow/multi1.png "varias opciones")
 
-![Opciones del receptor](media/data-flow/sink1.png "Receptor uno")
+Para restablecer las asignaciones de columnas, seleccione **volver a asignar**.
 
-![Opciones de receptor](media/data-flow/sink2.png "Receptores")
+![La pestaña receptor](media/data-flow/sink1.png "un receptor")
 
-* Con los receptores, ahora están disponibles las opciones para permitir desfase de esquema y validar esquema. De esta manera, puede indicar a ADF que acepte completamente las definiciones de esquema (desfase de esquema) o que genere un error en el receptor si el esquema cambia (validar esquema).
+Seleccione **Validar esquema** un error en el receptor si cambia el esquema.
 
-* Borre la carpeta. ADF truncará el contenido de la carpeta del receptor antes de escribir los archivos de destino en esa carpeta de destino.
+Seleccione **borrar la carpeta** para truncar el contenido de la carpeta del receptor antes de escribir los archivos de destino en esa carpeta de destino.
 
 ## <a name="file-name-options"></a>Opciones de nombre de archivo
 
-   * Valor predeterminado: Permitir que Spark nombre los archivos según los valores predeterminados de PART.
-   * Patrón: Especifique un patrón para los archivos de salida. Por ejemplo, "préstamos [n]" creará loans1.csv, loans2.csv,...
-   * Por partición: escriba un nombre de archivo por partición.
-   * Como datos de columna: establezca el archivo de salida en el valor de una columna.
+Configurar la nomenclatura de archivos: 
+
+   * **Valor predeterminado**: Permitir Spark a los archivos de nombre basados en valores predeterminados de la parte.
+   * **Patrón**: Especifique un patrón para los archivos de salida. Por ejemplo, **préstamos [n]** creará loans1.csv loans2.csv y así sucesivamente.
+   * **Cada partición**: Escriba un nombre de archivo por partición.
+   * **Como los datos de columna**: Establece el archivo de salida en el valor de una columna.
+   * **En un único archivo de salida**: Con esta opción, ADF combinará los archivos de salida con particiones en un solo archivo con nombre. Para usar esta opción, el conjunto de datos debe proporcionar un nombre de carpeta. Además, ten en cuenta que esta operación de combinación posiblemente den error en función del tamaño del nodo.
 
 > [!NOTE]
-> Las operaciones de archivos solo se ejecutarán cuando se ejecute la actividad de ejecución del flujo de datos, y no mientras se está en el modo de depuración del flujo de datos.
+> Inicio de las operaciones de archivo solo cuando se ejecuta la actividad de ejecución de flujo de datos. No se inician en modo de datos de flujo de depuración.
 
 ## <a name="database-options"></a>Opciones de base de datos
 
-* Permitir insert, update, delete, realiza una operación Upsert. El valor predeterminado es permitir que las inserciones. Si desea eliminar filas, upsert o update, primero debe agregar una transformación de fila alter a las filas de la etiqueta a esas acciones específicas. Si se desactiva "Permitir inserción" dejará de ADF inserten nuevas filas del origen.
-* Truncar una tabla (elimina todas las filas de la tabla de destino antes de completar el flujo de datos)
-* Vuelva a crear tabla (realiza colocar o creación de la tabla de destino antes de completar el flujo de datos)
-* Tamaño de lote para grandes cargas de datos. Escriba un número de depósito de escrituras en fragmentos
-* Habilitar el almacenamiento provisional: Esto indicará ADF para utilizar Polybase al cargar el almacén de datos de Azure como el conjunto de datos de receptor
+Elija la configuración de la base de datos:
+
+* **El método Update**: El valor predeterminado es permitir que las inserciones. Borrar **permitir inserción** si desea detener la inserción de nuevas filas del origen de. Para actualizar, upsert, eliminar filas, primero agregue una transformación de alter fila a las filas de la etiqueta para esas acciones. 
+* **Vuelva a crear tabla**: Quite o cree la tabla de destino antes de que el flujo de datos finaliza.
+* **Truncar una tabla**: Quite todas las filas de la tabla de destino antes de que el flujo de datos finaliza.
+* **Tamaño del lote**: Escriba un número para depositar las escrituras en fragmentos. Use esta opción para grandes cargas de datos. 
+* **Habilitar el almacenamiento provisional**: Uso de PolyBase al cargar el almacén de datos de Azure como el conjunto de datos receptor.
+
+![La pestaña Configuración, que muestra las opciones de receptor SQL](media/data-flow/alter-row2.png "opciones de SQL")
 
 > [!NOTE]
-> En el flujo de datos, puede pedir ADF para crear una nueva definición de tabla en la base de datos de destino mediante el establecimiento de un conjunto de datos en la transformación de receptor que tiene un nuevo nombre de tabla. En el conjunto de datos SQL, haga clic en "Editar" debajo del nombre de tabla y escriba un nuevo nombre de tabla. A continuación, en la transformación de receptor, activar "Permitir la desviación en el esquema". Seth la configuración de "Importación de esquema" en ninguno.
+> En el flujo de datos, puede dirigir la factoría de datos para crear una nueva definición de tabla en la base de datos de destino. Para crear la definición de tabla, establezca un conjunto de datos en la transformación de receptor que tiene un nuevo nombre de tabla. En el conjunto de datos SQL, a continuación el nombre de tabla, seleccione **editar** y escriba un nuevo nombre de tabla. A continuación, en la transformación de receptor, activar **permitir desviación en el esquema**. Establecer **importar esquema** a **ninguno**.
 
-![Esquema de la transformación de origen](media/data-flow/dataset2.png "esquema SQL")
-
-![Opciones de receptor de SQL](media/data-flow/alter-row2.png "opciones de SQL")
+![Configuración del conjunto de datos SQL, que muestra dónde debe editar el nombre de tabla](media/data-flow/dataset2.png "esquema SQL")
 
 > [!NOTE]
-> Al actualizar o eliminar filas en el receptor de la base de datos, debe establecer la columna de clave. Este modo, la fila Alter es capaz de determinar la fila única de DML.
+> Al actualizar o eliminar filas en el receptor de la base de datos, debe establecer la columna de clave. Esta configuración permite la transformación alter consecutiva determinar la fila única en la biblioteca de movimiento de datos (DML).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha creado el flujo de datos, agregue una [actividad de ejecución de flujo de datos a la canalización](concepts-data-flow-overview.md).
+Ahora que ha creado el flujo de datos, agregue un [actividad de flujo de datos a la canalización](concepts-data-flow-overview.md).

@@ -8,15 +8,15 @@ services: search
 ms.service: search
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/16/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: bf78cd9b70aa4a82ef96fdd529d3ee5b1641038c
-ms.sourcegitcommit: eea74d11a6d6ea6d187e90e368e70e46b76cd2aa
+ms.openlocfilehash: 3fa463cb7178fa5cc2108383047a7ca94ffb48a3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2019
-ms.locfileid: "65035358"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797374"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
 
@@ -58,7 +58,7 @@ Azure Search no almacena ningún dato aparte de los objetos que administra, lo q
 
 En la tabla siguiente se comparan las opciones para almacenar registros, agregar supervisión exhaustiva de las operaciones de servicio y consultar las cargas de trabajo mediante Application Insights.
 
-| Resource | Usado para |
+| Recurso | Usado para |
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes, se correlacionan con los eventos de usuario en la aplicación. Esta es la única solución que tiene en cuenta las acciones o señales del usuario, y asigna eventos desde la búsqueda iniciada por el usuario, por oposición al filtrado de las solicitudes enviadas por el código de aplicación. Para usar este enfoque, copie y pegue el código de instrumentación en los archivos de código fuente para enrutar la información de solicitud a Application Insights. Para más información, consulte [Análisis de tráfico de búsqueda](search-traffic-analytics.md). |
 | [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes. Los eventos se registran en un área de trabajo de Log Analytics. Puede ejecutar consultas en un área de trabajo para devolver información detallada del registro. Para obtener más información, consulte [empezar a trabajar con registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
@@ -69,7 +69,7 @@ Los registros de Azure Monitor y Blob storage están disponibles como un servici
 
 La siguiente sección le guía por los pasos necesarios para habilitar y usar Azure Blob Storage para recopilar datos de registro creados por las operaciones de Azure Search, y acceder a ellos.
 
-## <a name="enable-logging"></a>Habilitación del registro
+## <a name="enable-logging"></a>Habilitar registro
 
 De forma predeterminada, el registro para indexación y consulta de cargas de trabajo está desactivado y la infraestructura de registro y el almacenamiento externo a largo plazo dependen de soluciones complementarias. Por sí solos, los únicos datos persistentes en Azure Search son los objetos que crea y administra, por lo que los registros se deben almacenar en otra parte.
 
@@ -77,13 +77,15 @@ En esta sección, aprenderá a usar Blob Storage para almacenar datos de métric
 
 1. Si aún no tiene una, [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). Puede colocarla en el mismo grupo de recursos que Azure Search para simplificar la limpieza más adelante si quiere eliminar todos los recursos usados en este ejercicio.
 
+   La cuenta de almacenamiento debe existir en la misma región que Azure Search.
+
 2. Abra la página de información general del servicio de búsqueda. En el panel de navegación izquierdo, desplácese a **Monitoring** (Supervisión) y haga clic en **Enable Monitoring** (Habilitar supervisión).
 
    ![Habilitar supervisión](./media/search-monitor-usage/enable-monitoring.png "Enable monitoring")
 
 3. Elija los datos que quiere exportar: registros, métricas o ambos. Puede copiarla en una cuenta de almacenamiento, enviarla a un centro de eventos o exportarlo a los registros de Azure Monitor.
 
-   Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Los contenedores y blobs se crearán cuando se exporten los datos de registro.
+   Para el archivado en Blob Storage, solo debe existir la cuenta de almacenamiento. Contenedores y blobs se creará según sea necesario cuando se exportan datos de registro.
 
    ![Configuración del archivado de Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Configure blob storage archive")
 
@@ -139,11 +141,11 @@ Se capturan las métricas de solicitudes de consulta.
 | resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |el identificador de recurso |
 | metricName |string |"Latency" |el nombre de la métrica |
 | Twitter en tiempo |datetime |"2018-12-07T00:00:43.6872559Z" |la marca de tiempo de la operación |
-| average |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| minimum |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| maximum |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
+| media |int |64 |El valor de media de las muestras sin procesar en el intervalo de tiempo de la métrica |
+| mínimo |int |37 |El valor mínimo de las muestras sin procesar en el intervalo de tiempo de la métrica |
+| máximo |int |78 |El valor máximo de las muestras sin procesar en el intervalo de tiempo de la métrica |
 | total |int |258 |El valor total de las muestras sin procesar en el intervalo de tiempo de la métrica |
-| count |int |4 |El número de muestras sin procesar usadas para generar la métrica |
+| número |int |4 |El número de muestras sin procesar usadas para generar la métrica |
 | timegrain |string |"PT1M" |El intervalo de agregación de la métrica en ISO 8601 |
 
 Todas las métricas se notifican en intervalos de un minuto. Cada métrica expone los valores mínimo, máximo y promedio por minuto.

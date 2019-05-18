@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fae09b5aeed05dfb09f2b998de805ef0607e7f39
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60301315"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823549"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -33,7 +33,7 @@ Si no es la información que está buscando, deje un comentario al final de este
 
 ## <a name="cloud-apps-assignments"></a>Asignaciones de aplicaciones de nube
 
-Con las directivas de acceso condicional, puede controlar cómo los usuarios acceden a las [aplicaciones en la nube](conditions.md#cloud-apps). Al configurar una directiva de acceso condicional, debe seleccionar al menos una aplicación en la nube. 
+Con las directivas de acceso condicional, puede controlar cómo los usuarios acceden a las [aplicaciones en la nube](conditions.md#cloud-apps-and-actions). Al configurar una directiva de acceso condicional, debe seleccionar al menos una aplicación en la nube. 
 
 ![Seleccione las aplicaciones de nube de la directiva](./media/technical-reference/09.png)
 
@@ -48,7 +48,6 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Microsoft Application Insights Analytics
 - Microsoft Azure Information Protection: [obtener más información](https://docs.microsoft.com/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
 - Administración de Microsoft Azure - [obtener más información](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
-- RemoteApp de Microsoft Azure
 - Administración de suscripciones de Microsoft Azure
 - Microsoft Cloud App Security
 - Portal de Control de acceso de las herramientas de Microsoft Commerce
@@ -63,7 +62,7 @@ Puede asignar una directiva de acceso condicional a las siguientes aplicaciones 
 - Búsqueda de Microsoft en Bing
 - Microsoft StaffHub
 - Microsoft Stream
-- Equipos de Microsoft
+- Microsoft Teams
 - Office 365 Exchange Online
 - Office 365 SharePoint Online
 - Yammer para Office 365
@@ -141,8 +140,8 @@ Para implementar automáticamente esta extensión en los exploradores de Chrome,
 
 |    |    |
 | --- | --- |
-| Ruta de acceso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
+| Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| NOMBRE | 1 |
 | Type | REG_SZ (String) |
 | Datos | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -150,8 +149,8 @@ Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clav
 
 |    |    |
 | --- | --- |
-| Ruta de acceso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
+| Path | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| NOMBRE | 1 |
 | Type | REG_SZ (String) |
 | Datos | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 
@@ -167,11 +166,10 @@ Esta configuración afecta a los intentos de acceso realizados desde las siguien
 
 | Aplicaciones cliente | Servicio de destino | Plataforma |
 | --- | --- | --- |
-| Azure RemoteApp | Servicio Azure Remote App | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
 | Aplicación de Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS y Android |
 | Aplicación de Correo electrónico/Calendario/People, Outlook 2016, Outlook 2013 (con la autenticación moderna)| Office 365 Exchange Online | Windows 10 |
 | Directiva de MFA y de ubicación para las aplicaciones. No se admiten las directivas basadas en dispositivos.| Cualquier servicio de aplicaciones de Mis aplicaciones| Android e iOS |
-| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web | Equipos de Microsoft | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
+| Microsoft Teams Services: controla todos los servicios que admiten Microsoft Teams y todas sus aplicaciones cliente: escritorio de Windows, iOS, Android, WP y cliente web | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android y macOS |
 | Aplicaciones de Office 2016, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)) | Office 365 SharePoint Online | Windows 8.1, Windows 7, Windows 7 |
 | Aplicaciones de Office 2016, aplicaciones universales de Office, Office 2013 (con autenticación moderna), cliente de sincronización de OneDrive (ver [notas](https://support.office.com/en-US/article/Azure-Active-Directory-conditional-access-with-the-OneDrive-sync-client-on-Windows-028d73d7-4b86-4ee0-8fb7-9a209434b04e)), la compatibilidad con Grupos de Office está prevista para el futuro, la compatibilidad con la aplicación SharePoint está prevista para el futuro | Office 365 SharePoint Online | Windows 10 |
 | Office 2016 (solo Word, Excel, PowerPoint y OneNote). Soporte técnico de OneDrive para la Empresa previsto para el futuro| Office 365 SharePoint Online| macOS|
@@ -203,6 +201,7 @@ En la directiva de acceso condicional, puede requerir que un intento de acceso a
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 - Microsoft Azure Information Protection
+- Microsoft Bookings
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -221,7 +220,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft Skype Empresarial
 - Microsoft StaffHub
 - Microsoft Stream
-- Equipos de Microsoft
+- Microsoft Teams
 - Microsoft To-Do
 - Microsoft Visio
 - Microsoft Word

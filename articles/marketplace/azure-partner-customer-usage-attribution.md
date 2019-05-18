@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: cfe9b469cfac848c9e57f1fc10193208722be109
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: dcab4d24ca948980f28483fd09f29588e0329b63
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935713"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800972"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -101,7 +101,7 @@ Para habilitar la atribución de uso del cliente, al diseñar las llamadas de AP
 
 #### <a name="example-the-python-sdk"></a>Ejemplo: SDK de Python
 
-Para Python, use el atributo **config**. El atributo solo se puede agregar a un UserAgent. Este es un ejemplo:
+Para Python, use el atributo **config**. El atributo solo se puede agregar a un UserAgent. Por ejemplo:
 
 ![Agregar el atributo a un agente de usuario](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -245,9 +245,9 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="report"></a>Informe
+## <a name="report"></a>Informar
 
-Puede encontrar el informe de atribución de uso del cliente en el panel de análisis de Partner Center. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)).
+Puede encontrar el informe de atribución de uso del cliente en el panel de análisis de Partner Center. ([https://partner.microsoft.com/en-us/dashboard/mpn/analytics/CPP/MicrosoftAzure](https://partner.microsoft.com/dashboard/mpn/analytics/CPP/MicrosoftAzure)). Para ver el informe, tendrá que usar las credenciales del centro de partners para iniciar sesión. Si tiene problemas con informes o iniciar sesión, crear una solicitud de soporte técnico siguiendo las instrucciones de la sección de soporte técnico Get.
 
 Elija la plantilla de seguimiento en la lista desplegable de tipo de asociación de socios para ver el informe.
 
@@ -266,6 +266,10 @@ Al implementar esta plantilla, Microsoft puede identificar la instalación del s
 Al implementar el software \<PARTNER>, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas.
 
 ## <a name="get-support"></a>Obtención de soporte técnico
+
+Si tiene algún problema con el informe o el inicio de sesión al centro de partners, cree una solicitud de soporte técnico con el equipo de soporte técnico de centro de partners: [https://partner.microsoft.com/en-US/support](https://partner.microsoft.com/support)
+
+![](./media/marketplace-publishers-guide/partner-center-log-in-support.png)
 
 Si necesita ayuda para la incorporación de Marketplace o atribución de uso del cliente, siga estos pasos.
 

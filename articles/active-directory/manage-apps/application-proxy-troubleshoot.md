@@ -3,8 +3,8 @@ title: Solución de problemas del proxy de aplicación | Microsoft Docs
 description: Explica cómo solucionar errores en Proxy de aplicación de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f8c9c6be51a30fd4e30fedc85f8d17d16324391
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: dbdccf3b7a3ba1b8e55befa0fdc24eeff3e403da
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292644"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65782930"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Solución de problemas y mensajes de error de Proxy de aplicación
 Si se producen errores al obtener acceso a una aplicación publicada o al publicar aplicaciones, compruebe las siguientes opciones para ver si Proxy de aplicación de Microsoft Azure AD funciona correctamente:
@@ -51,7 +51,7 @@ Una vez que encuentre el error del conector en el registro de eventos, use esta 
 | Error | Pasos recomendados |
 | ----- | ----------------- |
 | Error de registro del conector: asegúrese de haber habilitado Proxy de aplicación en el Portal de administración de Azure, así como de haber escrito correctamente su nombre de usuario y contraseña de Active Directory. Error: "Se han producido uno o varios errores". | Si cierra la ventana de registro sin iniciar sesión en Azure AD, vuelva a ejecutar el Asistente para conector y registre el conector. <br><br> Si se abre la ventana de registro y, a continuación, se cierra inmediatamente sin permitirle iniciar sesión, es probable que reciba este error. Este error se produce cuando hay un error de red en el sistema. Asegúrese de que es posible conectarse desde un explorador a un sitio web público y de que los puertos están abiertos como se especifica en [Requisitos previos del proxy de aplicación](application-proxy-add-on-premises-application.md). |
-| Aparecerá un error de borrado en la ventana de registro. No se puede continuar | Si ve este error y luego se cierra la ventana, significa que escribió el nombre de usuario o contraseña incorrectos. Inténtelo de nuevo. |
+| Aparecerá un error de borrado en la ventana de registro. No se puede continuar | Si ve este error y luego se cierra la ventana, significa que escribió el nombre de usuario o contraseña incorrectos. Vuelva a intentarlo. |
 | Error de registro del conector: asegúrese de haber habilitado Proxy de aplicación en el Portal de administración de Azure, así como de haber escrito correctamente su nombre de usuario y contraseña de Active Directory. Error: "AADSTS50059: No se ha producido ningún error en la información de identificación del inquilino en la solicitud o implícita en ninguna credencial proporcionada y búsqueda por identificador URI de la entidad de servicio. | Intenta iniciar sesión con una cuenta Microsoft y no un dominio que forma parte del id. de organización del directorio al que intenta tener acceso. Asegúrese de que el administrador forma parte del mismo nombre de dominio que el dominio del inquilino, por ejemplo, si el dominio de Azure AD es contoso.com, el administrador debe ser admin@contoso.com. |
 | Error al recuperar la directiva de ejecución actual para ejecutar scripts de PowerShell. | Si se produce un error en la instalación del conector, compruebe que la directiva de ejecución de PowerShell no está deshabilitada. <br><br>1. Abra el Editor de directivas de grupo.<br>2. Vaya a **Configuración del equipo** > **Plantillas administrativas** > **Componentes de Windows** > **Windows PowerShell** y haga doble clic en **Activar la ejecución de scripts**.<br>3. La directiva de ejecución puede definirse como **No configurado** o **Habilitado**. Si elige **Habilitado**, asegúrese de que, en Opciones, en Directiva de ejecución se selecciona en **Permitir scripts locales y scripts remotos firmados** o en **Permitir todos los scripts**. |
 | El conector no pudo descargar la configuración. | El certificado de cliente del conector, que se utiliza para la autenticación, ha expirado. Esto también puede ocurrir si tiene instalado el conector detrás de un proxy. En este caso, el conector no puede acceder a Internet ni tampoco podrá proporcionar aplicaciones a usuarios remotos. Renueve la confianza manualmente mediante el cmdlet `Register-AppProxyConnector` en Windows PowerShell. Si el conector está detrás de un proxy, es preciso otorgar acceso a Internet a las cuentas del conector "servicios de red" y "sistema local". Esto puede realizarse concediéndoles acceso al proxy o estableciéndoles para omitir el proxy. |

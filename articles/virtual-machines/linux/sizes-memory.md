@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 05/13/2019
 ms.author: jonbeck
-ms.openlocfilehash: 2a621f40894f530e6f8b06fac073cc7ad98fd893
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: 535103f875f479b2951b4cc5414e5b133bf6584d
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60770910"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561260"
 ---
 # <a name="memory-optimized-virtual-machine-sizes"></a>Tamaños de máquina virtual optimizada para memoria
 

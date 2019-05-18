@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 05/09/2019
 ms.author: mbullwin
-ms.openlocfilehash: c6a5ec8685de53d7a611328025d5da8e5ce698a3
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
-ms.translationtype: HT
+ms.openlocfilehash: 38723a5dd306c2a4b594d95e5cc660d117966bc4
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204884"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518844"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -87,6 +87,9 @@ Los puntos de datos sin procesar (es decir, elementos que puede consultar en Ana
 
 Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 90 días.
 
+> [!NOTE]
+> Retención de variable de Application Insights está ahora en versión preliminar. Obtenga más información [aquí](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
+
 [Depuración de instantáneas](../../azure-monitor/app/snapshot-debugger.md) se almacenan durante quince días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
@@ -101,7 +104,7 @@ Microsoft usa los datos con el fin exclusivo de proporcionarle el servicio.
 * En EE. UU., Europa o el Sudeste Asiático. Puede seleccionar la ubicación cuando se crea un nuevo recurso de Application Insights. 
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>¿Significa que la aplicación tiene que estar hospedada en Estados Unidos, Europa o el Sudeste Asiático?
-*  No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales o en la nube.
+* No. La aplicación puede ejecutarse desde cualquier lugar, en sus propios hosts locales o en la nube.
 
 ## <a name="how-secure-is-my-data"></a>¿Están seguros mis datos?
 Application Insights es un servicio de Azure. Las directivas de seguridad se describen en las [notas del producto de seguridad, privacidad y cumplimiento de Azure](https://go.microsoft.com/fwlink/?linkid=392408).
@@ -237,15 +240,15 @@ Los SDK varían entre las distintas plataformas, y hay varios componentes que se
 
 | Acción del usuario | Clases de datos recopilados (ver tabla siguiente) |
 | --- | --- |
-| [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Requests<br/>**Excepciones**<br/>Sesión<br/>users |
+| [Agregar el SDK de Application Insights a un proyecto web de .NET][greenbrown] |ServerContext<br/>Inferidos<br/>Contadores de rendimiento<br/>Solicitudes<br/>**Excepciones**<br/>Sesión<br/>Usuarios |
 | [Instalar el Monitor de estado en IIS][redfield] |Dependencias<br/>ServerContext<br/>Inferidos<br/>Contadores de rendimiento |
-| [Incorporar el SDK de Application Insights a una aplicación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitud<br/>Sesión<br/>users |
-| [Incorporar el SDK de JavaScript a una página web][client] |ClientContext  <br/>Inferidos<br/>Page<br/>ClientPerf<br/>Ajax |
+| [Incorporar el SDK de Application Insights a una aplicación web de Java][java] |ServerContext<br/>Inferidos<br/>Solicitar<br/>Sesión<br/>Usuarios |
+| [Incorporar el SDK de JavaScript a una página web][client] |ClientContext  <br/>Inferidos<br/>Página<br/>ClientPerf<br/>Ajax |
 | [Definir propiedades predeterminadas][apiproperties] |**Propiedades** en todos los eventos estándar y personalizados |
 | [Llamar a TrackMetric][api] |Valores numéricos<br/>**Propiedades** |
 | [Llamar a Track*][api] |Nombre del evento<br/>**Propiedades** |
 | [Llamar a TrackException][api] |**Excepciones**<br/>Volcado de la pila<br/>**Propiedades** |
-| El SDK no puede recopilar datos. Por ejemplo:  <br/> - no se puede acceder a los contadores de rendimiento<br/> - excepción en el inicializador de telemetría |Diagnóstico de SDK |
+| El SDK no puede recopilar datos. Por ejemplo: <br/> - no se puede acceder a los contadores de rendimiento<br/> - excepción en el inicializador de telemetría |Diagnóstico de SDK |
 
 Para los [SDK de otras plataformas][platforms], consulte los documentos correspondientes.
 
@@ -264,7 +267,7 @@ Para los [SDK de otras plataformas][platforms], consulte los documentos correspo
 | PageViews |URL y nombre de página o nombre de pantalla |
 | Rendimiento del cliente |URL o nombre de página, tiempo de carga del explorador |
 | Ajax |Llamadas HTTP de la página web al servidor |
-| Requests |URL, duración, código de respuesta |
+| Solicitudes |URL, duración, código de respuesta |
 | Dependencias |Tipo (SQL, HTTP,...), cadena de conexión o URI, sincrónico/asincrónico, duración, éxito, instrucción SQL (con monitor de estado) |
 | **Excepciones** |Tipo, **mensaje**, pilas de llamadas, archivo de origen y número de línea, identificador de subproceso |
 | Bloqueos |Identificador de proceso, identificador de proceso principal, identificador de subproceso de bloqueo; revisión de aplicación, identificador, compilación; tipo de excepción, dirección, razón; símbolos y registros confusos, direcciones binarias inicial y final, nombre binario y ruta de acceso, tipo de cpu |

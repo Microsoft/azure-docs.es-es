@@ -3,8 +3,8 @@ title: Temas de ayuda del portal de registro de aplicaciones | Microsoft Docs
 description: Descripción de las distintas características del portal de registro de aplicaciones de Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: f0507c28-9464-4d3e-bd53-de9053fd5278
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b77f2a403bd4f410665d00bc69b3b1bcf0c3aaa
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ec615e1c6229539958f66d0dca15cf7eb788e597
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139170"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546094"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
 En este documento se proporciona el contexto y las descripciones de las distintas características que se encuentran en el [Portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
@@ -49,7 +49,7 @@ En este momento, solo se permiten dos tipos de secretos de aplicación en el por
 Debe cargar un certificado que incluya una clave pública.
 
 ## <a name="profile"></a>Perfil
-La sección de perfil del portal de registro de aplicaciones se puede utilizar para personalizar la página de inicio de sesión de la aplicación. En este momento puede modificar el logotipo de la aplicación de la página de inicio de sesión, la dirección URL de los términos de servicio y la dirección URL de la declaración de privacidad. El logotipo debe ser una imagen transparente de 48 x 48 o 50 x 50 píxeles en un archivo de formato GIF, PNG o JPEG que tenga un tamaño máximo de 15 KB. Pruebe a cambiar los valores y ver la página de inicio de sesión resultante.
+La sección de perfil del portal de registro de aplicaciones se puede utilizar para personalizar la página de inicio de sesión de la aplicación. En este momento puede modificar el logotipo de la aplicación de la página de inicio de sesión, la dirección URL de los términos de servicio y la dirección URL de la declaración de privacidad. El logotipo debe ser una imagen transparente de 48 x 48 o 50 x 50 píxeles en un archivo GIF, PNG o JPEG de hasta 15 KB. Pruebe a cambiar los valores y ver la página de inicio de sesión resultante.
 
 ## <a name="live-sdk-support"></a>Compatibilidad con SDK de Live
 Cuando habilita la "Compatibilidad con SDK de Live", los secretos de la aplicación que cree se aprovisionarán en los almacenes de datos tanto de Azure AD como de la cuenta Microsoft. Esto permite que la aplicación se integre directamente con el servicio de la cuenta de Microsoft (login.live.com). Si quiere compilar una aplicación usando directamente la cuenta de Microsoft (en lugar de usar el punto de conexión v2.0 de Azure AD), debe asegurarse de que esté habilitada la compatibilidad con SDK de Live.

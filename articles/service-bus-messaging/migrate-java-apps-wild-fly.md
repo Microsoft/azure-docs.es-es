@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2019
 ms.author: asirveda
-ms.openlocfilehash: a103526ef63c02913862510c01e9fde6570d89c0
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 2392d0ef9d6257b93b76f13a5354eeba57d78ddd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515450"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800293"
 ---
 # <a name="migrate-java-enterprise-edition-ee-apps-to-azure"></a>Migrar aplicaciones de Java enterprise edition (EE) a Azure
 Este artículo le guiará a través del proceso de migrar las cargas de trabajo de Java EE existentes a Azure:
@@ -67,7 +67,7 @@ Aplicaciones de ejemplo JBoss/WildFly, debe migrar a Azure. Usan estas aplicacio
 Tras la migración, podrá ejecutar las aplicaciones mediante Azure Service Bus.
 
 ## <a name="prerequisites"></a>Requisitos previos
-Para implementar una aplicación web de Java en Azure, necesita una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta de Azure gratuita]((https://azure.microsoft.com/pricing/free-trial/)).
+Para implementar una aplicación web de Java en Azure, necesita una suscripción de Azure. Si todavía no la tiene, puede activar sus [ventajas como suscriptor de MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) o registrarse para obtener una [cuenta de Azure gratuita](https://azure.microsoft.com/en-us/free/).
 
 Además, necesitará los siguientes requisitos previos:
 
@@ -936,7 +936,7 @@ Picked up _JAVA_OPTIONS: -Djava.net.preferIPv4Stack=true
 
 Para obtener más información, consulte: 
  
- - [Implementación del adaptador de RA de JMS genérico en JBoss/WildFly](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
+ - [Implementación del adaptador de RA de JMS genérico en JBoss/WildFly](https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.1/html/configuring_messaging/resource_adapters#deploy_configure_generic_jms_resource_adapter)
  - [Guía de la CLI JBoss/WildFly](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface)
  - [Inicie sesión de SSH desde el equipo de desarrollo a App Service Linux](../app-service/containers/app-service-linux-ssh-support.md#open-ssh-session-from-remote-shell)
 

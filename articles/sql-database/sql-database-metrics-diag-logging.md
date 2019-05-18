@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: fe53dd4419c06d376a1cc46db0d2621ccbc06f23
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: HT
+ms.openlocfilehash: 089f5335a65151c9c576346995f0bee34b5d10b4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548651"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791963"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -64,7 +64,7 @@ Puede configurar las bases de datos SQL de Azure y bases de datos de instancia p
 
 | Telemetría de supervisión de bases de datos | Compatibilidad con bases de datos únicas y bases de datos agrupadas | Compatibilidad con la base de datos de instancia |
 | :------------------- | ----- | ----- |
-| [Todas las métricas](#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin  |
+| [Métricas básicas](#basic-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contiene información sobre las estadísticas de espera de consulta (lo que las consultas se esperaron) son CPU, registro y el bloqueo. | Sí | Sí |
 | [Errores](#errors-dataset): Contiene información sobre los errores SQL en una base de datos. | Sí | Sí |
@@ -93,7 +93,7 @@ Puede configurar un recurso de grupos elásticos para recopilar los siguientes d
 
 | Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
-| **Grupo elástico** | [Todas las métricas](sql-database-metrics-diag-logging.md#all-metrics) contiene el porcentaje de eDTU/CPU, el límite de eDTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, el porcentaje de sesiones, el porcentaje de trabajos, el almacenamiento, el porcentaje de almacenamiento, el límite de almacenamiento y el porcentaje de almacenamiento de XTP. |
+| **Grupo elástico** | [Métricas básicas](sql-database-metrics-diag-logging.md#basic-metrics) contiene el porcentaje de eDTU/CPU, el límite de eDTU/CPU, físico porcentaje de lectura de datos, escritura en registro; porcentaje, el porcentaje de sesiones, el porcentaje de trabajadores, almacenamiento, porcentaje de almacenamiento, límite de almacenamiento y porcentaje de almacenamiento de XTP. |
 
 Para configurar la transmisión de telemetría de diagnósticos para grupos elásticos y bases de datos en grupos elásticos, deberá configurar por separado **ambos** de las acciones siguientes:
 
@@ -113,7 +113,7 @@ Para habilitar el streaming de telemetría de diagnóstico del recurso de grupos
 1. Escriba un nombre de configuración para su propia referencia.
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Para log analytics, seleccione **configurar** y crear una nueva área de trabajo seleccionando **+ crear nueva área de trabajo**, o seleccione un área de trabajo.
-1. Active la casilla para la telemetría de diagnóstico de grupos elásticos: **AllMetrics**.
+1. Active la casilla para la telemetría de diagnóstico de grupos elásticos: **Básico** métricas.
    ![Configurar los diagnósticos para grupos elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Seleccione **Guardar**.
 1. Además, configurar la transmisión de telemetría de diagnósticos para cada base de datos del grupo elástico que desea supervisar siguiendo los pasos descritos en la sección siguiente.
@@ -137,7 +137,7 @@ Para habilitar el streaming de datos de telemetría de diagnósticos para las ba
 1. Escriba un nombre de configuración para su propia referencia.
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Para la experiencia de supervisión basada en eventos estándar, active las siguientes casillas para la telemetría de registro de diagnóstico de base de datos: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errores**, **DatabaseWaitStatistics**, **Tiempos de expiración**, **Bloqueos** e **Interbloqueos**.
-1. Para una experiencia de supervisión basada en un minuto avanzada, active la casilla para **AllMetrics**.
+1. Para obtener una experiencia de supervisión avanzada, basado en uno de minuto, seleccione la casilla de verificación **básica** métricas.
    ![Configurar los diagnósticos para single, agrupadas o bases de datos de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Seleccione **Guardar**.
 1. Repita estos pasos para cada base de datos que desea supervisar.
@@ -385,7 +385,7 @@ O, sencillamente:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Por ejemplo, un nombre de blob para todas las métricas podría ser:
+Por ejemplo, podría ser un nombre de blob para métricas básicas:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -411,23 +411,26 @@ Si usa Azure SQL Analytics, puede supervisar el consumo de ingesta de datos en l
 
 Supervisión de telemetría disponible para Azure SQL Database, instancia administrada y grupos elásticos se describe más abajo. Se puede usar la telemetría recopilada de supervisión dentro de SQL Analytics para su propio análisis personalizados y el desarrollo de aplicaciones mediante [consultas de registros de Azure Monitor](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) lenguaje.
 
-## <a name="all-metrics"></a>Todas las métricas
+## <a name="basic-metrics"></a>Métricas básicas
 
-Consulte las siguientes tablas en busca de detalles sobre todas las métricas por recurso.
+Consulte las siguientes tablas para obtener más información acerca de las métricas básicas por recurso.
 
-### <a name="all-metrics-for-elastic-pools"></a>Todas las métricas para grupos elásticos
+> [!NOTE]
+> Opción de métricas básicas se conocía anteriormente como todas las métricas. El cambio que realicé fue la nomenclatura solo y se ha producido ningún cambio en las métricas supervisadas. Este cambio se inició para permitir la introducción de las categorías de métricas adicionales en el futuro.
+
+### <a name="basic-metrics-for-elastic-pools"></a>Métricas básicas para grupos elásticos
 
 |**Recurso**|**Métricas**|
 |---|---|
 |Grupo elástico|Porcentaje de eDTU; eDTU usada; límite de eDTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; límite de almacenamiento y porcentaje de almacenamiento de XTP |
 
-### <a name="all-metrics-for-azure-sql-databases"></a>Todas las métricas para bases de datos de Azure SQL
+### <a name="basic-metrics-for-azure-sql-databases"></a>Métricas básicas para las bases de datos SQL de Azure
 
 |**Recurso**|**Métricas**|
 |---|---|
 |Azure SQL Database|Porcentaje de DTU; DTU usada; límite de DTU; porcentaje de CPU; porcentaje de lectura de datos físicos; porcentaje de escritura en registro; conexiones correctas, erróneas o bloqueadas por el firewall; porcentaje de sesiones; porcentaje de trabajos; almacenamiento; porcentaje de almacenamiento; porcentaje de almacenamiento de XTP e interbloqueos |
 
-## <a name="all-logs"></a>Todos los registros
+## <a name="basic-logs"></a>Registros básicos
 
 Detalles de la telemetría disponible para todos los registros se documentan en las tablas siguientes. Consulte [admite el registro de diagnóstico](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) para comprender los registros que se admiten para un tipo determinado de la base de datos - Azure SQL única, agrupada, o de instancia de base de datos.
 

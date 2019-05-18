@@ -3,8 +3,8 @@ title: Eliminación de una aplicación registrada con la plataforma de identidad
 description: Aprenda a quitar una aplicación registrada con la plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20d7218b9b1d53b3cfb72a12ee34a77956327ce2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 271fe45082749afc310e8f217e8119d3931c3cac
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093201"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413734"
 ---
-# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft (versión preliminar)
+# <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Inicio rápido: Eliminación de una aplicación registrada con la plataforma de identidad de Microsoft
 
 Es posible que los desarrolladores empresariales y proveedores de software como servicio (SaaS) que han registrado aplicaciones con la plataforma de identidad de Microsoft deban quitar el registro de una aplicación.
 
@@ -35,10 +35,7 @@ En esta guía de inicio rápido, aprenderá a hacer lo siguiente:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para comenzar, asegúrese de que completa estos requisitos previos:
-
-* Tiene un inquilino que tenga las aplicaciones registradas en él. Para saber cómo agregar y registrar aplicaciones, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](quickstart-register-app.md).
-* Participe en la experiencia de versión preliminar para los registros de aplicaciones en Azure Portal. Los pasos descritos en esta guía de inicio rápido corresponden a la nueva interfaz de usuario y solo funcionan si participa en la experiencia de versión preliminar.
+Debe tener un inquilino que tenga las aplicaciones registradas en él. Para saber cómo agregar y registrar aplicaciones, consulte [Registro de una aplicación con la plataforma de identidad de Microsoft](quickstart-register-app.md).
 
 ## <a name="remove-an-application-authored-by-you-or-your-organization"></a>Eliminación de una aplicación creada por el usuario o por la organización
 
@@ -48,7 +45,7 @@ Las aplicaciones que el usuario o la empresa han registrado están representadas
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 2. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-3. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones (versión preliminar)**. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
+3. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación.
 4. En la página **Introducción**, seleccione **Eliminar**.
 5. Seleccione **Sí** para confirmar que quiere eliminar la aplicación.
 

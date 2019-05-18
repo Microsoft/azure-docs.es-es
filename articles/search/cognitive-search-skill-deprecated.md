@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f773cd298c8faaac90b30d88a74e8ddcb51c3afa
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: a73c7e381cb6001b773251a1812466b3c82373f2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021951"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65541731"
 ---
-# <a name="deprecated-cognitive-search-skills"></a>Aptitudes de Cognitive Search en desuso
+# <a name="deprecated-cognitive-search-skills"></a>Capacidades de búsqueda cognitiva en desuso
 
 En este documento se describen las aptitudes cognitivas que se consideran en desuso. Use la siguiente guía para el contenido:
 

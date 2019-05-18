@@ -3,8 +3,8 @@ title: Integración con la plataforma Microsoft identity | Azure
 description: Obtenga información sobre las prácticas recomendadas y descuidos común cuando se integra con la plataforma Microsoft identity (v2.0).
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev
-ms.openlocfilehash: 1f5a6d7501fd387548b111fcb0888515c8f8db25
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 0d44e5d9f0d1ed893a16c318e3cfa0ee1bfc123b
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65076411"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823345"
 ---
 # <a name="microsoft-identity-platform-integration-checklist"></a>Lista de comprobación de integración de plataforma de Microsoft identity
 
@@ -31,13 +31,13 @@ Si acaba de empezar, consulte el [documentación](index.yml) para obtener inform
 
 ## <a name="testing-your-integration"></a>Probar la integración
 
-Use la siguiente lista de comprobación para asegurarse de que la aplicación efectivamente está integrada con el [plataforma Microsoft identity](https://docs.microsoft.com/legal/mdsa).
+Use la siguiente lista de comprobación para asegurarse de que la aplicación efectivamente está integrada con el [plataforma Microsoft identity](https://docs.microsoft.com/azure/active-directory/develop/).
 
 ### <a name="basics"></a>Aspectos básicos
 
 |   |   |
 |---|---|
-| ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Lea y comprenda el [directivas de la plataforma de Microsoft](https://docs.microsoft.com/legal/mdsa). Asegúrese de que la aplicación se adhiere a los términos que se describen como están diseñados para proteger a usuarios y la plataforma. |
+| ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Lea y comprenda el [directivas de la plataforma de Microsoft](https://go.microsoft.com/fwlink/?linkid=2090497&clcid=0x409). Asegúrese de que la aplicación se adhiere a los términos que se describen como están diseñados para proteger a usuarios y la plataforma. |
 
 ### <a name="ownership"></a>Propiedad
 
@@ -89,7 +89,7 @@ Use la siguiente lista de comprobación para asegurarse de que la aplicación ef
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Registrar el conjunto completo de permisos que requiere la aplicación, por lo que los administradores pueden conceder consentimiento fácilmente con su inquilino. Use [consentimiento incremental](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) en tiempo de ejecución para ayudar a los usuarios a entender por qué la aplicación solicita permisos que es posible que se refieren a o confundir a los usuarios cuando se solicita en el primer inicio. |
 | ![casilla](./media/active-directory-integration-checklist/checkbox-two.svg) | Implemente un [limpiar una experiencia de cierre de sesión único](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Es el requisito de seguridad y privacidad y hace que para una buena experiencia del usuario. |
 
-### <a name="testing"></a>Prueba
+### <a name="testing"></a>Pruebas
 
 |   |   |
 |---|---|

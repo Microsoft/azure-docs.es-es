@@ -13,19 +13,19 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/17/2018
+ms.date: 05/09/2019
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 6252049c2258c391aa4483dd51ec0d9ee766bed0
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: c5055860df007d0f009bd08c2b211ffeeaad711f
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727141"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510874"
 ---
 # <a name="exportcopy-a-managed-disk-to-a-storage-account-using-the-azure-cli"></a>Exportar o copiar un disco administrado en una cuenta de almacenamiento mediante la CLI de Azure
 
-Este script exporta el disco duro virtual (VHD) subyacente de un disco administrado a una cuenta de almacenamiento de la misma región u otra diferente. Primero se genera el URI de SAS del disco administrado y, luego, se usa para copiar el disco duro virtual (VHD) en una cuenta de almacenamiento. Use este script para copiar los discos administrados y realizar la expansión regional. 
+Este script exporta el disco duro virtual (VHD) subyacente de un disco administrado a una cuenta de almacenamiento de la misma región u otra diferente. Primero se genera el URI de SAS del disco administrado y, luego, se usa para copiar el disco duro virtual (VHD) en una cuenta de almacenamiento. Use este script para copiar los discos administrados en otra región y realizar la expansión regional. Si desea publicar el archivo VHD de un disco administrado en Azure Marketplace, puede utilizar este script para copiar el archivo VHD a una cuenta de almacenamiento y después generar un identificador URI de SAS del VHD copiado para publicarlo en Marketplace.   
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

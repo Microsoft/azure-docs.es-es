@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d8717b8f365e692b5f27bf8a04d65c5147b8f31b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60195714"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603199"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Análisis de datos en Azure Data Lake Storage Gen1 con Power BI
 En este artículo aprenderá a usar Power BI Desktop para analizar y visualizar los datos almacenados en Azure Data Lake Storage Gen1.
@@ -74,23 +74,23 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 14. Después de actualizar la consulta, la pestaña **Campos** mostrará los nuevos campos disponibles para su visualización.
     
     ![Campos actualizados](./media/data-lake-store-power-bi/updated-query-fields.png "Campos actualizados")
-15. Vamos a crear un gráfico circular para representar los conductores de cada ciudad de un país determinado. Para ello, realice las selecciones siguientes.
+15. Vamos a crear un gráfico circular para representar los conductores de cada ciudad de un determinado país o región. Para ello, realice las selecciones siguientes.
     
     1. En la pestaña Visualizaciones, haga clic en el símbolo de un gráfico circular.
        
         ![Crear gráfico circular](./media/data-lake-store-power-bi/create-pie-chart.png "Crear gráfico circular")
-    2. Las columnas que se van a usar son **Columna 4** (nombre de la ciudad) y **Columna 7** (nombre del país). Arrastre estas columnas de la pestaña **Campos** a la pestaña **Visualizaciones**, tal y como se muestra a continuación.
+    2. Las columnas que vamos a utilizar son **columna 4** (nombre de la ciudad) y **columna 7** (nombre del país o región). Arrastre estas columnas de la pestaña **Campos** a la pestaña **Visualizaciones**, tal y como se muestra a continuación.
        
         ![Creación de visualizaciones](./media/data-lake-store-power-bi/create-visualizations.png "Creación de visualizaciones")
     3. El gráfico circular ahora debe ser similar al que se muestra a continuación.
        
         ![Gráfico circular](./media/data-lake-store-power-bi/pie-chart.png "Crear visualizaciones")
-16. Si selecciona un país específico en los filtros de nivel de página, ahora puede ver el número de conductores de cada ciudad del país seleccionado. Por ejemplo, en la pestaña **Visualizaciones**, en **Filtros de nivel de página**, seleccione **Brasil**.
+16. Si selecciona un país o región específico de los filtros de nivel de página, ahora puede ver el número de controladores en cada ciudad del país o región seleccionado. Por ejemplo, en la pestaña **Visualizaciones**, en **Filtros de nivel de página**, seleccione **Brasil**.
     
-    ![Seleccionar un país](./media/data-lake-store-power-bi/select-country.png "Seleccionar un país")
+    ![Seleccione un país](./media/data-lake-store-power-bi/select-country.png "seleccione un país o región")
 17. El gráfico circular se actualiza automáticamente para mostrar los conductores de las ciudades de Brasil.
     
-    ![Controladores en un país](./media/data-lake-store-power-bi/driver-per-country.png "Controladores por país")
+    ![Los controladores en un país](./media/data-lake-store-power-bi/driver-per-country.png "controladores por país o región")
 18. En el menú **Archivo**, haga clic en **Guardar** para guardar la visualización como archivo de Power BI Desktop.
 
 ## <a name="publish-report-to-power-bi-service"></a>Publicación del informe en el servicio Power BI

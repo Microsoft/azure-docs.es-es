@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 10a6e5c33f6a3c23d98e6eb3380de0d6dc6ac216
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60405184"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544477"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -32,7 +32,7 @@ La puerta de enlace admite [conectores locales](../connectors/apis-list.md#on-pr
 *   IBM Informix
 *   IBM MQ
 *   MySQL
-*   Base de datos de Oracle
+*   Oracle Database
 *   PostgreSQL
 *   Servidor de aplicaciones de SAP 
 *   Servidor de mensajes de SAP
@@ -51,7 +51,7 @@ Para información sobre cómo usar la puerta de enlace con otros servicios, cons
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Una [cuenta profesional o educativa](../active-directory/fundamentals/sign-up-organization.md) con una [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+* Una [cuenta profesional o educativa](../active-directory/fundamentals/sign-up-organization.md) con una [suscripción de Azure](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access) 
 
   Durante la instalación de puerta de enlace, inicie sesión en esta cuenta para poder asociarla a su suscripción de Azure. 
   Más adelante, usará también la misma cuenta al crear un recurso de Azure para la instalación de puerta de enlace en Azure Portal. 
@@ -418,7 +418,7 @@ Para ayudarle a solucionar problemas, empiece por recopilar y revisar los regist
 
 Estas son otras ubicaciones donde puede encontrar diversos registros:
 
-| Tipo de registro | Location | 
+| Tipo de registro | Ubicación | 
 |----------|----------| 
 | **Registros del instalador** | %localappdata%\Temp\On-premises_data_gateway_<*yyyymmdd*>.<*number*>.log | 
 | **Registros de configuración** | C:\Users\<*nombreDeUsuario*>\AppData\Local\Microsoft\On-premises data gateway\GatewayConfigurator<*AAAAMMDD*>.<*número*>.log | 

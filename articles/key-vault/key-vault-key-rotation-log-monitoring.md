@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 785e60ddf54a3772ae7687b9d18477ef04707609
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 20a170963ff4a8ff9cb69d3397e66e12c1047d16
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64713685"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561185"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configuración de Azure Key Vault con la auditoría y la rotación de claves
 
@@ -239,7 +239,7 @@ $SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $Storage
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 En el panel del editor, seleccione **panel prueba** para probar la secuencia de comandos. Después de la secuencia de comandos se ejecuta sin errores, puede seleccionar **publicar**, y, a continuación, se puede aplicar una programación para el runbook en el panel de configuración.

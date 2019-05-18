@@ -3,8 +3,8 @@ title: Asignación de usuarios a las aplicaciones | Microsoft Docs
 description: Descripción de cómo se asignan los usuarios a una aplicación del inquilino
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be36bfeb0991dc4a4b7fce723cadb6b508c0d6a3
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b818fe1d8b6bbc9d2d8c5b460b4d71dccdd39366
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60291031"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825987"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Asignación de usuarios a las aplicaciones
 

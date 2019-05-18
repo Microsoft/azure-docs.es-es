@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 443d6ca86f8ac40bd2df186fd189a333cb7b7425
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893136"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65416009"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -200,7 +200,7 @@ Para más información sobre la seguridad de Azure, consulte [Microsoft Trust Ce
 
 Desarrolle e implemente modelos con [SQL Server Data Tools (SSDT) para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) de forma gratuita. SSDT incluye plantillas de proyecto de Analysis Services que le permiten ponerse rápidamente a pleno funcionamiento. SSDT ya incluye la moderna funcionalidad de consultas de orígenes de datos y de mashup denominada Obtención de datos para los modelos tabulares 1400. Si está familiarizado con esta funcionalidad en Power BI Desktop y Excel 2016, ya sabe lo fácil que es crear consultas de orígenes de datos altamente personalizadas. 
 
-Si usa Visual Studio 2017, Microsoft Analysis Services Projects están disponibles como un paquete VSIX instalable gratuito. [Descargar de Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
+Si usa Visual Studio 2017, o cualquier versión posterior, los proyectos de Microsoft Analysis Services estarán disponibles como un paquete VSIX instalable gratuito. [Descargar de Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
 ### <a name="sql-server-management-studio"></a>SQL Server Management Studio
 

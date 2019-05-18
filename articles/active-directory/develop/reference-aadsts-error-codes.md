@@ -3,8 +3,8 @@ title: Autenticación de Azure Active Directory y códigos de error de autorizac
 description: Obtenga información sobre los códigos de error AADSTS que devuelve el servicio de token de seguridad (STS) de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 02/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69440fb99439231cdc046ef48bddfa852c17924c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 287e4ee53a108d1e2b83d4a8b11a98a2c7727721
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60298315"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545586"
 ---
 # <a name="authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización
 
@@ -92,7 +92,7 @@ ms.locfileid: "60298315"
 | AADSTS50079 | UserStrongAuthEnrollmentRequired: debido a un cambio de configuración realizado por el administrador, o porque el usuario se ha trasladado a una nueva ubicación, el usuario debe usar la autenticación multifactor. |
 | AADSTS50085 | El token de actualización necesita un inicio de sesión de IDP social. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña |
 | AADSTS50086 | SasNonRetryableError |
-| AADSTS50087 | SasRetryableError: el servicio no está disponible temporalmente. Inténtelo de nuevo. |
+| AADSTS50087 | SasRetryableError: el servicio no está disponible temporalmente. Vuelva a intentarlo. |
 | AADSTS50089 | El token de flujo ha expirado: error de autenticación. Haga que el usuario intente iniciar sesión de nuevo con el nombre de usuario y la contraseña. |
 | AADSTS50097 | DeviceAuthenticationRequired: la autenticación de dispositivo es obligatoria. |
 | AADSTS50099 | PKeyAuthInvalidJwtUnauthorized: la firma JWT no es válida. |
@@ -153,7 +153,7 @@ ms.locfileid: "60298315"
 | AADSTS70007 | UnsupportedResponseMode: la aplicación ha devuelto un valor no admitido de `response_mode` al solicitar un token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant: el token de actualización ha expirado debido por inactividad. El token se emitió en XXX y estuvo inactivo durante un período de tiempo. |
 | AADSTS70011 | InvalidScope: el ámbito solicitado por la aplicación no es válido. |
-| AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Inténtelo de nuevo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError: se ha producido un error de servidor al autenticar un usuario (consumidor) de MSA. Vuelva a intentarlo. Si el error persiste, [abra una incidencia de soporte técnico](../fundamentals/active-directory-troubleshooting-support-howto.md) |
 | AADSTS70016 | AuthorizationPending: error de flujo de dispositivo de OAuth 2.0. La autorización está pendiente. El dispositivo volverá a intentar sondear la solicitud. |
 | AADSTS70018 | BadVerificationCode: el código de verificación no es válido porque el usuario ha escrito un código de usuario incorrecto en el flujo de códigos del dispositivo. No se ha aprobado la autorización. |
 | AADSTS70019 | CodeExpired: el código de verificación ha expirado. Pida al usuario que vuelva a iniciar sesión. |
@@ -194,7 +194,7 @@ ms.locfileid: "60298315"
 | AADSTS90019 | MissingTenantRealm: Azure AD no pudo determinar el identificador de inquilino en la solicitud. |
 | AADSTS90022 | AuthenticatedInvalidPrincipalNameFormat: el formato de nombre de la entidad de seguridad no es válido o no cumple con el formato `name[/host][@realm]` esperado. El nombre de la entidad de seguridad es obligatorio; el host y el dominio Kerberos son opcionales y se pueden establecer en NULL. |
 | AADSTS90023 | InvalidRequest - la solicitud de servicio de autenticación no es válida. |
-| AADSTS90024 | RequestBudgetExceededError: se ha producido un error transitorio. Inténtelo de nuevo. |
+| AADSTS90024 | RequestBudgetExceededError: se ha producido un error transitorio. Vuelva a intentarlo. |
 | AADSTS90033 | MsodsServiceUnavailable: Microsoft Online Directory Service (MSODS) no está disponible. |
 | AADSTS90036 | MsodsServiceUnretryableFailure: se ha producido un error inesperado y que no permite el reintento desde el servicio WCF hospedado por MSODS. [Abra un vale de soporte](../fundamentals/active-directory-troubleshooting-support-howto.md) para más información sobre el error. |
 | AADSTS90038 | NationalCloudTenantRedirection: el inquilino "Y" especificado pertenece a la nube nacional "X". La instancia de nube actual "Z" no está federada con "X". Se devuelve un error de redireccionamiento de nube. |

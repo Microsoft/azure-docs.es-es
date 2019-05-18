@@ -7,17 +7,17 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: 4406789e3f9a10ff814aca0c2fd114de8a2abb69
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 36b1fb96ac1dd89375588a65063ce729f6ac825d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572675"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794388"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Bases de datos únicas en Azure SQL Database
 
@@ -30,7 +30,7 @@ La opción de implementación de una base de datos única crea una base de datos
 
 ## <a name="dynamic-scalability"></a>Escalabilidad dinámica
 
-Puede compilar su primera aplicación en una base de datos pequeña con un nivel de servicio de costo y rendimiento bajos y, después, [cambiar el nivel de servicio](sql-database-single-database-scale.md) manualmente o mediante programación en cualquier momento a un nivel de servicio de mayor precio o rendimiento para adecuarlo a las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
+Puede crear su primera aplicación en una base de datos pequeña a bajo costo en el nivel de proceso sin servidor (versión preliminar) o un tamaño de proceso pequeña en el nivel de proceso aprovisionada. Cambia el [nivel de servicio o proceso](sql-database-single-database-scale.md) manualmente o mediante programación en cualquier momento para satisfacer las necesidades de su solución. El rendimiento se puede ajustar sin que la aplicación o los clientes sufran ningún tipo de inactividad. La escalabilidad dinámica permite que una base de datos responda transparentemente a los requisitos de recursos, que cambian con rapidez, y le permite pagar solo por los recursos que necesite cuando los necesite.
 
 ## <a name="single-databases-and-elastic-pools"></a>Bases de datos únicas y grupos elásticos
 

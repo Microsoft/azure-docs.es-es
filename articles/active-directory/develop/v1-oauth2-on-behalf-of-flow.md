@@ -4,7 +4,7 @@ description: En este artículo se describe cómo usar los mensajes HTTP para imp
 services: active-directory
 documentationcenter: .net
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f8ec8a6833446663d7f142deefd595eed13136
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a2983980786fc706d103c0147a0776f2ff8c2d4f
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250873"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545470"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Llamadas entre servicios que usan la identidad de usuarios delegada en el flujo de On-Behalf-Of
 
@@ -114,7 +114,7 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | Aserción |requerido | Valor del token de acceso usado en la solicitud. |
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro. |
-| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| Recurso |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
 
@@ -149,7 +149,7 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_assertion_type |requerido |El valor debe ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |requerido | Debe crear una instancia de JSON Web Token y firmar con el certificado que ha registrado como credenciales de la aplicación. Consulte el artículo acerca de las [credenciales de certificado](active-directory-certificate-credentials.md) para obtener información sobre el formato de la aserción y de cómo registrar el certificado.|
-| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| Recurso |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | ámbito |requerido | Lista de ámbitos separados por un espacio para la solicitud de token. Para OpenID Connect, el ámbito **openid** debe especificarse.|
 
@@ -186,7 +186,7 @@ Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros
 | ámbito |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
-| resource |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
+| Recurso |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
 | access_token |El token de acceso solicitado. El servicio de llamada puede usar este token para autenticarse en el servicio de recepción. |
 | ID_token |Token de identificador solicitado. El servicio de llamada puede usar este token para verificar la identidad del usuario y comenzar una sesión con el usuario. |
 | refresh_token |Token de actualización para el token de acceso solicitado. El servicio de llamada puede usar este token para solicitar otro token de acceso después de que expire el token de acceso actual. |
@@ -258,7 +258,7 @@ Una solicitud de servicio a servicio para una aserción SAML contiene los siguie
 | Aserción |requerido | Valor del token de acceso usado en la solicitud.|
 | client_id |requerido | Identificador de aplicación asignado al servicio de llamada durante el registro con Azure AD. Para buscar el identificador de la aplicación en Azure Portal, seleccione **Active Directory**, elija el directorio y, por último, seleccione el nombre de la aplicación. |
 | client_secret |requerido | La clave registrada para el servicio de llamada de Azure AD. Este valor debe haberse anotado en el momento del registro. |
-| resource |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Este es el recurso que será la audiencia del token SAML. Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
+| Recurso |requerido | URI del identificador de la aplicación del servicio de recepción (recurso seguro). Este es el recurso que será la audiencia del token SAML. Para buscar el URI del identificador de la aplicación en Azure Portal, seleccione **Active Directory** y elija el directorio. Seleccione el nombre de la aplicación, elija **Todas las opciones** y, después, seleccione **Propiedades**. |
 | requested_token_use |requerido | Especifica cómo se debe procesar la solicitud. En el "flujo en nombre de", el valor debe ser **on_behalf_of**. |
 | requested_token_type | requerido | Especifica el tipo de token solicitado. El valor puede ser **urn:ietf:params:oauth:token-type:saml2** o **urn:ietf:params:oauth:token-type:saml1**, en función de los requisitos del recurso al que se accede. |
 
@@ -277,7 +277,7 @@ La respuesta contiene un token SAML codificado con UTF8 y Base64url.
 | ámbito |Ámbito de acceso concedido en el token. |
 | expires_in |Período de validez del token de acceso (en segundos). |
 | expires_on |La hora a la que expira el token de acceso. La fecha se representa como el número de segundos desde 1970-01-01T0:0:0Z UTC hasta la fecha de expiración. Este valor se utiliza para determinar la duración de los tokens almacenados en caché. |
-| resource |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
+| Recurso |URI del identificador de la aplicación del servicio de recepción (recurso seguro). |
 | access_token |Parámetro que devuelve la aserción de SAML. |
 | refresh_token |El token de actualización. El servicio de llamada puede usar este token para solicitar otro token de acceso después de que expire la aserción SAML actual. |
 

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 05/10/2019
 ms.author: raynew
-ms.openlocfilehash: 8be028d11d0778c2b67788029aa400ffd3b98cb4
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 2d1999077f6315658dbfd69473ddf5561bd76e0b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64872917"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540588"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en Azure.
 
@@ -33,7 +33,7 @@ Recuperación ante desastres de servidores físicos | Replicación de servidores
 **Servidor** | **Requisitos** | **Detalles**
 --- | --- | ---
 VMware | vCenter Server 6.7, 6.5, 6.0 o 5.5, o vSphere 6.7, 6.5, 6.0 o 5.5 | Se recomienda usar vCenter Server.<br/><br/> Se recomienda que los hosts de vSphere y los servidores vCenter se encuentren en la misma red que el servidor de procesos. De forma predeterminada, los componentes del servidor de procesos se ejecutan en el servidor de configuración, por lo esta será la red en la que se configurará el servidor de configuración, a menos que elija un servidor de procesos especializado.
-Física | N/D
+Físico | N/D
 
 ## <a name="site-recovery-configuration-server"></a>Servidor de configuración de Site Recovery
 
@@ -64,7 +64,7 @@ Site Recovery admite la replicación de cualquier carga de trabajo que se ejecut
 --- | ---
 Configuración del equipo | Las máquinas que se replican en Azure deben cumplir con los [requisitos de Azure](#azure-vm-requirements).
 Carga de trabajo del equipo | Site Recovery admite la replicación de cualquier carga de trabajo (por ejemplo, Active Directory, SQL Server, etc.) que se ejecute en una máquina compatible. [Más información](https://aka.ms/asr_workload).
-Sistema operativo Windows | Windows Server 2016 de 64 bits (Server Core, Server con Experiencia de escritorio), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con al menos SP1. </br></br>  [Windows Server 2008 con al menos SP2: 32 y 64 bits](migrate-tutorial-windows-server-2008.md) (solo en la migración). </br></br> No se admite Windows 2016 Nano Server.
+Sistema operativo Windows | Windows Server 2019 (desde [9.22 versiones](service-updates-how-to.md#links-to-currently-supported-update-rollups)), 64-bit Windows Server 2016 (Server Core, Server con experiencia de escritorio), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 con al menos SP1. </br> Desde, [9.24 versiones](https://support.microsoft.com/en-in/help/4503156), 64 bits de Windows 10, Windows 8.1 de 64 bits, 64-bit Windows 8, 64-bit Windows 7 (no se admite la RTM de Windows 7)</br>  [Windows Server 2008 con al menos SP2: 32 y 64 bits](migrate-tutorial-windows-server-2008.md) (solo en la migración). </br></br> No se admite Windows 2016 Nano Server.
 Arquitectura del sistema operativo Linux | Sistema de 64 bits solo se admite. no se admite el sistema de 32 bits
 Sistema operativo Linux | Red Hat Enterprise Linux: Desde 5.2 hasta 5.11<b>\*\*</b>, desde 6.1 hasta 6.10<b>\*\*</b> y desde 7.0 hasta 7.6 <br/><br/>CentOS: Desde 5.2 hasta 5.11<b>\*\*</b>, desde 6.1 hasta 6.10<b>\*\*</b> y desde 7.0 hasta 7.6 <br/><br/>Servidor Ubuntu 14.04 LTS [(versiones de kernel admitidas)](#ubuntu-kernel-versions)<br/><br/>Servidor Ubuntu 16.04 LTS [(versiones de kernel admitidas)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8 [(versiones de kernel admitidas)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(versiones de kernel admitidas)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6 ejecuta el kernel compatible Red Hat o Unbreakable Enterprise Kernel Release 3, en 4 y 5 (UEK5 UEK3, que es UEK4) <br/><br/></br>- No se admite la actualización de máquinas replicadas de SUSE Linux Enterprise Server 11 SP3 a SP4. Para actualizar, deshabilite la replicación y habilítela de nuevo después de la actualización.</br></br> - [Obtenga más información](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) sobre la compatibilidad con Linux y la tecnología de código abierto en Azure. Site Recovery organiza la conmutación por error para ejecutar servidores Linux en Azure. Sin embargo, los proveedores de Linux podrían limitar la compatibilidad a solo las versiones de distribución que no hayan alcanzado el final del ciclo de vida.<br/><br/> - En las distribuciones de Linux, solo se admiten kernels de stock que forman parte del lanzamiento o la actualización de la versión secundaria de la distribución.<br/><br/> - La actualización de máquinas protegidas entre distribuciones de versiones principales de Linux no se admite. Para actualizar, deshabilite la replicación, actualice el sistema operativo y, a continuación, habilite la replicación de nuevo.<br/><br/> - Los servidores con Red Hat Enterprise Linux 5.2-5.11 o CentOS 5.2-5.11 deben tener los [componentes de Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) instalados para que las máquinas puedan iniciar Azure.
 
@@ -157,41 +157,42 @@ Dirección IP reservada | Sí
 IPv4 | Sí
 Conservar la dirección IP de origen | Sí
 Punto de conexión de servicio de red virtual de Azure<br/> | Sí
-Redes aceleradas | Sin 
+Redes aceleradas | No
 
 ## <a name="storage"></a>Almacenamiento
 **Componente** | **Compatible**
 --- | ---
 Disco dinámico | El disco del sistema operativo debe ser un disco básico. <br/><br/>Los discos de datos pueden ser discos dinámicos.
-Configuración del disco de Docker | Sin 
+Configuración del disco de Docker | No
 NFS de host | Sí para VMware<br/><br/> No para servidores físicos
 SAN de host (ISCSI/FC) | Sí
 vSAN de host | Sí para VMware<br/><br/> N/D para servidores físicos
 Varias rutas de host (MPIO) | Sí, probado con DSM de Microsoft, EMC PowerPath 5.7 SP4, EMC PowerPath DSM para CLARiiON.
 Hospedaje de volúmenes virtuales (VVols) | Sí para VMware<br/><br/> N/D para servidores físicos
 VMDK de invitado/servidor | Sí
-Disco de clúster compartido de invitado/servidor | Sin 
-Disco cifrado de invitado/servidor | Sin 
-NFS de invitado/servidor | Sin 
-SMB 3.0 de invitado/servidor | Sin 
+Disco de clúster compartido de invitado/servidor | No
+Disco cifrado de invitado/servidor | No
+NFS de invitado/servidor | No
+Invitado/servidor iSCSI | No
+SMB 3.0 de invitado/servidor | No
 RDM de invitado/servidor | Sí<br/><br/> N/D para servidores físicos
 Disco de invitado/servidor > 1 TB | Sí<br/><br/>Hasta 4095 GB<br/><br/> El disco debe ser de un tamaño superior a 1024 MB.
 Disco de invitado/servidor con tamaño de sector físico de 4K y lógico de 4K | Sí
 Disco de invitado/servidor con tamaño de sector físico de 512 bytes y lógico de 4K | Sí
 Volumen de invitado/servidor con disco seccionado > 4 TB <br/><br/>Administración de volúmenes lógicos (LVM)| Sí
-Invitado/servidor: espacios de almacenamiento | Sin 
-Invitado/servidor: adición/eliminación de disco en caliente | Sin 
+Invitado/servidor: espacios de almacenamiento | No
+Invitado/servidor: adición/eliminación de disco en caliente | No
 Invitado/servidor: disco de exclusión | Sí
-Varias rutas (MPIO) de invitado/servidor | Sin 
+Varias rutas (MPIO) de invitado/servidor | No
 Arranque EFI/UEFI de invitado/servidor | Se admite al migrar máquinas virtuales de VMware o servidores físicos que ejecutan Windows Server 2012 o posterior para Azure.<br/><br/> Solo puede replicar máquinas virtuales para la migración. No se admite la conmutación por recuperación en el entorno local.<br/><br/> El servidor no debe tener más de cuatro particiones en el disco del sistema operativo.<br/><br/> Requiere la versión de Mobility Service 9.13 o una posterior.<br/><br/> Solo se admite NTFS.
 
 ## <a name="replication-channels"></a>Canales de replicación
 
 |**Tipo de replicación**   |**Compatible**  |
 |---------|---------|
-|Transferencias de datos descargados (ODX)    |       Sin   |
-|Propagación sin conexión        |   Sin       |
-| Azure Data Box | Sin 
+|Transferencias de datos descargados (ODX)    |       No  |
+|Propagación sin conexión        |   No      |
+| Azure Data Box | No
 
 
 ## <a name="azure-storage"></a>Almacenamiento de Azure
@@ -201,21 +202,21 @@ Arranque EFI/UEFI de invitado/servidor | Se admite al migrar máquinas virtuales
 Almacenamiento con redundancia local | Sí
 Almacenamiento con redundancia geográfica | Sí
 Almacenamiento con redundancia geográfica con acceso de lectura | Sí
-Almacenamiento de acceso esporádico | Sin 
-Almacenamiento de acceso frecuente| Sin 
-Blobs en bloques | Sin 
+Almacenamiento de acceso esporádico | No
+Almacenamiento de acceso frecuente| No
+Blobs en bloques | No
 Cifrado en reposo (Cifrado del servicio Storage)| Sí
 Premium Storage | Sí
-Servicio Import/Export | Sin 
+Servicio Import/Export | No
 Los firewalls de Azure Storage para redes virtuales se configuran en la cuenta de almacenamiento o la cuenta de almacenamiento en caché de destino (se usa para almacenar datos de replicación) | Sí
-Cuentas de almacenamiento de uso general v2 (niveles de acceso frecuente y esporádico) | Sin 
+Cuentas de almacenamiento de uso general v2 (niveles de acceso frecuente y esporádico) | No
 
 ## <a name="azure-compute"></a>Azure Compute
 
 **Característica** | **Compatible**
 --- | ---
 Conjuntos de disponibilidad | Sí
-Zonas de disponibilidad | Sin 
+Zonas de disponibilidad | No
 CONCENTRADOR | Sí
 Discos administrados | Sí
 
@@ -231,11 +232,11 @@ Tamaño del disco del sistema operativo | Hasta 2048 GB | Se produce un error en
 Número de discos del sistema operativo | 1 | Se produce un error en la comprobación si no es compatible.
 Número de discos de datos | 64 o menos | Se produce un error en la comprobación si no es compatible.
 Tamaño del disco de datos | Hasta 4095 GB | Se produce un error en la comprobación si no es compatible.
-Adaptadores de red | Se admiten varios adaptadores. |
+Adaptador de red | Se admiten varios adaptadores. |
 VHD compartido | No compatible. | Se produce un error en la comprobación si no es compatible.
 Disco FC | No compatible. | Se produce un error en la comprobación si no es compatible.
 BitLocker | No compatible. | Debe deshabilitar BitLocker antes de habilitar la replicación de una máquina. |
-Nombre de la máquina virtual | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
+Nombre de VM | Entre 1 y 63 caracteres.<br/><br/> Restringido a letras, números y guiones.<br/><br/> El nombre de la máquina debe empezar y terminar con una letra o un número. |  Actualice el valor de las propiedades de la máquina en Site Recovery.
 
 ## <a name="azure-site-recovery-churn-limits"></a>Límites de la actividad de Azure Site Recovery
 
@@ -262,8 +263,8 @@ Estos son los números promedio si la superposición de E/S es del 30 %. Site Re
 
 **Acción** | **Compatible**
 --- | ---
-Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | Sin 
-Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | Sin 
+Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | No
+Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | No
 
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Descargar los componentes más recientes de Azure Site Recovery
@@ -271,8 +272,8 @@ Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos 
 **Nombre** | **Descripción** | **Instrucciones de descarga de la versión más reciente**
 --- | --- | ---
 Servidor de configuración | Coordina las comunicaciones entre servidores de VMware locales y Azure  <br/><br/>  Se instala en servidores de VMware locales | Para obtener más información, visite nuestra orientación sobre [instalación nueva](vmware-azure-deploy-configuration-server.md) y [actualización de un componente existente a la versión más reciente](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-Servidor de proceso|Se instala de forma predeterminada en el servidor de configuración. Recibe los datos de la replicación; los optimiza mediante almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage. A medida que crece la implementación, puede agregar más servidores de procesos independientes para controlar mayores volúmenes de tráfico de replicación.| Para obtener más información, visite nuestra orientación sobre [instalación nueva](vmware-azure-set-up-process-server-scale.md) y [actualización de un componente existente a la versión más reciente](vmware-azure-manage-process-server.md#upgrade-a-process-server).
-Mobility Service | Coordina la replicación entre servidores de VMware locales o servidores físicos y el sitio secundario o Azure<br/><br/> Se instala en cada máquina virtual de VMware o servidor físico que se va a replicar | Para obtener más información, visite nuestra orientación sobre [instalación nueva](vmware-azure-install-mobility-service.md) y [actualización de un componente existente a la versión más reciente](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
+Servidor de procesos|Se instala de forma predeterminada en el servidor de configuración. Recibe los datos de la replicación; los optimiza mediante almacenamiento en caché, compresión y cifrado, y los envía a Azure Storage. A medida que crece la implementación, puede agregar más servidores de procesos independientes para controlar mayores volúmenes de tráfico de replicación.| Para obtener más información, visite nuestra orientación sobre [instalación nueva](vmware-azure-set-up-process-server-scale.md) y [actualización de un componente existente a la versión más reciente](vmware-azure-manage-process-server.md#upgrade-a-process-server).
+Servicio de Movilidad | Coordina la replicación entre servidores de VMware locales o servidores físicos y el sitio secundario o Azure<br/><br/> Se instala en cada máquina virtual de VMware o servidor físico que se va a replicar | Para obtener más información, visite nuestra orientación sobre [instalación nueva](vmware-azure-install-mobility-service.md) y [actualización de un componente existente a la versión más reciente](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal).
 
 Para obtener más información acerca de las características más recientes, visite [notas de la versión más reciente](https://aka.ms/ASR_latest_release_notes).
 

@@ -12,12 +12,12 @@ ms.author: arib
 ms.reviewer: vanto
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 15d195361b9fe8523ae6e46ba035ca5927c4d242
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 3efdf5c256a22529c9d19e9ae1dce5d2db9516a5
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64924760"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65827770"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introducción a la auditoría de bases de datos SQL
 
@@ -34,7 +34,7 @@ La auditoría de Azure [SQL Database](sql-database-technical-overview.md) y [SQL
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 
-## <a id="subheading-1"></a>Información general de auditoría de base de datos SQL de Azure
+## <a id="subheading-1"></a>Información general sobre auditoría en Azure SQL Database
 
 Puede usar la auditoría de base de datos SQL para:
 
@@ -96,7 +96,7 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 
 6. Para configurar la escritura de registros de auditoría en una cuenta de almacenamiento, seleccione **Almacenamiento** y abra **Detalles de almacenamiento**. Seleccione la cuenta de almacenamiento de Azure donde se guardarán los registros y, después, seleccione el período de retención. Se eliminarán los registros antiguos. A continuación, haga clic en **Aceptar**.
 
-    ![Cuenta de almacenamiento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![cuenta de almacenamiento](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Para configurar la escritura de registros de auditoría en un área de trabajo de Log Analytics, seleccione **Log Analytics (versión preliminar)** y abra **Detalles de Log Analytics**. Seleccione o cree el área de trabajo de Log Analytics donde se escribirán los registros y, luego, haga clic en **Aceptar**.
 
@@ -110,10 +110,11 @@ En la sección siguiente se describe la configuración de auditoría mediante Az
 10. Si quiere personalizar los eventos auditados, puede hacerlo a través de los [cmdlets de PowerShell](#subheading-7) o de la [API de REST](#subheading-9).
 11. Después de configurar los valores de auditoría, puede activar la nueva característica de detección de amenazas y configurar los mensajes de correo para recibir alertas de seguridad. Cuando se usa la detección de amenazas, se reciben alertas proactivas sobre actividades anómalas de la base de datos que pueden indicar posibles amenazas de seguridad. Para más información, vea [Introducción a la detección de amenazas](sql-database-threat-detection-get-started.md).
 
-
 > [!IMPORTANT]
->Si habilita la auditoría en una instancia de Azure SQL Data Warehouse, o en un servidor que tenga una instancia de este, **hará que esta instancia se reanude** incluso en el caso de que estuviera anteriormente en pausa. **Asegúrese de poner en pausa el almacenamiento de datos después de volver a habilitar la auditoría**.
+> No es posible habilitar la auditoría en Azure SQL Data Warehouse en pausa. Para habilitarla, finaliza la pausa del almacenamiento de datos.
 
+> [!WARNING]
+> Habilitar la auditoría en un servidor que tenga una Azure SQL Data Warehouse en él **dará como resultado en el almacén de datos que se reanude y volver a en pausa nuevo** que incurran en cargos de facturación.
 
 ## <a id="subheading-3"></a>Análisis de registros e informes de auditoría
 

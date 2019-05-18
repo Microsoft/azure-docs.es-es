@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Bing News Search API'
 titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas naturales, países y regiones admitidos por Bing News Search API.
 services: cognitive-services
-author: MikeDodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
-ms.author: v-gedod
-ms.openlocfilehash: f94ebb9b46ade0c03f65fdeb78bc7be96794a3d2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: e8a7f6d20ed36c4b3e900602fb52e31dceefae88
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60201421"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799331"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Compatibilidad de idiomas y regiones para Bing News Search API
 
@@ -31,44 +31,44 @@ En la tabla siguiente se listan los valores de código de mercado para el punto 
 
 Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
 
-|País/región|Idioma|Código de mercado|  
+|País o región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Danés|da-DK|
 |Austria|Alemán|de-AT|
 |Suiza|Alemán|de-CH|
 |Alemania|Alemán|de-DE|
-|Australia|English|en-AU|
-|Canadá|English|en-CA|
-|Reino Unido|English|en-GB|
-|Indonesia|English|en-ID|
-|Irlanda|English|en-IE|
-|India|English|en-IN|
-|Malasia|English|en-MY|
-|Nueva Zelanda|English|en-NZ|
-|República de Filipinas|English|en-PH|
-|Singapur|English|en-SG|
-|Estados Unidos|English|en-US|
-|English|general|en-WW|
-|English|general|en-XA|
-|Sudáfrica|English|en-ZA|
+|Australia|Inglés|en-AU|
+|Canadá|Inglés|en-CA|
+|Reino Unido|Inglés|en-GB|
+|Indonesia|Inglés|en-ID|
+|Irlanda|Inglés|en-IE|
+|India|Inglés|en-IN|
+|Malasia|Inglés|en-MY|
+|Nueva Zelanda|Inglés|en-NZ|
+|República de Filipinas|Inglés|en-PH|
+|Singapur|Inglés|en-SG|
+|Estados Unidos|Inglés|es-ES|
+|Inglés|general|en-WW|
+|Inglés|general|en-XA|
+|Sudáfrica|Inglés|en-ZA|
 |Argentina|Español|es-AR|
 |Chile|Español|es-CL|
 |España|Español|es-ES|
 |México|Español|es-MX|
 |Estados Unidos|Español|es-US|
 |Español|general|es-XL|
-|Finlandia|Finés|fi-FI|  
+|Finlandia|Finlandés|fi-FI|  
 |Francia|Francés|fr-BE|
 |Canadá|Francés|fr-CA|
-|Bélgica|Neerlandés|nl-BE|
+|Bélgica|Holandés|nl-BE|
 |Suiza|Francés|fr-CH|
 |Francia|Francés|fr-FR|  
 |Italia|Italiano|it-IT|
-|RAE de Hong Kong|Chino tradicional|zh-HK|  
+|Hong Kong RAE|Chino tradicional|zh-HK|  
 |Taiwán|Chino tradicional|zh-TW|
 |Japón|Japonés|ja-JP|  
 |Corea|Coreano|ko-KR|  
-|Países Bajos|Neerlandés|nl-NL|  
+|Países bajos|Holandés|nl-NL|  
 |República Popular China|Chino|zh-CN|  
 |Brasil|Portugués|pt-BR|
 |Rusia|Ruso|ru-RU|  
@@ -80,18 +80,18 @@ En la tabla siguiente se listan los valores de código de mercado para el punto 
 
 Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
 
-|País/región|Idioma|Código de mercado|  
+|País o región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Dinamarca|Danés|da-DK|
 |Alemania|Alemán|de-DE|
-|Australia|English|en-AU|
-|Reino Unido|English|en-GB|
-|Estados Unidos|English|en-US|
-|English|general|en-WW|
+|Australia|Inglés|en-AU|
+|Reino Unido|Inglés|en-GB|
+|Estados Unidos|Inglés|es-ES|
+|Inglés|general|en-WW|
 |Chile|Español|es-CL|
 |México|Español|es-MX|
 |Estados Unidos|Español|es-US|
-|Finlandia|Finés|fi-FI|  
+|Finlandia|Finlandés|fi-FI|  
 |Canadá|Francés|fr-CA|
 |Francia|Francés|fr-FR|  
 |Italia|Italiano|it-IT|
@@ -103,14 +103,14 @@ En la tabla siguiente se listan los valores de código de mercado para el punto 
 
 Para obtener una lista de códigos de país que puede especificar en el parámetro de consulta `cc`, consulte [Códigos de país](#countrycodes).  
 
-|País/región|Idioma|Código de mercado|  
+|País o región|Idioma|Código de mercado|  
 |---------------------|--------------|-----------------|
 |Alemania|Alemán|de-DE|
-|Australia|English|en-AU|
-|Reino Unido|English|en-GB|
-|Estados Unidos|English|en-US|
-|Canadá|English|en-CA|
-|India|English|en-IN|
+|Australia|Inglés|en-AU|
+|Reino Unido|Inglés|en-GB|
+|Estados Unidos|Inglés|es-ES|
+|Canadá|Inglés|en-CA|
+|India|Inglés|en-IN|
 |Francia|Francés|fr-FR|
 |Canadá|Francés|fr-CA|
 |Brasil|Portugués|pt-BR|
@@ -118,7 +118,7 @@ Para obtener una lista de códigos de país que puede especificar en el parámet
 
 
 <a name="countrycodes"></a>   
-### <a name="country-codes"></a>Códigos de país  
+### <a name="country-codes"></a>Códigos de países  
 
 Los códigos de país o región siguientes se pueden especificar en el parámetro de consulta `cc`. La lista está sujeta a cambios.  
 
@@ -133,9 +133,9 @@ Los códigos de país o región siguientes se pueden especificar en el parámetr
 |Chile|CL|  
 |Dinamarca|DK|  
 |Finlandia|FI|  
-|Francia|VF|  
+|Francia|FR|  
 |Alemania|DE|  
-|RAE de Hong Kong|HK|  
+|Hong Kong RAE|HK|  
 |India|IN|  
 |Indonesia|ID|  
 |Italia|IT|  
@@ -143,7 +143,7 @@ Los códigos de país o región siguientes se pueden especificar en el parámetr
 |Corea|KR|  
 |Malasia|MY|  
 |México|MX|  
-|Países Bajos|NL|  
+|Países bajos|NL|  
 |Nueva Zelanda|NZ|  
 |Noruega|NO|  
 |República Popular China|CN|  

@@ -3,8 +3,8 @@ title: Plataforma de identidad de Microsoft y flujo de On-Behalf-Of OAuth2.0 | A
 description: En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo en nombre de OAuth 2.0.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 09f6f318-e88b-4024-9ee1-e7f09fb19a82
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: ce0c1c4dcf7e4ff0c82157af83aa15544cf092e2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60296897"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544745"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidad de Microsoft y flujo en nombre de OAuth 2.0
 
@@ -205,7 +205,7 @@ En este momento, el sistema de cuentas personales de Microsoft no admite el cons
 
 Una característica del portal de la aplicación es "aplicaciones preautorizadas". De este modo, un recurso puede indicar que una determinada aplicación siempre tiene permiso para recibir determinados ámbitos. Esto es principalmente útil para realizar conexiones más directas entre un cliente front-end y un recurso back-end. Un recurso puede declarar varias aplicaciones preautorizadas: cualquier aplicación puede solicitar estos permisos en un flujo OBO y recibirlos sin necesidad de que el usuario dé el consentimiento.
 
-#### <a name="admin-consent"></a>Consentimiento de administrador
+#### <a name="admin-consent"></a>Consentimiento del administrador
 
 Un administrador de inquilinos puede garantizar que las aplicaciones tienen permiso para llamar a las API necesarias al proporcionar el consentimiento del administrador para la aplicación de nivel intermedio. Para ello, el administrador puede encontrar la aplicación de nivel intermedio en su inquilino, abrir la página de los permisos necesarios y elegir la opción para dar permiso a la aplicación. Para más información sobre el consentimiento del administrador, vea la [documentación sobre consentimientos y permisos](v2-permissions-and-consent.md).
 

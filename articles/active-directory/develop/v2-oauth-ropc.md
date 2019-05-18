@@ -3,8 +3,8 @@ title: Plataforma de identidad de Microsoft de uso para iniciar sesión en los u
 description: Admita flujos de autenticación sin explorador mediante la concesión de credenciales de contraseña de propietario de recursos.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cfa28cae87c8a9a97e1c64b96f75ae4c6eab08d
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 04d2be76072866da2b21718f60fd0c9a5923b15b
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112296"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545107"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidad de Microsoft y las credenciales de contraseña de propietario de recurso de OAuth 2.0
 
@@ -70,7 +70,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type` | Obligatorio | Se debe establecer en `password`. |
 | `username` | Obligatorio | La dirección de correo electrónico del usuario. |
 | `password` | Obligatorio | La contraseña del usuario. |
-| `scope` | Recomendado | Una lista de [ámbitos](v2-permissions-and-consent.md) o permisos separada por espacios que requiere la aplicación. En un flujo interactivo, el administrador o el usuario debe dar su consentimiento a estos ámbitos antes de tiempo. |
+| `scope` | Recomendada | Una lista de [ámbitos](v2-permissions-and-consent.md) o permisos separada por espacios que requiere la aplicación. En un flujo interactivo, el administrador o el usuario debe dar su consentimiento a estos ámbitos antes de tiempo. |
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 
@@ -108,7 +108,7 @@ Si el usuario no ha proporcionado la contraseña o el nombre de usuario adecuado
 | `invalid_request` | La solicitud se construyó de manera inadecuada. | No se admite el tipo de concesión en el `/common` o `/consumers` contextos de autenticación.  En su lugar, use `/organizations`. |
 | `invalid_client` | La aplicación no está correctamente configurada | Esto puede ocurrir si el `allowPublicClient` propiedad no está establecida en true en el [manifiesto de aplicación](reference-app-manifest.md). La propiedad `allowPublicClient` es necesaria porque la concesión de ROPC no tiene un URI de redireccionamiento. Azure AD no puede determinar si la aplicación es una aplicación cliente pública o una aplicación cliente confidencial, a menos que se establezca esta propiedad. ROPC solo se admite para las aplicaciones de cliente público. |
 
-## <a name="learn-more"></a>Más información
+## <a name="learn-more"></a>Obtenga más información
 
 * Pruebe usted mismo ROPC con la [aplicación de consola de ejemplo](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
 * Para determinar si debe utilizar el punto de conexión v2.0, lea sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md).

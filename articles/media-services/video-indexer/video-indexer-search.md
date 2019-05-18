@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 07b3c806dc5df5f93bee3206cbca53485675e7dd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 93376059dac2a8336e581269d8289d893779b291
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560374"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799089"
 ---
 # <a name="find-exact-moments-within-videos"></a>Búsqueda de momentos exactos dentro de vídeos
 
@@ -49,7 +50,7 @@ En este tema se muestran las opciones de búsqueda que le permiten encontrar mom
 
 Cuando se encuentre el vídeo con el que desea trabajar, puede continuar procesando el vídeo, tal y como se describe en uno de estos temas: 
 
-- [Creación de información detallada de vídeo a partir de vídeos existentes](video-indexer-create-new.md)
+- [Utilice la información detallada de los vídeos](use-editor-create-project.md)
 - [Proceso de contenido con Video Indexer REST API](video-indexer-use-apis.md)
 - [Inserción de widgets visuales en la aplicación](video-indexer-embed-widgets.md)
 

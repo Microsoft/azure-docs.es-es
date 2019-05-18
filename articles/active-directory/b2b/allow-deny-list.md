@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f1121b72bf631cbcee4c8d9502fd8a439c26fbf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b302ec0265473e09b3960660b10661faa1960442
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357246"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812964"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>Permitir o bloquear invitaciones a usuarios B2B procedentes de determinadas organizaciones
 
@@ -44,7 +44,7 @@ Para agregar una lista de denegación:
 2. Seleccione **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
 3. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
 4. En **Restricciones de colaboración**, seleccione **Deny invitations to the specified domains** (Denegar invitaciones a los dominios especificados).
-5. En **DOMINIOS DE DESTINO**, escriba el nombre de uno de los dominios que quiere bloquear. Si hay varios dominios, especifique cada dominio en una nueva línea. Por ejemplo: 
+5. En **DOMINIOS DE DESTINO**, escriba el nombre de uno de los dominios que quiere bloquear. Si hay varios dominios, especifique cada dominio en una nueva línea. Por ejemplo:
 
    ![Muestra la opción de denegación con los dominios agregados](./media/allow-deny-list/DenyListSettings.png)
  
@@ -65,7 +65,7 @@ Para agregar una lista de permitidos:
 2. Seleccione **Azure Active Directory** > **Usuarios** > **Configuración de usuario**.
 3. En **Usuarios externos**, seleccione **Administrar la configuración de colaboración externa**.
 4. En **Restricciones de colaboración**, seleccione **Allow invitations only to the specified domains (most restrictive)** (Permitir invitaciones solo a los dominios especificados [más restrictivo]).
-5. En **DOMINIOS DE DESTINO**, escriba el nombre de uno de los dominios que quiere permitir. Si hay varios dominios, especifique cada dominio en una nueva línea. Por ejemplo: 
+5. En **DOMINIOS DE DESTINO**, escriba el nombre de uno de los dominios que quiere permitir. Si hay varios dominios, especifique cada dominio en una nueva línea. Por ejemplo:
 
    ![Muestra la opción de permitir con los dominios agregados](./media/allow-deny-list/AllowListSettings.png)
  
@@ -136,19 +136,19 @@ A continuación se muestra el mismo ejemplo, pero con la definición de directiv
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-Para establecer la directiva de lista de permitidos o de denegación, use el cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo: 
+Para establecer la directiva de lista de permitidos o de denegación, use el cmdlet [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo:
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-Para obtener la directiva, use el cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo: 
+Para obtener la directiva, use el cmdlet [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo:
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-Para quitar la directiva, use el cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo: 
+Para quitar la directiva, use el cmdlet [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview). Por ejemplo:
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

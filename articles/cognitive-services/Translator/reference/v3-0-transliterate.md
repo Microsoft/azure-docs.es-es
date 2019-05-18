@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4811e40f87962ecde75c7b2bb14e1d033e82ad44
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cd7fee34f020f16d1511bc57b4ad86dbd5eb168d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605103"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796951"
 ---
 # <a name="translator-text-api-30-transliterate"></a>Translator Text API 3.0: Transliterar
 
@@ -57,7 +57,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
 Los encabezados de solicitud incluyen lo siguiente:
 
 <table width="100%">
-  <th width="20%">encabezados</th>
+  <th width="20%">Encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>Encabezados de autenticación</td>
@@ -114,7 +114,7 @@ Un ejemplo de respuesta JSON es:
 ## <a name="response-headers"></a>Encabezados de respuesta
 
 <table width="100%">
-  <th width="20%">encabezados</th>
+  <th width="20%">Encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>X-RequestId</td>
@@ -131,7 +131,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   <th>DESCRIPCIÓN</th>
   <tr>
     <td>200</td>
-    <td>Correcta.</td>
+    <td>Correcto.</td>
   </tr>
   <tr>
     <td>400</td>
@@ -147,7 +147,7 @@ A continuación se indican los códigos de estado HTTP posibles que devuelve una
   </tr>
   <tr>
     <td>429</td>
-    <td>El autor de la llamada está enviando demasiadas solicitudes.</td>
+    <td>El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.</td>
   </tr>
   <tr>
     <td>500</td>

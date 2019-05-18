@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 0eed874d405fcf99241a702292f8ceadae6c5a07
-ms.sourcegitcommit: 1d257ad14ab837dd13145a6908bc0ed7af7f50a2
+ms.openlocfilehash: 2ad81ae97414abbf3266cc5728febf9abe836151
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65502028"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522963"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatizar la adición de un usuario de laboratorio a un laboratorio en Azure DevTest Labs
 Azure DevTest Labs le permite crear rápidamente entornos de desarrollo y pruebas de autoservicio mediante el portal de Azure. Sin embargo, si tiene varios equipos y varias instancias de DevTest Labs, automatizar el proceso de creación puede ahorrar tiempo. [Las plantillas de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) le permiten crear laboratorios, máquinas virtuales de laboratorio, imágenes personalizadas, fórmulas y agregar usuarios de forma automática. En este artículo se centra específicamente en Agregar usuarios a una instancia de DevTest Labs.
@@ -85,7 +85,7 @@ La siguiente plantilla de Resource Manager de ejemplo especifica un usuario que 
 
 ```
 
-Si va a asignar el rol en la misma plantilla que está creando el laboratorio, no olvide agregar una dependencia entre el recurso de la asignación de rol y el laboratorio. Para obtener más información, consulte [definición de dependencias en plantillas de Azure Resource Manager](/azure-resource-manager/resource-group-define-dependencies.md) artículo.
+Si va a asignar el rol en la misma plantilla que está creando el laboratorio, no olvide agregar una dependencia entre el recurso de la asignación de rol y el laboratorio. Para obtener más información, consulte [definición de dependencias en plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-define-dependencies.md) artículo.
 
 ### <a name="role-assignment-resource-information"></a>Información de recursos de asignación de roles
 El recurso de la asignación de rol debe especificar el tipo y nombre.

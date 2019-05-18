@@ -187,6 +187,8 @@
               href: delete-vault.md
     - name: Recuperación ante desastres de VMware a Azure
       items:
+        - name: Configuración de la recuperación ante desastres a escala
+          href: vmware-physical-large-deployment.md
         - name: Configuración de las redes
           items:
             - name: Administración de interfaces de red para la replicación desde un sitio local en Azure
@@ -269,6 +271,8 @@
               href: delete-vault.md
     - name: Física a Azure Disaster Recovery
       items:
+        - name: Configuración de la recuperación ante desastres a escala
+          href: vmware-physical-large-deployment.md
         - name: Configuración de las redes
           items:
             - name: Administración de interfaces de red para la replicación desde un sitio local en Azure

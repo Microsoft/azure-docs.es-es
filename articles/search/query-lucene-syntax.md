@@ -4,7 +4,7 @@ description: Referencia de la sintaxis completa de Lucene, como se usa con Azure
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/13/2019
 author: brjohnstmsft
 ms.author: brjohnst
 ms.manager: cgronlun
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: b37961f96aca95c0aeaec511411a309d40e990f5
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: b051f844b8c221e2e53c5fcf204878f80447cfe8
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024217"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596550"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxis de consulta de Lucene en Azure Search
 Puede escribir consultas en Azure Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formularios de consulta especializados, por ejemplo, carácter comodín, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen en Azure Search mediante expresiones `$filter`. 
@@ -121,16 +121,19 @@ El uso de `searchMode=all` aumenta la precisión de las consultas al incluirse m
 ##  <a name="bkmk_searchscoreforwildcardandregexqueries"></a> Puntuación de consultas de caracteres comodín y expresiones regulares
  Azure Search usa la puntuación basada en la frecuencia ([TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf)) para las consultas de texto. Sin embargo, para consultas con caracteres comodín y expresiones regulares donde el ámbito de los términos puede ser posiblemente amplio, se omite el factor de frecuencia para evitar que la clasificación se desvíe hacia las coincidencias de términos menos frecuentes. Todas las coincidencias se tratan por igual en las búsquedas con caracteres comodín y expresiones regulares.
 
-##  <a name="bkmk_fields"></a> Consultas con ámbito de campo  
- Puede especificar una construcción `fieldname:searchterm` para definir una operación de consulta clasificada por campos, donde el campo es una sola palabra y el término de búsqueda también es una sola palabra o frase, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
+##  <a name="bkmk_fields"></a> Clasificada por campos de búsqueda  
+Puede definir una operación de búsqueda clasificada por campos con el `fieldName:searchExpression` sintaxis, donde la expresión de búsqueda puede ser una sola palabra o una frase o una expresión más compleja entre paréntesis, opcionalmente con operadores booleanos. Estos son algunos ejemplos:  
 
 - genre:jazz NOT history  
 
 - artists:("Miles Davis" "John Coltrane")
 
-  Asegúrese de colocar varias cadenas entre comillas si quiere que las dos cadenas se evalúen como una sola entidad, como en este caso donde se buscan dos ciudades distintas en el campo `artists`.  
+Asegúrese de colocar varias cadenas entre comillas si quiere que las dos cadenas se evalúen como una sola entidad, como en este caso donde se buscan dos ciudades distintas en el campo `artists`.  
 
-  El campo especificado en `fieldname:searchterm` debe ser un campo `searchable`.  Consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
+El campo especificado en `fieldName:searchExpression` debe ser un campo `searchable`.  Consulte [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Crear índice) para más información sobre cómo se usan los atributos de índice en las definiciones de campo.  
+
+> [!NOTE]
+> Al usar responderán a las expresiones de búsqueda, no es necesario usar el `searchFields` parámetro porque cada responderán expresión de búsqueda tiene un nombre de campo especificado explícitamente. Sin embargo, todavía puede usar el `searchFields` parámetro si desea ejecutar una consulta donde algunas partes se limitan a un campo específico y el resto se podría aplicar a varios campos. Por ejemplo, la consulta `search=genre:jazz NOT history&searchFields=description` coincidiría con `jazz` únicamente a la `genre` campo mientras coincidiría con `NOT history` con el `description` campo. El nombre de campo proporcionado en `fieldName:searchExpression` siempre tiene prioridad sobre la `searchFields` parámetro, que es por eso que en este ejemplo, no es necesario incluir `genre` en el `searchFields` parámetro.
 
 ##  <a name="bkmk_fuzzy"></a> Búsqueda aproximada  
  Una búsqueda aproximada busca coincidencias en términos que tienen una construcción similar. Según la [documentación de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html), las búsquedas aproximadas se basan en la [distancia Levenshtein-Damerau](https://en.wikipedia.org/wiki/Damerau%E2%80%93Levenshtein_distance). Las búsquedas aproximadas pueden expandir un término hasta un máximo de 50 términos que satisfagan los criterios de distancia. 

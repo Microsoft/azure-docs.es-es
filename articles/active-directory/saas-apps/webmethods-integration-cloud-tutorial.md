@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con webMethods Integration Cloud | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y webMethods Integration Cloud.
+title: 'Tutorial: Integración de Azure Active Directory con webMethods Integration Suite | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y webMethods Integration Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 11021562cd34f31564e6b4c22fcd64aac25d3469
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8dead16c60a26e2fc53953ed65337195c3b2aa67
+ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862070"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65470805"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-cloud"></a>Tutorial: Integración de Azure Active Directory con webMethods Integration Cloud
+# <a name="tutorial-azure-active-directory-integration-with-webmethods-integration-suite"></a>Tutorial: Integración de Azure Active Directory con webMethods Integration Suite
 
-En este tutorial, aprenderá a integrar webMethods Integration Cloud con Azure Active Directory (Azure AD).
-La integración de webMethods Integration Cloud con Azure AD ofrece las siguientes ventajas:
+En este tutorial, aprenderá a integrar webMethods Integration Suite con Azure Active Directory (Azure AD).
+La integración de webMethods Integration Suite con Azure AD ofrece las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a webMethods Integration Cloud.
-* Puede permitir que los usuarios inicien sesión automáticamente en webMethods Integration Cloud (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a webMethods Integration Suite.
+* Puede permitir que los usuarios inicien sesión automáticamente en webMethods Integration Suite (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -35,24 +35,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con webMethods Integration Cloud se necesitan los elementos siguientes:
+Para configurar la integración de Azure AD con webMethods Integration Suite se necesitan los elementos siguientes:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de evaluación de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-* Una suscripción habilitada para el inicio de sesión único en webMethods Integration Cloud
+* Una suscripción habilitada para el inicio de sesión único en webMethods Integration Suite
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* webMethods Integration Cloud admite el inicio de sesión único iniciado por **SP** e **IDP**.
+* webMethods Integration Suite admite el inicio de sesión único iniciado por **SP** e **IDP**
 
-* webMethods Integration Cloud admite el aprovisionamiento de usuarios **Just-In-Time**.
+* webMethods Integration Suite admite el aprovisionamiento de usuarios **Just-In-Time**
 
-## <a name="adding-webmethods-integration-cloud-from-the-gallery"></a>Incorporación de webMethods Integration Cloud desde la galería
+## <a name="adding-webmethods-integration-suite-from-the-gallery"></a>Incorporación de webMethods Integration Suite desde la galería
 
-Para configurar la integración de webMethods Integration Cloud en Azure AD, deberá agregar webMethods Integration Cloud desde la galería a la lista de aplicaciones SaaS administradas.
+Para configurar la integración de webMethods Integration Suite en Azure AD, es preciso agregar webMethods Integration Suite desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar webMethods Integration Cloud desde la galería, realice los pasos siguientes:**
+**Para agregar webMethods Integration Suite desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -66,31 +66,31 @@ Para configurar la integración de webMethods Integration Cloud en Azure AD, deb
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **webMethods Integration Cloud**, seleccione **webMethods Integration Cloud** en el panel de resultados y, luego, haga clic en **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **webMethods Integration Suite**, seleccione **webMethods Integration Suite** en el panel de resultados y haga clic en **Agregar** para agregar la aplicación.
 
-     ![webMethods Integration Cloud en la lista de resultados](common/search-new-app.png)
+     ![webMethods Integration Suite en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con webMethods Integration Cloud con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de webMethods Integration Cloud.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con webMethods Integration Suite con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de webMethods Integration Suite.
 
-Para configurar y probar el inicio de sesión único de Azure AD con webMethods Integration Cloud, es necesario completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con webMethods Integration Suite, es necesario completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de webMethods Integration Cloud](#configure-webmethods-integration-cloud-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único en webMethods Integration Suite](#configure-webmethods-integration-suite-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de webMethods Integration Cloud](#create-webmethods-integration-cloud-test-user)**: para tener un homólogo de Britta Simon en webMethods Integration Cloud que esté vinculado a la representación de ella en Azure AD.
+5. **[Creación de un usuario de prueba en webMethods Integration Suite](#create-webmethods-integration-suite-test-user)**: para tener un homólogo de Britta Simon en webMethods Integration Suite que esté vinculado a la representación de ella en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con webMethods Integration Cloud, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con webMethods Integration Suite, realice los pasos siguientes:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de aplicaciones de **webMethods Integration Cloud**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **webMethods Integration Suite**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -102,9 +102,9 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
+4. Para configurar **webMethods Integration Cloud**, en la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de webMethods Integration Cloud](common/idp-intiated.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de webMethods Integration Suite](common/idp-intiated.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
 
@@ -122,12 +122,12 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
     | `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse` |
     | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse` |
 
-5. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de webMethods Integration Cloud](common/metadata-upload-additional-signon.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de webMethods Integration Suite](common/metadata-upload-additional-signon.png)
 
-    En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-    
+    d. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+
     | |
     |--|
     | `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -135,13 +135,48 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
     | `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de webMethods Integration Cloud](https://empower.softwareag.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de webMethods Integration Suite](https://empower.softwareag.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+
+5. Para configurar **webMethods API Cloud**, en la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, siga estos pasos:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de webMethods Integration Suite](common/idp-intiated.png)
+
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
+
+    | |
+    |--|
+    | `<SUBDOMAIN>.webmethodscloud.com` |
+    | `<SUBDOMAIN>.webmethodscloud.eu` |
+    | `<SUBDOMAIN>.webmethodscloud.de` |
+
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón:
+
+    | |
+    |--|
+    | `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso` |
+    | `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso` |
+    | `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso` |
+
+    c. Haga clic en **Establecer direcciones URL adicionales** y siga este paso si desea configurar la aplicación en el modo iniciado por **SP**:
+
+    ![Información de dominio y direcciones URL de inicio de sesión único de webMethods Integration Suite](common/metadata-upload-additional-signon.png)
+
+    d. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+
+    | |
+    |--|
+    | `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+    | `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+    | `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de webMethods Integration Suite](https://empower.softwareag.com/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-7. En la sección **Set up webMethods Integration Cloud** (Configurar webMethods Integration Cloud), copie las siguientes direcciones URL según sus necesidades.
+7. En la sección **Set up webMethods Integration Suite** (Configurar webMethods Integration Suite), copie las direcciones URL adecuadas en función de sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -151,11 +186,11 @@ Para configurar el inicio de sesión único de Azure AD con webMethods Integrati
 
     c. URL de cierre de sesión
 
-### <a name="configure-webmethods-integration-cloud-single-sign-on"></a>Configuración del inicio de sesión único en webMethods Integration Cloud
+### <a name="configure-webmethods-integration-suite-single-sign-on"></a>Configuración del inicio de sesión único en webMethods Integration Suite
 
-Para configurar el inicio de sesión único en **webMethods Integration Cloud**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de webMethods Integration Cloud](https://empower.softwareag.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **webMethods Integration Suite**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de webMethods Integration Suite](https://empower.softwareag.com/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
@@ -171,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-    a. En el campo **Nombre**, escriba **BrittaSimon**.
+     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
@@ -182,15 +217,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, concederá acceso a Britta Simon a webMethods Integration Cloud para que use el inicio de sesión único de Azure.
+En esta sección, concederá acceso a Britta Simon a webMethods Integration Suite para que use el inicio de sesión único de Azure.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **webMethods Integration Cloud**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **webMethods Integration Suite**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **webMethods Integration Cloud**.
+2. En la lista de aplicaciones, seleccione **webMethods Integration Suite**.
 
-    ![Vínculo de webMethods Integration Cloud en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo de webMethods Integration Suite en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -206,15 +241,15 @@ En esta sección, concederá acceso a Britta Simon a webMethods Integration Clou
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-webmethods-integration-cloud-test-user"></a>Creación de un usuario de prueba de webMethods Integration Cloud
+### <a name="create-webmethods-integration-suite-test-user"></a>Creación de un usuario de prueba en webMethods Integration Suite
 
-En esta sección, se crea un usuario llamado Britta Simon en webMethods Integration Cloud. webMethods Integration Cloud admite aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en webMethods Integration Cloud, se crea otro después de la autenticación.
+En esta sección, se crea un usuario llamado Britta Simon en webMethods Integration Suite. webMethods Integration Suite admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en webMethods Integration Suite, se crea después de la autenticación.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de webMethods Integration Cloud en el Panel de acceso, debería iniciar sesión automáticamente en la versión de webMethods Integration Cloud para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de webMethods Integration Suite en el Panel de acceso, debería iniciar sesión automáticamente en la versión de webMethods Integration Suite para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

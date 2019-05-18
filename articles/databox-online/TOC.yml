@@ -67,8 +67,10 @@
           href: data-box-edge-deploy-connect-setup-activate.md
         - name: '4: Adición, conexión a SharePoint'
           href: data-box-edge-deploy-add-shares.md
-        - name: '5: Configuración del proceso'
+        - name: '5A: Configuración del proceso (sencilla)'
           href: data-box-edge-deploy-configure-compute.md
+        - name: '5B: Configuración del proceso (avanzada)'
+          href: data-box-edge-deploy-configure-compute-advanced.md
     - name: Conceptos
       items:
         - name: Revisión de los requisitos

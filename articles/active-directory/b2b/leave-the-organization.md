@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75f91c037a2f05c999d388ce7bb16ad2d0c9cd
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4f5164130c5850b37d1e1323d172f9f9c46b4b30
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412791"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768296"
 ---
 # <a name="leave-an-organization-as-a-guest-user"></a>Salir de una organización como usuario invitado
 
@@ -46,7 +46,7 @@ Para salir de una organización, siga estos pasos.
 
 Cuando un usuario sale de una organización, la cuenta de usuario se "elimina temporalmente" en el directorio. De forma predeterminada, el objeto de usuario se mueve al área **Usuarios eliminados** en Azure AD, pero no se elimina permanentemente durante 30 días. Esta eliminación temporal permite que el administrador restaure la cuenta de usuario (incluidos los grupos y permisos) si el usuario lo solicita en el plazo de 30 días.
 
-Si lo desea, un administrador de inquilinos puede eliminar permanentemente la cuenta en cualquier momento durante el período de 30 días. Para ello, siga estos pasos:
+Si lo desea, un administrador de inquilinos puede eliminar permanentemente la cuenta en cualquier momento durante el período de 30 días. Para ello:
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Azure Active Directory**.
 2. En **Administrar**, seleccione **Usuarios**.

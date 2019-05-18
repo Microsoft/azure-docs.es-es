@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5d8e7bba6d43ba1daa3173ce5d7e043e2310a482
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
-ms.translationtype: HT
+ms.openlocfilehash: 8a1ae906a72d781f638fb171a409b860ffa6d501
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65229979"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65517699"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Uso de una alerta para desencadenar un runbook de Azure Automation
 
@@ -22,7 +22,7 @@ Puede usar [Azure Monitor](../azure-monitor/overview.md?toc=%2fazure%2fautomatio
 
 ## <a name="alert-types"></a>Tipos de alerta
 
-Puede usar runbooks de automation con cuatro tipos de alerta:
+Puede usar runbooks de Automation con tres tipos de alerta:
 
 * Alertas comunes
 * Alertas de registro de actividad

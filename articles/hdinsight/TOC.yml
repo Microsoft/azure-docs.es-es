@@ -1,15 +1,15 @@
 - name: Documentación de HDInsight
   href: index.yml
 - name: Apache Hadoop
-  href: ./hadoop/apache-hadoop-introduction.md
+  href: ./hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md
 - name: Spark de Apache
-  href: ./spark/apache-spark-overview.md
+  href: ./spark/apache-spark-jupyter-spark-sql-use-portal.md
 - name: HBase Apache
-  href: ./hbase/apache-hbase-overview.md
+  href: ./hbase/query-hbase-with-hbase-shell.md
 - name: Interactive Query
-  href: ./interactive-query/apache-interactive-query-get-started.md
+  href: ./interactive-query/hdinsight-connect-hive-zeppelin.md
 - name: Apache Kafka
-  href: ./kafka/apache-kafka-introduction.md
+  href: ./kafka/apache-kafka-get-started.md
 - name: Apache Storm
   href: ./storm/apache-storm-overview.md
 - name: Machine Learning Services

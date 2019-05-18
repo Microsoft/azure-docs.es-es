@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: a9d6396cab560a201b98497e787af4b6c7c2dabb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 725e265bb7f8c98db19971c50e690974cb38a0d2
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560931"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518153"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilice el editor de Video Indexer para crear proyectos
 
@@ -54,7 +55,7 @@ En este artículo se muestra cómo crear un proyecto desde cero y también cómo
 
     Puede filtrar aún más los resultados seleccionando **filtrar resultados**. Puede filtrar para mostrar vídeos que tienen una determinada persona en ellos o para especificar que sólo desea ver los resultados de vídeo que son un determinado idioma o tiene un propietario específico. <br/> También puede especificar el ámbito de la consulta. Por ejemplo, si desea buscar "GitHub" en el reconocimiento óptico de caracteres, seleccione **texto Visual**.
 
-    ![Filtrar](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtro](./media/video-indexer-view-edit/visual-text.png)
 
     Puede agregar varios filtros a la consulta. Use la **+** / **-** botones para agregar o quitar filtros. Use **Borrar filtros** para quitar todos los filtros.
 1. Para agregar vídeos, selecciónelos y, a continuación, seleccione **agregar**.
@@ -80,7 +81,7 @@ Si hace clic en la flecha hacia abajo a la derecha de cada vídeo, se abrirá la
 
     Por ejemplo, desea ver los clips que se menciona GitHub mientras Donovan Brown se encuentra en la pantalla. Para ello, deberá agregar un filtro "include" que tiene "People" como el tipo de información. A continuación, debe escribir "Donovan Brown" en el cuadro de búsqueda para el filtro.
     
-    ![Include](./media/video-indexer-view-edit/include.png)
+    ![Incluir](./media/video-indexer-view-edit/include.png)
     
     Si desea que los clips que se menciona GitHub mientras está Donovan Brown _no_ en la pantalla, simplemente cambiaría el filtro "include" en un filtro de "exclude" mediante la lista desplegable. 
 
@@ -95,7 +96,7 @@ Si hace clic en la flecha hacia abajo a la derecha de cada vídeo, se abrirá la
 > [!TIP]
 > Como la selección y ordenación de los clips, puede obtener una vista previa del vídeo en el Reproductor en el lado derecho de la página. 
 
-![Vista previa](./media/video-indexer-view-edit/preview.png)
+![Preview](./media/video-indexer-view-edit/preview.png)
 
 Recuerde guardar el proyecto cuando se realizan cambios seleccionando **Guardar proyecto**. 
 

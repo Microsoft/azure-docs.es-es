@@ -3,19 +3,19 @@ title: 'Idiomas admitidos: Bing Custom Search API'
 titleSuffix: Azure Cognitive Services
 description: Una lista de los idiomas y las regiones admitidos para Bing Custom Search API.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-gedod
-ms.openlocfilehash: 1f53dc60a74f0b558525897bef97bf2500442b54
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.author: aahi
+ms.openlocfilehash: 56870a63f42c10b48cc2d8f0ae2995862be46d8f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64867826"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790242"
 ---
 # <a name="language-and-region-support-for-the-bing-custom-search-api"></a>Compatibilidad de idiomas y regiones para Bing Custom Search API
 
@@ -29,7 +29,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 
 ## <a name="countriesregions"></a>Países/regiones
 
-|País/región|Código|
+|País o región|Código|
 |-------|----|
 |Argentina|AR|
 |Australia|AU|
@@ -40,9 +40,9 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 |Chile|CL|
 |Dinamarca|DK|
 |Finlandia|FI|
-|Francia|VF|
+|Francia|FR|
 |Alemania|DE|
-|RAE de Hong Kong|HK|
+|Hong Kong RAE|HK|
 |India|IN|
 |Indonesia|ID|
 |Italia|IT|
@@ -50,7 +50,7 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 |Corea|KR|
 |Malasia|MY|
 |México|MX|
-|Países Bajos|NL|
+|Países bajos|NL|
 |Nueva Zelanda|NZ|
 |Noruega|NO|
 |China|CN|
@@ -71,45 +71,45 @@ El encabezado `Accept-Language` y el parámetro de consulta `setLang` son mutuam
 
 ## <a name="markets"></a>Mercados
 
-|País/región|Idioma|Código de mercado|
+|País o región|Idioma|Código de mercado|
 |-------|--------|-----------|
 |Argentina|Español|es-AR|
-|Australia|English|en-AU|
+|Australia|Inglés|en-AU|
 |Austria|Alemán|de-AT|
-|Bélgica|Neerlandés|nl-BE|
+|Bélgica|Holandés|nl-BE|
 |Bélgica|Francés|fr-BE|
 |Brasil|Portugués|pt-BR|
-|Canadá|English|en-CA|
+|Canadá|Inglés|en-CA|
 |Canadá|Francés|fr-CA|
 |Chile|Español|es-CL|
 |Dinamarca|Danés|da-DK|
-|Finlandia|Finés|fi-FI|
+|Finlandia|Finlandés|fi-FI|
 |Francia|Francés|fr-FR|
 |Alemania|Alemán|de-DE|
 |Hong Kong, SAR|Chino tradicional|zh-HK|
-|India|English|en-IN|
-|Indonesia|English|en-ID|
+|India|Inglés|en-IN|
+|Indonesia|Inglés|en-ID|
 |Italia|Italiano|it-IT|
 |Japón|Japonés|ja-JP|
 |Corea|Coreano|ko-KR|
-|Malasia|English|en-MY|
+|Malasia|Inglés|en-MY|
 |México|Español|es-MX|
-|Países Bajos|Neerlandés|nl-NL|
-|Nueva Zelanda|English|en-NZ|
-|Noruega|Noruego|no-NO|
+|Países bajos|Holandés|nl-NL|
+|Nueva Zelanda|Inglés|en-NZ|
+|Noruega|Noruego (Bokmal)|no-NO|
 |China|Chino|zh-CN|
 |Polonia|Polaco|pl-PL|
 |Portugal|Portugués|pt-PT|
-|Filipinas|English|en-PH|
+|Filipinas|Inglés|en-PH|
 |Rusia|Ruso|ru-RU|
 |Arabia Saudí|Árabe|ar-SA|
-|Sudáfrica|English|en-ZA|
+|Sudáfrica|Inglés|en-ZA|
 |España|Español|es-ES|
 |Suecia|Sueco|sv-SE|
 |Suiza|Francés|fr-CH|
 |Suiza|Alemán|de-CH|
 |Taiwán|Chino tradicional|zh-TW|
 |Turquía|Turco|tr-TR|
-|Reino Unido|English|en-GB|
-|Estados Unidos|English|en-US|
+|Reino Unido|Inglés|en-GB|
+|Estados Unidos|Inglés|es-ES|
 |Estados Unidos|Español|es-US|

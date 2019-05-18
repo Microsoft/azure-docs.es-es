@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: e5a34a75c73401c567a0e898a1ce9f85cde96586
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4980536eddd0226fac422ae17ddb717e34630d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553715"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799471"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-api"></a>Personalización de un modelo de persona con la API de Video Indexer
 
@@ -56,7 +57,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountId|string|Sí|Identificador único global de la cuenta.|
 |Nombre|string|Sí|El nombre del modelo de persona.|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
@@ -65,7 +66,7 @@ curl -v -X POST "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cus
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona el nombre y el identificador de modelo generado del modelo de persona que acaba de crear, siguiendo el formato del ejemplo siguiente.
 
@@ -101,7 +102,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountId|string|Sí|Identificador único global de la cuenta.|
 |id|string|Sí|El identificador del modelo de persona (se genera cuando se crea el modelo de persona)|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
@@ -110,7 +111,7 @@ curl -v -X DELETE "https://api.videoindexer.ai/{location}/Accounts/{accountId}/C
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 No se devuelve ningún contenido cuando el modelo de persona se elimina correctamente.
 
@@ -138,7 +139,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountId|string|Sí|Identificador único global de la cuenta.|
 |accessToken|string|Sí|Token de acceso (debe ser de ámbito [Token de acceso de cuenta](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)) para autenticarse en la llamada. Los tokens de acceso expiran en 1 hora.|
 
@@ -146,7 +147,7 @@ curl -v -X GET "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Cust
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 La respuesta proporciona una lista de todos los modelos de persona de su cuenta (incluido el modelo de persona predeterminado de la cuenta especificada) y cada uno de sus nombres e identificadores, siguiendo el formato del ejemplo siguiente.
 
@@ -193,7 +194,7 @@ curl -v -X PUT "https://api.videoindexer.ai/{location}/Accounts/{accountId}/Vide
 
 |**Nombre**|**Tipo**|**Obligatorio**|**Descripción**|
 |---|---|---|---|
-|location|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
+|ubicación|string|Sí|La región de Azure a la que se debe enrutar la llamada. Para más información, consulte [Regiones de Azure y Video Indexer](regions.md).|
 |accountId|string|Sí|Identificador único global de la cuenta.|
 |videoId|string|Sí|Identificador del vídeo en el que aparece la cara que quiere actualizar. Se crea cuando el vídeo se carga e indexa.|
 |faceId|integer|Sí|Identificador de la cara que se actualizará. Puede obtener el valor de faceId del índice de vídeo.|
@@ -206,7 +207,7 @@ Los nombres son únicos para los modelos de persona, así que si da el mismo val
 
 No hay ningún otro cuerpo de solicitud necesario para esta llamada.
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 No se devuelve ningún contenido cuando la cara se ha actualizado correctamente.
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
-ms.openlocfilehash: 75fe965a04bd02a1086551053c28d2072eae6468
-ms.sourcegitcommit: e7d4881105ef17e6f10e8e11043a31262cfcf3b7
+ms.openlocfilehash: f87667516d6c76bc1c21ba5e175b3b2a7ebc3f39
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64869510"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65556327"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN 
 En este artículo se muestran descripciones detalladas de las condiciones de coincidencia disponibles para el [motor de reglas](cdn-rules-engine.md) de Azure Content Delivery Network (CDN).
@@ -45,7 +45,7 @@ La condición de coincidencia Dispositivo identifica solicitudes realizadas desd
 
 NOMBRE | Propósito
 -----|--------
-[Dispositivo](#device) | Identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.
+[Device](#device) | Identifica solicitudes realizadas desde un dispositivo móvil en función de sus propiedades.
 
 ## <a name="location-match-conditions"></a>Condiciones de coincidencia Ubicación
 
@@ -101,8 +101,11 @@ NOMBRE | Propósito
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Referencia de las condiciones de coincidencia del motor de reglas
+
 <a name="main"></a>
+
 ---
+
 ### <a name="always"></a>Siempre
 
 La condición de coincidencia Siempre aplica un conjunto predeterminado de características a todas las solicitudes.
@@ -151,17 +154,17 @@ Información importante:
 </br>
 
 ---
-### <a name="client-ip-address"></a>Dirección IP de cliente
+### <a name="client-ip-address"></a>Dirección IP del cliente
 La opción **Matches**/**Does Not Match** (Coincide/No coincide) determina las condiciones para que se cumpla la condición de coincidencia Dirección IP del cliente:
 - **Matches** (Coincide): requiere que la dirección IP del cliente coincida con una de las direcciones IP especificadas. 
 - **Does Not Match** (No coincide): requiere que la dirección IP del cliente no coincida con ninguna de las direcciones IP especificadas. 
 
 Información importante:
 - Utilice la notación CIDR.
-- Especifique varias direcciones IP o bloques de direcciones IP al delimitarlas individualmente con un espacio. Por ejemplo: 
+- Especifique varias direcciones IP o bloques de direcciones IP al delimitarlas individualmente con un espacio. Por ejemplo:
   - **Ejemplo IPv4**: 1.2.3.4 10.20.30.40 coincide con las solicitudes que llegan desde la dirección 1.2.3.4 o 10.20.30.40.
   - **Ejemplo IPv6**: 1:2:3:4:5:6:7:8 10:20:30:40:50:60:70:80 coincide con las solicitudes que llegan desde la dirección 1:2:3:4:5:6:7:8 o 10:20:30:40:50:60:70:80.
-- La sintaxis de un bloque de direcciones IP es la dirección IP de base seguida por una barra diagonal y el tamaño del prefijo. Por ejemplo: 
+- La sintaxis de un bloque de direcciones IP es la dirección IP de base seguida por una barra diagonal y el tamaño del prefijo. Por ejemplo:
   - **Ejemplo IPv4**: 5.5.5.64/26 coincide con las solicitudes que llegan desde la dirección 5.5.5.64 hasta la 5.5.5.127.
   - **Ejemplo IPv6**: 1:2:3:/48 coincide con las solicitudes que llegan desde la dirección 1:2:3:0:0:0:0:0 hasta la 1:2:3:ffff:ffff:ffff:ffff:ffff.
 - Debido a la manera en que se realiza el seguimiento de la configuración de la memoria caché, esta condición de coincidencia es incompatible con las siguientes características:
@@ -320,13 +323,13 @@ En la tabla siguiente se enumeran las funcionalidades WURFL y sus variables para
 > [!NOTE] 
 > Las variables siguientes se admiten en las funciones **Modify Client Request Header** (Modificar encabezado de solicitud de cliente) y **Modify Client Response Header** (Modificar encabezado de respuesta de cliente).
 
-Capacidad | Variable | DESCRIPCIÓN | Valores de ejemplo
+Funcionalidad | Variable | DESCRIPCIÓN | Valores de ejemplo
 -----------|----------|-------------|----------------
-Nombre de la marca | %{wurfl_cap_brand_name} | Una cadena que indica el nombre de marca del dispositivo. | Samsung
+Nombre de la organización | %{wurfl_cap_brand_name} | Una cadena que indica el nombre de marca del dispositivo. | Samsung
 Sistema operativo del dispositivo | %{wurfl_cap_device_os} | Una cadena que indica el sistema operativo instalado en el dispositivo. | IOS
 Versión del sistema operativo del dispositivo | %{wurfl_cap_device_os_version} | Una cadena que indica el número de versión del sistema operativo instalado en el dispositivo. | 1.0.1
 Orientación dual | %{wurfl_cap_dual_orientation} | Un valor booleano que indica si el dispositivo admite la orientación dual. | true
-DTD preferido de HTML | %{wurfl_cap_html_preferred_dtd} | Una cadena que indica la definición de tipo de documento (DTD) preferido del dispositivo móvil para el contenido HTML. | None<br/>xhtml_basic<br/>html5
+DTD preferido de HTML | %{wurfl_cap_html_preferred_dtd} | Una cadena que indica la definición de tipo de documento (DTD) preferido del dispositivo móvil para el contenido HTML. | ninguno<br/>xhtml_basic<br/>html5
 Imagen de inclusión | %{wurfl_cap_image_inlining} | Un valor booleano que indica si el dispositivo admite imágenes con codificación Base64. | false
 Es Android | %{wurfl_vcap_is_android} | Un valor booleano que indica si el dispositivo usa el sistema operativo Android. | true
 Es IOS | %{wurfl_vcap_is_ios} | Un valor booleano que indica si el dispositivo usa iOS. | false
@@ -904,7 +907,7 @@ Información importante:
 
 - Realice una doble secuencia de escape en los caracteres especiales de las expresiones regulares (por ejemplo, \^$.+) para incluir una barra diagonal inversa en la expresión regular.
 
-   Por ejemplo: 
+   Por ejemplo:
 
    Valor | Se interpreta como 
    ------|---------------
@@ -944,7 +947,7 @@ Información importante:
 
 - Especifique varios valores de encabezado mediante la delimitación de cada uno con un espacio.
 
-   Por ejemplo:  *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
+   Por ejemplo: *Parameter1=ValueA* *ValueB* *Parameter1=ValueC&Parameter2=ValueD*
 
 - Solo las coincidencias exactas con al menos uno de los patrones de cadena de consulta especificados satisfacen esta condición de coincidencia.
     

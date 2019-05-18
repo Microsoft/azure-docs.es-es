@@ -4,22 +4,22 @@ description: Una introducción sobre cómo se almacenan los datos de configuraci
 services: azure-app-configuration
 documentationcenter: ''
 author: yegu-ms
-manager: balans
+manager: maiye
 editor: ''
 ms.service: azure-app-configuration
 ms.devlang: na
 ms.topic: overview
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 24216d1bf82789d2d0fc312d9af4c06fa3c8cf4e
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 4c741bb86242abfb03d01c902dbaa84d83491dd9
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60011289"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408743"
 ---
-# <a name="key-value-store"></a>almacén de pares clave-valor
+# <a name="keys-and-values"></a>Claves y valores
 
 Azure App Configuration almacena los datos de configuración como pares clave-valor. Los pares clave-valor constituyen una manera sencilla aunque flexible de representar varios tipos de configuraciones de la aplicación con las que los desarrolladores están familiarizados.
 
@@ -45,29 +45,27 @@ Puede organizar jerárquicamente las claves de App Configuration de muchas forma
 
 Estos son algunos ejemplos de cómo se pueden estructurar los nombres de claves en una jerarquía:
 
-* Según los entornos.
-
-        AppName:Test:DB:Endpoint
-        AppName:Staging:DB:Endpoint
-        AppName:Production:DB:Endpoint
-
 * Según los servicios de los componentes.
 
-        AppName:Service1:Test:DB:Endpoint
-        AppName:Service1:Staging:DB:Endpoint
-        AppName:Service1:Production:DB:Endpoint
-        AppName:Service2:Test:DB:Endpoint
-        AppName:Service2:Staging:DB:Endpoint
-        AppName:Service2:Production:DB:Endpoint
+        AppName:Service1:ApiEndpoint
+        AppName:Service2:ApiEndpoint
 
 * Según las regiones de implementación.
 
-        AppName:Production:Region1:DB:Endpoint
-        AppName:Production:Region2:DB:Endpoint
+        AppName:Region1:DbEndpoint
+        AppName:Region2:DbEndpoint
+
+### <a name="label-keys"></a>Claves de etiqueta
+
+Los valores de clave de App Configuration pueden tener un atributo de etiqueta. Las etiquetas se utilizan para diferenciar los valores de clave con la misma clave. Una clave *app1* con las etiquetas *A* y *B* forma dos claves independientes en un almacén de App Configuration. De forma predeterminada, la etiqueta de un valor de clave está vacía o es `null`.
+
+Las etiquetas proporcionan una manera cómoda de crear variantes de una clave. Un uso habitual de las etiquetas consiste en especificar varios entornos para la misma clave:
+
+    Key = AppName:DbEndpoint & Label = Test
+    Key = AppName:DbEndpoint & Label = Staging
+    Key = AppName:DbEndpoint & Label = Production
 
 ### <a name="version-key-values"></a>Valores de clave de versión
-
-Los valores de clave de App Configuration pueden tener un atributo de etiqueta. Las etiquetas se utilizan para diferenciar los valores de clave con la misma clave. Una clave *app1* con las etiquetas *v1* y *v2* forman dos valores de clave independientes en un almacén de App Configuration. De forma predeterminada, la etiqueta de un valor de clave está vacía o es `null`.
 
 App Configuration no crea valores de clave de versión automáticamente a medida que se modifican. Use etiquetas como una manera de crear varias versiones de un valor de clave. Por ejemplo, puede escribir un número de versión de la aplicación o un identificador de confirmación de Git en las etiquetas para identificar los valores de clave asociados con una compilación de software en particular.
 
@@ -106,5 +104,5 @@ Los datos de configuración almacenados en un almacén de configuración de la a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Instantánea en un momento dado](./concept-point-time-snapshot.md)  
+* [Instantánea en un momento dado](./concept-point-time-snapshot.md)  
+* [Administración de características](./concept-feature-management.md)  

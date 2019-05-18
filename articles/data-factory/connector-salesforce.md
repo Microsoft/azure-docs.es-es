@@ -62,7 +62,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo |La propiedad type debe establecerse en: **Salesforce**. |Sí |
+| type |La propiedad type debe establecerse en: **Salesforce**. |Sí |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |Sin  |
 | username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
 | password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
@@ -140,7 +140,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **SalesforceObject**.  | Sí |
+| type | La propiedad type debe establecerse en **SalesforceObject**.  | Sí |
 | objectApiName | El nombre del objeto de Salesforce desde el que se van a recuperar los datos. | No para el origen, sí para el receptor |
 
 > [!IMPORTANT]
@@ -171,7 +171,7 @@ Para copiar datos desde y hacia Salesforce, establezca la propiedad type del con
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable**. | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **RelationalTable**. | Sí |
 | tableName | Nombre de la tabla de Salesforce. | No (si se especifica "query" en el origen de la actividad) |
 
 ## <a name="copy-activity-properties"></a>Propiedades de la actividad de copia
@@ -184,7 +184,7 @@ Para copiar datos desde Salesforce, establezca el tipo de origen de la actividad
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceSource**. | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SalesforceSource**. | Sí |
 | query |Utilice la consulta personalizada para leer los datos. Puede usar una consulta de SQL-92 o de [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Consulte más sugerencias en la sección [Sugerencias de consulta](#query-tips). Si no se especifica la consulta, se recuperarán todos los datos del objeto de Salesforce especificado en "objectApiName" en el conjunto de datos. | No (si se especifica "objectApiName" en el conjunto de datos) |
 | readBehavior | Indica si se van a consultar los registros existentes o todos, incluso los que se eliminaron. Si no se especifica, el comportamiento predeterminado es el primero. <br>Valores permitidos: **query** (valor predeterminado), **queryAll**.  | Sin  |
 
@@ -234,7 +234,7 @@ Para copiar datos hacia Salesforce, establezca el tipo de receptor de la activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceSink**. | Sí |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **SalesforceSink**. | Sí |
 | writeBehavior | El comportamiento de escritura de la operación.<br/>Los valores permitidos son: **Insert** y **Upsert**. | No (el valor predeterminado es Insert) |
 | externalIdFieldName | El nombre del campo de identificador externo para la operación de upsert. El campo especificado debe definirse como "Campo de identificador externo" en el objeto de Salesforce. No puede tener valores NULL en los datos de entrada correspondientes. | Sí para "Upsert" |
 | writeBatchSize | El recuento de filas de datos escritos en Salesforce en cada lote. | No (el valor predeterminado es 5000) |
@@ -315,24 +315,24 @@ Al copiar datos desde Salesforce, se usan las siguientes asignaciones de tipos d
 
 | Tipos de datos de Salesforce | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| Numeración automática |String |
-| Casilla de verificación |Boolean |
-| Moneda |Decimal |
+| Auto Number |String |
+| Checkbox |Boolean |
+| Currency |Decimal |
 | Date |DateTime |
-| Fecha y hora |DateTime |
+| Date/Time |DateTime |
 | Email |String |
 | Id |String |
-| Relación de búsqueda |String |
-| Lista desplegable de selección múltiple |String |
+| Lookup Relationship |String |
+| Multi-Select Picklist |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Teléfono |String |
-| Lista desplegable |String |
+| Phone |String |
+| Picklist |String |
 | Text |String |
-| Área de texto |String |
-| Área de texto (largo) |String |
-| Área de texto (enriquecido) |String |
-| Texto (cifrado) |String |
+| Text Area |String |
+| Text Area (Long) |String |
+| Text Area (Rich) |String |
+| Text (Encrypted) |String |
 | URL |String |
 
 ## <a name="next-steps"></a>Pasos siguientes

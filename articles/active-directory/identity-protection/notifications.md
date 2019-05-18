@@ -18,12 +18,12 @@ ms.date: 12/07/2017
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0065ec03695ee977133ae2ec43aafba7d5bfff78
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60294534"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784338"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 
@@ -39,6 +39,8 @@ En este artículo se proporciona una introducción de ambos correos electrónico
 
 En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection genera una alerta de correo electrónico con el asunto **Usuarios en riesgo detectados**. El correo electrónico incluye un vínculo al informe **[Usuarios marcados en riesgo](../reports-monitoring/concept-user-at-risk.md)**. Como práctica recomendada, debería investigar inmediatamente los usuarios en peligro.
 
+La configuración de esta alerta permite especificar a qué nivel de riesgo del usuario que desea que se genere la alerta. Se generará el correo electrónico al alcanzar el nivel de riesgo del usuario especificado; Sin embargo, no recibirá nuevos usuarios a alertas de correo electrónico de riesgo detectado para este usuario se muevan a este nivel de riesgo del usuario. Por ejemplo, si establece la directiva para alertar en riesgo de usuario medio y el usuario que John se mueve a riesgo medio, recibirán los usuarios de correo electrónico de riesgo detectado para John. Sin embargo, no recibirá un segundo usuarios alerta riesgo detectado si Juan, a continuación, se mueve a alto riesgo o tiene los eventos de riesgo adicional.
+
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/01.png)
 
 
@@ -46,7 +48,7 @@ En respuesta a una cuenta detectada en riesgo, Azure AD Identity Protection gene
 
 Como administrador, puede establecer:
 
-- **El nivel de riesgo que desencadena la generación de este correo electrónico**: de forma predeterminada, el nivel de riesgo se establece en "Alto" riesgo.
+- **El nivel de riesgo de usuario que desencadena la generación de este correo electrónico** : de forma predeterminada, el nivel de riesgo se establece en "Alto" riesgo.
 - **Los destinatarios de este correo electrónico**: de forma predeterminada, los destinatarios incluyen todos los administradores globales. Los administradores globales también pueden agregar otros administradores globales, administradores de seguridad y Lectores de seguridad como destinatarios.  
 
 

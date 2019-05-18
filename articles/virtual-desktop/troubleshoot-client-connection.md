@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshoot
 ms.date: 04/08/2019
 ms.author: v-chjenk
-ms.openlocfilehash: c5a67e22c301a2afc73a46a6def9a514426c497f
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 99295fd4581cd81751f7d64b694c853efe51a106
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64928053"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522940"
 ---
-# <a name="remote-desktop-client-connections"></a>Conexiones de cliente de escritorio remoto
+# <a name="remote-desktop-client-connections"></a>Conexiones de cliente de Escritorio remoto
 
 Use este artículo para resolver problemas con conexiones de cliente de Escritorio Virtual de Windows.
 
-## <a name="provide-feedback"></a>Envío de comentarios
+## <a name="provide-feedback"></a>Proporcionar comentarios
 
 En este momento no se aceptan casos de soporte técnico mientras Windows Virtual Desktop se encuentre en versión preliminar. Visite la [Comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) para hablar sobre Windows Virtual Desktop con el equipo de producto y los miembros activos de la comunidad.
 
@@ -108,22 +108,21 @@ Siga estas instrucciones para solucionar problemas generales para los códigos d
 1. Confirme el nombre de usuario y la hora cuando se produjo el problema.
 2. Abra **PowerShell** y establecer conexión con el inquilino de Escritorio Virtual de Windows donde se notificó el problema.
 3. Confirmar la conexión al inquilino correcto con **Get RdsTenant.**
-4. Si es necesario, establezca el inquilino con un grupo contexto **conjunto RdsContext – TenantGroupt\<TenantGroup\>**.
-5. Uso de **Get RdsHostPool** y **Get RdsSessionHost** cmdlets, confirme que está realizando la solución de problemas en el grupo host correcto.
-6. Ejecute el comando siguiente para obtener una lista de todas las actividades con errores de conexión de tipo para el período de tiempo especificado:
+4. Uso de **Get RdsHostPool** y **Get RdsSessionHost** cmdlets, confirme que está realizando la solución de problemas en el grupo host correcto.
+5. Ejecute el comando siguiente para obtener una lista de todas las actividades con errores de conexión de tipo para el período de tiempo especificado:
 
     ```cmd
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-7. Mediante el **ActivityId** desde la salida del cmdlet anterior, ejecute el siguiente comando:
+6. Mediante el **ActivityId** desde la salida del cmdlet anterior, ejecute el siguiente comando:
 
     ```
     (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-8. El comando genera una salida similar a la salida que se muestra a continuación. Use **ErrorCodeSymbolic** y **ErrorMessage** para solucionar la causa raíz.
+7. El comando genera una salida similar a la salida que se muestra a continuación. Use **ErrorCodeSymbolic** y **ErrorMessage** para solucionar la causa raíz.
 
     ```
     ErrorSource       : <Source>

@@ -1,5 +1,5 @@
 ---
-title: 'Hospedaje de alta densidad con escalado por aplicación: Azure App Service | Microsoft Docs'
+title: Hospedaje de alta densidad con por aplicación escala - Azure App Service | Microsoft Docs
 description: Hospedaje de alta densidad en Azure App Service
 author: btardif
 manager: erikre
@@ -12,27 +12,31 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 08d6d0c31e1cff799e952c50bae3446e41477aba
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 824abbdfd1b3980b419e6d6c46814bb0318adf13
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56104576"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602335"
 ---
-# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedaje de alta densidad en Azure App Service con escalado por aplicación
+# <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hospedaje de alta densidad en Azure App Service mediante el escalado por aplicación
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-De forma predeterminada, para escalar las aplicaciones de App Service, se escala [plan de App Service](overview-hosting-plans.md) en el que se ejecutan. Cuando se ejecutan varias aplicaciones en el mismo plan de App Service, cada instancia escalada horizontalmente ejecuta todas las aplicaciones del plan.
+Cuando se usa App Service, puede escalar sus aplicaciones mediante el escalado del [plan de App Service](overview-hosting-plans.md) que se ejecutan. Cuando se ejecutan varias aplicaciones en el mismo plan de App Service, cada instancia escalada horizontalmente ejecuta todas las aplicaciones del plan.
 
-Puede habilitar el *escalado por aplicación* en el nivel del plan de App Service. Escala una aplicación de forma independiente del plan de App Service que lo hospeda. De esta manera, se puede escalar un plan de App Service a 10 instancias, pero se puede configurar una aplicación para usar solo cinco.
+*El escalado por aplicación* puede habilitarse en el nivel del plan de App Service para permitir el escalado de una aplicación de forma independiente desde el plan de App Service que lo hospeda. De esta manera, se puede escalar un plan de App Service a 10 instancias, pero se puede configurar una aplicación para usar solo cinco.
 
 > [!NOTE]
 > El escalado por aplicación solo está disponible para los planes de tarifa **Estándar**, **Premium**, **Premium V2** y **Aislado**.
 >
+
+Las aplicaciones se asignan al plan de App Service disponible con un mejor esfuerzo para una distribución uniforme entre las instancias. Mientras no se garantiza una distribución uniforme, la plataforma se asegurará de que dos instancias de la misma aplicación no se hospedará en la misma instancia del plan de App Service.
+
+La plataforma no se basa en las métricas para decidir cuál es la asignación de trabajo. Las aplicaciones se vuelven a equilibrar solo cuando las instancias se agregan o quitan del plan de App Service.
 
 ## <a name="per-app-scaling-using-powershell"></a>Escalado por aplicación mediante PowerShell
 
@@ -60,10 +64,10 @@ En el ejemplo siguiente, la aplicación está limitada a dos instancias, indepen
 ```powershell
 # Get the app we want to configure to use "PerSiteScaling"
 $newapp = Get-AzWebApp -ResourceGroupName $ResourceGroup -Name $webapp
-    
+
 # Modify the NumberOfWorkers setting to the desired value.
 $newapp.SiteConfig.NumberOfWorkers = 2
-    
+
 # Post updated app back to azure
 Set-AzWebApp $newapp
 ```
@@ -128,17 +132,18 @@ El plan de App Service es establecer la propiedad **PerSiteScaling** en true `"p
 ```
 
 ## <a name="recommended-configuration-for-high-density-hosting"></a>Configuración recomendada para el hospedaje de alta densidad
-El escalado por aplicación es una característica que está habilitada tanto en las regiones de Azure globales como en los entornos de [App Service Environment](environment/app-service-app-service-environment-intro.md). Sin embargo, la estrategia recomendada es usar entornos de App Service para aprovechar sus características avanzadas y los grupos de mayor capacidad.  
+
+El escalado por aplicación es una característica que está habilitada tanto en las regiones de Azure globales como en los entornos de [App Service Environment](environment/app-service-app-service-environment-intro.md). Sin embargo, la estrategia recomendada es usar entornos de App Service para aprovechar sus características avanzadas y la mayor capacidad de plan de App Service.  
 
 Siga estos pasos para configurar el hospedaje de alta densidad para las aplicaciones:
 
-1. Configure el entorno del App Service y elija un grupo de trabajo dedicado al escenario de hospedaje de alta densidad.
-2. Cree un único plan de App Service y escálelo para que utilice toda la capacidad disponible en el grupo de trabajo.
-3. Establezca la marca `PerSiteScaling` en true en el plan de App Service.
-4. Las nuevas aplicaciones se crean y se asignan al plan de App Service con la propiedad **numberOfWorkers** establecida en **1**. El uso de esta configuración produciría la máxima densidad posible en este grupo de trabajo.
-5. El número de trabajadores se puede configurar por separado por cada aplicación para conceder recursos adicionales según sea necesario. Por ejemplo: 
-    - En una aplicación de uso elevado, puede establecer **numberOfWorkers** en **3** para que haya una mayor capacidad de procesamiento para esa aplicación. 
-    - En las aplicaciones de poco uso se establecerá **numberOfWorkers** en **1**.
+1. Designar un plan de App Service como el plan de alta densidad y escalar horizontalmente a la capacidad deseada.
+1. Establezca la marca `PerSiteScaling` en true en el plan de App Service.
+1. Las nuevas aplicaciones se crean y se asignan al plan de App Service con la propiedad **numberOfWorkers** establecida en **1**.
+   - Con esta configuración, produciría la máxima densidad posible.
+1. El número de trabajadores se puede configurar por separado por cada aplicación para conceder recursos adicionales según sea necesario. Por ejemplo:
+   - En una aplicación de uso elevado, puede establecer **numberOfWorkers** en **3** para que haya una mayor capacidad de procesamiento para esa aplicación.
+   - En las aplicaciones de poco uso se establecerá **numberOfWorkers** en **1**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

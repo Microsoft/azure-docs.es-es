@@ -3,8 +3,8 @@ title: Problemas al usar el acceso de autoservicio a las aplicaciones | Microsof
 description: Solucionar problemas relacionados con el acceso de autoservicio a las aplicaciones
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
-ms.author: celested
+ms.author: mimart
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd3ae06c42452d425f041543715336827048ccb2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a981dfb1d72c21eccf2ad7119ea219114ed15aed
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60293994"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784273"
 ---
 # <a name="problem-using-self-service-application-access"></a>Problemas al usar el acceso de autoservicio a las aplicaciones
 

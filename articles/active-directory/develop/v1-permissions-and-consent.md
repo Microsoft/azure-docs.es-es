@@ -3,8 +3,8 @@ title: Permisos en Azure Active Directory | Microsoft Docs
 description: Obtenga información sobre los permisos en Azure Active Directory y cómo utilizarlos.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 6c0dc122-2cd8-4d70-be5a-3943459d308e
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ee58c2a3bed7544ff68e7d6ec756c35bee1d05b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6fb4342e024d826c65ed33184aaf33012d09190a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60250780"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545194"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Permisos y consentimiento en el punto de conexión v1.0 de Azure Active Directory
 
@@ -67,9 +67,9 @@ Los permisos de Azure AD tienen un número de propiedades que ayudan a los usuar
 | `IsEnabled` | Indica si este permiso está disponible para su uso. | true |
 | `Type` | Indica si este permiso requiere el consentimiento del usuario o el consentimiento del administrador. | Usuario |
 | `AdminConsentDescription` | Es una descripción que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite que la aplicación lea el correo electrónico de los buzones del usuario. |
-| `AdminConsentDisplayName` | Es el nombre descriptivo que se muestra a los administradores durante las experiencias de consentimiento de administración. | Permite leer el correo del usuario. |
+| `AdminConsentDisplayName` | Es el nombre descriptivo que se muestra a los administradores durante las experiencias de consentimiento de administración. | Leer correo de usuario |
 | `UserConsentDescription` | Es una descripción que se muestra a los usuarios durante una experiencia de consentimiento del usuario. |  Permite que la aplicación lea el correo electrónico del buzón. |
-| `UserConsentDisplayName` | Es el nombre descriptivo que se muestra a los usuarios durante la experiencia de consentimiento de usuario. | Permite leer su correo |
+| `UserConsentDisplayName` | Es el nombre descriptivo que se muestra a los usuarios durante la experiencia de consentimiento de usuario. | Leer tu correo |
 | `Value` | Es la cadena que se usa para identificar el permiso durante los flujos de autorización de OAuth 2.0. `Value` también puede combinarse con la cadena del URI del identificador de la aplicación para formar un nombre de permiso completo. | `Mail.Read` |
 
 ## <a name="types-of-consent"></a>Tipos de consentimiento
@@ -106,7 +106,7 @@ Las aplicaciones de Azure AD dependen del consentimiento para poder acceder a lo
   - `Permission` se corresponde con la acción que un usuario puede realizar en esos datos y
   - `Modifier` se utiliza opcionalmente para describir las especializaciones de otro permiso.
     
-    Por ejemplo: 
+    Por ejemplo:
   - Mail.Read: permite a los usuarios leer correos.
   - Mail.ReadWrite: permite a los usuarios leer o escribir correos.
   - Mail.ReadWrite.All: permite que un administrador o usuario tenga acceso a todo el correo de la organización.

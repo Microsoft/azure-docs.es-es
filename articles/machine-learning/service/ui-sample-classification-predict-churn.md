@@ -9,17 +9,25 @@ ms.topic: article
 author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
-ms.date: 05/02/2019
-ms.openlocfilehash: 1cb533348236905b7c4e9b58968041745af0e71b
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.date: 05/10/2019
+ms.openlocfilehash: 42724f5fcb3101015cef0d218a3d548f349646be
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028446"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785817"
 ---
 # <a name="sample-5---classification-predict-churn-appetency-and-up-selling"></a>Ejemplo 5: clasificación: Predecir el abandono, apetencia y venta vertical 
 
-Este experimento de ejemplo de la interfaz visual muestra la predicción de clasificador binario de renovación, apetencia y venta de arriba, una tarea común para la administración de relaciones con clientes (CRM).
+Obtenga información sobre cómo crear un experimento de aprendizaje automático complejos sin necesidad de escribir una sola línea de código mediante la interfaz visual.
+
+Este experimento entrena tres, **árbol de decisión ampliado de dos clases** clasificadores para predecir las tareas comunes para los sistemas de administración (CRM) de relación de cliente: renovación, apetencia y venta vertical. Los valores de datos y las etiquetas se dividen entre varios orígenes de datos y codificadas para anonimizar la información del cliente, sin embargo, todavía podemos usar la interfaz visual para combinar conjuntos de datos y entrenar un modelo con los valores codificados.
+
+Dado que estamos intentando responder a la pregunta "Cuál?" Esto se denomina un problema de clasificación. Sin embargo, puede aplicar los mismos pasos en este experimento para abordar a cualquier tipo de problema del aprendizaje automático, ya sea una regresión, clasificación, agrupación en clústeres y así sucesivamente.
+
+Este es el gráfico completado para este experimento:
+
+![Gráfico de experimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -31,13 +39,11 @@ Este experimento de ejemplo de la interfaz visual muestra la predicción de clas
 
 ## <a name="data"></a>Datos
 
-Los datos que se utilizan en este experimento están de KDD Cup 2009. El conjunto de datos tiene 50 000 filas y columnas de característica de 230. La tarea consiste en predecir el abandono, apetencia y venta vertical para los clientes que usan estas características. Consulte la [sitio Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009) para obtener más detalles sobre los datos y la tarea.
+Los datos que se utilizan en este experimento están de KDD Cup 2009. El conjunto de datos tiene 50 000 filas y columnas de característica de 230. La tarea consiste en predecir el abandono, apetencia y venta vertical para los clientes que usan estas características. Para obtener más información sobre los datos y la tarea, vea el [sitio Web KDD](https://www.kdd.org/kdd-cup/view/kdd-cup-2009).
 
 ## <a name="experiment-summary"></a>Resumen del experimento
 
-Este es el gráfico de experimento completo:
-
-![Gráfico de experimento](./media/ui-sample-classification-predict-churn/experiment-graph.png)
+Este experimento de ejemplo de la interfaz visual muestra la predicción de clasificador binario de renovación, apetencia y venta de arriba, una tarea común para la administración de relaciones con clientes (CRM).
 
 En primer lugar, se realizan un procesamiento de datos simple.
 
@@ -46,15 +52,14 @@ En primer lugar, se realizan un procesamiento de datos simple.
     ![Limpiar el conjunto de datos](./media/ui-sample-classification-predict-churn/cleaned-dataset.png)
 
 - Las características y la correspondiente renovación, apetencia, y las ventas hasta las etiquetas están en diferentes conjuntos de datos. Usamos el **agregar columnas** módulo para anexar las columnas de etiqueta a las columnas de característica. La primera columna, **Col1**, es la columna de etiqueta. El resto de las columnas, **Var1**, **Var2**, etc., son las columnas de característica.
- 
+
     ![Agregar el conjunto de datos de columna](./media/ui-sample-classification-predict-churn/added-column1.png)
 
 - Usamos el **dividir datos** módulo para dividir el conjunto de datos "Train" y conjuntos de pruebas.
 
-
     A continuación, usamos el clasificador binario del árbol de decisión impulsado con los parámetros predeterminados para crear los modelos de predicción. Creamos un modelo por tarea, es decir, un modelo para predecir ventas cruzadas arriba, apetencia y renovación.
 
-## <a name="results"></a>Results
+## <a name="results"></a>Resultados
 
 Visualizar el resultado de la **Evaluate Model** módulo para ver el rendimiento del modelo en el conjunto de pruebas. Para la tarea incrementando las ventas, la curva ROC se muestra que el modelo no mejor que un modelo aleatorio. El área bajo la curva (AUC) es 0.857. En el umbral de 0,5, la precisión es 0,7, la recuperación es 0.463 y la puntuación F1 es 0.545.
 

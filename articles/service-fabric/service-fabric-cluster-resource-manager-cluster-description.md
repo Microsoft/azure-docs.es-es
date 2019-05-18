@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: ff291bda87ca4b2b4055e36989b035cf410b3b0f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 082abd89cd84fc34180f333b54664d7dddfa0ccf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60744336"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561213"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descripción de un clúster de Service Fabric
 Service Fabric Cluster Resource Manager proporciona varios mecanismos para describir un clúster. Durante el tiempo de ejecución, Cluster Resource Manager usa esta información para garantizar la alta disponibilidad de los servicios que se ejecutan en el clúster. Al aplicar estas reglas importantes, también trata de optimizar el consumo de recursos del clúster.
@@ -33,7 +33,7 @@ Cluster Resource Manager es compatible con varias de las características que de
 * Capacidades de nodo
 
 ## <a name="fault-domains"></a>Dominios de error
-Un dominio de error es cualquier área de error coordinado. Una única máquina constituye un dominio de error (ya que ella sola puede dejar de funcionar por muchas razones diferentes, desde errores en el sistema de alimentación hasta unidades averiadas o un firmware de NIC defectuoso). Varias máquinas conectadas al mismo conmutador Ethernet se encuentran en el mismo dominio de error, al igual que aquellas que estén conectadas a una sola fuente de energía o en una única ubicación. Como es natural que coincidan averías de hardware, los dominios de error son intrínsecamente jerárquicos y se representan como identificadores URI en Service Fabric.
+Un dominio de error es cualquier área de error coordinado. Una única máquina constituye un dominio de error (ya que ella sola puede dejar de funcionar por muchas razones diferentes, desde errores en el sistema de alimentación hasta unidades averiadas o un firmware de NIC defectuoso). Varias máquinas conectadas al mismo conmutador Ethernet se encuentran en el mismo dominio de error, al igual que aquellas que estén conectadas a una sola fuente de energía o en una única ubicación. Puesto que es natural para los errores de hardware se superpongan, dominios de error son intrínsecamente jerárquicos y se representan como identificadores URI en Service Fabric.
 
 Es importante que los dominios de error se configuren correctamente porque Service Fabric usa esta información para colocar servicios de forma segura. Service Fabric no quiere volver a colocar los servicios de forma que la pérdida de un dominio de error (causado por la avería de algún componente) provoque que un servicio deje de funcionar. En el entorno de Azure, Service Fabric aprovecha la información sobre dominios de error que proporciona dicho entorno para configurar automáticamente correctamente los nodos del clúster. Para Service Fabric independiente, los dominios de error se definen en el momento en que se configura el clúster. 
 
@@ -95,13 +95,17 @@ No existe ningún límite real en el número total de dominios de error o de act
 ![Diseños de error y dominio de actualización][Image4]
 </center>
 
-No existe un diseño ideal, sino que cada uno tiene sus ventajas e inconvenientes. Por ejemplo, el modelo 1FD:1UD es fácil de configurar. El modelo de 1 dominio de actualización por nodo es el más utilizado por los usuarios. Durante las actualizaciones, cada nodo se actualiza de forma independiente. Esto es similar a cómo se actualizaban manualmente los conjuntos pequeños de máquinas en el pasado. 
+No existe un diseño ideal, sino que cada uno tiene sus ventajas e inconvenientes. Por ejemplo, el modelo 1FD:1UD es fácil de configurar. El modelo de 1 dominio de actualización por nodo es el más utilizado por los usuarios. Durante las actualizaciones, cada nodo se actualiza de forma independiente. Esto es similar a cómo se actualizaban manualmente los conjuntos pequeños de máquinas en el pasado.
 
 El modelo más habitual es la matriz FD/UD, en la que los FD (dominios de error) y los UD forman una tabla donde los nodos se colocan empezando por la diagonal. Este es el modelo que se utiliza de forma predeterminada en clústeres de Service Fabric en Azure. Para los clústeres con muchos nodos, todo tiene un aspecto parecido al patrón de matriz denso de arriba.
 
+> [!NOTE]
+> Clústeres de Service Fabric hospedados en Azure no admite el cambio de la estrategia predeterminada. Solo los clústeres independientes ofrecen esa personalización.
+>
+
 ## <a name="fault-and-upgrade-domain-constraints-and-resulting-behavior"></a>Restricciones de dominio de error y de actualización y el comportamiento resultante
 ### <a name="default-approach"></a>*Enfoque predeterminado*
-De forma predeterminada, el administrador de recursos del clúster mantiene los servicios equilibrados en los dominios de error y actualización. Esto se modela como una [restricción](service-fabric-cluster-resource-manager-management-integration.md). Los estados de restricción de dominios de error y actualización: "en una partición de servicio específica, nunca debería haber una diferencia mayor que uno en el número de objetos de servicio (instancias de servicio sin estado o réplicas de servicios con estado) entre dos dominios cualesquiera en el mismo nivel de jerarquía". Digamos que esta restricción proporciona una garantía de "diferencia máxima". La restricción de dominio de error y actualización impide ciertos movimientos o disposiciones que infringen la regla indicada anteriormente. 
+De forma predeterminada, el administrador de recursos del clúster mantiene los servicios equilibrados en los dominios de error y actualización. Esto se modela como una [restricción](service-fabric-cluster-resource-manager-management-integration.md). Los estados de restricción de dominios de error y actualización: "en una partición de servicio específica, nunca debería haber una diferencia mayor que uno en el número de objetos de servicio (instancias de servicio sin estado o réplicas de servicios con estado) entre dos dominios cualesquiera en el mismo nivel de jerarquía". Digamos que esta restricción proporciona una garantía de "diferencia máxima". La restricción de dominio de error y actualización impide ciertos movimientos o disposiciones que infringen la regla indicada anteriormente.
 
 Veamos un ejemplo. Supongamos que tenemos un clúster con 6 nodos, configurado con 5 dominios de error y 5 dominios de actualización.
 

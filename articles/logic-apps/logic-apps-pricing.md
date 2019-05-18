@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 03/25/2019
-ms.openlocfilehash: 7e1868dd5ce62c28c9a8aac724862c58a5e0e1da
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c3d06d3c0f9c86b4fe6495632b48051fd69dc663
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60598496"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544539"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -25,7 +25,7 @@ ms.locfileid: "60598496"
 
 ## <a name="consumption-pricing-model"></a>Modelo de precios de consumo
 
-Para las nuevas aplicaciones lógicas que se ejecutan en el servicio de Azure Logic Apps "global" o público, pagar solo por lo que usa. Estas aplicaciones lógicas usan un plan de consumo y el modelo de precios. En la definición de la aplicación lógica, cada paso es una acción. Por ejemplo, las acciones son: 
+Para las nuevas aplicaciones lógicas que se ejecutan en el servicio de Azure Logic Apps "global" o público, pagar solo por lo que usa. Estas aplicaciones lógicas usan un plan de consumo y el modelo de precios. En la definición de la aplicación lógica, cada paso es una acción. Por ejemplo, las acciones son:
 
 * Desencadenadores, que son acciones especiales. Todas las aplicaciones lógicas requieren un desencadenador como primer paso.
 * Acciones "Integradas" o nativas como HTTP, las llamadas a funciones de Azure y API Management etc.
@@ -38,12 +38,16 @@ Azure Logic Apps mide todas las acciones que se ejecutan en la aplicación lógi
 
 ## <a name="fixed-pricing-model"></a>Modelo de precios fijos
 
-Un [ *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) proporciona una manera privada, aislada y dedicada para crear y ejecutar aplicaciones lógicas que pueden acceder a recursos en una red virtual de Azure. Para las nuevas aplicaciones lógicas que se ejecutan dentro de una instancia de ISE, se paga un precio mensual fijo por acciones integradas y conectores estándar. El ISE también incluye un conector empresarial gratis, que incluye tantas conexiones como desee. El uso de conectores empresariales adicionales se cobra según el precio del consumo de empresa. 
+Un [ *entorno del servicio de integración* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) proporciona una manera privada, aislada y dedicada para crear y ejecutar aplicaciones lógicas que pueden acceder a recursos en una red virtual de Azure. Para las nuevas aplicaciones lógicas que se ejecutan dentro de una instancia de ISE, paga un precio mensual fijo para los desencadenadores y acciones integradas y también para los conectores estándares.
 
-La unidad básica de ISE ha se ha corregido la capacidad, por lo que si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), ya sea durante la creación o después.
+El ISE también incluye un conector empresarial gratis, que incluye tantas conexiones como desee. El uso de conectores empresariales adicionales se cobra según el precio del consumo de empresa.
 
 > [!NOTE]
-> El ISE está en [ *versión preliminar pública*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obtener información de precios, consulte [precios de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
+> En una instancia de ISE, desencadenadores integrados y acciones mostrará el **Core** etiquetar y ejecutar en el ISE mismo como las aplicaciones lógicas. Conectores estándar y empresariales que muestren el **ISE** etiqueta que se ejecuta en el ISE mismo como las aplicaciones lógicas. Los conectores que no muestran la etiqueta ISE se ejecutan en el servicio global de aplicaciones lógicas.
+
+La unidad básica de ISE ha se ha corregido la capacidad, por lo que si necesita más rendimiento, puede [agregar más unidades de escalado](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#add-capacity), ya sea durante la creación o después. 
+
+Para obtener información de precios, consulte [precios de Azure Logic Apps](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="connectors"></a>
 

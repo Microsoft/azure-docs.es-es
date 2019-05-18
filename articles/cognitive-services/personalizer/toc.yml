@@ -49,14 +49,6 @@
       items:
         - name: Evaluación sin conexión
           href: how-to-offline-evaluation.md
-    - name: Uso de contenedores
-      items:
-        - name: Instalación y ejecución de contenedores
-          displayName: 'docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now, import, pull, run, apikey'
-          href: personalizer-container-howto.md
-        - name: Configuración de contenedores
-          href: personalizer-container-configuration.md
-          displayName: 'docker, run, apikey'
 - name: Referencia
   items:
     - name: Ejemplos

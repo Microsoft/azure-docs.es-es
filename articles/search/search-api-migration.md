@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
-ms.openlocfilehash: 286d8bbc01b5916e842c196aed5a49ef1c76bc3c
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 85a8ddf4ce87d7ac8ce460c0aff56311a2ea4578
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65025196"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540693"
 ---
 # <a name="upgrade-to-the-latest-azure-search-service-rest-api-version"></a>Actualización a la versión más reciente de la API REST de Azure Search Service
 Si usa una versión anterior de la [API de REST del servicio Azure Search](https://docs.microsoft.com/rest/api/searchservice/), este artículo le ayudará a actualizar la aplicación para usar la versión más reciente de la API disponible con carácter general, 2019-05-06.
@@ -39,7 +39,7 @@ Versión de 2019-05-06 es la versión más reciente disponible con carácter gen
 
 Varias versiones de la característica de vista previa coinciden con esta actualización disponible con carácter general. Para revisar la lista de nuevas características de versión preliminar, vea [versión de api de REST de búsqueda de 2019-05-06-Preview](search-api-preview.md).
 
-## <a name="breaking-changes"></a>Cambios drásticos
+## <a name="breaking-changes"></a>Cambios importantes
 
 El código existente que contiene la siguiente funcionalidad se interrumpirá en api-version = 2019-05-06.
 
@@ -72,7 +72,9 @@ Si alguna de estas situaciones se le presenta, debe cambiar el código en consec
 
 Si va a actualizar desde una versión anterior de API, lo anterior también se aplica, pero también debe tener en cuenta que algunas características de vista previa no están disponibles en la versión de 2019-05-06:
 
-* [Las consultas "Más así"](search-more-like-this.md) siguen siendo una característica de vista previa.
+* [Consultas "Más similar al siguiente"](search-more-like-this.md)
+* [Indización de blobs CSV](search-howto-index-csv-blobs.md)
+* [Compatibilidad con la API de MongoDB para los indizadores de Cosmos DB](search-howto-index-cosmosdb.md)
 
 Si el código usa estas características, no podrá actualizar a la API versión 2019-05-06 sin quitar el uso de ellos.
 

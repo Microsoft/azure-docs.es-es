@@ -1,6 +1,6 @@
 ---
-title: 'Azure Monitor: cero aplicaciones alojadas de supervisión de Kubernetes de aplicaciones de instrumentación | Microsoft Docs'
-description: Cero supervisión para aplicaciones de Kubernetes hospedado de aplicaciones de instrumentación son una solución de supervisión que le permite recopilar datos de telemetría de Application Insights que pertenecen a las solicitudes entrantes y salientes a y desde los pods que se ejecutan en el clúster de Kubernetes mediante al utilizar la tecnología de la malla de servicio denomina Istio.
+title: Use Application Insights para supervisar Azure Kubernetes Service (AKS) o en otra Kubernetes hospedado - aplicaciones de Azure Monitor | Microsoft Docs
+description: Monitor de Azure usa tecnología de malla de servicio, Istio, en el clúster de Kubernetes para proporcionar supervisión de aplicaciones para cualquier aplicación hospedado de Kubernetes. Esto le permite recopilar datos de telemetría de Application Insights que pertenecen a las solicitudes entrantes y salientes a y desde los pods que se ejecutan en el clúster.
 services: application-insights
 author: tokaplan
 manager: carmonm
@@ -8,14 +8,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: alkaplan
-ms.openlocfilehash: 42b81ec0fa01841791a5b2651d1c1189db5e27ff
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
-ms.translationtype: HT
+ms.openlocfilehash: c94d589875195207ec6f71c35ad077cac281fda5
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408209"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555833"
 ---
-# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-apps"></a>Cero supervisión de aplicaciones de instrumentación para Kubernetes aplicaciones hospedadas
+# <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Cero supervisión de aplicaciones de instrumentación para Kubernetes las aplicaciones hospedadas
 
 > [!IMPORTANT]
 > Esta funcionalidad está actualmente en versión preliminar pública.

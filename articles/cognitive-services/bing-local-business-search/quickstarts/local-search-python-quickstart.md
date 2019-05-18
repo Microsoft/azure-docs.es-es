@@ -3,18 +3,18 @@ title: 'Guía de inicio rápido: Envío de una consulta a Bing Local Business Se
 titleSuffix: Azure Cognitive Services
 description: Use este artículo para empezar a usar Bing Local Business Search API en Python.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 241ade7d4866186946c371aa1786bc913d045483
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e6626c1243f9f05a56effe3538870a5be9ac6b34
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60335936"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796562"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>Inicio rápido: Envío de una consulta a Bing Local Business Search API en Python
 

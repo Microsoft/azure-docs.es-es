@@ -13,36 +13,41 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 2/13/2019
-ms.openlocfilehash: 23e072369aa8ac6ca6ada5ec185df1a8d7e03c5b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f929369030b6f0a634eb2c84e33eee24af8cb6a2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61477185"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787508"
 ---
 # <a name="sql-server-on-azure-virtual-machine-release-notes"></a>Notas de la versión de SQL Server en máquinas virtuales de Azure
 
 Azure permite implementar una máquina virtual con una imagen de SQL Server integrada. En este artículo se resumen las nuevas características y mejoras de las versiones recientes de [SQL Server en VM de Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). En el artículo también se enumeran las actualizaciones importantes de contenido que no están directamente relacionadas con la versión, pero que se publican en el mismo período de tiempo. Para mejoras en otros servicios de Azure, consulte [las Actualizaciones del servicio](https://azure.microsoft.com/updates).
 
-## <a name="march-2019"></a>Marzo de 2019
+## <a name="april-2019"></a>Abril de 2019
 
 ### <a name="service-improvements"></a>Mejoras en el servicio
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |
-| **Compatibilidad de la imagen personalizada** | Ahora puede instalar el [extensión SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) a imágenes de sistema operativo y SQL personalizadas, que ofrece una funcionalidad limitada de [licencias flexibles](virtual-machines-windows-sql-ahb.md). En caso contrario, al registrar la imagen personalizada con el proveedor de recursos SQL, especifique el tipo de licencia como 'AHUB' como el registro se producirá un error.  | 
-| **Compatibilidad de la instancia con nombre** | Ahora puede usar el [extensión SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) con una instancia con nombre, si la instancia predeterminada se ha desinstalado correctamente. | 
-| **Mejora del portal** | La experiencia de Azure portal para implementar una máquina virtual de SQL Server se ha renovado para mejorar la facilidad de uso. Para obtener más información, vea el breve [Quickstart](quickstart-sql-vm-create-portal.md) y profundice [procedimientos](virtual-machines-windows-portal-sql-server-provision.md) guía para implementar una máquina virtual de SQL Server. |
+| **Ampliar la compatibilidad de SQL Server 2008/2008 R2** | [Ampliar la compatibilidad con](virtual-machines-windows-sql-server-2008-eos-extend-support.md) para SQL Server 2008 y SQL Server 2008 R2 mediante la migración *como-es* a una máquina virtual de Azure. | 
 | &nbsp; | &nbsp; |
 
 ### <a name="documentation-improvements"></a>Mejoras en la documentación
 
 None
 
+## <a name="march-2019"></a>Marzo de 2019
+
+| Mejoras en el servicio | Detalles |
+| --- | --- |
+| **Compatibilidad de la imagen personalizada** | Ahora puede instalar el [extensión SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) a imágenes de sistema operativo y SQL personalizadas, que ofrece una funcionalidad limitada de [licencias flexibles](virtual-machines-windows-sql-ahb.md). En caso contrario, al registrar la imagen personalizada con el proveedor de recursos SQL, especifique el tipo de licencia como 'AHUB' como el registro se producirá un error.  | 
+| **Compatibilidad de la instancia con nombre** | Ahora puede usar el [extensión SQL IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) con una instancia con nombre, si la instancia predeterminada se ha desinstalado correctamente. | 
+| **Mejora del portal** | La experiencia de Azure portal para implementar una máquina virtual de SQL Server se ha renovado para mejorar la facilidad de uso. Para obtener más información, vea el breve [Quickstart](quickstart-sql-vm-create-portal.md) y profundice [procedimientos](virtual-machines-windows-portal-sql-server-provision.md) guía para implementar una máquina virtual de SQL Server.|
+| &nbsp; | &nbsp; |
+
 
 ## <a name="february-2019"></a>Febrero de 2019
-
-### <a name="service-improvements"></a>Mejoras en el servicio
 
 | Mejoras en el servicio | Detalles |
 | --- | --- |

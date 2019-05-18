@@ -5,15 +5,15 @@ metadata:
   title: 'Documentación sobre Bing Video Search API: tutoriales, inicios rápidos y referencias de API | Microsoft Docs'
   description: Aprenda a usar Bing Video Search API para buscar vídeos en la Web.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
+  author: aahill
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-video-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/31/2019
-  ms.author: v-gedod
+  ms.author: aahi
 abstract:
   description: Bing Video Search API le permite integrar las funcionalidades de búsqueda de vídeos de Bing en las aplicaciones. Mediante el envío de consultas de vídeo a la API puede obtener y mostrar vídeos adecuados y de alta calidad de forma parecida a como lo hace bing.com/videos.
 sections:

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 400b1613a87d4de65879a512642e16884c7d03b4
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: eb6667a1429382ed566826de64ad7ffbe83183cf
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65021892"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521883"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Agregar proveedores de sugerencias para un índice de escritura anticipada en Azure Search
 
@@ -95,7 +95,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Referencia de propiedades
+## <a name="property-reference"></a>Referencia de propiedad
 
 Puntos clave a tener en cuenta acerca de proveedores de sugerencias es que hay un nombre (proveedores de sugerencias se hace referencia por nombre en una solicitud), un searchMode (actualmente, solo uno, "analyzingInfixMatching") y la lista de campos para el que está habilitada la escritura anticipada. 
 
@@ -119,7 +119,7 @@ Como se indicó anteriormente, puede usar un proveedor de sugerencias para consu
 
 Se hace referencia a un proveedor de sugerencias en la solicitud junto con la operación. Por ejemplo, en una llamada GET REST, especifique `suggest` o `autocomplete` en la colección de documentos. Para REST, una vez creado un proveedor de sugerencias, use el [API de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggestions) o [API de Autocompletar](https://docs.microsoft.com/rest/api/searchservice/autocomplete) en la lógica de consulta.
 
-Para. NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) o [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+Para. NET, use [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet) o [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet).
 
 Para obtener un ejemplo que muestra ambas solicitudes, consulte [ejemplo para agregar Autocompletar y sugerencias en Azure Search](search-autocomplete-tutorial.md).
 

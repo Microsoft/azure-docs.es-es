@@ -53,7 +53,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado SFTP:
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Sftp**. |Sí |
 | host | Nombre o dirección IP del servidor SFTP. |Sí |
-| puerto | Puerto en el que escucha el servidor SFTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **22**. |No |
+| port | Puerto en el que escucha el servidor SFTP.<br/>Los valores permitidos son: enteros; el valor predeterminado es **22**. |No |
 | skipHostKeyValidation | Especifique si desea omitir la validación de claves de host.<br/>Los valores válidos son **true** y **false** (valor predeterminado).  | No |
 | hostKeyFingerprint | Especifique la huella dactilar de la clave de host. | Sí, si "skipHostKeyValidation" está establecido en false.  |
 | authenticationType | Especifique el tipo de autenticación.<br/>Los valores permitidos son: **Basic**, **SshPublicKey**. Consulte las secciones [Uso de autenticación básica](#using-basic-authentication) y [Uso de autenticación de clave pública SSH](#using-ssh-public-key-authentication) sobre más propiedades y ejemplos JSON respectivamente. |Sí |
@@ -182,7 +182,7 @@ Para copiar datos desde SFTP en **Parquet o formato de texto delimitado**, consu
 
 | Propiedad   | DESCRIPCIÓN                                                  | Obligatorio |
 | ---------- | ------------------------------------------------------------ | -------- |
-| Tipo       | La propiedad type en `location` en el conjunto de datos debe establecerse en **SftpLocation**. | Sí      |
+| type       | La propiedad type en `location` en el conjunto de datos debe establecerse en **SftpLocation**. | Sí      |
 | folderPath | La ruta de acceso a la carpeta. Si desea usar el carácter comodín a la carpeta de filtro, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
 | fileName   | El nombre de archivo en folderPath determinado. Si desea usar el carácter comodín para filtrar los archivos, omita esta configuración y especificar en la configuración del origen de actividad. | Sin        |
 
@@ -281,7 +281,7 @@ Para copiar datos desde SFTP en **Parquet o formato de texto delimitado**, consu
 
 | Propiedad                 | DESCRIPCIÓN                                                  | Obligatorio                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
-| Tipo                     | La propiedad type en `storeSettings` debe establecerse en **SftpReadSetting**. | Sí                                           |
+| type                     | La propiedad type en `storeSettings` debe establecerse en **SftpReadSetting**. | Sí                                           |
 | recursive                | Indica si los datos se leen de forma recursiva de las subcarpetas o solo de la carpeta especificada. Tenga en cuenta que cuando recursive se establece en true y el receptor es un almacén basado en archivos, no se crea una carpeta o una subcarpeta vacía en el receptor. Los valores permitidos son: **True** (valor predeterminado) y **False**. | Sin                                             |
 | wildcardFolderPath       | La ruta de acceso de carpeta con caracteres comodín para filtrar las carpetas de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br>Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sin                                             |
 | wildcardFileName         | El nombre de archivo con caracteres comodín en el folderPath/wildcardFolderPath determinado para filtrar los archivos de origen. <br>Los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro.  Ver más ejemplos en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). | Sí si `fileName` no se especifica en el conjunto de datos |

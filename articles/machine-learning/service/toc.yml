@@ -61,19 +61,19 @@
     - name: Experimentos de la interfaz visual
       items:
         - name: Predicción del precio
-          displayName: 'Sample 1, training, regression'
+          displayName: 'Basic Sample, training, regression, sample 1'
           href: ui-sample-regression-predict-automobile-price-basic.md
         - name: Predicción del precio (avanzado)
-          displayName: 'Sample 2, training, regression'
+          displayName: 'Advanced Sample, training, regression, sample 2'
           href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
         - name: Predicción del riesgo de crédito
-          displayName: 'Sample 3, training, classification'
+          displayName: 'Basic Sample, training, classification, sample 3'
           href: ui-sample-classification-predict-credit-risk-basic.md
         - name: Predicción del riesgo crediticio (avanzado)
-          displayName: 'Sample 4, training, classification'
+          displayName: 'Advanced Sample, training, classification, sample 4'
           href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
         - name: Predicción de la renovación
-          displayName: 'Sample 5, training, CRM, classification'
+          displayName: 'Basic Sample, training, classification, sample 5'
           href: ui-sample-classification-predict-churn.md
 - name: Conceptos
   items:

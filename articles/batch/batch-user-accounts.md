@@ -15,13 +15,22 @@ ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 000495ab84990f15885c254b472be7863c75da58
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: bd5c16d755ef9b71f36b3d499838b12e6099ba6d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549859"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595385"
 ---
+> [!NOTE] 
+> Las cuentas de usuario descritas en este artículo son diferentes de los usuarios las cuentas utilizadas para el protocolo de escritorio remoto (RDP) o Secure Shell (SSH), por motivos de seguridad. 
+>
+> Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Uso del escritorio remoto a una máquina virtual Linux en Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
+> Para conectarse a un nodo que ejecuta la configuración del servicio en la nube a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
+>
+>
+
+
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Ejecución de tareas en cuentas de usuario en Batch
 
 En Azure Batch, las tareas siempre se ejecutan en una cuenta de usuario. De forma predeterminada, las tareas se ejecutan en cuentas de usuario estándar, sin permisos de administrador. Esta configuración de cuenta de usuario predeterminada es normalmente suficiente. Sin embargo, para determinados escenarios, resulta útil poder configurar la cuenta de usuario en que desea que se ejecute una tarea. En este artículo se describen los tipos de cuentas de usuario y cómo puede configurarlos para su escenario.
@@ -36,14 +45,6 @@ Azure Batch proporciona dos tipos de cuentas de usuario para ejecutar tareas:
 
 > [!IMPORTANT] 
 > La versión 2017-01-01.4.0 del servicio Batch incluye un cambio importante que requiere que se actualice el código para llamar a esa versión. Si va a migrar código desde una versión anterior de Batch, tenga en cuenta que la propiedad **runElevated** ya no se admite en las bibliotecas de cliente de la API de REST o Batch. Use la nueva propiedad **userIdentity** de una tarea para especificar el nivel de elevación. Consulte la sección titulada [Actualización del código a la biblioteca de cliente de Batch más reciente](#update-your-code-to-the-latest-batch-client-library) para ver instrucciones rápidas para actualizar el código de Batch si usa una de las bibliotecas de cliente.
->
->
-
-> [!NOTE] 
-> Las cuentas de usuario descritas en este artículo no son compatibles con el Protocolo de escritorio remoto (RDP) ni con Secure Shell (SSH) por seguridad. 
->
-> Para conectarse a un nodo que ejecuta la configuración de máquina virtual Linux mediante SSH, consulte [Uso del escritorio remoto a una máquina virtual Linux en Azure](../virtual-machines/virtual-machines-linux-use-remote-desktop.md). Para conectarse a nodos que ejecutan Windows a través de RDP, consulte [Conexión a una máquina virtual de Windows Server](../virtual-machines/windows/connect-logon.md).<br /><br />
-> Para conectarse a un nodo que ejecuta la configuración del servicio en la nube a través de RDP, consulte [Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services](../cloud-services/cloud-services-role-enable-remote-desktop-new-portal.md).
 >
 >
 

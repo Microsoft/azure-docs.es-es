@@ -16,12 +16,12 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e49f0077444f86eabeed22cc7cecf5e0ac7f8b5
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: ede412292caf682c3078002d23e1956bd68d1378
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141199"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602206"
 ---
 # <a name="review-access-to-azure-resource-roles-in-pim"></a>Revisar el acceso a los roles de recursos de Azure en PIM
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) simplifica cómo las empresas administran el acceso con privilegios a los recursos de Azure. 
@@ -45,12 +45,12 @@ Para buscar y completar la revisión de acceso, siga estos pasos:
 1. Vaya a la aplicación PIM de Azure AD.
 2. Seleccione la hoja **Revisar acceso**.
 
-   ![Captura de pantalla de la aplicación PIM, con la hoja Revisar acceso seleccionada](media/azure-pim-resource-rbac/rbac-access-review-complete.png)
+   ![Captura de pantalla de la aplicación PIM, con la hoja Revisar acceso seleccionada](media/pim-resource-roles-perform-access-review/rbac-access-review-complete.png)
 
 3. Seleccione la revisión que quiere completar. 
 4. Elija **Aprobar** o **Denegar**. En el cuadro de texto **Proporcionar un motivo**, puede que necesite incluir un motivo de su decisión.
 
-   ![Captura de pantalla de la página de detalles de la revisión](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+   ![Captura de pantalla de la página de detalles de la revisión](media/pim-resource-roles-perform-access-review/rbac-access-review-choice.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

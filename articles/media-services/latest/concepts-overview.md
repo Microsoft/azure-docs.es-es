@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2019
+ms.date: 05/13/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8a4ffdc09cb12f7a16173c86bd3d0e3aee78d46d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e76569c7f5157dce681d15ec8d499b90e080102
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65152646"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762307"
 ---
 # <a name="media-services-concepts"></a>Conceptos de Media Services
 
@@ -26,7 +26,7 @@ En este tema se ofrece una breve descripción de los conceptos y terminología d
 Deben revisarse los conceptos fundamentales que se describen en estos temas antes de comenzar a desarrollar.
 
 > [!NOTE]
-> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 ## <a name="terminology"></a>Terminología
 
@@ -76,7 +76,7 @@ Al crear el **localizador de Streaming**, además del nombre del recurso, deber�
 
 Empaquetado dinámico se utiliza si transmitir el contenido en vivo o bajo demanda. El siguiente diagrama muestra el streaming a petición con el flujo de trabajo de empaquetado dinámico.
 
-![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 Con Media Services, puede entregar el contenido en directo y a petición, cifrado de forma dinámica con estándar de cifrado avanzado (AES-128) o / y cualquiera de los tres sistemas DRM (administración) de derechos digitales principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados.
 
@@ -101,7 +101,7 @@ Puede usar Media Services **los manifiestos dinámicos** transmitir sólo una co
 - [Manifiestos dinámicos](filters-dynamic-manifest-overview.md)
 - [Filtros](filters-concept.md)
 
-## <a name="live-streaming"></a>Streaming en directo
+## <a name="live-streaming"></a>Streaming en vivo
 
 Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Los objetos **LiveEvents** son responsables de la ingesta y el procesamiento de las fuentes de vídeo en directo. Cuando creas un **evento en directo**, se crea un extremo de entrada que puede usar para enviar una señal en directo desde un codificador remoto. Una vez que la secuencia fluye en el **evento en directo**, puede comenzar el evento de streaming mediante la creación de un **activos**, **Live salida**, y **localizador de Streaming** . **Salida de Live** archivará la secuencia en la **activos** y ponerlo a disposición de los usuarios a través del **extremo de Streaming**. Un **evento en directo** puede ser uno de los dos tipos: **paso a través** y **codificación en directo**.
 
@@ -134,7 +134,7 @@ Puede usar Azure Media Player para reproducir contenido multimedia que se transm
 
 - [Información general sobre Azure Media Player](use-azure-media-player.md)
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

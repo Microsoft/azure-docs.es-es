@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b25806044dd74092a5404ad7ef24ddd386dffbc3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60791105"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521748"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -58,7 +58,7 @@ La subred de la máquina virtual de destino se selecciona en función del nombre
 
 - Si una subred con el mismo nombre que el de la subred de la máquina virtual de origen está disponible en la red de destino, se establece esa subred para la máquina virtual de destino.
 - Si no hay ninguna subred con el mismo nombre en la red de destino, se establece la primera red en orden alfabético como subred de destino.
-- Puede modificar esto en la configuración de **Proceso y red** de la máquina virtual.
+- Puede modificar la subred de destino en el **proceso y red** configuración para la máquina virtual.
 
     ![Ventana Propiedades de Compute de Proceso y red](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
@@ -85,8 +85,8 @@ Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible 
 
 **Red de destino** | **Detalles**
 --- | ---
-La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo:  si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
-La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  -Si ya se asigna la misma dirección IP, la dirección IP es lo siguiente al final del intervalo de subred.<br/><br/> Por ejemplo:  si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
+La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo: si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
+La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  -Si ya se asigna la misma dirección IP, la dirección IP es lo siguiente al final del intervalo de subred.<br/><br/> Por ejemplo: si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
 
 - La red virtual de conmutación por error es la red de destino que seleccionó al configurar la recuperación ante desastres.
 - Se recomienda que utilice siempre una red que no sea de producción para la conmutación por error de prueba.

@@ -13,12 +13,12 @@ ms.topic: quickstart
 ms.custom: ''
 ms.date: 02/19/2019
 ms.author: juliako
-ms.openlocfilehash: a323cbe4188207fa77525648297b366c9c57121b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd818135f289c430416909d16c8568208936a9f8
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244730"
+ms.lasthandoff: 05/06/2019
+ms.locfileid: "65205418"
 ---
 # <a name="quickstart-stream-video-files---cli"></a>Inicio rápido: Hacer streaming de archivos de vídeo: CLI
 
@@ -83,7 +83,7 @@ Obtendrá una respuesta parecida a esta:
 
 ## <a name="start-the-streaming-endpoint"></a>Inicio del punto de conexión de streaming
 
-El siguiente comando de la CLI de Azure inicia **punto de conexión de streaming** predeterminado.
+El siguiente comando de la CLI de Azure inicia el **punto de conexión de streaming** predeterminado.
 
 ```azurecli
 az ams streaming-endpoint start  -n default -a amsaccount -g amsResourceGroup
@@ -356,4 +356,4 @@ Consulte [Códigos de error de trabajo](https://docs.microsoft.com/rest/api/medi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [Ejemplos de CLI](cli-samples.md)
+[Introducción a Media Services](media-services-overview.md)

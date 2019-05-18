@@ -12,12 +12,12 @@ ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
 ms.date: 02/27/2019
-ms.openlocfilehash: e2068283414ef2fabb44e9876f6727cc0fe3530b
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 9726c589472c9ff6d456c922f88d12071e5ebcaf
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233510"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560580"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Introducción a los límites de recursos de Instancia administrada de Azure SQL Database
 
@@ -56,8 +56,8 @@ Instancia administrada tiene dos niveles de servicio: Uso general y Crítico par
 | Número máximo de bases de datos por instancia | 100 | 100 |
 | Número máximo de archivos de base de datos por instancia | Hasta 280 | Hasta 32 767 archivos por base de datos |
 | Datos/IOPS de registro (aproximado) | 500 - 7500 por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 11 K - 110 K (1375/vCore) |
-| Rendimiento de registro | 22 MB/s por instancia | 3 MB/s por núcleo virtual<br/>Max 48 MB/s por instancia|
-| Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | 24-48 MB/s por núcleo virtual |
+| Rendimiento de registro | 22 MB/s por instancia | 4 MB/s por núcleo virtual<br/>Max 48 MB/s por instancia|
+| Rendimiento de datos (aproximado) | 100 - 250 MB/s por archivo<br/>\*[Depende del tamaño del archivo](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | |
 | Latencia de E/S (aproximada) | 5-10 ms | 1-2 ms |
 | Tamaño máximo de tempDB | 192 GB - 1920 GB (24 GB por núcleo virtual) | No hay restricciones: limitadas por el tamaño máximo de almacenamiento de la instancia |
 

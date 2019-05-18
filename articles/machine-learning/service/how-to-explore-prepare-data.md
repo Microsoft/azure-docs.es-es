@@ -11,19 +11,19 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 05/02/19
-ms.openlocfilehash: f4e7fcbe403017a6d957a60a8e5664f2e6c5ba26
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 70712605cc97670b625d32052bb79b4a666e4281
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409824"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603160"
 ---
 # <a name="explore-and-prepare-data-with-the-dataset-class-preview"></a>Explorar y preparar los datos con la clase de conjunto de datos (versión preliminar)
 
 Obtenga información sobre cómo explorar y preparar los datos con el [SDK de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). El [Dataset](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py) clase (versión preliminar) le permite explorar y preparar los datos al proporcionar funciones tales como: muestreo, las estadísticas de resumen y transformaciones inteligentes. Los pasos de transformación se guardan en [definiciones de conjunto de datos](how-to-manage-dataset-definitions.md) con la capacidad de controlar varios archivos grandes de distintos esquemas de una manera altamente escalable.
 
 > [!Important]
-> Algunas clases de conjunto de datos (versión preliminar) tienen dependencias en el SDK de preparación de datos (GA). Mientras que las funciones de transformación pueden realizarse directamente con el GA'ed [las funciones del SDK de preparación de datos](how-to-transform-data.md), se recomienda que los contenedores del paquete de conjunto de datos descritos en este artículo, si está creando una nueva solución. Azure Machine Learning conjuntos de datos (versión preliminar) le permiten transformar no solo los datos, sino también [datos de instantánea](how-to-create-dataset-snapshots.md) y almacenar [definiciones de conjunto de datos con control de versiones](how-to-manage-dataset-definitions.md). Los conjuntos de datos es la siguiente versión del SDK de preparación de datos, que ofrece funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial.
+> Algunas clases de conjunto de datos (versión preliminar) tienen dependencias en el [azureml dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) (GA) del paquete. Mientras que las funciones de transformación pueden realizarse directamente con el GA'ed [funciones de preparación de datos](how-to-transform-data.md), se recomienda que los contenedores del paquete de conjunto de datos descritos en este artículo, si está creando una nueva solución. Azure Machine Learning conjuntos de datos (versión preliminar) le permiten transformar no solo los datos, sino también [datos de instantánea](how-to-create-dataset-snapshots.md) y almacenar [definiciones de conjunto de datos con control de versiones](how-to-manage-dataset-definitions.md). Los conjuntos de datos es la siguiente versión del SDK de preparación de datos, que ofrece funcionalidad ampliada para administrar conjuntos de datos en soluciones de inteligencia artificial.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

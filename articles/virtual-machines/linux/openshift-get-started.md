@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: c8ebd10544331d3b7d887124542fe4ee2753c714
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d9e3aa3dae81166ef91f57ea6a95087a952001ed
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65233140"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550980"
 ---
 # <a name="openshift-in-azure"></a>OpenShift en Azure
 
@@ -36,7 +36,7 @@ Hay varias versiones de OpenShift.  De estas versiones, sólo dos están disponi
 
 ## <a name="azure-red-hat-openshift"></a>Red Hat OpenShift en Azure
 
-Microsoft Azure Red Hat OpenShift es una oferta totalmente administrada de OpenShift que se ejecuta en Azure. Microsoft y Red Hat realizan la administración y el soporte técnico de este servicio conjuntamente. Documentación completa puede ser [aquí](https://docs.microsoft.com/azure/openshift/). 
+Microsoft Azure Red Hat OpenShift es una oferta totalmente administrada de OpenShift que se ejecuta en Azure. Microsoft y Red Hat realizan la administración y el soporte técnico de este servicio conjuntamente. Para obtener más información, consulte el [Azure Red Hat OpenShift Service](https://docs.microsoft.com/azure/openshift/) documentación.
 
 ## <a name="openshift-container-platform"></a>OpenShift Container Platform
 

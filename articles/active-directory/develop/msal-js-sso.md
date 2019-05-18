@@ -4,7 +4,7 @@ description: Obtenga información sobre la creación de las experiencias de inic
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a0fb0731b7ac46210294e3766b33bd6a239dcc2
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 9f1f102307256852ac92616c7fb707e0e2739e5d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075856"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544157"
 ---
 # <a name="single-sign-on-with-msaljs"></a>Inicio de sesión único con MSAL.js
 
@@ -91,7 +91,7 @@ Puede encontrar los pasos para configurar notificaciones opcionales en el manifi
 
 **Usar la sugerencia de inicio de sesión**
 
-Si no tienen SID configurado de notificación o deberá omitir la confirmación de selección de cuenta en las llamadas de autenticación interactiva, puede hacerlo al proporcionar un `login_hint` en los parámetros de solicitud y, opcionalmente, un `domain_hint` como `extraQueryParameters` en el MSAL.js los métodos interactivos (`loginPopup`, `loginRedirect`, `acquireTokenPopup` y `acquireTokenRedirect`). Por ejemplo: 
+Si no tienen SID configurado de notificación o deberá omitir la confirmación de selección de cuenta en las llamadas de autenticación interactiva, puede hacerlo al proporcionar un `login_hint` en los parámetros de solicitud y, opcionalmente, un `domain_hint` como `extraQueryParameters` en el MSAL.js los métodos interactivos (`loginPopup`, `loginRedirect`, `acquireTokenPopup` y `acquireTokenRedirect`). Por ejemplo:
 
 ```javascript
 var request = {

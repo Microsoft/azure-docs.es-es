@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0c59e892c8fd5a8bcc74d23e16eaabf1dc1a08f0
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 06337fef1a9d9b41fd41ff7c67611581639adc0a
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61273091"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65619725"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar un nombre de dominio personalizado para Azure App Service
 
-Los dominios de App Service (versión preliminar) son dominios de nivel superior que se administran directamente en Azure. Facilitan la administración de dominios personalizados para [Azure App Service](overview.md). En este tutorial se muestra cómo comprar un dominio de App Service y asignar nombres DNS a Azure App Service.
+Dominios de App Service son dominios de nivel superior que se administran directamente en Azure. Facilitan la administración de dominios personalizados para [Azure App Service](overview.md). En este tutorial se muestra cómo comprar un dominio de App Service y asignar nombres DNS a Azure App Service.
 
 Para Azure Virtual Machines o Azure Storage, vea [Assign App Service domain to Azure VM or Azure Storage](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/) (Asignación del dominio de App Service a Azure Virtual Machines o Azure Storage). Para Cloud Services, vea [Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
@@ -41,7 +41,7 @@ Para completar este tutorial:
 
 Para usar dominios personalizados en Azure App Service, el [plan de App Service](https://azure.microsoft.com/pricing/details/app-service/) de la aplicación debe ser un nivel de pago (**Compartido**, **Básico**, **Estándar** o **Premium**). En este paso, asegúrese de que la aplicación se encuentra en el plan de tarifa admitido.
 
-### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 
 Abra [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
 
@@ -79,10 +79,10 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 ## <a name="buy-the-domain"></a>Comprar el dominio
 
-### <a name="pricing-information"></a>Información de precios
-Para información sobre precios de los dominios de Azure App Service, visite la [página de precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) y desplácese hasta el dominio de App Service.
+### <a name="pricing-information"></a>Información sobre precios
+Para más información sobre dominios de Azure App Service, visite la [página precios de App Service](https://azure.microsoft.com/pricing/details/app-service/windows/) y desplácese hasta el dominio de App Service.
 
-### <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+### <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 Abra [Azure Portal](https://portal.azure.com/) e inicie sesión con su cuenta de Azure.
 
 ### <a name="launch-buy-domains"></a>Iniciar Comprar dominios
@@ -150,7 +150,7 @@ Para probar los nombres de host, vaya a los nombres de host enumerados en el exp
 
 ## <a name="assign-hostnames-to-app"></a>Asignar nombres de host a la aplicación
 
-Si decide no asignar uno o varios nombres de host predeterminados a la aplicación durante el proceso de compra, o si tiene que asignar un nombre de host que no aparece, puede asignar un nombre de host en cualquier momento.
+Si decide no asignar uno o varios nombres de host predeterminados a la aplicación durante el proceso de compra, o si tiene que asignar un nombre de host no aparece, puede asignar un nombre de host en cualquier momento.
 
 También puede asignar nombres de host en el dominio de App Service a cualquier otra aplicación. Los pasos dependen de si el dominio de App Service y la aplicación pertenecen a la misma suscripción.
 
@@ -174,7 +174,7 @@ Asegúrese de que el dominio comprado aparece en la sección **Dominios de App S
 Seleccione **Agregar nombre de host**.
 
 ### <a name="configure-hostname"></a>Configurar el nombre de host
-En el cuadro de diálogo **Agregar nombre de host**, escriba el nombre de dominio completo de su dominio de App Service o cualquier subdominio. Por ejemplo: 
+En el cuadro de diálogo **Agregar nombre de host**, escriba el nombre de dominio completo de su dominio de App Service o cualquier subdominio. Por ejemplo:
 
 - kontoso.net
 - www\.kontoso.net
@@ -251,7 +251,7 @@ En Azure Portal, en el menú de la izquierda, seleccione **Todos los servicios**
 
 Seleccione el dominio que quiera cancelar o eliminar. 
 
-### <a name="delete-hostname-bindings"></a>Eliminación de enlaces de nombre de host
+### <a name="delete-hostname-bindings"></a>Eliminar enlaces del nombre de host
 
 En el menú de la izquierda del dominio, seleccione **Enlaces de nombre de host**. Aquí se enumeran los enlaces de nombre de host de todos los servicios de Azure.
 
@@ -278,7 +278,3 @@ Una vez completada la operación, el dominio se libera de la suscripción y vuel
 ## <a name="direct-default-url-to-a-custom-directory"></a>Direccionamiento de una dirección URL predeterminada a un directorio personalizado
 
 De forma predeterminada, App Service dirige las solicitudes web al directorio raíz del código de la aplicación. Para dirigirlas a un subdirectorio, como `public`, consulte [Direccionamiento de una dirección URL predeterminada a un directorio personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).
-
-## <a name="more-resources"></a>Más recursos
-
-[FAQ: App Service Domain (preview) and Custom Domains](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/) [Preguntas más frecuentes: Dominio de App Service (versión preliminar) y dominios personalizados]

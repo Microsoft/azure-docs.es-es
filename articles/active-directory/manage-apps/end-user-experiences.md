@@ -2,22 +2,22 @@
 title: 'Experiencias de usuario final para aplicaciones: Azure Active Directory | Microsoft Docs'
 description: Azure Active Directory (Azure AD) proporciona varias maneras personalizables para implementar aplicaciones para los usuarios finales de su organización.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.author: celested
+ms.date: 05/03/2019
+ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e00ecde5550b5ef4f1698fa879a039dee8aad12
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 41dde1579fc98db37ab7d92ce362d0a4ce9a82cf
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60441734"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824571"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Experiencias de usuario final para aplicaciones en Azure Active Directory
 Azure Active Directory (Azure AD) proporciona varias maneras personalizables para implementar aplicaciones para los usuarios finales de su organización:
@@ -53,7 +53,9 @@ La mayoría de las aplicaciones federadas que admiten SAML 2.0, WS-Federation u 
 ## <a name="direct-sign-on-links"></a>Vínculos directos de inicio de sesión
 Azure AD también admite vínculos directos de inicio de sesión único a las aplicaciones individuales que admiten el inicio de sesión con contraseña, el inicio de sesión único vinculado y cualquier forma de inicio de sesión único federado.
 
-Estos vínculos son direcciones URL especialmente diseñadas que envían a los usuarios al proceso de inicio de sesión de Azure AD para una aplicación específica sin necesidad de que el usuario la inicie desde el panel de acceso de Azure AD o de Office 365. Estos **usuario tener acceso a las direcciones URL** pueden encontrarse en las propiedades de las aplicaciones de empresa disponibles en Azure Active Directory en Azure portal.
+Estos vínculos son direcciones URL especialmente diseñadas que envían a los usuarios al proceso de inicio de sesión de Azure AD para una aplicación específica sin necesidad de que el usuario la inicie desde el panel de acceso de Azure AD o de Office 365. Estos **usuario tener acceso a las direcciones URL** pueden encontrarse en las propiedades de las aplicaciones de empresa disponibles. En el portal de Azure, seleccione **Azure Active Directory** > **aplicaciones empresariales**. Seleccione la aplicación y, a continuación, seleccione **propiedades**.
+
+![Ejemplo de la dirección URL de acceso de usuario en las propiedades de Twitter](media/end-user-experiences/direct-sign-on-link.png)
 
 Estos vínculos se pueden copiar y pegar en cualquier sitio donde que desee proporcionar un vínculo de inicio de sesión a la aplicación seleccionada. Podría ser en un mensaje de correo electrónico o en cualquier portal personalizado basado en web que haya configurado para el acceso de los usuarios a la aplicación. Este es un ejemplo de una AD de Azure único inicio de sesión URL directa de Twitter:
 

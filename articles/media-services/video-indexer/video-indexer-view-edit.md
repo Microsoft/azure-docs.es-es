@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 24a723bd32cb40807da1757b3fffb925d4ba1fef
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60559996"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799180"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Visualización y edición de la información detallada de Video Indexer
 
@@ -36,7 +37,7 @@ En este tema se muestra cómo ver y editar la información detallada de Video In
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Obtenga información sobre cómo crear su propia información detallada de Video Indexer basada en otro vídeo](video-indexer-create-new.md).
+[Utilice la información detallada de los vídeos](use-editor-create-project.md)
 
 ## <a name="see-also"></a>Vea también
 

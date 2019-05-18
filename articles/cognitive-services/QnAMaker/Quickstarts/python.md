@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e732417daada836dc7de58fadf69e8edb4ebcb14
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 20236dd2b5d2e21ca0490065ca6f26101dee3244
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60240736"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792307"
 ---
 # <a name="how-to-use-the-qna-maker-rest-api-with-python"></a>Cómo usar la API REST de QnA Maker con Python
 <a name="HOLTop"></a>
@@ -50,7 +50,7 @@ Debe tener una [cuenta de Cognitive Services API](https://docs.microsoft.com/azu
 
 ## <a name="create-knowledge-base"></a>Creación de una base de conocimiento
 
-El siguiente código crea una nueva base de conocimiento, con el método [Crear](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
+El siguiente código crea una nueva base de conocimiento, con el método [Crear](https://go.microsoft.com/fwlink/?linkid=2092179).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -106,7 +106,7 @@ req = {
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -185,7 +185,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="update-knowledge-base"></a>Actualización de una base de conocimiento
 
-El siguiente código actualiza una base de conocimiento existente con el método [Actualizar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+El siguiente código actualiza una base de conocimiento existente con el método [Actualizar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -244,7 +244,7 @@ req = {
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -318,7 +318,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obtención del estado de la solicitud
 
-Puede llamar al método [Operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) a fin de comprobar el estado de una solicitud para crear o actualizar una base de conocimiento. Para ver cómo se utiliza este método, consulte el código de ejemplo para el método [Crear](#Create) o [Actualizar](#Update).
+Puede llamar al método [Operación](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) a fin de comprobar el estado de una solicitud para crear o actualizar una base de conocimiento. Para ver cómo se utiliza este método, consulte el código de ejemplo para el método [Crear](#Create) o [Actualizar](#Update).
 
 [Volver arriba](#HOLTop)
 
@@ -326,7 +326,7 @@ Puede llamar al método [Operación](https://westus.dev.cognitive.microsoft.com/
 
 ## <a name="publish-knowledge-base"></a>Publicación de una base de conocimiento
 
-El siguiente código publica una base de conocimiento existente con el método [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
+El siguiente código publica una base de conocimiento existente con el método [Publicar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -393,7 +393,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="replace-knowledge-base"></a>Reemplazo de la base de conocimiento
 
-El siguiente código reemplaza el contenido de la base de conocimiento especificada con el método [Reemplazar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish).
+El siguiente código reemplaza el contenido de la base de conocimiento especificada con el método [Reemplazar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -443,7 +443,7 @@ req = {
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -481,7 +481,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="download-the-contents-of-a-knowledge-base"></a>Descarga del contenido de una base de conocimiento
 
-El siguiente código descarga el contenido de la base de conocimiento especificada con el método [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) (Descargar la base de conocimiento).
+El siguiente código descarga el contenido de la base de conocimiento especificada con el método [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) (Descargar la base de conocimiento).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -538,7 +538,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -658,7 +658,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="get-information-about-a-knowledge-base"></a>Obtención de información acerca de una base de conocimiento
 
-El siguiente código obtiene información sobre la base de conocimiento especificada mediante el método [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) (Obtener detalles de la base de conocimiento).
+El siguiente código obtiene información sobre la base de conocimiento especificada mediante el método [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) (Obtener detalles de la base de conocimiento).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -731,7 +731,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="get-all-knowledge-bases-for-a-user"></a>Obtención de todas las bases de conocimiento para un usuario
 
-El siguiente código obtiene información sobre todas las bases de conocimiento para un usuario especificado mediante el método [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) (Obtener bases de conocimiento para el usuario).
+El siguiente código obtiene información sobre todas las bases de conocimiento para un usuario especificado mediante el método [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) (Obtener bases de conocimiento para el usuario).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -817,7 +817,7 @@ Press any key to continue.
 
 ## <a name="delete-a-knowledge-base"></a>Eliminación de una base de conocimiento
 
-El siguiente código elimina el contenido de la base de conocimiento especificada con el método [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) (Eliminar base de conocimiento).
+El siguiente código elimina el contenido de la base de conocimiento especificada con el método [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) (Eliminar base de conocimiento).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -884,7 +884,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="get-endpoint-keys"></a>Obtención de claves de punto de conexión
 
-El siguiente código obtiene las claves del punto de conexión actual mediante el método [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) (Obtener claves de punto de conexión).
+El siguiente código obtiene las claves del punto de conexión actual mediante el método [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) (Obtener claves de punto de conexión).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -943,7 +943,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="refresh-endpoint-keys"></a>Actualización de las claves de punto de conexión
 
-El siguiente código regenera las claves del punto de conexión actual mediante el método [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) (Actualizar claves de punto de conexión).
+El siguiente código regenera las claves del punto de conexión actual mediante el método [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) (Actualizar claves de punto de conexión).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -1011,7 +1011,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="get-word-alterations"></a>Obtención de modificaciones de palabras
 
-El siguiente código obtiene las modificaciones de palabras actuales mediante el método [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) (Descargar modificaciones).
+El siguiente código obtiene las modificaciones de palabras actuales mediante el método [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) (Descargar modificaciones).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -1076,7 +1076,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="replace-word-alterations"></a>Reemplazo de modificaciones de palabras
 
-El siguiente código reemplaza las modificaciones de palabras actuales mediante el método [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) (Reemplazar modificaciones).
+El siguiente código reemplaza las modificaciones de palabras actuales mediante el método [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) (Reemplazar modificaciones).
 
 1. Cree un nuevo proyecto de Python en su IDE favorito.
 2. Agregue el código que se proporciona a continuación.
@@ -1152,7 +1152,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Referencia de QnA Maker (V4) REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Referencia de QnA Maker (V4) REST API](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## <a name="see-also"></a>Vea también 
 

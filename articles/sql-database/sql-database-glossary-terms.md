@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/26/2019
-ms.openlocfilehash: fb628358c91d80a3117b065cadb284fd1665daa3
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 057c764a46508804bee6aa8f9912fdedc69e811f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65073683"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65762698"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Glosario de términos de Azure SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "65073683"
 |:---|:---|:---|
 |Nombre del servicio de Azure|Azure SQL Database o SQL Database|[Servicio Azure SQL Database](sql-database-technical-overview.md)|
 |Nivel de proceso|Serverless (versión preliminar)|[Nivel de proceso sin servidor](sql-database-serverless.md)
-||aprovisionado|[Nivel de proceso sin servidor](sql-database-serverless.md)
+||Aprovisionado|[Nivel de proceso sin servidor](sql-database-serverless.md)
 |Opciones de implementación |Base de datos única|[Bases de datos únicas](sql-database-single-database.md)|
 ||Grupo elástico|[Grupo elástico](sql-database-elastic-pool.md)|
 ||Instancia administrada|[Instancia administrada](sql-database-managed-instance.md)|

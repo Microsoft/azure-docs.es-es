@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a5e1ed89b6330a0b6a49cb20d8bf0ef3587d48
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: bd7f393f889facf147cf25625d5c3b20f886ddf5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65074746"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784938"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>Aplicación Web que llama a web API: configuración de código
 
@@ -187,9 +187,9 @@ private async Task OnAuthorizationCodeReceived(AuthorizationCodeReceivedNotifica
 En las aplicaciones web (o web API como de hecho), la implementación de caché de tokens es diferente de las implementaciones de caché de tokens de aplicaciones de escritorio (que a menudo son [basados en archivos](scenario-desktop-acquire-token.md#file-based-token-cache). Puede usar la sesión ASP.NET/ASP.NET Core, o una caché en Redis, una base de datos o incluso almacenamiento de blobs de Azure. En el código de fragmento de código encima de esto es el objeto de la `EnablePersistence(HttpContext, clientApp.UserTokenCache, clientApp.AppTokenCache);` llamada de método, que se enlaza a un servicio de caché. Los detalles de lo que sucede aquí está fuera del ámbito de esta guía del escenario, pero se proporcionan vínculos a continuación.
 
 > [!IMPORTANT]
-> Algo muy importante comprender es que para las aplicaciones web y API web, debe haber una caché de tokens por usuario (por cuenta). Debe serializar la caché de tokens para cada cuenta.
+> Algo muy importante comprender es que para las aplicaciones web y API web, debe haber una caché de tokens por usuario (por cuenta). Es preciso serializar la caché de tokens de cada cuenta.
 
-Ejemplos de cómo usar las cachés de tokens para aplicaciones Web y API web están disponibles en el [tutorial de aplicación Web de ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) en la fase [caché de tokens de 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para las implementaciones de echar un vistazo a la siguiente carpeta [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) en el [microsoft las extensiones de autenticación para dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) biblioteca (en el [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) carpeta.
+Ejemplos de cómo usar las cachés de tokens para aplicaciones Web y API web están disponibles en el [tutorial de aplicación Web de ASP.NET Core](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) en la fase [caché de tokens de 2-2](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/2-WebApp-graph-user/2-2-TokenCache). Para ver las implementaciones, diríjase a la siguiente carpeta [TokenCacheProviders](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web/TokenCacheProviders) de la biblioteca [microsoft-authentication-extensions-for-dotnet](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet) (en la carpeta [ Microsoft.Identity.Client.Extensions.Web](https://github.com/AzureAD/microsoft-authentication-extensions-for-dotnet/tree/master/src/Microsoft.Identity.Client.Extensions.Web) carpeta).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

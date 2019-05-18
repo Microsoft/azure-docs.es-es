@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 491545aabd3415850eb1b1d712a46401b73ad845
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 749216d3fe9164857bd4abce7ba7c766e466e7d3
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65190725"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823295"
 ---
 # <a name="what-is-password-writeback"></a>¿Qué es la escritura diferida de contraseñas?
 
@@ -42,9 +42,8 @@ La escritura diferida de contraseñas ofrece:
 * **Admite la escritura diferida de contraseñas cuando un administrador las restablece desde Azure Portal**: siempre que un administrador restablece la contraseña de un usuario en [Azure Portal](https://portal.azure.com) y se trata de un usuario con federación o sincronización de hash de contraseñas, la contraseña se escribe en diferido en el entorno local. Esta funcionalidad no se admite en el portal de administración de Office.
 * **No requiere ninguna regla de firewall de entrada**: la escritura diferida de contraseñas usa una retransmisión de Azure Service Bus como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
 
-> [!Note]
+> [!NOTE]
 > Las cuentas de usuario que se encuentran dentro de grupos protegidos en Active Directory local no se pueden utilizar con la escritura diferida de contraseñas. Las cuentas de administrador que se encuentran dentro de grupos protegidos en AD local no se pueden utilizar con la escritura diferida de contraseñas. Para más información sobre los grupos protegidos, vea [Cuentas y grupos protegidos en Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licencia para la escritura diferida de contraseñas
 
@@ -63,7 +62,6 @@ Para poder usar la escritura diferida de contraseñas, debe tener una de las sig
 
 > [!WARNING]
 > Los planes de licencias de Office 365 independientes *no admiten "Self-Service Password Reset/Change/Unlock with on-premises writeback"* (Autoservicio de restablecimiento/modificación/desbloqueo de contraseñas con escritura en diferido local) y requieren que tenga uno de los planes anteriores para que sirva esta funcionalidad.
->
 
 ## <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
 
@@ -90,7 +88,6 @@ Si un usuario con federación o sincronización de hash de contraseñas cambia o
 1. Si la operación de establecimiento de la contraseña se realiza correctamente, se notifica al usuario que se ha cambiado su contraseña.
    > [!NOTE]
    > Si la contraseña del usuario se sincroniza con Azure AD mediante la sincronización de hash de contraseñas, existe la posibilidad de que la directiva de contraseñas local sea menos segura que la directiva de contraseñas en la nube. En este caso, se aplica la directiva local. Esta directiva garantiza que la directiva local se aplique en la nube, sin importar si se usa la federación o sincronización de hash de contraseñas para proporcionar el inicio de sesión único.
-   >
 
 1. Si la operación de establecimiento de la contraseña no se realiza, un mensaje de error pide al usuario que vuelva a intentarla. La operación puede producir un error debido a lo siguiente:
     * El servicio estaba inactivo.
@@ -155,6 +152,7 @@ Las contraseñas se escriben en diferido en todas las situaciones siguientes:
    * Cualquier operación exigida de cambio de contraseña de autoservicio del administrador (por ejemplo, la expiración de contraseña)
    * Cualquier restablecimiento de contraseña de autoservicio del administrador que se origina en el [portal de restablecimiento de contraseñas](https://passwordreset.microsoftonline.com)
    * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde [Azure Portal](https://portal.azure.com)
+   * Cualquier usuario final iniciado por el Administrador de restablecimiento de contraseña desde el [centro de administración de Microsoft 365](https://admin.microsoft.com)
 
 ## <a name="unsupported-writeback-operations"></a>Operaciones de reescritura no admitidas
 
@@ -163,11 +161,10 @@ Las contraseñas *no* se escriben en diferido en ninguna de las situaciones sigu
 * **Operaciones de usuario final no admitidas**
    * Cualquier usuario final que restablezca su propia contraseña mediante PowerShell v1, v2 o Graph API de Azure AD
 * **Operaciones de administrador no admitidas**
-   * Cualquier restablecimiento de contraseña del usuario final iniciado por el administrador desde el [Portal de administración de Office](https://portal.office.com)
    * Cualquier restablecimiento de contraseña del usuario final que inicie el administrador desde PowerShell v1, v2 o Graph API de Azure AD
 
 > [!WARNING]
-> No se admite el uso de la casilla de verificación "el usuario debe cambiar la contraseña en el siguiente inicio de sesión" en Herramientas administrativas de Active Directory local, como usuarios de Active Directory y los equipos o el centro de administración de Active Directory. Al cambiar una contraseña en el entorno local no Active esta opción. 
+> No se admite el uso de la casilla de verificación "el usuario debe cambiar la contraseña en el siguiente inicio de sesión" en Herramientas administrativas de Active Directory local, como usuarios de Active Directory y los equipos o el centro de administración de Active Directory. Al cambiar una contraseña en el entorno local no Active esta opción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

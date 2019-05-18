@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: shlo
-ms.openlocfilehash: 845544a2062b43f0d9f883ddecbc2589b3357221
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 63a86fb9498c7c1b1cd527accca84c83a28e01c3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61262348"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65788675"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Canalizaciones y actividades en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -172,7 +172,7 @@ Nombre JSON | DESCRIPCIÓN | Valores permitidos | Obligatorio
 --------- | ----------- | -------------- | --------
 timeout | Especifica el tiempo de espera para que se ejecute la actividad. | TimeSpan | No. El tiempo de espera predeterminado es de 7 días.
 retry | Número máximo de reintentos | Entero | No. El valor predeterminado es 0.
-retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es de 20 segundos.
+retryIntervalInSeconds | El retraso entre reintentos, en segundos. | Entero | No. El valor predeterminado es 30 segundos.
 secureOutput | Cuando se establece en true, la salida de la actividad se considera segura y no se registrará en la supervisión. | Boolean | No. El valor predeterminado es false.
 
 ### <a name="control-activity"></a>Actividad de control

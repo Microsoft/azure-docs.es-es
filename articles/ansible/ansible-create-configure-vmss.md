@@ -1,280 +1,319 @@
 ---
-title: Creación de conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
-description: Aprenda a usar Ansible para crear y configurar un conjunto de escalado de máquinas virtuales de Azure
-ms.service: azure
+title: 'Tutorial: Configuración de conjuntos de escalado de máquinas virtuales de Azure con Ansible | Microsoft Docs'
+description: Aprenda a usar Ansible para crear y configurar conjuntos de escalado de máquinas virtuales de Azure
 keywords: ansible, azure, devops, bash, cuaderno de estrategias, máquina virtual, conjunto de escalado de máquinas virtuales, vmss
+ms.topic: tutorial
+ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
-ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/30/2019
+ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097896"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65230731"
 ---
-# <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Creación de conjuntos de escalado de máquinas virtuales de Azure mediante Ansible
-Ansible permite automatizar la implementación y la configuración de recursos en un entorno. Puede usar Ansible para administrar su conjunto de escalado de máquinas virtuales (VMSS) de Azure, al igual que podría hacerlo con cualquier otro recurso de Azure. En este artículo se muestra cómo usar Ansible para crear y escalar horizontalmente un conjunto de escalado de máquinas virtuales. 
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Tutorial: Configuración de conjuntos de escalado de máquinas virtuales de Azure con Ansible
+
+[!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
+
+[!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
+
+[!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
+
+> [!div class="checklist"]
+>
+> * Configuración de los recursos de una máquina virtual
+> * Configuración de un conjunto de escalado
+> * Escalado del conjunto de escalado mediante el aumento de las instancias de máquina virtual 
 
 ## <a name="prerequisites"></a>Requisitos previos
-- **Suscripción a Azure**: si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
-- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)][!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
-> [!Note]
-> Ansible 2.6 es necesario para ejecutar los siguientes cuadernos de estrategias de ejemplo de este tutorial. 
+[!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
+[!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-vmss"></a>Creación de un VMSS
-En esta sección se presenta un cuaderno de estrategias de Ansible de ejemplo que define los siguientes recursos:
-- **Grupo de recursos** en el que se implementarán todos sus recursos
-- **Red virtual** en el espacio de direcciones de 10.0.0.0/16
-- **Subred** en la red virtual
-- **Dirección IP pública** que permite tener acceso a recursos de Internet
-- **Grupo de seguridad de red** que controla el flujo del tráfico de red de entrada y salida de su conjunto de escalado de máquinas virtuales
-- **Equilibrador de carga** que distribuye el tráfico a través de un conjunto de máquinas virtuales definidas usando reglas de equilibrador de carga.
-- **Conjunto de escalado de máquinas virtuales** que usa todos los recursos creados
+## <a name="configure-a-scale-set"></a>Configuración de un conjunto de escalado
 
-Escriba su propia contraseña para el valor *admin_password*.
+El código del cuaderno de estrategias de esta sección define los siguientes recursos:
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-      vmss_lb_name: myVMSSlb
-      location: eastus
-      admin_username: azureuser
-      admin_password: "your_password"
-    tasks:
-      - name: Create a resource group
-        azure_rm_resourcegroup:
-          name: "{{ resource_group }}"
-          location: "{{ location }}"
-      - name: Create virtual network
-        azure_rm_virtualnetwork:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefixes: "10.0.0.0/16"
-      - name: Add subnet
-        azure_rm_subnet:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          address_prefix: "10.0.1.0/24"
-          virtual_network: "{{ vmss_name }}"
-      - name: Create public IP address
-        azure_rm_publicipaddress:
-          resource_group: "{{ resource_group }}"
-          allocation_method: Static
-          name: "{{ vmss_name }}"
-      - name: Create Network Security Group that allows SSH
-        azure_rm_securitygroup:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          rules:
-            - name: SSH
-              protocol: Tcp
-              destination_port_range: 22
-              access: Allow
-              priority: 1001
-              direction: Inbound
+* **Grupo de recursos** en el que se implementarán todos sus recursos.
+* **Red virtual** en el espacio de direcciones de 10.0.0.0/16
+* **Subred** en la red virtual
+* **Dirección IP pública** que permite tener acceso a recursos de Internet
+* **Grupo de seguridad de red** que controla el flujo del tráfico de red de entrada y salida del conjunto de escalado.
+* **Equilibrador de carga** que distribuye el tráfico a través de un conjunto de máquinas virtuales definidas usando reglas de equilibrador de carga.
+* **Conjunto de escalado de máquinas virtuales** que usa todos los recursos creados
 
-      - name: Create a load balancer
-        azure_rm_loadbalancer:
-          name: "{{ vmss_lb_name }}"
-          location: "{{ location }}"
-          resource_group: "{{ resource_group }}"
-          public_ip: "{{ vmss_name }}"
-          probe_protocol: Tcp
-          probe_port: 8080
-          probe_interval: 10
-          probe_fail_count: 3
-          protocol: Tcp
-          load_distribution: Default
-          frontend_port: 80
-          backend_port: 8080
-          idle_timeout: 4
-          natpool_frontend_port_start: 50000
-          natpool_frontend_port_end: 50040
-          natpool_backend_port: 22
-          natpool_protocol: Tcp
+Hay dos formas de obtener el cuaderno de estrategias de ejemplo:
 
-      - name: Create VMSS
-        azure_rm_virtualmachine_scaleset:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          vm_size: Standard_DS1_v2
-          admin_username: "{{ admin_username }}"
-          admin_password: "{{ admin_password }}"
-          ssh_password_enabled: true
-          capacity: 2
-          virtual_network_name: "{{ vmss_name }}"
-          subnet_name: "{{ vmss_name }}"
-          upgrade_policy: Manual
-          tier: Standard
-          managed_disk_type: Standard_LRS
-          os_disk_caching: ReadWrite
-          image:
-            offer: UbuntuServer
-            publisher: Canonical
-            sku: 16.04-LTS
-            version: latest
-          load_balancer: "{{ vmss_lb_name }}"
-          data_disks:
-            - lun: 0
-              disk_size_gb: 20
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-            - lun: 1
-              disk_size_gb: 30
-              managed_disk_type: Standard_LRS
-              caching: ReadOnly
-  ```
+* [Descargar el cuaderno de estrategias](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) y guardarlo en `vmss-create.yml`.
+* Crear un archivo llamado `vmss-create.yml` y copiar en él el siguiente contenido:
 
-Para crear el entorno del conjunto de escalado de máquinas virtuales con Ansible, guarde el cuaderno de estrategias anterior como `vmss-create.yml`, o bien [descargue el cuaderno de estrategias de Ansible de ejemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml).
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+    vmss_lb_name: myScaleSetLb
+    location: eastus
+    admin_username: azureuser
+    admin_password: "{{ admin_password }}"
+  tasks:
+    - name: Create a resource group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+    - name: Create virtual network
+      azure_rm_virtualnetwork:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefixes: "10.0.0.0/16"
+    - name: Add subnet
+      azure_rm_subnet:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        address_prefix: "10.0.1.0/24"
+        virtual_network: "{{ vmss_name }}"
+    - name: Create public IP address
+      azure_rm_publicipaddress:
+        resource_group: "{{ resource_group }}"
+        allocation_method: Static
+        name: "{{ vmss_name }}"
+    - name: Create Network Security Group that allows SSH
+      azure_rm_securitygroup:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        rules:
+          - name: SSH
+            protocol: Tcp
+            destination_port_range: 22
+            access: Allow
+            priority: 1001
+            direction: Inbound
 
-Para ejecutar el cuaderno de estrategias de Ansible, use el comando **ansible-playbook** de la siguiente manera:
+    - name: Create a load balancer
+      azure_rm_loadbalancer:
+        name: "{{ vmss_lb_name }}"
+        location: "{{ location }}"
+        resource_group: "{{ resource_group }}"
+        public_ip: "{{ vmss_name }}"
+        probe_protocol: Tcp
+        probe_port: 8080
+        probe_interval: 10
+        probe_fail_count: 3
+        protocol: Tcp
+        load_distribution: Default
+        frontend_port: 80
+        backend_port: 8080
+        idle_timeout: 4
+        natpool_frontend_port_start: 50000
+        natpool_frontend_port_end: 50040
+        natpool_backend_port: 22
+        natpool_protocol: Tcp
 
-  ```bash
-  ansible-playbook vmss-create.yml
-  ```
+    - name: Create Scale Set
+      azure_rm_virtualmachinescaleset:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        vm_size: Standard_DS1_v2
+        admin_username: "{{ admin_username }}"
+        admin_password: "{{ admin_password }}"
+        ssh_password_enabled: true
+        capacity: 2
+        virtual_network_name: "{{ vmss_name }}"
+        subnet_name: "{{ vmss_name }}"
+        upgrade_policy: Manual
+        tier: Standard
+        managed_disk_type: Standard_LRS
+        os_disk_caching: ReadWrite
+        image:
+          offer: UbuntuServer
+          publisher: Canonical
+          sku: 16.04-LTS
+          version: latest
+        load_balancer: "{{ vmss_lb_name }}"
+        data_disks:
+          - lun: 0
+            disk_size_gb: 20
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+          - lun: 1
+            disk_size_gb: 30
+            managed_disk_type: Standard_LRS
+            caching: ReadOnly
+```
 
-Tras ejecutar el cuaderno de estrategias, una salida similar a la del siguiente ejemplo muestra que el conjunto de escalado de máquinas virtuales se ha creado correctamente:
+Antes de ejecutar el cuaderno de estrategias, consulte las notas siguientes:
 
-  ```Output
-  PLAY [localhost] ***********************************************************
+* En la sección `vars`, reemplace el marcador de posición `{{ admin_password }}` por su propia contraseña.
 
-  TASK [Gathering Facts] *****************************************************
-  ok: [localhost]
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
-  TASK [Create a resource group] ****************************************************************************
-  changed: [localhost]
+```bash
+ansible-playbook vmss-create.yml
+```
 
-  TASK [Create virtual network] ****************************************************************************
-  changed: [localhost]
+Tras ejecutar el cuaderno de estrategias, debería ver resultados similares a los siguientes:
 
-  TASK [Add subnet] **********************************************************
-  changed: [localhost]
+```Output
+PLAY [localhost] 
 
-  TASK [Create public IP address] ****************************************************************************
-  changed: [localhost]
+TASK [Gathering Facts] 
+ok: [localhost]
 
-  TASK [Create Network Security Group that allows SSH] ****************************************************************************
-  changed: [localhost]
+TASK [Create a resource group] 
+changed: [localhost]
 
-  TASK [Create a load balancer] ****************************************************************************
-  changed: [localhost]
+TASK [Create virtual network] 
+changed: [localhost]
 
-  TASK [Create VMSS] *********************************************************
-  changed: [localhost]
+TASK [Add subnet] 
+changed: [localhost]
 
-  PLAY RECAP *****************************************************************
-  localhost                  : ok=8    changed=7    unreachable=0    failed=0
+TASK [Create public IP address] 
+changed: [localhost]
 
-  ```
+TASK [Create Network Security Group that allows SSH] 
+changed: [localhost]
 
-## <a name="scale-out-a-vmss"></a>Escalar horizontalmente un VMSS
-El conjunto de escalado de máquinas virtuales creado tiene dos instancias. Si va al conjunto de escalado de máquinas virtuales de Azure Portal, verá **Standard_DS1_v2 (2 instancias)**. También puede usar [Azure Cloud Shell](https://shell.azure.com/) ejecutando el siguiente comando en Cloud Shell:
+TASK [Create a load balancer] 
+changed: [localhost]
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+TASK [Create Scale Set] 
+changed: [localhost]
 
-Debería ver resultados similares a la siguiente salida:
+PLAY RECAP 
+localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
-  ```bash
-  {
-    "capacity": 2,
-  }
-  ```
+```
 
-Ahora, vamos a escalar de dos a tres instancias. El siguiente código del cuaderno de estrategias de Ansible recupera información sobre el escalado de máquinas virtuales y cambia su capacidad de dos a tres. 
+## <a name="view-the-number-of-vm-instances"></a>Visualización del número de instancias de máquina virtual
 
-  ```yml
-  - hosts: localhost
-    vars:
-      resource_group: myResourceGroup
-      vmss_name: myVMSS
-    tasks: 
-      - name: Get scaleset info
-        azure_rm_virtualmachine_scaleset_facts:
-          resource_group: "{{ resource_group }}"
-          name: "{{ vmss_name }}"
-          format: curated
-        register: output_scaleset
+El [conjunto de escalado configurado](#configure-a-scale-set) actualmente tiene dos instancias. Los pasos siguientes se usan para confirmar dicho valor:
 
-      - name: Dump scaleset info
-        debug:
-          var: output_scaleset
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-      - name: Modify scaleset (change the capacity to 3)
-        set_fact:
-          body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
+1. Vaya al conjunto de escalado que ha configurado.
 
-      - name: Update something in that VMSS
-        azure_rm_virtualmachine_scaleset: "{{ body }}"
-  ```
+1. Podrá ver el nombre del conjunto de escalado con el número de instancias entre paréntesis: `Standard_DS1_v2 (2 instances)`
 
-Para escalar horizontalmente el conjunto de escalado de máquinas virtuales que ha creado, guarde el cuaderno de estrategias anterior como `vmss-scale-out.yml`, o bien [descargue el cuaderno de estrategias de Ansible de ejemplo](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml). 
+1. También puede comprobar el número de instancias con [Azure Cloud Shell](https://shell.azure.com/) mediante la ejecución del siguiente comando:
 
-El siguiente comando ejecutará el cuaderno de estrategias:
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
 
-  ```bash
-  ansible-playbook vmss-scale-out.yml
-  ```
+    Los resultados de la ejecución del comando de la CLI de Azure en Cloud Shell muestran que ahora existen tres instancias: 
 
-El resultado de la ejecución del cuaderno de estrategias de Ansible muestra que el conjunto de escalado de máquinas virtuales se ha escalado horizontalmente con éxito:
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
-  ```Output
-  PLAY [localhost] **********************************************************
+## <a name="scale-out-a-scale-set"></a>Escalado horizontal de un conjunto de escalado
 
-  TASK [Gathering Facts] ****************************************************
-  ok: [localhost]
+El código del cuaderno de estrategias de esta sección recupera información sobre el conjunto de escalado y cambia su capacidad de dos a tres.
 
-  TASK [Get scaleset info] ***************************************************************************
-  ok: [localhost]
+Hay dos formas de obtener el cuaderno de estrategias de ejemplo:
 
-  TASK [Dump scaleset info] ***************************************************************************
-  ok: [localhost] => {
-      "output_scaleset": {
-          "ansible_facts": {
-              "azure_vmss": [
-                  {
-                      ......
-                  }
-              ]
-          },
-          "changed": false,
-          "failed": false
-      }
-  }
+* [Descargar el cuaderno de estrategias](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) y guardarlo en `vmss-scale-out.yml`.
+* Crear un archivo llamado `vmss-scale-out.yml` y copiar en él el siguiente contenido:
 
-  TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] ***************************************************************************
-  ok: [localhost]
+```yml
+- hosts: localhost
+  vars:
+    resource_group: myResourceGroup
+    vmss_name: myScaleSet
+  tasks: 
+    - name: Get scaleset info
+      azure_rm_virtualmachine_scaleset_facts:
+        resource_group: "{{ resource_group }}"
+        name: "{{ vmss_name }}"
+        format: curated
+      register: output_scaleset
 
-  TASK [Update something in that VMSS] ***************************************************************************
-  changed: [localhost]
+    - name: Dump scaleset info
+      debug:
+        var: output_scaleset
 
-  PLAY RECAP ****************************************************************
-  localhost                  : ok=5    changed=1    unreachable=0    failed=0
-  ```
+    - name: Modify scaleset (change the capacity to 3)
+      set_fact:
+        body: "{{ output_scaleset.ansible_facts.azure_vmss[0] | combine({'capacity': 3}, recursive=True) }}"
 
-Si va al conjunto de escalado de máquinas virtuales que ha configurado en Azure Portal, verá **Standard_DS1_v2 (3 instancias)**. También puede comprobar el cambio con [Azure Cloud Shell](https://shell.azure.com/) ejecutando el siguiente comando:
+    - name: Update something in that scale set
+      azure_rm_virtualmachinescaleset: "{{ body }}"
+```
 
-  ```azurecli-interactive
-  az vmss show -n myVMSS -g myResourceGroup --query '{"capacity":sku.capacity}' 
-  ```
+Use el comando `ansible-playbook` para ejecutar el cuaderno de estrategias:
 
-El resultado de la ejecución del comando en Cloud Shell muestra que ahora existen tres instancias. 
+```bash
+ansible-playbook vmss-scale-out.yml
+```
 
-  ```bash
-  {
-    "capacity": 3,
-  }
-  ```
+Tras ejecutar el cuaderno de estrategias, debería ver resultados similares a los siguientes:
+
+```Output
+PLAY [localhost] 
+
+TASK [Gathering Facts] 
+ok: [localhost]
+
+TASK [Get scaleset info] 
+ok: [localhost]
+
+TASK [Dump scaleset info] 
+ok: [localhost] => {
+    "output_scaleset": {
+        "ansible_facts": {
+            "azure_vmss": [
+                {
+                    ......
+                }
+            ]
+        },
+        "changed": false,
+        "failed": false
+    }
+}
+
+TASK [Modify scaleset (set upgradePolicy to Automatic and capacity to 3)] 
+ok: [localhost]
+
+TASK [Update something in that scale set] 
+changed: [localhost]
+
+PLAY RECAP 
+localhost                  : ok=5    changed=1    unreachable=0    failed=0
+```
+
+## <a name="verify-the-results"></a>Verificación de los resultados
+
+Compruebe los resultados del trabajo mediante Azure Portal:
+
+1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+
+1. Vaya al conjunto de escalado que ha configurado.
+
+1. Podrá ver el nombre del conjunto de escalado con el número de instancias entre paréntesis: `Standard_DS1_v2 (3 instances)` 
+
+1. También puede comprobar el cambio con [Azure Cloud Shell](https://shell.azure.com/) ejecutando el siguiente comando:
+
+    ```azurecli-interactive
+    az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
+    ```
+
+    Los resultados de la ejecución del comando de la CLI de Azure en Cloud Shell muestran que ahora existen tres instancias: 
+
+    ```bash
+    {
+      "capacity": 3,
+    }
+    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 > [!div class="nextstepaction"] 
-> [Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure mediante Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-> 
-> [Escalado automático de un conjunto de escalado de máquinas virtuales con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)
+> [Tutorial: Implementación de aplicaciones en conjuntos de escalado de máquinas virtuales de Azure con Ansible](./ansible-deploy-app-vmss.md)

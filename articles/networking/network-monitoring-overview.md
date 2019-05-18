@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ajaycode
-ms.openlocfilehash: 42fb5d69a1f32d669ad5191e342b3f2f880b8c98
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b112771e8c0f08e6b9a02c2fc5b7e1887b3f2588
+ms.sourcegitcommit: 3675daec6c6efa3f2d2bf65279e36ca06ecefb41
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60564840"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65620415"
 ---
 # <a name="network-monitoring-solutions"></a>Soluciones de supervisión de redes 
 
@@ -37,11 +37,11 @@ Network Performance Monitor (NPM) es un conjunto de funcionalidades, cada una or
 
 Monitor de rendimiento, Supervisión de ExpressRoute y Monitor de conectividad de servicio son funcionalidades de supervisión dentro de NPM y se describen a continuación.
 
-## <a name="performance-monitor"></a>Supervisión del rendimiento
+## <a name="performance-monitor"></a>Monitor de rendimiento
 
 Performance Monitor es parte de NPM y supervisa la red en entornos en la nube, locales e híbridos. Puede supervisar la conectividad de red entre oficinas locales y sucursales remotas, tiendas, centros de datos y nubes. Puede detectar problemas de red antes de que los usuarios se quejen. Las principales ventajas son:
 
-* Supervisar la latencia y la pérdida a través de varias redes virtuales y establecer alertas
+* Supervisar la pérdida y la latencia en varias subredes y establecer alertas
 * Supervisar todas las rutas de acceso (incluidas las rutas de acceso redundantes) en la red
 * Solucionar problemas de red transitorios y puntuales que resultan difíciles de replicar
 * Determinar un segmento específico de la red que es responsable de la degradación del rendimiento
@@ -53,7 +53,9 @@ Para más información, consulte los siguientes artículos:
 
 * [Configurar una solución Network Performance Monitor en registros de Azure Monitor](../azure-monitor/insights/network-performance-monitor.md) 
 * [Casos de uso](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
-*  Actualizaciones del producto: [Febrero de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [de agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
+* Actualizaciones del producto:
+  * [Febrero de 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/)
+  * [Agosto de 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 
 ## <a name="expressroute-monitor"></a>Supervisión de ExpressRoute
 
@@ -71,7 +73,7 @@ NPM para ExpressRoute ofrece una supervisión completa de ExpressRoute para cone
 Para más información, consulte los siguientes artículos.
 
 * [Configuración de Network Performance Monitor para ExpressRoute](../expressroute/how-to-npm.md)
-* [Entrada de blog](https://aka.ms/NPMExRmonitorGA)
+* [Entradas del blog](https://aka.ms/NPMExRmonitorGA)
 
 ## <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -87,7 +89,7 @@ Con el Monitor de conectividad de servicio, ahora puede probar la accesibilidad 
 Para más información, consulte los siguientes artículos.
 
 * [Configurar Network Performance Monitor para la supervisión de puntos de conexión de servicio](../azure-monitor/insights/network-performance-monitor-service-connectivity.md#configuration)
-* [Entrada de blog](https://aka.ms/svcendptmonitor)
+* [Entradas del blog](https://aka.ms/svcendptmonitor)
 
 ## <a name="traffic-analytics"></a>Análisis de tráfico
 Análisis de tráfico es una solución basada en la nube que proporciona visibilidad sobre la actividad de usuarios y aplicaciones en las redes en la nube. Los registros del flujo de NSG se analizan para proporcionar información sobre:
@@ -120,6 +122,6 @@ Creada para los administradores de DNS, esta solución recopila, analiza y corre
 Vínculos relacionados:
 * [Entrada de blog](https://blogs.technet.microsoft.com/msoms/2017/04/19/introducing-oms-dns-analytics/), [Documentación](https://docs.microsoft.com/azure/log-analytics/log-analytics-dns)
 
-## <a name="miscellaneous"></a>Varios
+## <a name="miscellaneous"></a>Miscelánea
 
 * [Nuevos precios](https://docs.microsoft.com/azure/log-analytics/log-analytics-network-performance-monitor-pricing-faq)

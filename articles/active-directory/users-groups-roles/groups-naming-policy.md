@@ -1,5 +1,5 @@
 ---
-title: 'Aplicar la directiva de nomenclatura de grupo: grupos de Office 365 - Azure Active Directory | Microsoft Docs'
+title: Aplicar la directiva de nomenclatura de grupo en grupos de Office 365 - Azure Active Directory | Microsoft Docs
 description: Cómo configurar una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory (versión preliminar)
 services: active-directory
 documentationcenter: ''
@@ -10,19 +10,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/22/2019
+ms.date: 05/06/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 846eb3a43955fe05531f619869878b3978ad5b9d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9d21616938978e501cc112fde105be4db4499b2a
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690255"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65605552"
 ---
-# <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory"></a>Aplicar una directiva de nomenclatura para grupos de Office 365 en Azure Active Directory
+# <a name="enforce-a-naming-policy-on-office-365-groups-in-azure-active-directory"></a>Aplicar una directiva de nomenclatura de grupos de Office 365 en Azure Active Directory
 
 Para aplicar convenciones de nomenclatura coherentes a los grupos de Office 365 creados o editados por los usuarios, configure una directiva de nomenclatura de grupos para sus inquilinos en Azure Active Directory (Azure AD). Por ejemplo, podría usar la directiva de nomenclatura para comunicar la función de un grupo, la pertenencia, la región geográfica o quién creó el grupo. También puede usarla para ayudar a clasificar los grupos en la libreta de direcciones. O, para impedir que palabras específicas se usen en los nombres y alias de grupo.
 
@@ -76,7 +76,7 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 - Administrador de usuarios
 - Escritores de directorios
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-portal-preview"></a>Configurar el grupo de directiva de nomenclatura para un inquilino mediante Azure portal (versión preliminar)
+## <a name="configure-naming-policy-in-azure-portal-preview"></a>Configuración de directiva de nomenclatura en Azure portal (versión preliminar)
 
 1. Inicie sesión en el [Centro de administración de Azure AD](https://aad.portal.azure.com) con una cuenta de administrador de usuarios.
 1. Seleccione **grupos**, a continuación, seleccione **directiva de nomenclatura** para abrir la página de la directiva de nomenclatura.
@@ -90,7 +90,7 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 1. Para quitar un prefijo o sufijo de la lista, seleccione el prefijo o sufijo y luego seleccione **eliminar**. Varios elementos se pueden eliminar al mismo tiempo.
 1. Guarde los cambios para la nueva directiva entre en vigor seleccionando **guardar**.
 
-### <a name="view-or-edit-the-custom-blocked-words"></a>Ver o editar las palabras bloqueadas personalizadas
+### <a name="edit-custom-blocked-words"></a>Editar las palabras bloqueadas personalizadas
 
 1. En el **directiva de nomenclatura** página, seleccione **palabras bloqueadas**.
 
@@ -100,35 +100,36 @@ Algunos administradores pueden quedar excluidos de estas directivas, en todas la
 1. Cargue la nueva lista de palabras bloqueadas personalizadas seleccionando el icono del archivo.
 1. Guarde los cambios para la nueva directiva entre en vigor seleccionando **guardar**.
 
-## <a name="install-powershell-cmdlets-to-configure-a-naming-policy"></a>Instalación de cmdlets de PowerShell para configurar una directiva de nomenclatura
+## <a name="install-powershell-cmdlets"></a>Instalación de los cmdlets de PowerShell
 
 Asegúrese de desinstalar cualquier versión anterior del módulo Azure Active Directory PowerShell for Graph para Windows PowerShell y de instalar [Azure Active Directory PowerShell for Graph - Public Preview Release 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137) antes de ejecutar los comandos de PowerShell.
 
 1. Abra la aplicación Windows PowerShell como administrador.
 2. Desinstale cualquier versión anterior de AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Uninstall-Module AzureADPreview
    ```
 
 3. Instale la versión más reciente de AzureADPreview.
   
-   ```powershell
+   ``` PowerShell
    Install-Module AzureADPreview
    ```
 
    Si se le pide sobre el acceso a un repositorio de confianza, escriba **Y**. El nuevo módulo puede tardar varios minutos en instalarse.
 
-## <a name="configure-the-group-naming-policy-for-a-tenant-using-azure-ad-powershell"></a>Configuración de la directiva de nomenclatura de grupos para un inquilino mediante Azure AD PowerShell
+## <a name="configure-naming-policy-in-powershell"></a>Configuración de directiva de nomenclatura en PowerShell
 
 1. Abra una ventana de Windows PowerShell en el equipo. La puede abrir sin privilegios elevados.
 
 1. Ejecute los comandos siguientes para prepararse para ejecutar los cmdlets.
   
-   ```powershell
+   ``` PowerShell
    Import-Module AzureADPreview
    Connect-AzureAD
    ```
+
    En la pantalla **Sign in to your Account** (Iniciar sesión en su cuenta) que se abre, escriba la cuenta y la contraseña de administrador para conectarse al servicio y seleccione **Sign in** (Iniciar sesión).
 
 1. Siga los pasos de [Cmdlets de Azure Active Directory para configurar las opciones de grupo](groups-settings-cmdlets.md) para crear una configuración de grupo para este inquilino.
@@ -137,13 +138,13 @@ Asegúrese de desinstalar cualquier versión anterior del módulo Azure Active D
 
 1. Obtenga la directiva de nomenclatura actual para ver la configuración actual.
   
-   ```powershell
+   ``` PowerShell
    $Setting = Get-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id
    ```
   
 1. Muestre la configuración actual del grupo.
   
-   ```powershell
+   ``` PowerShell
    $Setting.Values
    ```
   
@@ -151,38 +152,38 @@ Asegúrese de desinstalar cualquier versión anterior del módulo Azure Active D
 
 1. Establezca los prefijos y sufijos de nombre de grupo en Azure AD PowerShell. Para que la característica funcione correctamente, [nombre de grupo] debe estar incluido en la configuración.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =“GRP_[GroupName]_[Department]"
    ```
   
 1. Establezca las palabras bloqueadas personalizadas que quiere restringir. En el ejemplo siguiente se muestra cómo puede agregar sus propias palabras personalizadas.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=“Payroll,CEO,HR"
    ```
   
 1. Guarde la configuración para la nueva directiva entre en vigor, como en el ejemplo siguiente.
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
 Eso es todo. Ha establecido la directiva de nomenclatura y ha agregado sus palabras bloqueadas.
 
-## <a name="export-or-import-the-list-of-custom-blocked-words-using-azure-ad-powershell"></a>Exportar o importar la lista de palabras bloqueadas personalizadas con Azure AD PowerShell
+## <a name="export-or-import-custom-blocked-words"></a>Exportar o importar las palabras bloqueadas personalizadas
 
 Para más información, consulte el artículo [Cmdlets de Azure Active Directory para configurar las opciones de grupo](groups-settings-cmdlets.md).
 
 Este es un script de PowerShell de ejemplo para exportar varias palabras bloqueadas:
 
-```powershell
+``` PowerShell
 $Words = (Get-AzureADDirectorySetting).Values | Where-Object -Property Name -Value CustomBlockedWordsList -EQ 
 Add-Content "c:\work\currentblockedwordslist.txt" -Value $words.value.Split(",").Replace("`"","")  
 ```
 
 Este es un script de PowerShell de ejemplo para importar varias palabras bloqueadas:
 
-```powershell
+``` PowerShell
 $BadWords = Get-Content "C:\work\currentblockedwordslist.txt"
 $BadWords = [string]::join(",", $BadWords)
 $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}
@@ -192,7 +193,6 @@ if ($Settings.Count -eq 0)
     New-AzureADDirectorySetting -DirectorySetting $Settings
     $Settings = Get-AzureADDirectorySetting | Where-Object {$_.DisplayName -eq "Group.Unified"}}
 $Settings["CustomBlockedWordsList"] = $BadWords
-$Settings["EnableMSStandardBlockedWords"] = $True
 Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings 
 ```
 
@@ -203,27 +203,27 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
 1. En el **directiva de nomenclatura** página, seleccione **Eliminar directiva**.
 1. Después de confirmar la eliminación, se quita la directiva de nomenclatura, incluidos prefijo-sufijo todos los nombres de directiva y las palabras bloqueadas personalizadas.
 
-### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Quitar la directiva de nomenclatura con Azure AD Powershell
+### <a name="remove-the-naming-policy-using-azure-ad-powershell"></a>Quitar la directiva de nomenclatura con Azure AD PowerShell
 
 1. Vacíe los prefijos y sufijos de nombre de grupo en Azure AD PowerShell.
   
-   ```powershell
+   ``` PowerShell
    $Setting["PrefixSuffixNamingRequirement"] =""
    ```
   
 1. Vacíe las palabras bloqueadas personalizadas.
   
-   ```powershell
+   ``` PowerShell
    $Setting["CustomBlockedWordsList"]=""
    ```
   
 1. Guarde la configuración
   
-   ```powershell
+   ``` PowerShell
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="naming-policy-experiences-across-office-365-apps"></a>Experiencias de la directiva de nomenclatura en aplicaciones de Office 365
+## <a name="experience-across-office-365-apps"></a>Experiencia en las aplicaciones de Office 365
 
 Después de establecer una directiva de nomenclatura de grupo en Azure AD, cuando un usuario crea un grupo en una aplicación de Office 365, puede ver:
 
@@ -235,7 +235,7 @@ Carga de trabajo | Cumplimiento normativo
 Portales de Azure Active Directory | El portal de Azure AD y el portal Panel de acceso muestran la directiva de nomenclatura aplicada cuando el usuario escribe un nombre de grupo al crear o editar un grupo. Cuando un usuario escribe una palabra bloqueada personalizada, aparece un mensaje de error con la palabra bloqueada para que el usuario pueda quitarla.
 Outlook Web Access (OWA) | Outlook Web Access muestra el nombre aplicado por la directiva de nomenclatura cuando el usuario escribe un nombre o alias de grupo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error en la interfaz de usuario junto con la palabra bloqueada para que el usuario pueda quitarla.
 Escritorio de Outlook | Los grupos creados en el escritorio de Outlook son compatibles con la configuración de directivas de nomenclatura. La aplicación de escritorio de Outlook no muestra aún la vista previa del nombre de grupo aplicado y no devuelve errores de palabras bloqueadas personalizadas cuando el usuario escribe el nombre del grupo. Sin embargo, la directiva de nomenclatura se aplica automáticamente al crear o editar un grupo, y los usuarios ven mensajes de error si hay palabras bloqueadas personalizadas en el nombre o alias del grupo.
-Equipos de Microsoft | Microsoft Teams muestra el nombre aplicado por la directiva de nomenclatura de grupo cuando el usuario escribe un nombre de equipo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error junto con la palabra bloqueada para que el usuario pueda quitarla.
+Microsoft Teams | Microsoft Teams muestra el nombre aplicado por la directiva de nomenclatura de grupo cuando el usuario escribe un nombre de equipo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error junto con la palabra bloqueada para que el usuario pueda quitarla.
 SharePoint  |  SharePoint muestra el nombre aplicado por la directiva de nomenclatura cuando el usuario escribe el nombre de un sitio o la dirección de correo electrónico de un grupo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error, junto con la palabra bloqueada para que el usuario pueda quitarla.
 Microsoft Stream | Microsoft Stream muestra el nombre aplicado por la directiva de nomenclatura de grupos cuando el usuario escribe el nombre de un grupo o el alias de la dirección de correo electrónico del grupo. Cuando un usuario escribe una palabra bloqueada personalizada, se muestra un mensaje de error con la palabra bloqueada para que el usuario pueda quitarla.
 Aplicación de Outlook iOS y Android | Los grupos creados en las aplicaciones de Outlook son compatibles con la directiva de nomenclatura configurada. La aplicación móvil de Outlook no muestra aún la vista previa del nombre aplicado por la directiva de nomenclatura y no devuelve errores de palabras bloqueadas personalizadas cuando el usuario escribe el nombre del grupo. Sin embargo, la directiva de nomenclatura se aplica automáticamente al hacer clic para crear o editar, y los usuarios ven mensajes de error si hay palabras bloqueadas personalizadas en el nombre o alias del grupo.

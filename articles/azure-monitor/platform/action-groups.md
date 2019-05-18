@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 4/12/2019
+ms.date: 5/10/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 1c772756a90c3eee4e2b3fb4fd4a0ec9e98fa0da
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: fba5119feb1ff7a0170a573371e479caa5fc33eb
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64919090"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544467"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creación y administración de grupos de acciones en Azure Portal
 ## <a name="overview"></a>Información general ##
@@ -26,8 +26,8 @@ En este artículo se muestra cómo crear y administrar grupos de acciones en el 
 Cada acción se compone de las siguientes propiedades:
 
 * **Nombre**: un identificador único dentro del grupo de acciones.  
-* **Tipo de acción**: Realizar la acción. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo. 
-* **Detalles**: Los detalles correspondientes que varían según el *tipo de acción*. 
+* **Tipo de acción**: Realizar la acción. El envío de llamadas de voz, mensajes de texto o correo electrónico o el desencadenamiento de varios tipos de acciones automatizadas son algunos ejemplos. Consulte los tipos más adelante en este artículo.
+* **Detalles**: Los detalles correspondientes que varían según el *tipo de acción*.
 
 Para más información sobre el uso de plantillas de Azure Resource Manager para configurar grupos de acciones, consulte [Plantillas de Resource Manager para grupos de acciones](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
 
@@ -69,7 +69,7 @@ Después de crear un grupo de acciones, está visible en el **grupos de acciones
 > [!NOTE]
 > Consulte [límites de servicio de suscripción para la supervisión](https://docs.microsoft.com/azure/azure-subscription-service-limits#monitor-limits) para los límites numéricos en cada uno de los siguientes elementos.  
 
-**Aplicación de Azure inserción** -puede tener un número limitado de acciones de aplicación de Azure en un grupo de acciones. En este momento, la acción de aplicación de Azure solo admite las alertas de ServiceHealth. Se omitirá cualquier otro tipo de alerta. Consulte el artículo acerca de la [configuración de alertas siempre que se publique una notificación de estado de un servicio](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+**Aplicación de Azure inserción** -puede tener un número limitado de acciones de aplicación de Azure en un grupo de acciones.
 
 **Correo electrónico**: se enviarán mensajes de correo electrónico desde las siguientes direcciones de correo electrónico. Asegúrese de que el filtrado de correo electrónico esté configurado correctamente.
 - azure-noreply@microsoft.com
@@ -101,6 +101,7 @@ Rangos de direcciones IP de origen
  - 13.106.38.148
  - 13.106.57.196
  - 52.244.68.117
+ - 52.244.65.137
  - 51.4.138.199
  - 51.5.148.86
  - 51.5.149.19

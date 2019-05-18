@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 39fbe30ccf4429003dc0c9f11165c5dd057a89cd
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: deea16b8670623acd2ae92ba62f579f5474d12ec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62121799"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790897"
 ---
 # <a name="add-language-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores de idiomas a un índice de Azure Search
 
@@ -45,9 +45,6 @@ El analizador predeterminado es Standard Lucene, que funciona bien con el inglé
 + El analizador de inglés de Lucene amplía el analizador estándar. Elimina los posesivos (los "'s" finales) de las palabras, aplica la lematización conforme al Algoritmo de lematización Porter y elimina las palabras no significativas del inglés.  
 
 + El analizador de inglés de Microsoft utiliza lemas en lugar de lexemas. Esto significa que puede controlar mucho mejor formas de palabras derivadas e irregulares, lo que da como resultado unos resultados de búsqueda más pertinentes 
-
-  > [!Tip]
-  > La [versión de demostración de Search Analyzer](https://alice.unearth.ai/) muestra una comparación entre los resultados que proporciona el analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. Cada vez que se realiza una entrada de búsqueda, los resultados de cada analizador se muestran en los paneles adyacentes.
 
 ## <a name="configuring-analyzers"></a>Configuración de analizadores
 
@@ -76,7 +73,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 |Checo|cs.microsoft|cs.lucene|  
 |Danés|da.microsoft|da.lucene|  
 |Neerlandés|nl.microsoft|nl.lucene|  
-|English|en.microsoft|en.lucene|  
+|Inglés|en.microsoft|en.lucene|  
 |Estonio|et.microsoft||  
 |Finés|fi.microsoft|fi.lucene|  
 |Francés|fr.microsoft|fr.lucene|  
@@ -104,7 +101,7 @@ Para más información sobre las propiedades del índice, consulte [Create Index
 |Polaco|pl.microsoft|pl.lucene|  
 |Portugués (Brasil)|pt-Br.microsoft|pt-Br.lucene|  
 |Portugués (Portugal)|pt-Pt.microsoft|pt-Pt.lucene|  
-|Punjabi|pa.microsoft||  
+|Punyabí|pa.microsoft||  
 |Rumano|ro.microsoft|ro.lucene|  
 |Ruso|ru.microsoft|ru.lucene|  
 |Serbio (cirílico)|sr-cyrillic.microsoft||  

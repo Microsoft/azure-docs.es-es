@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: rogarana
-ms.openlocfilehash: 974a4341bd140da60c5e229a644657fe7ab02535
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d5e2f9dba3afee953d296316e990b58c536cbdae
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64721621"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602008"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Habilitación de la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -103,12 +103,6 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -SkuName Standard_LRS `
     -Kind StorageV2 `
     -EnableAzureFilesAadIntegrationForSMB $true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
-    -Name "<storage-account-name>" `
-    -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
 ### <a name="azure-cli"></a>Azure CLI
@@ -124,10 +118,6 @@ A continuación, cree una nueva cuenta de almacenamiento y, después, llame a [a
 ```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
-
-# Update an existing storage account
-# Supported for storage accounts created after September 24, 2018 only
-az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
 ## <a name="assign-access-permissions-to-an-identity"></a>Asignar permisos de acceso a una identidad 

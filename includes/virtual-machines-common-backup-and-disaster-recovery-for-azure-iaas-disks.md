@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 570330f47d2c610032c9c6646231c2320b2257be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d242b2815d59676432beb878bbc955a9f39de0f1
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64732667"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65535859"
 ---
 # <a name="backup-and-disaster-recovery-for-azure-iaas-disks"></a>Copia de seguridad y recuperación ante desastres para discos IaaS de Azure
 
@@ -148,7 +148,7 @@ Use los pasos siguientes para habilitar las copias de seguridad de las máquinas
 
     b. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar** y siga estos pasos para crear otro almacén en la misma región que la máquina virtual. Por ejemplo, si la máquina virtual se encuentra en la región del oeste de EE. UU, elija Oeste de EE. UU. para el almacén.
 
-1.  Compruebe la replicación de almacenamiento para el almacén recién creado. Obtenga acceso al almacén en **Almacenes de Recovery Services** y vaya a **Configuración** > **Configuración de copia de seguridad**. Asegúrese de que la opción de **almacenamiento con redundancia geográfica** está seleccionada de manera predeterminada. Así se asegura de que el almacén se replique automáticamente en un centro de datos secundario. Por ejemplo, el almacén de la región oeste de EE. UU. se replica automáticamente en la región este de EE. UU.
+1.  Compruebe la replicación de almacenamiento para el almacén recién creado. Acceder al almacén en **almacenes de Recovery Services** y vaya a **propiedades** > **configuración de copia de seguridad** > **Update** . Asegúrese de que la opción de **almacenamiento con redundancia geográfica** está seleccionada de manera predeterminada. Así se asegura de que el almacén se replique automáticamente en un centro de datos secundario. Por ejemplo, el almacén de la región oeste de EE. UU. se replica automáticamente en la región este de EE. UU.
 
 1.  Configure la directiva de copia de seguridad y seleccione la máquina virtual en la misma interfaz de usuario.
 

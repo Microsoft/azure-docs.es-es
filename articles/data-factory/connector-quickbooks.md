@@ -47,7 +47,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de QuickBoo
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **QuickBooks** | Sí |
-| punto de conexión | Punto de conexión del servidor de QuickBooks Online. (es decir, quickbooks.api.intuit.com)  | Sí |
+| endpoint | Punto de conexión del servidor de QuickBooks Online. (es decir, quickbooks.api.intuit.com)  | Sí |
 | companyId | Id. de empresa de la compañía de QuickBooks que se debe autorizar. Para obtener información sobre cómo buscar el identificador de empresa, consulte [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) (¿Cómo puedo buscar el identificador de empresa?). | Sí |
 | consumerKey | La clave del consumidor para la autenticación OAuth 1.0. | Sí |
 | consumerSecret | Secreto del consumidor para la autenticación OAuth 1.0. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |

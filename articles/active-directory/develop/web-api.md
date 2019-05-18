@@ -3,8 +3,8 @@ title: Aplicaciones de API web en Azure Active Directory
 description: Se describe qué son las aplicaciones de API web y los conceptos básicos sobre el flujo de protocolos, el registro y la expiración de tokens en este tipo de aplicación.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f344a4f928030c07f59c2f7aba201d153da123f1
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918712"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545208"
 ---
-# <a name="web-api"></a>API Web
+# <a name="web-api"></a>API web
 
 Las aplicaciones de API web son aplicaciones web que necesitan obtener los recursos de una API web. En este escenario, existen dos tipos de identidad que la aplicación web puede usar para autenticar y llamar a la API web:
 

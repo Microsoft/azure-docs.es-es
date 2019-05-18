@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.openlocfilehash: 657f8df959ccda5d51748ef5fbfc2e280f7d2c2e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: fb4e16c8be5344c5b9947758b6a09845b470196d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714803"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65801007"
 ---
 # <a name="visualize-interactive-query-apache-hive-data-with-microsoft-power-bi-using-direct-query-in-azure-hdinsight"></a>Visualización de datos de Interactive Query Apache Hive con Microsoft Power BI mediante DirectQuery en Azure HDInsight
 
@@ -79,7 +79,7 @@ Continúe a partir del último procedimiento.
 En este artículo ha aprendido a visualizar datos de HDInsight mediante Microsoft Power BI.  Para más información sobre la visualización de datos, vea los siguientes artículos:
 
 * [Visualización de los datos de Apache Hive con Microsoft Power BI mediante ODBC en Azure HDInsight](../hadoop/apache-hadoop-connect-hive-power-bi.md). 
-* [Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](./../hdinsight-connect-hive-zeppelin.md).
+* [Uso de Apache Zeppelin para ejecutar consultas de Apache Hive en Azure HDInsight](../interactive-query/hdinsight-connect-hive-zeppelin.md).
 * [Conexión de Excel a Hadoop en Azure HDInsight con Microsoft Hive ODBC Driver](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).
 * [Conexión de Excel a Apache Hadoop con Power Query](../hadoop/apache-hadoop-connect-excel-power-query.md).
 * [Conectarse a Azure HDInsight y ejecutar consultas de Apache Hive con Herramientas de Data Lake para Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).

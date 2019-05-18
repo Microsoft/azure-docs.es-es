@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0783251eaeef188c49c5b3aa61b5ecaec48127b7
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: b9fe723ca13cbee0e31b14e60a6bd740d2a282df
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506708"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779287"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -238,7 +238,7 @@ Una condición evalúa si un **campo** o el descriptor de acceso **value** cumpl
 Cuando se usan las condiciones **like** y **notLike**, incluya un carácter comodín (`*`) en el valor.
 El valor no debe contener más de un carácter comodín `*`.
 
-Cuando se usan las condiciones **match** y **notMatch**, proporcione `#` para que coincida un dígito, `?` para una letra, `.` para que coincidan todos los caracteres y cualquier otro carácter para que coincida ese carácter en sí.
+Cuando se usa el **coincide con** y **notMatch** proporcionar condiciones, `#` para que coincida con un dígito, `?` por una letra, `.` para que coincida con cualquier carácter y cualquier otro carácter para que coincida con ese carácter en Sí.
 **match** y **notMatch** distinguen mayúsculas de minúsculas. Las alternativas de distinción entre mayúsculas y minúsculas están disponibles en **matchInsensitively** y **notMatchInsensitively**. Por ejemplo, consulte [Permitir varios patrones de nombre](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fields

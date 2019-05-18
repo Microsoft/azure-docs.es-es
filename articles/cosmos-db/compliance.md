@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: bbfc31e5eab2c2beb232a9ec2e0d5e11e4107be5
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62128828"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606289"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Cumplimiento de Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Azure Cosmos DB está disponible en todas las regiones de Azure. Microsoft pone 
 
 * **Azure Government para el Departamento de Defensa (DoD)** está disponible en dos regiones de Estados Unidos para el Departamento de Defensa de EE. UU.
 
-Para ayudar a los clientes a satisfacer sus propias obligaciones de cumplimiento en industrias y mercados regulados de todo el mundo, Azure mantiene el cumplimiento más amplio del sector en cuanto a amplitud (número total de las ofertas) y profundidad (número de servicios orientados al cliente en el ámbito de la evaluación).  Las ofertas de cumplimiento de Azure se agrupan en cuatro segmentos: aplicables globalmente, gobierno de los Estados Unidos, específicas para un sector y específicas para un país o región.  Las ofertas de cumplimiento se basan en varios tipos de controles, como certificaciones oficiales, atestaciones, validaciones, autorizaciones y evaluaciones generadas por empresas de auditoría de terceros independientes, así como enmiendas contractuales, autoevaluaciones y documentos de instrucciones para el cliente generados por Microsoft.
+Para ayudar a los clientes a satisfacer sus propias obligaciones de cumplimiento en industrias y mercados regulados de todo el mundo, Azure mantiene el cumplimiento más amplio del sector en cuanto a amplitud (número total de las ofertas) y profundidad (número de servicios orientados al cliente en el ámbito de la evaluación).  Las ofertas de cumplimiento de Azure se agrupan en cuatro segmentos - globalmente aplicables, gobierno de Estados Unidos, sector específico y región o país o región específica.  Las ofertas de cumplimiento se basan en varios tipos de controles, como certificaciones oficiales, atestaciones, validaciones, autorizaciones y evaluaciones generadas por empresas de auditoría de terceros independientes, así como enmiendas contractuales, autoevaluaciones y documentos de instrucciones para el cliente generados por Microsoft.
 
 ## <a name="azure-cosmos-db-certifications"></a>Certificaciones de Azure Cosmos DB  
 

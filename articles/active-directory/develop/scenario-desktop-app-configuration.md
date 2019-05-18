@@ -15,12 +15,12 @@ ms.date: 05/o7/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c52f6fc66187d961dc93089a9f81f6de4d67fe41
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: eadcae393128d9721f2c988f713af07913c5fd1d
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075946"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545499"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>Aplicación de escritorio que llama a web API: configuración de código
 
@@ -94,12 +94,12 @@ app = PublicClientApplicationBuilder.Create(clientId)
         .Build();
 ```
 
-### <a name="learn-more"></a>Más información
+### <a name="learn-more"></a>Obtenga más información
 
 Para más información sobre cómo configurar una aplicación de escritorio MSAL.NET:
 
-- Para obtener la lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationbuilder?view=azure-dotnet-preview#methods)
-- Para la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions` vea [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.appconfig.publicclientapplicationoptions?view=azure-dotnet-preview), en la documentación de referencia
+- Para obtener la lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods)
+- Para la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions` vea [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions), en la documentación de referencia
 
 ## <a name="complete-example-with-configuration-options"></a>Ejemplo completo con las opciones de configuración
 

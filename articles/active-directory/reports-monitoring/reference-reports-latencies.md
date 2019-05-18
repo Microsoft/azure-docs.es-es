@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64bd2247a3437a2cc960da1820d9be417eedff8e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8d4d02f9e99acb68db126ccde465f73cc2294e06
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60285178"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65594021"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latencias de informes de Azure Active Directory
 
@@ -41,10 +41,10 @@ La tabla siguiente enumera la información de latencia para los informes de acti
 > **Latencia (percentil 95)** hace referencia al momento en el que se notificará el 95 % de los registros, y **Latencia (percentil 99)** hace referencia al momento en el que se notificará el 99 % de los registros. 
 >
 
-| Informe | Latencia (percentil 95) |Latencia (percentil 99)|Intervalo de tiempo dentro del cual se notificarán los registros|
-| :-- | --- | --- | --- |
-| Registros de auditoría | 2 minutos  | 5 minutos  | 2-60 min |
-| Inicios de sesión | 2 minutos  | 5 minutos | 2-120 min |
+| Informar | Latencia (percentil 95) |Latencia (percentil 99)|
+| :-- | --- | --- |
+| Registros de auditoría | 2 minutos  | 5 minutos  |
+| Inicios de sesión | 2 minutos  | 5 minutos |
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>¿En cuánto tiempo podré ver los datos de las actividades después de obtener una licencia prémium?
 
@@ -59,10 +59,10 @@ Hay dos tipos de informes de seguridad:
 
 La tabla siguiente enumera la información de latencia para los informes de seguridad.
 
-| Informe | Mínima | Media | Máxima |
+| Informar | Mínimo | Promedio | Máximo |
 | :-- | --- | --- | --- |
 | Usuarios en riesgo          | 5 minutos   | 15 minutos  | 2 horas  |
-| Inicios de sesión no seguros         | 5 minutos   | 15 minutos  | 2 horas  |
+| Inicios de sesión de riesgo         | 5 minutos   | 15 minutos  | 2 horas  |
 
 ## <a name="risk-events"></a>Eventos de riesgo
 
@@ -70,11 +70,11 @@ Azure AD emplea algoritmos y heurística de aprendizaje automático adaptable pa
 
 La tabla siguiente enumera la información de latencia para eventos de riesgo.
 
-| Informe | Mínima | Media | Máxima |
+| Informar | Mínimo | Promedio | Máximo |
 | :-- | --- | --- | --- |
 | Inicios de sesión desde direcciones IP anónimas |5 minutos |15 minutos |2 horas |
 | Inicios de sesión desde ubicaciones desconocidas |5 minutos |15 minutos |2 horas |
-| Usuarios con credenciales perdidas |2 horas |4 horas |8 horas |
+| Usuarios con credenciales filtradas |2 horas |4 horas |8 horas |
 | Viaje imposible a ubicaciones inusuales |5 minutos |1 hora |8 horas  |
 | Inicios de sesión desde dispositivos infectados |2 horas |4 horas |8 horas  |
 | Inicios de sesión desde direcciones IP con actividad sospechosa |2 horas |4 horas |8 horas  |

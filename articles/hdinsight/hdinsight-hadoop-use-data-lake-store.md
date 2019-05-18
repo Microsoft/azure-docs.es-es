@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.openlocfilehash: 22015d1e838e940cbf5a79323f4046c4a7e1719e
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.date: 05/10/2019
+ms.openlocfilehash: 890cd7080447649396855bfbe051dca4470a4564
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65506802"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546295"
 ---
 # <a name="use-data-lake-storage-gen1-with-azure-hdinsight-clusters"></a>Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight
 
@@ -182,6 +182,9 @@ $certPassword = Read-Host "Enter Certificate Password"
 # 2 - read cert from key vault
 $certSource = 0
 
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
+
 if($certSource -eq 0)
 {
     Write-Host "Generating new SelfSigned certificate"
@@ -211,9 +214,6 @@ elseif($certSource -eq 2)
 
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
-
-Login-AzAccount
-Select-AzSubscription -SubscriptionId $subscriptionId
 
 if($addNewCertKeyCredential)
 {

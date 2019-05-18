@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3de444d509684f0b4227abe91ec3c967f2bf8f03
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 6fd9ce1947b8207aced44204fc2989622a1998f2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64926277"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761919"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -43,7 +43,7 @@ Azure Disk Encryption es compatible con un subconjunto de la [distribuciones de 
 
 Las distribuciones de servidor de Linux que no están aprobadas por Azure no son compatibles con Azure Disk Encryption y, de los usuarios que están aprobadas, solo las siguientes distribuciones y versiones admiten Azure Disk Encryption:
 
-| Distribución de Linux | `Version` | Tipo de volumen admitido para el cifrado|
+| Distribución de Linux | Version | Tipo de volumen admitido para el cifrado|
 | --- | --- |--- |
 | Ubuntu | 18,04| Sistema operativo y disco de datos |
 | Ubuntu | 16.04| Sistema operativo y disco de datos |
@@ -52,19 +52,14 @@ Las distribuciones de servidor de Linux que no están aprobadas por Azure no son
 | RHEL | 7.5 | Sistema operativo y disco de datos* |
 | RHEL | 7.4 | Sistema operativo y disco de datos* |
 | RHEL | 7.3 | Sistema operativo y disco de datos* |
-| RHEL | 7,2 | Sistema operativo y disco de datos* |
-| RHEL | 6,8 | Disco de datos* |
+| RHEL | 7.2 | Sistema operativo y disco de datos* |
+| RHEL | 6.8 | Disco de datos* |
 | RHEL | 6.7 | Disco de datos* |
 | CentOS | 7.5 | Sistema operativo y disco de datos |
 | CentOS | 7.4 | Sistema operativo y disco de datos |
 | CentOS | 7.3 | Sistema operativo y disco de datos |
 | CentOS | 7.2n | Sistema operativo y disco de datos |
-| CentOS | 6,8 | Sistema operativo y disco de datos |
-| CentOS | 7.1 | Disco de datos |
-| CentOS | 7.0 | Disco de datos |
-| CentOS | 6.7 | Disco de datos |
-| CentOS | 6.6 | Disco de datos |
-| CentOS | 6.5 | Disco de datos |
+| CentOS | 6.8 | Disco de datos |
 | openSUSE | 42.3 | Disco de datos |
 | SLES | 12-SP4 | Disco de datos |
 | SLES | 12-SP3 | Disco de datos |
@@ -158,7 +153,7 @@ En Windows, ADE usa el método de cifrado BitLocker AES256 (AES256WithDiffuser e
 No, no se borran datos de las unidades de datos que ya estén cifradas mediante Azure Disk Encryption. Igual que EncryptFormatAll no volvía a cifrar la unidad del SO, no volverá a cifrar la unidad de datos ya cifrada. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>¿Se admite el sistema de archivos XFS?
-Se admiten volúmenes XFS para el cifrado de disco de datos solo con el EncryptFormalAll. Esto volverá a formatear el volumen, borrar todos los datos previamente no existe. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+Se admiten volúmenes XFS para el cifrado de disco de datos solo con el EncryptFormatAll. Esto volverá a formatear el volumen, borrar todos los datos previamente no existe. Para obtener más información, consulte [Criterios de EncryptFormatAll](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>¿Puedo de copia de seguridad y restaurar una máquina virtual cifrada? 
 

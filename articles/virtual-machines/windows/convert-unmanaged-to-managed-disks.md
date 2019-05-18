@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2018
 ms.author: rogarana
-ms.openlocfilehash: 21505da414b29f2ae9eeea7f9fcad9db2e57c4fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3c45c8587e3ca19b32ccd8dc66575333622b3cf1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702830"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796582"
 ---
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Conversión de máquina virtual Windows con discos no administrados en discos administrados
 
@@ -99,7 +99,6 @@ Si las VM que desea convertir en discos administrados se encuentran en un conjun
 Si se produce un error durante la conversión, o si una máquina virtual presenta un estado de error debido a errores en una conversión anterior, ejecute el cmdlet `ConvertTo-AzVMManagedDisk` de nuevo. Normalmente, un simple reintento desbloquea la situación.
 Antes de realizar la conversión, asegúrese de que todas las extensiones de máquina virtual se encuentran en el estado de "Aprovisionamiento realizado correctamente". De lo contrario, se producirá un error de conversión con el código de error 409.
 
-
 ## <a name="convert-using-the-azure-portal"></a>Conversión mediante Azure Portal
 
 Puede convertir discos no administrados en discos administrados mediante Azure Portal.
@@ -108,7 +107,7 @@ Puede convertir discos no administrados en discos administrados mediante Azure P
 2. Seleccione la máquina virtual en la lista de máquinas virtuales en el portal.
 3. En la hoja de la máquina virtual, seleccione **Discos** en el menú.
 4. En la parte superior de la hoja **Discos**, seleccione **Migrar a discos administrados**.
-5. Si la máquina virtual está en un conjunto de disponibilidad, habrá una advertencia en la hoja **Migrar a discos administrados** indicándole que debe convertir el conjunto de disponibilidad primero. La advertencia debería tener un vínculo en el que puede hacer clic para convertir el conjunto de disponibilidad. Una vez que se convierta el conjunto de disponibilidad o la máquina virtual no esté en un conjunto de disponibilidad, haga clic en **Migrar** para iniciar el proceso de migración de los discos a discos administrados. 
+5. Si la máquina virtual está en un conjunto de disponibilidad, habrá una advertencia en la hoja **Migrar a discos administrados** indicándole que debe convertir el conjunto de disponibilidad primero. La advertencia debería tener un vínculo en el que puede hacer clic para convertir el conjunto de disponibilidad. Una vez que se convierta el conjunto de disponibilidad o la máquina virtual no esté en un conjunto de disponibilidad, haga clic en **Migrar** para iniciar el proceso de migración de los discos a discos administrados.
 
 La máquina virtual se detendrá y se reiniciará una vez completada la migración.
 

@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cdf99884845a9cb83ac26723c3ea0e7a779ebff
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e06313cf83768421bedc6c7baddd30c2ef2e4846
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60771862"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789418"
 ---
 # <a name="azure-stream-analytics-custom-blob-output-partitioning"></a>Particionamiento de la salida de blobs personalizada en Azure Stream Analytics
 
@@ -26,7 +26,7 @@ Los campos o atributos de entrada personalizados mejoran los flujos de trabajo d
 
 ### <a name="partition-key-options"></a>Opciones de clave de partición
 
-La clave de partición o nombre de columna que se usa para particionar los datos de entrada puede contener caracteres alfanuméricos, guiones, guiones bajos y espacios. No es posible usar los campos anidados como clave de partición, a menos que se usen junto con los alias.
+La clave de partición o nombre de columna que se usa para particionar los datos de entrada puede contener caracteres alfanuméricos, guiones, guiones bajos y espacios. No es posible usar los campos anidados como clave de partición, a menos que se usen junto con los alias. La clave de partición debe ser nvarchar (max).
 
 ### <a name="example"></a>Ejemplo
 
@@ -58,11 +58,11 @@ Tenga en cuenta que cada registro en el blob tiene una columna **client_id** que
    * cluster1/{fecha}/{unCampoDeLosDatos}  
    * cluster1/{hora}/{unCampoDeLosDatos}  
    * cluster1/{unCampoDeLosDatos}  
-   * cluster1/{fecha}/{hora}/{unCampoDeLosDatos}  
-
+   * cluster1/{fecha}/{hora}/{unCampoDeLosDatos} 
+   
 2. Las claves de partición no distinguen mayúsculas de minúsculas, por lo que los valores como "Juan" y "juan" son equivalentes. Además, no pueden usarse expresiones como clave de partición. Por ejemplo, **{columnaA + columnaB}** no funciona.  
 
-3. Cuando un flujo de entrada consta de registros con una cardinalidad de clave de partición menor que 8000, los registros se anexarán a los blobs existentes y solo se crearán blobs nuevos cuando sea necesario. Si la cardinalidad es mayor que 8000, no garantizamos que se escribirá en los blobs existentes ni que no se crearán blobs nuevos para un número arbitrario de registros con la misma clave de partición.  
+3. Cuando un flujo de entrada consta de registros con una cardinalidad de clave de partición menor que 8000, los registros se anexarán a los blobs existentes y solo se crearán blobs nuevos cuando sea necesario. Si la cardinalidad es mayor que 8000, no garantizamos que se escribirá en los blobs existentes ni que no se crearán blobs nuevos para un número arbitrario de registros con la misma clave de partición.
 
 ## <a name="custom-datetime-path-patterns"></a>Patrones personalizados de ruta de acceso de fecha y hora
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: da653842b09c15a5fd42bae0ed45e7b31452b972
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0cdd28be8c6e7390aa26fdc2dfbf32ec5542c2d
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578758"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65233908"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Tutorial: Administración de grupos de aplicaciones para la versión preliminar de Windows Virtual Desktop
 
@@ -73,7 +73,7 @@ Antes de comenzar y, si aún no lo ha hecho, [descargue e importe el módulo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando haya creado los grupos de aplicaciones, creará entidades de servicio y asignará roles a los usuarios. Para saber cómo hacerlo, consulte el tutorial sobre cómo crear entidades de servicio y asignaciones de roles con PowerShell.
+En este tutorial, aprendió a crear grupos de aplicaciones, rellenarlos con aplicaciones RemoteApps y asignar usuarios al grupo de aplicaciones. Para más información sobre el inicio de sesión en Windows Virtual Desktop, continúe con los procedimientos de conexión a Windows Virtual Desktop.
 
-> [!div class="nextstepaction"]
-> [Creación de entidades de servicio y asignaciones de roles con PowerShell](create-service-principal-role-powershell.md)
+- [Conexión al cliente de Escritorio remoto en Windows 7 y Windows 10](connect-windows-7-and-10.md)
+- [Conexión al cliente web de la versión preliminar de Windows Virtual Desktop](connect-web.md)

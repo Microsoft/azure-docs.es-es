@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fe86c758dbf05f91d53cb918b7794c12ab3f39bc
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596735"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518752"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -52,13 +52,13 @@ En función del número de máquinas virtuales que se vayan a detectar, puede cr
 En el caso de una detección de una sola vez (actualmente en desuso), funciona en un modelo de disparo y olvido; una vez realizada la detección, puede usar el mismo recopilador para recopilar datos de otra instancia de vCenter Server o enviarlos a otro proyecto de migración.
 
 > [!NOTE]
-> El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure. Se recomienda pasar a la aplicación de detección de una sola vez.
+> El dispositivo de detección de una sola vez está en desuso, ya que este método dependía de la configuración de las estadísticas de vCenter Server para la disponibilidad de punto de datos de rendimiento y la media recopilada de los contadores de rendimiento, lo que daba lugar a un cálculo de tamaño insuficiente de las máquinas virtuales para la migración a Azure. Se recomienda mover a la aplicación de detección continua.
 
 Planee las detecciones y evaluaciones en función de los límites siguientes:
 
 | **Entidad** | **Límite de máquinas** |
 | ---------- | ----------------- |
-| proyecto    | 1500             |
+| Proyecto    | 1500             |
 | Detección  | 1500             |
 | Evaluación | 1500             |
 

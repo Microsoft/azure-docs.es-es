@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 5267f81c9886e2d1d8d62c134156aedb3b2b8763
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 058b6c979346d9dcce36940432d0e222e919dba9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65023721"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540821"
 ---
 #   <a name="shaper-cognitive-skill"></a>Habilidad cognitiva Conformador
 
@@ -29,7 +29,7 @@ La versión de API determina la profundidad de forma puede lograr.
 | Versión de 2019-05-06-versión preliminar de la API de REST (no se admite el SDK. NET) | Los objetos complejos, múltiples niveles de profundidad, uno **conformador** definición de habilidades. |
 | 2019-05-06 ** (disponible con carácter general), 2017-11-11-Preview| Objetos complejos, un nivel de profundidad. Una forma de varios nivel requiere encadenar juntos varios pasos de modelado.|
 
-La versión preliminar **conformador** aptitud, se muestra en [escenario 3](#nested-complex-types), agrega un nuevo opcional *sourceContext* propiedad a la entrada. El *origen* y *sourceContext* propiedades son mutuamente excluyentes. Si la entrada está en el contexto de la aptitud, basta con usar *origen*. Si la entrada está en un *diferentes* contexto que el contexto de habilidades, use el *sourceContext*. El *sourceContext* , deberá definir una entrada anidada con el elemento específico abordado como el origen. 
+Tal como lo proporciona `api-version=2019-05-06-Preview`, el **conformador** aptitud se muestra en [escenario 3](#nested-complex-types) agrega un nuevo opcional *sourceContext* propiedad a la entrada. El *origen* y *sourceContext* propiedades son mutuamente excluyentes. Si la entrada está en el contexto de la aptitud, basta con usar *origen*. Si la entrada está en un *diferentes* contexto que el contexto de habilidades, use el *sourceContext*. El *sourceContext* , deberá definir una entrada anidada con el elemento específico abordado como el origen. 
 
 En la respuesta, para todas las versiones de API, el nombre de salida es siempre "salido". Internamente, la canalización puede asignar un nombre diferente, como "analyzedText" como se muestra en los ejemplos siguientes, pero la **conformador** aptitud propio devuelve "output" en la respuesta. Esto podría ser importante si está depurando documentos enriquecidos y observa la discrepancia de nombre, o si compila una habilidad personalizada y estructura la respuesta por sí mismo.
 
@@ -196,7 +196,7 @@ En este caso, el **conformador** aplana todos los títulos de capítulos para cr
 ## <a name="scenario-3-input-consolidation-from-nested-contexts"></a>Escenario 3: consolidación de entrada de contextos anidados
 
 > [!NOTE]
-> Anidar estructuras que admiten la versión de api = 2019-05-06-Preview se puede usar en un [almacén knowledge](knowledge-store-concept-intro.md) o en un índice de Azure Search.
+> Anidar estructuras que admiten la [API de REST versión 2019-05-06-Preview](search-api-preview.md) puede usarse en un [almacén knowledge](knowledge-store-concept-intro.md) o en un índice de Azure Search.
 
 Imagine que tiene el título, capítulos y contenido de un libro y ha ejecutado la entidad frases de reconocimiento y la clave en el contenido y ahora debe agregar los resultados de las habilidades diferentes en una sola forma con el nombre de capítulo, entidades y las frases clave.
 
@@ -265,4 +265,4 @@ En este caso, el **conformador** crea un tipo complejo. Esta estructura existe e
 + [Definición de un conjunto de aptitudes](cognitive-search-defining-skillset.md)
 + [Uso de tipos complejos](search-howto-complex-data-types.md)
 + [Información general de la tienda de conocimiento](knowledge-store-concept-intro.md)
-+ [Cómo empezar a trabajar con conocimiento Store](knowledge-store-howto.md)
++ [Cómo empezar a trabajar con el almacén de información](knowledge-store-howto.md)

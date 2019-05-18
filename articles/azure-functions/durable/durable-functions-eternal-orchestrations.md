@@ -2,21 +2,20 @@
 title: 'Orquestaciones infinitas en Durable Functions: Azure'
 description: Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions.
 services: functions
-author: kashimiz
+author: ggailey777
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-origin.date: 12/07/2018
-ms.date: 12/25/2018
-ms.author: v-junlch
-ms.openlocfilehash: c4adffd457338ffebfd1c9c7727023f82088dc57
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 12/07/2018
+ms.author: azfuncdf
+ms.openlocfilehash: 99eabf3bc91887ff19b3a0bc9cf6647d32fa6750
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60732423"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787563"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -67,7 +66,7 @@ module.exports = df.orchestrator(function*(context) {
 
     // sleep for one hour between cleanups
     const nextCleanup = moment.utc(context.df.currentUtcDateTime).add(1, "h");
-    yield context.df.createTimer(nextCleanup);
+    yield context.df.createTimer(nextCleanup.toDate());
 
     context.df.continueAsNew(undefined);
 });
@@ -85,4 +84,3 @@ Si una función de orquestador está en un bucle infinito y debe detenerse, use 
 
 > [!div class="nextstepaction"]
 > [Más información acerca de cómo implementar orquestaciones singleton](durable-functions-singletons.md)
-

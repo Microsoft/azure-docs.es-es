@@ -1,5 +1,5 @@
 ---
-title: Trabajar con proyecciones en un almacén de conocimiento - Azure Search
+title: Trabajar con proyecciones en un almacén de información (versión preliminar) - Azure Search
 description: Guardar y dar forma a los datos enriquecidos de la canalización de indización de inteligencia artificial para su uso en escenarios que no sean de búsqueda
 manager: eladz
 author: vkurpad
@@ -10,18 +10,22 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
 ms.custom: seomay2019
-ms.openlocfilehash: 3ab5ffafd1b20eb0e3e453d3e730840baf9233e1
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: f1c7278909557dc92f86c5dfc1f190fddf33f607
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65028371"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540818"
 ---
 # <a name="working-with-projections-in-a-knowledge-store-in-azure-search"></a>Trabajar con proyecciones en un almacén de información en Azure Search
 
+> [!Note]
+> Almacén de conocimiento está en versión preliminar y no se ha diseñado para su uso en producción. El [API de REST versión 2019-05-06-Preview](search-api-preview.md) proporciona esta característica. No hay ninguna compatibilidad de SDK de .NET en este momento.
+>
+
 Azure Search permite enriquecimiento de contenido a través de conocimientos cognitivos de inteligencia artificial y habilidades personalizadas como parte de la indización. Enriquecimientos de agregan estructura a los documentos y realizar búsquedas más eficaces. En muchos casos, los documentos enriquecidos son útiles para escenarios que no sean de búsqueda, por ejemplo, para la minería de datos de conocimiento.
 
-Proyecciones, un componente de [store (versión preliminar) de knowledge](knowledge-store-concept-intro.md), son vistas de documentos enriquecidos que se pueden guardar en el almacenamiento físico para fines de minería de datos de conocimiento. Una proyección permite "proyecto" los datos en una forma que se adapte a sus necesidades, mantener las relaciones para que herramientas como Power BI pueden leer los datos sin ningún esfuerzo adicional. 
+Proyecciones, un componente de [almacén knowledge](knowledge-store-concept-intro.md), son vistas de documentos enriquecidos que se pueden guardar en el almacenamiento físico para fines de minería de datos de conocimiento. Una proyección permite "proyecto" los datos en una forma que se adapte a sus necesidades, mantener las relaciones para que herramientas como Power BI pueden leer los datos sin ningún esfuerzo adicional. 
 
 Proyecciones pueden ser tabulares, con los datos almacenados en filas y columnas en Azure Table storage o los objetos JSON almacenados en Azure Blob storage. Puede definir varias proyecciones de los datos tal como se enriquecen. Esto es útil cuando desee que los mismos datos en forma de manera diferente para los casos de uso individual. 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 6eb0fe592196466f7f49c21ce38afdf13b254d86
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 88cbd942413757388278d69d728d407271e4c4a3
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61061587"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606368"
 ---
 # <a name="core-reports-from-verizon"></a>Informes principales de Verizon
 
@@ -29,7 +29,7 @@ Mediante el uso de los informes principales de Verizon a través del portal de a
 
 * Ancho de banda
 * Datos transferidos
-* Aciertos
+* Accesos
 * Estados de la memoria caché
 * Frecuencia de aciertos de caché
 * Datos de IPV4/IPV6 transferidos
@@ -119,7 +119,7 @@ El informe proporciona los detalles siguientes:
 
 El informe no incluye:
 
-* Solicitudes denegadas debido a las opciones de filtrado de país.
+* Solicitudes denegadas debido a las opciones de filtrado de país o región.
 * Solicitudes de recursos cuyos encabezados indican que no se deben almacenar en caché. Por ejemplo, los encabezados `Cache-Control: private`, `Cache-Control: no-cache` o `Pragma: no-cache` impiden que un recurso se almacene en caché.
 * Solicitudes de intervalo de bytes para contenido almacenado parcialmente en caché.
 

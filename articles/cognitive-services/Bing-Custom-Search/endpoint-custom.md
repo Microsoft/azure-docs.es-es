@@ -3,19 +3,19 @@ title: Punto de conexión de Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Resumen del punto de conexión de Bing Custom Search API.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: v-gedod
-ms.openlocfilehash: d01f863f0c42754e2dcc36f6cab1bed1f3dc3b6c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: aahi
+ms.openlocfilehash: d8c2c69a81597c2702d608ccac8dceed1e832aff
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60592257"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790224"
 ---
 # <a name="custom-search"></a>Búsqueda personalizada
 Bing Custom Search le permite crear experiencias de búsqueda a medida de los temas que le interesan. Los usuarios ven los resultados de búsqueda a la medida del contenido que les interesa en lugar de recorrer las páginas de los resultados de búsqueda que pueden contener contenido carente de interés.

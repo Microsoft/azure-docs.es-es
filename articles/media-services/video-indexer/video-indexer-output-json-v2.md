@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/07/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560047"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799080"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine la salida de Video Indexer producida por la API
 
@@ -90,7 +91,7 @@ En esta sección se muestra el resumen de la información detallada.
 |emotions| Puede contener cero o más emociones. Para más información, consulte [emotions](#emotions).|
 |topics|Puede contener cero o más temas. Dimensión [topics](#topics).|
 
-## <a name="videos"></a>videos
+## <a name="videos"></a>vídeos
 
 |Nombre|Descripción|
 |---|---|
@@ -154,7 +155,7 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |language|Idioma de la información detallada (traducida del idioma de origen). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
 |transcript|Dimensión [transcript](#transcript).|
 |ocr|El [OCR](#ocr) dimensión.|
-|keywords|Dimensión [keywords](#keywords).|
+|palabras clave|Dimensión [keywords](#keywords).|
 |blocks|Puede contener uno o más dimensiones [blocks](#blocks).|
 |faces|Dimensión [faces](#faces).|
 |labels|Dimensión [labels](#labels).|
@@ -268,7 +269,7 @@ Ejemplo:
   ],
 ```
 
-#### <a name="keywords"></a>keywords
+#### <a name="keywords"></a>palabras clave
 
 |Nombre|Descripción|
 |---|---|
@@ -408,7 +409,7 @@ Ejemplo:
 |NOMBRE|Descripción|
 |---|---|
 |id|Identificador de la escena.|
-|instances|Una lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
+|instancias|Una lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
 
 ```json
 "scenes":[  
@@ -442,7 +443,7 @@ Ejemplo:
 |---|---|
 |id|Identificador de la toma.|
 |keyFrames|Una lista de fotogramas clave dentro de la captura (cada uno tiene un identificador y una lista de intervalos de tiempo de las instancias). Cada instancia de fotograma clave tiene un campo thumbnailId, que contiene la miniatura del fotograma clave identificador.|
-|instances|Una lista de intervalos de tiempo de esta toma (una captura puede tener solo 1 instancia).|
+|instancias|Una lista de intervalos de tiempo de esta toma (una captura puede tener solo 1 instancia).|
 
 ```json
 "shots":[  
@@ -675,7 +676,7 @@ Video Indexer identifica emociones en función de las indicaciones para voz y au
 |---|---|
 |id|Identificador de la emoción.|
 |Tipo|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
-|instances|Lista de los intervalos de tiempo donde apareció esta emoción.|
+|instancias|Lista de los intervalos de tiempo donde apareció esta emoción.|
 
 ```json
 "emotions": [{
@@ -765,11 +766,11 @@ Video Indexer saca conclusiones de los temas principales a partir de las transcr
 |---|---|
 |id|Identificador del tema.|
 |Nombre|El nombre del tema, por ejemplo: "productos farmacéuticos".|
-|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo:  "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
+|referenceId|Rutas de navegación que reflejan la jerarquía de temas. Por ejemplo: "Salud y bienestar / Medicina y salud / Productos farmacéuticos".|
 |confidence|Puntuación de confianza en el intervalo [0,1]. Cuanto mayor es, más segura es.|
 |language|Idioma que se usa en el tema.|
 |iptcName|Nombre del código multimedia IPTC, si se detecta.|
-|instances |Actualmente, Video Indexer no indexa ningún tema en intervalos de tiempo, por lo que se usa el vídeo completo como intervalo.|
+|instancias |Actualmente, Video Indexer no indexa ningún tema en intervalos de tiempo, por lo que se usa el vídeo completo como intervalo.|
 
 ```json
 "topics": [{

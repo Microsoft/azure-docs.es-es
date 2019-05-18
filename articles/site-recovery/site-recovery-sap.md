@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: 68efc039c5de5d7f61b7ce34e74c6c2cf4bad027
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0848738b71a605d8baf049847daa3ae2428a7abe
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61471600"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65793672"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples
 
@@ -166,5 +166,5 @@ Para más información, consulte [Conmutación por error de prueba a Azure en Si
 Para más información, consulte [Conmutación por error en Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información acerca de cómo crear una solución de recuperación ante desastres con las implementaciones de SAP NetWeaver mediante Site Recovery, consulte las notas del producto sobre la [creación de una solución de recuperación ante desastres de SAP NetWeaver con Azure Site Recovery](https://aka.ms/asr-sap), que puede descargar. En las notas del producto se analizan las recomendaciones para distintas arquitecturas SAP, se muestran las aplicaciones y los tipos de máquinas virtuales compatibles con SAP en Azure y se describen las opciones del plan de pruebas para la solución de recuperación ante desastres.
+* Para más información acerca de cómo crear una solución de recuperación ante desastres con las implementaciones de SAP NetWeaver mediante Site Recovery, consulte las notas del producto sobre la [creación de una solución de recuperación ante desastres de SAP NetWeaver con Azure Site Recovery](https://aka.ms/asr_sap), que puede descargar. En las notas del producto se analizan las recomendaciones para distintas arquitecturas SAP, se muestran las aplicaciones y los tipos de máquinas virtuales compatibles con SAP en Azure y se describen las opciones del plan de pruebas para la solución de recuperación ante desastres.
 * Obtenga más información sobre cómo [replicar otras cargas de trabajo](site-recovery-workload.md) con Site Recovery.

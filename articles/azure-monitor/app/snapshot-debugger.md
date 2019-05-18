@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.reviewer: brahmnes
 ms.date: 03/07/2019
 ms.author: mbullwin
-ms.openlocfilehash: 074b701422f32f4cd18fd2eb05e3453e139e17ae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4157285e8af67acd1dc3627bebc12076d7fe072c
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65205599"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595571"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantáneas cuando se producen excepciones en aplicaciones de .NET
 Cuando se produce una excepción, puede recopilar automáticamente una instantánea de depuración desde la aplicación web activa. La instantánea muestra el estado del código fuente y las variables en el momento en que se produjo la excepción. El depurador de instantáneas (versión preliminar) de [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) supervisa la telemetría de excepciones de su aplicación web. Recopila instantáneas de las excepciones más importantes con el fin de que tenga la información necesaria para diagnosticar problemas en producción. Incluya el [paquete NuGet del recopilador de instantáneas](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) en la aplicación y, opcionalmente, configure los parámetros de recopilación en [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md). Las instantáneas aparecen en [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en el portal de Application Insights.
 
-Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Para obtener una experiencia de depuración más eficaz con el código fuente, abra las instantáneas con Visual Studio 2017 Enterprise. En Visual Studio también puede [establecer puntos de acoplamiento para tomar instantáneas de forma interactiva](https://aka.ms/snappoint) sin tener que esperar una excepción.
+Puede ver las instantáneas de depuración en el portal para examinar la pila de llamadas e inspeccionar las variables en cada marco de pila de llamadas. Para obtener una experiencia de depuración más eficaz con el código fuente, abra instantáneas con Visual Studio Enterprise de 2019. En Visual Studio también puede [establecer puntos de acoplamiento para tomar instantáneas de forma interactiva](https://aka.ms/snappoint) sin tener que esperar una excepción.
 
 Las instantáneas de depuración se guardan durante siete días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
@@ -44,7 +44,7 @@ Se admiten los siguientes entornos:
 
 Si ha habilitado el depurador de instantáneas pero no ve las instantáneas, consulte nuestra [Guía de solución de problemas](snapshot-debugger-troubleshoot.md?toc=/azure/azure-monitor/toc.json).
 
-## <a name="grant-permissions"></a>Concesión de permisos
+## <a name="grant-permissions"></a>Conceder permisos
 
 El acceso a las instantáneas está protegido por el control de acceso basado en rol (RBAC). Para poder inspeccionar una instantánea, el propietario de la suscripción debe agregarle primero al rol necesario.
 
@@ -81,9 +81,9 @@ En la vista de depuración instantánea, verá una pila de llamadas y un panel d
 Las instantáneas pueden incluir información confidencial y, de manera predeterminada, no están visibles. Para ver las instantáneas, debe tener asignado el rol `Application Insights Snapshot Debugger`.
 
 ## <a name="view-snapshots-in-visual-studio-2017-enterprise-or-above"></a>Ver las instantáneas en Visual Studio Enterprise 2017 o versiones posteriores
-1. Haga clic en el botón **Descargar instantánea** para descargar un archivo `.diagsession`, que puede abrirse en Visual Studio Enterprise 2017.
+1. Haga clic en el **descargar instantánea** botón para descargar un `.diagsession` archivo, que puede abrirse en Visual Studio Enterprise.
 
-2. Para abrir el archivo `.diagsession`, debe tener instalado el componente de Visual Studio Snapshot Debugger. El componente Snapshot Debugger es un componente obligatorio de la carga de trabajo de ASP.net en Visual Studio y se puede seleccionar de la lista de componentes individuales en el instalador de Visual Studio. Si usa una versión de Visual Studio 2017 15.5 antes de deberá instalar la extensión de la [marketplace VS](https://aka.ms/snapshotdebugger).
+2. Para abrir el `.diagsession` archivo, debe tener instalado el componente de Visual Studio de depurador de instantáneas. El componente del depurador de instantáneas es un componente necesario de la carga de trabajo de ASP.net en Visual Studio y se puede seleccionar de la lista de componentes individuales en el instalador de Visual Studio. Si usa una versión de Visual Studio anteriores a Visual Studio 2017 versión 15.5, deberá instalar la extensión de la [Visual Studio Marketplace](https://aka.ms/snapshotdebugger).
 
 3. Después de abrir el archivo de instantánea, aparece la página de depuración de minivolcado de Visual Studio. Haga clic en **Depurar código administrado** para empezar a depurar la instantánea. La instantánea se abre en la línea de código donde se produjo la excepción para que pueda depurar el estado actual del proceso.
 

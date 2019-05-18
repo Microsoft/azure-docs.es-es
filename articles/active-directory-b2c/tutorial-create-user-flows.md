@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e12b3cbcb8f7a433b37c450c84bd34745f68a22d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9c08b5b5278045341ed86d987557d03cb46754e6
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64711508"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65601586"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>Tutorial: Creación de flujos de usuario en Azure Active Directory B2C
 
@@ -76,7 +76,7 @@ Este flujo de usuario de registro y de inicio de sesión controla las experienci
 4. Escriba una dirección de correo electrónico válida, haga clic en **Enviar código de verificación** y, a continuación, escriba el código de verificación que reciba.
 5. Escriba la contraseña nueva y confírmela.
 6. Escriba el nombre que desee que aparezca, seleccione su país y región, escriba un código postal y, a continuación, haga clic en **Crear**. El token se devuelve al `https://jwt.ms` y debe mostrarse.
-7. Ahora puede ejecutar el flujo de usuario nuevo y debe ser capaz de iniciar sesión con la cuenta que ha creado. El token devuelto incluye las notificaciones que seleccionó de nombre, país y código postal.
+7. Ahora puede ejecutar el flujo de usuario nuevo y debe ser capaz de iniciar sesión con la cuenta que ha creado. El token devuelto incluye las notificaciones que seleccionó de nombre, país o región y código postal.
 
 ## <a name="create-a-profile-editing-user-flow"></a>Creación de un flujo de usuario de edición de perfil
 

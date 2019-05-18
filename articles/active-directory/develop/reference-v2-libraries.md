@@ -4,7 +4,7 @@ description: Bibliotecas de cliente compatible y bibliotecas de middleware de se
 services: active-directory
 documentationcenter: ''
 author: negoe
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -18,12 +18,12 @@ ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7678969f58e650382ff2ed478784f4d0107f6e0
-ms.sourcegitcommit: 4891f404c1816ebd247467a12d7789b9a38cee7e
+ms.openlocfilehash: 19718dc884685f6c1e1a588eea6a5de36e446fb1
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65441560"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545533"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Bibliotecas de autenticación de plataforma de identidad de Microsoft
 

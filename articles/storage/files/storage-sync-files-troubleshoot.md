@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2893960c3351b1f8a5caf0c69ca961851528007d
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 26055727e308f8c05aece31746434d7e9a0a5abd
+ms.sourcegitcommit: 9e8dfa1169a55c3c8af93a6c5f4e0dace4de48b2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65510836"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65555942"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas de Azure File Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -300,6 +300,17 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 | **Se requiere una corrección** | No |
 
 No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este error persiste durante más de un par de horas, cree una solicitud de soporte técnico.
+
+<a id="-2134364043"></a>**Sincronización está bloqueada hasta que la detección de cambios complete después de la restauración**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83075 |
+| **HRESULT (decimal)** | -2134364043 |
+| **Cadena de error** | ECS_E_SYNC_BLOCKED_ON_CHANGE_DETECTION_POST_RESTORE |
+| **Se requiere una corrección** | No |
+
+No es necesaria ninguna acción. Cuando comparte un archivo o se restaura (punto de conexión en la nube) mediante Azure Backup, sincronización está bloqueada hasta que se complete la detección de cambios en el recurso compartido de archivos de Azure. Detección de cambios se ejecuta inmediatamente una vez completada la restauración y la duración se basa en el número de archivos en el recurso compartido de archivos.
 
 <a id="-2134364065"></a>**La sincronización no puede acceder al recurso compartido de archivos de Azure especificado en el punto de conexión de nube.**  
 

@@ -3,25 +3,25 @@ title: Creación de la identidad de la aplicación de Azure en el portal | Micro
 description: Describe cómo crear una nueva aplicación de Azure Active Directory y una entidad de servicio que puede utilizarse con el control de acceso basado en rol en Azure Resource Manager para administrar el acceso a los recursos.
 services: active-directory
 documentationcenter: na
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
-ms.author: celested
+ms.date: 05/14/2019
+ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9affec9ccc1b87f36d6f30aff4795d85532be8c1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0208d25e4583672ad2110d959f8e255affbf3e0
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300994"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65764851"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos para: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -104,20 +104,20 @@ También necesitará el identificador de la aplicación y una clave de autentica
 
 1. Copie el **id. de aplicación** y almacénelo en el código de la aplicación.
 
-   ![Id. de cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
+   ![Identificador de cliente](./media/howto-create-service-principal-portal/copy-app-id.png)
 
-1. Seleccione **Configuración**.
+1. Seleccione **certificados y secretos**.
 
-   ![Seleccionar Configuración](./media/howto-create-service-principal-portal/select-settings.png)
+   ![Seleccionar Configuración](./media/howto-create-service-principal-portal/select-certs-secrets.png)
 
-1. Seleccione **Claves**.
-1. Proporcione una descripción de la clave y una duración. Cuando haya terminado, seleccione **Guardar**.
+1. Seleccione **los secretos de cliente -> nuevo secreto de cliente**.
+1. Proporcione una descripción del secreto y una duración. Cuando haya terminado, seleccione **agregar**.
 
-   ![Guardar clave](./media/howto-create-service-principal-portal/save-key.png)
+   ![Guardar el secreto](./media/howto-create-service-principal-portal/save-secret.png)
 
-   Después de guardar la clave, se muestra el valor de la clave. Copie este valor porque no podrá recuperar la clave más adelante. Debe proporcionar el valor de la clave junto con el identificador de la aplicación para iniciar sesión como la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
+   Después de guardar el secreto de cliente, se muestra el valor del secreto de cliente. Copie este valor porque no podrá recuperar la clave más adelante. Debe proporcionar el valor de la clave junto con el identificador de la aplicación para iniciar sesión como la aplicación. Guarde el valor de clave donde la aplicación pueda recuperarlo.
 
-   ![Clave guardada](./media/howto-create-service-principal-portal/copy-key.png)
+   ![Copiar el secreto](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="required-permissions"></a>Permisos necesarios
 
@@ -146,7 +146,7 @@ En su suscripción de Azure, su cuenta debe tener acceso a `Microsoft.Authorizat
 
 Para comprobar los permisos de su suscripción:
 
-1. Seleccione su cuenta en la esquina superior derecha y luego seleccione **Mis permisos**.
+1. Seleccione su cuenta en la esquina superior derecha y seleccione **... -> Mis permisos**.
 
    ![Seleccionar permisos de usuario](./media/howto-create-service-principal-portal/select-my-permissions.png)
 
@@ -154,7 +154,7 @@ Para comprobar los permisos de su suscripción:
 
    ![Buscar usuario](./media/howto-create-service-principal-portal/view-details.png)
 
-1. Vea los roles asignados y determine si tiene los permisos adecuados para asignar una aplicación de AD a un rol. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la siguiente imagen, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
+1. Seleccione **las asignaciones de roles** para ver los roles asignados y determine si tiene los permisos adecuados para asignar una aplicación de AD a un rol. En caso contrario, pida al administrador de suscripciones que le agregue al rol Administrador de acceso de usuario. En la siguiente imagen, el usuario está asignado al rol Propietario, lo que significa que el usuario tiene los permisos adecuados.
 
    ![Mostrar permisos](./media/howto-create-service-principal-portal/view-user-role.png)
 

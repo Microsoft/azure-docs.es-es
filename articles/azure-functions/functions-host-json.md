@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: e24c5b2be1df41d84fa4461250f51cb009f77529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
-ms.translationtype: HT
+ms.openlocfilehash: ddd3b0889eedd55f809dbb57b2ef41a2ae3f9c94
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60737216"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65521390"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Referencia de host.json para Azure Functions 2.x  
 
@@ -35,7 +35,6 @@ Algunas opciones de configuración de host.json solo se usan con la ejecución l
 ## <a name="sample-hostjson-file"></a>Archivo host.json de ejemplo
 
 El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opciones posibles.
-
 
 ```json
 {
@@ -82,7 +81,10 @@ El siguiente archivo *host.json* de ejemplo tiene especificadas todas las opcion
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -133,7 +135,7 @@ Las opciones de configuración se pueden encontrar en [desencadenadores y enlace
 
 Propiedad que devuelve un objeto que contiene todas las configuraciones específicas de enlace, como [http](#http) y [eventHub](#eventhub).
 
-## <a name="functions"></a>functions
+## <a name="functions"></a>funciones
 
 Lista de las funciones que el host de trabajo ejecuta. Una matriz vacía significa ejecutar todas las funciones. Su uso está previsto solo cuando se [ejecuta localmente](functions-run-local.md). En cambio, en las aplicaciones de función de Azure, siga los pasos de [Deshabilitamiento de funciones en Azure Functions](disable-function.md) para deshabilitar funciones específicas en lugar de usar esta configuración.
 
@@ -194,6 +196,9 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
       "Function.MyFunction": "Information",
       "default": "None"
     },
+    "console": {
+        ...
+    },
     "applicationInsights": {
         ...
     }
@@ -204,10 +209,10 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
 |logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En la versión 2.x se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esto permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
-|console|N/D| Configuración del registro de [consola](#console). |
+|consola|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
 
-## <a name="console"></a>console
+## <a name="console"></a>consola
 
 Esta configuración es un elemento secundario de [logging](#logging). Controla el registro de la consola cuando no está en modo de depuración.
 
@@ -274,6 +279,18 @@ Conjunto de [directorios de código compartido](functions-reference-csharp.md#wa
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## <a name="manageddependency"></a>managedDependency
+
+Dependencia administrada es una característica de vista previa que actualmente solo se admite con basados en funciones de PowerShell. Permite que las dependencias que administrará automáticamente el servicio. Cuando se establece la propiedad enabled en true, el [requirements.psd1](functions-reference-powershell.md#dependency-management) se procesará el archivo. Las dependencias se actualizará cuando se publican las versiones secundarias.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

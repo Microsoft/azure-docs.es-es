@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/08/2019
+ms.date: 05/14/2019
 ms.author: tomfitz
-ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b4d3a9c5e985949d813b638806f60bc86f5a163a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60550587"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789266"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -46,7 +46,9 @@ Si el grupo de recursos es [bloqueado](resource-group-lock-resources.md), el mod
 
 ## <a name="incremental-mode"></a>Modo incremental
 
-En el modo incremental, Resource Manager **deja sin modificar** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla. Al volver a implementar un recurso en modo incremental, especifique todos los valores de propiedad del recurso, no solo los que va a actualizar. Si no especifica determinadas propiedades, Resource Manager interpreta la actualización como que sobrescribe esos valores.
+En el modo incremental, Resource Manager **deja sin modificar** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
+
+Sin embargo, al volver a implementar un recurso existente en el modo incremental, el resultado es una diferente. Especifique todas las propiedades para el recurso, no solo a los que va a actualizar. Un malentendido frecuente es pensar en las propiedades que no se especifican son permanecen sin cambios. Si no especifica determinadas propiedades, Resource Manager interpreta la actualización como que sobrescribe esos valores.
 
 ## <a name="example-result"></a>Resultado de ejemplo
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: jlembicz
 ms.custom: seodec2018
-ms.openlocfilehash: cb8e42400847ba9fb13568d05dffac86d9cec85f
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: bc183cb8ac2155b8dd31dc603d70506ad3d5e20a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024619"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65797478"
 ---
 # <a name="how-full-text-search-works-in-azure-search"></a>Cómo funciona la búsqueda de texto completo en Azure Search
 
@@ -270,7 +270,7 @@ Para el campo **descripción**, el índice es el siguiente:
 | Término | Lista de documento |
 |------|---------------|
 | post- | 3
-| y | 4
+| y el | 4
 | playa | 1
 | vacacional | 3
 | cómodo | 3
@@ -291,7 +291,7 @@ Para el campo **descripción**, el índice es el siguiente:
 | to | 1
 | view | 1, 2, 3
 | paseo | 1
-| por | 3
+| que contengan | 3
 
 
 **Coincidencia de términos de consulta con términos indexados**
@@ -392,8 +392,6 @@ En este artículo se ha analizado la búsqueda de texto completo en el contexto 
 + Obtener información sobre cómo aplicar [analizadores léxicos específicos del idioma](https://docs.microsoft.com/rest/api/searchservice/language-support).
 
 + [Configurar los analizadores personalizados](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) para un procesamiento mínimo o especializado en campos específicos.
-
-+ [Comparar el analizador estándar y el analizador de inglés](https://alice.unearth.ai/) en paralelo en este sitio web de demostración. 
 
 ## <a name="see-also"></a>Vea también
 

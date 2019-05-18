@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 0fe1de9bb674c66d1b665de25ee579bc86e42c75
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 4063e79a9415ac35b09cc77d0110c04e191b49c7
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65192393"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546754"
 ---
 La galería de imágenes compartidas es un servicio que ayuda a generar estructura y organización en torno a las imágenes de VM administradas y personalizadas. Galerías de imágenes compartidas proporcionan:
 
@@ -51,9 +51,9 @@ Hay tres parámetros para cada definición de la imagen que se usan en combinaci
 
 |Definición de imágenes|Publicador|Oferta|SKU|
 |---|---|---|---|
-|myImage1|Contoso|Finance|Back-end|
-|myImage2|Contoso|Finance|Front-end|
-|myImage3|Prueba|Finance|Front-end|
+|myImage1|Contoso|Finanzas|Back-end|
+|myImage2|Contoso|Finanzas|Front-end|
+|myImage3|Pruebas|Finanzas|Front-end|
 
 Los tres tienen conjuntos de valores únicos. El formato es similar a cómo se pueden especificar actualmente publicador, oferta y SKU de [imágenes de Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) en Azure PowerShell para obtener la versión más reciente de una imagen de Marketplace. Cada definición de la imagen debe tener un único conjunto de estos valores.
 
@@ -77,19 +77,19 @@ Regiones de origen se muestran en la tabla siguiente. Todas las regiones públic
 
 | Regiones de origen |
 |---------------------|-----------------|------------------|-----------------|
-| Centro de Australia   | EUAP del centro de EE. UU. | Corea Central    | Sur del Reino Unido 2      |
+| Centro de Australia   | EUAP de centro de EE. UU. | Corea Central    | Sur de Reino Unido 2      |
 | Centro de Australia 2 | Asia oriental       | Corea del Sur      | Oeste de Reino Unido         |
 | Este de Australia      | Este de EE. UU         | Centro-Norte de EE. UU | Centro occidental de EE.UU. |
 | Sudeste de Australia | Este de EE. UU. 2       | Europa del Norte     | Europa occidental     |
 | Sur de Brasil        | EUAP de este de EE. UU. 2  | Centro-Sur de EE. UU | Oeste de la India      |
 | Centro de Canadá      | Centro de Francia  | Sur de la India      | Oeste de EE. UU.         |
 | Este de Canadá         | Sur de Francia    | Sudeste asiático   | Oeste de EE. UU.         |
-| India Central       | Este de Japón      | Norte del Reino Unido         | Oeste de EE. UU. 2       |
+| India Central       | Este de Japón      | Norte de Reino Unido         | Oeste de EE. UU. 2       |
 | Centro de EE. UU.          | Oeste de Japón      | Sur de Reino Unido 2         |                 |
 
 
 
-## <a name="limits"></a>límites 
+## <a name="limits"></a>Límites 
 
 Hay límites por suscripción, para implementar los recursos con galerías de imágenes compartidas:
 - 100 galerías de imágenes compartidas, por suscripción por región
@@ -113,15 +113,15 @@ Las regiones donde puede replicarse la versión de una imagen compartida se pued
 ![Gráfico que muestra cómo puede replicar imágenes](./media/shared-image-galleries/replication.png)
 
 
-## <a name="access"></a>Access
+## <a name="access"></a>Acceso
 
 Dado que la galería de imágenes compartidas, la imagen compartida y la versión de la imagen compartida son recursos, pueden compartirse con los controles integrados nativos de Azure RBAC. Uso de RBAC puede compartir estos recursos para otros usuarios, las entidades de servicio y grupos. Incluso puede compartir el acceso a personas fuera de los inquilinos que se crearon dentro. Una vez que un usuario tiene acceso a la versión de imagen compartido, puede implementar una máquina virtual o un conjunto de escalado de máquinas virtuales.  Aquí está la matriz de uso compartido que ayuda a entender a lo que el usuario tiene acceso:
 
 | Compartido con el usuario     | Galería de imágenes compartidas | Imagen compartida | Versión de la imagen compartida |
 |----------------------|----------------------|--------------|----------------------|
 | Galería de imágenes compartidas | Sí                  | Sí          | Sí                  |
-| Imagen compartida         | Sin                    | Sí          | Sí                  |
-| Versión de la imagen compartida | Sin                    | No           | Sí                  |
+| Imagen compartida         | No                   | Sí          | Sí                  |
+| Versión de la imagen compartida | No                   | No           | Sí                  |
 
 Se recomienda el uso compartido en el nivel de la Galería para una mejor experiencia. Para obtener más información sobre RBAC, consulte [administrar el acceso a recursos de Azure mediante RBAC](../articles/role-based-access-control/role-assignments-portal.md).
 
@@ -266,4 +266,4 @@ Para especificar el recuento de réplicas comunes en la CLI, use el argumento **
 
 **P.** ¿Qué versión de API debo usar para crear la galería de imágenes compartidas, la definición de la imagen, la versión de la imagen y VM/VMSS a partir de la versión de la imagen?
 
- A. Para implementaciones de VM y conjuntos de escalado de máquinas virtuales que usan una versión de la imagen, se recomienda usar la API versión 2018-04-01 o posterior. Para trabajar con galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, se recomienda usar la API versión 2018-06-01. 
+ A. Para implementaciones de VM y conjuntos de escalado de máquinas virtuales que usan una versión de la imagen, se recomienda usar la API versión 2018-04-01 o posterior. Para trabajar con galerías de imágenes compartidas, definiciones de imágenes y versiones de imágenes, se recomienda usar la API versión 2018-06-01. Almacenamiento con redundancia de zona (ZRS) requiere la versión de 2019-03-01 o posterior.

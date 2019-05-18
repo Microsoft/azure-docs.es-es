@@ -1,19 +1,18 @@
 ---
 title: Uso de claves únicas en Azure Cosmos DB
 description: Aprenda a usar las claves únicas en la base de datos de Azure Cosmos DB
-author: rockboyfor
-ms.author: v-yeche
+author: rimman
+ms.author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-origin.date: 04/08/2019
-ms.date: 04/15/2019
+ms.date: 04/08/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3c5e8a2c85898175772dc353258e77fc8e0a74f2
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: c3524f27cc14050647c457fdb5e87b2b83dbdfc0
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62115730"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595868"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restricciones de clave únicas de Azure Cosmos DB
 
@@ -27,14 +26,14 @@ Para crear elementos con la misma dirección de correo electrónico, pero no con
 
 Por ejemplo, el contenedor puede contener elementos con los valores siguientes, donde cada elemento respeta la restricción de clave única.
 
-| CompanyID | Nombre | Apellidos |   Dirección de correo electrónico    |
-|-----------|------------|-----------|--------------------|
-|  Contoso  |    Gaby    |  Duperre  |  gaby@contoso.com  |
-|  Contoso  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Gaby    |  Duperre  | gaby@fabrikam.com  |
-| Fabrikam  |    Ivan    |  Duperre  | gaby@fabrikam.com  |
-|  Fabrikam  |            |  Duperre  | gaby@fabraikam.com |
-|  Fabrikam  |            |           | gaby@fabraikam.com |
+|CompanyID|Nombre|Apellido|Dirección de correo electrónico|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrikam|   |Duperre|gaby@fabraikam.com|
+|Fabrikam|   |   |gaby@fabraikam.com|
 
 Si intenta insertar otro elemento con las combinaciones que aparecen en la tabla anterior, recibirá un error. El error indica que no se ha cumplido con la restricción de clave única. Recibir cualquiera `Resource with specified ID or name already exists` o `Resource with specified ID, name, or unique index already exists` como un mensaje de vuelta. 
 
@@ -56,6 +55,5 @@ Puede definir claves únicas solo cuando se crea un contenedor de Azure Cosmos. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre las [particiones lógicas](partition-data.md).
-
-<!-- Update_Description: update meta propreties, wording update -->
+* Más información sobre las [particiones lógicas](partition-data.md)
+* Explorar [cómo definir las claves únicas](how-to-define-unique-keys.md) al crear un contenedor

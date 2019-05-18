@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/27/2019
 ms.author: juliako
-ms.openlocfilehash: 02c3fb309755964f1a4b196189b7742fa3f91a9a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 78e3897ec653326bcd88a538a6ea7d33938659b9
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148211"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65761944"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -43,7 +43,7 @@ El siguiente es un flujo de trabajo de streaming donde se utiliza el empaquetado
 
 El siguiente diagrama muestra el streaming a petición con el flujo de trabajo de empaquetado dinámico.
 
-![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
+![Empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.png)
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificación de velocidad de bits adaptativa MP4s
 
@@ -196,9 +196,9 @@ Este es un ejemplo de un manifiesto de Smooth Streaming:
 El filtro dinámico se utiliza para controlar el número de pistas, formatos, velocidades de bits y ventanas de tiempo de presentación que se envían a los jugadores. Para obtener más información, consulte [filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](media-services-apis-overview.md#sdks) admitidos.
 
-## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, comentarios, obtener actualizaciones
+## <a name="ask-questions-give-feedback-get-updates"></a>Formule preguntas, realice comentarios y obtenga actualizaciones
 
 Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 

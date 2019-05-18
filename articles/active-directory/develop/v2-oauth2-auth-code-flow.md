@@ -3,8 +3,8 @@ title: Plataforma de identidad de Microsoft y flujo de código de autorización 
 description: Creación de aplicaciones web mediante la implementación de plataforma de identidad de Microsoft del protocolo de autenticación OAuth 2.0.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ae1d7d86-7098-468c-aa32-20df0a10ee3d
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79e0ebce5704e7b61956568f5ebbce6ea6cbc3af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0d3ab6f53fdb11b0b8d643868d0692667c8672f9
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299266"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545178"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Plataforma de identidad de Microsoft y flujo de código de autorización de OAuth 2.0
 
@@ -74,7 +74,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `prompt`  | opcional    | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none` y `consent`.<br/><br/>- `prompt=login` obligará al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único.<br/>- `prompt=none` es la opuesta - garantizará que el usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar en modo silencioso a través de inicio de sesión único, el punto de conexión de plataforma de identidad de Microsoft devolverá un `interaction_required` error.<br/>- `prompt=consent` desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicie sesión y solicitará a este que conceda permisos a la aplicación. |
 | `login_hint`  | opcional    | Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usarán este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`.   |
 | `domain_hint`  | opcional    | Puede ser `consumers` o `organizations`.<br/><br/>Si se incluye, omitirá el proceso de detección basada en correo electrónico que pasa el usuario en la página de inicio de sesión, dando lugar a una experiencia de usuario será ligeramente más sencilla. A menudo las aplicaciones usarán este parámetro durante la reautenticación, para lo que extraen `tid` de un inicio de sesión anterior. Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad`, debe usar `domain_hint=consumers`. De lo contrario, use `domain_hint=organizations`.  |
-| `code_challenge_method` | opcional    | Método utilizado para codificar `code_verifier` para el parámetro `code_challenge`. Puede ser uno de los siguientes valores:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Si se excluye, se supone que `code_challenge` es texto no cifrado si se incluye `code_challenge`. Plataforma de identidad de Microsoft es compatible con ambos `plain` y `S256`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
+| `code_challenge_method` | opcional    | Método utilizado para codificar `code_verifier` para el parámetro `code_challenge`. Puede presentar uno de los siguientes valores:<br/><br/>- `plain` <br/>- `S256`<br/><br/>Si se excluye, se supone que `code_challenge` es texto no cifrado si se incluye `code_challenge`. Plataforma de identidad de Microsoft es compatible con ambos `plain` y `S256`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 | `code_challenge`  | opcional | Se usa para proteger concesiones de código de autorización a través de la clave de prueba para intercambio de códigos (PKCE) desde un cliente nativo. Se requiere si se incluye `code_challenge_method`. Para obtener más información, consulte [PKCE RFC](https://tools.ietf.org/html/rfc7636). |
 
 En este punto, se le pedirá al usuario que escriba sus credenciales y que complete la autenticación. El punto de conexión de plataforma de identidad de Microsoft también se asegurará de que el usuario ha dado su consentimiento a los permisos indicados en el `scope` parámetro de consulta. Si el usuario no ha dado su consentimiento a alguno de esos permisos, se le solicitará al usuario su consentimiento para los permisos necesarios. Aquí puede encontrar información detallada sobre los [permisos, el consentimiento y las aplicaciones multiempresa](v2-permissions-and-consent.md).

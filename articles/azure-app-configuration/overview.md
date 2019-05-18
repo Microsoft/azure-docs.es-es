@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a76eab5d51dd73fb6b38ebebaa8421e789274f84
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
+ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59994799"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65408680"
 ---
 # <a name="what-is-azure-app-configuration"></a>¿Qué es Azure App Configuration?
 
-Azure App Configuration proporciona un servicio para administrar la configuración de la aplicación de forma centralizada. Los programas actuales, especialmente los que se ejecutan en una nube, tienen por lo general muchos componentes que están distribuidos por naturaleza. La propagación de valores de configuración entre estos componentes puede conducir a errores difíciles de solucionar durante la implementación de una aplicación. Use App Configuration para almacenar toda la configuración de la aplicación y proteger sus accesos en un solo lugar.
+Azure App Configuration proporciona un servicio para administrar la configuración de la aplicación y las marcas de características de forma centralizada. Los programas actuales, especialmente los que se ejecutan en una nube, tienen por lo general muchos componentes que están distribuidos por naturaleza. La propagación de valores de configuración entre estos componentes puede conducir a errores difíciles de solucionar durante la implementación de una aplicación. Use App Configuration para almacenar toda la configuración de la aplicación y proteger sus accesos en un solo lugar.
 
-App Configuration es de uso gratuito durante el período de versión preliminar. Si desea probarlo, [regístrese](https://aka.ms/azconfig/register) para la versión preliminar.
+App Configuration se encuentra actualmente en versión preliminar pública. Es de uso gratuito durante el período de versión preliminar. Se puede registrar en él en [Azure Portal](https://portal.azure.com).
 
 ## <a name="why-use-app-configuration"></a>Razones para usar App Configuration
 
-Las aplicaciones basadas en la nube a menudo se ejecutan en varias máquinas virtuales o contenedores de varias regiones y emplean varios servicios externos. Crear una aplicación distribuida de este tipo que sea sólida y escalable constituye un reto. 
+Las aplicaciones basadas en la nube a menudo se ejecutan en varias máquinas virtuales o contenedores de varias regiones y emplean varios servicios externos. Crear una aplicación distribuida de este tipo que sea sólida y escalable constituye un reto.
 
 Varias metodologías de programación ayudan a los desarrolladores a abordar el aumento en la complejidad de la creación de estas aplicaciones. Por ejemplo, la aplicación 12-factor describe muchos patrones arquitectónicos bien comprobados y procedimientos recomendados para usarlos con aplicaciones en la nube. Una de las recomendaciones principales de esta guía es separar la configuración del código. En este caso, la configuración de una aplicación se debería mantener de forma externa a su archivo ejecutable y leerse desde su entorno de ejecución o desde un origen externo.
 
@@ -44,6 +44,7 @@ App Configuration ofrece las siguientes ventajas:
 * Representaciones y asignaciones de claves flexibles
 * Etiquetado con etiquetas
 * Reproducción de la configuración en un momento dado
+* Interfaz de usuario dedicada para la administración de marcas de características
 * Comparación de dos conjuntos de configuraciones en dimensiones definidas de forma personalizada
 * Seguridad mejorada mediante las identidades administradas de Azure
 * Cifrado de datos completo, en reposo o en tránsito
@@ -52,8 +53,8 @@ App Configuration ofrece las siguientes ventajas:
 App Configuration complementa [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), que se usa para almacenar secretos de aplicación. App Configuration facilita la implementación de los siguientes escenarios:
 
 * La administración centralizada y la distribución de datos de configuración jerárquicos para diferentes entornos y regiones geográficas
-* Cambios de configuración dinámica sin necesidad de volver a implementar o reiniciar una aplicación
-* Administración de características
+* Los cambios de configuración dinámica sin necesidad de volver a implementar o reiniciar una aplicación
+* El control de la disponibilidad de las características en tiempo real
 
 ## <a name="use-app-configuration"></a>Uso de App Configuration
 
@@ -68,5 +69,9 @@ La manera más fácil de agregar un almacén de App Configuration a la aplicaci�
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Crear una aplicación web ASP.NET Core](./quickstart-aspnet-core-app.md)  
+* [Inicio rápido de ASP.NET Core](./quickstart-aspnet-core-app.md)
+* [Inicio rápido de .NET Core](./quickstart-dotnet-core-app.md)
+* [Inicio rápido de .NET Framework](./quickstart-dotnet-app.md)
+* [Inicio rápido de Azure Functions](./quickstart-azure-function-csharp.md)
+* [Inicio rápido de Java Spring](./quickstart-java-spring-app.md)
+* [Inicio rápido sobre las marcas de características de ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)

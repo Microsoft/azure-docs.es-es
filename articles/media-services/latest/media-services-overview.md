@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 04/18/2019
+ms.date: 05/07/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 91297a02966000899ab79dfb86446890e9c4439a
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4fb42014e2c5389cf2a849ddf5114ab1f59c9e28
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148712"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65414018"
 ---
 # <a name="azure-media-services-v3-overview"></a>Introducción a Azure Media Services v3
 
@@ -48,7 +48,8 @@ Media Services le permite generar una variedad de flujos de trabajo multimedia e
 
 Aprenda a codificar y a empaquetar contenido, a hacer streaming de vídeos a petición, a realizar difusión en directo y a analizar vídeos con Media Services v3. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
 
-Antes de empezar a desarrollar, revise los [conceptos fundamentales](concepts-overview.md).<br/>
+> [!TIP]
+> Antes de empezar a desarrollar, revise:<br/>* [Conceptos fundamentales](concepts-overview.md) (incluye conceptos importantes: empaquetado, codificación, protección, etc.)<br/>* [Desarrollo con las API de Media Services v3](media-services-apis-overview.md) (incluye información acerca de cómo acceder a las API, convenciones de nomenclatura, etc.)
 
 ### <a name="quickstarts"></a>Guías de inicio rápido  
 
@@ -86,9 +87,5 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-¿Cómo puedo comenzar con v3? 
-
-> [!div class="nextstepaction"]
-> [Información sobre conceptos fundamentales](concepts-overview.md)<br/>
-> [Desarrollo con la API de Media Services v3 con SDK](developers-guide.md) 
+[Información sobre conceptos fundamentales](concepts-overview.md)
 

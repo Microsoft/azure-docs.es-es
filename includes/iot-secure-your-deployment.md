@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 6179086c6a2cf187c976ff23bf24180257023d28
-ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
-ms.translationtype: HT
+ms.openlocfilehash: e5acb8e0f8805da7f14bbce58b4bfd2acdc24f23
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51289179"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65815562"
 ---
 # <a name="secure-your-internet-of-things-iot-deployment"></a>Protección de la implementación de Internet de las cosas (IoT)
 
@@ -21,11 +21,11 @@ En este artículo se proporciona el siguiente nivel de detalle para proteger la 
 
 La protección de la implementación de IoT de Azure se puede dividir en las siguientes tres áreas de seguridad:
 
-* **Seguridad del dispositivo**: la protección del dispositivo de IoT mientras se implementa en su entorno natural.
+* **Seguridad de los dispositivos**: Proteger el dispositivo de IoT mientras se implementa en su entorno natural.
 
-* **Seguridad de la conexión**: asegurar que todos los datos transmitidos entre el dispositivo IoT e IoT Hub son confidenciales y a prueba de manipulaciones.
+* **Seguridad de conexión**: Asegurarse de todos los datos transmitidos entre el dispositivo de IoT y IoT Hub es confidenciales y a prueba de manipulaciones.
 
-* **Seguridad de la nube**: proporcionar un medio de proteger los datos mientras se trasladan a la nube y se almacenan allí.
+* **Seguridad de la nube**: Proporcionar un medio para proteger los datos mientras se mueve a través y se almacena en la nube.
 
 ![Tres áreas de seguridad](./media/iot-secure-your-deployment/overview.png)
 
@@ -35,7 +35,7 @@ Los aceleradores de soluciones de IoT protegen los dispositivos de IoT según lo
 
 * Proporciona una clave de identidad única (tokens de seguridad) para cada dispositivo, que puede usar el dispositivo para comunicarse con el centro de IoT.
 
-* Uso de un [certificado X.509](http://www.itu.int/rec/T-REC-X.509-201210-I/en) y una clave privada en el dispositivo como medio para autenticarlo en IoT Hub. Este método de autenticación garantiza que la clave privada que lleva el dispositivo no se conoce externamente en ningún momento, lo que proporciona un nivel de seguridad más alto.
+* Uso de un [certificado X.509](https://www.itu.int/rec/T-REC-X.509-201210-S) y una clave privada en el dispositivo como medio para autenticarlo en IoT Hub. Este método de autenticación garantiza que la clave privada que lleva el dispositivo no se conoce externamente en ningún momento, lo que proporciona un nivel de seguridad más alto.
 
 El método de token de seguridad proporciona autenticación para cada llamada realizada por el dispositivo a IoT Hub mediante la asociación de la clave simétrica a cada llamada. La autenticación basada en X.509 permite la autenticación de un dispositivo IoT en la capa física como parte del establecimiento de la conexión TLS. El método basado en tokens de seguridad se puede usar sin la autenticación de X.509, que es un patrón menos seguro. La elección de un método u otro viene determinada principalmente por lo segura que deba ser la autenticación del dispositivo y la disponibilidad de almacenamiento seguro en este (para almacenar la clave privada de forma segura).
 
@@ -53,11 +53,11 @@ Cada instancia de IoT Hub tiene un [Registro de identidad](../articles/iot-hub/i
 
 [IoT Hub admite protocolos como MQTT, AMQP y HTTP](../articles//iot-hub/iot-hub-devguide-security.md). Cada uno de estos protocolos usa tokens de seguridad entre el dispositivo IoT y IoT Hub de manera diferente:
 
-* AMQP: seguridad basada en notificaciones SASL PLAIN y AMQP (`{policyName}@sas.root.{iothubName}` con tokens en el nivel de IoT Hub, `{deviceId}` con tokens con ámbito de dispositivo).
+* AMQP: SASL PLAIN y la seguridad basada en notificaciones AMQP (`{policyName}@sas.root.{iothubName}` con tokens de nivel de centro de IoT; `{deviceId}` con tokens con ámbito de dispositivo).
 
-* MQTT: el paquete CONNECT usa `{deviceId}` como `{ClientId}`, `{IoThubhostname}/{deviceId}` en el campo de **Nombre de usuario** y un token SAS en el campo de **contraseña**.
+* MQTT: Usa el paquete CONNECT `{deviceId}` como el `{ClientId}`, `{IoThubhostname}/{deviceId}` en el **Username** campo y una token SAS en el **contraseña** campo.
 
-* HTTP: el token válido está en el encabezado de la solicitud de autorización.
+* HTTP: Es un token válido en el encabezado de solicitud de autorización.
 
 Puede usar el Registro de identidad de IoT Hub para configurar las credenciales de seguridad de cada dispositivo y el control de acceso. Sin embargo, si una solución de IoT ya tiene una inversión importante en un [Registro de identidad del dispositivo o un esquema de autenticación personalizados](../articles/iot-hub/iot-hub-devguide-security.md#custom-device-and-module-authentication), se puede integrar en una infraestructura existente con IoT Hub mediante la creación de un servicio de token.
 
@@ -101,15 +101,15 @@ Azure IoT Hub y otros servicios que pueden formar parte de la solución permiten
 
 Los datos consumidos por Azure IoT Hub se pueden usar en una gran variedad de servicios, como Azure Stream Analytics, Azure Blob Storage, etc. Estos servicios permiten el acceso de administración. Lea más sobre estos servicios y las opciones disponibles:
 
-* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): servicio de base de datos completamente indexado y escalable destinado a datos semiestructurados que administra los metadatos de los dispositivos aprovisionados, como los atributos, la configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Un servicio de base de datos escalable indexado por completo para datos semiestructurados que administra los metadatos para los dispositivos aprovisionados, como atributos, configuración y las propiedades de seguridad. Azure Cosmos DB ofrece procesamiento de alto rendimiento, indexación de datos independiente del esquema y una completa interfaz de consultas SQL.
 
-* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): procesamiento de transmisiones en tiempo real en la nube que permite desarrollar e implementar rápidamente una solución de análisis de bajo costo para desvelar datos detallados en tiempo real de dispositivos, sensores, infraestructura y aplicaciones. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): En la nube que le permite desarrollar e implementar con rapidez una solución de análisis de bajo costo para desvelar datos en tiempo real desde dispositivos, sensores, infraestructura y aplicaciones de procesamiento de transmisiones en tiempo real. Los datos de este servicio completamente administrado se pueden escalar a cualquier volumen, sin dejar de obtener alto rendimiento, baja latencia y resistencia.
 
-* [Azure App Service](https://azure.microsoft.com/services/app-service/): plataforma en la nube que sirve para crear sólidas aplicaciones web y móviles desde las que se puede acceder a datos en cualquier lugar, ya sea en la nube o desde la infraestructura local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
+* [Azure App Services](https://azure.microsoft.com/services/app-service/): Una plataforma de nube para crear eficaces aplicaciones web y móviles que se conectan a datos en cualquier lugar; en la nube o local. Cree atractivas aplicaciones móviles para iOS, Android y Windows. Realice integraciones con aplicaciones de Software como servicio (SaaS) y empresariales gracias a la conectividad de serie a docenas de aplicaciones empresariales y servicios basados en la nube. Codifique en su lenguaje e IDE (.NET, Node.js, PHP, Python o Java) preferidos para crear aplicaciones web y API con más rapidez que nunca.
 
-* [Logic Apps](https://azure.microsoft.com/services/app-service/logic/): la característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y para automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
+* [Las aplicaciones lógicas](https://azure.microsoft.com/services/app-service/logic/): La característica Logic Apps de Azure App Service sirve para integrar la solución de IoT con los sistemas de línea de negocio existentes y automatizar los procesos de flujo de trabajo. Logic Apps permite a los desarrolladores diseñar flujos de trabajo que se inician desde un desencadenador y ejecutan luego una serie de pasos: reglas y acciones que usan eficaces conectores para la integración con los procesos de negocio. Logic Apps ofrece conectividad de serie a un gran ecosistema de aplicaciones SaaS, basadas en la nube y locales.
 
-* [Azure Blob Storage](https://azure.microsoft.com/services/storage/): almacenamiento en la nube de confianza y económico para los datos que los dispositivos envían a la nube.
+* [Almacenamiento de blobs de Azure](https://azure.microsoft.com/services/storage/): Almacenamiento confiable y económico para los datos que los dispositivos envían a la nube.
 
 ## <a name="conclusion"></a>Conclusión
 

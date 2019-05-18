@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: raynew
-ms.openlocfilehash: 6fb95d43bff79ca91988549114daa91e5d41f358
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f034f31f2c8c49bbdfb88e2ba0a009ff5b795fa2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60650154"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789604"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Copia de seguridad de máquinas virtuales de VMware con Azure Backup Server
 
@@ -39,7 +39,7 @@ De forma predeterminada, Azure Backup Server se comunica con los servidores de V
 
 ### <a name="before-you-start"></a>Antes de comenzar
 
-- Si no desea usar HTTPS puede [deshabilitar la configuración predeterminada](backup-azure-backup-server-vmware.md).
+- Si no desea usar HTTPS puede [deshabilitar la validación de certificados HTTPS para todos los servidores VMware](backup-azure-backup-server-vmware.md#disable-https-certificate-validation).
 - Normalmente se usa un explorador de la máquina de Azure Backup Server para conectarse al servidor de vCenter o ESXi mediante el cliente web de vSphere. La primera vez que lo haga, la conexión no es segura y se mostrará lo siguiente.
 - Es importante entender cómo Azure Backup Server administra las copias de seguridad.
     - Como primer paso, Azure Backup Server realiza una copia de seguridad de los datos en el espacio de almacenamiento del disco local. Azure Backup Server usa un grupo de almacenamiento, un conjunto de discos y volúmenes en los que Azure Backup Server almacenará los datos protegidos en los puntos de recuperación del disco. El grupo de almacenamiento puede ser almacenamiento conectado directamente (DAS), una red de área de almacenamiento de canal de fibra o un dispositivo de almacenamiento o una red de área de almacenamiento iSCI. Es importante asegurarse de que tiene suficiente espacio de almacenamiento para la copia de seguridad local de los datos de la máquina virtual de VMware.
@@ -101,7 +101,7 @@ Configure un canal seguro como sigue:
 
 
 
-### <a name="disable-default-https"></a>Deshabilitación del protocolo HTTPS predeterminado
+### <a name="disable-https-certificate-validation"></a>Deshabilitar la validación de certificados HTTPS
 
 Si su organización tiene límites de seguridad y no desea usar el protocolo HTTPS entre los servidores de VMware y la máquina de Azure Backup Server, deshabilite HTTPS como sigue:
 1. Copie y pegue el texto siguiente en el archivo .txt.
@@ -140,7 +140,7 @@ Azure Backup Server necesita una cuenta de usuario con permiso de acceso al host
 
      ![Jerarquía de privilegios primaria-secundaria](./media/backup-azure-backup-server-vmware/cert-add-privilege-expand.png)
 
-### <a name="role-permissions"></a>Permisos de los roles
+### <a name="role-permissions"></a>Permisos de roles
 **6.5/6.0** | **5.5**
 --- | ---
 Datastore.AllocateSpace | Datastore.AllocateSpace

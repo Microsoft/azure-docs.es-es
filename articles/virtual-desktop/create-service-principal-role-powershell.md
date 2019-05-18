@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 04/12/2019
 ms.author: helohr
-ms.openlocfilehash: 93725fc9d77552d779378d0c14294a5bbb11c926
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: d3357cec426585ba8550301dfa703f583a930ad0
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65146141"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65236928"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-with-powershell"></a>Tutorial: Creación de entidades de servicio y asignaciones de roles con PowerShell
 
@@ -38,7 +38,7 @@ Para poder crear entidades de servicio y asignaciones de roles, necesita hacer t
     Install-Module AzureAD
     ```
 
-2. Ejecutar los siguientes cmdlet con los valores entre comillas, sustituidos por los valores de su sesión.
+2. Ejecutar los siguientes cmdlet con los valores entre comillas, sustituidos por los valores de su sesión. Si acaba de crear el inquilino de Windows Virtual Desktop a partir del [tutorial Creación de un inquilino en Windows Virtual Desktop](./tenant-setup-azure-active-directory.md) use "Grupo de inquilino predeterminado" como nombre del grupo del inquilino.
 
     ```powershell
     $myTenantGroupName = "<my-tenant-group-name>"
@@ -109,7 +109,7 @@ Estas son las tres credenciales que debe anotar y los cmdlets que necesita para 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió a crear una entidad de servicio y a iniciar sesión en Windows Virtual Desktop con ella. Para más información sobre el inicio de sesión en Windows Virtual Desktop, continúe con los procedimientos de conexión a Windows Virtual Desktop.
+Una vez que ha creado la entidad de servicio y le ha asignado un rol en el inquilino de Windows Virtual Desktop, puede usarla para crear un grupo host. Para más información acerca de los grupos host, continúe con el tutorial de creación de un grupo host en Windows Virtual Desktop.
 
-- [Conexión desde Windows 10 o Windows 7](connect-windows-7-and-10.md)
-- [Conexión desde un explorador web](connect-web.md)
+ > [!div class="nextstepaction"]
+ > [Tutorial sobre grupos host de Windows Virtual Desktop](./create-host-pools-azure-marketplace.md)

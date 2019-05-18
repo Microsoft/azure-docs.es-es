@@ -3,16 +3,16 @@ title: Crear una plantilla de generador de imágenes de Azure (versión prelimin
 description: Obtenga información sobre cómo crear una plantilla para usarla con el generador de imágenes de Azure.
 author: cynthn
 ms.author: cynthn
-ms.date: 05/02/2019
+ms.date: 05/10/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: jeconnoc
-ms.openlocfilehash: b4646879eb7eeecf41852baab7ab64e4053b05e1
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: cf8264cbad3c5c88c58cff3b95cb5c68adf0686c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65159606"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65538291"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Vista previa: Crear una plantilla de Azure Image Builder 
 
@@ -32,7 +32,7 @@ Este es el formato de la plantilla básica:
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
-        "<build timeout in minutes>": {}, 
+        "buildTimeoutInMinutes": <minutes>, 
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -447,7 +447,7 @@ Distribuir las propiedades de galerías de imágenes compartidas:
 > [!NOTE]
 > Puede usar el generador de imágenes de Azure en una región distinta a la galería, pero el servicio de generador de imágenes de Azure tendrá que transferir la imagen entre los centros de datos y Esto tardará más tiempo. Generador de imágenes configurará automáticamente y de versión de la imagen, basándose en un entero que se monotónicas, no puede especificar actualmente. 
 
-### <a name="distribute-vhd"></a>Distribuir: VHD   
+### <a name="distribute-vhd"></a>Distribuir: VHD  
 Puede generar un disco duro virtual. A continuación, puede copiar el disco duro virtual y usarlo para publicar en Azure MarketPlace, o usar con Azure Stack.  
 
 ```json

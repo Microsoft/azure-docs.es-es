@@ -14,6 +14,8 @@
       href: create-host-pools-azure-marketplace.md
     - name: 4. Administración de grupos de aplicaciones
       href: manage-app-groups.md
+    - name: 5. Creación de un grupo host para validar las actualizaciones del servicio
+      href: create-validation-host-pool.md
 - name: Procedimiento
   items:
     - name: Conexión a recursos de Windows Virtual Desktop
@@ -30,8 +32,6 @@
       href: create-host-pools-user-profile.md
     - name: Configuración del método de equilibrio de carga de Windows Virtual Desktop
       href: configure-host-pool-load-balancing.md
-    - name: Identificación de problemas con la característica de diagnóstico
-      href: diagnostics-role-service.md
     - name: Preparación y personalización de una imagen de disco duro virtual maestro
       href: set-up-customize-master-image.md
     - name: Instalación de Office en la imagen de un disco duro virtual principal
@@ -52,6 +52,8 @@
   items:
     - name: 'Información general sobre solución de problemas, comentarios y soporte técnico'
       href: troubleshoot-set-up-overview.md
+    - name: Identificación de problemas con la característica de diagnóstico
+      href: diagnostics-role-service.md
     - name: Creación de los grupos de inquilinos y de host
       href: troubleshoot-set-up-issues.md
     - name: Configuración de máquina virtual de host de sesión

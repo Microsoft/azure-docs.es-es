@@ -9,15 +9,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/09/2018
+ms.date: 05/13/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: dd7e29f8f37572565e505aade97b964254b6d72c
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: d93d9999c407e64658b88025feda48d33e1a5ad1
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466553"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595790"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Habilite prácticas de desarrollo seguro con Azure Deployment Manager (versión preliminar)
 
@@ -38,15 +38,11 @@ La plantilla de topología se implementar antes que la de lanzamiento.
 
 Puede encontrar la referencia de la API REST de Azure Deployment Manager [aquí](https://docs.microsoft.com/rest/api/deploymentmanager/).
 
-## <a name="supported-locations"></a>Ubicaciones admitidas
-
-En la versión preliminar, los recursos de Deployment Manager se admiten en Centro de EE. UU. y Este de EE. UU. 2. Al definir los recursos de las plantillas de topología y de implementación, como las unidades de servicio, los orígenes de los artefactos y los lanzamientos que se describen en este artículo, debe especificar una de esas regiones para la ubicación. Sin embargo, los recursos que implementa para crear el servicio, como las máquinas virtuales, las cuentas de almacenamiento y las aplicaciones web, se admiten en todas sus [ubicaciones estándar](https://azure.microsoft.com/global-infrastructure/services/?products=all).  
-
 ## <a name="identity-and-access"></a>Identidad y acceso
 
 Con Deployment Manager, una [identidad administrada asignada por el usuario](../active-directory/managed-identities-azure-resources/overview.md) realiza las acciones de implementación. Cree dicha identidad antes de iniciar la implementación. Debe tener acceso a la suscripción de Azure en la que va a implementar el servicio y debe tener permisos suficientes para completar dicha implementación. Para obtener información acerca de las acciones que se otorgan a través de los roles, consulte [Roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md).
 
-La identidad debe residir en una de las ubicaciones compatibles con Deployment Manager, y debe ser la misma que la del lanzamiento.
+La identidad debe residir en la misma ubicación que la implementación.
 
 ## <a name="topology-template"></a>Plantilla de topología
 
@@ -221,7 +217,9 @@ El paso de espera detiene la implementación antes de continuar. Permite comprob
 
 La propiedad duration usa el [estándar ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Durations). El ejemplo anterior especifica una espera un minuto.
 
-Para obtener más información sobre el paso de comprobación de mantenimiento, consulte [ ]() y [ ]() para obtener más información, consulte [los pasos de referencia de plantilla](/azure/templates/Microsoft.DeploymentManager/steps).
+Para obtener más información sobre el paso de comprobación de mantenimiento, consulte [introducir el lanzamiento de la integración de estado a Azure Deployment Manager](./deployment-manager-health-check.md) y [Tutorial: Usar comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+
+Para más información, consulte la [referencia de la plantilla de pasos](/azure/templates/Microsoft.DeploymentManager/steps).
 
 ### <a name="rollouts"></a>Lanzamientos
 

@@ -13,19 +13,22 @@ ms.devlang: na
 ms.date: 04/02/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a0730073a8d17e063ee3f1364d5914200259c10f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: a4f14a1e68042704ca8e8c49f1bd76b722c90d4d
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58880056"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65466298"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-private-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar privada)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Tutorial: Uso de Azure Deployment Manager con plantillas de Resource Manager (versión preliminar pública)
 
 Aprenda a usar [Azure Deployment Manager](./deployment-manager-overview.md) para implementar sus aplicaciones en varias regiones. Para usar Deployment Manager, deberá crear dos plantillas:
 
 * **Una plantilla de topología**: describe los recursos de Azure que constituyen las aplicaciones y dónde implementarlos.
 * **Una plantilla de lanzamiento**: describe los pasos que se deben seguir al implementar las aplicaciones.
+
+> [!IMPORTANT]
+> Si la suscripción está marcada para Canary para probar las nuevas características de Azure, Azure Deployment Manager solo se puede usar para realizar implementaciones en las regiones de Canary. 
 
 En este tutorial se describen las tareas siguientes:
 
@@ -432,4 +435,4 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, aprendió a usar Azure Deployment Manager. Para más información, consulte la [documentación de Azure Resource Manager](/azure/azure-resource-manager/).
+En este tutorial, aprendió a usar Azure Deployment Manager. Para integrar la supervisión del estado en Azure Deployment Manager, consulte [Tutorial: Uso de la comprobación de estado en Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

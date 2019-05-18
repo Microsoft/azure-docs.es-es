@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47a4b38d39c52992b51284776ec34cb9491020e7
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409960"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595416"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Preguntas frecuentes acerca de Avere vFXT for Azure
 
@@ -25,7 +25,7 @@ Avere vFXT for Azure es un sistema de archivos de alto rendimiento que almacena 
 
 ### <a name="is-avere-vfxt-a-storage-solution"></a>¿Es Avere vFXT una solución de almacenamiento?
 
- No. Avere vFXT es una *memoria caché* de sistema de archivos que se adjunta a los entornos de almacenamiento, como NAS de EMC, NetApp o un contenedor de blobs de Azure. Avere vFXT optimiza las solicitudes de datos de los clientes y almacena en caché los datos que sirven para mejorar el rendimiento a escala y a lo largo del tiempo. Avere vFXT en sí no almacena datos. No tiene información sobre la cantidad de datos que se almacenan tras de sí.
+No. Avere vFXT es una *memoria caché* de sistema de archivos que se adjunta a los entornos de almacenamiento, como NAS de EMC, NetApp o un contenedor de blobs de Azure. Avere vFXT optimiza las solicitudes de datos de los clientes y almacena en caché los datos que sirven para mejorar el rendimiento a escala y a lo largo del tiempo. Avere vFXT en sí no almacena datos. No tiene información sobre la cantidad de datos que se almacenan tras de sí.
 
 ### <a name="is-avere-vfxt-a-tiering-solution"></a>¿Es Avere vFXT una solución de niveles?
 
@@ -106,7 +106,7 @@ El clúster de Avere vFXT puede ser tan pequeña como tres nodos de máquina vir
 
 ### <a name="does-the-avere-vfxt-environment-autoscale"></a>¿Puede "escalarse automáticamente" el entorno de Avere vFXT?
 
- No. Puede escalar o reducir verticalmente el tamaño del clúster, pero agregar o quitar nodos de clúster es un paso manual.
+No. Puede escalar o reducir verticalmente el tamaño del clúster, pero agregar o quitar nodos de clúster es un paso manual.
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-as-a-virtual-machine-scale-set"></a>¿Puedo ejecutar el clúster de Avere vFXT como conjunto de escalado de máquinas virtuales?
 
@@ -126,7 +126,7 @@ Sí. Asegúrese de tener cuota suficiente en la región para admitir el clúster
 
 ### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>¿Puedo ejecutar las máquinas del clúster de Avere vFXT en zonas de disponibilidad diferentes?
 
- No. El modelo de alta disponibilidad en Avere vFXT actualmente no es compatible con los miembros individuales del clúster de Avere vFXT ubicados en zonas de disponibilidad diferentes.
+No. El modelo de alta disponibilidad en Avere vFXT actualmente no es compatible con los miembros individuales del clúster de Avere vFXT ubicados en zonas de disponibilidad diferentes.
 
 ### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>¿Puedo clonarse las máquinas virtuales de Avere vFXT?
 
@@ -204,7 +204,7 @@ No, Avere vFXT está pensada para funcionar en un entorno de red protegido a tr
 
 En general, puede configurar seguridad adicional en la red virtual según sea necesario, pero algunas restricciones pueden interferir con el funcionamiento del clúster.
 
-Por ejemplo, restringir el acceso saliente a internet desde la red virtual provoca problemas para el clúster a menos que agregue también las reglas que permiten explícitamente acceso a AzureConnectors y a la nube de Azure. Esta situación se describe en [documentación complementaria en GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+Por ejemplo, restringir el acceso saliente a internet desde la red virtual provoca problemas para el clúster a menos que agregue también una regla que permita explícitamente acceso a la nube de Azure. Esta situación se describe en [documentación complementaria en GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
 
 Para obtener ayuda con seguridad personalizada, póngase en contacto con soporte técnico como se describe en [obtener ayuda con su sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
 
@@ -254,7 +254,7 @@ La cuenta de almacenamiento debe ser una cuenta de uso general v2 (GPv2) y estar
 
 ### <a name="can-i-use-archive-blob-storage"></a>¿Puedo usar almacenamiento de blobs de archivo?
 
- No. El contrato de nivel de servicio (SLA) de almacenamiento de archivos no es compatible con las necesidades de acceso a directorios y archivos en tiempo real del sistema Avere vFXT. 
+No. El contrato de nivel de servicio (SLA) de almacenamiento de archivos no es compatible con las necesidades de acceso a directorios y archivos en tiempo real del sistema Avere vFXT. 
 
 ### <a name="can-i-use-cool-blob-storage"></a>¿Puedo usar el almacenamiento de blobs esporádico?
 

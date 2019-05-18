@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4db99f23019b34e7361e3ead4096939b9499320d
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60657751"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518089"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -130,7 +130,7 @@ A continuación, asegúrese del que punto de conexión de delegación realiza la
      > 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
 3. Procesar la suscripción del producto en función del tipo de operación solicitada en **operación** : por ejemplo, facturación, preguntas adicionales, etcetera.
-4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [llamando a la API de REST para la suscripción del producto].
+4. Acerca de la suscripción correctamente al usuario que el producto por su parte, suscriba al usuario al producto de API Management mediante [una llamada a la API de REST para las suscripciones].
 
 ## <a name="delegate-example-code"></a> Ejemplo de código
 
@@ -186,7 +186,7 @@ Para más información acerca de la delegación, vea el siguiente vídeo:
 [Delegating product subscription]: #delegate-product-subscription
 [solicite un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
 [Cree un usuario]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[llamando a la API de REST para la suscripción del producto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[una llamada a la API de REST para las suscripciones]: https://docs.microsoft.com/rest/api/apimanagement/subscription/createorupdate
 [Next steps]: #next-steps
 [se proporciona código de ejemplo a continuación]: #delegate-example-code
 

@@ -1,23 +1,22 @@
 ---
 title: SaaS realización API V2 | Azure Marketplace
-description: Explica cómo crear una oferta de SaaS en Azure Marketplace mediante la realización asociado API V2.
+description: Explica cómo crear una oferta de SaaS en los AppSource y Azure Marketplace mediante la realización asociado API V2.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pabutler
-ms.openlocfilehash: e1715c2cb66398ff7ca55c0ccdbfe50685fae76e
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 551f3be2ca23bc18224d28faeea6a6df80eba1db
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64941976"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65823532"
 ---
 # <a name="saas-fulfillment-apis-version-2"></a>Versión de API de SaaS realización 2 
 
-Este artículo detalla la API que permite a los proveedores de software independientes (ISV) integrar sus aplicaciones SaaS con Azure Marketplace. Esta API permite que las aplicaciones de ISV participar en todos los canales de comercio electrónico: directo, dirigidos por asociados (distribuidor) y liderado por el campo.  Esta API es un requisito para la lista de que ofertas de SaaS permiten transacciones en Azure Marketplace.
-
+Este artículo se describe la API que permite a los proveedores de software independientes (ISV) para vender sus aplicaciones SaaS en Azure Marketplace y AppSource. Esta API es un requisito para enumerar SaaS se ofrece en AppSource y en Azure Marketplace.
 
 ## <a name="managing-the-saas-subscription-lifecycle"></a>Administrar el ciclo de vida de suscripción de SaaS
 
@@ -36,7 +35,7 @@ Cuando un cliente inicia una compra, el ISV recibe esta información en un códi
 
 ![Llamadas de API para el aprovisionamiento de un servicio SaaS.](./media/saas-post-provisioning-api-v2-calls.png)
 
-#### <a name="provisioned"></a>aprovisionado
+#### <a name="provisioned"></a>Aprovisionado
 
 Este estado es el estado estable de un servicio de aprovisionamiento.
 
@@ -54,7 +53,7 @@ El siguiente diagrama muestra las acciones cuando se inicia una actualización a
 
 ![Llamadas de API cuando se inicia la actualización al servicio SaaS.](./media/saas-update-api-v2-calls-from-saas-service-a.png) 
 
-#### <a name="suspended"></a>Suspended
+#### <a name="suspended"></a>Suspendido
 
 Este estado indica que no se ha recibido el pago del cliente. Mediante la directiva, se proporcionará al cliente un período de gracia antes unfulfilling la suscripción. Cuando una suscripción está en este estado: 
 
@@ -67,7 +66,7 @@ Este estado indica que no se ha recibido el pago del cliente. Mediante la direct
 Las suscripciones alcanza este estado en respuesta a una solicitud de cliente explícita o como respuesta a un impago de cuotas. La expectativa de que el ISV es que los datos del cliente se conservan para la recuperación en la solicitud durante un período mínimo de X días y, a continuación, se eliminan. 
 
 
-## <a name="api-reference"></a>Referencia de API
+## <a name="api-reference"></a>Referencia de la API
 
 Esta sección documentan el SaaS *API de suscripción* y *API Operations*.  El valor de la `api-version` las API de parámetro para la versión 2 están `2018-08-31`.  
 
@@ -134,7 +133,7 @@ Código: 400<br>
 Solicitud incorrecta. x-ms-marketplace-token es falta, con formato incorrecto o expirado.
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -176,7 +175,7 @@ Enumera todas las suscripciones de SaaS para un publicador.
 
 *Códigos de respuesta:*
 
-Código: 200<br>
+Código: 200 <br/>
 Según el token de autenticación, obtener el publicador y las suscripciones correspondientes para las ofertas de todos los del publicador.<br> Carga de respuesta:<br>
 
 ```json
@@ -208,9 +207,8 @@ Según el token de autenticación, obtener el publicador y las suscripciones cor
 
 El token de continuación solo estarán presente si hay más "páginas" de los planes para recuperar. 
 
-
 Código: 403 <br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. 
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. 
 
 Código: Error de servidor interno 500
 
@@ -275,7 +273,7 @@ Código: 404<br>
 No encontrado<br> 
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error<br>
@@ -330,7 +328,7 @@ Código: 404<br>
 No encontrado<br> 
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. <br> 
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual. <br> 
 
 Código: 500<br>
 Internal Server Error<br>
@@ -374,7 +372,7 @@ Internal Server Error<br>
 
 *Códigos de respuesta:*
 
-Código: 202<br>
+Código: 200<br>
 Activa la suscripción.<br>
 
 Código: 404<br>
@@ -384,7 +382,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -450,7 +448,7 @@ Errores de validación de solicitud incorrecta.
 >Solo un plan o cantidad puede ser revisada al mismo tiempo, no ambos. Edita en una suscripción con **actualización** no se encuentra en `allowedCustomerOperations`.
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -516,7 +514,7 @@ Errores de validación de solicitud incorrecta.
 >Solo un plan o cantidad puede ser revisada al mismo tiempo, no ambos. Edita en una suscripción con **actualización** no se encuentra en `allowedCustomerOperations`.
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -554,7 +552,7 @@ Cancelar la suscripción y eliminar la suscripción especificada.
 
 *Códigos de respuesta:*
 
-Código: 200<br>
+Código: 202<br>
 Llamada de ISV que se inicia para indicar su suscripción en una suscripción de SaaS.<br>
 
 Código: 404<br>
@@ -564,7 +562,7 @@ Código: 400<br>
 Eliminar en una suscripción con **eliminar** no en `allowedCustomerOperations`.
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -632,7 +630,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 500<br>
 Internal Server Error
@@ -695,7 +693,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
  
 Código: 500<br> Internal Server Error
 
@@ -753,7 +751,7 @@ Código: 400<br>
 Errores de validación de solicitud incorrecta
 
 Código: 403<br>
-No autorizado. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
+No dispone de los permisos necesarios. No se proporcionó el token de autenticación, no es válido, o la solicitud está intentando obtener acceso a una adquisición que no pertenece al publicador actual.
 
 Código: 409<br>
 Conflicto. Por ejemplo, ya se cumple una transacción más reciente
@@ -786,25 +784,29 @@ El publicador debe implementar un webhook en este servicio de SaaS para informar
     "action": "Subscribe",
     "timeStamp": "2018-12-01T00:00:00"
 }
-
-Where action can be one of these: 
-       Subscribe, (When the resource has been activated)
-       Unsubscribe, (When the resource has been deleted)
-       ChangePlan, (When the change plan operation has completed)
-       ChangeQuantity, (When the change quantity operation has completed),
-       Suspend, (When resource has been suspended)
-       Reinstate, (When resource has been reinstated after suspension)
 ```
+
+Donde la acción puede ser uno de los siguientes: 
+- `Subscribe`  (Cuando se ha activado el recurso)
+- `Unsubscribe` (Cuando se ha eliminado el recurso)
+- `ChangePlan` (Si ha completado la operación de cambio de plan)
+- `ChangeQuantity` (Si ha completado la operación de cambio de cantidad)
+- `Suspend` (Cuando se ha suspendido el recurso)
+- `Reinstate` (Cuando se ha recuperado recurso tras suspensión)
 
 
 ## <a name="mock-api"></a>API simulada
 
 Puede usar nuestras API ficticio que le ayudarán a empezar a trabajar con el desarrollo, especialmente la creación de prototipos, y los proyectos de prueba. 
 
-Punto de conexión de host: `https://marketplaceapi.microsoft.com/api` Versión de API: `2018-09-15` Autenticación no requiere que el Uri de ejemplo: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15`
+Punto de conexión de host: `https://marketplaceapi.microsoft.com/api` <br/>
+Versión de API: `2018-09-15` <br/>
+No se requiere autenticación <br/>
+Uri de ejemplo: `https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2018-09-15` <br/>
 
-Cualquiera de las llamadas de API en este artículo se pueden realizar al punto de conexión de host ficticio. Puede esperar obtener datos simulados como respuesta.
+Las rutas de acceso del punto de conexión de API son los mismos a través de simulacro y API Real, pero las versiones de API son diferentes. La versión es 2018-09-15 de simulacro y 2018-08-31 para la versión de producción. 
 
+Cualquiera de las llamadas de API en este artículo se pueden realizar al punto de conexión de host ficticio. Puede esperar obtener datos simulados como respuesta. En general, puede esperar obtener datos simulados como respuesta. Las llamadas a los métodos de suscripción de actualización en la API simulada siempre devuelven 500. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

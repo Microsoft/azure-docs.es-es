@@ -10,12 +10,12 @@ ms.author: danil
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/17/2018
-ms.openlocfilehash: 03f330f429be583d3a400eb1ee00875f7c305e74
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 0617dc617309d49cdc7c8cddd4e91619b873b914
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64923014"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785681"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Supervisión de instancias de Azure SQL Database con Azure SQL Analytics (versión preliminar)
 
@@ -193,7 +193,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - El requisito previo para configurar esta alerta es que las bases de datos supervisadas transmitan las métricas de diagnóstico (opción "Todas las métricas") a la solución.
+> - Requisito previo de la configuración de esta alerta es esa secuencia de bases de datos supervisadas métricas básicas para la solución.
 > - Reemplace el valor de MetricName cpu_percent por dtu_consumption_percent para obtener resultados DTU altos.
 
 #### <a name="high-cpu-on-azure-sql-database-elastic-pools"></a>CPU alta en los grupos elásticos de Azure SQL Database
@@ -208,7 +208,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - El requisito previo para configurar esta alerta es que las bases de datos supervisadas transmitan las métricas de diagnóstico (opción "Todas las métricas") a la solución.
+> - Requisito previo de la configuración de esta alerta es esa secuencia de bases de datos supervisadas métricas básicas para la solución.
 > - Reemplace el valor de MetricName cpu_percent por dtu_consumption_percent para obtener resultados DTU altos.
 
 #### <a name="azure-sql-database-storage-in-average-above-95-in-the-last-1-hr"></a>Almacenamiento promedio de Azure SQL Database superior al 95 % en la última hora
@@ -225,7 +225,7 @@ AzureMetrics
 ```
 
 > [!NOTE]
-> - El requisito previo para configurar esta alerta es que las bases de datos supervisadas transmitan las métricas de diagnóstico (opción "Todas las métricas") a la solución.
+> - Requisito previo de la configuración de esta alerta es esa secuencia de bases de datos supervisadas métricas básicas para la solución.
 > - Esta consulta requiere que se configure una regla de alerta para activar una alerta cuando existen resultados (> 0 resultados) de la consulta, lo que indica que la condición existe en algunas bases de datos. La salida es una lista de recursos de la base de datos que superan el valor storage_threshold dentro del valor de time_range definido.
 > - La salida es una lista de recursos de la base de datos que superan el valor storage_threshold dentro del valor de time_range definido.
 

@@ -3,8 +3,8 @@ title: Modificación de las cuentas admitidas por una aplicación registrada con
 description: Configure una aplicación registrada en la plataforma de identidad de Microsoft para cambiar quién o qué cuentas pueden acceder a la aplicación.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a2c68d607e7afc2e3eac675511734c8d054c427
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e2c52bd0bf6c1e385248bd379a8001756d28ac2d
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174204"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413582"
 ---
-# <a name="quickstart-modify-the-accounts-supported-by-an-application-preview"></a>Inicio rápido: Modificación de las cuentas compatibles con una aplicación (versión preliminar)
+# <a name="quickstart-modify-the-accounts-supported-by-an-application"></a>Inicio rápido: Modificación de las cuentas compatibles con una aplicación
 
 Al registrar una aplicación en la plataforma de identidad de Microsoft, tal vez quiera que solo tengan acceso a la aplicación los usuarios de la organización. Como alternativa, también puede desear que la aplicación sea accesible para los usuarios de organizaciones externas, así como para los usuarios que no formen necesariamente parte de una organización (cuentas personales).
 
@@ -37,7 +37,6 @@ Para comenzar, asegúrese de que completa estos requisitos previos:
 * Aprenda sobre los [permisos y consentimiento](v2-permissions-and-consent.md) admitidos, que son importantes comprender al crear aplicaciones que necesitan ser utilizadas por otros usuarios o aplicaciones.
 * Tiene un inquilino que tenga las aplicaciones registradas en él.
   * Si no tiene aplicaciones registradas, [aprenda a registrar aplicaciones con la plataforma de identidad de Microsoft](quickstart-register-app.md).
-* Participe en la experiencia de versión preliminar para los registros de aplicaciones en Azure Portal. Los pasos descritos en esta guía de inicio rápido corresponden a la nueva interfaz de usuario y solo funcionan si participa en la experiencia de versión preliminar.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Inicio de sesión en Azure Portal y selección de la aplicación
 
@@ -45,7 +44,7 @@ Antes de configurar la aplicación, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones (versión preliminar)**.
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**.
 1. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación o la de registro principal.
 1. Siga los pasos para [cambiar el registro de la aplicación para admitir distintas cuentas](#change-the-application-registration-to-support-different-accounts).
 1. Si tiene una aplicación de página única, [habilite la concesión implícita de OAuth 2.0](#enable-oauth-20-implicit-grant-for-single-page-applications).

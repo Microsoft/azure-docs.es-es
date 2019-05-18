@@ -14,22 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: ef2b1bd9cfe9aed1e82335d62bb09b5ffcbe1016
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: aca34ee40bfe10c55c478d9aaeb01a65d139e1e2
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65471760"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522376"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
 > 
 > [!IMPORTANT]
 > Versión 1.2 de la aplicación. * es que salen de soporte técnico en el 30 de abril de 2019. Actualice a la versión más reciente.
-
-> 
-> [!IMPORTANT]
-> Aplicación de orquestación de revisiones en linux está desusada. Visite [actualizaciones automáticas de la imagen de sistema operativo del conjunto de escalado de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para orquestar actualizaciones en linux.
 
 
 Usar [actualizaciones automáticas de imágenes del SO del conjunto de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) es el procedimiento recomendado para mantener los sistemas operativos con las revisiones instaladas en Azure, y Patch Orchestration Application (POA) es un contenedor del servicio del sistema Administrador de reparaciones de Service Fabric que permite programar la instalación de revisiones del SO basada en configuración para clústeres hospedados en ubicaciones distintas de Azure. Aunque no se necesita POA para clústeres hospedados en ubicaciones distintas de Azure, es necesario programar la instalación de revisiones mediante Dominios de actualización para aplicar revisiones en los hosts de clústeres de Service Fabric sin tiempo de inactividad.
@@ -241,7 +237,7 @@ RebootRequired | true: se requiere reinicio<br> false: no se requiere reinicio |
 
 Si todavía no hay ninguna actualización programada, el resultado JSON está vacío.
 
-Inicie sesión en el clúster para consultar los resultados de Windows Update. Después, obtenga la dirección de la réplica principal del servicio Coordinador y diríjase a la dirección URL desde el explorador: http://&lt;IP DE RÉPLICA&gt;:&lt;PuertoDeAplicación&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
+Inicie sesión en el clúster a Windows Update consulta los resultados. Después, obtenga la dirección de la réplica principal del servicio Coordinador y diríjase a la dirección URL desde el explorador: http://&lt;IP DE RÉPLICA&gt;:&lt;PuertoDeAplicación&gt;/PatchOrchestrationApplication/v1/GetWindowsUpdateResults.
 
 El punto de conexión REST para el servicio Coordinator Service tiene un puerto dinámico. Para comprobar la dirección URL exacta, consulte Service Fabric Explorer. Por ejemplo, los resultados están disponibles en `http://10.0.0.7:20000/PatchOrchestrationApplication/v1/GetWindowsUpdateResults`.
 
@@ -263,7 +259,7 @@ Para habilitar el proxy inverso en el clúster, siga los pasos descritos en [Pro
 
 Los registros de aplicación de orquestación de revisiones se recopilan como parte de los registros en tiempo de ejecución de Service Fabric.
 
-En caso de que desee capturar los registros a través de la canalización o herramienta de diagnóstico de su elección. La aplicación de orquestación de revisiones usa los identificadores de proveedor fijos siguientes para registrar eventos a través de [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
+En caso de que desee capturar los registros a través de la canalización o herramienta de diagnóstico de su elección. Aplicación de orquestación de revisiones usa los identificadores de proveedor fijos siguientes para registrar eventos a través de [origen del evento](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
 - e39b723c-590c-4090-abb0-11e3e6616346
 - fc0028ff-bfdc-499f-80dc-ed922c52c5e9
@@ -312,7 +308,7 @@ P: **¿Qué puedo hacer si el clúster está en mal estado y tengo que realizar 
 
 A. La aplicación de orquestación de revisiones no instala actualizaciones cuando el clúster está en mal estado. Intente devolver el clúster a un estado correcto para desbloquear el flujo de trabajo de la aplicación de orquestación de revisiones.
 
-P: **¿Debo definir TaskApprovalPolicy como "NodeWise" o "UpgradeDomainWise" para el clúster?**
+P: **¿Debo establecer TaskApprovalPolicy como 'NodeWise' o 'UpgradeDomainWise' para el clúster?**
 
 A. "UpgradeDomainWise" agiliza la aplicación general de revisiones al clúster, ya que aplica revisiones a todos los nodos que pertenecen a un dominio de actualización en paralelo. Esto significa que los nodos que pertenecen a un dominio de actualización completo no estarían disponibles (en estado [deshabilitado](https://docs.microsoft.com/dotnet/api/system.fabric.query.nodestatus?view=azure-dotnet#System_Fabric_Query_NodeStatus_Disabled)) durante el proceso de aplicación de revisiones.
 
@@ -346,6 +342,10 @@ A. Algunas actualizaciones del producto solo aparecen en su historial de actuali
 P: **¿La aplicación Patch Orchestration se puede utilizar para aplicar revisiones al clúster de desarrollo (clúster con un solo nodo)?**
 
 A. No, la aplicación Patch Orchestration no se puede utilizar para aplicar revisiones a clústeres de un nodo. Esta limitación es así por naturaleza, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) o las aplicaciones del cliente van a registrar tiempos de inactividad y, por tanto, cualquier trabajo de reparación que se realice durante la aplicación de revisiones nunca conseguirá la aprobación del administrador de reparaciones.
+
+P: **¿Cómo se pueden revisar nodos del clúster en Linux?**
+
+A. Consulte [actualizaciones automáticas de la imagen de sistema operativo del conjunto de escalado de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) para orquestar actualizaciones en linux.
 
 ## <a name="disclaimers"></a>Declinación de responsabilidades
 
@@ -413,7 +413,7 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 
 - Si establece InstallWindowsOSOnlyUpdates en false se instalarán todas las actualizaciones disponibles.
 - Se ha cambiado la lógica de deshabilitación de las actualizaciones automáticas. Esto permite solucionar un problema por el que las actualizaciones automáticas no se deshabilitaban en Server 2016 o versiones posteriores.
-- Restricción de colocación con parámetros para ambos microservicios de POA para casos de uso avanzados.
+- Restricción de colocación con parámetros para ambos de los microservicios de POA para casos de uso avanzadas.
 
 ### <a name="version-131"></a>Versión 1.3.1
 - Corrección de una regresión en la que POA 1.3.0 no funcionará en Windows Server 2012 R2 o versión anterior debido a un error al deshabilitar las actualizaciones automáticas. 
@@ -421,4 +421,4 @@ Un administrador debe intervenir y determinar por qué la aplicación o el clús
 - Cambio del valor predeterminado de InstallWindowsOSOnlyUpdates a False.
 
 ### <a name="version-132"></a>Versión 1.3.2
-- Corregir un problema que afecta a la aplicación de revisiones life-cyle en un nodo en caso de que hay nodos con nombre que es el subconjunto del nombre de nodo actual. Para esos nodos, es posible, que falte la aplicación de revisiones o que el reinicio esté pendiente. 
+- Corregir un problema que afecta el ciclo de vida de aplicación de revisiones en un nodo en caso de que hay nodos con nombre que es el subconjunto del nombre de nodo actual. Para esos nodos, es posible, que falte la aplicación de revisiones o que el reinicio esté pendiente. 

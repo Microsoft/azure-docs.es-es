@@ -3,8 +3,8 @@ title: Plataforma de identidad de Microsoft de uso para iniciar sesión en los u
 description: Cree flujos de autenticación sin explorador e insertados mediante el uso de la concesión de código de dispositivo.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/20/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 86e875108e0349c0ab08a7217074e2afe23bcacc
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299419"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544919"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flujo de código de plataforma de identidad de Microsoft y el dispositivo de OAuth 2.0
 
@@ -67,7 +67,7 @@ scope=user.read%20openid%20profile
 | --- | --- | --- |
 | `tenant` | Obligatorio |El inquilino de directorio al que quiere solicitar permiso. Puede estar en formato de nombre descriptivo o GUID.  |
 | `client_id` | Obligatorio | El **Id. de aplicación (cliente)** que la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) experiencia asignado a la aplicación. |
-| `scope` | Recomendado | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  |
+| `scope` | Recomendada | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta.  |
 
 ### <a name="device-authorization-response"></a>Respuesta de autorización de dispositivo
 
@@ -75,8 +75,8 @@ Una respuesta correcta será un objeto JSON que contiene la información necesar
 
 | Parámetro | Formato | DESCRIPCIÓN |
 | ---              | --- | --- |
-|`device_code`     | string | Cadena larga que se usa para comprobar la sesión entre el cliente y el servidor de autorización. El cliente utiliza este parámetro para solicitar el token de acceso desde el servidor de autorización. |
-|`user_code`       | string | Una cadena corta que se muestra al usuario que se usa para identificar la sesión en un dispositivo secundario.|
+|`device_code`     | String | Cadena larga que se usa para comprobar la sesión entre el cliente y el servidor de autorización. El cliente utiliza este parámetro para solicitar el token de acceso desde el servidor de autorización. |
+|`user_code`       | String | Una cadena corta que se muestra al usuario que se usa para identificar la sesión en un dispositivo secundario.|
 |`verification_uri`| URI | Identificador URI al que debe ir el usuario con el `user_code` para iniciar sesión. |
 |`verification_uri_complete`| URI | Un URI que combina el `user_code` y `verification_uri`, que se usa para la transmisión de texto para el usuario (por ejemplo, a través de Bluetooth a un dispositivo o a través de un código QR).  |
 |`expires_in`      | int | Número de segundos antes de que `device_code` y `user_code` expiren. |
@@ -132,7 +132,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 
 | Parámetro | Formato | DESCRIPCIÓN |
 | --------- | ------ | ----------- |
-| `token_type` | string| Siempre "Bearer". |
+| `token_type` | String| Siempre "Bearer". |
 | `scope` | Cadenas separadas por espacios | Si se devolvió un token de acceso, esto muestra los ámbitos para los que es válido el token de acceso. |
 | `expires_in`| int | Número de segundos antes de los que el token de acceso incluido es válido. |
 | `access_token`| Cadena opaca | Se emite para los [ámbitos](v2-permissions-and-consent.md) solicitados.  |

@@ -13,14 +13,14 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 02/22/2019
 ms.author: gokuma
-ms.openlocfilehash: 1f9ee5cf28de8fdb824bebf222e5e8d80e22c34f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 03bf0833bdc1bda24b9d435dafe329e9a3c8e4b2
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64712437"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596504"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Aprovisionamiento de una instancia de Data Science Virtual Machine de Windows en Azure
 
@@ -105,6 +105,8 @@ Para crear una instancia de DSVM:
 ## <a name="how-to-access-the-dsvm"></a>Acceso a la instancia de DSVM
 
 Una vez creada y aprovisionada la máquina virtual, puede usar el escritorio remoto con las credenciales de la cuenta del administrador que configuró en la sección **Aspectos básicos** anterior. Ya está listo para empezar a usar las herramientas que están instaladas y configuradas en la máquina virtual. Se puede acceder a muchas de las herramientas a través de los iconos del menú de inicio y de los iconos de escritorio.
+
+También puede adjuntar una máquina virtual de ciencia de datos a Azure Notebooks para ejecutar cuadernos de Jupyter en la máquina virtual y omitir las limitaciones del nivel de servicio gratuito. Para obtener más información, consulte [administrar y configurar proyectos de blocs de notas: nivel de proceso](/azure/notebooks/configure-manage-azure-notebooks-projects.md#compute-tier).
 
 ## <a name="tools-installed-on-the-microsoft-data-science-virtual-machine"></a>Herramientas instaladas en Microsoft Data Science Virtual Machine
 
@@ -207,7 +209,7 @@ Puede usar el [Instalador de plataforma web de Microsoft](https://www.microsoft.
 
 ## <a name="important-directories-on-the-vm"></a>Directorios importantes en la máquina virtual
 
-| item | Directorio |
+| Elemento | Directorio |
 | --- | --- |
 | Configuraciones del servidor de Jupyter Notebook | C:\ProgramData\jupyter |
 | Directorio principal de ejemplos de notebooks de Jupyter | C:\dsvm\notebooks y c:\users\\<nombre_de_usuario\>\notebooks |

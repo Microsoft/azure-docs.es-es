@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 04/16/2019
-ms.openlocfilehash: 399e2585f541f28b3880e69b508cfd643b2f2263
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: dbb5ee122e715aeaa66d786f02966beedd2447c3
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64686291"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522335"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database
 
@@ -86,7 +86,7 @@ Al iniciar las conexiones dentro de la instancia administrada (como ocurre con l
 
 Implementar una instancia administrada en una subred dentro de la red virtual dedicada. La subred debe tener estas características:
 
-- **Subred dedicada:** Subred de la instancia administrada no puede contener cualquier otro servicio en la nube que está asociado con él, y no puede ser una subred de puerta de enlace. La subred no puede contener cualquier recurso, pero la instancia administrada y, posteriormente, no puede agregar los recursos en la subred.
+- **Subred dedicada:** Subred de la instancia administrada no puede contener cualquier otro servicio en la nube que está asociado con él, y no puede ser una subred de puerta de enlace. La subred no puede contener cualquier recurso, pero la instancia administrada y versiones posteriores no se puede agregar otros tipos de recursos en la subred.
 - **Grupo de seguridad de red (NSG):** Debe definir un NSG asociado a la red virtual [reglas de seguridad de entrada](#mandatory-inbound-security-rules) y [reglas de seguridad de salida](#mandatory-outbound-security-rules) antes de cualquier otra regla. Puede usar un NSG para controlar el acceso al punto de conexión de datos de la instancia administrada filtrando el tráfico en el puerto 1433 y puertos 11000 a 11999 cuando la instancia administrada está configurada para redirección las conexiones.
 - **Tabla de usuario (UDR) de ruta definida por:** Una tabla UDR que está asociado con la red virtual debe incluir específico [entradas](#user-defined-routes).
 - **Ningún punto de conexión de servicio:** Ningún extremo de servicio se debe asociar con la subred de la instancia administrada. Asegúrese de que la opción de puntos de conexión de servicio está deshabilitada cuando se crea la red virtual.

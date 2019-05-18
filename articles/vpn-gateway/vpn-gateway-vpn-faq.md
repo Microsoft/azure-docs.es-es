@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 05/14/2019
 ms.author: yushwang
-ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 23dc017b6ffcca8761966a10bd5cb45b32c7a602
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60456497"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786694"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
 
@@ -32,7 +32,7 @@ Puede conectarse a varios sitios mediante el uso de Windows PowerShell y las API
 
 ### <a name="is-there-an-additional-cost-for-setting-up-a-vpn-gateway-as-active-active"></a>¿Hay un costo adicional para configurar una puerta de enlace VPN como activa-activa?
 
- No. 
+No. 
 
 ### <a name="what-are-my-cross-premises-connection-options"></a>¿Cuáles son mis opciones de conexión entre locales?
 
@@ -69,7 +69,7 @@ Las puertas de enlace basadas en directivas implementan VPN basadas en directiva
 Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutamiento. Las VPN basadas en enrutamiento utilizan "rutas" en la dirección IP de reenvío o en la tabla de enrutamiento para dirigir los paquetes a sus correspondientes interfaces de túnel. A continuación, las interfaces de túnel cifran o descifran los paquetes dentro y fuera de los túneles. La directiva o el selector de tráfico para las VPN basadas en enrutamiento se configura como conectividad de tipo cualquiera a cualquier (o caracteres comodín).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>¿Puedo actualizar mi puerta de enlace VPN basada en directivas a una basada en el enrutamiento?
- No. No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
+No. No se puede cambiar un tipo de puerta de enlace de red virtual de Azure basada en directivas a una basada en el enrutamiento o viceversa. Es necesario eliminar la puerta de enlace y volver a crearla, un proceso tarda aproximadamente 60 minutos. La dirección IP de la puerta de enlace no se conserva, ni tampoco la clave precompartida (PSK).
 1. Elimine también las conexiones asociadas a la puerta de enlace que se va a eliminar.
 1. Elimine la puerta de enlace:
 1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -85,15 +85,15 @@ Al crear la subred de puerta de enlace, especifique el número de direcciones IP
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>¿Puedo implementar máquinas virtuales o instancias de rol en mi subred de puerta de enlace?
 
- No.
+No.
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>¿Puedo obtener mi dirección IP de puerta de enlace VPN antes de crearla?
 
- No. Tiene que crear primero la puerta de enlace para obtener la dirección IP. Si elimina y vuelve a crear la puerta de enlace VPN, la dirección IP cambiará.
+No. Tiene que crear primero la puerta de enlace para obtener la dirección IP. Si elimina y vuelve a crear la puerta de enlace VPN, la dirección IP cambiará.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>¿Se puede solicitar una dirección IP pública estática para una puerta de enlace de VPN?
 
- No. Solo se admite la asignación de direcciones IP dinámicas. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que cambia la dirección IP de la puerta de enlace de VPN es cuando se elimina y se vuelve a crear la puerta de enlace. La dirección IP pública de la puerta de enlace de VPN no cambia aunque se cambie el tamaño, se restablezca o se lleven a cabo actualizaciones o u operaciones de mantenimiento interno de la puerta de enlace de VPN. 
+No. Solo se admite la asignación de direcciones IP dinámicas. Sin embargo, esto no significa que la dirección IP cambia después de que se ha asignado a una puerta de enlace VPN. La única vez que cambia la dirección IP de la puerta de enlace de VPN es cuando se elimina y se vuelve a crear la puerta de enlace. La dirección IP pública de la puerta de enlace de VPN no cambia aunque se cambie el tamaño, se restablezca o se lleven a cabo actualizaciones o u operaciones de mantenimiento interno de la puerta de enlace de VPN. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>¿Cómo se autentica mi túnel VPN?
 
@@ -190,7 +190,7 @@ Sí. Para más información, consulte la sección [BGP](#bgp).
 
 ### <a name="does-azure-generate-the-same-ipsecike-pre-shared-key-for-all-my-vpn-connections-for-the-same-virtual-network"></a>¿Azure genera la misma clave precompartida de IPsec/IKE para todas mis conexiones VPN para la misma red virtual?
 
-No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de VPN Gateway o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave TIENE QUE ser una cadena alfanumérica con una longitud de entre 1 y 128 caracteres.
+No, Azure de forma predeterminada genera distintas claves precompartidas para distintas conexiones VPN. Sin embargo, puede utilizar la API de REST para establecer la clave de VPN Gateway o el cmdlet PowerShell para establecer el valor de clave que prefiera. La clave debe ser caracteres ASCII imprimibles.
 
 ### <a name="do-i-get-more-bandwidth-with-more-site-to-site-vpns-than-for-a-single-virtual-network"></a>¿Tengo más ancho de banda con más VPN de sitio a sitio que si tengo una única red virtual?
 
@@ -227,7 +227,7 @@ También puede conectarse a la máquina virtual mediante la dirección IP privad
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>¿Si mi máquina virtual está en una red virtual con conectividad entre locales, todo el tráfico de mi máquina virtual pasa a través de esa conexión?
 
- No. Únicamente el tráfico que tiene como destino una IP que se encuentra en los intervalos de direcciones IP de red local de la red virtual que haya especificado pasará a través de la puerta de enlace de red virtual. El tráfico que tenga una IP de destino ubicada dentro de la red virtual permanecerá en la red virtual. El resto del tráfico se envía a través del equilibrador de carga a las redes públicas, o si se usa la tunelización forzada, se envía a través de la puerta de enlace VPN de Azure.
+No. Únicamente el tráfico que tiene como destino una IP que se encuentra en los intervalos de direcciones IP de red local de la red virtual que haya especificado pasará a través de la puerta de enlace de red virtual. El tráfico que tenga una IP de destino ubicada dentro de la red virtual permanecerá en la red virtual. El resto del tráfico se envía a través del equilibrador de carga a las redes públicas, o si se usa la tunelización forzada, se envía a través de la puerta de enlace VPN de Azure.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Cómo se solucionan los problemas de una conexión RDP a una máquina virtual
 

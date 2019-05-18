@@ -1,10 +1,10 @@
 ---
-title: Configuración de una aplicación para acceder a las API web (versión preliminar) | Azure
+title: 'Configuración de una aplicación para acceder a las API web: plataforma de identidad de Microsoft'
 description: Obtenga información acerca de cómo configurar una aplicación registrada con la plataforma de identidad de Microsoft para incluir los identificadores URI de redireccionamiento, las credenciales o los permisos para acceder a las API web.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
-ms.author: celested
+ms.date: 05/08/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 93e88cedfd098f450e8faeea894f7fdfc796cf17
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 7b2f5331b22f6292b00c367c6abb8cd4f439a70c
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59999593"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413975"
 ---
-# <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web (versión preliminar)
+# <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>Inicio rápido: Configuración de una aplicación cliente para tener acceso a las API web
 
 Para que una aplicación cliente web o confidencial pueda participar en un flujo de concesión de autorización que requiera autenticación (y obtener un token de acceso), debe establecer credenciales seguras. El método de autenticación predeterminado compatible con Azure Portal es un identificador de cliente y una clave secreta.
 
@@ -49,7 +49,6 @@ Para comenzar, asegúrese de que completa estos requisitos previos:
 * Aprenda sobre los [permisos y consentimiento](v2-permissions-and-consent.md) admitidos, que son importantes comprender al crear aplicaciones que necesitan ser utilizadas por otros usuarios o aplicaciones.
 * Tiene un inquilino que tenga las aplicaciones registradas en él.
   * Si no tiene aplicaciones registradas, [aprenda a registrar aplicaciones con la plataforma de identidad de Microsoft](quickstart-register-app.md).
-* Participe en la experiencia de versión preliminar para los registros de aplicaciones en Azure Portal. Los pasos descritos en esta guía de inicio rápido corresponden a la nueva interfaz de usuario y solo funcionan si participa en la experiencia de versión preliminar.
 
 ## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Inicio de sesión en Azure Portal y selección de la aplicación
 
@@ -57,7 +56,7 @@ Antes de configurar la aplicación, siga estos pasos:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones (versión preliminar)**.
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones**.
 1. Busque y seleccione la aplicación que desea configurar. Cuando haya seleccionado la aplicación, verá la página **Introducción** de la aplicación o la de registro principal.
 1. Siga los pasos para configurar la aplicación para acceder a las API web: 
     * [Adición de identificadores URI de redireccionamiento a la aplicación](#add-redirect-uris-to-your-application)

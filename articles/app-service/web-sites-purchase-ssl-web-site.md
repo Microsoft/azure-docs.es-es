@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: apurvajo;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b561091eedb43e1c77f3c97951beeb92bfcf4751
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 15441f70052950748f07b96ff234557462f268cd
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65202920"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65786320"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-azure-app-service"></a>Compra y configuración de un certificado SSL para Azure App Service
 
@@ -136,7 +136,7 @@ Una vez completada la operación de regeneración de claves, haga clic en **sinc
 > [!NOTE]
 > Si no elige **sincronización**, App Service se sincroniza automáticamente el certificado en 48 horas.
 
-## <a name="renew-certificate"></a>Renovar un certificado
+## <a name="renew-certificate"></a>Renovar certificado
 
 Para activar la renovación automática del certificado en cualquier momento, seleccione el certificado en la página [Certificados de App Service](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) y, después, haga clic en **Configuración de renovación automática** en el panel de navegación izquierdo.
 
@@ -166,4 +166,4 @@ Una vez completada la operación de renovación, haga clic en **sincronización*
 * [Aplicación de HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Aplicación de TLS 1.1 y 1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Uso de un certificado SSL en el código de aplicación de Azure App Service](app-service-web-ssl-cert-load.md)
-* [Preguntas más frecuentes: Certificados de App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)
+* [Preguntas más frecuentes: Certificados de App Service](https://docs.microsoft.com/en-us/azure/app-service/faq-configuration-and-management/)

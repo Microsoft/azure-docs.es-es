@@ -7,17 +7,18 @@ author: ika-microsoft
 manager: femila
 editor: ''
 ms.service: media-services
+ms.subservice: video-indexer
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 02/10/2019
+ms.date: 05/15/2019
 ms.author: ikbarmen
-ms.openlocfilehash: e98cf44db01de1f99836e247066ba01006eac97b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2919e021d6b70ce82a6ff6b1d1972dd89de95104
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60553681"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799486"
 ---
 # <a name="manage-multiple-tenants"></a>Administración de varios inquilinos
 

@@ -5,19 +5,18 @@ services: functions
 keywords: OpenAPI, Swagger, aplicaciones de nube, servicios en la nube,
 author: ggailey777
 manager: jeconnoc
-ms.assetid: ''
 ms.service: azure-functions
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 05/08/2019
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 3ad304bc8f038d4009352dae72d70079828c26ba
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fc724e241849f4519a0e353cb6789d3f83eaf4b9
+ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65141544"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65510488"
 ---
 # <a name="create-an-openapi-definition-for-a-function-with-azure-api-management"></a>Creación de una definición de OpenAPI para una función con Azure API Management
 
@@ -31,6 +30,7 @@ En este tutorial, aprenderá a:
 > * Crear una función en Azure
 > * Generar una definición de OpenAPI con Azure API Management
 > * Probar la definición mediante una llamada a la función
+> * Descarga de la definición de OpenAPI
 
 ## <a name="create-a-function-app"></a>Creación de una aplicación de función
 
@@ -133,13 +133,9 @@ Ahora ya existe una función que determina la rentabilidad de las reparaciones d
 
 Ahora el usuario está listo para generar la definición de OpenAPI.
 
-1. Seleccione la aplicación de función y, después, seleccione **Características de la plataforma** y **Todas las configuraciones**.
+1. Seleccione la aplicación de función; después, en **Características de la plataforma**, elija **API Management** y seleccione **Crear nuevo** en **API Management**.
 
-    ![Prueba de la función en Azure Portal](media/functions-openapi-definition/select-all-settings-openapi.png)
-
-1. Desplácese hacia abajo y, después, elija **API Management** > **Crear nueva** para crear una nueva instancia de API Management.
-
-    ![Función de vínculo](media/functions-openapi-definition/link-apim-openapi.png)
+    ![Elección de API Management en las características de la plataforma](media/functions-openapi-definition/select-all-settings-openapi.png)
 
 1. Utilice la configuración de API Management que se especifica en la tabla debajo de la imagen.
 
@@ -153,8 +149,7 @@ Ahora el usuario está listo para generar la definición de OpenAPI.
     | **Ubicación** | Oeste de EE. UU. | Elija la ubicación Oeste de EE. UU. |
     | **Nombre de la organización** | Contoso | El nombre de la organización utilizado en el portal para desarrolladores y para notificaciones de correo electrónico. |
     | **Correo electrónico del administrador** | Su correo electrónico | Correo electrónico que recibe las notificaciones del sistema desde API Management. |
-    | **Plan de tarifa** | Consumo (versión preliminar) | Para obtener información completa sobre los precios, vea la [página de precios de API Management](https://azure.microsoft.com/pricing/details/api-management/). |
-    | **Application Insights** | Su instancia | Use la misma instancia de Application Insights que usa la aplicación de función. |
+    | **Plan de tarifa** | Consumo (versión preliminar) | El plan de consumo se encuentra en versión preliminar y no está disponible en todas las regiones. Para obtener información completa sobre los precios, vea la [página de precios de API Management](https://azure.microsoft.com/pricing/details/api-management/). |
 
 1. Elija **Crear** para crear la instancia de API Management, que puede tardar varios minutos.
 
@@ -170,35 +165,40 @@ Ahora el usuario está listo para generar la definición de OpenAPI.
 
 La API ya se ha creado para la función.
 
-## <a name="test-the-openapi-definition"></a>Prueba de la definición de OpenAPI
+## <a name="test-the-api"></a>Prueba de la API
 
-Antes de usar la definición de API, debe comprobar que funciona.
+Antes de usar la definición de OpenAPI, debe comprobar que la API funciona.
 
 1. En la pestaña **Probar** de la función, seleccione la operación **POST**.
 
 1. Escriba los valores de **horas** y **capacidad**.
 
-```json
-{
-"hours": "6",
-"capacity": "2500"
-}
-```
+    ```json
+    {
+    "hours": "6",
+    "capacity": "2500"
+    }
+    ```
 
 1. Haga clic en **Enviar** y vea la respuesta HTTP.
 
     ![Prueba de la API de función](media/functions-openapi-definition/test-function-api-openapi.png)
 
+## <a name="download-the-openapi-definition"></a>Descarga de la definición de OpenAPI
+
+Si la API funciona según lo previsto, puede descargar la definición de OpenAPI.
+
+1. Seleccione **Descargar definición de OpenAPI** en la parte superior de la página.
+   
+   ![Descarga de la definición de OpenAPI](media/functions-openapi-definition/download-definition.png)
+
+2. Abra el archivo JSON descargado y revise la definición.
+
+[!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Crear una función en Azure
-> * Generar una definición de OpenAPI con Azure API Management
-> * Probar la definición mediante una llamada a la función
-
-Avance al siguiente tema para obtener información sobre API Management.
+Ha utilizado la integración de API Management para generar una definición de OpenAPI de las funciones. Ahora puede editar la definición de API Management en el portal. También puede obtener [más información acerca de API Management](../api-management/api-management-key-concepts.md).
 
 > [!div class="nextstepaction"]
-> [API Management](../api-management/api-management-key-concepts.md)
+> [Edición de la definición de OpenAPI en API Management](../api-management/edit-api.md)

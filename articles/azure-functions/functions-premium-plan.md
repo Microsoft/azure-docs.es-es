@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 75987e7cba9f373af5a434de9f273948c3c9ae75
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61031247"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544766"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan de funciones Premium de Azure (versión preliminar)
 
@@ -44,7 +44,7 @@ Si no hay eventos y las ejecuciones se producen hoy mismo en el plan de consumo,
 
 En el plan Premium, puede tener la aplicación previamente preparada en un número especificado de instancias, hasta el tamaño mínimo del plan.  Instancias previamente calienten también le permiten escalar previamente una aplicación antes de una carga elevada. Como la aplicación se escala horizontalmente, primero se escala en las instancias calienten previamente. Continuarán instancias adicionales para almacenar en búfer caliente inmediatamente en preparación para la siguiente operación de escalado y horizontal. Al tener un búfer de instancias calienten previamente, puede evitar eficazmente las latencias de arranque en frío.  Instancias previamente calienten es una característica del plan Premium y debe tener al menos una instancia en ejecución y disponible en todo momento el plan está activo.
 
-Puede configurar el número de instancias calienten previamente en Azure portal seleccionando **escalabilidad horizontal** en el **características de la plataforma** ficha.
+Puede configurar el número de instancias calienten previamente en Azure portal, seleccione su **Function App**, va a la **características de la plataforma** pestaña y seleccionando el **escalabilidad horizontal**opciones. En la ventana de edición de aplicación de función, instancias previamente calienten es específico de esa aplicación, pero las instancias mínimas y máxima se aplican a todo el plan.
 
 ![Configuración de escalado elástico](./media/functions-premium-plan/scale-out.png)
 
@@ -103,7 +103,7 @@ Al crear nuestra su plan de capacidad de escalado, puede elegir entre tres tama�
 
 A continuación se muestran las regiones admitidas actualmente para la versión preliminar pública.
 
-|Region|
+|Área|
 |--|
 |Este de Australia|
 |Sudeste de Australia|
@@ -114,7 +114,8 @@ A continuación se muestran las regiones admitidas actualmente para la versión 
 |Centro de Francia|
 |Oeste de Japón|
 |Corea Central|
-|Europa del Norte|
+|Centro-Norte de EE. UU|
+|Norte de Europa|
 |Centro y sur de EE. UU.|
 |Sur de la India|
 |Sudeste asiático|

@@ -3,8 +3,8 @@ title: Protocolo SAML de inicio de sesión único de Azure | Microsoft Docs
 description: En este artículo se describe el protocolo SAML de inicio de sesión único de Azure Active Directory.
 services: active-directory
 documentationcenter: .net
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 033740d1ae75bb6f6fe8509d9ad123d55d9c6770
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 593f07b27fec16c3df90a073479effb130bc5721
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704995"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545275"
 ---
 # <a name="single-sign-on-saml-protocol"></a>Protocolo SAML de inicio de sesión único
 
@@ -50,7 +50,7 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | ID | Obligatorio | Azure AD usa este atributo para rellenar el atributo `InResponseTo` de la respuesta devuelta. El id. no debe empezar con un número. La estrategia habitual consiste en anteponer una cadena como "id" en la representación de cadena de un GUID. Por ejemplo, `id6c1c178c166d486687be4aaf5e482730` es un id. válido. |
-| `Version` | Obligatorio | Este parámetro debe establecerse en **2.0**. |
+| Version | Obligatorio | Este parámetro debe establecerse en **2.0**. |
 | IssueInstant | Obligatorio | Se trata de una cadena DateTime con un valor de hora UTC y un [formato de tiempo de ida y vuelta ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD espera un valor DateTime de este tipo, pero no evalúa ni utiliza el valor. |
 | AssertionConsumerServiceUrl | Opcional | Si se proporciona, este parámetro debe coincidir con el elemento `RedirectUri` del servicio en la nube de Azure AD. |
 | ForceAuthn | Opcional | Se trata de un elemento booleano. Si es true, significa que el usuario se verá forzado a volver a autenticarse, incluso si tiene una sesión válida con Azure AD. |
@@ -103,7 +103,7 @@ No incluya un elemento `Signature` en los elementos `AuthnRequest`, ya que Azure
 ### <a name="subject"></a>Subject
 Azure AD omite el elemento `Subject` de los elementos `AuthnRequest`.
 
-## <a name="response"></a>Response
+## <a name="response"></a>Respuesta
 Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azure AD envía una respuesta al servicio en la nube. Una respuesta a un intento de inicio de sesión correcto tiene este aspecto:
 
 ```
@@ -149,7 +149,7 @@ Cuando un proceso de inicio de sesión solicitado se completa correctamente, Azu
 </samlp:Response>
 ```
 
-### <a name="response"></a>Response
+### <a name="response"></a>Respuesta
 
 El elemento `Response` incluye el resultado de la solicitud de autorización. Azure AD configura los valores `ID`, `Version` y `IssueInstant` en el elemento `Response`. También establece los siguientes atributos:
 

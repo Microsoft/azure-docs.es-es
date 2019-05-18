@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: mamccrea
-ms.openlocfilehash: 04760ab570ffc213950c28c22c499d8e9252d574
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 42c3f0ce70467c6a90bcc4e2e6b8a21d7570edc4
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690177"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606192"
 ---
 # <a name="create-linux-based-clusters-in-hdinsight-using-the-net-sdk"></a>Crear clústeres basados en Linux en HDInsight con el SDK de .NET
 
@@ -33,11 +33,11 @@ Aprenda a crear un clúster de [Apache Hadoop](https://hadoop.apache.org/) en un
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Una **cuenta de almacenamiento de Azure**. Vea [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md).
-* **Visual Studio 2013, Visual Studio 2015 o Visual Studio 2017**.
+* **Visual Studio**.
 
 ## <a name="create-clusters"></a>Creación de clústeres
 
-1. Abra Visual Studio 2017.
+1. Abra Visual Studio.
 2. Cree una aplicación de consola nueva de Visual C#.
 3. En el menú **Herramientas**, haga clic en **Administrador de paquetes NuGet** y luego en **Consola del Administrador de paquetes**.
 4. Ejecute el siguiente comando en la consola para instalar los paquetes:

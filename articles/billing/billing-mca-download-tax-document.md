@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 82b568d5a6abae1f061166afc1c80ef639df036c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 245e5ca6e2d7d1f48951d63ba6539180a35f1358
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371553"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604142"
 ---
 # <a name="view-the-tax-documents-for-your-microsoft-customer-agreement"></a>Ver los documentos de impuestos del contrato de cliente de Microsoft
 
@@ -36,7 +36,7 @@ Debe ser el propietario, Colaborador, lector o administrador de facturas del per
 3. Seleccione **Facturas**.
 4. En la cuadrícula de la factura, busque la fila de la factura correspondiente a la que desea descargar el documento de impuestos.
 5. Haga clic en el botón de puntos suspensivos (`...`) al final de la fila.
-6. Seleccione **documento impuesto**. Según el país de su perfil de facturación, puede aparecer más de un documento de impuestos por factura.
+6. Seleccione **documento impuesto**. Según el país o región de su perfil de facturación, puede aparecer más de un documento de impuestos por factura.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Comprobar el acceso a un contrato de cliente de Microsoft
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

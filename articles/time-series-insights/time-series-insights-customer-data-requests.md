@@ -4,17 +4,17 @@ description: Resumen de características de la solicitud de datos de clientes de
 author: ashannon7
 ms.author: anshan
 manager: cshankar
-ms.date: 05/17/2018
+ms.date: 05/08/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 30f6b1fd953f89170a18d56bf0353c643853074e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67aea6b3d535eeb0838da4ac6990c50e607617bf
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60880715"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546386"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 
@@ -65,3 +65,11 @@ Para obtener más información, consulte [Explorador de Azure Time Series Insigh
 Actualmente, Time Series Insights no es compatible con la eliminación pormenorizada de datos. Sin embargo, Time Series Insights proporciona la capacidad de eliminar datos del cliente almacenados en Time Series Insights mediante la configuración de directivas de retención. Puede adaptar el período de retención de todo el entorno de Time Series Insights a cualquier número de días que se ajuste a sus requisitos de eliminación.
 
 Para obtener más información, consulte [Configuración de la retención en Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+* Obtenga más información sobre [conceder acceso a datos en el entorno de TSI](./time-series-insights-data-access.md).
+
+* Ver el [Explorador de Azure Time Series Insights](time-series-insights-explorer.md).
+
+* Obtenga información sobre [configurar la retención en Time Series Insights](time-series-insights-how-to-configure-retention.md).

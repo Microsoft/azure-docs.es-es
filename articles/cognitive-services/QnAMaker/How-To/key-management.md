@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: c1d8104f94d3f215108000b904848f3b968492ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 458d587c7ac73f7c8dacdceae3c9f923263533b3
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61372884"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792541"
 ---
 # <a name="how-to-manage-keys-in-qna-maker"></a>Cómo administrar las claves de QnA Maker
 
@@ -24,7 +24,7 @@ El servicio QnA Maker trabaja con dos tipos de claves, **claves de suscripción*
 
 ![Administración de claves](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Claves de suscripción**: estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Estas API le permiten realizar ediciones en Knowledge Base.  
+1. **Claves de suscripción**: estas claves se usan para acceder a las [API del servicio de administración de QnA Maker](https://go.microsoft.com/fwlink/?linkid=2092179). Estas API le permiten realizar ediciones en Knowledge Base.  
 
 2. **Claves de punto de conexión**: estas claves se usan para tener acceso al punto de conexión de la base de conocimiento para obtener una respuesta para una pregunta del usuario. Normalmente se usaría este punto de conexión en el bot de chat o el código de aplicación cliente que consume el servicio QnA Maker.
  

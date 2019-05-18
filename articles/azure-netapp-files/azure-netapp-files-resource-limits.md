@@ -12,28 +12,67 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 05/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 897ca26bcbb05287d33a4fb8e731ca959e39e271
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b55467d77beb8f97b8e392b72682268ae0407e54
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60452643"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826372"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Límites de recursos para Azure NetApp Files
 
 Entender los límites de recursos de Azure NetApp Files ayuda a administrar los volúmenes.
 
-- Cada suscripción de Azure puede tener un máximo de 10 cuentas de NetApp.
-- Cada cuenta de NetApp puede tener un máximo de 25 grupos de capacidad.
-- Cada grupo de capacidad puede pertenecer a una sola cuenta de NetApp.  
-- El tamaño mínimo para un grupo de capacidades único es de 4 TiB, y el tamaño máximo es de 500 TiB. 
-- Cada grupo de capacidad puede tener un máximo de 500 volúmenes.
-- El tamaño mínimo para un volumen único es de 100 GiB, y el tamaño máximo es de 92 TiB.
-- Cada volumen puede tener un máximo de 255 instantáneas.
-- En cada instancia de Azure Virtual Network (red virtual), solo puede delegarse una subred a Azure NetApp Files.
+## <a name="resource-limits"></a>Límites de recursos
 
-**Pasos siguientes**
+En la tabla siguiente se describe los límites de recursos de Azure Files de NetApp:
 
-[Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+|  Recurso  |  Límite predeterminado  |  Ajustable a través de la solicitud de soporte técnico  |
+|----------------|---------------------|--------------------------------------|
+|  Número de cuentas de NetApp por suscripción de Azure   |  10    |  Sí   |
+|  Número de grupos de capacidad por cuenta de NetApp   |    25     |   Sí   |
+|  Número de volúmenes por grupo de capacidad     |    500   |    Sí     |
+|  Número de instantáneas por volumen       |    255     |    No        |
+|  Número de subredes que se delegan a Azure Files de NetApp (Microsoft.NetApp/volumes) por cada red Virtual de Azure    |   1   |    No    |
+|  Número máximo de máquinas virtuales (incluye redes virtuales emparejadas) que le permitan conectarse a un volumen     |    1000   |    No   |
+|  Tamaño mínimo de un grupo de capacidades único   |  4 TiB     |    No  |
+|  Tamaño máximo de un grupo de capacidades único    |  500 TiB   |   No   |
+|  Tamaño mínimo de un único volumen    |    100 GiB    |    No    |
+|  Máximo de un único volumen * la cuota asignada   |   92 TiB   |    No   |
+|  Tamaño máximo de un volumen único *     |    100 TB    |    No       |
+
+* Un volumen se puede crear o cambiar el tamaño máximo 92 TiB manualmente. Sin embargo, un volumen puede crecer hasta 100 TB en un escenario por encima del límite. Consulte [modelo de costos de Azure Files de NetApp](azure-netapp-files-cost-model.md) para obtener más información sobre por encima del límite de capacidad. 
+
+## <a name="request-limit-increase"></a>Solicitar aumento del límite 
+
+Puede crear una solicitud de soporte técnico de Azure para aumentar los límites de la tabla anterior ajustables. 
+
+Desde el plano de navegación de Azure portal: 
+
+1. Haga clic en **ayuda y soporte técnico**.
+2. Haga clic en **+ nueva solicitud de soporte técnico**.
+3. En la pestaña aspectos básicos, proporcione la siguiente información: 
+    1. Tipo de problema: Seleccione **límites de servicio y suscripción (cuotas)**.
+    2. Suscripciones: Seleccione la suscripción para el recurso que necesite aumentar la cuota.
+    3. Tipo de cuota: Seleccione **almacenamiento: Los archivos de NetApp Azure limita**.
+    4. Haga clic en **Siguiente: Soluciones**.
+4. En la pestaña Detalles:
+    1. En el cuadro Descripción, proporcione la siguiente información para el tipo de recurso correspondiente:
+
+        |  Recurso  |    Recursos primarios      |    Nuevos límites solicitados     |    Motivo de aumento de cuota       |
+        |----------------|------------------------------|---------------------------------|------------------------------------------|
+        |  Cuenta |  *Subscription ID*   |  *Nuevo máximo solicitado **cuenta** número*    |  *¿Qué escenario o caso de uso se le solicite la solicitud?*  |
+        |  Grupo    |  *Identificador de suscripción, el URI de la cuenta*  |  *Nuevo máximo solicitado **grupo** número*   |  *¿Qué escenario o caso de uso se le solicite la solicitud?*  |
+        |  Volumen  |  *Identificador de suscripción, URI, de la cuenta grupo URI*   |  *Nuevo máximo solicitado **volumen** número*     |  *¿Qué escenario o caso de uso se le solicite la solicitud?*  |
+
+    2. Especifique admite el método adecuado y proporcione la información de contrato.
+
+    3. Haga clic en **Siguiente: Revisar y crear** para crear la solicitud. 
+
+
+## <a name="next-steps"></a>Pasos siguientes  
+
+- [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Modelo de costos para Azure Files de NetApp](azure-netapp-files-cost-model.md)

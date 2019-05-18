@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d323a93773a8459d097c1fe3502d2ccd88ae9695
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 9ad4a1a9fff8e011638eb7c532bf7619c87c1996
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64687900"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785202"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurar el inicio de sesión con una cuenta de Azure Active Directory mediante directivas personalizadas en Azure Active Directory B2C 
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo habilitar el inicio de sesión para los usuar
 
 Siga los pasos de [Introducción a las directivas personalizadas en Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 
-## <a name="register-an-application"></a>Registro de una aplicación
+## <a name="register-an-application"></a>Registrar una aplicación
 
 Para habilitar el inicio de sesión para los usuarios de una organización específica de Azure AD, es preciso registrar una aplicación en el inquilino de Azure AD de la organización.
 
@@ -55,7 +55,7 @@ Debe almacenar la clave de la aplicación que creó en el inquilino de Azure AD 
 
 1. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 2. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-3. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+3. En la página de introducción, seleccione **Identity Experience Framework**.
 4. Seleccione **Claves de directiva** y luego **Agregar**.
 5. En **Opciones**, elija `Manual`.
 6. Escriba un **nombre** para la clave de directiva. Por ejemplo, `ContosoAppSecret`.  Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
@@ -129,7 +129,7 @@ Para obtener un token del punto de conexión de Azure AD es preciso definir los 
 2. Actualice el valor de **DisplayName**. Este valor se mostrará en el botón de inicio de sesión de la pantalla de inicio de sesión.
 3. Actualice el valor de **Description**.
 4. Azure AD usa el protocolo OpenID Connect, por lo que debe asegurarse de que el valor de **Protocol** es `OpenIdConnect`.
-5. Establezca el valor de **METADATA** como `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, donde `your-AD-tenant-name` es el nombre del inquilino de Azure AD. Por ejemplo: `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
+5. Establezca el valor de **METADATA** como `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, donde `your-AD-tenant-name` es el nombre del inquilino de Azure AD. Por ejemplo, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Abra el explorador y vaya a la dirección URL **METADATA** que acaba de actualizar, busque el objeto del **emisor** y copie y pegue el valor en **ProviderName** en el archivo XML.
 8. Establezca **client_id** y **IdTokenAudience** en el identificador de la aplicación desde el registro de aplicación.
 9. En **CryptograhicKeys**, actualice el valor de **StorageReferenceId** a la clave de directiva que ha definido. Por ejemplo, `ContosoAppSecret`.

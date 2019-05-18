@@ -3,8 +3,8 @@ title: Cumplimentación de campos específicos en una aplicación personalizada 
 description: Guía acerca de cómo deben rellenarse determinados campos cuando se registra una aplicación personalizada desarrollada con Azure AD
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: celested
+ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e4362e45ff8eee13b9203b9103266c60b4833a9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: a8b93f26080229e980b680c157f59db4edf33e7a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299063"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65545482"
 ---
 # <a name="how-to-fill-out-specific-fields-for-a-custom-developed-application"></a>Cumplimentación de campos específicos en una aplicación personalizada
 
@@ -41,7 +41,7 @@ Este artículo contiene una breve descripción de todos los campos disponibles e
 
 | Campo            | DESCRIPCIÓN                                                                              |
 |------------------|------------------------------------------------------------------------------------------|
-| Name             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
+| NOMBRE             | Nombre de la aplicación. Debe tener un mínimo de cuatro caracteres.                |
 | Tipo de aplicación | **Aplicación web / API web**: una aplicación que represente una aplicación web, una API web o ambas cosas 
 | |**Nativa**: aplicación que puede instalarse en el dispositivo o equipo de un usuario           |
 | URL de inicio de sesión      | Dirección URL donde los usuarios pueden iniciar sesión para utilizar la aplicación                                  |

@@ -10,14 +10,20 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d10a1df402fc4931c4d6cc513aa5e22cfe7ec2ba
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 07989b06b756e1e360ac3c37927a8267c84d9162
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024718"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522830"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Cómo indexar Cosmos DB mediante un indexador de Azure Search
+
+
+> [!Note]
+> Compatibilidad con la API de MongoDB está en versión preliminar y no se ha diseñado para su uso en producción. El [API de REST versión 2019-05-06-Preview](search-api-preview.md) proporciona esta característica. No hay ningún portal o la compatibilidad con el SDK de .NET en este momento.
+>
+> API de SQL está disponible con carácter general.
 
 Este artículo muestra cómo configurar una instancia de Azure Cosmos DB [indizador](search-indexer-overview.md) para extraer contenido y facilitar su búsqueda en Azure Search. Este flujo de trabajo crea un índice de búsqueda de Azure y lo carga con el texto existente que se extraen de Azure Cosmos DB. 
 
@@ -26,7 +32,7 @@ Porque terminología puede resultar confusa, merece la pena mencionar que [index
 Puede usar el [portal](#cosmos-indexer-portal), las API de REST o SDK de .NET para indizar el contenido de Cosmos. El indexador de Cosmos DB en Azure Search puede rastrear [elementos de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) tiene acceso a través de estos protocolos:
 
 * [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
-* [API de MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (soporte técnico de Azure Search para esta API está en versión preliminar pública)  
+* [API de MongoDB (versión preliminar)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)
 
 > [!Note]
 > Voz del usuario tiene los elementos existentes para obtener soporte técnico de API. Puede enviar un voto para las API de Cosmos que gustaría ver admitidos en Azure Search: [API de tabla](https://feedback.azure.com/forums/263029-azure-search/suggestions/32759746-azure-search-should-be-able-to-index-cosmos-db-tab), [de Graph API](https://feedback.azure.com/forums/263029-azure-search/suggestions/13285011-add-graph-databases-to-your-data-sources-eg-neo4), [Apache Cassandra API](https://feedback.azure.com/forums/263029-azure-search/suggestions/32857525-indexer-crawler-for-apache-cassandra-api-in-azu).
@@ -118,7 +124,7 @@ Cuando se complete la indización, puede usar el [Explorador de búsqueda](searc
 
 Puede usar la API de REST para indexar los datos de Azure Cosmos DB, después de un flujo de trabajo de tres partes comunes a todos los indexadores de Azure Search: crear un origen de datos, crear un índice, cree un indexador. Extracción de datos de almacenamiento de Cosmos tiene lugar cuando se envía la solicitud de creación de indizador. Una vez finalizada esta solicitud, tendrá un índice consultable. 
 
-Si va a evaluar MongoDB, debe usar la API de REST para crear el origen de datos.
+Si va a evaluar MongoDB, debe usar el resto `api-version=2019-05-06-Preview` para crear el origen de datos.
 
 En la cuenta de Cosmos DB, puede elegir si desea que la recopilación indexe automáticamente todos los documentos. De forma predeterminada, todos los documentos se indexan automáticamente, pero puede desactivar la indexación automática. Cuando se desactiva la indexación, solo se puede acceder a los documentos a través de sus propios vínculos o mediante su identificador. Azure Search necesita que se active la indexación automática de Cosmos DB en la colección que Azure Search va a indexar. 
 
@@ -252,7 +258,7 @@ Asegúrese de que el esquema del índice de destino es compatible con el de los 
 | Bool |Edm.Boolean, Edm.String |
 | Números que parecen enteros |Edm.Int32, Edm.Int64, Edm.String |
 | Números que parecen puntos flotantes |Edm.Double, Edm.String |
-| string |Edm.String |
+| String |Edm.String |
 | Matrices de tipos primitivos, por ejemplo ["a", "b", "c"] |Collection(Edm.String) |
 | Cadenas que parecen fechas |Edm.DateTimeOffset, Edm.String |
 | Objetos GeoJSON, por ejemplo {"type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
@@ -279,7 +285,7 @@ Para más información sobre la API Create Indexer, consulte [Crear indexador](h
 
 ## <a name="use-net"></a>Uso de .NET
 
-El SDK de .NET totalmente tiene paridad completa con la API REST. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
+El SDK de .NET disponible con carácter general tiene paridad completa con la API de REST disponible con carácter general. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
 
 + [Microsoft.Azure.Search.Models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [Microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
@@ -354,12 +360,6 @@ En el ejemplo siguiente se crea un origen de datos con una directiva de eliminac
             "softDeleteMarkerValue": "true"
         }
     }
-
-## <a name="watch-this-video"></a>Vea este vídeo
-
-En este vídeo de 7 minutos ligeramente más antiguo, Azure Cosmos DB programa Andrew Liu, administrador, se muestra cómo agregar un índice de Azure Search a un contenedor de Azure Cosmos DB. Las páginas del portal que se muestra en el vídeo no están actualizadas, pero la información sigue siendo pertinente.
-
->[!VIDEO https://www.youtube.com/embed/OyoYu1Wzk4w]
 
 ## <a name="NextSteps"></a>Pasos siguientes
 

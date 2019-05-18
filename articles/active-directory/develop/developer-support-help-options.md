@@ -3,8 +3,8 @@ title: Opciones de ayuda y soporte técnico para los desarrolladores de aplicaci
 description: Infórmese sobre cómo obtener ayuda y soporte técnico para preguntas relacionadas con el desarrollo, y para resolver los problemas que pueden surgir al crear aplicaciones que se integran con las identidades de Microsoft (Azure Active Directory y cuenta Microsoft)
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/14/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de9b3e3535253724d068f806b219736f6889477
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6c4882e991045b4a79c0ea0a19ad8fedc2fb8892
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60299743"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540365"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opciones de ayuda y soporte técnico para desarrolladores
 
@@ -52,7 +52,7 @@ Donde *{Your Search Terms}* son sus palabras clave de búsqueda.
 
 ## <a name="use-the-development-support-tools"></a>Uso de las herramientas de soporte técnico de desarrollo
 
-| Herramienta  | DESCRIPCIÓN  |
+| Tool  | DESCRIPCIÓN  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | Pegue un identificador o un token de acceso para descodificar los valores y nombres de notificaciones. |
 | [Explorador de Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer)| Esta herramienta le permite realizar las solicitudes y ver las respuestas en Microsoft Graph API. |
@@ -63,7 +63,7 @@ Stack Overflow es el canal preferido para las preguntas relacionadas con el desa
 
 Si no encuentra una respuesta a su pregunta a través de la búsqueda, envíe una nueva pregunta a Stack Overflow. Use una de las siguientes etiquetas cuando formule preguntas para ayudar a la comunidad a identificar y responder su pregunta más rápidamente:
 
-|Componente o área  | Etiquetas |
+|Componente o área  | `Tags` |
 |---------|---------|
 | Biblioteca ADAL | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
 | Biblioteca MSAL     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |

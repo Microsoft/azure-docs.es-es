@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
+ms.date: 05/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e783a7c34216624126946eef84f56977d4c049
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 60453c320a66a8eebd7460b3930241f9e81b8a1b
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64572413"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65784321"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -42,6 +42,17 @@ Descarga | [Descargar Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=
 >Lanzar una versión nueva de Azure AD Connect es un proceso que requiere varios paso de control de calidad para garantizar la funcionalidad de la operación del servicio y, mientras que se van a través de este proceso se actualizará el número de versión de una nueva versión, así como el estado de lanzamiento para reflejar el estado más reciente.
 Aunque vamos a través de este proceso, el número de versión de la versión se mostrará con una "X" en la posición de número de versión secundaria, como se muestra en "1.3.X.0" - Esto indica que las notas de la versión de este documento son válidas para todas las versiones a partir de "1.3.". Tan pronto como se ha finalizado el proceso de lanzamiento se actualizará el número de versión de lanzamiento para la versión más reciente y se actualizará el estado de lanzamiento a "Emitido para la descarga y la actualización automática".
 No todas las versiones de Azure AD Connect estarán disponibles para la actualización automática. El estado de lanzamiento indicará si una versión está disponible para la actualización automática o solo para la descarga. Si la actualización automática estaba habilitada en el servidor de Azure AD Connect, dicho servidor se actualizará automáticamente a la versión más reciente de Azure AD Connect que se lanza para la actualización automática. Tenga en cuenta que no todas las configuraciones de Azure AD Connect son aptas para la actualización automática. Siga este vínculo para más información acerca de la [actualización automática](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="13210"></a>1.3.21.0
+
+### <a name="release-status"></a>Estado de la versión 
+
+05/14/2019: TBD
+
+
+### <a name="fixed-issues"></a>Problemas corregidos 
+
+- Se ha corregido una vulnerabilidad de elevación de privilegios que existe en la compilación de Microsoft Azure Active Directory Connect 1.3.20.0.  Esta vulnerabilidad, bajo ciertas condiciones, puede permitir que un atacante ejecute dos cmdlets de powershell en el contexto de una cuenta con privilegios y realizar acciones con privilegios.  Actualización de seguridad soluciona el problema al deshabilitar estos cmdlets. Para obtener más información, consulte [actualización de seguridad](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2019-1000).
 
 ## <a name="13200"></a>1.3.20.0 
 
@@ -387,7 +398,7 @@ Bloquee el acceso a la cuenta de AD DS mediante la implementación de los siguie
 *   Quite todas las ACE del objeto específico, excepto las ACE específicas de SELF. Deseamos mantener intactos los permisos predeterminados cuando se trata de SELF.
 *   Asigne estos permisos específicos:
 
-Type     | NOMBRE                          | Access               | Se aplica a
+Type     | NOMBRE                          | Acceso               | Se aplica a
 ---------|-------------------------------|----------------------|--------------|
 PERMITIR    | SYSTEM                        | Control total         | Este objeto  |
 PERMITIR    | Administradores de empresas             | Control total         | Este objeto  |
@@ -412,7 +423,7 @@ Para usar el script de PowerShell para aplicar esta configuración a una cuenta 
 Set-ADSyncRestrictedPermissions -ObjectDN <$ObjectDN> -Credential <$Credential>
 ```
 
-Where 
+Dónde 
 
 **$ObjectDN** = cuenta de Active Directory cuyos permisos se deben reforzar.
 
@@ -731,13 +742,13 @@ CBool(
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
     |CertVersion|CertSignatureAlgorithmOid|Seleccionar|
-    |CertKeyAlgorithmParams|CertHashString|Where|
+    |CertKeyAlgorithmParams|CertHashString|Dónde|
     |||With|
 
 * Se han presentado los siguientes cambios de esquema para permitir que los clientes creen reglas de sincronización personalizadas para el flujo de sAMAccountName, domainNetBios, y domainFQDN para los objetos de grupo, así como distinguishedName para los objetos de usuario:
 
   * Los siguientes atributos se han agregado al esquema de metaverso:
-    * Group: AccountName
+    * Group: Nombre de cuenta
     * Group: domainNetBios
     * Group: domainFQDN
     * Person: distinguishedName

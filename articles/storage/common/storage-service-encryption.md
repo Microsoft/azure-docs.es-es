@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2019
+ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 6eb7de7810ce23aed4031cca9f038da7149a6f9c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65153087"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790052"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Cifrado de Azure Storage para datos en reposo
 
@@ -51,6 +51,9 @@ Para obtener información sobre cómo usar claves administradas por el cliente c
 - [Configurar las claves administradas por el cliente para el cifrado de almacenamiento de Azure desde el portal de Azure](storage-encryption-keys-portal.md)
 - [Configurar las claves administradas por el cliente para el cifrado de almacenamiento de Azure desde PowerShell](storage-encryption-keys-powershell.md)
 - [Usar claves administradas por el cliente con el cifrado de almacenamiento de Azure desde la CLI de Azure](storage-encryption-keys-cli.md)
+
+> [!IMPORTANT]
+> Claves administradas por el cliente se basan en las identidades administradas para los recursos de Azure, una característica de Azure Active Directory (Azure AD). No se actualizan cuando se transfiere una suscripción de un directorio de Azure AD a otras, administradas identidades y claves administradas por el cliente ya no funcionarán. Para obtener más información, consulte **transferir una suscripción entre directorios de Azure AD** en [preguntas más frecuentes y problemas conocidos con managed identidades para los recursos de Azure](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
 > No se admiten claves administradas por el cliente para [discos administrados de Azure](../../virtual-machines/windows/managed-disks-overview.md).

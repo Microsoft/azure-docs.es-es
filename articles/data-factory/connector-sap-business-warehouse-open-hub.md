@@ -141,7 +141,7 @@ Para copiar datos desde y hacia Open Hub para SAP BW, establezca la propiedad ty
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en **SapOpenHubTable**.  | Sí |
+| type | La propiedad type debe establecerse en **SapOpenHubTable**.  | Sí |
 | openHubDestinationName | Nombre del destino Open Hub desde el que copiar los datos. | Sí |
 | excludeLastRequest | Si desea excluir los registros de la última solicitud. | No (el valor predeterminado es **true**) |
 | baseRequestId | El identificador de la solicitud para la carga diferencial. Una vez establecido, solo se recuperarán los datos con el identificador de solicitud **mayor que** el valor de esta propiedad.  | Sin  |

@@ -3,8 +3,8 @@ title: Aprovisionamiento automatizado de usuarios para aplicaciones SaaS en Azur
 description: Una introducción sobre cómo puede usar Azure AD para el aprovisionamiento, el desaprovisionamiento y la actualización continua de cuentas de usuario de manera automática en varias aplicaciones SaaS de terceros.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.devlang: na
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/02/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67956b3369394f68d067fc4753a859c066428aea
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: 0bdae98f19be11cb960fe53c444c34a0b521f90e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65191491"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824239"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
 
@@ -269,7 +269,7 @@ Sin embargo, el uso de grupos dinámicos puede afectar al rendimiento general de
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>¿Funciona el aprovisionamiento automático de usuarios para aplicaciones SaaS con grupos anidados en Azure AD?
 
- No. Cuando se configura en "Sincronizar solo asignada los usuarios y grupos", el servicio de aprovisionamiento de usuario de Azure AD no puede leer ni aprovisionar los usuarios que están en grupos anidados. Solo es capaz de leer y aprovisionamiento de usuarios que son miembros inmediatos del grupo asignado explícitamente.
+No. Cuando se configura en "Sincronizar solo asignada los usuarios y grupos", el servicio de aprovisionamiento de usuario de Azure AD no puede leer ni aprovisionar los usuarios que están en grupos anidados. Solo es capaz de leer y aprovisionamiento de usuarios que son miembros inmediatos del grupo asignado explícitamente.
 
 Esta es una limitación de las "asignaciones basadas en grupos a aplicaciones" que también afecta al inicio de sesión único y se describe en [Uso de un grupo para administrar el acceso a aplicaciones SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
 

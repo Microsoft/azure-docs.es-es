@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 1ea645ee53f91a62bd49fb1da0d44e2962708b88
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: fdfd7794961b0254526b124525c6e978d13b0114
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402775"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800277"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiración de mensajes (período de vida)
 
@@ -35,6 +35,11 @@ Mientras el mensaje está bajo bloqueo, la aplicación puede estar en posesión 
 ## <a name="entity-level-expiration"></a>Expiración de nivel de entidad
 
 Todos los mensajes enviados a una cola o tema están sujetos a una expiración predeterminada que se establece en el nivel de entidad con la propiedad [defaultMessageTimeToLive](/azure/templates/microsoft.servicebus/namespaces/queues) y que también se puede establecer en el portal durante la creación y ajustarla más adelante. La expiración predeterminada se usa con todos los mensajes enviados a la entidad donde [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) no se establece explícitamente. La expiración predeterminada también funciona como un límite superior para el valor **TimeToLive**. Los mensajes que tienen una expiración de **TimeToLive** superior al valor predeterminado se ajustan de forma silenciosa al valor **defaultMessageTimeToLive** antes de ponerse en cola.
+
+> [!NOTE]
+> El valor predeterminado [TimeToLive](/dotnet/api/microsoft.azure.servicebus.message.timetolive#Microsoft_Azure_ServiceBus_Message_TimeToLive) valor de un mensaje negociado es [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) si no se especifica.
+>
+> Las entidades de mensajería (colas y temas), el tiempo de expiración predeterminado es también [TimeSpan.Max](https://docs.microsoft.com/dotnet/api/system.timespan.maxvalue) para los niveles estándar y premium de Service Bus.  Para el nivel básico, el tiempo de expiración predeterminado es 14 días.
 
 Los mensajes expirados se pueden mover opcionalmente a una [cola de mensajes fallidos](service-bus-dead-letter-queues.md) mediante la propiedad [EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enabledeadletteringonmessageexpiration#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) o si se marca la casilla respectiva en el portal. Si la opción se deja deshabilitada, se quitan los mensajes que han expirado. Los mensajes expirados movidos a la cola de mensajes fallidos se pueden distinguir de otros mensajes fallidos mediante la evaluación de la propiedad [DeadletterReason](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq) que almacena el agente en la sección de propiedades del usuario; en este caso, el valor es [TTLExpiredException](service-bus-dead-letter-queues.md#moving-messages-to-the-dlq).
 

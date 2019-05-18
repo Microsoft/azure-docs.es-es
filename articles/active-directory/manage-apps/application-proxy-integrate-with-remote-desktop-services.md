@@ -3,8 +3,8 @@ title: Publicación de Escritorio remoto con el proxy de aplicación de Azure AD
 description: Se explican los conceptos básicos acerca de los conectores del Proxy de aplicación de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: celested
+ms.author: mimart
 ms.custom: it-pro
 ms.reviewer: harshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 295422e0f456c4dfd4166911ef8150e8a896ba1a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2ecd55cbb3a8eefc150db731901458561d90f033
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60440720"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65783405"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -68,7 +68,7 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Dirección URL interna: `https://\<rdhost\>.com/`, donde `\<rdhost\>` es la raíz común que comparten Acceso web y Puerta de enlace de Escritorio remoto.
    - Dirección URL externa: este campo se rellena automáticamente según el nombre de la aplicación, pero puede modificarlo. Los usuarios visitarán esta dirección URL cuando tengan acceso a RDS.
    - Método de autenticación previa: Azure Active Directory
-   - Traducir URL en encabezados: Sin 
+   - Traducir URL en encabezados: No
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
 3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**. Se solicita a los usuarios que se autentiquen una vez en Azure AD y una vez en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
 4. Vaya a **Azure Active Directory** > **Registros de aplicaciones** > *Su aplicación* > **Configuración**.

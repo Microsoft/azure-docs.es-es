@@ -4,16 +4,16 @@ description: Obtenga información acerca de la solución de problemas relacionad
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/05/2019
+ms.date: 05/07/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f286877c6a9e787c06a8a846efaf94668c04fc4e
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60597619"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787705"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -160,6 +160,38 @@ Hybrid Runbook Worker no pudo generar un certificado autofirmado
 
 Verifique que la cuenta del sistema tiene acceso de lectura a la carpeta **C:\ProgramData\Microsoft\Crypto\RSA** e inténtelo de nuevo.
 
+### <a name="failed-to-start"></a>Escenario: Muestra de una máquina no se pudo iniciar en una implementación de actualizaciones
+
+#### <a name="issue"></a>Problema
+
+Una máquina tiene el estado **no se pudo iniciar** para una máquina. Al ver los detalles específicos de la máquina, verá el siguiente error:
+
+```error
+Failed to start the runbook. Check the parameters passed. RunbookName Patch-MicrosoftOMSComputer. Exception You have requested to create a runbook job on a hybrid worker group that does not exist.
+```
+
+#### <a name="cause"></a>Causa
+
+Este error puede producirse debido a uno de los siguientes motivos:
+
+* Ya no existe la máquina.
+* La máquina está desactivada off e inaccesible.
+* La máquina tiene un problema de conectividad de red y hybrid worker en la máquina está inaccesible.
+* Se ha producido una actualización de Microsoft Monitoring Agent que ha cambiado el SourceComputerId
+* La ejecución de actualización puede haber limitado si se alcanza el límite de 2.000 trabajos simultáneos en una cuenta de Automation. Cada implementación se considera un trabajo y cada máquina en un recuento de implementación de actualización como un trabajo. Cualquier otra automatización trabajo o actualización de implementación en ejecución actualmente en el número de cuenta de Automation para el límite de trabajos simultáneos.
+
+#### <a name="resolution"></a>Resolución
+
+Cuando uso aplicables [grupos dinámicos](../automation-update-management.md#using-dynamic-groups) para las implementaciones de actualización.
+
+* Compruebe la máquina aún existe y es accesible. Si no existe, edite la implementación y quite la máquina.
+* Consulte la sección sobre [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que son necesarios para la administración de actualizaciones y comprobación que el equipo cumple estos requisitos.
+* Ejecute la siguiente consulta de Log Analytics buscar equipos en su entorno cuya `SourceComputerId` cambiado. Busque los equipos que tienen el mismo `Computer` valor, pero distintos `SourceComputerId` valor. Una vez que encuentre los equipos afectados, debe editar las implementaciones de actualizaciones que tener como destino esas máquinas, quitarán y volver a agregar las máquinas por lo que el `SourceComputerId` refleja el valor correcto.
+
+   ```loganalytics
+   Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP
+   ```
+
 ### <a name="hresult"></a>Escenario: La máquina aparece como No evaluado y se muestra una excepción HResult
 
 #### <a name="issue"></a>Problema
@@ -177,7 +209,9 @@ Haga doble clic en la excepción que se muestra en rojo para ver el mensaje de e
 |Excepción  |Acción o resolución  |
 |---------|---------|
 |`Exception from HRESULT: 0x……C`     | Busque el código de error correspondiente en [Lista de códigos de error de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) para buscar detalles adicionales sobre la causa de la excepción.        |
-|`0x8024402C` o `0x8024401C`     | Estos errores son problemas de conectividad de red. Asegúrese de que la máquina tenga la conectividad de red adecuada para Update Management. Consulte la sección sobre [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que se requieren.        |
+|`0x8024402C`</br>`0x8024401C`</br>`0x8024402F`      | Estos errores son problemas de conectividad de red. Asegúrese de que la máquina tenga la conectividad de red adecuada para Update Management. Consulte la sección sobre [planeamiento de red](../automation-update-management.md#ports) para obtener una lista de puertos y direcciones que se requieren.        |
+|`0x8024001E`| No se completó la operación de actualización porque se estaba cerrando el servicio o el sistema.|
+|`0x8024002E`| Servicio de Windows Update está deshabilitado.|
 |`0x8024402C`     | Si usa un servidor WSUS, asegúrese de que los valores de registro de `WUServer` y `WUStatusServer` bajo la clave del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tienen el servidor WSUS correcto.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Asegúrese de que el servicio Windows Update (wuauserv) se está ejecutando y no está deshabilitado.        |
 |Cualquier otra excepción genérica     | Realice una búsqueda en Internet para ver las soluciones posibles y colabore con el equipo de soporte técnico de TI local.         |

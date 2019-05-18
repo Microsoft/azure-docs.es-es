@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2019
 ms.author: magoedte
-ms.openlocfilehash: f2a0d64da5a88e82c0ae1fd893af52f2070268f8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45c9a8da8344aa6aaaa19b534451a7276e96911a
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60402248"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522186"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Conocer el estado de las máquinas virtuales de Azure
 
@@ -28,13 +28,13 @@ El estado de mantenimiento general de la máquina virtual de Azure y el sistema 
 
 En este artículo le ayudamos a comprender cómo puede evaluar, investigar y resolver rápidamente los problemas detectados.
 
-Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-onboard.md) (Habilitar Azure Monitor para máquinas virtuales).
+Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-enable-overview.md) (Habilitar Azure Monitor para máquinas virtuales).
 
 ## <a name="monitoring-configuration-details"></a>Detalles de configuración de supervisión
 
 En esta sección se describen los criterios de estado predeterminados definidos para supervisar las máquinas virtuales Linux y Windows de Azure. Todos los criterios de mantenimiento están preconfigurados para enviar una alerta cuando se dé una condición de mal estado. 
 
-### <a name="windows-vms"></a>Máquinas virtuales Windows
+### <a name="windows-vms"></a>VM Windows
 
 - Megabytes disponibles de memoria 
 - Media de segundos del disco por escritura (disco lógico)
@@ -65,7 +65,7 @@ En esta sección se describen los criterios de estado predeterminados definidos 
 - Service Health del firewall de Windows
 - Service Health de Administración remota de Windows
 
-### <a name="linux-vms"></a>Máquinas virtuales con Linux
+### <a name="linux-vms"></a>VM Linux
 - Media del disco Segundos de disco/transferencias 
 - Media del disco Segundos de disco/lecturas 
 - Media del disco Segundos de disco/escrituras 
@@ -77,7 +77,7 @@ En esta sección se describen los criterios de estado predeterminados definidos 
 - Porcentaje de tiempo del procesador total
 - Megabytes disponibles de memoria del sistema operativo
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
 Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 
@@ -97,10 +97,10 @@ En la tabla siguiente se describen los estados de mantenimiento definidos para u
 
 |Icono |Estado de mantenimiento |Significado |
 |-----|-------------|------------|
-| |Healthy |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas, lo cual indica que no se detectó ningún problema en la VM y que funciona según lo esperado. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
-| |Crítico |El estado de mantenimiento es crítico si no está dentro de la condición de mantenimiento definida, lo cual indica que se han detectado uno o más problemas críticos que deben solucionarse para poder restaurar el funcionamiento normal. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
+| |Estado correcto |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas, lo cual indica que no se detectó ningún problema en la VM y que funciona según lo esperado. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
+| |Fundamental |El estado de mantenimiento es crítico si no está dentro de la condición de mantenimiento definida, lo cual indica que se han detectado uno o más problemas críticos que deben solucionarse para poder restaurar el funcionamiento normal. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
 | |Advertencia |El estado de mantenimiento de advertencia se activa si está entre dos umbrales de la condición de mantenimiento definida; uno de ellos indica un estado de *Advertencia* y el otro indica un estado *Crítico* (pueden configurarse tres umbrales de estado de mantenimiento). También puede activarse cuando se detecta un problema no crítico, pero que puede ocasionar problemas graves si no se resuelve. Con una acumulación primario monitor, si uno o varios de los elementos secundarios están en un estado de advertencia y, después, reflejará el elemento primario *advertencia* estado. Si hay un elemento secundario que se encuentra en estado *Crítico* y otro en estado *Advertencia*, la acumulación primaria mostrará un estado de mantenimiento *Crítico*.|
-| |Desconocido |El estado de mantenimiento es *Desconocido* cuando no se puede calcular por varios motivos; por ejemplo, cuando no se pueden recopilar los datos, si no se inicializó el servicio, etc. Este estado de mantenimiento no se puede configurar.| 
+| |Desconocida |El estado de mantenimiento es *Desconocido* cuando no se puede calcular por varios motivos; por ejemplo, cuando no se pueden recopilar los datos, si no se inicializó el servicio, etc. Este estado de mantenimiento no se puede configurar.| 
 
 Si selecciona **Ver el diagnóstico de estado**, se abre una página que muestra todos los componentes de la VM, los criterios de estado asociados, los cambios de estado y otros temas importantes detectados mediante la supervisión de componentes relacionados con la máquina virtual. Para más información, consulte [Diagnóstico de mantenimiento](#health-diagnostics). 
 
@@ -249,16 +249,16 @@ Las alertas de otros tipos de recursos o servicios no están diseñadas para inc
 
 Para filtrar esta vista, seleccione valores en los menús desplegables que aparecen en la parte superior de la página.
 
-|Columna |DESCRIPCIÓN | 
+|columna |DESCRIPCIÓN | 
 |-------|------------| 
 |Subscription |Seleccione una suscripción de Azure. Solo se incluyen las alertas de la suscripción seleccionada en la vista. | 
 |Grupo de recursos |Seleccione un solo grupo de recursos. Solo las alertas con destinos en el grupo de recursos seleccionado se incluyen en la vista. | 
 |Tipo de recurso |Seleccione uno o varios tipos de recurso. De manare predeterminada, se seleccionan las alertas de las **máquinas virtuales** de destino y se incluyen en esta vista. Esta columna solo está disponible tras especificar un grupo de recursos. | 
 |Recurso |Seleccione un recurso. Solo las alertas con ese recurso como destino se incluyen en la vista. Esta columna solo está disponible tras especificar un tipo de recurso. | 
-|Gravedad |Seleccione una nivel de gravedad de la alerta o seleccione *Todas* para incluir las alertas de todos los niveles de gravedad. | 
-|Condición de supervisión |Seleccione una condición del monitor para filtrar las alertas en función de si el sistema las ha *desencadenado* o *resuelto*, en el caso de que la condición ya no esté activa. O bien seleccione *Todas* para incluir alertas de todas las condiciones. | 
+|Severity |Seleccione una nivel de gravedad de la alerta o seleccione *Todas* para incluir las alertas de todos los niveles de gravedad. | 
+|Condición del monitor |Seleccione una condición del monitor para filtrar las alertas en función de si el sistema las ha *desencadenado* o *resuelto*, en el caso de que la condición ya no esté activa. O bien seleccione *Todas* para incluir alertas de todas las condiciones. | 
 |Estado de alerta |Seleccione un estado de alerta (*Nueva*, *Confirmación* o *Cerrada*), o seleccione *Todos* para incluir alertas de todos los estados. | 
-|Servicio de supervisión |Seleccione un servicio o seleccione *Todo* para incluir todos los servicios. Solo las alertas de *VM Insights* son compatibles con esta característica.| 
+|Supervisar servicio |Seleccione un servicio o seleccione *Todo* para incluir todos los servicios. Solo las alertas de *VM Insights* son compatibles con esta característica.| 
 |Intervalo de tiempo| Solo las alertas activadas dentro del período de tiempo seleccionado se incluyen en la vista. Los valores compatibles son Última hora, Últimas 24 horas, Últimos 7 días y Últimos 30 días. | 
 
 La página **Detalles de la alerta** se muestra cuando se selecciona una alerta y proporciona detalles de la alerta, lo que le permite cambiar su estado. Para aprender a administrar alertas, consulte [Creación, visualización y administración de alertas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).  

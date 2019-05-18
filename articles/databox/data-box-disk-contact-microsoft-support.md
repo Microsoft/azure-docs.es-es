@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5b392fecd75f5c18793a6122b8d5d967a2e54afa
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60462392"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604447"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Apertura de una incidencia de soporte técnico en Azure Data Box 
 
@@ -22,13 +22,13 @@ Este artículo se aplica a Azure Data Box y a Azure Data Box Disk, administrados
 * Crear una solicitud de soporte.
 * Administrar el ciclo de vida de una solicitud de soporte técnico desde dentro del portal.
 
-## <a name="create-a-support-request"></a>Crear una solicitud de soporte
+## <a name="create-a-support-request"></a>Crear solicitud de soporte técnico
 
 Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 
 1. Vaya al pedido de Data Box o Data Box Disk. Vaya a la sección **SOPORTE Y SOLUCIÓN DE PROBLEMAS** y haga clic en **Nueva solicitud de soporte técnico**.
      
-    ![Nueva solicitud de soporte](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
+    ![Nueva solicitud de soporte técnico](./media/data-box-disk-contact-microsoft-support/data-box-disk-support-request.png)
    
 2. En **Nueva solicitud de soporte técnico**, seleccione **Datos básicos**. En **Datos básicos**, siga estos pasos:
     
@@ -56,7 +56,7 @@ Lleve a cabo los siguientes pasos para crear una solicitud de soporte.
 4. En **Nueva solicitud de soporte**, haga clic en **Paso 3: Información de contacto**. En **Información de contacto**, siga estos pasos:
 
    1. En **Opciones de contacto**, especifique el método de contacto preferido (teléfono o correo electrónico) y el idioma. El tiempo de respuesta se selecciona automáticamente en función del plan de suscripción.
-   2. En **Información de contacto**, especifique su nombre, correo electrónico, contacto opcional y país. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
+   2. En el **información de contacto**, proporcione su nombre, correo electrónico, póngase en contacto con opcional, país o región. Active **Guardar cambios de contacto para solicitudes futuras de soporte técnico**.
    3. Haga clic en **Create**(Crear).
    
        ![Información de contacto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   

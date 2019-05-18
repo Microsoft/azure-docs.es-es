@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6e2803590740d84bc99327ce78886f41f3c600df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: d0a4180a3ea28427b8d82c6f5cf86ef9fa51d580
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60794453"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65785894"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API de Application Insights para eventos y métricas personalizados
 
@@ -53,7 +53,7 @@ Si aún no tiene una referencia en el SDK de Application Insights:
   * [Proyecto de Java](../../azure-monitor/app/java-get-started.md)
   * [Proyecto de Node.js](../../azure-monitor/app/nodejs.md)
   * [JavaScript en cada página web](../../azure-monitor/app/javascript.md) 
-* En el código de servidor web o de dispositivo, incluya:
+* En el código del dispositivo o del servidor web, incluya lo siguiente:
 
     *C#:*`using Microsoft.ApplicationInsights;`
 
@@ -529,7 +529,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-La mayor parte de la información importante sobre pilas ya se extrajo en variables independientes, pero puede desmontar la estructura `details` para obtener más. Puesto que se trata de una estructura dinámica, debería convertir el resultado al tipo que espere. Por ejemplo: 
+La mayor parte de la información importante sobre pilas ya se extrajo en variables independientes, pero puede desmontar la estructura `details` para obtener más. Puesto que se trata de una estructura dinámica, debería convertir el resultado al tipo que espere. Por ejemplo:
 
 ```kusto
 exceptions
@@ -592,7 +592,7 @@ Puede buscar en el contenido del mensaje, pero (a diferencia de los valores de p
 El límite de tamaño en `message` es mucho mayor que el límite en propiedades.
 Una ventaja de TrackTrace es que puede colocar datos relativamente largos en el mensaje. Por ejemplo, aquí puede codificar datos POST.  
 
-Además, puede agregar un nivel de gravedad al mensaje. Y, al igual que con otra telemetría, puede agregar valores de propiedad para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo: 
+Además, puede agregar un nivel de gravedad al mensaje. Y, al igual que con otra telemetría, puede agregar valores de propiedad para ayudar a filtrar o buscar distintos conjuntos de seguimientos. Por ejemplo:
 
 *C#*
 
@@ -633,12 +633,16 @@ try
 {
     success = dependency.Call();
 }
+catch(Exception ex) 
+{
+    success = false;
+    telemetry.TrackException(ex);
+    throw new Exception("Operation went wrong", ex);
+}
 finally
 {
     timer.Stop();
-    telemetry.TrackDependency("myDependency", "myCall", startTime, timer.Elapsed, success);
-     // The call above has been made obsolete in the latest SDK. The updated call follows this format:
-     // TrackDependency (string dependencyTypeName, string dependencyName, string data, DateTimeOffset startTime, TimeSpan duration, bool success);
+    telemetry.TrackDependency("DependencyType", "myDependency", "myCall", startTime, timer.Elapsed, success);
 }
 ```
 
@@ -1151,7 +1155,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient tiene una propiedad de Context, que contiene valores que se envían junto con todos los datos de telemetría. Normalmente, se establecen mediante los módulos de telemetría estándar, pero también los puede establecer usted mismo. Por ejemplo: 
+TelemetryClient tiene una propiedad de Context, que contiene valores que se envían junto con todos los datos de telemetría. Normalmente, se establecen mediante los módulos de telemetría estándar, pero también los puede establecer usted mismo. Por ejemplo:
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1171,7 +1175,7 @@ Si establece cualquiera de estos valores manualmente, considere la posibilidad d
 * **Sesión**: sesión del usuario. El identificador se establece en un valor generado, que cambia cuando el usuario lleva un tiempo sin estar activo.
 * **User**: información del usuario.
 
-## <a name="limits"></a>límites
+## <a name="limits"></a>Límites
 
 [!INCLUDE [application-insights-limits](../../../includes/application-insights-limits.md)]
 

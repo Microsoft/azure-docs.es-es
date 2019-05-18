@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 04/16/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d1c10d9df85b04cf7b8ea7e0020bc8e802a0d5d
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 39e9f52948d035c72a6a019558915d8c92ceebeb
+ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698935"
+ms.lasthandoff: 05/09/2019
+ms.locfileid: "65463518"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Tutorial: Integración de Azure Active Directory con BlueJeans
 
@@ -102,18 +102,17 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
 3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![Edición de la configuración básica de SAML](common/edit-urls.png)
+    ![Edición de la configuración básica de SAML](media/bluejeans-tutorial/edit-urls-bluejeans.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En el cuadro de diálogo **Configuración básica de SAML**, escriba los valores siguientes:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de BlueJeans](common/sp-identifier.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de BlueJeans](media/bluejeans-tutorial/tutorial_bluejeans-basic-configuration.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.BlueJeans.com`
-
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL: `http://samlsp.bluejeans.com`
-
-    > [!NOTE]
-    > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico de BlueJeans](https://support.bluejeans.com/contact) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+   - En el cuadro de texto **Identificador**, escriba lo siguiente: `https://samlsp.bluejeans.com`
+    
+   - En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL de la página de aterrizaje suministrada por BlueJeans (para obtener este valor, puede ponerse en contacto con el [equipo de soporte técnico de BlueJeans](https://support.bluejeans.com/contact)): `https://<companyname>.bluejeans.com`
+    
+   - Haga clic en **Save**(Guardar).
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -161,9 +160,9 @@ Para configurar el inicio de sesión único de Azure AD con BlueJeans, realice l
 
     ![Guardar cambios](./media/bluejeans-tutorial/ic785874.png "Guardar cambios")
 
-     a. En el cuadro de texto **Id. de usuario**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+     a. En el cuadro de texto **Id. de usuario**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
-    b. En el cuadro de texto **Correo electrónico**, escriba `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
+    b. En el cuadro de texto **Correo electrónico**, escriba `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     c. Haga clic en **GURDAR CAMBIOS**.
 

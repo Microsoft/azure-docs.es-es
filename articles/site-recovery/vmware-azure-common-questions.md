@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/26/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 22d3bdf8c60e6682c360395b44fe6f1dcc1207b0
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 767f087910136ce558d71602a1c4c632090168cd
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64925518"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540625"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -251,13 +251,13 @@ En el almacén de Recovery Services, haga clic en **servidores de configuración
 
 ## <a name="process-server"></a>Servidor de procesos
 
-### <a name="unable-to-select-process-server-during-enable-replication"></a>No se puede seleccionar el servidor de procesos durante la habilitación de la replicación
+### <a name="why-am-i-unable-to-select-process-server-during-enable-replication"></a>¿Por qué no se puede seleccionar el servidor de procesos durante la que habilitar la replicación?
 
-Desde la versión 9.24, se han realizado mejoras para proporcionar [procesar alertas del servidor](vmware-physical-azure-monitor-process-server.md#process-server-alerts) sobre cuándo configurar un servidor de procesos de escalado horizontal. Esto es para evitar la limitación del servidor de proceso y evitar el uso del servidor de procesos en mal estado.
+Desde la versión 9.24, se han realizado mejoras para mostrar [estado del servidor de procesos durante la habilitación de la replicación](vmware-azure-enable-replication.md#enable-replication). Esto es para evitar la limitación del servidor de proceso y minimizar el uso de servidores de procesos en mal estado.
 
-### <a name="what-should-i-do-to-obtain-accurate-health-status-of-process-server"></a>¿Qué debo hacer para obtener el estado de mantenimiento exacta del servidor de procesos?
+### <a name="what-is-meant-by-upgrading-process-server-to-924-or-higher-versions-for-accurate-health"></a>¿Qué se entiende por la actualización de servidor de procesos a versiones 9.24 o superiores para el estado precisa?
 
-Actualizar componentes de Site Recovery para la [versiones más recientes](service-updates-how-to.md#links-to-currently-supported-update-rollups) (al menos 9.24 o superior).
+Desde [9.24 versiones](service-updates-how-to.md#links-to-currently-supported-update-rollups), se presentan las alertas adicionales para mejorar las alertas de estado del servidor de procesos. Actualizar componentes de Site Recovery 9.24 versiones o versiones posteriores para que todas las alertas que se genere.
 
 ## <a name="failover-and-failback"></a>Conmutación por error y conmutación por recuperación
 ### <a name="can-i-use-the-process-server-at-on-premises-for-failback"></a>¿Puedo usar el servidor de procesos en un entorno local para la conmutación por recuperación?

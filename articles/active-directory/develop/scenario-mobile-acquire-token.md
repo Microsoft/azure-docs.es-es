@@ -1,6 +1,6 @@
 ---
-title: 'Aplicación móvil que llama a web API: adquirir un token para la aplicación | Plataforma de identidad de Microsoft'
-description: Aprenda a crear una aplicación móvil que llama a web API (adquirir un token para la aplicación)
+title: 'Aplicación móvil que llama a web API: obtener un token para la aplicación | Plataforma de identidad de Microsoft'
+description: Aprenda a crear una aplicación móvil que llama a web API (obtener un token para la aplicación)
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -15,43 +15,43 @@ ms.date: 05/07/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6933bfbbff574495655ef9065a786fa313b02bd6
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 88c9215ed221e24099eeb219a4db599a1955920a
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075181"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550339"
 ---
-# <a name="mobile-app-that-calls-web-apis---acquire-a-token"></a>Aplicación móvil que llama a web API: adquirir un token
+# <a name="mobile-app-that-calls-web-apis---get-a-token"></a>Aplicación móvil que llama a web API: obtener un token
 
-Antes de comenzar una llamada a protected web API, la aplicación necesitará un token de acceso. En esta sección le guiará a través del proceso para obtener un token con la biblioteca de autenticación de Microsoft (MSAL).
+Antes de comenzar una llamada a protected web API, la aplicación necesitará un token de acceso. Este artículo le guiará a través del proceso para obtener un token mediante el uso de la biblioteca de autenticación de Microsoft (MSAL).
 
 ## <a name="scopes-to-request"></a>Para solicitar los ámbitos
 
-Al solicitar tokens, siempre se requiere un ámbito. El ámbito determina qué datos puede tener acceso la aplicación.  
+Cuando se solicita un token, deberá definir un ámbito. El ámbito determina qué datos puede tener acceso la aplicación.  
 
-El enfoque más sencillo consiste en combinar la API web deseado `App ID URI` con el ámbito `.default`. Esto indica a identidades de Microsoft que requiere que todos los ámbitos que se establezca en el portal de la aplicación.
+El enfoque más sencillo consiste en combinar la API web deseado `App ID URI` con el ámbito `.default`. Si lo hace, indica a la plataforma Microsoft identity que su aplicación requiere que establecen todos los ámbitos en el portal.
 
-Android
+#### <a name="android"></a>Android
 ```Java
 String[] SCOPES = {"https://graph.microsoft.com/.default"};
 ```
 
-iOS
+#### <a name="ios"></a>iOS
 ```swift
 let scopes: [String] = ["https://graph.microsoft.com/.default"]
 ```
 
-Xamarin
+#### <a name="xamarin"></a>Xamarin
 ```CSharp 
 var scopes = new [] {"https://graph.microsoft.com/.default"};
 ```
 
-## <a name="acquiring-tokens"></a>Adquisición de tokens
+## <a name="get-tokens"></a>Obtención de tokens
 
 ### <a name="via-msal"></a>a través de MSAL
 
-MSAL permite que las aplicaciones adquirir tokens de forma silenciosa y de forma interactiva. Simplemente llamar a estos métodos y MSAL devuelve un token de acceso para los ámbitos solicitados. El patrón correcto es realizar una solicitud silenciosa y la reserva para una solicitud interactiva.
+MSAL permite que las aplicaciones adquirir tokens de forma silenciosa y de forma interactiva. Simplemente llamar a estos métodos y MSAL devuelve un token de acceso para los ámbitos solicitados. El patrón correcto es realizar una solicitud silenciosa y revertir a una solicitud interactiva.
 
 #### <a name="android"></a>Android
 
@@ -61,32 +61,32 @@ PublicClientApplication sampleApp = new PublicClientApplication(
                     this.getApplicationContext(),
                     R.raw.auth_config);
 
-// Check if there are any accounts we can sign in silently
-// Result is in our silent callback (success or error)
+// Check if there are any accounts we can sign in silently.
+// Result is in the silent callback (success or error).
 sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
     @Override
     public void onAccountsLoaded(final List<IAccount> accounts) {
 
         if (accounts.isEmpty() && accounts.size() == 1) {
-            // TODO: Create a silent callback to catch successful or failed request
+            // TODO: Create a silent callback to catch successful or failed request.
             sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
         } else {
-            /* No accounts or >1 account */
+            /* No accounts or > 1 account. */
         }
     }
 });    
 
 [...]
 
-// No accounts found, interactively request a token 
-// TODO: Create an interactive callback to catch successful or failed request
+// No accounts found. Interactively request a token.
+// TODO: Create an interactive callback to catch successful or failed request.
 sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());        
 ```
 
 #### <a name="ios"></a>iOS
 
 ```swift
-// Initialize our app 
+// Initialize the app.
 guard let authorityURL = URL(string: kAuthority) else {
     self.loggingText.text = "Unable to create authority URL"
     return
@@ -95,14 +95,14 @@ let authority = try MSALAADAuthority(url: authorityURL)
 let msalConfiguration = MSALPublicClientApplicationConfig(clientId: kClientID, redirectUri: nil, authority: authority)
 self.applicationContext = try MSALPublicClientApplication(configuration: msalConfiguration)
 
-// Get tokens
+// Get tokens.
 let parameters = MSALSilentTokenParameters(scopes: kScopes, account: account)
 applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
     if let error = error {
         let nsError = error as NSError
 
-        // interactionRequired means we need to ask the user to sign-in. This usually happens
-        // when the user's Refresh Token is expired or if the user has changed their password
+        // interactionRequired means you need to ask the user to sign in. This usually happens
+        // when the user's refresh token is expired or when the user has changed the password,
         // among other possible reasons.
         if (nsError.domain == MSALErrorDomain) {
             if (nsError.code == MSALError.interactionRequired.rawValue) {    
@@ -136,7 +136,7 @@ applicationContext.acquireTokenSilent(with: parameters) { (result, error) in
         return
     }
 
-    // Token is ready via silent acquisition 
+    // Token is ready via silent acquisition.
     self.accessToken = result.accessToken
 }
 ```
@@ -160,13 +160,13 @@ catch(MsalUiRequiredException e)
 }
 ```
 
-### <a name="via-protocol"></a>Protocolo VIA
+### <a name="via-the-protocol"></a>A través del protocolo
 
-No se recomienda ir directamente en el protocolo. La aplicación no será capaz de muchos único inicio de sesión (SSO) escenarios y no será posible admitir todos los escenarios de acceso condicional y administración de dispositivos.
+No se recomienda usar el protocolo directamente. Si lo hace, la aplicación no admite algunos el inicio de sesión único (SSO), administración de dispositivos y escenarios de acceso condicional.
 
-Al obtener los tokens para aplicaciones móviles mediante el protocolo, deberá realizar 2 solicitudes: obtener un código de autorización y cambiarlo por un token. 
+Cuando usa el protocolo para obtener tokens para aplicaciones móviles, deberá realizar dos solicitudes: obtener un código de autorización y cambiarlo por un token.
 
-#### <a name="getting-authorization-code"></a>Obtener el código de autorización
+#### <a name="get-authorization-code"></a>Obtener el código de autorización
 
 ```Text
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
@@ -178,7 +178,7 @@ client_id=<CLIENT_ID>
 &state=12345
 ```
 
-#### <a name="getting-access-and-refresh-token"></a>Obtener token de acceso y actualización
+#### <a name="get-access-and-refresh-token"></a>Obtener el token de acceso y actualización
 
 ```Text
 POST /{tenant}/oauth2/v2.0/token HTTP/1.1

@@ -1,5 +1,5 @@
 ---
-title: Cómo implementar un modelo de aprendizaje profundo para inferencia con GPU
+title: Implementación de modelo para inferencia con GPU
 titleSuffix: Azure Machine Learning service
 description: Obtenga información sobre cómo implementar un modelo de aprendizaje profundo como un servicio web que utiliza una GPU para inferencia. En este artículo, se implementa un modelo de Tensorflow en un clúster de Azure Kubernetes Service. El clúster usa una máquina virtual basados en GPU para hospedar el servicio web y las solicitudes de inferencia de puntuación.
 services: machine-learning
@@ -10,33 +10,30 @@ ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 05/02/2019
-ms.openlocfilehash: 5cc0fe0526937245d3ca913afc477f0259e2afd4
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 7796e8dc07889c9816e4227f3b38904d91a24da3
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65515180"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595687"
 ---
-# <a name="how-to-do-gpu-inferencing"></a>Cómo realizar la inferencia GPU
+# <a name="deploy-a-deep-learning-model-for-inferencing-with-gpu"></a>Implementar un modelo de aprendizaje profundo para inferencia con GPU
 
 Obtenga información sobre cómo usar la inferencia GPU para un modelo implementado como un servicio web de aprendizaje automático. En este artículo, aprenderá a usar el servicio Azure Machine Learning para implementar un modelo de aprendizaje profundo de Tensorflow de ejemplo. El modelo se implementa en un clúster de Azure Kubernetes Service (AKS) que usa una máquina virtual habilitada para GPU para hospedar el servicio. Cuando se envían las solicitudes al servicio, el modelo usa la GPU para realizar la inferencia.
 
 Las GPU ofrecen ventajas de rendimiento con respecto a CPU en cálculo paralelizar. Aprendizaje e inferencia de modelos (especialmente para grandes lotes de solicitudes) de aprendizaje profundo son los casos de uso excelente para GPU.  
 
-En este ejemplo se mostrará cómo implementar un modelo de TensorFlow que guardó en Azure Machine Learning. 
-
-## <a name="goals-and-prerequisites"></a>Los objetivos y requisitos previos
-
-Siga las instrucciones para:
-* Creación de una GPU habilitada clúster de AKS
+En este ejemplo le mostrará cómo implementar un modelo de TensorFlow que guardó en Azure Machine Learning mediante:
+* Creación de un clúster AKS habilitadas para GPU
 * Implementar un modelo con GPU de Tensorflow
 
-Requisitos previos:
+## <a name="prerequisites"></a>Requisitos previos
+
 * El área de trabajo de Azure Machine Learning services
 * Python
 * Tensorflow SavedModel registrado. Para obtener información sobre cómo registrar modelos vea [implementar modelos](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#registermodel)
 
-En este artículo se basa en [implementar modelos de Tensorflow en AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), que utiliza TensorFlow guardado modela e implementa en un clúster de AKS. Sin embargo, con pequeños cambios en el archivo de puntuación y el archivo de entorno es aplicable a cualquier marco de aprendizaje automático que son compatibles con GPU.  
+En este artículo se basa en el cuaderno de Jupyter, [implementar modelos de Tensorflow en AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/production-deploy-to-aks-gpu/production-deploy-to-aks-gpu.ipynb), que utiliza TensorFlow guardado modela e implementa en un clúster de AKS. Sin embargo, con pequeños cambios en el archivo de puntuación y el archivo de entorno es aplicable a cualquier marco de aprendizaje automático que son compatibles con GPU.  
 
 ## <a name="provision-aks-cluster-with-gpus"></a>Clúster de AKS aprovisionar con GPU
 Azure tiene muchas opciones diferentes de GPU, que se puede usar para inferencia. Consulte [la lista de la serie N](https://azure.microsoft.com/pricing/details/virtual-machines/linux/#n-series) para obtener un desglose completo de funcionalidades y los costos. 

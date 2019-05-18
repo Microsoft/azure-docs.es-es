@@ -55,7 +55,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de REST:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | El **tipo** propiedad debe establecerse en **RestService**. | Sí |
+| type | El **tipo** propiedad debe establecerse en **RestService**. | Sí |
 | url | La dirección URL base del servicio REST. | Sí |
 | enableServerCertificateValidation | Si se debe validar el certificado SSL del lado servidor al conectarse al punto de conexión. | Sin <br /> (El valor predeterminado es: **true**) |
 | authenticationType | El tipo de autenticación usado para conectarse al servicio REST. Los valores que se permiten son: **Anónima**, **Básica**, **AadServicePrincipal** y **ManagedServiceIdentity**. Haga referencia a las siguientes secciones correspondientes para obtener más información sobre propiedades y ejemplos, respectivamente. | Sí |
@@ -169,7 +169,7 @@ Para copiar datos de REST, se admiten las siguientes propiedades:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **RestResource**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **RestResource**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la propiedad, solo se usa la dirección URL especificada en la definición del servicio vinculado. | Sin  |
 | requestMethod | Método HTTP. Los valores permitidos son **Get** (valor predeterminado) y **Post**. | Sin  |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |
@@ -232,7 +232,7 @@ Se admiten las siguientes propiedades en la sección **source** de la actividad 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **RestSource**. | Sí |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **RestSource**. | Sí |
 | httpRequestTimeout | El tiempo de espera (el valor **TimeSpan**) para que la solicitud HTTP obtenga una respuesta. Este valor es el tiempo de espera para obtener una respuesta, no para leer los datos de la respuesta. El valor predeterminado es **00:01:40**.  | Sin  |
 | requestInterval | El tiempo de espera antes de enviar la solicitud de página siguiente. El valor predeterminado es **00:00:01** |  Sin  |
 

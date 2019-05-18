@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2018
 ms.author: terrylan
-ms.openlocfilehash: 49615dcb2f077d2e1d8b93a4bb900b435e4c87bf
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 04163d1fa2a46a2de877702d479f439a5e8711d7
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60589077"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603140"
 ---
 # <a name="azure-customer-data-protection"></a>Protección de datos de cliente de Azure   
 El personal de operaciones y soporte técnico de Microsoft no tiene libre acceso a los datos de los clientes, ya que se les deniega de forma predeterminada. Cuando se concede acceso a los datos del cliente, se requiere la aprobación de la dirección y, a continuación, el acceso se administra y registra cuidadosamente. Los requisitos de control de acceso se establecen mediante la directiva de seguridad de Azure siguiente:
@@ -48,8 +48,8 @@ Azure proporciona a los clientes una fuerte seguridad de los datos, tanto de man
 
 **Data redundancy** (Redundancia de datos): Microsoft ayuda a garantizar que los datos están protegidos si se produce un ciberataque o daños físicos en un centro de datos. Los clientes pueden optar por:
 
-- Almacenamiento en el país por motivos de cumplimiento o latencia
-- Almacenamiento fuera del país por motivos de seguridad o recuperación ante desastres
+- Almacenamiento en el país o en región por motivos de cumplimiento o la latencia.
+- Almacenamiento fuera del país o de fuera de región para fines de recuperación ante desastres o de seguridad.
 
 Los datos pueden replicarse en un área geográfica seleccionada para redundancia, pero no se transmitirán fuera de ella. Los clientes tienen varias opciones para la replicación de datos, incluido el número de copias y el número y la ubicación de los centros de datos de replicación.
 
@@ -80,7 +80,7 @@ Para obtener más información sobre lo que hace Microsoft para proteger la infr
 - [Componentes y límites del sistema de información de Azure](azure-infrastructure-components.md)
 - [Arquitectura de red de Azure](azure-infrastructure-network.md)
 - [Red de producción de Azure](azure-production-network.md)
-- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
+- [Características de seguridad de Azure SQL Database](azure-infrastructure-sql.md)
 - [Operaciones de producción y administración de Azure](azure-infrastructure-operations.md)
 - [Supervisión de la infraestructura de Azure](azure-infrastructure-monitoring.md)
 - [Integridad de la infraestructura de Azure](azure-infrastructure-integrity.md)

@@ -9,20 +9,32 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 03/13/2019
 ms.author: glenga
-ms.openlocfilehash: 55c5a61be8dadd538b73bd6378c030b98d837341
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.custom: 80e4ff38-5174-43
+ms.openlocfilehash: 7c6e7d8bb407b0ffeb320ebfe9e2639feb303800
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65508226"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65603414"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
 Azure Functions Core Tools le permite desarrollar y probar funciones en el equipo local desde el símbolo del sistema o terminal. Las funciones locales pueden conectarse a servicios de Azure en directo, y puede depurar sus funciones en el equipo local con el tiempo de ejecución de Functions completo. Incluso puede implementar una aplicación de función en su suscripción a Azure.
 
 [!INCLUDE [Don't mix development environments](../../includes/functions-mixed-dev-environments.md)]
+
+Desarrollo de funciones en el equipo local y publicarlas en Azure mediante herramientas principales sigue estos pasos básicos:
+
+> [!div class="checklist"]
+> * [Instale las herramientas de Core y las dependencias.](#v2)
+> * [Crear un proyecto de aplicación de función desde una plantilla específica del lenguaje.](#create-a-local-functions-project)
+> * [Registrar extensiones de enlace y desencadenador.](#register-extensions)
+> * [Definir el almacenamiento y otras conexiones.](#local-settings-file)
+> * [Cree una función de un desencadenador y una plantilla específica del lenguaje.](#create-func)
+> * [Ejecute la función localmente](#start)
+> * [Publicar el proyecto en Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Versiones de Core Tools
 
@@ -41,9 +53,6 @@ A menos que se indique lo contrario, los ejemplos de este artículo son para la 
 ### <a name="v2"></a>Versión 2.x
 
 La versión 2.x de las herramientas usa el entorno en tiempo de ejecución 2.x de Azure Functions, que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core 2.x, incluidas [Windows](#windows-npm), [macOS](#brew) y [Linux](#linux). En primer lugar debe instalar el SDK de .NET Core 2.x.
-
-> [!IMPORTANT]
-> Cuando se habilita paquetes de extensión en el archivo del proyecto host.json, no es necesario instalar .NET Core SDK 2.x. Para obtener más información, consulte [desarrollo Local con Azure Functions Core Tools y agrupaciones de extensión ](functions-bindings-register.md#local-development-with-azure-functions-core-tools-and-extension-bundles). Los conjuntos de extensiones requieren la versión 2.6.1071 de Core Tools o una versión posterior.
 
 #### <a name="windows-npm"></a>Windows
 
@@ -186,14 +195,20 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 
 | Configuración      | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
-| **`IsEncrypted`** | Cuando se establece en `true`, todos los valores se cifran mediante una clave del equipo local. Se usa con los comandos `func settings`. El valor predeterminado es `true`. Cuando `true`, todas las configuraciones que se agregan mediante `func settings add` se cifran mediante la clave del equipo local. Esto refleja cómo se almacena la configuración de function app en la configuración de la aplicación en Azure. Cifrar los valores de configuración local proporciona protección adicional para los datos importantes deben estar expuestos públicamente la local.settings.json.  |
+| **`IsEncrypted`** | Cuando se establece en `true`, todos los valores se cifran mediante una clave del equipo local. Se usa con los comandos `func settings`. El valor predeterminado es `false`. |
 | **`Values`** | Colección de opciones de configuración de la aplicación y las cadenas de conexión que se usan en la ejecución local. Estos valores se corresponden con la configuración de la aplicación en la aplicación de función en Azure, como [ `AzureWebJobsStorage` ]. Muchos desencadenadores y enlaces tienen una propiedad que hace referencia a una configuración de la aplicación de cadena de conexión, como `Connection` para el [desencadenador de Blob storage](functions-bindings-storage-blob.md#trigger---configuration). Para estas propiedades, se necesita una configuración de aplicación definido en el `Values` matriz. <br/>[`AzureWebJobsStorage`] es una aplicación requiere la configuración para los desencadenadores que no sean HTTP. <br/>Versión 2.x de Functions runtime requiere la [ `FUNCTIONS_WORKER_RUNTIME` ] configuración, que se genera para el proyecto de Core Tools. <br/> Cuando tenga el [emulador de Azure storage](../storage/common/storage-use-emulator.md) instalado localmente, puede establecer [ `AzureWebJobsStorage` ] a `UseDevelopmentStorage=true` y Core Tools usa el emulador. Esto es útil durante el desarrollo, pero debe probar con una conexión de almacenamiento real antes de la implementación. |
 | **`Host`** | La configuración que se muestra esta sección permite personalizar el proceso de host de Functions cuando se ejecuta localmente. |
 | **`LocalHttpPort`** | Establece el puerto predeterminado que se usa cuando al ejecutar el host de Functions local (`func host start` y `func run`). La opción de línea de comandos `--port` tiene prioridad sobre este valor. |
 | **`CORS`** | Define los orígenes permitidos para el [uso compartido de recursos entre orígenes (CORS)](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing). Los orígenes se proporcionan en una lista de valores separados por comas y sin espacios. Se admite el valor comodín (\*), lo que permite realizar solicitudes desde cualquier origen. |
 | **`ConnectionStrings`** | No utilice esta colección para las cadenas de conexión que utilizan los enlaces de función. Esta colección solo se usa por marcos de trabajo que normalmente se obtienen las cadenas de conexión desde el `ConnectionStrings` sección de configuración de una archivo, como [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). Las cadenas de conexión de este objeto se agregan al entorno con el tipo de proveedor de [System.Data.SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx). Los elementos de esta colección no se publican en Azure con otra configuración de aplicación. Debe agregar explícitamente estos valores para el `Connection strings` colección de la configuración de function app. Si está creando un [ `SqlConnection` ](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) en el código de función, debe almacenar el valor de cadena de conexión **configuración de la aplicación** en el portal con las otras conexiones. |
 
-[!INCLUDE [functions-environment-variables](../../includes/functions-environment-variables.md)]
+Esta configuración de la aplicación de función también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
+
+* [C# precompilado](functions-dotnet-class-library.md#environment-variables)
+* [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
+* [Script de F# (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Java](functions-reference-java.md#environment-variables)
+* [JavaScript](functions-reference-node.md#environment-variables)
 
 Cuando no se establece ninguna cadena de conexión de almacenamiento válida para [ `AzureWebJobsStorage` ] y no se usa el emulador, se muestra el mensaje de error siguiente:
 
@@ -307,7 +322,6 @@ El comando `host` solo es necesario en la versión 1.x.
 | **`--script-root --prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
 | **`--timeout -t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Enlace con `https://localhost:{port}` en lugar de con `http://localhost:{port}`. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
-| **`--enableAuth`** | Habilitar la canalización de control de autenticación completa.|
 
 En el caso de un proyecto de la biblioteca de clases de C# (.csproj), debe incluir la opción `--build` para generar el archivo .dll de biblioteca.
 
@@ -474,7 +488,6 @@ Para habilitar Application Insights para la aplicación de función:
 [!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
 
 Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Azure Functions Core Tools es [código abierto que se hospeda en GitHub](https://github.com/azure/azure-functions-cli).  

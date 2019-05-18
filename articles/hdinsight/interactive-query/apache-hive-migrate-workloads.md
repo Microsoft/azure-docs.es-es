@@ -7,12 +7,12 @@ ms.author: tacox
 ms.reviewer: jasonh
 ms.topic: howto
 ms.date: 04/24/2019
-ms.openlocfilehash: b181edc08c51a5afa8682858b330acc84da7d73d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: b39279e560cb1738ff9b33ec587562efd2ed4e8d
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64706998"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800949"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>Migre cargas de trabajo de Hive de Azure HDInsight 3.6 a 4.0 de HDInsight
 
@@ -29,8 +29,8 @@ En este artículo se trata a los siguientes temas:
 
 Una ventaja de Hive es la capacidad de exportar los metadatos a una base de datos externo (denominado la tienda de metadatos de Hive). El **Hive Metastore** es responsable de almacenar las estadísticas de tabla, incluida la ubicación de almacenamiento de tabla, nombres de columna e información de índices de tabla. El esquema de base de datos de la tienda de metadatos difiere entre las versiones de Hive. Siga este procedimiento para actualizar una tienda de metadatos de Hive de HDInsight 3.6 para que sea compatible con HDInsight 4.0.
 
-1. Cree una nueva copia de la tienda de metadatos externo. La versión 3.6 de HDInsight y HDInsight 4.0 requieren esquemas diferentes de la tienda de metadatos y no pueden compartir una tienda de metadatos único.
-1. Asociar la nueva copia de la tienda de metadatos (a) en un clúster de HDInsight 4.0 existente, o b) en un clúster que se crea por primera vez. Consulte [utilizan almacenes de metadatos externos en Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para más información acerca de cómo adjuntar una tienda de metadatos externo a un clúster de HDInsight. Una vez que se adjunta a la tienda de metadatos, se convertirán automáticamente en una tienda de metadatos 4.0 compatible.
+1. Cree una nueva copia de la tienda de metadatos externo. La versión 3.6 de HDInsight y HDInsight 4.0 requieren esquemas diferentes de la tienda de metadatos y no pueden compartir una tienda de metadatos único. Consulte [utilizan almacenes de metadatos externos en Azure HDInsight](../hdinsight-use-external-metadata-stores.md) para más información acerca de cómo adjuntar una tienda de metadatos externo a un clúster de HDInsight. 
+2. Inicie una acción de script en el clúster de HDI 3.6 con "Nodos principales" como el tipo de nodo para su ejecución. Pegue el siguiente URI en el cuadro de texto marcadas "URI de Script de Bash": https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh. En el cuadro de texto marcada "Argumentos", escriba el servername, base de datos, nombre de usuario y contraseña para el **copian** Hive metastore, separado por espacios. No incluya ". database.windows.net" al especificar el nombre del servidor.
 
 > [!Warning]
 > No se puede revertir la actualización que convierte el esquema de metadatos 3.6 de HDInsight en el esquema de HDInsight 4.0.

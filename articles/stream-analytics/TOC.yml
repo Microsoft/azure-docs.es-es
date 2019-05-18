@@ -34,6 +34,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Conceptos
   items:
+    - name: Elección de una tecnología de análisis de streaming
+      href: streaming-technologies.md
     - name: Tipos de entrada para un trabajo
       items:
         - name: Introducción a las entradas

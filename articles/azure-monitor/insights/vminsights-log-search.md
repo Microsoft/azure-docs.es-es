@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: bca1b96e7dc5673cabef26fe6b2cfb8daa41fbf5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 38979aa5cbb7eff0a949dfb77d6a29b2cdb5c67b
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702513"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602077"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Monitor para las máquinas virtuales de Azure recopila información de estado de mantenimiento y métricas de conexión, equipo y procesar los datos de inventario y rendimiento y la reenvía al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
@@ -101,7 +101,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 | Propiedad | Descripción |
 |:--|:--|
-|RemoteCountry |Nombre del país que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
+|RemoteCountry |El nombre del país/región RemoteIp de hospedaje.  Por ejemplo: *United States* |
 |RemoteLatitude |Latitud de geolocalización. Por ejemplo, *47.68* |
 |RemoteLongitude |Longitud de geolocalización. Por ejemplo, *-122.12* |
 
@@ -130,7 +130,7 @@ Puertos en una máquina que activamente acepten el tráfico entrante o potencial
 >- Este de EE. UU  
 >- Europa occidental
 >
-> Recopilar estos datos está habilitada en el otro [regiones admitidas](vminsights-onboard.md#log-analytics) para Azure Monitor para las máquinas virtuales. 
+> Recopilar estos datos está habilitada en el otro [regiones admitidas](vminsights-enable-overview.md#log-analytics) para Azure Monitor para las máquinas virtuales. 
 
 Todos los registros de VMBoundPort se identifican mediante los siguientes campos: 
 
@@ -204,7 +204,7 @@ Los registros con un tipo *ServiceMapProcess_CL* tienen datos de inventario para
 | CommandLine_s | Línea de comandos |
 | ExecutablePath_s | Ruta de acceso al archivo ejecutable |
 | WorkingDirectory_s | Directorio de trabajo |
-| UserName | Cuenta en la que se está ejecutando el proceso |
+| Nombre de usuario | Cuenta en la que se está ejecutando el proceso |
 | UserDomain | Dominio en el que se está ejecutando el proceso |
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo

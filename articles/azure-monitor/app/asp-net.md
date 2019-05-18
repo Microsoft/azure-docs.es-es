@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: mbullwin
-ms.openlocfilehash: 925ae2dd7b564eece4842cf25cc32b68d9e5c0b6
-ms.sourcegitcommit: 399db0671f58c879c1a729230254f12bc4ebff59
+ms.openlocfilehash: c69e925913d4dcb3a8bec34cbf25dac184ea65c5
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65472041"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65595561"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configuración de Application Insights para un sitio web de ASP.NET
 
@@ -28,7 +28,7 @@ Su instalación se realiza desde Visual Studio con unos pocos clics. Tiene la op
 ## <a name="prerequisites"></a>Requisitos previos
 Para agregar Application Insights al sitio web de ASP.NET, necesita:
 
-- Instale [Visual Studio 2017 para Windows](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
+- Instalar [2019 de Visual Studio para Windows](https://www.visualstudio.com/downloads/) con las cargas de trabajo siguientes:
     - Desarrollo de ASP.NET y web (desactive los componentes opcionales)
     - Desarrollo de Azure
 
@@ -37,7 +37,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 ## <a name="ide"></a> Paso 1: Agregue el SDK de Application Insights
 
 > [!IMPORTANT]
-> Las capturas de pantalla en este ejemplo se basan en Visual Studio 2017 versión 15.9.9. La experiencia para agregar Application Insights varía en las versiones de Visual Studio 2017, así como tipo de plantilla ASP.NET. Las versiones anteriores pueden tener texto alternativo como "Configurar Application Insights".
+> Las capturas de pantalla en este ejemplo son basadas en Visual Studio 2017, versión 15.9.9 y posterior. La experiencia para agregar Application Insights varía en las versiones de Visual Studio, así como tipo de plantilla ASP.NET. Las versiones anteriores pueden tener texto alternativo como "Configurar Application Insights".
 
 Haga clic en el nombre de la aplicación web en el Explorador de soluciones y elija **agregar** > **telemetría de Application Insights**
 

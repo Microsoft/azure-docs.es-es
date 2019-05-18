@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: ab5cbf6e24d6e7b5530addcee655e1cc4621d042
-ms.sourcegitcommit: 2c09af866f6cc3b2169e84100daea0aac9fc7fd0
+ms.openlocfilehash: 86a56e71b89e7408d1bc8ca0ee1dc8112bea368f
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64875982"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522139"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conocidos con Azure Monitor para VM (versión preliminar)
 
@@ -35,4 +35,4 @@ Los siguientes son problemas conocidos de la versión actual de la característi
 - Después de quitar los componentes de la solución del área de trabajo, puede continuar viendo el estado de mantenimiento de las máquinas virtuales de Azure; específicamente, datos de rendimiento y de mapa cuando se desplaza a cualquiera de las dos vistas en el portal. Eventualmente, los datos dejarán de aparecer en la vista de rendimiento y mapa después de algún tiempo; sin embargo, la vista de mantenimiento continuará mostrando el estado de mantenimiento de las máquinas virtuales. La opción **Probar ahora** estará disponible para repetir la incorporación solo desde las vistas Rendimiento y Mapa.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para conocer los requisitos y los métodos para habilitar la supervisión de máquinas virtuales, consulte [Implementación de Azure Monitor para VM](vminsights-onboard.md).
+Para comprender los requisitos y los métodos para habilitar la supervisión de las máquinas virtuales, revise [habilitar Azure Monitor para las máquinas virtuales](vminsights-enable-overview.md).

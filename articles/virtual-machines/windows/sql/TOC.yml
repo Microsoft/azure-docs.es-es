@@ -34,6 +34,8 @@
           href: virtual-machines-windows-sql-automated-backup-v2.md
     - name: Administración
       items:
+        - name: Ampliación de la compatibilidad para SQL 2008 y R2
+          href: virtual-machines-windows-sql-server-2008-eos-extend-support.md
         - name: Conexión a una máquina virtual
           href: virtual-machines-windows-sql-connect.md
         - name: Configurar el almacenamiento

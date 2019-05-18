@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 02/20/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 319623487f37308b5b8fe3fd107b01733825184d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cdfa5212f321cc6ec976ea9df301243acc54a23f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60233345"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65794858"
 ---
 # <a name="qna-maker-api-http-response-codes"></a>Códigos de respuesta HTTP de QnA Maker API
-Las API de [administración](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) de predicción devuelven códigos de respuesta HTTP. Mientras que los mensajes de respuesta incluyen información específica de una solicitud, el código de estado de respuesta HTTP es general. 
+Las API de [administración](https://go.microsoft.com/fwlink/?linkid=2092179) de predicción devuelven códigos de respuesta HTTP. Mientras que los mensajes de respuesta incluyen información específica de una solicitud, el código de estado de respuesta HTTP es general. 
 
 ### <a name="management"></a>Administración
 

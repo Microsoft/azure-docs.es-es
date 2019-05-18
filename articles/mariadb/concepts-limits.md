@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 04/15/2019
-ms.openlocfilehash: e191c656c5485377f62073f52dec0b3dbee7537b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b78671cc61a4fe755b908ed9f71052cbd0a70b38
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61041282"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550508"
 ---
 # <a name="limitations-in-azure-database-for-mariadb"></a>Limitaciones de Azure Database for MariaDB
 En las siguientes secciones se describen la capacidad, la compatibilidad del motor de almacenamiento, la compatibilidad de los privilegios, la compatibilidad de las instrucciones de manipulación de datos y los límites funcionales del servicio de base de datos.
@@ -82,6 +82,9 @@ Si las conexiones superan el límite, puede que reciba el error siguiente:
 
 ### <a name="vnet-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
+
+### <a name="storage-size"></a>Tamaño de almacenamiento
+- Consulte [planes de tarifa](concepts-pricing-tiers.md) para los límites de tamaño de almacenamiento por cada plan de tarifa.
 
 ## <a name="current-known-issues"></a>Problemas conocidos actualmente
 - La instancia del servidor MariaDB muestra una versión de servidor incorrecta después de establecer la conexión. Para obtener la versión del motor de instancias de servidor correcta, use el comando `select version();`.

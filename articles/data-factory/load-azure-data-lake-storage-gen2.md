@@ -9,20 +9,20 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 05/13/2019
 ms.author: jingwang
-ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f8af34207eddb613f7a59bd3e3d300555e10f985
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60547733"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65560729"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Carga de datos en Azure Data Lake Storage Gen2 con Azure Data Factory
 
 ‎Azure Data Lake Storage Gen2 es un conjunto de funcionalidades dedicadas al análisis de macrodatos basado en [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md). Permite establecer una conexión con los datos usando tanto el sistema de archivos como el almacenamiento de objetos.
 
-Azure Data Factory es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar el lago con datos de un amplio conjunto de almacenes de datos locales y basados en la nube y ahorrar tiempo al crear las soluciones de análisis. Para una lista detallada de conectores admitidos, consulte la tabla de [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
+Azure Data Factory (ADF) es un servicio de integración de datos en la nube totalmente administrado. Puede utilizar el servicio para rellenar el lago con datos de un amplio conjunto de almacenes de datos locales y basados en la nube y ahorrar tiempo al crear las soluciones de análisis. Para una lista detallada de conectores admitidos, consulte la tabla de [Almacenes de datos admitidos](copy-activity-overview.md#supported-data-stores-and-formats).
 
 Azure Data Factory ofrece una solución de movimiento de datos administrados y de escalabilidad horizontal. Debido a la arquitectura con escalabilidad horizontal de ADF, puede ingerir datos con un alto rendimiento. Para más información, consulte el [rendimiento de la actividad de copia](copy-activity-performance.md).
 
@@ -130,13 +130,6 @@ En este artículo se muestra cómo utilizar la herramienta Copiar datos de Data 
     ![Detalles de la supervisión de la ejecución de actividad](./media/load-azure-data-lake-storage-gen2/monitor-activity-run-details.png)
 
 16. Verifique que los datos se copian en la cuenta de Data Lake Storage Gen2.
-
-## <a name="best-practices"></a>Procedimientos recomendados
-
-Al copiar grandes volúmenes de datos desde un almacén de datos basado en archivos, se recomienda:
-
-- Particione los archivos en conjuntos de archivos de 10 TB a 30 TB.
-- No desencadenar demasiadas ejecuciones de copia simultáneas para evitar limitaciones en los almacenes de datos de origen y de destino. Puede comenzar con una ejecución de copia, supervisar el rendimiento y, gradualmente, agregar más según sea necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

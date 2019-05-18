@@ -3,8 +3,8 @@ title: Problemas de inicio de sesión en una aplicación de Microsoft | Microsof
 description: Solución de problemas comunes que aparecen al iniciar sesión en aplicaciones propias de Microsoft mediante Azure AD (por ejemplo, Office 365)
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/10/2018
-ms.author: celested
+ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256ca5c2f26a6bac6bdfd09e4dd6294ec5a569ca
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 26acb32828ae4829b3da5c3a1181dbde19b23d05
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60292204"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65825211"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas de inicio de sesión en una aplicación de Microsoft
 
@@ -205,7 +205,7 @@ Para comprobar el estado de la autenticación multifactor de un usuario, siga es
 
 9. Seleccione el usuario de la lista de usuarios y **habilite**, **deshabilite** o **exija** autenticación multifactor, según desee.
 
-   * **Nota**: Si un usuario se encuentra en un estado Exigido, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
+   * **Nota**: Si un usuario se encuentra en un estado **Exigido**, puede establecerlo en **Deshabilitado** temporalmente para permitirle volver a su cuenta. Una vez de vuelta, puede cambiar de nuevo su estado a **Habilitado** para solicitarle que vuelva a registrar su información de contacto durante su siguiente inicio de sesión. Como alternativa, puede seguir los pasos descritos en [Comprobar la información de contacto de autenticación de un usuario](#check-a-users-authentication-contact-info) para comprobar o establecer estos datos por ellos.
 
 ### <a name="check-a-users-authentication-contact-info"></a>Comprobar la información de contacto de autenticación de un usuario
 
@@ -435,7 +435,7 @@ Para comprobar o validar una directiva de acceso condicional:
 
 6. Haga clic en la directiva que le interese inspeccionar.
 
-7. Revise que no haya condiciones, asignaciones u otras configuraciones específicas que puedan estar bloqueando el acceso del usuario.
+7. Revisión de datos que están sin condiciones específicas, asignaciones u otras opciones que pudieran estar bloqueando el acceso de usuario.
 
    >[!NOTE]
    >Puede que desee deshabilitar temporalmente esta directiva para asegurarse de que no afecta a los inicios de sesión. Para ello, establezca el botón de alternancia **Habilitar directiva** en **No** y haga clic en el botón **Guardar**.
@@ -456,7 +456,7 @@ Para comprobar o validar la directiva de acceso condicional configurada actualme
 
 5.  A continuación, haga clic en **Todas las aplicaciones**.
 
-6.  Busque la aplicación que le interesa o en la que el usuario intenta iniciar sesión por el nombre para mostrar o el id. de aplicación.
+6.  Busque la aplicación que esté interesado o el usuario está intentando iniciar sesión mediante la aplicación Mostrar Id. de aplicación o del nombre
 
      >[!NOTE]
      >Si no ve la aplicación que busca, haga clic en el botón **Filtrar** y amplíe el ámbito de la lista a **Todas las aplicaciones**. Si desea ver más columnas, haga clic en el botón **Columnas** para agregar detalles adicionales para las aplicaciones.

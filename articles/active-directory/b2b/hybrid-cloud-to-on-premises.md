@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0e9536f009d478796bc9367a66630c02019dcd2
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2447aac825874779a543d25b0a70c339dcbf1473
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60412719"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768458"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Conceder a los usuarios B2B de Azure AD acceso a las aplicaciones locales
 
@@ -61,7 +61,7 @@ En el siguiente diagrama se proporciona información general de alto nivel de c�
 
 ### <a name="lifecycle-management-policies"></a>Directivas de administración del ciclo de vida
 
-Puede administrar los objetos de usuario B2B locales mediante directivas de administración del ciclo de vida. Por ejemplo: 
+Puede administrar los objetos de usuario B2B locales mediante directivas de administración del ciclo de vida. Por ejemplo:
 
 - Puede configurar directivas de autenticación multifactor (MFA) para el usuario invitado para usar MFA durante la autenticación de Application Proxy. Puede encontrar información en [Acceso condicional para usuarios de colaboración B2B](conditional-access.md).
 - Cualquier patrocinio, revisión de acceso, verificación de cuenta, etc. que se realice sobre el usuario B2B en la nube se aplica a los usuarios locales. Por ejemplo, si se elimina el usuario en la nube mediante las directivas de administración del ciclo de vida, también se elimina el usuario local mediante la sincronización MIM o la sincronización de Azure AD Connect. Para más información, consulte [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](../governance/manage-guest-access-with-access-reviews.md).

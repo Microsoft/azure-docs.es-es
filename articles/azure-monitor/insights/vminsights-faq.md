@@ -10,39 +10,39 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 420ba9d74532095c2d028fef8f549d532e5dfa05
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60596600"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522201"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor para VM (versión preliminar): preguntas más frecuentes
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para VM. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
 
 ## <a name="can-i-onboard-to-an-existing-workspace"></a>¿Puede incorporarse a un área de trabajo existente?
-Si las máquinas virtuales ya están conectadas a un área de trabajo de Log Analytics, puede seguir usando esa área de trabajo cuando se incorpore a Azure Monitor para máquinas virtuales, siempre que se encuentre en una de las regiones compatibles enumeradas [aquí](vminsights-onboard.md#prerequisites).
+Si las máquinas virtuales ya están conectadas a un área de trabajo de Log Analytics, puede seguir usando esa área de trabajo cuando se incorpore a Azure Monitor para máquinas virtuales, siempre que se encuentre en una de las regiones compatibles enumeradas [aquí](vminsights-enable-overview.md#prerequisites).
 
 Durante la incorporación, configuramos los contadores de rendimiento para el área de trabajo que harán que todas las máquinas virtuales que estén generando informes para el área de trabajo comiencen a recopilar esta información para su presentación y análisis en Azure Monitor para máquinas virtuales.  Como resultado, verá los datos de rendimiento de todas las máquinas virtuales conectadas al área de trabajo que seleccionó.  Solo se habilitan las características de mantenimiento y de asignación para las máquinas virtuales que ha especificado para la incorporación.
 
-Para obtener más información sobre qué contadores de rendimiento están habilitados, consulte nuestro artículo sobre [incorporación](vminsights-onboard.md).
+Para obtener más información sobre qué rendimiento se habilitan los contadores, consulte nuestra [habilitar información general sobre](vminsights-enable-overview.md#performance-counters-enabled) artículo.
 
 ## <a name="can-i-onboard-to-a-new-workspace"></a>¿Puede incorporarse a una nueva área de trabajo? 
-Si las máquinas virtuales no están conectadas actualmente a un área de trabajo de Log Analytics existente, deberá crear un área de trabajo para almacenar los datos.  Un área de trabajo predeterminada se crea automáticamente si configura una sola máquina virtual de Azure para Azure Monitor para máquinas virtuales a través de Azure Portal.
+Si las máquinas virtuales no están conectadas actualmente a un área de trabajo de Log Analytics existente, deberá crear un área de trabajo para almacenar los datos. Un área de trabajo predeterminada se crea automáticamente si configura una sola máquina virtual de Azure para Azure Monitor para máquinas virtuales a través de Azure Portal.
 
-Si decide usar el método basado en scripts, estos pasos se tratan en el artículo sobre [incorporación](vminsights-onboard.md). 
+Si decide usar el método basado en la secuencia de comandos, se tratan estos pasos en el [habilitar Azure Monitor para las máquinas virtuales (versión preliminar) mediante la plantilla de Resource Manager o Azure PowerShell](vminsights-enable-at-scale-powershell.md) artículo. 
 
 ## <a name="what-do-i-do-if-my-vm-is-already-reporting-to-an-existing-workspace"></a>¿Qué puedo hacer si mi máquina virtual ya está generando informes para un área de trabajo?
 Si ya está recopilando datos de las máquinas virtuales, es posible que ya las haya configurado para que generen ubfirnes de datos a un área de trabajo de Log Analytics existente.  Siempre y cuando el área de trabajo se encuentre en una de nuestras regiones admitidas, podrá habilitar Azure Monitor para máquinas virtuales en esa área de trabajo preexistente.  Si el área de trabajo que ya está usando no está en una de nuestras regiones admitidas, no podrá incorporar Azure Monitor para máquinas virtuales en este momento.  Estamos trabajando para admitir más regiones.
 
 >[!NOTE]
->Configuramos los contadores de rendimiento para el área de trabajo que afecta a todas las máquinas virtuales que se comunican con el área de trabajo, independientemente de si ha elegido incorporarlas a Azure Monitor para máquinas virtuales. Para obtener más detalles sobre cómo se configuran los contadores de rendimiento para el área de trabajo, consulte nuestra [documentación](../../azure-monitor/platform/data-sources-performance-counters.md). Para obtener información acerca de los contadores configurados para Azure Monitor para máquinas virtuales, consulte nuestra [documentación de incorporación](vminsights-onboard.md#performance-counters-enabled).  
+>Configuramos los contadores de rendimiento para el área de trabajo que afecta a todas las máquinas virtuales que se comunican con el área de trabajo, independientemente de si ha elegido incorporarlas a Azure Monitor para máquinas virtuales. Para obtener más detalles sobre cómo se configuran los contadores de rendimiento para el área de trabajo, consulte nuestra [documentación](../../azure-monitor/platform/data-sources-performance-counters.md). Para obtener información acerca de los contadores configurados para Azure Monitor para las máquinas virtuales, consulte nuestra [habilitar Azure Monitor para máquinas virtuales](vminsights-enable-overview.md#performance-counters-enabled) artículo.  
 
 ## <a name="why-did-my-vm-fail-to-onboard"></a>¿Por qué no se pudo incorporar mi máquina virtual?
 Al incorporar una máquina virtual de Azure desde Azure Portal, se producen los pasos siguientes:
 
 * Se crea un área de trabajo de Log Analytics predeterminada si se ha seleccionado la opción.
-* Los contadores de rendimiento se configuran para el área de trabajo seleccionada. Si se produce un error en este paso, verá que algunas de las tablas y gráficos de rendimiento no muestran datos para la máquina virtual que incorporó. Puede solucionar este problema si ejecuta el script de PowerShell documentado [aquí](vminsights-onboard.md#enable-with-powershell).
+* Los contadores de rendimiento se configuran para el área de trabajo seleccionada. Si se produce un error en este paso, verá que algunas de las tablas y gráficos de rendimiento no muestran datos para la máquina virtual que incorporó. Puede solucionar este problema si ejecuta el script de PowerShell documentado [aquí](vminsights-enable-at-scale-powershell.md#enable-performance-counters).
 * Se instala el agente de Log Analytics en las máquinas virtuales de Azure mediante la extensión de máquina virtual si se determina que es necesario.  
 * Se instala el agente de la dependencia de asignación de Azure Monitor para máquinas virtuales mediante una extensión si se determina que es necesario.  
 * De ser necesario, se configuran los componentes de Azure Monitor que admiten la característica de estado y la máquina virtual se configura para notificar sobre los datos de estado.
@@ -89,7 +89,7 @@ Los umbrales de los siguientes criterios de mantenimiento de Linux no son modifi
 Las reglas de alertas que se definen para cada criterio de mantenimiento no se muestran en Azure Portal. Solo puede habilitar o deshabilitar una regla de alerta de estado en la [API Workload Monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Además, no puede asignar un [grupo de acciones de Azure Monitor](../../azure-monitor/platform/action-groups.md) para las alertas de estado desde Azure Portal. Solo puede usar la API de configuración de notificaciones para configurar un grupo de acciones que se desencadene cada vez que se desencadena una alerta de estado. Actualmente, puede asignar grupos de acciones en una máquina virtual, de tal forma que todas las *alertas de estado* desencadenadas en la máquina virtual desencadenen los mismos grupos de acciones. A diferencia de las alertas de Azure tradicionales, no existe el concepto de un grupo de acciones independiente para cada regla de alertas de mantenimiento. Además, solo se admiten los grupos de acciones configurados para enviar notificaciones mediante un correo electrónico o SMS cuando se desencadenan alertas de estado. 
 
 ## <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>No veo algunos o ninguno de los datos en el gráfico de rendimiento de la máquina virtual
-Si no ve los datos de rendimiento en la tabla del disco o en algunos de los gráficos de rendimiento, es posible que los contadores de rendimiento en el área de trabajo no estén configurados. Para solucionar este problema, ejecute el siguiente [script de PowerShell](vminsights-onboard.md#enable-with-powershell).
+Si no ve los datos de rendimiento en la tabla del disco o en algunos de los gráficos de rendimiento, es posible que los contadores de rendimiento en el área de trabajo no estén configurados. Para solucionar este problema, ejecute el siguiente [script de PowerShell](vminsights-enable-at-scale-powershell.md#enable-with-powershell).
 
 ## <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>¿En qué se diferencian la característica de asignación de Azure Monitor para máquinas virtuales y Service Map?
 La característica de asignación de Azure Monitor para máquinas virtuales está basada en Service Map, pero se diferencia en los siguientes aspectos:
@@ -138,4 +138,4 @@ Si ha configurado Azure Monitor con un área de trabajo de Log Analytics mediant
 En esta condición, verá la opción **Probar ahora** al abrir la máquina virtual y seleccionar la opción **Insights (versión preliminar)** en el panel izquierdo, incluso después de que se haya instalado en la máquina virtual.  Sin embargo, no se le presentarán opciones como ocurriría si estas VM no estuvieran incorporadas en Azure Monitor para VM. 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte [Incorporación de Azure Monitor para VM](vminsights-onboard.md) para conocer los requisitos y los métodos necesarios para habilitar la supervisión de máquinas virtuales.
+Revisión [habilitar Azure Monitor para las máquinas virtuales](vminsights-enable-overview.md) para comprender los requisitos y los métodos para habilitar la supervisión de las máquinas virtuales.

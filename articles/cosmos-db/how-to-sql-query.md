@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: mjbrown
-ms.openlocfilehash: a5cc6bfca67f3d90467fa2339bc991c1f0bbeadf
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d1ef650a3f12d8b97cbad3e9aecf31c8b81a038
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65148952"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796159"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Ejemplos de consultas SQL para Azure Cosmos DB
 
@@ -139,7 +139,7 @@ Los resultados de consulta son:
     }]
 ```
 
-La siguiente consulta devuelve todos los nombres proporcionados de los elementos secundarios de la familia cuyo `id` coincide con `WakefieldFamily`, ordenada por la ciudad de residencia.
+La siguiente consulta devuelve todos los nombres proporcionados de los elementos secundarios de la familia cuyo `id` coincide con `WakefieldFamily`, ordenada por ciudad.
 
 ```sql
     SELECT c.givenName
@@ -511,8 +511,8 @@ Puede usar los operadores binarios admitidos siguientes:
 |Aritméticos | +,-,*,/,% |
 |Bit a bit    | \|, &, ^, <<, >>, >>> (desplazamiento a la derecha con relleno de ceros) |
 |Lógicos    | AND, OR, NOT      |
-|De comparación | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|string     |  \|\| (concatenar) |
+|Comparación | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
+|String     |  \|\| (concatenar) |
 
 Las consultas siguientes utilizan los operadores binarios:
 
@@ -550,13 +550,13 @@ En la siguiente tabla se muestra el resultado de las comparaciones de igualdad e
 
 | **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
-| **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** |
+| **Undefined** | No definido | No definido | No definido | No definido | No definido | No definido | No definido |
+| **Null** | No definido | **OK (CORRECTO)** | No definido | No definido | No definido | No definido | No definido |
+| **Boolean** | No definido | No definido | **OK (CORRECTO)** | No definido | No definido | No definido | No definido |
+| **Number** | No definido | No definido | No definido | **OK (CORRECTO)** | No definido | No definido | No definido |
+| **String** | No definido | No definido | No definido | No definido | **OK (CORRECTO)** | No definido | No definido |
+| **Object** | No definido | No definido | No definido | No definido | No definido | **OK (CORRECTO)** | No definido |
+| **Array** | No definido | No definido | No definido | No definido | No definido | No definido | **OK (CORRECTO)** |
 
 Para los operadores de comparación como `>`, `>=`, `!=`, `<`, y `<=`, comparación entre los tipos o entre dos objetos o matrices genera `Undefined`.  
 
@@ -568,19 +568,19 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 
 **operator OR**
 
-| OR | True  | False | Undefined |
+| OR | True  | False | No definido |
 | --- | --- | --- | --- |
 | True  |True  |True  |True  |
-| False |True  |False |Undefined |
-| Undefined |True  |Undefined |Undefined |
+| False |True  |False |No definido |
+| No definido |True  |No definido |No definido |
 
 **operator AND**
 
-| Y | True  | False | Undefined |
+| Y | True  | False | No definido |
 | --- | --- | --- | --- |
-| True  |True  |False |Undefined |
+| True  |True  |False |No definido |
 | False |False |False |False |
-| Undefined |Undefined |False |Undefined |
+| No definido |No definido |False |No definido |
 
 **operator NOT**
 
@@ -588,7 +588,7 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 | --- | --- |
 | True  |False |
 | False |True  |
-| Undefined |Undefined |
+| No definido |No definido |
 
 ## <a name="between-keyword"></a>Palabra clave BETWEEN
 
@@ -867,6 +867,13 @@ Los resultados son:
         ]
       }
     ]
+```
+
+La siguiente consulta SQL es otro ejemplo del uso de la matriz dentro de las subconsultas. Esta consulta se obtiene todos los nombres proporcionados distintos de los elementos secundarios en una matriz.
+
+```sql
+SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames
+FROM f
 ```
 
 
@@ -1287,11 +1294,11 @@ SQL API admite las siguientes funciones de agregado. SUM y AVG operan en valores
 
 | Función | DESCRIPCIÓN |
 |-------|-------------|
-| COUNT | Devuelve el número de elementos de la expresión. |
+| RECUENTO | Devuelve el número de elementos de la expresión. |
 | SUM   | Devuelve la suma de todos los valores de la expresión. |
-| MÍN   | Devuelve el valor mínimo de la expresión. |
+| MÍN.   | Devuelve el valor mínimo de la expresión. |
 | MÁX   | Devuelve el valor máximo de la expresión. |
-| MEDIA   | Devuelve la media de los valores de la expresión. |
+| AVG   | Devuelve la media de los valores de la expresión. |
 
 También puede agregar a través de los resultados de una iteración de matriz. Para obtener más información, consulte el [iteración](#Iteration) sección.
 
@@ -1979,7 +1986,7 @@ El proveedor de consultas admite las siguientes expresiones escalares:
 
 - Valores constantes, incluidos los valores constantes de los tipos de datos primitivos durante la evaluación de la consulta.
   
-- Expresiones de índice de propiedad o matriz que hacen referencia a la propiedad de un objeto o un elemento de matriz. Por ejemplo: 
+- Expresiones de índice de propiedad o matriz que hacen referencia a la propiedad de un objeto o un elemento de matriz. Por ejemplo:
   
   ```
     family.Id;

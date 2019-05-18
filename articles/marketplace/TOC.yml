@@ -463,3 +463,25 @@
           href: ./cloud-partner-portal-orig/cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Obtención de soporte técnico
       href: ./cloud-partner-portal-orig/cloud-partner-portal-support-for-cloud-partner-portal.md
+- name: Portal de Commercial Marketplace en el Centro de partners
+  items:
+    - name: Información general
+      items:
+        - name: ¿Qué es Commercial Marketplace?
+          href: ./partner-center-portal/commercial-marketplace-overview.md
+    - name: Administración de cuentas
+      items:
+        - name: Creación de una cuenta del Centro de partners
+          href: ./partner-center-portal/create-account.md
+        - name: Administración de la cuenta del Centro de partners
+          href: ./partner-center-portal/manage-account.md
+        - name: Búsqueda o creación de una cuenta profesional de empresa
+          href: ./partner-center-portal/company-work-accounts.md
+    - name: Crear una nueva oferta
+      items:
+        - name: Creación de una oferta SaaS
+          href: ./partner-center-portal/create-new-saas-offer.md
+    - name: Estado de publicación
+      href: ./partner-center-portal/publishing-status.md
+    - name: Actualización de oferta existente
+      href: ./partner-center-portal/update-existing-offer.md

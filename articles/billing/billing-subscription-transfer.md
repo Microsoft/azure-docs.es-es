@@ -2,41 +2,36 @@
 title: Transferencia de la propiedad de suscripción de Azure a otra cuenta | Microsoft Docs
 description: Transferencia de una suscripción de Azure a otro usuario y algunas preguntas frecuentes (P+F) sobre el proceso
 keywords: transferencia de la suscripción de Azure, suscripción de transferencia de Azure, traslado de la suscripción de Azure a otro propietario, cambio de propietario de la suscripción de Azure, transferencia de la suscripción de Azure a otra cuenta
-services: ''
-documentationcenter: ''
-author: genlin
-manager: adpick
-editor: ''
+author: bandersmsft
+manager: amberb
 tags: billing,top-support-issue
-ms.assetid: c8ecdc1e-c9c5-468c-a024-94ae41e64702
 ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 05/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b3f070cafa026679eb9322ac7ba2eafe4c7e233d
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60371162"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65826759"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
 Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el administrador de la cuenta y transferir la titularidad de la facturación. Para cambiar su suscripción por una oferta diferente, consulte [Cambio de la suscripción de Azure a otra oferta](billing-how-to-switch-azure-offer.md).
 
 > [!IMPORTANT]
-> 
+>
 > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para obtener más información, consulte [preguntas más frecuentes y problemas conocidos con managed identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferencia de la propiedad de una suscripción de Azure
 
 > [!VIDEO https://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/Transfer-an-Azure-subscription/player]
->
->
+
 
 1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/Subscriptions) como administrador de la cuenta. Para saber quién es el administrador de la cuenta de la suscripción, consulte [Preguntas más frecuentes](#faq).
 
@@ -51,7 +46,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
 1. Especifique el destinatario.
 
    > [!IMPORTANT]
-   > 
+   >
    > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para obtener más información, consulte [preguntas más frecuentes y problemas conocidos con managed identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Cuadro de diálogo Transferir suscripción](./media/billing-subscription-transfer/image2.PNG)
@@ -64,26 +59,26 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
    ![Página web de primera transferencia de suscripción](./media/billing-subscription-transfer/image4.png)
 
    ![Página web de segunda transferencia de suscripción](./media/billing-subscription-transfer/image5.png)
-1. ¡Éxito! La suscripción ya está transferida.
+1. Correcto La suscripción ya está transferida.
 
 <a id="EA"></a>
 
-## <a name="transfer-subscription-ownership-for-enterprise-agreement-ea-customers"></a>Transferencia de la propiedad de suscripción para clientes de Contrato Enterprise (EA)
+## <a name="transfer-subscription-ownership-for-ea-customers"></a>Transferir la propiedad de suscripción para los clientes de EA
 
 El administrador de la empresa puede transferir la propiedad de las suscripciones de una inscripción. Para empezar, vea [Transfer Account Ownership ](https://ea.azure.com/helpdocs/changeAccountOwnerForASubscription) (Transferencia de la propiedad de la cuenta) en el portal de EA.
 
-## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Pasos siguientes después de aceptar la propiedad de una suscripción
+## <a name="next-steps-after-accepting-ownership"></a>Pasos siguientes después de aceptar la propiedad
 
 1. Ahora es el administrador de cuenta. Revise y actualice el administrador del servicio, los coadministradores y otros roles de RBAC. Para obtener más información, vea [Agregar o cambiar los administradores de la suscripción de Azure](billing-add-change-azure-subscription-administrator.md) y [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).
 1. Actualice las credenciales asociadas a los servicios de esta suscripción:
    1. Certificados de administración que conceden al usuario derechos administrativos a los recursos de la suscripción. Para obtener más información, consulte [Crear y cargar un certificado de administración para Azure](../cloud-services/cloud-services-certs-create.md)
    1. Claves de acceso para servicios como Almacenamiento. Para más información, consulte [Acerca de las cuentas de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
-   1. Credenciales de acceso remoto para servicios como Azure Virtual Machines. 
+   1. Credenciales de acceso remoto para servicios como Azure Virtual Machines.
 1. Si trabaja con un asociado, considere la posibilidad de actualizar el identificador del asociado en esta suscripción. Puede actualizar el identificador de asociado en [Azure Portal](https://portal.azure.com).
 
 <a id="supported"></a>
 
-## <a name="whats-supported"></a>Lo que se admite:
+## <a name="supported-offers"></a>Ofertas admitidas
 
 La transferencia de las suscripciones de autoservicio está disponible para las ofertas o tipos de suscripciones que se muestran en la tabla siguiente. Actualmente no se puede transferir una evaluación gratuita o las suscripciones de [Azure bajo licencia Open (AIO)](https://azure.microsoft.com/offers/ms-azr-0111p/). Para ver una solución alternativa, consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md). Para transferir otras suscripciones, como [Patrocinio](https://azure.microsoft.com/offers/ms-azr-0036p/) o planes de soporte técnico, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
@@ -119,7 +114,12 @@ Todos los recursos, como las máquinas virtuales, los discos y los sitios web, s
 
 ### <a id="no-button"></a>¿Por qué no veo el botón "Transfer subscription" (Transferir suscripción)?
 
-Desafortunadamente, la transferencia de suscripción de autoservicio no está disponible para su país u oferta. Para transferir su suscripción, [póngase en contacto con el soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Por desgracia, la transferencia de suscripción de autoservicio no está disponible para su oferta. Ver la lista de ofertas admitidas en el [admite ofertas](#supported-offers) sección de este artículo.
+
+### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>¿Puedo transferir la propiedad a una cuenta en otro país?
+
+Lamentablemente, Azure no permite la transferencia entre país. Para transferir su suscripción cross country, [póngase en contacto con soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>¿Provocan las transferencias de suscripciones un tiempo de inactividad en el servicio?
 
@@ -156,9 +156,9 @@ El remitente es el responsable del pago de cualquier uso que se notificó hasta 
 
 La oferta debe permanecer igual. Para cambiar la oferta, consulte [Cambio de la suscripción de Azure a otra oferta](billing-how-to-switch-azure-offer.md).
 
-### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-country"></a>¿Puedo transferir una suscripción a una cuenta de usuario de otro país?
+### <a name="can-i-transfer-a-subscription-to-a-user-account-in-another-countryregion"></a>¿Puedo transferir una suscripción a una cuenta de usuario en otro país o región?
 
-No, si se transfiere una suscripción a una cuenta de usuario en otro país, no es compatible. La cuenta de usuario del destinatario debe estar en el mismo país.
+No, no se admite la transferencia de una suscripción a una cuenta de usuario en otro país o región. Cuenta de usuario del destinatario debe estar en el mismo país o región.
 
 ### <a name="can-the-recipient-use-a-different-payment-method"></a>¿Puede usar el destinatario un método de pago diferente?
 
@@ -172,6 +172,10 @@ Para aceptar una transferencia de suscripción, se debe proporcionar una tarjeta
 
 Si no se puede transferir la propiedad de suscripción, puede migrar manualmente los recursos. Consulte [Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción](../azure-resource-manager/resource-group-move-resources.md).
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Revise y actualice el administrador del servicio, los coadministradores y otros roles de RBAC. Para obtener más información, vea [Agregar o cambiar los administradores de la suscripción de Azure](billing-add-change-azure-subscription-administrator.md) y [Administración del acceso mediante RBAC y Azure Portal](../role-based-access-control/role-assignments-portal.md).

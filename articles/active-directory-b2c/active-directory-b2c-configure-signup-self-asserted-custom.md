@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6eaace7589488a9466e78597e0091c84dabb5155
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a64c58d23543279a3a32d2d7b612b43dee8741eb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64685290"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65768007"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Adición de notificaciones y personalización de la entrada del usuario mediante directivas personalizadas en Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-En este artículo, va a agregar una nueva entrada (notificación) que el usuario proporciona durante el recorrido de registro en Azure Active Directory (Azure AD) B2C.  Tendrá que configurar la entrada como una lista desplegable y especificar si es o no necesaria.
+En este artículo, va a agregar una nueva entrada (notificación) que el usuario proporciona durante el recorrido de registro en Azure Active Directory (Azure AD) B2C.  Configurar la entrada como una lista desplegable y definir si es necesario.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,12 +29,12 @@ Complete los pasos del artículo [Introducción a las directivas personalizadas]
 
 ## <a name="add-claims"></a>Adición de notificaciones
 
-Para recopilar los datos iniciales de los usuarios, se utiliza el recorrido de registro o inicio de sesión. Las reclamaciones posteriores se pueden recopilar mediante el recorrido de edición de perfil del usuario. Siempre que Azure AD B2C recopila información del usuario de forma directa e interactiva, Identity Experience Framework utiliza un proveedor que confirma su propia identidad.
+Para recopilar los datos iniciales de los usuarios, se utiliza el recorrido de registro o inicio de sesión. Las reclamaciones posteriores se pueden recopilar mediante el recorrido de edición de perfil del usuario. Cada vez que Azure AD B2C recopila información directamente del usuario de forma interactiva, Identity Experience Framework utiliza su proveedor autoafirmado.
 
 
 ### <a name="define-the-claim"></a>Definición de la notificación
 
-Vamos a pedir al usuario que indique su ciudad. Agregue lo siguiente al elemento **ClaimsSchema** del archivo de directiva TrustFrameworkBase:
+Vamos a pedir al usuario su ciudad. Agregue lo siguiente al elemento **ClaimsSchema** del archivo de directiva TrustFrameworkBase:
 
 ```xml
 <ClaimType Id="city">
@@ -51,7 +51,7 @@ Los elementos siguientes se usan para definir la notificación:
 - **UserHelpText**: ayuda al usuario a entender los requisitos.
 - **UserInputType**: puede ser un cuadro de texto, un botón de selección, una lista desplegable o una selección múltiple.
 
-#### <a name="textbox"></a>TextBox
+#### <a name="textbox"></a>Cuadro de texto
 
 ```xml
 <ClaimType Id="city">

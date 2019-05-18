@@ -3,8 +3,8 @@ title: Referencia de token de Id. de Microsoft identity platform | Microsoft Doc
 description: Obtenga información sobre cómo usar los id_tokens emitida por la versión 1.0 de Azure AD y los puntos de conexión de la plataforma (v2.0) de Microsoft identity.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5c296f14fd9fdc3a7555412555ea1a851f9a7b8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: f2c99caa46522f9b1e5d6334da8f10a0f4039899
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410049"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540307"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de identificador de plataforma de identidad de Microsoft
 
@@ -59,8 +59,8 @@ Puede ver este token de ejemplo de la versión v2.0 en [jwt.ms](https://jwt.ms/#
 |-----|--------|-------------|
 |`typ` | Cadena: siempre "JWT" | Indica que el token es un token JWT.|
 |`alg` | string | Indica el algoritmo que se usó para firmar el token. Ejemplo: "RS256" |
-|`kid` | string | Huella digital de la clave pública utilizada para firmar este token. Se emite en los `id_tokens` de las versiones 1.0 y 2.0. |
-|`x5t` | string | Es igual (en uso y valor) a `kid`. Sin embargo, esta es una notificación heredada emitida solo en los `id_tokens` de la versión 1.0 para fines de compatibilidad. |
+|`kid` | String | Huella digital de la clave pública utilizada para firmar este token. Se emite en los `id_tokens` de las versiones 1.0 y 2.0. |
+|`x5t` | String | Es igual (en uso y valor) a `kid`. Sin embargo, esta es una notificación heredada emitida solo en los `id_tokens` de la versión 1.0 para fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga
 
@@ -75,18 +75,18 @@ Esta lista muestra las notificaciones que se encuentran en la mayoría de los id
 |`nbf` |  entero, una marca de tiempo de UNIX | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento.|
 |`exp` |  entero, una marca de tiempo de UNIX | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento.  Es importante tener en cuenta que un recurso puede rechazar el token antes de esta hora: si, por ejemplo, es necesario un cambio en la autenticación o se ha detectado una revocación del token. |
 | `c_hash`| string |El hash de código se incluye en los tokens de identificador solo cuando se emite el token de identificador con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| string |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token de identificador se emite con un token de acceso de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| String |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token de identificador se emite con un token de acceso de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
 |`aio` | Cadena opaca | Una notificación interna usada por Azure AD para registrar los datos para la reutilización de tokens. Se debe omitir.|
-|`preferred_username` | string | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización. El `profile` ámbito se requiere para recibir esta notificación.|
-|`email` | string | La notificación `email` está presente de manera predeterminada para las cuentas de invitado que tengan una dirección de correo electrónico.  La aplicación puede solicitar la notificación de correo electrónico para los usuarios administrados (del mismo inquilino que el recurso) mediante la [notificación opcional](active-directory-optional-claims.md) `email`.  En el punto de conexión v2.0, la aplicación también puede solicitar el ámbito `email` de OpenID Connect. No es necesario que solicite ambos, la notificación opcional y el ámbito para obtener la notificación.  La notificación de correo electrónico solo es compatible con correo direccionable desde la información del perfil del usuario. |
-|`name` | string | La notificación `name` proporciona un valor en lenguaje natural que identifica al firmante del token. El valor no está garantizado que es único, es mutable y está diseñado para usarse solo con fines de visualización. El `profile` ámbito se requiere para recibir esta notificación. |
+|`preferred_username` | String | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización. El `profile` ámbito se requiere para recibir esta notificación.|
+|`email` | String | La notificación `email` está presente de manera predeterminada para las cuentas de invitado que tengan una dirección de correo electrónico.  La aplicación puede solicitar la notificación de correo electrónico para los usuarios administrados (del mismo inquilino que el recurso) mediante la [notificación opcional](active-directory-optional-claims.md) `email`.  En el punto de conexión v2.0, la aplicación también puede solicitar el ámbito `email` de OpenID Connect. No es necesario que solicite ambos, la notificación opcional y el ámbito para obtener la notificación.  La notificación de correo electrónico solo es compatible con correo direccionable desde la información del perfil del usuario. |
+|`name` | String | La notificación `name` proporciona un valor en lenguaje natural que identifica al firmante del token. El valor no está garantizado que es único, es mutable y está diseñado para usarse solo con fines de visualización. El `profile` ámbito se requiere para recibir esta notificación. |
 |`nonce`| string | El valor nonce coincide con el parámetro incluido en la solicitud /authorize original al IDP. Si no coincide, la aplicación debe rechazar el token. |
 |`oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en el sistema de identidades Microsoft, en este caso, una cuenta de usuario. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que el `oid` permite que varias aplicaciones pongan en correlación los usuarios, el `profile` ámbito se requiere para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 |`roles`| Matriz de cadenas | El conjunto de roles que se asignaron al usuario que ha iniciado sesión. |
 |`rh` | Cadena opaca |Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. El firmante es un identificador en pares: es único para un identificador de aplicación determinado. Si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación del firmante. Esto puede o no es posible que se desee dependiendo de los requisitos de arquitectura y privacidad. |
 |`tid` | Cadena, un identificador GUID | Un GUID que representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El `profile` ámbito se requiere para recibir esta notificación. |
-|`unique_name` | string | Proporciona un valor en lenguaje natural que identifica al firmante del token. Este valor no está garantizado que sea único dentro de un inquilino y debe usarse solo con fines de visualización. Solo se emite en los `id_tokens` de la versión 1.0. |
+|`unique_name` | String | Proporciona un valor en lenguaje natural que identifica al firmante del token. Este valor no está garantizado que sea único dentro de un inquilino y debe usarse solo con fines de visualización. Solo se emite en los `id_tokens` de la versión 1.0. |
 |`uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`ver` | Cadena, 1.0 o 2.0 | Indica la versión del id_token. |
 

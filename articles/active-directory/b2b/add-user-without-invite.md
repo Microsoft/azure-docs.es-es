@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5db5eb9c0e0493d906345892fcc5f2872a3e0e14
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60357144"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65812454"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Agregar usuarios invitados de colaboración B2B sin un correo electrónico o un vínculo de invitación
 
 Ahora puede invitar a usuarios mediante el envío de un vínculo directo a una aplicación compartida. Con este método, los usuarios invitados ya no necesitan usar el correo electrónico de invitación, excepto en algunos casos especiales. Un usuario invitado hace clic en el vínculo de la aplicación, revisa y acepta los términos de privacidad y, después, accede sin problemas a la aplicación. Para más información, consulte [Canje de invitación de colaboración B2B](redemption-experience.md).   
 
-Antes de que este nuevo método estuviera disponible, podía invitar a los usuarios sin necesidad del correo electrónico de invitación al agregar un invitador (de su organización o de una organización asociada) al rol de directorio **Invitador de usuarios** y, después, hacer que el invitador agregara a los usuarios al directorio, los grupos o las aplicaciones a través de la interfaz de usuario o de PowerShell. (Si usa PowerShell, puede suprimir por completo el correo electrónico de invitación). Por ejemplo: 
+Antes de que este nuevo método estuviera disponible, podía invitar a los usuarios sin necesidad del correo electrónico de invitación al agregar un invitador (de su organización o de una organización asociada) al rol de directorio **Invitador de usuarios** y, después, hacer que el invitador agregara a los usuarios al directorio, los grupos o las aplicaciones a través de la interfaz de usuario o de PowerShell. (Si usa PowerShell, puede suprimir por completo el correo electrónico de invitación). Por ejemplo:
 
 1. Un usuario de la organización anfitriona (por ejemplo, WoodGrove) invita a un usuario de la organización asociada (por ejemplo, Sam@litware.com) como invitado.
 2. El administrador de la organización anfitriona [configura directivas](delegate-invitations.md) que permiten a Sam identificar y agregar otros usuarios de la organización asociada (Litware). (Debe agregarse a Sam al rol **Invitador de usuarios**).

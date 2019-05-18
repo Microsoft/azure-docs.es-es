@@ -8,14 +8,14 @@ tags: complex data types; compound data types; aggregate data types
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 05/13/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 00606ed5cbcd8681748241e9404c6e6e5aa95021
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 10400b0342fbe8667b22fea82c6446713d019e0d
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65147316"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597337"
 ---
 # <a name="how-to-model-complex-data-types-in-azure-search"></a>Modelado de tipos de datos complejos en Azure Search
 
@@ -36,26 +36,26 @@ El siguiente documento JSON se compone de campos simples y complejos. Campos com
 
 ```json
 {
-    "HotelId": "1",
-    "HotelName": "Secret Point Motel",
-    "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
-    "Address": {
-        "StreetAddress": "677 5th Ave",
-        "City": "New York",
-        "StateProvince": "NY"
+  "HotelId": "1",
+  "HotelName": "Secret Point Motel",
+  "Description": "Ideally located on the main commercial artery of the city in the heart of New York.",
+  "Address": {
+    "StreetAddress": "677 5th Ave",
+    "City": "New York",
+    "StateProvince": "NY"
+  },
+  "Rooms": [
+    {
+      "Description": "Budget Room, 1 Queen Bed (Cityside)",
+      "Type": "Budget Room",
+      "BaseRate": 96.99,
     },
-    "Rooms": [
-        {
-            "Description": "Budget Room, 1 Queen Bed (Cityside)",
-            "Type": "Budget Room",
-            "BaseRate": 96.99,
-        },
-        {
-            "Description": "Deluxe Room, 2 Double Beds (City View)",
-            "Type": "Deluxe Room",
-            "BaseRate": 150.99,
-        },
-    ]
+    {
+      "Description": "Deluxe Room, 2 Double Beds (City View)",
+      "Type": "Deluxe Room",
+      "BaseRate": 150.99,
+    },
+  ]
 }
 ```
 
@@ -68,67 +68,34 @@ El ejemplo siguiente muestra un esquema de índice JSON con campos simples, cole
 <!---
 For indexes used in a [push-model data import](search-what-is-data-import.md) strategy, where you are pushing a JSON data set to an Azure Search index, you can only have the basic syntax shown here: single complex types like `Address`, or a `Collection(Edm.ComplexType)` like `Rooms`. You cannot have complex types nested inside other complex types in an index used for push-model data ingestion.
 
-Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with Knowledge Store](knowledge-store-howto.md).
+Indexers are a different story. When defining an indexer, in particular one used to build a knowledge store, your index can have nested complex types. An indexer is able to hold a chain of complex data structures in-memory, and when it includes a skillset, it can support highly complex data forms. For more information and an example, see [How to get started with knowledge store](knowledge-store-howto.md).
 -->
 
 ```json
 {
-    "name": "hotels",
-    "fields": [
-        {   "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true    },
-        {   "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+  "name": "hotels",
+  "fields": [
+    { "name": "HotelId", "type": "Edm.String", "key": true, "filterable": true  },
+    { "name": "HotelName", "type": "Edm.String", "searchable": true, "filterable": false },
+    { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
+    { "name": "Address", "type": "Edm.ComplexType",
+      "fields": [
+        { "name": "StreetAddress", "type": "Edm.String", "filterable": false, "sortable": false, "facetable": false, "searchable": true },
+        { "name": "City", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true },
+        { "name": "StateProvince", "type": "Edm.String", "searchable": true, "filterable": true, "sortable": true, "facetable": true }
+      ]
+    },
+    { "name": "Rooms", "type": "Collection(Edm.ComplexType)",
+      "fields": [
         { "name": "Description", "type": "Edm.String", "searchable": true, "analyzer": "en.lucene" },
-        {   "name": "Address", "type": "Edm.ComplexType",
-            "fields": [{
-                    "name": "StreetAddress",
-                    "type": "Edm.String",
-                    "filterable": false,
-                    "sortable": false,
-                    "facetable": false,
-                    "searchable": true  },
-                {
-                    "name": "City",
-                    "type": "Edm.String",
-                    "searchable": true,
-                    "filterable": true,
-                    "sortable": true,
-                    "facetable": true
-                },
-                {
-                    "name": "StateProvince",
-                    "type": "Edm.String",
-                    "searchable": true,
-                    "filterable": true,
-                    "sortable": true,
-                    "facetable": true
-                }
-            ]
-        },
-        {
-            "name": "Rooms",
-            "type": "Collection(Edm.ComplexType)",
-            "fields": [{
-                    "name": "Description",
-                    "type": "Edm.String",
-                    "searchable": true,
-                    "analyzer": "en.lucene"
-                },
-                {
-                    "name": "Type",
-                    "type": "Edm.String",
-                    "searchable": true
-                },
-                {
-                    "name": "BaseRate",
-                    "type": "Edm.Double",
-                    "filterable": true,
-                    "facetable": true
-                },
-            ]
-        }
-    ]
+        { "name": "Type", "type": "Edm.String", "searchable": true },
+        { "name": "BaseRate", "type": "Edm.Double", "filterable": true, "facetable": true }
+      ]
+    }
+  ]
 }
 ```
+
 ## <a name="updating-complex-fields"></a>Actualizar campos complejos
 
 Todos los [volver a indexar reglas](search-howto-reindex.md) que se aplican a campos general todavía se aplican a campos complejos. Redefinición de algunas de las principales reglas aquí, agregar un campo no requiere una regeneración de índice, pero hacer la mayoría de las modificaciones.

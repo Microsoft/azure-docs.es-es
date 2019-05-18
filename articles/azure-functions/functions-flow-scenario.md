@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 31e18285bf6211e73d994e037a91adc396972715
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: d3e777b5611dec382dc4eaaac5ec1594abcdab31
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62106977"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65787686"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Llamada a una función desde Microsoft Flow
 
@@ -36,6 +36,8 @@ En este tema, aprenderá cómo:
 > * Crear un flujo para enviar correo electrónico si una reparación es rentable.
 > * Ejecutar el flujo.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 + Una [cuenta de Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) activa con las mismas credenciales de inicio de sesión que la cuenta de Azure. 
@@ -49,9 +51,9 @@ Para comenzar, cree una lista que usará como origen de datos en el flujo. La li
 |-----------------|---------------------|------------------------------------------|
 | **Título**           | Línea de texto única | Nombre de la turbina                      |
 | **LastServiceDate** | Date                |                                          |
-| **MaxOutput**       | Number              | Salida de la turbina, en KwH            |
+| **MaxOutput**       | Número              | Salida de la turbina, en KwH            |
 | **ServiceRequired** | Sí/No              |                                          |
-| **EstimatedEffort** | Number              | Tiempo estimado de la reparación, en horas |
+| **EstimatedEffort** | Número              | Tiempo estimado de la reparación, en horas |
 
 1. En el sitio de SharePoint, pulse o haga clic en **Nuevo** y, luego, **Lista**.
 
@@ -244,7 +246,7 @@ Ahora que se ha completado el flujo, agregará una fila a la lista de SharePoint
 
 5. En **Historial de ejecución**, haga clic en la ejecución de flujo.
 
-    ![Historial de ejecuciones](media/functions-flow-scenario/run-history.png)
+    ![Hist. de eje.](media/functions-flow-scenario/run-history.png)
 
     Si la ejecución se realizó correctamente, puede revisar las operaciones de flujo en la siguiente página. Si por algún motivo se produce un error en la ejecución, en la página siguiente se proporciona información de solución de problemas.
 

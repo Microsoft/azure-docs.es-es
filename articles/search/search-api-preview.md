@@ -12,12 +12,12 @@ ms.workload: search
 ms.date: 05/02/2019
 ms.author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 91c58507d8758a65772110afba71354deecd3b12
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5374ff896613dd8f8563a2054be8a92103e63fbb
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024282"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523914"
 ---
 # <a name="azure-search-service-rest-api-version-2019-05-06-preview"></a>Versión de api de REST de servicio Azure Search 2019-05-06-Preview
 En este artículo se describe la versión `api-version=2019-05-06-Preview` de la API de REST del servicio Azure Search y se proporcionan características experimentales que normalmente no están disponibles.
@@ -37,6 +37,8 @@ En este artículo se describe la versión `api-version=2019-05-06-Preview` de la
 Las características anunciadas en versiones preliminares anteriores aún están en versión preliminar pública. Si está llamando a una API con una versión anterior de la API en versión preliminar, puede continuar usando esa versión o cambiar a `2019-05-06-Preview` sin que se produzcan cambios en el comportamiento esperado.
 
 + El [parámetro de consulta moreLikeThis](search-more-like-this.md) busca documentos que sean pertinentes para un documento específico. Esta característica ha aparecido en versiones anteriores. 
+* [Indización de blobs CSV](search-howto-index-csv-blobs.md) crea un documento por línea, en lugar de un documento por blob de texto.
+* [Compatibilidad con la API de MongoDB para los indizadores de Cosmos DB](search-howto-index-cosmosdb.md) está en versión preliminar.
 
 
 ## <a name="how-to-call-a-preview-api"></a>Cómo llamar a una API en versión preliminar

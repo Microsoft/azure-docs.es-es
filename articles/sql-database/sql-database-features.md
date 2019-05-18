@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: cbdc9ff3fc56b96b6b7817946abc0a8fb0f4259c
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/10/2019
+ms.openlocfilehash: 8a7f334984d92707e4afa7cd595197e4dea83f33
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65150934"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546489"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparación de características: Azure SQL Database frente a SQL Server
 
@@ -56,7 +56,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Intercalación: base de datos](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-database-collation) | Sí | Sí |
 | [Intercalación: servidor/instancia](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation) | Predeterminado no, la intercalación del servidor logicla `SQL_Latin1_General_CP1_CI_AS` siempre se utiliza. | Sí, se puede establecer cuando la [se crea la instancia](scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md) y no se puede actualizar más adelante. |
 | [Índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) | Sí: [nivel Premium, nivel Estándar - S3 y superior, nivel De uso general y nivel Crítico para la empresa](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) |Sí |
-| [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | Sin  | Sí, pero sin acceso al sistema de archivos en `CREATE ASSEMBLY` instrucción - consulte [diferencias CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
+| [Common Language Runtime (CLR)](https://docs.microsoft.com/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Sí, pero sin acceso al sistema de archivos en `CREATE ASSEMBLY` instrucción - consulte [diferencias CLR](sql-database-managed-instance-transact-sql-information.md#clr) |
 | [Bases de datos independientes](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) | Sí | Actualmente no [debido a defectos de restauración, incluida la restauración en un momento](sql-database-managed-instance-transact-sql-information.md#cant-restore-contained-database). Se trata de un defecto en el que se corregirá pronto. |
 | [Usuarios contenidos](https://docs.microsoft.com/sql/relational-databases/security/contained-database-users-making-your-database-portable) | Sí | Sí |
 | [Palabras clave del lenguaje de control de flujo](https://docs.microsoft.com/sql/t-sql/language-elements/control-of-flow) | Sí | Sí |
@@ -67,7 +67,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Compresión de datos](https://docs.microsoft.com/sql/relational-databases/data-compression/data-compression) | Sí |Sí |
 | [Correo electrónico de base de datos](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail) | Sin  | Sí |
 | [Data Migration Service (DMS)](https://docs.microsoft.com/sql/dma/dma-overview) | Sí | Sí |
-| [Creación de reflejo de la base de datos](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | Sin  | [No](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
+| [Creación de reflejo de la base de datos](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server) | No | [No](sql-database-managed-instance-transact-sql-information.md#database-mirroring) |
 | [Configuración de la base de datos](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) | Sí | Sí |
 | [Data Quality Services (DQS)](https://docs.microsoft.com/sql/data-quality-services/data-quality-services) | Sin  | Sin  |
 | [Instantáneas de base de datos](https://docs.microsoft.com/sql/relational-databases/databases/database-snapshots-sql-server) | Sin  | Sin  |
@@ -87,7 +87,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Eventos extendidos](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events) | Algunas; consulte [Eventos extendidos en SQL Database](sql-database-xevent-db-diff-from-svr.md) | Sí: consulte el artículo sobre [diferencias de eventos extendidos](sql-database-managed-instance-transact-sql-information.md#extended-events) |
 | [Procedimientos almacenados extendidos](https://docs.microsoft.com/sql/relational-databases/extended-stored-procedures-programming/creating-extended-stored-procedures) | Sin  | Sin  |
 | [Archivos y grupos de archivos](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups) | Solo el grupo de archivos principal. | Sí. Rutas de acceso de archivo son asignado de forma automática y no se puede especificar la ubicación del archivo en `ALTER DATABASE ADD FILE` [instrucción](sql-database-managed-instance-transact-sql-information.md#alter-database-statement).  |
-| [Secuencia de archivos](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | Sin  | [No](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
+| [Secuencia de archivos](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server) | No | [No](sql-database-managed-instance-transact-sql-information.md#filestream-and-filetable) |
 | [Búsqueda de texto completo](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) |  Sí, pero los separadores de palabras de terceros no se admiten | Sí, pero [no se admiten separadores de palabras de terceros](sql-database-managed-instance-transact-sql-information.md#full-text-semantic-search) |
 | [Funciones](https://docs.microsoft.com/sql/t-sql/functions/functions) | La mayoría; consulte las funciones. | S; consulte el artículo sobre las [diferencias de procedimientos almacenados, funciones y desencadenadores](sql-database-managed-instance-transact-sql-information.md#stored-procedures-functions-and-triggers) |
 | [Restauración geográfica](sql-database-recovery-using-backups.md#geo-restore) | Sí: todos los planes que no sean de gran escala de servicio | Sí, mediante [Azure PowerShell](https://medium.com/azure-sqldb-managed-instance/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa). |
@@ -119,7 +119,7 @@ En las tablas siguientes se enumeran las características principales de SQL Ser
 | [Información del rendimiento de las consultas](sql-database-query-performance.md) | Sí | Sin  |
 | [R Services](https://docs.microsoft.com/sql/advanced-analytics/r-services/sql-server-r-services) | Sí, [en versión preliminar pública](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services)  | Sin  |
 | [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) | Sin  | Sí |
-| [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | Sin  | Sí, con obligatorio `FROM URL` colocan las opciones para los archivos de copias de seguridad en Azure Blob Storage. Consulte [diferencias de restauración](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
+| [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-for-restoring-recovering-and-managing-backups-transact-sql) | No | Sí, con obligatorio `FROM URL` colocan las opciones para los archivos de copias de seguridad en Azure Blob Storage. Consulte [diferencias de restauración](sql-database-managed-instance-transact-sql-information.md#restore-statement) |
 | [Restaurar la base de datos a partir de una copia de seguridad](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Solo a partir de copias de seguridad automatizadas; consulte el artículo sobre [recuperación de SQL Database](sql-database-recovery-using-backups.md) | Desde copias de seguridad automatizadas - consulte [recuperación de base de datos SQL](sql-database-recovery-using-backups.md) y de copias de seguridad completas se colocan en Azure Blob Storage: consulte [diferencias de copia de seguridad](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Seguridad de nivel de fila](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) | Sí | Sí |
 | [Búsqueda semántica](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Sin  | Sin  |

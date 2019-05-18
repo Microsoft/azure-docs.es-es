@@ -6,15 +6,16 @@ services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: fe3466dcccf6381f26c823ce3deb2126c9534548
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5acd9b68368f56000a0a32d1ade310cf30143950
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60560442"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65799380"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
@@ -172,7 +173,7 @@ Si utiliza su propio reproductor, tiene que encargarse de manipularlo para logra
         </video>    
 
 2. Inserte el widget Cognitive Insights.
-3. Implemente la comunicación para el reproductor mediante la escucha del evento "mensaje". Por ejemplo: 
+3. Implemente la comunicación para el reproductor mediante la escucha del evento "mensaje". Por ejemplo:
 
         <script>
     
@@ -233,7 +234,7 @@ Tenga en cuenta que esta opción solo es relevante en aquellos casos en los que 
 
 Si inserta el reproductor de Video Indexer, puede elegir el tamaño del reproductor al especificar el tamaño de IFrame.
 
-Por ejemplo: 
+Por ejemplo:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

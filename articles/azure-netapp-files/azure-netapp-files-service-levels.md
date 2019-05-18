@@ -12,27 +12,50 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 04/22/2019
 ms.author: b-juche
-ms.openlocfilehash: c2086eb0c5529d8e570a545e35fc716f70c7541f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1f9c427045c9d42f6a11cc4bcc798cfc47a4428c
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60691060"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523106"
 ---
 # <a name="service-levels-for-azure-netapp-files"></a>Niveles de servicio para Azure NetApp Files
-Azure NetApp Files admite dos niveles de servicio: Premium y Standard. 
+Los niveles de servicio son un atributo de un grupo de capacidades. Los niveles de servicio se definen y se diferencian por el rendimiento máximo permitido para un volumen en el grupo de capacidad en función de la cuota que se asigna al volumen.
 
-## <a name="Premium"></a>Almacenamiento Premium
+## <a name="supported-service-levels"></a>Niveles de servicio admitidos
 
-El almacenamiento *Premium* proporciona hasta 64 MiB/s por TiB de rendimiento. El rendimiento se indexa con respecto a la cuota de volumen. Por ejemplo, un volumen del almacenamiento Premium con 2 TiB de cuota aprovisionada (con independencia del consumo real) tiene un rendimiento de 128 MiB/s.
+Azure Files de NetApp admite tres niveles de servicio: *Ultra*, *Premium*, y *estándar*. 
 
-## <a name="Standard"></a>Almacenamiento Standard
+* <a name="Ultra"></a>Almacenamiento Ultra
 
-El almacenamiento *Standard* proporciona hasta 16 MiB/s por TiB de rendimiento. El rendimiento se indexa con respecto a la cuota de volumen. Por ejemplo, un volumen del almacenamiento Standard con 2 TiB de cuota aprovisionada (con independencia del consumo real) tiene un rendimiento de 32 MiB/s.
+    La capa de almacenamiento Ultra ofrece hasta 128 MiB/s de rendimiento por 1 TiB de cuota de volumen asignado. 
+
+* <a name="Premium"></a>Almacenamiento Premium
+
+    La capa de almacenamiento Premium ofrece hasta 64 MiB/s de rendimiento por 1 TiB de cuota de volumen asignado. 
+
+* <a name="Standard"></a>Almacenamiento Standard
+
+    La capa de almacenamiento estándar proporciona hasta 16 MiB/s de rendimiento por 1 TiB de cuota de volumen asignado.
+
+## <a name="throughput-limits"></a>Límites de rendimiento
+
+El límite de rendimiento para un volumen viene determinada por la combinación de los siguientes factores:
+* El nivel de servicio del grupo de capacidades a la que pertenece el volumen
+* La cuota asignada al volumen  
+
+Este concepto se ilustra en el diagrama siguiente:
+
+![Ilustración de nivel de servicio](../media/azure-netapp-files/azure-netapp-files-service-levels.png)
+
+En el ejemplo 1 anterior, se le asignará un volumen de un grupo de capacidades con el nivel de almacenamiento Premium que se asigna a 2 TiB de cuota de un límite de rendimiento de 128 MiB/s (2 TiB * 64 MiB/s). Este escenario se aplica independientemente del tamaño del grupo de capacidad o el consumo real del volumen.
+
+En el ejemplo 2 anterior, se le asignará un volumen de un grupo de capacidades con el nivel de almacenamiento Premium que se asigna a 100 GB de cuota de un límite de rendimiento de 6,25 MiB/s (TiB 0.09765625 * 64 MiB/s). Este escenario se aplica independientemente del tamaño del grupo de capacidad o el consumo real del volumen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para conocer el precio de los diferentes niveles de servicio.
+- Consulte la [página de precios de Azure NetApp Files](https://azure.microsoft.com/pricing/details/storage/netapp/) para conocer el precio de los diferentes niveles de servicio
+- Consulte [modelo de costos de Azure Files de NetApp](azure-netapp-files-cost-model.md) para el cálculo del consumo de capacidad en un grupo de capacidades 
 - [Configuración de un grupo de capacidad](azure-netapp-files-set-up-capacity-pool.md)

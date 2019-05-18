@@ -3,8 +3,8 @@ title: Cómo integrar con Azure Active Directory | Microsoft Docs
 description: Descubra las ventajas de integrar su aplicación con Azure Active Directory y obtenga recursos para características como la administración simplificada de inicio de sesión de identidad, autenticación multifactor y control de acceso.
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 726d70c46dca712deaf4846c24976cdabcc49be9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c8804988387ba4a6cdc8dff5d93077de42ea2051
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60300467"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546191"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integración con Azure Active Directory
 

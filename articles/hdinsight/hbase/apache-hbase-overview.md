@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es HBase en Azure HDInsight?
+title: ¿Qué es Apache HBase en HDInsight de Azure?
 description: Una introducción a Apache HBase en HDInsight, una base de datos NoSQL basada en Hadoop. Obtenga información acerca de los casos de uso y compare HBase con otros clústeres de Hadoop.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
 ms.author: hrasheed
-ms.openlocfilehash: d109a1a233aaaf1f3922561106caa15781e31e01
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: a492adbf1c01271ceea736bde9de999190fc2da4
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62114441"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789198"
 ---
-# <a name="what-is-apache-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-apache-hadoop"></a>Qué es Apache HBase en HDInsight: una base de datos NoSQL con funcionalidades de tipo BigTable para Apache Hadoop
+# <a name="what-is-apache-hbase-in-azure-hdinsight"></a>¿Qué es Apache HBase en HDInsight de Azure
+
 [Apache HBase](https://hbase.apache.org/) es una base de datos NoSQL de código abierto construida sobre [Apache Hadoop](https://hadoop.apache.org/) y modelada según [Google BigTable](https://cloud.google.com/bigtable/). HBase proporciona acceso aleatorio y enorme coherencia para grandes cantidades de datos no estructurados y semiestructurados en una base de datos sin esquemas organizada por familias de columnas.
 
 Desde la perspectiva del usuario, HBase es similar a una base de datos. Los datos se almacenan en las filas y las columnas de una tabla, mientras que los datos de una fila se agrupan por familia de columnas. HBase es una base de datos sin esquemas en el sentido de que no es preciso que ni las columnas ni el tipo de datos almacenados en ellas se definan antes de usarlos. El código abierto se escala linealmente para controlar petabytes de datos en miles de nodos. Puede basarse en la redundancia de datos, el procesamiento por lotes y otras características proporcionadas por aplicaciones distribuidas en el ecosistema Hadoop.

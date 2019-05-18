@@ -2,8 +2,8 @@
 title: Objetos de aplicación y de entidad de servicio de Azure Active Directory
 description: Conozca la relación entre los objetos de aplicación y de entidad de servicio en Azure Active Directory.
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 services: active-directory
 editor: ''
 ms.assetid: adfc0569-dc91-48fe-92c3-b5b4833703de
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/13/2019
-ms.author: celested
+ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cee05b1ff6c63aae07b9c04435e4ff3ae4d07ee
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 47626cbd8d5b8a5ddf7cc5c6ea42fb9453e5bfb2
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60411150"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540681"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Objetos de aplicación y de entidad de servicio de Azure Active Directory
 
@@ -43,7 +43,7 @@ Un [flujo de concesión de autorizaciones de OAuth 2.0](developer-glossary.md#au
 
 En las siguientes secciones veremos cómo el modelo de aplicaciones de Azure AD representa una aplicación en tiempo de diseño y en tiempo de ejecución.
 
-## <a name="application-registration"></a>Registro de la aplicación
+## <a name="application-registration"></a>Registro de aplicaciones
 
 Al registrar una aplicación de Azure AD en [Azure Portal][AZURE-Portal], se crean dos objetos en el inquilino de Azure AD:
 

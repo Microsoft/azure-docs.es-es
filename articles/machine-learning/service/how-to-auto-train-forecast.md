@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 05/02/2019
-ms.openlocfilehash: 4386420a56b3543ac6c5f5934f963e56bc674873
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: c7f4b6d8aa614a460772fb7af11f9b83dc3fc979
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024994"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800811"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-entrenar un modelo de previsión de series temporales
 
@@ -25,7 +25,7 @@ En este artículo, aprenderá a entrenar un modelo de regresión pronóstico de 
 * Configure los parámetros de serie temporal específicos en un [ `AutoMLConfig` ](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) objeto
 * Ejecutar predicciones con los datos de serie temporal
 
-> [!VIDEO https://www.youtube.com/embed/mGr_c2UnOUI]
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
 
 ## <a name="prerequisites"></a>Requisitos previos
 

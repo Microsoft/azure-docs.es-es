@@ -4,7 +4,7 @@ description: Aprenda a restringir el acceso a las aplicaciones registradas en Az
 services: active-directory
 documentationcenter: ''
 author: kalyankrishna1
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b76a25b3c5c2c3ce4dc4217389706a4b24d837
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: e07d9f0fa6ec6b4abc7ce96279b7b02faae298fa
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410066"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540197"
 ---
 # <a name="how-to-restrict-your-app-to-a-set-of-users"></a>Procedimientos para: Restricción de la aplicación a un conjunto de usuarios
 

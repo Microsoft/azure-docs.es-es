@@ -7,19 +7,19 @@ ms.subservice: single-database
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/22/2019
-ms.openlocfilehash: 7dcbf2733ff23b0454208dbc789599cd372278ec
-ms.sourcegitcommit: 8fc5f676285020379304e3869f01de0653e39466
+ms.openlocfilehash: 15aedaa7eedad4940945e9b1e7eff0e1780da796
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65507841"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790399"
 ---
-# <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Límites del modelo de compra basado en núcleo virtual de Azure SQL Database para una base de datos única
+# <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Límites de recursos para las bases de datos únicas mediante el modelo de compra basado en núcleos virtuales
 
 En este artículo se proporcionan los límites de recursos detallados para bases de datos únicas de Azure SQL Database que utilizan el modelo de compra basado en núcleo virtual.
 
@@ -129,7 +129,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso y la cantidad de al
 
 ### <a name="serverless-compute-tier"></a>Nivel de servicio de informática sin servidor
 
-El [nivel de proceso sin servidor](sql-database-serverless.md) en versión preliminar pública y es sólo para bases de datos únicas mediante la compra de núcleos virtuales del modelo.
+El [nivel de proceso sin servidor](sql-database-serverless.md) está en versión preliminar y es sólo para bases de datos únicas mediante la compra de núcleos virtuales del modelo.
 
 #### <a name="generation-5-compute-platform"></a>Plataforma de procesos de generación 5
 

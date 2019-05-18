@@ -9,12 +9,12 @@ author: mgottein
 manager: cgronlun
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: b7e7ecd2a82a8d64967288def9c6ede7a292f72a
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b6bb70e4c56adb162006d2597d301c73b12d2a8a
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61127585"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540887"
 ---
 # <a name="searching-blob-storage-with-azure-search"></a>Búsqueda en Blob Storage con Azure Search
 

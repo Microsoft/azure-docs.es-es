@@ -5,21 +5,21 @@ services: search
 author: HeidiSteen
 ms.service: search
 ms.topic: include
-ms.date: 04/04/2018
+ms.date: 05/06/2019
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b298c87d802314bd865bd6f38c35e4361eb69f3f
+ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61464741"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65212041"
 ---
 El almacenamiento está limitado por el espacio en disco o el *número máximo* de índices, documentos u otros recursos de alto nivel, lo que ocurra primero. En la tabla siguiente se documentan los límites de almacenamiento. Para los límites máximos en índices, documentos y otros objetos, consulte [límites por recurso](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-| Recurso | Gratuito | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| Recurso | Gratis | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
 | -------- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Nivel acuerdo de servicio (SLA)<sup>3</sup>  |Sin  |Sí |Sí |Sí |Sí |Sí |Sí |Sí |
+| Nivel acuerdo de servicio (SLA)<sup>3</sup>  |No |Sí |Sí |Sí |Sí |Sí |Sí |Sí |
 | Almacenamiento por partición |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
 | Particiones por servicio |N/D |1 |12 |12 |12 |3 |12 |12 |
 | Tamaño de la partición |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |

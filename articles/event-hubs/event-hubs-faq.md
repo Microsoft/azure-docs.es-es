@@ -8,14 +8,14 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/06/2018
+ms.date: 05/15/2019
 ms.author: shvija
-ms.openlocfilehash: ce9c6a83d664bc9ad1798792f7762556c9a0d541
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: acc756ac04e5127d07760746bd0178f0f6cb1d6f
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64690284"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65789256"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Preguntas frecuentes sobre Event Hubs
 
@@ -23,6 +23,15 @@ ms.locfileid: "64690284"
 
 ### <a name="what-is-an-event-hubs-namespace"></a>¿Qué es un espacio de nombres de Event Hubs?
 Un espacio de nombres es un contenedor de temas de Event Hubs y Kafka. Proporciona un [FQDN](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) único. Un espacio de nombres actúa como un contenedor de aplicaciones que puede alojar varios temas de Event Hubs y Kafka. 
+
+### <a name="when-do-i-create-a-new-namespace-vs-use-an-existing-namespace"></a>¿Cuando crea un nuevo espacio de nombres frente al uso un espacio de nombres existente?
+Las asignaciones de capacidad ([unidades de procesamiento (tu)](#throughput-units)) se facturan según el nivel de espacio de nombres. Un espacio de nombres también se asocia con una región.
+
+Es posible que desee crear un nuevo espacio de nombres en lugar de usar una existente en cada uno de los siguientes escenarios: 
+
+- Necesita un centro de eventos asociados con una nueva región.
+- Necesita un centro de eventos asociados con una suscripción diferente.
+- Necesita un centro de eventos con una asignación de capacidad diferentes (es decir, la capacidad es necesario para el espacio de nombres con el centro de eventos se ha agregado podría superar el umbral de MA 40 y no quiere ir para el clúster dedicado)  
 
 ### <a name="what-is-the-difference-between-event-hubs-basic-and-standard-tiers"></a>¿Cuál es la diferencia entre los niveles Basic y Standard de Event Hubs?
 

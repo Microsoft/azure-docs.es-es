@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b59e4d574264f82a5875edad65e99bfb57150197
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60605232"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796876"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -41,7 +41,7 @@ En la mayoría de los casos, las solicitudes dirigidas a Microsoft Translator Te
 
 Para hacer que la solicitud se administre en un centro de datos específico, cambie el punto de conexión Global en la solicitud de API por el punto de conexión regional que desee:
 
-|DESCRIPCIÓN|Region|URL base|
+|DESCRIPCIÓN|Área|URL base|
 |:--|:--|:--|
 |Azure|Global|  api.cognitive.microsofttranslator.com|
 |Azure|Norteamérica|   api-nam.cognitive.microsofttranslator.com|
@@ -55,7 +55,7 @@ Suscríbase a Translator Text API o [varios servicios de Cognitive Services](htt
 
 Hay tres encabezados que puede usar para autenticar su suscripción. En esta tabla, se explica cómo se utiliza cada uno de ellos:
 
-|encabezados|DESCRIPCIÓN|
+|Encabezados|DESCRIPCIÓN|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Úselo con la suscripción a Cognitive Services si pasa su clave secreta*.<br/>El valor es la clave secreta de Azure para su suscripción a Translator Text API.|
 |Autorización|*Úselo con la suscripción a Cognitive Services si pasa un token de autenticación.*<br/>El valor es el token de portador: `Bearer <token>`.|
@@ -161,7 +161,7 @@ El código de error es un número de 6 dígitos que combina el código de estado
 | 405000| No se admite el método de solicitud para el recurso solicitado.|
 | 408001| El sistema de traducción personalizado solicitado aún no está disponible. Vuelva a intentarlo en unos minutos.|
 | 415000| Falta el encabezado Content-Type o no es válido.|
-| 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente envía demasiadas solicitudes. Reduzca la frecuencia de las solicitudes para evitar la limitación.|
+| 429000, 429001, 429002| El servidor rechazó la solicitud porque el cliente ha superado los límites de solicitudes.|
 | 500000| Se ha producido un error inesperado. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 | 503000| El servicio no está disponible temporalmente. Inténtelo de nuevo. Si el error continúa, notifíquelo con la fecha y hora del error, con el identificador de la solicitud del encabezado de respuesta X-RequestId y con el identificador de cliente del encabezado de solicitud X-ClientTraceId.|
 

@@ -10,21 +10,23 @@ ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d18069335bb20f78a5bcda85eb6fcb2a5abe75f7
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 5723f1ab7258a9e0d672b5c0fd9fd0b9c4dc8721
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024670"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65522925"
 ---
-# <a name="morelikethis-in-azure-search-preview"></a>moreLikeThis en Azure Search (versión preliminar)
+# <a name="morelikethis-in-azure-search"></a>moreLikeThis en Azure Search
+
+> [!Note]
+> moreLikeThis se encuentra en versión preliminar y no se ha diseñado para su uso en producción. El [API de REST versión 2019-05-06-Preview](search-api-preview.md) proporciona esta característica. No hay ninguna compatibilidad de SDK de .NET en este momento.
 
 `moreLikeThis=[key]` es un parámetro de consulta en el [API de búsqueda de documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents) que busca documentos similares al documento especificado por la clave del documento. Cuando se realiza una solicitud de búsqueda con `moreLikeThis`, se genera una consulta con los términos de búsqueda extraídos del documento especificado que describen mejor ese documento. La consulta generada se usa luego para realizar la solicitud de búsqueda. De forma predeterminada, se considera el contenido de todos los campos de búsqueda, menos cualquier campos restringidos que ha especificado mediante el `searchFields` parámetro. El parámetro `moreLikeThis` no se puede usar con el parámetro de búsqueda, `search=[string]`.
 
 De forma predeterminada, se considera el contenido de todos los campos de búsqueda nivel superior. Si desea especificar los campos concretos en su lugar, puede usar el `searchFields` parámetro. 
 
-> [!NOTE]
-> `moreLikeThis` vista previa no funciona en campos secundarios que se puede buscar en un [tipo complejo](search-howto-complex-data-types.md).
+No se puede usar moreLikeThis en campos secundarios que se puede buscar en un [tipo complejo](search-howto-complex-data-types.md).
 
 ## <a name="examples"></a>Ejemplos 
 
@@ -42,9 +44,6 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06-Preview
     }
 ```
 
-## <a name="feature-availability"></a>Disponibilidad de características
-
-El `moreLikeThis` parámetro está disponible en vista previa de las API de REST únicamente (`api-version=2019-05-06-Preview`).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

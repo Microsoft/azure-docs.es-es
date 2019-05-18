@@ -3,15 +3,15 @@ title: Habilitar la replicación de máquinas virtuales de VMware para la recupe
 description: En este artículo se describe cómo habilitar máquinas virtuales de VMware para la replicación en Azure para la recuperación ante desastres con Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 4/18/2019
+ms.date: 05/10/2019
 ms.topic: conceptual
 ms.author: ramamill
-ms.openlocfilehash: ba55afbd62bbbc2290d1daaebf77becc249c1d8b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: add0f8252bdae6857b28deeb7de4c1d09973e452
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60922821"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540762"
 ---
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Habilitación de máquinas virtuales de VMware en Azure
 
@@ -43,16 +43,17 @@ Antes de seguir los pasos descritos en esta sección, tenga en cuenta la siguien
 * Replicación en cuentas de almacenamiento para una nueva máquina virtual solo está disponible a través de un Representational State Transfer (REST) API y Powershell. Use la API de REST de Azure versión 2016-08-10 o 2018-01-10 para la replicación en cuentas de almacenamiento.
 
 1. Vaya a **paso 2: Replicar la aplicación** > **Origen**. Después de habilitar la replicación por primera vez, seleccione **+ replicar** en el almacén para habilitar la replicación de máquinas virtuales adicionales.
-1. En la página **Origen** > **Origen**, seleccione el servidor de configuración.
-1. Para **tipo de máquina**, seleccione **máquinas virtuales** o **máquinas físicas**.
-1. En **vCenter/vSphere Hypervisor**, seleccione el servidor vCenter que administra el host de vSphere, o bien seleccione el host. Esta configuración no es relevante si va a replicar los equipos físicos.
-1. Seleccione el servidor de procesos, que será el servidor de configuración si no ha creado ningún servidor de procesos adicionales. Después seleccione **Aceptar**.
+2. En la página **Origen** > **Origen**, seleccione el servidor de configuración.
+3. Para **tipo de máquina**, seleccione **máquinas virtuales** o **máquinas físicas**.
+4. En **vCenter/vSphere Hypervisor**, seleccione el servidor vCenter que administra el host de vSphere, o bien seleccione el host. Esta configuración no es relevante si va a replicar los equipos físicos.
+5. Seleccione el servidor de procesos. Si no hay ningún servidor de procesos adicionales creados, servidor de procesos integrada del servidor de configuración estará disponible en la lista desplegable. Se indica el estado de mantenimiento de cada servidor de procesos según los límites recomendados y otros parámetros. Elija un servidor de procesos en buen estado. Un [críticos](vmware-physical-azure-monitor-process-server.md#process-server-alerts) no se puede elegir el servidor de procesos. Puede [localizar y solucionar](vmware-physical-azure-troubleshoot-process-server.md) los errores **o** configurar un [servidor de procesos de escalado horizontal](vmware-azure-set-up-process-server-scale.md).
+    ![Habilitar ventana de origen de replicación](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Habilitar ventana de origen de replicación](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> Desde [9.24 versiones](service-updates-how-to.md#links-to-currently-supported-update-rollups), se presentan las alertas adicionales para mejorar las alertas de estado del servidor de procesos. Actualizar componentes de Site Recovery 9.24 versiones o versiones posteriores para que todas las alertas que se genere.
 
-1. Para **destino**, seleccione la suscripción y grupo de recursos donde desea crear máquinas virtuales conmutadas por error. Elija el modelo de implementación que desea usar en Azure para las máquinas virtuales conmutadas por error.
-
-1. Seleccione la red de Azure y la subred que se conectarán las máquinas virtuales de Azure después de la conmutación por error. La red debe estar en la misma región que el almacén del servicio Site Recovery.
+6. Para **destino**, seleccione la suscripción y grupo de recursos donde desea crear máquinas virtuales conmutadas por error. Elija el modelo de implementación que desea usar en Azure para las máquinas virtuales conmutadas por error.
+2. Seleccione la red de Azure y la subred que se conectarán las máquinas virtuales de Azure después de la conmutación por error. La red debe estar en la misma región que el almacén del servicio Site Recovery.
 
    Seleccione **configurar ahora para las máquinas seleccionadas** para aplicar la configuración de red para todas las máquinas virtuales que seleccionó para la protección. Seleccione **configurar más adelante** para seleccionar la red de Azure por máquina virtual. Si no dispone de una red, debe crear una. Para crear una red mediante el uso de Azure Resource Manager, seleccione **crear nuevo**. Seleccione una subred si es aplicable y, a continuación, seleccione **Aceptar**.
    

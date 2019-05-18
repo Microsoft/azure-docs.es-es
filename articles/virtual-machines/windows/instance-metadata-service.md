@@ -1,6 +1,6 @@
 ---
 title: Servicio de metadatos de instancia de Azure | Microsoft Docs
-description: Interfaz RESTful para obtener información sobre proceso, red y próximos eventos de mantenimiento de la máquina virtual Windows.
+description: Interfaz rESTful para obtener información sobre el proceso, red y próximos eventos de mantenimiento de la máquina virtual de Windows.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: f892ded46f7124237fd80fbe1e3f5e866c12f0d5
-ms.sourcegitcommit: abeefca6cd5ca01c3e0b281832212aceff08bf3e
+ms.openlocfilehash: 160d494eea4bd597725a4e7c21ad9b763502bee6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "64993065"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792091"
 ---
 # <a name="azure-instance-metadata-service"></a>Servicio de metadatos de instancia de Azure
 
@@ -107,10 +107,10 @@ En la tabla siguiente se muestra una referencia de otros formatos de datos que l
 API | Formato predeterminado de datos | Otros formatos
 --------|---------------------|--------------
 /instance | json | text
-/scheduledevents | json | None
-/attested | json | None
+/scheduledevents | json | ninguno
+/attested | JSON | ninguno
 
-Para acceder a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo: 
+Para acceder a un formato de respuesta que no sea el predeterminado, especifique el formato solicitado como un parámetro de cadena de consulta en la solicitud. Por ejemplo:
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -132,7 +132,7 @@ Código de estado HTTP | Motivo
 ----------------|-------
 200 OK |
 400 - Solicitud incorrecta | Falta `Metadata: true` encabezado o falta el formato al consultar un nodo hoja
-404 No encontrado | El elemento solicitado no existe
+405 No encontrado | El elemento solicitado no existe
 405 Método no permitido | Solo se admiten solicitudes `GET` y `POST`
 429 Demasiadas solicitudes | La API es compatible actualmente con un máximo de cinco consultas por segundo
 500 Error de servicio     | Vuelva a intentarlo más tarde
@@ -344,7 +344,7 @@ Datos | DESCRIPCIÓN | Versión de introducción
 -----|-------------|-----------------------
 attested | Consulte [Datos atestiguados](#attested-data) | 01 de octubre de 2018
 identidad | Identidades administradas de recursos de Azure. Consulte [Obtener un token de acceso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
-instance | Consulte [API de instancia](#instance-api) | 2017-04-02
+instancia | Consulte [API de instancia](#instance-api) | 2017-04-02
 scheduledevents | Consulte [Scheduled Events](scheduled-events.md). | 2017-08-01
 
 #### <a name="instance-api"></a>Instancia de API
@@ -357,21 +357,21 @@ Datos | DESCRIPCIÓN | Versión de introducción
 -----|-------------|-----------------------
 azEnvironment | Entorno de Azure donde se ejecuta la VM. | 01 de octubre de 2018
 customData | Consulte [datos personalizados](#custom-data) | 2019-02-01
-location | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
+ubicación | La región de Azure donde se ejecuta la máquina virtual | 2017-04-02
 Nombre | Nombre de la máquina virtual | 2017-04-02
-offer | Ofrece información para la imagen de máquina virtual. Este valor solo está presente para las imágenes que se implementan desde la galería de imágenes de Azure. | 2017-04-02
+offer | Ofrecen información para la imagen de máquina virtual y se implementa sólo está presente para las imágenes de la Galería de imágenes de Azure | 2017-04-02
 osType | Linux o Windows | 2017-04-02
 placementGroupId | [Grupo de selección de ubicación](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de su conjunto de escalado de máquina virtual | 2017-08-01
-plan | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) para una máquina virtual en su una imagen de Marketplace de Azure, contiene el nombre, el producto y el publicador | 2018-04-02
+plan | [Planear](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) que contiene el nombre, el producto y el publicador para una máquina virtual si su una imagen de Marketplace de Azure | 2018-04-02
 platformUpdateDomain |  El [dominio de actualización](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
 platformFaultDomain | El [dominio de error](manage-availability.md) en que se ejecuta la máquina virtual. | 2017-04-02
-provider | Proveedor de la máquina virtual | 01 de octubre de 2018
+proveedor | Proveedor de la máquina virtual | 01 de octubre de 2018
 publicKeys | [Colección de claves públicas](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) asignado a la máquina virtual y las rutas de acceso | 2018-04-02
 publisher | Publicador de la imagen de VM | 2017-04-02
 resourceGroupName | [Grupo de recursos](../../azure-resource-manager/resource-group-overview.md) para su máquina virtual | 2017-08-01
 sku | SKU específica de la imagen de VM | 2017-04-02
 subscriptionId | Suscripción de Azure para la máquina virtual | 2017-08-01
-etiquetas | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
+tags | [Etiquetas](../../azure-resource-manager/resource-group-using-tags.md) para su máquina virtual  | 2017-08-01
 version | Versión de la imagen de máquina virtual | 2017-04-02
 vmId | [Identificador único](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) para la máquina virtual. | 2017-04-02
 vmScaleSetName | [Nombre del conjunto de escalado de máquina virtual](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de conjunto de escalado de la máquina virtual | 2017-12-01
@@ -688,9 +688,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### <a name="custom-data"></a>Datos personalizados
-Instance Metadata Service proporciona la capacidad de la máquina virtual tener acceso a sus datos personalizados. Los datos binarios deben ser inferior a 64 KB y se proporcionan a la máquina virtual en formato codificado en base64. Para obtener más información sobre cómo crear una máquina virtual con datos personalizados, consulte [implementar una máquina Virtual con CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service proporciona la capacidad de la máquina virtual tener acceso a sus datos personalizados. Los datos binarios deben ser inferior a 64 KB y se proporcionan a la máquina virtual en formato codificado en base64.
+
+Datos personalizados de Azure se pueden insertar en la máquina virtual a través de las API de REST, Cmdlets de PowerShell, interfaz de línea de comandos (CLI) de Azure o una plantilla de ARM.
+
+Para obtener un ejemplo de la interfaz de línea de comandos de Azure, consulte [datos personalizados y Cloud-Init en Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+Para obtener un ejemplo de plantilla ARM, consulte [implementar una máquina Virtual con CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Datos personalizados están disponibles para todos los procesos que se ejecutan en la máquina virtual. Se recomienda que los clientes no inserción información secreta en datos personalizados.
+
+Actualmente, se garantiza que los datos personalizados estén disponibles durante el arranque de una máquina virtual. Si las actualizaciones se realizan en la máquina virtual como discos de agregar o cambiar el tamaño de la máquina virtual, Instance Metadata Service no proporcionará datos personalizados. Proporcionar CustomData forma persistente a través de Instance Metadata Service está actualmente en curso.
 
 #### <a name="retrieving-custom-data-in-virtual-machine"></a>Recuperación de datos personalizado en la máquina Virtual
 Instance Metadata Service proporciona los datos personalizados a la máquina virtual en formato codificado en base64. En el ejemplo siguiente, se descodifica la cadena codificada en base64.
@@ -715,7 +723,7 @@ My custom data.
 Idioma | Ejemplo
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Ir  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs

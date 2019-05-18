@@ -3,18 +3,18 @@ title: Envío y uso de consultas y respuestas de Bing Local Business Search API 
 titleSuffix: Azure Cognitive Services
 description: Use este artículo para obtener información sobre cómo enviar y usar consultas con Bing Local Business Search API.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: rosh; v-gedod
-ms.openlocfilehash: 79219de775be96f35bd11ac85640efcc4a04a93b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 45f7adab684b7b6097328a42abb60c8d58c1acc2
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60582451"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796792"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Envío y uso de consultas y respuestas de Bing Local Business Search API
 
@@ -22,7 +22,7 @@ Puede obtener resultados locales de Bing Local Business Search API si envía una
 
 ## <a name="creating-a-request"></a>Creación de una solicitud
 
-Para enviar una solicitud a Bing Local Business Search API, anexe un término de búsqueda al parámetro `q=` antes de que se agregue al punto de conexión de API e incluya el encabezado `Ocp-Apim-Subscription-Key`. Por ejemplo: 
+Para enviar una solicitud a Bing Local Business Search API, anexe un término de búsqueda al parámetro `q=` antes de que se agregue al punto de conexión de API e incluya el encabezado `Ocp-Apim-Subscription-Key`. Por ejemplo:
 
 `https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search?q=restaurant+in+Bellevue`
 
@@ -54,7 +54,7 @@ Las respuestas JSON de Bing Local Business Search API contienen un objeto `Searc
 Los resultados JSON devueltos por la API incluyen los siguientes atributos:
 
 * _type
-* address
+* dirección
 * entityPresentationInfo
 * geoárea
 * id

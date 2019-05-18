@@ -2,13 +2,16 @@
 author: tomarchermsft
 ms.service: ansible
 ms.topic: include
-ms.date: 04/22/2019
+ms.date: 04/30/2019
 ms.author: tarcher
-ms.openlocfilehash: 225d665670c860f38c24b2a7002eeacd01909ad9
-ms.sourcegitcommit: 37343b814fe3c95f8c10defac7b876759d6752c3
+ms.openlocfilehash: 5c3f47cefb9f583047908a2d7442afb7b3b7b8b3
+ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/24/2019
-ms.locfileid: "63765963"
+ms.lasthandoff: 05/07/2019
+ms.locfileid: "65405014"
 ---
- y, si no tiene acceso a una máquina virtual Linux, [crear una máquina virtual con Ansible](/azure/virtual-machines/linux/ansible-create-vm).
+- **Instalación de Ansible**: Elija una de las siguientes opciones:
+
+    - [Instalar](/azure/virtual-machines/linux/ansible-install-configure#install-ansible-on-an-azure-linux-virtual-machine) y [configura](/azure/virtual-machines/linux/ansible-install-configure#create-azure-credentials)r Ansible en una máquina virtual Linux 
+    - [Configurar Azure Cloud Shell](/azure/cloud-shell/quickstart) y, si no tiene acceso a una máquina virtual Linux, [crear una máquina virtual con Ansible](/azure/virtual-machines/linux/ansible-create-vm).

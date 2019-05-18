@@ -4,7 +4,7 @@ description: Obtenga información sobre la inicialización de cliente público y
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6197d472bdfaf03c9f99baa7691354e735cc91e
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 2f22ff41e380a16af2aa45df9a61eefbf293ff83
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65075811"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544314"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>Inicializar las aplicaciones de cliente mediante MSAL.NET
 Este artículo describe la inicialización de cliente público y las aplicaciones de cliente confidencial mediante la biblioteca de autenticación de Microsoft para .NET (MSAL.NET).  Para obtener más información sobre los tipos de aplicaciones cliente y las opciones de configuración de aplicación, lea el [Introducción](msal-client-applications.md).

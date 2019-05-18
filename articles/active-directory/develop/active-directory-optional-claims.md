@@ -2,9 +2,9 @@
 title: Notificaciones opcionales para la aplicación de Azure AD | Microsoft Docs
 description: Guía en la que se agregan notificaciones personalizadas o adicionales a los tokens SAML 2.0 y web JSON (JWT) que emite Azure Active Directory.
 documentationcenter: na
-author: CelesteDG
+author: rwike77
 services: active-directory
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -13,16 +13,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/27/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fd7b05a5411c03e1324871fbff3c29061ce7b3d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 593289e64c0f9cd13251a0f7b47b860158100b36
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65139240"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544577"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales para la aplicación de Azure AD
 
@@ -89,7 +89,7 @@ Estas notificaciones son siempre se incluye en los tokens de Azure AD v1.0, pero
 | `pwd_url`     | Cambiar dirección URL de contraseña             | Dirección URL que el usuario puede visitar para cambiar la contraseña.   |   |
 | `in_corp`     | Dentro de red corporativa        | Indica si el cliente ha iniciado sesión desde la red corporativa. Si no lo está, no se incluye la notificación.   |  En función de la configuración de las [IP de confianza](../authentication/howto-mfa-mfasettings.md#trusted-ips) de MFA.    |
 | `nickname`    | Alias                        | Nombre adicional del usuario, aparte del nombre y del apellido. | 
-| `family_name` | Apellido                       | Proporciona el último nombre, apellido o apellidos del usuario tal como se define en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y AAD   |
+| `family_name` | Apellidos                       | Proporciona el último nombre, apellido o apellidos del usuario tal como se define en el objeto de usuario. <br>"family_name": "Miller" | Se admite en MSA y AAD   |
 | `given_name`  | Nombre                      | Proporciona la primera o "nombre" propio"del usuario, como está establecido en el objeto de usuario.<br>"given_name": "Frank"                   | Se admite en MSA y AAD  |
 | `upn`         | Nombre principal de usuario | Un identificador del usuario que se puede usar con el parámetro username_hint.  No es un identificador duradero para el usuario y no debe usarse con datos de clave. | Consulte a continuación las [propiedades adicionales](#additional-properties-of-optional-claims) de la configuración de la notificación. |
 
@@ -102,7 +102,7 @@ Algunas notificaciones opcionales se pueden configurar para cambiar la manera de
 | Nombre de propiedad  | Nombre de la propiedad adicional | DESCRIPCIÓN |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Puede usarse en respuestas SAML y JWT y para los token v1.0 y v2.0. |
-|                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
 |                | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las almohadillas (`#`) se reemplazan con guiones bajos (`_`); por ejemplo, `foo_hometenant.com_EXT_@resourcetenant.com`. |
 
 #### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales
@@ -217,7 +217,7 @@ Esta sección describen las opciones de configuración de notificaciones opciona
    - "DistributionList"
    - "DirectoryRole"
 
-   Por ejemplo: 
+   Por ejemplo:
 
    ```json
    "groupMembershipClaims": "SecurityGroup"
@@ -247,7 +247,7 @@ Esta sección describen las opciones de configuración de notificaciones opciona
    }
    ```
 
-   | Esquema de notificaciones opcionales | `Value` |
+   | Esquema de notificaciones opcionales | Valor |
    |----------|-------------|
    | **name:** | Debe ser "grupos" |
    | **Origen:** | No se usa. Omitir o especifique null |

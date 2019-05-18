@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 881734caf855ccfc4f001693fe261b8448b49bc4
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 06051eff73a83ff97a733d1863580885c5d0e174
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65466197"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65551736"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift preguntas más frecuentes
 
@@ -66,3 +66,7 @@ No. Todos los nodos de un clúster de Azure Red Hat OpenShift deben originarse a
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>¿Son los nodos de infraestructura y maestro abstraen tal como están con Azure Kubernetes Service (AKS)?
 
 No. Todos los recursos, incluida a la maestra del clúster, se ejecutan en su suscripción de cliente. Estos tipos de recursos se colocan en un grupo de recursos de solo lectura.
+
+## <a name="is-open-service-broker-for-azure-osba-supported"></a>¿Es Open Service Broker para Azure (OSBA) admitidas?
+
+Sí. Puede usar OSBA con Azure Red Hat OpenShift. Consulte [Open Service Broker para Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) para obtener más información.

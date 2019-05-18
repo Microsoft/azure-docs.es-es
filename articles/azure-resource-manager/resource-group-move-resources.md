@@ -1,23 +1,17 @@
 ---
 title: Traslado de recursos de Azure a una nueva suscripción o grupo de recursos | Microsoft Docs
 description: Use Azure Resource Manager para trasladar recursos a un nuevo grupo de recursos o a una nueva suscripción.
-services: azure-resource-manager
-documentationcenter: ''
 author: tfitzmac
-ms.assetid: ab7d42bd-8434-4026-a892-df4a97b60a9b
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2019
+ms.date: 05/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4e94bc7686203bfbcd93200e5a1fb65b43ceeb91
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 076d120d9c02b15837e92b71bc2a015377f54594
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698485"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65792695"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -68,7 +62,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Registros de Azure Monitor
 * Azure Relay
 * Azure Stack: registros
-* Batch
+* Lote
 * BizTalk Services
 * Servicio de bots
 * CDN
@@ -95,7 +89,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Machine Learning: los servicios de Machine Learning Studio se pueden mover a un grupo de recursos en la misma suscripción, pero no una suscripción diferente. Otros recursos de Machine Learning se pueden mover entre suscripciones.
 * Managed Disks: Managed Disks en zonas de disponibilidad no se puede mover a otra suscripción
 * Identidad administrada: asignada por el usuario
-* Media Services
+* Servicios multimedia
 * Supervisión: asegúrese de que el cambio a una nueva suscripción no exceda las [cuotas de suscripción](../azure-subscription-service-limits.md#monitor-limits).
 * Notification Hubs
 * Operational Insights
@@ -105,7 +99,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Dirección IP pública: la dirección IP de SKU básica se puede mover. Las direcciones IP públicas de SKU Estándar no se pueden mover.
 * Almacén de Recovery Services: inscríbase en una [versión preliminar](#recovery-services-limitations).
 * SAP HANA en Azure
-* Scheduler
+* Programador
 * Search: no puede trasladar varios recursos de Search en regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
 * Azure Service Bus
 * Service Fabric
@@ -113,6 +107,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Servicio SignalR
 * Storage: las cuentas de almacenamiento de regiones diferentes no se pueden mover en la misma operación. En su lugar, use operaciones independientes para cada región.
 * Storage (clásico); consulte las [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* Servicio de sincronización de almacenamiento
 * Stream Analytics: los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
 * Servidor de SQL Database: la base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure SQL Data Warehouse.
 * Time Series Insights
@@ -138,8 +133,8 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure NetApp Files
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
 * Aplicaciones clásicas
-* Azure Container Instances
-* Container Service
+* Instancias de contenedor
+* Servicio de contenedor
 * Data Box
 * Dev Spaces
 * Dynamics LCS
@@ -472,7 +467,7 @@ Mientras todavía se esté ejecutando la operación, continuará recibiendo el c
 {"error":{"code":"ResourceMoveProviderValidationFailed","message":"<message>"...}}
 ```
 
-## <a name="move-resources"></a>Traslado de recursos
+## <a name="move-resources"></a>Mover recursos
 
 ### <a name="a-nameuse-portal-by-using-azure-portal"></a><a name="use-portal" />Mediante Azure Portal
 

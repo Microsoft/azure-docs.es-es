@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: derek1ee, LADocs
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 9ef11eb2099ff617fb4da4b9a924dc3f0550f226
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.date: 05/14/2019
+ms.openlocfilehash: 0bfa98396ee3afb80b486a5a17959664dfbe603c
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65160551"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602121"
 ---
 # <a name="add-and-run-code-snippets-by-using-inline-code-in-azure-logic-apps"></a>Agregar y ejecutar fragmentos de código mediante el uso de código en línea en Azure Logic Apps
 
@@ -23,7 +23,10 @@ Cuando desea ejecutar un fragmento de código dentro de la aplicación lógica, 
 * Se ejecuta en JavaScript. Lenguajes más próximamente.
 * Termina de ejecutarse en cinco segundos o menos.
 * Controla los datos de hasta 50 MB de tamaño.
-* Usa Node.js versión 8.11.1. Para obtener más información, consulte [objetos integrados estándares](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects).
+* Usa Node.js versión 8.11.1. Para obtener más información, consulte [objetos integrados estándares](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects). 
+
+  > [!NOTE]
+  > La función require() no es compatible con la **código alineado** acción para la ejecución de JavaScript.
 
 Esta acción ejecuta el fragmento de código y devuelve el resultado de ese fragmento de código como un token denominado **resultado**, que puede usar en las acciones posteriores en la aplicación lógica. Para otros escenarios donde desea crear una función para el código, intente [creando y llamando a una función de Azure](../logic-apps/logic-apps-azure-functions.md) en la aplicación lógica.
 

@@ -8,13 +8,13 @@ author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.topic: article
-ms.date: 03/18/2019
-ms.openlocfilehash: 0fbe56ceeeba71bcbb5ef358cd66de15e36508fc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 05/13/2019
+ms.openlocfilehash: 45eeb20e5c572ddd98244b2e751322fcce1d4b76
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60511930"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65597195"
 ---
 # <a name="test-logic-apps-with-mock-data-by-setting-up-static-results"></a>Probar las aplicaciones lógicas con datos simulados mediante la configuración de resultados estáticos
 
@@ -137,11 +137,9 @@ Al desactivar resultados estáticos no deshacerse de los valores de la última c
 
    ![Deshabilitar resultados estáticos](./media/test-logic-apps-mock-data-static-results/disable-static-results-button.png)
 
-## <a name="get-support"></a>Obtención de soporte técnico
+## <a name="reference"></a>Referencia
 
-* Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-
-* Para enviar ideas sobre características o votar sobre ellas, visite el [sitio de comentarios de los usuarios de Logic Apps](https://aka.ms/logicapps-wish).
+Para obtener más información acerca de esta configuración en las definiciones de flujo de trabajo subyacente, vea [resultados estáticos: referencia de esquema de lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md#static-results) y [runtimeConfiguration.staticResult - tiempo de ejecución Opciones de configuración](../logic-apps/logic-apps-workflow-actions-triggers.md#runtime-configuration-settings)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

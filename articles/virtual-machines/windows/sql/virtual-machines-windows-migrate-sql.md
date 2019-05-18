@@ -16,18 +16,22 @@ ms.topic: article
 ms.date: 08/18/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 95acda60935e82b226a1a0e860b5fa8effb8e47e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8e5a7bfc243fc8c797ffc66b2130756567ddc0fb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60325705"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795776"
 ---
 # <a name="migrate-a-sql-server-database-to-sql-server-in-an-azure-vm"></a>Migración de una Base de datos SQL Server a SQL Server en una máquina virtual de Azure
 
 Existen varios métodos para migrar una base de datos de usuario de SQL Server local a SQL Server en una VM de Azure. En este artículo se tratan diversos métodos brevemente y se recomienda el mejor de ellos para diversos escenarios.
 
+
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
+
+  > [!NOTE]
+  > SQL Server 2008 y SQL Server 2008 R2 se aproximan a los [final de su ciclo de vida de soporte técnico](https://www.microsoft.com/sql-server/sql-server-2008) para instancias locales. Para ampliar la compatibilidad, puede migrar la instancia de SQL Server a una máquina virtual de Azure o comprar las actualizaciones de seguridad extendida para mantenerlo en el entorno local. Para obtener más información, consulte [ampliar la compatibilidad de SQL Server 2008 y 2008 R2 con Azure](virtual-machines-windows-sql-server-2008-eos-extend-support.md)
 
 ## <a name="what-are-the-primary-migration-methods"></a>¿Cuáles son los principales métodos de migración?
 Los principales métodos de migración son:

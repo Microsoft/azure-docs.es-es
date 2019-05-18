@@ -1,10 +1,10 @@
 ---
-title: Registro de una aplicación con la plataforma de identidad de Microsoft (versión preliminar) | Azure
+title: Registro de una aplicación con la plataforma de identidad de Microsoft (plataforma de identidad de Microsoft)
 description: Aprenda a agregar y registrar una aplicación con la plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,33 +12,29 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/02/2018
-ms.author: celested
+ms.date: 05/09/2019
+ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: aragra, lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6943ad460bb5d852220e704492f892961992a59f
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090719"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65413602"
 ---
-# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Inicio rápido: Registro de una aplicación con la plataforma de identidad de Microsoft (versión preliminar)
+# <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Inicio rápido: Registro de una aplicación en la plataforma de identidad de Microsoft
 
 Los desarrolladores de la empresa y los proveedores de software como servicio (SaaS) pueden desarrollar aplicaciones de línea de negocio o servicios comerciales en la nube que se pueden integrar con la plataforma de identidad de Microsoft para ofrecer inicio de sesión seguro y autorización para los servicios.
 
-En esta guía de inicio rápido se muestra cómo agregar y registrar una aplicación con la experiencia de **Registros de aplicaciones (versión preliminar)** en Azure Portal para que pueda integrarse con la plataforma de identidad de Microsoft. Para más información acerca de las nuevas características y mejoras en la nueva experiencia de los registros de aplicación, consulte [esta entrada de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
-
-## <a name="prerequisite"></a>Requisito previo
-
-Para empezar, deberá participar en la experiencia de versión preliminar para los registros de aplicaciones en Azure Portal. Los pasos descritos en esta guía de inicio rápido corresponden a la nueva interfaz de usuario y solo funcionan si participa en la experiencia de versión preliminar.
+En este inicio rápido se muestra cómo agregar y registrar una aplicación mediante la experiencia de **Registros de aplicaciones** en Azure Portal para que pueda integrarse con la plataforma de identidad de Microsoft. Para más información acerca de las nuevas características y mejoras en la nueva experiencia de los registros de aplicación, consulte [esta entrada de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/).
 
 ## <a name="register-a-new-application-using-the-azure-portal"></a>Registro de una aplicación nueva mediante Azure Portal
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee.
-1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory**, y después **Registros de aplicaciones (versión preliminar) > Nuevo registro**.
+1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, después, seleccione **Registros de aplicaciones > Nuevo registro**.
 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 
    - **Nombre**: escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación.

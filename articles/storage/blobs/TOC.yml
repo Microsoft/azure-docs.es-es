@@ -413,7 +413,7 @@
             - name: 'Blobs, colas, tablas y archivos'
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
             - name: Movimiento de datos
-              href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
+              href: /dotnet/api/microsoft.azure.storage.datamovement
             - name: Resource Manager
               href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
         - name: Java
@@ -475,21 +475,23 @@
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Paquetes NuGet
           items:
-            - name: Biblioteca de cliente de Azure Storage para .NET
-              href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
+            - name: Biblioteca cliente común de Azure Storage
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/'
+            - name: Biblioteca cliente de Azure Blob Storage
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/'
             - name: Biblioteca de movimiento de datos de Azure Storage
               href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
             - name: Azure Configuration Manager
-              href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
+              href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
         - name: Código fuente
           items:
             - name: .NET
               items:
-                - name: 'Blobs, colas, tablas y archivos'
-                  href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
+                - name: 'Blobs, colas y archivos'
+                  href: 'https://github.com/Azure/azure-storage-net'
                 - name: Movimiento de datos
-                  href: 'https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.datamovement'
-                - name: Resource Manager
+                  href: /dotnet/api/microsoft.azure.storage.datamovement
+                - name: Proveedor de recursos de almacenamiento
                   href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
             - name: Java
               items:

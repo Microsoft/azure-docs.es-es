@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 09755922da78a3e856c491c01ce9f34f50063d71
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60404645"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65606511"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores de la forma que los imagina: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -29,7 +29,7 @@ En este artículo se describen los detalles sobre la incorporación y utilizaci�
 >Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md)
 
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Iniciar sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="enable-service-map"></a>Habilitar Service Map
@@ -144,7 +144,7 @@ Ciertos procesos cumplen roles determinados en los equipos: servidores web, serv
 
 | Icono de rol | DESCRIPCIÓN |
 |:--|:--|
-| ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
+| ![Servidor Web](media/service-map/role-web-server.png) | Servidor web |
 | ![Servidor de aplicaciones](media/service-map/role-application-server.png) | Servidor de aplicaciones |
 | ![Servidor de bases de datos](media/service-map/role-database.png) | Servidor de bases de datos |
 | ![Servidor LDAP](media/service-map/role-ldap.png) | Servidor LDAP |
@@ -348,7 +348,7 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| `RemoteCountry` |Nombre del país que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
+| `RemoteCountry` |El nombre del país/región RemoteIp de hospedaje.  Por ejemplo: *United States* |
 | `RemoteLatitude` |Latitud de geolocalización.  Por ejemplo, *47.68* |
 | `RemoteLongitude` |Longitud de geolocalización.  Por ejemplo, *-122.12* |
 
@@ -496,7 +496,7 @@ let remoteMachines = remote | summarize by RemoteMachine;
 ## <a name="rest-api"></a>API DE REST
 Todos los datos de servidores, procesos y dependencias de Service Map están disponibles a través de la [API de REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/).
 
-## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
+## <a name="diagnostic-and-usage-data"></a>Datos de uso y diagnóstico
 Microsoft recopila automáticamente datos de uso y rendimiento a través del servicio Mapa de servicio. Microsoft usa estos datos para proporcionar calidad, seguridad e integridad en el servicio Service Map y para mejorarlas. Con el fin de proporcionar funcionalidades de solución de problemas precisas y eficientes, los datos incluyen información sobre la configuración del software, como sistema operativo y versión, dirección IP, nombre DNS y nombre de la estación de trabajo. Microsoft no recopila nombres, direcciones ni otra información de contacto.
 
 Para más información sobre el uso y la recopilación de datos, vea la [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).

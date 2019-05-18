@@ -4,7 +4,7 @@ description: Obtenga información sobre las opciones de configuración de client
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
-manager: celested
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a48eea9fedd2d82f44693d58b31ee0d5c8c288d
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 4d731a8153dc6a70382c0d87cc20d8c961d9fe24
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138548"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546006"
 ---
 # <a name="application-configuration-options"></a>Opciones de configuración de aplicación
 
@@ -41,7 +41,7 @@ La entidad es una dirección URL que indica un directorio que MSAL puede solicit
 - https://login.microsoftonline.com/&lt; inquilino&gt;/, donde &lt;inquilino&gt; es el identificador del inquilino del inquilino de Azure AD o un dominio asociado a este inquilino de Azure AD.  Se usa solo para iniciar sesión en los usuarios de una organización específica.
 - https://login.microsoftonline.com/common/. Se usa para iniciar sesión en los usuarios con el trabajo y cuentas educativas o una cuenta personal de Microsoft.
 - https://login.microsoftonline.com/organizations/. Se usa para iniciar sesión en los usuarios con cuentas profesionales y educativas.
-- https://login.microsoftonline.com/consumers/. Se usa para iniciar sesión en los usuarios con solo cuentas de Microsoft (live).
+- https://login.microsoftonline.com/consumers/  Se usa para iniciar sesión en los usuarios con solo cuentas de Microsoft (live).
 
 La configuración de la entidad debe ser coherente con lo que se declara en el portal de registro de aplicación.
 
@@ -95,10 +95,10 @@ Actualmente, la única manera de obtener una aplicación para iniciar sesión en
 - Establezca la audiencia del registro de aplicación "Trabajo y cuentas educativas y cuentas personales" y,
 - y establezca la audiencia en el código o configuración `AadAuthorityAudience.PersonalMicrosoftAccount` (o `TenantID `= "consumers")
 
-## <a name="client-id"></a>Id. de cliente
+## <a name="client-id"></a>Identificador de cliente
 El identificador único de aplicación (cliente) asignado a la aplicación cuando se registró la aplicación de Azure AD.
 
-## <a name="redirect-uri"></a>URI de redireccionamiento
+## <a name="redirect-uri"></a>URI de redirección
 El URI de redireccionamiento es el URI donde el proveedor de identidades enviará los tokens de seguridad nuevo. 
 
 ### <a name="redirect-uri-for-public-client-applications"></a>URI de redirección de las aplicaciones de cliente público
@@ -124,7 +124,7 @@ Para las aplicaciones web, el URI de redireccionamiento (o URI de respuesta), es
 
 Para las aplicaciones de demonio, no es necesario especificar un URI de redirección.
 
-## <a name="client-secret"></a>Secreto del cliente
+## <a name="client-secret"></a>Secreto de cliente
 El secreto de cliente para la aplicación cliente confidencial. Este secreto (contraseña de aplicación) es proporcionada por el portal de registro de aplicación, o proporciona a Azure AD durante el registro de aplicaciones con PowerShell AzureAD, AzureRM de PowerShell o CLI de Azure.
 
 ## <a name="logging"></a>Registro

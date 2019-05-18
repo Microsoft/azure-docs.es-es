@@ -3,8 +3,8 @@ title: Ámbitos de plataforma de identidad de Microsoft, permisos y consentimien
 description: Descripción de la autorización en el extremo de plataforma de identidad de Microsoft, incluidos los ámbitos, permisos y consentimiento.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 717607de6d9d193a7373637d0d0fcd879b54fed0
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62112084"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544882"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de plataforma de identidad de Microsoft
 
@@ -49,7 +49,7 @@ Ocurre lo mismo con cualquier recurso de terceros integrado en la plataforma de 
 
 * Leer el calendario de un usuario
 * Escribir en el calendario de un usuario
-* Enviar correo como un usuario
+* Enviar correo como usuario
 
 Mediante la definición de estos tipos de permisos, el recurso tiene control específico sobre sus datos y el modo en que la funcionalidad de la API se expone. Una aplicación de terceros puede solicitar estos permisos a los usuarios y administradores, quienes deben aprobar la solicitud para que la aplicación pueda acceder a los datos o actuar en nombre de un usuario. Al fragmentar la funcionalidad del recurso en conjuntos de permisos más pequeños, se pueden crear aplicaciones de terceros para solicitar solo los permisos concretos que necesitan para realizar sus tareas. Los usuarios y administradores pueden saber exactamente qué datos de la aplicación tenga acceso a, y pueden ser más seguros de que no se comporta de forma malintencionada. Los desarrolladores deben cumplir siempre con el concepto del mínimo privilegio y pedir solo los permisos que necesitan para que sus aplicaciones funcionen.
 
@@ -89,7 +89,7 @@ Si una aplicación realiza el inicio de sesión mediante [OpenID Connect](active
 
 El ámbito `email` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a la dirección de correo electrónico principal del usuario en forma de la notificación `email`. El `email` notificación se incluye en un token solo si está asociada con la cuenta de usuario, que no siempre es el caso de una dirección de correo electrónico. Si usa el ámbito `email`, la aplicación debe estar preparada para controlar los casos en los que la notificación `email` no exista en el token.
 
-### <a name="profile"></a>Perfil
+### <a name="profile"></a>perfil
 
 El ámbito `profile` puede usarse con el ámbito `openid` y cualquier otro. Proporciona acceso de la aplicación a una cantidad considerable de información sobre el usuario. Incluye la información que pueda tener acceso, pero no se limita a, nombre dado del usuario, apellido, nombre de usuario preferido e identificador de objeto. Para ver una lista completa de las notificaciones de perfil disponibles en el parámetro id_tokens para un usuario específico, consulte la [`id_tokens`referencia](id-tokens.md).
 
@@ -202,7 +202,7 @@ https://login.microsoftonline.com/common/adminconsent?client_id=6731de76-14a6-49
 | `tenant` | Obligatorio | El inquilino de directorio al que quiere solicitar permiso. Puede proporcionarse en formato de GUID o de nombre descriptivo, O puede hacerse referencia genéricamente con `common`, como se muestra en el ejemplo. |
 | `client_id` | Obligatorio | El **Id. de aplicación (cliente)** que la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) experiencia asignado a la aplicación. |
 | `redirect_uri` | Obligatorio |El URI de redirección adonde desea que se envíe la respuesta para que la controle la aplicación. Debe coincidir exactamente con uno de los identificadores URI de redirección que registró el Portal de registro de aplicaciones. |
-| `state` | Recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
+| `state` | Recomendada | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Use el estado para codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
 
 En este momento, Azure AD requiere que un administrador de inquilinos inicie sesión para completar la solicitud. Se pedirá al administrador que apruebe todos los permisos que ha solicitado para la aplicación en el Portal de registro de aplicaciones.
 

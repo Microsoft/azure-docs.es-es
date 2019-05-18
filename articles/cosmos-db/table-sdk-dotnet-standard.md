@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/18/2018
-ms.openlocfilehash: 4b193dd41c137907e56e2bf38b18ebcf2f2b481a
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8e8baf9ba8fca2966825620d0588ab005abd37b9
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692246"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604386"
 ---
 # <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Table API de .NET Standard de Azure Cosmos DB: descarga y notas de la versión
 > [!div class="op_single_selector"]
@@ -63,7 +63,9 @@ ms.locfileid: "64692246"
 ## <a name="release-and-retirement-dates"></a>Fechas de lanzamiento y de retirada
 Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-| `Version` | Fecha de lanzamiento | Fecha de retirada |
+Esta biblioteca estándar de .NET multiplataforma [Microsoft.Azure.Cosmos.Table](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) reemplazará a la biblioteca de .NET Framework [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table).
+
+| Version | Fecha de lanzamiento | Fecha de retirada |
 | --- | --- | --- |
 | [1.0.1](#1.0.1) |19 de abril de 2019 |--- |
 | [1.0.0](#1.0.0) |13 de marzo de 2019 |--- |

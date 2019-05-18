@@ -16,6 +16,12 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Usar Python
           href: quickstarts/detect-data-anomalies-python.md
+- name: Tutoriales
+  items:
+    - name: Visualización de anomalías como un lote mediante Power BI
+      href: tutorials/batch-anomaly-detection-powerbi.md
+    - name: Detección de anomalías en datos transmitidos con Azure Databricks
+      href: tutorials/anomaly-detection-streaming-databricks.md
 - name: Guías de procedimientos
   items:
     - name: Identificación de anomalías en los datos

@@ -3,8 +3,8 @@ title: Plataforma de identidad de Microsoft y el protocolo OpenID Connect | Azur
 description: Crear aplicaciones web mediante la implementación de plataforma de identidad de Microsoft del protocolo de autenticación OpenID Connect.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: a4875997-3aac-4e4c-b7fe-2b4b829151ce
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfac577d7582caa5b538f05273a02e4c3baf71ff
-ms.sourcegitcommit: 2028fc790f1d265dc96cf12d1ee9f1437955ad87
+ms.openlocfilehash: 23a8eaaf095be1d59944791bd793047886dda40c
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64918456"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544806"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y el protocolo OpenID Connect
 
@@ -48,7 +48,7 @@ OpenID Connect describe un documento de metadatos que contiene la mayor parte de
 https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 ```
 > [!TIP]
-> ¡Pruébelo! Haga clic en [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver la configuración de inquilinos `common`.
+> Pruébela. Haga clic en [https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) para ver la configuración de inquilinos `common`.
 
 `{tenant}` puede tomar uno de estos cuatro valores:
 
@@ -91,7 +91,7 @@ Cuando su aplicación web deba autenticar al usuario, puede dirigirlo al punto d
 > [!IMPORTANT]
 > Con el fin de solicitar un token de identificador correctamente desde el punto de conexión /authorization, el registro de aplicación en el [portal de registro](https://portal.azure.com) debe tener la concesión implícita de los id_tokens habilitada en la ficha autenticación (que establece el `oauth2AllowIdTokenImplicitFlow`marca en el [manifiesto de aplicación](reference-app-manifest.md) a `true`). Si aún no está habilitado, un `unsupported_response` , se devolverá el error: "El valor proporcionado para el parámetro de entrada 'response_type' no se permite para este cliente. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
 
-Por ejemplo: 
+Por ejemplo:
 
 ```
 // Line breaks are for legibility only.
@@ -115,11 +115,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `tenant` | Obligatorio | Puede usar el valor `{tenant}` en la ruta de acceso de la solicitud para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
 | `client_id` | Obligatorio | El **Id. de aplicación (cliente)** que la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) experiencia asignado a la aplicación. |
 | `response_type` | Obligatorio | Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir otros valores `response_type`, como `code`. |
-| `redirect_uri` | Recomendado | El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. Si no se presente, el punto de conexión realizará una selección de redirect_uri registrados una al azar a enviar al usuario a. |
+| `redirect_uri` | Recomendada | El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. Si no se presente, el punto de conexión realizará una selección de redirect_uri registrados una al azar a enviar al usuario a. |
 | `scope` | Obligatorio | Una lista de ámbitos separada por espacios. Asegúrese de incluir el ámbito `openid`para OpenID Connect, lo que se traduce en el permiso de inicio de sesión en la interfaz de usuario de consentimiento. También puede incluir otros ámbitos en esta solicitud para solicitar el consentimiento. |
 | `nonce` | Obligatorio | Un valor incluido en la solicitud, generado por la aplicación, que se incluirá en el valor id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Habitualmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
-| `response_mode` | Recomendado | Especifica el método que se debe usar para enviar el código de autorización resultante de nuevo a la aplicación. Puede ser `form_post` o `fragment`. En el caso de las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. |
-| `state` | Recomendado | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se usa normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, como la página o la vista en la que estaba el usuario. |
+| `response_mode` | Recomendada | Especifica el método que se debe usar para enviar el código de autorización resultante de nuevo a la aplicación. Puede ser `form_post` o `fragment`. En el caso de las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. |
+| `state` | Recomendada | Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se usa normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, como la página o la vista en la que estaba el usuario. |
 | `prompt` | Opcional | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none` y `consent`. La notificación `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, lo que niega el inicio de sesión único. La notificación `prompt=none` es lo contrario. Esta notificación se asegura de que no se presenta al usuario ninguna solicitud interactiva en. Si la solicitud no se puede completar en modo silencioso a través de inicio de sesión único, el punto de conexión de plataforma de identidad de Microsoft devuelve un error. La notificación `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión. El cuadro de diálogo le pide al usuario que conceda permisos a la aplicación. |
 | `login_hint` | Opcional | Puede usar este parámetro para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe el nombre de usuario con anticipación. A menudo, las aplicaciones usan este parámetro durante la reautenticación, una vez que ya se extrajo el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
 | `domain_hint` | Opcional | El dominio Kerberos del usuario en un directorio federado.  Esto omite el proceso de detección basada en correo electrónico que pasa el usuario en la página de inicio de sesión, para una experiencia de usuario será ligeramente más sencilla. Para los inquilinos que están federados a través de un directorio local como AD FS, esto suele ocurrir en un inicio de sesión sin problemas debido a la sesión de inicio de sesión existente. |
@@ -203,7 +203,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parámetro | Condición | DESCRIPCIÓN |
 | ----------------------- | ------------------------------- | ------------ |
-| `post_logout_redirect_uri` | Recomendado | La dirección URL al que se redirige al usuario tras cerrar sesión correctamente. Si el parámetro no se incluye, se muestra al usuario un mensaje genérico que se genera el punto de conexión de plataforma de identidad de Microsoft. Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones. |
+| `post_logout_redirect_uri` | Recomendada | La dirección URL al que se redirige al usuario tras cerrar sesión correctamente. Si el parámetro no se incluye, se muestra al usuario un mensaje genérico que se genera el punto de conexión de plataforma de identidad de Microsoft. Esta dirección URL debe coincidir con uno de los URI de redirección registrados para su aplicación en el portal de registro de aplicaciones. |
 
 ## <a name="single-sign-out"></a>Cierre de sesión único
 

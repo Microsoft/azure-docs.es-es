@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo agregar roles de aplicación en un
 services: active-directory
 documentationcenter: ''
 author: kkrishna
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -17,12 +17,12 @@ ms.author: kkrishna
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df0d0b02efe7e99253b64ba02a5d9e77bb968993
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: fd78e98c37bea0fed1787e1e07a026fa35597f47
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65138351"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65593917"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos para: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -62,7 +62,7 @@ Estos roles de aplicación se definen en [Azure Portal](https://portal.azure.com
 El ejemplo siguiente muestra los distintos `appRoles` que se pueden asignar a `users`.
 
 > [!NOTE]
->  El elemento `id` debe ser un GUID único.
+>El elemento `id` debe ser un GUID único.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -80,6 +80,9 @@ El ejemplo siguiente muestra los distintos `appRoles` que se pueden asignar a `u
   ],
 "availableToOtherTenants": false,
 ```
+
+> [!NOTE]
+>El `displayName` no puede contener espacios.
 
 Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando están disponibles para `applications`, los roles de aplicación aparecen como permisos de aplicación en la hoja **Permisos necesarios**. El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
 
@@ -99,6 +102,8 @@ Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando 
   ],
 "availableToOtherTenants": false,
 ```
+
+El número de roles definidos afecta a los límites que tiene el manifiesto de aplicación. Describe detalladamente en la [manifiesto límites](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#manifest-limits) página.
 
 ### <a name="assign-users-and-groups-to-roles"></a>Asignación de usuarios y grupos a roles
 

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 5b04cabe734b97436421595dbb0ab7584efd4911
-ms.sourcegitcommit: 4b9c06dad94dfb3a103feb2ee0da5a6202c910cc
+ms.openlocfilehash: 4f3fb624f5e6137c9edb0be97adc16d8c808ebd9
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/02/2019
-ms.locfileid: "65024936"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523068"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Cómo indexar blobs JSON con el indexador de blobs de Azure Search
 Este artículo muestra cómo configurar un blob de Azure Search [indizador](search-indexer-overview.md) para extraer contenido estructurado de documentos JSON en Azure Blob storage y facilitar su búsqueda en Azure Search. Este flujo de trabajo crea un índice de búsqueda de Azure y lo carga con texto extraído de los blobs JSON. 
@@ -279,7 +279,7 @@ Crear el indexador de Azure Search desencadena la importación de datos. Inmedia
 
 ## <a name="use-net-sdk"></a>Uso del SDK de .NET
 
-El SDK de .NET totalmente tiene paridad completa con la API REST. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
+El SDK de .NET tiene paridad completa con la API de REST. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
 
 + [Microsoft.Azure.Search.Models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
 + [Microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 

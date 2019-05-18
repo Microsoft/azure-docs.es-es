@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 91db42a003bdbb7614faba2122c30826b62ee20f
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: df4acf72a1a6ea134e1192512fda1d8cf1e92f0a
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64698659"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65767990"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Agregar ADFS como proveedor de identidades de SAML mediante las directivas personalizadas de Azure Active Directory B2C
 
@@ -35,7 +35,7 @@ Debe almacenar el certificado en el inquilino de Azure AD B2C.
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Seleccione el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, y busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
 5. Seleccione **Claves de directiva** y luego **Agregar**.
 6. En **Opciones**, elija `Upload`.
 7. Escriba un **nombre** para la clave de directiva. Por ejemplo, `SamlCert`. Se agregará el prefijo `B2C_1A_` automáticamente al nombre de la clave.
@@ -170,7 +170,7 @@ Abra un explorador y vaya a esta dirección URL. Asegúrese de escribir la direc
     | Atributo LDAP | Tipo de notificación saliente |
     | -------------- | ------------------- |
     | User-Principal-Name | userPrincipalName |
-    | Surname | family_name |
+    | Apellido | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | email |
     | Display-Name | Nombre |

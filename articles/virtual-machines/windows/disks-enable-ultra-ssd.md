@@ -8,15 +8,15 @@ ms.workload: storage
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 05/10/2019
 ms.author: rogarana
 ms.custom: seodec18
 ms.subservice: disks
-ms.openlocfilehash: c5eaac4766bec2c4666e2a533d0d771237cbde53
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c569996c05d3ef854276701168f8100ba45fe331
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61075689"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65546542"
 ---
 [!INCLUDE [virtual-machines-disks-ultra-ssd](../../../includes/virtual-machines-disks-getting-started-ultra-ssd.md)]

@@ -5,19 +5,21 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 05/13/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 39c64b9fe4e03bb0b7216a8d1ba607bec10b4708
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 8cc13e9aec679a79d31d2724ba412efd2d58dfd1
+ms.sourcegitcommit: 179918af242d52664d3274370c6fdaec6c783eb6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64744565"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65561275"
 ---
 Los tamaños de VM optimizadas para memoria ofrecen una relación alta de memoria a CPU que es excelente para servidores de bases de datos relacionales, memorias caché de medianas a grandes y análisis en memoria. En este artículo, se proporciona información acerca del número de vCPU, discos de datos y tarjetas de interfaz de red, así como del rendimiento del almacenamiento y del ancho de banda de red para cada tamaño de esta agrupación. 
 
-* La serie M ofrece el mayor número de vCPU (hasta 128 vCPU) y la memoria más grande (hasta 3,8 TiB) de todas las VM en la nube.  Es ideal para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria.
+* La serie Mv2 ofrece el mayor número de vCPU (hasta 208 vCPU) y la memoria más grande (hasta 5.7 TiB) de todas las máquinas virtuales en la nube. Es ideal para bases de datos extremadamente grandes u otras aplicaciones que se benefician de un elevado número de vCPU y grandes cantidades de memoria.
+ 
+* La serie M ofrece un recuento alto de vCPU (hasta 128 vCPU) y una gran cantidad de memoria (hasta 3,8 TiB). También es idóneo para las bases de datos extremadamente grandes u otras aplicaciones que se benefician de elevado número de vCPU y grandes cantidades de memoria.
 
 * Serie Dv2, serie G y DSv2 o GS son ideales para aplicaciones que requieren vCPU más rápidas, mejor rendimiento del almacenamiento temporal o tienen mayor demanda de memoria. Ofrecen una combinación eficaz para muchas aplicaciones de clase empresarial.
 
@@ -61,9 +63,9 @@ Las instancias de la serie ESv3 se basan en el procesador Intel XEON® E5-2673 v
 
 ACU: 160 - 190 <sup>1</sup>
 
-Premium Storage:  No compatible
+Premium Storage:  No admitido
 
-Caching de Premium Storage:  No compatible
+Caching de Premium Storage:  No admitido
 
 Las instancias de la serie Ev3 se basan en el procesador Intel XEON ® E5-2673 v4 (Broadwell) de 2,3 GHz y pueden llegar a 3,5 GHz con la tecnología Intel Turbo Boost Technology 2.0. Las instancias de la serie Ev3 son ideales para aplicaciones empresariales de uso intensivo de memoria.
 
@@ -86,6 +88,24 @@ El almacenamiento en disco de datos se factura de forma independiente a las máq
 <sup>2</sup> Tamaños de núcleos restringidos disponibles.
 
 <sup>3</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
+
+
+## <a name="mv2-series"></a>Serie Mv2
+
+Premium Storage: Compatible
+
+Caching de Premium Storage: Compatible
+
+Acelerador de escritura: [Compatible](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+
+|Tamaño | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
+|-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
+| Standard_M208ms_v22<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80,000 / 800 (7,040) | 40 000 / 1 000 | 8 / 16000 |
+| Standard_M208s_v22<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80,000 / 800 (7,040) | 40 000 / 1 000 | 8 / 16000 |
+
+Serie Mv2 cuentan con la tecnología Intel® Hyper-Threading  
+
+<sup>1</sup> estos grandes vCPU requieren uno de estos sistemas operativos invitados compatibles: Windows Server 2016, Windows Server 2019, SLES 12 SP4, SLES 15 y RHEL 7.6
 
 
 ## <a name="m-series"></a>Serie M 
@@ -154,9 +174,9 @@ Caching de Premium Storage:  Compatible
 
 ACU: 180 - 240
 
-Premium Storage:  No compatible
+Premium Storage:  No admitido
 
-Caching de Premium Storage:  No compatible
+Caching de Premium Storage:  No admitido
 
 | Tamaño         | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
@@ -164,7 +184,7 @@ Caching de Premium Storage:  No compatible
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 16000          |
-| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
+| Standard_G5&nbsp;<sup>1</sup> | 32        | 448         | 6,144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
 
 <sup>1</sup> La instancia está aislada en el hardware dedicado a un solo cliente.
 <br>
@@ -196,9 +216,9 @@ Caching de Premium Storage:  Compatible
 
 ACU: 210 - 250
 
-Premium Storage:  No compatible
+Premium Storage:  No admitido
 
-Caching de Premium Storage:  No compatible
+Caching de Premium Storage:  No admitido
 
 | Tamaño              | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Rendimiento máximo de almacenamiento temporal: IOPS / MBps de lectura / MBps de escritura | Discos de datos máx. / rendimiento: E/S | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
 |-------------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 4a4677b5db730001df75d201d8e6d3149cb928e6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 0418d325f3b3719549181a48fc0432a677f695d5
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65409844"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65795898"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -153,7 +153,7 @@ Puede usar [Azure Resource Manager](https://azure.microsoft.com/documentation/ar
 **Detalles**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) es una solución para automatizar la implementación en varias fases y la administración del proceso de publicación. Cree canalizaciones de implementación continua y administrada con el fin de que el lanzamiento sea rápido, sencillo y frecuente. Con Azure Pipelines, puede automatizar el proceso de publicación y tener flujos de trabajo de aprobación predefinidos. Realice la implementación de forma local y en la nube, amplíela y personalícela según sea necesario.
 
 **Procedimiento recomendado**: Compruebe el rendimiento de su aplicación antes de iniciarla o de implementar actualizaciones en la producción.  
-**Detalles**: Ejecutar en la nube [las pruebas de carga](https://docs.microsoft.com/azure/devops/test/load-test/overview.md?view=azure-devops#alternatives) para:
+**Detalles**: Ejecutar en la nube [las pruebas de carga](/azure/devops/test/load-test/overview#alternatives) para:
 
 - Detectar problemas de rendimiento en la aplicación.
 - Mejorar la calidad de implementación.

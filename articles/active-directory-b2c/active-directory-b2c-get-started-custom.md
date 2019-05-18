@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: e9ad91967b5423539f28089bbf2da22edcf8f9a6
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 6a66d45028b9fbf9c421b10ffb7863fcb9be5bec
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714970"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779858"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -33,7 +33,7 @@ Las [directivas personalizadas](active-directory-b2c-overview-custom.md) son arc
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) como administrador global del inquilino de Azure AD B2C.
 2. Asegúrese de que usa el directorio que contiene al inquilino de Azure AD B2C. Haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino. 
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
-4. En la página de introducción, seleccione **Marco de experiencia de identidad - VERSIÓN PRELIMINAR**.
+4. En la página de introducción, seleccione **Identity Experience Framework**.
 
 ### <a name="create-the-signing-key"></a>Crear la clave de firma
 

@@ -3,26 +3,26 @@ title: Aplicaciones servicio a servicio en Azure Active Directory
 description: Se describe qué son las aplicaciones de servicio a servicio y los conceptos básicos sobre el flujo de protocolos, el registro y la expiración de tokens en este tipo de aplicación.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-origin.date: 09/24/2018
-ms.date: 11/07/2018
-ms.author: v-junlch
+ms.date: 09/24/2018
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
-ms.openlocfilehash: e0ced89ce97d5f22270d9968fdeb0ddb3fad1e4e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.collection: M365-identity-device-management
+ms.openlocfilehash: 683664b3172cb12ba6adf6c8006e9685a6d1ec35
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60251994"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540324"
 ---
 # <a name="service-to-service-apps"></a>Aplicaciones de se servicio a servicio
 
@@ -63,8 +63,8 @@ Vea los ejemplos de código para escenarios de aplicación de servidor o de demo
 
 ## <a name="app-registration"></a>Registro de aplicación
 
-- Un solo inquilino: tanto en el caso de la identidad de aplicación como en el de la identidad de usuario delegado, la aplicación de demonio o de servidor debe estar registrada en el mismo directorio de Azure AD. La API web puede configurarse para exponer un conjunto de permisos, que se usan para limitar el acceso de la aplicación de demonio o de servidor a sus recursos. Si se usa un tipo de identidad de usuario delegado, es necesario que la aplicación de servidor seleccione los permisos deseados en el menú desplegable "Permisos para otras aplicaciones" de Azure Portal. Este paso no es necesario si se usa el tipo de identidad de aplicación.
-- Multiempresa (varios inquilinos): en primer lugar, la aplicación de demonio o de servidor se configura para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, las dos API web se registran en el directorio.
+* Un solo inquilino: tanto en el caso de la identidad de aplicación como en el de la identidad de usuario delegado, la aplicación de demonio o de servidor debe estar registrada en el mismo directorio de Azure AD. La API web puede configurarse para exponer un conjunto de permisos, que se usan para limitar el acceso de la aplicación de demonio o de servidor a sus recursos. Si se usa un tipo de identidad de usuario delegado, es necesario que la aplicación de servidor seleccione los permisos deseados en el menú desplegable "Permisos para otras aplicaciones" de Azure Portal. Este paso no es necesario si se usa el tipo de identidad de aplicación.
+* Multiempresa (varios inquilinos): en primer lugar, la aplicación de demonio o de servidor se configura para indicar los permisos que requiere para ser funcional. La lista de permisos necesarios se muestra en un cuadro de diálogo cuando un usuario o administrador del directorio de destino da su consentimiento a la aplicación, lo que la pone a disposición de la organización. Algunas aplicaciones solo requieren permisos de nivel de usuario, para los que cualquier usuario de la organización puede dar el consentimiento. Otras aplicaciones requieren permisos de nivel de administrador, para los que un usuario de la organización no puede dar su consentimiento. Solo un administrador de directorio puede dar su consentimiento a las aplicaciones que requieran este nivel de permisos. Cuando el usuario o el administrador dan su consentimiento, las dos API web se registran en el directorio.
 
 ## <a name="token-expiration"></a>Expiración del token
 
@@ -74,4 +74,3 @@ Cuando la primera aplicación usa su código de autorización para obtener un to
 
 - Más información sobre otros [tipos y escenarios de aplicaciones](app-types.md).
 - Más información sobre los [conceptos básicos de autenticación](authentication-scenarios.md) de Azure AD.
-

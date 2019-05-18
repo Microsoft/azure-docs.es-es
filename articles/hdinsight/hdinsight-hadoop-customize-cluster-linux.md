@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 63f81c331db619323f74b77e48627fd8b432565f
+ms.sourcegitcommit: 17411cbf03c3fa3602e624e641099196769d718b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545338"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65518888"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
 
@@ -45,23 +45,21 @@ Obtenga más información sobre cómo trabajar con la administración de acceso:
 Una acción de script es un script de Bash que se ejecuta en los nodos de un clúster de HDInsight. Estas son algunas características de las acciones de script:
 
 * Deben almacenarse en un URI accesible desde el clúster de HDInsight. A continuación, se proponen varias ubicaciones de almacenamiento posibles:
+    
+    * Para los clústeres regulares:
+    
+      * Gen1 ADLS: La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script. El formato del identificador URI para scripts almacenados en Data Lake Storage Gen1 es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
+      
+      * Un blob de una cuenta de Azure Storage que sea la cuenta de almacenamiento principal o adicional del clúster de HDInsight. Durante la creación del clúster se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento.
 
-    * Una cuenta de Azure Data Lake Storage a la que pueda acceder el clúster de HDInsight. Para obtener información acerca del uso de Azure Data Lake Storage con HDInsight, consulte [Inicio rápido: Configuración de clústeres en HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
-
-        El formato del identificador URI para scripts almacenados en Data Lake Storage Gen1 es `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-
-        > [!NOTE]  
-        > La entidad de servicio que HDInsight usa para acceder a Data Lake Storage debe tener acceso de lectura al script.
-
-    * Un blob de una cuenta de Azure Storage que sea la cuenta de almacenamiento principal o adicional del clúster de HDInsight. Durante la creación del clúster se concede acceso a HDInsight a estos dos tipos de cuentas de almacenamiento.
-
-    * Un servicio público de uso compartido de archivos. Algunos ejemplos son Azure Blob, GitHub, OneDrive y Dropbox.
+      * Un uso compartido de archivos servicio público accesible a través de las rutas de acceso de http://. Algunos ejemplos son Azure Blob, GitHub, OneDrive.
 
         Para obtener URI de ejemplo, consulte [Ejemplo de scripts de acción de script](#example-script-action-scripts).
 
-        > [!WARNING]  
-        > HDInsight solo admite blobs en cuentas de Azure Storage con un nivel de rendimiento estándar. 
-
+     * Para clústeres con ESP:
+         
+         * El wasb [s] :// o http [s] :// se admiten los URI.
+            
 * Pueden restringirse para ejecutarse solo en determinados tipos de nodos. Algunos ejemplos son los nodos principales o nodos de trabajo.
 
 * Pueden ser persistentes o ad hoc.
@@ -147,10 +145,10 @@ HDInsight proporciona scripts para instalar los siguientes componentes en clúst
 
 | NOMBRE | Script |
 | --- | --- |
-| Adición de una cuenta de Azure Storage |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md). |
-| Instalación de Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Consulte [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). |
-| Instalación de Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Consulte [Instalación y uso de Presto en clústeres de Hadoop para HDInsight](hdinsight-hadoop-install-presto.md). |
-| Instalación de Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consulte [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
+| Agregar una cuenta de Azure Storage |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`  Consulte [Adición de más cuentas de almacenamiento a HDInsight](hdinsight-hadoop-add-storage.md). |
+| Instalar Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`  Consulte [Instalación y uso de Hue en clústeres de Hadoop para HDInsight](hdinsight-hadoop-hue-linux.md). |
+| Instalar Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`  Consulte [Instalación y uso de Presto en clústeres de Hadoop para HDInsight](hdinsight-hadoop-install-presto.md). |
+| Instalar Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consulte [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Carga previa de las bibliotecas de Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Consulte [Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Uso de una acción de script durante la creación de un clúster

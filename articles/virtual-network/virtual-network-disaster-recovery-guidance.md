@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2016
 ms.author: narayan;aglick
-ms.openlocfilehash: f8068524a33c6d29056af456a26b8bd87fc3e3d6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68a9523dcc9c4dd84399c68fc7e31a692c011487
+ms.sourcegitcommit: bb85a238f7dbe1ef2b1acf1b6d368d2abdc89f10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60742720"
+ms.lasthandoff: 05/10/2019
+ms.locfileid: "65523259"
 ---
 # <a name="virtual-network--business-continuity"></a>Virtual Network: continuidad del negocio
 
 ## <a name="overview"></a>Información general
 Una red virtual (VNet) es una representación lógica de su red en la nube. Permite definir su propio espacio de direcciones IP privadas y segmentar la red en subredes. Las redes virtuales actúan como un límite de confianza para hospedar los recursos de proceso, como Máquinas virtuales y Cloud Services (roles web y de trabajo) de Azure. Una red virtual permite la comunicación IP privada directa entre los recursos hospedados en ella. Puede vincular una red virtual a una red local mediante una instancia de VPN Gateway o por medio de ExpressRoute.
 
-Una red virtual se crea dentro del ámbito de una región. Puede crear redes virtuales con el mismo espacio de direcciones en dos regiones diferentes (por ejemplo, Este de EE. UU. y Oeste de EE. UU.), pero no se pueden conectar entre sí juntas. 
+Una red virtual se crea dentro del ámbito de una región. También puede *crear* redes virtuales con el mismo espacio de direcciones en dos regiones diferentes (por ejemplo, EE.UU y oeste de EE), pero porque tienen el mismo espacio de direcciones, no puede conectarlos entre sí. 
 
 ## <a name="business-continuity"></a>Continuidad del negocio
 

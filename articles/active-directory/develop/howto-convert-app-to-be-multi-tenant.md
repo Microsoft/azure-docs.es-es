@@ -3,8 +3,8 @@ title: Creación de una aplicación que pueda iniciar sesión cualquier usuario 
 description: Se muestra cómo crear una aplicación de varios inquilinos que puede iniciar sesión en un usuario de cualquier inquilino de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 68973d3a88791bcfffc8183f5e3a16975fe15742
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60410508"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65540458"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos para: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
 
@@ -138,7 +138,7 @@ La aplicación puede tener varios niveles, cada uno representado por su propio r
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Múltiples niveles en un solo inquilino
 
-Esto puede ser un problema si la aplicación lógica consta de dos o más registros de aplicación, por ejemplo, un cliente y un recurso independientes. ¿Cómo se convierte primero el recurso en el inquilino del cliente? Azure AD aborda este caso al habilitar el consentimiento del cliente y del recurso en un solo paso. El usuario ve la suma total de los permisos solicitados por el cliente y el recurso en la página de consentimiento. Para permitir este comportamiento, el registro de la aplicación del recurso debe incluir el id. de aplicación del cliente como un elemento `knownClientApplications` en su [manifiesto de aplicación][AAD-App-Manifest]. Por ejemplo: 
+Esto puede ser un problema si la aplicación lógica consta de dos o más registros de aplicación, por ejemplo, un cliente y un recurso independientes. ¿Cómo se convierte primero el recurso en el inquilino del cliente? Azure AD aborda este caso al habilitar el consentimiento del cliente y del recurso en un solo paso. El usuario ve la suma total de los permisos solicitados por el cliente y el recurso en la página de consentimiento. Para permitir este comportamiento, el registro de la aplicación del recurso debe incluir el id. de aplicación del cliente como un elemento `knownClientApplications` en su [manifiesto de aplicación][AAD-App-Manifest]. Por ejemplo:
 
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
 
@@ -150,7 +150,7 @@ Esto se demuestra en un ejemplo de llamada a la API web de un cliente nativo de 
 
 Un caso parecido tiene lugar si los diferentes niveles de una aplicación se registran en distintos inquilinos. Por ejemplo, considere el caso de la creación de una aplicación cliente nativa que llama a la API de Office 365 Exchange Online. Para desarrollar la aplicación nativa y, más tarde, para que se ejecute en el inquilino de un cliente, la entidad de servicio de Exchange Online debe existir. En este caso, el desarrollador y el cliente tienen que comprar Exchange Online para que la entidad de servicio se cree en sus inquilinos.
 
-Si es una API creada por una organización que no sea de Microsoft, el desarrollador de la API debe proporcionar una forma de sus clientes dar su consentimiento a la aplicación en los inquilinos de sus clientes. Es el diseño recomendado para que el desarrollador de terceros compilar la API de forma que también puede funcionar como un cliente web para implementar el registro. Para ello, siga estos pasos:
+Si es una API creada por una organización que no sea de Microsoft, el desarrollador de la API debe proporcionar una forma de sus clientes dar su consentimiento a la aplicación en los inquilinos de sus clientes. Es el diseño recomendado para que el desarrollador de terceros compilar la API de forma que también puede funcionar como un cliente web para implementar el registro. Para ello:
 
 1. Consulte las secciones anteriores para asegurarse de que la API implementa los requisitos de código y el registro de aplicaciones multiempresa.
 2. Además de exponer los roles y ámbitos de la API, asegúrese de que el registro incluye el "iniciar sesión y leer el perfil de usuario" permiso (proporcionado por el valor predeterminado).

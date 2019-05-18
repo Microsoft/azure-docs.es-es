@@ -6,15 +6,16 @@ services: media-services
 author: anikaz
 manager: johndeu
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 37e556ca458a5b0a171664e089d39cfb448d5f96
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60556069"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65800112"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalización de un modelo de persona con el sitio web de Video Indexer
 
@@ -90,7 +91,7 @@ Puede eliminar cualquier modelo de la persona que creó en su cuenta. Sin embarg
 
     ![Eliminar una persona](./media/customize-face-model/delete-person.png)
     
-    Se mostrará una ventana emergente y se le notificará que esta acción eliminará el modelo de persona y todas las personas y los archivos que contiene. Esta operación no se puede deshacer. 
+    Se mostrará una ventana emergente y se le notificará que esta acción eliminará el modelo de persona y todas las personas y los archivos que contiene. Esta acción no se puede deshacer. 
 
     ![Eliminar una persona](./media/customize-face-model/delete-person2.png)
 1. Si está seguro, haga clic en eliminar de nuevo.

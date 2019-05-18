@@ -12,12 +12,12 @@ ms.author: josack
 ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4424e53689714625ebc791df250956463452c3cb
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60703378"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65791495"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -127,7 +127,7 @@ Otra opción es aprovisionar [direcciones IP reservadas](../virtual-network/virt
 
 ### <a name="what-port-do-i-connect-to-sql-database-on"></a>A qué puerto debo conectarme en SQL Database
 
-Puerto 1433. SQL Database se comunica a través de este puerto. Para conectarse desde una red corporativa, tiene que agregar una regla de salida en la configuración del firewall de su organización. Como norma, evite exponer el puerto 1433 fuera del límite de Azure. Puede ejecutar SSMS en Azure mediante [Azure RemoteApp](https://www.microsoft.com/cloud-platform/azure-remoteapp-client-apps). Esto no requiere abrir conexiones salientes para el puerto 1433, la dirección IP es estática, por lo que la base de datos puede estar abierta solo para RemoteApp y admite Multi-Factor Authentication (MFA).
+Puerto 1433. SQL Database se comunica a través de este puerto. Para conectarse desde una red corporativa, tiene que agregar una regla de salida en la configuración del firewall de su organización. Como norma, evite exponer el puerto 1433 fuera del límite de Azure.
 
 ### <a name="how-can-i-monitor-and-regulate-activity-on-my-server-and-database-in-sql-database"></a>Cómo puedo supervisar y regular la actividad en mi servidor y mi base de datos en SQL Database
 

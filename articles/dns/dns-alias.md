@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/21/2019
+ms.date: 5/13/2019
 ms.author: victorh
-ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 847ad271dac4afc8c8baa2faa8702b3a3ab6cefa
+ms.sourcegitcommit: 1fbc75b822d7fe8d766329f443506b830e101a5e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60790545"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65596708"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Introducción a los registros de alias de Azure DNS
 
@@ -25,7 +25,7 @@ Un conjunto de registros de alias se admite para los siguientes tipos de registr
 - CNAME
 
 > [!NOTE]
-> Si pretende usar un registro de alias para los tipos de registro A o AAAA para apuntar a un [perfil de Azure Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md), debe asegurarse de que el perfil de Traffic Manager solo tenga [puntos de conexión externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Debe proporcionar la dirección IPv4 o IPv6 para los puntos de conexión externos en Traffic Manager. Lo ideal es usar direcciones IP estáticas.
+> Si pretende usar un registro de alias para los tipos de registro A o AAAA para apuntar a un [perfil de Azure Traffic Manager](../traffic-manager/quickstart-create-traffic-manager-profile.md), debe asegurarse de que el perfil de Traffic Manager solo tenga [puntos de conexión externos](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). Debe proporcionar la dirección IPv4 o IPv6 para los puntos de conexión externos en Traffic Manager. No se puede usar nombres de dominio completo (FQDN) en los puntos de conexión. Lo ideal es usar direcciones IP estáticas.
 
 ## <a name="capabilities"></a>Capacidades
 

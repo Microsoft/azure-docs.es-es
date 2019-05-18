@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: e12b89d0469587d7d7326bbee30f6467ada06bd5
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 7f184178343f69f522148777752c51afc5c5dcb6
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64574070"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65790408"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>El nivel de servicio Premium RS de Azure SQL Database (versión preliminar) se está retirando: opciones de migración
 
@@ -27,7 +27,7 @@ A continuación se indican los destinos de migración y las opciones de precios 
 
 - Niveles de servicio de núcleo virtual
 
-  En el artículo se describen los niveles de servicio **Uso general** y **Crítico para la empresa** en el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md). Estos dos niveles de servicio están disponibles para el público general. El modelo de compra basado en núcleo virtual también ofrece el nivel de servicio **Hiperescala** (en versión preliminar pública), que se adapta a petición a las necesidades de su carga de trabajo con escalado automático hasta 100 TB por base de datos. El nivel de servicio Hiperescala proporciona un rendimiento de E/S comparable al nivel de servicio Premium en el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) a un precio más cercano al del nivel de servicio Premium RS.
+  En el artículo se describen los niveles de servicio **Uso general** y **Crítico para la empresa** en el [modelo de compra basado en núcleo virtual](sql-database-service-tiers-vcore.md). Estos dos niveles de servicio están disponibles para el público general. El modelo de compra basado en núcleos virtuales también ofrece la **hiperescala** nivel de servicio que se adapta a petición para las necesidades de su carga de trabajo con escalado automático hasta 100 TB por base de datos. El nivel de servicio Hiperescala proporciona un rendimiento de E/S comparable al nivel de servicio Premium en el [modelo de compra basado en DTU](sql-database-service-tiers-dtu.md) a un precio más cercano al del nivel de servicio Premium RS.
 - Precios para desarrollo/pruebas
 
   [Precios para desarrollo/pruebas](https://azure.microsoft.com/pricing/dev-test/) proporciona un ahorro de hasta el 55 % en comparación con las tarifas de licencia incluida con su suscripción a Visual Studio.
@@ -70,10 +70,10 @@ Se recomienda migrar las bases de datos únicas con un tráfico intensivo de E/S
 
 |**Si actualmente está en el nivel…**|**Migre a un nivel basado en núcleos virtuales comparable…**|**Migre a un nivel basado en DTU comparable…**|
 |---|---|---|
-|Premium RS 1|(Versión preliminar) 1 núcleo virtual de hiperescala (generación 4) o 1 núcleo virtual crítico para la empresa (generación 4)|Premium 1|
-|Premium RS 2|(Versión preliminar) 2 núcleos virtuales de hiperescala (generación 4) o 2 núcleos virtuales críticos para la empresa (generación 4)|Premium 2|
-|Premium RS 4|(Versión preliminar) 4 núcleos virtuales de hiperescala (generación 4) o 4 núcleos virtuales críticos para la empresa (generación 4)|Premium 4
-|Premium RS 6|(Versión preliminar) 6 núcleos virtuales de hiperescala (generación 4) o 6 núcleos virtuales críticos para la empresa (generación 4)|Premium 6|
+|Premium RS 1| Núcleo virtual de 1 a gran escala (Gen4) o empresariales críticos de 1 núcleo virtual (Gen4)|Premium 1|
+|Premium RS 2| Hiperescala 2 núcleos virtuales (Gen4) o negocio críticos 2 núcleos virtuales (Gen4|Premium 2|
+|Premium RS 4| Hiperescala 4 núcleos virtuales (Gen4) o negocio críticas 4 núcleos virtuales (Gen4)|Premium 4
+|Premium RS 6| 6 de hiperescala núcleos virtuales (Gen4) o empresariales críticas 6 núcleos virtuales (Gen4)|Premium 6|
 
 |**Si actualmente está en el nivel…**|**Migre a un nivel basado en núcleos virtuales comparable…**|**Migre a un nivel basado en DTU comparable…**|
 |---|---|---|

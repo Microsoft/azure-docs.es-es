@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 04/12/2019
+ms.date: 05/10/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 2e65c1a33a60e19538a26e0f47f205235dd1695c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: db397ae43d1c134823abfc7004f1f3490addeb06
+ms.sourcegitcommit: f013c433b18de2788bf09b98926c7136b15d36f1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60731777"
+ms.lasthandoff: 05/13/2019
+ms.locfileid: "65550604"
 ---
 # <a name="designing-a-polybase-data-loading-strategy-for-azure-sql-data-warehouse"></a>Diseño de una estrategia de carga de datos de PolyBase para Azure SQL Data Warehouse
 
@@ -49,8 +49,32 @@ La obtención de datos del sistema de origen depende de la ubicación del almace
 
 ### <a name="polybase-external-file-formats"></a>Formatos de archivo externos de PolyBase
 
-PolyBase carga los datos de los archivos de texto delimitados que están codificados mediante UTF-8 y UTF-16. Además de los archivos de texto delimitados, también carga datos desde formatos de archivos Hadoop como RC File, ORC y Parquet. Asimismo, PolyBase puede cargar datos desde Gzip y archivos comprimidos de Snappy. Hay que tener en cuenta que actualmente PolyBase no admite el formato ASCII extendido, el formato de ancho fijo y formatos anidados como WinZip, JSON y XML. Si está exportando desde SQL Server, puede usar la [herramienta de línea de comandos bcp](/sql/tools/bcp-utility) para exportar los datos en archivos de texto delimitados.
+PolyBase carga los datos de los archivos de texto delimitados que están codificados mediante UTF-8 y UTF-16. Además de los archivos de texto delimitados, también carga datos desde formatos de archivos Hadoop como RC File, ORC y Parquet. Asimismo, PolyBase puede cargar datos desde Gzip y archivos comprimidos de Snappy. Hay que tener en cuenta que actualmente PolyBase no admite el formato ASCII extendido, el formato de ancho fijo y formatos anidados como WinZip, JSON y XML. Si está exportando desde SQL Server, puede usar la [herramienta de línea de comandos bcp](/sql/tools/bcp-utility) para exportar los datos en archivos de texto delimitados. El Parquet en asignación de tipos de datos de SQL Data Warehouse es la siguiente:
 
+| **Tipo de datos de parquet** |                      **Tipo de datos SQL**                       |
+| :-------------------: | :----------------------------------------------------------: |
+|        tinyint        |                           tinyint                            |
+|       smallint        |                           smallint                           |
+|          int          |                             int                              |
+|        bigint         |                            bigint                            |
+|        boolean        |                             bit                              |
+|        double         |                            float                             |
+|         float         |                             real                             |
+|        double         |                            money                             |
+|        double         |                          smallmoney                          |
+|        string         |                            nchar                             |
+|        string         |                           nvarchar                           |
+|        string         |                             char                             |
+|        string         |                           varchar                            |
+|        binary         |                            binary                            |
+|        binary         |                          varbinary                           |
+|        timestamp       |                             date                             |
+|        timestamp       |                        smalldatetime                         |
+|        timestamp       |                          datetime2                           |
+|        timestamp       |                           datetime                           |
+|        timestamp       |                             time                             |
+|       date        | (1) cargar como int y convertir a fecha </br> (2) [usar el conector de almacenamiento de datos SQL de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) con </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**actualizar próximamente**) |
+|        decimal        | [Usar el conector de almacenamiento de datos SQL de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) con </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**actualizar próximamente**) |
 
 ## <a name="2-land-the-data-into-azure-blob-storage-or-azure-data-lake-store"></a>2. Llevar los datos a Azure Blob Storage o Azure Data Lake Store
 

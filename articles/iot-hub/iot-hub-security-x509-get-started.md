@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
-ms.openlocfilehash: 5795cde35d53a64620c4fdb6c3af99a7f56b12d9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0bfb66f54ec09e86b46a41499211e93a0083e8d1
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61440814"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65779929"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configuración de la seguridad de X.509 en Azure IoT Hub
 
@@ -36,6 +36,9 @@ Puede elegir cualquiera de los siguientes métodos para obtener los certificados
 * Comprar certificados X.509 a una *entidad de certificación (CA) raíz*. Se recomienda para entornos de producción.
 
 * Crear sus propios certificados X.509 mediante una herramienta de terceros como [OpenSSL](https://www.openssl.org/). Es apropiado tanto para pruebas como para desarrollo. Consulte [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación para ejemplos y tutoriales) para información sobre la generación de certificados de entidad de certificación mediante PowerShell o Bash. En el resto de este tutorial se usan certificados de entidad de certificación generados siguiendo las instrucciones de [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) (Administración de certificados de entidad de certificación de prueba para ejemplos y tutoriales).
+
+* Generar un [certificado de CA intermedio de X.509](iot-hub-x509ca-overview.md#sign-devices-into-the-certificate-chain-of-trust) firmado por un certificado de CA raíz existente y cargarlo en el centro de IoT. Una vez que el certificado intermedio es cargado y comprobado, tal como se indica a continuación, se puede usar en lugar de un certificado de CA raíz que se mencionan a continuación. Herramientas como OpenSSL ([openssl req](https://www.openssl.org/docs/manmaster/man1/openssl-req.html) y [openssl ca](https://www.openssl.org/docs/manmaster/man1/openssl-ca.html)) puede usarse para generar y firmar un certificado de CA intermedio.
+
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registro de certificados de entidad de certificación X.509 en una instancia de IoT Hub
 

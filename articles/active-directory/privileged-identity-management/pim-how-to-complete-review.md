@@ -14,12 +14,12 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: decba8f46432891a44a2b231890da4214bd5b1bb
-ms.sourcegitcommit: f6ba5c5a4b1ec4e35c41a4e799fb669ad5099522
+ms.openlocfilehash: 0a7fa3bfe159620130bc0962b470cea8e7422646
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65140990"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65602176"
 ---
 # <a name="complete-an-access-review-of-azure-ad-roles-in-pim"></a>Revisión de acceso de roles de Azure AD en PIM
 Los administradores de roles con privilegios pueden revisar el acceso con privilegios una vez que se [ha iniciado una revisión del acceso](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) envía automáticamente un correo electrónico para pedir a los usuarios que revisen su acceso. Si algún usuario no ha recibido un correo electrónico, puede enviarle las instrucciones necesarias para [realizar una revisión del acceso](pim-how-to-perform-security-review.md).
@@ -33,18 +33,18 @@ Cuando acabe el período de la revisión del acceso o cuando todos los usuarios 
 
 En la hoja de detalles de la revisión del acceso hay varias opciones para administrar dicha revisión.
 
-![Botones de revisión de acceso de PIM: captura de pantalla](./media/pim-how-to-complete-review/PIM_review_buttons.png)
+![Botones de revisión de acceso de PIM: captura de pantalla](./media/pim-how-to-complete-review/review-buttons.png)
 
 ### <a name="remind"></a>Recuerde
 Si una revisión de acceso está configurada para que los usuarios revisen por sí mismos, el botón **Recordar** envía una notificación. 
 
-### <a name="stop"></a>Stop
+### <a name="stop"></a>Detener
 Todas las revisiones de acceso tienen una fecha de finalización, pero puede usar el botón **Detener** para terminarlas antes. Si para entonces algunos de los usuarios no se han revisado, no podrán hacerlo una vez que se haya detenido la revisión. No se puede reiniciar una revisión después de que se ha detenido.
 
 ### <a name="apply"></a>Aplicar
 Después de que finaliza una revisión de acceso, bien porque se ha llegado a la fecha de finalización o porque se ha detenido manualmente, el botón **Aplicar** implementa el resultado de la revisión. Si se denegó el acceso de un usuario en la revisión, este es el paso que se quitará su asignación de rol.  
 
-### <a name="export"></a>Exportación
+### <a name="export"></a>Exportar
 Si desea aplicar los resultados de la revisión del acceso manualmente, puede exportar la revisión. El botón **Exportar** iniciará la descarga de un archivo CSV. Puede administrar los resultados en Excel u otros programas que abran archivos CSV.
 
 ### <a name="delete"></a>Eliminar

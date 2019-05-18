@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/08/19
 ms.author: jgao
-ms.openlocfilehash: 1006cc902cf4b6f763d86165a039a1fec5dc97a1
-ms.sourcegitcommit: e6d53649bfb37d01335b6bcfb9de88ac50af23bd
+ms.openlocfilehash: 41b16498fb79166b2c77c77a517ee5c443ebec75
+ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2019
-ms.locfileid: "65467083"
+ms.lasthandoff: 05/16/2019
+ms.locfileid: "65796251"
 ---
 # <a name="introduce-health-integration-rollout-to-azure-deployment-manager-public-preview"></a>Introducir el lanzamiento de la integración de estado a Azure Deployment Manager (versión preliminar)
 
@@ -32,7 +32,7 @@ Con el fin de que la integración de mantenimiento más sencillo posible, Micros
 
 ## <a name="how-service-health-is-determined"></a>Cómo se determina el estado del servicio
 
-[Los proveedores de seguimiento de estado](#health-monitoring-providers) ofrecen varios mecanismos para servicios de supervisión y alertas de los problemas de mantenimiento de servicio. [Azure Monitor](/services/monitor/) es un ejemplo de una oferta de este tipo. Azure Monitor puede utilizarse para crear alertas cuando se superan determinados umbrales. Por ejemplo, la utilización de CPU y memoria atiendan más allá de los niveles esperados al implementar una nueva actualización en el servicio. Cuando se le notifique, pueda tomar acciones correctivas.
+[Los proveedores de seguimiento de estado](#health-monitoring-providers) ofrecen varios mecanismos para servicios de supervisión y alertas de los problemas de mantenimiento de servicio. [Azure Monitor](../azure-monitor/overview.md) es un ejemplo de una oferta de este tipo. Azure Monitor puede utilizarse para crear alertas cuando se superan determinados umbrales. Por ejemplo, la utilización de CPU y memoria atiendan más allá de los niveles esperados al implementar una nueva actualización en el servicio. Cuando se le notifique, pueda tomar acciones correctivas.
 
 Estos proveedores de estado normalmente ofrecen las API de REST para que se puede examinar el estado de monitores del servicio mediante programación. Las API de REST o bien puede consultar de nuevo con una simple señal correcto/incorrecto (determinado por el código de respuesta HTTP) o con información detallada acerca de las señales que recibe.
 

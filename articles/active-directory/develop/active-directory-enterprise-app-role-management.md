@@ -4,7 +4,7 @@ description: Aprenda a configurar la notificación de rol emitida en el token SA
 services: active-directory
 documentationcenter: ''
 author: jeevansd
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
@@ -16,12 +16,12 @@ ms.date: 04/22/2019
 ms.author: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb426eb15d20a4bbd628897ed1c3b29c37f32afd
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 15165bce70a9bc2fbf3eb840ca8bce4fd5073280
+ms.sourcegitcommit: f6c85922b9e70bb83879e52c2aec6307c99a0cac
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64723307"
+ms.lasthandoff: 05/11/2019
+ms.locfileid: "65544628"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Configuración de la notificación de rol emitida en el token SAML para aplicaciones empresariales
 
@@ -154,9 +154,9 @@ Si la aplicación espera que se pasen roles personalizados en una respuesta de S
 
 9. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
 
-    | Nombre del atributo | Valor de atributo |
+    | Nombre de atributo | Valor de atributo |
     | -------------- | ----------------|
-    | Nombre de rol  | user.assignedroles |
+    | Nombre del rol  | user.assignedroles |
 
     >[!NOTE]
     >Si el valor de notificación de rol es null, a continuación, Azure AD no envía este valor en el token y ésta es la predeterminada según el diseño.

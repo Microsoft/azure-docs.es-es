@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/07/2019
-ms.openlocfilehash: cb5e41feb9be978592a1c1708ade0188ba20d504
-ms.sourcegitcommit: 8a681ba0aaba07965a2adba84a8407282b5762b2
+ms.openlocfilehash: 7415e13a445a73af197362c6cfbd3a865a2fea02
+ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2019
-ms.locfileid: "64873145"
+ms.lasthandoff: 05/14/2019
+ms.locfileid: "65604048"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
 
@@ -34,7 +34,7 @@ La tabla resultante contiene una columna de marca de tiempo, tres columnas de di
 
 |   |   |   |   |   |
 | --- | --- | --- | --- | --- |
-|   | TimeStamp | BrowserVer | OsVer | País |
+|   | Marca de tiempo | BrowserVer | OsVer | País o región |
 |   | 2016-08-25 09:12:35.4020000 | Chrome 51.0 | Windows 7 | Reino Unido |
 |   | 2016-08-25 09:12:41.1120000 | Chrome 52.0 | Windows 10 |   |
 |   | 2016-08-25 09:12:46.2300000 | Chrome 52.0 | Windows 7 | Reino Unido |
@@ -42,7 +42,7 @@ La tabla resultante contiene una columna de marca de tiempo, tres columnas de di
 |   | 2016-08-25 09:12:46.5570000 | Chrome 52.0 | Windows 10 | República de Lituania |
 |   | 2016-08-25 09:12:47.0470000 | Chrome 52.0 | Windows 8.1 | India |
 |   | 2016-08-25 09:12:51.3600000 | Chrome 52.0 | Windows 10 | Reino Unido |
-|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Países Bajos |
+|   | 2016-08-25 09:12:51.6930000 | Chrome 52.0 | Windows 7 | Países bajos |
 |   | 2016-08-25 09:12:56.4240000 | Chrome 52.0 | Windows 10 | Reino Unido |
 |   | 2016-08-25 09:13:08.7230000 | Chrome 52.0 | Windows 10 | India |
 
@@ -72,7 +72,7 @@ En la tabla anterior, tenemos tres particiones. Podemos crear una serie temporal
 En esta sección, realizaremos las funciones típicas de procesamiento en serie.
 Cuando se ha creado un conjunto de series temporales, Azure Data Explorer admite una lista creciente de funciones para procesar y analizarlas que se encuentran en la [documentación de series temporales](/azure/kusto/query/machine-learning-and-tsa). Describiremos algunas funciones representativas para el procesamiento y análisis de series temporales.
 
-### <a name="filtering"></a>Filtros
+### <a name="filtering"></a>Filtrado
 
 El filtrado es una práctica común en el procesamiento de señales y muy útil para tareas de procesamiento de series temporales (por ejemplo, suavizar una señal con ruido o detectar cambios).
 - Hay dos funciones de filtrado genéricas:
@@ -142,7 +142,7 @@ demo_series3
 
 |   |   |   |   |
 | --- | --- | --- | --- |
-|   | periods | scores | days |
+|   | periods | scores | días |
 |   | 84 | 0.820622786055595 | 7 |
 |   | 12 | 0.764601405803502 | 1 |
 
@@ -222,7 +222,7 @@ demo_many_series1
 
 |   |   |
 | --- | --- |
-|   | Número |
+|   | Count |
 |   | 18339 |
 
 Ahora, vamos a crear un conjunto de 18339 series temporales de la métrica de recuento de lecturas. Agregamos la cláusula `by` a la instrucción make-series, aplicamos la regresión lineal y seleccionamos las dos primeras series temporales que tuvieron la tendencia decreciente más significativa:

@@ -3,8 +3,8 @@ title: 'Uso de restricciones de inquilino para administrar el acceso a SaaS en l
 description: Cómo usar restricciones de inquilino para administrar qué usuarios pueden acceder las aplicaciones basadas en su inquilino de Azure AD.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: mimart
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa4eeb0a21525d636c7c1193c125d525774fa3fe
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 4a340663a1ec4ddf748c6dc2bc3a4e2ce0c4228e
+ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64707174"
+ms.lasthandoff: 05/17/2019
+ms.locfileid: "65824378"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restricciones de inquilino para administrar el acceso a aplicaciones de SaaS en la nube
 
@@ -32,7 +32,7 @@ Con las restricciones de inquilino, las organizaciones pueden especificar la lis
 
 En este artículo se centra en restricciones de inquilino de Office 365, pero la característica debe funcionar con cualquier aplicación de nube de SaaS que usa los protocolos de autenticación moderna con Azure AD para inicio de sesión único. Si usa aplicaciones SaaS con un inquilino de Azure AD diferente al inquilino que usa Office 365, asegúrese de que todos los inquilinos necesarios tienen permiso. Para más información sobre aplicaciones en la nube SaaS, consulte [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/).
 
-## <a name="how-it-works"></a>Cómo funciona
+## <a name="how-it-works"></a>Funcionamiento
 
 La solución general consta de los siguientes componentes:
 
@@ -136,7 +136,7 @@ Outlook y Skype para los clientes empresariales que admiten autenticación moder
 
 Para Outlook en Windows, los clientes pueden optar por implementar restricciones que impidan a los usuarios finales agregar cuentas de correo no aprobadas a sus perfiles. Por ejemplo, vea el establecimiento de directiva de grupo [Prevent adding non-default Exchange accounts](https://gpsearch.azurewebsites.net/default.aspx?ref=1) (Impedir la incorporación de cuentas de Exchange no predeterminadas).
 
-## <a name="testing"></a>Prueba
+## <a name="testing"></a>Pruebas
 
 Si desea probar restricciones de inquilino antes de implementarla para toda la organización, tiene dos opciones: un enfoque basado en host mediante una herramienta como Fiddler o un lanzamiento por fases de configuración de proxy.
 
@@ -166,7 +166,7 @@ Fiddler es un proxy de depuración web gratis que puede usarse para capturar y m
       }
       ```
 
-      Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo: 
+      Si necesita permitir varios inquilinos, use una coma para separar los nombres de los mismos. Por ejemplo:
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

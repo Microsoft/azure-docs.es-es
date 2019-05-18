@@ -7,15 +7,15 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: overview
-ms.date: 05/29/2018
+ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 01e35ed32be8b28f291cc2be69a8b2d71c3acab2
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0864db682141b1d7f8cb0c9ff14c9897fb02fe1b
+ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806661"
+ms.lasthandoff: 05/08/2019
+ms.locfileid: "65412755"
 ---
 # <a name="what-is-azure-databricks"></a>¿Qué es Azure Databricks?
 

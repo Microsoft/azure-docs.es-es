@@ -50,6 +50,8 @@
       href: app-protection-based-conditional-access.md
     - name: Requerir dispositivos administrados
       href: require-managed-devices.md
+    - name: Requerir redes de confianza para el registro de autenticación multifactor
+      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: Requerir MFA para los intentos de acceso de redes que no son de confianza
       href: untrusted-networks.md
     - name: Requerir Términos de uso
