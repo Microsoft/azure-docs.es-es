@@ -17,7 +17,7 @@ ms.locfileid: "67206391"
 
 Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 
-* [matriz](#array)
+* [array](#array)
 * [coalesce](#coalesce)
 * [concat](#concat)
 * [contains](#contains)
