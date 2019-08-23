@@ -112,14 +112,14 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Dynamics
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Dynamics**. | Sí |
+| type | La propiedad type debe establecerse en: **Dynamics**. | Sí |
 | deploymentType | El tipo de implementación de la instancia de Dynamics. Debe ser **"OnPremisesWithIfd"** para Dynamic local con IFD.| Sí |
 | hostName | El nombre de host del servidor local de Dynamics. | Sí |
-| puerto | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
+| port | El puerto del servidor local de Dynamics. | No (el valor predeterminado es 443) |
 | organizationName | El nombre de la organización de la instancia de Dynamics. | Sí |
 | authenticationType | Tipo de autenticación para conectarse al servidor de Dynamics. Especifique **"Ifd"** para Dynamics local con IFD. | Sí |
-| nombre de usuario | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
-| contraseña | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
+| username | Especifique el nombre de usuario para conectarse a Dynamics. | Sí |
+| password | Especifique la contraseña de la cuenta de usuario que especificó para el nombre de usuario. Puede elegir marcar este campo como SecureString para almacenarlo de forma segura en ADF o almacenar la contraseña en Azure Key Vault y permitir que la actividad de copia incorpore los cambios desde allí al realizar la copia de datos. Obtenga más información sobre el [Almacenamiento de credenciales en Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | No para el origen, sí para el receptor |
 
 **Ejemplo: Dynamics local con IFD mediante la autenticación de IFD**
