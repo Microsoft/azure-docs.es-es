@@ -51,7 +51,7 @@ Las herramientas de implementación como Azure Pipelines, Jenkins y los compleme
 
 Use la API[ zipdeploy/](deploy-zip.md) de Kudu para implementar las aplicaciones JAR y [wardeploy/](deploy-zip.md#deploy-war-file) para las aplicaciones WAR. Si usa Jenkins, puede usar esas API directamente en la fase de implementación. Para obtener más información, consulte [este artículo](../jenkins/execute-cli-jenkins-pipeline.md).
 
-### <a name="node"></a>Nodo
+### <a name="node"></a>Node
 
 De forma predeterminada, Kudu ejecuta los pasos de compilación para la aplicación Node (`npm install`). Si usa un servicio de compilación como Azure DevOps, la compilación de Kudu es innecesaria. Para deshabilitarla, cree una opción de aplicación, `SCM_DO_BUILD_DURING_DEPLOYMENT`, con el valor `false`.
 
