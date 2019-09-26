@@ -28,10 +28,10 @@ Las partes principales de una solución IoT son las siguientes: dispositivos, se
 
 Los dispositivos están formados generalmente por una placa de circuitos con sensores que se conecta a Internet. Muchos dispositivos se comunican mediante un chip Wi-Fi. Estos son algunos ejemplos de dispositivos IoT:
 
-* sensores de presión en una bomba de petróleo remota
-* sensores de temperatura y humedad en una unidad de aire acondicionado
-* acelerómetros en un ascensor
-* sensores de presencia en una sala
+* Sensores de presión en una bomba de petróleo remota.
+* Sensores de temperatura y humedad en una unidad de aire acondicionado.
+* Acelerómetros en un ascensor.
+* Sensores de presencia en una sala.
 
 Dos dispositivos que se utilizan con frecuencia para la creación de prototipos son el chip MX de IoT Devkit básico de Microsoft y los dispositivos Raspberry PI. El chip MX de Devkit tiene sensores integrados para temperatura, presión, humedad, así como un giroscopio y un acelerómetro, un magnetómetro y un chip Wi-Fi. Raspberry PI es un dispositivo IoT al que puede conectar muchos tipos diferentes de sensores, para que pueda seleccionar exactamente lo que necesita para su escenario. 
 
