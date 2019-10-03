@@ -16,7 +16,7 @@ metadata:
   ms.date: 09/09/2019
   ms.author: sstein
 abstract:
-  description: 'Azure SQL Database es un servicio de base de datos relacional (DBaaS) de uso general basado en la última versión estable del Motor de base de datos de Microsoft SQL Server. SQL Database es una base de datos en la nube de alto rendimiento, confiable y segura que puede usar para compilar aplicaciones y sitios web controlados por datos en el lenguaje de programación que prefiera, sin necesidad de administrar la infraestructura. Aprenda a usar SQL Database con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: 'Azure SQL Database, es un servicio de base de datos relacional (DBaaS) de uso general basado en la última versión estable del Motor de base de datos de Microsoft SQL Server. SQL Database es una base de datos en la nube de alto rendimiento, confiable y segura que puede usar para compilar aplicaciones y sitios web controlados por datos en el lenguaje de programación que prefiera, sin necesidad de administrar la infraestructura. Aprenda a usar SQL Database con nuestros inicios rápidos, tutoriales y ejemplos.'
   aside:
     image:
       alt: null
@@ -86,7 +86,7 @@ sections:
               src: media/index/i_elasticpool.svg
             title: Grupos elásticos
           - href: /azure/sql-database/sql-database-managed-instance-index
-            html: '<p>Use una instancia administrada para obtener una instancia del motor de base de datos de SQL Server totalmente administrada hospedada en la nube de Azure, con un número mínimo de cambios (o ninguno) en el código de la base de datos necesarios para la migración desde las bases de datos locales.</p>'
+            html: '<p>Use una instancia administrada para obtener una instancia del motor de la base de datos de SQL Server totalmente administrada hospedada en la nube de Azure, con un número mínimo de cambios (o ninguno) en el código de la base de datos necesarios para la migración desde las bases de datos locales.</p>'
             image:
               src: media/index/i_mi.svg
             title: Instancia administrada
