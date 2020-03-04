@@ -57,6 +57,9 @@ Para seguir con este artículo, necesita los siguientes elementos:
 
 * Si habilita SNC con un producto de seguridad externo, copie la biblioteca o los archivos de SNC en la misma máquina donde está instalada la puerta de enlace. Algunos ejemplos de productos SNC incluyen [sapseculib](https://help.sap.com/saphelp_nw74/helpdata/en/7a/0755dc6ef84f76890a77ad6eb13b13/frameset.htm), Kerberos y NTLM.
 
+> [!IMPORTANT]
+> Una vez instalada la biblioteca del conector SAP .NET ( SAP NCo) hay que copiar las .dll de la carpeta de instalación a la carpeta de instalación de nuestra puerta de enlace. Si dichas .dll no son copiadas a la carpeta de instalación del Data Gateway obtendremos el siguiente error **Could not load file or assembly 'sapnco'**
+
 * Descargue e instale la biblioteca cliente de SAP más reciente, que actualmente es [SAP Connector (NCo 3.0) para Microsoft .NET 3.0.22.0 compilado con .NET Framework 4.0 y Windows de 64 bits (x64)](https://softwaredownloads.sap.com/file/0020000001000932019), en el mismo equipo que la puerta de enlace de datos local. Debe instalar esta versión o una versión posterior por estos motivos:
 
   * Las versiones anteriores de SAP NCo pueden experimentar un interbloqueo cuando se envía más de un mensaje de IDOC al mismo tiempo. Esta condición bloquea todos los mensajes posteriores que se envían al destino de SAP, lo que hace que se agote el tiempo de espera de los mensajes.
