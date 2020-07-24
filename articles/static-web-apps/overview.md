@@ -44,7 +44,7 @@ Con Static Web Apps, los recursos estáticos se separan de un servidor web tradi
 
 ## <a name="what-you-can-do-with-static-web-apps"></a>Qué puede hacer con Static Web Apps
 
-- **Crear aplicaciones modernas de JavaScript** con marcos y bibliotecas como [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/) y [Vue](https://vuejs.org/) con un back-end de [Azure Functions](https://azure.microsoft.com/services/functions/).
+- **Crear aplicaciones modernas de JavaScript** con marcos y bibliotecas como [Angular](https://angular.io/), [React](https://reactjs.org/), [Svelte](https://svelte.dev/) y [Vue](https://vuejs.org/) con un back-end de [Azure Functions](https://azure.microsoft.com/es-mx/services/functions/).
 - **Publicar sitios estáticos** con marcos como [Gatsby](publish-gatsby.md), [Hugo](publish-hugo.md) y [VuePress](publish-vuepress.md).
 - **Implementar aplicaciones web** con marcos como [Next.js](deploy-nextjs.md) y [Nuxt.js](deploy-nuxtjs.md).
 
