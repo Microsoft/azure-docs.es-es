@@ -116,9 +116,9 @@ landingContent:
   - linkListType: reference
     links:
     - text: Referencia para desarrolladores de la CLI de Azure
-      url: /rest/api/postgresql/
-    - text: Referencia para desarrolladores de API REST
       url: /cli/azure/postgres
+    - text: Referencia para desarrolladores de API REST
+      url: /rest/api/postgresql/
     - text: Plantillas del Administrador de recursos de Azure
       url: /azure/templates/microsoft.dbforpostgresql/allversions
 - title: Copia de seguridad y migración de datos
