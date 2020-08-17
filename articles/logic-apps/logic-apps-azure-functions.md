@@ -6,12 +6,13 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/01/2019
-ms.openlocfilehash: 6240b0813132f4a14dbe94b870774ebe7a0663aa
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e853255f0fc1bc95a4a7fb1658fc41d4fe705c41
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714583"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420063"
 ---
 # <a name="call-azure-functions-from-azure-logic-apps"></a>Llamada a funciones de Azure desde Azure Logic Apps
 
@@ -257,7 +258,7 @@ Antes de iniciar esta tarea, busque y coloque estos valores para su uso posterio
 
 * El id. de directorio del inquilino en Azure Active Directory (Azure AD)
 
-  Para obtener el id. de directorio del inquilino, puede ejecutar el comando [`Get-AzureAccount`](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureaccount) de PowerShell. O bien, en Azure Portal, siga estos pasos:
+  Para obtener el id. de directorio del inquilino, puede ejecutar el comando [`Get-AzureAccount`](/powershell/module/servicemanagement/azure.service/get-azureaccount) de PowerShell. O bien, en Azure Portal, siga estos pasos:
 
   1. En [Azure Portal](https://portal.azure.com), busque y seleccione la aplicación lógica.
 

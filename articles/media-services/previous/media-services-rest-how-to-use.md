@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 288b7302b12d607c9090f699af83691b832256a3
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170826"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000054"
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Información general sobre la API de REST de operaciones de Media Services 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
-La API de **REST de Media Services Operations** se usa para crear trabajos, activos, canales en vivo y otros recursos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+La API de **REST de Media Services Operations** se usa para crear trabajos, activos, canales en vivo y otros recursos de una cuenta de Media Services. Para obtener más información, consulte la [referencia de la API de REST de Media Services Operations](/rest/api/media/operations/azure-media-services-rest-api-reference).
 
 Media Services proporciona una API de REST que acepta ambos formatos JSON o XML atom+pub. La API de REST de Media Services requiere encabezados HTTP específicos que cada cliente debe enviar cuando se conecta a Media Services, así como un conjunto de encabezados opcionales. En las secciones siguientes se describen los encabezados y los verbos HTTP que puede usar al crear solicitudes y recibir respuestas de los Media Services.
 
@@ -130,4 +130,3 @@ Para obtener información sobre cómo utilizar la autenticación de Azure AD con
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

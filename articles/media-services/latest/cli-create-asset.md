@@ -14,12 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 0c24464050d0beee120dcb234582a464d6245270
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 77264416affb582bb709ff747ebaa467927114c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76310652"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494900"
 ---
 # <a name="cli-example-create-an-asset"></a>CLI de ejemplo: Creación de un recurso
 
@@ -27,7 +28,7 @@ El script de la CLI de Azure de este artículo muestra cómo crear un recurso de
 
 ## <a name="prerequisites"></a>Prerequisites 
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md).
+[Cree una cuenta de Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

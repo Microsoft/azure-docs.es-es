@@ -51,7 +51,7 @@ También puede especificar el país o región utilizando el parámetro de consul
 |Alemania|DE|
 |RAE de Hong Kong|HK|
 |India|IN|
-|Indonesia|id|
+|Indonesia|ID|
 |Italia|IT|
 |Japón|JP|
 |Corea|KR|

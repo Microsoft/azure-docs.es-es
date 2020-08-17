@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 986440db7f8d4e1d4d46832543f58fa2985a4df4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83831626"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495614"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -24,7 +24,7 @@ Para repetir las acciones hasta que se cumpla una condición o cambie un estado,
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Suscripción a Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
+* Una cuenta y una suscripción de Azure. Si aún no tiene una, [regístrese para obtener una cuenta de Azure gratuita](https://azure.microsoft.com/free/). 
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
@@ -32,11 +32,11 @@ Para repetir las acciones hasta que se cumpla una condición o cambie un estado,
 
 ## <a name="foreach-loop"></a>Bucle "Foreach"
 
-Un bucle "Foreach" repite una o varias acciones en cada elemento de la matriz y solo funciona en matrices. Las iteraciones de un bucle "Foreach" se ejecutan en paralelo. Aunque puede ejecutar las iteraciones una por una configurando un [bucle "Foreach" secuencial](#sequential-foreach-loop). 
+Un bucle "Foreach" repite una o varias acciones en cada elemento de la matriz y solo funciona en matrices. Estas son algunas consideraciones que debe tener en cuenta al usar bucles "Foreach":
 
-Estas son algunas consideraciones que debe tener en cuenta al usar bucles "Foreach":
+* De forma predeterminada, las iteraciones de un bucle "Para cada uno" se ejecutan al mismo tiempo o en paralelo. Este comportamiento difiere del del [bucle **Aplicar a cada uno** de Power Automate](/power-automate/apply-to-each), donde las iteraciones ejecutan uno a la vez o secuencialmente. Sin embargo, puede [configurar iteraciones de bucles "Para cada uno" secuenciales](#sequential-foreach-loop). Por ejemplo, si desea pausar la siguiente iteración en un bucle "Para cada uno" mediante la [acción de retraso](../connectors/connectors-native-delay.md), debe establecer el bucle para que se ejecute secuencialmente.
 
-* En los bucles anidados, las iteraciones siempre se ejecutan secuencialmente, no en paralelo. Para ejecutar operaciones en paralelo en elementos de un bucle anidado, cree y [llame a una aplicación lógica secundaria](../logic-apps/logic-apps-http-endpoint.md).
+  La excepción al comportamiento predeterminado son bucles anidados en los cuales las iteraciones siempre se ejecutan secuencialmente, no en paralelo. Para ejecutar operaciones en paralelo en elementos de un bucle anidado, cree y [llame a una aplicación lógica secundaria](../logic-apps/logic-apps-http-endpoint.md).
 
 * Para obtener resultados predecibles de operaciones en variables durante cada iteración del bucle, ejecute esos bucles secuencialmente. Por ejemplo, cuando un bucle de ejecución simultánea finaliza, el incremento, el decremento y la anexión a las operaciones con variables devuelven resultados predecibles. Sin embargo, durante cada iteración del bucle de ejecución simultánea, es posible que estas operaciones devuelvan resultados imprevisibles. 
 
@@ -162,7 +162,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
 > [!NOTE]
 > En estos pasos se usa Office 365 Outlook, pero puede usarse cualquier proveedor de correo electrónico que Logic Apps admita. 
-> [Compruebe aquí la lista de conectores](https://docs.microsoft.com/connectors/). Si utiliza otra cuenta de correo electrónico, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta. 
+> [Compruebe aquí la lista de conectores](/connectors/). Si utiliza otra cuenta de correo electrónico, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta. 
 
 1. Crear una aplicación lógica en blanco. En el cuadro de búsqueda del Diseñador de aplicación lógica, elija **Todas**. Busque "periodicidad". 
    En la lista de desencadenadores, seleccione este desencadenador: **Periodicidad: Programación**
@@ -335,7 +335,7 @@ El bucle "Until" de este ejemplo llama a un punto de conexión HTTP, que crea un
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](https://docs.microsoft.com/answers/topics/azure-logic-apps.html).
+* Si tiene alguna duda, visite la [página de preguntas y respuestas de Microsoft sobre Azure Logic Apps](/answers/topics/azure-logic-apps.html).
 * Para enviar características y sugerencias o votar las que ya se han enviado, visite el [sitio web de comentarios de los usuarios de Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: cb9214dcd79e45b4c587c7ab47e425f2fdd8714c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564429"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319055"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Enriquecimiento con IA en Azure Cognitive Search
 
@@ -59,7 +59,7 @@ Los [conjuntos de aptitudes](cognitive-search-defining-skillset.md) que se ensam
 
 Las aptitudes personalizadas pueden admitir escenarios más complejos, como el reconocimiento de formularios o la detección de entidades personalizadas mediante un modelo que se proporciona y se encapsula en la [interfaz web de aptitudes personalizadas](cognitive-search-custom-skill-interface.md). Entre los ejemplos de aptitudes personalizadas se incluyen [Form Recognizer](/azure/cognitive-services/form-recognizer/overview), la integración de [Bing Entity Search API](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) y el [reconocimiento de entidades personalizadas](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-<a name="enrichment-steps"> ## Pasos en una canalización de enriquecimiento </a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Pasos en una canalización de enriquecimiento <a name="enrichment-steps"></a>
 
 Una canalización de enriquecimiento se basa en [*indizadores*](search-indexer-overview.md). Los indizadores rellenan un índice basándose en las asignaciones de campo a campo entre el índice y el origen de datos para la descifrado de documentos. Las aptitudes, ahora asociadas a los indizadores, interceptan y enriquecen los documentos en función del conjunto de aptitudes que se definen. Una vez que se indexa, puede acceder al contenido mediante solicitudes de búsqueda a través de todos los [tipos de consulta compatibles con Azure Cognitive Search](search-query-overview.md).  Si es la primera vez que usa los indexadores, esta sección lo guiará a través de los pasos.
 

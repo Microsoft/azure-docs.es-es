@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 07/08/2020
 ms.custom: seoapril2019, tracking-python
-ms.openlocfilehash: 57e1ecb080d816898b862951846b15a4b5709e38
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ee116d668b9c351ecf5b130a39e418a3da8fc053
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146552"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536392"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Implementación de modelos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -441,8 +441,8 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 En este ejemplo, la configuración especifica la siguiente configuración:
 
-* Este modelo requiere Python.
-* El [script de entrada](#script), que se usa para controlar las solicitudes web que se envían al servicio implementado.
+* Que el modelo requiere Python.
+* El [script de entrada](#script), que se usa para controlar las solicitudes web que se envían al servicio implementado
 * El archivo de Conda que describe los paquetes de Python necesarios para realizar la inferencia.
 
 Para información sobre el uso de una imagen personalizada de Docker con una configuración de inferencia, consulte [Cómo implementar un modelo con una imagen personalizada de Docker](how-to-deploy-custom-docker-image.md).
@@ -459,7 +459,7 @@ Para generar un perfil del modelo, necesitará lo siguiente:
 > [!IMPORTANT]
 > En este momento, solo se admite la generación de perfiles de servicios que esperan que sus datos de solicitud sean una cadena, por ejemplo: JSON serializado en cadena, texto, imagen serializada en cadena, etc. El contenido de cada fila del conjunto de resultados (cadena) se colocará en el cuerpo de la solicitud HTTP y se enviará al servicio que encapsula el modelo para la puntuación.
 
-A continuación se muestra un ejemplo de cómo se puede construir un conjunto de datos de entrada para generar perfiles de un servicio que espera que los datos de solicitudes entrantes contengan JSON serializado. En este caso, creamos un conjunto de datos basado en 100 instancias del mismo contenido de la solicitud. En escenarios reales, se recomienda usar conjuntos de datos más grandes que contengan varias entradas, especialmente si el comportamiento o el uso de recursos del modelo depende de la entrada.
+A continuación se muestra un ejemplo de cómo se puede construir un conjunto de datos de entrada para generar perfiles de un servicio que espera que los datos de solicitudes entrantes contengan JSON serializado. En este caso, creamos un conjunto de datos basado en 100 instancias del mismo contenido de datos de la solicitud. En escenarios reales, se recomienda usar conjuntos de datos más grandes que contengan varias entradas, especialmente si el comportamiento o el uso de recursos del modelo depende de la entrada.
 
 ```python
 import json
@@ -537,7 +537,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 
 ## <a name="deploy-to-target"></a>Implementación en el destino
 
-La implementación usa la configuración de implementación de la configuración de inferencia para implementar los modelos. El proceso de implementación es similar, independientemente del destino de proceso. La implementación en AKS es ligeramente diferente, ya que debe proporcionar una referencia al clúster de AKS.
+La implementación usa la configuración de implementación de la configuración de inferencia para implementar los modelos. El proceso de implementación es similar, independientemente del destino de proceso. La implementación en Azure Kubernetes Service (AKS) es ligeramente diferente, ya que debe proporcionar una referencia al clúster de AKS.
 
 ### <a name="choose-a-compute-target"></a>Elección de un destino de proceso
 
@@ -629,7 +629,7 @@ Consulte [Implementación en Azure Container Instances](how-to-deploy-azure-cont
 Consulte [Implementación en Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md).
 
 ### <a name="ab-testing-controlled-rollout"></a>Pruebas A/B (implementación controlada)
-Consulte [Implementación de modelos de aprendizaje automático mediante el lanzamiento controlado ](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview) para obtener más información.
+Para obtener más información, consulte [Lanzamiento controlado de modelos de ML](how-to-deploy-azure-kubernetes-service.md#deploy-models-to-aks-using-controlled-rollout-preview).
 
 ## <a name="consume-web-services"></a>Consumo de servicios web
 
@@ -878,7 +878,7 @@ La implementación del modelo sin código se encuentra actualmente en versión p
 ### <a name="tensorflow-savedmodel-format"></a>Formato Tensorflow SavedModel
 Los modelos Tensorflow deben registrarse en **formato de SavedModel** para que funcionen con la implementación de modelos sin código.
 
-Consulte [este vínculo](https://www.tensorflow.org/guide/saved_model) para información sobre cómo crear un formato SavedModel.
+Consulte [este vínculo](https://www.tensorflow.org/guide/saved_model) para obtener información sobre cómo crear un formato SavedModel.
 
 ```python
 from azureml.core import Model
@@ -914,7 +914,13 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Si usa Pytorch, el artículo [Exportación de modelos de PyTorch a ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) tiene los detalles sobre la conversión y las limitaciones. 
+Para puntuar un modelo, consulte [Consumir un modelo de Azure Machine Learning que está implementado como un servicio web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Muchos proyectos de ONNX usan archivos protobuf para almacenar de forma compacta datos de entrenamiento y validación, lo que puede hacer que sea difícil saber cuál es el formato de datos esperado por el servicio. Como desarrollador de modelos, debe documentar para los desarrolladores:
+
+* El formato de entrada (JSON o binario)
+* La forma y el tipo de los datos de entrada (por ejemplo, una matriz de floats de forma [100,100,3])
+* Información de dominio (por ejemplo, para una imagen, el espacio de colores, el orden de los componentes y si los valores están normalizados)
+
+Si usa PyTorch, el artículo [Exportación de modelos de PyTorch a ONNX](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb) tiene los detalles sobre la conversión y las limitaciones. 
 
 ### <a name="scikit-learn-models"></a>Modelos de Scikit-learn
 

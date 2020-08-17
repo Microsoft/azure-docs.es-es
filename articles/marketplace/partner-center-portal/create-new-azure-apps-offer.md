@@ -3,14 +3,16 @@ title: 'Creación de una oferta de aplicación de Azure: Marketplace comercial d
 description: Conozca los pasos y las consideraciones para crear una oferta de aplicación de Azure en el portal de Marketplace comercial del Centro de partners. Puede mostrar o vender su oferta de aplicación de Azure en Azure Marketplace o a través del programa Proveedor de soluciones en la nube (CSP).
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: c5371b2d9379ca861addac07de50d7cdf9c34c8b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+author: AarathiN
+ms.author: aarathin
+ms.date: 07/14/2020
+ms.openlocfilehash: 7a0f04344d2e4213bbbabb63d57bdaf933154388
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121984"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797904"
 ---
 # <a name="create-an-azure-application-offer"></a>Creación de una oferta de aplicación de Azure
 
@@ -65,7 +67,7 @@ En el vídeo [Creación de plantillas de soluciones y aplicaciones administradas
 
 Elija uno o ambos de los entornos de scripting siguientes para ayudar a administrar la aplicación de Azure:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [CLI de Azure](https://docs.microsoft.com/cli/azure)
 
 Se recomienda agregar las herramientas siguientes al entorno de desarrollo:
@@ -245,14 +247,15 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione archivos PNG del logotipo de la oferta en los cuatro tamaños de píxel siguientes:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
 - **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande (216 x 216)**
-- **Ancho (255 x 115)**
+- **Grande** (entre 216 x 216 y 350 x 350)
 
-Todos los logotipos son necesarios y se usan en lugares diferentes de la lista.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -308,7 +311,7 @@ La configuración técnica define los detalles (identificador de inquilino e ide
 
 ## <a name="plan-overview"></a>Información general del plan
 
-Esta pestaña le permite ofrecer diversas opciones de planes dentro de la misma oferta. Estos planes (conocidos como SKU en Cloud Partner Portal) pueden diferir en términos de tipo de plan (plantilla de solución frente a aplicación administrada), monetización o público.  Configure al menos un plan para mostrar su oferta en Marketplace.
+Esta pestaña le permite ofrecer diversas opciones de planes dentro de la misma oferta. Estos planes (anteriormente llamados SKU) pueden diferir en términos de tipo de plan (plantilla de solución frente a aplicación administrada), monetización o público. Configure al menos un plan para mostrar su oferta en Marketplace.
 
 Una vez creados, verá los nombres de los planes, los identificadores, la disponibilidad (pública o privada), el estado actual de la publicación y las acciones disponibles en esta pestaña.
 
@@ -510,7 +513,7 @@ Indique quién debe tener acceso de administración a esta aplicación administr
 
 **Autorizaciones**: agregue el identificador de objeto de Azure Active Directory del usuario, grupo o aplicación a los que quiere conceder permiso para el grupo de recursos administrados. Identifique al usuario por su identificador de entidad de seguridad, que encontrará en la [hoja Usuarios de Azure Active Directory, en Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers).
 
-Para cada entidad de seguridad, seleccione uno de los roles integrados de Azure AD de la lista (Propietario o Colaborador). El rol que seleccione describirá los permisos que tendrá la entidad de seguridad en los recursos de la suscripción del cliente. Para más información, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md). Para obtener más información sobre el control de acceso basado en rol (RBAC), consulte [Introducción al control de acceso basado en rol en Azure Portal](../../role-based-access-control/overview.md).
+Para cada entidad de seguridad, seleccione uno de los roles integrados de Azure AD de la lista (Propietario o Colaborador). El rol que seleccione describirá los permisos que tendrá la entidad de seguridad en los recursos de la suscripción del cliente. Para más información, consulte [Roles integrados en Azure](../../role-based-access-control/built-in-roles.md). Para obtener más información sobre el control de acceso basado en rol (RBAC), consulte [Introducción al control de acceso basado en rol en Azure Portal](../../role-based-access-control/overview.md).
 
 >[!Note]
 >Aunque puede agregar hasta 100 autorizaciones por nube, suele ser más fácil crear un grupo de usuarios de Active Directory y especificar su id. en "ID de la entidad de seguridad". Esta opción le permitirá agregar más usuarios al grupo de administración una vez implementado el plan y reducir la necesidad de actualizar el plan solo para agregar más autorizaciones.

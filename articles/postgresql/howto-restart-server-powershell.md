@@ -6,12 +6,13 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 95a0459dd21eaf69bf0ee2d8f4cd1482d07313bb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3fd4bcdd2f80bfd5f79488e7e4c93219be97927c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107932"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503555"
 ---
 # <a name="restart-azure-database-for-postgresql-server-using-powershell"></a>Reinicio de un servidor de Azure Database for PostgreSQL mediante PowerShell.
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: db1b030aed34498ade91a195d5ca68725b579ba3
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230849"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029984"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Transferencia de una suscripción de Azure a otro directorio de Azure AD (versión preliminar)
 
@@ -145,7 +145,7 @@ Para completar estos pasos, necesitará lo siguiente:
 
 ### <a name="save-custom-roles"></a>Guardar roles personalizados
 
-1. Use [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para enumerar los roles personalizados. Para obtener más información, consulte [Creación o actualización de roles personalizados para los recursos de Azure con la CLI de Azure](custom-roles-cli.md).
+1. Use [az role definition list](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-list) para enumerar los roles personalizados. Para más información, consulte [Creación o actualización de roles personalizados de Azure mediante la CLI de Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition list --custom-role-only true --output json --query '[].{roleName:roleName, roleType:roleType}'
@@ -215,7 +215,7 @@ Las identidades administradas no se actualizan cuando una suscripción se transf
 
 ### <a name="list-key-vaults"></a>Enumeración de almacenes de claves
 
-Cuando se crea un almacén de claves, se asocia automáticamente a un identificador de inquilino de Azure Active Directory para la suscripción en la que ha sido creado. Las entradas de la directiva de acceso también se asocian con este identificador de inquilino. Para obtener más información, consulte [Traslado de Azure Key Vault a otra suscripción](../key-vault/general/keyvault-move-subscription.md).
+Cuando se crea un almacén de claves, se asocia automáticamente a un identificador de inquilino de Azure Active Directory para la suscripción en la que ha sido creado. Las entradas de la directiva de acceso también se asocian con este identificador de inquilino. Para obtener más información, consulte [Traslado de Azure Key Vault a otra suscripción](../key-vault/general/move-subscription.md).
 
 > [!WARNING]
 > Si usa el cifrado en reposo para un recurso, como una cuenta de almacenamiento o una base de datos SQL, que tiene una dependencia de un almacén de claves que NO está en la misma suscripción que se transfiere, puede provocar un escenario irrecuperable. Si tiene esta situación, debe seguir los pasos necesarios para usar un almacén de claves diferente o deshabilitar temporalmente las claves administradas por el cliente para evitar este escenario irrecuperable.
@@ -291,7 +291,7 @@ En este paso, transferirá la propiedad de facturación de la suscripción del d
 
 ### <a name="create-custom-roles"></a>Creación de roles personalizados
         
-- Use [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para crear cada rol personalizado a partir de los archivos que creó anteriormente. Para obtener más información, consulte [Creación o actualización de roles personalizados para los recursos de Azure con la CLI de Azure](custom-roles-cli.md).
+- Use [az role definition create](https://docs.microsoft.com/cli/azure/role/definition#az-role-definition-create) para crear cada rol personalizado a partir de los archivos que creó anteriormente. Para más información, consulte [Creación o actualización de roles personalizados de Azure mediante la CLI de Azure](custom-roles-cli.md).
 
     ```azurecli
     az role definition create --role-definition <role_definition>
@@ -339,7 +339,7 @@ En este paso, transferirá la propiedad de facturación de la suscripción del d
 
 ### <a name="update-key-vaults"></a>Actualización de almacenes de claves
 
-En esta sección se describen los pasos básicos para actualizar los almacenes de claves. Para obtener más información, consulte [Traslado de Azure Key Vault a otra suscripción](../key-vault/general/keyvault-move-subscription.md).
+En esta sección se describen los pasos básicos para actualizar los almacenes de claves. Para obtener más información, consulte [Traslado de Azure Key Vault a otra suscripción](../key-vault/general/move-subscription.md).
 
 1. Actualice el identificador de inquilino asociado a todas las instancias de Key Vault existentes en la suscripción al directorio de destino.
 

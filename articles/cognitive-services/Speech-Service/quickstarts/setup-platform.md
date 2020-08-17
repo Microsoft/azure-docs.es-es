@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-speech-services-one-nomore
-ms.openlocfilehash: a2370d7a79ea54adf9d12ecb645019aec348f8c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290f4eccb7b83d841f77b34c913bc4b638e1a84e
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85834155"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875360"
 ---
 # <a name="quickstart-setup-development-environment"></a>Inicio rápido: Configuración del entorno de desarrollo
 

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/02/2020
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: c5369d63c0937605cc288e3a90466e723e69d163
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 037e07a1d8a6a3b4016d00f1b5a68bffc9caf335
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255445"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543374"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Uso de redes kubenet con intervalos de direcciones IP propios en Azure Kubernetes Service (AKS)
 
@@ -47,6 +47,17 @@ Con *kubenet*, solo los nodos reciben una dirección IP en la subred de red virt
 Azure admite un máximo de 400 rutas en un UDR, por lo que no puede tener un clúster de AKS que tenga más de 400 nodos. Los [nodos virtuales][virtual-nodes] de AKS y las directivas de red de Azure no son compatibles con *kubenet*.  Puede usar las [directivas de red de Calico][calico-network-policies], ya que son compatibles con kubenet.
 
 Con *Azure CNI*, cada pod recibe una dirección IP en la subred IP y puede comunicarse directamente con otros pods y servicios. Los clústeres pueden ser tan grandes como el intervalo de direcciones IP que especifique. Sin embargo, el intervalo de direcciones IP debe planearse por adelantado, y los nodos de AKS consumen todas las direcciones IP en función del número máximo de pods que pueden admitir. Los escenarios y las características avanzadas de red como los [nodos virtuales][virtual-nodes] o las directivas de red (de Azure o Calico) son compatibles con *Azure CNI*.
+
+### <a name="limitations--considerations-for-kubenet"></a>Limitaciones y consideraciones de kubenet
+
+* El diseño de kubenet requiere un salto adicional, lo que agrega una latencia menor a la comunicación del pod.
+* Para utilizar kubenet, se necesitan tablas de rutas y rutas definidas por el usuario, lo que agrega complejidad a las operaciones.
+* Por su diseño, kubenet no permite el direccionamiento directo de pods.
+* A diferencia de los clústeres de Azure CNI, no se permite que varios clústeres de kubenet compartan una subred.
+* Las características **no admitidas en kubenet** son:
+   * [Directivas de red de Azure](use-network-policies.md#create-an-aks-cluster-and-enable-network-policy), aunque sí se admiten las de Calico
+   * [Grupos de nodos de Windows](windows-node-limitations.md)
+   * [Complemento de nodos virtuales](virtual-nodes-portal.md#known-limitations)
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Disponibilidad y agotamiento de las direcciones IP
 

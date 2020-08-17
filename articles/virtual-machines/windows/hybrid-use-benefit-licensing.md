@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: f84d4fcd85f1e718f414e63bbe76fd29fa32427d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c87c517a0013fa31ba63ef1f78677fe85f5d287
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869565"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074266"
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Ventaja para uso híbrido de Azure para Windows Server
 Para los clientes con Software Assurance, la ventaja para uso híbrido de Azure para Windows Server le permite usar las licencias de Windows Server locales y ejecutar máquinas virtuales de Windows en Azure a bajo costo. Puede usar la Ventaja híbrida de Azure para Windows Server para implementar nuevas máquinas virtuales con el SO Windows. En este artículo se recorren los pasos necesarios para implementar nuevas máquinas virtuales con la Ventaja híbrida de Azure para Windows Server y para actualizar las máquinas virtuales en funcionamiento existentes. Para obtener más información acerca de los ahorros de costos y la concesión de licencias de la ventaja para uso híbrido para Azure para Windows Server, vea la [página de concesión de licencias de la ventaja para uso híbrido de Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -66,7 +66,7 @@ az vm create \
 ```
 
 ### <a name="template"></a>Plantilla
-En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. Puede obtener más información sobre la [creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
+En las plantillas de Resource Manager, se debe especificar un parámetro `licenseType` adicional. Puede obtener más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 ```json
 "properties": {
     "licenseType": "Windows_Server",
@@ -190,7 +190,7 @@ También puede obtener más información sobre cómo [modificar un conjunto de e
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga más información sobre [cómo ahorrar dinero con la Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
 - Obtenga más información sobre [Preguntas más frecuentes sobre la Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/faq/).
-- Aprenda más sobre la [concesión de licencias para la Ventaja híbrida de Azure en esta guía detallada](https://docs.microsoft.com/windows-server/get-started/azure-hybrid-benefit).
+- Aprenda más sobre la [concesión de licencias para la Ventaja híbrida de Azure en esta guía detallada](/windows-server/get-started/azure-hybrid-benefit).
 - Obtenga más información sobre [Azure Hybrid Benefit for Windows Server and Azure Site Recovery make migrating applications to Azure even more cost-effective](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/) (la Ventaja híbrida de Azure para Windows Server y Azure Site Recovery rentabilizan aún más la migración de aplicaciones a Azure).
-- Obtenga más información sobre [Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment).
+- Obtenga más información sobre [Implementación de Windows 10 en Azure con derechos de hospedaje multiinquilino](./windows-desktop-multitenant-hosting-deployment.md).
 - Obtenga más información sobre el [uso de plantillas de Resource Manager](../../azure-resource-manager/management/overview.md).

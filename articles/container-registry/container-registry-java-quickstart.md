@@ -2,15 +2,16 @@
 title: 'Inicio rápido: Compilación e inserción de imágenes de contenedor de Java en Azure Container Registry mediante Maven y Jib'
 description: Compile una aplicación de Java en contenedor e insértela en Azure Container Registry mediante el complemento Jib de Maven.
 author: KarlErickson
+ms.custom: devx-track-java, devx-track-azurecli
 ms.author: karler
 ms.topic: quickstart
 ms.date: 02/26/2020
-ms.openlocfilehash: 87a4741ea8a64445c10c73bb1204aef1a2fcfaaf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 42200fe61b0ac73a63b9f8a3317687fac60c5c02
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248805"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078587"
 ---
 # <a name="quickstart-build-and-push-java-container-images-to-azure-container-registry"></a>Inicio rápido: Compilación e inserción de imágenes de contenedor de Java en Azure Container Registry
 
@@ -177,4 +178,4 @@ Para obtener más información, consulte los siguientes recursos:
 * [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker)
 * [Spring Initializr](https://start.spring.io)
 * [Implementación de una aplicación de Spring Boot en Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-from-container-registry-using-maven-plugin)
-* [Uso de una imagen personalizada de Docker para Web App on Linux de Azure](../app-service/containers/tutorial-custom-docker-image.md)
+* [Uso de una imagen personalizada de Docker para Web App on Linux de Azure](../app-service/tutorial-custom-container.md)

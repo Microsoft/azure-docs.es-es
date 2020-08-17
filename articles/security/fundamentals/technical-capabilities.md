@@ -2,25 +2,20 @@
 title: Capacidades técnicas de seguridad en Azure - Microsoft Azure
 description: Introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube.
 services: security
-documentationcenter: na
-author: UnifyCloud
-manager: barbkess
-editor: TomSh
+author: terrylanfear
 ms.assetid: ''
 ms.service: security
 ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/31/2019
-ms.author: TomSh
-ms.openlocfilehash: 61afad1d9994fd703bd8df047d1861baddeae997
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/13/2020
+ms.author: terrylan
+ms.openlocfilehash: d861388c8c7a5ff64a17607736d4c8a292343dec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76845347"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071589"
 ---
 # <a name="azure-security-technical-capabilities"></a>Funcionalidades técnicas de seguridad de Azure
 Este artículo sirve de introducción a los servicios de seguridad de Azure que ayudan a proteger los datos, recursos y aplicaciones en la nube, así como a satisfacer las necesidades de seguridad de su negocio.
@@ -157,7 +152,7 @@ El control de acceso de Azure se inicia desde una perspectiva de facturación. E
 
 Las suscripciones también tienen una asociación con un directorio. El directorio define un conjunto de usuarios. Pueden ser usuarios de una cuenta profesional o educativa que crearon el directorio, o bien pueden ser usuarios externos (es decir, Cuentas Microsoft). Las suscripciones son accesibles por un subconjunto de esos usuarios del directorio que se han asignado como administrador de servicios (SA) o coadministrador (CA); la única excepción es que, por razones heredadas, las Cuentas de Microsoft (antes Windows Live ID) pueden asignarse como SA o CA sin estar presentes en el directorio.
 
-Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. Gracias al [control de acceso basado en roles (RBAC) de Azure](../../role-based-access-control/overview.md), podrá abordar este problema, ya que es posible realizar una administración avanzada del acceso para Azure.
+Las empresas de seguridad deben centrarse en conceder a los empleados los permisos exactos que necesiten. Un número elevado de permisos puede provocar que la cuenta esté expuesta a los atacantes. Si se conceden muy pocos, los empleados no podrán realizar su trabajo de manera eficaz. El [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md) ayuda a abordar este problema al ofrecer administración avanzada del acceso para Azure.
 
 ![Acceso protegido a los recursos](./media/technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
@@ -170,77 +165,11 @@ También podrá repartir las tareas entre el equipo y conceder a los usuarios ú
 Uno de los elementos clave para la protección de datos en la nube consiste en tener en cuenta los posibles estados en que se pueden producir datos y qué controles hay disponibles para ese estado. Como parte de los procedimientos recomendados de cifrado y seguridad de datos en Azure, se ofrecen recomendaciones relacionadas con los estados de datos siguientes.
 
 - En reposo: Esto incluye información sobre todos los objetos de almacenamiento, los contenedores y los tipos que existen de forma estática en medios físicos, ya sean discos magnéticos u ópticos.
-
 - En tránsito: Se considera que los datos están en movimiento cuando se transfieren entre componentes, ubicaciones o programas. Por ejemplo, a través de la red o un bus de servicio (desde una ubicación local hacia la nube, y viceversa, incluidas las conexiones híbridas como ExpressRoute) o durante el proceso de entrada y salida.
 
 ### <a name="encryption-at-rest"></a>Cifrado en reposo
 
-Para conseguir el cifrado en reposo, haga las acciones siguientes:
-
-Se debe admitir al menos uno de los modelos de cifrado recomendados que se detalla en la siguiente tabla para cifrar los datos.
-
-| Modelos de cifrado |  |  |  |
-| ----------------  | ----------------- | ----------------- | --------------- |
-| Cifrado de servidor | Cifrado de servidor | Cifrado de servidor | Cifrado de cliente
-| Cifrado del lado del servidor mediante claves administradas del servicio | Cifrado del lado del servidor mediante claves administradas por el cliente en Azure Key Vault | Cifrado del lado del servidor mediante claves locales administradas por el cliente |
-| • Los proveedores de recursos de Azure realizan las operaciones de cifrado y descifrado <br> • Microsoft administra las claves <br>• Funcionalidad de nube completa | • Los proveedores de recursos de Azure realizan las operaciones de cifrado y descifrado<br>• El cliente controla las claves mediante Azure Key Vault<br>• Funcionalidad de nube completa | • Los proveedores de recursos de Azure realizan las operaciones de cifrado y descifrado <br>• El cliente controla las claves de forma local <br> • Funcionalidad de nube completa| • Los servicios de Azure no pueden ver los datos descifrados <br>• Los clientes almacenan las claves en ubicaciones locales (o en otras ubicaciones protegidas). Las claves no están disponibles para los servicios de Azure <br>• Funcionalidad de nube reducida|
-
-### <a name="enabling-encryption-at-rest"></a>Habilitación del cifrado de datos en reposo
-
-**Identificación de todas las ubicaciones de los almacenes de datos**
-
-El objetivo del cifrado en reposo consiste en cifrar todos los datos. Si lo hace, elimina la posibilidad de que se pierdan datos importantes o todas las ubicaciones persistentes. Muestre todos los datos almacenados por la aplicación.
-
-> [!Note]
-> No solo los datos de la aplicación o la información de identificación personal, sino todos los datos relacionados con la aplicación, incluidos los metadatos de la cuenta (asignaciones de suscripción, información contractual, información de identificación personal).
-
-Considere el tipo de almacenes que está empleando para almacenar los datos. Por ejemplo:
-
-- Almacenamiento externo (por ejemplo, SQL Azure, Document DB, HDInsights, Data Lake, etc.)
-
-- Almacenamiento temporal (cualquier caché local que incluye datos de inquilino)
-
-- Caché en memoria (se puede poner en el archivo de paginación).
-
-### <a name="leverage-the-existing-encryption-at-rest-support-in-azure"></a>Aprovechamiento de la compatibilidad ya existente con el cifrado en reposo de Azure
-
-En cada almacén que use, aproveche la compatibilidad ya existente con el cifrado en reposo.
-
-- Azure Storage: Consulte [Azure Storage Service Encryption para datos en reposo](../../storage/common/storage-service-encryption.md)
-
-- SQL Azure: Consulte [Cifrado de datos transparente (TDE), SQL Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx)
-
-- Almacenamiento en máquina virtual y disco local ([Azure Disk Encryption](../azure-security-disk-encryption-overview.md))
-
-Para el almacenamiento en máquina virtual y disco local use Azure Disk Encryption allí donde sea compatible:
-
-#### <a name="iaas"></a>IaaS
-
-Los servicios con máquinas virtuales de IaaS (Windows o Linux) deben usar [Azure Disk Encryption](https://microsoft.sharepoint.com/teams/AzureSecurityCompliance/Security/SitePages/Azure%20Disk%20Encryption.aspx) para cifrar los volúmenes que contienen los datos del cliente.
-
-#### <a name="paas-v2"></a>PaaS v2
-
-Los servicios que se ejecutan en PaaS v2 mediante Service Fabric pueden usar Azure Disk Encryption para el conjunto de escalado de máquinas virtuales [VMSS] para cifrar sus máquinas virtuales de PaaS v2.
-
-#### <a name="paas-v1"></a>PaaS v1
-
-Actualmente, no se admite Azure Disk Encryption en PaaS v1. Por tanto, deberá usar el cifrado de nivel de aplicación para cifrar los datos persistentes en reposo.  Esto incluye, aunque sin limitarse a ellos, los datos de la aplicación, los archivos temporales, los registros y volcados de memoria.
-
-La mayoría de los servicios debe intentar aprovechar el cifrado de un proveedor de recursos de almacenamiento. Algunos servicios tienen que realizar un cifrado explícito, por ejemplo, todo material de clave (certificados, clave raíz o maestra) se debe almacenar en Key Vault.
-
-Si se admite el cifrado del lado del servicio con claves administradas por el cliente, es necesario que exista una manera en la que este nos haga llegar la clave. La manera admitida y recomendada de hacerlo es mediante la integración con Azure Key Vault (AKV). En este caso, los clientes pueden agregar y administrar sus claves en Azure Key Vault. Un cliente puede obtener información sobre cómo usar AKV en [Introducción a Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
-
-Para la integración con Azure Key Vault, debe agregar un código para solicitar una clave de AKV cuando sea necesaria para el descifrado.
-
-- Consulte [Azure Key Vault – Step by Step](https://blogs.technet.microsoft.com/kv/2015/06/02/azure-key-vault-step-by-step/) (Azure Key Vault: Información detallada) para más información sobre cómo integrar con AKV.
-
-Si se admiten claves administradas por el cliente, debe proporcionar una experiencia de usuario para que el cliente especifique qué instancia de Key Vault (o URI de Key Vault) se utilizará.
-
-Cuando el cifrado en reposo incluye el cifrado de host, datos de infraestructura y de inquilinos, la pérdida de las claves debida a un error del sistema o actividad malintencionada podría dar lugar a la pérdida de todos los datos cifrados. Por lo tanto, es fundamental que el servicio de cifrado en reposo tenga una potente solución de recuperación ante desastres que sea resistente a errores del sistema o actividades malintencionadas.
-
-Los servicios que implementan el cifrado en reposo aún se muestran vulnerables a las claves de cifrado o a los datos que se dejan sin cifrar en la unidad del host (por ejemplo, en el archivo de paginación del sistema operativo del host). Por tanto, tales servicios deben asegurarse de que todo el volumen del host destinado a estos está cifrado. Para facilitar este proceso, el equipo de Compute ha habilitado la implementación del cifrado del host, que usa [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) NKP y extensiones al servicio y agente de DCM para cifrar el volumen del host.
-
-La mayoría de los servicios se implementa en máquinas virtuales estándar de Azure. Estos servicios deben realizar el [cifrado del host](../azure-security-disk-encryption-overview.md) automáticamente cuando Compute lo habilite. Para aquellos servicios que se ejecutan en clústeres administrados de Compute, el cifrado del host se habilita de forma automática cuando se implementa Windows Server 2016.
+El cifrado en reposo se describe con más detalle en [Cifrado en reposo de datos de Azure](encryption-atrest.md).
 
 ### <a name="encryption-in-transit"></a>Cifrado en tránsito
 

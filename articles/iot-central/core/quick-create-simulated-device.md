@@ -3,17 +3,17 @@ title: 'Inicio rápido: Adición de un dispositivo simulado a Azure IoT Central'
 description: En este inicio rápido se muestra cómo crear una plantilla de dispositivo y agregar un dispositivo simulado a la aplicación en IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/12/2020
+ms.date: 07/07/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 25e1742612c6fc8c326f2918a4d69c55a9888c97
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 26aba84fcc38fddf43c04550b1c3d1ce2d70b21f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81001134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001965"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>Inicio rápido: Adición de un dispositivo simulado a una aplicación de IoT Central
 
@@ -64,7 +64,7 @@ En los pasos siguientes se muestra cómo usar el catálogo de dispositivos para 
 
 ### <a name="add-cloud-properties"></a>Adición de propiedades de nube
 
-Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedades de la nube solo existen en la aplicación IoT Central y nunca se envían a un dispositivo ni se reciben de él.
+Una plantilla de dispositivo puede incluir propiedades de la nube. Las propiedades de la nube solo existen en la aplicación IoT Central y nunca se envían a un dispositivo ni se reciben de él. Para agregar una propiedad de la nube:
 
 1. Seleccione **Cloud Properties** (Propiedades de la nube) y, luego, **+ Add cloud property** (+ Agregar propiedad de la nube). Use la información de la tabla siguiente para agregar dos propiedades de la nube a la plantilla de dispositivo:
 
@@ -136,15 +136,17 @@ Mediante los datos simulados ya puede interactuar con las vistas que creó el ge
 
 1. Seleccione el dispositivo simulado en la página **Devices** (Dispositivos).
 
-1. La vista de **información general** muestra un trazado con los datos de telemetría simulados:
+    * La vista de **información general** muestra un trazado con los datos de telemetría simulados:
 
-    ![Vista de información general](./media/quick-create-simulated-device/simulated-telemetry.png)
+        ![Vista de información general](./media/quick-create-simulated-device/simulated-telemetry.png)
 
-1. En la vista **About** (Acerca de) se muestran los valores de las propiedades, que incluyen las propiedades de la nube que ha agregado a la vista.
+    * En la vista **About** (Acerca de) se muestran los valores de las propiedades, que incluyen las propiedades de la nube que ha agregado a la vista.
 
-1. La vista de **comandos** le permite ejecutar comandos, como **blink**, en el dispositivo.
+    * La vista de **comandos** le permite ejecutar comandos, como **blink**, en el dispositivo.
 
-1. La vista de **administración de dispositivos** es el formulario que ha creado para que el operador administre el dispositivo.
+    * La vista de **administración de dispositivos** es el formulario que ha creado para que el operador administre el dispositivo.
+
+    * La vista **Datos sin procesar** le permite ver los datos de telemetría sin procesar y los valores de propiedades que envía el dispositivo. Esta vista es útil para depurar dispositivos.
 
 ## <a name="use-a-simulated-device-to-improve-views"></a>Uso de un dispositivo simulado para mejorar las vistas
 

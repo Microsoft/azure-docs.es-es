@@ -5,24 +5,24 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/05/2020
-ms.custom: seodec18~~~~
-ms.openlocfilehash: 010f7b908ceb9c8d07208db1312d8af8d4e27051
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.custom: seodec18
+ms.openlocfilehash: 57e99dfd0cec4ee396cc90173f1f22715c7ba760
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82838525"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88168191"
 ---
-# <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Time Series Insights mediante Azure Portal
+# <a name="create-a-reference-data-set-for-your-azure-time-series-insights-gen1-environment-using-the-azure-portal"></a>Creación de un conjunto de datos de referencia para el entorno de Azure Time Series Insights Gen1 mediante Azure Portal
 
 En este artículo se describe cómo agregar un conjunto de datos de referencia al entorno de Azure Time Series Insights. Los datos de referencia son útiles para unirse a los datos de origen y aumentar los valores.
 
-Un conjunto de datos de referencia es una colección de elementos que aumentan los eventos de un origen de eventos. El motor de entrada de Time Series Insights combina cada evento del origen de eventos con la fila de datos correspondiente en el conjunto de datos de referencia. A partir de ese momento, este evento aumentado está disponible para consultas. Esta combinación se basa en las columnas de clave principal definidas en el conjunto de datos de referencia.
+Un conjunto de datos de referencia es una colección de elementos que aumentan los eventos de un origen de eventos. El motor de entrada de Azure Time Series Insights combina cada evento del origen de eventos con la fila de datos correspondiente del conjunto de datos de referencia. A partir de ese momento, este evento aumentado está disponible para consultas. Esta combinación se basa en las columnas de clave principal definidas en el conjunto de datos de referencia.
 
 Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo los datos de entrada actuales y futuros se combinan y unen con el conjunto de datos de referencia una vez que se configuran y cargan.
 
@@ -30,21 +30,21 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 ### <a name="learn-about-time-series-insights-reference-data-modelbr"></a>Obtenga información sobre el modelo de datos de referencia de Time Series Insight.</br>
 
-> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
+> [!VIDEO <https://www.youtube.com/embed/Z0NuWQUMv1o>]
 
 ## <a name="add-a-reference-data-set"></a>Adición de un conjunto de datos de referencia
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 
-1. Busque su entorno de Azure Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Time Series Insights.
+1. Busque su entorno de Azure Time Series Insights existente. Seleccione **Todos los recursos** en el menú izquierdo de Azure Portal. Seleccione el entorno de Azure Time Series Insights.
 
-1. Seleccione la página **Información general**. Expanda la sección **Información esencial** situada cerca de la parte superior de la página para buscar la **dirección URL del explorador de Time Series Insights** y abra el vínculo.  
+1. Seleccione la página **Información general**. Expanda la sección **Essentials** situada cerca de la parte superior de la página para buscar la **dirección URL del Explorador de Time Series Insights** y abra el vínculo.  
 
    [![Expandir la sección Información esencial](media/add-reference-data-set/essentials.png)](media/add-reference-data-set/essentials.png#lightbox)
 
-   Vea el explorador del entorno de Time Series Insights.
+   Vea el Explorador del entorno de Azure Time Series Insights.
 
-1. Expanda el selector de entornos en el explorador de Time Series Insights. Elija el entorno activo. Seleccione el icono de los datos de referencia en la esquina superior derecha de la página del explorador.
+1. Expanda el selector de entornos en el Explorador de Azure Time Series Insights. Elija el entorno activo. Seleccione el icono de datos de referencia en la esquina superior derecha de la página del Explorador.
 
    [![Agregar datos de referencia](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
@@ -116,6 +116,6 @@ Los datos de referencia no se combinan de manera retroactiva. Por lo tanto, solo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.
+- [Administración de datos de referencia](time-series-insights-manage-reference-data-csharp.md) mediante programación.
 
-* Para obtener una referencia completa de la API, lea el documento [API de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).
+- Para obtener una referencia completa de la API, lea el documento [API de datos de referencia](https://docs.microsoft.com/rest/api/time-series-insights/gen1-reference-data-api).

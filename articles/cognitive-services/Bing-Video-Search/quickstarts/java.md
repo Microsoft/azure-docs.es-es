@@ -9,13 +9,14 @@ ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 05/22/2020
+ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: 0728aa84447573bd8d335daf84c01138c627ecb5
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.openlocfilehash: b03dd9140ef49d34ba0303742aa4961a9f313cc9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848675"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323373"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>Inicio rápido: Búsqueda de vídeos con la API de REST Bing Video Search y Java
 

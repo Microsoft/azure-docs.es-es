@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: juliako
-ms.openlocfilehash: 9788c4663908497b51fbaaf7f824125d857e7c81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33c762e2f2a9bed90991f7b85e0fb83fbb43765c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774406"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090168"
 ---
 # <a name="get-credentials-to-access-media-services-api"></a>Obtención de credenciales para acceder a la API de Media Services  
 
@@ -56,7 +56,7 @@ Autentica un servicio usando una aplicación de Azure Active Directory (Azure�
 
 La sección **Administración del secreto y la aplicación de AAD** le permite seleccionar o crear una nueva aplicación de Azure AD y generar un secreto. Por motivos de seguridad, el secreto no se puede mostrar una vez cerrada la hoja. La aplicación usa el identificador y el secreto de la aplicación para la autenticación con el fin de obtener un token válido para Media Services.
 
-Asegúrese de que tiene permisos suficientes para registrar una aplicación con el inquilino de Azure AD y de que la asigna a un rol en la suscripción de Azure. Para más información, consulte los [permisos necesarios](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+Asegúrese de que tiene permisos suficientes para registrar una aplicación con el inquilino de Azure AD y de que la asigna a un rol en la suscripción de Azure. Para más información, consulte los [permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
 #### <a name="connect-to-media-services-api"></a>Conexión con Media Services API
 

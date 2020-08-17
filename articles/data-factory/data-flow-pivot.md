@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 01/30/2019
-ms.openlocfilehash: a0084c3e8185f615e7ac2a2b8c212f1ebf022c08
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.date: 07/17/2020
+ms.openlocfilehash: e098182c000cbe05df533434a41c55b797ef876f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683303"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086683"
 ---
 # <a name="pivot-transformation-in-mapping-data-flow"></a>Transformación Dinamizar en el flujo de datos de asignación
 
@@ -20,6 +20,8 @@ ms.locfileid: "83683303"
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use la transformación Dinamizar para crear varias columnas a partir de los valores únicos de fila de una sola columna. "Dinamizar" es una transformación de agregación en la que debe seleccionar las columnas Agrupar por y generar columnas dinámicas mediante [funciones de agregado](data-flow-expression-functions.md#aggregate-functions).
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4C4YN]
 
 ## <a name="configuration"></a>Configuración
 

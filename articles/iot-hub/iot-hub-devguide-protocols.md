@@ -11,12 +11,14 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 433e4160972a06ee3652410e062f6602e9ca6767
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 619bc7cec2f8a79a656cf3a7ad1f86d1e5786abb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996919"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322999"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Referencia: elección de un protocolo de comunicación
 

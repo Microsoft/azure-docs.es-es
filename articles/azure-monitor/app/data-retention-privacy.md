@@ -3,12 +3,13 @@ title: Retención y almacenamiento de datos en Azure Application Insights | Micr
 description: Declaración de directiva de retención y privacidad
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 16483c9417c08ea60853d7e70b7121cd0af9db71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 772777c48c8d16197cd8a73586f6549837d7d080
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540067"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372406"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Recopilación, retención y almacenamiento de datos en Application Insights
 
@@ -38,24 +39,24 @@ Los SDK de Application Insights están disponible para varios tipos de aplicacio
 ## <a name="what-data-does-it-collect"></a>¿Qué datos recopila?
 Hay tres orígenes de datos:
 
-* El SDK, que se integra con la aplicación en la [fase de desarrollo](../../azure-monitor/app/asp-net.md) o [en tiempo de ejecución](../../azure-monitor/app/monitor-performance-live-website-now.md). Existen distintos SDK para los diferentes tipos de aplicaciones. También hay un [SDK para páginas web](../../azure-monitor/app/javascript.md), que se carga en el explorador del usuario final junto con la página.
+* El SDK, que se integra con la aplicación en la [fase de desarrollo](./asp-net.md) o [en tiempo de ejecución](./monitor-performance-live-website-now.md). Existen distintos SDK para los diferentes tipos de aplicaciones. También hay un [SDK para páginas web](./javascript.md), que se carga en el explorador del usuario final junto con la página.
   
-  * Cada SDK tiene varios [módulos](../../azure-monitor/app/configuration-with-applicationinsights-config.md), que emplean diferentes técnicas para recopilar distintos tipos de datos de telemetría.
+  * Cada SDK tiene varios [módulos](./configuration-with-applicationinsights-config.md), que emplean diferentes técnicas para recopilar distintos tipos de datos de telemetría.
   * Si instala el SDK en la fase de desarrollo, puede usar su API para enviar su propia telemetría, además de los módulos estándar. Esta telemetría personalizada puede incluir los datos que desee enviar.
-* En algunos servidores web, también hay agentes que se ejecutan junto con la aplicación y envían datos de telemetría de la CPU, memoria y ocupación de la red. Por ejemplo, las máquinas virtuales de Azure, los hosts de Docker y los [servidores de Java EE ](../../azure-monitor/app/java-agent.md) pueden tener dichos agentes.
-* [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) son procesos que ejecuta Microsoft que envían solicitudes a una aplicación web a intervalos regulares. Los resultados se envían al servicio Application Insights.
+* En algunos servidores web, también hay agentes que se ejecutan junto con la aplicación y envían datos de telemetría de la CPU, memoria y ocupación de la red. Por ejemplo, las máquinas virtuales de Azure, los hosts de Docker y los [servidores de Java EE ](./java-agent.md) pueden tener dichos agentes.
+* [pruebas de disponibilidad](./monitor-web-app-availability.md) son procesos que ejecuta Microsoft que envían solicitudes a una aplicación web a intervalos regulares. Los resultados se envían al servicio Application Insights.
 
 ### <a name="what-kinds-of-data-are-collected"></a>¿Qué tipos de datos se recopilan?
 Las principales categorías son:
 
-* [Telemetría de servidor web](../../azure-monitor/app/asp-net.md) : solicitudes HTTP.  Identificador URI, tiempo invertido en procesar la solicitud, código de respuesta y dirección IP del cliente. `Session id`.
-* [Páginas web](../../azure-monitor/app/javascript.md) : contadores de sesión, página y usuario. Tiempos de carga de las páginas. Excepciones. Llamadas AJAX.
+* [Telemetría de servidor web](./asp-net.md) : solicitudes HTTP.  Identificador URI, tiempo invertido en procesar la solicitud, código de respuesta y dirección IP del cliente. `Session id`.
+* [Páginas web](./javascript.md) : contadores de sesión, página y usuario. Tiempos de carga de las páginas. Excepciones. Llamadas AJAX.
 * Contadores de rendimiento: memoria, CPU, E/S, ocupación de la red.
 * Contexto de cliente y servidor: SO, configuración regional, tipo de dispositivo, explorador y resolución de pantalla.
-* [Excepciones](../../azure-monitor/app/asp-net-exceptions.md) y bloqueos: **volcados de pila**, `build id` y tipo de CPU. 
-* [Dependencias](../../azure-monitor/app/asp-net-dependencies.md) : llamadas a servicios externos como REST, SQL y AJAX. Identificador URI o cadena de conexión, duración, con éxito, comando.
-* [Pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) : duración de prueba y pasos, respuestas.
-* [Registros de seguimiento](../../azure-monitor/app/asp-net-trace-logs.md) y [telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md) -  **: todo el código que se escribe en los registros o telemetría**.
+* [Excepciones](./asp-net-exceptions.md) y bloqueos: **volcados de pila**, `build id` y tipo de CPU. 
+* [Dependencias](./asp-net-dependencies.md) : llamadas a servicios externos como REST, SQL y AJAX. Identificador URI o cadena de conexión, duración, con éxito, comando.
+* [Pruebas de disponibilidad](./monitor-web-app-availability.md) : duración de prueba y pasos, respuestas.
+* [Registros de seguimiento](./asp-net-trace-logs.md) y [telemetría personalizada](./api-custom-events-metrics.md) -  **: todo el código que se escribe en los registros o telemetría**.
 
 [Más detalle](#data-sent-by-application-insights).
 
@@ -71,16 +72,16 @@ En el caso de las páginas web, abra la ventana de depuración del explorador.
 ![Presione F12 y abra la pestaña Red.](./media/data-retention-privacy/08-browser.png)
 
 ### <a name="can-i-write-code-to-filter-the-telemetry-before-it-is-sent"></a>¿Puedo escribir código para filtrar los datos de telemetría antes de enviarlos?
-Sí, es posible, solo es preciso escribir un [complemento de procesador de telemetría](../../azure-monitor/app/api-filtering-sampling.md).
+Sí, es posible, solo es preciso escribir un [complemento de procesador de telemetría](./api-filtering-sampling.md).
 
 ## <a name="how-long-is-the-data-kept"></a>¿Cuánto tiempo se conservan los datos?
-Los puntos de datos sin procesar (es decir, elementos que puede consultar en Analytics e inspeccionar en la funcionalidad de búsqueda) se conservan hasta 730 días. Puede [seleccionar una duración de retención](./pricing.md#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 o 730 días. Si necesita mantener los datos más tiempo, puede usar la [exportación continua](../../azure-monitor/app/export-telemetry.md) para copiarlos a una cuenta de almacenamiento durante la ingesta de datos. 
+Los puntos de datos sin procesar (es decir, elementos que puede consultar en Analytics e inspeccionar en la funcionalidad de búsqueda) se conservan hasta 730 días. Puede [seleccionar una duración de retención](./pricing.md#change-the-data-retention-period) de 30, 60, 90, 120, 180, 270, 365, 550 o 730 días. Si necesita mantener los datos más tiempo, puede usar la [exportación continua](./export-telemetry.md) para copiarlos a una cuenta de almacenamiento durante la ingesta de datos. 
 
 Los datos que se mantengan más de 90 días generarán cargos adicionales. Más información sobre los precios de Application Insights en la [página de precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
 
 Los datos agregados (es decir, recuentos, promedios y otros datos estadísticos que se ven en el Explorador de métricas) se retienen con un nivel de detalle de un minuto durante 90 días.
 
-[Las instantáneas de depuración](../../azure-monitor/app/snapshot-debugger.md) se guardan durante 15 días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
+[Las instantáneas de depuración](./snapshot-debugger.md) se guardan durante 15 días. Esta directiva de retención se establece para cada aplicación. Si necesita aumentar este valor, puede solicitar un aumento abriendo una incidencia de soporte técnico en Azure Portal.
 
 ## <a name="who-can-access-the-data"></a>¿Quién puede acceder a los datos?
 Usted puede ver los datos y, si tiene una cuenta de organización, también pueden los miembros del equipo. 
@@ -233,7 +234,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Datos personales almacenados en Application Insights
 
-Nuestra [Guía sobre datos personales almacenados en Application Insights](../../azure-monitor/platform/personal-data-mgmt.md) trata este problema en detalle.
+Nuestra [Guía sobre datos personales almacenados en Application Insights](../platform/personal-data-mgmt.md) trata este problema en detalle.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>¿Pueden los usuarios desactivar Application Insights?
 No directamente. No se proporciona un conmutador que los usuarios puedan operar para desactivar Application Insights.
@@ -286,7 +287,7 @@ En el caso de los [SDK de otras plataformas][platforms], consulte los documentos
 También puede [desactivar algunos de los datos mediante la edición de ApplicationInsights.config][config].
 
 > [!NOTE]
-> La IP del cliente se usa para deducir la ubicación geográfica, pero de forma predeterminada ya no se almacenan datos de IP y todos los ceros se escriben en el campo asociado. Para más información sobre el control de los datos personales, se recomienda leer este [artículo](../../azure-monitor/platform/personal-data-mgmt.md#application-data). Si necesita almacenar datos de direcciones IP, nuestro [artículo sobre la colección de direcciones IP](./ip-collection.md) le guiará por las opciones.
+> La IP del cliente se usa para deducir la ubicación geográfica, pero de forma predeterminada ya no se almacenan datos de IP y todos los ceros se escriben en el campo asociado. Para más información sobre el control de los datos personales, se recomienda leer este [artículo](../platform/personal-data-mgmt.md#application-data). Si necesita almacenar datos de direcciones IP, nuestro [artículo sobre la colección de direcciones IP](./ip-collection.md) le guiará por las opciones.
 
 ## <a name="credits"></a>Créditos
 Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [https://www.maxmind.com](https://www.maxmind.com).
@@ -295,13 +296,14 @@ Este producto incluye datos GeoLite2 creados por MaxMind, disponible en [https:/
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiproperties]: ../../azure-monitor/app/api-custom-events-metrics.md#properties
-[client]: ../../azure-monitor/app/javascript.md
-[config]: ../../azure-monitor/app/configuration-with-applicationinsights-config.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[java]: ../../azure-monitor/app/java-get-started.md
-[platforms]: ../../azure-monitor/app/platforms.md
+[api]: ./api-custom-events-metrics.md
+[apiproperties]: ./api-custom-events-metrics.md#properties
+[client]: ./javascript.md
+[config]: ./configuration-with-applicationinsights-config.md
+[greenbrown]: ./asp-net.md
+[java]: ./java-get-started.md
+[platforms]: ./platforms.md
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
+

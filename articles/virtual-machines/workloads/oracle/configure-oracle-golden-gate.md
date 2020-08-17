@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 60d06fa4cf6d116f9c802cda544a356e469755b5
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 5ed99fd6a16743846033313fcf13702f69f3e728
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223081"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088366"
 ---
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementación de Oracle Golden Gate en máquinas virtuales Linux de Azure 
 
@@ -27,7 +27,7 @@ La CLI de Azure se usa para crear y administrar recursos de Azure desde la líne
 
 En este documento se muestra paso a paso cómo crear, instalar y configurar Oracle Golden Gate en una máquina virtual de Azure. En este tutorial, se configuran dos máquinas virtuales en un conjunto de disponibilidad en una sola región. Se puede usar el mismo tutorial para configurar OracleGolden Gate para máquinas virtuales en diferentes Availability Zones en una sola región de Azure o para la configuración de máquinas virtuales en dos regiones diferentes.
 
-Antes de empezar, asegúrese de que se ha instalado la CLI de Azure. Para obtener más información, consulte la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de empezar, asegúrese de que se ha instalado la CLI de Azure. Para obtener más información, consulte la [guía de instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno
 
@@ -68,7 +68,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 
-El paso siguiente es opcional pero recomendable. Para más información, consulte la [guía de conjuntos de disponibilidad de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+El paso siguiente es opcional pero recomendable. Para más información, consulte la [guía de conjuntos de disponibilidad de Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

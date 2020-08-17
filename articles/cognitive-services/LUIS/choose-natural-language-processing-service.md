@@ -1,16 +1,16 @@
 ---
-title: Uso de NLP Cognitive Services para enriquecer las conversaciones
+title: Uso de NLP con QnA Maker para los bots de chat
 description: Cognitive Services proporciona dos servicios de procesamiento de lenguaje natural, Language Understanding y QnA Maker, cada uno con un propósito diferente. Sepa cuándo usar cada servicio y cómo se complementan entre sí.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: c64c1e41ef7312f61368c67d5065b624eb487fb7
-ms.sourcegitcommit: 5e49f45571aeb1232a3e0bd44725cc17c06d1452
+ms.openlocfilehash: 527ead6bbd1a56aa4a4c95591325abfd4a7a21ce
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2020
-ms.locfileid: "81604963"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497801"
 ---
-# <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-bot-conversations"></a>Uso de Cognitive Services con el procesamiento de lenguaje natural (NLP) para enriquecer las conversaciones de bot
+# <a name="use-cognitive-services-with-natural-language-processing-nlp-to-enrich-chat-bot-conversations"></a>Uso de Cognitive Services con el procesamiento de lenguaje natural (NLP) para enriquecer las conversaciones de los bot de chat
 
 [!INCLUDE [QnA and LUIS - concepts](../includes/luis-qnamaker-shared-concept.md)]
 

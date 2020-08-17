@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mbullwin
-ms.openlocfilehash: 897e615234e17cfe36790778d00cd56371afd91f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27771291d95770a693fa56041f7dce3de459d13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560148"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081430"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Orígenes de datos de libros de Azure Monitor
 
@@ -61,7 +61,7 @@ Para que un control de consulta use este origen de datos, utilice la lista despl
 
 ## <a name="azure-data-explorer"></a>Explorador de datos de Azure
 
-Los libros admiten ahora la consulta desde clústeres de [Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/) con el poderoso lenguaje de consulta de [Kusto](https://docs.microsoft.com/azure/kusto/query/index).   
+Los libros admiten ahora la consulta desde clústeres de [Azure Data Explorer](/azure/data-explorer/) con el poderoso lenguaje de consulta de [Kusto](/azure/kusto/query/index).   
 
 ![Captura de pantalla de la ventana de consulta de Kusto](./media/workbooks-overview/data-explorer.png)
 
@@ -90,7 +90,7 @@ El proveedor JSON permite crear un resultado de la consulta a partir de contenid
 > [!NOTE]
 > La forma recomendada para consultar la información de alertas de Azure es usar el origen de datos [Azure Resource Graph](#azure-resource-graph) consultando la tabla de `AlertsManagementResources`.
 >
-> Vea la [referencia de tabla de Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/reference/supported-tables-resources) o la [plantilla Alertas](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) para obtener ejemplos.
+> Vea la [referencia de tabla de Azure Resource Graph](../../governance/resource-graph/reference/supported-tables-resources.md) o la [plantilla Alertas](https://github.com/microsoft/Application-Insights-Workbooks/blob/master/Workbooks/Azure%20Resources/Alerts/Alerts.workbook) para obtener ejemplos.
 >
 > El origen de datos Alertas permanecerá disponible durante un período de tiempo mientras los autores empiezan a usar ARG. No se recomienda el uso de este origen de datos en las plantillas. 
 
@@ -113,5 +113,5 @@ Para evitar la realización automática de llamadas a hosts que no son de confia
 
 * [Comience](workbooks-visualizations.md) a aprender más sobre las muchas opciones de visualizaciones enriquecidas de los libros.
 * [Controle](workbooks-access-control.md) y comparta el acceso a los recursos del libro.
-* [Sugerencias para la optimización de consultas de análisis de registros](https://docs.microsoft.com/azure/azure-monitor/log-query/query-optimization)
+* [Sugerencias para la optimización de consultas de análisis de registros](../log-query/query-optimization.md)
 * 

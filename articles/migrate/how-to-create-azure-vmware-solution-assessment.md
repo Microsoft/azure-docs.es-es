@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: rajosh
-ms.openlocfilehash: 8c06365531a4977b6b792e136e515b5b56c2c930
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b2917c10e13f110d7ac9784da16a10fc61eb9298
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110035"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288867"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Creación de una valoración de Azure VMware Solution (AVS)
 
@@ -110,8 +110,8 @@ Una valoración de Azure VMware Solution (AVS) describe:
     - **Preparación desconocida**: Azure Migrate no ha podido encontrar la preparación de la máquina debido a una recopilación insuficiente de metadatos en el entorno local.
 
 3. Revise la herramienta sugerida:
-    - **VMware HCX o Enterprise**: En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMWare es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
-    - **Desconocido**: En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMWare. 
+    - **VMware HCX o Enterprise** En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMWare es la herramienta de migración sugerida para migrar su carga de trabajo en el entorno local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
+    - **Desconocido**: En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware. 
 
 4. Haga clic en un estado de **Preparación para AVS**. Puede ver los detalles de la preparación de la máquina virtual y explorar en profundidad los detalles de esta, entre los que se incluye la configuración de proceso, almacenamiento y red.
 

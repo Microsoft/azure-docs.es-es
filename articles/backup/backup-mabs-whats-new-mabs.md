@@ -3,12 +3,12 @@ title: Novedades de Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server proporciona funcionalidades mejoradas de copia de seguridad para proteger máquinas virtuales, archivos y carpetas, cargas de trabajo, etc.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 5f8d0aa83f6d54575b76847efa892864b32c456d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d9d04d9f763549ce15e57f768432cd933cf1414c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629089"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032449"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novedades de Microsoft Azure Backup Server (MABS)
 
@@ -23,7 +23,7 @@ La versión 3 de Microsoft Azure Backup Server (MABS) UR1 es la actualización
 
 En MABS V2 se presentó [Modern Backup Storage](backup-mabs-add-storage.md) (MBS), para mejorar el rendimiento y uso del almacenamiento. En MBS se usa ReFS como sistema de archivos subyacente y está diseñado para utilizar almacenamiento híbrido como el almacenamiento en capas.
 
-Para lograr la escala y el rendimiento mediante MBS, se recomienda usar un pequeño porcentaje (4 % del almacenamiento total) de almacenamiento flash (SSD) con MABS V3 UR1 como un volumen en capas junto con el almacenamiento en disco duros DPM. MABS V3 UR1 con almacenamiento en capas ofrece copias de seguridad entre un 50 y un 70 % más rápidas. Consulte el artículo de DPM [Configuración de MBS con almacenamiento en capas](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obtener los pasos de configuración el almacenamiento en capas.
+Para lograr la escala y el rendimiento mediante MBS, se recomienda usar un pequeño porcentaje (4 % del almacenamiento total) de almacenamiento flash (SSD) con MABS V3 UR1 como un volumen en capas junto con el almacenamiento en disco duros DPM. MABS V3 UR1 con almacenamiento en capas ofrece copias de seguridad entre un 50 y un 70 % más rápidas. Consulte el artículo de DPM [Configuración de MBS con almacenamiento en capas](/system-center/dpm/add-storage?view=sc-dpm-2019#set-up-mbs-with-tiered-storage) para obtener los pasos de configuración el almacenamiento en capas.
 
 ### <a name="support-for-refs-volumes-and-refs-volumes-with-deduplication-enabled"></a>Compatibilidad con volúmenes ReFS y volúmenes ReFS con desduplicación habilitada
 
@@ -39,7 +39,7 @@ Con MABS V3 UR1, puede realizar una copia de seguridad de los volúmenes y las 
 
 ### <a name="azure-vmware-solution-protection-support"></a>Compatibilidad con la protección de Azure VMware Solution
 
-Con MABS V3 UR1, ahora puede proteger las máquinas virtuales implementadas en [Azure VMware Solution](https://docs.microsoft.com/azure/azure-vmware/).
+Con MABS V3 UR1, ahora puede proteger las máquinas virtuales implementadas en [Azure VMware Solution](../azure-vmware/index.yml).
 
 ### <a name="vmware-parallel-backups"></a>Copias de seguridad paralelas de VMware
 
@@ -56,7 +56,7 @@ Con MABS V3 UR1, se agrega una capa de autenticación adicional a las operacion
 
 ### <a name="offline-backup-improvements"></a>Mejoras en la copia de seguridad sin conexión
 
-MABS V3 UR1 mejora la experiencia de copia de seguridad sin conexión con el servicio Azure Import/Export. Para obtener más información, vea los pasos actualizados [aquí](https://docs.microsoft.com/azure/backup/backup-azure-backup-server-import-export).
+MABS V3 UR1 mejora la experiencia de copia de seguridad sin conexión con el servicio Azure Import/Export. Para obtener más información, vea los pasos actualizados [aquí](./backup-azure-backup-server-import-export.md).
 
 >[!NOTE]
 >La actualización también aporta la versión preliminar para Copia de seguridad sin conexión con Azure Data Box en MABS. Póngase en contacto con [SystemCenterFeedback@microsoft.com](mailto:SystemCenterFeedback@microsoft.com) para obtener más información.
@@ -70,7 +70,7 @@ MABS V3 UR1 incluye un nuevo parámetro **[-CheckReplicaFragmentation]** . El n
 Con MABS V3 UR1, ya no se admite la compatibilidad con el agente de protección de 32 bits. No podrá proteger las cargas de trabajo de 32 bits después de actualizar el servidor MABS V3 a UR1. Los agentes de protección de 32 bits existentes estarán en un estado deshabilitado y se producirá un error en las copias de seguridad programadas con un mensaje en el que se indicará que **el agente está deshabilitado**. Si quiere conservar los datos de copia de seguridad de estos agentes, puede detener la protección con la opción Conservar datos. De lo contrario, se puede quitar el agente de protección.
 
 >[!NOTE]
->Revise la [matriz de protección actualizada](https://docs.microsoft.com/azure/backup/backup-mabs-protection-matrix) para obtener información sobre las cargas de trabajo compatibles para la protección con MABS UR 1.
+>Revise la [matriz de protección actualizada](./backup-mabs-protection-matrix.md) para obtener información sobre las cargas de trabajo compatibles para la protección con MABS UR 1.
 
 ## <a name="whats-new-in-mabs-v3-rtm"></a>Novedades de MABS V3 RTM
 
@@ -84,7 +84,7 @@ Con Modern Backup Storage (MBS) en MABS V2, anunciábamos almacenamiento con rec
 
 ### <a name="prevent-unexpected-data-loss"></a>Evitar la pérdida inesperada de datos
 
-En las empresas, un equipo de administradores administra MABS. Aunque existen directrices sobre el almacenamiento que debe usarse para las copias de seguridad, el hecho de dar a MABS un volumen incorrecto como almacenamiento de copia de seguridad puede dar lugar a la pérdida de datos críticos. Con MABS V3, puede evitar ese tipo de escenarios si configura esos volúmenes como los que no están disponibles para el almacenamiento mediante [estos cmdlets de PowerShell](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
+En las empresas, un equipo de administradores administra MABS. Aunque existen directrices sobre el almacenamiento que debe usarse para las copias de seguridad, el hecho de dar a MABS un volumen incorrecto como almacenamiento de copia de seguridad puede dar lugar a la pérdida de datos críticos. Con MABS V3, puede evitar ese tipo de escenarios si configura esos volúmenes como los que no están disponibles para el almacenamiento mediante [estos cmdlets de PowerShell](./backup-mabs-add-storage.md).
 
 ### <a name="custom-size-allocation"></a>Asignación de tamaño personalizada
 
@@ -115,7 +115,7 @@ MABS V3 se puede instalar con SQL 2017 como base de datos de MABS. Puede actuali
 MABS V3 se puede instalar en Windows Server 2019. Para usar MABS V3 con WS2019, puede actualizar el sistema operativo a WS2019 con anterioridad o posterioridad a la instalación de MABS V3 en WS2016 o la actualización a esta versión.
 
 MABS V3 es una versión completa y se puede instalar directamente en Windows Server 2016 y Windows Server 2019, o se puede actualizar desde MABS V2. Antes de instalar Backup Server V3 o actualizar a esta versión, lea este artículo sobre los requisitos previos de instalación.
-Puede encontrar más información sobre los pasos de instalación o actualización de MABS [aquí](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package).
+Puede encontrar más información sobre los pasos de instalación o actualización de MABS [aquí](./backup-azure-microsoft-azure-backup.md#software-package).
 
 > [!NOTE]
 >

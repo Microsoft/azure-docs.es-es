@@ -5,14 +5,14 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 07/18/2020
 ms.author: cshoe
-ms.openlocfilehash: 41f0c44ad65af5fdf2560da3f977a28f135af878
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3220b9d56ff7107245a0a00aac44bb58f87099f9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976717"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075970"
 ---
 # <a name="configure-front-end-frameworks-and-libraries-with-azure-static-web-apps-preview"></a>Configuración de marcos y bibliotecas de servidores front-end con Azure Static Web Apps versión preliminar
 
@@ -55,7 +55,7 @@ Los siguientes elementos explican la intención de las columnas de la tabla:
 | [Svelte](https://svelte.dev/) | `public` | N/D |
 | [Three.js](https://threejs.org/) | `/` | N/D |
 | [TypeScript](https://www.typescriptlang.org/) | `dist` | N/D |
-| [Vue](http://vuejs.com/) | `dist` | N/D |
+| [Vue.js](https://vuejs.org/) | `dist` | N/D |
 
 <sup>1</sup> La tabla anterior no pretende ser una lista exhaustiva de marcos de trabajo y bibliotecas que funcionen con Azure Static Web Apps.
 

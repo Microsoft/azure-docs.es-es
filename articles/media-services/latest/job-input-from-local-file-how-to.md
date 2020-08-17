@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/26/2020
 ms.author: juliako
-ms.openlocfilehash: aba987ba232a29ffc240f72039b1e24bb87a2ed4
-ms.sourcegitcommit: 8a9c54c82ab8f922be54fb2fcfd880815f25de77
+ms.openlocfilehash: a635a75a64db59fc56c6890f79af967a58735853
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80345917"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001135"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Creación de una entrada de trabajo a partir de un archivo local
 
@@ -24,7 +24,7 @@ En Media Services v3, cuando se envían trabajos para procesar los vídeos, es n
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 
-* [Cree una cuenta de Media Services](create-account-cli-how-to.md).
+* [Cree una cuenta de Media Services](./create-account-howto.md).
 * Revise la [administración de recursos](manage-asset-concept.md).
 
 ## <a name="net-sample"></a>Ejemplo de .NET
@@ -32,7 +32,7 @@ En Media Services v3, cuando se envían trabajos para procesar los vídeos, es n
 En el código siguiente se muestra cómo crear un recurso de entrada y usarlo como la entrada del trabajo. La función CreateInputAsset realiza las acciones siguientes:
 
 * Crea el recurso.
-* Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir en el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) del recurso.
+* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir en el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) del recurso.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -47,7 +47,7 @@ El siguiente fragmento de código envía un trabajo de codificación:
 
 ## <a name="job-error-codes"></a>Códigos de error de trabajo
 
-Consulte [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Consulte [Códigos de error](/rest/api/media/jobs/get#joberrorcode).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

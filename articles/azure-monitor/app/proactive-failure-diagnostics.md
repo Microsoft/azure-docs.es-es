@@ -4,23 +4,23 @@ description: Alerta de cambios no habituales en la frecuencia de solicitudes con
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.reviewer: yalavi
-ms.openlocfilehash: 35c1769672e11cd7d1ec2f628b9d763dc8b90ac3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a093d5d6bdb96aa6f0a8a92fea48835971aebe16
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254793"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420216"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Detección inteligente: anomalías de error
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
+[Application Insights](./app-insights-overview.md) le avisa automáticamente casi en tiempo real si la aplicación web sufre un aumento anómalo en la frecuencia de solicitudes erróneas. Asimismo, detecta un aumento inusual de la tasa de solicitudes HTTP o llamadas de dependencia notificadas como errores. En el caso de las solicitudes, las solicitudes con error suelen tener códigos de respuesta de 400 o superiores. Para ayudarle a evaluar las prioridades y a diagnosticar el problema, en los detalles de la alerta se proporciona un análisis de las características de los errores, así como datos de la aplicación relacionados. También hay vínculos en el portal de Application Insights para obtener un diagnóstico más amplio. La característica no necesita ninguna instalación o configuración, ya que usa algoritmos de aprendizaje automático para predecir la tasa normal de errores.
 
-Esta característica funciona para cualquier aplicación web, hospedada en la nube o en sus propios servidores, que genere datos de dependencia o de solicitud de la aplicación. Por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o [TrackDependency()](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
+Esta característica funciona para cualquier aplicación web, hospedada en la nube o en sus propios servidores, que genere datos de dependencia o de solicitud de la aplicación. Por ejemplo, si tiene un rol de trabajo que llama a [TrackRequest()](./api-custom-events-metrics.md#trackrequest) o [TrackDependency()](./api-custom-events-metrics.md#trackdependency).
 
-Después de configurar [Application Insights para su proyecto](../../azure-monitor/app/app-insights-overview.md), si la aplicación genera una cantidad mínima determinada de datos, la detección inteligente de anomalías de error tarda 24 horas en aprender el comportamiento normal de la aplicación antes de activarse y poder enviar alertas.
+Después de configurar [Application Insights para su proyecto](./app-insights-overview.md), si la aplicación genera una cantidad mínima determinada de datos, la detección inteligente de anomalías de error tarda 24 horas en aprender el comportamiento normal de la aplicación antes de activarse y poder enviar alertas.
 
 Esta es una alerta de ejemplo:
 
-[![](./media/proactive-failure-diagnostics/013.png "Sample smart detection alert showing cluster analysis around failure")](./media/proactive-failure-diagnostics/013.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Alerta de ejemplo de detección inteligente que muestra el análisis del clúster en torno al error." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
 Los detalles de la alerta le indicarán lo siguiente:
 
@@ -31,10 +31,10 @@ Los detalles de la alerta le indicarán lo siguiente:
 * Vínculo directos a búsquedas significativas en los datos de Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Ventajas de la detección inteligente
-Las [alertas de métricas](../../azure-monitor/platform/alerts-log.md) normales le comunican que puede haber un problema. Sin embargo, la detección inteligente inicia el trabajo de diagnóstico y realiza gran parte del análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
+Las [alertas de métricas](../platform/alerts-log.md) normales le comunican que puede haber un problema. Sin embargo, la detección inteligente inicia el trabajo de diagnóstico y realiza gran parte del análisis que, de otra forma, tendría que hacer usted mismo. Los resultados se le presentan claramente organizados, lo que le ayuda a llegar rápidamente a la raíz del problema.
 
 ## <a name="how-it-works"></a>Funcionamiento
-La detección inteligente supervisa los datos recibidos de su aplicación y, en particular, las tasas de errores. Esta regla cuenta el número de solicitudes para el que la propiedad `Successful request` es falsa y el número de llamadas de dependencia para el que la propiedad `Successful call` es falsa. De manera predeterminada, para las solicitudes, `Successful request == (resultCode < 400)` (a no ser que haya escrito código personalizado para [filtrar](../../azure-monitor/app/api-filtering-sampling.md#filtering) o generar sus propias llamadas de [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)). 
+La detección inteligente supervisa los datos recibidos de su aplicación y, en particular, las tasas de errores. Esta regla cuenta el número de solicitudes para el que la propiedad `Successful request` es falsa y el número de llamadas de dependencia para el que la propiedad `Successful call` es falsa. De manera predeterminada, para las solicitudes, `Successful request == (resultCode < 400)` (a no ser que haya escrito código personalizado para [filtrar](./api-filtering-sampling.md#filtering) o generar sus propias llamadas de [TrackRequest](./api-custom-events-metrics.md#trackrequest)). 
 
 El rendimiento de una aplicación tiene un patrón típico de comportamiento. Algunas solicitudes o llamadas de dependencia son más propensas a errores que otras; y la tasa de error general puede aumentar a medida que aumenta la carga. La detección inteligente usa aprendizaje automático para encontrar estas anomalías.
 
@@ -48,7 +48,7 @@ Si se instrumenta el servicio con estas llamadas de datos, el analizador busca u
 
 El análisis resultante se le envía como una alerta, a no ser que configurara lo contrario.
 
-Al igual que con las [alertas que establece de forma manual](../../azure-monitor/platform/alerts-log.md), puede inspeccionar el estado de la alerta desencadenada y se puede resolver si el problema se ha corregido. Configure las reglas de alertas en la página Alertas de su recurso de Application Insights. Pero, a diferencia de otras alertas, no es necesario instalar ni configurar la detección inteligente. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
+Al igual que con las [alertas que establece de forma manual](../platform/alerts-log.md), puede inspeccionar el estado de la alerta desencadenada y se puede resolver si el problema se ha corregido. Configure las reglas de alertas en la página Alertas de su recurso de Application Insights. Pero, a diferencia de otras alertas, no es necesario instalar ni configurar la detección inteligente. Si lo desea, puede deshabilitarla o cambiar sus direcciones de correo electrónico de destino.
 
 ### <a name="alert-logic-details"></a>Detalles de la lógica de alerta
 
@@ -61,22 +61,22 @@ Las alertas se desencadenan por nuestro algoritmo de aprendizaje automático pro
 
 ## <a name="configure-alerts"></a>Configurar alertas
 
-Puede deshabilitar la regla de alertas de la detección inteligente desde el portal o a través de Azure Resource Manager ([consulte el ejemplo de plantilla](https://docs.microsoft.com/azure/azure-monitor/app/proactive-arm-config)).
+Puede deshabilitar la regla de alertas de la detección inteligente desde el portal o a través de Azure Resource Manager ([consulte el ejemplo de plantilla](./proactive-arm-config.md)).
 
-Esta regla de alertas está creada con un [grupo de acciones](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) asociado denominado "Detección inteligente de Application Insights" que contiene acciones de correo electrónico y webhook y se puede extender para desencadenar acciones adicionales cuando se activa la alerta.
+Esta regla de alertas está creada con un [grupo de acciones](../platform/action-groups.md) asociado denominado "Detección inteligente de Application Insights" que contiene acciones de correo electrónico y webhook y se puede extender para desencadenar acciones adicionales cuando se activa la alerta.
 
 > [!NOTE]
-> Las notificaciones por correo electrónico que se envían desde esta regla de alertas ahora se envían de manera predeterminada a los usuarios asociados con los roles Lector de supervisión y Colaborador de supervisión de la suscripción. Encontrará más información sobre esto [aquí](https://docs.microsoft.com/azure/azure-monitor/app/proactive-email-notification).
-> Las notificaciones enviadas desde esta regla de alertas siguen el [esquema de alertas comunes](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema).
+> Las notificaciones por correo electrónico que se envían desde esta regla de alertas ahora se envían de manera predeterminada a los usuarios asociados con los roles Lector de supervisión y Colaborador de supervisión de la suscripción. Encontrará más información sobre esto [aquí](./proactive-email-notification.md).
+> Las notificaciones enviadas desde esta regla de alertas siguen el [esquema de alertas comunes](../platform/alerts-common-schema.md).
 >
 
 Abra la página Alertas. Las reglas de alertas de anomalías de error se incluyen junto con las alertas que se han establecido manualmente, y puede ver si están actualmente en el estado de alerta.
 
-[![](./media/proactive-failure-diagnostics/021.png "On the Application Insights resource page, click 'Alerts' tile, then 'Manage alert rules'")](./media/proactive-failure-diagnostics/021.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/021.png" alt-text="En la página del recurso de Application Insights, haga clic en el icono Alertas y luego en Administrar reglas de alerta." lightbox="./media/proactive-failure-diagnostics/021.png":::
 
 Haga clic en la alerta para configurarla.
 
-[![](./media/proactive-failure-diagnostics/032.png "Rule configuration screen")](./media/proactive-failure-diagnostics/032.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/032.png" alt-text="Pantalla de configuración de reglas." lightbox="./media/proactive-failure-diagnostics/032.png":::
 
 Tenga en cuenta que puede deshabilitar o eliminar una regla de alertas de anomalías de error, pero no puede crear otra en el mismo recurso de Application Insights.
 
@@ -292,13 +292,13 @@ Tenga en cuenta que puede deshabilitar o eliminar una regla de alertas de anomal
 
 Una alerta indica que se detectó un aumento anómalo de la tasa de solicitudes con errores. Es probable que haya algún problema con la aplicación o con su entorno.
 
-Si necesita investigar más, haga clic en los vínculos "Ver todos los detalles en Application Insights" de esta página que le llevarán directamente a una [página de búsqueda](../../azure-monitor/app/diagnostic-search.md) filtrada por las solicitudes, la excepción, la dependencia o el seguimiento correspondientes. 
+Si necesita investigar más, haga clic en los vínculos "Ver todos los detalles en Application Insights" de esta página que le llevarán directamente a una [página de búsqueda](./diagnostic-search.md) filtrada por las solicitudes, la excepción, la dependencia o el seguimiento correspondientes. 
 
 También puede abrir [Azure Portal](https://portal.azure.com), navegar hasta el recurso de Application Insights de su aplicación y abrir la página Errores.
 
 Al hacer clic en "Diagnosticar errores", obtendrá más detalles y podrá resolver el problema.
 
-[![](./media/proactive-failure-diagnostics/051.png "Diagnostic search")](./media/proactive-failure-diagnostics/051.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/051.png" alt-text="Búsqueda de diagnóstico." lightbox="./media/proactive-failure-diagnostics/051.png#lightbox":::
 
 Puede determinar la urgencia del problema a partir del porcentaje de solicitudes y del número de usuarios afectados. En el ejemplo anterior, la tasa de error del 78,5 % se compara con una tasa normal del 2,2 %, lo que indica que hay algo que no va bien. Por otro lado, solo 46 usuarios se vieron afectados. Si se tratara de su aplicación, podría evaluar la gravedad del problema.
 
@@ -306,18 +306,18 @@ En muchos casos, podrá diagnosticar el problema rápidamente a partir del nombr
 
 En este ejemplo, se produjo una excepción de SQL Database debido a que se alcanzó el límite de solicitudes.
 
-[![](./media/proactive-failure-diagnostics/052.png "Failed request details")](./media/proactive-failure-diagnostics/052.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/052.png" alt-text="Detalles de las solicitudes con errores." lightbox="./media/proactive-failure-diagnostics/052.png":::
 
 ## <a name="review-recent-alerts"></a>Revisar las alertas recientes
 
 Haga clic en **Alertas** en la página de recursos de Application Insights para ver las alertas desencadenadas más recientes:
 
-[![](./media/proactive-failure-diagnostics/070.png "Alerts summary")](./media/proactive-failure-diagnostics/070.png#lightbox)
+:::image type="content" source="./media/proactive-failure-diagnostics/070.png" alt-text="Resumen de alertas." lightbox="./media/proactive-failure-diagnostics/070.png":::
 
 ## <a name="whats-the-difference-"></a>¿Cuál es la diferencia ...
 La detección inteligente de anomalías de errores complementa otras características similares pero distintas de Application Insights.
 
-* Las [alertas de métricas](../../azure-monitor/platform/alerts-log.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, la velocidad máxima de las solicitudes, los tiempos de carga de las páginas, etc. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, la detección inteligente de anomalías de error abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle casi en tiempo real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta en comparación con el comportamiento normal de esta. A diferencia de las alertas de métricas, la detección inteligente establece y actualiza automáticamente los umbrales en respuesta a los cambios en el comportamiento. La detección inteligente también inicia el trabajo de diagnóstico, lo que le ahorra tiempo en la resolución de problemas.
+* Las [alertas de métricas](../platform/alerts-log.md) las configura el usuario y pueden supervisar una amplia variedad de métricas, como el uso de la CPU, las tasas de solicitudes y los tiempos de carga de las páginas, entre otras. Puede usarlas para avisarle, por ejemplo, de si necesita agregar más recursos. Por el contrario, la detección inteligente de anomalías de error abarca un pequeño conjunto de métricas críticas (actualmente solo la tasa de solicitudes con errores), diseñadas para notificarle casi en tiempo real el momento en el que la tasa de solicitudes con errores de la aplicación web aumenta en comparación con el comportamiento normal de esta. A diferencia de las alertas de métricas, la detección inteligente establece y actualiza automáticamente los umbrales en respuesta a los cambios en el comportamiento. La detección inteligente también inicia el trabajo de diagnóstico, lo que le ahorra tiempo en la resolución de problemas.
 
 * La [detección inteligente de anomalías de rendimiento](proactive-performance-diagnostics.md) también usa la inteligencia automática para detectar patrones inusuales en las métricas y no requiere ninguna configuración por parte del usuario. Pero a diferencia de la detección inteligente de anomalías de errores, el objetivo de la detección inteligente de anomalías de rendimiento es encontrar segmentos del colector de uso que pudieran haberse servidor incorrectamente, por ejemplo, por páginas específicas de un tipo específico de explorador. El análisis se realiza diariamente y, si se encuentra algún resultado, probablemente sea mucho menos urgente que una alerta. Por el contrario, el análisis de anomalías de error se realiza continuamente sobre los datos de aplicación entrantes, y se le notificará en unos minutos si las tasas de errores del servidor son mayores de lo esperado.
 
@@ -332,7 +332,7 @@ La detección inteligente de anomalías de errores complementa otras caracterís
 
 *¿Está viendo los datos de mi aplicación?*
 
-* No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](../../azure-monitor/app/data-retention-privacy.md).
+* No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](./data-retention-privacy.md).
 
 *¿Es necesario suscribirse a esta alerta?*
 
@@ -348,16 +348,17 @@ La detección inteligente de anomalías de errores complementa otras caracterís
 
 *Algunas de las alertas se refieren a problemas conocidos y no deseo recibirlas.*
 
-* Puede usar la característica de supresión de las [reglas de acción de alerta](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-action-rules).
+* Puede usar la característica de supresión de las [reglas de acción de alerta](../platform/alerts-action-rules.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de su aplicación:
 
-* [Explorador de métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Explorador de búsqueda](../../azure-monitor/app/diagnostic-search.md)
-* [Analytics: Lenguaje de consulta eficaz](../../azure-monitor/log-query/get-started-portal.md)
+* [Explorador de métricas](../platform/metrics-charts.md)
+* [Explorador de búsqueda](./diagnostic-search.md)
+* [Analytics: Lenguaje de consulta eficaz](../log-query/get-started-portal.md)
 
 Las detecciones inteligentes son automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](../../azure-monitor/platform/alerts-log.md)
-* [Pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Alertas de métricas configuradas manualmente](../platform/alerts-log.md)
+* [Pruebas web de disponibilidad](./monitor-web-app-availability.md)
+

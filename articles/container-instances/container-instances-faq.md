@@ -4,12 +4,12 @@ description: Respuestas a las preguntas más frecuentes relacionadas con el serv
 author: dkkapur
 ms.topic: article
 ms.date: 06/02/2020
-ms.openlocfilehash: 21643ccfb6bb256e29114435ccb39a009d1b8dae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95190496df4037a973207e14292911225094782e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806608"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421287"
 ---
 # <a name="frequently-asked-questions-about-azure-container-instances"></a>Preguntas más frecuentes sobre Azure Container Instances
 
@@ -89,7 +89,7 @@ Actualmente, el escalado no está disponible para contenedores o grupos de conte
 
 ### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>¿Qué características están disponibles para las instancias que se ejecutan en una red virtual personalizada?
 
-Puede [implementar grupos de contenedores en una red virtual de Azure](container-instances-vnet.md) que elija y delegar las direcciones IP privadas a los grupos de contenedores para redirigir el tráfico dentro de la red virtual a través de los recursos de Azure. La implementación de un grupo de contenedores en una red virtual está disponible actualmente para cargas de trabajo de producción en un subconjunto de regiones de Azure.
+Puede [implementar grupos de contenedores en una red virtual de Azure](container-instances-vnet.md) que elija y delegar las direcciones IP privadas a los grupos de contenedores para redirigir el tráfico dentro de la red virtual a través de los recursos de Azure. Para conocer los escenarios y las limitaciones de red con Azure Container Instances, consulte [Escenarios y recursos de redes virtuales](container-instances-virtual-network-concepts.md).
 
 ## <a name="pricing"></a>Precios
 

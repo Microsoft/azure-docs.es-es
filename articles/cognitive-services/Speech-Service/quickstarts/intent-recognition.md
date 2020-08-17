@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: erhopf
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 67a3b812fef92b0cee25b6710ff9fdd3b3800ee9
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: cd7e72f858bedb8df70a74dffcdf655500cf4709
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391662"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406219"
 ---
 # <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Inicio rápido: Reconocimiento de voz, intenciones y entidades con Language Understanding (LUIS)
 

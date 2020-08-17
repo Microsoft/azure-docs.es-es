@@ -1,6 +1,6 @@
 ---
 title: Rendimiento de la red de máquinas virtual de Azure | Microsoft Docs
-description: Aprenda acerca del rendimiento de la red de máquinas virtuales de Azure.
+description: Obtenga información acerca del rendimiento de la red de máquina virtual de Azure, incluido cómo se asigna el ancho de banda a una máquina virtual.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 4/26/2019
 ms.author: steveesp
 ms.reviewer: kumud, mareat
-ms.openlocfilehash: 47f58b25b082784177910d14ab95d8d242fda71a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fed883c8fa92df77af432e1e4a4b3acca72a0d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696007"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265121"
 ---
 # <a name="virtual-machine-network-bandwidth"></a>Ancho de banda de la red de máquinas virtuales
 
@@ -56,8 +56,8 @@ La transferencia de datos entre puntos de conexión exige la creación de varios
 
 Hoy en día, la pila de red de Azure admite 250 mil flujos de red totales con buen rendimiento para máquinas virtuales con más de 8 núcleos de CPU y 100 mil flujos totales con buen rendimiento para máquinas virtuales con menos de 8 núcleos de CPU. Más allá de este límite, el rendimiento de red decae gradualmente para flujos adicionales hasta un límite máximo de 500 000 flujos totales, 250 000 entrantes y 250 000 salientes, después de lo cual se eliminan los flujos adicionales.
 
-||Máquinas virtuales con menos de 8 núcleos de CPU|Máquinas virtuales con más de 8 núcleos de CPU|
-|---|---|---|
+| Nivel de rendimiento | Máquinas virtuales con menos de 8 núcleos de CPU | Máquinas virtuales con más de 8 núcleos de CPU |
+| ----------------- | --------------------- | --------------------- |
 |<b>Buen rendimiento</b>|100 mil flujos |250 mil flujos|
 |<b>Rendimiento reducido</b>|Más de 100 mil flujos|Más de 250 mil flujos|
 |<b>Límite de flujos</b>|500 000 flujos|500 000 flujos|

@@ -12,12 +12,12 @@ ms.date: 1/15/2020
 ms.author: hahamil
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: b2f74d2d441007f195abd38ca26ca7fa73605318
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: f49a5703b19a76095c8eafe358742b442725d3d0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80886439"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118253"
 ---
 # <a name="tutorial-use-shared-device-mode-in-your-android-application"></a>Tutorial: Uso del modo de dispositivo compartido en la aplicación Android
 
@@ -28,11 +28,11 @@ ms.locfileid: "80886439"
 
 ## <a name="developer-guide"></a>Guía del desarrollador
 
-En esta guía se proporcionan instrucciones para desarrolladores que permiten implementar el modo de dispositivo compartido en una aplicación Android mediante la Biblioteca de autenticación de Microsoft (MSAL). Consulte el [tutorial de MSAL para Android](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android) para ver cómo integrar MSAL con su aplicación Android, iniciar sesión con un usuario, llamar a Microsoft Graph y cerrar la sesión de un usuario.
+En esta guía se proporcionan instrucciones para desarrolladores que permiten implementar el modo de dispositivo compartido en una aplicación Android mediante la Biblioteca de autenticación de Microsoft (MSAL). Consulte el [tutorial de MSAL para Android](./tutorial-v2-android.md) para ver cómo integrar MSAL con su aplicación Android, iniciar sesión con un usuario, llamar a Microsoft Graph y cerrar la sesión de un usuario.
 
 ### <a name="download-the-sample"></a>Descarga del ejemplo
 
-Clone la [aplicación de ejemplo](https://github.com/Azure-Samples/ms-identity-android-java/) de GitHub. El ejemplo puede funcionar en [modo de una o de varias cuentas](https://docs.microsoft.com/azure/active-directory/develop/single-multi-account).
+Clone la [aplicación de ejemplo](https://github.com/Azure-Samples/ms-identity-android-java/) de GitHub. El ejemplo puede funcionar en [modo de una o de varias cuentas](./single-multi-account.md).
 
 ### <a name="add-the-msal-sdk-to-your-local-maven-repository"></a>Adición del SDK de MSAL al repositorio local de Maven
 
@@ -46,7 +46,7 @@ dependencies{
 
 ### <a name="configure-your-app-to-use-shared-device-mode"></a>Configuración de la aplicación para que use el modo de dispositivo compartido
 
-Consulte la [documentación de configuración](https://docs.microsoft.com/azure/active-directory/develop/msal-configuration) para más información sobre cómo configurar el archivo de configuración.
+Consulte la [documentación de configuración](./msal-configuration.md) para más información sobre cómo configurar el archivo de configuración.
 
 Establezca `"shared_device_mode_supported"` como `true` en el archivo de configuración de MSAL.
 
@@ -204,7 +204,7 @@ En los pasos siguientes se describe cómo configurar la aplicación en Azure Por
 
 En primer lugar, registre la aplicación en el inquilino de su organización. A continuación, proporcione estos valores en auth_config.json para que la aplicación se ejecute correctamente.
 
-Para más información sobre cómo hacerlo, consulte [Registro de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-android#register-your-application).
+Para más información sobre cómo hacerlo, consulte [Registro de la aplicación](./tutorial-v2-android.md#register-your-application).
 
 > [!NOTE]
 > Al registrar la aplicación, use la guía de inicio rápido que se encuentra a la izquierda y, a continuación, seleccione **Android**. De esta forma, llegará a una página en la que se le pedirá que proporcione el valor de **Nombre del paquete** y **Hash de firma** de la aplicación. Son muy importantes para garantizar que la configuración de la aplicación funcione. Después recibirá un objeto de configuración que puede usar para la aplicación que va a cortar y pegar en el archivo auth_config.json.

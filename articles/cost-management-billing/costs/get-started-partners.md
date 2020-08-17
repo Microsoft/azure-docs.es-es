@@ -3,17 +3,17 @@ title: Introducción a Azure Cost Management para los asociados
 description: En este artículo se explica cómo los asociados usan las características de Azure Cost Management y cómo permiten a sus clientes el acceso a Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: 0b0b5eb8ec41eccf99c23b671cef42a9c1bc8859
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: b5f00ee67803819b4d13cdc630bed3de26ac1be9
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849849"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563949"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>Introducción a Azure Cost Management para los asociados
 
@@ -123,9 +123,9 @@ Independientemente de la directiva, los administradores globales y los agentes d
 
 ### <a name="enable-the-policy-to-view-azure-usage-charges"></a>Habilitación de la directiva para ver los cargos de uso de Azure
 
-Los asociados usan la siguiente información para habilitar la directiva con el fin de ver los cargos de uso de Azure de sus clientes.
+Debe ser miembro del grupo **agentes administradores** para ver y actualizar la directiva. Utilice la siguiente información para habilitar la directiva y permitir a los clientes ver los cargos de uso de Azure.
 
-En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione la cuenta de facturación correspondiente de Microsoft Partner Agreement y seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
+En Azure Portal, inicie sesión en el inquilino del asociado y seleccione **Administración de costos + facturación**. Seleccione el ámbito de facturación pertinente en el área Ámbito de facturación y, a continuación, seleccione **Clientes**. La lista de clientes está asociada a la cuenta de facturación.
 
 En la lista de clientes, seleccione el que quiere que vea los costos.
 
@@ -140,7 +140,7 @@ Cuando la directiva se establece en **No**, Azure Cost Management no está dispo
 
 Cuando esta directiva está establecida en **Sí**, los usuarios de suscripciones asociados al inquilino del cliente pueden ver los cargos de uso según las tarifas de pago por uso.
 
-Cuando la directiva de visibilidad de los costos está habilitada, todos los servicios que tienen la opción de uso de la suscripción muestran los costos según las tarifas de pago por uso. El uso de reservas aparece con cero cargos para los costos reales y amortizados. Las compras y los derechos no están asociados a una suscripción específica. Por lo tanto, las compras no se muestran en el ámbito de la suscripción.
+Cuando la directiva de visibilidad de los costos está habilitada, todos los servicios que tienen la opción de uso de la suscripción muestran los costos según las tarifas de pago por uso. El uso de reservas aparece con cero cargos para los costos reales y amortizados. Las compras y los derechos no están asociados a una suscripción específica. Por lo tanto, las compras no se muestran en el ámbito de la suscripción. El administrador global o agente de administración de un asociado directo o de un proveedor indirecto también puede usar la [API de actualización de cliente](/rest/api/billing/2019-10-01-preview/policies/updatecustomer) para establecer la directiva de visibilidad de costos de cada cliente a gran escala.
 
 ### <a name="view-subscription-costs-in-the-customer-tenant"></a>Visualización de los costos de suscripción en el inquilino del cliente
 

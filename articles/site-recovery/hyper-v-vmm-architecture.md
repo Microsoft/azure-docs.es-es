@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: fbd11c279708cd828693baab3f9f6df91515bc48
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 703a6afdc12c8a9863ff0f480ec7a577ec31ef77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133909"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496005"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>Arquitectura de replicación de Hyper-V en un sitio secundario
 
@@ -32,7 +32,7 @@ En la siguiente tabla y gráfico se proporciona una visión general de los compo
 
 **Arquitectura entre dos sitios locales**
 
-![De local a local](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
+![Diagrama que muestra la protección de instalaciones locales a instalaciones locales.](./media/hyper-v-vmm-architecture/arch-onprem-onprem.png)
 
 ## <a name="replication-process"></a>Proceso de replicación
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/09/2020
-ms.openlocfilehash: 3175e43a841334719de80f44a226b1c7b87690d9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1d7275c928b4d25e200a3a8d3d690c7575c056e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540118"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323186"
 ---
 # <a name="workspace-based-resource-changes-preview"></a>Cambios en los recursos basados en áreas de trabajo (versión preliminar)
 
@@ -466,5 +466,6 @@ Tabla heredada: seguimientos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Exploración de métricas](../../azure-monitor/platform/metrics-charts.md)
+* [Exploración de métricas](../platform/metrics-charts.md)
 * [Escribir consultas de Analytics](../log-query/log-query-overview.md)
+

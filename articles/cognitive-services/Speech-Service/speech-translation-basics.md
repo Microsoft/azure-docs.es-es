@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/13/2020
 ms.author: trbye
-zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 04ece5ccf91056af02bd450eb760534b82de5959
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.custom: devx-track-javascript
+zone_pivot_groups: programming-languages-set-two-with-js
+ms.openlocfilehash: 8c9a99927512ed842fc05e4f3067b2732fc2d00b
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81399622"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405844"
 ---
 # <a name="learn-the-basics-of-speech-translation"></a>Aprendizaje de los aspectos básicos de la traducción de voz
 
@@ -42,6 +43,10 @@ Una de las características principales del servicio de voz es la capacidad para
 
 ::: zone pivot="programming-language-python"
 [!INCLUDE [Python Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-python.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [JavaScript Basics include](includes/how-to/speech-translation-basics/speech-translation-basics-javascript.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-more"

@@ -40,16 +40,24 @@
       items:
         - name: Uso de la CLI de Azure Digital Twins
           href: how-to-use-cli.md
-        - name: Creación de una instancia de Azure Digital Twins
-          href: how-to-set-up-instance.md
-        - name: Autenticación de una aplicación cliente
+        - name: Configuración de una instancia y autenticación
+          items:
+            - name: Versión con scripts
+              href: how-to-set-up-instance-scripted.md
+            - name: Versión de la CLI
+              href: how-to-set-up-instance-cli.md
+            - name: Versión del portal
+              href: how-to-set-up-instance-portal.md
+        - name: Escritura de código de autenticación de aplicación
           href: how-to-authenticate-client.md
     - name: Diseño de modelos
       items:
         - name: Administración de modelos personalizados
           href: how-to-manage-model.md
         - name: Análisis y validación de modelos
-          href: how-to-use-parser.md
+          href: how-to-parse-models.md
+        - name: Incorporación de etiquetas
+          href: how-to-use-tags.md
     - name: Uso de un entorno de ejecución dinámico
       items:
         - name: Administración de Digital Twins
@@ -69,13 +77,29 @@
     - name: Conexión de salida
       items:
         - name: Administración de puntos de conexión y rutas
-          href: how-to-manage-routes.md
+          items:
+            - name: Versión de las API y de la CLI
+              href: how-to-manage-routes-apis-cli.md
+            - name: Versión del portal
+              href: how-to-manage-routes-portal.md
         - name: Integración con Azure Maps
           href: how-to-integrate-maps.md
+        - name: Integración con Azure Time Series Insights
+          href: how-to-integrate-time-series-insights.md
     - name: Solución de problemas
       items:
+        - name: Visualización de métricas en Azure Monitor
+          href: troubleshoot-metrics.md
+        - name: Habilitación del registro de diagnósticos
+          href: troubleshoot-diagnostics.md
+        - name: Habilitación de alertas
+          href: troubleshoot-alerts.md
         - name: Problemas conocidos
           href: troubleshoot-known-issues.md
+        - name: Resolución de problemas
+          items:
+            - name: 403 (Prohibido)
+              href: troubleshoot-error-403.md
 - name: Referencia
   items:
     - name: Límites del servicio Digital Twins
@@ -145,7 +169,7 @@
         - name: Ejemplos de Azure Digital Twins
           href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples/'
         - name: Explorador de Azure Digital Twins (ejemplo)
-          href: 'https://github.com/Azure-Samples/digital-twins-explorer'
+          href: 'https://docs.microsoft.com/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/'
         - name: Validador de DTDL (ejemplo)
           href: 'https://docs.microsoft.com/samples/azure-samples/dtdl-validator/dtdl-validator/'
     - name: Herramientas de Azure

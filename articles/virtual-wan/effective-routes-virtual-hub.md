@@ -7,19 +7,19 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 20cdc55b474034480392f9dfb05b20ad25df6939
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a7e42ddeb4abacd8707dda4cd558933b0d7a34f4
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037773"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513713"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visualización de rutas efectivas de centro virtual
 
 Puede ver todas las rutas del centro virtual WAN en el Azure Portal. Este artículo lo guiará por los pasos necesarios para ver las rutas eficaces. Para más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> En el Azure Portal, es posible que algunas de estas características se sigan implementando y no estén disponibles hasta la semana del 3 de agosto. 
+> En Azure Portal, es posible que algunas de estas características se sigan implementando y no estén disponibles hasta la semana del 17 de agosto. 
 >
 
 ## <a name="select-connections-or-route-tables"></a><a name="routing"></a>Seleccionar conexiones o tablas de rutas

@@ -25,9 +25,9 @@
         - name: Discos administrados
           items:
             - name: Adición de un disco administrado en zonas de disponibilidad con la CLI
-              href: '../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm'
+              href: ../virtual-machines/linux/add-disk.md#attach-a-new-disk-to-a-vm
             - name: Adición de un disco administrado en las zonas de disponibilidad con PowerShell
-              href: '../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine'
+              href: ../virtual-machines/windows/attach-disk-ps.md#add-an-empty-data-disk-to-a-virtual-machine
         - name: Conjuntos de escalado de máquinas virtuales
           items:
             - name: Creación de un conjunto de escalado en una zona de disponibilidad
@@ -58,11 +58,11 @@
                 - name: Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad con Azure (CLI)
                   href: ../load-balancer/load-balancer-standard-public-zone-redundant-cli.md
         - name: Dirección IP pública
-          href: '../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address'
+          href: ../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address
         - name: SQL Database
           items:
             - name: Zonas de disponibilidad con SQL Database
-              href: '../sql-database/sql-database-high-availability.md#zone-redundant-configuration'
+              href: ../sql-database/sql-database-high-availability.md#zone-redundant-configuration
         - name: Storage
           items:
             - name: Almacenamiento con redundancia de zona
@@ -70,11 +70,11 @@
         - name: Event Hubs
           items:
             - name: Recuperación ante desastres geográfica de Event Hubs
-              href: '../event-hubs/event-hubs-geo-dr.md#availability-zones'
+              href: ../event-hubs/event-hubs-geo-dr.md#availability-zones
         - name: Azure Service Bus
           items:
             - name: Recuperación ante desastres geográfica de Service Bus
-              href: '../service-bus-messaging/service-bus-geo-dr.md#availability-zones'
+              href: ../service-bus-messaging/service-bus-geo-dr.md#availability-zones
         - name: VPN Gateway
           items:
             - name: Creación de una puerta de enlace de red virtual con redundancia de zona

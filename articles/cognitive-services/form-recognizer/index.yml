@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: f90782dc2edc9ce21b82c6b18e4efe014d160c20
-  ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+  ms.openlocfilehash: 51613a2233eaa643e8c846cccce7ca27effd6f7f
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86086745"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87090831"
 landingContent:
 - title: Acerca de Form Recognizer
   linkLists:
@@ -46,10 +46,6 @@ landingContent:
       url: quickstarts/client-library.md?pivots=programming-language-javascript
     - text: Uso de la API REST (cURL)
       url: quickstarts/curl-train-extract.md
-  - linkListType: tutorial
-    links:
-    - text: Uso de Form Recognizer con Logic Apps
-      url: tutorial-form-recognizer-with-logic-apps.md
 - title: Creación de un conjunto de datos de aprendizaje
   linkLists:
   - linkListType: how-to-guide
@@ -120,8 +116,6 @@ landingContent:
     links:
     - text: API de Form Recognizer, versión 2.0
       url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm
-    - text: API de Form Recognizer, versión 1.0
-      url: https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api/operations/AnalyzeWithCustomModel
     - text: .NET SDK
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer
     - text: Azure PowerShell

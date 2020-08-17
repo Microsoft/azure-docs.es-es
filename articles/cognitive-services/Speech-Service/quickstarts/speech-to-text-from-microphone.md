@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js-go-spx
-ms.openlocfilehash: e5097b30bd280e0a46e3b327d94fbd26244a4fdc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: a78a4f54913a40b92c04239340ffcb459ec2b1d8
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391577"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87875207"
 ---
 # <a name="quickstart-recognize-speech-from-a-microphone"></a>Inicio rápido: Reconocimiento de voz a través de un micrófono
 

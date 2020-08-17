@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: jaredro
-ms.openlocfilehash: c9b109fe12b709649adaa05d62b3d1255605986e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8309c98e9ae45650f65fcd54676cc7655934039d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987312"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537129"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -111,7 +111,7 @@ Microsoft comprueba si los prefijos públicos anunciados y ASN del mismo nivel (
 
 Si ve el mensaje "Se necesita validación", recopile los documentos que muestren los prefijos públicos asignados a la organización por la entidad que aparece como propietaria de los prefijos en el registro de enrutamiento, y envíe estos documentos para su validación manual. Abra una incidencia de soporte técnico como se muestra a continuación.
 
-![](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
+![Captura de pantalla que muestra una nueva solicitud de soporte técnico (incidencia de soporte técnico) de una "prueba de propiedad de prefijos públicos".](./media/expressroute-faqs/ticket-portal-msftpeering-prefix-validation.png)
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>¿Se admite Dynamics 365 en ExpressRoute?
 
@@ -176,7 +176,7 @@ Consulte más detalles [aquí](https://docs.microsoft.com/azure/expressroute/exp
 
 Si su proveedor de servicios puede establecer dos circuitos virtuales de Ethernet sobre la conexión física, solo necesita una conexión física. La conexión física (por ejemplo, una fibra óptica) se termina en un dispositivo de capa 1 (L1) (consulte la imagen). Los dos circuitos virtuales de Ethernet se etiquetan con id. de VLAN distintos, uno para el circuito principal y otro para el secundario. Esos id. de VLAN están en el encabezado Ethernet 802.1Q externo. El encabezado Ethernet 802.1Q interno (que no se muestra) está asignado a un [dominio de enrutamiento ExpressRoute](expressroute-circuit-peerings.md) específico.
 
-![](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
+![Diagrama que resalta los circuitos virtuales principales y secundarios de capa 1 (L1) que componen la conexión física entre los conmutadores de un sitio de cliente y una ubicación de ExpressRoute.](./media/expressroute-faqs/expressroute-p2p-ref-arch.png)
 
 ### <a name="can-i-extend-one-of-my-vlans-to-azure-using-expressroute"></a>¿Puedo extender una de mis VLAN a Azure mediante ExpressRoute?
 

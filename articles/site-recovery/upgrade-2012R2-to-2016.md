@@ -2,18 +2,18 @@
 title: 'Actualización de Windows Server o System Center VMM 2012 R2 a Windows Server 2016: Azure Site Recovery'
 description: Aprenda a configurar la recuperación ante desastres en Azure para máquinas virtuales de Azure Stack con el servicio Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/03/2018
-ms.author: rajanaki
-ms.openlocfilehash: eb08ea2e13c4879941b9651cac056ff41ae13052
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 82e178d37074b22cd170d6b2478525dd2ea7ddf1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130831"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424331"
 ---
 # <a name="upgrade-windows-server-serversystem-center-2012-r2-vmm-to-windows-servervmm-2016"></a>Actualización de Windows Server o System Center 2012 R2 VMM a Windows Server o VMM 2016 
 

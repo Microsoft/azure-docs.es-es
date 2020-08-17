@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63715f668438519131eba5bfff7aa38fc73267d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 120b7e044452dc47126923449a3e1a6e55cfd6a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61094656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000030"
 ---
 # <a name="retry-logic-in-the-media-services-sdk-for-net"></a>Lógica de reintento en el SDK de Media Services para .NET  
 
@@ -50,7 +50,7 @@ En la tabla siguiente se describen las excepciones que administra el SDK de Medi
 | IOException |No |Sí |No |No |
 
 ### <a name="webexception-status-codes"></a><a name="WebExceptionStatus"></a> Códigos de estado WebException
-La tabla siguiente se muestra para qué códigos de error de WebException se implementa la lógica de reintento. La enumeración [WebExceptionStatus](https://msdn.microsoft.com/library/system.net.webexceptionstatus.aspx) define los códigos de estado.  
+La tabla siguiente se muestra para qué códigos de error de WebException se implementa la lógica de reintento. La enumeración [WebExceptionStatus](/dotnet/api/system.net.webexceptionstatus?view=netcore-3.1) define los códigos de estado.  
 
 | Status | Solicitud web | Storage | Consultar | SaveChanges |
 | --- | --- | --- | --- | --- |
@@ -88,4 +88,3 @@ Si desea echar un vistazo a la implementación real del SDK de Media Services pa
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

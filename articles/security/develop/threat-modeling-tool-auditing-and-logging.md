@@ -1,6 +1,6 @@
 ---
 title: 'Auditoría y registro: Microsoft Threat Modeling Tool: Azure | Microsoft Docs'
-description: mitigaciones para amenazas expuestas en Threat Modeling Tool
+description: Más información sobre la mitigación de auditoría y registro en Threat Modeling Tool. Consulte la información de mitigación y los ejemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: c9d20b3259cf4ea7af263d5e31145ad372db0c77
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: bac17073650736df9ec48e951290852e082e9417
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728405"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543000"
 ---
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Marco de seguridad: Auditoría y registro | Mitigaciones 
 

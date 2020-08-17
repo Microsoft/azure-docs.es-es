@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
-ms.openlocfilehash: 5cefc59a6072a945be493487c09b1cc7f9827475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b437e3117540719c8c0adc5701ac1a5e934340b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830577"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114479"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Diagnóstico de errores con el servicio conectado de Azure Active Directory
 
@@ -96,4 +96,4 @@ Para detectar una forma anterior de autenticación de cuentas de organización, 
 
 Para cambiar el tipo de autenticación, quite el tipo de autenticación no compatible e intente volver a agregar el servicio conectado.
 
-Para obtener más información, consulte [Escenarios de autenticación en Azure AD](authentication-scenarios.md).
+Para obtener más información, consulte [Escenarios de autenticación en Azure AD](./authentication-vs-authorization.md).

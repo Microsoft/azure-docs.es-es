@@ -2,13 +2,13 @@
 title: Creación y administración de proyectos de Azure Migrate
 description: Busque, cree, administre y elimine proyectos en Azure Migrate.
 ms.topic: how-to
-ms.date: 04/19/2020
-ms.openlocfilehash: 644ac5ecab9f5384b446c3b1ebe762a5d06aaf12
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/23/2020
+ms.openlocfilehash: d60868f9d0d4c60291cfd92a9e8d11fd3f9a42b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113435"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071793"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Creación y administración de proyectos de Azure Migrate
 
@@ -65,7 +65,6 @@ Realice la eliminación de la siguiente manera:
     - El tipo de recurso es **Microsoft.Migrate/migrateprojects**.
     - Si el grupo de recursos se utiliza de forma exclusiva en el proyecto de Azure Migrate, puede eliminar todo el grupo de recursos.
 
-
 Observe lo siguiente:
 
 - Al eliminar un proyecto, se eliminan tanto el proyecto como los metadatos sobre las máquinas detectadas.
@@ -73,6 +72,7 @@ Observe lo siguiente:
 - Si usa el análisis de dependencias con una área de trabajo de Azure Log Analytics:
     - Si ha vinculado un área de trabajo de Log Analytics a la herramienta Server Assessment, el área de trabajo no se elimina automáticamente. La misma área de trabajo de Log Analytics se puede usar para varios escenarios.
     - Si desea eliminar el área de trabajo de Log Analytics, hágalo manualmente.
+- La eliminación de un proyecto es irreversible. Los objetos eliminados no se pueden recuperar.
 
 ### <a name="delete-a-workspace-manually"></a>Eliminación manual de un área de trabajo
 

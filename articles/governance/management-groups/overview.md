@@ -3,12 +3,12 @@ title: 'Organización de los recursos con grupos de administración: Servicios d
 description: Más información sobre los grupos de administración, el funcionamiento de sus permisos y cómo utilizarlos.
 ms.date: 07/06/2020
 ms.topic: overview
-ms.openlocfilehash: b3d031b68ee7dba9c80ee0c7e97898bb8b439a47
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 787658cebcb8345edd616bcdde485883ea43e8dc
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963689"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529354"
 ---
 # <a name="what-are-azure-management-groups"></a>¿Qué son los grupos de administración de Azure?
 
@@ -38,7 +38,7 @@ Otro escenario en el que usaría grupos de administración es para proporcionar 
 
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio
 
-Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz". Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol (RBAC) se apliquen en el nivel de directorio. Los [administradores globales de Azure AD necesitan elevar sus privilegios inicialmente](../../role-based-access-control/elevate-access-global-admin.md) al rol Administrador de acceso de usuario de este grupo raíz. Después de esta elevación de los privilegios de acceso, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía. Como administrador, puede asignar su propia cuenta como propietario del grupo de administración raíz.
+Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz". Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite la aplicación de directivas globales y de asignaciones de roles de Azure a nivel de directorio. Los [administradores globales de Azure AD necesitan elevar sus privilegios inicialmente](../../role-based-access-control/elevate-access-global-admin.md) al rol Administrador de acceso de usuario de este grupo raíz. Después de esta elevación de los privilegios de acceso, puede asignar cualquier rol de Azure a otros usuarios o grupos del directorio para administrar la jerarquía. Como administrador, puede asignar su propia cuenta como propietario del grupo de administración raíz.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Hechos importantes acerca de los grupos de administración raíz
 
@@ -50,7 +50,7 @@ Cada directorio tiene un grupo de administración de nivel superior único denom
   - Las suscripciones nuevas pertenecen de manera predeterminada y automática al grupo de administración raíz cuando se crean.
 - Todos los clientes de Azure pueden ver el grupo de administración raíz, pero no todos los clientes tienen acceso para administrar ese grupo de administración raíz.
   - Todos los usuarios con acceso a una suscripción pueden ver el contexto de dónde está esa suscripción en la jerarquía.  
-  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso. Cuando tienen acceso al grupo de administración raíz, los administradores globales pueden asignar cualquier rol RBAC a otros usuarios para su administración  
+  - A ninguno se le concede acceso de forma predeterminada al grupo de administración raíz. Los administradores globales de Azure AD son los únicos usuarios que pueden elevar sus propios privilegios para obtener acceso. Una vez que tienen acceso al grupo de administración raíz, los administradores globales pueden asignar cualquier rol de Azure a otros usuarios para administrarlo  
     .
 - En SDK, el grupo de administración raíz o la "raíz de inquilino" funciona como un grupo de administración.
 
@@ -82,12 +82,12 @@ Si tiene preguntas acerca de este proceso de reposición, póngase en contacto c
   
 ## <a name="management-group-access"></a>Acceso al grupo de administración
 
-Los grupos de administración de Azure admiten el [control de acceso basado en rol (RBAC) de Azure](../../role-based-access-control/overview.md) para todos los accesos a recursos y las definiciones de roles.
-Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de RBAC puede asignarse a un grupo de administración que heredará la jerarquía para los recursos. Por ejemplo, el colaborador de máquina virtual del rol de RBAC puede asignarse a un grupo de administración. Este rol no tiene ninguna acción en el grupo de administración, pero se heredará en todas las máquinas virtuales de ese grupo de administración.
+Los grupos de administración de Azure admiten el [control de acceso basado en roles de Azure (Azure RBAC)](../../role-based-access-control/overview.md) en los accesos a todos los recursos y definiciones de roles.
+Estos permisos se heredan en los recursos secundarios que existen en la jerarquía. Cualquier rol de Azure puede asignarse a un grupo de administración que heredará la jerarquía para los recursos. Por ejemplo, el rol de Azure Colaborador de máquina virtual se puede asignar a un grupo de administración. Este rol no tiene ninguna acción en el grupo de administración, pero se heredará en todas las máquinas virtuales de ese grupo de administración.
 
 El gráfico siguiente muestra la lista de roles y las acciones admitidas en los grupos de administración.
 
-| Nombre de rol de RBAC             | Crear | Cambiar nombre | Mover\*\* | Eliminar | Asignar acceso | Asignar directiva | Lectura  |
+| Nombre de rol de Azure             | Crear | Cambiar nombre | Mover\*\* | Eliminar | Asignar acceso | Asignar directiva | Lectura  |
 |:-------------------------- |:------:|:------:|:--------:|:------:|:-------------:| :------------:|:-----:|
 |Propietario                       | X      | X      | X        | X      | X             | X             | X     |
 |Colaborador                 | X      | X      | X        | X      |               |               | X     |
@@ -100,9 +100,9 @@ El gráfico siguiente muestra la lista de roles y las acciones admitidas en los 
 \*: Colaborador MG y Lector MG solo permiten a los usuarios realizar esas acciones en el ámbito del grupo de administración.  
 \*\*: Las asignaciones de roles en el grupo de administración raíz no son necesarias para mover una suscripción o grupo de administración a este grupo y desde este. Consulte [Administración de los recursos con grupos de administración](manage.md) para más información acerca de cómo mover elementos dentro de la jerarquía.
 
-## <a name="custom-rbac-role-definition-and-assignment"></a>Asignación y definición de roles de RBAC personalizados
+## <a name="azure-custom-role-definition-and-assignment"></a>Asignación y definición de roles personalizados de Azure
 
-La compatibilidad de los roles de RBAC personalizados con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones ](#limitations). El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles. Dicho rol personalizado de RBAC estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.  
+La compatibilidad de los roles personalizados de Azure con los grupos de administración está actualmente en versión preliminar con algunas [limitaciones](#limitations). El ámbito de los grupos de administración se puede definir en el ámbito asignable de Definición de roles. Ese rol personalizado de Azure estará disponible para su asignación no solo en ese grupo de administración, sino también en todos los grupos de administración, suscripciones, grupos de recursos o recursos que haya debajo de él. Este rol personalizado heredará la jerarquía, como cualquier rol integrado.  
 
 ### <a name="example-definition"></a>Definición de ejemplo
 

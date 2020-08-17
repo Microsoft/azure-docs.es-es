@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/07/2019
+ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 214d379525f2ee534415d713aa298ec858a84c92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1fab15cade2ce23e053bc73028e6420692c3d8a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868840"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518281"
 ---
 # <a name="protected-web-api-app-registration"></a>API web protegida: Registro de aplicación
 
@@ -29,15 +29,15 @@ Para conocer los pasos comunes para registrar una aplicación, consulte [Inicio 
 
 El punto de conexión de la plataforma de identidad de Microsoft puede emitir tokens v1.0 y v2.0. Para obtener más información sobre estos tokens, consulte [Tokens de acceso](access-tokens.md).
 
-La versión del token aceptada depende del valor de **Supported account types** (Tipos de cuentas compatibles) que eligió al crear la aplicación.
+La versión del token que puede aceptar la API depende de los **tipos de cuenta admitidos** que haya seleccionado al crear el registro de aplicación de API web en Azure Portal.
 
-- Si el valor de **Supported account types** (Tipos de cuenta compatibles) es **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** , la versión del token aceptada será v2.0.
-- En caso contrario, la versión del token aceptada será v1.0.
+- Si el valor de **tipos de cuentas admitidos** es **Cuentas en cualquier directorio organizativo y cuentas Microsoft personales (por ejemplo, Skype, Xbox, Outlook.com)** , la versión del token será v2.0.
+- En caso contrario, la versión del token aceptada puede ser la v1.0.
 
 Después de crear la aplicación, puede determinar o cambiar la versión del token aceptada siguiendo estos pasos:
 
 1. En Azure Portal, seleccione la aplicación y, luego, seleccione **Manifiesto**.
-1. Busque la propiedad **accessTokenAcceptedVersion** en el manifiesto. El valor predeterminado de la propiedad es 2.
+1. Busque la propiedad **accessTokenAcceptedVersion** en el manifiesto.
 1. El valor especifica a Azure Active Directory (Azure AD) qué versión del token acepta la API web.
     - Si el valor es 2, la API web acepta tokens v 2.0.
     - Si el valor es **NULL**, la API web acepta tokens v1.0.
@@ -52,7 +52,7 @@ Las API web no necesitan registrar ningún URI de redirección porque no hay nin
 
 ## <a name="exposed-api"></a>API expuesta
 
-Otra configuración específica de las API web es la API expuesta y los ámbitos expuestos.
+Otra configuración específica de las API web es la API expuesta y los ámbitos o roles de aplicación expuestos.
 
 ### <a name="application-id-uri-and-scopes"></a>URI y ámbitos del identificador de aplicación
 
@@ -64,7 +64,7 @@ Durante el registro de la aplicación, debe definir estos parámetros:
 - Uno o varios ámbitos
 - Uno o varios roles de aplicación
 
-De forma predeterminada, el portal de registro de aplicación recomienda usar el URI de recurso `api://{clientId}`. Este URI es único pero no es legible para los humanos. Si cambia el URI, asegúrese de que el nuevo valor sea único.
+De forma predeterminada, el portal de registro de aplicación recomienda usar el URI de recurso `api://{clientId}`. Este URI es único pero no es legible para los humanos. Si cambia el URI, asegúrese de que el nuevo valor sea único. El portal de registro de aplicaciones se asegurará de que use un [dominio de editor configurado](howto-configure-publisher-domain.md)
 
 Para las aplicaciones cliente, los ámbitos se muestran como *permisos delegados* y los roles de aplicación se muestran como *permisos de aplicación* para la API web.
 
@@ -72,6 +72,8 @@ También aparecen ámbitos en la ventana de consentimiento que se presenta a los
 
 - Como las ve un usuario.
 - Como las ve un administrador de inquilinos, que puede otorgar consentimiento de administrador.
+
+Un usuario no puede dar su consentimiento a los roles de aplicación (ya que los usa una aplicación que llama a la API web en su propio nombre). Un administrador de inquilinos tendrá que dar su consentimiento a las aplicaciones cliente de la API web que exponen roles de aplicación. Consulte el [consentimiento del administrador](v2-admin-consent.md) para obtener más información
 
 ### <a name="exposing-delegated-permissions-scopes"></a>Exponer permisos delegados (ámbitos)
 

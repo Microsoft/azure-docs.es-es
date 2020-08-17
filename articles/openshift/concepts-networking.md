@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 06/22/2020
-ms.openlocfilehash: fa39fe3e065c230f7e06ee443d2aa56227dc6f31
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: fb81405e85d6e2653e0cf6c007c363493992161a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965337"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419978"
 ---
 # <a name="networking-in-azure-red-hat-on-openshift-4"></a>Redes en Red Hat OpenShift en Azure 4
 
@@ -102,7 +102,7 @@ La siguiente configuración de red está disponible en Red Hat OpenShift en Azur
     * Las rutas "privadas" se establecerán de forma predeterminada en el equilibrador de carga interno (se puede cambiar).
 
 ## <a name="network-security-groups"></a>Grupos de seguridad de red
-Los grupos de seguridad de red se crearán en el grupo de recursos de los nodos, que está bloqueado. Los grupos de seguridad de red se asignan directamente a las subredes y no a las NIC del nodo. Los grupos de seguridad de red son inmutables, lo que significa que no tiene permisos para cambiarlos. 
+Los grupos de seguridad de red se crearán en el grupo de recursos del nodo, que está bloqueado. Los grupos de seguridad de red se asignan directamente a las subredes, no a las NIC del nodo. Los grupos de seguridad de red son inmutables, lo que significa que no tiene permisos para cambiarlos. 
 
 Sin embargo, con un servidor de API visible públicamente, no puede crear grupos de seguridad de red y asignarlos a las NIC.
 

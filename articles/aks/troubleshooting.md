@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo solucionar problemas y resolver pr
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: f334f501335e9e384cfcc35b356e61ab66efe7a8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056525"
 ---
 # <a name="aks-troubleshooting"></a>Solución de problemas de AKS
 
@@ -80,7 +80,11 @@ AKS tiene planos de control de alta disponibilidad que se escalan verticalmente 
     - https://github.com/helm/helm/issues/4821
     - https://github.com/helm/helm/issues/3500
     - https://github.com/helm/helm/issues/4543
+- **[¿Se está bloqueando el tráfico interno entre los nodos?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Estoy recibiendo `TCP timeouts`, como `dial tcp <Node_IP>:10250: i/o timeout`
+
+Estos tiempos de espera pueden estar relacionados con el bloqueo del tráfico interno entre los nodos. Compruebe que no se está bloqueando este tráfico, por ejemplo mediante [grupos de seguridad de red](concepts-security.md#azure-network-security-groups) en la subred de los nodos del clúster.
 
 ## <a name="im-trying-to-enable-role-based-access-control-rbac-on-an-existing-cluster-how-can-i-do-that"></a>Estoy intentando habilitar el control de acceso basado en rol (RBAC) en un clúster existente. ¿Cómo puedo hacerlo?
 

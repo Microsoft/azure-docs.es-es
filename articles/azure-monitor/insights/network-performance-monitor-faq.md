@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: d85cd05ee6b40b6b660958330145ed0c61b1b0a3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 45a10ddce165626bfbadb0ba0b3d68b81709c3bb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539676"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326144"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -19,7 +19,7 @@ ms.locfileid: "86539676"
 
 En este artículo se incluyen las preguntas más frecuentes (P+f) sobre Network Performance Monitor (NPM) en Azure.
 
-[Network Performance Monitor](../../networking/network-monitoring-overview.md) es una solución de [supervisión de red](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md) híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los [puntos de conexión del servicio y la aplicación](../../azure-monitor/insights/network-performance-monitor-service-connectivity.md) y [supervisar el rendimiento de Azure ExpressRoute](../../azure-monitor/insights/network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](../../networking/network-monitoring-overview.md) es una solución de [supervisión de red](./network-performance-monitor-performance-monitor.md) híbrida basada en la nube que le ayuda a supervisar el rendimiento de red entre distintos puntos en la infraestructura de red. También le permite supervisar la conectividad de red con los [puntos de conexión del servicio y la aplicación](./network-performance-monitor-service-connectivity.md) y [supervisar el rendimiento de Azure ExpressRoute](./network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detecta posibles problemas de red, como enrutamiento del tráfico a "agujeros negros", errores de enrutamiento y problemas que los métodos de supervisión de red convencionales no pueden encontrar. La solución genera alertas y le notifica cómo y cuándo se supera un umbral en un vínculo de red. También garantiza la detección oportuna de los problemas de rendimiento de red y localiza el origen del problema en un segmento o dispositivo de red determinado. 
 
@@ -40,7 +40,7 @@ La funcionalidad de supervisión de redes con nodos basados en Linux se encuentr
 Para ejecutar la solución NPM en máquinas virtuales de nodo para supervisar redes, los nodos deben tener al menos 500 MB de memoria y un núcleo. No es necesario usar nodos independientes para ejecutar NPM. La solución pueda ejecutarse en nodos en los que haya otras cargas de trabajo en ejecución. La solución tiene la capacidad de detener el proceso de supervisión si usa más del 5 % de CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Para usar NPM, ¿debo conectar mis nodos como agente directo o a través de System Center Operations Manager?
-Tanto la funcionalidad Monitor de rendimiento como Monitor de conectividad de servicio admite nodos [conectados como agentes directos](../../azure-monitor/platform/agent-windows.md) y [conectados a través de Operations Manager](../../azure-monitor/platform/om-agents.md).
+Tanto la funcionalidad Monitor de rendimiento como Monitor de conectividad de servicio admite nodos [conectados como agentes directos](../platform/agent-windows.md) y [conectados a través de Operations Manager](../platform/om-agents.md).
 
 En la funcionalidad Supervisión de ExpressRoute, los nodos de Azure solo deben conectarse como agentes directos. Los nodos de Azure, que se conectan a través de Operations Manager, no se admiten. En los nodos locales, se admiten los nodos conectados como agentes directos y a través de Operations Manager para supervisar un circuito ExpressRoute.
 
@@ -49,12 +49,12 @@ Si va a supervisar su red mediante nodos basados en Windows Server, se recomiend
 
 Se recomienda ICMP para los nodos basados en el sistema operativo de cliente o escritorios de Windows. Esta plataforma no admite que se envíen datos TCP a través de sockets sin procesar, que NPM usa para detectar la topología de red.
 
-Puede obtener más detalles sobre las ventajas relativas de cada protocolo [aquí](../../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
+Puede obtener más detalles sobre las ventajas relativas de cada protocolo [aquí](./network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
 ### <a name="how-can-i-configure-a-node-to-support-monitoring-using-tcp-protocol"></a>¿Cómo se puede configurar un nodo para que admita la supervisión con el protocolo TCP?
 Para que el nodo admita la supervisión con el protocolo TCP: 
 * Asegúrese de que la plataforma de nodos sea Windows Server (2008 SP1 o posterior).
-* Ejecute el script [EnableRules.ps1](https://aka.ms/npmpowershellscript) de Powershell en el nodo. Vea las [instrucciones](../../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para obtener más detalles.
+* Ejecute el script [EnableRules.ps1](https://aka.ms/npmpowershellscript) de Powershell en el nodo. Vea las [instrucciones](./network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) para obtener más detalles.
 
 
 ### <a name="how-can-i-change-the-tcp-port-being-used-by-npm-for-monitoring"></a>¿Cómo se puede cambiar el puerto TCP que NPM utiliza para la supervisión?
@@ -182,10 +182,10 @@ NetworkMonitoring
 ```
 
 ### <a name="which-regions-are-supported-for-npms-performance-monitor"></a>¿Qué regiones se admiten con Monitor de rendimiento de NPM?
-NPM puede supervisar la conectividad entre redes en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las [regiones admitidas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
+NPM puede supervisar la conectividad entre redes en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las [regiones admitidas](./network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-service-connectivity-monitor"></a>¿Qué regiones se admiten con Monitor de conectividad de servicio de NPM?
-NPM puede supervisar la conectividad con servicios en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las [regiones admitidas](../../azure-monitor/insights/network-performance-monitor.md#supported-regions).
+NPM puede supervisar la conectividad con servicios en cualquier parte del mundo, desde un área de trabajo que se hospede en una de las [regiones admitidas](./network-performance-monitor.md#supported-regions).
 
 ### <a name="which-regions-are-supported-for-npms-expressroute-monitor"></a>¿Qué regiones se admiten con Supervisión de ExpressRoute de NPM?
 NPM puede supervisar los circuitos ExpressRoute ubicados en cualquier región de Azure. Para incorporarse a NPM, requerirá un área de trabajo de Log Analytics que debe hospedarse en una de Las [regiones admitidas](../../expressroute/how-to-npm.md)
@@ -299,4 +299,5 @@ NPM redondea los números de latencia en la interfaz de usuario y en milisegundo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Puede obtener más información sobre Network Performance Monitor en [Solución Network Performance Monitor en Azure](../../azure-monitor/insights/network-performance-monitor.md).
+- Puede obtener más información sobre Network Performance Monitor en [Solución Network Performance Monitor en Azure](./network-performance-monitor.md).
+

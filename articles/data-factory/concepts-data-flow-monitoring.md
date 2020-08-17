@@ -1,19 +1,19 @@
 ---
-title: Supervisión visual del flujo de datos de asignación
-description: Aprenda a supervisar visualmente los flujos de datos de Azure Data Factory
+title: Supervisión de flujos de datos de asignación
+description: Cómo supervisar visualmente los flujos de datos de asignación en Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/03/2020
-ms.openlocfilehash: 1126f73b4d2e51e952a7cf971363020242838c34
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad5fb077596b6cc444c1c4df81af32cbcfa7c1db
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958910"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475556"
 ---
 # <a name="monitor-data-flows"></a>Supervisión de flujos de datos
 
@@ -27,7 +27,7 @@ Cuando se ejecuta la canalización, puede supervisar la canalización y todas la
 
 Se muestran estadísticas en este nivel, así como los tiempos de ejecución y estado. El identificador de ejecución en el nivel de actividad es diferente al del nivel de canalización. El identificador de ejecución en el nivel anterior es para la canalización. Al seleccionar el icono de las gafas, se obtienen detalles de la ejecución del flujo de datos.
 
-![Supervisión de Data Flow](media/data-flow/mon002.png "Supervisión de Data Flow")
+![Supervisión de Data Flow](media/data-flow/monitoring-details.png "Supervisión de Data Flow")
 
 En la vista de supervisión del nodo gráfico, puede ver una versión simplificada de solo lectura del gráfico de flujo de datos.
 

@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: ab99b974aed6f8cd5e1da2ee9b427f593b405889
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d45d802456345eab857f571d2d52793c8be691eb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73571236"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543068"
 ---
 # <a name="transforms-and-jobs-in-media-services"></a>Transformaciones y trabajos en Media Services
 
-En este tema se proporcionan detalles sobre las [transformaciones](https://docs.microsoft.com/rest/api/media/transforms) y los [trabajos](https://docs.microsoft.com/rest/api/media/jobs) y se explica la relación entre estas entidades.
+En este tema se proporcionan detalles sobre las [transformaciones](/rest/api/media/transforms) y los [trabajos](/rest/api/media/jobs) y se explica la relación entre estas entidades.
 
 ## <a name="overview"></a>Información general
 
@@ -58,7 +58,7 @@ Use **transformaciones** para configurar tareas comunes para codificar o analiza
 
 ### <a name="viewing-schema"></a>Visualización del esquema
 
-En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) o en otra documentación de referencia del SDK de Media Services v3.
+En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API REST](/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) o en otra documentación de referencia del SDK de Media Services v3.
 
 ### <a name="creating-transforms"></a>Creación de transformaciones
 
@@ -66,7 +66,7 @@ Puede crear transformaciones mediante REST, la CLI o cualquiera de los SDK publi
 
 ### <a name="updating-transforms"></a>Actualización de transformaciones
 
-Si necesita actualizar su [transformación](https://docs.microsoft.com/rest/api/media/transforms), use la operación de **actualización**. Está diseñada para realizar cambios en la descripción o las prioridades del elemento TransformOutputs subyacente. Se recomienda realizar tales actualizaciones cuando se hayan completado todos los trabajos en curso. Si piensa volver a escribir la receta, deberá crear una nueva transformación.
+Si necesita actualizar su [transformación](/rest/api/media/transforms), use la operación de **actualización**. Está diseñada para realizar cambios en la descripción o las prioridades del elemento TransformOutputs subyacente. Se recomienda realizar tales actualizaciones cuando se hayan completado todos los trabajos en curso. Si piensa volver a escribir la receta, deberá crear una nueva transformación.
 
 ### <a name="transform-object-diagram"></a>Diagrama del objeto Transformación
 
@@ -74,11 +74,11 @@ En el diagrama siguiente se muestra el objeto **Transformación** y los objetos 
 
 Seleccione la imagen para verla a tamaño completo.  
 
-<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a>
+[![Diagrama en el que se muestra el objeto Transform y los objetos a los que hacer referencia, incluidas las relaciones de derivación de clases entre los objetos](./media/api-diagrams/transform-small.png)](./media/api-diagrams/transform-large.png#lightbox).
 
 ## <a name="jobs"></a>Trabajos
 
-Un **trabajo** es la solicitud real a Media Services de aplicar la **transformación** a un contenido de vídeo o audio de entrada determinado. Una vez creada la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo de entrada mediante: direcciones URL HTTPS, direcciones URL SAS o [recursos](https://docs.microsoft.com/rest/api/media/assets).  
+Un **trabajo** es la solicitud real a Media Services de aplicar la **transformación** a un contenido de vídeo o audio de entrada determinado. Una vez creada la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida. Puede especificar la ubicación del vídeo de entrada mediante: direcciones URL HTTPS, direcciones URL SAS o [recursos](/rest/api/media/assets).  
 
 ### <a name="job-input-from-https"></a>Entrada de trabajo desde HTTPS
 
@@ -94,7 +94,7 @@ El progreso y estado de los trabajos se pueden obtener mediante la supervisión 
 
 ### <a name="updating-jobs"></a>Actualización de los trabajos
 
-La operación de actualización en la entidad [Trabajo](https://docs.microsoft.com/rest/api/media/jobs) puede usarse para modificar las propiedades *description* y *priority* después de enviar el trabajo. Un cambio en la propiedad *priority* es eficaz solo si el trabajo todavía está en un estado en cola. Si el trabajo ha comenzado a procesarse o ha finalizado, cambiar la prioridad no tiene ningún efecto.
+La operación de actualización en la entidad [Trabajo](/rest/api/media/jobs) puede usarse para modificar las propiedades *description* y *priority* después de enviar el trabajo. Un cambio en la propiedad *priority* es eficaz solo si el trabajo todavía está en un estado en cola. Si el trabajo ha comenzado a procesarse o ha finalizado, cambiar la prioridad no tiene ningún efecto.
 
 ### <a name="job-object-diagram"></a>Diagrama del objeto Trabajo
 
@@ -102,7 +102,7 @@ En el diagrama siguiente se muestra el objeto **Trabajo** y los objetos a los qu
 
 Haga clic en la imagen para verla a tamaño completo.  
 
-<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a>
+[![Diagrama en el que se muestra el objeto Job y los objetos a los que hacer referencia, incluidas las relaciones de derivación de clases entre los objetos](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox).
 
 ## <a name="configure-media-reserved-units"></a>Configuración de las unidades reservadas de multimedia
 
@@ -116,7 +116,7 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 
 ## <a name="see-also"></a>Consulte también
 
-* [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Códigos de error](/rest/api/media/jobs/get#joberrorcode)
 * [Filtrado, ordenación y paginación de entidades de Media Services](entities-overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes

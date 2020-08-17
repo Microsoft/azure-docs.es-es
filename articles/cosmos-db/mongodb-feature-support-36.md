@@ -4,15 +4,15 @@ description: 'Conozca más información sobre la API de Azure Cosmos DB para Mo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 01/15/2020
+ms.date: 08/07/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 92c94b08602fb32ccebf6115306a5000665affe2
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 2b389b71e15edcf0558b2ce60290c1ad7b171eab
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84171708"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030552"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API de Azure Cosmos DB para MongoDB (versión 3.6): características y sintaxis que se admiten
 
@@ -495,10 +495,10 @@ $nearSphere |  Sí |
 $geometry |  Sí |
 $minDistance | Sí |
 $maxDistance | Sí |
-$center | Sí |
-$centerSphere | Sí |
-$box | Sí |
-$polygon |  Sí |
+$center | No |
+$centerSphere | No |
+$box | No |
+$polygon |  No |
 
 ## <a name="cursor-methods"></a>Métodos de cursor
 
@@ -542,7 +542,32 @@ Cuando se usa la operación `findOneAndUpdate`, se admiten las operaciones de or
 
 ## <a name="unique-indexes"></a>Índices únicos
 
-Los índices únicos garantizan que un campo concreto no tiene valores duplicados en todos los documentos de una colección, de forma parecida a como se conserva la singularidad en la clave "_id" predeterminada. Puede crear índices personalizados en Cosmos DB mediante el comando createIndex, incluida la restricción "unique".
+Los [índices únicos](mongodb-indexing.md#unique-indexes) garantizan que un campo determinado no tiene valores duplicados en todos los documentos de una colección, de forma parecida a como se conserva la singularidad en la clave "_id" predeterminada. Puede crear índices únicos en Cosmos DB mediante el comando `createIndex` con el parámetro de restricción `unique`:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex( { "amount" : 1 }, {unique:true} )
+{
+        "_t" : "CreateIndexesResponse",
+        "ok" : 1,
+        "createdCollectionAutomatically" : false,
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 4
+}
+```
+
+## <a name="compound-indexes"></a>Índices compuestos
+
+Los [índices compuestos](mongodb-indexing.md#compound-indexes-mongodb-server-version-36) proporcionan una manera de crear un índice para grupos de campos de hasta 8 campos. Este tipo de índice difiere de los índices compuestos nativos de MongoDB. En Azure Cosmos DB, se usan índices compuestos para las operaciones de ordenación que se aplican a varios campos. Para crear un índice compuesto, debe especificar más de una propiedad como parámetro:
+
+```javascript
+globaldb:PRIMARY> db.coll.createIndex({"amount": 1, "other":1})
+{
+        "createdCollectionAutomatically" : false, 
+        "numIndexesBefore" : 1,
+        "numIndexesAfter" : 2,
+        "ok" : 1
+}
+```
 
 ## <a name="time-to-live-ttl"></a>Período de vida (TTL)
 

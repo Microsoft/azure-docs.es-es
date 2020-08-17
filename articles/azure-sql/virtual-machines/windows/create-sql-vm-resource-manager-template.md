@@ -1,30 +1,34 @@
 ---
-title: Creación de una VM con SQL Server (plantilla de Azure Resource Manager)
-description: Aprenda a crear un servidor de SQL Server en una máquina virtual de Azure mediante una plantilla de Azure Resource Manager.
+title: Creación de una VM con SQL Server mediante una plantilla de ARM
+description: Aprenda a crear un servidor de SQL Server en una máquina virtual de Azure (VM) mediante una plantilla de Azure Resource Manager (plantilla de ARM).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: virtual-machines-sql
-ms.openlocfilehash: 8b165f640548f28e5d94e5a791c0fe8545df4d78
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 1b6f54c823f59bb654ac86f041eefe80af3eb5ea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852512"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003872"
 ---
-# <a name="create-sql-server-vm-azure-resource-manager-template"></a>Creación de una VM con SQL Server (plantilla de Azure Resource Manager)
+# <a name="quickstart-create-sql-server-vm-using-an-arm-template"></a>Inicio rápido: Creación de una VM con SQL Server mediante una plantilla de ARM
 
-Use esta plantilla de Azure Resource Manager para implementar un servidor de SQL Server en una máquina virtual de Azure. 
+Use esta plantilla de Azure Resource Manager (plantilla de ARM) para implementar un servidor de SQL Server en una máquina virtual de Azure (VM). 
 
 [!INCLUDE [About Azure Resource Manager](../../../../includes/resource-manager-quickstart-introduction.md)]
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-sql-vm-new-storage%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 La plantilla de Resource Manager de la VM con SQL Server requiere lo siguiente:
 
-- La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) o [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Un [grupo de recursos](../../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) configurado previamente con una [red virtual](../../../virtual-network/quick-create-portal.md) y una [subred](../../../virtual-network/virtual-network-manage-subnet.md#add-a-subnet) preparadas.
 - Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -43,7 +47,7 @@ En la plantilla se definen cinco recursos de Azure:
 - [Microsoft.Compute/virtualMachines](/azure/templates/microsoft.compute/virtualmachines): Crea una máquina virtual en Azure. 
 - [Microsoft.SqlVirtualMachine/SqlVirtualMachines](/azure/templates/microsoft.sqlvirtualmachine/sqlvirtualmachines): registra la máquina virtual con el proveedor de recursos de la máquina virtual con SQL. 
 
-Se pueden encontrar más plantillas de SQL Server en máquinas virtuales de Azure en la [galería de plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine).
+Se pueden encontrar más plantillas de SQL Server en máquinas virtuales de Azure en la [galería de plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Sqlvirtualmachine&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
@@ -116,7 +120,7 @@ Write-Host "Press [ENTER] to continue..."
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Creación e implementación de su primera plantilla de Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Para ver otras formas de implementar una VM con SQL Server, consulte: 
 - [Azure Portal](create-sql-vm-portal.md)

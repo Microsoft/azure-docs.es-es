@@ -5,15 +5,15 @@ author: bandersmsft
 ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 6feac116c92f8dac7bd1dde2084f9b25f5e559f8
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 8b592b3f6356a31682fe761d0a5cf098dc91a02f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84696803"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282677"
 ---
 # <a name="azure-spending-limit"></a>Límite de gasto de Azure
 

@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: how-to
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: a817cb0722bff721891cd290ea4a6552c778dddf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 550ed5791df821b1793755f5046da92adf6e3f3a
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84701871"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131555"
 ---
 # <a name="how-to-protect-private-dns-zones-and-records"></a>Protección de zonas y registros DNS privados
 
@@ -24,7 +24,7 @@ En este artículo se explica cómo Azure DNS le permite proteger las zonas y los
 
 ## <a name="role-based-access-control"></a>Control de acceso basado en rol
 
-El control de acceso basado en rol (RBAC) de Azure permite realizar una administración detallada del acceso de usuarios, grupos y recursos de Azure. Con RBAC, puede conceder el nivel de acceso que necesitan los usuarios. Para más información sobre cómo RBAC ayuda a administrar el acceso, vea [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md).
+El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso de usuarios, grupos y recursos de Azure. Con RBAC, puede conceder el nivel de acceso que necesitan los usuarios. Para más información sobre cómo RBAC ayuda a administrar el acceso, vea [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](../role-based-access-control/overview.md).
 
 ### <a name="the-private-dns-zone-contributor-role"></a>Rol de colaborador de zona DNS privada
 
@@ -168,7 +168,7 @@ La propiedad Actions define los siguientes permisos específicos de DNS:
 * `Microsoft.Network/privateDNSZones/read` concede permiso para leer zonas DNS privadas, pero no para modificarlas, lo que permite ver la zona en la que se crea el registro CNAME.
 
 > [!NOTE]
-> El uso de un rol RBAC personalizado para evitar que se eliminen conjuntos de registros mientras se permite modificarlos no es un control eficaz. Evita que los conjuntos de registros se eliminen, pero no que se modifiquen.  Entre las modificaciones permitidas figuran la adición y eliminación de registros desde el conjunto de registros, incluida la eliminación de todos los registros para dejar un conjunto de registros empty. Esto tiene el mismo efecto que eliminar el conjunto de registros desde un punto de vista de la resolución DNS.
+> El uso de un rol personalizado de Azure para evitar que se eliminen conjuntos de registros mientras se permite modificarlos no es un control eficaz. Evita que los conjuntos de registros se eliminen, pero no que se modifiquen.  Entre las modificaciones permitidas figuran la adición y eliminación de registros desde el conjunto de registros, incluida la eliminación de todos los registros para dejar un conjunto de registros empty. Esto tiene el mismo efecto que eliminar el conjunto de registros desde un punto de vista de la resolución DNS.
 
 Actualmente no pueden realizarse definiciones de roles personalizados a través de Azure Portal. Puede crearse un rol personalizado basado en esta definición de rol mediante Azure PowerShell:
 

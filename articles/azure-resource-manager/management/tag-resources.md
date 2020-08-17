@@ -2,13 +2,14 @@
 title: Etiquetado de recursos, grupos de recursos y suscripciones para una organización lógica
 description: Muestra cómo aplicar etiquetas para organizar los recursos de Azure para la facturación y administración.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 9dd025818a64a8ece1f4218a8341a40ecc617829
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.date: 07/27/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: daedb5dcd660ec2637557fe5af75db2939318495
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056929"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500000"
 ---
 # <a name="use-tags-to-organize-your-azure-resources-and-management-hierarchy"></a>Uso de etiquetas para organizar los recursos de Azure y la jerarquía de administración
 
@@ -17,7 +18,7 @@ Puede aplicar etiquetas a los recursos, grupos de recursos y suscripciones de Az
 Para recomendaciones sobre cómo implementar una estrategia de etiquetado, consulte [Guía de decisiones de nomenclatura y etiquetado de recursos](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 
 > [!IMPORTANT]
-> Las nombres de etiqueta no distinguen mayúsculas de minúsculas para las operaciones. Una etiqueta con un nombre de etiqueta, independientemente del uso de mayúsculas o minúsculas, se actualiza o se recupera. Sin embargo, el proveedor de recursos podría mantener el uso de mayúsculas y minúsculas para el nombre de etiqueta. Puede ver dicho uso de mayúsculas y minúsculas en los informes de costos.
+> Las nombres de etiqueta no distinguen mayúsculas de minúsculas para las operaciones. Una etiqueta con un nombre de etiqueta, independientemente del uso de mayúsculas o minúsculas, se actualiza o se recupera. Sin embargo, el proveedor de recursos podría mantener el uso de mayúsculas y minúsculas para el nombre de la etiqueta. Puede ver dicho uso de mayúsculas y minúsculas en los informes de costos.
 > 
 > Los valores de etiqueta distinguen mayúsculas de minúsculas.
 
@@ -438,7 +439,7 @@ Para almacenar muchos valores en una única etiqueta, aplique una cadena JSON qu
 
 ### <a name="apply-tags-from-resource-group"></a>Aplicación de etiquetas del grupo de recursos
 
-Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función [resourceGroup](../templates/template-functions-resource.md#resourcegroup). Cuando obtenga el valor de la etiqueta, use la sintaxis `tags[tag-name]` en lugar de la sintaxis `tags.tag-name`, porque algunos caracteres no se analizan correctamente en la notación de puntos.
+Para aplicar etiquetas desde un grupo de recursos a un recurso, use la función [resourceGroup()](../templates/template-functions-resource.md#resourcegroup). Cuando obtenga el valor de la etiqueta, use la sintaxis `tags[tag-name]` en lugar de la sintaxis `tags.tag-name`, porque algunos caracteres no se analizan correctamente en la notación de puntos.
 
 ```json
 {
@@ -578,7 +579,7 @@ Los recursos no heredan las etiquetas aplicadas al grupo de recursos ni a la sus
 
 Puede usar etiquetas a fin de agrupar los datos de facturación. Por ejemplo, si va a ejecutar varias máquinas virtuales para distintas organizaciones, use las etiquetas para agrupar el uso por centro de costo. También puede usar etiquetas para clasificar los costos por entorno de tiempo de ejecución; por ejemplo, el uso de facturación en máquinas virtuales que se ejecutan en el entorno de producción.
 
-Puede recuperar información sobre las etiquetas a través de las [API de RateCard y de uso de recursos de Azure](../../cost-management-billing/manage/usage-rate-card-overview.md) o mediante el archivo de valores separados por coma (CSV). Puede descargar el archivo de uso del [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) o de Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
+Puede recuperar información sobre las etiquetas a través de [Azure Resource Usage API y Rate Card API](../../cost-management-billing/manage/usage-rate-card-overview.md) o mediante el archivo de valores separados por comas (CSV). Puede descargar el archivo de uso del [Centro de cuentas de Azure](https://account.azure.com/Subscriptions) o de Azure Portal. Para más información, consulte [Procedimiento para descargar las datos de uso diario y de factura de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md). Al descargar el archivo de uso del Centro de cuentas de Azure, seleccione **Versión 2**. En los servicios que admiten etiquetas con facturación, las etiquetas aparecen en la columna **Etiquetas**.
 
 Para las operaciones de API de REST, vea [Referencia de API de REST de facturación de Azure](/rest/api/billing/).
 
@@ -596,6 +597,8 @@ Se aplican las siguientes limitaciones a las etiquetas:
    > Actualmente, las zonas de Azure DNS y los servicios de Traffic Manager tampoco permiten el uso de espacios en la etiqueta.
    >
    > Azure Front Door no admite el uso de `#` en el nombre de la etiqueta.
+   >
+   > Azure Automation y Azure CDN solo admiten 15 etiquetas en los recursos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

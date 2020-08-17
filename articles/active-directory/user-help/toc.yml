@@ -68,7 +68,9 @@
       href: my-account-portal-privacy-page.md
     - name: Visualización de las actividades de inicio de sesión recientes
       href: my-account-portal-sign-ins-page.md
-- name: Ayuda sobre la información de seguridad (versión preliminar)
+    - name: Cambio de la configuración del portal
+      href: my-account-portal-settings.md
+- name: Ayuda de la información de seguridad
   items:
     - name: Incorporación de la información de seguridad durante el inicio de sesión
       href: security-info-setup-signin.md

@@ -5,19 +5,23 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/08/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 0df74b82c847c9738d97d2001573666714c17672
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 62645e6252256079e27792b1905d60a073c1fa3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81008369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080238"
 ---
 ## <a name="limitations"></a>Limitaciones
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
+
+## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
+
+Los discos compartidos admiten varios sistemas operativos. Consulte las secciones [Windows](../articles/virtual-machines/windows/disks-shared.md#windows) y [Linux](../articles/virtual-machines/linux/disks-shared.md#linux) del artículo conceptual sobre los sistemas operativos compatibles.
 
 ## <a name="disk-sizes"></a>Tamaños de disco
 
@@ -32,6 +36,23 @@ Para implementar un disco administrado con la característica de disco compartid
 > [!IMPORTANT]
 > El valor de `maxShares` solo se puede establecer o cambiar cuando se desmonta un disco de todas las VM. Consulte los [tamaños de disco](#disk-sizes) para ver los valores permitidos para `maxShares`.
 
+#### <a name="cli"></a>CLI
+```azurecli
+
+az disk create -g myResourceGroup -n mySharedDisk --size-gb 1024 -l westcentralus --sku PremiumSSD_LRS --max-shares 2
+
+```
+
+#### <a name="powershell"></a>PowerShell
+```azurepowershell-interactive
+
+$dataDiskConfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType PremiumSSD_LRS -CreateOption Empty -MaxSharesCount 2
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $dataDiskConfig
+
+```
+
+#### <a name="azure-resource-manager"></a>Azure Resource Manager
 Antes de usar la siguiente plantilla, reemplace `[parameters('dataDiskName')]`, `[resourceGroup().location]`, `[parameters('dataDiskSizeGB')]` y `[parameters('maxShares')]` con sus propios valores.
 
 ```json
@@ -75,13 +96,12 @@ Antes de usar la siguiente plantilla, reemplace `[parameters('dataDiskName')]`, 
 
 ### <a name="deploy-an-ultra-disk-as-a-shared-disk"></a>Implementación de un disco Ultra como un disco compartido
 
-#### <a name="cli"></a>CLI
-
 Para implementar un disco administrado con la característica de disco compartido habilitada, cambie el parámetro `maxShares` por un valor mayor que 1. Esto permite que el disco se pueda compartir en varias VM.
 
 > [!IMPORTANT]
 > El valor de `maxShares` solo se puede establecer o cambiar cuando se desmonta un disco de todas las VM. Consulte los [tamaños de disco](#disk-sizes) para ver los valores permitidos para `maxShares`.
 
+#### <a name="cli"></a>CLI
 ```azurecli
 #Creating an Ultra shared Disk 
 az disk create -g rg1 -n clidisk --size-gb 1024 -l westus --sku UltraSSD_LRS --max-shares 5 --disk-iops-read-write 2000 --disk-mbps-read-write 200 --disk-iops-read-only 100 --disk-mbps-read-only 1
@@ -91,6 +111,15 @@ az disk update -g rg1 -n clidisk --disk-iops-read-write 3000 --disk-mbps-read-wr
 
 #Show shared disk properties:
 az disk show -g rg1 -n clidisk
+```
+
+#### <a name="powershell"></a>PowerShell
+```azurepowershell-interactive
+
+$datadiskconfig = New-AzDiskConfig -Location 'WestCentralUS' -DiskSizeGB 1024 -AccountType UltraSSD_LRS -CreateOption Empty -DiskIOPSReadWrite 2000 -DiskMBpsReadWrite 200 -DiskIOPSReadOnly 100 -DiskMBpsReadOnly 1 -MaxSharesCount 5
+
+New-AzDisk -ResourceGroupName 'myResourceGroup' -DiskName 'mySharedDisk' -Disk $datadiskconfig
+
 ```
 
 #### <a name="azure-resource-manager"></a>Azure Resource Manager
@@ -172,21 +201,12 @@ Antes de usar la siguiente plantilla, reemplace `[parameters('dataDiskName')]`, 
 
 Una vez implementado un disco compartido con `maxShares>1`, puede montar el disco en una o varias VM.
 
-> [!IMPORTANT]
-> Todas las VM que comparten un disco deben implementarse en el mismo [grupo de selección de ubicación de proximidad](../articles/virtual-machines/windows/proximity-placement-groups.md).
-
 ```azurepowershell-interactive
 
 $resourceGroup = "myResourceGroup"
 $location = "WestCentralUS"
-$ppgName = "myPPG"
-$ppg = New-AzProximityPlacementGroup `
-   -Location $location `
-   -Name $ppgName `
-   -ResourceGroupName $resourceGroup `
-   -ProximityPlacementGroupType Standard
 
-$vm = New-AzVm -ResourceGroupName $resourceGroup -Name "myVM" -Location $location -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress" -ProximityPlacementGroup $ppg.Id
+$vm = New-AzVm -ResourceGroupName $resourceGroup -Name "myVM" -Location $location -VirtualNetworkName "myVnet" -SubnetName "mySubnet" -SecurityGroupName "myNetworkSecurityGroup" -PublicIpAddressName "myPublicIpAddress"
 
 $dataDisk = Get-AzDisk -ResourceGroupName $resourceGroup -DiskName "mySharedDisk"
 
@@ -239,5 +259,3 @@ También debe proporcionar una clave de reserva persistente al usar PR_RESERVE, 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-Si está interesado en probar discos compartidos, [regístrese en nuestra versión preliminar](https://aka.ms/AzureSharedDiskPreviewSignUp).

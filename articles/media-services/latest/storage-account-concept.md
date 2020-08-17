@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 72aa0762d001c28b21d5e27ed8f6f9d099f62bfb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499842"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072007"
 ---
 # <a name="azure-storage-accounts"></a>Cuentas de Azure Storage
 
@@ -32,7 +32,7 @@ Se recomienda usar GPv2 para que pueda sacar provecho de las últimas caracterí
 > [!NOTE]
 > Solo el nivel de acceso frecuente se admite para su uso con Azure Media Services, aunque los demás niveles de acceso se pueden usar para reducir los costos de almacenamiento del contenido que no se usa activamente.
 
-Hay diferentes SKU que puede elegir para la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial.
+Hay diferentes SKU que puede elegir para la cuenta de almacenamiento. Para más información, consulte los comandos [storage accounts](/cli/azure/storage/account?view=azure-cli-latest). Si quiere experimentar con las cuentas de almacenamiento, use `--sku Standard_LRS`. Sin embargo, al seleccionar una SKU de producción debe considerar `--sku Standard_RAGRS`, que proporciona replicación geográfica para la continuidad empresarial.
 
 ## <a name="assets-in-a-storage-account"></a>Recursos de una cuenta de almacenamiento
 
@@ -48,8 +48,8 @@ Para proteger los recursos en reposo, estos se deben cifrar mediante el cifrado 
 |Opción de cifrado|Descripción|Media Services v3|
 |---|---|---|
 |Cifrado de almacenamiento en Media Services| Cifrado AES-256, clave administrada por Media Services |No compatible.<sup>(1)</sup>|
-|[Storage Service Encryption para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Cifrado en el lado servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente.|Compatible.|
-|[Cifrado en el lado de cliente de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Cifrado en el lado cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault.|No compatible.|
+|[Storage Service Encryption para datos en reposo](../../storage/common/storage-service-encryption.md)|Cifrado en el lado servidor que ofrece Azure Storage, clave administrada por Azure o por el cliente.|Compatible.|
+|[Cifrado en el lado de cliente de almacenamiento](../../storage/common/storage-client-side-encryption.md)|Cifrado en el lado cliente que ofrece Azure Storage, clave administrada por el cliente en Key Vault.|No compatible.|
 
 <sup>1</sup> En Media Services v3, el cifrado de almacenamiento (cifrado con AES-256) solo es compatible con versiones anteriores si los recursos se crearon con Media Services v2, lo que significa que la versión 3 funciona con los recursos cifrados de almacenamiento existentes, pero no permite la creación de nuevos.
 
@@ -66,8 +66,8 @@ Los siguientes son los principales escenarios que darían lugar a una cuenta de 
 
 ## <a name="azure-storage-firewall"></a>Firewall de Azure Storage
 
-Azure Media Services no admite cuentas de almacenamiento con el firewall de Azure Storage o [puntos de conexión privados](https://docs.microsoft.com/azure/storage/common/storage-network-security) habilitados.
+Azure Media Services no admite cuentas de almacenamiento con el firewall de Azure Storage o [puntos de conexión privados](../../storage/common/storage-network-security.md) habilitados.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para información sobre cómo adjuntar una cuenta de almacenamiento a la cuenta de Media Services, consulte [Creación de una cuenta](create-account-cli-quickstart.md).
+Para información sobre cómo adjuntar una cuenta de almacenamiento a la cuenta de Media Services, consulte [Creación de una cuenta](./create-account-howto.md).

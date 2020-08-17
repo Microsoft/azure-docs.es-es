@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/30/2019
+ms.date: 07/14/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: e138b3513b42dda47b0a114d866d657e18e3e393
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5246100815fde569c55027a555464c44a240d4b3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82181654"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120004"
 ---
 # <a name="a-web-app-that-calls-web-apis-remove-accounts-from-the-token-cache-on-global-sign-out"></a>Aplicación web que llama a API web: Eliminación de cuentas de la caché de tokens durante el cierre de sesión global
 
@@ -30,7 +30,7 @@ Para borrar la entrada de la caché de tokens asociada a la cuenta que ha cerrad
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Microsoft.Identity.Web se encarga de implementar el cierre de sesión automáticamente.
+Microsoft.Identity.Web se encarga de implementar el cierre de sesión automáticamente. Para obtener información detallada, consulte [Código fuente de Microsoft.Identity.Web](https://github.com/AzureAD/microsoft-identity-web/blob/c29f1a7950b940208440bebf0bcb524a7d6bee22/src/Microsoft.Identity.Web/WebAppExtensions/WebAppCallsWebApiAuthenticationBuilderExtensions.cs#L168-L176).
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
@@ -51,21 +51,21 @@ El ejemplo de Python no quita las cuentas de la caché durante el cierre de sesi
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [Adquisición de un token para la aplicación web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnetcore)
+> [Adquisición de un token para la aplicación web](./scenario-web-app-call-api-acquire-token.md?tabs=aspnetcore)
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [Adquisición de un token para la aplicación web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=aspnet)
+> [Adquisición de un token para la aplicación web](./scenario-web-app-call-api-acquire-token.md?tabs=aspnet)
 
 # <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [Adquisición de un token para la aplicación web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=java)
+> [Adquisición de un token para la aplicación web](./scenario-web-app-call-api-acquire-token.md?tabs=java)
 
 # <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [Adquisición de un token para la aplicación web](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-acquire-token?tabs=python)
+> [Adquisición de un token para la aplicación web](./scenario-web-app-call-api-acquire-token.md?tabs=python)
 
 ---

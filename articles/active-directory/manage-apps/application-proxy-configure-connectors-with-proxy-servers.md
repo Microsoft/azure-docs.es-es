@@ -12,12 +12,12 @@ ms.date: 04/07/2020
 ms.author: kenwith
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48727e377c2b6707e570cad103e4b08bcb44a1cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d177dce250d65b4f9d825c9d70916f70c4076d4b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764934"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077516"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Trabajo con servidores proxy locales existentes
 
@@ -115,7 +115,7 @@ Permita el acceso a las siguientes direcciones URL:
 | --- | --- |
 | \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicación entre el conector y el servicio en la nube del proxy de aplicación |
 | mscrl.microsoft.com:80<br>crl.microsoft.com:80<br>ocsp.msocsp.com:80<br>www.microsoft.com:80 | El conector utiliza estas direcciones URL para comprobar los certificados. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctdl.windowsupdate.com:80 | El conector utiliza estas direcciones URL durante el proceso de registro. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>*.microsoftonline.com<br>* .microsoftonline-p.com<br>*.msauth.net<br>* .msauthimages.net<br>*.msecnd.net<br>* .msftauth.net<br>*.msftauthimages.net<br>* .phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | El conector utiliza estas direcciones URL durante el proceso de registro. |
 
 Si el firewall o proxy le permite configurar listas de DNS permitidos, puede permitir conexiones a \*.msappproxy.net y \*.servicebus.windows.net. Si no, deberá permitir el acceso a los [intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653). Los intervalos IP se actualizan cada semana.
 
@@ -153,6 +153,9 @@ Para habilitarlo, siga estos pasos:
 4.  Configure los valores de proxy necesarios. 
 
 Esta configuración hace que el conector use el mismo proxy de reenvío para la comunicación a Azure y a la aplicación de back-end. Si el conector para la comunicación de Azure no requiere ningún proxy de reenvío ni un proxy de reenvío distinto, puede configurarlo mediante la modificación del archivo ApplicationProxyConnectorService.exe.config, como se describe en las secciones Omisión de servidores proxy de salida o Uso del servidor proxy saliente.
+
+> [!NOTE]
+> Hay varias maneras de configurar el proxy de Internet en el sistema operativo. La configuración de proxy establecida a través de NETSH WINHTTP (ejecute `NETSH WINHTTP SHOW PROXY` para comprobarlo) invalida la configuración del proxy que estableció en el paso 2. 
 
 El servicio de actualización del conector usará también el proxy del equipo. Este comportamiento se puede cambiar si modifica el archivo ApplicationProxyConnectorUpdaterService.exe.config.
 

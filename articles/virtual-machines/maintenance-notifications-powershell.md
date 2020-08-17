@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 79ef649502af8962253121ea18804966b1fa043e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4858a2e448955877107f6928b0aa01726e5db082
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84677940"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028592"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>Control del mantenimiento planeado con PowerShell
 
 **Este artículo es válido para máquinas virtuales que se ejecutan tanto en Linux como en Windows.**
 
-Azure PowerShell se puede usar para ver cuándo está programado el [mantenimiento](maintenance-notifications.md) de las máquinas virtuales. La información de mantenimiento planeado está disponible con el cmdlet [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cuando se usa el parámetro `-status`.
+Azure PowerShell se puede usar para ver cuándo está programado el [mantenimiento](maintenance-notifications.md) de las máquinas virtuales. La información de mantenimiento planeado está disponible con el cmdlet [Get-AzVM](/powershell/module/az.compute/get-azvm) cuando se usa el parámetro `-status`.
   
 La información de mantenimiento se devuelve solo si hay mantenimiento planeado. Si no está programado ningún mantenimiento que afecte a la máquina virtual, el cmdlet no devuelve ninguna información de mantenimiento. 
 
@@ -40,7 +40,7 @@ Las siguientes propiedades se devuelven en MaintenanceRedeployStatus:
 
 
 
-También puede obtener el estado de mantenimiento de todas las VM en un grupo de recursos mediante el uso de [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) sin especificar una VM.
+También puede obtener el estado de mantenimiento de todas las VM en un grupo de recursos mediante el uso de [Get-AzVM](/powershell/module/az.compute/get-azvm) sin especificar una VM.
  
 ```powershell
 Get-AzVM -ResourceGroupName myResourceGroup -Status

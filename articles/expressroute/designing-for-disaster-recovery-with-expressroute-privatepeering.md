@@ -7,18 +7,22 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 05/25/2019
 ms.author: rambala
-ms.openlocfilehash: 726a014983c0da959d72b7976fef2ebb2c6e9b9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8adfb0ef0d9aa79d1b14127453f76223f035d62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74076699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081175"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Diseño para la recuperación ante desastres con el emparejamiento privado de ExpressRoute
 
 ExpressRoute está diseñado para ofrecer una alta disponibilidad y así poder proporcionar conectividad de red privada a nivel de operador a los recursos de Microsoft. En otras palabras, no hay un único punto de error en la ruta de ExpressRoute dentro de la red de Microsoft. En cuanto a las opciones de diseño para maximizar la disponibilidad de un circuito de ExpressRoute, consulte [Designing for high availability with ExpressRoute][HA] (Diseño de para alta disponibilidad con ExpressRoute).
 
 Sin embargo, teniendo en cuenta la popular ley de Murphy: *si algo puede salir mal, saldrá mal*, en este artículo nos centraremos en ofrecer soluciones que vayan más allá de aquellos errores que pueden solucionarse con un solo circuito de ExpressRoute. En otras palabras, en este artículo analizaremos las opciones que ofrece la arquitectura de red para crear una sólida conectividad de red de back-end para la recuperación ante desastres; para ello, usaremos circuitos de ExpressRoute con redundancia geográfica.
+
+>[!NOTE]
+>Los conceptos descritos en este artículo se aplican de la misma forma cuando se crea un circuito ExpressRoute en una red WAN virtual o fuera de él.
+>
 
 ## <a name="need-for-redundant-connectivity-solution"></a>Necesidad de una solución de conectividad redundante
 

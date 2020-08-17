@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 8d002fae52fec1fafb2ad8e63bd8e3b779a1537c
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-java
+ms.openlocfilehash: 2e001e5e927d9d4c5dc4c3eb74f7b5ad33617b99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984830"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037583"
 ---
 # <a name="security-controls-for-azure-spring-cloud-service"></a>Controles de seguridad para el servicio Azure Spring Cloud
 Los controles de seguridad están integrados en el servicio Azure Spring Cloud.
@@ -30,4 +31,4 @@ Un control de seguridad es una cualidad o característica de un servicio de Azur
 
 | Control de seguridad | Sí/No | Notas | Documentación |
 |:-------------|:-------|:-------------------------------|:----------------------|
-| Etiqueta de servicio | Sí | Use la etiqueta de servicio **AzureSpringCloud** para definir controles de acceso de red de salida en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) para permitir el tráfico a las aplicaciones de Azure Spring Cloud.<br><br>*Nota:* Actualmente, solo las instancias del servicio Azure Spring Cloud creadas después del 07/07/2020 admiten la etiqueta de servicio **AzureSpringCloud**. | [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |
+| Etiqueta de servicio | Sí | Use la etiqueta de servicio **AzureSpringCloud** para definir controles de acceso de red de salida en [grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o [Azure Firewall](https://docs.microsoft.com/azure/firewall/service-tags) para permitir el tráfico a las aplicaciones de Azure Spring Cloud.<br><br>*Nota:* Actualmente, solo las instancias del servicio Azure Spring Cloud creadas después del 14/07/2020 admiten la etiqueta de servicio **AzureSpringCloud**. | [Etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) |

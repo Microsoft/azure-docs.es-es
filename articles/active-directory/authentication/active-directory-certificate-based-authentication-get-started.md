@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ca19ccb925721126f7e7d8495addd0794766f376
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 94955e27dcadb3acbea03926d6d1ed73e9c5c9ed
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202873"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051346"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introducción a la autenticación basada en certificados de Azure Active Directory
 
@@ -93,7 +93,7 @@ A continuación se presenta el esquema para una entidad de certificación:
     }
 ```
 
-Para la configuración, puede usar la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/install-adv2?view=azureadps-2.0):
+Para la configuración, puede usar la [versión 2 de Azure Active Directory PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0):
 
 1. Inicie Windows PowerShell con privilegios de administrador.
 2. Instale la versión [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) o superior del módulo de Azure AD.
@@ -122,7 +122,7 @@ Para recuperar las entidades de certificación de confianza definidas en el dire
 
 ### <a name="add"></a>Sumar
 
-Para crear una entidad de certificación de confianza, use el cmdlet [New-AzureADTrustedCertificateAuthority](/azurepowershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) y establezca el atributo **crlDistributionPoint** en un valor correcto:
+Para crear una entidad de certificación de confianza, use el cmdlet [New-AzureADTrustedCertificateAuthority](/powershell/module/azuread/new-azureadtrustedcertificateauthority?view=azureadps-2.0) y establezca el atributo **crlDistributionPoint** en un valor correcto:
 
 ```azurepowershell
     $cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"

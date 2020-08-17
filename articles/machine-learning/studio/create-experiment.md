@@ -1,6 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un experimento de ciencia de datos'
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): Inicio rápido: Creación de un experimento de ciencia de datos: Azure'
 description: Este inicio rápido de aprendizaje automático le guiará a través de un sencillo experimento de ciencia de datos. Podremos predecir el precio de un automóvil mediante un algoritmo de regresión.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: f8984b3b712d591b64c383dabb723ba5afc61efc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ad02e25e1025692765790be20d993d7dd5cd2e26
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965151"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432047"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Azure Machine Learning Studio (clásico)
+# <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Inicio rápido: Creación del primer experimento de ciencia de datos en Machine Learning Studio (clásico)
+
+**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
 

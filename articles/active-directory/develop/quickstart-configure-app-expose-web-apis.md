@@ -12,12 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 263eb531466e26ed6069dc889c17e2632aa9ed20
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76704228"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799419"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>Inicio rápido: Configuración de una aplicación para exponer las API web
 
@@ -75,6 +75,13 @@ Para exponer un ámbito nuevo mediante la interfaz de usuario:
 
 1. Establezca el **estado** y seleccione **Agregar ámbito** cuando haya terminado.
 
+1. (Opcional) Para eliminar la solicitud de consentimiento por parte de los usuarios de su aplicación en los ámbitos que ha definido, puede "preautorizar" a la aplicación cliente para que acceda a su API web. Debe preautorizar *únicamente* las aplicaciones cliente en las que confíe, ya que los usuarios no tendrán la oportunidad de rechazar el consentimiento.
+    1. En **Aplicaciones cliente autorizadas**, seleccione **Agregar una aplicación cliente**
+    1. Escriba el valor de **Id. de aplicación (cliente)** de la aplicación cliente que desea preautorizar. Por ejemplo, el de una aplicación web que ha registrado previamente.
+    1. En **Ámbitos autorizados**, seleccione los ámbitos en que desea suprimir la solicitud de consentimiento y, después, seleccione **Agregar aplicación**.
+
+    La aplicación cliente es ahora una aplicación cliente preautorizada (PCA) y no se pedirá a los usuarios su consentimiento al iniciar sesión en ella.
+
 1. Siga los pasos para [comprobar que la API web se expone a otras aplicaciones](#verify-the-web-api-is-exposed-to-other-applications).
 
 ## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Exposición de un ámbito nuevo o un rol mediante el manifiesto de aplicación
@@ -84,7 +91,7 @@ Para exponer un ámbito nuevo mediante la interfaz de usuario:
 Para exponer un ámbito nuevo mediante el manifiesto de aplicación:
 
 1. Desde la página **Introducción** de la aplicación, seleccione la sección **Manifiesto**. Se abre un editor de manifiestos basado en web que le permite **Editar** el manifiesto desde el portal. Si lo desea, puede seleccionar **Descargar**, editar el manifiesto de forma local y, a continuación, usar **Cargar** para volver a aplicarlo a la aplicación.
-    
+
     El ejemplo siguiente muestra cómo exponer un ámbito nuevo llamado `Employees.Read.All` en el recurso o API, mediante la adición del siguiente elemento JSON a la colección `oauth2Permissions`.
 
       ```json
@@ -110,14 +117,17 @@ Para exponer un ámbito nuevo mediante el manifiesto de aplicación:
 
 ## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Comprobación de que la web API se expone a otras aplicaciones
 
-1. Vuelva al inquilino de Azure AD, seleccione **Registros de aplicaciones** y busque o seleccione la aplicación cliente que desea configurar.
+1. Vuelva al inquilino de Azure AD, seleccione **Registros de aplicaciones** y busque o seleccione la aplicación cliente que desea configurar.
 1. Repita los pasos descritos en [Configuración de una aplicación cliente para tener acceso a las API web](quickstart-configure-app-access-web-apis.md).
-1. Cuando llegue al paso [Seleccionar una API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis
-), seleccione el recurso. Debería ver el nuevo ámbito, disponible para las solicitudes de permiso de clientes.
+1. Cuando llegue al paso en que debe [seleccionar una API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), seleccione el recurso (el registro de la aplicación de API web).
+    * Si creó el registro de la aplicación API web desde Azure Portal, el recurso de la API se muestra en la pestaña **Mis API**.
+    * Si permitió que Visual Studio creara el registro de la aplicación de API web durante la creación del proyecto, el recurso de la API aparecerá en la pestaña **API usadas en mi organización**.
+
+Una vez que haya seleccionado el recurso de la API web, debería ver el nuevo ámbito, disponible para las solicitudes de permiso de clientes.
 
 ## <a name="more-on-the-application-manifest"></a>Más sobre el manifiesto de aplicación
 
-El manifiesto de aplicación actúa como un mecanismo para actualizar la entidad de aplicación, que define todos los atributos de configuración de identidad de una aplicación de Azure AD. Para más información sobre la entidad Application y su esquema, consulte la [documentación sobre la entidad Application de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). El artículo contiene una completa información de referencia sobre los miembros de la entidad Application utilizados para especificar los permisos para la API, incluidos:  
+El manifiesto de aplicación actúa como un mecanismo para actualizar la entidad de aplicación, que define todos los atributos de configuración de identidad de una aplicación de Azure AD. Para más información sobre la entidad Application y su esquema, consulte la [documentación sobre la entidad Application de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity). El artículo contiene una completa información de referencia sobre los miembros de la entidad Application utilizados para especificar los permisos para la API, incluidos:
 
 * El miembro appRoles, que es una colección de entidades [AppRole](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type) usadas para definir los [permisos de aplicación](developer-glossary.md#permissions) para una API web.
 * El miembro oauth2Permissions, que es una colección de entidades [OAuth2Permission](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type) usadas para definir los [permisos delegados](developer-glossary.md#permissions) para una API web.

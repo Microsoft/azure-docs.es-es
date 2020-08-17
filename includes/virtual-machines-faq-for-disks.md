@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/31/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9764d3964a38408493bafe0e9c8ca059b055ca21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efec7656675b649d365a479c184de06a67d33db0
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85242101"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86544342"
 ---
 En este artículo se responden algunas de las preguntas más frecuentes acerca de Azure Managed Disks y los discos SSD Premium de Azure.
 
@@ -95,7 +95,7 @@ Los clientes pueden crear una instantánea de sus discos administrados y usarla 
 
 Sí, se admiten discos administrados y no administrados. Recomendamos que empiece a usar discos administrados para las cargas de trabajo nuevas y migre las cargas de trabajo actuales a discos administrados.
 
-**¿Puedo localizar conjuntamente discos administrados y no administrados en la misma máquina virtual?**
+**¿Puedo localizar conjuntamente discos administrados y no administrados en la misma VM?**
 
 No.
 
@@ -158,15 +158,19 @@ La reserva de discos de Azure se compra para una región específica y una SKU (
 **¿Qué ocurre cuando expira la reserva de discos Azure?**     
 Recibirá notificaciones por correo electrónico 30 días antes de la expiración y también en la fecha de expiración. Una vez que expire la reserva, los discos implementadas seguirán ejecutándose y se facturarán mediante una [cuota de pago por uso](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+**¿Los discos SSD estándar admiten "Acuerdo de Nivel de Servicio de máquina virtual de instancia única"?**
+
+Sí, todos los tipos de disco admiten SLA de VM de instancia única.
+
 ### <a name="azure-shared-disks"></a>Discos compartidos de Azure
 
 **¿Se admite la característica de discos compartidos para discos no administrados o blobs en páginas?**
 
-No, solo se admite en discos SSD administrados Premium.
+No, solo se admite en discos Ultra y discos SSD administrados Premium.
 
 **¿En qué regiones se admiten los discos compartidos?**
 
-Actualmente solo es Centro-oeste de EE. UU.
+Para obtener información regional, consulte el [artículo conceptual](../articles/virtual-machines/linux/disks-shared.md).
 
 **¿Se pueden usar discos compartidos como disco del sistema operativo?**
 
@@ -174,11 +178,11 @@ No, los discos compartidos solo se admiten para discos de datos.
 
 **¿Qué tamaños de disco admiten los discos compartidos?**
 
-Solo los discos SSD Premium P15 o superior admiten discos compartidos.
+Para ver los tamaños admitidos, consulte el [artículo conceptual](../articles/virtual-machines/linux/disks-shared.md).
 
-**Si tengo un disco SSD Premium existente, ¿puedo habilitar discos compartidos en él?**
+**Si tengo un disco, ¿puedo habilitar discos compartidos en él?**
 
-Todos los discos administrados creados con la versión de API 2019-07-01 o posterior pueden habilitar discos compartidos. Para ello, debe desmontar el disco de todas las VM a las que esté conectado. A continuación, edite la propiedad `maxShares` en el disco.
+Todos los discos administrados creados con la versión de API 2019-07-01 o posterior pueden habilitar discos compartidos. Para ello, debe desmontar el disco de todas las VM a las que esté conectado. Después, edite la propiedad **maxShares** en el disco.
 
 **Si ya no deseo usar un disco en modo compartido, ¿cómo puedo deshabilitarlo?**
 
@@ -194,7 +198,7 @@ No.
 
 **¿Puedo habilitar el almacenamiento en caché en un disco que tiene habilitados los discos compartidos?**
 
-La única opción de almacenamiento en caché de host admitida es "None".
+La única opción de almacenamiento en caché de host admitida es **Ninguno**.
 
 ## <a name="ultra-disks"></a>Discos Ultra
 
@@ -202,10 +206,10 @@ La única opción de almacenamiento en caché de host admitida es "None".
 Si no está seguro de qué rendimiento de disco establecer, se recomienda que comience asumiendo un tamaño de E/S de 16 KiB y ajuste el rendimiento a partir de ahí mientras supervisa la aplicación. La fórmula es: Rendimiento en MBps = n.º de IOPS * 16/1000.
 
 **He configurado el disco en 40 000 IOPS pero solo veo 12 800 IOPS, ¿por qué no veo el rendimiento del disco?**
-Además de la limitación del disco, existe una limitación de E/S que se impone a nivel de máquina virtual. Asegúrese de que el tamaño de máquina virtual que está usando puede admitir los niveles que están configurados en los discos. Para más información sobre los límites de E/S impuestos por la máquina virtual, consulte [Tamaños de las máquinas virtuales Windows en Azure](../articles/virtual-machines/windows/sizes.md).
+Además de la limitación del disco, existe una limitación de E/S que se impone a nivel de máquina virtual. Asegúrese de que el tamaño de la VM que está usando pueda admitir los niveles que están configurados en los discos. Para más información sobre los límites de E/S impuestos por la máquina virtual, consulte [Tamaños de las máquinas virtuales Windows en Azure](../articles/virtual-machines/windows/sizes.md).
 
 **¿Puedo usar niveles de almacenamiento en caché con un disco Ultra?**
-No, los discos Ultra no admiten los distintos métodos de almacenamiento en caché que se admiten en otros tipos de discos. Establezca el almacenamiento en caché de disco en Ninguno.
+No, los discos Ultra no admiten los distintos métodos de almacenamiento en caché que se admiten en otros tipos de discos. Establezca el almacenamiento en caché de disco en **Ninguno**.
 
 **¿Puedo conectar un disco Ultra a mi máquina virtual actual?**
 Es posible. La máquina virtual debe encontrarse en un par de región y zona de disponibilidad que admita discos Ultra. Consulte [Introducción a los discos Ultra](../articles/virtual-machines/windows/disks-enable-ultra-ssd.md) para más información.
@@ -262,9 +266,6 @@ Los discos SSD estándar ofrecen una mejor latencia, coherencia, disponibilidad 
 
 **¿Puedo usar discos SSD estándar como discos no administrados?**
 No, los discos SSD estándar solo están disponibles como discos administrados.
-
-**¿Los discos SSD estándar admiten "Acuerdo de Nivel de Servicio de máquina virtual de instancia única"?**
-No, los discos SSD estándar no tiene un Acuerdo de Nivel de Servicio de máquina virtual de instancia única. Use discos SSD Premium para tener ese acuerdo.
 
 ## <a name="migrate-to-managed-disks"></a>Migración a Managed Disks
 
@@ -413,7 +414,7 @@ No es necesario actualizar las herramientas de Azure existentes para crear, cone
 |Herramientas de Azure      | Versiones compatibles                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Número de versión 4.1.0: Versión de junio de 2017 o posterior|
-|CLI de Azure v1     | Número de versión 0.10.13: Versión de mayo de 2017 o posterior|
+|CLI de Azure v1     | Número de versión 0.10.13: Versión de mayo de 2017 o posterior|
 |CLI de Azure v2     | Número de versión 2.0.12: Versión de julio de 2017 o posterior|
 |AzCopy              | Número de versión 6.1.0: Versión de junio de 2017 o posterior|
 
@@ -451,7 +452,41 @@ Las SKU de disco de 8 TiB, 16 TiB y 32 TiB se admiten en todas las regiones en A
 
 **¿Se admite la habilitación del almacenamiento en caché del host en todos los tamaños de disco?**
 
-El almacenamiento en caché del host (solo de lectura y lectura y escritura) se admite en tamaños de disco inferiores a 4 TiB. Esto significa que cualquier disco que esté aprovisionado hasta 4095 GiB puede aprovechar el almacenamiento en caché del host. El almacenamiento en caché del host no se admite para los tamaños de disco superiores o iguales que 4096 GiB. Por ejemplo, un disco prémium P50 aprovisionado con 4095 GiB puede aprovechar el almacenamiento en caché del host y un disco P50 aprovisionado con 4096 GiB no puede aprovechar dicho almacenamiento. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
+El almacenamiento en caché del host (**ReadOnly** y **Read/Write**) se admite en tamaños de disco inferiores a 4 TiB. Esto significa que cualquier disco que esté aprovisionado hasta 4095 GiB puede aprovechar el almacenamiento en caché del host. El almacenamiento en caché del host no se admite para los tamaños de disco superiores o iguales que 4096 GiB. Por ejemplo, un disco prémium P50 aprovisionado con 4095 GiB puede aprovechar el almacenamiento en caché del host y un disco P50 aprovisionado con 4096 GiB no puede aprovechar dicho almacenamiento. Se recomienda aprovechar el almacenamiento en caché para tamaños de disco más pequeños, donde se puede esperar un mayor aumento del rendimiento con datos almacenados en caché en la máquina virtual.
+
+## <a name="private-links-for-securely-exporting-and-importing-managed-disks"></a>Instancias de Private Link para exportar e importar Managed Disks de forma segura
+
+**¿Cuál es la ventaja de usar instancias de Private Link para exportar e importar Managed Disks?**
+
+Ahora puede aprovechar las instancias de Private Link para restringir la exportación e importación a Managed Disks solo desde su instancia de Azure Virtual Network. 
+
+**¿Qué puedo hacer para asegurarme de que un disco se pueda exportar o importar solo a través de instancias de Private Link?**
+
+Debe establecer la propiedad `DiskAccessId` en una instancia de un objeto de acceso a disco y establecer también la propiedad NetworkAccessPolicy en `AllowPrivate`.
+
+**¿Puedo vincular varias redes virtuales al mismo objeto de acceso a disco?**
+
+No. Actualmente, puede vincular un objeto de acceso a disco a una sola red virtual.
+
+**¿Puedo vincular una red virtual a un objeto de acceso a disco en otra suscripción?**
+
+No. Actualmente, puede vincular un objeto de acceso a disco a una red virtual en la misma suscripción.
+
+**¿Puedo vincular una red virtual a un objeto de acceso a disco en otra suscripción?**
+
+No. Actualmente, puede vincular un objeto de acceso a disco a una red virtual en la misma suscripción.
+
+**¿Cuántas exportaciones o importaciones que usan el mismo objeto de acceso a disco pueden producirse a la vez?**
+
+5
+
+**¿Puedo usar un URI de SAS de un disco o instantánea para descargar el VHD subyacente de una VM en la misma subred que la subred del punto de conexión privado asociado al disco?**
+
+Sí.
+
+**¿Puedo usar un URI de SAS de un disco o instantánea para descargar el VHD subyacente de una VM que no esté en la misma subred que la subred del punto de conexión privado no asociado al disco?**
+
+No.
 
 ## <a name="what-if-my-question-isnt-answered-here"></a>Mi pregunta no está respondida aquí. ¿Qué debo hacer?
 

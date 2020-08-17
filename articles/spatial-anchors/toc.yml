@@ -60,7 +60,7 @@
           href: how-tos/create-locate-anchors-cpp-winrt.md
     - name: Uso de la relocalización general para detectar delimitadores cercanos
       items:
-        - name: 'En C#/Unity'
+        - name: En C#/Unity
           href: how-tos/set-up-coarse-reloc-unity.md
         - name: En Objective-C
           href: how-tos/set-up-coarse-reloc-objc.md
@@ -72,6 +72,12 @@
           href: how-tos/set-up-coarse-reloc-cpp-ndk.md
         - name: En C++/WinRT
           href: how-tos/set-up-coarse-reloc-cpp-winrt.md
+    - name: Configuración del proyecto
+      items:
+        - name: C++/WinRT
+          href: how-tos/setup-cpp-winrt-project.md
+        - name: Unity
+          href: how-tos/setup-unity-project.md
 - name: Ejemplos
   items:
     - name: Ejemplos de Azure Spatial Anchors (GitHub)

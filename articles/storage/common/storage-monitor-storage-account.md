@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 6f53d5ec2d73c9edbb7e24c24107b2a6d6deb167
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46ff6fb26cf568474b24d941e4a174b425bf5207
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684682"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474366"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Supervisión de una cuenta de almacenamiento en el Portal de Azure
 
@@ -141,7 +141,7 @@ También puede indicar a Azure Storage que guarde los registros de diagnóstico 
     ![Configure el registro en Azure Portal.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Haga clic en **Save**(Guardar).
 
-Los registros de diagnóstico se guardan en un contenedor de blobs denominado *$logs* en su cuenta de almacenamiento. Puede ver los datos de registro mediante un explorador de almacenamiento como el [Explorador de Microsoft Storage](https://storageexplorer.com), o mediante programación con la biblioteca de cliente de almacenamiento o PowerShell.
+Los registros de diagnóstico se guardan en un contenedor de blobs denominado *$logs* en su cuenta de almacenamiento. Para ver los datos de registro se puede usar un explorador de almacenamiento como el [Explorador de Microsoft Azure Storage](https://storageexplorer.com), o bien, mediante programación, la biblioteca de cliente de almacenamiento o PowerShell.
 
 Para más información sobre el acceso al contenedor $logs, vea [Registro de Storage Analytics](storage-analytics-logging.md).
 

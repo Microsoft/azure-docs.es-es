@@ -4,12 +4,12 @@ description: Aprenda a incluir los servicios de Reliable Services y Reliable Act
 ms.topic: conceptual
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 9fe5980c13f655f8f30cc42771971a5015460420
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 186afb87b4668ad575208beeeb19643e6a11cedd
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75466188"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824552"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Inclusión de Reliable Services y Reliable Actors de Service Fabric en contenedores en Windows
 
@@ -93,7 +93,7 @@ Este documento ofrece una guía para que el servicio se ejecute dentro de un con
    </Policies>
    ```
 
-9. Para configurar el modo de aislamiento de contenedor, consulte [Configuración del modo de aislamiento]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper-V. Los siguientes fragmentos de código muestran cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
+9. Para configurar el modo de aislamiento de contenedor, consulte [Configuración del modo de aislamiento]( ./service-fabric-get-started-containers.md#configure-isolation-mode). Windows admite dos modos de aislamiento para contenedores: de proceso y de Hyper-V. Los siguientes fragmentos de código muestran cómo el modo de aislamiento se especifica en el archivo de manifiesto de aplicación.
 
    ```xml
    <Policies>

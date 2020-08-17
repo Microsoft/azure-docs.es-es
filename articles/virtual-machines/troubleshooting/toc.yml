@@ -56,7 +56,7 @@
     - name: El inicio de la máquina virtual está detenido
       href: troubleshoot-vm-boot-configure-update.md
     - name: Ciclo de vida y estados de máquina virtual
-      href: ../windows/states-lifecycle.md
+      href: ../states-lifecycle.md
 - name: La máquina virtual no arranca.
   items:
     - name: Linux

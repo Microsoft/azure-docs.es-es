@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: f37109cc2677ad5ef18c5677bda9308a78cebccf
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 7d6c0928196c9e8e1abf6aa7f724a58753ce3d2a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851302"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289051"
 ---
 # <a name="add-interaction-rules"></a>Adición de reglas de interacción
 
-En este artículo, aprenderá acerca de las *reglas de interacción*. Estas reglas adicionales permiten controlar situaciones más específicas o complejas. Puede crear sus propias reglas de interacción personalizadas, pero, en este artículo, usará reglas de interacción para los siguientes escenarios objetivo:
+En este artículo, aprenderá acerca de las **reglas de interacción**. Estas son reglas adicionales para controlar situaciones más específicas o complejas. Aunque tiene la libertad de crear sus propias reglas de interacción personalizadas, en este artículo, podrá usarlas para los siguientes escenarios objetivo:
 
 * Confirmación de comandos
 * Adición de correcciones de un paso a los comandos
@@ -30,8 +30,8 @@ Para obtener más información sobre las reglas de interacción, vaya a la secci
 
 Debe haber completado los pasos descritos en los siguientes artículos:
 > [!div class="checklist"]
-> * [Creación de una aplicación con comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
-> * [Adición de parámetros a comandos](./how-to-custom-commands-add-parameters-to-commands.md)
+> * [Cómo: Creación de una aplicación con comandos simples](./how-to-custom-commands-create-application-with-simple-commands.md)
+> * [Cómo: Adición de parámetros a comandos](./how-to-custom-commands-add-parameters-to-commands.md)
 
 ## <a name="add-confirmations-to-a-command"></a>Adición de confirmaciones a un comando
 
@@ -40,7 +40,7 @@ Para agregar una confirmación, use el comando **SetTemperature**. Para consegui
 1. Seleccione el comando **SetTemperature** en el panel izquierdo.
 1. Seleccione **Agregar** en el panel central para agregar reglas de interacción. A continuación, seleccione **Reglas de interacción** > **Confirm command** (Confirmar comando).
 
-    Esta acción agrega tres reglas de interacción. Esta regla le pide al usuario que confirme la fecha y la hora de la alarma, y espera una confirmación (sí/no) para el turno siguiente.
+    Esta acción agrega tres reglas de interacción; que pedirán al usuario que confirme la fecha y la hora de la alarma y esperarán una confirmación (sí/no) para el siguiente turno.
 
     1. Modifique la regla de interacción **Confirm Command** (Confirmar comando) según la configuración siguiente:
         1. Cambie el **Nombre** a **Confirm temperature** (Confirmar temperatura).
@@ -75,14 +75,14 @@ Para agregar una confirmación, use el comando **SetTemperature**. Para consegui
 
 Seleccione **Entrenar**, espere a que se complete el entrenamiento y elija **Probar**.
 
-- **Entrada**: Set temperature to 80 degrees (Establece la temperatura en 80 grados).
-- **Salida**: OK 80? (Vale. ¿80?)
-- **Entrada**: No.
+- **Entrada**: Set temperature to 80 degrees (Establece la temperatura en 80 grados)
+- **Salida**: ¿está seguro de que quiere establecer la temperatura en 80 grados?
+- **Entrada**: No
 - **Salida**: No se preocupe. What temperature then? (Entonces, ¿qué temperatura?)
-- **Entrada**: 83 degrees (83 grados).
-- **Salida**: OK 83? (Vale. ¿83?)
-- **Entrada**: Sí.
-- **Salida**: Ok, setting temperature to 83 degrees (De acuerdo, estableciendo temperatura en 83 grados).
+- **Entrada**: 72 degrees (72 grados).
+- **Salida**: ¿está seguro de que quiere establecer la temperatura en 72 grados?
+- **Entrada**: Sí
+- **Salida**: Ok, setting temperature to 83 degrees (De acuerdo, definiré la temperatura en 83 grados)
 
 
 ## <a name="implement-corrections-in-a-command"></a>Implementación de correcciones en un comando

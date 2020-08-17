@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7ab798ccbbbfc9cfc11ae85fd698ecedcb5e8e73
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a5d4f388d9e5f47a13812687489525590c520c3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84658161"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085493"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
@@ -63,7 +63,7 @@ STORAGEKEY=$(az storage account keys list \
 
 Crear el recurso compartido de File Storage con [az storage share create](/cli/azure/storage/share). 
 
-Los nombres de recursos compartidos deben estar formados por letras minúsculas, números y guiones sencillos, pero no pueden empezar con un guion. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
+Los nombres de recursos compartidos deben estar formados por letras minúsculas, números y guiones sencillos, pero no pueden empezar con un guion. Para obtener detalles completos sobre cómo asignar un nombre a recursos compartidos y archivos, consulte [Asignación de nombres y referencia a recursos compartidos, directorios, archivos y metadatos](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata).
 
 En este ejemplo se crea un recurso compartido denominado *myshare* con una cuota de 10 GiB. 
 
@@ -111,4 +111,3 @@ Para mayor seguridad en entornos de producción, debe almacenar las credenciales
 - [Uso de cloud-init para personalizar una VM de Linux durante la creación](using-cloud-init.md)
 - [Adición de un disco a una máquina virtual de Linux](add-disk.md)
 - [Azure Disk Encryption para máquinas virtuales Linux](disk-encryption-overview.md)
-

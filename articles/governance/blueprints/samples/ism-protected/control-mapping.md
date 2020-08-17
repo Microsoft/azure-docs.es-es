@@ -1,14 +1,14 @@
 ---
 title: Introducción al ejemplo del plano técnico Australian Government ISM PROTECTED
 description: Introducción al ejemplo del plano técnico Australian Government ISM PROTECTED. Este ejemplo de plano técnico ayuda a los clientes a evaluar determinados controles de ISM PROTECTED.
-ms.date: 03/10/2020
+ms.date: 08/03/2020
 ms.topic: sample
-ms.openlocfilehash: d82598498fa7eb24ec2ea3f591d08ce8f9503b54
-ms.sourcegitcommit: 581aaca8956b1717b7bc1c1d7710c782c22e6320
+ms.openlocfilehash: 750cc5551f0bbf05e0da6ad41d46729231243f72
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/29/2020
-ms.locfileid: "85517106"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760437"
 ---
 # <a name="control-mapping-of-the-australian-government-ism-protected-blueprint-sample"></a>Asignación de controles del ejemplo de plano técnico Australian Government ISM PROTECTED
 
@@ -106,10 +106,10 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 
 - Auditar el acceso de red sin restricciones a cuentas de almacenamiento
 - Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
-- \[Versión preliminar\]:  implementar los requisitos previos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: implementar los requisitos previos para realizar una auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña.
+- mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- implementar los requisitos previos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
+- implementar los requisitos previos para realizar una auditoría de las máquinas virtuales Linux que tengan cuentas sin contraseña.
 
 ### <a name="0974-multi-factor-authentication-is-used-to-authenticate-standard-users"></a>0974 Se usa la autenticación multifactor para autenticar a los usuarios estándar
 
@@ -122,8 +122,8 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 
 ### <a name="0421-passphrases-used-for-single-factor-authentication-are-a-minimum-of-14-characters-with-complexity-ideally-as-4-random-words"></a>0421 Las frases de contraseña usadas para la autenticación de un solo factor tienen un mínimo de 14 caracteres con complejidad, idealmente como 4 palabras aleatorias
 
-- \[Versión preliminar\]: mostrar los resultados de la auditoría de las configuraciones de las máquinas virtuales Windows en "Configuración de seguridad: directivas de cuenta".
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las configuraciones de las máquinas virtuales Windows en "Configuración de seguridad: directivas de cuenta".
+- mostrar los resultados de la auditoría de las configuraciones de las máquinas virtuales Windows en "Configuración de seguridad: directivas de cuenta".
+- implementar los requisitos previos para auditar las configuraciones de las máquinas virtuales Windows en "Configuración de seguridad: directivas de cuenta".
 
 ## <a name="guidelines-for-system-management---system-administration"></a>Instrucciones para la administración del sistema: administración del sistema
 
@@ -147,7 +147,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La valoración de vulnerabilidades debe habilitarse en las máquinas
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -159,7 +159,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -171,7 +171,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -183,7 +183,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -195,7 +195,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -207,7 +207,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas
@@ -229,8 +229,8 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 ### <a name="0582-the-following-events-are-logged-for-operating-systems-access-to-important-data-and-processes-application-crashes-and-any-error-messages-attempts-to-use-special-privileges-changes-to-accounts-changes-to-security-policy-changes-to-system-configurations-domain-name-system-dns-and-hypertext-transfer-protocol-http-requests-failed-attempts-to-access-data-and-system-resources-service-failures-and-restarts-system-startup-and-shutdown-transfer-of-data-to-external-media-user-or-group-management-use-of-special-privileges"></a>0582 Para los sistemas operativos se registran los siguientes eventos: acceso a datos y procesos importantes, bloqueos de aplicaciones y mensajes de error, intentos de uso de privilegios especiales, cambios en las cuentas, cambios en la directiva de seguridad, cambios en las configuraciones del sistema, solicitudes de sistema de nombres de dominio (DNS) y protocolo de transferencia de hipertexto (HTTP), intentos fallidos de acceso a datos y recursos del sistema, errores y reinicios de servicio, inicio y apagado del sistema, transferencia de datos a medios externos, administración de usuarios o grupos, uso de privilegios especiales
 
 - \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
-- \[Versión preliminar\]: Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
+- Auditoría de la implementación del agente de Log Analytics en VMSS: la imagen de la VM (SO) no está en la lista
+- Auditar área de trabajo de Log Analytics en la máquina virtual: error de coincidencia del informe
 - Auditar la configuración de diagnóstico
 
 ### <a name="1537-the-following-events-are-logged-for-databases-access-to-particularly-important-information-addition-of-new-users-especially-privileged-users-any-query-containing-comments-any-query-containing-multiple-embedded-queries-any-query-or-database-alerts-or-failures-attempts-to-elevate-privileges-attempted-access-that-is-successful-or-unsuccessful-changes-to-the-database-structure-changes-to-user-roles-or-database-permissions-database-administrator-actions-database-logons-and-logoffs-modifications-to-data-use-of-executable-commands"></a>1537 Para las bases de datos se registran los siguientes eventos: acceso a información especialmente importante, incorporación de nuevos usuarios, usuarios con privilegios especiales, cualquier consulta que contenga comentarios, cualquier consulta que contenga varias consultas insertadas, cualquier alerta o error de base de datos o de consulta, intentos de aumentar los privilegios, intentos de acceso tengan o no éxito, cambios en la estructura de la base de datos, cambios en los roles de usuario o permisos de base de datos, acciones de administrador de base de datos, inicios y cierres de sesión de base de datos, modificaciones de datos, uso de comandos ejecutables
@@ -246,7 +246,7 @@ Este plano técnico le ayuda a restringir la ubicación de la implementación de
 - Se deben corregir las vulnerabilidades de las bases de datos SQL
 - La evaluación de vulnerabilidades debe estar activada en sus servidores de SQL Server.
 - La evaluación de vulnerabilidad debe estar habilitada en las instancias administradas de SQL.
-- \[Versión preliminar\]: La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
+- La evaluación de vulnerabilidades debe estar habilitada en las máquinas virtuales.
 - Se deben corregir las vulnerabilidades en la configuración de seguridad de los conjuntos de escalado de máquinas virtuales
 - Se deben corregir las vulnerabilidades mediante una solución de evaluación de vulnerabilidades
 - Se deben corregir las vulnerabilidades en la configuración de seguridad en las máquinas

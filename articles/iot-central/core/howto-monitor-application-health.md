@@ -7,14 +7,17 @@ ms.date: 05/14/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 664819b209aeb09093ce8711456b86ff4d3e8949
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: d246adbf8e87d5503bc19bcd497dd00370c0a867
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84249480"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001928"
 ---
 # <a name="monitor-the-overall-health-of-the-devices-connected-to-an-iot-central-application"></a>Supervisión del estado general de los dispositivos conectados a una aplicación de IoT Central
+
+> [!NOTE]
+> Las métricas solo están disponibles para las aplicaciones de IoT Central, versión 3. Para obtener información sobre cómo comprobar la versión de la aplicación, vea [Acerca de la aplicación](./howto-get-app-info.md).
 
 *Este artículo se aplica a operadores y administradores.*
 
@@ -35,25 +38,15 @@ Para ver las métricas de IoT Central en el portal:
 1. Navegue hasta el recurso de la aplicación de IoT Central en el portal. De forma predeterminada, los recursos de IoT Central se encuentran en un grupo de recursos denominado **IOTC**.
 1. Para crear un gráfico a partir de las métricas de la aplicación, seleccione **Métricas** en la sección **Supervisión**.
 
+![Métricas de Azure](media/howto-monitor-application-health/metrics.png)
+
 ### <a name="azure-portal-permissions"></a>Permisos de Azure Portal
 
 El acceso a las métricas en Azure Portal se administra mediante el [control de acceso basado en rol de Azure](../../role-based-access-control/overview.md). Use Azure Portal para agregar usuarios a la aplicación de IoT Central, el grupo de recursos o la suscripción para concederles acceso. Debe agregar un usuario en el portal, aunque ya se haya agregado a la aplicación de IoT Central. Use [roles integrados de Azure](../../role-based-access-control/built-in-roles.md) para lograr un control de acceso más detallado.
 
 ## <a name="iot-central-metrics"></a>Métricas de IoT Central
 
-En la tabla siguiente se describen las métricas que están disponibles actualmente para IoT Central:
-
-| Métrica | Nombre para mostrar de la métrica | Unidad | Tipo de agregación | Descripción |
-|--------|---------------------|------|------------------|-------------|
-| connectedDeviceCount         | Dispositivos conectados totales                              | Count  | Total             | Número de dispositivos conectados a IoT Central                               |
-| c2d.property.read.success    | Lecturas de propiedades de dispositivo correctas de IoT Central    | Count  | Total             | Recuento de todas las lecturas de propiedades correctas iniciadas desde IoT Central    |
-| c2d.property.read.failure    | Lecturas de propiedades de dispositivo con error de IoT Central        | Count  | Total             | Recuento de todas las lecturas de propiedades con error iniciadas desde IoT Central        |
-| d2c.property.read.success    | Lecturas de propiedades de dispositivo correctas de los dispositivos        | Count  | Total             | Recuento de todas las lecturas de propiedades correctas iniciadas desde dispositivos        |
-| d2c.property.read.failure    | Lecturas de propiedades de dispositivo con error de los dispositivos            | Count  | Total             | Recuento de todas las lecturas de propiedades con error iniciadas desde dispositivos            |
-| c2d.property.update.success  | Actualizaciones de propiedades de dispositivo correctas de IoT Central  | Count  | Total             | Recuento de todas las actualizaciones de propiedades correctas iniciadas desde IoT Central  |
-| c2d.property.update.failure  | Actualizaciones de propiedades de dispositivo con error de IoT Central      | Count  | Total             | Recuento de todas las actualizaciones de propiedades con error iniciadas desde IoT Central      |
-| d2c.property.update.success  | Actualizaciones de propiedades de dispositivo correctas de los dispositivos      | Count  | Total             | Recuento de todas las actualizaciones de propiedades correctas iniciadas desde los dispositivos      |
-| d2c.property.update.failure  | Actualizaciones de propiedades de dispositivo con errores de los dispositivos          | Count  | Total             | Recuento de todas las actualizaciones de propiedades con error iniciadas desde dispositivos          |
+Para obtener una lista de las métricas que están disponibles actualmente en IoT Central, consulte [Métricas compatibles con Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported#microsoftiotcentraliotapps).
 
 ### <a name="metrics-and-invoices"></a>Métricas y facturas
 

@@ -1,6 +1,6 @@
 ---
 title: 'Red global de Microsoft: Azure'
-description: Se describe cómo crea Microsoft su red global rápida y confiable
+description: Aprenda cómo Microsoft crea y opera una de las redes troncales más grandes del mundo y por qué es fundamental para ofrecer una excelente experiencia en la nube.
 services: networking
 documentationcenter: ''
 author: KumudD
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 06/13/2019
 ms.author: kumud
 ms.reviewer: ypitsch
-ms.openlocfilehash: 5028417758bb8be38505d27d3dfb5e2fc055c3ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9420d52cf7d88ff84fd23928f92cdc62e9627619
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85125828"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280909"
 ---
 # <a name="microsoft-global-network"></a>Red global de Microsoft
 

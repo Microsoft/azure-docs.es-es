@@ -1,28 +1,57 @@
 ---
-title: 'Certificación de una máquina virtual de Azure: Azure Marketplace'
+title: 'Prueba de máquina virtual (VM) implementada desde un disco duro virtual: Azure Marketplace'
 description: Obtenga información sobre cómo probar y enviar una oferta de máquina virtual en Marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: emuench
-ms.author: mingshen
-ms.date: 04/09/2020
-ms.openlocfilehash: d3b89945c077b9c26bab1709bd6d1def20959e33
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: iqshahmicrosoft
+ms.author: iqshah
+ms.date: 07/29/2020
+ms.openlocfilehash: 36c497a180070358332997649e768999c78935cb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110052"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433099"
 ---
-# <a name="azure-virtual-machine-vm-image-certification"></a>Certificación de imágenes de máquinas virtuales (VM) de Azure
+# <a name="test-virtual-machine-vm-deployed-from-vhd"></a>Prueba de máquina virtual implementada desde un disco duro virtual
 
-En este artículo se describe cómo probar y enviar una imagen de máquina virtual (VM) en Marketplace comercial para asegurarse de que cumple los requisitos de publicación más recientes de Azure Marketplace.
+En este artículo se describe cómo implementar y probar una máquina virtual (VM) de Azure a partir de la imagen de disco duro virtual generalizada que se creó en la sección anterior ([Creación de recursos técnicos de máquina virtual de Azure)](create-azure-vm-technical-asset.md), para asegurarse de que la imagen del disco duro virtual cumple los requisitos de publicación de Azure Marketplace.
 
-Siga estos pasos antes de enviar la oferta de máquina virtual:
+Siga estos pasos para generar un informe de compatibilidad que certifique que la imagen del disco duro virtual se puede usar en Azure Marketplace.
 
-1. Cree e implemente los certificados.
-2. Implemente una máquina virtual de Azure con la imagen generalizada.
-3. Ejecute las validaciones.
+1. Cree e implemente el certificado necesario para administrar de forma remota la máquina virtual en Azure Key Vault.
+2. Implemente una máquina virtual de Azure a partir de la imagen de disco duro virtual generalizada creada en [Creación de recursos técnicos de máquina virtual de Azure](create-azure-vm-technical-asset.md).
+3. Ejecute las pruebas en la máquina virtual implementada para asegurarse de que la imagen del disco duro virtual esté preparada para publicarse y usarse para implementar máquinas virtuales.
+
+## <a name="running-scripts"></a>Ejecución de scripts
+
+Este artículo contiene tres scripts que se ejecutarán en PowerShell. El escritorio de PowerShell es lo que funciona mejor, de todas formas también puede usarse Azure Cloud Shell con la opción PowerShell seleccionada (parte superior izquierda de la ventana).
+
+1. Asegúrese de que PowerShell está configurado para ejecutar scripts.
+
+    - Abra siempre PowerShell con la opción **Ejecutar como administrador**.
+    - Asegúrese de que puede ejecutar estos scripts: `Set-ExecutionPolicy` y `RemoteSigned`.
+
+2. [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+
+3. Instale el módulo Az de Azure PowerShell.
+    1. **Opción A**: Todavía no hay módulos instalados.
+        - `Install-Module -Name Az -AllowClobber -Scope AllUsers`
+
+        Para más información, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-4.2.0).
+
+    2. **Opción B**: Actualmente se está usando el módulo AzureRM.
+
+        - Uninstall-AzureRM
+        - Install-Module -Name Az -AllowClobber -Scope AllUsers
+        - Enable-AzureRmAlias -Scope CurrentUser
+
+        Para más información, vea [Migración de Azure PowerShell de AzureRM a Az](https://docs.microsoft.com/powershell/azure/migrate-from-azurerm-to-az?view=azps-4.2.0).
+
+4. Guarde los parámetros de sesión.
+
+Los scripts de esta sección usan variables o parámetros de sesión. Si cierra la sesión, se borran los parámetros. Se recomienda usar una sesión para ejecutar todos los scripts con el fin de evitar errores de valores de parámetro. Si esto no es posible, tendrá que reinicializar los parámetros al abrir una nueva sesión, especialmente para los scripts posteriores.
 
 ## <a name="create-and-deploy-certificates-for-azure-key-vault"></a>Creación e implementación de certificados para Azure Key Vault
 
@@ -40,7 +69,7 @@ Puede usar un grupo de recursos de Azure nuevo o existente para este trabajo.
 
 #### <a name="create-the-security-certificate"></a>Creación del certificado de seguridad
 
-Edite y ejecute el siguiente script de Azure PowerShell para crear el archivo de certificado (.pfx) en una carpeta local. Reemplace los valores para los parámetros que se muestran en la tabla siguiente.
+Ejecute este script para crear el archivo de certificado (. pfx) en una carpeta local. El certificado pertenece a la máquina virtual de Azure planeada que se implementará a partir de la imagen del disco duro virtual. La máquina virtual necesitará un nombre, una ubicación y una contraseña, tal y como se especifica en los parámetros del script. Edite el siguiente **script de creación de certificados** de Azure PowerShell para especificar los valores correctos para los parámetros de script que se muestran en la tabla.
 
 | **Parámetro** | **Descripción** |
 | --- | --- |
@@ -88,7 +117,7 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear el archivo de
 
 Copie el contenido de la plantilla siguiente en un archivo en el equipo local. En el script de ejemplo siguiente, este recurso es `C:\certLocation\keyvault.json`.
 
-```json
+```JSON
 {
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
@@ -193,7 +222,7 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
 |   |   |
 
 ```PowerShell
-    # Creating Key vault in resource group
+# Creating Key vault in resource group
 
     # "Random" number for deployment identifiers
     $postfix = "0101048"
@@ -213,9 +242,9 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
     # code snippet to get the Azure user object ID
     try
        {
-        $accounts = Get-AzureAccount
+        $accounts = Get-AzContext
         $accountNum = 0
-        $accounts.Id | %{ ++$accountNum; Write-Host $accountNum $_}
+        $accounts.Account | %{ ++$accountNum; Write-Host $accountNum $_}
         Write-Host "`nPlease select User, e.g. 1:" -ForegroundColor DarkYellow
         [Int] $accountChoice = Read-Host
 
@@ -228,10 +257,10 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
 
         $accountSelected = $accounts[$accountChoice-1]
         echo $accountSelected
-        $id = $accountSelected.Id
+        $id = $accountSelected.Account
 
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id).Id
       }
       catch
       {
@@ -244,10 +273,10 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
         #**************************************
         try
         {
-        $subslist=Get-AzureSubscription
+        $subslist=Get-AzSubscription
         for($i=1; $i -le $subslist.Length;$i++)
         {
-           Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+           Write-Host ($i.ToString() +":"+ $subslist[$i-1].Name)
         }
         Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
         [int] $selectedsub=Read-Host
@@ -257,15 +286,15 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
             Write-Host "incorrect input" -ForegroundColor Red
             for($i=1; $i -le $subslist.Length;$i++)
              {
-              Write-Host ($i.ToString() +":"+ $subslist[$i-1].SubscriptionName)
+              Write-Host ($i.ToString() +":"+ $subslist[$i-1].Name)
              }
             Write-Host "`nPlease pick subscription from above, e.g. 1:" -ForegroundColor DarkYellow
            [int] $selectedsub=Read-Host
         }
         if($selectedsub -ge 1 -and $selectedsub -le $subslist.Length)
         {
-        $mysubid=$subslist[$selectedsub-1].SubscriptionId
-        $mysubName=$subslist[$selectedsub-1].SubscriptionName
+        $mysubid=$subslist[$selectedsub-1].Id
+        $mysubName=$subslist[$selectedsub-1].Name
         $mytenantId=$subslist[$selectedsub-1].TenantId
         Write-Host "$mysubName selected"
         }
@@ -278,13 +307,13 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
 
     # Create a resource group
      Write-Host "Creating Resource Group $rgName"
-     Create-ResourceGroup -rgName $rgName -location $location
+     az group create --name $rgName --location $location
      Write-Host "-----------------------------------"
 
     # Create key vault and configure access
     New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
 
-    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys Decrypt,Encrypt,UnwrapKey,WrapKey,Verify,Sign,Get,List,Update,Create,Import,Delete,Backup,Restore,Recover,Purge -PermissionsToSecrets Get,List,Set,Delete,Backup,Restore,Recover,Purge
 
 ```
 
@@ -293,7 +322,7 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia
 Almacene los certificados contenidos en el archivo .pfx, en el nuevo almacén de claves mediante este script:
 
 ```PowerShell
-     $fileName =$certroopath+"\$certname"+".pfx"
+ $fileName =$certroopath+"\$certname"+".pfx"
 
      $fileContentBytes = get-content $fileName -Encoding Byte
      $fileContentEncoded = [System.Convert]::ToBase64String($fileContentBytes)
@@ -309,18 +338,20 @@ Almacene los certificados contenidos en el archivo .pfx, en el nuevo almacén de
             $jsonObjectBytes = [System.Text.Encoding]::UTF8.GetBytes($jsonObject)
             $jsonEncoded = [System.Convert]::ToBase64String($jsonObjectBytes)
             $secret = ConvertTo-SecureString -String $jsonEncoded -AsPlainText -Force
-            $objAzureKeyVaultSecret=Set-AzureKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
+            $objAzureKeyVaultSecret=Set-AzKeyVaultSecret -VaultName $kvname -Name "ISVSecret$postfix" -SecretValue $secret
             echo $objAzureKeyVaultSecret.Id
 
 ```
 
-## <a name="deploy-an-azure-vm-using-your-generalized-image"></a>Implementación de una máquina virtual de Azure con la imagen generalizada
+## <a name="deploy-an-azure-vm-from-your-generalized-vhd-image"></a>Implementación de una máquina virtual de Azure desde la imagen de disco duro virtual generalizada
 
 En esta sección se describe cómo implementar una imagen de VHD generalizada para crear un recurso de máquina virtual de Azure. En este proceso, usaremos la plantilla de Azure Resource Manager proporcionada y el script de Azure PowerShell.
 
 ### <a name="prepare-an-azure-resource-manager-template"></a>Preparación de una plantilla de Azure Resource Manager
 
-Copie la plantilla de Azure Resource Manager siguiente para la implementación de VHD en un archivo local denominado VHDtoImage.json. El siguiente script solicitará la ubicación en el equipo local para usar este archivo JSON.
+Copie una de las siguientes plantillas de Azure Resource Manager para la implementación del disco duro virtual (ya sea para Windows o Linux) en un archivo local denominado VHDtoImage.json. El siguiente script solicitará la ubicación en el equipo local para usar este archivo JSON.
+
+#### <a name="for-windows-based-vms"></a>Para máquinas virtuales basadas en Windows
 
 ```JSON
 {
@@ -555,7 +586,242 @@ Copie la plantilla de Azure Resource Manager siguiente para la implementación d
 
 ```
 
-Edite este archivo para proporcionar valores para estos parámetros:
+#### <a name="for-linux-based-vms"></a>Para máquinas virtuales basadas en Linux
+
+```JSON
+{
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "userStorageAccountName": {
+            "type": "string"
+        },
+        "userStorageContainerName": {
+            "type": "string",
+            "defaultValue": "vhds"
+        },
+        "dnsNameForPublicIP": {
+            "type": "string"
+        },
+        "adminUserName": {
+            "defaultValue": "isv",
+            "type": "string"
+        },
+        "adminPassword": {
+            "type": "securestring",
+            "defaultValue": "Password@123"
+        },
+        "osType": {
+            "type": "string",
+            "defaultValue": "linux",
+            "allowedValues": [
+                "windows",
+                "linux"
+            ]
+        },
+        "subscriptionId": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "vmSize": {
+            "type": "string"
+        },
+        "publicIPAddressName": {
+            "type": "string"
+        },
+        "vmName": {
+            "type": "string"
+        },
+        "virtualNetworkName": {
+            "type": "string"
+        },
+        "nicName": {
+            "type": "string"
+        },
+        "vaultName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the KeyVault"
+            }
+        },
+        "vaultResourceGroup": {
+            "type": "string",
+            "metadata": {
+                "description": "Resource Group of the KeyVault"
+            }
+        },
+        "certificateUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "Url of the certificate with version in KeyVault e.g. https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7"
+            }
+        },
+        "vhdUrl": {
+            "type": "string",
+            "metadata": {
+                "description": "VHD Url..."
+            }
+        }
+    },
+        "variables": {
+            "addressPrefix": "10.0.0.0/16",
+            "subnet1Name": "Subnet-1",
+            "subnet2Name": "Subnet-2",
+            "subnet1Prefix": "10.0.0.0/24",
+            "subnet2Prefix": "10.0.1.0/24",
+            "publicIPAddressType": "Dynamic",
+            "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
+            "subnet1Ref": "[concat(variables('vnetID'),'/subnets/',variables('subnet1Name'))]",
+            "osDiskVhdName": "[concat('http://',parameters('userStorageAccountName'),'.blob.core.windows.net/',parameters('userStorageContainerName'),'/',parameters('vmName'),'osDisk.vhd')]"
+        },
+        "resources": [
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/publicIPAddresses",
+                "name": "[parameters('publicIPAddressName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "publicIPAllocationMethod": "[variables('publicIPAddressType')]",
+                    "dnsSettings": {
+                        "domainNameLabel": "[parameters('dnsNameForPublicIP')]"
+                    }
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/virtualNetworks",
+                "name": "[parameters('virtualNetworkName')]",
+                "location": "[parameters('location')]",
+                "properties": {
+                    "addressSpace": {
+                        "addressPrefixes": [
+                            "[variables('addressPrefix')]"
+                        ]
+                    },
+                    "subnets": [
+                        {
+                            "name": "[variables('subnet1Name')]",
+                            "properties": {
+                                "addressPrefix": "[variables('subnet1Prefix')]"
+                            }
+                        },
+                        {
+                            "name": "[variables('subnet2Name')]",
+                            "properties": {
+                                "addressPrefix": "[variables('subnet2Prefix')]"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-05-01-preview",
+                "type": "Microsoft.Network/networkInterfaces",
+                "name": "[parameters('nicName')]",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[concat('Microsoft.Network/publicIPAddresses/', parameters('publicIPAddressName'))]",
+                    "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
+                ],
+                "properties": {
+                    "ipConfigurations": [
+                        {
+                            "name": "ipconfig1",
+                            "properties": {
+                                "privateIPAllocationMethod": "Dynamic",
+                                "publicIPAddress": {
+                                    "id": "[resourceId('Microsoft.Network/publicIPAddresses',parameters('publicIPAddressName'))]"
+                                },
+                                "subnet": {
+                                    "id": "[variables('subnet1Ref')]"
+                                }
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "apiVersion": "2015-06-15",
+                "type": "Microsoft.Compute/virtualMachines",
+                "name": "[parameters('vmName')]",
+                "location": "[parameters('location')]",
+                "dependsOn": [
+                    "[concat('Microsoft.Network/networkInterfaces/', parameters('nicName'))]"
+                ],
+                "properties": {
+                    "hardwareProfile": {
+                        "vmSize": "[parameters('vmSize')]"
+                    },
+                    "osProfile": {
+                        "computername": "[parameters('vmName')]",
+                        "adminUsername": "[parameters('adminUsername')]",
+                        "adminPassword": "[parameters('adminPassword')]",
+                        "secrets": [
+                            {
+                                "sourceVault": {
+                                    "id": "[resourceId(parameters('vaultResourceGroup'), 'Microsoft.KeyVault/vaults', parameters('vaultName'))]"
+                                },
+                                "vaultCertificates": [
+                                    {
+                                        "certificateUrl": "[parameters('certificateUrl')]",
+                                        "certificateStore": "My"
+                                    }
+                                ]
+                            }
+                        ],
+                        "windowsConfiguration": {
+                            "provisionVMAgent": "true",
+                            "winRM": {
+                                "listeners": [
+                                    {
+                                        "protocol": "http"
+                                    },
+                                    {
+                                        "protocol": "https",
+                                        "certificateUrl": "[parameters('certificateUrl')]"
+                                    }
+                                ]
+                            },
+                            "enableAutomaticUpdates": "true"
+                        }
+                    },
+                    "storageProfile": {
+                        "osDisk": {
+                            "name": "[concat(parameters('vmName'),'-osDisk')]",
+                            "osType": "[parameters('osType')]",
+                            "caching": "ReadWrite",
+                            "image": {
+                                "uri": "[parameters('vhdUrl')]"
+                            },
+                            "vhd": {
+                                "uri": "[variables('osDiskVhdName')]"
+                            },
+                            "createOption": "FromImage"
+                        }
+                    },
+                    "networkProfile": {
+                        "networkInterfaces": [
+                            {
+                                "id": "[resourceId('Microsoft.Network/networkInterfaces',parameters('nicName'))]"
+                            }
+                        ]
+                    },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": false,
+                        "storageUri": "[concat('http://', parameters('userStorageAccountName'), '.blob.core.windows.net')]"
+                    }
+                }
+                }
+            }
+        ]
+    }
+
+```
+
+Copie y edite el siguiente script para proporcionar valores para estos parámetros:
 
 | **Parámetro** | **Descripción** |
 | --- | --- |
@@ -589,27 +855,41 @@ Copie y edite el script siguiente para proporcionar valores para las variables `
 $storageaccount = "testwinrm11815"
 
 # generalized VHD URL
-
 $vhdUrl = "https://testwinrm11815.blob.core.windows.net/vhds/testvm1234562016651857.vhd"
 
-echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile "C:\certLocation\VHDtoImage.json" -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "Standard\_A2" -publicIPAddressName "myPublicIP1" -virtualNetworkName "myVNET1" -nicName "myNIC1" -adminUserName "isv" -adminPassword $pwd"
+# Full pathname to the file VHDtoImage.json. inserted these highlighted lines
+$templateFile = "$certroopath\VHDtoImage.json"
+
+# Size of the virtual machine instance.
+$vmSize = "Standard_D2s_v3"
+
+# Name of the public IP address.
+$publicIPAddressName = "myPublicIP1"
+
+# Name of the virtual network
+$virtualNetworkName = "myVNET1"
+
+# Name of the network interface card for the virtual network
+$nicName = "myNIC1"
+
+# Username of the administrator account
+$adminUserName = "isv"
+
+# The OS of the virtual machine
+$osType = "windows"
+
+echo "New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile $templateFile -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id  -vhdUrl "$vhdUrl" -vmSize "$vmSize" -publicIPAddressName "$publicIPAddressName" -virtualNetworkName "$virtualNetworkName" -nicName "$nicName" -adminUserName "$adminUserName" -adminPassword $pwd -osType "$osType""
 
 # deploying VM with existing VHD
-
-New-AzResourceGroupDeployment -Name"dplisvvm$postfix" -ResourceGroupName"$rgName" -TemplateFile"C:\certLocation\VHDtoImage.json" -userStorageAccountName"$storageaccount" -dnsNameForPublicIP"$vmName" -subscriptionId"$mysubid" -location"$location" -vmName"$vmName" -vaultName"$kvname" -vaultResourceGroup"$rgName" -certificateUrl$objAzureKeyVaultSecret.Id  -vhdUrl"$vhdUrl" -vmSize"Standard\_A2" -publicIPAddressName"myPublicIP1" -virtualNetworkName"myVNET1" -nicName"myNIC1" -adminUserName"isv" -adminPassword$pwd
+New-AzResourceGroupDeployment -Name "dplisvvm$postfix" -ResourceGroupName "$rgName" -TemplateFile $templateFile -userStorageAccountName "$storageaccount" -dnsNameForPublicIP "$vmName" -subscriptionId "$mysubid" -location "$location" -vmName "$vmName" -vaultName "$kvname" -vaultResourceGroup "$rgName" -certificateUrl $objAzureKeyVaultSecret.Id -vhdUrl "$vhdUrl" -vmSize "$vmSize" -publicIPAddressName "$publicIPAddressName" -virtualNetworkName "$virtualNetworkName" -nicName "$nicName" -adminUserName "$adminUserName" -adminPassword $pwd -osType "$osType"
 
 ```
 
-## <a name="run-validations"></a>Ejecución de validaciones
-
-Hay dos maneras de ejecutar validaciones en la imagen implementada:
-
-- Usar Certification Test Tool for Azure Certified
-- Usar la API de prueba automática
+## <a name="run-tests-on-the-deployed-vm"></a>Ejecución de pruebas en la máquina virtual implementada
 
 ### <a name="download-and-run-the-certification-test-tool"></a>Descargar y ejecutar Certification Test Tool
 
-Certification Test Tool for Azure Certified se ejecuta en un equipo Windows local, pero prueba una máquina virtual Linux o Windows basada en Azure. Verifica que la imagen de máquina virtual de usuario se puede usar con Microsoft Azure y que se han cumplido las instrucciones y los requisitos relacionados con la preparación del VHD. La salida de la herramienta es un informe de compatibilidad que se va a cargar en el portal del Centro de partners para solicitar la certificación de máquina virtual.
+Certification Test Tool for Azure Certified es una herramienta de prueba automática que se ejecuta en una máquina Windows local, pero prueba una máquina virtual Linux o Windows basada en Azure. Verifica que la imagen de máquina virtual de usuario se puede usar con Microsoft Azure y que se han cumplido las instrucciones y los requisitos relacionados con la preparación del VHD. Esta herramienta garantiza que la máquina virtual está preparada para publicarse de acuerdo a los requisitos de Azure Marketplace.
 
 1. Descargue e instale la versión más reciente de [Certification Test Tool for Azure Certified](https://www.microsoft.com/download/details.aspx?id=44299).
 2. Abra la herramienta de certificación y seleccione **Iniciar nueva prueba**.
@@ -619,9 +899,9 @@ Certification Test Tool for Azure Certified se ejecuta en un equipo Windows loca
 
 ### <a name="connect-the-certification-tool-to-a-vm-image"></a>Conectar la herramienta de certificación a una imagen de máquina virtual
 
-La herramienta se conecta a máquinas virtuales basadas en Windows con [Azure PowerShell](https://docs.microsoft.com/powershell/) y a máquinas virtuales basadas en Linux mediante [SSH.Net](https://www.ssh.com/ssh/protocol/).
+La herramienta se conecta a máquinas virtuales basadas en Windows con [Azure PowerShell](https://docs.microsoft.com/powershell/) y a máquinas virtuales basadas en Linux mediante [SSH.Net](https://www.ssh.com/ssh/protocol/). Elija una de las dos opciones siguientes, Linux o Windows.
 
-### <a name="connect-the-certification-tool-to-a-linux-vm-image"></a>Conectar la herramienta de certificación a una imagen de máquina virtual Linux
+#### <a name="option-1-connect-the-certification-tool-to-a-linux-vm-image"></a>Opción 1: Conectar la herramienta de certificación a una imagen de máquina virtual Linux
 
 1. Seleccione el modo **Autenticación SSH**: Autenticación de contraseña o autenticación de archivo de clave.
 2. Si usa la autenticación de contraseña, escriba los valores para **Nombre DNS de máquina virtual**, **Nombre de usuario** y **Contraseña**. También puede cambiar el número predeterminado de **Puerto SSH**.
@@ -630,7 +910,7 @@ La herramienta se conecta a máquinas virtuales basadas en Windows con [Azure Po
 
 3. Si usa autenticación con archivo de clave, escriba valores para **Nombre DNS de máquina virtual**, **Nombre de usuario** y **Ubicación de clave privada**. También puede incluir una **Frase de contraseña** o cambiar el número predeterminado de **Puerto SSH**.
 
-### <a name="connect-the-certification-tool-to-a-windows-based-vm-image"></a>**Conexión de la herramienta de certificación a una imagen de máquina virtual basada en Windows**
+#### <a name="option-2-connect-the-certification-tool-to-a-windows-based-vm-image"></a>Opción 2: Conectar la herramienta de certificación a una imagen de máquina virtual basada en Windows
 
 1. Escriba el **nombre DNS completo de la máquina virtual** (por ejemplo, MyVMName.ClOudapp.net).
 2. Escriba valores para **Nombre de usuario** y **Contraseña**.

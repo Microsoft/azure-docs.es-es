@@ -1,17 +1,17 @@
 ---
 title: Configuración de una asignación de conjunto de datos en Azure Data Share
 description: Aprenda a configurar una asignación de conjunto de datos para un recurso compartido recibido en Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: how-to
-ms.date: 07/10/2019
-ms.openlocfilehash: 52a8b9c5441f9261f8b9179c8100cdb01777bfd1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 82de05e7169c5803dd999521f61a33b9dd17b567
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119963"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511962"
 ---
 # <a name="how-to-configure-a-dataset-mapping-for-a-received-share-in-azure-data-share"></a>Configuración de una asignación de conjunto de datos para un recurso compartido recibido en Azure Data Share
 

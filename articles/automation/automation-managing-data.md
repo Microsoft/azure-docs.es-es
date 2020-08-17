@@ -3,14 +3,14 @@ title: Seguridad de datos de Azure Automation
 description: En este artículo aprenderá cómo Azure Automation protege su privacidad y los datos.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 06/03/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: cc96f2dd81b618b4170acd4b415a09248adbb7d5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 610c2050150a533e246bc74ed7750ce87f7cf617
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186170"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004654"
 ---
 # <a name="management-of-azure-automation-data"></a>Administración de datos de Azure Automation
 
@@ -50,7 +50,7 @@ La tabla siguiente resume la directiva de retención para distintos recursos.
 | data | Directiva |
 |:--- |:--- |
 | Cuentas |Una cuenta se elimina de manera permanente 30 días después de que un usuario la elimine. |
-| Recursos |Un recurso se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el recurso. |
+| Recursos |Un recurso se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el recurso. Los recursos incluyen variables, programaciones, credenciales, certificados, paquetes de Python 2 y conexiones. |
 | Nodos de DSC |Un nodo de DSC se elimina de forma permanente 30 días después de que se anula el registro del nodo de la cuenta de Automation mediante Azure Portal o el cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-3.7.0) de Windows PowerShell. Los nodos también se eliminan de forma permanente 30 días después de que el usuario elimine la cuenta que contiene el nodo. |
 | Trabajos |Un trabajo se elimina de forma permanente 30 días después de cualquier modificación, por ejemplo, después de que el trabajo se complete, detenga o suspenda. |
 | Módulos |Un módulo se elimina de forma permanente 30 días después de que un usuario lo elimina o 30 días después de que un usuario elimina la cuenta que contiene el módulo. |
@@ -66,7 +66,7 @@ Cuando elimina una cuenta de Automation en Azure, se eliminan todos los objetos 
 
 ### <a name="runbooks"></a>Runbooks
 
-Puede exportar los runbooks a archivos de script con Azure Portal o el cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) en Windows PowerShell. Puede importar estos archivos de script en otra cuenta de Automation, como se indica en [Administración de runbooks en Azure Automation](manage-runbooks.md).
+Puede exportar los runbooks a archivos de script con Azure Portal o el cmdlet [Get-AzureAutomationRunbookDefinition](/powershell/module/servicemanagement/azure.service/get-azureautomationrunbookdefinition) en Windows PowerShell. Puede importar estos archivos de script en otra cuenta de Automation, como se indica en [Administración de runbooks en Azure Automation](manage-runbooks.md).
 
 ### <a name="integration-modules"></a>Módulos de integración
 

@@ -16,6 +16,8 @@
     - name: 'Creación de aplicaciones lógicas: plantilla de Resource Manager'
       displayName: Resource Manager
       href: quickstart-create-deploy-azure-resource-manager-template.md
+    - name: 'Creación y administración de aplicaciones lógicas: CLI de Azure'
+      href: quickstart-logic-apps-azure-cli.md
 - name: Tutoriales
   items:
     - name: Creación de flujos de trabajo basados en programación
@@ -26,8 +28,10 @@
       href: tutorial-process-email-attachments-workflow.md
 - name: Ejemplos
   items:
+    - name: 'Creación de una aplicación lógica: script de ejemplo'
+      href: sample-logic-apps-cli-script.md
     - name: Ejemplos de código de Azure
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-logic-apps'
+      href: /samples/browse/?products=azure-logic-apps
     - name: Plantillas de inicio rápido de Resource Manager
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic'
     - name: Elementos integrados de Azure Policy
@@ -47,8 +51,13 @@
       href: connect-virtual-network-vnet-isolated-environment-overview.md
     - name: Continuidad empresarial y recuperación ante desastres
       href: business-continuity-disaster-recovery-guidance.md
-    - name: Línea de base de seguridad
-      href: security-baseline.md
+    - name: Seguridad
+      items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
+        - name: Línea de base de seguridad
+          href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Desarrollar
@@ -205,24 +214,18 @@
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Bing Search
           href: ../connectors/connectors-create-api-bingsearch.md
-        - name: Box
-          href: ../connectors/connectors-create-api-box.md
         - name: Common Data Service
           href: ../connectors/connect-common-data-service.md
         - name: API y aplicaciones web personalizadas
           href: logic-apps-create-api-app.md
         - name: Delay
           href: ../connectors/connectors-native-delay.md
-        - name: Dropbox
-          href: ../connectors/connectors-create-api-dropbox.md
         - name: Dynamics 365
           href: ../connectors/connectors-create-api-crmonline.md
         - name: EDIFACT
           href: logic-apps-enterprise-integration-edifact.md
         - name: Excel Online para empresas o OneDrive
           href: ../connectors/connectors-create-api-excel.md
-        - name: Facebook
-          href: ../connectors/connectors-create-api-facebook.md
         - name: Sistema de archivos
           href: logic-apps-using-file-connector.md
         - name: Archivo plano
@@ -249,18 +252,10 @@
           href: ../connectors/connectors-create-api-mq.md
         - name: Integration Account
           href: logic-apps-enterprise-integration-metadata.md
-        - name: MailChimp
-          href: ../connectors/connectors-create-api-mailchimp.md
         - name: Microsoft Graph Security
           href: ../connectors/connectors-integrate-security-operations-create-api-microsoft-graph-security.md
-        - name: Microsoft Translator
-          href: ../connectors/connectors-create-api-microsofttranslator.md
         - name: Office 365 Outlook
           href: ../connectors/connectors-create-api-office365-outlook.md
-        - name: Usuarios de Office 365
-          href: ../connectors/connectors-create-api-office365-users.md
-        - name: Office 365 Video
-          href: ../connectors/connectors-create-api-office365-video.md
         - name: OneDrive
           href: ../connectors/connectors-create-api-onedrive.md
         - name: OneDrive para la Empresa
@@ -269,16 +264,12 @@
           href: ../connectors/connectors-create-api-oracledatabase.md
         - name: Outlook.com
           href: ../connectors/connectors-create-api-outlook.md
-        - name: Project Online
-          href: ../connectors/connectors-create-api-projectonline.md
         - name: Periodicidad
           href: ../connectors/connectors-native-recurrence.md
         - name: Request / Response
           href: ../connectors/connectors-native-reqres.md
         - name: RosettaNet
           href: logic-apps-enterprise-integration-rosettanet.md
-        - name: RSS
-          href: ../connectors/connectors-create-api-rss.md
         - name: Salesforce
           href: ../connectors/connectors-create-api-salesforce.md
         - name: SAP (nuevo)
@@ -301,10 +292,6 @@
           href: ../connectors/connectors-create-api-sqlazure.md
         - name: Transformación de XML
           href: logic-apps-enterprise-integration-transform.md
-        - name: Trello
-          href: ../connectors/connectors-create-api-trello.md
-        - name: Twitter
-          href: ../connectors/connectors-create-api-twitter.md
         - name: Twilio
           href: ../connectors/connectors-create-api-twilio.md
         - name: Wunderlist
@@ -313,8 +300,6 @@
           href: logic-apps-enterprise-integration-x12.md
         - name: Validación XML
           href: logic-apps-enterprise-integration-xml-validation.md
-        - name: Yammer
-          href: ../connectors/connectors-create-api-yammer.md
     - name: Seguridad
       items:
         - name: Protección de las aplicaciones lógicas
@@ -330,7 +315,7 @@
         - name: 'Administración de aplicaciones lógicas: Visual Studio'
           href: manage-logic-apps-with-visual-studio.md
         - name: Administración de cuentas de integración
-          href: logic-apps-enterprise-integration-accounts.md
+          href: ./logic-apps-enterprise-integration-create-integration-account.md
         - name: Administración de entornos del servicio de integración
           href: ise-manage-integration-service-environment.md
         - name: Traslado de recursos de aplicaciones lógicas
@@ -381,7 +366,7 @@
         - name: Integración empresarial con colas y eventos
           href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
     - name: 'Conectores: detalles completos'
-      href: 'https://docs.microsoft.com/connectors/'
+      href: /connectors/
     - name: Límites y configuración del servicio
       href: logic-apps-limits-and-config.md
     - name: Modelo de precios y medición de uso
@@ -414,7 +399,7 @@
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn
-      href: 'https://docs.microsoft.com/learn/browse/?products=azure-logic-apps'
+      href: /learn/browse/?products=azure-logic-apps
     - name: Hoja de ruta de Azure Logic Apps
       href: 'https://aka.ms/logicappsroadmap/'
     - name: Azure Roadmap
@@ -428,7 +413,7 @@
     - name: Vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest'
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-logic-apps.html'
+      href: /answers/topics/azure-logic-apps.html
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/azure-logic-apps'
     - name: Twitter

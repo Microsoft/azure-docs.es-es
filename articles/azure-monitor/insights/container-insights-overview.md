@@ -3,12 +3,12 @@ title: Introducción a Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe Azure Monitor para contenedores, que supervisa la solución de AKS Container Insights y el valor que entrega mediante la supervisión del estado de los clústeres de AKS y Container Instances en Azure.
 ms.topic: conceptual
 ms.date: 05/21/2020
-ms.openlocfilehash: d176a84d72c92eddd4ffd4fcd1011bda172e5cc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85adae1b79609f13be6bb73eb4e57000beda6d77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320279"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>Introducción a Azure Monitor para contenedores
 
@@ -17,7 +17,7 @@ Azure Monitor para contenedores es una característica diseñada para supervisar
 - Clústeres de Kubernetes administrados que se hospedan en [Azure Kubernetes Service (AKS)](../../aks/intro-kubernetes.md)
 - Clústeres de Kubernetes autoadministrados que se hospedan en Azure con [AKS Engine](https://github.com/Azure/aks-engine)
 - [Azure Container Instances](../../container-instances/container-instances-overview.md)
-- Clústeres de Kubernetes autoadministrados que se hospedan en [Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) o en el entorno local
+- Clústeres de Kubernetes autoadministrados que se hospedan en [Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1910) o en el entorno local
 - [Red Hat OpenShift en Azure](../../openshift/intro-openshift.md)
 - [Kubernetes habilitado para Azure Arc](../../azure-arc/kubernetes/overview.md) (versión preliminar)
 
@@ -40,7 +40,7 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión completa 
 * Conocer el comportamiento del clúster tanto con cargas medias como con las más pesadas. Este conocimiento puede ayudarle a identificar los requisitos de capacidad y determinar la carga máxima que el clúster puede admitir.
 * Configure alertas para que le notifiquen de manera proactiva o registren el hecho de que el uso de la CPU y la memoria en nodos o contenedores supera los umbrales, o cuando se produzca un cambio del estado de mantenimiento en el clúster en la infraestructura o la acumulación de estado de los nodos.
 * Integrarse con [Prometheus](https://prometheus.io/docs/introduction/overview/) para ver las métricas de la aplicación y de la carga de trabajo que recopila de los nodos y Kubernetes mediante [consultas](container-insights-log-search.md) para crear alertas personalizadas y paneles y realizar un análisis detallado.
-* Supervise las cargas de trabajo de contenedor [implementadas en AKS Engine](https://github.com/Azure/aks-engine) de manera local y [AKS Engine en Azure Stack](https://docs.microsoft.com/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
+* Supervise las cargas de trabajo de contenedor [implementadas en AKS Engine](https://github.com/Azure/aks-engine) de manera local y [AKS Engine en Azure Stack](/azure-stack/user/azure-stack-kubernetes-aks-engine-overview?view=azs-1908).
 * Supervise las cargas de trabajo de contenedor [implementadas en Red Hat OpenShift en Azure](../../openshift/intro-openshift.md).
 
     >[!NOTE]
@@ -51,7 +51,7 @@ Azure Monitor para contenedores ofrece una experiencia de supervisión completa 
 
 Estas son las principales diferencias al supervisar un clúster de Windows Server en comparación con un clúster de Linux:
 
-- Windows no tiene una métrica RSS de memoria y, como resultado, no está disponible para los contenedores y el nodo de Windows. La métrica de [espacio de trabajo](https://docs.microsoft.com/windows/win32/memory/working-set) está disponible.
+- Windows no tiene una métrica RSS de memoria y, como resultado, no está disponible para los contenedores y el nodo de Windows. La métrica de [espacio de trabajo](/windows/win32/memory/working-set) está disponible.
 - La información sobre la capacidad de almacenamiento del disco no está disponible para los nodos de Windows.
 - Solo se supervisan los entornos de pods, no los entornos de Docker.
 - Con la versión preliminar, se admite un máximo de 30 contenedores de Windows Server. Esta limitación no se aplica a los contenedores de Linux.
@@ -66,8 +66,9 @@ Puede acceder a Azure Monitor para contenedores de dos maneras: desde Azure Moni
 
 ![Introducción a los métodos de acceso a Azure Monitor para contenedores](./media/container-insights-overview/azmon-containers-experience.png)
 
-Si le interesan la supervisión y la administración de hosts de contenedor de Docker y Windows que se ejecutan fuera de AKS y quiere más información sobre la configuración, la auditoría y la utilización de recursos, consulte la [solución de supervisión de contenedores](../../azure-monitor/insights/containers.md).
+Si le interesan la supervisión y la administración de hosts de contenedor de Docker y Windows que se ejecutan fuera de AKS y quiere más información sobre la configuración, la auditoría y la utilización de recursos, consulte la [solución de supervisión de contenedores](./containers.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para comenzar a supervisar el clúster de Kubernetes, revise [Cómo habilitar Azure Monitor para contenedores](container-insights-onboard.md), a fin de conocer los requisitos y los métodos disponibles para habilitar la supervisión.
+

@@ -4,21 +4,21 @@ description: Script de ejemplo de la CLI de Azure para crear una instancia admin
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 1f6c178c1f8813300d3473ad3b788ecd7e7b573e
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: b29fcd33c8181ba61f57d7105d08e7e4956d80bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84115391"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497263"
 ---
-# <a name="use-cli-to-add-an-azure-sql-managed-instance-to-a-failover-group"></a>Uso de la CLI para agregar una instancia administrada de Azure SQL a un grupo de conmutación por error
+# <a name="use-cli-to-create-an-azure-sql-managed-instance-to-a-failover-group"></a>Uso de la CLI para agregar una instancia de Azure SQL Managed Instance a un grupo de conmutación por error
 
 Este ejemplo de la CLI de Azure crea dos instancias administradas, las agrega a un grupo de conmutación por error y, a continuación, prueba la conmutación por error de la instancia administrada principal en la instancia administrada secundaria.
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| | |
+| Get-Help | Descripción |
 |---|---|
 | [az network vnet](/cli/azure/network/vnet) | Comandos de red virtual.  |
 | [az network vnet subnet](/cli/azure/network/vnet/subnet) | Comandos de subred de red virtual. |

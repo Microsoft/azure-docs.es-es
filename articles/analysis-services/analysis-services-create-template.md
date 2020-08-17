@@ -4,16 +4,16 @@ description: Inicio rápido que explica cómo crear un recurso de servidor de Az
 author: minewiskan
 ms.author: owend
 tags: azure-resource-manager
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 04/14/2020
-ms.custom: subject-armqs
-ms.openlocfilehash: 4dd7906ed32faa630ba074cb29e7987a64205cb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-armqs, references_regions
+ms.openlocfilehash: 249c678fb6d55f01a9f06e4e1db5f41fa85a700f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042108"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553077"
 ---
 # <a name="quickstart-create-a-server---arm-template"></a>Inicio rápido: Creación de un servidor: plantilla de ARM
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/17/2020
 ms.author: swmachan
-ms.openlocfilehash: 563f4693c358c570caa2566f58002ddfe6c7bc69
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 512632faae453ebdf7cb7b279fe2d29b25d23d6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83584644"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090865"
 ---
 # <a name="translator-30-translate"></a>Traductor 3.0: Translate
 
@@ -59,7 +59,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
   </tr>  
   <tr>
     <td>textType</td>
-    <td><em>Parámetro opcional</em>.<br/>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los valores posibles son <code>plain</code> (valor predeterminado) o <code>html</code>.</td>
+    <td><em>Parámetro opcional</em>.<br/>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los possible valores son: <code>plain</code> (predeterminado) o <code>html</code>.</td>
   </tr>
   <tr>
     <td>category</td>
@@ -317,6 +317,7 @@ Traducir varias cadenas a la vez es simplemente cuestión de especificar una mat
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
+La respuesta contiene la traducción de todos los fragmentos de texto exactamente en el mismo orden que en la solicitud.
 El cuerpo de la respuesta es:
 
 ```

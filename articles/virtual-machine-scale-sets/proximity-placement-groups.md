@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 07/01/2019
 ms.reviewer: zivr
 ms.custom: mimckitt
-ms.openlocfilehash: 8e455d4d016f97a466838c07fc7af2422f72cc00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1525ef7c1e19aa9821df3f111fdce3518d37afd5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83727104"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011063"
 ---
 # <a name="preview-creating-and-using-proximity-placement-groups-using-powershell"></a>Vista previa: Creación y uso de grupos de selección de ubicación de proximidad con PowerShell
 
@@ -30,7 +30,7 @@ Un grupo de selección de ubicación de proximidad es una agrupación lógica qu
 
 
 ## <a name="create-a-proximity-placement-group"></a>Creación de un grupo de selección de ubicación por proximidad
-Cree un grupo de selección de ubicación de proximidad con el cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
+Cree un grupo de selección de ubicación de proximidad con el cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -55,7 +55,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-scale-set"></a>Creación de un conjunto de escalado
 
-Cree una escala en el grupo de selección de ubicación de proximidad con `-ProximityPlacementGroup $ppg.Id` para hacer referencia al identificador de grupo de selección de ubicación de proximidad cuando use [New-AzVMSS](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para crear el conjunto de escalado.
+Cree una escala en el grupo de selección de ubicación de proximidad con `-ProximityPlacementGroup $ppg.Id` para hacer referencia al identificador de grupo de selección de ubicación de proximidad cuando use [New-AzVMSS](/powershell/module/az.compute/new-azvmss) para crear el conjunto de escalado.
 
 ```azurepowershell-interactive
 $scalesetName = "myVM"

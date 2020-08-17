@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: how-to
 ms.date: 01/21/2020
 ms.author: rohogue
-ms.openlocfilehash: c1828bcde5c26c5605b867c115127eb2502bdd86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 538f3f18e1c8889834b9ee6588b85c9094dfbebe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505348"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496719"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparación para la creación de Avere vFXT
 
@@ -32,13 +32,13 @@ Para crear una nueva suscripción de Azure en Azure Portal:
 
 Un usuario con permisos de propietario de la suscripción debe encargarse de crear el clúster de vFXT. La creación del clúster requiere que un propietario acepte los términos de servicio del software y autorice los cambios en los recursos de red y de almacenamiento.
 
-Hay algunas soluciones alternativas que permiten a quien no sea propietario crear una instancia de Avere vFXT para el clúster de Azure. Estos escenarios implican restringir los recursos y asignar roles de control de acceso basado en roles (RBAC) adicionales al creador. En todos los casos, el propietario de una suscripción también debe [aceptar los términos del software de Avere vFXT](#accept-software-terms) con antelación.
+Hay algunas soluciones alternativas que permiten a quien no sea propietario crear una instancia de Avere vFXT para el clúster de Azure. Estos escenarios implican restringir los recursos y asignar roles de Azure adicionales al creador. En todos los casos, el propietario de una suscripción también debe [aceptar los términos del software de Avere vFXT](#accept-software-terms) con antelación.
 
 | Escenario | Restricciones | Roles de acceso necesarios para crear el clúster de vFXT Avere |
 |----------|--------|-------|
 | El administrador del grupo de recursos crea el vFXT | La red virtual, el controlador de clúster y los nodos de clúster deben crearse en el grupo de recursos. | Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor), ambos con ámbito en el grupo de recursos de destino. |
 | Uso de una red virtual externa existente | El controlador de clúster y los nodos de clúster se crean dentro del grupo de recursos de vFXT, pero se usa una red virtual existente de otro grupo de recursos. | (1) Roles [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador](../role-based-access-control/built-in-roles.md#contributor) con ámbito en el grupo de recursos de vFXT; y (2) Roles [Colaborador de la máquina virtual](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [Administrador de acceso de usuario](../role-based-access-control/built-in-roles.md#user-access-administrator) y [Colaborador de Avere](../role-based-access-control/built-in-roles.md#avere-contributor) con ámbito en el grupo de recursos de la red virtual. |
-| Rol personalizado para los creadores de clústeres | No hay restricciones en la ubicación de los recursos. Este método proporciona privilegios significativos a quienes no son propietarios. | El propietario de la suscripción crea un rol RBAC personalizado, tal como se explica en [este artículo](avere-vfxt-non-owner.md). |
+| Rol personalizado para los creadores de clústeres | No hay restricciones en la ubicación de los recursos. Este método proporciona privilegios significativos a quienes no son propietarios. | El propietario de la suscripción crea un rol personalizado de Azure, tal como se explica en [este artículo](avere-vfxt-non-owner.md). |
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Cuota del clúster de vFXT
 

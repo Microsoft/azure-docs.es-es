@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: 6ffc81f7fc5cf36ff4e9bada8f72cfef013afcbc
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 94ffe2852380d238e9829a8ab0cc69ebe82b74fe
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85982805"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373511"
 ---
 # <a name="enable-automatic-tuning-in-the-azure-portal-to-monitor-queries-and-improve-workload-performance"></a>Habilitación del ajuste automático en Azure Portal para supervisar las consultas y mejorar el rendimiento de las cargas de trabajo
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -117,7 +117,7 @@ El ajuste automático supervisa todas las acciones que realiza en la base de dat
 
 ## <a name="permissions"></a>Permisos
 
-Dado que el ajuste automático es una característica de Azure, para usarla, necesitará usar los roles integrados de RBAC de Azure. Usar solo la autenticación de SQL no será suficiente para usar la característica de Azure Portal.
+Dado que el ajuste automático es una característica de Azure, para poder utilizarla, necesitará emplear los roles integrados en Azure. Usar solo la autenticación de SQL no será suficiente para usar la característica de Azure Portal.
 
 Para usar el ajuste automático, el permiso mínimo necesario que se debe conceder al usuario es el rol integrado de Azure de [Colaborador de SQL Database](../../role-based-access-control/built-in-roles.md#sql-db-contributor). También puede considerar el uso de roles con privilegios más elevados, como Colaborador de SQL Server, Colaborador de Instancia administrada de SQL, Colaborador y Propietario.
 

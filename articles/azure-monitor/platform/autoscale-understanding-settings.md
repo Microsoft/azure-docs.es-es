@@ -4,12 +4,12 @@ description: Un análisis detallado de la configuración de escalado automático
 ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 03019b35a85d8d511e3ada131eff890a60fd57f6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6d6b868f745803263339e6b27e2610aaca8f63fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539387"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317474"
 ---
 # <a name="understand-autoscale-settings"></a>Información acerca de la configuración de escalado automático
 La configuración de escalado automático le ayuda a asegurarse de que tiene la cantidad adecuada de recursos en ejecución para administrar las fluctuaciones de carga de la aplicación. Puede configurar los valores de escalado automático para que se desencadene en función de métricas que indican carga o rendimiento, o para que se desencadene en una fecha y hora programadas. En este artículo se proporciona una visión detallada de la estructura de una configuración de escalado automático. El artículo comienza con el esquema y las propiedades de una configuración y luego le guía por los diferentes tipos de perfil que se pueden configurar. Por último, en el artículo se describe cómo la característica de escalado automático de Azure evalúa qué perfil ejecutar en un momento dado.
@@ -301,8 +301,9 @@ Por ejemplo, supongamos que hay un conjunto de escalado de máquinas virtuales c
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre el escalado automático, consulte los siguientes recursos:
 
-* [Introducción a los registros de escalado automático](../../azure-monitor/platform/autoscale-overview.md)
-* [Métricas comunes de escalado automático de Azure Monitor](../../azure-monitor/platform/autoscale-common-metrics.md)
-* [Procedimientos recomendados de escalado automático en Azure Monitor](../../azure-monitor/platform/autoscale-best-practices.md)
-* [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](../../azure-monitor/platform/autoscale-webhook-email.md)
+* [Introducción a los registros de escalado automático](./autoscale-overview.md)
+* [Métricas comunes de escalado automático de Azure Monitor](./autoscale-common-metrics.md)
+* [Procedimientos recomendados de escalado automático en Azure Monitor](./autoscale-best-practices.md)
+* [Uso de acciones de escalado automático para enviar notificaciones de alerta por correo electrónico y Webhook en Azure Insights](./autoscale-webhook-email.md)
 * [API de REST de escalado automático](/rest/api/monitor/autoscalesettings)
+

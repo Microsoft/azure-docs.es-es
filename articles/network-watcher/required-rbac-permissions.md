@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: damendo
-ms.openlocfilehash: f8743f19d6cd262ad140659be55a4fc57e842564
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: de345578b2cade18d126a113937f2eede8e8157e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76840560"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497314"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Permisos de control de acceso basado en roles necesarios para usar las funcionalidades de Network Watcher
 
-El control de acceso basado en roles (RBAC) de Azure permite asignar solo las acciones específicas a los miembros de su organización que necesitan para completar sus responsabilidades asignadas. Para usar las funcionalidades de Network Watcher, debe asignar a la cuenta con la que inicia sesión en Azure a los roles integrados de [propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), o [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor), o se le debe asignar un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) al que se asignan las acciones que se enumeran para cada funcionalidad de Network Watcher en las secciones siguientes. Para obtener más información sobre las funcionalidades de Network Watcher, consulte [¿Qué es Network Watcher?](network-watcher-monitoring-overview.md)
+El control de acceso basado en roles (Azure RBAC) de Azure le permite asignar únicamente acciones específicas a los miembros de su organización que las necesiten para completar sus responsabilidades asignadas. Para usar las funcionalidades de Network Watcher, debe asignar a la cuenta con la que inicia sesión en Azure a los roles integrados de [propietario](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#owner), [colaborador](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#contributor), o [colaborador de red](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-contributor), o se le debe asignar un [rol personalizado](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) al que se asignan las acciones que se enumeran para cada funcionalidad de Network Watcher en las secciones siguientes. Para obtener más información sobre las funcionalidades de Network Watcher, consulte [¿Qué es Network Watcher?](network-watcher-monitoring-overview.md)
 
 ## <a name="network-watcher"></a>Network Watcher
 
@@ -104,7 +104,7 @@ Las funcionalidades de Network Watcher también requieren las siguientes accione
 
 | Acciones                                                           | Descripción                                                    |
 | ---------                                                           | -------------                                                  |
-| Microsoft.Authorization/\*/Read                                     | Se usa para capturar asignaciones de roles de RBAC y definiciones de directivas.          |
+| Microsoft.Authorization/\*/Read                                     | Se usa para capturar asignaciones de roles de Azure y definiciones de directivas.          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | Se usa para enumerar todos los grupos de recursos de una suscripción.    |
 | Microsoft.Storage/storageAccounts/Read                              | Se usa para obtener las propiedades de la cuenta de almacenamiento especificada.   |
 | Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action| Se usa para capturar firmas de acceso compartido (SAS) que permiten el [acceso seguro a la cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) y escriben en la cuenta de almacenamiento. |

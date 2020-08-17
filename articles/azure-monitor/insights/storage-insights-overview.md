@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7ab7071f504231290f72646e59a30fa855cff6cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84944498"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327351"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Supervisión del servicio de almacenamiento con Azure Monitor para Storage
 
@@ -31,7 +31,7 @@ Cuando se combinan, ofrece lo siguiente:
 
 * **Personalización**, que le permite cambiar las métricas que desea ver y modificar, o establecer umbrales en consonancia con sus límites y guardarlos en su propio libro. Los gráficos del libro se pueden anclar al panel de Azure.  
 
-Esta característica no requiere que se habilite ni configure nada; las métricas de almacenamiento de las cuentas de almacenamiento se recopilan de forma predeterminada. Si no está familiarizado con las métricas disponibles en Azure Storage, revise la descripción y la definición de las métricas de Azure Storage en [Métricas de Azure Storage](../../storage/common/storage-metrics-in-azure-monitor.md).
+Esta característica no requiere que se habilite ni configure nada; las métricas de almacenamiento de las cuentas de almacenamiento se recopilan de forma predeterminada. Si no está familiarizado con las métricas disponibles en Azure Storage, revise la descripción y la definición de las métricas de Azure Storage en [Métricas de Azure Storage](../../storage/common/monitor-storage.md).
 
 >[!NOTE]
 >El acceso a esta característica no se cobra, solo paga por las características básicas de Azure Monitor esenciales que configure o habilite, como se describe en la página de detalles de [Precios de Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).
@@ -198,7 +198,7 @@ Ahora, vamos a cambiar el tema de color de las métricas de capacidad del inform
 
 1. Seleccione **Column Settings** (Configuración de columna) en la cuadrícula de métricas.
 
-2. En el panel **Edit column settings** (Editar la configuración de las columnas), en la sección **Columns** (Columnas), seleccione **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . En la lista desplegable **Color palette** (Paleta de colores), seleccione **Green** (Verde).
+2. En el panel **Editar la configuración de las columnas**, en la sección **Columnas**, seleccione **microsoft.storage/storageaccounts-Capacity-UsedCapacity$`|`microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$`|`microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$`|`microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$`|`microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$** . En la lista desplegable **Color palette** (Paleta de colores), seleccione **Green** (Verde).
 
 3. Seleccione **Save and close** (Guardar y cerrar) para confirmar el cambio.
 
@@ -242,11 +242,11 @@ El número de cuentas de almacenamiento seleccionadas tiene un límite de 200, c
 
 ### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>¿Cómo se cambia el coloreado y el umbral para la disponibilidad?
 
-Consulte la sección [Modificación del umbral de disponibilidad](storage-insights-overview.md#modify-the-availability-threshold) para ver los pasos detallados sobre cómo cambiar el coloreado y los umbrales para la disponibilidad.
+Consulte la sección [Modificación del umbral de disponibilidad](#modify-the-availability-threshold) para ver los pasos detallados sobre cómo cambiar el coloreado y los umbrales para la disponibilidad.
 
 ### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>¿Cómo se analizan y se solucionan problemas con los datos que se muestran en Azure Monitor para Storage?
 
- Consulte el artículo [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) para más información sobre cómo analizar y solucionar problemas de los datos de Azure Storage que se muestran en Azure Monitor para Storage.
+ Consulte el artículo [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md) para más información sobre cómo analizar y solucionar problemas de los datos de Azure Storage que se muestran en Azure Monitor para Storage.
 
 ### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>¿Por qué no se ven todos los tipos de errores en las métricas?
 
@@ -269,8 +269,9 @@ Cada libro se guarda en la cuenta de almacenamiento desde la que se guardó. Int
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications.md) para generar alertas automáticas que ayuden a detectar los problemas.
+* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md) para generar alertas automáticas que ayuden a detectar los problemas.
 
 * Conozca los escenarios para los que están concebidos los libros, cómo crear informes y personalizar los ya existentes y otros muchos temas en el artículo [Crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).
 
 * Para obtener orientación exhaustiva sobre el uso de análisis de almacenamiento y otras herramientas para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage, consulte [Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
+

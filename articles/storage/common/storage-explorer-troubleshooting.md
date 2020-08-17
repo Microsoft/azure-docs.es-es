@@ -6,14 +6,14 @@ author: Deland-Han
 manager: dcscontentpm
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 07/28/2020
 ms.author: delhan
-ms.openlocfilehash: a49e5fbe9eac689b630a0f3b443729faf29cdb0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b57a57f05853b9f8c291dc2ac352db7b1e679260
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84974524"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534862"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guía de solución de problemas del Explorador de Azure Storage
 
@@ -48,7 +48,7 @@ Se le debe haber asignado al menos un rol que conceda acceso para leer datos de 
 
 Azure Storage tiene dos capas de acceso: _administración_ y _datos_. Se accede a las suscripciones y cuentas de almacenamiento mediante la capa de administración. Se accede a los contenedores, blobs y otros recursos de datos mediante la capa de datos. Por ejemplo, si desea obtener una lista de las cuentas de almacenamiento de Azure, debe enviar una solicitud al punto de conexión de administración. Si desea obtener una lista de los contenedores de blobs de una cuenta, envíe una solicitud al punto de conexión de servicio adecuado.
 
-Los roles de RBAC pueden concederle los permisos para acceder a la capa de datos o de administración. Por ejemplo, el rol Lector otorga acceso de solo lectura a los recursos de la capa de administración.
+Los roles de Azure pueden concederle los permisos necesario s para obtener acceso a la capa de datos o de administración. Por ejemplo, el rol Lector otorga acceso de solo lectura a los recursos de la capa de administración.
 
 Estrictamente hablando, el rol Lector no proporciona permisos para la capa de datos y no es necesario para acceder a esa capa.
 
@@ -67,9 +67,9 @@ Si quiere acceder a los contenedores de blobs o a las colas, puede adjuntarlos a
 
 Actualmente no tenemos una solución relacionada con RBAC para otros tipos de recursos. Como alternativa, puede solicitar un URI de SAS para que se [adjunte al recurso](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri).
 
-### <a name="recommended-built-in-rbac-roles"></a>Roles de RBAC integrados recomendados
+### <a name="recommended-azure-built-in-roles"></a>Roles integrados de Azure recomendados
 
-Hay varios roles de RBAC integrados que pueden proporcionar los permisos necesarios para usar el Explorador de Storage. Algunos de estos roles son:
+Hay varios roles integrados de Azure que pueden proporcionar los permisos necesarios para usar el Explorador de Storage. Algunos de estos roles son:
 - [Propietario](/azure/role-based-access-control/built-in-roles#owner): administra todo, incluido el acceso a los recursos. **Nota**: Este rol le proporcionará acceso con clave.
 - [Colaborador](/azure/role-based-access-control/built-in-roles#contributor): administra todo, excepto el acceso a los recursos. **Nota**: Este rol le proporcionará acceso con clave.
 - [Lector](/azure/role-based-access-control/built-in-roles#reader): lee y enumera los recursos.
@@ -335,7 +335,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     dpkg -i packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
@@ -348,7 +348,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     dpkg -i packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \
@@ -361,7 +361,7 @@ El Explorador de Storage requiere que .NET Core esté instalado en el sistema. S
 2. Instale el [entorno de ejecución de .NET Core](https://docs.microsoft.com/dotnet/core/install/linux):
    ```bash
    wget https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb; \
-     dpkg -i packages-microsoft-prod.deb; \
+     sudo dpkg -i packages-microsoft-prod.deb; \
      sudo apt-get update; \
      sudo apt-get install -y apt-transport-https && \
      sudo apt-get update && \

@@ -5,16 +5,16 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.openlocfilehash: 6950f1dd81ef2c70f2c45fb4c547ed7676067790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eead2d6ae2860bf06f1b878c1bb1692d74c06df6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847646"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055970"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions-overview"></a>Introducción a los enlaces de Azure Blob Storage para Azure Functions
 
-Azure Functions se integra con [Azure Storage](https://docs.microsoft.com/azure/storage/) mediante [desencadenadores y enlaces](./functions-triggers-bindings.md). La integración con Blob Storage permite crear funciones que reaccionan a los cambios en los datos del blob, así como a los valores de lectura y escritura.
+Azure Functions se integra con [Azure Storage](../storage/index.yml) mediante [desencadenadores y enlaces](./functions-triggers-bindings.md). La integración con Blob Storage permite crear funciones que reaccionan a los cambios en los datos del blob, así como a los valores de lectura y escritura.
 
 | Acción | Tipo |
 |---------|---------|

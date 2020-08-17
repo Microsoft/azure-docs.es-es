@@ -3,14 +3,14 @@ title: 'Inicio rápido: Obtención de respuestas de la base de conocimiento en Q
 description: Esta guía de inicio rápido basada en REST de Java le guiará a través del proceso para obtener una respuesta de una base de conocimiento mediante programación.
 ms.date: 02/08/2020
 ROBOTS: NOINDEX,NOFOLLOW
-ms.custom: RESTCURL2020FEB27
+ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: f162276044e63c9deb46a60033ffe9904366f777
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 3b193473ea20880c4efcf8747a129680008e3c9f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84342806"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325940"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Inicio rápido: Obtención de respuestas a una pregunta desde una base de conocimiento con Java
 

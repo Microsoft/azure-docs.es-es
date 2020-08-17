@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7193affad3da212a6a40c0d9479473ec597e86f6
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 38bd83f8bd713f2d5bda658e052c919dd3d7625d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807628"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119715"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (XAML)
 
@@ -27,7 +27,7 @@ En esta guía se explica cómo una aplicación de la Plataforma universal de Win
 Al final de esta guía, su aplicación llama a una API protegida mediante cuentas personales. Algunos ejemplos son outlook.com, live.com, etc. Su aplicación también llama a cuentas profesionales y educativas de cualquier empresa u organización que tenga Azure Active Directory (Azure AD).
 
 >[!NOTE]
-> En esta guía es necesario instalar el desarrollo de Visual Studio con la Plataforma universal de Windows. Para obtener instrucciones sobre cómo descargar y configurar Visual Studio para desarrollar aplicaciones de la Plataforma universal de Windows, consulte [Prepárese](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
+> En esta guía es necesario instalar el desarrollo de Visual Studio con la Plataforma universal de Windows. Para obtener instrucciones sobre cómo descargar y configurar Visual Studio para desarrollar aplicaciones de la Plataforma universal de Windows, consulte [Prepárese](/windows/uwp/get-started/get-set-up).
 
 >[!NOTE]
 > Si nunca ha usado la plataforma de identidad de Microsoft, comience con [Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)](quickstart-v2-uwp.md).

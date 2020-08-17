@@ -3,16 +3,16 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que Azure Backup realiza una copia de seguridad.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: cb764fa441c063328dc350cf26f42c5bc7a0ca99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6684cb348c9edb35b5f3e46fb7922e9aa265c725
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073297"
 ---
 # <a name="manage-azure-file-share-backups"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure
 
-En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) realiza una copia de seguridad. Aprenderá a realizar tareas de administración en el almacén de Recovery Services.
+En este artículo se describen las tareas comunes para administrar y supervisar los recursos compartidos de archivos de Azure de los que [Azure Backup](./backup-overview.md) realiza una copia de seguridad. Aprenderá a realizar tareas de administración en el almacén de Recovery Services.
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 
@@ -165,4 +165,4 @@ Para anular el registro de la cuenta de almacenamiento:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, vea [Solución de problemas de las copias de seguridad de recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/backup/troubleshoot-azure-files).
+Para más información, vea [Solución de problemas de las copias de seguridad de recursos compartidos de archivos de Azure](./troubleshoot-azure-files.md).

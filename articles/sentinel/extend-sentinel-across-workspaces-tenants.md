@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: yelevin
-ms.openlocfilehash: d76f8e2d750b8ab2d82e9424f929d8b8353ac25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84816453"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519020"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Extender Azure Sentinel por áreas de trabajo e inquilinos
 
@@ -110,6 +110,12 @@ Los libros pueden proporcionar consultas entre áreas de trabajo en uno de los t
 | Edición del libro de forma interactiva | Un usuario avanzado que modifica un libro existente puede editar las consultas que hay en él y seleccionar las áreas de trabajo de destino mediante el selector de área de trabajo en el editor. | Esta opción permite a un usuario avanzado modificar fácilmente los libros existentes para trabajar con varias áreas de trabajo. |
 |
 
+### <a name="cross-workspace-hunting"></a>Búsqueda entre áreas de trabajo
+
+Azure Sentinel proporciona ejemplos precargados de consultas diseñadas para que pueda empezar a trabajar y a familiarizarse con las tablas y el lenguaje de consulta. Estas consultas de búsqueda integradas están desarrolladas por investigadores de seguridad de Microsoft, y lo hacen de forma continua, agregando nuevas consultas y ajustando las consultas existentes para que sean un punto de entrada para buscar nuevas detecciones e identificar signos de intrusión que pueden haber pasado inadvertidos por las herramientas de seguridad.  
+
+Las funcionalidades de búsqueda entre áreas de trabajo permiten que los buscadores de amenazas creen nuevas consultas de búsqueda o adapten las existentes, para abarcar varias áreas de trabajo, mediante el operador de unión y la expresión workspace(), como se mostró anteriormente.
+
 ## <a name="cross-workspace-management-using-automation"></a>Administración entre áreas de trabajo mediante automatización
 
 Para configurar y administrar varias áreas de trabajo de Azure Sentinel, deberá automatizar el uso de la API de administración de Azure Sentinel. Para obtener más información sobre cómo automatizar la implementación de recursos de Azure Sentinel, incluidas reglas de alertas, consultas de búsqueda, libros y guías, consulte [Extensión de Azure Sentinel: API, integración y automatización de la administración](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
@@ -122,8 +128,6 @@ Consulte también [Implementación y administración de Azure Sentinel como cód
 No se admiten las siguientes características en las áreas de trabajo:
 
 - Una regla de alerta programada no se puede ejecutar en áreas de trabajo mediante una consulta entre áreas de trabajo.
-
-- Las consultas de búsqueda no admiten consultas entre áreas de trabajo.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Administración de áreas de trabajo en los inquilinos mediante Azure Lighthouse
 

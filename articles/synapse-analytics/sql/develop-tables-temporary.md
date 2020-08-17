@@ -1,5 +1,5 @@
 ---
-title: Uso de tablas temporales con SQL de Synapse
+title: Uso de tablas temporales en Synapse SQL
 description: Instrucciones esenciales para el uso de tablas temporales en SQL de Synapse.
 services: synapse-analytics
 author: XiaoyuMSFT
@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 090f453771dba6f537ad60605c6e9b96f3ca9957
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: c6c0e86bc372790cda2de4ff4c1274f414a01ab0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426688"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503215"
 ---
 # <a name="temporary-tables-in-synapse-sql"></a>Tablas temporales en SQL de Synapse
 
@@ -23,7 +23,7 @@ Este artículo contiene directrices esenciales para el uso de tablas temporales 
 
 Los recursos del grupo de SQL y SQL a petición (versión preliminar) pueden emplear tablas temporales. SQL a petición tiene limitaciones que se analizan al final de este artículo. 
 
-## <a name="what-are-temporary-tables"></a>¿Qué son las tablas temporales?
+## <a name="temporary-tables"></a>Tablas temporales
 
 Las tablas temporales son útiles al procesar datos, especialmente durante la transformación, en la que los resultados intermedios son transitorios. En SQL de Synapse, las tablas temporales existen en el nivel de sesión.  Solo están visibles para la sesión en la que se crearon. Como tales, se quitan automáticamente cuando se cierra la sesión. 
 
@@ -98,7 +98,7 @@ GROUP BY
 > 
 > 
 
-### <a name="dropping-temporary-tables"></a>Eliminación de tablas temporales
+### <a name="drop-temporary-tables"></a>Eliminación de tablas temporales
 Cuando se crea una nueva sesión, no debe existir ninguna tabla temporal.  Sin embargo, si va a llamar al mismo procedimiento almacenado que crea un archivo temporal con el mismo nombre para tener la seguridad de que las instrucciones `CREATE TABLE` se ejecutan correctamente, puede usar una sencilla comprobación de existencia previa con `DROP`: 
 
 ```sql
@@ -116,7 +116,7 @@ En el desarrollo de procedimientos almacenados, es habitual que los comandos de 
 DROP TABLE #stats_ddl
 ```
 
-### <a name="modularizing-code"></a>Modularización de código
+### <a name="modularize-code"></a>Modularización de código
 Las tablas temporales se pueden usar en cualquier parte de una sesión de usuario. Esta capacidad se puede aprovechar para ayudarle a separar el código de la aplicación en módulos.  Como demostración, el siguiente procedimiento almacenado genera DDL para actualizar todas las estadísticas de la base de datos por nombre de la estadística:
 
 ```sql

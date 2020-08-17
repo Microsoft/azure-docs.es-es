@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.date: 02/07/2019
 ms.author: cherylmc
 ms.topic: how-to
-ms.openlocfilehash: c9b6c915fe986e0a953a4e5c503e79f39f3d40ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54fe4486d43a40e54a0aeae36963c0271fae6c2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064521"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell"></a>Eliminación de una puerta de enlace de red virtual mediante PowerShell
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Hay un par de enfoques que puede adoptar cuando desee eliminar una puerta de enl
 
 ### <a name="1-download-the-latest-azure-resource-manager-powershell-cmdlets"></a>1. Descargue la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager.
 
-Descargue e instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) para obtener más información sobre cómo instalar y configurar los cmdlets de PowerShell.
+Descargue e instale la versión más reciente de los cmdlets de PowerShell de Azure Resource Manager. Consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/) para obtener más información sobre cómo instalar y configurar los cmdlets de PowerShell.
 
 ### <a name="2-connect-to-your-azure-account"></a>2. Conéctese a su cuenta de Azure.
 

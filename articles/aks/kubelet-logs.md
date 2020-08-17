@@ -4,12 +4,12 @@ description: Aprenda a visualizar la información de solución de problemas en l
 services: container-service
 ms.topic: article
 ms.date: 03/05/2019
-ms.openlocfilehash: b7a74803af916f9e9de72dd528273007ce37832f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2ef38aa76f4ef9152e7bc55a1d74c84ef426f0ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77595389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056751"
 ---
 # <a name="get-kubelet-logs-from-azure-kubernetes-service-aks-cluster-nodes"></a>Obtención de registros de kubelet desde nodos de clúster de Azure Kubernetes Service (AKS)
 
@@ -32,6 +32,12 @@ Una vez que se ha conectado al nodo, ejecute el siguiente comando para extraer l
 ```console
 sudo journalctl -u kubelet -o cat
 ```
+
+> [!NOTE]
+> En el caso de los nodos de Windows, los datos de registro están en `C:\k` y se pueden ver con el comando *more*:
+> ```
+> more C:\k\kubelet.log
+> ```
 
 La siguiente salida de ejemplo muestra los datos del registro de *kubelet*:
 

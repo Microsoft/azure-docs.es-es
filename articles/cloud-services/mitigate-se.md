@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: cynthn
-ms.openlocfilehash: 67f85bd7b492e9fce6b132c832e83d64e3175716
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8328dbf0085930940cf7a7b4740f7e15fc457e5f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75385516"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86513003"
 ---
-# <a name="guidance-for-mitigating-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Instrucciones para mitigar vulnerabilidades frente a ataques de canal lateral de ejecución especulativa en Azure
+# <a name="guidance-to-mitigate-speculative-execution-side-channel-vulnerabilities-in-azure"></a>Instrucciones para la mitigación de vulnerabilidades frente a ataques de canal lateral de ejecución especulativa en Azure
 
 [!INCLUDE [virtual-machines-common-mitigate-se](../../includes/virtual-machines-common-mitigate-se.md)]
 

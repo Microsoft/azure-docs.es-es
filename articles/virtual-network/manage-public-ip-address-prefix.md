@@ -1,7 +1,7 @@
 ---
 title: Creación, modificación o eliminación del prefijo de una dirección IP pública de Azure
 titlesuffix: Azure Virtual Network
-description: Obtenga información sobre cómo crear, cambiar o eliminar el prefijo de una dirección IP pública.
+description: Obtenga información acerca de los prefijos de direcciones IP públicas y dónde encontrar información adicional si no está familiarizado con ellos. Además, obtenga información sobre cómo crear, modificar o eliminar un prefijo.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/13/2019
 ms.author: allensu
-ms.openlocfilehash: 4eac4a7ecc6febedd205fcde45ea550dd15a6b93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85e649944b155fc9e51fe01c282fc7f34f8a00d2
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84703849"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283170"
 ---
 # <a name="create-change-or-delete-a-public-ip-address-prefix"></a>Creación, modificación o eliminación del prefijo de una dirección IP pública
 

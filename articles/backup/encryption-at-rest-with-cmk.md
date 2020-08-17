@@ -3,16 +3,16 @@ title: Cifrado de datos de copia de seguridad mediante claves administradas por 
 description: Obtenga información sobre el modo en que Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente.
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: ee64b9f2c6d260d91763cbe2d339640a9fab9967
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 1586a40d115a591c474c3bc8c1fed5448eb90bcd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86172462"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87388006"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Cifrado de datos de copia de seguridad mediante claves administradas por el cliente
 
-Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente (CMK) en lugar de usar claves administradas por la plataforma, que es la opción habilitada de forma predeterminada. Las claves que se usan para cifrar los datos de copia de seguridad deben almacenarse en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
+Azure Backup le permite cifrar los datos de copia de seguridad mediante claves administradas por el cliente (CMK) en lugar de usar claves administradas por la plataforma, que es la opción habilitada de forma predeterminada. Las claves que se usan para cifrar los datos de copia de seguridad deben almacenarse en [Azure Key Vault](../key-vault/index.yml).
 
 La clave de cifrado utilizada para cifrar las copias de seguridad puede ser diferente de la que se usa para el origen. Los datos se protegen mediante una clave de cifrado de datos (DEK) basada en AES 256 que, a su vez, está protegida con las claves del usuario (KEK). Esto le proporciona un control total sobre los datos y las claves. Para permitir el cifrado, se requiere que el almacén de Recovery Services tenga acceso a la clave de cifrado en Azure Key Vault. Puede cambiar la clave como y cuando sea necesario.
 
@@ -31,7 +31,7 @@ En este artículo se tratan los temas siguientes:
 
 - Actualmente, esta característica **no admite la copia de seguridad mediante el agente de MARS**, y es posible que no pueda usar un almacén cifrado por CMK para este. El agente de MARS usa un cifrado basado en una frase de contraseña del usuario. Esta característica tampoco admite la copia de seguridad de máquinas virtuales clásicas.
 
-- Esta característica no está relacionada con [Azure Disk Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss), que usa el cifrado basado en invitado de los discos de una máquina virtual con BitLocker (para Windows) y DM-Crypt (para Linux).
+- Esta característica no está relacionada con [Azure Disk Encryption](../security/fundamentals/azure-disk-encryption-vms-vmss.md), que usa el cifrado basado en invitado de los discos de una máquina virtual con BitLocker (para Windows) y DM-Crypt (para Linux).
 
 - El almacén de Recovery Services solo se puede cifrar con las claves almacenadas en un almacén de Azure Key Vault ubicado en la **misma región**. Además, las claves deben ser solo **claves de RSA 2048** y deben estar en estado **habilitado**.
 
@@ -92,7 +92,7 @@ Ahora debe permitir que el almacén de Recovery Services tenga acceso al almacé
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitación de la eliminación temporal y la protección de purga para Azure Key Vault
 
-Debe **habilitar la eliminación temporal y la protección de purga** en el almacén de Azure Key Vault que almacena la clave de cifrado. Puede hacerlo desde la interfaz de usuario de Azure Key Vault, como se muestra a continuación. (También tiene la posibilidad de configurar estas propiedades al crear el almacén de Key Vault). Obtenga más información sobre estas propiedades de Key Vault [aquí](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete).
+Debe **habilitar la eliminación temporal y la protección de purga** en el almacén de Azure Key Vault que almacena la clave de cifrado. Puede hacerlo desde la interfaz de usuario de Azure Key Vault, como se muestra a continuación. (También tiene la posibilidad de configurar estas propiedades al crear el almacén de Key Vault). Obtenga más información sobre estas propiedades de Key Vault [aquí](../key-vault/general/soft-delete-overview.md).
 
 ![Habilitación de la eliminación temporal y la protección de purga](./media/encryption-at-rest-with-cmk/soft-delete-purge-protection.png)
 
@@ -193,13 +193,13 @@ Antes de continuar con la configuración de la protección, recomendamos encarec
 >
 >Si se han confirmado todos los pasos anteriores, siga con la configuración de la copia de seguridad.
 
-El proceso para configurar y realizar copias de seguridad en un almacén de Recovery Services cifrado con claves administradas por el cliente es igual que para un almacén que usa claves administradas por la plataforma, **sin cambios en la experiencia**. Esto se aplica igualmente a la [copia de seguridad de máquinas virtuales de Azure](https://docs.microsoft.com/azure/backup/quick-backup-vm-portal), así como a la copia de seguridad de cargas de trabajo que se ejecutan dentro de una máquina virtual (por ejemplo, bases de datos de [SAP HANA](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) o [SQL Server](https://docs.microsoft.com/azure/backup/tutorial-sql-backup)).
+El proceso para configurar y realizar copias de seguridad en un almacén de Recovery Services cifrado con claves administradas por el cliente es igual que para un almacén que usa claves administradas por la plataforma, **sin cambios en la experiencia**. Esto se aplica igualmente a la [copia de seguridad de máquinas virtuales de Azure](./quick-backup-vm-portal.md), así como a la copia de seguridad de cargas de trabajo que se ejecutan dentro de una máquina virtual (por ejemplo, bases de datos de [SAP HANA](./tutorial-backup-sap-hana-db.md) o [SQL Server](./tutorial-sql-backup.md)).
 
 ## <a name="restoring-data-from-backup"></a>Restauración de datos a partir de una copia de seguridad
 
 ### <a name="vm-backup"></a>Copia de seguridad de máquinas virtuales
 
-Los datos almacenados en el almacén de Recovery Services se pueden restaurar según los pasos descritos [aquí](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms). Al restaurar desde un almacén de Recovery Services cifrado con claves administradas por el cliente, puede optar por cifrar los datos restaurados con un conjunto de cifrado de disco (DES).
+Los datos almacenados en el almacén de Recovery Services se pueden restaurar según los pasos descritos [aquí](./backup-azure-arm-restore-vms.md). Al restaurar desde un almacén de Recovery Services cifrado con claves administradas por el cliente, puede optar por cifrar los datos restaurados con un conjunto de cifrado de disco (DES).
 
 #### <a name="restoring-vm--disk"></a>Restauración de máquina virtual/disco
 

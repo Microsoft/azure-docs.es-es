@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5 | Microsoft Docs'
+title: 'Tutorial: Integración del inicio de sesión único de Azure AD con F5 | Microsoft Docs'
 description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y F5.
 services: active-directory
 documentationCenter: na
@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a24ec98e9d5978a6f896715b25bd6b08d4a0262d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 8d64774bd76a88c2ee8c1981fb3509c7265f4736
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87017455"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con F5
 
@@ -282,45 +282,45 @@ En esta sección, va a permitir que B.Simon acceda a F5 mediante el inicio de se
 
 Configure un servidor de AAA de Active Directory en el Administrador de directivas de acceso (APM) para especificar los controladores de dominio y las credenciales que usará APM para autenticar a los usuarios.
 
-1.    En la pestaña Main (Principal), haga clic en **Access Policy > AAA Servers > Active Directory** (Directiva de acceso > Servidores de AAA > Active Directory). Se abre la pantalla con la lista de servidores de Active Directory.
+1. En la pestaña Main (Principal), haga clic en **Access Policy > AAA Servers > Active Directory** (Directiva de acceso > Servidores de AAA > Active Directory). Se abre la pantalla con la lista de servidores de Active Directory.
 
-2.    Haga clic en **Crear**. Se abre la pantalla New Server properties (Propiedades del nuevo servidor).
+2. Haga clic en **Crear**. Se abre la pantalla New Server properties (Propiedades del nuevo servidor).
 
-3.    En el campo **Name** (Nombre), escriba un nombre único para el servidor de autenticación.
+3. En el campo **Name** (Nombre), escriba un nombre único para el servidor de autenticación.
 
-4.    En el campo **Domain Name** (Nombre de dominio), escriba el nombre del dominio de Windows.
+4. En el campo **Domain Name** (Nombre de dominio), escriba el nombre del dominio de Windows.
 
-5.    Para la configuración de **Server Connection** (Conexión del servidor), seleccione una de estas opciones:
+5. Para la configuración de **Server Connection** (Conexión del servidor), seleccione una de estas opciones:
 
-    * Seleccione **Use Pool** (Usar grupo) para configurar la alta disponibilidad del servidor de AAA.
+   * Seleccione **Use Pool** (Usar grupo) para configurar la alta disponibilidad del servidor de AAA.
 
-    * Seleccione **Direct** (Directo) para configurar el servidor de AAA para la funcionalidad independiente.
+   * Seleccione **Direct** (Directo) para configurar el servidor de AAA para la funcionalidad independiente.
 
-6.    Si ha seleccionado **Direct** (Directo), escriba un nombre en el campo **Domain Controller** (Controlador de dominio).
+6. Si ha seleccionado **Direct** (Directo), escriba un nombre en el campo **Domain Controller** (Controlador de dominio).
 
-7.    Si ha seleccionado **Use Pool** (Usar grupo), configure el grupo:
+7. Si ha seleccionado **Use Pool** (Usar grupo), configure el grupo:
 
-    * Escriba un nombre en el campo **Domain Controller Pool Name** (Nombre del grupo del controlador de dominio).
+   * Escriba un nombre en el campo **Domain Controller Pool Name** (Nombre del grupo del controlador de dominio).
 
-    * Especifique los **controladores de dominio** del grupo; para ello, escriba la dirección IP y el nombre de host de cada uno y haga clic en el botón **Add** (Agregar).
+   * Especifique los **controladores de dominio** del grupo; para ello, escriba la dirección IP y el nombre de host de cada uno y haga clic en el botón **Add** (Agregar).
 
-    * Para supervisar el estado del servidor de AAA, tiene la opción de seleccionar un monitor de estado: en este caso, solo es adecuado el monitor **gateway_icmp**; puede seleccionarlo en la lista **Server Pool Monitor** (Monitor del grupo de servidores).
+   * Para supervisar el estado del servidor de AAA, tiene la opción de seleccionar un monitor de estado: en este caso, solo es adecuado el monitor **gateway_icmp**; puede seleccionarlo en la lista **Server Pool Monitor** (Monitor del grupo de servidores).
 
-8.    En el campo **Admin Name** (Nombre del administrador), escriba un nombre con distinción entre mayúsculas y minúsculas para un administrador que tenga permisos administrativos en Active Directory. APM usa la información de los campos **Admin Name** (Nombre del administrador) y **Admin Password** (Contraseña del administrador) para la consulta de AD. Si Active Directory está configurado para consultas anónimas, no es necesario proporcionar un nombre de administrador. De lo contrario, APM necesita una cuenta con privilegios suficientes para enlazar a un servidor de Active Directory, capturar información del grupo de usuarios y capturar las directivas de contraseñas de Active Directory para admitir la funcionalidad relacionada con la contraseña. (APM debe capturar directivas de contraseñas, por ejemplo, si selecciona la opción Preguntar al usuario si desea cambiar la contraseña antes de la expiración en una acción de consulta de AD). Si no proporciona la información de la cuenta de administrador en esta configuración, APM usa la cuenta de usuario para capturar la información. Esto funciona si la cuenta de usuario tiene privilegios suficientes.
+8. En el campo **Admin Name** (Nombre del administrador), escriba un nombre con distinción entre mayúsculas y minúsculas para un administrador que tenga permisos administrativos en Active Directory. APM usa la información de los campos **Admin Name** (Nombre del administrador) y **Admin Password** (Contraseña del administrador) para la consulta de AD. Si Active Directory está configurado para consultas anónimas, no es necesario proporcionar un nombre de administrador. De lo contrario, APM necesita una cuenta con privilegios suficientes para enlazar a un servidor de Active Directory, capturar información del grupo de usuarios y capturar las directivas de contraseñas de Active Directory para admitir la funcionalidad relacionada con la contraseña. (APM debe capturar directivas de contraseñas, por ejemplo, si selecciona la opción Preguntar al usuario si desea cambiar la contraseña antes de la expiración en una acción de consulta de AD). Si no proporciona la información de la cuenta de administrador en esta configuración, APM usa la cuenta de usuario para capturar la información. Esto funciona si la cuenta de usuario tiene privilegios suficientes.
 
-9.    En el campo **Admin Password** (Contraseña del administrador), escriba la contraseña del administrador asociada con el nombre de dominio.
+9. En el campo **Admin Password** (Contraseña del administrador), escriba la contraseña del administrador asociada con el nombre de dominio.
 
-10.    En el campo **Verify Admin Password** (Verificar contraseña del administrador), vuelva a escribir la contraseña del administrador asociada con la configuración del **nombre de dominio**.
+10. En el campo **Verify Admin Password** (Verificar contraseña del administrador), vuelva a escribir la contraseña del administrador asociada con la configuración del **nombre de dominio**.
 
-11.    En el campo **Group Cache Lifetime** (Duración de la memoria caché de grupo), escriba el número de días. La duración predeterminada es de 30 días.
+11. En el campo **Group Cache Lifetime** (Duración de la memoria caché de grupo), escriba el número de días. La duración predeterminada es de 30 días.
 
-12.    En el campo **Password Security Object Cache Lifetime** (Duración de la memoria caché del objeto de seguridad de contraseñas), escriba el número de días. La duración predeterminada es de 30 días.
+12. En el campo **Password Security Object Cache Lifetime** (Duración de la memoria caché del objeto de seguridad de contraseñas), escriba el número de días. La duración predeterminada es de 30 días.
 
-13.    En la lista **Kerberos Preauthentication Encryption Type** (Tipo de cifrado de la autenticación previa de Kerberos), seleccione un tipo de cifrado. El valor predeterminado es **None** (Ninguno). Si especifica un tipo de cifrado, el sistema BIG-IP incluye los datos de la autenticación previa de Kerberos en el primer paquete de solicitud del servicio de autenticación (AS-REQ).
+13. En la lista **Kerberos Preauthentication Encryption Type** (Tipo de cifrado de la autenticación previa de Kerberos), seleccione un tipo de cifrado. El valor predeterminado es **None** (Ninguno). Si especifica un tipo de cifrado, el sistema BIG-IP incluye los datos de la autenticación previa de Kerberos en el primer paquete de solicitud del servicio de autenticación (AS-REQ).
 
-14.    En el campo **Timeout** (Tiempo de expiración), escriba un intervalo de tiempo de espera (en segundos) para el servidor de AAA. (Esta configuración es opcional).
+14. En el campo **Timeout** (Tiempo de expiración), escriba un intervalo de tiempo de espera (en segundos) para el servidor de AAA. (Esta configuración es opcional).
 
-15.    Haga clic en **Finished** (Finalizado). El nuevo servidor se muestra en la lista. Esto agrega el nuevo servidor de Active Directory a la lista servidores de Active Directory.
+15. Haga clic en **Finished** (Finalizado). El nuevo servidor se muestra en la lista. Esto agrega el nuevo servidor de Active Directory a la lista servidores de Active Directory.
 
     ![Configuración de F5 (Kerberos)](./media/kerbf5-tutorial/configure17.png)
 

@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 743e3f50d747993250399493d97fc2becab19319
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 7/17/2020
+ms.openlocfilehash: 4b5898629c373e31d94ad09ca4af66de0428a7a2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "79532049"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047611"
 ---
 # <a name="azure-database-for-mariadb-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database for MariaDB
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -56,9 +56,9 @@ Consulte también [Creación y administración de reglas de firewall de Azure Da
 ## <a name="troubleshooting-firewall-issues"></a>Solución de problemas de firewall
 Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor de Microsoft Azure Database for MariaDB no se comporte de la manera prevista:
 
-* **Los cambios en la lista de permitidos aún no se han aplicado:** puede que se produzca un retraso de hasta cinco minutos hasta que se apliquen los cambios de configuración del firewall del servidor de Azure Database for MariaDB.
+* **Los cambios realizados en la lista de permitidos no han surtido efecto todavía:** puede haber un retraso de hasta cinco minutos hasta que los cambios en la configuración del firewall del servidor de Azure Database for MariaDB surtan efecto.
 
-* **La cuenta de usuario no está autorizada o se ha usado una contraseña incorrecta:** si una cuenta de inicio de sesión no tiene los permisos en el servidor de Azure Database for MariaDB o la contraseña usada es incorrecta, se denegará la conexión al servidor de Azure Database for MariaDB. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor; cada cliente debe ofrecer las credenciales de seguridad necesarias.
+* **El inicio de sesión no está autorizado o se ha usado una contraseña incorrecta:** si un inicio de sesión no tiene permisos en el servidor de Azure Database for MariaDB o la contraseña usada es incorrecta, se denegará la conexión al servidor de Azure Database for MariaDB. La creación de una configuración de firewall solo ofrece a los clientes una oportunidad de intentar conectarse al servidor; cada cliente debe ofrecer las credenciales de seguridad necesarias.
 
 * **Dirección IP dinámica:** si tiene una conexión a Internet con direccionamiento IP dinámico y tiene problemas con el firewall, puede probar una de las soluciones siguientes:
 
@@ -67,6 +67,11 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
    * Obtenga el direccionamiento IP estático en su lugar para los equipos cliente y luego agregue las direcciones IP como reglas de firewall.
 
 * **La dirección IP del servidor parece pública:** Las conexiones con el servidor de Azure Database for MariaDB se enrutan mediante una puerta de enlace de Azure de acceso público. Sin embargo, la dirección IP real del servidor está protegida por el firewall. Para más información, consulte el [artículo de arquitectura de conectividad](concepts-connectivity-architecture.md). 
+
+* **No se puede conectar desde el recurso de Azure con la dirección IP permitida:** Compruebe si el punto de conexión de servicio **Microsoft.Sql** está habilitado para la subred desde la que se conecta. Si **Microsoft.Sql** está habilitado, indica que solo desea usar [reglas de punto de conexión de servicio de una red virtual](concepts-data-access-security-vnet.md) en esa subred.
+
+   Por ejemplo, puede ver el siguiente error si se conecta desde una máquina virtual de Azure en una subred con **Microsoft.Sql** habilitado, pero sin ninguna regla de red virtual correspondiente: `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Create and manage Azure Database for MariaDB firewall rules using the Azure portal](./howto-manage-firewall-portal.md) (Creación y administración de reglas de firewall de Azure Database for MariaDB mediante Azure Portal)

@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 753e00ef5f015c554e49d7326120d29f5c5da4a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357773"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88061513"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronización de Azure AD Connect: Configuración del filtrado
 Con el filtrado puede controlar qué objetos aparecen en Azure Active Directory (Azure AD) desde el directorio local. La configuración predeterminada aceptará todos los objetos en todos los dominios de los bosques configurados. Por lo general, esta configuración es la recomendada. Los usuarios con cargas de trabajo de Office 365, como Exchange Online y Skype Empresarial, se benefician de una lista global de direcciones completa para poder enviar correo electrónico y llamar a todos los integrantes. Con la configuración predeterminada, obtendrían la misma experiencia que con una implementación local de Exchange o Lync.
@@ -47,7 +47,7 @@ Como el filtrado puede quitar varios objetos al mismo tiempo, querrá asegurarse
 
 Para evitar eliminar muchos objetos por error, la característica para [evitar eliminaciones por error](how-to-connect-sync-feature-prevent-accidental-deletes.md) está activada de forma predeterminada. Si elimina muchos objetos debido al filtrado (de forma predeterminada, 500), debe seguir los pasos descritos en este artículo para permitir que las eliminaciones se reflejen en Azure AD.
 
-Si utiliza una compilación anterior a la de noviembre de 2015 ([1.0.9125](reference-connect-version-history.md#1091250)), realice un cambio en la configuración de un filtro y utilice la sincronización de hash de contraseñas; una vez terminada la configuración, deberá desencadenar una sincronización completa de todas las contraseñas. Para conocer los pasos para desencadenar una sincronización completa de las contraseñas, consulte [Desencadenamiento de una sincronización completa de todas las contraseñas](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Si usa la compilación 1.0.9125 o una posterior, la acción de **sincronización completa** normal también calcula si se deben sincronizar las contraseñas, por lo que no se requiere este paso adicional.
+Si utiliza una compilación anterior a la de noviembre de 2015 ([1.0.9125](reference-connect-version-history.md)), realice un cambio en la configuración de un filtro y utilice la sincronización de hash de contraseñas; una vez terminada la configuración, deberá desencadenar una sincronización completa de todas las contraseñas. Para conocer los pasos para desencadenar una sincronización completa de las contraseñas, consulte [Desencadenamiento de una sincronización completa de todas las contraseñas](tshoot-connect-password-hash-synchronization.md#trigger-a-full-sync-of-all-passwords). Si usa la compilación 1.0.9125 o una posterior, la acción de **sincronización completa** normal también calcula si se deben sincronizar las contraseñas, por lo que no se requiere este paso adicional.
 
 Si los objetos de **usuario** se eliminaron involuntariamente en Azure AD por un error de filtrado, puede volver a crearlos en Azure AD al quitar las configuraciones de filtrado. A continuación, podrá volver a sincronizar los directorios. Esta acción restaura los usuarios de la papelera de reciclaje en Azure AD. Sin embargo, no se pueden recuperar otros tipos de objeto. Por ejemplo, si elimina por error un grupo de seguridad que se usara para incluir un recurso en una ACL, no podrá recuperar ni el grupo ni sus ACL.
 
@@ -202,7 +202,7 @@ Puede configurar el motor de sincronización para que no sincronice las unidades
 Con esta configuración, no se sincronizará la nueva unidad organizativa que se creó en ManagedObjects.
 
 ## <a name="attribute-based-filtering"></a>Filtrado basado en atributos
-Asegúrese de usar la compilación de noviembre de 2015 ([1.0.9125](reference-connect-version-history.md#1091250)) o una posterior para que estos pasos funcionen.
+Asegúrese de usar la compilación de noviembre de 2015 ([1.0.9125](reference-connect-version-history.md)) o una posterior para que estos pasos funcionen.
 
 > [!IMPORTANT]
 >Microsoft recomienda no modificar las reglas predeterminadas creadas por **Azure AD Connect**. Si desea modificar la regla, clónela y deshabilite la regla original. Realice cualquier cambio en la regla clonada. Tenga en cuenta que al hacerlo (mediante la deshabilitación de la regla original) se perderá cualquier corrección de errores o características habilitadas mediante esa regla.

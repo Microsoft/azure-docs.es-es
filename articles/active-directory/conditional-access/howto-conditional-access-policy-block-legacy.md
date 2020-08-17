@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6539a233fbb8038d82a8ea41da2c9e79745324
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 15e3c5ba72ff7b97e03cd7aa2b68eeffb2aa7882
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995197"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283017"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Acceso condicional: Bloquear la autenticación heredada
 
@@ -36,7 +36,7 @@ Los pasos siguientes le ayudarán a crear una directiva de acceso condicional pa
    1. Seleccione **Listo**.
 1. En **Aplicaciones o acciones en la nube**, seleccione **Todas las aplicaciones en la nube**.
    1. Seleccione **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí**.
+1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , en **Seleccionar aplicaciones cliente a las que se aplicará la directiva**:
    1. Active solo las casillas **Aplicaciones móviles y clientes de escritorio** > **Otros clientes**.
    1. Seleccione **Listo**.
 1. En **Controles de acceso** > **Conceder**, seleccione **Bloquear acceso**.

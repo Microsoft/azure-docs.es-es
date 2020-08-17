@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7c83bc55a00774966681973b95d18cdc58dba19c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ead175cbcaa9467cb5263ad95100facdda096991
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337813"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Solución de problemas en las consultas de Azure Stream Analytics
 
@@ -28,9 +28,9 @@ En este artículo se describen los problemas comunes relacionados con el desarro
     - En Azure Portal, en la pestaña **Consulta**, seleccione **Probar**. Use los datos de ejemplo que descargó para [probar la consulta](stream-analytics-test-query.md). Examine los errores e intente corregirlos.   
     - También puede [probar la consulta localmente](stream-analytics-live-data-local-testing.md) mediante las herramientas de Stream Analytics para Visual Studio o [Visual Studio Code](visual-studio-code-local-run-live-input.md). 
 
-2.  [Depure las consultas paso a paso localmente mediante un diagrama de trabajo](debug-locally-using-job-diagram.md) con las herramientas de Azure Stream Analytics para Visual Studio. El diagrama de trabajos muestra cómo fluyen los datos de los orígenes de entrada (centro de eventos, IoT Hub, etc.) por varios pasos de consulta y, por último, a los receptores de salida. Cada paso de la consulta se asigna a un conjunto de resultados temporal definido en el script mediante la instrucción WITH. Puede ver los datos, así como las métricas, en cada uno de los conjuntos de resultados intermedios para encontrar el origen del problema.
+2.  [Depure las consultas paso a paso localmente mediante un diagrama de trabajo](debug-locally-using-job-diagram-vs-code.md) con las herramientas de Azure Stream Analytics para Visual Studio Code. El diagrama de trabajos muestra cómo fluyen los datos de los orígenes de entrada (centro de eventos, IoT Hub, etc.) por varios pasos de consulta y, por último, a los receptores de salida. Cada paso de la consulta se asigna a un conjunto de resultados temporal definido en el script mediante la instrucción WITH. Puede ver los datos, así como las métricas, en cada uno de los conjuntos de resultados intermedios para encontrar el origen del problema.
 
-    ![Resultado de la vista previa del diagrama de trabajos](./media/debug-locally-using-job-diagram/preview-result.png)
+    ![Resultado de la vista previa del diagrama de trabajos](./media/debug-locally-using-job-diagram-vs-code/preview-result.png)
 
 3.  Si usa [**Marca de tiempo por**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics), asegúrese de que los eventos tengan marcas de tiempo mayores que la [hora de inicio del trabajo](stream-analytics-out-of-order-and-late-events.md).
 

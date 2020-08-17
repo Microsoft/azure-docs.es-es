@@ -1,6 +1,6 @@
 ---
 title: Optimización del rendimiento de la red de una máquina virtual | Microsoft Docs
-description: Aprenda a optimizar el rendimiento de la red de una máquina virtual de Azure.
+description: Optimice el rendimiento de la red de las VM Windows y Linux de Microsoft Azure, incluidas las distribuciones principales, como Ubuntu, CentOS y Red Hat.
 services: virtual-network
 documentationcenter: na
 author: steveesp
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: steveesp
-ms.openlocfilehash: 86785ada1d5b55a1eaa7c81243dd0b6c39087e1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b693d10b4e1925e9c07111982a616b56b77e5b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695970"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265150"
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Optimización del rendimiento de red en las máquinas virtuales de Azure
 

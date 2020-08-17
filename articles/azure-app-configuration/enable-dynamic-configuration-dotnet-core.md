@@ -14,16 +14,16 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/01/2019
 ms.author: abarora
-ms.openlocfilehash: af9d92c47982a58530a42a4ecdd41032196a9da9
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fb55b5669c1be43b208a8d86b1676f163015f76f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856484"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278359"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-core-app"></a>Tutorial: Uso de la configuración dinámica en una aplicación de .NET Core
 
-La biblioteca cliente de .NET Core de App Configuration admite la actualización de un conjunto de ajustes de configuración a petición sin causar el reinicio de una aplicación. Para implementarla, obtenga primero una instancia de `IConfigurationRefresher` entre las opciones para el proveedor de configuración y, después, llame a `Refresh` en esa instancia en cualquier lugar del código.
+La biblioteca cliente de .NET Core de App Configuration admite la actualización de un conjunto de ajustes de configuración a petición sin causar el reinicio de una aplicación. Para implementarla, obtenga primero una instancia de `IConfigurationRefresher` entre las opciones para el proveedor de configuración y, después, llame a `TryRefreshAsync` en esa instancia en cualquier lugar del código.
 
 Con el fin de mantener la configuración actualizada y evitar demasiadas llamadas al almacén de configuración, se usa una caché para cada configuración. Hasta que haya expirado el valor almacenado en caché de una configuración, la operación no actualiza el valor, incluso cuando el valor cambia en el almacén de configuración. El tiempo de expiración predeterminado para cada solicitud es de 30 segundos, pero puede reemplazarse si es necesario.
 
@@ -45,7 +45,7 @@ Para realizar este tutorial, instale el [SDK de .NET Core](https://dotnet.micros
 
 ## <a name="reload-data-from-app-configuration"></a>Recarga de datos de App Configuration
 
-Abra *Program.cs* y actualice el archivo para agregar una referencia al espacio de nombres `System.Threading.Tasks`, con el fin de especificar la configuración de la actualización en el método `AddAzureAppConfiguration` y desencadene la actualización manual mediante el método `Refresh`.
+Abra *Program.cs* y actualice el archivo para agregar una referencia al espacio de nombres `System.Threading.Tasks`, con el fin de especificar la configuración de la actualización en el método `AddAzureAppConfiguration` y desencadene la actualización manual mediante el método `TryRefreshAsync`.
 
 ```csharp
 using System;
@@ -84,14 +84,14 @@ class Program
         // Wait for the user to press Enter
         Console.ReadLine();
 
-        await _refresher.Refresh();
+        await _refresher.TryRefreshAsync();
         Console.WriteLine(_configuration["TestApp:Settings:Message"] ?? "Hello world!");
     }
 }
 }
 ```
 
-El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de App Configuration cuando se desencadena una operación de actualización. Se puede recuperar una instancia de `IConfigurationRefresher` mediante una llamada al método `GetRefresher` en las opciones proporcionadas para el método `AddAzureAppConfiguration` y el método `Refresh` en esta instancia podría usarse para desencadenar una operación de actualización en cualquier lugar del código.
+El método `ConfigureRefresh` se utiliza para especificar la configuración usada para actualizar los datos de configuración con el almacén de App Configuration cuando se desencadena una operación de actualización. Se puede recuperar una instancia de `IConfigurationRefresher` mediante una llamada al método `GetRefresher` en las opciones proporcionadas para el método `AddAzureAppConfiguration` y el método `TryRefreshAsync` en esta instancia podría usarse para desencadenar una operación de actualización en cualquier lugar del código.
     
 > [!NOTE]
 > La hora de expiración de la caché predeterminada para un valor de configuración es de 30 segundos, pero puede reemplazarse por una llamada al método `SetCacheExpiration` en el inicializador de opciones que se pasa como argumento al método `ConfigureRefresh`.

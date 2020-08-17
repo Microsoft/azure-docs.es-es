@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 04/20/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75b6ba110264ae3826093222e9cd3c4073bc17f0
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 0e16fdaed8ce7e73718569652e88e66844850175
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683581"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416605"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -105,7 +105,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe seleccionar el botón **Guardar**.
+1. En la sección **Configuración básica de SAML**, actualice los valores de **Identifier (Entity ID)** (Identificador [id. de entidad]) y **URL de respuesta** con el mismo valor predeterminado: `https://signin.aws.amazon.com/saml`. Seleccione **Guardar** para guardar los cambios de configuración.
 
 1. Cuando se configure más de una instancia, proporcione un valor de identificador. A partir de la segunda instancia, use el formato siguiente, incluyendo el símbolo **#** para especificar un valor de SPN único.
 
@@ -123,7 +123,15 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     | Role            | user.assignedroles |  `https://aws.amazon.com/SAML/Attributes` |
     | SessionDuration             | "proporcione un valor comprendido entre 900 segundos (15 minutos) y 43200 segundos (12 horas)" |  `https://aws.amazon.com/SAML/Attributes` |
 
-1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, busque **XML de metadatos de federación** y seleccione **Descargar** para descargar el certificado y guardarlo en su equipo.
+1. En la página **Configuración del inicio de sesión único con SAML**, en el cuadro de diálogo **Certificado de firma de SAML** (paso 3), seleccione **Agregar un certificado**.
+
+    ![Creación de un certificado de SAML](common/add-saml-certificate.png)
+
+1. Genere un nuevo certificado de firma de SAML y, luego, seleccione **Nuevo certificado**. Escriba una dirección de correo electrónico para las notificaciones del certificado.
+   
+    ![Nuevo certificado de SAML](common/new-saml-certificate.png) 
+
+1. En la sección **Certificado de firma de SAML**, busque **Federation Metadata XML** (Archivo XML de metadatos de federación) y seleccione **Descargar** para descargar el certificado y guardarlo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 

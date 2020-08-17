@@ -2,16 +2,16 @@
 title: Prácticas recomendadas para operaciones de larga duración en Azure Analysis Services | Microsoft Docs
 description: En este artículo se describen los procedimientos recomendados para las operaciones de larga duración.
 author: minewiskan
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: owend
-ms.openlocfilehash: 3f6b2194cc422a827bbc7a15c012173b3f814b52
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 5195d63180d45ad408256264e3cf10174e55cd96
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81426488"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87551955"
 ---
 # <a name="best-practices-for-long-running-operations"></a>Procedimientos recomendados para las operaciones de larga duración
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: cd9a196e5f957782de91cff69c01fbfa5716369a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1717ebd5709c05e33e658d3798494324a702b1d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100505"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074054"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Sincronizar la hora en las máquinas virtuales de Windows en Azure
 
@@ -24,7 +24,7 @@ Por ello, Azure ya cuenta con la infraestructura que ejecuta Windows Server 2016
 >[!NOTE]
 >Para obtener información general rápida del servicio Horario de Windows, eche un vistazo a este [vídeo de información general de alto nivel](https://aka.ms/WS2016TimeVideo).
 >
-> Para obtener más información, consulte el artículo [Hora de Windows Server 2016 precisa](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Para obtener más información, consulte el artículo [Hora de Windows Server 2016 precisa](/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Información general
 
@@ -172,9 +172,7 @@ w32tm /dumpreg /subkey:Parameters | findstr /i "ntpserver"
 
 A continuación le ofrecemos varios vínculos para obtener más detalles sobre la sincronización horaria:
 
-- [Windows Time Service Tools and Settings](https://docs.microsoft.com/windows-server/networking/windows-time-service/Windows-Time-Service-Tools-and-Settings) (Herramientas y configuración del servicio de hora de Windows)
-- [Windows Server 2016 Improvements ](https://docs.microsoft.com/windows-server/networking/windows-time-service/windows-server-2016-improvements) (Mejoras de Windows Server 2016)
-- [Accurate Time for Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time) (Hora exacta para Windows Server 2016)
-- [Support boundary to configure the Windows Time service for high-accuracy environments](https://docs.microsoft.com/windows-server/networking/windows-time-service/support-boundary) (Límite del soporte técnico para configurar el servicio de hora de Windows en entornos de alta precisión)
-
-
+- [Windows Time Service Tools and Settings](/windows-server/networking/windows-time-service/windows-time-service-tools-and-settings) (Herramientas y configuración del servicio de hora de Windows)
+- [Windows Server 2016 Improvements ](/windows-server/networking/windows-time-service/windows-server-2016-improvements) (Mejoras de Windows Server 2016)
+- [Accurate Time for Windows Server 2016](/windows-server/networking/windows-time-service/accurate-time) (Hora exacta para Windows Server 2016)
+- [Support boundary to configure the Windows Time service for high-accuracy environments](/windows-server/networking/windows-time-service/support-boundary) (Límite del soporte técnico para configurar el servicio de hora de Windows en entornos de alta precisión)

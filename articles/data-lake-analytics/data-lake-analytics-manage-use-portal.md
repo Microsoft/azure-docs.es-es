@@ -3,18 +3,16 @@ title: Administración de Azure Data Lake Analytics con el portal de Azure
 description: En este artículo se describe cómo usar Azure Portal para administrar cuentas, orígenes de datos, usuarios y trabajos de Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: a0e045f1-73d6-427f-868d-7b55c10f811b
 ms.topic: how-to
 ms.date: 12/05/2016
-ms.openlocfilehash: e9709f8ee700958b310b2fa94a546bb3ea4fc511
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cbce903bc7463cd917d48e341614afbe18536262
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121323"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531219"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-portal"></a>Administración de Azure Data Lake Analytics mediante Azure Portal
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
@@ -97,7 +95,7 @@ Puede usar el **Asistente para agregar usuario** para aprovisionar fácilmente n
 
 Al igual que otros servicios de Azure, puede usar el control de acceso basado en roles (RBAC) para controlar cómo interactúan los usuarios con el servicio.
 
-Los roles estándar de RBAC tienen las siguientes capacidades:
+Los roles estándar de Azure tienen las siguientes funcionalidades:
 * **Propietario**: puede enviar, supervisar y cancelar trabajos de cualquier usuario y configurar la cuenta.
 * **Colaborador**: puede enviar, supervisar y cancelar trabajos de cualquier usuario y configurar la cuenta.
 * **Lector**: puede supervisar trabajos.

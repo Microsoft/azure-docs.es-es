@@ -7,6 +7,8 @@
     - name: Comparación de los servicios de mensajería
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
+    - name: "Uso de Service Bus con Java Message Service (JMS)\_2.0 (versión preliminar)"
+      href: how-to-use-java-message-service-20.md
 - name: Guías de inicio rápido
   items:
     - name: Colas de Service Bus
@@ -110,6 +112,9 @@
                   href: authenticate-application.md
         - name: Controles de seguridad integrados
           href: service-bus-messaging-security-controls.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Seguridad de las redes
           href: network-security.md
 - name: Guías paso a paso
@@ -124,6 +129,8 @@
           items:
             - name: 'Colas, temas y suscripciones'
               href: service-bus-queues-topics-subscriptions.md
+            - name: "Entidades de Java Message Service (JMS)\_2.0 (versión preliminar)"
+              href: java-message-service-20-entities.md
             - name: 'Mensajes, cargas y serialización'
               href: service-bus-messages-payloads.md
             - name: 'Transferencias, bloqueos y liquidación de mensajes'
@@ -217,11 +224,11 @@
               href: service-bus-resource-manager-namespace-topic-with-rule.md
     - name: Seguridad
       items:
-        - name: Configuración de firewalls
+        - name: Permitir el acceso desde determinadas direcciones IP
           href: service-bus-ip-filtering.md
-        - name: Configuración de puntos de conexión de servicio de red virtual
+        - name: Permitir el acceso desde determinadas redes virtuales
           href: service-bus-service-endpoints.md
-        - name: Configuración de puntos de conexión privados
+        - name: Permitir el acceso a través de puntos de conexión privados
           href: private-link-service.md
         - name: Configuración de claves administradas por el cliente
           href: configure-customer-managed-key.md
@@ -274,9 +281,9 @@
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/?category=enterprise-integration'
     - name: Blog
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Página de preguntas y respuestas de Microsoft
-      href: 'https://docs.microsoft.com/answers/topics/azure-service-bus.html'
+      href: /answers/topics/azure-service-bus.html
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Calculadora de precios

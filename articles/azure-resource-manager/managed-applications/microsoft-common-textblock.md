@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 418056cb149f4441bac49db839a0dba40c2bb42d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ba2c4d410891910c29ee1fda1065f8230ab171bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063883"
 ---
 # <a name="microsoftcommontextblock-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.TextBlock
 
@@ -18,7 +18,7 @@ Un control que se puede usar para agregar texto a la interfaz del portal.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 
-![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft.common.textblock.png)
+![Microsoft.Common.TextBox](./media/managed-application-elements/microsoft-common-textblock.png)
 
 ## <a name="schema"></a>Schema
 

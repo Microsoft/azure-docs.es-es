@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 35e75037b4bf759fe90d608be0682004d3d3f23c
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: fc306dbca3191f04a85f2c5cc88d41336c13e09c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85480446"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496396"
 ---
 # <a name="sql-on-demand-preview-in-azure-synapse-analytics"></a>SQL a petición (versión preliminar) en Azure Synapse Analytics 
 
@@ -31,7 +31,7 @@ SQL a petición funciona sin servidor, por lo que no hay que instalar ninguna in
 
 Si usa Apache Spark para Azure Synapse en la canalización de datos, o para la preparación, limpieza o enriquecimiento de datos, puede [consultar las tablas externas de Spark](develop-storage-files-spark-tables.md) que haya creado en el proceso, directamente desde SQL On-Demand. Use [Private Link](../security/how-to-connect-to-workspace-with-private-links.md) para llevar el punto de conexión de SQL a petición a la [red virtual del área de trabajo administrada](../security/synapse-workspace-managed-vnet.md).  
 
-## <a name="who-is-sql-on-demand-for"></a>Destinatarios de SQL a petición
+## <a name="sql-on-demand-benefits"></a>Ventajas de SQL a petición
 
 Si necesita explorar los datos de un lago de datos, obtener información de este u optimizar la canalización de transformación de datos existente, puede beneficiarse del uso de SQL a petición. Es adecuado para los escenarios siguientes:
 
@@ -46,7 +46,7 @@ Diferentes puestos profesionales se pueden beneficiar de SQL a petición:
 - Los analistas de datos pueden [explorar los datos y tablas externas de Spark](develop-storage-files-spark-tables.md) que crean los científicos o ingenieros de datos mediante el conocido lenguaje T-SQL o con sus herramientas favoritas, las cuales pueden conectarse a SQL On-Demand.
 - Los profesionales de inteligencia empresarial pueden [crear rápidamente informes de Power BI a partir de los datos del lago](tutorial-connect-power-bi-desktop.md) y las tablas de Spark.
 
-## <a name="what-do-i-need-to-do-to-start-using-it"></a>¿Qué debo hacer para empezar a usarlo?
+## <a name="how-to-start-using-sql-on-demand"></a>Primeros pasos con SQL a petición
 
 El punto de conexión de SQL a petición se proporciona en cada área de trabajo de Azure Synapse. Puede crear un área de trabajo e iniciar la consulta de datos al instante mediante herramientas con las que está familiarizado.
 
@@ -54,7 +54,7 @@ El punto de conexión de SQL a petición se proporciona en cada área de trabajo
 
 SQL a petición permite que las herramientas ya existentes de inteligencia empresarial y de consultas ad-hoc de SQL accedan al lago de datos. Como proporciona una sintaxis T-SQL familiar, cualquier herramienta capaz de establecer ofertas de SQL de conexión TDS puede [conectarse y realizar consultas a Synapse SQL a petición](connect-overview.md). Puede conectarse con Azure Data Studio y ejecutar consultas ad-hoc o conectarse con Power BI para obtener información en cuestión de minutos.
 
-## <a name="is-full-t-sql-supported"></a>¿Es totalmente compatible con T-SQL?
+## <a name="t-sql-support"></a>Compatibilidad con T-SQL
 
 SQL a petición ofrece un área expuesta de consultas de T-SQL, que se ha mejorado o ampliado ligeramente en algunos aspectos para dar cabida a experiencias relacionadas con la consulta de datos semiestructurados y datos no estructurados. Además, algunos aspectos del lenguaje T-SQL no son compatibles debido al diseño de SQL a petición como, por ejemplo, la funcionalidad DML en la actualidad.
 

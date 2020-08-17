@@ -75,6 +75,8 @@
           href: enterprise-state-roaming-faqs.md
 - name: Referencia
   items:
+    - name: "Aplicación de TLS\_1.2"
+      href: reference-device-registration-tls-1-2.md
     - name: Configuración de GPO de Enterprise State Roaming
       href: enterprise-state-roaming-group-policy-settings.md
     - name: Configuración de Windows de Enterprise State Roaming

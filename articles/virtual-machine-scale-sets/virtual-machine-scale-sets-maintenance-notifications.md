@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 08/20/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: c4b0cb8204891538ef9c4eef3fa0ff5fd9686536
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5521e49c767a2510bf7c8c53cf6ac5e86b73b466
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83200101"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837183"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificaciones de mantenimiento planeado de conjuntos de escalado de máquinas virtuales
 
@@ -112,7 +112,7 @@ Una vez que comience el mantenimiento, las máquinas virtuales afectadas del con
  
 ## <a name="check-maintenance-status-by-using-powershell"></a>Comprobación del estado de mantenimiento con PowerShell
 
-Puede usar Azure PowerShell para ver cuándo está programado el mantenimiento de las máquinas virtuales de sus conjuntos de escalado. La información de mantenimiento planeado está disponible mediante el cmdlet [Get-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) cuando se usa el parámetro `-InstanceView`.
+Puede usar Azure PowerShell para ver cuándo está programado el mantenimiento de las máquinas virtuales de sus conjuntos de escalado. La información de mantenimiento planeado está disponible mediante el cmdlet [Get-AzVmss](/powershell/module/az.compute/get-azvmss) cuando se usa el parámetro `-InstanceView`.
  
 La información de mantenimiento se devuelve solo si hay mantenimiento planeado. Si no está programado ningún mantenimiento que afecte a la instancia de la máquina virtual, el cmdlet no devuelve ninguna información de mantenimiento. 
 
@@ -181,7 +181,7 @@ az vmss perform-maintenance -g rgName -n vmssName --instance-ids id
 
 **R:** Las máquinas virtuales implementadas en un conjunto de disponibilidad o en conjuntos de escalado de máquinas virtuales usan dominios de actualización. Al realizar mantenimiento, Azure respeta la restricción de dominios de actualización y no reinicia las máquinas virtuales desde un dominio de actualización diferente (dentro del mismo conjunto de disponibilidad). Azure también espera al menos 30 minutos antes de pasar al siguiente grupo de máquinas virtuales. 
 
-Para más información acerca de la alta disponibilidad, consulte [Regiones y disponibilidad de máquinas virtuales en Azure](../virtual-machines/windows/availability.md).
+Para más información acerca de la alta disponibilidad, consulte [Regiones y disponibilidad de máquinas virtuales en Azure](../virtual-machines/availability.md).
 
 **P: ¿Cómo puedo recibir notificaciones acerca del mantenimiento planeado?**
 

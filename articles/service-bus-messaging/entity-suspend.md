@@ -3,12 +3,12 @@ title: Entidades de mensajería de suspensión de Azure Service Bus
 description: En este artículo se explica cómo suspender y reactivar temporalmente entidades de mensaje de Azure Service Bus (colas, temas y suscripciones).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 4c4e554ada8c66b56d5d466c7becfc813701402a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7c25c8ef9f3daa32984ac26aa62710ab775951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340002"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038144"
 ---
 # <a name="suspend-and-reactivate-messaging-entities-disable"></a>Suspensión y reactivación de entidades de mensajería (deshabilitar)
 
@@ -20,7 +20,7 @@ El usuario o el sistema pueden realizar la suspensión o la reactivación. El si
 
 En el portal, la sección **Propiedades** de la entidad respectiva permite cambiar el estado; en la captura de pantalla siguiente se muestra la alternancia en una cola:
 
-![][1]
+![Captura de pantalla de la característica Service Bus con el valor Propiedades resaltado y la opción Estado de cola establecida en Activo y enmarcada en rojo.][1]
 
 El portal solo permite deshabilitar completamente las colas. También puede deshabilitar las operaciones de envío y recepción por separado mediante las API [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) de Service Bus en el SDK de .NET Framework, o con una plantilla de Azure Resource Manager mediante la CLI de Azure o Azure PowerShell.
 
@@ -30,10 +30,10 @@ El portal solo permite deshabilitar completamente las colas. También puede desh
 
 Los estados que se pueden establecer para una cola son:
 
--   **Activo**: la cola está activa.
--   **Deshabilitado**: la cola se ha suspendido.
--   **SendDisabled**: la cola se suspende parcialmente, y se permite la recepción.
--   **ReceiveDisabled**: la cola se suspende parcialmente, y se permite el envío.
+-   **Activa**: la cola está activa.
+-   **Disabled**: la cola se ha suspendido.
+-   **SendDisabled**: la cola se suspende parcialmente y se permite la recepción.
+-   **ReceiveDisabled**: la cola se suspende parcialmente y se permite el envío.
 
 En las suscripciones y los temas, solo se pueden establecer los estados **Activo** y **Deshabilitado**.
 

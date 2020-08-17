@@ -4,15 +4,15 @@ description: Solucione errores de conexión intermitentes y problemas de rendimi
 author: v-miegge
 manager: barbkess
 ms.topic: troubleshooting
-ms.date: 03/24/2020
+ms.date: 07/24/2020
 ms.author: ramakoni
 ms.custom: security-recommendations
-ms.openlocfilehash: 704c6b026ab656ce52b34e5ac70ba7e2087ccbcd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e1f2108c5607917c77330f362952f960e57e03a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252447"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447907"
 ---
 # <a name="troubleshooting-intermittent-outbound-connection-errors-in-azure-app-service"></a>Solución de errores intermitentes en la conexión de salida en Azure App Service
 
@@ -37,6 +37,8 @@ Una causa principal de estos síntomas es que la instancia de la aplicación no 
 Si las aplicaciones o las funciones abren rápidamente una conexión nueva, pueden agotar con rapidez la cuota preasignada de 128 puertos. Después, se bloquean hasta que un nuevo puerto SNAT esté disponible, ya sea a través de la asignación dinámica de puertos SNAT adicionales o mediante la reutilización de un puerto SNAT reclamado. Las aplicaciones o funciones que estén bloqueadas debido a esta imposibilidad de crear conexiones comenzarán a experimentar uno o varios de los problemas descritos en la sección **Síntomas** de este artículo.
 
 ## <a name="avoiding-the-problem"></a>Cómo evitar el problema
+
+Si el destino es un servicio de Azure que admite puntos de conexión de servicio, podrá evitar los problemas de agotamiento de puertos SNAT utilizando la [integración con red virtual regional](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) junto con puntos de conexión privados o de servicio. Cuando se usa la integración con red virtual regional y se colocan puntos de conexión de servicio en la subred de integración, el tráfico que sale de la aplicación hacia esos servicios no tiene restricciones sobre los puertos SNAT de salida. Del mismo modo, si usa la integración con red virtual regional junto con puntos de conexión privados, no tendrá ningún problema con los puertos SNAT de salida en ese destino. 
 
 Evitar el problema del puerto SNAT se traduce en evitar la creación de conexiones repetidas a los mismos host y puerto.
 

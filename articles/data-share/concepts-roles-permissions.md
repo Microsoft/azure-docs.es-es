@@ -1,17 +1,17 @@
 ---
 title: Roles y requisitos de Azure Data Share
 description: Obtenga información sobre los permisos necesarios para compartir y recibir datos con Azure Data Share.
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 229d4fd6647a8a1b756fedee2a864d00b9c7de62
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 84d1ba6ff343b5f3d1f88d7ae5c618601f416e2c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111004"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513772"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Roles y requisitos de Azure Data Share 
 
@@ -90,7 +90,13 @@ Para más información sobre cómo agregar una asignación de roles, consulte [e
 
 ## <a name="resource-provider-registration"></a>Registro del proveedor de recursos 
 
-Para ver la invitación de Azure Data Share por primera vez en su inquilino de Azure, es posible que tenga que registrar manualmente el proveedor de recursos Microsoft.DataShare en su suscripción de Azure. Siga estos pasos para registrar el proveedor de recursos Microsoft.DataShare en la suscripción de Azure. Necesita acceso de *Colaborador* a la suscripción de Azure para registrar el proveedor de recursos.
+Es posible que tenga que registrar manualmente el proveedor de recursos Microsoft.DataShare en la suscripción de Azure en los escenarios siguientes: 
+
+* Consulte la invitación de Azure Data Share por primera vez en su inquilino de Azure.
+* Opción para compartir datos de un almacén de datos de Azure en una suscripción de Azure diferente del recurso de Azure Data Share
+* Recepción de datos en un almacén de datos de Azure en una suscripción de Azure diferente del recurso de Azure Data Share
+
+Siga estos pasos para registrar el proveedor de recursos Microsoft.DataShare en la suscripción de Azure. Necesita acceso de *Colaborador* a la suscripción de Azure para registrar el proveedor de recursos.
 
 1. En Azure Portal, vaya a **Suscripciones**.
 1. Seleccione la suscripción que va a usar para Azure Data Share.

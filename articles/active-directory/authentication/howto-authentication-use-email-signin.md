@@ -10,12 +10,12 @@ ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: scottsta
-ms.openlocfilehash: af410310e3866b547b8c898a1cc4f91f4f851bc7
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 084c50a67fe332751a3679da4c97f67d414ebb94
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223030"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419536"
 ---
 # <a name="sign-in-to-azure-active-directory-using-email-as-an-alternate-login-id-preview"></a>Iniciar sesión en Azure mediante el correo electrónico como id. de inicio de sesión alternativo (versión preliminar)
 
@@ -158,6 +158,8 @@ Durante la versión preliminar, actualmente solo puede habilitar el inicio de se
     ```powershell
     Get-AzureADPolicy | where-object {$_.Type -eq "HomeRealmDiscoveryPolicy"} | fl *
     ```
+
+Una vez que se aplica la directiva, puede tardar hasta una hora en propagarse y para que los usuarios puedan iniciar sesión con su identificador de inicio de sesión alternativo.
 
 ## <a name="test-user-sign-in-with-email"></a>Prueba del inicio de sesión de usuario con correo electrónico
 

@@ -10,12 +10,12 @@ ms.date: 12/18/2019
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 2b4eef6a992915e934e69a93d440bc6fa60aa690
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97eb3f4cbb4ac76823ebe43126db6b5c2a10010b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803536"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533978"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell"></a>Creación de una SAS de delegación de usuarios para un contenedor o blob con PowerShell
 
@@ -78,7 +78,7 @@ Para obtener más información sobre cómo iniciar sesión con PowerShell, consu
 
 Para crear una SAS de delegación de usuarios desde Azure PowerShell, se debe asignar a la cuenta de Azure AD utilizada para iniciar sesión en PowerShell un rol que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Gracias a este permiso, la cuenta de Azure AD puede solicitar la *clave de delegación de usuarios*. La clave de delegación de usuarios se usa para firmar la SAS de delegación de los usuarios. El rol que proporciona la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** debe asignarse en el nivel de la cuenta de almacenamiento, el grupo de recursos o la suscripción. Para más información sobre los permisos de RBAC para crear una SAS de delegación de usuarios, consulte la sección **Asignación de permisos con RBAC** de [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios).
 
-Si no tiene permisos suficientes para asignar roles de RBAC a la entidad de seguridad de Azure AD, puede que tenga que pedir al propietario o administrador de la cuenta que asigne los permisos necesarios.
+Si no tiene permisos suficientes para asignar roles de Azure a la entidad de seguridad de Azure AD, puede que tenga que pedir al propietario o administrador de la cuenta que asigne los permisos necesarios.
 
 En el ejemplo siguiente se asigna el rol de **colaborador de datos de Storage Blob**, que incluye la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. El ámbito del rol se encuentra en el nivel de la cuenta de almacenamiento.
 
@@ -90,7 +90,7 @@ New-AzRoleAssignment -SignInName <email> `
     -Scope  "/subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>"
 ```
 
-Para obtener más información sobre los roles integrados que incluyen la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
+Para obtener más información sobre los roles integrados que incluyen la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**, consulte los [roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="use-azure-ad-credentials-to-secure-a-sas"></a>Uso de credenciales de Azure AD para proteger una SAS
 
@@ -162,7 +162,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
 ```
 
 > [!IMPORTANT]
-> La clave de delegación de usuario y las asignaciones de roles de RBAC se almacenan en caché en Azure Storage, por lo que puede haber un retraso entre el momento en que se inicia el proceso de revocación y el momento en que una SAS de delegación de usuario existente deja de ser válida.
+> La clave de delegación de usuario y las asignaciones de roles de Azure se almacenan en la caché de Azure Storage, por lo que puede haber un retraso entre el momento en que se inicia el proceso de revocación y el momento en que una SAS de delegación de usuario existente deja de ser válida.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 04/20/2020
 ms.author: juliako
-ms.openlocfilehash: 40a2510fcb6fd5fe51cebc702604e2d09df7b061
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 56c6b3732d0a77580c27f6cc8720b414e8e49d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982176"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038994"
 ---
 # <a name="azure-media-services-v3-documentation-updates"></a>Actualizaciones de la documentación de Azure Media Services v3
 
@@ -26,7 +26,7 @@ En este artículo se tratan las actualizaciones de documentación de Media Servi
 
 ## <a name="june-2020"></a>Junio de 2020
 
-* Ya se publicó la versión preliminar de Live Video Analytics on IoT Edge. Consulte la documentación de [Live Video Analytics on IoT Edge](https://docs.microsoft.com/azure/media-services/live-video-analytics-edge/).
+* Ya se publicó la versión preliminar de Live Video Analytics on IoT Edge. Consulte la documentación de [Live Video Analytics on IoT Edge](../live-video-analytics-edge/index.yml).
 * Nuevos inicios rápidos:
 
     * [Uso del portal para cargar, codificar y hacer streaming de contenido](manage-assets-quickstart.md)

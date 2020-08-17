@@ -7,12 +7,12 @@ ms.date: 12/12/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 89d068fbd835a5b4f8886a2ed77691f94a701bb0
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f8660cb18f5e7ac5f3695eb15475570b107bf25c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81759091"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337082"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conexión de dispositivos de Azure IoT Edge a una aplicación de Azure IoT Central
 
@@ -58,7 +58,7 @@ En Azure IoT Central, puede importar un manifiesto de implementación para crear
 
 ![Diagrama de flujo del ciclo de vida de un manifiesto de implementación](./media/concepts-iot-edge/dmflow.png)
 
-IoT Plug and Play (versión preliminar) modela un dispositivo de IoT Edge de la manera siguiente:
+IoT Central modela un dispositivo IoT Edge de la siguiente manera:
 
 * Cada plantilla de dispositivo de IoT Edge tiene un modelo de funcionalidad del dispositivo.
 * Para cada módulo personalizado incluido en el manifiesto de implementación, se genera un modelo de funcionalidad del módulo.

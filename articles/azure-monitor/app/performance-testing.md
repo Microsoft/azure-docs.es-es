@@ -4,17 +4,17 @@ description: Configuración de pruebas de rendimiento y carga con Azure Applicat
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8885a2e511c11317f593706255437e52819adcae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669869"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024357"
 ---
 # <a name="performance-testing"></a>Pruebas de rendimiento
 
 > [!NOTE]
-> El servicio de prueba de carga basado en la nube ha quedado en desuso. Puede encontrar más información sobre el desuso, la disponibilidad del servicio y servicios alternativos [aquí](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops).
+> El servicio de prueba de carga basado en la nube ha quedado en desuso. Puede encontrar más información sobre el desuso, la disponibilidad del servicio y servicios alternativos [aquí](/azure/devops/test/load-test/overview?view=azure-devops).
 
 Application Insights le permite generar pruebas de carga para sus sitios web. Al igual que las [pruebas de disponibilidad](monitor-web-app-availability.md), puede enviar solicitudes básicas o [solicitudes de varios pasos](availability-multistep.md) desde agentes de prueba de Azure de todo el mundo. Las pruebas de rendimiento le permiten simular hasta 20 000 usuarios simultáneos durante 60 minutos.
 

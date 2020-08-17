@@ -3,12 +3,12 @@ title: Habilitar copia de seguridad al crear una máquina virtual de Azure
 description: Describe cómo habilitar la copia de seguridad al crear una VM de Azure con Azure Backup.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: 7739109eb8bad88c9b723e67e13adc78c127499a
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 7fb6fd25f5031669633641ea02f34180f6f795d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80672821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87032857"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Habilitar copia de seguridad al crear una máquina virtual de Azure
 
@@ -30,7 +30,7 @@ Si aún no ha iniciado sesión en su cuenta, hágalo en [Azure Portal](https://p
 
 2. En Azure Marketplace, haga clic en **Proceso** y, luego, seleccione una imagen de VM.
 
-3. Configure la VM de acuerdo con las instrucciones para [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal) o [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal).
+3. Configure la VM de acuerdo con las instrucciones para [Windows](../virtual-machines/windows/quick-create-portal.md) o [Linux](../virtual-machines/linux/quick-create-portal.md).
 
 4. En la pestaña **Administración**, en **Habilitar copia de seguridad**, haga clic en **Activado**.
 5. Las copias de seguridad de Azure Backup se hacen en un almacén de Recovery Services. Haga clic en **Crear nuevo** si no tiene un almacén existente.

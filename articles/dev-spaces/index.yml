@@ -11,12 +11,12 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
   ms.date: 09/30/2019
-  ms.openlocfilehash: ea9865d35b25b5691f702b91c6255f0f703c3e90
-  ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+  ms.openlocfilehash: ac8900298670323551a25d4ef7ac3f7b44249c5a
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/03/2020
-  ms.locfileid: "84310043"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88209888"
 landingContent:
 - title: Acerca de Azure Dev Spaces
   linkLists:
@@ -32,18 +32,6 @@ landingContent:
     links:
     - text: Instalación de Azure Dev Spaces
       url: how-to/install-dev-spaces.md
-- title: Desarrollo y prueba de microservicios
-  linkLists:
-  - linkListType: quickstart
-    links:
-    - text: Ejecución y depuración de un microservicio
-      url: quickstart-netcore.md
-    - text: Colaboración en un conjunto de microservicios con un equipo
-      url: quickstart-team-development.md
-  - linkListType: how-to-guide
-    links:
-    - text: Integración de Dev Spaces en una canalización de CI/CD para mejorar las pruebas de un extremo a otro
-      url: how-to/setup-cicd.md
 - title: Escenarios avanzados
   linkLists:
   - linkListType: how-to-guide
@@ -65,6 +53,6 @@ landingContent:
     - text: Uso de acciones de GitHub con Azure Dev Spaces
       url: how-to/github-actions.md
     - text: Uso de Proceso local con Kubernetes con Visual Studio Code
-      url: how-to/local-process-kubernetes-vs-code.md
+      url: https://code.visualstudio.com/docs/containers/local-process-kubernetes
     - text: Uso de Proceso local con Kubernetes con Visual Studio
-      url: how-to/local-process-kubernetes-visual-studio.md
+      url: /visualstudio/containers/local-process-kubernetes

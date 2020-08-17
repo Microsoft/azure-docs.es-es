@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: ramamill
-ms.openlocfilehash: 9d6b912229b1365dd7bd8d466af18d1e81b5aa8e
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: f6c47d4cbfe6311333d95b07c0553afa2b3bb15c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132145"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287743"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -66,7 +66,7 @@ Necesita un usuario con uno de los siguientes permisos establecidos en Azure AD
 
 ## <a name="import-the-template-in-vmware"></a>Importación de la plantilla en VMware
 
-1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMWare vSphere.
+1. Inicie sesión en el servidor de VMware vCenter o en el host de vSphere ESXi con el cliente de VMware vSphere.
 2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el **Asistente para implementar plantillas OVF**.
 
      ![Implementación de la plantilla OVF](./media/vmware-azure-deploy-configuration-server/vcenter-wizard.png)
@@ -98,7 +98,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>Registrar el servidor de configuración con los servicios de Azure Site Recovery
 
-1. Desde la consola de cliente de VMWare vSphere, encienda la máquina virtual.
+1. Desde la consola de cliente de VMware vSphere, active la máquina virtual.
 2. La máquina virtual se inicia en una experiencia de instalación de Windows Server 2016. Acepte el contrato de licencia y especifique una contraseña de administrador.
 3. Una vez finalizada la instalación, inicie sesión en la máquina virtual como administrador.
 4. La primera vez que inicie sesión, se inicia la herramienta de configuración de Azure Site Recovery en unos segundos.

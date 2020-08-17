@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9bf76729c3b5844918659283a65eeb347c4237d
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8584ca84efc889afebe6758e254bda845912316
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639823"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418243"
 ---
 # <a name="use-the-sign-ins-report-to-review-azure-multi-factor-authentication-events"></a>Uso del informe de inicios de sesión para revisar los eventos de Azure Multi-Factor Authentication
 
@@ -44,7 +44,7 @@ Para ver el informe de actividad de inicio de sesión en [Azure Portal](https://
 
     En la pestaña *Detalles de autenticación* o *Acceso condicional* de los detalles del evento se le muestra el código de estado o la directiva que desencadenó el mensaje de MFA.
 
-    [![](media/howto-mfa-reporting/sign-in-report-cropped.png "Screenshot of example Azure Active Directory sign-ins report in the Azure portal")](media/howto-mfa-reporting/sign-in-report.png#lightbox)
+    [![Captura de pantalla de informe de inicios de sesión de Azure Active Directory de ejemplo en Azure Portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 Si está disponible, se muestra la autenticación, como mensaje de texto, notificación de la aplicación de Microsoft Authenticator o llamada de teléfono.
 

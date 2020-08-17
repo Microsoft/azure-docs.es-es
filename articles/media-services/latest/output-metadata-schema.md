@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2020
 ms.author: juliako
-ms.openlocfilehash: 692fe12d12538bc35e3a22d4af1bd185839f69d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce3d0a5beb5903d29b1deec345cf4673e3492e5d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418525"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080931"
 ---
 # <a name="output-metadata"></a>Metadatos de salida
 
-Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación. Por ejemplo, codificar un archivo MP4 en conjuntos MP4 de velocidad de bits adaptable H.264; crear una miniatura; crear superposiciones. Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas y otros archivos. El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo JSON de metadatos tiene el siguiente formato: `<source_file_name>_manifest.json` (por ejemplo, `BigBuckBunny_manifest.json`).  
+Un trabajo de codificación está asociado a un recurso (o recursos) de entrada donde desea realizar algunas tareas de codificación. Por ejemplo, codificar un archivo MP4 en conjuntos MP4 de velocidad de bits adaptable H.264; crear una miniatura; crear superposiciones. Tras la finalización de una tarea, se produce un recurso de salida.  El recurso de salida contiene vídeo, audio, miniaturas y otros archivos. El recurso de salida también contiene un archivo con metadatos sobre el recurso de salida. El nombre del archivo JSON de metadatos tiene el siguiente formato: `<source_file_name>_manifest.json` (por ejemplo, `BigBuckBunny_manifest.json`). Deberá buscar cualquier archivo *_metadata.json y consultar la cadena de ruta de acceso que contiene para encontrar el nombre de archivo de origen (sin truncamiento).
 
 Media Services no realiza un examen preventivo de los recursos de entrada para generar metadatos. Los metadatos de entrada se generan únicamente como artefactos cuando un recurso de entrada se procesa en un trabajo. Por tanto, estos artefactos se escriben en el recurso de salida. Para generar metadatos de los recursos de entrada y salida, se utilizan diferentes herramientas. Por tanto, los metadatos de entrada tienen un esquema ligeramente diferente al de los metadatos de salida.
 

@@ -6,15 +6,15 @@ ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: tutorial
 ms.reviewer: dseven
-ms.author: mihansen
-author: hansenms
+ms.author: matjazl
+author: matjazl
 ms.date: 02/07/2019
-ms.openlocfilehash: 684f85042fd09c14621801ec017fea0e632f2598
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: f8b5e344fc963d466571e75ff16f17367dc32971
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "84870535"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844854"
 ---
 # <a name="access-azure-api-for-fhir-with-postman"></a>Acceso a Azure API for FHIR con Postman
 
@@ -23,6 +23,7 @@ Una aplicación cliente accede normalmente a una API de FHIR mediante una [API R
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Un punto de conexión de FHIR en Azure. Puede configurarlo mediante Azure API for FHIR administrada o el servidor FHIR de código abierto para Azure. Configure Azure API for FHIR administrada para FHIR mediante [Azure Portal](fhir-paas-portal-quickstart.md), [PowerShell](fhir-paas-powershell-quickstart.md) o la [CLI de Azure](fhir-paas-cli-quickstart.md).
+- Una [aplicación cliente](register-confidential-azure-ad-client-app.md) que va a usar para acceder al servicio FHIR
 - Postman instalado. Puede obtenerlo en [https://www.getpostman.com](https://www.getpostman.com)
 
 ## <a name="fhir-server-and-authentication-details"></a>Detalles de autenticación y servidor de FHIR
@@ -108,7 +109,7 @@ Si inspecciona el token de acceso con una herramienta como [https://jwt.ms](http
 }
 ```
 
-En situaciones de solución de problemas, un buen punto de partida es validar que tiene la audiencia correcta (notificación `aud`). Si el token proviene del emisor correcto (notificación `iss`) y tiene la audiencia correcta (notificación `aud`), pero sigue sin poder acceder a la API de FHIR, es probable que el usuario o la entidad de servicio (notificación `oid`) no tengan acceso al plano de datos FHIR. Se recomienda [usar el control de acceso basado en rol de Azure (RBAC)](configure-azure-rbac.md) para asignar roles de plano de datos a los usuarios. Si usa un inquilino externo secundario de Azure Active Directory para su plano de datos, tendrá que [configurar asignaciones de RBAC locales](configure-local-rbac.md).
+En situaciones de solución de problemas, un buen punto de partida es validar que tiene la audiencia correcta (notificación `aud`). Si el token proviene del emisor correcto (notificación `iss`) y tiene la audiencia correcta (notificación `aud`), pero sigue sin poder acceder a la API de FHIR, es probable que el usuario o la entidad de servicio (notificación `oid`) no tengan acceso al plano de datos FHIR. Se recomienda [usar el control de acceso basado en roles de Azure (Azure RBAC)](configure-azure-rbac.md) para asignar roles del plano de datos a los usuarios. Si usa un inquilino externo secundario de Azure Active Directory para su plano de datos, tendrá que [configurar asignaciones de RBAC locales](configure-local-rbac.md).
 
 También puede [obtener un token para Azure API for FHIR mediante la CLI de Azure](get-healthcare-apis-access-token-cli.md). Si usa un token obtenido con la CLI de Azure, debe usar el tipo de autorización "Bearer Token" (Token de portador) y pegar el token directamente.
 

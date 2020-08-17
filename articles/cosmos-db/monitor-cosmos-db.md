@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/20/2020
+ms.date: 07/22/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: cd100fca074e63c56cd6a19843cc68e1a1ddf214
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 9c2a87f3d70d3873771b3a59114b424efffe4fb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85850291"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87130195"
 ---
 # <a name="monitoring-azure-cosmos-db"></a>Supervisión de Azure Cosmos DB
 
@@ -23,7 +23,7 @@ Puede supervisar los datos con métricas del lado cliente y del lado servidor. A
 
 * **Supervisión desde el portal de Azure Cosmos DB:** puede realizar la supervisión con las métricas disponibles en la pestaña **Métricas** de la cuenta de Azure Cosmos. Las métricas de esta pestaña incluyen datos de nivel de rendimiento, almacenamiento, disponibilidad, latencia, coherencia y sistema. De forma predeterminada, estas métricas tienen un período de retención de 7 días. Para más información, consulte la sección [Supervisión de los datos recopilados de Azure Cosmos DB](#monitoring-from-azure-cosmos-db) de este artículo.
 
-* **Supervisión con métricas en Azure Monitor:** puede realizar la supervisión con las métricas de su cuenta de Azure Cosmos y crear paneles desde Azure Monitor. Azure Monitor recopila las métricas de Azure Cosmos DB de forma predeterminada, no tiene que configurar nada de forma explícita. Estas métricas se recopilan con una granularidad de un minuto; la granularidad puede variar en función de la métrica que elija. De forma predeterminada, estas métricas tienen un período de retención de 30 días. La mayoría de las métricas que están disponibles en las opciones anteriores también están disponibles en estas métricas. Para más información, consulte la sección [Análisis de datos de métricas](#analyze-metric-data) de este artículo.
+* **Supervisión con métricas en Azure Monitor:** puede realizar la supervisión con las métricas de su cuenta de Azure Cosmos y crear paneles desde Azure Monitor. Azure Monitor recopila las métricas de Azure Cosmos DB de forma predeterminada, no tiene que configurar nada de forma explícita. Estas métricas se recopilan con una granularidad de un minuto; la granularidad puede variar en función de la métrica que elija. De forma predeterminada, estas métricas tienen un período de retención de 30 días. La mayoría de las métricas que están disponibles en las opciones anteriores también están disponibles en estas métricas. Los valores de la dimensión para las métricas, como el nombre del contenedor, no distinguen entre mayúsculas y minúsculas. Por lo tanto, debe usar una comparación sin distinción entre mayúsculas y minúsculas al realizar comparaciones de cadenas en estos valores de dimensión. Para más información, consulte la sección [Análisis de datos de métricas](#analyze-metric-data) de este artículo.
 
 * **Supervisión con registros de diagnóstico en Azure Monitor:** puede supervisar los registros de su cuenta de Azure Cosmos y crear paneles desde Azure Monitor. La telemetría, como eventos y seguimientos que tienen lugar en un segundo nivel de detalle, se almacenan como registros. Por ejemplo, si cambia el rendimiento de un contenedor o cambian las propiedades de una cuenta de Cosmos, estos eventos se capturan en los registros. Estos registros se pueden analizar mediante la ejecución de consultas en los datos recopilados. Para más información, consulte la sección [Análisis de datos de registro](#analyze-log-data) de este artículo.
 

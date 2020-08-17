@@ -3,14 +3,14 @@ title: 'Orquestaciones infinitas en Durable Functions: Azure'
 description: Aprenda a implementar orquestaciones infinitas mediante la extensión Durable Functions para Azure Functions.
 author: cgillum
 ms.topic: conceptual
-ms.date: 11/02/2019
+ms.date: 07/14/2020
 ms.author: azfuncdf
-ms.openlocfilehash: d55e08fecbd1338284607ac59fe354c6fa8cb1ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34c70f4305ebb2c45757d982ab558aea6450003f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80478821"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506373"
 ---
 # <a name="eternal-orchestrations-in-durable-functions-azure-functions"></a>Orquestaciones infinitas en Durable Functions (Azure Functions)
 
@@ -22,7 +22,7 @@ Como se explica en el tema del [historial de orquestación](durable-functions-or
 
 ## <a name="resetting-and-restarting"></a>Restablecimiento y reinicio
 
-En lugar de utilizar bucles infinitos, las funciones de orquestador restablecen su estado mediante una llamada a los métodos `ContinueAsNew` (.NET) o `continueAsNew` (JavaScript) del [enlace de desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger). Este método toma un único parámetro serializable con JSON, que se convierte en la nueva entrada para la siguiente generación de función de orquestador.
+En lugar de utilizar bucles infinitos, las funciones de orquestador restablecen su estado mediante una llamada a los métodos `ContinueAsNew` (.NET), `continueAsNew` (JavaScript) o `continue_as_new` (Python) del [enlace de desencadenador de orquestación](durable-functions-bindings.md#orchestration-trigger). Este método toma un único parámetro serializable con JSON, que se convierte en la nueva entrada para la siguiente generación de función de orquestador.
 
 Cuando se llama a `ContinueAsNew`, la instancia pone en cola un mensaje para sí misma antes de cerrarse. El mensaje reinicia la instancia con el nuevo valor de entrada. Se conserva el mismo identificador de instancia, pero el historial de la función de orquestador se trunca eficazmente.
 
@@ -70,13 +70,32 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+from datetime import datetime, timedelta
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    yield context.call_activity("DoCleanup")
+
+    # sleep for one hour between cleanups
+    next_cleanup = context.current_utc_datetime + timedelta(hours = 1)
+    yield context.create_timer(next_cleanup)
+
+    context.continue_as_new(None)
+
+main = df.Orchestrator.create(orchestrator_function)
+```
+
 ---
 
 La diferencia entre este ejemplo y una función desencadenada por temporizador es que aquí los tiempos del desencadenador de limpieza no se basan en una programación. Por ejemplo, una programación CRON que ejecuta una función cada hora lo hará a la 1:00, 2:00, 3:00, etc. y potencialmente podría encontrarse con problemas de superposición. Sin embargo, en este ejemplo, si la limpieza tarda 30 minutos, se programará a la 1:00, 2:30, 4:00, etc., de forma que no habrá posibilidad alguna de superposición.
 
 ## <a name="starting-an-eternal-orchestration"></a>Inicio de una orquestación infinita
 
-Utilice los métodos `StartNewAsync` (.NET) o `startNew` (JavaScript) para iniciar una orquestación infinita, igual que haría con cualquier otra función de orquestación.  
+Utilice los métodos `StartNewAsync` (.NET), `startNew` (JavaScript) o `start_new` (Python) para iniciar una orquestación infinita, igual que haría con cualquier otra función de orquestación.  
 
 > [!NOTE]
 > Si debe asegurarse de que se ejecuta una orquestación infinita singleton, es importante mantener el mismo `id` de instancia al iniciar la orquestación. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
@@ -115,6 +134,19 @@ module.exports = async function (context, req) {
     return client.createCheckStatusResponse(context.bindingData.req, instanceId);
 };
 ```
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
+    client = df.DurableOrchestrationClient(starter)
+    instance_id = 'StaticId'
+
+    await client.start_new('Periodic_Cleanup_Loop', instance_id, None)
+
+    logging.info(f"Started orchestration with ID = '{instance_id}'.")
+    return client.create_check_status_response(req, instance_id)
+
+```
 
 ---
 
@@ -122,7 +154,7 @@ module.exports = async function (context, req) {
 
 Si en algún momento fuera necesario completar una función de orquestador, lo único que debe hacer es *no* llamar a `ContinueAsNew` y dejar que la función se cierre.
 
-Si una función de orquestador se encuentra en un bucle infinito y debe detenerse, use los métodos `TerminateAsync` (.NET) o `terminate` (JavaScript) del [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) para detenerla. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
+Si una función de orquestador se encuentra en un bucle infinito y debe detenerse, use los métodos `TerminateAsync` (.NET), `terminate` (JavaScript) o `terminate` (Python) del [enlace del cliente de orquestación](durable-functions-bindings.md#orchestration-client) para detenerla. Para más información, consulte el artículo sobre la [administración de instancias](durable-functions-instance-management.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

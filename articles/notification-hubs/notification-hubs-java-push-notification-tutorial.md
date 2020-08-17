@@ -16,12 +16,13 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ecfd6bf9d20309619155bf35c87bdb4c08665f73
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: 09553f587916e8204541b36f259a450d72c1b270
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169551"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322948"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Uso de Notification Hubs desde Java
 
@@ -30,7 +31,7 @@ ms.locfileid: "86169551"
 En este tema se describen las principales características del nuevo SDK de Java del Centro de notificaciones de Azure oficial y totalmente compatible.
 Este es un proyecto de código abierto; puede ver el código entero del SDK en el [SDK de Java].
 
-En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java.
+En general, puede acceder a todas las características de Notification Hubs desde un servidor back-end de Java, PHP, Python y Ruby mediante la interfaz REST de Notification Hubs, como se describe en el tema de MSDN [API de REST de Notification Hubs](/previous-versions/azure/reference/dn223264(v=azure.100)). Este SDK de Java proporciona un contenedor fino de estas interfaces REST en Java.
 
 El SDK admite actualmente:
 
@@ -387,7 +388,7 @@ En este tema hemos mostrado cómo crear un sencillo cliente de REST en Java para
   * [Envío de notificaciones entre plataformas a usuarios autenticados]
 
 [SDK de Java]: https://github.com/Azure/azure-notificationhubs-java-backend
-[Get started tutorial]: notification-hubs-ios-apple-push-notification-apns-get-started.md
+[Get started tutorial]: ./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Introducción a Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Envío de noticias de última hora]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Envío de noticias de última hora localizadas]: notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md

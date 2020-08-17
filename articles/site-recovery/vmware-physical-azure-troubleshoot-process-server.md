@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 09/09/2019
 ms.author: raynew
-ms.openlocfilehash: 7679148e195bd67ab5da58636552a684c25c31b0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4816b597d66aea3bbe7f834004f924b5108de939
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131988"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499762"
 ---
 # <a name="troubleshoot-the-process-server"></a>Solucionar problemas del servidor de procesos
 
@@ -91,7 +91,7 @@ Si no hay ningún latido del servidor de procesos (código de error 806), realic
 
  Los errores iniciales y continuados de la replicación se deben a menudo a problemas de conectividad entre las máquinas de origen y el servidor de procesos, o entre el servidor de procesos y Azure. En el gráfico siguiente, se resumen estos pasos, seguido de los procedimientos que le ayudarán a realizarlos.
 
-![Solucionar problemas de conectividad y replicación](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
+![Diagrama de flujo que muestra los pasos para solucionar problemas de conectividad y replicación.](./media/vmware-physical-azure-troubleshoot-process-server/troubleshoot-connectivity-replication.png)
 
 
 ## <a name="step-4-verify-time-sync-on-source-machine"></a>Paso 4: Comprobar la sincronización de hora en la máquina de origen
@@ -170,7 +170,7 @@ Compruebe si el servidor de procesos está insertando datos activamente en Azure
   2. Seleccione la pestaña **Rendimiento** > **Abrir el Monitor de recursos**.
   3. En la página **Monitor de recursos**, seleccione la pestaña **Red**. En **Procesos con actividad de red**, compruebe si cbengine.exe está enviando un gran volumen de datos.
 
-       ![Volúmenes en procesos con actividad de red](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
+       ![Captura de pantalla que muestra un gran número de volúmenes en procesos con actividad de red.](./media/vmware-physical-azure-troubleshoot-process-server/cbengine.png)
 
   Si cbengine.exe no está enviando un gran volumen de datos, realice los pasos de las secciones siguientes.
 
@@ -179,7 +179,7 @@ Compruebe si el servidor de procesos está insertando datos activamente en Azure
 1. En el monitor de recursos, seleccione **cbengine.exe**.
 2. En **Conexiones TCP**, compruebe si hay conectividad entre el servidor de procesos y Azure Storage.
 
-  ![Conectividad entre cbengine.exe y la dirección URL de Azure Blob Storage](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
+  ![Captura de pantalla que muestra la conectividad entre cbengine.exe y la dirección URL de Azure Blob Storage.](./media/vmware-physical-azure-troubleshoot-process-server/rmonitor.png)
 
 ### <a name="check-services"></a>Comprobar servicios
 

@@ -4,12 +4,12 @@ description: Obtenga más información sobre las redes en Azure Kubernetes Servi
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: d0e2c193e626b2d82fc57ef0699a2558ec3a9629
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dacb14664b21412df1b1d48c023017378cf364c9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244657"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387768"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Conceptos de redes de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -105,7 +105,7 @@ Existen las siguientes diferencias de comportamiento entre kubenet y Azure CNI:
 | Expone los servicios de Kubernetes mediante un servicio de equilibrador de carga, App Gateway o un controlador de entrada | Compatible | Compatible |
 | Azure DNS y zonas privadas predeterminadas                                                          | Compatible | Compatible |
 
-Con respecto a DNS, con los complementos kubenet y Azure CNI, DNS se ofrece mediante CoreDNS, un demonio establecido que se ejecuta en AKS. Para más información sobre CoreDNS en Kubernetes, consulte [Personalización del servicio DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS se configura de forma predeterminada para reenviar dominios desconocidos a los servidores DNS de nodo, es decir, a la funcionalidad DNS de la red virtual de Azure donde se ha implementado el clúster de AKS. Por lo tanto, las zonas privadas y Azure DNS funcionarán para los pods que se ejecutan en AKS.
+Con respecto a DNS, con los complementos kubenet y Azure CNI, DNS se ofrece mediante CoreDNS, una implementación que se ejecuta en AKS con su propio escalador automático. Para más información sobre CoreDNS en Kubernetes, consulte [Personalización del servicio DNS](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/). CoreDNS se configura de forma predeterminada para reenviar dominios desconocidos a los servidores DNS de nodo, es decir, a la funcionalidad DNS de la red virtual de Azure donde se ha implementado el clúster de AKS. Por lo tanto, las zonas privadas y Azure DNS funcionarán para los pods que se ejecutan en AKS.
 
 ### <a name="support-scope-between-network-models"></a>Ámbito de compatibilidad entre los modelos de red
 

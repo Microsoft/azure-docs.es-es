@@ -1,6 +1,5 @@
 ---
-title: Importación de datos de aprendizaje
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): Importación de datos de entrenamiento: Azure'
 description: Cómo importar los datos en Azure Machine Learning Studio (clásico) desde varios orígenes de datos. Obtenga información sobre qué tipos de datos y formatos de datos son compatibles.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/01/2019
-ms.openlocfilehash: fa031e6e23c218ff2ca8e2ef3e778768fabb1ebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c13c394f518482853762a3a5bf9a1a2a42ca658a
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321482"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432411"
 ---
 # <a name="import-your-training-data-into-azure-machine-learning-studio-classic-from-various-data-sources"></a>Importación de datos de entrenamiento en Azure Machine Learning Studio (clásico) desde varios orígenes de datos
+
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Para usar sus propios datos en Machine Learning Studio (clásico) para desarrollar y entrenar una solución de análisis predictivo, puede usar los datos de: 
 

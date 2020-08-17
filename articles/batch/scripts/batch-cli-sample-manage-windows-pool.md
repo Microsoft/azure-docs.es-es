@@ -3,12 +3,13 @@ title: 'Ejemplo de script de la CLI de Azure: grupo de Windows en Batch'
 description: Este script muestra algunos de los comandos disponibles en la CLI de Azure para crear y administrar un grupo de nodos de proceso de Windows en Azure Batch.
 ms.topic: sample
 ms.date: 12/12/2019
-ms.openlocfilehash: 6e7d53ea4ca0a320cd70563ed982c690fa30542c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 8863831d236581f07df85acda26268659e3a7d8b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963995"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500272"
 ---
 # <a name="cli-example-create-and-manage-a-windows-pool-in-azure-batch"></a>Ejemplo de la CLI: creación y administración de un grupo de Windows en Azure Batch
 

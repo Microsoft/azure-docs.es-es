@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76722068"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090304"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Prueba del código de ciencia de datos en Azure con el proceso de ciencia de datos en equipo y Azure DevOps Services
 En este artículo se proporcionan instrucciones preliminares para probar el código en un flujo de trabajo de ciencia de datos. Estas pruebas ofrecen a los científicos de datos una manera sistemática y eficiente de comprobar la calidad y el resultado esperado de su código. Se utiliza el [proyecto de proceso de ciencia de datos en equipo (TDSP), que utiliza el conjunto de datos de ingresos de adultos UCI,](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que publicamos con anterioridad para mostrar cómo se pueden realizar pruebas de código. 
@@ -142,7 +142,7 @@ Siga estos pasos para configurar y ejecutar pruebas de código y una compilació
 
     ![Botón "Guardar y poner en cola"](./media/code-test/save_and_queue_build_definition.PNG)
 
-Ahora, cada vez que se inserte una nueva confirmación en el repositorio de código, se iniciará automáticamente el proceso de compilación. (Aquí usamos maestro como el repositorio, pero puede definir cualquier rama). El proceso ejecuta el archivo **test1.py** en la máquina del agente para asegurarse de que todos los elementos definidos en el código se ejecutan correctamente. 
+Ahora, cada vez que se inserte una nueva confirmación en el repositorio de código, se iniciará automáticamente el proceso de compilación. Puede definir cualquier rama. El proceso ejecuta el archivo **test1.py** en la máquina del agente para asegurarse de que todos los elementos definidos en el código se ejecutan correctamente. 
 
 Si las alertas están configuradas correctamente, se le notificará por correo electrónico cuando finalice la compilación. También puede comprobar el estado de compilación en Azure DevOps. Si se produce un error, puede comprobar los detalles de la compilación y averiguar qué parte se interrumpe.
 

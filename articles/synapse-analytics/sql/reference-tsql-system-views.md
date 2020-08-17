@@ -1,5 +1,5 @@
 ---
-title: Vistas del sistema
+title: 'Vistas del sistema admitidas en Synapse SQL: versión preliminar de áreas de trabajo'
 description: Vínculos a la documentación de las vistas del sistema admitidas en SQL de Synapse.
 author: filippopovic
 ms.service: synapse-analytics
@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f58c34a46f4eb1bffe4516f2a6f9f17a799fbfb3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab6d7266daf96a38f81566725a6931aebaf7e7d9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82786604"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527802"
 ---
 # <a name="system-views-supported-in-synapse-sql"></a>Vistas del sistema admitidas en SQL de Synapse
 Vínculos a la documentación de las instrucciones T-SQL admitidas en SQL de Synapse.

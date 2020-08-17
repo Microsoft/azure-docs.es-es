@@ -1,14 +1,14 @@
 ---
 title: Controles del ejemplo de plano técnico de UK OFFICIAL y UK NHS
 description: Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS. Cada control se asigna a una o varias directivas de Azure que ayudan en la evaluación.
-ms.date: 05/08/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 88f9606df5c3dcbca6ade05be918e3500a6ba64c
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: 360c6bc2e1f207ca2d4470ffe62a81f524ce2a73
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078994"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Asignación de controles de los ejemplos de planos técnicos de UK OFFICIAL y UK NHS.
 
@@ -27,6 +27,9 @@ El plano técnico ayuda a garantizar que la transferencia de información con lo
 - Se debe habilitar la transferencia segura a las cuentas de almacenamiento
 - Mostrar los resultados de las auditorías de los servidores web de Windows que no estén usando los protocolos de comunicación segura
 - Implementación de los requisitos previos para auditar los servidores web de Windows que no estén usando los protocolos de comunicación segura
+- Acceso a la aplicación web solo a través de HTTPS
+- Acceso a Function App solo a través de HTTPS
+- Acceso a API App solo a través de HTTPS
 
 ## <a name="23-data-at-rest-protection"></a>2.3. Protección de los datos en reposo
 
@@ -107,27 +110,27 @@ Este plano técnico también asigna definiciones de Azure Policy para auditar la
 
 Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
 
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
+- mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
 
 Este plano técnico ayuda a instaurar contraseñas seguras mediante la asignación de definiciones de Azure Policy que auditan las máquinas virtuales Windows que no tienen unos requisitos mínimos de seguridad de contraseña y de otros tipos. Conocer las máquinas virtuales que infringen la directiva de seguridad de las contraseñas ayuda a tomar medidas correctivas para garantizar que las contraseñas de todas las cuentas de usuario de máquina virtual cumplen la directiva.
 
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
-- \[Versión preliminar\]: implementar los requisitos previos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
+- implementar los requisitos previos para auditar las máquinas virtuales que no tengan habilitada la configuración de complejidad de la contraseña
+- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- implementar los requisitos previos para auditar las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- implementar los requisitos previos para auditar las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas a 14 caracteres
+- implementar los requisitos previos para auditar las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que no tengan habilitada la configuración de complejidad de la contraseña
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia máxima de 70 días
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows cuyas contraseñas no tengan una vigencia mínima de 1 día
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que no restrinjan la longitud mínima de las contraseñas en 14 caracteres
+- mostrar los resultados de las auditorías de las máquinas virtuales Windows que permitan volver a usar las 24 contraseñas anteriores
 
 Este plano técnico también ayuda a controlar el acceso a los recursos de Azure mediante la asignación de definiciones de Azure Policy. Estas directivas auditan el uso de los tipos de recursos y las configuraciones que pueden permitir un acceso más flexible a los recursos. Conocer los recursos que infringen estas directivas ayuda a tomar medidas correctivas para garantizar que el acceso a los recursos de Azure se limita a los usuarios autorizados.
 
-- \[Versión preliminar\]: implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- implementación de los requisitos para auditar las máquinas virtuales Linux que tengan cuentas sin contraseña
+- implementación de los requisitos para auditar máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
+- mostrar los resultados de las auditorías de las máquinas virtuales Linux que tengan cuentas sin contraseña
+- mostrar los resultados de las auditorías de máquinas virtuales Linux que permitan conexiones remotas desde cuentas sin contraseña
 - Se deben migrar las cuentas de almacenamiento a los nuevos recursos de Azure Resource Manager
 - Se deben migrar las máquinas virtuales a nuevos recursos de Azure Resource Manager
 - Auditar las máquinas virtuales que no utilizan discos administrados
@@ -145,36 +148,6 @@ Además de usar más de 25 directivas para garantizar una administración segur
 - Recomendación de desactivación de la depuración remota para Function App
 - Recomendación de desactivación de la depuración remota para aplicaciones web
 - Se debe desactivar la depuración remota para aplicaciones de API
-- Acceso a la aplicación web solo a través de HTTPS
-- Acceso a Function App solo a través de HTTPS
-- Acceso a API App solo a través de HTTPS
-
-## <a name="12-secure-service-administration"></a>12. Administración segura del servicio
-
-Azure implementa el control de acceso basado en rol (RBAC) para ayudar a administrar quién tiene acceso a los recursos de Azure. Mediante Azure Portal, puede revisar quién tiene acceso a los recursos de Azure y sus permisos. Este plano técnico ayuda a restringir y controlar los derechos de acceso con privilegios mediante la asignación de cinco definiciones de [Azure Policy](../../../policy/overview.md) para auditar las cuentas externas con permisos de propietario y de escritura y las cuentas con permisos de propietario y de escritura que no tienen habilitada la autenticación multifactor.
-
-Los sistemas que se usan para la administración de un servicio en la nube tendrán acceso con privilegios elevados a ese servicio. Ponerlos en peligro conlleva un impacto significativo, lo cual incluye los medios para burlar los controles de seguridad y robar o manipular grandes volúmenes de datos. Los métodos que usen los administradores del proveedor de servicios para administrar el servicio operativo deben estar diseñados para reducir cualquier riesgo de vulneración que ponga en peligro la seguridad del servicio. Si no se pone en práctica este principio, un atacante podría contar con los medios necesarios para burlar los controles de seguridad y robar o manipular grandes volúmenes de datos.
-
-- MFA debe estar habilitada en las cuentas con permisos de propietario en la suscripción
-- MFA debe estar habilitada en las cuentas con permisos de escritura en la suscripción
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
-- Las cuentas externas con permisos de escritura deben quitarse de la suscripción
-
-Este plano técnico asigna definiciones de Azure Policy para auditar el uso de la autenticación de Azure Active Directory para servidores SQL Server y Service Fabric. El uso de la autenticación de Azure Active Directory simplifica la administración de permisos y centraliza la administración de identidades de usuarios de base de datos y otros servicios de Microsoft.
-
-- El administrador de Azure Active Directory debe aprovisionarse para servidores SQL Server
-- Los clústeres de Service Fabric solo deben usar Azure Active Directory para la autenticación de cliente
-
-Este plano técnico también asigna definiciones de Azure Policy para auditar las cuentas que deberían priorizarse para la revisión, incluidas las cuentas en desuso y externas con permisos elevados. Cuando sea necesario, se puede bloquear el inicio de sesión de las cuentas (o eliminar estas), lo cual eliminaría inmediatamente los derechos de acceso a los recursos de Azure. Este plano técnico asigna dos definiciones de Azure Policy para auditar las cuentas en desuso cuya eliminación debería considerarse.
-
-- Las cuentas en desuso deben quitarse de la suscripción
-- Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción
-- Las cuentas externas con permisos de propietario deben quitarse de la suscripción
-- Las cuentas externas con permisos de escritura deben quitarse de la suscripción
-
-Este plano técnico también asigna una definición de Azure Policy que audita los permisos de los archivos con contraseña de máquina virtual Linux y alerta si la configuración es incorrecta. Este diseño permite tomar medidas correctivas para garantizar que los autenticadores no están en riesgo.
-
-- \[Versión preliminar\]: mostrar los resultados de las auditorías de las máquinas virtuales Linux que no tengan los permisos del archivo de contraseñas establecidos en 0644
 
 ## <a name="13-audit-information-for-users"></a>13. Información de auditoría para los usuarios
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/29/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8da4ce7801cc98f9ffb32eb7b506eaf1ccd877dd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b117fca23b26919f3c404dd32ba64c0c89d66ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562075"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033571"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Encadenamiento de funciones en Durable Functions: Hello Sequence de ejemplo
 
@@ -60,7 +60,7 @@ Esta es la función:
 
 Todas las funciones de orquestación de JavaScript tienen que incluir el módulo [`durable-functions`](https://www.npmjs.com/package/durable-functions). Se trata de una biblioteca que le permite escribir Durable Functions en JavaScript. Hay tres diferencias importantes entre una función de orquestación y otras funciones de JavaScript:
 
-1. La función es una [función de generador.](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)
+1. La función es una [función de generador.](/scripting/javascript/advanced/iterators-and-generators-javascript)
 2. La función se ajusta en una llamada al método `orchestrator` del módulo `durable-functions` (aquí `df`).
 3. La función debe ser sincrónica. Dado que el método "orchestrator" se encarga de llamar a "context.done", la función debería simplemente devolver "return".
 

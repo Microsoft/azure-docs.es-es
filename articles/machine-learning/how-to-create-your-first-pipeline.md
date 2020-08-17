@@ -5,18 +5,18 @@ description: Cree y ejecute una canalización de aprendizaje automático con el 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: sgilley
 ms.author: nilsp
 author: NilsPohlmann
 ms.date: 12/05/2019
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: f5c4bfbe955c2989f420d7a6f325f8101556dddd
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 0a8bb3ff3d1fc36d4213c6d1a8ea402833bd915e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201301"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852946"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Creación y ejecución de canalizaciones de Machine Learning con el SDK de Azure Machine Learning
 
@@ -38,7 +38,7 @@ Si no tiene una suscripción de Azure, cree una cuenta gratuita antes de empezar
 
 * Cree un [área de trabajo de Azure Machine Learning](how-to-manage-workspace.md) que contendrá todos los recursos de la canalización.
 
-* [Configure el entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning, o use una [instancia de proceso de Azure Machine Learning (versión preliminar)](concept-compute-instance.md) con el SDK ya instalado.
+* [Configure un entorno de desarrollo](how-to-configure-environment.md) para instalar el SDK de Azure Machine Learning o use una [instancia de proceso de Azure Machine Learning](concept-compute-instance.md) con el SDK ya instalado.
 
 Empiece asociando el área de trabajo:
 
@@ -129,6 +129,8 @@ A continuación se muestran ejemplos de creación y asociación de los destinos 
 * Proceso de Azure Machine Learning
 * Azure Databricks 
 * Análisis con Azure Data Lake
+
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
 
 ### <a name="azure-machine-learning-compute"></a>Proceso de Azure Machine Learning
 
@@ -469,7 +471,7 @@ Puede crear un punto de conexión de canalización con varias canalizaciones pub
 ```python
 from azureml.pipeline.core import PipelineEndpoint
 
-published_pipeline = PublishedPipeline.get(workspace="ws", name="My_Published_Pipeline")
+published_pipeline = PipelineEndpoint.get(workspace=ws, name="My_Published_Pipeline")
 pipeline_endpoint = PipelineEndpoint.publish(workspace=ws, name="PipelineEndpointTest",
                                             pipeline=published_pipeline, description="Test description Notebook")
 ```

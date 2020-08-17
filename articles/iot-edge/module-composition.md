@@ -8,12 +8,12 @@ ms.date: 03/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6a4b90d8b6fe67de26c8e652e0dc5b62cc27023f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: dd2b9bc462a9d4bc11f49a7e3294e52f88a926fb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80545627"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511847"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
@@ -38,7 +38,7 @@ A nivel general, un manifiesto de implementación es una lista de módulos gemel
 
 Se requieren dos módulos en cada manifiesto de implementación: `$edgeAgent` y `$edgeHub`. Estos módulos forman parte del entorno de ejecución de Azure IoT Edge que administra el dispositivo IoT Edge y los módulos que se ejecutan en él. Para más información acerca de estos módulos, consulte [Información sobre el entorno de ejecución de Azure IoT Edge y su arquitectura](iot-edge-runtime.md).
 
-Además de los dos módulos en tiempo de ejecución, puede agregar hasta 20 módulos de su elección para que se ejecuten en un dispositivo IoT Edge.
+Además de los dos módulos en tiempo de ejecución, puede agregar hasta 30 módulos de su elección para que se ejecuten en un dispositivo IoT Edge.
 
 Un manifiesto de implementación que contiene solo el entorno de ejecución de Azure IoT Edge (edgeAgent y edgeHub) es válido.
 

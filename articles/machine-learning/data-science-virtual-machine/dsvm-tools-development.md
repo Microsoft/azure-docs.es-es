@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c48cf6a7a82e90d3c9d8dc4c35e37dfb944af99f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 42a595246f45b2c7423aaf77c95f17243cf8813c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282688"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012390"
 ---
 # <a name="development-tools-on-the-azure-data-science-virtual-machine"></a>Herramientas de desarrollo en Azure Data Science Virtual Machine
 
@@ -23,7 +23,7 @@ Data Science Virtual Machine (DSVM) agrupa varias herramientas populares en un e
 
 ## <a name="visual-studio-community-edition"></a>Visual Studio Community Edition
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de uso general      |
 | Versiones de DSVM compatibles      | Windows: Visual Studio 2017, Windows 2019: Visual Studio 2019      |
@@ -37,7 +37,7 @@ Data Science Virtual Machine (DSVM) agrupa varias herramientas populares en un e
 
 ## <a name="visual-studio-code"></a>Visual Studio Code 
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de uso general      |
 | Versiones de DSVM compatibles      | Windows, Linux     |
@@ -47,7 +47,7 @@ Data Science Virtual Machine (DSVM) agrupa varias herramientas populares en un e
 
 ## <a name="rstudio-desktop"></a>RStudio Desktop
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de cliente para el lenguaje R   |
 | Versiones de DSVM compatibles      | Windows, Linux      |
@@ -57,7 +57,7 @@ Data Science Virtual Machine (DSVM) agrupa varias herramientas populares en un e
 
 ## <a name="rstudio-server"></a>RStudio Server
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de cliente para el lenguaje R   |
 | ¿Qué es?   | IDE basada en web para R    |
@@ -68,7 +68,7 @@ Data Science Virtual Machine (DSVM) agrupa varias herramientas populares en un e
 
 ## <a name="juno"></a>Juno 
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de cliente para el lenguaje Julia   |
 | Versiones de DSVM compatibles      | Windows, Linux      |
@@ -78,10 +78,10 @@ Data Science Virtual Machine (DSVM) agrupa varias herramientas populares en un e
 
 ## <a name="pycharm"></a>Pycharm
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | IDE de cliente para el lenguaje Python    |
-| Versiones de DSVM compatibles      | Windows 2019, Linux      |
+| Versiones de DSVM compatibles      | Windows 2019, Linux      |
 | Usos típicos      |  Desarrollo de Python     |
 | Cómo usarla y ejecutarla      | Acceso directo de escritorio (`C:\Program Files\tk`) en Windows. Acceso directo de escritorio (`/usr/bin/pycharm`) en Linux      |
 | Herramientas relacionadas en DSVM      |   Visual Studio 2019, Visual Studio Code, RStudio      |

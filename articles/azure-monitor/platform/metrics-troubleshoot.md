@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b2f7e45c7f6092566314e6e4867bc0345683e4eb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659669"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318392"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solución de problemas de gráficos de métricas
 
@@ -68,7 +68,7 @@ Al [bloquear los límites del eje Y del gráfico](metrics-charts.md#lock-boundar
 
 La colección de métricas del **SO invitado** requiere la configuración de la extensión de Azure Diagnostics o habilitarla mediante el panel **Configuración de diagnóstico** para el recurso.
 
-**Solución:** Si la extensión de Azure Diagnostics está habilitada, pero todavía no puede ver las métricas, siga los pasos descritos en la [guía de solución de problemas de extensión de Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vea también los pasos de solución de problemas para [No se pueden elegir las métricas y el espacio de nombres del SO invitado](metrics-troubleshoot.md#cannot-pick-guest-os-namespace-and-metrics).
+**Solución:** Si la extensión de Azure Diagnostics está habilitada, pero todavía no puede ver las métricas, siga los pasos descritos en la [guía de solución de problemas de extensión de Azure Diagnostics](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal). Vea también los pasos de solución de problemas para [No se pueden elegir las métricas y el espacio de nombres del SO invitado](#cannot-pick-guest-os-namespace-and-metrics).
 
 ## <a name="error-retrieving-data-message-on-dashboard"></a>Mensaje "Error al recuperar datos" en el panel
 
@@ -106,7 +106,7 @@ De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta
     > [!WARNING]
     > No puede usar el [agente de Log Analytics](agents-overview.md#log-analytics-agent) (también denominado Microsoft Monitoring Agent, o "MMA") para enviar el **SO invitado** a una cuenta de almacenamiento.
 
-1. Asegúrese de que el proveedor de recursos **Microsoft.Insights** se ha [registrado para la suscripción](metrics-troubleshoot.md#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
+1. Asegúrese de que el proveedor de recursos **Microsoft.Insights** se ha [registrado para la suscripción](#microsoftinsights-resource-provider-isnt-registered-for-your-subscription).
 
 1. Verifique que la cuenta de almacenamiento no esté protegida por el firewall. Azure Portal necesita acceder a la cuenta de almacenamiento para recuperar los datos de métricas y trazar los gráficos.
 
@@ -118,3 +118,4 @@ De forma predeterminada, las métricas del SO invitado se almacenan en la cuenta
 * [Más información sobre las características avanzadas del Explorador de métricas](metrics-charts.md)
 * [Vea una lista de métricas disponibles para servicios de Azure](metrics-supported.md)
 * [Vea ejemplos de gráficos configurados](metric-chart-samples.md)
+

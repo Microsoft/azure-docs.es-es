@@ -7,12 +7,12 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 04/27/2020
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 46c27f18f8f16f783248790f03364654d0b3c2fe
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 96a947a20a17c4dc08851824a392143ce162f186
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986837"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543575"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Asignación de un nombre DNS personalizado existente a Azure App Service
 
@@ -95,7 +95,12 @@ Cuando vea la siguiente notificación, significará que la operación de escalad
 
 ## <a name="get-domain-verification-id"></a>Obtención del identificador de comprobación de dominio
 
-Para agregar un dominio personalizado a la aplicación, tiene que confirmar la propiedad del dominio agregando un identificador de comprobación como un registro TXT con el proveedor de dominio. En el panel de navegación izquierdo de la página de la aplicación, haga clic en **Dominios personalizados** en **Configuración**. Copie el valor del identificador de comprobación de dominio personalizado de aquí. Necesita este identificador de comprobación para el paso siguiente.
+Para agregar un dominio personalizado a la aplicación, tiene que confirmar la propiedad del dominio agregando un identificador de comprobación como un registro TXT con el proveedor de dominio. En el panel de navegación izquierdo de la página de la aplicación, haga clic en **Dominios personalizados**. Copie el valor de **Custom Domain Verification ID** (Id. de verificación del dominio personalizado) en la página **Custom Domains** (Dominios personalizados) para realizar el siguiente paso.
+
+![Obtención del identificador de verificación del dominio personalizado:](./media/app-service-web-tutorial-custom-domain/get-custom-domain-verification-id.png)
+
+> [!WARNING]
+> Agregar identificadores de verificación de dominio al dominio personalizado puede impedir las entradas DNS pendientes y las adquisiciones de subdominios. Para más información sobre esta amenaza común de alta gravedad, consulte [Adquisición de subdominios](../security/fundamentals/subdomain-takeover.md).
 
 ## <a name="map-your-domain"></a>Asignación del dominio
 
@@ -329,7 +334,7 @@ Una vez completada la operación, la aplicación debe devolver la página correc
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview). 
+Puede automatizar la administración de dominios personalizados con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/). 
 
 ### <a name="azure-cli"></a>Azure CLI 
 

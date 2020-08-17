@@ -9,15 +9,15 @@ metadata:
   ms.subservice: fhir
   ms.topic: landing-page
   ms.collection: collection
-  author: hansenms
-  ms.author: mihansen
-  ms.date: 11/06/2019
-  ms.openlocfilehash: 7940d28dc3ad0e77510fc0522224f81190dd0db7
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  author: matjazl
+  ms.author: matjazl
+  ms.date: 08/12/2020
+  ms.openlocfilehash: 66fc6223a50a062631a74e62e32e0e67c7d6ba73
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86521350"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167494"
 landingContent:
 - title: Primeros pasos con Azure API for FHIR
   linkLists:
@@ -29,7 +29,7 @@ landingContent:
     links:
     - text: Implementación de Azure API for FHIR
       url: fhir-paas-portal-quickstart.md
-    - text: Implementación del conector de IoT (versión preliminar)
+    - text: Implementación de Azure IoT Connector para FHIR (versión preliminar)
       url: iot-fhir-portal-quickstart.md
 - title: Tutoriales de configuración
   linkLists:
@@ -41,6 +41,8 @@ landingContent:
       url: access-fhir-postman-tutorial.md
     - text: Integración inteligente con aplicaciones de terceros e historias clínicas
       url: use-smart-on-fhir-proxy.md
+    - text: Recepción de datos del dispositivo mediante Azure IoT Hub
+      url: device-data-through-iot-hub.md
 - title: Registro de aplicaciones para la autenticación de AD
   linkLists:
   - linkListType: how-to-guide

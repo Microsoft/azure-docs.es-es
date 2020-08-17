@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 3af3134f715dc124b4aee3ac0a7bfbf11df6a462
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 5b516eb913bf9e7b8337a41483682e1201c58890
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801876"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759043"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Conozca los aspectos básicos de la CLI de Voz.
 
@@ -62,7 +62,7 @@ Los comandos de la sección anterior son excelentes para ver rápidamente cómo 
 Si tiene un directorio de archivos de audio, con la CLI de Voz es fácil ejecutar rápidamente el reconocimiento de voz por lotes. Simplemente ejecute el siguiente comando y apunte al directorio con el comando `--files`. En este ejemplo, se anexa `\*.wav` al directorio para reconocer todos los archivos `.wav` que existen en el directorio. Además, especifique el argumento `--threads` para ejecutar el reconocimiento en 10 subprocesos paralelos.
 
 > [!NOTE]
-> También se puede usar el argumento `--threads` en la sección siguiente para los comandos `spx synthesize`, y los subprocesos disponibles dependerán de la CPU y de su porcentaje de carga actual.
+> El argumento `--threads` también se puede usar en la siguiente sección para los comandos `spx synthesize`, y los subprocesos que estén disponibles dependerán de la CPU y de su porcentaje de carga actual.
 
 ```shell
 spx recognize --files C:\your_wav_file_dir\*.wav --output file C:\output_dir\speech_output.tsv --threads 10

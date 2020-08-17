@@ -3,12 +3,12 @@ title: Configuración del acceso a un registro público
 description: Configure reglas de IP para permitir el acceso a un registro de contenedor de Azure desde intervalos de direcciones o direcciones IP públicas seleccionadas.
 ms.topic: article
 ms.date: 05/19/2020
-ms.openlocfilehash: dc0514fbe7d3e01914965cee5dc547172d4435a4
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 967f27c05301ff339765706d0b3088ffcbaed1f2
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83702091"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523832"
 ---
 # <a name="configure-public-ip-network-rules"></a>Configuración de reglas de red de dirección IP pública
 
@@ -102,10 +102,17 @@ az acr update --name myContainerRegistry --public-network-enabled true
 
 ![Acceso público desde todas las redes][acr-access-all-networks]
 
+## <a name="troubleshoot"></a>Solución de problemas
+
+Si se establece una regla de red pública o se deniega el acceso público al registro, se generará un error al intentar iniciar sesión en el registro desde una red pública no permitida. También se generará un error en el acceso del cliente detrás de un proxy HTTPS si no se establece una regla de acceso para el proxy. Verá un mensaje de error similar a `Error response from daemon: login attempt failed with status: 403 Forbidden` o `Looks like you don't have access to registry`.
+
+Estos errores también pueden producirse si usa un proxy HTTPS permitido por una regla de acceso a la red, pero el proxy no está configurado correctamente en el entorno del cliente. Compruebe que tanto el cliente como el demonio de Docker estén configurados para el comportamiento del proxy. Para obtener más información, consulte el artículo sobre [el proxy HTTP/HTTPS](https://docs.docker.com/config/daemon/systemd/#httphttps-proxy) en la documentación de Docker.
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para restringir el acceso a un registro mediante un punto de conexión privado de una red virtual, vea [Configuración de Azure Private Link para un registro de contenedor de Azure](container-registry-private-link.md).
-* Si necesita configurar reglas de acceso a un registro desde detrás de un firewall cliente, vea [Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall](container-registry-firewall-access-rules.md).
+* Para restringir el acceso a un registro mediante un punto de conexión privado de una red virtual, consulte [Configuración de Azure Private Link para un registro de contenedor de Azure](container-registry-private-link.md).
+* Si necesita configurar reglas de acceso a un registro desde detrás de un firewall cliente, consulte [Configuración de reglas para acceder a un registro de contenedor de Azure desde detrás de un firewall](container-registry-firewall-access-rules.md).
 
 [az-acr-login]: /cli/azure/acr#az-acr-login
 [az-acr-network-rule-add]: /cli/azure/acr/network-rule/#az-acr-network-rule-add

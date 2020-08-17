@@ -158,8 +158,10 @@
           items:
             - name: Control de versiones
               href: versioning-overview.md
-            - name: Eliminación temporal
-              href: soft-delete-overview.md
+            - name: Eliminación temporal para blobs
+              href: soft-delete-blob-overview.md
+            - name: Eliminación temporal para contenedores
+              href: soft-delete-container-overview.md
             - name: Instantáneas
               href: snapshots-overview.md
             - name: Fuente de cambios
@@ -262,7 +264,7 @@
           items:
             - name: Supervisión de una cuenta de almacenamiento
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migración desde métricas clásicas
+            - name: Transición desde la métrica clásica
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Supervisión (clásica)
               items:
@@ -280,6 +282,8 @@
           href: storage-blob-pageblob-overview.md
         - name: Sitios web estáticos
           href: storage-blob-static-website.md
+        - name: "Compatibilidad con el protocolo NFS\_3.0"
+          href: network-file-system-protocol-support.md
     - name: Procedimientos
       items:
         - name: Crear y administrar cuentas de almacenamiento
@@ -403,11 +407,11 @@
                   href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Configuración de firewalls y redes virtuales
                   href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Configuración de la seguridad de la capa de transporte (TLS)
+                - name: Administración de Seguridad de la capa de transporte (TLS)
                   items:
-                    - name: Configuración de la versión mínima de TLS para una cuenta de almacenamiento
+                    - name: Aplicación de la versión mínima de TLS para las solicitudes entrantes
                       href: ../common/transport-layer-security-configure-minimum-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                    - name: Configuración TLS para una aplicación cliente
+                    - name: Configuración de la versión de TLS para una aplicación cliente
                       href: ../common/transport-layer-security-configure-client-version.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Establecimiento y administración de directivas de inmutabilidad
               href: storage-blob-immutability-policies-manage.md
@@ -421,8 +425,10 @@
           items:
             - name: Habilitación del control de versiones de blob
               href: versioning-enable.md
-            - name: Habilitación de la eliminación temporal
-              href: soft-delete-enable.md
+            - name: Habilitación de la eliminación temporal para blobs
+              href: soft-delete-blob-enable.md
+            - name: Habilitación de la eliminación temporal para contenedores
+              href: soft-delete-container-enable.md
             - name: Creación de instantáneas (.NET)
               href: snapshots-manage-dotnet.md
             - name: Proceso de registros de fuente de cambios
@@ -469,12 +475,12 @@
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
               href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Montaje de Blob Storage como sistema de archivos en Linux
+            - name: Montaje de almacenamiento mediante NFS
+              href: network-file-system-protocol-support-how-to.md
+            - name: Montaje de almacenamiento desde Linux mediante blobfuse
               href: storage-how-to-mount-container-linux.md
             - name: Transferencia de datos con la biblioteca de movimiento de datos
               href: ../common/storage-use-data-movement-library.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Preguntas más frecuentes sobre la migración de almacenamiento
-              href: ../common/storage-migration-faq.md
         - name: Desarrollo con blobs
           items:
             - name: C++
@@ -523,6 +529,10 @@
               href: ../common/storage-ref-azcopy-jobs-resume.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy jobs show
               href: ../common/storage-ref-azcopy-jobs-show.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy load
+              href: ../common/storage-ref-azcopy-load.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: azcopy load clfs
+              href: ../common/storage-ref-azcopy-load-avere-cloud-file-system.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy list
               href: ../common/storage-ref-azcopy-list.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: azcopy login
@@ -554,6 +564,8 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solución de problemas del Explorador de Storage
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Seguridad del Explorador de Azure Storage
+              href: ../common/storage-explorer-security.md
             - name: Ciclo de vida y directiva de soporte técnico del Explorador de Storage
               href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Accesibilidad al Explorador de Storage
@@ -662,6 +674,9 @@
               href: security-recommendations.md
             - name: Control de acceso (directorios y archivos)
               href: data-lake-storage-access-control.md
+            - name: Controles de seguridad de Azure Policy
+              displayName: 'regulatory, compliance, standards, domains'
+              href: ./security-controls-policy.md
         - name: Compatibilidad
           items:
             - name: Acceso multiprotocolo
@@ -676,7 +691,7 @@
           items:
             - name: Supervisión de una cuenta de almacenamiento
               href: ../common/monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migración desde métricas clásicas
+            - name: Transición desde la métrica clásica
               href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Supervisión (clásica)
               items:
@@ -735,7 +750,7 @@
                 - name: 'Configuración, optimización y solución de problemas'
                   href: ../common/storage-use-azcopy-configure.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Azure Data Factory
-              href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+              href: ../../data-factory/connector-azure-data-lake-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Transferencia de datos con la herramienta DistCp
               href: data-lake-storage-use-distcp.md
             - name: Transferencia de datos con la biblioteca de movimiento de datos
@@ -825,6 +840,10 @@
               href: 'https://github.com/microsoft/AzureStorageExplorer/releases'
             - name: Solución de problemas del Explorador de Storage
               href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Seguridad del Explorador de Azure Storage
+              href: ../common/storage-explorer-security.md
+            - name: Ciclo de vida y directiva de soporte técnico del Explorador de Storage
+              href: ../common/storage-explorer-support-policy-lifecycle.md
             - name: Accesibilidad al Explorador de Storage
               href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Página de preguntas y respuestas de Microsoft

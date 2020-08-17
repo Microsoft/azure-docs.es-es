@@ -33,7 +33,7 @@ landingContent:
       url: about-zone-redundant-vnet-gateways.md
     - text: Preguntas más frecuentes sobre VPN Gateway
       url: vpn-gateway-vpn-faq.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -61,7 +61,7 @@ landingContent:
       url: vpn-gateway-3rdparty-device-config-overview.md
     - text: Descarga de los scripts de configuración de dispositivos
       url: vpn-gateway-download-vpndevicescript.md
-- title: Administrar
+- title: Administración
   linkLists:
   - linkListType: concept
     links:

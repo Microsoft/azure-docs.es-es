@@ -4,12 +4,12 @@ description: Aprenda a configurar un cifrado basado en host en un clúster de Az
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 7b9d930d62d0acea30af9b5e7e12e43fa8fcd5da
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4b5deeec0b76520952345e9b03135fa094a1f78e
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244317"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986872"
 ---
 # <a name="host-based-encryption-on-azure-kubernetes-service-aks-preview"></a>Cifrado basado en host en Azure Kubernetes Service (AKS) (versión preliminar)
 
@@ -27,18 +27,18 @@ Esta característica solo se puede establecer durante la creación del clúster 
 
 - Asegúrese de que tiene instalada la `aks-preview` extensión de la CLI v 0.4.55 o superior.
 - Asegúrese de que tiene habilitada la marca de características `EncryptionAtHost` bajo `Microsoft.Compute`.
-- Asegúrese de que tiene habilitada la marca de características `EncryptionAtHost` bajo `Microsoft.ContainerService`.
+- Asegúrese de que tiene habilitada la marca de características `EnableEncryptionAtHostPreview` bajo `Microsoft.ContainerService`.
 
 ### <a name="register-encryptionathost--preview-features"></a>Registro de las características en versión preliminar de `EncryptionAtHost`
 
-Para crear un clúster de AKS que usa el cifrado basado en host, debe habilitar la marca de características `EncryptionAtHost` en su suscripción.
+Para crear un clúster de AKS que usa el cifrado basado en host, debe habilitar las marcas de características `EnableEncryptionAtHostPreview` y `EncryptionAtHost` en su suscripción.
 
-Registre la marca de características `EncryptionAtHost` con el comando [az feature register][az-feature-register], tal como se muestra en el siguiente ejemplo:
+Registro de `EncryptionAtHost` la marca de característica con el comando de [característica de registro az][az-feature-register], tal como se muestra en el siguiente ejemplo:
 
 ```azurecli-interactive
 az feature register --namespace "Microsoft.Compute" --name "EncryptionAtHost"
 
-az feature register --namespace "Microsoft.ContainerService"  --name "EncryptionAtHost"
+az feature register --namespace "Microsoft.ContainerService"  --name "EnableEncryptionAtHostPreview"
 ```
 
 Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el estado de registro con el comando [az feature list][az-feature-list]:
@@ -46,7 +46,7 @@ Tarda unos minutos en que el estado muestre *Registrado*. Puede comprobar el est
 ```azurecli-interactive
 az feature list -o table --query "[?contains(name, 'Microsoft.Compute/EncryptionAtHost')].{Name:name,State:properties.state}"
 
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EncryptionAtHost')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/EnableEncryptionAtHostPreview')].{Name:name,State:properties.state}"
 ```
 
 Cuando todo esté listo, actualice el registro de los proveedores de recursos `Microsoft.ContainerService` y `Microsoft.Compute` con el comando [az provider register][az-provider-register]:
@@ -57,11 +57,7 @@ az provider register --namespace Microsoft.Compute
 az provider register --namespace Microsoft.ContainerService
 ```
 
-> [!IMPORTANT]
-> Las características en vista previa de AKS son de autoservicio y se tienen que habilitar. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los contratos de nivel de servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para obtener información adicional, consulte los siguientes artículos de soporte:
->
-> - [Directivas de soporte técnico para AKS](support-policies.md)
-> - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalación de la extensión aks-preview de la CLI
 

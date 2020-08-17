@@ -4,18 +4,18 @@ description: Obtenga información sobre las diferencias de validación de divers
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 10/12/2019
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 2a1507b008903085886f9392f3f4e5461997b6e2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e794e277f6731c7b6e57a4710eea437f65be0340
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80128867"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336351"
 ---
 # <a name="validation-differences-by-supported-account-types-signinaudience"></a>Diferencias de validación por tipos de cuenta compatibles (signInAudience)
 
@@ -39,9 +39,9 @@ Vea la tabla siguiente para conocer las diferencias de validación de diversas p
 | Certificados (`keyCredentials`) | Clave de firma simétrica | Clave de firma simétrica | Cifrado y clave de firma asimétrica | 
 | Secretos de cliente (`passwordCredentials`) | Ilimitado* | Ilimitado* | Si liveSDK está habilitado: un máximo 2 secretos de cliente | 
 | URI de redirección (`replyURLs`) | Consulte [Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta](reply-url.md). | | | 
-| Permisos de API (`requiredResourceAccess`) | Ilimitado* | Ilimitado* | Máximo de 30 permisos por recurso permitido (por ejemplo, Microsoft Graph) | 
+| Permisos de API (`requiredResourceAccess`) | Ilimitado* | Ilimitado* | Máximo de 50 recursos por aplicación y 30 permisos por recurso (por ejemplo, Microsoft Graph). Límite total de 200 por aplicación (recursos x permisos). | 
 | Ámbitos definidos con esta API (`oauth2Permissions`) | Longitud máxima de nombre de ámbito de 120 caracteres <br><br> No existe un límite* en el número de ámbitos definidos | Longitud máxima de nombre de ámbito de 120 caracteres <br><br> No existe un límite* en el número de ámbitos definidos |  Longitud máxima del nombre de ámbito de 40 caracteres <br><br> Máximo de 100 ámbitos definidos | 
-| Aplicaciones cliente autorizadas (`preautorizedApplications`) | Ilimitado* | Ilimitado* | Máximo total de 500 <br><br> Máximo de 100 aplicaciones cliente definidas <br><br> Máximo de 30 ámbitos definidos por cliente | 
+| Aplicaciones cliente autorizadas (`preAuthorizedApplications`) | Ilimitado* | Ilimitado* | Máximo total de 500 <br><br> Máximo de 100 aplicaciones cliente definidas <br><br> Máximo de 30 ámbitos definidos por cliente | 
 | appRoles | Compatible <br> Ilimitado* | Compatible <br> Ilimitado* | No compatible | 
 | URL de cierre de sesión | http://localhost se permite <br><br> Tiene una longitud máxima de 255 caracteres | http://localhost se permite <br><br> Tiene una longitud máxima de 255 caracteres | <br><br> https://localhost se permite, http://localhost da error para MSA <br><br> Tiene una longitud máxima de 255 caracteres <br><br> El esquema HTTP no se admite <br><br> No se admiten caracteres comodín | 
 

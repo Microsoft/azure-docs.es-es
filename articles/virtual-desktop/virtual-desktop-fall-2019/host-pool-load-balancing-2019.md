@@ -1,24 +1,22 @@
 ---
-title: 'Equilibrio de carga del grupo de hosts de Windows Virtual Desktop: Azure'
+title: 'Equilibrio de carga de un grupo de hosts de Windows Virtual Desktop (clásico): Azure'
 description: Métodos de equilibrio de carga del grupo de hosts para un entorno de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e2bfbd580d0e114cf4a135879340745107183b6a
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 940863b983b00dbb3c4af590d75868665372f818
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614081"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002310"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Métodos de equilibrio de carga para un grupo host
+# <a name="host-pool-load-balancing-methods-in-windows-virtual-desktop-classic"></a>Métodos de equilibrio de carga de un grupo de hosts en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../host-pool-load-balancing.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../host-pool-load-balancing.md).
 
 Windows Virtual Desktop admite dos métodos de equilibrio de carga. Cada método determina qué host de sesión hospedará la sesión de un usuario cuando se conecte a un recurso de un grupo de hosts.
 

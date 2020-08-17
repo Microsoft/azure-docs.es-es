@@ -3,22 +3,24 @@ title: Configuración de imágenes de Azure Marketplace en Azure DevTest Labs
 description: Configuración de las imágenes de Azure Marketplace que se pueden usar al crear una máquina virtual en Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9fdb4e3a888e876f91b8af2e4854a9c101eea45c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5158ed33bf253db1dbe0eb3232bc43d27ce15e7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482724"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512442"
 ---
 # <a name="configure-azure-marketplace-image-settings-in-azure-devtest-labs"></a>Configuración de imágenes de Azure Marketplace en Azure DevTest Labs
-DevTest Labs admite la creación de máquinas virtuales basadas en imágenes de Azure Marketplace, en función de cómo se hayan configurado las imágenes de Azure Marketplace para usarlas en el laboratorio. En este artículo se muestra cómo especificar qué imágenes de Azure Marketplace se pueden utilizar al crear máquinas virtuales en un laboratorio, si se puede usar alguna. Esto garantiza que el equipo solo tiene acceso a las imágenes de Marketplace que necesitan. 
+DevTest Labs admite la creación de máquinas virtuales basadas en imágenes de Azure Marketplace, en función de cómo se hayan configurado las imágenes de Azure Marketplace para usarlas en el laboratorio. En este artículo se muestra cómo especificar qué imágenes de Azure Marketplace se pueden utilizar al crear máquinas virtuales en un laboratorio, si se puede usar alguna. Esto garantiza que el equipo solo tenga acceso a las imágenes de Marketplace que necesitan. 
 
-## <a name="select-which-azure-marketplace-images-are-allowed-when-creating-a-vm"></a>Elección de las imágenes de Azure Marketplace que se permiten al crear una máquina virtual
+## <a name="specify-allowed-images-for-creating-vms"></a>Especificación de imágenes permitidas para crear máquinas virtuales
+Siga estos pasos para especificar las imágenes de Azure Marketplace que se permiten al crear una máquina virtual. 
+
 1. Inicie sesión en [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
-3. En la lista de laboratorios, seleccione el laboratorio que desee. 
-4. En la hoja del laboratorio, seleccione **Directivas y configuración**.
-5. En la hoja **Configuration and policies** (Directivas y configuración) de **Virtual Machine Bases** (Bases de datos de las máquinas virtuales), seleccione **Marketplace images** (Imágenes de Marketplace).
+3. En la lista de laboratorios, seleccione el suyo. 
+4. En la página principal de la página del laboratorio, seleccione **Configuración y directivas**.
+5. En la página **Configuración y directivas** del laboratorio de **Bases de datos de las máquinas virtuales**, seleccione **Imágenes de Marketplace**.
 6. Especifique si desea que todas las imágenes cualificadas de Azure Marketplace estén disponibles para su uso como base de una nueva máquina virtual. Si selecciona **Sí**, se permitirán en el laboratorio todas las imágenes de Azure Marketplace que cumplan los criterios siguientes:
    
    * La imagen crea una única máquina virtual **y**
@@ -35,7 +37,15 @@ DevTest Labs admite la creación de máquinas virtuales basadas en imágenes de 
    
      ![Puede especificar qué imágenes de Azure Marketplace se pueden usar como imágenes base para las máquinas virtuales](./media/devtest-lab-configure-marketplace-images/select-marketplace-images.png)
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+
+## <a name="troubleshoot"></a>Solución de problemas
+Si no puede encontrar una imagen específica a fin de habilitarla para el laboratorio, siga estos pasos: 
+
+- Compruebe si puede ver la imagen mientras crea una máquina virtual de proceso.
+- Es posible que la imagen no esté disponible en el tipo de la suscripción que use. Compruebe, junto con el administrador de la suscripción, el tipo de la suscripción (por ejemplo: MSDN, gratis, pago por uso, etc.). 
+- La compatibilidad con imágenes de Gen 2 en DevTest Labs es limitada. Si hay versiones de Gen 1 y Gen 2 disponibles para una imagen, DevTest Labs solo muestra la versión de Gen 1 de la imagen al crear una máquina virtual. La solución alternativa consiste en crear una imagen de Gen 2 personalizada fuera del laboratorio y usarla para crear una máquina virtual. Si solo se tiene acceso a la versión de Gen 2 de la imagen disponible, DevTest Labs la admitirá y mostrará en la lista. 
+      
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 Una vez que haya configurado cómo se permiten las imágenes de Azure Marketplace al crear una máquina virtual, el siguiente paso es [agregar una máquina virtual al laboratorio](devtest-lab-add-vm.md).

@@ -3,12 +3,13 @@ title: 'Supervisión del rendimiento de aplicaciones web Java: Azure Application
 description: Supervisión extendida del rendimiento y el uso de su sitio web de Java con Application Insights.
 ms.topic: conceptual
 ms.date: 01/10/2019
-ms.openlocfilehash: b047a8dd8c67679a5cc8a45e8be82f9ab5227aa4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 9cce87fa742df2e623217b5b0f72ad19814fd3b7
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81537549"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371369"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Supervisión de dependencias, excepciones detectadas y tiempos de ejecución del método en aplicaciones web de Java
 
@@ -120,19 +121,20 @@ En el recurso de Application Insights, aparecen tiempos de ejecución agregados 
 
 Para buscar instancias individuales de informes de dependencia, excepción y método, abra [Buscar][diagnostic].
 
-[Más información sobre diagnósticos de problemas de dependencia](../../azure-monitor/app/asp-net-dependencies.md#diagnosis).
+[Más información sobre diagnósticos de problemas de dependencia](./asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>¿Tiene preguntas? ¿Tiene problemas?
-* ¿No hay datos? [Establecer excepciones del firewall](../../azure-monitor/app/ip-addresses.md)
+* ¿No hay datos? [Establecer excepciones del firewall](./ip-addresses.md)
 * [Solución de problemas de Java](java-troubleshoot.md)
 
 <!--Link references-->
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#track-exception
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
+[api]: ./api-custom-events-metrics.md
+[apiexceptions]: ./api-custom-events-metrics.md#track-exception
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
 [eclipse]: app-insights-java-eclipse.md
 [java]: java-get-started.md
 [javalogs]: java-trace-logs.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
+[metrics]: ../platform/metrics-charts.md
+

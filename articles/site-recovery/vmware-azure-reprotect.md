@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 976888f57269cc9fe6107a38e30d78c73eb5c124
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228916"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292779"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Reprotección desde Azure a un entorno local
 
@@ -33,7 +33,7 @@ Tras la [conmutación por error](site-recovery-failover.md) de máquinas virtual
     - Si utiliza las ediciones gratuitas de ESXi 5.5 o vSphere Hypervisor 6, actualice a una versión diferente.
     - Si tiene un servidor físico de Windows Server 2008 R2 SP1.
     - Las máquinas virtuales de VMware no pueden conmutar por recuperación en Hyper-V.
-    - Las máquinas virtuales [que se han migrado](migrate-overview.md#what-do-we-mean-by-migration).
+    - VM que se han migrado.
     - Un a máquina virtual que se ha migrado a otro grupo de recursos.
     - Una máquina virtual de Azure de réplica que se ha eliminado.
     - Una máquina virtual de Azure de réplica que no está protegida (se está replicando en el sitio local).

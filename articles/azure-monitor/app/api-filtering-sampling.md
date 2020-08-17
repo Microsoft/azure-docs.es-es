@@ -3,12 +3,13 @@ title: Filtro y preprocesamiento en el SDK de Application Insights | Microsoft 
 description: Escriba procesadores e inicializadores de telemetría para que el SDK filtre o agregue propiedades a los datos antes de enviar la telemetría al portal de Application Insights.
 ms.topic: conceptual
 ms.date: 11/23/2016
-ms.openlocfilehash: d33aeebfb374f081b4ae5dee7f83ccd04d0835ee
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-javascript
+ms.openlocfilehash: eec3cf44eb516ce20db564e1bed32e5741bfd02a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075797"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366762"
 ---
 # <a name="filter-and-preprocess-telemetry-in-the-application-insights-sdk"></a>Filtro y preprocesamiento de la telemetría en el SDK de Application Insights
 
@@ -17,7 +18,7 @@ Puede escribir y configurar complementos para el SDK de Application Insights con
 * [muestreo](sampling.md) reduce el volumen de la telemetría sin que ello influya en las estadísticas. Mantiene juntos los puntos de datos relacionados para que pueda navegar entre ellos a la hora de diagnosticar un problema. En el portal, se multiplican los recuentos totales para compensar el muestreo.
 * El filtro con procesadores de telemetría permite filtrar la telemetría en el SDK antes de enviarla al servidor. Por ejemplo, para reducir el volumen de la telemetría puede excluir las solicitudes de robots. El filtro constituye un enfoque más básico que el muestreo para reducir el tráfico. Le permite tener un mayor control sobre lo que se transmite, aunque afecta a las estadísticas. Por ejemplo, puede filtrar todas las solicitudes correctas.
 * [Los inicializadores de telemetría agregan o modifican propiedades](#add-properties) a cualquier telemetría enviada desde la aplicación, lo que incluye la telemetría de los módulos estándar. Por ejemplo, puede agregar valores calculados o números de versión para filtrar los datos en el portal.
-* [API del SDK](../../azure-monitor/app/api-custom-events-metrics.md) se usa para enviar métricas y eventos personalizados.
+* [API del SDK](./api-custom-events-metrics.md) se usa para enviar métricas y eventos personalizados.
 
 Antes de comenzar:
 
@@ -34,7 +35,7 @@ Para filtrar la telemetría, escriba un procesador de telemetría y regístrelo 
 > [!WARNING]
 > El filtrado de la telemetría enviada desde el SDK usando procesadores puede sesgar las estadísticas que se ven en el portal y dificultar el seguimiento de elementos relacionados.
 >
-> En su lugar, puede efectuar un [muestreo](../../azure-monitor/app/sampling.md).
+> En su lugar, puede efectuar un [muestreo](./sampling.md).
 >
 >
 
@@ -352,7 +353,7 @@ Inserte un inicializador de telemetría inmediatamente después del código de i
 </script>
 ```
 
-Para obtener un resumen de las propiedades no personalizadas disponibles en el elemento de telemetría, consulte [Modelo de exportación de datos de Application Insights](../../azure-monitor/app/export-data-model.md).
+Para obtener un resumen de las propiedades no personalizadas disponibles en el elemento de telemetría, consulte [Modelo de exportación de datos de Application Insights](./export-data-model.md).
 
 Puede agregar tantos inicializadores como desee. Se llaman en el orden en que se agregan.
 
@@ -498,7 +499,7 @@ public void Initialize(ITelemetry telemetry)
 
 #### <a name="add-information-from-httpcontext"></a>Adición de información desde HttpContext
 
-El inicializador de ejemplo siguiente lee los datos de [`HttpContext`](https://docs.microsoft.com/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) y lo anexa a una instancia de `RequestTelemetry`. `IHttpContextAccessor` se proporciona automáticamente a través de la inserción de dependencias del constructor.
+El inicializador de ejemplo siguiente lee los datos de [`HttpContext`](/aspnet/core/fundamentals/http-context?view=aspnetcore-3.1) y lo anexa a una instancia de `RequestTelemetry`. `IHttpContextAccessor` se proporciona automáticamente a través de la inserción de dependencias del constructor.
 
 ```csharp
 public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
@@ -542,8 +543,8 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Información general acerca de la API](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Referencia de ASP.NET](https://msdn.microsoft.com/library/dn817570.aspx)
+* [Información general acerca de la API](./api-custom-events-metrics.md)
+* [Referencia de ASP.NET](/previous-versions/azure/dn817570(v=azure.100))
 
 ## <a name="sdk-code"></a>Código del SDK
 
@@ -552,6 +553,7 @@ public class HttpContextRequestTelemetryInitializer : ITelemetryInitializer
 * [SDK de JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
-* [Búsqueda de eventos y registros](../../azure-monitor/app/diagnostic-search.md)
-* [Muestreo](../../azure-monitor/app/sampling.md)
-* [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md)
+* [Búsqueda de eventos y registros](./diagnostic-search.md)
+* [Muestreo](./sampling.md)
+* [Solución de problemas](../faq.md)
+

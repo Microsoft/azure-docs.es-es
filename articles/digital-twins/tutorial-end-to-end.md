@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 9c07db575827254de833fc0b2390be823ebc4e57
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: aae1797f7f1a252a4f094ee9f1b079fb60ba72f3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206568"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131759"
 ---
 # <a name="build-out-an-end-to-end-solution"></a>Creación de soluciones de un extremo a otro
 
@@ -26,6 +26,9 @@ En este tutorial:
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="set-up-cloud-shell-session"></a>Configuración de una sesión de Cloud Shell
 [!INCLUDE [Cloud Shell for Azure Digital Twins](../../includes/digital-twins-cloud-shell.md)]
 
 [!INCLUDE [Azure Digital Twins tutorial: configure the sample project](../../includes/digital-twins-tutorial-sample-configure.md)]
@@ -90,7 +93,7 @@ El siguiente paso es configurar una [aplicación de Azure Functions](../azure-fu
 * *ProcessHubToDTEvents*: procesa los datos entrantes de IoT Hub y actualiza Azure Digital Twins.
 * *ProcessDTRoutedData*: procesa los datos de gemelos digitales y actualiza los gemelos principales de Azure Digital Twins.
 
-En esta sección, publicará la aplicación de funciones previamente escrita y se asegurará de que la aplicación de funciones pueda acceder a Azure Digital Twins asignándole una identidad de Azure Active Directory (AAD). Si se realizan estos pasos, el resto del tutorial podrá usar las funciones dentro de la aplicación de funciones. 
+En esta sección, publicará la aplicación de funciones previamente escrita y se asegurará de que esta pueda acceder a Azure Digital Twins, asignándole una identidad de Azure Active Directory (Azure AD). Si se realizan estos pasos, el resto del tutorial podrá usar las funciones dentro de la aplicación de funciones. 
 
 ### <a name="publish-the-app"></a>Publicación de la aplicación
 
@@ -138,7 +141,7 @@ En el panel *Publish* (Publicar) que se abre en la ventana principal de Visual 
 
 ### <a name="assign-permissions-to-the-function-app"></a>Asignación de permisos a la aplicación de funciones
 
-Para habilitar la aplicación de funciones para acceder a Azure Digital Twins, el siguiente paso es configurar el valor de una aplicación, asignar a la aplicación una identidad de AAD administrada por el sistema y dar al *propietario* de esta identidad permisos en la instancia de Azure Digital Twins.
+Para habilitar la aplicación de funciones para acceder a Azure Digital Twins, el siguiente paso es configurar el valor de una aplicación, asignar a la aplicación una identidad de Azure AD administrada por el sistema y dar al *propietario* de esta identidad permisos en la instancia de Azure Digital Twins.
 
 En Azure Cloud Shell, use el siguiente comando para establecer una configuración de la aplicación que la aplicación de funciones usará para hacer referencia a la instancia de los gemelos digitales.
 
@@ -420,7 +423,7 @@ Con Azure Cloud Shell, puede eliminar todos los recursos de Azure de un grupo me
 az group delete --name <your-resource-group>
 ```
 
-A continuación, use este comando para eliminar el registro de aplicación de AAD que creó para la aplicación cliente:
+A continuación, use este comando para eliminar el registro de aplicación de Azure AD que creó para la aplicación cliente:
 
 ```azurecli
 az ad app delete --id <your-application-ID>
@@ -433,7 +436,7 @@ Por último, elimine la carpeta de ejemplo del proyecto que descargó de la máq
 En este tutorial, ha creado un escenario de un extremo a otro que muestra la forma en que los datos de dispositivos activos controlan Azure Digital Twins.
 
 A continuación, consulte la documentación sobre conceptos para más información sobre los elementos con los que ha trabajado en el tutorial:
-* [Conceptos: Modelos personalizados](concepts-models.md)
+* [*Conceptos: Modelos personalizados*](concepts-models.md)
 
 O bien, consulte los artículos de procedimientos para profundizar en los procesos de este tutorial:
-* [Procedimiento: Uso de la CLI de Azure Digital Twins](how-to-use-cli.md)
+* [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).

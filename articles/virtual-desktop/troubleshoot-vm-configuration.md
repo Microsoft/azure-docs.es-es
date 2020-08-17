@@ -1,27 +1,22 @@
 ---
 title: 'Solución de problemas de host de sesión de Windows Virtual Desktop: Azure'
 description: Cómo resolver problemas al configurar máquinas virtuales de host de sesión en Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: df2990e3799d0b16f316c522185ac9b779ca48e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31e9b4b065b2acb8378c2eeac332341f48b28165
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362363"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005230"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Configuración de máquina virtual de host de sesión
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
->
-> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-vm-configuration-2019.md).
 
 Use este artículo para solucionar los problemas que tiene al configurar las máquinas de virtuales (VM) de host de sesión de Windows Virtual Desktop.
 
@@ -141,8 +136,8 @@ Cuando el agente de Windows Virtual Desktop se instala por primera vez en las VM
 
 **Solución:** Siga estas instrucciones para corregir el error del registro del agente.
 
-1. Si ya hay un token de registro, quítelo con Remove-AzWvdRegistrationInfo. 
-2. Ejecute el cmdlet **New-AzWvdRegistrationInfo** para generar un nuevo token. 
+1. Si ya hay un token de registro, quítelo con Remove-AzWvdRegistrationInfo.
+2. Ejecute el cmdlet **New-AzWvdRegistrationInfo** para generar un nuevo token.
 3. Confirme que el parámetro *-ExpirationTime* esté configurado en 3 días.
 
 ### <a name="error-windows-virtual-desktop-agent-isnt-reporting-a-heartbeat-when-running-get-azwvdsessionhost"></a>Error: El agente de Windows Virtual Desktop no notifica un latido al ejecutar Get-AzWvdSessionHost
@@ -308,7 +303,7 @@ Si inicia sesión en Windows 10 Enterprise multisesión con una cuenta adminis
 
 Si el límite de tiempo expira, aparece el mensaje de error "Se desconectó la sesión remota porque no hay licencias de acceso de cliente de Escritorio remoto disponibles para este equipo".
 
-Si ve alguno de estos mensajes, la imagen no tiene instaladas las actualizaciones más recientes de Windows o está configurando el modo de licencia de Escritorio remoto a través de la directiva de grupo. Siga los pasos descritos en las secciones siguientes para comprobar la configuración de la directiva de grupo, identificar la versión de la sesión múltiple de Windows 10 Enterprise e instalar la actualización correspondiente.  
+Si ve alguno de estos mensajes, la imagen no tiene instaladas las actualizaciones más recientes de Windows o está configurando el modo de licencia de Escritorio remoto a través de la directiva de grupo. Siga los pasos descritos en las secciones siguientes para comprobar la configuración de la directiva de grupo, identificar la versión de la sesión múltiple de Windows 10 Enterprise e instalar la actualización correspondiente.
 
 >[!NOTE]
 >Windows Virtual Desktop solo requiere una licencia de acceso de cliente (CAL) de RDS si el grupo de hosts contiene hosts de sesión de Windows Server. Para obtener información sobre cómo configurar una CAL de RDS, vea [Licencia para la implementación de RDS con licencias de acceso de cliente (CAL)](/windows-server/remote/remote-desktop-services/rds-client-access-license/).

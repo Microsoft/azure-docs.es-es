@@ -1,6 +1,6 @@
 - name: Documentación de Azure Migrate
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de Azure Migrate
       href: migrate-services-overview.md

@@ -1,5 +1,5 @@
 ---
-title: Ingesta en el grupo de SQL en Azure Synapse Analytics
+title: Ingesta de datos en un grupo de SQL
 description: Aprenda a ingerir datos en un grupo de SQL en Azure Synapse Analytics
 services: synapse-analytics
 author: djpmsft
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: c093a424ecf085c59501ee3d480838cc30c2ebf4
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 63e83e69e5e09c17b2a2ddb5ca7bee6474e2fddd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963043"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386680"
 ---
-# <a name="ingesting-data-into-a-sql-pool"></a>Ingesta de datos en un grupo de SQL
+# <a name="ingest-data-into-a-sql-pool"></a>Ingesta de datos en un grupo de SQL
 
 En este artículo, aprenderá a ingerir datos desde una cuenta de almacenamiento de Azure Data Lake Gen2 en un grupo de SQL mediante Azure Synapse Analytics.
 

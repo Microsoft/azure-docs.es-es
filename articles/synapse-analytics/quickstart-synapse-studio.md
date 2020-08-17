@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 271fd77e519ce9d78e2fa4e4837004a77cf73522
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 8b35b281f6a70d5485004dc61563271132734a87
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276063"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374157"
 ---
 # <a name="quickstart-use-synapse-studio-preview"></a>Inicio rápido: Uso de Synapse Studio (versión preliminar)
 
@@ -49,7 +49,7 @@ Puede crear nuevas carpetas y cargar archivos mediante los vínculos de la barra
 ## <a name="query-files-on-storage-account"></a>Consulta de archivos en la cuenta de almacenamiento
 
 > [!IMPORTANT]
-> Debe ser miembro del rol `Storage Blob Reader` en el almacenamiento subyacente para poder realizar consultas en los archivos. Obtenga información sobre cómo [asignar los permisos de RBAC **Lector de datos de Storage Blob** o **Colaborador de datos de Storage Blob** en Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+> Debe ser miembro del rol `Storage Blob Reader` en el almacenamiento subyacente para poder realizar consultas en los archivos. Obtenga información sobre cómo [asignar los permisos de RBAC **Lector de datos de Storage Blob** o **Colaborador de datos de Storage Blob** en Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role).
 
 1. Cargue algunos archivos `PARQUET`.
 2. Seleccione uno o varios archivos y, a continuación, cree un nuevo script SQL o un cuaderno de Spark para ver el contenido de los archivos. Si desea crear un cuaderno, debe crear el [grupo de Apache Spark en las áreas de trabajo de Synapse](quickstart-create-apache-spark-pool-studio.md).
@@ -64,7 +64,7 @@ Puede crear nuevas carpetas y cargar archivos mediante los vínculos de la barra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Habilite a los usuarios de Azure AD consultar archivos [mediante la asignación de los permisos de RBAC **Lector de datos de Storage Blob** o **Colaborador de datos de Storage Blob** en Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-a-built-in-rbac-role).
+- Habilite a los usuarios de Azure AD consultar archivos [mediante la asignación de los permisos de RBAC **Lector de datos de Storage Blob** o **Colaborador de datos de Storage Blob** en Azure Storage](../storage/common/storage-auth-aad-rbac-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#assign-an-azure-built-in-role).
 - [Consulta de archivos en Azure Storage mediante SQL a petición (versión preliminar)](sql/on-demand-workspace-overview.md)
 - [Inicio rápido: Creación de un nuevo grupo de Apache Spark (versión preliminar)](quickstart-create-apache-spark-pool-portal.md)
 - [Tutorial: Conexión de SQL a petición (versión preliminar) con Power BI Desktop y creación de informes](sql/tutorial-connect-power-bi-desktop.md)

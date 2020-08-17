@@ -3,12 +3,12 @@ title: Registros de diagnóstico para Conexiones híbridas
 description: En este artículo encontrará información general de todos los registros de actividad y de diagnóstico que hay disponibles para Azure Relay.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f79e4aa21fcb9e592f431e252981dc0e7c02817f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 980f2f7a737d3f2460c17a84c472cbf56f5eb90f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314904"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533009"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar registros de diagnóstico para Conexiones híbridas de Azure Relay
 Cuando empiece a usar Conexiones híbridas de Azure Relay, es posible que desee supervisar cómo y cuándo se abren y cierran los clientes de escucha y los emisores, y cómo se crean las Conexiones híbridas y se envían los mensajes. En este artículo se proporciona información general de todos los registros de actividad y de diagnóstico que ofrece el servicio Azure Relay. 
@@ -46,7 +46,7 @@ Para habilitar los registros de diagnóstico, siga estos pasos:
         ![Ejemplo de configuración de diagnóstico](./media/diagnostic-logs/sample-diagnostic-settings.png)
 1. Seleccione **Guardar** en la barra de herramientas para guardar la configuración.
 
-La nueva configuración surte efecto en unos 10 minutos. Los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**. Para más información sobre la configuración de diagnóstico, vea la [información general sobre registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+La nueva configuración surte efecto en unos 10 minutos. Los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**. Para más información sobre la configuración de diagnóstico, vea la [información general sobre registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 
 ## <a name="schema-for-hybrid-connections-events"></a>Esquema de eventos de las conexiones híbridas

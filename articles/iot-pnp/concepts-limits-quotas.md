@@ -1,18 +1,18 @@
 ---
 title: Límites y cuotas de IoT Plug and Play (versión preliminar) | Microsoft Docs
 description: Comprenda los límites, las cuotas y las limitaciones que se aplican al usar IoT Plug and Play (versión preliminar).
-author: miagdp
-ms.author: miag
-ms.date: 04/01/2020
+author: prashmo
+ms.author: prashmo
+ms.date: 07/21/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: cce99b7d9de09134fd01afb36c41bce3966e8536
-ms.sourcegitcommit: b0ff9c9d760a0426fd1226b909ab943e13ade330
+ms.openlocfilehash: 5c4377120f61792b580225a22b9f5ff51b5e1b64
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80518169"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337405"
 ---
 # <a name="iot-plug-and-play-preview-limits-quotas-and-throttles"></a>Límites, cuotas y limitaciones de IoT Plug and Play (versión preliminar)
 
@@ -24,39 +24,17 @@ En la versión preliminar pública, los límites y las cuotas siguientes se apli
 
 | Límites, restricciones y limitaciones | Value | Notas |
 |-----|-----|-----|
-| Número de modelos de funcionalidad del dispositivo (DCM) o interfaces que se pueden registrar por centro | 1\.500 ||
-| Número máximo de interfaces que se pueden registrar por dispositivo | 40 ||
-| Número máximo de DCM que se pueden registrar por dispositivo | 1 ||
-| Tamaño máximo del archivo de interfaz o DCM | 512 KB ||
-| Tamaño máximo de un nombre de interfaz | 256 caracteres ||
-| Tamaño máximo de un nombre de propiedad  | 64 bytes, 7 niveles en profundidad (y el primer nivel está reservado para `$iotin`) | Caracteres permitidos: a-z, A-Z, 0-9 (no como primer carácter) y subrayado. |
-| Tamaño máximo de un valor de propiedad | 512 bytes ||
-| Tamaño máximo de un nombre de comando | 100 bytes ||
+| Número de interfaces que se pueden registrar por centro | 1\.500 ||
+| Tamaño máximo de un nombre de componente | 1-64 caracteres | Caracteres permitidos: a-z, A-Z, 0-9 (no como primer carácter) y guión bajo (no como primer ni último carácter). |
+| Tamaño máximo de un nombre de propiedad | 1-64 caracteres | Caracteres permitidos: a-z, A-Z, 0-9 (no como primer carácter) y guión bajo (no como primer ni último carácter). |
+| Tamaño máximo de un valor de propiedad | Igual que la [propiedad](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md#property) del lenguaje de definición de Digital Twins | 5 niveles en profundidad y no pueden ser una matriz ni un esquema complejo que contenga una matriz |
+| Tamaño máximo de un nombre de comando | 1-64 caracteres | Caracteres permitidos: a-z, A-Z, 0-9 (no como primer carácter) y guión bajo (no como primer ni último carácter).|
 | Tamaño del dispositivo gemelo | Igual que [Límites de IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
-| Resolución de llamadas API por las SKU (independientemente de las unidades) | 100 solicitudes por segundo ||
-
-## <a name="model-repository"></a>Repositorio de modelos
-
-En la versión preliminar pública, los límites y las cuotas siguientes se aplican a un repositorio de modelos:
-
-| Límites, restricciones y limitaciones | Value |
-|-----|-----|
-| Número de repositorios de modelos de empresa por inquilino de Azure Active Directory | 1 |
-| Número de claves de autorización por repositorio de modelos | 10  |
-| Número de modelos (DCM o interfaces) por repositorio de modelos de empresa| 1\.500  |
-| Número de modelos (DCM o interfaces) en el repositorio de modelos público por inquilino de Azure Active Directory| 1\.500  |
-| Número de DCM o interfaces que se van a eliminar en un repositorio de modelos de empresa | 10 consultas por segundo (QPS)|
-| Número de repositorios de modelos que un inquilino crea o actualiza| 1 QPS |
-| Número de claves de autorización que se crean, actualizan o eliminan en un repositorio de modelos | 1 QPS|
-| Número de DCM que se crean en un repositorio de modelos de empresa | 10 QPS |
-| Número de interfaces que se crean en un repositorio de modelos de empresa | 10 QPS|
-| Número de DCM que se crean en el repositorio de modelos público | 10 QPS|
-| Número de interfaces que se crean en el repositorio de modelos público | 10 QPS|
 
 ## <a name="parser-library"></a>Biblioteca de analizador
 
-La biblioteca del analizador sigue los límites que se aplican al [lenguaje de definición de gemelos digitales](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+La biblioteca del analizador sigue los límites que se aplican al [lenguaje de definición de Digital Twins](https://github.com/Azure/opendigitaltwins-dtdl).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-El siguiente paso sugerido sirve para aprender a [conectarse con un dispositivo IoT Plug and Play e interactuar con él](./howto-develop-solution.md).
+El paso siguiente sugerido es revisar la [arquitectura de IoT Plug and Play](concepts-architecture.md).

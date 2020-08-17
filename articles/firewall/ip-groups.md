@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 06/23/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: 7bfa1ae5bd0f2ffe92fb37494f9fe589e1b2040e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 97d8d10e30d0d0c1654c82651220489785a37059
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565540"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460225"
 ---
 # <a name="ip-groups-in-azure-firewall"></a>IP Groups en Azure Firewall
 
@@ -70,43 +70,7 @@ Los grupos IP están disponible en todas las regiones de la nube pública.
 
 ## <a name="ip-address-limits"></a>Límites de direcciones IP
 
-Para 50 grupos IP o menos, puede tener un máximo de 5 000 direcciones IP individuales cada una por cada instancia de firewall. De 51 a 100 grupos IP, puede tener un máximo de 500 direcciones IP individuales cada una por cada instancia de firewall.
-
-### <a name="examples"></a>Ejemplos
-
-#### <a name="example-1-supported"></a>Ejemplo 1: compatible
-
-|Grupos de IP  |Número de direcciones IP  |Notación  |Regla  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |3|196.0.0.0 - 196.0.0.2|Rule1|
-|IPGroup3     |1|1.2.3.4|Rule1|
-|     |**Total 4 100**|         |         |
-|     |         |         |         |
-
-#### <a name="example-2-supported"></a>Ejemplo 2: compatible
-
-|Grupos de IP  |Número de direcciones IP  |Notación  |Regla  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule1|
-|     |**Total 8 192**|         |         |
-
-#### <a name="example-3-not-supported"></a>Ejemplo 3: no compatible
-
-|Grupos de IP  |Número de direcciones IP  |Notación  |Regla  |
-|---------|---------|---------|---------|
-|IPGroup1 |8192     |10.0.0.0/20, 11.0.0.0/20  |Rule1|
-|     |**Total 8 192**|||
-
-#### <a name="example-4-supported"></a>Ejemplo 4: compatible
-
-|Grupos de IP  |Número de direcciones IP  |Notación  |Regla  |
-|---------|---------|---------|---------|
-|IPGroup1 |4096     |10.0.0.0/20  |Rule1|
-|IPGroup2     |4096|11.0.0.0/20|Rule2|
-|     |**Total 8 192**|         |         |
-
+Puede tener un máximo de 100 grupos de IP por firewall con un máximo de 5000 direcciones IP individuales o prefijos IP por cada grupo de IP.
 
 ## <a name="related-azure-powershell-cmdlets"></a>Cmdlets de Azure PowerShell relacionados
 

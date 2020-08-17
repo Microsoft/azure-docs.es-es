@@ -6,12 +6,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.subservice: ''
-ms.openlocfilehash: a7ff659eb6fc204208c84146a2fc33c8278f7154
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c81d9774dccf8c02d2eab7b1ebbb69e6671869e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207282"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423803"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-automation-preview"></a>Uso de Azure Private Link para conectar redes a Azure Automation de forma segura (versión preliminar)
 
@@ -132,15 +132,15 @@ Si el consumidor del servicio tiene permisos de RBAC en el recurso de Automation
 
 ## <a name="set-public-network-access-flags"></a>Establecimiento de marcas de acceso de red
 
-Se puede configurar una cuenta de Automation para denegar todas las configuraciones públicas y permitir solo las conexiones a través de puntos de conexión privados a fin de mejorar aún más la seguridad de la red. Si quiere permitir el acceso a la cuenta de Automation solo desde dentro de la red virtual y denegarlo desde la red pública de Internet, puede establecer la propiedad `publicNetworkAccess` en `$true`.
+Se puede configurar una cuenta de Automation para denegar todas las configuraciones públicas y permitir solo las conexiones a través de puntos de conexión privados a fin de mejorar aún más la seguridad de la red. Si quiere permitir el acceso a la cuenta de Automation solo desde dentro de la red virtual y denegarlo desde la red pública de Internet, puede establecer la propiedad `publicNetworkAccess` en `$false`.
 
-Cuando la opción **Denegar acceso a la red pública** está establecida en `true`, solo se permiten conexiones a través de puntos de conexión privados y todas las conexiones a través de puntos de conexión públicos se deniegan con un mensaje de error.
+Cuando la opción **Public Network Access** (Acceso de red público) está establecida en `$false`, solo se permiten conexiones a través de puntos de conexión privados y todas las conexiones a través de puntos de conexión públicos se deniegan con un mensaje de error Sin autorización y el estado HTTP 401. 
 
 En el siguiente script de PowerShell se muestra cómo aplicar las operaciones `Get` y `Set` a la propiedad **Acceso a la red pública** en el nivel de cuenta de Automation:
 
 ```powershell
 $account = Get-AzResource -ResourceType Microsoft.Automation/automationAccounts -ResourceGroupName "<resourceGroupName>" -Name "<automationAccountName>" -ApiVersion "2020-01-13-preview"
-$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $true
+$account.Properties | Add-Member -Name 'publicNetworkAccess' -Type NoteProperty -Value $false
 $account | Set-AzResource -Force -ApiVersion "2020-01-13-preview"
 ```
 

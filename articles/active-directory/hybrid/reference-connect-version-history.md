@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 72acf60bd9bc5baeba37d8ccffa79fe597954f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 04f97dc7296dd2ca9e9f869373cbf82838aa79f5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230390"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445324"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Historial de lanzamiento de versiones
 El equipo de Azure Active Directory (Azure AD) actualiza periódicamente Azure AD Connect con nuevas características y funcionalidades. No todas las adiciones son aplicables a todas las audiencias.
@@ -47,6 +47,20 @@ No todas las versiones de Azure AD Connect estarán disponibles para la actualiz
 >Si ha habilitado Azure AD Connect para la sincronización, pronto comenzará a recibir notificaciones de estado automáticamente, que le avisarán sobre las próximas retiradas si ejecuta una de las versiones anteriores.
 >
 >Consulte [este artículo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version) para obtener más información sobre cómo actualizar Azure AD Connect a la versión más reciente.
+
+## <a name="15450"></a>1.5.45.0
+
+### <a name="release-status"></a>Estado de la versión
+29/07/2020: publicado para descarga.
+
+### <a name="functional-changes"></a>Cambios funcionales
+Se trata de una versión de corrección de errores. No hay cambios funcionales en esta versión.
+
+### <a name="fixed-issues"></a>Problemas corregidos
+
+- Se ha corregido un problema por el que el administrador no podía habilitar el "Inicio de sesión único de conexión directa" si la cuenta de equipo AZUREADSSOACC ya está presente en la instancia de "Active Directory".
+- Se ha corregido un problema que provocaba un error de almacenamiento provisional durante la importación diferencial de la API v2 para un objeto conflictivo que se ha reparado mediante el portal de mantenimiento.
+- Se ha corregido un problema en la configuración de importación y exportación, en el que una regla personalizada deshabilitada se importaba como habilitada.
 
 ## <a name="15420"></a>1.5.42.0
 

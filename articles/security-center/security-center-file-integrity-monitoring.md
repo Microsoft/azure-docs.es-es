@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/13/2019
 ms.author: memildin
-ms.openlocfilehash: c58f70126c72a84b09f6eadc251949a0f0021657
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3006bdd0cb90c22123c8db103a12ef3c0bee75a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84628286"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519344"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervisar la integridad de los archivos en Azure Security Center
 Aprenda a configurar la supervisión de la integridad de los archivos (FIM) en Azure Security Center mediante este tutorial.
@@ -46,7 +46,7 @@ La supervisión de la integridad de los archivos de Security Center valida la in
 Security Center recomienda entidades para supervisar, en las que se pueda habilitar fácilmente FIM. También puede definir sus propias directivas o entidades de FIM que quiere supervisar. En este tutorial se muestra cómo hacerlo.
 
 > [!NOTE]
-> La característica de supervisión de la integridad de los archivos (FIM) funciona con equipos y máquinas virtuales Windows y Linux y está disponible en el nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+> La característica de supervisión de la integridad de los archivos (FIM) funciona con equipos y máquinas virtuales Windows y Linux, y está disponible en el nivel estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md). FIM carga datos en el área de trabajo de Log Analytics. Se aplican cargos de datos, según la cantidad de datos que cargue. Para más información, consulte [Precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 FIM emplea la solución Azure Change Tracking para realizar el seguimiento de los cambios e identificarlos en su entorno. Cuando la supervisión de la integridad de los archivos está habilitada, tendrá un recurso **Change Tracking** de tipo **Solución**. Para obtener detalles sobre la frecuencia de recopilación de datos, vea [Detalles de la recopilación de datos de seguimiento de cambios](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) para Azure Change Tracking.
 
@@ -108,7 +108,7 @@ Se proporciona la siguiente información para cada área de trabajo:
 También se pueden mostrar los siguientes botones en un área de trabajo:
 
 - ![Icono Habilitar][3] Indica que FIM no está habilitada en el área de trabajo. Al seleccionar el área de trabajo puede habilitar FIM en todas las máquinas del área de trabajo.
-- ![Icono Actualizar plan][4]: indica que la suscripción o el área de trabajo no se ejecutan en el nivel Estándar de Security Center. Para usar la característica FIM, su suscripción debe ejecutarse como Estándar.  Al seleccionar el área de trabajo, puede actualizarla a Estándar. Para más información sobre el nivel Estándar y cómo realizar la actualización, consulte [Actualización al nivel Estándar de Security Center para mejorar la seguridad](security-center-pricing.md).
+- ![Icono Actualizar plan][4] Indica que el área de trabajo o la suscripción no se ejecutan en el nivel estándar de Security Center. Para usar la característica FIM, su suscripción debe ejecutarse como Estándar.  Al seleccionar el área de trabajo, puede actualizarla a Estándar. Para más información sobre el nivel estándar y cómo realizar la actualización, consulte [Actualización al nivel estándar de Security Center para mejorar la seguridad](security-center-pricing.md).
 - Un espacio en blanco (no hay ningún botón) significa que FIM ya está habilitado en el área de trabajo.
 
 En **Supervisión de la integridad de los archivos**, puede seleccionar un área de trabajo en la que habilitar FIM, ver el panel de supervisión de la integridad de los archivos correspondiente a ese área de trabajo o [actualizar](security-center-pricing.md) el área de trabajo a Estándar.

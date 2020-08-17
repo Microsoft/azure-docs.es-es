@@ -1,33 +1,33 @@
 ---
 title: 'Planeamiento de la aplicación: QnA Maker'
-description: Para planear la aplicación de QnA Maker, es necesario comprender cómo funciona QnA Maker y cómo interactúa con otros servicios de Azure, así como estar familiarizado con algunos conceptos de las bases de conocimiento.
+description: Aprenda a planear la aplicación de QnA Maker. Descripción de cómo funciona QnA Maker y cómo interactúa con otros servicios de Azure y algunos conceptos de las bases de conocimiento.
 ms.topic: conceptual
 ms.date: 07/2/2020
-ms.openlocfilehash: d19ec51aec7e71b6f040a03543f72af3aed09556
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 19499aceed96155fa42c78865b1d673a3830f5cc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85875388"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054209"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planeamiento de la aplicación de QnA Maker
 
-Para planear la aplicación de QnA Maker, es necesario comprender cómo funciona QnA Maker y cómo interactúa con otros servicios de Azure, así como estar familiarizado con algunos conceptos de las bases de conocimiento.
+Para planear la aplicación de QnA Maker, debe comprender cómo funciona QnA Maker y cómo interactúa con otros servicios de Azure. También debe tener una idea sólida de los conceptos de las bases de conocimiento.
 
 ## <a name="azure-resources"></a>Recursos de Azure
 
-Cada [recurso de Azure](azure-resources.md#resource-purposes) creado con QnA Maker tiene un propósito específico. Dado que cada recurso tiene su propia finalidad, límites y [plan de tarifa](azure-resources.md#pricing-tier-considerations), es importante comprender lo que hacen estos recursos como parte del proceso de planeamiento.
+Cada [recurso de Azure](azure-resources.md#resource-purposes) creado con QnA Maker tiene un propósito específico. Cada recurso tiene su propia finalidad, límites y [plan de tarifa](azure-resources.md#pricing-tier-considerations). Es importante comprender la función de estos recursos para que pueda usar ese conocimiento en el proceso de planeamiento.
 
-|Recurso|Propósito|
+| Recurso | Propósito |
 |--|--|
-| Recurso de [QnA Maker](azure-resources.md#qna-maker-resource)|Creación y predicción de consultas|
-| Recurso de [Cognitive Search](azure-resources.md#cognitive-search-resource)|Almacenamiento y búsqueda de datos|
-| Recurso de [App Service y plan de App Service](azure-resources.md#app-service-and-app-service-plan)|Consulta de un punto de conexión de predicción|
-| Recurso de [Application Insights](azure-resources.md#application-insights)|Telemetría de predicción de consultas|
+| Recurso de [QnA Maker](azure-resources.md#qna-maker-resource) | Creación y predicción de consultas |
+| Recurso de [Cognitive Search](azure-resources.md#cognitive-search-resource) | Almacenamiento y búsqueda de datos |
+| Recurso de [App Service y plan de App Service](azure-resources.md#app-service-and-app-service-plan) | Consulta de un punto de conexión de predicción |
+| Recurso de [Application Insights](azure-resources.md#application-insights) | Telemetría de predicción de consultas |
 
 ### <a name="resource-planning"></a>Planeamiento de recursos
 
-Mientras se familiariza con la creación y la predicción de consultas, puede usar el nivel gratis (`F0`) de cada recurso para disfrutar de la experiencia de creación y predicción de consultas. Cuando pase a un escenario de producción activo, vuelva a evaluar la selección de recursos.
+El nivel Gratis (`F0`) de cada recurso funciona y puede proporcionar tanto la experiencia de creación como de predicción de consultas. Puede usar este nivel para aprender sobre la creación y la predicción de consultas. Cuando pase a un escenario de producción o activo, vuelva a evaluar la selección de recursos.
 
 #### <a name="qna-maker-resource"></a>Recurso QnA Maker
 
@@ -35,21 +35,21 @@ Un solo recurso de QnA Maker puede hospedar más de una base de conocimiento. El
 
 #### <a name="knowledge-base-size-and-throughput"></a>Tamaño y rendimiento de la base de conocimiento
 
-Cuando vaya a compilar una aplicación real, planee los recursos para el tamaño de la base de conocimiento y las solicitudes de predicción de consultas que espere.
+Cuando compile una aplicación real, planee recursos suficientes para el tamaño de la base de conocimiento y las solicitudes de predicción de consultas que espere.
 
 El tamaño de la base de conocimiento lo controlan los siguientes elementos:
 * Los límites del plan de tarifa del [recurso de Cognitive Search](../../../search/search-limits-quotas-capacity.md)
 * Los [límites de QnA Maker](../limits.md)
 
-La solicitud de predicción de consultas de la base de conocimiento se controla mediante la aplicación web y el plan de la aplicación web. Consulte la [configuración recomendada](azure-resources.md#recommended-settings) para decidir el plan de tarifa.
+La solicitud de predicción de consultas de la base de conocimiento se controla mediante el plan de la aplicación web y la propia aplicación web. Consulte la [configuración recomendada](azure-resources.md#recommended-settings) para decidir el plan de tarifa.
 
 ### <a name="resource-sharing"></a>Uso compartido de recursos
 
-Si ya tiene algunos de estos recursos en uso, puede considerar la posibilidad de compartirlos. Aunque algunos recursos [pueden compartirse](azure-resources.md#share-services-with-qna-maker), se trata de un escenario avanzado.
+Si ya tiene algunos de estos recursos en uso, puede considerar la posibilidad de compartirlos. Consulte qué recursos [se pueden compartir](azure-resources.md#share-services-with-qna-maker) sabiendo que el uso compartido de recursos es un escenario avanzado.
 
 Todas las bases de conocimiento creadas en el mismo recurso de QnA Maker comparten el punto de conexión de predicción de consultas de **prueba**.
 
-### <a name="understanding-impact-of-resource-selection"></a>Descripción del impacto de la selección de recursos
+### <a name="understand-the-impact-of-resource-selection"></a>Descripción del impacto de la selección de recursos
 
 Para seleccionar los recursos de manera adecuada, la base de conocimiento debe responder a las predicciones de consultas correctamente.
 
@@ -59,35 +59,35 @@ En el caso de una selección de recursos incorrecta, es necesario investigar par
 
 ## <a name="knowledge-bases"></a>Bases de conocimiento
 
-Una base de conocimiento está vinculada directamente a su recurso de QnA Maker y contiene los pares de preguntas y respuestas (QnA) que se usan para responder a las solicitudes de predicción de consultas.
+Una base de conocimiento está directamente vinculada a su recurso de QnA Maker. Contiene los pares de preguntas y respuestas (PyR) que se usan para responder a las solicitudes de predicción de consultas.
 
 ### <a name="language-considerations"></a>Consideraciones de idioma
 
 La primera base de conocimiento que se crea en el recurso de QnA Maker establece el idioma del recurso. Solo se puede tener un idioma para un recurso de QnA Maker.
 
-Estructure los recursos de QnA Maker por idioma o use el [Traductor](../../translator/translator-info-overview.md) para cambiar una consulta de otro idioma al de la base de conocimiento antes de enviar la consulta al punto de conexión de predicción de consultas.
+Puede estructurar los recursos de QnA Maker por idioma o usar el [Traductor](../../translator/translator-info-overview.md) para cambiar una consulta de otro idioma al de la base de conocimiento antes de enviar la consulta al punto de conexión de predicción de consultas.
 
-### <a name="ingesting-data-sources"></a>Ingesta de orígenes de datos
+### <a name="ingest-data-sources"></a>Ingesta de orígenes de datos
 
-Los [orígenes de datos](knowledge-base.md) ingeridos, que se usan para crear una base de conocimiento, pueden ser uno de los siguientes:
+Puede usar uno de los siguientes [orígenes de datos](knowledge-base.md) para crear una base de conocimiento:
 
 * URL pública
 * URL privada de SharePoint
 * Archivo
 
-El proceso de ingesta convierte los [tipos de contenido admitidos](content-types.md) a Markdown. La edición posterior de la *respuesta* se realiza con Markdown. Después de crear la base de conocimiento, puede editar los [pares de preguntas y respuestas](question-answer-set.md) en el portal de QnA Maker mediante la [creación de texto enriquecido](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
+El proceso de ingesta convierte los [tipos de contenido admitidos](content-types.md) a Markdown. La edición posterior de la *respuesta* se realiza con Markdown. Después de crear una base de conocimiento, puede editar los [pares de preguntas y respuestas](question-answer-set.md) en el portal de QnA Maker mediante la [creación de texto enriquecido](../how-to/edit-knowledge-base.md#rich-text-editing-for-answer).
 
 ### <a name="data-format-considerations"></a>Consideraciones sobre el formato de los datos
 
-Dado que el formato final de un par de preguntas y respuestas es Markdown, es importante entender la [compatibilidad con Markdown](../reference-markdown-format.md).
+Dado que el formato final de un par de pregunta y respuesta es Markdown, es importante entender la [compatibilidad con Markdown](../reference-markdown-format.md).
 
-Las imágenes vinculadas deben estar disponibles desde una dirección URL pública para que se puedan mostrar en el panel prueba del portal de QnA Maker, así como en cualquier aplicación cliente, ya que QnA Maker no proporciona autenticación para el contenido, incluidas las imágenes.
+Las imágenes vinculadas deben estar disponibles desde una dirección URL pública para que se muestren en el panel de prueba del portal de QnA Maker o en una aplicación cliente. QnA Maker no proporciona autenticación para el contenido, incluidas las imágenes.
 
 ### <a name="bot-personality"></a>Personalidad de bot
 
 Agregue una personalidad de bot a la base de conocimiento con la función de [charla](../how-to/chit-chat-knowledge-base.md). Esta personalidad incluye respuestas en un determinado tono de conversación, como *profesional* y *amistoso*. La función de charla se proporciona como un conjunto conversacional, que puede agregar, editar y quitar como le convenga.
 
-Se recomienda una personalidad de bot si el bot se conecta a la base de conocimiento. Si se va a conectar a varios servicios, uno de los cuales es la base de conocimiento, puede optar por seguir usando la función de charla en la base de conocimiento, pero debe revisar cómo interactúa el servicio de bot para saber si el diseño de la arquitectura es el correcto para su uso.
+Se recomienda una personalidad de bot si el bot se conecta a la base de conocimiento. Puede usar la charla en la base de conocimiento incluso si también se conecta a otros servicios, pero debe revisar cómo interactúa el servicio de bot para saber si ese es el diseño de arquitectura correcto para su uso.
 
 ### <a name="conversation-flow-with-a-knowledge-base"></a>Flujo de conversación con una base de conocimiento
 
@@ -103,37 +103,37 @@ La creación de la base de conocimiento admite varios [permisos de acceso basado
 
 ## <a name="integration-with-client-applications"></a>Integración con aplicaciones cliente
 
-La integración con [aplicaciones cliente](integration-with-other-applications.md) implica enviar una consulta al punto de conexión del tiempo de ejecución de predicción. Se envía una consulta a la base de conocimiento específica con una solicitud basada en REST o en el SDK al punto de conexión de la aplicación web de QnA Maker.
+La integración con [aplicaciones cliente](integration-with-other-applications.md) se realiza enviando una consulta al punto de conexión del tiempo de ejecución de predicción. Se envía una consulta a la base de conocimiento específica con una solicitud basada en REST o en el SDK al punto de conexión de la aplicación web de QnA Maker.
 
-Para autenticar correctamente una solicitud de cliente, la aplicación cliente debe enviar las credenciales correctas y el identificador de la base de conocimiento. Si usa Azure Bot Service, configure la opción como parte de la configuración del bot en Azure Portal.
+Para autenticar correctamente una solicitud de cliente, la aplicación cliente debe enviar las credenciales correctas y el identificador de la base de conocimiento. Si usa Azure Bot Service, defina esta configuración como parte de la configuración del bot en Azure Portal.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Flujo de conversación en una aplicación cliente
 
 El flujo de conversación en una [aplicación cliente](integration-with-other-applications.md), como un bot de Azure, puede requerir alguna funcionalidad antes y después de interactuar con la base de conocimiento.
 
-Si la aplicación cliente es compatible con el flujo de conversación, ya sea a través de métodos alternativos para controlar los mensajes de seguimiento o mediante la función de charla, debe diseñar estos en una fase inicial y asegurarse de que la consulta que usa la aplicación cliente se administra correctamente, ya sea con otro servicio o por medio de su envío a la base de conocimiento.
+¿La aplicación cliente admite el flujo de conversación, ya sea proporcionando medios alternativos para controlar los mensajes de seguimiento o incluyendo una charla? Si es así, diséñelos antes y asegúrese de que la consulta de la aplicación cliente la controle correctamente otro servicio o cuando se envíe a la base de conocimiento.
 
-### <a name="dispatching-between-qna-maker-and-language-understanding-luis"></a>Envío entre QnA Maker y Language Understanding (LUIS)
+### <a name="dispatch-between-qna-maker-and-language-understanding-luis"></a>Envío entre QnA Maker y Language Understanding (LUIS)
 
-Una aplicación cliente puede proporcionar varias características, pero la base de conocimiento solo responde a una de estas. Las demás características tendrán que entender el texto de la conversación y extraer su significado.
+Una aplicación cliente puede proporcionar varias características, pero la base de conocimiento solo responde a una de estas. Las demás características necesitan entender el texto de la conversación y extraer su significado.
 
-Una arquitectura de aplicación cliente habitual consiste en usar juntos QnA Maker y [Language Understanding (LUIS)](../../LUIS/what-is-luis.md). LUIS ofrece la clasificación y la extracción de texto de cualquier consulta, incluso a otros servicios, mientras que QnA Maker proporciona respuestas de la base de conocimiento.
+Una arquitectura de aplicación cliente habitual consiste en usar juntos QnA Maker y [Language Understanding (LUIS)](../../LUIS/what-is-luis.md). LUIS ofrece la clasificación y la extracción de texto de cualquier consulta, incluso a otros servicios. QnA Maker proporciona respuestas desde la base de conocimiento.
 
-En una [arquitectura compartida](../choose-natural-language-processing-service.md), el envío entre los dos servicios se realiza con la herramienta [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) de Bot Framework.
+En un escenario de [arquitectura compartida](../choose-natural-language-processing-service.md), el envío entre los dos servicios se realiza con la herramienta [Dispatch](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/Dispatch) de Bot Framework.
 
 ### <a name="active-learning-from-a-client-application"></a>Aprendizaje activo desde una aplicación cliente
 
-QnA Maker usa el _aprendizaje activo_ para mejorar la base de conocimiento al sugerir preguntas alternativas a una respuesta. La aplicación cliente es responsable de una parte de este [aprendizaje activo](active-learning-suggestions.md). A través de mensajes de carácter conversacional, la aplicación cliente puede determinar que la respuesta que se devuelve desde la base de conocimiento no era la que el usuario buscaba y, de este modo, elegir la mejor respuesta. La aplicación cliente debe [enviar esta información de nuevo a la base de conocimiento](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) para mejorar la calidad de la predicción.
+QnA Maker usa el _aprendizaje activo_ para mejorar la base de conocimiento al sugerir preguntas alternativas a una respuesta. La aplicación cliente es responsable de una parte de este [aprendizaje activo](active-learning-suggestions.md). A través de los mensajes de conversación, la aplicación cliente puede determinar que la base de conocimiento ha devuelto una respuesta que no es útil para el usuario y puede determinar una respuesta mejor. La aplicación cliente debe [enviar esta información de nuevo a la base de conocimiento](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) para mejorar la calidad de la predicción.
 
 ### <a name="providing-a-default-answer"></a>Aportación de una respuesta predeterminada
 
-Si la base de conocimiento no encuentra una respuesta, devuelve la _respuesta predeterminada_. Esta respuesta se puede configurar desde el portal de QnA Maker, en la página **Configuración** o las [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
+Si la base de conocimiento no encuentra una respuesta, devuelve la _respuesta predeterminada_. Esta respuesta se puede configurar en la página **Configuración** del portal de QnA Maker o las [API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#request-body).
 
-Esta respuesta predeterminada es diferente de la que ofrece el bot de Azure. La respuesta predeterminada del bot de Azure se configura en Azure Portal para el bot como parte de la configuración y se devuelve cuando no se cumple el umbral de puntuación.
+Esta respuesta predeterminada es diferente de la que ofrece el bot de Azure. La respuesta predeterminada para el bot de Azure se define en Azure Portal como parte de la configuración. Se devuelve cuando no se cumple el umbral de puntuación.
 
 ## <a name="prediction"></a>Predicción
 
-La predicción es la respuesta de la base de conocimiento e incluye más información que simplemente la respuesta. Para obtener una respuesta de predicción de consultas, use la [API GeneateAnswer](query-knowledge-base.md).
+La predicción es la respuesta de la base de conocimiento e incluye más información que simplemente la respuesta. Para obtener una respuesta de predicción de consultas, use [GeneateAnswer API](query-knowledge-base.md).
 
 ### <a name="prediction-score-fluctuations"></a>Fluctuaciones de la puntuación de predicción
 
@@ -145,12 +145,12 @@ Una puntuación puede cambiar en función de varios factores:
 * La consulta enviada a la base de conocimiento `test` o `production`
 
 Hay una [clasificación de las respuestas en dos fases](query-knowledge-base.md#how-qna-maker-processes-a-user-query-to-select-the-best-answer):
-* Cognitive Search (primera clasificación): para que se obtenga una respuesta de Cognitive Search, el número de _respuestas permitidas_ debe ser lo bastante alto como para que Cognitive Search devuelva las mejores respuestas, de modo que pasen al clasificador de QnA Maker.
-* QnA Maker (segunda clasificación): se aplica la caracterización y el aprendizaje automático para determinar la mejor respuesta.
+- Cognitive Search (primera clasificación). Establezca el número de _respuestas permitidas_ lo suficientemente alto como para que Cognitive Search devuelva las mejores respuestas y luego las pase al clasificador de QnA Maker.
+- QnA Maker (segunda clasificación). Aplique la caracterización y el aprendizaje automático para determinar la mejor respuesta.
 
 ### <a name="service-updates"></a>Actualizaciones del servicio
 
-Las actualizaciones de servicio se administran automáticamente mediante la aplicación de las [actualizaciones más recientes del entorno de ejecución](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Aplique las [actualizaciones del runtime más recientes](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates) para administrar automáticamente las actualizaciones de servicio.
 
 ### <a name="scaling-throughput-and-resiliency"></a>Escalado, rendimiento y resistencia
 
@@ -169,9 +169,9 @@ El [ciclo de vida del desarrollo](development-lifecycle-knowledge-base.md) de un
 Los [pares de preguntas y respuestas](question-answer-set.md) deben diseñarse y desarrollarse en función del uso de la aplicación cliente.
 
 Cada par puede contener:
-* Metadatos: pueden filtrarse al realizar consultas. Esto le permite etiquetar los pares de preguntas y respuestas con información adicional sobre el origen, el contenido, el formato y el propósito de los datos.
-* Mensajes de seguimiento: determine una ruta en la base de conocimiento para que el usuario llegue a la respuesta correcta.
-* Preguntas alternativas: son importantes para permitir que la búsqueda haga coincidir la respuesta con las diversas formas de la pregunta. Las [sugerencias de aprendizaje activo](active-learning-suggestions.md) se convierten en preguntas alternativas.
+* Metadatos: se pueden filtrar al realizar consultas para permitirle etiquetar los pares de preguntas y respuestas con información adicional sobre el origen, el contenido, el formato y la finalidad de los datos.
+* Mensajes de seguimiento: ayudan a determinar una ruta en la base de conocimiento para que el usuario llegue a la respuesta correcta.
+* Preguntas alternativas: importantes para permitir que la búsqueda haga coincidir la respuesta con otras formas de la pregunta. Las [sugerencias de aprendizaje activo](active-learning-suggestions.md) se convierten en preguntas alternativas.
 
 ### <a name="devops-development"></a>Desarrollo de DevOps
 
@@ -179,9 +179,9 @@ El desarrollo de una base de conocimiento que se va a insertar en una canalizaci
 
 Una base de conocimiento comparte el índice de Cognitive Search con todas las demás bases de conocimiento del recurso de QnA Maker. Aunque la base de conocimiento está aislada por partición, si se comparte el índice, se puede producir una diferencia en la puntuación cuando se compara con la base de conocimiento publicada.
 
-Para tener la _misma puntuación_ en las bases de conocimiento `test` y `production`, aísle un recurso de QnA Maker en una única base de conocimiento. En esta arquitectura, el recurso solo debe persistir mientras dure la prueba por lotes aislada.
+Para tener la _misma puntuación_ en las bases de conocimiento `test` y `production`, aísle un recurso de QnA Maker en una única base de conocimiento. En esta arquitectura, el recurso solo necesita persistir tanto tiempo como la prueba por lotes aislada.
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 * [Recursos de Azure](../how-to/set-up-qnamaker-service-azure.md)
 * [Pares de preguntas y respuestas](question-answer-set.md)

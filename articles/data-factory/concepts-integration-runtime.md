@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/26/2020
-ms.openlocfilehash: 8b3dba7996b098ec398c9fe94705c18190b30ba6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753559"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407700"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory 
 
@@ -45,13 +45,10 @@ En la tabla siguiente se describen las funcionalidades y la compatibilidad de re
 
 Tipo de IR | Red pública | Red privada
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>Movimiento de datos<br/>Distribución de actividades | &nbsp;
+Azure | Data Flow<br/>Movimiento de datos<br/>Distribución de actividades | Data Flow<br/>Movimiento de datos<br/>Distribución de actividades
 Autohospedado | Movimiento de datos<br/>Distribución de actividades | Movimiento de datos<br/>Distribución de actividades
 SSIS de Azure | Ejecución de paquetes SSIS | Ejecución de paquetes SSIS
 
-En el diagrama siguiente se muestra cómo pueden utilizarse los distintos tipos de instancias de Integration Runtime en combinación para ofrecer funcionalidades de integración de datos enriquecidas y compatibilidad con redes:
-
-![Diferentes tipos de instancias de Integration Runtime](media/concepts-integration-runtime/different-integration-runtimes.png)
 
 ## <a name="azure-integration-runtime"></a>Tiempo de ejecución de integración de Azure
 
@@ -63,7 +60,7 @@ Una instancia de Azure Integration Runtime puede:
 
 ### <a name="azure-ir-network-environment"></a>Entorno de red de Azure Integration Runtime
 
-Azure Integration Runtime admite la conexión con almacenes de datos y servicios de proceso con puntos de conexión de acceso público. Use Integration Runtime autohospedado para el entorno de Azure Virtual Network.
+Azure Integration Runtime admite la conexión con almacenes de datos y servicios de proceso con puntos de conexión de acceso público. Al habilitar Virtual Network administrado y Azure Integration Runtime se admite la conexión a almacenes de datos mediante el servicio de Private Link en el entorno de red privada.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Recursos de proceso y escalado de Azure Integration Runtime
 Integration Runtime de Azure proporciona un proceso completamente administrado y sin servidor en Azure.  No tiene que preocuparse del aprovisionamiento de la infraestructura, la instalación de software, la aplicación de revisiones ni el escalado de la capacidad.  Además, solo se paga por la duración de la utilización real.
@@ -124,7 +121,11 @@ Consulte los siguientes artículos para más información sobre Integration Runt
 
 ## <a name="integration-runtime-location"></a>Ubicación de Integration Runtime
 
-La ubicación de Data Factory es donde se almacenan los metadatos de la factoría de datos y desde donde se inicia el desencadenamiento de la canalización. Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso. Este comportamiento se lleva a cabo a través de la instancia de [Integration Runtime disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los menores costes de salida de la red.
+### <a name="relationship-between-factory-location-and-ir-location"></a>Relación entre la ubicación de la factoría y la del entorno de ejecución de integración
+
+Cuando un cliente crea una instancia de Data Factory, debe especificar su ubicación. La ubicación de Data Factory es donde se almacenan los metadatos de la factoría de datos y desde donde se inicia el desencadenamiento de la canalización. Los metadatos de la factoría solo se almacenan en la región que elija el cliente, no en otras regiones.
+
+Sin embargo, una factoría de datos puede acceder a almacenes de datos y a servicios de proceso en otras regiones de Azure para mover datos entre los almacenes de datos o para procesar datos mediante servicios de proceso. Este comportamiento se lleva a cabo a través de la instancia de [Integration Runtime disponible globalmente](https://azure.microsoft.com/global-infrastructure/services/) para garantizar el cumplimiento de los datos, la eficacia y los menores costes de salida de la red.
 
 La ubicación de Integration Runtime define la ubicación de su proceso de back-end y, en esencia, la ubicación donde se realizan el movimiento de datos, la distribución de actividades y la ejecución de paquetes de SSIS. La ubicación de Integration Runtime puede ser diferente de la ubicación de la factoría de datos a la que pertenece. 
 
@@ -132,7 +133,7 @@ La ubicación de Integration Runtime define la ubicación de su proceso de back-
 
 Puede establecer una ubicación determinada para una instancia de Azure Integration Runtime, en cuyo caso la ejecución o la distribución de la actividad se producirá en esa región específica.
 
-Si opta por usar la resolución automática de Azure Integration Runtime, que es la opción predeterminada.
+Si opta por usar la resolución automática de Azure IR en redes públicas, que es la opción predeterminada,
 
 - En la actividad de copia, ADF intentará detectar automáticamente la ubicación del almacén de datos del receptor y luego usará IR en la misma región si está disponible, o la más cercana en la misma ubicación geográfica; si la región del almacén de datos del receptor no se puede detectar, se usa IR en la región de la factoría de datos como alternativa.
 
@@ -150,6 +151,8 @@ Si opta por usar la resolución automática de Azure Integration Runtime, que es
 
   > [!TIP] 
   > Una buena práctica sería asegurarse de que Data Flow se ejecuta en la misma región que los almacenes de datos correspondiente (si es posible). Puede conseguirlo mediante la resolución automática de Azure IR (si la ubicación del almacén de datos coincide con la ubicación de Data Factory), o mediante la creación de una nueva instancia de Azure IR en la misma región que los almacenes de datos y la posterior ejecución del flujo de datos en ella. 
+
+Si habilita Virtual Network administrado para la resolución automática de Azure IR, ADF usa IR en la región de la factoría de datos. 
 
 Puede supervisar qué ubicación de IR se usa durante la ejecución de la actividad en la vista de supervisión de actividades de la canalización en la interfaz de usuario, o en la carga de supervisión de actividades.
 

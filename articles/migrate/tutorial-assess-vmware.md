@@ -4,12 +4,12 @@ description: Se describe cómo evaluar máquinas virtuales de VMware locales par
 ms.topic: tutorial
 ms.date: 06/03/2020
 ms.custom: mvc
-ms.openlocfilehash: 6c395d7e2be151e97808fa9601ff6001801d243b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dd00f800003724b3a5c15d265a5428272e1762fb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110358"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290225"
 ---
 # <a name="assess-vmware-vms-with-server-assessment"></a>Evaluación de máquinas virtuales de VMware con Server Assessment
 
@@ -75,7 +75,7 @@ Una vez creada la aplicación, compruebe que se puede conectar a Azure Migrate:S
 ### <a name="download-the-ova-template"></a>Descarga de la plantilla OVA
 
 1. En **Objetivos de migración** > **Servidores** > **Azure Migrate: Server Assessment**, seleccione **Detectar**.
-2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Yes, with VMware vSphere Hypervisor** (Sí, con VMware vSphere Hypervisor).
+2. En **Detectar máquinas** >  **¿Las máquinas están virtualizadas?** , haga clic en **Sí, con VMware vSphere Hypervisor**.
 3. Seleccione **Descargar** para descargar el archivo de plantilla OVA.
 
    ![Selecciones para descargar un archivo de OVA](./media/tutorial-assess-vmware/download-ova.png)
@@ -146,7 +146,7 @@ Configure el dispositivo por primera vez.
      - Solo se admite un proxy HTTP.
    - **Time sync** (Sincronización de hora): Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
    - **Instalación de actualizaciones**: el dispositivo garantiza que se instalan las actualizaciones más recientes.
-   - **Install VDDK** (Instalar VDDK): el dispositivo comprueba si VMWare vSphere Virtual Disk Development Kit (VDDK) está instalado. Si no está instalado, descargue VDDK 6.7 de VMware y extraiga el contenido del archivo ZIP descargado en la ubicación especificada del dispositivo.
+   - **Install VDDK** (Instalar VDDK): El dispositivo comprueba si VMware vSphere Virtual Disk Development Kit (VDDK) está instalado. Si no está instalado, descargue VDDK 6.7 de VMware y extraiga el contenido del archivo ZIP descargado en la ubicación especificada del dispositivo.
 
      Server Migration de Azure Migrate usa VDDK para replicar las máquinas durante la migración a Azure.       
 

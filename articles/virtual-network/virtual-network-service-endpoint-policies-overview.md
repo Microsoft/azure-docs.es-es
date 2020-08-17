@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 495d0bce905a980f840527f4cc8cd9e2116e3e66
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3c0b0f9f39620996245614b53c7ec274ec965d5b
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82133746"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921205"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Directivas de punto de conexión de servicio de red virtual para Azure Storage
 
@@ -138,7 +138,7 @@ Los límites siguientes se aplican en las directivas de punto de conexión de se
  |Resource | Límite predeterminado |
  |---------|---------------|
  |ServiceEndpointPoliciesPerSubscription |500 |
- |ServiceEndpintPoliciesPerSubnet|100 |
+ |ServiceEndpointPoliciesPerSubnet|100 |
  |ServiceResourcesPerServiceEndpointPolicyDefinition|200 |
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -7,15 +7,15 @@ ms.author: laobri
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 01/31/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 6b74f9cdc5b3317edc8bf2339ba1d2c29f43e55b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: d5343e6c21da4c30dc18c8692b41dd66eb9566a4
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560177"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846707"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creación, ejecución y eliminación de recursos de Azure Machine Learning mediante REST
 
@@ -48,7 +48,7 @@ Las solicitudes REST administrativas se autentican con un flujo implícito de OA
 - El identificador del cliente (que se asociará al token que se cree)
 - El secreto de cliente (que debe proteger)
 
-Debe obtener estos valores a partir de la respuesta a la creación de la entidad de servicio como se indica en [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication). Si usa la suscripción de la empresa, es posible que no tenga permiso para crear una entidad de servicio. En ese caso, debe usar una [suscripción personal gratuita o de pago](https://aka.ms/AMLFree).
+Debe tener estos valores de la respuesta a la creación de la entidad de servicio. En [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-setup-authentication#set-up-service-principal-authentication) se aborda cómo obtener estos valores. Si usa la suscripción de la empresa, es posible que no tenga permiso para crear una entidad de servicio. En ese caso, debe usar una [suscripción personal gratuita o de pago](https://aka.ms/AMLFree).
 
 Para recuperar un token:
 
@@ -200,15 +200,15 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 -H "Authorization:Bearer {your-access-token}"
 ```
 
-Tenga en cuenta que para enumerar los experimentos, la ruta de acceso empieza por `history/v1.0` mientras que para enumerar los modelos, empieza por `modelmanagement/v1.0`. La API REST se divide en varios grupos operativos, cada uno con una ruta de acceso distinta. En los documentos de referencia de la API a los que dirigen los vínculos siguientes se enumeran las operaciones, parámetros y códigos de respuesta de las distintas operaciones.
+Tenga en cuenta que para enumerar los experimentos, la ruta de acceso empieza por `history/v1.0` mientras que para enumerar los modelos, empieza por `modelmanagement/v1.0`. La API REST se divide en varios grupos operativos, cada uno con una ruta de acceso distinta. 
 
-|Área|Path|Referencia|
-|-|-|-|
-|Artefactos|artifact/v2.0/|[Referencia de API de REST](https://docs.microsoft.com/rest/api/azureml/artifacts)|
-|Almacenes de datos|datastore/v1.0/|[Referencia de API de REST](https://docs.microsoft.com/rest/api/azureml/datastores)|
-|Ajuste de hiperparámetros|hyperdrive/v1.0/|[Referencia de API de REST](https://docs.microsoft.com/rest/api/azureml/hyperparametertuning)|
-|Modelos|modelmanagement/v1.0/|[Referencia de API de REST](https://docs.microsoft.com/rest/api/azureml/modelsanddeployments/mlmodels)|
-|Historial de ejecuciones|execution/v1.0/ y history/v1.0/|[Referencia de API de REST](https://docs.microsoft.com/rest/api/azureml/runs)|
+|Área|Path|
+|-|-|
+|Artefactos|/rest/api/azureml|
+|Almacenes de datos|/azure/machine-learning/how-to-access-data|
+|Ajuste de hiperparámetros|hyperdrive/v1.0/|
+|Modelos|modelmanagement/v1.0/|
+|Historial de ejecuciones|execution/v1.0/ y history/v1.0/|
 
 Puede explorar la API REST mediante el patrón general de:
 

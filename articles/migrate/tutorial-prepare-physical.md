@@ -4,12 +4,12 @@ description: Aprenda a prepararse para la evaluación y migración de servidores
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 31db91b512a4532cca144dc012282ea58a87514f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113258"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420794"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Preparación de la evaluación y migración de servidores físicos a Azure
 
@@ -138,7 +138,7 @@ Antes de configurar el dispositivo de Azure Migrate y comenzar la evaluación en
 
 Azure Migrate necesita permisos para detectar los servidores en el entorno local.
 
-- **Windows:** debe ser administrador de dominio o administrador local en todos los servidores de Windows que quiera detectar. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
+- **Windows:** Necesita una cuenta de dominio para detectar los servidores unidos a un dominio y una cuenta local para detectar las máquinas que no están unidas a ningún dominio. Debe agregar la cuenta de usuario a estos grupos: Usuarios de administración remota, Usuarios de Monitor de rendimiento y Usuarios del registro de rendimiento.
 - **Linux:** Necesita una cuenta raíz en los servidores Linux que desee detectar.
 
 ## <a name="prepare-for-physical-server-migration"></a>Preparación para la migración de servidores físicos

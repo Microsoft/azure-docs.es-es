@@ -6,24 +6,21 @@ ms.author: lcozzens
 ms.date: 02/18/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 32c4fe3e542135201a7bf4a23aeff94a0e2f902e
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8942c93b7346613b8cfdc97d9afe09f1c473fb10
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023574"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384878"
 ---
 # <a name="use-customer-managed-keys-to-encrypt-your-app-configuration-data"></a>Uso de claves administradas por el cliente para cifrar los datos de configuración de App Configuration
 Azure App Configuration [cifra la información confidencial en reposo](../security/fundamentals/encryption-atrest.md). El uso de claves administradas por el cliente proporciona una mejor protección de los datos al permitirle administrar las claves de cifrado.  Cuando se usa el cifrado de claves administradas, toda la información confidencial de App Configuration se cifra con una clave de Azure Key Vault proporcionada por el usuario.  De esta manera, existe la posibilidad de rotar la clave de cifrado a petición.  También existe la posibilidad de revocar el acceso de Azure App Configuration a información confidencial mediante la revocación del acceso de la instancia de Azure App Configuration a la clave.
-
-> [!NOTE]
-> Las claves administradas por el cliente ahora están disponibles con carácter general en todas las regiones *excepto* India central. En la región de la **India central**, Azure App Configuration ofrece el uso de claves administradas por el cliente como una versión preliminar pública. Las ofertas de versión preliminar pública permiten a los clientes experimentar con nuevas características antes de su publicación oficial.  Los servicios y las características en versión preliminar pública no están diseñados para su uso en producción.
 
 ## <a name="overview"></a>Información general 
 Azure App Configuration cifra la información confidencial en reposo mediante una clave de cifrado AES de 256 bits proporcionada por Microsoft. Cada instancia de App Configuration tiene su propia clave de cifrado que administra el servicio y que se usa para cifrar la información confidencial. La información confidencial incluye los valores que se encuentran en los pares clave-valor.  Cuando está habilitada la funcionalidad de claves administradas por el cliente, App Configuration usa una identidad administrada asignada a la instancia de App Configuration para autenticarse con Azure Active Directory. Luego, la identidad administrada llama a Azure Key Vault y encapsula la clave de cifrado de la instancia de App Configuration. La clave de cifrado encapsulada se almacena y la clave de cifrado desencapsulada se almacena en caché en App Configuration durante una hora. App Configuration actualiza la versión desencapsulada de la clave de cifrado de la instancia de App Configuration cada hora. De esta forma, se garantiza la disponibilidad en condiciones de funcionamiento normales. 
 
 >[!IMPORTANT]
-> Si la identidad asignada a la instancia de App Configuration ya no está autorizada para desencapsular la clave de cifrado de la instancia, o si la clave administrada se elimina de forma permanente, ya no será posible descifrar la información confidencial almacenada en la instancia de App Configuration. El uso de la función [eliminación temporal](../key-vault/general/overview-soft-delete.md) de Azure Key Vault reduce la posibilidad de eliminación accidental de la clave de cifrado.
+> Si la identidad asignada a la instancia de App Configuration ya no está autorizada para desencapsular la clave de cifrado de la instancia, o si la clave administrada se elimina de forma permanente, ya no será posible descifrar la información confidencial almacenada en la instancia de App Configuration. El uso de la función [eliminación temporal](../key-vault/general/soft-delete-overview.md) de Azure Key Vault reduce la posibilidad de eliminación accidental de la clave de cifrado.
 
 Cuando los usuarios habilitan la funcionalidad de claves administradas por el cliente en su instancia de App Configuration, controlan la capacidad del servicio para acceder a su información confidencial. La clave administrada funciona como clave de cifrado raíz. Un usuario puede revocar el acceso de la instancia de App Configuration a su clave administrada mediante la modificación de su directiva de acceso del almacén de claves. Cuando se revoca este acceso, App Configuration pierde la capacidad de descifrar los datos del usuario en una hora. En este momento, la instancia de App Configuration prohibirá todos los intentos de acceso. Esta situación es recuperable; solo hay que volver a conceder al servicio acceso a la clave administrada.  En una hora, App Configuration podrá descifrar los datos del usuario y funcionar en condiciones normales.
 
@@ -81,7 +78,7 @@ Para comenzar, necesitará una instancia de Azure App Configuration configurada 
     az appconfig identity assign --name contoso-app-config --resource-group contoso-resource-group --identities [system]
     ```
     
-    La salida de este comando incluye el identificador de entidad de seguridad ("principalId") y el identificador de inquilino ("tenandId") de la identidad asignada por el sistema.  Esto se usará para conceder a la identidad acceso a la clave administrada.
+    La salida de este comando incluye el identificador de entidad de seguridad ("principalId") y el identificador de inquilino ("tenandId") de la identidad asignada por el sistema.  Estos identificadores se usarán para conceder a la identidad acceso a la clave administrada.
 
     ```json
     {

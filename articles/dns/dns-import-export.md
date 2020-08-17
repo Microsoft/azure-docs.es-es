@@ -5,15 +5,15 @@ description: Más información sobre cómo importar y exportar un archivo de zon
 services: dns
 author: rohinkoul
 ms.service: dns
-ms.date: 4/3/2019
+ms.date: 7/30/2020
 ms.author: rohink
 ms.topic: how-to
-ms.openlocfilehash: bd40b3400b2a1c09be8fabd1201bedc7043bf19b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f17d7f32d774cac283ec335c372e8f68d50931f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84709103"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424229"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importación y exportación de un archivo de zona DNS mediante la CLI de Azure
 
@@ -82,7 +82,7 @@ Para importar un archivo de zona para la zona **contoso.com**.
 1. Si todavía no tiene uno, debe crear un grupo de recursos de Resource Manager.
 
     ```azurecli
-    az group create --group myresourcegroup -l westeurope
+    az group create --resource-group myresourcegroup -l westeurope
     ```
 
 2. Para importar la zona **contoso.com** del archivo **contoso.com.txt** a una nueva zona DNS en el grupo de recursos **myresourcegroup**, ejecute el comando `az network dns zone import`.<BR>Con este comando se carga el archivo de zona y se analiza. El comando ejecuta una serie de comandos en el servicio DNS de Azure para crear la zona y todos los conjuntos de registros de la zona. El comando notifica el progreso en la ventana de la consola, junto con los errores o las advertencias. Puesto que los conjuntos de registros se crean en serie, puede tardar unos minutos en importar un archivo de zona de gran tamaño.

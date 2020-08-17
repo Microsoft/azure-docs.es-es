@@ -11,18 +11,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
-ms.openlocfilehash: cbba0401815f6754939cdaeb6e7343cf085dff68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc7bfecbcb387fa0da0809a9a2287b243e861c49
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736975"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010876"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensión del controlador de GPU de AMD para Windows
 
-En este artículo se proporciona información general sobre la extensión de máquina virtual para implementar controladores de GPU de AMD en máquinas virtuales de la serie [NVv4](https://docs.microsoft.com/azure/virtual-machines/nvv4-series) que ejecutan Windows. Al instalar controladores de AMD mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de AMD](https://amd.com/radeonsoftwarems). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
+En este artículo se proporciona información general sobre la extensión de máquina virtual para implementar controladores de GPU de AMD en máquinas virtuales de la serie [NVv4](../nvv4-series.md) que ejecutan Windows. Al instalar controladores de AMD mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de AMD](https://amd.com/radeonsoftwarems). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
-Puede consultar [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/n-series-amd-driver-setup) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
+Puede consultar [aquí](../windows/n-series-amd-driver-setup.md) instrucciones sobre la instalación manual de los controladores y las versiones que son compatibles actualmente.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -81,7 +81,7 @@ En el siguiente JSON, se muestra el esquema para la extensión.
 
 Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. Las plantillas resultan ideales al implementar una o varias máquinas virtuales que requieren configurarse tras la implementación.
 
-La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/resource-manager-template-child-resource.md). 
+La configuración JSON de una extensión de máquina virtual puede estar anidada en el recurso de máquina virtual o colocada en la raíz o nivel superior de una plantilla JSON de Resource Manager. La colocación de la configuración JSON afecta al valor del nombre y tipo del recurso. Para obtener más información, consulte el artículo sobre cómo [establecer el nombre y el tipo de recursos secundarios](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
 En el siguiente ejemplo se da por supuesto que la extensión está anidada dentro del recurso de máquina virtual. Cuando se anidan los recursos de extensión, la plantilla JSON se coloca en el objeto `"resources": []` de la máquina virtual.
 
@@ -172,4 +172,4 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 ## <a name="next-steps"></a>Pasos siguientes
 Para más información sobre las extensiones, consulte el artículo [Características y extensiones de las máquinas virtuales para Windows](features-windows.md).
 
-Para obtener más información acerca de las VM de serie N, consulte el artículo [Tamaños de máquinas virtuales optimizadas para GPU](../windows/sizes-gpu.md).
+Para obtener más información acerca de las VM de serie N, consulte el artículo [Tamaños de máquinas virtuales optimizadas para GPU](../sizes-gpu.md).

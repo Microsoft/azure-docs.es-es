@@ -1,18 +1,18 @@
 ---
 title: Solución de problemas de la conmutación por recuperación en recuperación ante desastres de VM de VMware con Azure Site Recovery
 description: En este artículo se describen formas de solucionar los problemas de conmutación por recuperación y reprotección durante la recuperación ante desastres de máquinas virtuales de VMware en Azure con Azure Site Recovery.
-author: rajani-janaki-ram
-manager: gauravd
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: a5b8ac3d46f21f299f3e56dab24a1b5f342fb4b6
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.author: sharrai
+ms.openlocfilehash: ed4e52470264441a99c5ccf0a736bb00233510c1
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309958"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423123"
 ---
 # <a name="troubleshoot-failback-to-on-premises-from-azure"></a>Solución de problemas de conmutación por recuperación al entorno local desde Azure
 
@@ -29,7 +29,7 @@ La conmutación por recuperación implica básicamente dos pasos principales. En
 - Si no puede ponerse en contacto con el servidor de configuración desde el servidor de procesos, use Telnet para comprobar la conectividad con el servidor de configuración en el puerto 443. También puede tratar de hacer ping al servidor de configuración desde el servidor de procesos. Un servidor de procesos debe tener también un latido cuando esté conectado al servidor de configuración.
 - No se puede llevar a cabo la conmutación por recuperación de un servidor Windows Server 2008 R2 SP1 que esté protegido como servidor local físico desde Azure a un sitio local.
 - No podrá conmutar por recuperación en las siguientes circunstancias:
-    - Ha migrado máquinas a Azure. [Más información](migrate-overview.md#what-do-we-mean-by-migration).
+    - Ha migrado máquinas a Azure. 
     - Ha movido una máquina virtual a otro grupo de recursos.
     - Ha eliminado la máquina virtual de Azure.
     - Ha deshabilitado la protección de la máquina virtual.
@@ -64,7 +64,7 @@ Este problema puede suceder si ya hay una máquina virtual con el mismo nombre e
 Para solucionar este problema:
 
 * Seleccione otro servidor de destino maestro de un host diferente, con el fin de que la reprotección cree la máquina en otro host, donde los nombres no entren en conflicto.
-* También puede usar vMotion para mover el destino maestro a otro host en el que no se produzca la colisión de nombres. Si la máquina virtual existente es una máquina aislada, cámbiele el nombre para que se pueda crear la nueva máquina virtual en el mismo host ESXi.
+* También puede usar VMotion para mover el destino maestro a otro host en el que no se produzca el conflicto de nombres. Si la máquina virtual existente es una máquina aislada, cámbiele el nombre para que se pueda crear la nueva máquina virtual en el mismo host ESXi.
 
 
 ### <a name="error-code-78093"></a>Código de error 78093
@@ -98,4 +98,4 @@ Este problema sucede cuando la máquina virtual local se inicia en un host que n
 Para solucionar este problema:
 
 * Aprovisione más memoria en el host ESXi.
-* Además, puede mover la máquina virtual con vMotion a otro host ESXi que tenga memoria suficiente para iniciar la máquina virtual.
+* Además, puede mover la máquina virtual con VMotion a otro host ESXi que tenga memoria suficiente para iniciar la VM.

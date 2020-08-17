@@ -1,24 +1,22 @@
 ---
 title: 'Microsoft Teams en Windows Virtual Desktop: Azure'
 description: Procedimiento para usar Microsoft Teams en Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 05/29/2020
+ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d482b3335b31d116846ec64883b43897fcc4e43d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6fd20819d17861ed5171bf61e4c485fcceba7985
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255666"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88006118"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Uso de Microsoft Teams en Windows Virtual Desktop
 
 >[!IMPORTANT]
->La optimización multimedia de Microsoft Teams se encuentra actualmente en versión preliminar pública. Se recomienda evaluar la experiencia de usuario optimizada de Teams antes de implementar esta aplicación para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
+>La optimización multimedia para Teams no es compatible con entornos de Microsoft 365 Government.
 
 >[!NOTE]
 >La optimización multimedia de Microsoft Teams solo está disponible para el cliente de escritorio de Windows en máquinas con Windows 10. Las optimizaciones multimedia requieren la versión de cliente de escritorio de Windows 1.2.1026.0 o posterior.
@@ -53,7 +51,21 @@ Para habilitar la optimización multimedia para Teams, establezca la siguiente c
 
 ### <a name="install-the-teams-websocket-service"></a>Instalación del servicio WebSocket de Teams
 
-Instale el [servicio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj0i) en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
+Instale el [servicio WebSocket](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4AQBt) más reciente en la imagen de máquina virtual. Si se produce un error de instalación, instale la [última versión de Microsoft Visual C++ Redistributable](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) e inténtelo de nuevo.
+
+#### <a name="latest-websocket-service-versions"></a>Versiones más recientes del servicio WebSocket
+
+En la tabla siguiente se enumeran las versiones más recientes del servicio WebSocket:
+
+|Versión        |Fecha de la versión  |
+|---------------|--------------|
+|1.0.2006.11001 |28/07/2020    |
+|0.11.0         |29/05/2020    |
+
+#### <a name="updates-for-version-10200611001"></a>Actualizaciones de la versión 1.0.2006.11001
+
+- Se ha corregido un problema que provocaba la caída del vídeo de entrada al minimizar la aplicación de Teams durante una llamada o reunión.
+- Se ha agregado compatibilidad para seleccionar un monitor para compartir en sesiones de escritorio de varios monitores.
 
 ### <a name="install-microsoft-teams"></a>Instalación de Microsoft Teams
 
@@ -109,7 +121,7 @@ Después de instalar el servicio WebSocket y la aplicación de escritorio Teams,
 
 3. Seleccione su imagen de perfil de usuario y, luego, elija **Configuración**.
 
-      Si las optimizaciones multimedia están cargadas, los dispositivos de audio y las cámaras disponibles localmente se enumerarán en el menú de dispositivos. Si el menú muestra **Remote audio** (Audio remoto), salga de la aplicación Teams e inténtelo de nuevo. Si los dispositivos siguen sin aparecer en el menú, vuelva a [Instalar Microsoft Teams](#install-microsoft-teams) y asegúrese de que ha completado el proceso de instalación.
+      Si las optimizaciones multimedia están cargadas, los dispositivos de audio y las cámaras disponibles localmente se enumerarán en el menú de dispositivos. Si el menú muestra **Remote audio** (Audio remoto), salga de la aplicación Teams e inténtelo de nuevo. Si los dispositivos siguen sin aparecer en el menú, compruebe la configuración de privacidad en el PC local. Asegúrese de que en **Configuración** > **Privacidad** > **Permisos de aplicación** la opción de configuración **Permitir que las aplicaciones tengan acceso al micrófono** está establecida en **Activada**. Desconéctese de la sesión remota, vuelva a conectarse y compruebe de nuevo los dispositivos de audio y vídeo. Para unirse a llamadas y reuniones con vídeo, también debe conceder permiso para que las aplicaciones tengan acceso a la cámara.
 
 ## <a name="known-issues-and-limitations"></a>Limitaciones y problemas conocidos
 
@@ -125,9 +137,7 @@ El uso de Teams en un entorno virtualizado es diferente de su uso en un entorno 
 ### <a name="calls-and-meetings"></a>Llamadas y reuniones
 
 - El cliente de escritorio de Teams del entorno de Windows Virtual Desktop no admite eventos en directo. Por ahora, se recomienda combinar eventos en directo desde el [cliente web de Teams](https://teams.microsoft.com) en su sesión remota.
-- Minimizar la aplicación Teams durante una llamada o reunión puede dar lugar a que la fuente de vídeo entrante desaparezca al expandir la aplicación.
 - Las llamadas o las reuniones no admiten actualmente el uso compartido de aplicaciones. Las sesiones de escritorio admiten el uso compartido de escritorio.
-- Al compartir el escritorio en una configuración de varios monitores, se comparten todos los monitores.
 - No se admiten actualmente las acciones de dar y tomar el control.
 - Teams en Windows Virtual Desktop solo admite una entrada de vídeo entrante cada vez. Esto significa que cada vez que alguien intente compartir su pantalla, la pantalla de esa persona aparecerá en lugar de la pantalla del coordinador de la reunión.
 - Debido a las limitaciones de WebRTC, la resolución de la secuencia de vídeo entrante y saliente está limitada a 720p.

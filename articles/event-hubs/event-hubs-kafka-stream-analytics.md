@@ -3,12 +3,12 @@ title: 'Azure Event Hubs: Procesamiento de eventos de Apache Kafka'
 description: 'Tutorial: En este artículo se muestra cómo procesar los eventos de Kafka que se introducen a través de Event Hubs mediante Azure Stream Analytics'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 8fbc1ae326cc75603f5a86361e4bc79ecc461fd6
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: 6dfca5b476dff1ee3367b5365c15869c8cff819b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85313274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074910"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>Tutorial: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics 
 En este artículo se muestra cómo transmitir en secuencias datos a Event Hubs y cómo procesarlos con Azure Stream Analytics. Estos pasos son los siguientes: 
@@ -129,7 +129,7 @@ La consulta en el trabajo de Stream Analytics se pasa a través de los datos sin
  
 
 ### <a name="define-a-query"></a>Definición de una consulta
-Ya tiene un trabajo de Stream Analytics configurado para leer un flujo de datos de entrada. El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Definirá la consulta de transformación mediante el [lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). En este tutorial, definirá una consulta que se pasa a través de los datos sin realizar ninguna transformación.
+Ya tiene un trabajo de Stream Analytics configurado para leer un flujo de datos de entrada. El siguiente paso consiste en crear una transformación que analice los datos en tiempo real. Definirá la consulta de transformación mediante el [lenguaje de consulta de Stream Analytics](/stream-analytics-query/stream-analytics-query-language-reference). En este tutorial, definirá una consulta que se pasa a través de los datos sin realizar ninguna transformación.
 
 1. Seleccione **Consulta**.
 2. En la ventana de consulta, reemplace `[YourOutputAlias]` por el alias de salida que creó anteriormente.

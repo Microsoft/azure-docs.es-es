@@ -8,15 +8,15 @@ ms.author: jmartens
 ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
-ms.custom: contperfq4
+ms.topic: conceptual
+ms.custom: troubleshooting, contperfq4
 ms.date: 03/31/2020
-ms.openlocfilehash: bc41152bb39b0f5022d51dbefe16e3d56107c457
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 8f58fcef1a35494053803d98b43ce97fed7205e0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223465"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373698"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemas conocidos y solución de problemas en Azure Machine Learning
 
@@ -96,6 +96,22 @@ A veces puede resultar útil proporcionar información de diagnóstico al solici
     ```bash
     automl_setup
     ```
+    
+* **KeyError: "brand" cuando se ejecuta AutoML en el proceso local o en el clúster de Azure Databricks**
+
+    Si se creó un nuevo entorno después del 10 de junio de 2020, con el SDK 1.7.0 o una versión anterior, es posible que se produzca un error en el entrenamiento debido a una actualización en el paquete py-cpuinfo. (Los entornos creados el 10 de junio de 2020 o con anterioridad a esa fecha, no se ven afectados, ya que los experimentos se ejecutan en el proceso remoto porque se usan imágenes de entrenamiento almacenadas en caché). Para resolver este problema, lleve a cabo uno de los dos pasos siguientes:
+    
+    * Actualice la versión del SDK a 1.8.0 o posterior (esta operación también cambiará a la versión anterior 5.0.0 de py-cpuinfo):
+    
+      ```bash
+      pip install --upgrade azureml-sdk[automl]
+      ```
+    
+    * Cambie la versión instalada de py-cpuinfo a la versión anterior 5.0.0:
+    
+      ```bash
+      pip install py-cpuinfo==5.0.0
+      ```
   
 * **Mensaje de error: no se puede desinstalar 'PyYAML'**
 
@@ -146,6 +162,12 @@ A veces puede resultar útil proporcionar información de diagnóstico al solici
 > No se admite mover el área de trabajo de Azure Machine Learning a otra suscripción ni mover la suscripción propietaria a un nuevo inquilino. Si lo hace, pueden producirse errores.
 
 * **Portal de Azure**: si va directamente al área de trabajo desde un vínculo de recurso compartido desde el SDK o el portal, no podrá ver la página de **Información general** normal con la información de suscripción de la extensión. Tampoco será capaz de cambiar a otra área de trabajo. Si necesita ver otra área de trabajo, vaya directamente a [Azure Machine Learning Studio](https://ml.azure.com) y busque el nombre del área de trabajo.
+
+* **Exploradores admitidos en el portal web de Azure Machine Learning Studio**: Se recomienda usar el explorador más actualizado compatible con el sistema operativo. Se admiten los siguientes exploradores:
+  * Microsoft Edge (el nuevo Microsoft Edge, la versión más reciente. No la versión heredada de Microsoft Edge)
+  * Safari (versión más reciente, solo Mac)
+  * Chrome (versión más reciente)
+  * Firefox (versión más reciente)
 
 ## <a name="set-up-your-environment"></a>Configurar el entorno
 
@@ -217,9 +239,16 @@ Limitaciones y problemas conocidos de los monitores de desfase de datos:
 
 ## <a name="azure-machine-learning-designer"></a>Diseñador de Azure Machine Learning
 
-Problemas conocidos:
+* **Tiempo prolongado de preparación de un proceso:**
 
-* **Tiempo prolongado de preparación de un proceso**: puede tardar unos minutos o incluso más tiempo en conectarse por primera vez a un destino de proceso o en crear uno. 
+puede tardar unos minutos o incluso más tiempo en conectarse por primera vez a un destino de proceso o en crear uno. 
+
+En el recopilador de datos del modelo, puede tardar hasta 10 minutos para que lleguen los datos a la cuenta de Blob Storage (pero normalmente, menos). Espere 10 minutos para asegurarse de que se ejecutarán las celdas siguientes.
+
+```python
+import time
+time.sleep(600)
+```
 
 ## <a name="train-models"></a>Entrenamiento de modelos
 
@@ -339,6 +368,12 @@ Si realiza una operación de administración en un destino de proceso desde un t
 ```
 
 Por ejemplo, si intenta crear o asociar un destino de proceso desde una canalización de aprendizaje automático que se envía para ejecución remota, recibirá un error.
+
+## <a name="missing-user-interface-items-in-studio"></a>Faltan elementos de la interfaz de usuario en Studio
+
+El control de acceso basado en rol de Azure se puede usar para restringir las acciones que se pueden realizar con Azure Machine Learning. Estas restricciones pueden impedir que se muestren elementos de la interfaz de usuario en Azure Machine Learning Studio. Por ejemplo, si se le asigna un rol que no puede crear una instancia de proceso, la opción para esta tarea no aparecerá en Studio.
+
+Para más información, consulte [Administración de usuarios y roles](how-to-assign-roles.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

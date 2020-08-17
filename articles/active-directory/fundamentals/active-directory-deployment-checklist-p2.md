@@ -3,20 +3,20 @@ title: Lista de comprobación de implementación de Azure AD
 description: Lista de comprobación de la implementación de la característica Azure Active Directory
 services: active-directory
 ms.service: active-directory
-ms.subservice: ''
+ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84226a631014b51338d47887fe3bafc969dc571
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 082e4a35582e9fe643aefc13c0c46a1c75f443e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063652"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025394"
 ---
 # <a name="azure-active-directory-feature-deployment-guide"></a>Guía de implementación de la característica Azure Active Directory
 
@@ -53,10 +53,11 @@ En esta fase, los administradores habilitan unas características de seguridad c
 | [Deshabilitación de los restablecimientos de contraseña periódicos para las cuentas de usuario en la nube](../authentication/concept-sspr-policy.md#set-a-password-to-never-expire) | Los restablecimientos de contraseña periódicos promueven un aumento de las contraseñas existentes para los usuarios. Sírvase de la documentación de guía de las directrices de Microsoft sobre las contraseñas y copie la directiva local con los usuarios únicamente de la nube. | Azure AD Free |
 | [Personalización del bloqueo inteligente de Azure Active Directory](../authentication/howto-password-smart-lockout.md) | Deje de tener bloqueos de los usuarios de la nube al replicarlos a usuarios de Active Directory locales. | |
 | [Habilitación del bloqueo inteligente de la extranet para AD FS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) | El bloqueo de la extranet de AD FS protege contra los ataques de adivinación de contraseñas por fuerza bruta al tiempo que permite a los usuarios de AD FS válidos continuar usando sus cuentas. | |
+| [Bloqueo de la autenticación heredada en Azure AD con Acceso condicional](../conditional-access/block-legacy-authentication.md) | Bloquee los protocolos de autenticación heredados, como POP, SMTP, IMAP y MAPI, no puedan aplicar Multi-Factor Authentication, lo que los convierte en los puntos de entrada preferidos de los adversarios. | Azure AD Premium P1 |
 | [Implementación de Azure AD Multi-Factor Authentication mediante directivas de acceso condicional](../authentication/howto-mfa-getstarted.md) | Haga que los usuarios realicen la verificación en dos pasos al acceder a aplicaciones confidenciales mediante directivas de acceso condicional. | Azure AD Premium P1 |
 | [Habilitación de Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md) | Habilite el seguimiento de los inicios de sesión de riesgo y de las credenciales en riesgo para los usuarios de su organización. | Azure AD Premium P2 |
 | [Uso de detecciones de riesgos para desencadenar Multi-Factor Authentication y cambios de contraseñas](../authentication/tutorial-risk-based-sspr-mfa.md) | Habilite la automatización que desencadene eventos como la autenticación multifactor, el restablecimiento de contraseña y el bloqueo del inicio de sesión en caso de riesgo. | Azure AD Premium P2 |
-| [Habilitación del registro convergente para autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication (versión preliminar)](../authentication/concept-registration-mfa-sspr-converged.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. | Azure AD Premium P1 |
+| [Habilitación del registro combinado para autoservicio de restablecimiento de contraseña y Azure AD Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) | Permita que los usuarios se registren para una de las experiencias comunes: Azure Multi-Factor Authentication o el autoservicio de restablecimiento de contraseña. | Azure AD Premium P1 |
 
 ## <a name="phase-2-import-users-enable-synchronization-and-manage-devices"></a>Fase 2: Importación de usuarios, habilitación de la sincronización y administración de dispositivos
 

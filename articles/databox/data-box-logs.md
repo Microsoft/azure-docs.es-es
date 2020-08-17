@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: b65d9579686cdf53f1cac35ba47bc5850b45c8e2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50dbbe3a6a1af1e73cdf1ee7f5bd3a63cf2f6a50
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86204308"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498810"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-import-order"></a>Seguimiento y registro de eventos para un pedido de importación de Azure Data Box y Azure Data Box Heavy
 
@@ -35,7 +35,7 @@ En este artículo se describen de forma detallada los distintos mecanismos o her
 
 ## <a name="set-up-access-control-on-the-order"></a>Configuración del control de acceso en el pedido
 
-Puede controlar quién puede acceder a su pedido cuando se cree por primera vez. Configure el control de acceso basado en rol (RBAC) en los distintos ámbitos para controlar el acceso al pedido de Data Box. Un rol de RBAC determina el tipo de acceso: lectura y escritura, solo lectura, o lectura y escritura para un subconjunto de operaciones.
+Puede controlar quién puede acceder a su pedido cuando se cree por primera vez. Configure los roles de Azure en distintos ámbitos para controlar el acceso al pedido de Data Box. Los roles de Azure determinan el tipo de acceso: lectura y escritura, solo lectura, o lectura y escritura para un subconjunto de operaciones.
 
 Los dos roles que se pueden definir para el servicio de Azure Data Box son los siguientes:
 

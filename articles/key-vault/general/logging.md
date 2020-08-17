@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b3f337798525860748cf7b535c2bce478dad8e27
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 9c5b07d402219907337a590e1131691fb1e24cc2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090593"
 ---
 # <a name="azure-key-vault-logging"></a>Registro de Azure Key Vault
 
@@ -43,7 +43,7 @@ Para información general sobre Azure Key Vault, consulte [¿Qué es Azure Key�
 Para realizar este tutorial, debe disponer de lo siguiente:
 
 * Un Almacén de claves existente que ha utilizado.  
-* Azure PowerShell, versión mínima de 1.0.0. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `$PSVersionTable.PSVersion`.  
+* Azure PowerShell, versión mínima de 1.0.0. Para instalar Azure PowerShell y asociarlo con una suscripción de Azure, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/). Si ya instaló Azure PowerShell y no sabe la versión, en la consola de Azure PowerShell, escriba `$PSVersionTable.PSVersion`.  
 * Suficiente almacenamiento en Azure para sus registros de Key Vault.
 
 ## <a name="connect-to-your-key-vault-subscription"></a><a id="connect"></a>Conexión a su suscripción del almacén de claves
@@ -70,7 +70,7 @@ Luego, para especificar la suscripción asociada al almacén de claves que se va
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
-Hacer que PowerShell apunte a la suscripción correcta es un paso importante, especialmente si tiene varias suscripciones asociadas a su cuenta. Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](/powershell/azure/overview).
+Hacer que PowerShell apunte a la suscripción correcta es un paso importante, especialmente si tiene varias suscripciones asociadas a su cuenta. Para obtener más información sobre cómo configurar PowerShell de Azure, consulte [Instalación y configuración de PowerShell de Azure](/powershell/azure/).
 
 ## <a name="create-a-storage-account-for-your-logs"></a><a id="storage"></a>Creación de una cuenta de almacenamiento para sus registros
 
@@ -97,7 +97,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 ## <a name="enable-logging-using-azure-powershell"></a><a id="enable"></a>Habilitación del registro con Azure PowerShell
 
-Para habilitar el registro de Key Vault, usaremos el cmdlet **Set-AzDiagnosticSetting**, junto con las variables que hemos creado para la nueva cuenta de almacenamiento y el almacén de claves. También estableceremos la marca **-Enabled** en **$true** y estableceremos la categoría en **AuditEvent** (la única categoría del registro de Key Vault):
+Para habilitar el registro de Key Vault, usaremos el cmdlet **Set-AzDiagnosticSetting**, junto con las variables que hemos creado para la nueva cuenta de almacenamiento y el almacén de claves. También estableceremos la marca **-Enabled** en **$true** y la categoría en `AuditEvent` (la única categoría del registro de Key Vault):
 
 ```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
@@ -271,7 +271,7 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 | **resourceId** |Identificador de recursos de Azure Resource Manager. Para los registros de Key Vault, siempre es el identificador de recurso de Key Vault. |
 | **operationName** |Nombre de la operación, como se documenta en la tabla siguiente. |
 | **operationVersion** |Versión de la API REST solicitada por el cliente. |
-| **category** |Tipo de resultado. Para los registros de Key Vault, **AuditEvent** es el único valor disponible. |
+| **category** |Tipo de resultado. Para los registros de Key Vault, `AuditEvent` es el único valor disponible. |
 | **resultType** |Resultado de la solicitud de la API REST. |
 | **resultSignature** |Estado de HTTP |
 | **resultDescription** |Descripción adicional acerca del resultado, cuando esté disponible. |
@@ -279,7 +279,7 @@ En la tabla siguiente se muestran los nombres y las descripciones de los campos:
 | **callerIpAddress** |Dirección IP del cliente que realizó la solicitud. |
 | **correlationId** |Un GUID opcional que el cliente puede pasar para correlacionar los registros del lado cliente con los registros del lado servicio (Key Vault). |
 | **identity** |Identidad del token que se ha presentado al realizar la solicitud de la API REST. Suele ser un "usuario", una "entidad de servicio" o una combinación de "usuario + appId", como en el caso de una solicitud procedente de un cmdlet de Azure PowerShell. |
-| **properties** |Información que varía en función de la operación (**operationName**). En la mayoría de los casos, este campo contiene información del cliente (la cadena del agente de usuario pasada por el cliente), el URI de la solicitud de la API REST exacta y el código de estado HTTP. Además, cuando se devuelve un objeto como resultado de una solicitud (por ejemplo, **KeyCreate** o **VaultGet**) también contiene el URI de la clave (como "id"), el URI del almacén o el URI del secreto. |
+| **properties** |Información que varía en función de la operación (**operationName**). En la mayoría de los casos, este campo contiene información del cliente (la cadena del agente de usuario pasada por el cliente), el URI de la solicitud de la API REST exacta y el código de estado HTTP. Además, cuando se devuelve un objeto como resultado de una solicitud (por ejemplo, **KeyCreate** o **VaultGet**) también contiene el URI de la clave (como `id`), el URI del almacén o el URI del secreto. |
 
 Los valores del campo **operationName** tienen el formato *ObjectVerb*. Por ejemplo:
 
@@ -321,9 +321,9 @@ En la tabla siguiente se muestran los valores **operationName** y los comandos c
 
 ## <a name="use-azure-monitor-logs"></a><a id="loganalytics"></a>Uso de registros de Azure Monitor
 
-Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros **AuditEvent** de Key Vault. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita. 
+Puede utilizar la solución Key Vault en registros de Azure Monitor para revisar los registros `AuditEvent` de Key Vault. En los registros de Azure Monitor, las consultas de los registros se usan para analizar los datos y obtener la información que necesita. 
 
-Para obtener más información, incluido cómo configurar esta opción, consulte [Solución Azure Key Vault Analytics en Azure Monitor](../../azure-monitor/insights/azure-key-vault.md). En este artículo también se incluyen instrucciones si necesita migrar desde la solución Key Vault anterior que se ofrecía durante la versión preliminar de los registros de Azure Monitor, cuando enrutó por primera vez los registros a una cuenta de Azure Storage y configuró los registros de Azure Monitor para que leyeran desde ahí.
+Para más información, incluido cómo configurar esta opción, consulte [Azure Key Vault en Azure Monitor](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="next-steps"></a><a id="next"></a>Pasos siguientes
 

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 618acae10b874eb5ebd5b6da7fe081368528dbd8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43e16d15c48471d75a7ab5ce23898f1161a60153
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712503"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052825"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desarrollo de Azure Functions con Media Services
 
@@ -338,7 +338,7 @@ Para probar la función, debe cargar un archivo MP4 en el contenedor **input** d
 4. Presione **Cargar** y busque un archivo .mp4 que quiera cargar.
 
 >[!NOTE]
-> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para más información, consulte [Desencadenadores y enlaces de Blob Storage](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
+> Al usar un desencadenador de blobs en un plan de consumo, puede haber un retraso de hasta 10 minutos en el procesamiento de nuevos blobs después de que una aplicación de función quede inactiva. Después de que se ejecute la aplicación de función, los blobs se procesan inmediatamente. Para más información, consulte [Desencadenadores y enlaces de Blob Storage](../../azure-functions/functions-bindings-storage-blob.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -350,4 +350,3 @@ Además, consulte [Uso de Azure WebHooks para supervisar las notificaciones de t
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

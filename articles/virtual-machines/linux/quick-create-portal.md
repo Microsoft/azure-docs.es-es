@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/25/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5189a9dc8cd83877b4797fd828e9c9f6da8d1b93
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 405cb107711845a6699e09bc09a1d2d9f3005cd6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85392865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499983"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure Portal
 
@@ -32,11 +32,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) si aún no lo ha hech
 1. En la página **Máquinas virtuales**, seleccione **Agregar**. Se abrirá la página **Creación de una máquina virtual**.
 1. En la pestaña **Aspectos básicos**, en **Detalles del proyecto**, asegúrese de que esté seleccionada la suscripción correcta y luego elija **Crear nuevo** grupo de recursos. Escriba *myResourceGroup* para el nombre.*. 
 
-    ![Crear un nuevo grupo de recursos para la máquina virtual](./media/quick-create-portal/project-details.png)
+    ![Captura de pantalla de la sección Detalles del proyecto en la que se muestra dónde se selecciona la suscripción de Azure y el grupo de recursos de la máquina virtual](./media/quick-create-portal/project-details.png)
 
 1. En **Detalles de instancia**, escriba *myVM* en **Nombre de máquina virtual**, elija *Este de EE. UU.* como **Región** y, luego, *Ubuntu 18.04 LTS* como **Imagen**. Deje los demás valores predeterminados.
 
-    ![Sección Detalles de instancia](./media/quick-create-portal/instance-details.png)
+    ![Captura de pantalla de la sección Detalles de instancia, en la que se especifica el nombre de la máquina virtual y se selecciona su región, imagen y tamaño](./media/quick-create-portal/instance-details.png)
 
 1. En **Cuenta de administrador** , seleccione **Clave pública SSH**.
 
@@ -44,11 +44,11 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) si aún no lo ha hech
 
 1. En **Origen de clave pública SSH**, deje el valor predeterminado **Generar nuevo par de claves** y, a continuación, escriba *myKey* en **Nombre de par de claves**.
 
-    ![Cuenta de administrador](./media/quick-create-portal/administrator-account.png)
+    ![Captura de pantalla de la sección Cuenta de administrador, en la que se selecciona un tipo de autenticación y se especifican las credenciales del administrador](./media/quick-create-portal/administrator-account.png)
 
 1. En **Reglas de puerto de entrada** > **Puertos de entrada públicos**, elija **Permitir los puertos seleccionados** y luego seleccione **SSH (22)** y **HTTP (80)** en la lista desplegable. 
 
-    ![Puertos abiertos para RDP y HTTP](./media/quick-create-portal/inbound-port-rules.png)
+    ![Captura de pantalla de la sección Reglas de puerto de entrada, donde se seleccionan los puertos en los que se permiten conexiones entrantes](./media/quick-create-portal/inbound-port-rules.png)
 
 1. Deje los valores predeterminados restantes y luego seleccione el botón **Revisar + crear** en la parte inferior de la página.
 
@@ -61,7 +61,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) si aún no lo ha hech
 1. En la página de la nueva máquina virtual, seleccione la dirección IP pública y cópiela en el portapapeles.
 
 
-    ![Copia de la dirección IP pública](./media/quick-create-portal/ip-address.png)
+    ![Captura de pantalla en que se muestra cómo copiar la dirección IP de la máquina virtual](./media/quick-create-portal/ip-address.png)
 
 ## <a name="connect-to-virtual-machine"></a>Conexión a la máquina virtual
 
@@ -94,7 +94,7 @@ Cuando haya terminado, escriba `exit` para salir de la sesión de SSH.
 
 Use un explorador web de su elección para ver la página de bienvenida predeterminada de NGINX. Escriba la dirección IP pública de la máquina virtual como dirección web. La dirección IP pública se encuentra en la página de introducción de la máquina virtual o como parte de la cadena de conexión de SSH que usó anteriormente.
 
-![Sitio NGINX predeterminado](./media/quick-create-portal/nginx.png)
+![Captura de pantalla que muestra el sitio predeterminado de NGINX en un explorador](./media/quick-create-portal/nginx.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

@@ -5,12 +5,12 @@ author: tugup
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: tugup
-ms.openlocfilehash: b106061805ea5485893df292c40974d3ee9bcadb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a39aecf16d1c3303c0a590b389ba2aa69d4472f2
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258817"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405133"
 ---
 # <a name="azure-service-fabric-hosting-lifecycle"></a>Ciclo de vida de hospedaje de Azure Service Fabric
 En este artículo se proporciona información general sobre los eventos que se producen cuando se activa una aplicación en un nodo y se usan varias configuraciones de clúster para controlar el comportamiento.
@@ -83,7 +83,7 @@ Service Fabric siempre usa una interrupción lineal cuando encuentra un error du
 
 * Si el CodePackage se sigue bloqueado e interrumpiendo, se deshabilitará ServiceType. Sin embargo, si la configuración de activaciones es tal que tiene un reinicio rápido, CodePackage puede aparecer varias veces antes de que pueda ver la deshabilitación de ServiceType. Por ejemplo, supongamos que CodePackage se activa, registra el ServiceType en Service Fabric y luego se bloquea. En ese caso, una vez que el host reciba un registro de tipos, se cancela el período **ServiceTypeDisableGraceInterval**. Y esto puede repetirse hasta que CodePackage se interrumpa en un valor mayor que **ServiceTypeDisableGraceInterval** y, luego, ServiceType se deshabilitará en el nodo. Por lo tanto, puede tardarse un tiempo para que ServiceType se deshabilite en el nodo.
 
-* En el caso de las activaciones, cuando el sistema de Service Fabric necesita colocar una réplica en un nodo, RA(ReconfigurationAgent) pide al subsistema de hospedaje que active la aplicación y reintenta la solicitud de activación cada 15 segundos (**RAPMessageRetryInterval**). Para que el sistema de Service Fabric sepa que ServiceType se ha deshabilitado, la operación de activación en el hospedaje debe vivir durante un período más largo que el intervalo de reintento y **ServiceTypeDisableGraceInterval**. Por ejemplo, permita que el clúster tenga la configuración de **ActivationMaxFailureCount** establecida en 5 y de **ActivationRetryBackoffInterval** establecida en 1 segundo. Significa que la operación de activación desista después de (0 + 1 + 2 + 3 + 4) = 10 segundos (el primer reintento es inmediato) y después de que el hospedaje desista de reintentar. En este caso, la operación de activación se completará y no se volverá a intentar después de 15 segundos. Esto sucede porque Service Fabric ha agotado todos los reintentos en 15 segundos. Por lo tanto, cada reintento de ReconfigurationAgent crea una nueva operación de activación en el subsistema de hospedaje, y el patrón se seguirá repitiendo, y ServiceType nunca se deshabilitará en el nodo. Dado que ServiceType no se deshabilitará en el componente del sistema Sf, FM (FailoverManager) no moverá la réplica a otro nodo.
+* En el caso de las activaciones, cuando el sistema de Service Fabric necesita colocar una réplica en un nodo, RA(ReconfigurationAgent) pide al subsistema de hospedaje que active la aplicación y reintenta la solicitud de activación cada 15 segundos (**RAPMessageRetryInterval**). Para que el sistema de Service Fabric sepa que ServiceType se ha deshabilitado, la operación de activación en el hospedaje debe vivir durante un período más largo que el intervalo de reintento y **ServiceTypeDisableGraceInterval**. Por ejemplo, permita que el clúster tenga la configuración de **ActivationMaxFailureCount** establecida en 5 y de **ActivationRetryBackoffInterval** establecida en 1 segundo. Significa que la operación de activación desista después de (0 + 1 + 2 + 3 + 4) = 10 segundos (el primer reintento es inmediato) y después de que el hospedaje desista de reintentar. En este caso, la operación de activación se completará y no se volverá a intentar después de 15 segundos. Esto sucede porque Service Fabric ha agotado todos los reintentos en 15 segundos. Por lo tanto, cada reintento de ReconfigurationAgent crea una nueva operación de activación en el subsistema de hospedaje, y el patrón se seguirá repitiendo, y ServiceType nunca se deshabilitará en el nodo. Como ServiceType no se va a deshabilitar en el nodo, el componente FM (FailoverManager) del sistema Sf no moverá la réplica a otro nodo.
 > 
 
 ## <a name="deactivation"></a>Desactivación

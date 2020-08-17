@@ -13,14 +13,14 @@ ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
 ROBOTS: NOINDEX
-ms.openlocfilehash: 5c1c03a407315fc4f1b3eb967531e2800fc7497f
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 1075cce9b9e3bc3267756bba84691788293fa8d2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83738054"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116322"
 ---
-# <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
+# <a name="developer-guidance-for-the-azure-active-directory-conditional-access-feature"></a>Guía para desarrolladores de la característica Acceso condicional de Azure Active Directory
 
 [!INCLUDE [active-directory-azuread-dev](../../../includes/active-directory-azuread-dev.md)]
 
@@ -90,7 +90,7 @@ Los desarrolladores pueden tomar este desafío y anexarlo a una solicitud nueva 
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
-El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Puede obtener más información sobre los requisitos de licencia en el [informe de uso sin licencia](../active-directory-conditional-access-unlicensed-usage-report.md). Los desarrolladores pueden unirse a [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que incluye una suscripción gratis a Enterprise Mobility Suite que, a su vez, incluye Azure AD Premium.
+El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](../fundamentals/active-directory-whatis.md). Puede obtener más información sobre los requisitos de licencia en el [informe de uso sin licencia](../reports-monitoring/overview-reports.md). Los desarrolladores pueden unirse a [Microsoft Developer Network](/), que incluye una suscripción gratis a Enterprise Mobility Suite que, a su vez, incluye Azure AD Premium.
 
 ### <a name="considerations-for-specific-scenarios"></a>Consideraciones para escenarios específicos
 
@@ -177,7 +177,7 @@ Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA 
 
 ## <a name="see-also"></a>Consulte también
 
-* Para más información sobre las funcionalidades, consulte [Acceso condicional en Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
+* Para más información sobre las funcionalidades, consulte [Acceso condicional en Azure Active Directory](../conditional-access/overview.md).
 * Para más información sobre los ejemplos de código de Azure AD, consulte el [repositorio de GitHub de ejemplos de código](https://github.com/azure-samples?utf8=%E2%9C%93&q=active-directory).
 * Para más información sobre el SDK de ADAL y acceso a la documentación de referencia, consulte la [guía de la biblioteca](active-directory-authentication-libraries.md).
 * Para más información sobre los escenarios multiinquilino, consulte el artículo sobre el [inicio de sesión de usuarios con el patrón multiinquilino](../develop/howto-convert-app-to-be-multi-tenant.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).

@@ -2,13 +2,13 @@
 title: Copia de seguridad y restauración de VM de Azure cifradas
 description: Se describe cómo realizar una copia de seguridad de máquinas virtuales de Azure cifradas, y cómo restaurarlas, con el servicio Azure Backup.
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 1689ff89f15248f6771ccdce525cc136221e5577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/29/2020
+ms.openlocfilehash: 25c5e66bde817e824a307df2a2b1b5f76c773c01
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538911"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405771"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -47,38 +47,42 @@ Antes de empezar, haga lo siguiente:
 
 1. Asegúrese de que tiene una o varias máquinas virtuales [Windows](../virtual-machines/linux/disk-encryption-overview.md) o [Linux](../virtual-machines/linux/disk-encryption-overview.md) con ADE habilitado.
 2. [Revise la matriz de compatibilidad](backup-support-matrix-iaas.md) para la copia de seguridad de máquinas virtuales de Azure.
-3. [Cree](backup-azure-arm-vms-prepare.md#create-a-vault) un almacén de Backup de Recovery Services si aún no tiene uno.
+3. [Cree](backup-create-rs-vault.md) un almacén de Backup de Recovery Services si aún no tiene uno.
 4. Si habilita el cifrado para máquinas virtuales que ya están habilitadas para la copia de seguridad, solo debe proporcionar al servicio Backup permisos para acceder al almacén de claves para que las copias de seguridad puedan continuar sin interrupciones. [Más información](#provide-permissions) sobre la asignación de estos permisos.
 
 Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 
-- **Instalar el agente de máquina virtual en la máquina virtual**: Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si la máquina virtual se creó a partir de una imagen de Azure Marketplace, el agente se instala y se ejecuta. Si crea una máquina virtual personalizada o migra una máquina local, es posible que deba [instalar el agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
+- **Instalar el agente de máquina virtual en la máquina virtual**: Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si la VM se creó a partir de una imagen de Azure Marketplace, el agente se instala y se ejecuta. Si crea una máquina virtual personalizada o migra una máquina local, es posible que deba [instalar el agente manualmente](backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 
 ## <a name="configure-a-backup-policy"></a>Configuración de una directiva de copia de seguridad
 
-1. Si todavía no ha creado un almacén de Backup de Recovery Services, siga [estas instrucciones](backup-azure-arm-vms-prepare.md#create-a-vault).
-2. Abra el almacén en el portal y seleccione **Copia de seguridad** en la sección **Introducción**.
+1. Si todavía no ha creado un almacén de copia de seguridad de Recovery Services, siga [estas instrucciones](backup-create-rs-vault.md).
+1. Abra el almacén en el portal y seleccione **+ Copia de seguridad** en la sección **Introducción**.
 
-    ![Hoja Copia de seguridad](./media/backup-azure-vms-encryption/select-backup.png)
+    ![Panel de copia de seguridad](./media/backup-azure-vms-encryption/select-backup.png)
 
-3. En **Objetivo de Backup** > **Where is your workload running?** (¿Dónde se ejecuta su carga de trabajo?), seleccione **Azure**.
-4. En **What do you want to back up?** (¿De qué desea realizar una copia de seguridad?), seleccione **Máquina virtual** > **Aceptar**.
+1. En **Objetivo de Backup** > **Where is your workload running?** (¿Dónde se ejecuta su carga de trabajo?), seleccione **Azure**.
+1. En **¿De qué desea hacer una copia de seguridad?** , seleccione **Máquina virtual**. A continuación, seleccione **Copia de seguridad**.
 
       ![Hoja Escenario](./media/backup-azure-vms-encryption/select-backup-goal-one.png)
 
-5. En **Directiva de copia de seguridad**, > **Elegir una directiva de copia de seguridad**, seleccione la directiva que quiere asociar al almacén. A continuación, haga clic en **Aceptar**.
+1. En **Directiva de copia de seguridad**, > **Elegir una directiva de copia de seguridad**, seleccione la directiva que quiere asociar al almacén. Después, seleccione **Aceptar**.
     - Una directiva de copia de seguridad especifica cuándo se realizan las copias de seguridad y cuánto tiempo se almacenan.
     - Los detalles de la directiva predeterminada se muestran en el menú desplegable.
 
     ![Hoja Escenario abierta](./media/backup-azure-vms-encryption/select-backup-goal-two.png)
 
-6. Si no quiere usar la directiva predeterminada, seleccione **Crear nueva** y [Crear una directiva personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
+1. Si no quiere usar la directiva predeterminada, seleccione **Crear nueva** y [Crear una directiva personalizada](backup-azure-arm-vms-prepare.md#create-a-custom-policy).
 
-7. Elija las máquinas virtuales cifradas que quiere copiar mediante la directiva seleccionada y seleccione **Aceptar**.
+1. En **Máquinas virtuales**, seleccione **Agregar**.
+
+    ![Hoja Escenario abierta](./media/backup-azure-vms-encryption/add-virtual-machines.png)
+
+1. Elija las máquinas virtuales cifradas que quiere copiar mediante la directiva seleccionada y seleccione **Aceptar**.
 
       ![Selección de las máquinas virtuales cifradas](./media/backup-azure-vms-encryption/selected-encrypted-vms.png)
 
-8. Si usa Azure Key Vault, en la página del almacén, verá un mensaje que indica que Azure Backup necesita acceso de solo lectura a las claves y los secretos de Key Vault.
+1. Si usa Azure Key Vault, en la página del almacén, verá un mensaje que indica que Azure Backup necesita acceso de solo lectura a las claves y los secretos de Key Vault.
 
     - Si recibe este mensaje, no necesita hacer nada.
 
@@ -88,17 +92,17 @@ Además, hay un par de cosas que puede que deba hacer en algunas circunstancias:
 
         ![Advertencia de acceso](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Haga clic en **Habilitar copia de seguridad** para implementar la directiva de copia de seguridad en el almacén y habilitar la copia de seguridad para las máquinas virtuales seleccionadas.
+1. Haga clic en **Habilitar copia de seguridad** para implementar la directiva de copia de seguridad en el almacén y habilitar la copia de seguridad para las máquinas virtuales seleccionadas.
 
 ## <a name="trigger-a-backup-job"></a>Desencadenamiento de un trabajo de copia de seguridad
 
 La copia de seguridad inicial se ejecutará según la programación, peor puede ejecutarla inmediatamente de la manera siguiente:
 
-1. En el menú Almacén, haga clic en **Elementos de copia de seguridad**.
-2. En **Elementos de copia de seguridad**, haga clic en **Máquina virtual de Azure**.
-3. En la lista **Elementos de copia de seguridad**, haga clic en el botón de puntos suspensivos (...).
-4. Haga clic en **Realizar copia de seguridad ahora**.
-5. En **Realizar copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. A continuación, haga clic en **Aceptar**.
+1. En el menú del almacén, seleccione **Elementos de copia de seguridad**.
+2. En **Elementos de copia de seguridad**, seleccione **Máquina virtual de Azure**.
+3. En la lista **Elementos de copia de seguridad**, seleccione el botón de puntos suspensivos (...).
+4. Seleccione **Hacer copia de seguridad ahora**.
+5. En **Realizar copia de seguridad ahora**, use el control del calendario para seleccionar el último día que debería retenerse el punto de recuperación. Después, seleccione **Aceptar**.
 6. Supervise las notificaciones del portal. Puede supervisar el progreso del trabajo en el panel del almacén > **Trabajos de copia de seguridad** > **En curso**. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar un tiempo.
 
 ## <a name="provide-permissions"></a>Proporcionar los permisos
@@ -111,24 +115,27 @@ Azure Backup necesita acceso de solo lectura para realizar la copia de seguridad
 Para establecer los permisos:
 
 1. En Azure Portal, seleccione **Todos los servicios** y busque **Almacenes de claves**.
-2. Seleccione el almacén de claves asociado a la máquina virtual cifrada que va a copiar.
-3. Seleccione **Directivas de acceso** > **Agregar nueva**.
-4. Seleccione **Seleccionar la entidad de seguridad** y escriba **Administración de copias de seguridad**.
-5. Elija **Backup Management Service** >  (Servicio de administración de copias de seguridad) **Seleccionar**.
+1. Seleccione el almacén de claves asociado a la máquina virtual cifrada que va a copiar.
+1. Seleccione **Directivas de acceso** > **Agregar directiva de acceso**.
+
+    ![Agregar directiva de acceso](./media/backup-azure-vms-encryption/add-access-policy.png)
+
+1. Seleccione **Seleccionar la entidad de seguridad** y escriba **Administración de copias de seguridad**.
+1. Elija **Backup Management Service** >  (Servicio de administración de copias de seguridad) **Seleccionar**.
 
     ![Selección del servicio Backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
-6. En **Agregar directiva de acceso** > **Configurar a partir de una plantilla (opcional)** , seleccione **Azure Backup**.
+1. En **Agregar directiva de acceso** > **Configurar a partir de una plantilla (opcional)** , seleccione **Azure Backup**.
     - Los permisos necesarios se rellenan previamente en **Permisos clave** y **Permisos de secretos**.
     - Si la máquina virtual está cifrada con **solo BEK**, quite la selección de **permisos de clave** puesto que solo necesita permisos para secretos.
 
     ![Selección de Azure Backup](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-7. Haga clic en **OK**. **Backup Management Service** (Servicio de administración de copias de seguridad) se agrega a **Directivas de acceso**.
+1. Seleccione **Agregar**. **Backup Management Service** (Servicio de administración de copias de seguridad) se agrega a **Directivas de acceso**.
 
     ![Directivas de acceso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
-8. Haga clic en **Guardar** para proporcionar a Azure Backup los permisos.
+1. Seleccione **Guardar** para proporcionar a Azure Backup los permisos.
 
 ## <a name="restore-an-encrypted-vm"></a>Restauración de una máquina virtual cifrada
 

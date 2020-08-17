@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2020
-ms.openlocfilehash: b4882ec9eb8b81ae27a1e8eed2e5b4349fbeac3f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4e36a21e9dbab6f9bf814cdeb86f175ded38ea8e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516199"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327300"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Estructura de registros de Azure Monitor
 La capacidad de obtener rápidamente información sobre sus datos mediante una [consulta de registro](log-query-overview.md) es una versátil característica de Azure Monitor. Para crear consultas eficaces y útiles, debe comprender algunos conceptos básicos, como dónde se encuentran los datos que desea y cómo se estructuran. En este artículo se proporcionan los conceptos básicos que necesita para empezar a trabajar.
@@ -89,4 +89,5 @@ Aunque cada tabla de los registros de Azure Monitor tiene su propio esquema, hay
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Aprenda a usar [Log Analytics para crear y editar búsquedas de registros](./log-query-overview.md).
-- Consulte un [tutorial sobre cómo escribir consultas](../log-query/get-started-queries.md) mediante el nuevo lenguaje de consulta.
+- Consulte un [tutorial sobre cómo escribir consultas](./get-started-queries.md) mediante el nuevo lenguaje de consulta.
+

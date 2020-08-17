@@ -7,17 +7,19 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 9be758c286e072b0fbefc5f8b20b7accc4e6741b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff77d6cad60b459b1fe6a4f83641c7aebe204dfa
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79228852"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460106"
 ---
 # <a name="manage-the-mobility-agent"></a>Administrar el agente de movilidad 
 
 Es preciso configurar un agente de movilidad en el servidor cuando se usa Azure Site Recovery para realizar tareas de recuperación ante desastres en servidores físicos y máquinas virtuales de VMware en Azure. El agente de movilidad coordina las comunicaciones entre la máquina protegida y el servidor de configuración/servidor de procesos de escalado horizontal, y administra la replicación de datos. En este artículo se resumen las tareas comunes para administrar el agente de movilidad después de que se haya implementado.
 
+>[!TIP]
+>Para descargar el instalador de una distribución de SO o Linux específica, consulte las instrucciones [aquí](vmware-physical-mobility-service-overview.md#locate-installer-files). Para actualizar de forma automática desde el portal, no es necesario descargar el instalador. [ASR captura automáticamente el instalador desde el servidor de configuración y actualización del agente](#update-mobility-service-from-azure-portal).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -33,7 +35,7 @@ Es preciso configurar un agente de movilidad en el servidor cuando se usa Azure 
 
      ![Lista de máquinas virtuales de elementos replicados](./media/vmware-azure-install-mobility-service/update-okpng.png)
 
-5. El trabajo de actualización de Mobility Service se inicia para cada una de las máquinas seleccionadas.
+5. El trabajo de actualización de Mobility Service se inicia para cada una de las máquinas seleccionadas. El agente de movilidad se actualizó a la versión del servidor de configuración. Por ejemplo, si el servidor de configuración está en la versión 9.33, el agente de movilidad de una VM protegida también se actualiza a la versión 9.33.
 
 ## <a name="update-mobility-service-through-powershell-script-on-windows-server"></a>Actualizar Mobility Service mediante un script de PowerShell en un servidor Windows
 

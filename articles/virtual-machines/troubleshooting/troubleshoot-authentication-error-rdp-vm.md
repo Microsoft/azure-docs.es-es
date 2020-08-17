@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: 03356c0b4a93f4befdbc529523e58642137a8887
-ms.sourcegitcommit: 7581df526837b1484de136cf6ae1560c21bf7e73
+ms.openlocfilehash: cc1ad3104596cc7ad4bb48f88e4c8312bc833371
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80420814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088570"
 ---
 # <a name="troubleshoot-authentication-errors-when-you-use-rdp-to-connect-to-azure-vm"></a>Solucionar errores de autenticación cuando use RDP para conectarse a la máquina virtual de Azure
 
@@ -276,8 +276,8 @@ Reinicie la máquina virtual para que los cambios en el Registro surtan efecto.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[SetEncryptionLevel method of the Win32_TSGeneralSetting class](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting-setencryptionlevel) (Establecer el método SetEncryptionLevel de la clase Win32_TSGeneralSetting)
+[SetEncryptionLevel method of the Win32_TSGeneralSetting class](/windows/desktop/termserv/win32-tsgeneralsetting-setencryptionlevel) (Establecer el método SetEncryptionLevel de la clase Win32_TSGeneralSetting)
 
-[Configure Server Authentication and Encryption Levels](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770833(v=ws.11)) (Configurar la autenticación de servidor y los niveles de cifrado)
+[Configure Server Authentication and Encryption Levels](/previous-versions/windows/it-pro/windows-server-2008-r2-and-2008/cc770833(v=ws.11)) (Configurar la autenticación de servidor y los niveles de cifrado)
 
-[Win32_TSGeneralSetting class](https://docs.microsoft.com/windows/desktop/TermServ/win32-tsgeneralsetting) (Clase Win32_TSGeneralSetting)
+[Win32_TSGeneralSetting class](/windows/desktop/termserv/win32-tsgeneralsetting) (Clase Win32_TSGeneralSetting)

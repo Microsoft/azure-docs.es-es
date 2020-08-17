@@ -1,22 +1,25 @@
 ---
-title: Uso del emulador de Azure Storage para desarrollo y pruebas | Microsoft Docs
+title: Uso del emulador de Azure Storage para desarrollo y pruebas
 description: El emulador de Azure Storage ofrece un entorno de desarrollo local gratuito para desarrollo y pruebas de las aplicaciones de Azure Storage.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 08/21/2019
+ms.date: 07/16/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: eb13dbb7e4cfbbb1b2ea42ea1753e7615df03a7d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e50c1e3efc33fb761068b3009979079b2ba4b760
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512184"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447140"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
 El emulador de Microsoft Azure Storage es una herramienta que emula los servicios Azure Blob, Queue y Table para fines de desarrollo local. Puede probar la aplicación en los servicios de almacenamiento local, sin crear una suscripción de Azure ni incurrir en ningún gasto. Cuando esté satisfecho con el funcionamiento de la aplicación en el emulador, cambie al uso de una cuenta de almacenamiento de Azure en la nube.
+
+> [!IMPORTANT]
+> El emulador de Azure Storage ya no se está desarrollando activamente. [**Azurite**](storage-use-azurite.md) es la plataforma del emulador de almacenamiento futura. Azurite reemplaza al emulador de Azure Storage. Azurite se seguirá actualizando para admitir las versiones más recientes de las API de Azure Storage. Para más información, consulte [**Uso del emulador de Azurite para desarrollo y pruebas locales de Azure Storage**](storage-use-azurite.md).
 
 ## <a name="get-the-storage-emulator"></a>Obtención del emulador de almacenamiento
 
@@ -75,7 +78,7 @@ La herramienta de la línea de comandos del emulador de almacenamiento se puede 
 
    `AzureStorageEmulator.exe init /server .`
 
-   O bien, puede usar el comando siguiente, que reinicializa la base de datos a la instancia de LocalDB predeterminada:
+   O bien, puede usar el comando siguiente, que inicializa la base de datos a la instancia de LocalDB predeterminada:
 
    `AzureStorageEmulator.exe init /forceCreate`
 
@@ -179,7 +182,7 @@ A partir de la versión 3.0, se muestra una ventana de consola cuando se inicia 
 
 Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 
-| Opción | Descripción | Get-Help | Argumentos |
+| Opción | Descripción | Comando | Argumentos |
 | --- | --- | --- | --- |
 | **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-Reprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
 | **Detención** |Detiene el emulador de almacenamiento. |`AzureStorageEmulator.exe stop` | |
@@ -328,3 +331,7 @@ No hay ninguna diferencia específica del almacenamiento en cola en el emulador.
 * Evaluación del emulador de almacenamiento de código abierto multiplataforma [Azurite](https://github.com/azure/azurite), mantenido por la comunidad. 
 * [Ejemplos de Azure Storage mediante .NET](../storage-samples-dotnet.md) contiene vínculos a varios ejemplos de código que puede usar al desarrollar su aplicación.
 * Puede usar el [Explorador de Microsoft Azure Storage](https://storageexplorer.com) para trabajar con recursos de su cuenta de nube de Storage y del emulador de almacenamiento.
+
+## <a name="see-also"></a>Consulte también
+
+* [Desarrollo de Azure Storage local con Azurite, SDK de Azure y Explorador de Azure Storage](https://blog.jongallant.com/2020/04/local-azure-storage-development-with-azurite-azuresdks-storage-explorer/)

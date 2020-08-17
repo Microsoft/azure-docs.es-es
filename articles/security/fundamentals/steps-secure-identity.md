@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 7e8e12c3e10243e2e8adb23527683813f33a75a4
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d05670d55d8a4f9ad7ab691da3f05f1c3e0cd177
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084382"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386153"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinco pasos para asegurar su infraestructura de identidad
 
@@ -35,7 +35,7 @@ Esta lista de comprobación le ayudará a implementar rápidamente las acciones 
 Asegúrese de realizar un seguimiento de las características y los pasos que se han completado al leer esta lista de comprobación.
 
 > [!NOTE]
-> Muchas de las recomendaciones de este documento solo son válidas para aquellas aplicaciones que estén configuradas para usar Azure Active Directory como proveedor de identidades. La configuración de aplicaciones para el inicio de sesión único garantiza las ventajas que ofrecen las políticas de credenciales, la detección de amenazas, la auditoría, el registro y otras características que se agregan a esas aplicaciones. El [inicio de sesión único mediante Azure Active Directory](../../active-directory/manage-apps/configure-single-sign-on-non-gallery-applications.md) es la base en la que se cimentan todas estas recomendaciones.
+> Muchas de las recomendaciones de este documento solo son válidas para aquellas aplicaciones que estén configuradas para usar Azure Active Directory como proveedor de identidades. La configuración de aplicaciones para el inicio de sesión único garantiza las ventajas que ofrecen las políticas de credenciales, la detección de amenazas, la auditoría, el registro y otras características que se agregan a esas aplicaciones. [Administración de aplicaciones de Azure AD](../../active-directory/manage-apps/what-is-application-management.md) es la base sobre la que se establecen todas estas recomendaciones.
 
 Las recomendaciones de este documento se basan en las especificaciones de la [puntuación de seguridad de identidades](../../active-directory/fundamentals/identity-secure-score.md), una valoración automatizada de la configuración de seguridad de las identidades de su inquilino de Azure AD. Las organizaciones pueden usar la página Puntuación de seguridad de identidad del portal de Azure AD para detectar deficiencias en la configuración de seguridad actual y garantizar que se siguen las [prácticas recomendadas](identity-management-best-practices.md) por Microsoft para la seguridad. Si se implementan todas las recomendaciones de la página Puntuación segura, la puntuación aumentará y se podrá hacer un seguimiento del progreso. Asimismo, esto ayudará a comparar la implementación con la de otras organizaciones de tamaño similar o con el conjunto del sector.
 

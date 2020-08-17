@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/11/2020
 ms.author: juliako
-ms.openlocfilehash: 75ba2ad87eabd7ff6b0625ad95ab24a8ae58dd0f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6c88a1f36d4e3405b44f36864262b2ab97517933
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79461051"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500562"
 ---
 # <a name="manage-streaming-endpoints-with--media-services-v3"></a>Administración de puntos de conexión de streaming con Media Services v3
 
 Cuando se crea la cuenta de Media Services, se agrega un [punto de conexión de streaming](streaming-endpoint-concept.md) **predeterminado** a la cuenta con estado **Stopped** (Detenido). Para iniciar la transmisión del contenido y aprovechar el [empaquetado dinámico](dynamic-packaging-overview.md) y el [cifrado dinámico](content-protection-overview.md), el punto de conexión de streaming desde el que va a transmitir el contenido tiene que estar en estado **Ejecutando**.
 
-En este artículo se muestra cómo ejecutar el comando [start](https://docs.microsoft.com/rest/api/media/streamingendpoints/start) en el punto de conexión de streaming mediante distintas tecnologías. 
+En este artículo se muestra cómo ejecutar el comando [start](/rest/api/media/streamingendpoints/start) en el punto de conexión de streaming mediante distintas tecnologías. 
  
 > [!NOTE]
 > Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
@@ -46,7 +47,7 @@ POST https://management.azure.com/subscriptions/00000000-0000-0000-0000-00000000
 
 Para más información, consulte: 
 
-* La documentación de referencia [Inicio de un punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints/start).
+* La documentación de referencia [Inicio de un punto de conexión de streaming](/rest/api/media/streamingendpoints/start).
 * El inicio de un punto de conexión de streaming es una operación asincrónica. 
 
     Para información sobre cómo supervisar las operaciones de larga duración, consulte [Operaciones de larga duración](media-services-apis-overview.md).
@@ -70,7 +71,7 @@ az ams streaming-endpoint start [--account-name]
                                 [--subscription]
 ```
 
-Para más información, consulte [az ams streaming-endpoint start](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
+Para más información, consulte [az ams streaming-endpoint start](/cli/azure/ams/streaming-endpoint?view=azure-cli-latest#az-ams-streaming-endpoint-start).
 
 ## <a name="use-sdks"></a>Uso de SDK
 
@@ -106,4 +107,4 @@ Consulte el [ejemplo de código de .NET](https://github.com/Azure-Samples/media-
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Especificación de OpenAPI de Media Services v3 (Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01)
-* [Operaciones de punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints)
+* [Operaciones de punto de conexión de streaming](/rest/api/media/streamingendpoints)

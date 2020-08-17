@@ -5,19 +5,19 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/29/2020
-ms.openlocfilehash: 05a76a1434b5a63229b335fb3973897896ec733d
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.date: 07/14/2020
+ms.openlocfilehash: d36b4fd433af716ebd97d88d05922d94bd74c309
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955819"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523543"
 ---
-# <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de precios de Azure Cosmos DB 
+# <a name="pricing-model-in-azure-cosmos-db"></a>Modelo de precios de Azure Cosmos DB
 
 El modelo de precios de Azure Cosmos DB simplifica la administración y el planeamiento de los costos. Con Azure Cosmos DB se paga por el rendimiento aprovisionado y el almacenamiento consumido.
 
-* **Rendimiento aprovisionado**: el rendimiento aprovisionado (también denominado "reservado") garantiza el alto rendimiento a cualquier escala. Se especifica el rendimiento (RU/s) necesario y Azure Cosmos DB dedica los recursos necesarios para garantizar el rendimiento configurado. La facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta.
+* **Rendimiento aprovisionado**: El [rendimiento aprovisionado](how-to-choose-offer.md) (también denominado "reservado") garantiza el alto rendimiento a cualquier escala. Se especifica el rendimiento (RU/s) necesario y Azure Cosmos DB dedica los recursos necesarios para garantizar el rendimiento configurado. La facturación se realiza por hora al rendimiento máximo aprovisionado para una concreta. Puede aprovisionar manualmente el rendimiento o usar la [escalabilidad automática](provision-throughput-autoscale.md).
 
    > [!NOTE]
    > Dado que el modelo de rendimiento aprovisionado dedica recursos a su contenedor o base de datos, se le cobrará por el rendimiento aprovisionado aunque no ejecute ninguna carga de trabajo.
@@ -41,9 +41,11 @@ Como se muestra en la tabla anterior, la capacidad de proceso mínima en Azure C
 
 ## <a name="try-azure-cosmos-db-for-free"></a>Pruebe gratis Azure Cosmos DB
 
-Azure Cosmos DB ofrece varias opciones para que los desarrolladores lo prueben de forma gratuita. Entre estas opciones se incluyen:
+Azure Cosmos DB ofrece muchas opciones para que los desarrolladores lo prueben de forma gratuita. Entre estas opciones se incluyen:
 
-* **Cuenta gratuita de Azure**: Azure ofrece una [cuenta gratuita](https://azure.microsoft.com/free/) con 200 USD de crédito de Azure para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para más información consulte el sitio de [cuentas gratuitas de Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB forma parte de esta cuenta gratuita de Azure. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 5 GB de almacenamiento y 400 RU de rendimiento aprovisionado para todo el año. 
+* **Nivel Gratis de Azure Cosmos DB**: El nivel Gratis de Azure Cosmos DB facilita la introducción, el desarrollo y la prueba de las aplicaciones, o incluso la ejecución de pequeñas cargas de trabajo de producción de forma gratuita. Cuando el nivel Gratis esté habilitado en una cuenta, obtendrá las primeras 400 RU/s y 5 GB de almacenamiento de la cuenta gratis, durante la duración de dicha cuenta. Puede tener una cuenta de nivel Gratis por cada suscripción de Azure y debe optar por tenerla al crear la cuenta. Para empezar, [cree una cuenta en Azure Portal con el nivel gratis habilitado](create-cosmosdb-resources-portal.md) o use una [plantilla de ARM](manage-sql-with-resource-manager.md#free-tier).
+
+* **Cuenta gratuita de Azure**: Azure ofrece una [cuenta gratuita](https://azure.microsoft.com/free/) con 200 USD de crédito de Azure para los 30 primeros días y una cantidad limitada de servicios gratuitos durante 12 meses. Para más información consulte el sitio de [cuentas gratuitas de Azure](../cost-management-billing/manage/avoid-charges-free-account.md). Azure Cosmos DB forma parte de esta cuenta gratuita de Azure. Específicamente para Azure Cosmos DB, esta cuenta gratuita ofrece 5 GB de almacenamiento y 400 RU/s de rendimiento aprovisionado para todo el año.
 
 * **Probar gratis Azure Cosmos DB**: Azure Cosmos DB se ofrece con las cuentas gratuitas por tiempo limitado. Puede crear una cuenta de Azure Cosmos DB, bases de datos y colecciones, y ejecutar una aplicación de ejemplo con la ayuda de artículos de inicio rápido y tutoriales. Puede ejecutar la aplicación de ejemplo sin tener que suscribirse a una cuenta de Azure o con la tarjeta de crédito. [Pruebe gratis Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) para disfrutar de ello durante un mes, con la posibilidad de renovar la cuenta las veces que desee.
 

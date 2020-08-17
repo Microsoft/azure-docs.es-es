@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: 4bc5897401a62d45e8b1c987d7ef50e0c8a6de08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565354"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029950"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Incorporación de perfiles de puntuación a un índice de Azure Cognitive Search
 
@@ -254,7 +254,7 @@ La puntuación de búsqueda se calcula en función de las propiedades estadísti
 ##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> Establecimiento de interpolaciones  
  Las interpolaciones permiten establecer la forma de la pendiente usada para la puntuación. Dado que la puntuación es de alta a baja, la pendiente siempre disminuye, pero la interpolación determina la curva de la pendiente descendente. Es posible usar las siguientes interpolaciones:  
 
-|||  
+| Interpolación | Descripción |  
 |-|-|  
 |`linear`|En los artículos que están dentro del intervalo máximo y mínimo, la potenciación aplicada al artículo se realizará en un grado que va decreciendo de manera constante. Lineal es la interpolación predeterminada de un perfil de puntuación.|  
 |`constant`|En los artículos que se encuentran dentro del intervalo de inicio y finalización, se aplicará una potenciación constante a los resultados de la clasificación.|  

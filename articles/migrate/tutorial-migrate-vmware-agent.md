@@ -4,12 +4,12 @@ description: Aprenda a ejecutar una migración de máquinas virtuales de VMware 
 ms.topic: tutorial
 ms.date: 06/09/2020
 ms.custom: MVC
-ms.openlocfilehash: ca06dc9d5de9853915e2aaa0d86c1a444dab415a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 707a74d0e993625d32c60f7120bf69055dc9e885
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119266"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290197"
 ---
 # <a name="migrate-vmware-vms-to-azure-agent-based"></a>Migración de máquinas virtuales de VMware a Azure (basada en agente)
 
@@ -195,7 +195,7 @@ Descargue la plantilla de la siguiente manera:
 
 Después de descargar la plantilla OVF, puede importarla en VMware para crear la aplicación de replicación en una máquina virtual de VMware que ejecute Windows Server 2016.
 
-1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMWare vSphere.
+1. Inicie sesión en el servidor VMware vCenter o el host vSphere ESXi con el cliente de VMware vSphere.
 2. En el menú **File** (Archivo), seleccione **Deploy OVF Template** (Implementar plantilla OVF) para iniciar el **Asistente para implementar plantillas OVF**. 
 3. En **Select source** (Seleccionar origen), especifique la ubicación de la plantilla OVF descargada.
 4. En **Review details** (Revisar detalles), seleccione **Next** (Siguiente).
@@ -209,7 +209,7 @@ Después de descargar la plantilla OVF, puede importarla en VMware para crear la
 
 ### <a name="start-appliance-setup"></a>Iniciar la instalación del dispositivo
 
-1. Desde la consola de cliente de VMWare vSphere, encienda la máquina virtual. La máquina virtual se inicia en una experiencia de instalación de Windows Server 2016.
+1. Desde la consola de cliente de VMware vSphere, encienda la VM. La máquina virtual se inicia en una experiencia de instalación de Windows Server 2016.
 2. Acepte el contrato de licencia y especifique una contraseña de administrador.
 3. Una vez finalizada la instalación, inicie sesión en la máquina virtual como administrador, con la contraseña admin. La primera vez que inicia sesión, tras unos segundos se inicia la herramienta de configuración del dispositivo de replicación (la herramienta de configuración de Azure Site Recovery).
 5. Escriba el nombre que usará para registrar el dispositivo con Server Migration. A continuación, haga clic en **Siguiente**.

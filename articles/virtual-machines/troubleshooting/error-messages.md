@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: f5639d1cf94c77d699dc6de9841698b045ac1f96
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52508a6820ce0cbbbe3a0341a99894f8b92b1645
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "76543025"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831233"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Información de mensajes de error habituales al administrar máquinas virtuales en Azure
 
@@ -176,7 +176,7 @@ En esta sección se muestran los mensajes de error habituales que pueden produci
 |  OSProvisioningClientError  |  El nombre de usuario especificado para la máquina virtual no es válido para esta distribución de Linux. Detalles del error: {0}.  |
 |  OSProvisioningInternalError  |  Error de aprovisionamiento del sistema operativo para la máquina virtual "{0}" debido a un error interno.  |
 |  OSProvisioningTimedOut  |  El aprovisionamiento del sistema operativo para la máquina virtual "{0}" no finalizó en el tiempo asignado. La máquina virtual aún puede finalizar el aprovisionamiento satisfactoriamente. Compruebe el estado de aprovisionamiento posteriormente.  |
-|  OSProvisioningTimedOut  |  El aprovisionamiento del sistema operativo para la máquina virtual "{0}" no finalizó en el tiempo asignado. La máquina virtual aún puede finalizar el aprovisionamiento satisfactoriamente. Compruebe el estado de aprovisionamiento posteriormente. Además, asegúrese de que la imagen se ha preparado (generalizado) correctamente.   <ul><li>Instrucciones para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrucciones para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
+|  OSProvisioningTimedOut  |  El aprovisionamiento del sistema operativo para la máquina virtual "{0}" no finalizó en el tiempo asignado. La máquina virtual aún puede finalizar el aprovisionamiento satisfactoriamente. Compruebe el estado de aprovisionamiento posteriormente. Además, asegúrese de que la imagen se ha preparado (generalizado) correctamente.   <ul><li>Instrucciones para [Windows]( ../windows/upload-generalized-managed.md).</li><li> Instrucciones para [Linux](../linux/capture-image.md).</li></ul>  |
 |  OSProvisioningTimedOut  |  El aprovisionamiento del sistema operativo para la máquina virtual "{0}" no finalizó en el tiempo asignado. Sin embargo, se detectó la ejecución del agente invitado de la máquina virtual. Esto sugiere que el sistema operativo invitado no se ha preparado adecuadamente para usarse como una imagen de máquina virtual (con CreateOption = FromImage). Para resolver este problema, use el VHD tal cual con CreateOption = Attach o prepárelo correctamente para usarlo como imagen:   <ul><li>Instrucciones para Windows: https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/ </li><li> Instrucciones para Linux: https://azure.microsoft.com/documentation/articles/virtual-machines-linux-capture-image/</li></ul>  |
 |  OverConstrainedAllocationRequest  |  La ubicación seleccionada no dispone actualmente del tamaño de máquina virtual requerido.  |
 |  ResourceUpdateBlockedOnPlatformUpdate  |  No se pueden actualizar los recursos en este momento porque hay una actualización de la plataforma en curso. Inténtelo de nuevo más tarde.  |

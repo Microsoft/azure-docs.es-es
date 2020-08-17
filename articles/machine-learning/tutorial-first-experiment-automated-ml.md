@@ -9,18 +9,21 @@ ms.topic: tutorial
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
-ms.date: 03/04/2020
-ms.openlocfilehash: cca09f53f90b43713c2b9b764568fb0a6d157c5d
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/10/2020
+ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84118955"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047869"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este tutorial, aprenderá a crear un modelo de clasificación básico sin escribir ninguna línea de código mediante la interfaz de aprendizaje automático automatizado de Azure Machine Learning. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
+En este tutorial, aprenderá a crear un modelo de clasificación básico sin escribir ninguna línea de código mediante aprendizaje automático automatizado de Azure Machine Learning Studio. Este modelo de clasificación predice si un cliente suscribirá un depósito a plazo fijo con una institución financiera.
+
+>[!IMPORTANT]
+> La experiencia de aprendizaje automático automatizado de Azure Machine Learning Studio se encuentra en versión preliminar. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas.
 
 Con el aprendizaje automático, puede automatizar las tareas que requieren mucho tiempo. El aprendizaje automático recorre en iteración rápidamente muchas combinaciones de algoritmos e hiperparámetros para ayudarle a encontrar el mejor modelo según una métrica de éxito de su elección.
 
@@ -44,18 +47,18 @@ En este tutorial, aprenderá las siguientes tareas:
 
 Un área de trabajo de Azure Machine Learning es un recurso básico de la nube que se usa para experimentar, entrenar e implementar modelos de aprendizaje automático. Vincula la suscripción y el grupo de recursos de Azure con un objeto fácilmente consumido del servicio. 
 
-Puede crear un área de trabajo mediante Azure Portal, una consola basada en web para administrar los recursos de Azure.
+Cree un área de trabajo de **Enterprise Edition** mediante Azure Portal, una consola basada en web para la administración de recursos de Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 >[!IMPORTANT] 
 > Tome nota del **área de trabajo** y de la **suscripción**. Los necesitará para asegurarse de que crea el experimento en el lugar correcto. 
 
-## <a name="create-and-run-the-experiment"></a>Creación y ejecución de un experimento
+## <a name="get-started-in-azure-machine-learning-studio"></a>Introducción a Azure Machine Learning Studio
 
-Complete los siguientes pasos de configuración y ejecución del experimento a través de Azure Machine Learning en https://ml.azure.com, una interfaz web consolidada que incluye herramientas de aprendizaje automático para realizar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Esta interfaz no se admite en los exploradores de Internet Explorer.
+Lleve a cabo los siguientes pasos de configuración y ejecución del experimento a través de Azure Machine Learning Studio en https://ml.azure.com, una interfaz web consolidada que incluye herramientas de aprendizaje automático para llevar a la práctica escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Studio no se admite en los exploradores Internet Explorer.
 
-1. Inicie sesión en [Azure Machine Learning](https://ml.azure.com).
+1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
 1. Seleccione la suscripción y el área de trabajo que ha creado.
 
@@ -67,7 +70,11 @@ Complete los siguientes pasos de configuración y ejecución del experimento a t
 
    ![Página de introducción](./media/tutorial-first-experiment-automated-ml/get-started.png)
 
-1. Seleccione **New automated ML run** (Nueva ejecución de ML automatizado). 
+1. Seleccione **+New automated ML run** (+Nueva ejecución de ML automatizado). 
+
+## <a name="create-and-load-dataset"></a>Creación y carga de un conjunto de datos
+
+Antes de configurar el experimento, cargue el archivo de datos en el área de trabajo en forma de conjunto de datos de Azure Machine Learning. Así podrá asegurarse de que los datos tienen el formato adecuado para el experimento.
 
 1. Cree un nuevo conjunto de datos; para ello, seleccione **From local files** (Desde archivos locales) en la lista desplegable **+ Create dataset** (+ Crear conjunto de datos). 
 
@@ -101,25 +108,35 @@ Complete los siguientes pasos de configuración y ejecución del experimento a t
 
         ![Configuración de la pestaña Preview (Versión preliminar)](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
 
-    1. En el formulario **Confirm details** (Confirmar detalles) compruebe que la información coincide con lo rellenado anteriormente en los formularios **Basic info** (Información básica) y **Settings and preview** (Configuración y vista previa).
+    1. En el formulario **Confirm details** (Confirmar detalles), compruebe que la información coincide con lo rellenado anteriormente en los formularios **Basic info** (Información básica), Datastore and file selection (Selección del archivo y el almacén de datos) y **Settings and preview** (Configuración y vista previa).
+    
     1. Seleccione **Create** (Crear) para completar la creación del conjunto de datos.
+    
     1. Seleccione el conjunto de datos cuando aparezca en la lista.
+    
     1. Revise **Data preview** (Vista previa de los datos) para asegurarse de que no incluyó **day_of_week** y seleccione **OK** (Aceptar).
 
     1. Seleccione **Siguiente**.
+
+## <a name="configure-experiment-run"></a>Configuración de la ejecución de un experimento
+
+Una vez cargados y configurados los datos, puede configurar el experimento. Este programa de instalación incluye tareas de diseño de experimentos, como la selección del tamaño del entorno de proceso y la especificación de la columna que se quiere predecir. 
 
 1. Rellene el formulario **Configure Run** (Configurar ejecución) como se indica a continuación:
     1. Escriba el nombre del experimento: `my-1st-automl-experiment`.
 
     1. Seleccione **y** como la columna de destino en la que desea realizar las predicciones. Esta columna indica si el cliente se suscribió a un depósito a plazo o no.
+    
     1. Seleccione **Create a new compute** (Crear un proceso) y configure el destino de proceso. Un destino de proceso es un entorno de recursos locales o en la nube que se usa para ejecutar el script de entrenamiento o para hospedar la implementación de un servicio. En este experimento se usa un proceso en la nube. 
 
         Campo | Descripción | Valor para el tutorial
         ----|---|---
         Nombre del proceso |Un nombre único que identifique el contexto del proceso.|automl-compute
+        Tipo de&nbsp;máquina&nbsp;virtual| Seleccione el tipo de máquina virtual del proceso.|CPU (Unidad central de procesamiento)
         Tamaño de la&nbsp;máquina&nbsp;virtual| Seleccione el tamaño de la máquina virtual para el proceso.|Standard_DS12_V2
-        Número máximo y mínimo de nodos (en Configuración avanzada)| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
-  
+        Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
+        Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
+        Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None
         1. Seleccione **Create** (Crear) para obtener el destino de proceso. 
 
             **Tarda unos minutos en completarse.** 
@@ -128,17 +145,16 @@ Complete los siguientes pasos de configuración y ejecución del experimento a t
 
     1. Seleccione **Next** (Siguiente).
 
-1. En el formulario **Task type and settings** (Configuración y tipo de tarea), seleccione **Classification** (Clasificación) como tipo de tarea de aprendizaje automático.
+1. En el formulario **Task type and settings** (Configuración y tipo de tarea), realice la configuración del experimento de aprendizaje automático automatizado especificando el tipo de tarea de aprendizaje automático y los valores de configuración.
+    
+    1.  Seleccione **Classification** (Clasificación) como tipo de tarea de aprendizaje automático.
 
     1. Seleccione **View additional configuration settings** (Ver opciones de configuración adicionales) y rellene los campos como se indica a continuación. Esta configuración es para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento.
 
-        >[!NOTE]
-        > En este tutorial, no se va a establecer una puntuación de métricas ni núcleos máximos por umbral de iteraciones. Tampoco se impedirá que se pruebe ningún algoritmo.
-   
         Configuraciones&nbsp;adicionales|Descripción|Valor&nbsp;para&nbsp;tutorial
         ------|---------|---
         Métrica principal| Métrica de evaluación por la que se medirá el algoritmo de aprendizaje automático.|AUC_weighted
-        Características automáticas| Permite el procesamiento previo. Aquí se incluyen la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas.| Habilitar
+        Explicación del mejor modelo| Muestra automáticamente la posible explicación relativa al mejor modelo creado mediante ML automatizado.| Habilitar
         Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| None
         Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 1 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
         Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 2
@@ -161,7 +177,7 @@ Vaya a la pestaña **Models** (Modelos) para ver los algoritmos (modelos) probad
 
 Mientras espera a que terminen todos los modelos del experimento, seleccione **Algorithm name** (Nombre de algoritmo) de un modelo completado para explorar los detalles de rendimiento. 
 
-A continuación, vaya a las pestañas **Model details** (Detalles del modelo) y **Visualizations** (Visualizaciones) para ver las propiedades, las métricas y los gráficos de rendimiento del modelo seleccionado. 
+A continuación, se desplazará a las pestañas **Details** (Detalles) y **Metrics** (Métricas) para ver las propiedades, las métricas y los gráficos de rendimiento del modelo seleccionado. 
 
 ![Detalles de la ejecución de iteración](./media/tutorial-first-experiment-automated-ml/run-detail.gif)
 
@@ -171,11 +187,15 @@ La interfaz del aprendizaje automático automatizado permite implementar el mejo
 
 En este experimento, la implementación em un servicio web significa que la institución financiera tiene ahora una solución web iterativa y escalable para identificar posibles clientes de depósitos a plazo fijo. 
 
-Una vez finalizada la ejecución, vuelva a la página **Run Detail** (Detalles de ejecución) y seleccione la pestaña **Models** (Modelos).
+Compruebe si la ejecución del experimento ha finalizado. Para ello, seleccione **Run 1** (Ejecución 1) en la parte superior de la pantalla para volver a la página de ejecución primaria. Se muestra un estado **Completed** (Completado) en la esquina superior izquierda de la pantalla. 
 
-En el contexto de este experimento, **VotingEnsemble** se considera el mejor modelo, según la métrica **AUC_weighted**.  Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse. El proceso de implementación conlleva varios pasos, como el registro del modelo, la generación de recursos y su configuración para el servicio web.
+Una vez completada la ejecución del experimento, la página **Details** (Detalles) se rellena con una sección **Best model summary** (Mejor resumen del modelo). En el contexto de este experimento, **VotingEnsemble** se considera el mejor modelo, según la métrica **AUC_weighted**.  
 
-1. Seleccione el botón **Deploy Best Model** (Implementar el mejor modelo) en la esquina inferior izquierda.
+Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse. El proceso de implementación conlleva varios pasos, como el registro del modelo, la generación de recursos y su configuración para el servicio web.
+
+1. Seleccione **VotingEnsemble** para abrir la página específica del modelo.
+
+1. Seleccione el botón **Deploy** (Implementar) en la parte superior izquierda.
 
 1. Rellene el panel **Deploy Model** (Implementar modelo) como se indica a continuación:
 
@@ -191,7 +211,7 @@ En el contexto de este experimento, **VotingEnsemble** se considera el mejor mod
 
 1. Seleccione **Implementar**.  
 
-    En la parte superior de la pantalla **Run** (Ejecutar) aparece un mensaje de fin correcto verde y, en el panel **Recommended model** (Modelo recomendado), aparece un mensaje de estado bajo **Deploy status** (Estado de implementación). Seleccione **Refresh** (Actualizar) periódicamente para comprobar el estado de la implementación.
+    En la parte superior de la pantalla **Run** (Ejecutar) aparece un mensaje verde que indica que la operación se ha realizado correctamente y, en el panel **Model summary** (Resumen de modelo), aparece un mensaje de estado bajo **Deploy status** (Estado de implementación). Seleccione **Refresh** (Actualizar) periódicamente para comprobar el estado de la implementación.
     
 Ya tiene un servicio web operativo para generar predicciones. 
 

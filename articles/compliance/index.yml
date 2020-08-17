@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 07/07/2020
-  ms.openlocfilehash: 0cf2dbdf69ec2cd7af7cf23816db5fb03dacd76e
-  ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+  ms.openlocfilehash: b8afb852228669def920ca9d3b1800e2ea3ebe52
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86143713"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88206404"
 conceptualContent:
   title: Ofertas de cumplimiento
   items:
@@ -423,7 +423,7 @@ additionalContent:
       - text: Consideraciones sobre la informática en la nube de NZ GCIO
         url: https://azure.microsoft.com/resources/microsoft-azure-response-to-nz-gcio-cloud-computing-information-security-privacy-considerations
       - text: Matriz de responsabilidad de PCI DSS 3.2.1
-        url: https://gallery.technet.microsoft.com/Azure-PCI-DSS-Responsibilit-02d4b4b2
+        url: https://docs.microsoft.com/azure/governance/blueprints/samples/pci-dss-3.2.1
       - text: Guía de SCI
         url: https://azure.microsoft.com/resources/microsoft-azure-regulation-systems-compliance-and-integrity-sci-cloud-implementation-guide/
       - text: Guía de SOX

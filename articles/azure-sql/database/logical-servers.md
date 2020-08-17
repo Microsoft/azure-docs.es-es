@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: b45714489f13d33d90b5694f458e6339e33595f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbcc82d3ec4b50cf51210f8a4319bbf374185a88
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367585"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498096"
 ---
 # <a name="what-is-a-logical-sql-server-in-azure-sql-database-and-azure-synapse"></a>¿Qué es un servidor SQL lógico en Azure SQL Database y Azure Synapse?
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -34,7 +34,7 @@ Un servidor en SQL Database y Azure Synapse:
 - Es el recurso primario para bases de datos, grupos elásticos y almacenamientos de datos.
 - Proporciona un espacio de nombres para bases de datos, grupos elásticos y base de datos de almacenamiento de datos.
 - Es un contenedor lógico con semántica de duración segura. Si se elimina un servidor, se eliminan las bases de datos, los grupos elásticos y los grupos SQL.
-- Participa en el [control de acceso basado en roles (RBAC) de Azure](/azure/role-based-access-control/overview). Las bases de datos, los grupos elásticos y la base de datos de almacenamiento de datos dentro de un servidor heredan los derechos de acceso del servidor.
+- Participa en el [control de acceso basado en rol de Azure (Azure RBAC)](/azure/role-based-access-control/overview). Las bases de datos, los grupos elásticos y la base de datos de almacenamiento de datos dentro de un servidor heredan los derechos de acceso del servidor.
 - Es un elemento de orden superior de la identidad de las bases de datos, los grupos elásticos y la base de datos de almacenamiento de datos con fines de administración de recursos de Azure (consulte el esquema de direcciones URL para bases de datos y grupos).
 - Coloca recursos en una región.
 - Proporciona un punto de conexión para el acceso a la base de datos (`<serverName>`. database.windows.net).

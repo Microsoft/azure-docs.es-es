@@ -11,12 +11,12 @@ ms.date: 06/07/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: fcebf66dba2fc13457ca359b81565fc5870032c9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c634b4f7ac3aa1fe83e6ab3f863e998b8d25232c
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213302"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533944"
 ---
 # <a name="load-data-from-azure-data-lake-storage-for-synapse-sql"></a>Carga de datos desde Azure Data Lake Storage para Synapse SQL
 
@@ -39,7 +39,7 @@ Antes de completar este tutorial, descargue e instale la versión más reciente 
 Para ejecutar este tutorial, necesitará:
 
 * Un grupo de SQL. Consulte [Creación de un grupo de SQL y consulta de datos](create-data-warehouse-portal.md).
-* Una cuenta de Data Lake Storage. Consulte [Introducción a Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Para esta cuenta de almacenamiento, tendrá que configurar o especificar una de las siguientes credenciales para cargar: Una clave de cuenta de almacenamiento, una clave de firma de acceso compartido (SAS), un usuario de la aplicación de Azure Directory o un usuario de AAD que tenga el rol adecuado de control de acceso basado en rol para la cuenta de almacenamiento.
+* Una cuenta de Data Lake Storage. Consulte [Introducción a Azure Data Lake Storage](../../data-lake-store/data-lake-store-get-started-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Para esta cuenta de almacenamiento, tendrá que configurar o especificar una de las siguientes credenciales para cargar: Una clave de cuenta de almacenamiento, una clave de firma de acceso compartido (SAS), un usuario de la aplicación de Azure Directory o un usuario de AAD que tenga el rol de Azure adecuado para la cuenta de almacenamiento.
 
 ## <a name="create-the-target-table"></a>Creación de la tabla de destino
 

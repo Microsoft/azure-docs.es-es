@@ -2,21 +2,21 @@
 title: Uso de PowerShell para configurar alertas en Application Insights | Microsoft Docs
 description: Automatice la configuración de Application Insights para recibir correos electrónicos sobre los cambios en las métricas.
 ms.topic: conceptual
-ms.date: 10/31/2016
-ms.openlocfilehash: 3a3d614ec57242a2ea4b29a86d6365a2efe56f94
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/23/2016
+ms.openlocfilehash: 74d477b6660c0f7ec2ee32b34169bb85886936e5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516964"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322472"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Uso de PowerShell para configurar alertas en Application Insights
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Puede automatizar la configuración de [alertas](../../azure-monitor/platform/alerts-log.md) en [Application Insights](../../azure-monitor/app/app-insights-overview.md).
+Puede automatizar la configuración de [alertas](../platform/alerts-log.md) en [Application Insights](./app-insights-overview.md).
 
-Además, puede [establecer webhooks para automatizar su respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md).
+Además, puede [establecer webhooks para automatizar su respuesta ante una alerta](../platform/alerts-webhooks.md).
 
 > [!NOTE]
 > Si quiere crear alertas y recursos al mismo tiempo, considere la posibilidad de [usar una plantilla de Azure Resource Manager](powershell.md).
@@ -30,7 +30,7 @@ Instale el módulo de Azure Powershell en el equipo donde desea ejecutar los scr
 * Úselo para instalar Microsoft Azure Powershell.
 
 ## <a name="connect-to-azure"></a>Conexión con Azure
-Inicie Azure PowerShell y [conéctese a su suscripción](/powershell/azure/overview):
+Inicie Azure PowerShell y [conéctese a su suscripción](/powershell/azure/):
 
 ```azurepowershell
 Add-AzAccount
@@ -51,7 +51,7 @@ Get-AzAlertRule -ResourceGroup "Fabrikam" `
 Add-AzMetricAlertRule -Name "{ALERT NAME}" `
   -Description "{TEXT}" `
   -ResourceGroup "{GROUP NAME}" `
-  -ResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
+  -TargetResourceId "/subscriptions/{SUBSCRIPTION ID}/resourcegroups/{GROUP NAME}/providers/microsoft.insights/components/{APP RESOURCE NAME}" `
   -MetricName "{METRIC NAME}" `
   -Operator GreaterThan `
   -Threshold {NUMBER}  `
@@ -71,7 +71,7 @@ El GUID es el identificador de la suscripción (no la clave de instrumentación 
 ```azurepowershell
 Add-AzMetricAlertRule -Name "slow responses" `
   -ResourceGroup "Fabrikam" `
-  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -TargetResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
   -MetricName "request.duration" `
   -Operator GreaterThan `
   -Threshold 1 `
@@ -82,13 +82,13 @@ Add-AzMetricAlertRule -Name "slow responses" `
 ```
 
 ## <a name="example-2"></a>Ejemplo 2
-Tengo una aplicación en la que uso [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) para informar de una métrica denominada "salesPerHour". Enviar un correo electrónico a mis colegas si "salesPerHour" es menor que 100, calculado durante 24 horas.
+Tengo una aplicación en la que uso [TrackMetric()](./api-custom-events-metrics.md#trackmetric) para informar de una métrica denominada "salesPerHour". Enviar un correo electrónico a mis colegas si "salesPerHour" es menor que 100, calculado durante 24 horas.
 
 ```azurepowershell
 Add-AzMetricAlertRule -Name "poor sales" `
   -Description "slow sales alert" `
   -ResourceGroup "Fabrikam" `
-  -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
+  -TargetResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/Fabrikam/providers/microsoft.insights/components/IceCreamWebApp" `
   -MetricName "salesPerHour" `
   -Operator LessThan `
   -Threshold 100 `
@@ -98,7 +98,7 @@ Add-AzMetricAlertRule -Name "poor sales" `
   -RuleType Metric
 ```
 
-La misma regla puede usarse con la métrica notificada mediante el [parámetro de medida](../../azure-monitor/app/api-custom-events-metrics.md#properties) de otra llamada de seguimiento, como TrackEvent o trackPageView.
+La misma regla puede usarse con la métrica notificada mediante el [parámetro de medida](./api-custom-events-metrics.md#properties) de otra llamada de seguimiento, como TrackEvent o trackPageView.
 
 ## <a name="metric-names"></a>Nombres de métrica
 | Nombre de métrica | Nombre de pantalla | Descripción |
@@ -124,22 +124,23 @@ La misma regla puede usarse con la métrica notificada mediante el [parámetro d
 | `request.rate` |Velocidad de solicitudes |Velocidad de todas las solicitudes a la aplicación por segundo. |
 | `requestFailed.count` |Error en las solicitudes |Recuento de solicitudes HTTP que dieron lugar a un código de respuesta >= 400 |
 | `view.count` |Vistas de página |Recuento de solicitudes de usuario de cliente de una página web. Se filtra el tráfico sintético. |
-| {el nombre de métrica personalizado} |{El nombre de métrica} |El valor de métrica que notifica [TrackMetric](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric) o en el [parámetro de medidas de una llamada de seguimiento](../../azure-monitor/app/api-custom-events-metrics.md#properties). |
+| {el nombre de métrica personalizado} |{El nombre de métrica} |El valor de métrica que notifica [TrackMetric](./api-custom-events-metrics.md#trackmetric) o en el [parámetro de medidas de una llamada de seguimiento](./api-custom-events-metrics.md#properties). |
 
 Las métricas se envían por módulos de telemetría diferentes:
 
 | Grupo de métricas | Módulo de recopilador |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>ver |[JavaScript de explorador](../../azure-monitor/app/javascript.md) |
-| performanceCounter |[Rendimiento](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| remoteDependencyFailed |[Dependencia](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
-| request,<br/>requestFailed |[Solicitud de servidor](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>ver |[JavaScript de explorador](./javascript.md) |
+| performanceCounter |[Rendimiento](./configuration-with-applicationinsights-config.md) |
+| remoteDependencyFailed |[Dependencia](./configuration-with-applicationinsights-config.md) |
+| request,<br/>requestFailed |[Solicitud de servidor](./configuration-with-applicationinsights-config.md) |
 
 ## <a name="webhooks"></a>webhooks
-También puede [automatizar la respuesta ante una alerta](../../azure-monitor/platform/alerts-webhooks.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
+También puede [automatizar la respuesta ante una alerta](../platform/alerts-webhooks.md). Azure llamará a una dirección web de su elección cuando se genere una alerta.
 
 ## <a name="see-also"></a>Consulte también
 * [Script para configurar Application Insights](./create-new-resource.md#creating-a-resource-automatically)
 * [Crear Application Insights y recursos de pruebas web a partir de plantillas](powershell.md)
 * [Uso de PowerShell para enviar Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
-* [Automatización de la respuesta a una alerta](../../azure-monitor/platform/alerts-webhooks.md)
+* [Automatización de la respuesta a una alerta](../platform/alerts-webhooks.md)
+

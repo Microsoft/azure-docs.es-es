@@ -1,14 +1,15 @@
 ---
-title: 'Mejora de una base de conocimiento: QnA Maker'
+title: 'Sugerencias de preguntas de aprendizaje activo: QnA Maker'
 description: Mejore la calidad de su base de conocimientos con el aprendizaje activo. Revise, acepte o rechace, o agregue sin quitar ni cambiar las preguntas existentes.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.openlocfilehash: 88ccbc52e0eb3447d0b99cac9ba41761e292a6fd
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-javascript
+ms.openlocfilehash: fc7aebc3df2d14c78230d112e3e807d8d98fb047
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231784"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406986"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceptación de preguntas sugeridas de aprendizaje activo en la base de conocimiento
 

@@ -3,12 +3,12 @@ title: Entrega de evento con Managed Service Identity
 description: En este artículo se describe cómo habilitar Managed Service Identity para un tema de Azure Event Grid. Úselo para reenviar eventos a los destinos admitidos.
 ms.topic: how-to
 ms.date: 07/07/2020
-ms.openlocfilehash: 5138a89101a7e6c1770952028de9c3d478bc3852
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7eaa3ddd43cc68a99ad7c2bab66630f30d4960c9
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119198"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534250"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de evento con una identidad administrada
 En este artículo se describe cómo habilitar una [identidad de servicio administrada](../active-directory/managed-identities-azure-resources/overview.md) de temas o dominios de Azure Event Grid. Úselo para reenviar eventos a destinos compatibles, como colas y temas de Service Bus, centros de eventos y cuentas de almacenamiento.
@@ -63,20 +63,20 @@ az eventgrid topic update -g $rg --name $topicname --identity systemassigned --s
 
 El comando para actualizar un dominio existente es similar (`az eventgrid domain update`).
 
-## <a name="supported-destinations-and-rbac-roles"></a>Destinos admitidos y roles RBAC
-Después de habilitar la identidad del tema o dominio de Event Grid, Azure crea automáticamente una identidad en Azure Active Directory. Agregue esta identidad a los roles de control de acceso basado en rol (RBAC) adecuados para que el tema o el dominio pueda reenviar eventos a los destinos admitidos. Por ejemplo, agregue la identidad al rol **Remitente de los datos de Azure Event Hubs** en un espacio de nombres de Azure Event Hubs de modo que el tema de Event Grid pueda reenviar eventos a los centros de eventos en dicho espacio de nombres. 
+## <a name="supported-destinations-and-azure-roles"></a>Destinos admitidos y roles de Azure
+Después de habilitar la identidad del tema o dominio de Event Grid, Azure crea automáticamente una identidad en Azure Active Directory. Agregue esta identidad a los roles de Azure adecuados para que el tema o el dominio pueda reenviar eventos a los destinos admitidos. Por ejemplo, agregue la identidad al rol **Remitente de los datos de Azure Event Hubs** en un espacio de nombres de Azure Event Hubs de modo que el tema de Event Grid pueda reenviar eventos a los centros de eventos en dicho espacio de nombres. 
 
 Actualmente, Azure Event Grid admite temas o dominios configurados con una identidad administrada asignada por el sistema para reenviar eventos a los siguientes destinos. En esta tabla también se proporcionan los roles en los que debe estar la identidad para que el tema pueda reenviar los eventos.
 
-| Destination | Rol de RBAC | 
+| Destination | Rol de Azure | 
 | ----------- | --------- | 
-| Colas y temas de Service Bus | [Emisor de datos de Azure Service Bus](../service-bus-messaging/authenticate-application.md#built-in-rbac-roles-for-azure-service-bus) |
-| Azure Event Hubs | [Emisor de datos de Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#built-in-rbac-roles-for-azure-event-hubs) | 
-| Azure Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) |
-| Azure Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/common/storage-auth-aad-rbac-portal.md#rbac-roles-for-blobs-and-queues) | 
+| Colas y temas de Service Bus | [Emisor de datos de Azure Service Bus](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
+| Azure Event Hubs | [Emisor de datos de Azure Event Hubs](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Azure Blob Storage | [Colaborador de datos de blobs de almacenamiento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
+| Azure Queue Storage |[Emisor de mensajes de datos de la cola de Storage](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
-## <a name="add-an-identity-to-rbac-roles-on-destinations"></a>Adición de una identidad a roles RBAC en los destinos
-En esta sección se describe cómo agregar la identidad del tema o dominio a un rol de RBAC. 
+## <a name="add-an-identity-to-azure-roles-on-destinations"></a>Incorporación de una identidad a los roles de Azure en los destinos
+En esta sección se describe cómo agregar la identidad del tema o dominio a un rol de Azure. 
 
 ### <a name="use-the-azure-portal"></a>Uso de Azure Portal
 Puede usar Azure Portal para asignar la identidad del tema o del dominio a un rol adecuado, de modo que el tema o el dominio puedan reenviar eventos al destino. 
@@ -94,7 +94,7 @@ En el siguiente ejemplo se agrega una identidad administrada de un tema de Event
 Los pasos son similares para agregar una identidad a otros roles que se mencionan en la tabla. 
 
 ### <a name="use-the-azure-cli"></a>Uso de la CLI de Azure
-En el ejemplo de esta sección se muestra cómo usar la CLI de Azure para agregar una identidad a un rol RBAC. Los comandos de ejemplo son para los temas de Event Grid. Los comandos de los dominios de Event Grid son similares. 
+En el ejemplo de esta sección se muestra cómo usar la CLI de Azure para agregar una identidad a un rol de Azure. Los comandos de ejemplo son para los temas de Event Grid. Los comandos de los dominios de Event Grid son similares. 
 
 #### <a name="get-the-principal-id-for-the-topics-system-identity"></a>Obtención del identificador de entidad de seguridad de la identidad del sistema del tema 
 En primer lugar, obtenga el identificador de entidad de seguridad de la identidad administrada por el sistema del tema y asigne la identidad a los roles adecuados.

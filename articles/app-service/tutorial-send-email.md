@@ -4,12 +4,12 @@ description: Aprenda a invocar procesos empresariales desde una aplicación de A
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: mvc
-ms.openlocfilehash: a8b94d626916b00d75eea3fea0567fa33df3382c
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 874c67b0d8d29c163fa5f36b3d100f1d2a013d53
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82562311"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080973"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Tutorial: Envío de correo electrónico e invocación de otros procesos empresariales desde App Service
 
@@ -17,7 +17,7 @@ En este tutorial, aprenderá a integrar una aplicación de App Service con los p
 
 - Envío de correos electrónicos de confirmación para una transacción
 - Incorporación de un usuario a un grupo de Facebook
-- Conexión a sistemas de terceros, como SAP, SalesForce, etc.
+- Conexión a sistemas de terceros, como SAP, Salesforce, etc.
 - Intercambio de mensajes B2B estándar
 
 En este tutorial, enviará correos electrónicos con Gmail desde una aplicación de App Service mediante [Azure Logic Apps](../logic-apps/logic-apps-overview.md). Existen otros mecanismos para enviar correos electrónicos desde una aplicación web, como la configuración de SMTP proporcionada por el marco del lenguaje. Sin embargo, Logic Apps ofrece muchas más posibilidades a la aplicación de App Service sin aumentar la complejidad del código. Logic Apps cuenta con una sencilla interfaz de configuración para las integraciones empresariales más comunes, que la aplicación puede llamar en cualquier momento mediante una solicitud HTTP.
@@ -32,23 +32,23 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-[Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
+[Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](tutorial-dotnetcore-sqldb-app.md)
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
-[Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
+[Tutorial: Compilación de una aplicación Node.js y MongoDB en Azure](tutorial-nodejs-mongodb-app.md)
 
 ### <a name="php"></a>[PHP](#tab/php)
 
-[Tutorial: Creación de una aplicación PHP y MySQL en Azure](app-service-web-tutorial-php-mysql.md)
+[Tutorial: Creación de una aplicación PHP y MySQL en Azure](tutorial-php-mysql-app.md)
 
 ### <a name="python"></a>[Python](#tab/python)
 
-[Tutorial: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service](containers/tutorial-python-postgresql-app.md)
+[Tutorial: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service](tutorial-python-postgresql-app.md)
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
-[Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](containers/tutorial-ruby-postgres-app.md)
+[Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](tutorial-ruby-postgres-app.md)
 
 ---
 
@@ -57,10 +57,10 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 1. En [Azure Portal](https://portal.azure.com), cree una aplicación lógica vacía siguiendo las instrucciones de [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md#create-your-logic-app). Cuando aparezca el **diseñador de Logic Apps**, vuelva a este tutorial.
 1. En la página de inicio del diseñador de Logic Apps, seleccione **Cuando se recibe una solicitud HTTP** en **Empezar con un desencadenador común**.
 
-    ![](./media/tutorial-send-email/receive-http-request.png)
+    ![Captura de pantalla que muestra la página inicial del diseñador de Logic Apps con la opción Cuando se recibe una solicitud HTTP resaltada.](./media/tutorial-send-email/receive-http-request.png)
 1. En el cuadro de diálogo **Cuando se recibe una solicitud HTTP**, seleccione **Usar una carga de ejemplo para generar el esquema**.
 
-    ![](./media/tutorial-send-email/generate-schema-with-payload.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo de la opción Cuando se recibe una solicitud HTTP y la opción Usar una carga de ejemplo para generar el esquema seleccionada. ](./media/tutorial-send-email/generate-schema-with-payload.png)
 
 1. Copie el siguiente código JSON de ejemplo en el cuadro de texto y seleccione **Listo**.
 
@@ -77,7 +77,7 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
 
     Aparecerá la dirección URL del desencadenador de solicitudes HTTP. Cópiela utilizando el icono correspondiente para utilizarla más tarde.
 
-    ![](./media/tutorial-send-email/http-request-url.png)
+    ![Captura de pantalla que resalta el icono de copia para copiar la URL del desencadenador de solicitud HTTP.](./media/tutorial-send-email/http-request-url.png)
 
     Esta definición de la solicitud HTTP le permitirá desencadenar lo que quiera en esta aplicación lógica, ya sea Gmail u otra aplicación. Más adelante, invocará esta dirección URL en la aplicación de App Service. Para más información sobre el desencadenador de la solicitud, consulte la [referencia sobre las solicitudes HTTP y su respuesta](../connectors/connectors-native-reqres.md).
 
@@ -87,18 +87,18 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
     > Puede buscar otros tipos de integraciones, como SendGrid, MailChimp, Office 365 y SalesForce. Para más información, consulte [Documentación de Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/).
 1. En el cuadro de diálogo **Gmail**, seleccione **Iniciar sesión** e inicie sesión en la cuenta de Gmail desde la que desea enviar el correo electrónico.
 
-    ![](./media/tutorial-send-email/gmail-sign-in.png)
+    ![Captura de pantalla que muestra el cuadro de diálogo de Gmail que se usa para iniciar sesión en la cuenta de Gmail desde la que quiere enviar el correo electrónico.](./media/tutorial-send-email/gmail-sign-in.png)
 
 1. Una vez que haya iniciado sesión, haga clic en el cuadro de texto **Para** y se abrirá automáticamente el cuadro de diálogo Contenido dinámico.
 
 1. Junto a la acción **Cuando se recibe una solicitud HTTP**, seleccione **Ver más**.
 
-    ![](./media/tutorial-send-email/expand-dynamic-content.png)
+    ![Captura de pantalla que muestra el botón Ver más junto a la acción Cuando se recibe una solicitud HTTP.](./media/tutorial-send-email/expand-dynamic-content.png)
 
     Ahora, debería ver las tres propiedades de los datos JSON de ejemplo que usó anteriormente. En este paso, utilizará estas propiedades de la solicitud HTTP para crear un correo electrónico.
 1. Como está seleccionando el valor del campo **Para**, elija **correo electrónico**. Si lo desea, puede desactivar el cuadro de diálogo Contenido dinámico haciendo clic en **Agregar contenido dinámico**.
 
-    ![](./media/tutorial-send-email/hide-dynamic-content.png)
+    ![Captura de pantalla que muestra la opción de correo electrónico y la opción Agregar contenido dinámico resaltada.](./media/tutorial-send-email/hide-dynamic-content.png)
 
 1. En el menú desplegable **Agregar nuevo parámetro**, seleccione **Asunto** y **Cuerpo**.
 
@@ -109,15 +109,15 @@ Implemente una aplicación con el marco de lenguaje que prefiera para App Servic
     > [!TIP]
     > Si desea editar el contenido HTML directamente en el cuerpo del correo electrónico, seleccione **Vista Código** en la parte superior de la ventana del diseñador de Logic Apps. No olvide conservar el código de Contenido dinámico (por ejemplo, `@{triggerBody()?['due']}`).
     >
-    > ![](./media/tutorial-send-email/edit-rich-html-email.png) 
+    > ![Captura de pantalla que muestra la vista de código para visualizar el contenido HTML directamente en el cuerpo del correo electrónico.](./media/tutorial-send-email/edit-rich-html-email.png) 
 
 1. A continuación, agregue una respuesta HTTP asincrónica al desencadenador HTTP. Entre el desencadenador HTTP y la acción de Gmail, haga clic en el signo **+** y seleccione **Agregar una rama paralela**.
 
-    ![](./media/tutorial-send-email/add-http-response.png)
+    ![Captura de pantalla que muestra el signo + y la opción Agregar una rama paralela resaltada.](./media/tutorial-send-email/add-http-response.png)
 
 1. En el cuadro de búsqueda, busque **respuesta** y seleccione la acción **Respuesta**.
 
-    ![](./media/tutorial-send-email/choose-response-action.png)
+    ![Captura de pantalla que muestra la barra de búsqueda y la acción Respuesta resaltada.](./media/tutorial-send-email/choose-response-action.png)
 
     De forma predeterminada, la acción Respuesta envía un estado HTTP 200. Ese estado es aceptable para este tutorial. Para más información, consulte esta [referencia sobre las solicitudes HTTP y su respuesta](../connectors/connectors-native-reqres.md).
 
@@ -191,7 +191,7 @@ var jsonData = JsonSerializer.Serialize(new
 });
 
 HttpResponseMessage result = await client.PostAsync(
-    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/containers/configure-language-dotnetcore#access-environment-variables
+    // Requires DI configuration to access app settings. See https://docs.microsoft.com/azure/app-service/configure-language-dotnetcore#access-environment-variables
     _configuration["LOGIC_APP_URL"],
     new StringContent(jsonData, Encoding.UTF8, "application/json"));
     
@@ -201,7 +201,7 @@ var statusCode = result.StatusCode.ToString();
 > [!NOTE]
 > Este código se ha escrito así para simplificar la demostración. En la práctica, no cree instancias de un objeto `HttpClient` en cada solicitud. Siga las instrucciones que se indican en [Uso de IHttpClientFactory para implementar solicitudes HTTP resistentes](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md), podrá utilizarla para enviar una confirmación por correo electrónico en la [acción Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) después de agregar el elemento `Todo`.
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](tutorial-dotnetcore-sqldb-app.md), podrá utilizarla para enviar una confirmación por correo electrónico en la [acción Create](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65) después de agregar el elemento `Todo`.
 
 ### <a name="nodejs"></a>[Node.js](#tab/node)
 
@@ -228,7 +228,7 @@ var jsonData = {
 
 ```
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación Node.js y MongoDB en Azure](app-service-web-tutorial-nodejs-mongodb-app.md), puede usar esta aplicación para enviar un correo electrónico de confirmación en la [función Create](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), después de [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24) (el artículo se guardó correctamente).
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación Node.js y MongoDB en Azure](tutorial-nodejs-mongodb-app.md), puede usar esta aplicación para enviar un correo electrónico de confirmación en la [función Create](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L14-L27), después de [the article is saved successfully](https://github.com/Azure-Samples/meanjs/blob/master/modules/articles/server/controllers/articles.server.controller.js#L24) (el artículo se guardó correctamente).
 
 ### <a name="php"></a>[PHP](#tab/php)
 
@@ -260,7 +260,7 @@ $response = $promise->wait();
 Log::info(print_r($response, TRUE));
 ```
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación PHP y MySQL en Azure](app-service-web-tutorial-php-mysql.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), justo antes de la instrucción "return".
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Cree una aplicación PHP y MySQL en Azure](tutorial-php-mysql-app.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48), justo antes de la instrucción "return".
 
 ### <a name="python"></a>[Python](#tab/python)
 
@@ -291,7 +291,7 @@ async with aiohttp.post('http://httpbin.org/post', data=json.dump(payload)) as r
     print(await resp.status())
 ``` -->
 
-Si está probando este código en la aplicación de ejemplo de [Tutorial: Ejecute una aplicación web de Python (Django) con PostgreSQL en Azure App Service](containers/tutorial-python-postgresql-app.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48) justo antes de la instrucción "return".
+Si está probando este código en la aplicación de ejemplo de [Tutorial: Ejecute una aplicación web de Python (Django) con PostgreSQL en Azure App Service](tutorial-python-postgresql-app.md), puede utilizar esta aplicación para enviar un correo electrónico de confirmación en la [función Route::post](https://github.com/Azure-Samples/laravel-tasks/blob/master/routes/web.php#L30-L48) justo antes de la instrucción "return".
 
 ### <a name="ruby"></a>[Ruby](#tab/ruby)
 
@@ -308,7 +308,7 @@ body = {
 connection = clnt.post_async(ENV['LOGIC_APP_URL'], body)
 ```
 
-Si está probando este código en la aplicación de ejemplo de [Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](containers/tutorial-ruby-postgres-app.md), puede usarla para enviar una confirmación por correo electrónico en la acción [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [cuando @task.save se ejecute correctamente](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
+Si está probando este código en la aplicación de ejemplo de [Compilación de una aplicación Ruby y Postgres en Azure App Service en Linux](tutorial-ruby-postgres-app.md), puede usarla para enviar una confirmación por correo electrónico en la acción [create](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L26-L38) [cuando @task.save se ejecute correctamente](https://github.com/Azure-Samples/rubyrails-tasks/blob/master/app/controllers/tasks_controller.rb#L30).
 
 ---
 

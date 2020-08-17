@@ -4,12 +4,12 @@ description: Aprenda a administrar y supervisar las copias de seguridad del agen
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 2cd536e191702e2619030c2e0fa06262d2e004ee
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 096f47ba4a3d8d490c9cfaf43f4dafec4faf10f9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057830"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317355"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Administración de copias de seguridad del agente de Microsoft Azure Recovery Services (MARS) con el servicio Azure Backup
 
@@ -112,7 +112,7 @@ Hay dos formas de detener la protección de una copia de seguridad de archivos y
 1. En **Pausar copias de seguridad programadas**, revise la información y haga clic en **Finalizar**.
 
     ![Modificación o detención de una copia de seguridad programada.](./media/backup-azure-manage-mars/pause-schedule-backup.png)
-1. En **Modificar progreso de la copia de seguridad** , compruebe si el estado de pausa de la copia de seguridad programada es correcto y haga clic en **Cerrar** para finalizar.
+1. En **Modificar progreso de la copia de seguridad**, compruebe si el estado de pausa de la copia de seguridad programada es correcto y haga clic en **Cerrar** para finalizar.
 
 ### <a name="stop-protection-and-delete-backup-data"></a>Detener la protección y eliminar los datos de copia de seguridad
 
@@ -156,17 +156,18 @@ Si ha detenido la protección y conservado los datos y, después, decide reanuda
 
 Una frase de contraseña se usa para cifrar y descifrar los datos durante la copia de seguridad o la restauración del entrono local o la máquina local mediante el agente de MARS en Azure o desde Azure. Si perdió u olvidó la frase de contraseña, puede volver a generar la frase de contraseña (siempre que el equipo todavía esté registrado en el almacén de Recovery Services y la copia de seguridad esté configurada) siguiendo estos pasos:
 
-- En la consola del agente de MARS, vaya a **Panel acciones** > **Cambiar propiedades** >. Luego, vaya a la **pestaña Cifrado**.<br>
-- Active la casilla **Cambiar frase de contraseña**.<br>
-- Escriba una nueva frase de contraseña o haga clic en **Generar frase de contraseña**.
-- Haga clic en **Examinar** para guardar la nueva frase de contraseña.
+1. En la consola del agente de MARS, vaya a **Panel acciones** > **Cambiar propiedades** >. Luego, vaya a la **pestaña Cifrado**.<br>
+1. Active la casilla **Cambiar frase de contraseña**.<br>
+1. Escriba una nueva frase de contraseña o haga clic en **Generar frase de contraseña**.
+1. Haga clic en **Examinar** para guardar la nueva frase de contraseña.
 
     ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase.png)
-- Haga clic en **Aceptar** para aplicar los cambios.  Si está habilitada la [característica de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) en Azure Portal para el almacén de Recovery Services, se le pedirá que escriba el PIN de seguridad. Para recibir el PIN, siga los pasos indicados en este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations).<br>
-- Pegue el PIN de seguridad desde el portal y haga clic en **Aceptar** para aplicar los cambios.<br>
+
+1. Haga clic en **Aceptar** para aplicar los cambios.  Si está habilitada la [característica de seguridad](./backup-azure-security-feature.md#enable-security-features) en Azure Portal para el almacén de Recovery Services, se le pedirá que escriba el PIN de seguridad. Para recibir el PIN, siga los pasos indicados en este [artículo](./backup-azure-security-feature.md#authentication-to-perform-critical-operations).<br>
+1. Pegue el PIN de seguridad desde el portal y haga clic en **Aceptar** para aplicar los cambios.<br>
 
     ![Generar la frase de contraseña.](./media/backup-azure-manage-mars/passphrase2.png)
-- Asegúrese de que la frase de contraseña se guarda de forma segura en una ubicación alternativa (distinta de la máquina de origen), preferiblemente en Azure Key Vault. Realice un seguimiento de todas las frases de contraseña si tiene varias máquinas de las que se realiza una copia de seguridad con los agentes de MARS.
+1. Asegúrese de que la frase de contraseña se guarda de forma segura en una ubicación alternativa (distinta de la máquina de origen), preferiblemente en Azure Key Vault. Realice un seguimiento de todas las frases de contraseña si tiene varias máquinas de las que se realiza una copia de seguridad con los agentes de MARS.
 
 ## <a name="managing-backup-data-for-unavailable-machines"></a>Administración de datos de copia de seguridad para máquinas no disponibles
 
@@ -183,13 +184,14 @@ En el caso de estas máquinas, el servicio Azure Backup garantiza que el último
 La administración de la directiva de copia de seguridad para MARS se realiza a través de la consola MARS y no a través del portal. Si es necesario que amplíe la configuración de retención para los puntos de recuperación existentes, tendrá que restaurar la máquina, instalar la consola MARS y ampliar la directiva.
 
 - Para restaurar la máquina, realice los pasos siguientes:
-  - [Restaure la máquina virtual a una máquina de destino alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
-  - Vuelva a crear la máquina de destino con el mismo nombre de host que la máquina de origen
-  - Instale el agente y vuelva a registrarse en el mismo almacén y con la misma frase de contraseña
-  - Inicie el cliente de MARS para ampliar la duración de retención según sus requisitos
+  1. [Restaure la máquina virtual a una máquina de destino alternativa](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
+  1. Vuelva a crear la máquina de destino con el mismo nombre de host que la máquina de origen
+  1. Instale el agente y vuelva a registrarse en el mismo almacén y con la misma frase de contraseña
+  1. Inicie el cliente de MARS para ampliar la duración de retención según sus requisitos
 - La máquina recién restaurada, protegida con MARS, seguirá realizando copias de seguridad.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad para el agente de MARS](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent).
+- Para obtener información sobre los escenarios admitidos y las limitaciones, consulte la [matriz de compatibilidad para el agente de MARS](./backup-support-matrix-mars-agent.md).
 - Obtenga más información acerca del [comportamiento de retención de la directiva de copia de seguridad a petición](backup-windows-with-mars-agent.md#set-up-on-demand-backup-policy-retention-behavior).
+- Para consultar las preguntas más frecuentes, vea [Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)](backup-azure-file-folder-backup-faq.md).

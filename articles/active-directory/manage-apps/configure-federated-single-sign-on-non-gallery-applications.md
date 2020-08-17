@@ -15,19 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28af2a51119cd8328f9fa29000ead1622ae5f5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb4b9b3b93053756896dc60c61cdb15c7e521f5d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763557"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497246"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Configuración del inicio de sesión único federado para una aplicación ajena a la galería
 
-Para configurar un inicio de sesión único para una aplicación que no esté en la galería no *sin escribir código*, debe tener una suscripción o Azure AD Premium, y la aplicación debe ser compatible con SAML 2.0. Para más información acerca de las versiones de Azure AD, visite [Precios de Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
-
-## <a name="overview-of-steps-required"></a>Introducción a los pasos necesarios
-A continuación, se muestra información general sobre los pasos necesarios para configurar un inicio de sesión único federado con SAML 2.0 para una aplicación ajena a la galería (p. ej. una aplicación personalizada).
+Este artículo proporciona información general sobre los pasos necesarios para configurar el inicio de sesión único federado con SAML 2.0 para una aplicación que no es de la galería (por ejemplo, una aplicación personalizada).
 
 -   Configuración de los valores de los metadatos de la aplicación en Azure AD (URL de inicio de sesión, identificador, URL de respuesta)
 

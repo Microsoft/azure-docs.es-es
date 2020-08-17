@@ -13,16 +13,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/10/2019
 ms.author: juliako
-ms.openlocfilehash: c39aded55fe36cb130459a4f6f119f872b1adbc4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b112b3844ddb3758b79a086b624a227127e65ce2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76514330"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091885"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---rest"></a>Creación de un subclip de vídeo al codificar mediante Azure Media Services: REST
 
-Puede recortar un vídeo, o crear un subclip de este al codificarlo mediante la opción [Trabajo](https://docs.microsoft.com/rest/api/media/jobs). Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset). 
+Puede recortar un vídeo, o crear un subclip de este al codificarlo mediante la opción [Trabajo](/rest/api/media/jobs). Esta funcionalidad se puede usar con cualquier elemento [Transformación](/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset). 
 
 El ejemplo de REST de este tema crea un trabajo que recorta un vídeo cuando envía un trabajo de codificación. 
 
@@ -30,7 +30,7 @@ El ejemplo de REST de este tema crea un trabajo que recorta un vídeo cuando env
 
 Para completar los pasos descritos en este tema, ha de:
 
-- [Crear una cuenta de Azure Media Services](create-account-cli-how-to.md).
+- [Crear una cuenta de Azure Media Services](./create-account-howto.md).
 - [Configuración de Postman para llamadas API REST de Azure Media Services](media-rest-apis-with-postman.md).
     
     Asegúrese de seguir el último paso en el tema [Obtención del token de Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 

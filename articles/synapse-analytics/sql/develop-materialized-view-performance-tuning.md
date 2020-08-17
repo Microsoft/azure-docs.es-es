@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: a3b012d86444ca2bb9b84af37aa17424221457d1
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: d476bef6faa19defad1d2e1ef1a90f7e5d83def5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955070"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495699"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Optimización del rendimiento con vistas materializadas
 
@@ -40,7 +40,7 @@ La mayoría de los requisitos de una vista estándar se aplican a una vista mate
 |Almacenamiento adicional                   | No                                           | Sí
 |Sintaxis                          | CREATE VIEW                                  | CREATE MATERIALIZED VIEW AS SELECT
 
-## <a name="benefits-of-using-materialized-views"></a>Ventajas del uso de vistas materializadas
+## <a name="benefits-of-materialized-views"></a>Ventajas de las vistas materializadas
 
 Una vista materializada diseñada correctamente proporciona las siguientes ventajas:
 

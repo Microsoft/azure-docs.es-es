@@ -6,12 +6,12 @@ ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
 ms.subservice: alerts
-ms.openlocfilehash: 3e9eb9d0910e4c0e00e57eac80c09910f214db6a
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: c3eed095d87d1e1fa1f210b360822ceefdbe0521
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84300780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045240"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solución de problemas en las alertas de Azure Monitor
 
@@ -241,13 +241,13 @@ Si ha recibido un error al intentar crear, actualizar o eliminar una [regla de a
 
 1. **¿Ha recibido un error de permiso?**  
 
-    Debe tener el  [rol integrado Colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) o bien los permisos específicos relacionados con las reglas de acción y las alertas.
+    Debe tener el  [rol integrado Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o bien los permisos específicos relacionados con las reglas de acción y las alertas.
 
 1. **¿Ha comprobado los parámetros de la regla de acción?**  
 
-    Compruebe la [documentación de la regla de acción](alerts-action-rules.md) o el comando [Set-AzActionRule de PowerShell de la regla de acción](https://docs.microsoft.com/powershell/module/az.alertsmanagement/Set-AzActionRule?view=azps-3.5.0). 
+    Compruebe la [documentación de la regla de acción](alerts-action-rules.md) o el comando [Set-AzActionRule de PowerShell de la regla de acción](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0). 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Si usa una alerta de registro, consulte también [Solución de problemas de alertas de registro en Azure Monitor](alert-log-troubleshoot.md).
+- Si usa una alerta de registro, consulte también [Solución de problemas de alertas de registro en Azure Monitor](./alerts-troubleshoot-log.md).
 - Vuelva a [Azure Portal](https://portal.azure.com) para comprobar si ha resuelto el problema con las instrucciones anteriores. 

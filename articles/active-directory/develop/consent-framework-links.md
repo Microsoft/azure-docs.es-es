@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
-ms.openlocfilehash: 86b592ecf5485654ab6860addbfde48cee4df077
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 15270a998aff174c04acf2969d984eb022852635
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885555"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117369"
 ---
 # <a name="how-application-consent-works"></a>Cómo funciona el consentimiento de la aplicación
 
@@ -24,10 +24,10 @@ Este artículo le ayudará a obtener más información acerca del funcionamiento
 
 ## <a name="recommended-documents"></a>Documentos recomendados
 
-- Descripción general de [cómo el consentimiento permite al propietario de un recurso controlar el acceso de la aplicación a los recursos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#consent).
-- Introducción paso a paso de [cómo el marco de consentimiento de Azure AD implementa el consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
-- Para más detalles, aprenda [cómo una aplicación multiinquilino puede utilizar el marco de consentimiento](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) para implementar el consentimiento de "usuario" y "administrador", compatible con patrones de aplicación de niveles múltiples más avanzados.
-- Para más detalles, aprenda [cómo se admite el consentimiento en la capa del protocolo OAuth 2.0 durante el flujo de concesión de código de autorización](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code#request-an-authorization-code).
+- Descripción general de [cómo el consentimiento permite al propietario de un recurso controlar el acceso de la aplicación a los recursos](./developer-glossary.md#consent).
+- Introducción paso a paso de [cómo el marco de consentimiento de Azure AD implementa el consentimiento](./quickstart-register-app.md).
+- Para más detalles, aprenda [cómo una aplicación multiinquilino puede utilizar el marco de consentimiento](./howto-convert-app-to-be-multi-tenant.md) para implementar el consentimiento de "usuario" y "administrador", compatible con patrones de aplicación de niveles múltiples más avanzados.
+- Para más detalles, aprenda [cómo se admite el consentimiento en la capa del protocolo OAuth 2.0 durante el flujo de concesión de código de autorización](../azuread-dev/v1-protocols-oauth-code.md#request-an-authorization-code).
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

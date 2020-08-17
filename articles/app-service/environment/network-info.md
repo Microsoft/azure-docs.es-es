@@ -4,15 +4,15 @@ description: Obtenga información sobre el tráfico de red de App Service Enviro
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/24/2020
+ms.date: 07/27/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4aec7fa78292f224952dd2ae929d2b8bfd97ab9b
-ms.sourcegitcommit: efefce53f1b75e5d90e27d3fd3719e146983a780
+ms.openlocfilehash: 6fde04be99eaa61287b486eaefdcb92d66d88bc7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2020
-ms.locfileid: "80477689"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280926"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Consideraciones de red para una instancia de App Service Environment #
 
@@ -153,18 +153,21 @@ Los NSG pueden configurarse mediante Azure Portal o a través de PowerShell. Est
 Las entradas necesarias de un NSG para que un ASE funcione son permitir el tráfico:
 
 **Entrante**
-* Desde la etiqueta de servicio IP AppServiceManagement en los puertos 454 y 455.
-* Desde el equilibrador de carga en el puerto 16001.
+* TCP desde la etiqueta de servicio de IP AppServiceManagement en los puertos 454 y 455.
+* TCP desde el equilibrador de carga en el puerto 16001.
 * Desde la subred de ASE a la subred de ASE en todos los puertos.
 
 **Outbound**
-* A todas las direcciones IP en el puerto 123.
-* A todas las direcciones IP en los puertos 80 y 443.
-* A la etiqueta de servicio IP AzureSQL en el puerto 1433.
-* A todas las direcciones IP en el puerto 12000.
+* UDP a todas las direcciones IP en el puerto 53.
+* UDP a todas las direcciones IP en el puerto 123.
+* TCP a todas las direcciones IP en los puertos 80 y 443.
+* TCP a la etiqueta de servicio IP AzureSQL en el puerto 1433.
+* TCP a todas las direcciones IP en el puerto 12000.
 * A la subred de ASE en todos los puertos.
 
-No es necesario agregar el puerto DNS, ya que el tráfico DNS no se ve afectado por las reglas de NSG. Estos puertos no incluyen los puertos que las aplicaciones requieren para usarse correctamente. Los puertos de acceso de aplicación normales son:
+Estos puertos no incluyen los puertos que las aplicaciones requieren para usarse correctamente. Por ejemplo, es posible que la aplicación tenga que llamar a un servidor MySQL en el puerto 3306. El protocolo de tiempo de redes (NTP) del puerto 123 es el protocolo de sincronización de hora que usa el sistema operativo. Los puntos de conexión del protocolo de tiempo de redes no son específicos de App Services, pueden variar con el sistema operativo y no se encuentran en una lista bien definida de direcciones. Para evitar problemas de sincronización de hora, debe permitir el tráfico UDP a todas las direcciones en el puerto 123. El tráfico saliente del TCP al puerto 12000 es para el análisis y el soporte del sistema. Los puntos de conexión son dinámicos y no están en un conjunto bien definido de direcciones.
+
+Los puertos de acceso de aplicación normales son:
 
 | Uso | Puertos |
 |----------|-------------|

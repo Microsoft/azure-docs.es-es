@@ -4,6 +4,8 @@
   items:
     - name: Acerca de los certificados
       href: about-certificates.md
+    - name: Acerca de la renovación de certificados
+      href: overview-renew-certificate.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -42,6 +44,10 @@
   items:
     - name: Integración de Key Vault con DigiCert CA
       href: how-to-integrate-certificate-authority.md
+    - name: 'Solución de problemas: importar certificados'
+      href: import-cert-faqs.md
+    - name: Exportación de certificado desde el almacén de claves
+      href: how-to-export-certificate.md
 - name: Referencia
   items:
     - name: Azure PowerShell
@@ -53,7 +59,7 @@
     - name: Java
       href: /java/api/overview/azure/keyvault?view=azure-java-stable
     - name: Node.js
-      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+      href: 'https://docs.microsoft.com/javascript/api/overview/azure/key-vault-index?view=azure-node-latest'
     - name: Python
       href: /python/api/overview/azure/keyvault-certificates-readme?view=azure-python
     - name: REST

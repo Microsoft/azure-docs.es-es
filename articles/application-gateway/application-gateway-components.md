@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 07/20/2020
 ms.author: absha
-ms.openlocfilehash: 798137a74f22824dbfec9653bff327d3a0a1f3b4
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 20d43666919f8528c25735592c2727601af10bbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186765"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088094"
 ---
 # <a name="application-gateway-components"></a>Componentes de Application Gateway
 
@@ -69,13 +69,13 @@ Hay dos tipos de clientes de escucha:
 
 - **Básico**. Este tipo de cliente de escucha realiza escuchas en un único sitio de dominio, donde tiene una única asignación de DNS a la dirección IP de la puerta de enlace de aplicaciones. Esta configuración de cliente de escucha es necesaria cuando se realiza el hospedaje en un único sitio detrás de una puerta de enlace de aplicaciones.
 
-- **Multisitio**. Esta configuración de cliente de escucha es necesaria al configurar más de una aplicación web en la misma instancia de la puerta de enlace de aplicaciones. Permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres subdominios, abc.contoso.com, xyz.contoso.com y pqr.contoso.com, apuntan a la dirección IP de la puerta de enlace de aplicaciones. Crearía tres clientes de escucha multisitio y configuraría cada uno con la configuración respectiva de protocolo y puerto.
+- **Multisitio**. Esta configuración del agente de escucha es obligatoria cuando busca configurar el enrutamiento según el nombre de host o el nombre de dominio de más de una aplicación web en la misma puerta de enlace de aplicación. Permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres dominios, contoso.com, fabrikam.com y adatum.com, señalan a la dirección IP de la puerta de enlace de aplicaciones. Crearía tres [clientes de escucha multisitio](multiple-site-overview.md) y configuraría cada uno con la configuración respectiva de protocolo y puerto. 
 
-    Para más información, consulte [Hospedaje multisitio](application-gateway-web-app-overview.md).
+    También puede definir nombres de host con el carácter comodín en un cliente de escucha de varios sitios y hasta cinco nombres de host por cliente de escucha. Para obtener más información, consulte los [nombres de host comodín en el cliente de escucha (versión preliminar)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
-Después de crear un cliente de escucha, asócielo a una regla de enrutamiento de solicitudes. Esta regla determina cómo se debe enrutar la solicitud recibida en el cliente de escucha hacia el back-end.
+    Para obtener más información sobre cómo configurar un agente de escucha multisitio, consulte [Hospedaje multisitio en Application Gateway mediante Azure Portal](create-multiple-sites-portal.md).
 
-Application Gateway procesa los clientes de escucha en el [orden mostrado](configuration-overview.md#order-of-processing-listeners).
+Después de crear un cliente de escucha, asócielo a una regla de enrutamiento de solicitudes. Esta regla determina cómo se debe enrutar la solicitud recibida en el cliente de escucha hacia el back-end. La regla de enrutamiento de solicitud también contiene el grupo de back-end al que se va a enrutar y la configuración de HTTP donde se mencionan el puerto de back-end, el protocolo, etc.
 
 ## <a name="request-routing-rules"></a>Reglas de enrutamiento de solicitudes
 
@@ -99,13 +99,13 @@ Puede elegir que el destino de redireccionamiento sea otro cliente de escucha (l
 
 Para más información, consulte [Redireccionamiento del tráfico en la puerta de enlace de aplicaciones](redirect-overview.md).
 
-### <a name="rewrite-http-headers"></a>Reescritura de encabezados HTTP
+### <a name="rewrite-http-headers-and-url"></a>Reescritura de encabezados HTTP y URL
 
-Mediante las reglas de enrutamiento de solicitudes, puede agregar, quitar o actualizar encabezados de solicitud y respuesta HTTP (S), dado que los paquetes de solicitud y respuesta se mueven entre el cliente y los grupos back-end a través de la puerta de enlace de aplicaciones.
+Mediante las reglas de reescritura, puede agregar, quitar o actualizar encabezados de solicitud y respuesta HTTP(S), así como parámetros de ruta de acceso URL y cadena de consulta, dado que los paquetes de solicitud y respuesta se mueven entre el cliente y los grupos back-end a través de la puerta de enlace de aplicaciones.
 
-Los encabezados se pueden establecer en valores estáticos o en otros encabezados y variables de servidor. Como consecuencia, sirve de ayuda en casos de uso importantes, como la extracción de direcciones IP de cliente, la eliminación de información confidencial sobre el back-end, la adición de más seguridad, etc.
+Los parámetros de URL y encabezado se pueden establecer en valores estáticos o en otros encabezados y variables de servidor. Como consecuencia, sirve de ayuda en casos de uso importantes, como la extracción de direcciones IP de cliente, la eliminación de información confidencial sobre el back-end, la adición de más seguridad, etc.
 
-Para más información, consulte [Rescritura de encabezados HTTP en la puerta de enlace de aplicaciones](rewrite-http-headers.md).
+Para más información, consulte [Rescritura de encabezados HTTP y direcciones URL en la puerta de enlace de aplicación](rewrite-http-headers-url.md).
 
 ## <a name="http-settings"></a>Configuración de HTTP
 

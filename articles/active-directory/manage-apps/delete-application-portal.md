@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec0b3ef559abe1c65872d8ecf87f63e6ff3ed4b0
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 422c174116bb6973993f5c6093a83f8bdb42a62a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223914"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808242"
 ---
 # <a name="quickstart-delete-an-application-from-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Eliminación de una aplicación del inquilino de Azure Active Directory (Azure AD)
 
@@ -44,9 +43,15 @@ Para eliminar una aplicación del inquilino de Azure AD:
 1. En la sección **Administrar** en el panel izquierdo, seleccione **Propiedades**.
 1. Seleccione **Eliminar** y, a continuación, seleccione **Sí** para confirmar que quiere eliminar la aplicación de su inquilino de Azure AD.
 
+> [!TIP]
+> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando haya terminado con esta serie de inicios rápidos, considere la posibilidad de eliminar la aplicación para limpiar el inquilino de prueba. En este inicio rápido se ha indicado cómo eliminar la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos recomendados de administración de aplicaciones](application-management-fundamentals.md)
-- [Escenarios comunes de administración de aplicaciones](common-scenarios.md)
-- [Visibilidad y control de la administración de aplicaciones](cloud-app-security.md)
+Ha completado la serie de inicios rápidos. El paso siguiente es leer los procedimientos recomendados en la administración de aplicaciones.
+> [!div class="nextstepaction"]
+> [Procedimientos recomendados de administración de aplicaciones](application-management-fundamentals.md)

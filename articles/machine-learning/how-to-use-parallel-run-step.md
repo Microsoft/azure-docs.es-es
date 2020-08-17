@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.reviewer: trbye, jmartens, larryfr
+ms.reviewer: jmartens, larryfr
 ms.author: tracych
 author: tracychms
-ms.date: 06/23/2020
-ms.custom: Build2020, tracking-python
-ms.openlocfilehash: e5665bd5ad2baa35b497c8b4fe19b0cb93bdb2a7
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/16/2020
+ms.custom: Build2020, devx-track-python
+ms.openlocfilehash: 960b59275885efd547df63febab37d2403c1c7cf
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86023387"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847711"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Ejecución de la inferencia por lotes en grandes cantidades de datos mediante Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,12 +27,13 @@ Con ParallelRunStep, es sencillo escalar inferencias sin conexión a grandes cl�
 
 En este artículo, obtendrá información sobre las siguientes tareas:
 
-> * Configurar los recursos de aprendizaje automático.
-> * Configurar las entradas y salidas de datos de inferencia por lotes.
-> * Preparar el modelo de clasificación de imágenes previamente entrenado basado en el conjunto de datos de [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
-> * Escriba el script de inferencia.
-> * Cree una [canalización de aprendizaje automático](concept-ml-pipelines.md) que contenga ParallelRunStep y ejecute la inferencia por lotes en las imágenes de prueba de MNIST. 
-> * Vuelva a enviar una ejecución de inferencia por lotes con nuevos parámetros y entrada de datos. 
+> 1. Configurar los recursos de aprendizaje automático.
+> 1. Configurar las entradas y salidas de datos de inferencia por lotes.
+> 1. Preparar el modelo de clasificación de imágenes previamente entrenado basado en el conjunto de datos de [MNIST](https://publicdataset.azurewebsites.net/dataDetail/mnist/). 
+> 1.  Escriba el script de inferencia.
+> 1. Cree una [canalización de aprendizaje automático](concept-ml-pipelines.md) que contenga ParallelRunStep y ejecute la inferencia por lotes en las imágenes de prueba de MNIST. 
+> 1. Vuelva a enviar una ejecución de inferencia por lotes con nuevos parámetros y entrada de datos. 
+> 1. Vea los resultados.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -100,6 +101,8 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
+[!INCLUDE [low-pri-note](../../includes/machine-learning-low-pri-vm.md)]
+
 ## <a name="configure-inputs-and-output"></a>Configuración de las entradas y salidas
 
 ### <a name="create-a-datastore-with-sample-images"></a>Creación de un almacén de datos con imágenes de ejemplo
@@ -159,9 +162,7 @@ Los objetos [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipel
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
 
-output_dir = PipelineData(name="inferences", 
-                          datastore=def_data_store, 
-                          output_path_on_compute="mnist/results")
+output_dir = PipelineData(name="inferences", datastore=def_data_store)
 ```
 
 ## <a name="prepare-the-model"></a>Preparar el modelo
@@ -204,16 +205,16 @@ model = Model.register(model_path="models/",
 El script *debe contener* dos funciones:
 - `init()`: utilice esta función para cualquier preparación costosa o común para la inferencia posterior. Por ejemplo, para cargar el modelo en un objeto global. Solo se llamará a esta función una vez al principio del proceso.
 -  `run(mini_batch)`: la función se ejecutará para cada instancia de `mini_batch`.
-    -  `mini_batch`: ParallelRunStep invocará el método run y pasará una trama de datos de Pandas o una lista como argumento al método. Cada entrada de min_batch será una ruta de acceso de archivo si la entrada es FileDataset o una trama de datos de Pandas si es TabularDataset.
-    -  `response`: el método run() debe devolver una trama de datos de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Asegúrese de que se incluyen suficientes datos en el resultado de la ejecución para asignar la entrada al resultado de la salida de la ejecución. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada.
+    -  `mini_batch`: `ParallelRunStep` invocará el método run y pasará una lista o `DataFrame` de Pandas como argumento al método. Cada entrada de mini_batch será una ruta de acceso de archivo si la entrada es `FileDataset`, o `DataFrame` de Pandas si la entrada es `TabularDataset`.
+    -  `response`: El método run() debe devolver `DataFrame` de Pandas o una matriz. Para append_row output_action, estos elementos devueltos se anexan al archivo de salida común. Para summary_only, se omite el contenido de los elementos. Para todas las acciones de salida, cada elemento de salida devuelto indica una ejecución correcta del elemento de entrada en el minilote de entrada. Asegúrese de que se incluyen suficientes datos en el resultado de la ejecución para asignar la entrada al resultado de la salida de la ejecución. La salida de la ejecución se escribirá en el archivo de salida y no se garantiza que esté en orden, por lo que debe usar alguna clave en la salida para asignarla a la entrada.
 
 ```python
+%%writefile digit_identification.py
 # Snippets from a sample script.
 # Refer to the accompanying digit_identification.py
 # (https://aka.ms/batch-inference-notebooks)
 # for the implementation script.
 
-%%writefile digit_identification.py
 import os
 import numpy as np
 import tensorflow as tf
@@ -266,17 +267,17 @@ Ahora tiene todo lo que necesita: las entradas de datos, el modelo, la salida y 
 
 ### <a name="prepare-the-environment"></a>Preparación del entorno
 
-Primero, especifique las dependencias para el script. Esto le permite instalar paquetes pip, así como configurar el entorno. Incluya siempre los paquetes **azureml-core** y **azureml-dataprep[pandas, fuse]** .
+Primero, especifique las dependencias para el script. Esto le permite instalar paquetes pip, así como configurar el entorno.
 
-Si usa una imagen de Docker personalizada (user_managed_dependencies=true), también debe tener instalado Conda.
+Incluya siempre **azureml-core** y **azureml-dataset-runtime[pandas, fuse]** en la lista de paquetes de pip. Si usa una imagen de Docker personalizada (user_managed_dependencies=true), también debe tener instalado Conda.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.conda_dependencies import CondaDependencies
 from azureml.core.runconfig import DEFAULT_GPU_IMAGE
 
-batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.13.1", "pillow",
-                                                          "azureml-core", "azureml-dataprep[pandas, fuse]"])
+batch_conda_deps = CondaDependencies.create(pip_packages=["tensorflow==1.15.2", "pillow", 
+                                                          "azureml-core", "azureml-dataset-runtime[pandas, fuse]"])
 
 batch_env = Environment(name="batch_environment")
 batch_env.python.conda_dependencies = batch_conda_deps
@@ -286,9 +287,9 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 
 ### <a name="specify-the-parameters-using-parallelrunconfig"></a>Especificación de los parámetros mediante ParallelRunConfig
 
-`ParallelRunConfig` es la configuración principal de la instancia de `ParallelRunStep` dentro de la canalización de Azure Machine Learning. Se usa para encapsular el script y configurar los parámetros necesarios, incluidos los siguientes:
+`ParallelRunConfig` es la configuración principal de la instancia de `ParallelRunStep` dentro de la canalización de Azure Machine Learning. Se usa para encapsular el script y configurar los parámetros necesarios, incluidos los de las siguientes entradas:
 - `entry_script`: script de usuario como ruta de acceso de archivo local que se ejecutará en paralelo en varios nodos. Si `source_directory` está presente, utilice una ruta de acceso relativa. De lo contrario, use cualquier ruta de acceso accesible desde la máquina.
-- `mini_batch_size`: tamaño del minilote que se pasa a una sola llamada de `run()`. (Opcional; el valor predeterminado es `10` archivos para FileDataset y `1MB` para TabularDataset).
+- `mini_batch_size`: tamaño del minilote que se pasa a una sola llamada de `run()`. (Opcional; el valor predeterminado es `10` archivos para `FileDataset`, y `1MB` para `TabularDataset`).
     - En el caso de `FileDataset`, es el número de archivos con un valor mínimo de `1`. Puede combinar varios archivos en un solo minilote.
     - En el caso de `TabularDataset`, es el tamaño de los datos. Los valores posibles son `1024`, `1024KB`, `10MB` y `1GB`. `1MB` es el valor recomendado. El minilote de `TabularDataset` nunca cruzará los límites de los archivos. Por ejemplo, si tiene archivos. csv de varios tamaños, el menor es de 100 KB y el mayor es de 10 MB. Si establece `mini_batch_size = 1MB`, los archivos con un tamaño menor que 1 MB se tratarán como un solo minilote. Los archivos de tamaño mayor que 1 MB se dividirán en varios minilotes.
 - `error_threshold`: número de errores de registro para `TabularDataset` y errores de archivo para `FileDataset` que se deben omitir durante el procesamiento. Si el recuento de errores de la entrada supera este valor, el trabajo se anulará. El umbral de error es para toda la entrada y no para los minilotes individuales que se envían al método `run()`. El intervalo es `[-1, int.max]`. La parte `-1` indica que se omitirán todos los errores durante el procesamiento.
@@ -305,7 +306,7 @@ batch_env.docker.base_image = DEFAULT_GPU_IMAGE
 - `run_invocation_timeout`: tiempo de espera de invocación del método `run()` en segundos. (Opcional; el valor predeterminado es `60`).
 - `run_max_try`: número máximo de intentos de `run()` para un minilote. Se produce un error en `run()` si se genera una excepción o no se devuelve nada cuando se alcanza `run_invocation_timeout` (opcional; el valor predeterminado es `3`). 
 
-Puede especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` y `run_max_try` como `PipelineParameter`, de modo que, cuando vuelva a enviar una ejecución de la canalización, pueda optimizar los valores de los parámetros. En este ejemplo, se usa PipelineParameter para `mini_batch_size` y `Process_count_per_node`, y se cambian estos valores cuando se vuelve a enviar una ejecución más tarde. 
+Puede especificar `mini_batch_size`, `node_count`, `process_count_per_node`, `logging_level`, `run_invocation_timeout` y `run_max_try` como `PipelineParameter`, de modo que, cuando vuelva a enviar una ejecución de la canalización, pueda optimizar los valores de los parámetros. En este ejemplo, se usa `PipelineParameter` para `mini_batch_size` y `Process_count_per_node`, y se cambiarán estos valores cuando se vuelva a enviar una ejecución más tarde. 
 
 En este ejemplo se da por supuesto que usa el script `digit_identification.py` analizado anteriormente. Si usa su propio script, cambie los parámetros `source_directory` y `entry_script` en consecuencia.
 
@@ -379,7 +380,7 @@ pipeline_run.wait_for_completion(show_output=True)
 
 ## <a name="resubmit-a-run-with-new-data-inputs-and-parameters"></a>Nuevo envío de una ejecución con nuevos parámetros y entradas de datos
 
-Dado que ha realizado las entradas y varias configuraciones como `PipelineParameter`, puede volver a enviar una ejecución de inferencia por lotes con una entrada de conjunto de datos diferente y ajustar los parámetros sin tener que crear una canalización completamente nueva. Usará el mismo almacén de datos, pero una sola imagen como entrada de datos.
+Dado que ha realizado las entradas y varias configuraciones como `PipelineParameter`, puede volver a enviar una ejecución de inferencia por lotes con otra entrada de conjunto de datos y ajustar los parámetros sin tener que crear una canalización completamente nueva. Usará el mismo almacén de datos, pero una sola imagen como entrada de datos.
 
 ```python
 path_on_datastore = mnist_blob.path('mnist/0.png')
@@ -392,6 +393,28 @@ pipeline_run_2 = experiment.submit(pipeline,
 )
 
 pipeline_run_2.wait_for_completion(show_output=True)
+```
+## <a name="view-the-results"></a>View the results
+
+Los resultados de la ejecución anterior se escriben en el objeto `DataStore` especificado en el objeto `PipelineData` como los datos de salida, que en este caso se llama *inferences*. Los resultados se almacenan en el contenedor de blobs predeterminado; puede ir a la cuenta de almacenamiento y verlos con el Explorador de Storage. La ruta de acceso del archivo es azureml-blobstore-*GUID*/azureml/*RunId*/*output_dir*.
+
+También puede descargar estos datos para ver los resultados. A continuación se muestra el código de ejemplo para ver las 10 primeras filas.
+
+```python
+import pandas as pd
+import tempfile
+
+batch_run = pipeline_run.find_step_run(parallelrun_step.name)[0]
+batch_output = batch_run.get_output_data(output_dir.name)
+
+target_dir = tempfile.mkdtemp()
+batch_output.download(local_path=target_dir)
+result_file = os.path.join(target_dir, batch_output.path_on_datastore, parallel_run_config.append_row_file_name)
+
+df = pd.read_csv(result_file, delimiter=":", header=None)
+df.columns = ["Filename", "Prediction"]
+print("Prediction has ", df.shape[0], " rows")
+df.head(10) 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -11,12 +11,14 @@ ms.date: 01/29/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: b984ee7ed662bf089e7bcb6fc7e948fb61ed1209
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: dd4f4ad7f84ebc1f5e254843e7afa4aa0f3f224f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81733212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319140"
 ---
 # <a name="device-to-cloud-communications-guidance"></a>Guía de comunicación de dispositivo a nube
 
@@ -32,7 +34,7 @@ Al enviar información desde la aplicación del dispositivo al back-end de soluc
 
 Esta es una comparación detallada de las distintas opciones de comunicación de dispositivo a nube.
 
-|  | Mensajes de dispositivo a nube | Propiedades notificadas del dispositivo gemelo | Cargas de archivos |
+| Factor | Mensajes de dispositivo a nube | Propiedades notificadas del dispositivo gemelo | Cargas de archivos |
 | ---- | ------- | ---------- | ---- |
 | Escenario | Serie temporal de telemetría y alertas. Por ejemplo, lotes de datos del sensor de 256 KB enviados cada cinco minutos. | Funcionalidades disponibles y condiciones. Por ejemplo, el modo actual de conectividad del dispositivo, como móvil o WiFi. Sincronización de flujos de trabajo de ejecución prolongada, como configuración y actualizaciones de software. | Archivos multimedia. Lotes de telemetría (generalmente comprimidos) de gran tamaño. |
 | Almacenamiento y recuperación | Almacenados temporalmente por IoT Hub, hasta 7 días. Solo lectura secuencial. | Almacenados por IoT Hub en el dispositivo gemelo. Recuperables mediante el [lenguaje de consulta de IoT Hub](iot-hub-devguide-query-language.md). | Almacenadas en la cuenta de Azure Storage proporcionada por el usuario. |

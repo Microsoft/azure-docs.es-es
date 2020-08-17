@@ -10,12 +10,12 @@ ms.date: 06/12/2020
 ms.topic: conceptual
 manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: a8b5f14147ee748f5d32d794f51d5437eeddfb51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261195"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447866"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Regiones admitidas para el área de trabajo de Log Analytics vinculada
 
@@ -78,11 +78,11 @@ Con las características quitadas, puede seguir los pasos siguientes para desvin
 
 También puede desvincular el área de trabajo de la cuenta de Automation en el área de trabajo.
 
-1. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**. 
+1. En el área de trabajo, seleccione **Cuenta de Automation** en **Recursos relacionados**.
 2. En la página Cuenta de Automation, seleccione **Desvincular cuenta**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre Update Management en [Información general de Update Management](../automation-update-management.md).
+* Obtenga información sobre Update Management en [Información general de Update Management](../update-management/update-mgmt-overview.md).
 * Obtenga información sobre Change Tracking e Inventario en [Información general de Change Tracking e Inventario](../change-tracking.md).
 * Obtenga información sobre Start/Stop VMs during off-hours en [Información general sobre Start/Stop VMs during off-hours](../automation-solution-vm-management.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 6210d6ee4877c6ba84178340cf0a6610e402da31
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 8d103e6a0f7a47aadce524325e58fbb7069a1e13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81641100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042815"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming en vivo con Azure Media Services para crear transmisiones con velocidad de bits múltiple
 
@@ -360,11 +360,10 @@ Consulte las rutas de aprendizaje de Media Services.
 
 [Creación de canales que realizan la codificación en directo de una velocidad de bits única a una secuencia de velocidad de bits adaptable a través del SDK de .NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
-[Administración de canales con la API de REST](https://docs.microsoft.com/rest/api/media/operations/channel)
+[Administración de canales con la API de REST](/rest/api/media/operations/channel)
 
 [Conceptos de Media Services](media-services-concepts.md)
 
 [Especificación de la introducción en directo de MP4 fragmentado de Azure Media Services](../media-services-fmp4-live-ingest-overview.md)
 
 [live-overview]: ./media/media-services-manage-live-encoder-enabled-channels/media-services-live-streaming-new.png
-

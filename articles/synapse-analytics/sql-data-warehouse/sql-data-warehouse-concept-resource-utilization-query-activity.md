@@ -11,12 +11,12 @@ ms.date: 04/09/2020
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 4dc054d26f0cb64a8f7faf2ffa4b2b688562f404
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 334d37ad36336d1aa737894482fd8f66e929c822
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213557"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077691"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Supervisión del uso de recursos y la actividad de consultas en Azure Synapse Analytics
 
@@ -42,9 +42,6 @@ En Azure Portal para Synapse SQL hay disponibles las métricas siguientes. Estas
 | Porcentaje de aciertos de caché    | (aciertos de caché/error de caché) * 100 donde aciertos de caché corresponde al total de todos los aciertos de segmentos del almacén de columnas en la caché de SSD local y error de caché corresponde a la suma de los errores de segmentos del almacén de columnas en la caché SSD local de todos los nodos | Prom., Mín., Máx.    |
 | Porcentaje de caché usada   | (caché usada/capacidad de la memoria caché) * 100 donde la memoria caché usada corresponde al total de todos los bytes en la caché SSD local en todos los nodos y capacidad de la memoria caché corresponde al total de la capacidad de almacenamiento de la caché SSD local en todos los nodos | Prom., Mín., Máx.    |
 | Porcentaje de tempdb local | El uso de tempdb local en todos los nodos de ejecución. Los valores se emiten cada cinco minutos | Prom., Mín., Máx.    |
-| Tamaño de almacenamiento de datos (GB) | Tamaño total de la base de datos. Esto incluye el espacio usado, reservado y sin asignar. Se conserva espacio sin asignar para que la base de datos optimice el rendimiento de las consultas y las cargas. | Sum |
-| Tamaño de la recuperación ante desastres (GB) | Tamaño total de la copia de seguridad geográfica realizada cada 24 horas | Sum |
-| Tamaño del almacenamiento de instantáneas (GB) | Tamaño total de las instantáneas tomadas para proporcionar puntos de restauración de datos. Esto incluye instantáneas automatizadas y definidas por el usuario. | Sum |
 
 Aspectos que se deben tener en cuenta al visualizar métricas y establecer alertas:
 

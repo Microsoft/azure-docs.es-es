@@ -1,21 +1,19 @@
 ---
 title: ¿Qué es Windows Virtual Desktop? - Azure
 description: Una información general de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 473e3d52b1757faebd60c14966b425e9390a2685
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248618"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002377"
 ---
-# <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop? 
+# <a name="what-is-windows-virtual-desktop"></a>¿Qué es Windows Virtual Desktop?
 
 Windows Virtual Desktop es un servicio de virtualización de escritorio y de aplicaciones que se ejecuta en la nube.
 
@@ -78,7 +76,7 @@ Su infraestructura necesita cumplir los siguientes requisitos para ser compatibl
   * Azure AD Connect (para organizaciones híbridas)
   * Azure AD Domain Services (para organizaciones híbridas o de nube)
 * Una suscripción a Azure que contenga una red virtual que conste de la instancia de Windows Server Active Directory o esté conectada a ella
-  
+
 Las máquinas virtuales de Azure que cree para Windows Virtual Desktop deben cumplir estos requisitos:
 
 * Estar [unidas a un dominio estándar](../active-directory-domain-services/active-directory-ds-comparison.md) o a un [dominio híbrido](../active-directory/devices/hybrid-azuread-join-plan.md). Las máquinas virtuales no pueden estar unidas a Azure AD.
@@ -105,7 +103,7 @@ Los clientes de Escritorio remoto siguientes admiten Windows Virtual Desktop:
 * [Web](connect-web.md)
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
-* [Android (versión preliminar)](connect-android.md)
+* [Android](connect-android.md)
 
 > [!IMPORTANT]
 > Windows Virtual Desktop no es compatible con el cliente de Conexión de RemoteApp y Escritorio (RADC) ni con el cliente de Conexión a Escritorio remoto (MSTSC).
@@ -128,7 +126,7 @@ Windows Virtual Desktop admite las imágenes de SO x64 siguientes:
 
 Windows Virtual Desktop no es compatible con imágenes de los sistemas operativos x86 (32 bits), Windows 10 Enterprise N o Windows 10 Enterprise KN. Windows 7 tampoco admite las soluciones de perfil basadas en VHD o VHDX hospedadas en Azure Storage administrado debido a un límite de tamaño del sector.
 
-Las opciones de automatización y de implementación disponibles dependen del sistema operativo y la versión que elija, tal como se muestra en la tabla siguiente: 
+Las opciones de automatización y de implementación disponibles dependen del sistema operativo y la versión que elija, tal como se muestra en la tabla siguiente:
 
 |Sistema operativo|Galería de imágenes de Azure|Implementación manual de la máquina virtual|Integración de la plantilla de Azure Resource Manager|Aprovisionamiento de grupos host en Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
@@ -143,9 +141,9 @@ Las opciones de automatización y de implementación disponibles dependen del si
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si usa Windows Virtual Desktop Fall 2019, puede empezar a trabajar con el tutorial de [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
+Si usa Windows Virtual Desktop (clásico), puede empezar a trabajar con el tutorial de [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md).
 
-Si usa Windows Virtual Desktop Spring 2020, deberá crear un grupo de hosts. Vaya al siguiente tutorial para comenzar.
+Si usa Windows Virtual Desktop con la integración de Azure Resource Manager, deberá crear un grupo de hosts. Vaya al siguiente tutorial para comenzar.
 
 > [!div class="nextstepaction"]
 > [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md)

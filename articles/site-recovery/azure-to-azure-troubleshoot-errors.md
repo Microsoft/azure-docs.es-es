@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: rochakm
-ms.openlocfilehash: 91aaedba13dfd9c0a3ea06b3460beaa8ead20233
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: d3e70384a99e2dad3f19825cb85b83861e4647e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130456"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083827"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Solución de errores de replicación de máquinas virtuales de Azure en Azure
 
@@ -534,6 +534,44 @@ Este problema puede producirse si la máquina virtual se protegió previamente y
 ### <a name="fix-the-problem"></a>Corrección del problema
 
 Elimine el disco de la réplica identificado en el mensaje de error y reintente el trabajo de protección con error.
+
+## <a name="enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137"></a>No se pudo habilitar la protección porque el instalador no pudo encontrar el disco raíz (código de error 151137)
+
+Este error se produce en máquinas Linux en las que el disco del sistema operativo está cifrado mediante Azure Disk Encryption (ADE). Este es un problema vigente solo en la versión 9.35 del agente.
+
+### <a name="possible-causes"></a>Causas posibles
+
+El instalador no puede encontrar el disco raíz que hospeda el sistema de archivos raíz.
+
+### <a name="fix-the-problem"></a>Corrección del problema
+
+Siga los pasos siguientes para resolver este problema.
+
+1. Busque los bits del agente en el directorio _/var/lib/waagent_ en las máquinas RHEL y CentOS con el siguiente comando: <br>
+
+    `# find /var/lib/ -name Micro\*.gz`
+
+   Resultado esperado:
+
+    `/var/lib/waagent/Microsoft.Azure.RecoveryServices.SiteRecovery.LinuxRHEL7-1.0.0.9139/UnifiedAgent/Microsoft-ASR_UA_9.35.0.0_RHEL7-64_GA_30Jun2020_release.tar.gz`
+
+2. Cree un directorio y cambie el directorio por este otro.
+3. Extraiga aquí el archivo del agente del primer paso, con el siguiente comando:
+
+    `tar -xf <Tar Ball File>`
+
+4. Abra el archivo _prereq_check_installer.json_ y elimine las siguientes líneas. Luego, guarde el archivo.
+
+    ```
+       {
+          "CheckName": "SystemDiskAvailable",
+          "CheckType": "MobilityService"
+       },
+    ```
+5. Invoque el instalador mediante el comando: <br>
+
+    `./install -d /usr/local/ASR -r MS -q -v Azure`
+6. Si el instalador funciona correctamente, vuelva a intentar el trabajo de habilitación de la replicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

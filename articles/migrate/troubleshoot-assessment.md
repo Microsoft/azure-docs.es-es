@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: 61afc3ec0f37f5d8b1030818d21b7daabb7fce40
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f9598ad508e3760bf1bad04f8694838465e4961f
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121680"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460990"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solución de problemas de evaluación o visualización de dependencias
 
@@ -52,7 +52,7 @@ Protocolo de Internet preparado condicionalmente | Solo se aplica a las valoraci
 
 ## <a name="suggested-migration-tool-in-import-based-avs-assessment-marked-as-unknown"></a>La herramienta de migración sugerida en la evaluación de AVS basada en la importación está marcada como desconocida.
 
-En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada en una valoración de AVS. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMWare. [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
+En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada en una valoración de AVS. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware. [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
 
 ## <a name="linux-vms-are-conditionally-ready-in-an-azure-vm-assessment"></a>Las máquinas virtuales Linux están "condicionalmente preparadas" en una valoración de máquinas virtuales de Azure.
 
@@ -66,6 +66,9 @@ En el caso de las máquinas virtuales de VMware e Hyper-V, Server Assessment mar
 
 Este intervalo se puede solucionar habilitando [la detección de aplicaciones](./how-to-discover-applications.md) en las máquinas virtuales de VMware. Server Assessment usa el sistema operativo detectado de la máquina virtual con las credenciales de invitado proporcionadas. Estos datos del sistema operativo identifican la información del sistema operativo adecuada en el caso de las máquinas virtuales Windows y Linux.
 
+## <a name="operating-system-version-not-available"></a>La versión del sistema operativo no está disponible
+
+En el caso de los servidores físicos, la información de la versión secundaria del sistema operativo debe estar disponible. Si no es así, póngase en contacto con el soporte técnico de Microsoft. En el caso de las máquinas virtuales de VMware, Server Assessment usa la información del sistema operativo especificada para la máquina virtual en vCenter Server. Sin embargo, vCenter Server no proporciona la versión secundaria para los sistemas operativos. Para detectar la versión secundaria, debe configurar la [detección de aplicaciones](./how-to-discover-applications.md). En el caso de las máquinas virtuales de Hyper-V, no se admite la detección de versiones secundarias del sistema operativo. 
 
 ## <a name="azure-skus-bigger-than-on-premises-in-an-azure-vm-assessment"></a>Las SKU de Azure son más grandes que las locales en una valoración de máquinas virtuales de Azure.
 
@@ -180,6 +183,9 @@ Después de migrar las máquinas con la visualización de dependencias habilitad
 
 ## <a name="dependencies-export-csv-shows-unknown-process"></a>Dependencias de exportación de CSV muestra "Proceso desconocido".
 En el análisis de dependencias sin agente, los nombres de los procesos se capturan de la mejor manera posible. En ciertos escenarios, aunque los nombres de los servidores de origen y destino y el puerto de destino se capturen, no es factible determinar los nombres de los procesos en ambos extremos de la dependencia. En tales casos, el proceso se marca como "Proceso desconocido".
+
+## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-server-assessment"></a>Mi área de trabajo de Log Analytics no aparece al intentar configurar el área de trabajo en Server Assessment
+Actualmente, Azure Migrate admite la creación de un área de trabajo de OMS en las regiones Este de EE. UU., Sudeste de Asia y Oeste de Europa. Si el área de trabajo se crea fuera de Azure Migrate en cualquier otra región, actualmente no se puede asociar a un proyecto de Azure Migrate.
 
 
 ## <a name="capture-network-traffic"></a>Captura del tráfico de red

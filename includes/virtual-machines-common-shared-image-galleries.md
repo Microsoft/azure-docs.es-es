@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: 2d0030549acdb55ce2be94534ec59bb07b11869d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221650"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86501972"
 ---
 Shared Image Gallery es un servicio que ayuda a crear la estructura y la organización en torno a las imágenes. Las galerías de imágenes compartidas proporcionan:
 
@@ -83,7 +83,7 @@ Las máquinas virtuales especializadas no han pasado por un proceso para quitar 
 
 ## <a name="regional-support"></a>Compatibilidad regional
 
-Todas las regiones públicas pueden ser regiones de destino, pero para replicar en el Centro de Australia y Centro de Australia 2 debe tener su suscripción en la lista de permitidos. Para solicitar la inclusión en la lista blanca, visite: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas las regiones públicas pueden ser regiones de destino, pero para replicar en Centro de Australia y Centro de Australia 2 debe tener la suscripción incluida en la lista de permitidos. Para solicitar que se agregue una suscripción a la lista de permitidos, vaya a: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Límites 
 

@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: 4dd959d75fd582d787e68db4a415a4a694b9cda8
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81770679"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88081058"
 ---
 # <a name="deployment-best-practices"></a>Procedimientos recomendados de implementación
 
@@ -69,7 +69,7 @@ App Service dispone de [entrega continua integrada](deploy-continuous-deployment
 
 ### <a name="use-github-actions"></a>Uso de acciones de GitHub
 
-También puede automatizar la implementación del contenedor [con acciones de GitHub](containers/deploy-container-github-action.md).  El archivo de flujo de trabajo siguiente compilará y etiquetará el contenedor con el identificador de confirmación, lo insertará en un registro de contenedor y actualizará el espacio del sitio con la nueva etiqueta de imagen.
+También puede automatizar la implementación del contenedor [con acciones de GitHub](deploy-container-github-action.md).  El archivo de flujo de trabajo siguiente compilará y etiquetará el contenedor con el identificador de confirmación, lo insertará en un registro de contenedor y actualizará el espacio del sitio con la nueva etiqueta de imagen.
 
 ```yaml
 name: Build and deploy a container image to Azure Web Apps

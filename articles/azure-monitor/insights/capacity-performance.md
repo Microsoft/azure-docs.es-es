@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: d52138f5b23a6a0ac8ff8c585e6aed0edd92eaf0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ee5aec2e483f41c73d57fc1d91427e5657bda3e7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499552"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318001"
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Con la solución Capacidad y rendimiento (en desuso) puede planear la capacidad de máquinas virtuales de Hyper-V.
 
@@ -41,9 +41,9 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 | Origen conectado | Soporte técnico | Descripción |
 |---|---|---|
-| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sí | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No    | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
-| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sí |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
+| [Agentes de Windows](../platform/agent-windows.md) | Sí | La solución recopila información de datos de rendimiento y capacidad de los agentes de Windows. |
+| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | No | La solución no recopila información de datos de rendimiento y capacidad de los agentes directos de Linux.|
+| [Grupo de administración de SCOM](../platform/om-agents.md) | Sí |La solución recopila datos de rendimiento y capacidad de los agentes de un grupo de administración de SCOM conectado. No se requiere una conexión directa entre el agente de SCOM y Log Analytics.|
 | [Cuenta de Almacenamiento de Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Storage no incluye datos de capacidad y rendimiento.|
 
 ## <a name="prerequisites"></a>Prerrequisitos
@@ -55,7 +55,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 
 Realice el siguiente paso para agregar la solución Capacidad y rendimiento a un área de trabajo.
 
-- Agregue la solución Capacity and Performance a un área de trabajo de Log Analytics mediante el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../../azure-monitor/insights/solutions.md).
+- Agregue la solución Capacity and Performance a un área de trabajo de Log Analytics mediante el proceso que se describe en [Incorporación de soluciones de Log Analytics desde la galería de soluciones](./solutions.md).
 
 ## <a name="management-packs"></a>Módulos de administración
 
@@ -72,7 +72,7 @@ New Management Pack with id:"Microsoft.IntelligencePacks.CapacityPerformance", v
 
 Cuando se actualice la solución Capacidad y rendimiento, el número de versión cambiará.
 
-Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md).
+Para obtener más información sobre cómo se actualizan los módulos de administración de soluciones, consulte [Conexión de Operations Manager con Log Analytics](../platform/om-agents.md).
 
 ## <a name="using-the-solution"></a>Uso de la solución
 
@@ -129,4 +129,5 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo en los 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsqueda de datos mediante búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de Capacidad y rendimiento.
+* Use [Búsqueda de datos mediante búsquedas de registros](../log-query/log-query-overview.md) para ver datos detallados de Capacidad y rendimiento.
+

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/02/2020
+ms.date: 07/29/2020
 ms.author: victorh
-ms.openlocfilehash: 81d65954197c0ebe0de77dc2fea63239d4c3f17b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056674"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87412956"
 ---
 # <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Uso de Azure Firewall para proteger las implementaciones de Azure Kubernetes Service (AKS)
 
@@ -50,7 +50,9 @@ Azure Firewall proporciona una etiqueta FQDN AKS para simplificar la configuraci
       Para información más concreta, vea las direcciones *.hcp.<location>.azmk8s.io* en la tabla siguiente.
    - Puerto UDP 123 para la sincronización de hora del protocolo de tiempo de red (NTP) (nodos de Linux).
    - También se requiere el puerto UDP 53 para DNS si tiene pods que acceden directamente al servidor de API.
-- Configure AzureMonitor y las etiquetas de servicio de Storage. Azure Monitor recibe datos de análisis de registros. 
+
+   Para más información, consulte [Control del tráfico de salida de los nodos de clúster en Azure Kubernetes Service (AKS)](../aks/limit-egress-traffic.md).
+- Configure AzureMonitor y las etiquetas de servicio de Storage. Azure Monitor recibe datos de análisis de registros.
 
    También puede permitir la dirección URL del área de trabajo individualmente: `<worksapceguid>.ods.opinsights.azure.com` y `<worksapceguid>.oms.opinsights.azure.com`. Puede abordar esto de una de las formas siguientes:
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 8da05da1b4aa9966b7743bc38b09d1c4b34c8cc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555718"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519276"
 ---
 # <a name="connect-windows-security-events"></a>Conexión de eventos de seguridad de Windows 
 
@@ -87,7 +87,29 @@ Para recopilar los eventos de seguridad de Windows en Azure Sentinel, haga lo si
 
 Hasta que los registros empiecen a aparecer en Log Analytics, pueden transcurrir unos 20 minutos. 
 
+### <a name="configure-the-security-events-connector-for-anomalous-rdp-login-detection"></a>Configuración del conector de eventos de seguridad para la detección de inicios de sesión de RDP anómalos
 
+> [!IMPORTANT]
+> La detección de inicios de sesión de RDP anómalos se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción.
+> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Azure Sentinel puede aplicar aprendizaje automático (ML) a los datos de eventos de seguridad para identificar una actividad de inicio de sesión de protocolo de escritorio remoto (RDP) anómala. Los escenarios incluyen:
+
+- **IP inusual**: la dirección IP no se ha observado nunca o casi nunca en los últimos 30 días
+
+- **Ubicación geográfica inusual**: la dirección IP, la ciudad, el país y el ASN no se han observado nunca o casi nunca en los últimos 30 días
+
+- **Nuevo usuario**: un nuevo usuario inicia sesión desde una dirección IP o una ubicación geográfica que no se esperaba ver de acuerdo con los datos de los 30 días anteriores.
+
+**Instrucciones de configuración**
+
+1. Debe recopilar los datos de inicio de sesión de RDP (identificador de evento 4624) mediante el conector de datos de **eventos de seguridad**. Asegúrese de haber seleccionado un [conjunto de eventos](#event-sets) distinto de "Ninguno" para transmitirlo a Azure Sentinel.
+
+1. En el portal de Azure Sentinel, haga clic en **Analytics** (Análisis) y, después, haga clic en la pestaña **Rule templates** (Plantillas de reglas). Seleccione la regla **(Preview) Anomalous RDP Login Detection** [(Versión preliminar) Detección de inicio de sesión RDP anómalo] y mueva el regulador **Status** (Estado) a **Enabled** (Habilitado).
+
+    > [!NOTE]
+    > Dado que el algoritmo de aprendizaje automático requiere datos de 30 días para crear un perfil de base de referencia del comportamiento de los usuarios, debe permitir que se recopilen los datos de eventos de seguridad de 30 días antes de que se puedan detectar incidentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido a conectar eventos de seguridad de Windows a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

@@ -1,6 +1,6 @@
 ---
 title: Seguridad de la infraestructura de Azure | Microsoft Docs
-description: En el artículo se describe cómo trabaja Microsoft para proteger nuestros centros de datos de Azure.
+description: Más información sobre cómo trabaja Microsoft para proteger los centros de datos de Azure. El personal de operaciones de Microsoft administra y supervisa los centros de datos.
 services: security
 documentationcenter: na
 author: TerryLanfear
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 10aecff797effb5abebea16a18dd4e02f40de326
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2a9e61ec850d20ab9b630036cd265fbb7f3801ae
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72595405"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543935"
 ---
 # <a name="azure-infrastructure-security"></a>Seguridad de la infraestructura de Azure
 Microsoft Azure se ejecuta en centros de datos administrados y operados por Microsoft. Estos centros de datos geográficamente dispersos cumplen los estándares del sector en materia de seguridad y confiabilidad, como ISO/IEC 27001:2013 y NIST SP 800-53. El personal de operaciones de Microsoft administra y supervisa los centros de datos. El personal de operaciones tiene años de experiencia en la prestación de servicios en línea más grandes del mundo con continuidad ininterrumpida durante el día.

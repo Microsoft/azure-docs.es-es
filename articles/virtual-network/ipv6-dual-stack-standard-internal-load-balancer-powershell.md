@@ -13,19 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/14/2019
 ms.author: kumud
-ms.openlocfilehash: 67bc7994d2628790e84d3b3752f894a36486ca86
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c224332eec31b343bdc53564ef4075a0620ac340
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707521"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289578"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-standard-internal-load-balancer-in-azure---powershell-preview"></a>Implementación de una aplicación de doble pila IPv6 con equilibrador de carga interno estándar en Azure: PowerShell (versión preliminar)
 
 En este artículo se explica cómo se implementa en Azure una aplicación de doble pila (IPv4 + IPv6) que contiene una red virtual de pila doble y una subred, un equilibrador de carga interno estándar con configuraciones de front-end dobles (IPv4 + IPv6), máquinas virtuales con NIC que tienen una configuración de IP doble, un grupo de seguridad de red e IP públicas.
-
-> [!Important]
-> La compatibilidad de IPv6 con Azure Virtual Network se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 El procedimiento para crear un equilibrador de carga interno compatible con IPv6 es casi idéntico al del equilibrador de carga compatible con IPv6 orientado a Internet que se describe [aquí](virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md). Las únicas diferencias en la creación de un equilibrador de carga interno se encuentran en la configuración de front-end, tal como se muestra en el ejemplo de PowerShell siguiente:
 

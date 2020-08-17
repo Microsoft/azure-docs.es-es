@@ -3,12 +3,12 @@ title: Adición de un repositorio de artefactos a un laboratorio en Azure DevTes
 description: Aprenda a agregar un repositorio de artefactos Git a un laboratorio en Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0c2c1b5f93e2b4dcaae818b3f529dc16440c3c75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d823f437cddef0a33c7d7ea3b4c4fbdaad90fb8e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483914"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013486"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Agregar un repositorio de artefactos a un laboratorio en Azure DevTest Labs
 DevTest Labs permite especificar que se agregue un artefacto a una máquina virtual en el mismo momento de crear la máquina virtual o después de que se haya creado. Este artefacto puede ser una herramienta o una aplicación que desee instalar en la máquina virtual. Los artefactos se definen en un archivo JSON que se carga desde un repositorio GitHub o un repositorio GIT de Azure DevOps.
@@ -183,7 +183,7 @@ New-AzResourceGroupDeployment `
 Después de que New-AzResourceGroupDeployment se ejecute correctamente, el comando genera información importante, como el estado de aprovisionamiento (debería ser correcto) y los resultados de la plantilla.
 
 ## <a name="use-azure-powershell"></a>Uso de Azure PowerShell
-En esta sección se proporciona un script de PowerShell de ejemplo que se puede usar para agregar un repositorio de artefactos a un laboratorio. Si no tiene Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview?view=azps-1.2.0) para obtener instrucciones detalladas para instalarlo.
+En esta sección se proporciona un script de PowerShell de ejemplo que se puede usar para agregar un repositorio de artefactos a un laboratorio. Si no tiene Azure PowerShell, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/?view=azps-1.2.0) para obtener instrucciones detalladas para instalarlo.
 
 ### <a name="full-script"></a>Script completo
 Este es el script completo, incluidos algunos mensajes detallados y comentarios:

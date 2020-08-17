@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 5e32baa10e98f0f57a861f8cebfb7506ad615631
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74979925"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080939"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integración de Application Gateway con puntos de conexión de servicio
 Hay tres variaciones de App Service que requieren una configuración ligeramente diferente de la integración con Azure Application Gateway. Por ejemplo, la versión normal de App Service, también conocida como "multiinquilino", el equilibrador de carga interno (ILB) y el ASE externo. En este artículo se explica cómo configurarlo con App Service (multiinquilino) y se explican las consideraciones sobre ILB y el ASE externo.
@@ -33,7 +33,7 @@ Esta configuración tiene dos partes, además, crearemos las instancias de App 
 
 ## <a name="using-azure-portal"></a>Uso de Azure Portal
 Con Azure Portal, siga estos cuatro pasos para aprovisionar y realizar la configuración. Si ya tiene los recursos, puede saltarse los primeros pasos.
-1. Creación de una instancia de App Service con uno de los inicios rápidos de la documentación de App Service, por ejemplo, [Inicio rápido de .NET Core](../../app-service/app-service-web-get-started-dotnet.md)
+1. Creación de una instancia de App Service con uno de los inicios rápidos de la documentación de App Service, por ejemplo, [Inicio rápido de .NET Core](../quickstart-dotnetcore.md)
 2. Cree una instancia de Application Gateway mediante el [inicio rápido del portal](../../application-gateway/quick-create-portal.md), pero sáltese la sección para agregar destinos de back-end.
 3. Configure [App Service como back-end en Application Gateway](../../application-gateway/configure-web-app-portal.md), pero sáltese la sección de restricción del acceso.
 4. Por último, cree la [restricción de acceso usando puntos de conexión de servicio](../../app-service/app-service-ip-restrictions.md#service-endpoints).

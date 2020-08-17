@@ -5,18 +5,18 @@ services: automation
 ms.date: 04/11/2019
 ms.topic: article
 ms.custom: mvc
-ms.openlocfilehash: 0d657dc38cd5b4149bcf7d1dbf1ad73afa75a5e6
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 11ae873ae4700dc4f9cb3d02a898a3ded9f6db59
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186306"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367425"
 ---
 # <a name="enable-change-tracking-and-inventory-from-azure-portal"></a>Habilitación de Change Tracking e Inventario desde Azure Portal
 
 En este artículo se describe cómo se puede habilitar la característica [Change Tracking e Inventario](change-tracking.md) para máquinas virtuales mediante el uso de Azure Portal. Para habilitar máquinas virtuales de Azure a escala, debe habilitar una máquina virtual existente mediante Change Tracking e Inventario. 
 
-El número de grupos de recursos que puede usar para administrar las máquinas virtuales está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/templates/cross-resource-group-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualización, están limitadas a cinco grupos de recursos por implementación. Dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja con tres grupos de recursos que seleccionar para su administración mediante Change Tracking e Inventario. Este límite solo se aplica a la instalación simultánea, no al número de grupos de recursos que una característica de Automation puede administrar.
+El número de grupos de recursos que puede usar para administrar las máquinas virtuales está limitado por los [límites de implementación de Resource Manager](../azure-resource-manager/templates/cross-scope-deployment.md). Las implementaciones de Resource Manager, que no se deben confundir con las implementaciones de actualización, están limitadas a cinco grupos de recursos por implementación. Dos de esos grupos de recursos están reservados para configurar el área de trabajo de Log Analytics, la cuenta de Automation y los recursos relacionados. Esto le deja con tres grupos de recursos que seleccionar para su administración mediante Change Tracking e Inventario. Este límite solo se aplica a la instalación simultánea, no al número de grupos de recursos que una característica de Automation puede administrar.
 
 > [!NOTE]
 > Al habilitar Change Tracking e Inventario, solo se admite la vinculación a un área de trabajo de Log Analytics y una cuenta de Automation en regiones específicas. Para obtener una lista de los pares de asignación que se admiten, consulte [Asignación de región para la cuenta de Automation y el área de trabajo de Log Analytics](how-to/region-mappings.md).

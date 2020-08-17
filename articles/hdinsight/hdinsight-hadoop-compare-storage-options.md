@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seoapr2020
 ms.date: 04/21/2020
-ms.openlocfilehash: ed93ba937a843618f36bac6e88b15ff77355ca75
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: ce1c6bdfb38e37c18a18cf970d2dd08683967da3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610707"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536755"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -63,6 +63,12 @@ Puede crear clústeres mediante combinaciones de servicios para el almacenamient
 > [!NOTE]
 > El almacenamiento principal de Data Lake Storage Gen2 no es compatible con los clústeres de Spark 2.1 o 2.2.
 
+## <a name="data-replication"></a>Replicación de datos
+
+Azure HDInsight no almacena los datos de los clientes. Los principales medios de almacenamiento para un clúster son sus cuentas de almacenamiento asociadas. Puede asociar el clúster a una cuenta de almacenamiento existente o crear una nueva cuenta de almacenamiento durante el proceso de creación del clúster. Si se crea una nueva, será una cuenta de almacenamiento con redundancia local (LRS) y cumplirá los requisitos de residencia de datos en la región, incluidos los especificados en [Centro de confianza](https://azuredatacentermap.azurewebsites.net).
+
+Puede asegurarse de que HDInsight está configurado correctamente para almacenar datos en una sola región, asegurándose de que la cuenta de almacenamiento asociada a HDInsight sea LRS u otra opción de almacenamiento mencionada en [Centro de confianza](https://azuredatacentermap.azurewebsites.net).
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure Storage](./overview-azure-storage.md)

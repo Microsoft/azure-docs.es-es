@@ -1,21 +1,23 @@
 ---
 title: Administración y actualización de Azure HPC Cache
-description: Administración y actualización de Azure HPC Cache mediante Azure Portal
+description: Administración y actualización de Azure HPC Cache mediante Azure Portal o la CLI de Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/08/2020
 ms.author: v-erkel
-ms.openlocfilehash: 825b8a34e130286a5772363107311fe4170e8743
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 66b084cca3d1cd54362a538423988755a3d31ced
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515563"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497237"
 ---
-# <a name="manage-your-cache-from-the-azure-portal"></a>Administración de la memoria caché desde Azure Portal
+# <a name="manage-your-cache"></a>Administración de la caché
 
 En la página de información general de caché de Azure Portal se muestran los detalles del proyecto, el estado de la memoria caché y las estadísticas básicas de dicha memoria. También contiene controles para detener o iniciar la caché, eliminar la caché, vaciar los datos para el almacenamiento a largo plazo y actualizar el software.
+
+En este artículo también se explica cómo realizar estas tareas básicas con la CLI de Azure.
 
 Para abrir la página de información general, seleccione el recurso de caché en Azure Portal. Por ejemplo, cargue la página **Todos los recursos** y haga clic en el nombre de la memoria caché.
 
@@ -23,7 +25,7 @@ Para abrir la página de información general, seleccione el recurso de caché e
 
 Los botones que se encuentran en la parte superior de la página pueden ayudarlo a administrar la memoria caché:
 
-* **Iniciar** y [**Detener**](#stop-the-cache): suspende la operación de caché
+* **Iniciar** y [**Detener**](#stop-the-cache): reanuda o suspende la operación de caché
 * [**Vaciar**](#flush-cached-data): escribe los datos modificados en destinos de almacenamiento
 * [**Actualizar**](#upgrade-cache-software): actualiza el software de caché
 * **Refrescar**: vuelve a cargar la página de información general
@@ -41,6 +43,8 @@ Puede detener la caché para reducir los costos durante un período inactivo. Mi
 
 Una caché detenida no responde a las solicitudes de los clientes. Antes de detener la caché, debe desmontar los clientes.
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 El botón **Detener** suspende una caché activa. El botón **Detener** está disponible cuando el estado de una caché es **Correcto** o **Degradado**.
 
 ![captura de pantalla de los botones superiores con el botón Detener resaltado y un mensaje emergente que describe la acción de detención y pregunta si desea continuar, y los botones Sí (valor predeterminado) y No.](media/stop-cache.png)
@@ -51,6 +55,42 @@ Para reactivar una caché detenida, haga clic en el botón **Iniciar**. No es ne
 
 ![captura de pantalla de los botones principales con Iniciar resaltado](media/start-cache.png)
 
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Suspenda temporalmente una memoria caché con el comando [az hpc-cache stop](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-stop). Esta acción solo es válida cuando el estado de la caché es **Correcto** o **Degradado**.
+
+La caché vacía automáticamente su contenido en los destinos de almacenamiento antes de detenerse. Este proceso puede tardar algún tiempo, pero garantiza la coherencia de los datos.
+
+Una vez completada la acción, el estado de la caché cambia a **Detenido**.
+
+Vuelva a activar una caché detenida con el comando [az hpc-cache start](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-start).
+
+Cuando se realiza el comando para iniciar o detener, la línea de comandos muestra el mensaje de estado "En ejecución" hasta que la operación se completa.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+ - Running ..
+```
+
+Al finalizar, el mensaje se actualiza a "Finalizada" y muestra los códigos de retorno y otra información.
+
+```azurecli
+$ az hpc-cache start --name doc-cache0629
+{- Finished ..
+  "endTime": "2020-07-01T18:46:43.6862478+00:00",
+  "name": "c48d320f-f5f5-40ab-8b25-0ac065984f62",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-01T18:40:28.5468983+00:00",
+  "status": "Succeeded"
+}
+```
+
+---
+
 ## <a name="flush-cached-data"></a>Vaciado de los datos en caché
 
 El botón **Vaciar** de la página de información general indica a la memoria caché que escriba inmediatamente todos los datos modificados que están almacenados en la memoria caché en los destinos de almacenamiento de back-end. La memoria caché guarda regularmente los datos en los destinos de almacenamiento, por lo que no es necesario hacerlo manualmente a menos que desee asegurarse de que el sistema de almacenamiento de back-end esté actualizado. Por ejemplo, puede usar **Vaciar** antes de tomar una instantánea de almacenamiento o comprobar el tamaño del conjunto de datos.
@@ -58,13 +98,47 @@ El botón **Vaciar** de la página de información general indica a la memoria c
 > [!NOTE]
 > Durante el proceso de vaciado, la memoria caché no puede atender las solicitudes del cliente. El acceso a la memoria caché se suspende y se reanuda una vez finalizada la operación.
 
-![Captura de pantalla de los botones superiores con el botón Vaciar resaltado, un mensaje emergente que describe la acción de vaciado y pregunta si desea continuar, y los botones Sí (valor predeterminado) y No.](media/hpc-cache-flush.png)
-
 Cuando se inicia la operación de vaciado de la memoria caché, esta deja de aceptar solicitudes de cliente y su estado de en la página de información general cambia a **Vaciado**.
 
 Los datos de la memoria caché se guardan en los destinos de almacenamiento adecuados. En función de la cantidad de datos que se deban vaciar, el proceso puede tardar unos minutos o más de una hora.
 
 Una vez que todos los datos se guardan en destinos de almacenamiento, la memoria caché empieza de nuevo a tomar las solicitudes de cliente. El estado de la memoria caché vuelve a **Correcto**.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Para vaciar la memoria caché, haga clic en el botón **Vaciar** y, a continuación, haga clic en **Sí** para confirmar la acción.
+
+![Captura de pantalla de los botones superiores con el botón Vaciar resaltado, un mensaje emergente que describe la acción de vaciado y pregunta si desea continuar, y los botones Sí (valor predeterminado) y No.](media/hpc-cache-flush.png)
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Use [az hpc-cache flush](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-flush) para forzar a la memoria caché a escribir todos los datos modificados en los destinos de almacenamiento.
+
+Ejemplo:
+
+```azurecli
+$ az hpc-cache flush --name doc-cache0629 --resource-group doc-rg
+ - Running ..
+```
+
+Cuando finalice el vaciado, se devolverá un mensaje de operación correcta.
+
+```azurecli
+{- Finished ..
+  "endTime": "2020-07-09T17:26:13.9371983+00:00",
+  "name": "c22f8e12-fcf0-49e5-b897-6a6e579b6489",
+  "properties": {
+    "output": "success"
+  },
+  "startTime": "2020-07-09T17:25:21.4278297+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="upgrade-cache-software"></a>Actualización del software de caché
 
@@ -80,7 +154,48 @@ Cuando haya una actualización de software disponible, tendrá una semana aproxi
 
 Si la caché se detiene cuando se supera la fecha de finalización, actualizará automáticamente el software la próxima vez que se inicie. (Es posible que la actualización no se inicie inmediatamente, pero se iniciará en la primera hora).
 
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
 Haga clic en el botón **Actualizar** para comenzar la actualización de software. El estado de la memoria caché cambia a **Actualizando** hasta que se complete la operación.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+En la CLI de Azure, se incluye nueva información sobre el software al final del informe de estado de la memoria caché. (Use [az hpc-cache show](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-show) para comprobarlo). Busque la cadena "upgradeStatus" en el mensaje.
+
+Use [az hpc-cache upgrade-firmware](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-upgrade-firmware) para aplicar la actualización, si existe alguna.
+
+Si no hay ninguna actualización disponible, esta operación no surte ningún efecto.
+
+En este ejemplo se muestra el estado de la memoria caché (no hay ninguna actualización disponible) y los resultados del comando upgrade-firmware.
+
+```azurecli
+$ az hpc-cache show --name doc-cache0629
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+
+<...>
+
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.61",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-06-29T22:18:32.004822+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+$ az hpc-cache upgrade-firmware --name doc-cache0629
+$
+```
+
+---
 
 ## <a name="delete-the-cache"></a>Eliminación de la caché
 
@@ -91,7 +206,35 @@ Los volúmenes de almacenamiento de back-end que se usan como destinos de almace
 > [!NOTE]
 > Azure HPC Cache no escribe automáticamente los datos modificados de la caché en los sistemas de almacenamiento de back-end antes de eliminar la caché.
 >
-> Para asegurarse de que todos los datos de la caché se han escrito en almacenamiento a largo plazo, [detenga la caché](#stop-the-cache) antes de eliminarla. Asegúrese de que muestra el estado **Detenido** antes de hacer clic en el botón Eliminar.
+> Para asegurarse de que todos los datos de la caché se han escrito en almacenamiento a largo plazo, [detenga la caché](#stop-the-cache) antes de eliminarla. Asegúrese de que muestra el estado **Detenido** antes eliminarla.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Después de detener la memoria caché, haga clic en el botón **Eliminar** para quitar la memoria caché de forma permanente.
+
+### <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+Use el comando de la CLI de Azure [az hpc-cache delete](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-delete) para quitar la memoria caché de forma permanente.
+
+Ejemplo:
+```azurecli
+$ az hpc-cache delete --name doc-cache0629
+ - Running ..
+
+<...>
+
+{- Finished ..
+  "endTime": "2020-07-09T22:24:35.1605019+00:00",
+  "name": "7d3cd0ba-11b3-4180-8298-d9cafc9f22c1",
+  "startTime": "2020-07-09T22:13:32.0732892+00:00",
+  "status": "Succeeded"
+}
+$
+```
+
+---
 
 ## <a name="cache-metrics-and-monitoring"></a>Supervisión y métricas de caché
 

@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 84709c022631543101889f784231158ebb96b6f3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c315cc8c9dfcfa66999ff263fab95f414061e54e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77662271"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321265"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envío de métricas personalizadas de un recurso de Azure al almacén de métricas de Azure Monitor mediante la API REST
 
 En este artículo muestra cómo enviar métricas personalizadas de los recursos de Azure al almacén de métricas Azure Monitor a través de una API de REST. Una vez que las métricas estén en Azure Monitor, puede hacer con ellas lo mismo que con las métricas estándar. Por ejemplo, puede crear gráficos o alertas, y enrutarlos a otras herramientas externas.  
 
 >[!NOTE]  
->La API de REST solo permite el envío de métricas personalizadas de los recursos de Azure. Para enviar métricas de recursos en distintos entornos o de forma local, puede usar [Application Insights](../../azure-monitor/app/api-custom-events-metrics.md).    
+>La API de REST solo permite el envío de métricas personalizadas de los recursos de Azure. Para enviar métricas de recursos en distintos entornos o de forma local, puede usar [Application Insights](../app/api-custom-events-metrics.md).    
 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Creación y autorización de una entidad de servicio para la emisión de métricas 
@@ -93,7 +93,7 @@ Si recibe un mensaje de error en alguna parte del proceso, tenga en cuenta la si
 1. No se pueden emitir métricas con respecto a una suscripción o grupo de recursos como el recurso de Azure. 
 1. No se puede colocar en el almacén una métrica si pasan más de 20 minutos desde su creación. El almacén de métricas está optimizado para las alertas y los gráficos en tiempo real. 
 2. El número de nombres de dimensión debe coincidir con los valores y viceversa. Compruebe los valores. 
-2. Se pueden emitir métricas con respecto a una región que no es compatible con las métricas personalizadas. Consulte las [regiones admitidas](../../azure-monitor/platform/metrics-custom-overview.md#supported-regions). 
+2. Se pueden emitir métricas con respecto a una región que no es compatible con las métricas personalizadas. Consulte las [regiones admitidas](./metrics-custom-overview.md#supported-regions). 
 
 
 
@@ -117,5 +117,5 @@ Si recibe un mensaje de error en alguna parte del proceso, tenga en cuenta la si
 
  
 ## <a name="next-steps"></a>Pasos siguientes
-- Más información acerca de las [métricas personalizadas](../../azure-monitor/platform/metrics-custom-overview.md).
+- Más información acerca de las [métricas personalizadas](./metrics-custom-overview.md).
 

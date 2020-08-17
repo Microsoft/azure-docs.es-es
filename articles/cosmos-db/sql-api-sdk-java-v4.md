@@ -8,12 +8,13 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 05/20/2020
 ms.author: anfeldma
-ms.openlocfilehash: aa5e741d8578253b8b3e8e5c692873c39cec8f79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 51582fd9aba8721b28f6fb18daec4d0009d0ac15
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85412641"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500664"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Versión 4 del SDK de Java para la API SQL de Azure Cosmos DB: notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -61,6 +62,40 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 | **Talleres y laboratorios de Azure Cosmos DB** |[Página principal de talleres de Cosmos DB](https://aka.ms/cosmosworkshop)
 
 ## <a name="release-history"></a>Historial de versiones
+
+### <a name="440-beta1-unreleased"></a>4.4.0-beta.1 (no publicada)
+
+### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
+#### <a name="new-features"></a>Nuevas características
+* Versión actualizada de la biblioteca reactor-core a `3.3.8.RELEASE` 
+* Versión actualizada de la biblioteca reactor-netty a `0.9.10.RELEASE` 
+* Versión actualizada de la biblioteca netty a `4.1.51.Final` 
+* Nuevas API de sobrecarga agregadas para `upsertItem` con `partitionKey` 
+* Compatibilidad agregada con el seguimiento de telemetría abierto 
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se corrigió un problema por el que se genera SSLException en caso de cancelación de solicitudes en modo PUERTA DE ENLACE.
+* Se corrigió una directiva de reintentos con limitación de recursos en la ejecución de procedimientos almacenados.
+* Se corrigió un problema en el que el SDK se bloquea en modo DEPURACIÓN a nivel de registro. 
+* Se corrigieron picos periódicos en la latencia en modo Directo. 
+* Se corrigió un problema de hora de inicialización de cliente elevado. 
+* Se corrigió el error del proxy HTTP al personalizar el cliente con el modo de puerta de enlace y el modo directo. 
+* Se corrigió un posible error NPE en opciones null al transferir usuarios. 
+* Se agregó timeUnit a `requestLatency` en la cadena de diagnóstico.
+* Se quitó la cadena de URI duplicada de la cadena de diagnóstico. 
+* Se corrigió la cadena de diagnóstico en el formato JSON adecuado para las operaciones de punto.
+* Se corrigió un problema con el operador `.single()` que causaba que la cadena de reactor se deshiciera en caso de excepción no encontrada. 
+
+### <a name="420-2020-07-14"></a>4.2.0 (2020-07-14)
+#### <a name="new-features"></a>Nuevas características
+* Se ha agregado la API habilitada para el registro de scripts a `CosmosStoredProcedureRequestOptions`.
+* Se actualizó `idleEndpointTimeout` predeterminada de `DirectConnectionConfig` a 1 h y `connectTimeout` predeterminado a 5 s.
+#### <a name="key-bug-fixes"></a>Correcciones de errores clave
+* Se ha corregido un problema por el que `GatewayConnectionConfig` `idleConnectionTimeout` invalidaba `DirectConnectionConfig` `idleConnectionTimeout`.
+* Se han corregido las API de obtención y establecimiento `responseContinuationTokenLimitInKb` en `CosmosQueryRequestOptions`.
+* Se ha corregido un problema en la consulta y fuente de cambios al volver a crear la colección con el mismo nombre.
+* Se ha corregido el problema con la consulta superior lanzando ClassCastException.
+* Se ha corregido el problema con el orden mediante la consulta lanzando NullPointerException.
+* Se ha corregido un problema en el control de las solicitudes canceladas en el modo directo que causaba la llamada del reactor `onErrorDropped`. 
 
 ### <a name="410-2020-06-25"></a>4.1.0 (25-06-2020)
 #### <a name="new-features"></a>Nuevas características
@@ -126,6 +161,7 @@ La versión 4 del SDK de Java de Azure Cosmos DB para Core (SQL) combina una A
 * Se han optimizado las consultas quitando la doble serialización o deserialización. 
 * Se han optimizado los encabezados de respuesta quitando copias innecesarias hacia adelante y hacia atrás. 
 * Se ha optimizado la serialización y deserialización de `ByteBuffer` quitando las creaciones de instancias de cadena intermedias.
+
 #### <a name="key-bug-fixes"></a>Correcciones de errores clave
 * Se ha corregido la excepción del puntero nulo ConnectionPolicy `toString()`.
 * Se ha corregido un problema con el análisis de los resultados de la consulta al ordenar los valores por consulta. 

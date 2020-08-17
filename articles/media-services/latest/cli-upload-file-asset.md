@@ -14,12 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5d1dc90832a399aa9ee253b2c7962b8536c1926a
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 5a28cabfbc5cbba906a8c16451de801818b3fbed
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80383011"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489969"
 ---
 # <a name="azure-cli-example-upload-a-local-file-to-a-container"></a>Ejemplo de la CLI de Azure: carga de un archivo local en un contenedor
 
@@ -27,7 +28,7 @@ El script de la CLI de Azure de este artículo muestra cómo cargar un archivo l
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* [Cree una cuenta de Media Services](create-account-cli-how-to.md).
+* [Cree una cuenta de Media Services](./create-account-howto.md).
 * Consulte [Administración de recursos](manage-asset-concept.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]

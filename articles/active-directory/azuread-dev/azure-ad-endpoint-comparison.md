@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.subservice: azuread-dev
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 07/17/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 67a54a2cd4fa071fd47bcebb9aa53fd11fefd61e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c6e59ab0432ad2b7bdccb5ce9916e85eb6d95048
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154923"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116400"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)
 
@@ -33,9 +33,9 @@ Al desarrollar una nueva aplicación, es importante conocer las diferencias entr
 
 * El punto de conexión v1.0 solo permite iniciar sesión en la aplicación con cuentas profesionales y educativas (Azure AD).
 * El punto de conexión de la Plataforma de identidad de Microsoft permite iniciar sesión con cuentas profesionales y educativas de Azure AD y con cuentas Microsoft personales (MSA), como hotmail.com, outlook.com y msn.com.
-* Ambos puntos de conexión aceptan inicios de sesión de *[usuarios invitados](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* de un directorio de Azure AD para las aplicaciones configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o para las aplicaciones configuradas como *multiinquilino* para el punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
+* Ambos puntos de conexión aceptan inicios de sesión de *[usuarios invitados](../external-identities/what-is-b2b.md)* de un directorio de Azure AD para las aplicaciones configuradas como *[inquilino único](../develop/single-and-multi-tenant-apps.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)* o para las aplicaciones configuradas como *multiinquilino* para el punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-El punto de conexión de la Plataforma de identidad de Microsoft le permite escribir aplicaciones que aceptan inicios de sesión desde cuentas Microsoft personales y cuentas profesionales y educativas. Esto le permite escribir la aplicación con independencia absoluta de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de directorio. Pero, para muchas acciones, como [leer correo de un usuario](https://docs.microsoft.com/graph/api/user-list-messages?view=graph-rest-1.0), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
+El punto de conexión de la Plataforma de identidad de Microsoft le permite escribir aplicaciones que aceptan inicios de sesión desde cuentas Microsoft personales y cuentas profesionales y educativas. Esto le permite escribir la aplicación con independencia absoluta de la cuenta. Por ejemplo, si su aplicación llama a [Microsoft Graph](https://graph.microsoft.io), las cuentas profesionales tendrán a su disposición algunos datos y funcionalidades adicionales, como los sitios de SharePoint o datos de directorio. Pero, para muchas acciones, como [leer correo de un usuario](/graph/api/user-list-messages?view=graph-rest-1.0), el mismo código puede acceder al correo electrónico tanto para cuentas personales como profesionales y educativas.
 
 En el caso del punto de conexión de la Plataforma de identidad de Microsoft, puede usar la Biblioteca de autenticación de Microsoft (MSAL) para obtener acceso a entornos educativos, de consumidor y de empresa. El punto de conexión v1.0 de Azure AD acepta inicios de sesión solo desde cuentas profesionales y educativas.
 
@@ -141,34 +141,7 @@ Los registros de aplicaciones que admiten cuentas profesionales y educativas y c
 
 ### <a name="restrictions-on-redirect-urls"></a>Restricciones en las URL de redireccionamiento
 
-Las aplicaciones registradas para la Plataforma de identidad de Microsoft están restringidas a un conjunto limitado de valores de URL de redireccionamiento. La URL de redireccionamiento de aplicaciones y servicios web debe comenzar por el esquema `https`, y todos los valores de URL de redireccionamiento deben compartir un único dominio DNS.  El sistema de registro compara el nombre DNS completo de la URL de redireccionamiento existente con el nombre DNS de la URL de redireccionamiento que va a agregar. `http://localhost` también se admite como una dirección URL de redireccionamiento.  
-
-La solicitud para agregar el nombre DNS presentará un error si se cumple alguna de las condiciones siguientes:  
-
-* El nombre DNS completo de la nueva URL de redireccionamiento no coincide con el nombre DNS de la URL de redireccionamiento existente.
-* El nombre DNS completo de la nueva URL de redireccionamiento no es un subdominio de la URL de redireccionamiento existente.
-
-#### <a name="example-1"></a>Ejemplo 1
-
-Si la aplicación tiene una dirección URL de redireccionamiento de `https://login.contoso.com`, puede agregar una dirección URL de redireccionamiento donde el nombre DNS coincide exactamente, como se muestra en el ejemplo siguiente:
-
-`https://login.contoso.com/new`
-
-O bien, puede hacer referencia a un subdominio DNS de login.contoso.com, tal como se muestra en el ejemplo siguiente:
-
-`https://new.login.contoso.com`
-
-#### <a name="example-2"></a>Ejemplo 2
-
-Si desea que una aplicación tenga `login-east.contoso.com` y `login-west.contoso.com` como direcciones URL de redireccionamiento, debe agregar las URL de redireccionamiento en el orden siguiente:
-
-`https://contoso.com`  
-`https://login-east.contoso.com`  
-`https://login-west.contoso.com`  
-
-Puede agregar las dos últimas porque son subdominios de la primera URL de redireccionamiento, contoso.com.
-
-Solo puede tener 20 URL de respuesta para una aplicación en particular; este límite se aplica a todos los tipos de aplicaciones que admite el registro [aplicación de página única (SPA), cliente nativo, aplicación web y servicio].  
+Para obtener la información más actualizada sobre las restricciones en las direcciones URL de redireccionamiento para las aplicaciones registradas en la Plataforma de identidad de Microsoft, consulte [Limitaciones y restricciones de URI de redireccionamiento o URL de respuesta](../develop/reply-url.md) en la documentación de la Plataforma de identidad de Microsoft.
 
 Para obtener información sobre cómo registrar una aplicación para usar con la Plataforma de identidad de Microsoft, consulte [Registro de una aplicación con la nueva experiencia de registros de aplicaciones](../develop/quickstart-register-app.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
 

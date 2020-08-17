@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/15/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 401ca1a22b47555f530e1785e25653269403812c
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 1c16f83be4cd10f53705633b9c4f4eb522c8408e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83662216"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058145"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whimsical"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Whimsical
 
@@ -37,7 +37,7 @@ Para más información sobre la integración de aplicaciones SaaS con Azure AD,
 Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
-* Una suscripción habilitada para el inicio de sesión único (SSO) en Whimsical.
+* Área de trabajo de equipo de Whimsical.
 
 > [!NOTE]
 > El identificador de esta aplicación es un valor de cadena fijo, por lo que solo se puede configurar una instancia en un inquilino.
@@ -93,9 +93,9 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://whimsical.com/@<TENANT_NAME>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Para obtener estos valores, póngase en contacto con el [equipo de soporte técnico al cliente de Whimsical](mailto:help@whimsical.com). También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Los valores específicos se mostrarán en la pantalla de configuración de SAML, en la configuración del área de trabajo de Whimsical. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación Whimsical espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
+1. La aplicación Whimsical espera las aserciones SAML en un formato específico, lo cual requiere que se añadan asignaciones de atributos personalizados a la configuración de atributos del token SAML. La siguiente captura de muestra la lista de atributos predeterminados.
 
     ![imagen](common/default-attributes.png)
 
@@ -146,7 +146,11 @@ En esta sección, va a permitir que B.Simon acceda a Whimsical mediante el inici
 
 ## <a name="configure-whimsical-sso"></a>Configuración del inicio de sesión único de Whimsical
 
-Para configurar el inicio de sesión único en **Whimsical**, es preciso enviar el archivo **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Whimsical](mailto:help@whimsical.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Whimsical**, tiene que cargar el **XML de metadatos de federación** que acaba de descargar en la [configuración del área de trabajo](https://whimsical.com/workspace/settings).
+
+![Configuración de SAML en área de trabajo de Whimsical](media/whimsical-tutorial/saml-setup.png)
+
+Cargar el **XML de metadatos de federación** es el único paso que debe realizar en Whimsical para configurar la conexión de inicio de sesión único de SAML.
 
 ### <a name="create-whimsical-test-user"></a>Creación de un usuario de prueba de Whimsical
 

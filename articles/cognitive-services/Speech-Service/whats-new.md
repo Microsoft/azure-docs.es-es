@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 017de2f66d6e57c9081e0d1ed53232a4634d4f4f
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: 4c448b8ed50863457da69db3f74b959f04e26ec1
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740274"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131861"
 ---
 # <a name="speech-service-whats-new-in-docs"></a>Servicio Voz: novedades de la documentación
 
@@ -56,7 +56,7 @@ Si quiere obtener información sobre las actualizaciones en el Servicio Voz, el 
 
 ### <a name="github-issues-opened-in-may"></a>Problemas de GitHub abiertos en mayo
 
-Estos problemas se abrieron en junio. En esta tabla se indica el usuario que ha abierto el problema, cuándo se ha abierto y su estado.  
+Estos problemas se abrieron en mayo. En esta tabla se indica el usuario que ha abierto el problema, cuándo se ha abierto y su estado.  
 
 Esta tabla se actualiza cada mes y solo refleja los problemas abiertos en mayo.  
 

@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4b1abe8efb4baaf260005df1a4ee5b6d1645715a
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: e9bd2db8bcc427118a76f87e49ade422a74a11c1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84169226"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276931"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento
 
@@ -132,7 +132,7 @@ Dado que el proveedor de recursos de Azure Storage no realiza la conmutación po
 
 ### <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
-Las máquinas virtuales (VM) de Azure no conmutan por error como parte de la conmutación por error de una cuenta. Si la región primaria deja de estar disponible y se realiza la conmutación por error en la región secundaria, deberá volver a crear cualquier máquina virtual después de la operación. También hay una potencial pérdida de datos asociada a la conmutación por error de la cuenta. Microsoft recomienda la siguiente guía para [alta disponibilidad](../../virtual-machines/windows/manage-availability.md) y [recuperación ante desastres](../../virtual-machines/virtual-machines-disaster-recovery-guidance.md), que es específica para máquinas virtuales de Azure.
+Las máquinas virtuales (VM) de Azure no conmutan por error como parte de la conmutación por error de una cuenta. Si la región primaria deja de estar disponible y se realiza la conmutación por error en la región secundaria, deberá volver a crear cualquier máquina virtual después de la operación. También hay una potencial pérdida de datos asociada a la conmutación por error de la cuenta. Microsoft recomienda la siguiente guía para [alta disponibilidad](../../virtual-machines/windows/manage-availability.md) y [recuperación ante desastres](../../virtual-machines/windows/backup-recovery.md), que es específica para máquinas virtuales de Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos no administrados de Azure
 

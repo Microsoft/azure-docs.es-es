@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 8e0927ccd8c94f589adf6eb11004b728f697b6e1
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: d166257dd28773d89a4f1fd56de3cb1a22242523
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362414"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284173"
 ---
 # <a name="create-application-with-simple-commands"></a>Creación de una aplicación con comandos simples
 
@@ -97,7 +97,7 @@ A continuación, el comando debe contener una regla de finalización. Esta regla
 1. De nuevo en la sección **Completion rules** (reglas de finalización), seleccione **Guardar** para guardar todos los cambios. 
 
 
- > [!NOTE]
+    > [!NOTE]
     > No es necesario usar la regla de finalización predeterminada que viene con el comando. Si es preciso, puede eliminar la regla de finalización predeterminada existente y agregar su propia regla.
 
 ### <a name="try-it-out"></a>Prueba

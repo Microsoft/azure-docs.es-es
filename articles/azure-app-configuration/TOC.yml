@@ -4,6 +4,8 @@
   items:
     - name: Acerca de Azure App Configuration
       href: overview.md
+    - name: Procedimientos recomendados
+      href: howto-best-practices.md
     - name: Preguntas más frecuentes
       href: faq.md
 - name: Guías de inicio rápido
@@ -34,26 +36,32 @@
           href: quickstart-feature-flag-spring-boot.md
 - name: Tutoriales
   items:
-    - name: Habilitar la configuración dinámica en ASP.NET Core
-      href: enable-dynamic-configuration-aspnet-core.md
-    - name: Habilitar la configuración dinámica en una aplicación de .NET Core
-      href: enable-dynamic-configuration-dotnet-core.md
-    - name: Habilitación de la configuración dinámica en .NET Framework
-      href: enable-dynamic-configuration-dotnet.md
-    - name: Habilitación de la configuración dinámica en Azure Functions
-      href: enable-dynamic-configuration-azure-functions-csharp.md
-    - name: Habilitación de la configuración dinámica en Spring Boot
-      href: enable-dynamic-configuration-java-spring-app.md
-    - name: Uso de marcas de características en una aplicación de .NET Core
-      href: use-feature-flags-dotnet-core.md
-    - name: Uso de marcas de características en una aplicación de Spring Boot
-      href: use-feature-flags-spring-boot.md
+    - name: Habilitación de la configuración dinámica
+      items:
+        - name: ASP.NET Core
+          href: enable-dynamic-configuration-aspnet-core.md
+        - name: .NET Core
+          href: enable-dynamic-configuration-dotnet-core.md
+        - name: .NET Framework
+          href: enable-dynamic-configuration-dotnet.md
+        - name: Azure Functions
+          href: enable-dynamic-configuration-azure-functions-csharp.md
+        - name: Spring Boot
+          href: enable-dynamic-configuration-java-spring-app.md
+    - name: Uso de marcas de características
+      items:
+        - name: .NET Core
+          href: use-feature-flags-dotnet-core.md
+        - name: Spring Boot
+          href: use-feature-flags-spring-boot.md
     - name: Administración de marcas de características
       href: manage-feature-flags.md
-    - name: "Uso de referencias de Key Vault en ASP.NET\_Core"
-      href: use-key-vault-references-dotnet-core.md
-    - name: Uso de referencias de Key Vault en Spring Boot
-      href: use-key-vault-references-spring-boot.md
+    - name: Uso de referencias de Key Vault
+      items:
+        - name: ASP.NET Core
+          href: use-key-vault-references-dotnet-core.md
+        - name: Spring Boot
+          href: use-key-vault-references-spring-boot.md
     - name: Integración con una canalización de CI/CD
       href: integrate-ci-cd-pipeline.md
     - name: Integración con la implementación de Kubernetes mediante Helm
@@ -67,7 +75,7 @@
       href: ./policy-samples.md
 - name: Conceptos
   items:
-    - name: almacén de pares clave-valor
+    - name: Claves y valores
       href: concept-key-value.md
     - name: Instantánea en un momento dado
       href: concept-point-time-snapshot.md
@@ -83,8 +91,6 @@
           href: concept-customer-managed-keys.md
         - name: Protección del almacén de configuración con puntos de conexión privados
           href: concept-private-endpoint.md
-        - name: Integración con Identidad administrada de Azure
-          href: howto-integrate-azure-managed-service-identity.md
         - name: Habilitar el acceso mediante Azure Active Directory
           href: concept-enable-rbac.md
         - name: Asignación de una identidad administrada de Azure
@@ -101,12 +107,14 @@
       href: howto-labels-aspnet-core.md
     - name: Importación o exportación de datos de configuración
       href: howto-import-export-data.md
+    - name: Uso de un tipo de contenido JSON para valores clave
+      href: howto-leverage-json-content-type.md
     - name: Enrutamiento de eventos a un punto de conexión personalizado
       href: howto-app-configuration-event.md
     - name: Copia de seguridad automática del almacén de configuración
       href: howto-backup-config-store.md
-    - name: Procedimientos recomendados
-      href: howto-best-practices.md
+    - name: Uso de identidades administradas para acceder a App Configuration
+      href: howto-integrate-azure-managed-service-identity.md
 - name: Referencia
   items:
     - name: Configuración

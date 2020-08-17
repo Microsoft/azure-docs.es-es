@@ -5,12 +5,12 @@ ms.date: 03/24/2020
 ms.topic: conceptual
 description: Describe los procesos que posibilitan el funcionamiento de Azure Dev Spaces y cómo funciona el enrutamiento.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 8677284d61a0a08a3262c26d6307399922dab4be
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19a55f37725464da73e93877d9c5238f3ebaced1
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512476"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077672"
 ---
 # <a name="how-routing-works-with-azure-dev-spaces"></a>Funcionamiento del enrutamiento con Azure Dev Spaces
 
@@ -49,7 +49,7 @@ El restante tráfico TCP que no es HTTP pasa a través del controlador de entrad
 
 ## <a name="sharing-a-dev-space"></a>Uso compartido de un espacio de desarrollo
 
-Al trabajar con un equipo, puede [compartir un espacio de desarrollo con el equipo al completo](how-to/share-dev-spaces.md) y crear espacios de desarrollo derivados. Cualquier persona con acceso de colaborador al grupo de recursos del espacio de desarrollo puede usar un espacio de desarrollo.
+Al trabajar con un equipo, puede compartir un espacio de desarrollo con el equipo al completo y crear espacios de desarrollo derivados. Cualquier persona con acceso de colaborador al grupo de recursos del espacio de desarrollo puede usar un espacio de desarrollo.
 
 También puede crear un espacio de desarrollo que se derive de otro espacio de desarrollo. Al crear un espacio de desarrollo derivado, se agrega la etiqueta *azds.io/parent-space=PARENT-SPACE-NAME* al espacio de nombres del espacio de desarrollo derivado. Además, todas las aplicaciones del espacio de desarrollo primario se comparten con el espacio de desarrollo derivado. Si implementa una versión actualizada de una aplicación en el espacio de desarrollo derivado, solo existirá en este espacio y el espacio de desarrollo primario no se verá afectado. Puede tener un máximo de tres niveles de espacios de desarrollo derivados o espacios *primarios principales*.
 

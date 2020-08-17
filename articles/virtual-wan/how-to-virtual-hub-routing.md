@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6d14094edc7ae21ca0d56b544fb9c2b19f1f0582
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86144986"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513067"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Configuración del enrutamiento de centro virtual
 
@@ -22,7 +22,7 @@ Un centro virtual puede contener varias puertas de enlace, como una puerta de en
 Para obtener más información, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
 > [!NOTE]
-> Es posible que algunas de estas funcionalidades todavía se estén implementando. Se espera que la implementación se haya completado el 3 de agosto.
+> Es posible que algunas de estas funcionalidades todavía se estén implementando. Se espera que la implementación se haya completado el 17 de agosto.
 >
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Creación de una tabla de rutas

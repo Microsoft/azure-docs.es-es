@@ -49,6 +49,8 @@
       items:
         - name: Arquitectura de Azure AD
           href: active-directory-architecture.md
+        - name: "Integración de todas sus aplicaciones en Azure\_AD"
+          href: five-steps-to-full-application-integration-with-azure-ad.md
     - name: Guía de implementación
       items:
         - name: 'Implementación de 30, 90 y más'

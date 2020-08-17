@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: e90e45a0c96d8bbd2806a0ab6df70ef83e0cc9f6
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 000413267d09f5f51ffdb50ccc5aeaab78a18b5e
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121935"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036664"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creación de una oferta de Dynamics 365 for Customer Engagement y PowerApps
 
@@ -190,6 +190,8 @@ Proporcione aquí al menos un documento de marketing relacionado (y un máximo d
 
 Proporcione logotipos e imágenes para la oferta. Todas las imágenes deben estar en formato PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
@@ -199,6 +201,8 @@ Proporcione el logotipo de la oferta en tres tamaños de píxel:
 - **Pequeño** (obligatorio; 48 x 48)
 - **Grande** (obligatorio; 216 x 216)
 - **Ancho** (opcional; 255 x 115)
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

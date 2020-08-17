@@ -12,12 +12,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 05/27/2020
-  ms.openlocfilehash: 358c6e85b7a2d6e54b72bb94c00e86f330decd19
-  ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+  ms.openlocfilehash: 33d6acf888c7335c282e53201e6219e4e044cc8e
+  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/11/2020
-  ms.locfileid: "84708780"
+  ms.lasthandoff: 08/12/2020
+  ms.locfileid: "88136293"
 landingContent:
 - title: Instancia administrada de Azure SQL
   linkLists:
@@ -70,11 +70,11 @@ landingContent:
   - linkListType: deploy
     links:
     - text: Ejemplos de la CLI de Azure
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: ../database/az-cli-script-samples-content-guide.md
     - text: Ejemplos de PowerShell
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: ../database/powershell-script-content-guide.md
     - text: Ejemplos de plantilla de Resource Manager
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: ../database/arm-templates-content-guide.md
   - linkListType: download
     links:
     - text: SQL Server Management Studio (SSMS)

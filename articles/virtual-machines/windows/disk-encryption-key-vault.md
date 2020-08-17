@@ -3,17 +3,17 @@ title: Creación y configuración de un almacén de claves para Azure Disk Encry
 description: En este artículo se proporcionan los pasos necesarios para crear y configurar un almacén de claves para su uso con Azure Disk Encryption
 ms.service: virtual-machines
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 author: msmbaldwin
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec0862a0d4de644630c972387f01feaa1a327e67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0779cad02f266d49be055ea485e87c9c8075b7b3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500759"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284530"
 ---
 # <a name="creating-and-configuring-a-key-vault-for-azure-disk-encryption"></a>Creación y configuración de un almacén de claves para Azure Disk Encryption
 
@@ -25,7 +25,7 @@ Azure Disk Encryption usa Azure Key Vault para controlar y administrar las clave
 La creación y configuración de un almacén de claves para su uso con Azure Disk Encryption conlleva estos tres pasos:
 
 > [!Note]
-> Debe seleccionar la opción en la configuración de la directiva de acceso de Azure Key Vault para habilitar el acceso a Azure Disk Encryption para el cifrado del volumen.
+> Debe seleccionar la opción en la configuración de la directiva de acceso de Azure Key Vault para habilitar el acceso a Azure Disk Encryption para el cifrado del volumen. Si ha habilitado el firewall en el almacén de claves, debe ir a la pestaña Redes en el almacén de claves y habilitar el acceso a los servicios de confianza de Microsoft. 
 
 1. Creación de un grupo de recursos, en caso de que sea necesario.
 2. Creación de un almacén de claves. 
@@ -43,7 +43,7 @@ Si lo desea, también puede generar o importar una clave de cifrado de claves (K
 
 ## <a name="install-tools-and-connect-to-azure"></a>Instalación de herramientas y conexión a Azure
 
-Los pasos que se describen en este artículo se pueden completar con la [CLI de Azure](/cli/azure/), el [módulo Az de Azure PowerShell](/powershell/azure/overview) o [Azure Portal](https://portal.azure.com).
+Los pasos que se describen en este artículo se pueden completar con la [CLI de Azure](/cli/azure/), el [módulo Az de Azure PowerShell](/powershell/azure/) o [Azure Portal](https://portal.azure.com).
 
 Aunque se puede acceder al portal a través de un explorador, tanto la CLI de Azure como Azure PowerShell requieren una instalación local; consulte [Azure Disk Encryption para Windows: instalación de herramientas](disk-encryption-windows.md#install-tools-and-connect-to-azure) para más información.
 

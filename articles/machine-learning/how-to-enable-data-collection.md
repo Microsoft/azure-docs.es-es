@@ -1,32 +1,34 @@
 ---
 title: Recopilar datos en los modelos de producción
 titleSuffix: Azure Machine Learning
-description: Aprenda a recopilar datos de modelos de entrada de Azure Machine Learning en Azure Blob Storage.
+description: Obtenga información sobre cómo recopilar datos de un modelo de Azure Machine Learning implementado
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.reviewer: laobri
+ms.reviewer: sgilley
 ms.author: copeters
 author: lostmygithubaccount
-ms.date: 11/12/2019
-ms.custom: seodec18
-ms.openlocfilehash: 75402c71316f7cc7d068c12a240f3123569a00ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 3ece750ab63c2c8e33fbfb46739eec55de4f5d07
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84432998"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320194"
 ---
-# <a name="collect-data-for-models-in-production"></a>Recopilar datos de modelos en producción
+# <a name="collect-data-from-models-in-production"></a>Recopilación de datos de modelos en producción
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo se muestra cómo recopilar datos de modelos de entrada de Azure Machine Learning. También se muestra cómo implementar los datos de entrada en un clúster de Azure Kubernetes Service (AKS) y cómo almacenar los datos de salida en Azure Blob Storage.
+En este artículo se muestra cómo recopilar datos de un modelo de Azure Machine Learning implementado en un clúster de Azure Kubernetes Service (AKS). Los datos recopilados se almacenan luego en Azure Blob Storage.
 
 Una vez que la colección está habilitada, los datos que recopile le ayudarán a:
 
-* [Supervisar el desfase de datos](how-to-monitor-data-drift.md) a medida que los datos de producción entran en el modelo.
+* [Supervise los desfases de datos](how-to-monitor-datasets.md) en los datos de producción que recopile.
+
+* Analice los datos recopilados mediante [Power BI](#powerbi) o [Azure Databricks](#databricks)
 
 * Tomar mejores decisiones sobre cuándo volver a entrenar u optimizar el modelo.
 
@@ -65,17 +67,17 @@ La ruta de acceso a los datos de salida en el blob sigue esta sintaxis:
 
 - Necesita un clúster de AKS. Para información sobre cómo crear uno e implementarlo, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-- [Configure el entorno](how-to-configure-environment.md) e instale el [SDK de supervisión de Azure Machine Learning](https://aka.ms/aml-monitoring-sdk).
+- [Configure el entorno](how-to-configure-environment.md) e instale el [SDK de supervisión de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
 ## <a name="enable-data-collection"></a>Habilitación de recolección de datos
 
-Puede habilitar la recopilación de datos independientemente del modelo que implemente mediante Azure Machine Learning u otras herramientas.
+Puede habilitar la [recopilación de datos](https://docs.microsoft.com/python/api/azureml-monitoring/azureml.monitoring.modeldatacollector.modeldatacollector?view=azure-ml-py) independientemente del modelo que implemente mediante Azure Machine Learning u otras herramientas.
 
 Para habilitar la recopilación de datos, debe hacer lo siguiente:
 
 1. Abrir el archivo de puntuación.
 
-1. Agregue el [código siguiente](https://aka.ms/aml-monitoring-sdk) en la parte superior del archivo:
+1. Agregue el código siguiente en la parte superior del archivo:
 
    ```python 
    from azureml.monitoring import ModelDataCollector
@@ -116,41 +118,10 @@ Para habilitar la recopilación de datos, debe hacer lo siguiente:
 
 1. Para crear una imagen e implementar el modelo de aprendizaje automático, consulte [Implementación de modelos con Azure Machine Learning](how-to-deploy-and-where.md).
 
-Si ya tiene un servicio con las dependencias instaladas en el archivo de entorno y el archivo de puntuación, habilite la recopilación de datos mediante estos pasos:
-
-1. Vaya a [Azure Machine Learning](https://ml.azure.com).
-
-1. Abra el área de trabajo.
-
-1. Seleccione **Deployments** > **Select service** > **Edit** (Implementaciones > Seleccionar servicio > Editar).
-
-   ![Edición del servicio](././media/how-to-enable-data-collection/EditService.PNG)
-
-1. En **Configuración avanzada**, active **Enable Application Insights diagnostics and data collection** (Habilitar la recopilación de datos y el diagnóstico de Application Insights).
-
-1. Seleccione **Update** (Actualizar) para aplicar el cambio.
 
 ## <a name="disable-data-collection"></a>Deshabilitar la recopilación de datos
 
-Puede dejar de recopilar datos en cualquier momento. Use código Python o Azure Machine Learning Studio para deshabilitar la recopilación de datos.
-
-### <a name="option-1---disable-data-collection-in-azure-machine-learning"></a>Opción 1: Deshabilitar la recopilación de datos en Azure Machine Learning
-
-1. Inicie sesión en [Azure Machine Learning](https://ml.azure.com).
-
-1. Abra el área de trabajo.
-
-1. Seleccione **Deployments** > **Select service** > **Edit** (Implementaciones > Seleccionar servicio > Editar).
-
-   [![Selección del icono de edición](././media/how-to-enable-data-collection/EditService.PNG)](./././media/how-to-enable-data-collection/EditService.PNG#lightbox)
-
-1. En **Configuración avanzada**, desactive **Enable Application Insights diagnostics and data collection** (Habilitar la recopilación de datos y el diagnóstico de Application Insights).
-
-1. Seleccione **Actualizar** para aplicar el cambio.
-
-También puede acceder a esta configuración en el área de trabajo de [Azure Machine Learning](https://ml.azure.com).
-
-### <a name="option-2---use-python-to-disable-data-collection"></a>Opción 2: Usar Python para deshabilitar la recopilación de datos
+Puede dejar de recopilar datos en cualquier momento. Use código Python para deshabilitar la recopilación de datos.
 
   ```python 
   ## replace <service_name> with the name of the web service
@@ -163,7 +134,7 @@ Puede elegir la herramienta que prefiera para analizar los datos recopilados en 
 
 ### <a name="quickly-access-your-blob-data"></a>Acceso rápido a los datos del blob
 
-1. Inicie sesión en [Azure Machine Learning](https://ml.azure.com).
+1. Inicie sesión en el [portal de Azure](https://portal.azure.com).
 
 1. Abra el área de trabajo.
 
@@ -178,7 +149,7 @@ Puede elegir la herramienta que prefiera para analizar los datos recopilados en 
    # example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
    ```
 
-### <a name="analyze-model-data-using-power-bi"></a>Análisis de los datos del modelo mediante Power BI
+### <a name="analyze-model-data-using-power-bi"></a><a id="powerbi"></a> Análisis de los datos del modelo mediante Power BI
 
 1. Descargue y abra [Power BI Desktop](https://www.powerbi.com).
 
@@ -214,7 +185,7 @@ Puede elegir la herramienta que prefiera para analizar los datos recopilados en 
 
 1. Comience a crear los informes personalizados con los datos del modelo.
 
-### <a name="analyze-model-data-using-azure-databricks"></a>Análisis de datos del modelo mediante Azure Databricks
+### <a name="analyze-model-data-using-azure-databricks"></a><a id="databricks"></a> Análisis de datos del modelo mediante Azure Databricks
 
 1. Cree un [área de trabajo de Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 
@@ -238,3 +209,7 @@ Puede elegir la herramienta que prefiera para analizar los datos recopilados en 
     [![Configuración de Databricks](./media/how-to-enable-data-collection/dbsetup.png)](././media/how-to-enable-data-collection/dbsetup.png#lightbox)
 
 1. Siga los pasos de la plantilla para ver y analizar los datos.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Detecte el desfase de datos](how-to-monitor-datasets.md) en los datos que ha recopilado.

@@ -3,12 +3,12 @@ title: Autenticación de los clientes que publican eventos en temas o dominios p
 description: En este artículo se describen diferentes maneras de autenticar a los clientes que publican eventos en temas personalizados de Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 1e147830a4b37a8603df8e4ce29953acab2345bd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8b08c46fdeadccfad0471ddfa4f9ba2762a951a0
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115883"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87837404"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticación de clientes que hacen publicaciones (Azure Event Grid).
 En este artículo se proporciona información sobre la autenticación de clientes que publican eventos en temas o dominios de Azure Event Grid mediante **clave de acceso** o token de **Firma de acceso compartido (SAS)** . Se recomienda el uso de SAS, pero la autenticación de clave proporciona programación simple y es compatible con muchos editores de webhook existentes.  
@@ -27,7 +27,7 @@ aeg-sas-key: XXXXXXXXXXXXXXXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 También puede especificar `aeg-sas-key` como parámetro de consulta. 
 
 ```
-https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01&&aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
+https://<yourtopic>.<region>.eventgrid.azure.net/api/events?aeg-sas-key=XXXXXXXX53249XX8XXXXX0GXXX/nDT4hgdEj9DpBeRr38arnnm5OFg==
 ```
 
 Para obtener instrucciones sobre cómo obtener las claves de acceso para un tema o un dominio, consulte [Obtener claves de acceso](get-access-keys.md).
@@ -35,7 +35,7 @@ Para obtener instrucciones sobre cómo obtener las claves de acceso para un tema
 ## <a name="authenticate-using-a-sas-token"></a>Autenticación mediante un token de SAS
 Los tokens de SAS para Event Grid incluyen el recurso, un tiempo de expiración y una firma. El formato del token de SAS es: `r={resource}&e={expiration}&s={signature}`.
 
-El recurso es la ruta de acceso del tema de Event Grid al que envía los eventos. Por ejemplo, una ruta de acceso de recurso válida es: `https://<yourtopic>.<region>.eventgrid.azure.net/eventGrid/api/events?api-version=2019-06-01`. Para ver todas las versiones de API compatibles, vea [Tipos de recursos de Microsoft.EventGrid](https://docs.microsoft.com/azure/templates/microsoft.eventgrid/allversions). 
+El recurso es la ruta de acceso del tema de Event Grid al que envía los eventos. Por ejemplo, una ruta de acceso de recurso válida es: `https://<yourtopic>.<region>.eventgrid.azure.net/api/events`. Para ver todas las versiones de API compatibles, vea [Tipos de recursos de Microsoft.EventGrid](/azure/templates/microsoft.eventgrid/allversions). 
 
 En primer lugar, genere un token de SAS mediante programación y, a continuación, use el encabezado de `aeg-sas-token` o el encabezado de `Authorization SharedAccessSignature` para autenticarse con Event Grid. 
 
@@ -69,14 +69,14 @@ static string BuildSharedAccessSignature(string resource, DateTime expirationUtc
 Este es un ejemplo de cómo pasar el token de SAS como un valor para el encabezado `aeg-sas-toke`. 
 
 ```http
-aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+aeg-sas-token: r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ### <a name="using-authorization-header"></a>Uso del encabezado de autorización
 Este es un ejemplo de cómo pasar el token de SAS como un valor para el encabezado `Authorization`. 
 
 ```http
-Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2feventGrid%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
+Authorization: SharedAccessSignature r=https%3a%2f%2fmytopic.eventgrid.azure.net%2fapi%2fevent&e=6%2f15%2f2017+6%3a20%3a15+PM&s=XXXXXXXXXXXXX%2fBPjdDLOrc6THPy3tDcGHw1zP4OajQ%3d
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

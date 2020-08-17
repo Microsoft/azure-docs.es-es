@@ -26,7 +26,7 @@ landingContent:
       url: spring-cloud-overview.md
     - text: Descripción de los límites y las cuotas de Azure Spring Cloud
       url: spring-cloud-quotas.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

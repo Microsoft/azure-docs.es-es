@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 5d8aa456a6454dd511b7dcda5d3f74a739033356
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0426c5359e4d82d0316613586b9298596d82605
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83774336"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009771"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Deshabilitar el firewall del sistema operativo invitado en Azure Virtual Machine
 
@@ -74,7 +74,7 @@ Si tiene un agente de Azure en ejecución, puede usar la característica [Ejecut
 
 #### <a name="mitigation-3-pstools-commands"></a>Mitigación 3: comandos de PSTools
 
-1.  En la máquina virtual donde está solucionando el problema, descargue [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  En la máquina virtual donde está solucionando el problema, descargue [PSTools](/sysinternals/downloads/pstools).
 
 2.  Abra una instancia de CMD y, a continuación, acceda a la máquina virtual mediante su DIP.
 

@@ -1,5 +1,5 @@
 ---
-title: Intercalación
+title: Compatibilidad con la intercalación
 description: Tipos de intercalación compatibles en SQL de Azure Synapse
 author: filippopovic
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0e9d8048c88a5ef37df2fde1ab282a834b07228a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1099c4e4dd69a8dc8caee96ec5dda633ce8b9d12
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85206349"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496209"
 ---
 # <a name="database-collation-support-for-synapse-sql"></a>Compatibilidad con la intercalación de bases de datos para SQL de Synapse
 
@@ -23,7 +23,7 @@ Puede cambiar la intercalación de bases de datos predeterminada desde Azure Por
 
 Puede especificar la intercalación predeterminada de base de datos de SQL a petición de Synapse en el momento de la creación mediante la instrucción CREATE DATABASE.
 
-## <a name="changing-collation"></a>Cambio de la intercalación
+## <a name="change-collation"></a>Definir intercalación
 Para cambiar la intercalación predeterminada para una base de datos del grupo de SQL, simplemente debe actualizar el campo Intercalación en la experiencia de aprovisionamiento. Por ejemplo, si quiere cambiar la intercalación predeterminada para que distinga mayúsculas de minúsculas, basta con que cambie el nombre de la intercalación de SQL_Latin1_General_CP1_CI_AS a SQL_Latin1_General_CP1_CS_AS. 
 
 Para cambiar la intercalación predeterminada para la base de datos de SQL a petición, puede usar la instrucción ALTER DATABASE.
@@ -104,7 +104,7 @@ Además, el grupo de SQL no admite los siguientes tipos de intercalación:
 *    SQL_EBCDIC277_2_CP1_CS_AS
 *    UTF-8
 
-## <a name="checking-the-current-collation"></a>Comprobación de la intercalación actual
+## <a name="check-the-current-collation"></a>Comprobar de la intercalación actual
 Para comprobar la intercalación actual de la base de datos, puede ejecutar el siguiente fragmento de código de T-SQL:
 ```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;

@@ -8,11 +8,11 @@ ms.topic: include
 ms.date: 11/24/2019
 ms.author: rolyon
 ms.custom: include file
-ms.openlocfilehash: ddf888671ba0ba4ead5200c1eccb956caab35508
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7f8ae29f551a5439e69cd4c6f9a12a14b98d664d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74707815"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507477"
 ---
 El [control de acceso basado en rol (RBAC) de Azure](../articles/role-based-access-control/overview.md) es el sistema de autorización que puede utilizar para administrar el acceso a los recursos de Azure. Para conceder acceso, debe asignar roles a usuarios, grupos, entidades de servicio o identidades administradas en un ámbito determinado.

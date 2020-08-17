@@ -2,19 +2,17 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.custom: include file
 ms.date: 04/16/2020
-ms.author: diberry
-ms.openlocfilehash: 1c3631b4a2964c5e3a8d8267d1934a5822966342
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: ac0192da3afa76c3c21056f218f2b249c44d1c36
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83673448"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133916"
 ---
 Cognitive Services proporciona dos servicios de procesamiento de lenguaje natural, [Language Understanding](../luis/what-is-luis.md) y [QnA Maker](../qnamaker/overview/overview.md), cada uno con un propósito diferente. Sepa cuándo usar cada servicio y cómo se complementan entre sí.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 30e22cb786e5dc2a667fe41ca8edf398cf0b7613
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bd092dbee09a783dcbd6e36c82a70ff5decaf83
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "65761794"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053315"
 ---
 # <a name="how-to-encode-with-a-custom-transform---rest"></a>Cómo codificar con una transformación personalizada: REST
 
@@ -32,7 +32,7 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 
 ## <a name="prerequisites"></a>Prerrequisitos 
 
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md). <br/>Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
+- [Cree una cuenta de Media Services](./create-account-howto.md). <br/>Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
 - [Configuración de Postman para llamadas API REST de Azure Media Services](media-rest-apis-with-postman.md).<br/>Asegúrese de seguir el último paso en el tema [Obtención del token de Azure AD](media-rest-apis-with-postman.md#get-azure-ad-token). 
 
 ## <a name="define-a-custom-preset"></a>Definir un valor preestablecido personalizado
@@ -133,7 +133,7 @@ En primer lugar, se agrega una capa AacAudio para la codificación de audio y do
 
 ## <a name="create-a-new-transform"></a>Crear una nueva transformación  
 
-En este ejemplo, creamos una **transformación** que se basa en los valores preestablecidos personalizados que definimos anteriormente. Al crear una transformación, primero debe usar el método [Get](https://docs.microsoft.com/rest/api/media/transforms/get) para comprobar si ya existe una. Si existe la transformación, vuelva a usarla. 
+En este ejemplo, creamos una **transformación** que se basa en los valores preestablecidos personalizados que definimos anteriormente. Al crear una transformación, primero debe usar el método [Get](/rest/api/media/transforms/get) para comprobar si ya existe una. Si existe la transformación, vuelva a usarla. 
 
 En la colección de Postman que descargó, seleccione **Transforms and Jobs** (Transformaciones y trabajos)->**Create or Update Transform** (Crear o actualizar transformación).
 
@@ -151,4 +151,4 @@ Para que Media Services aplique la transformación al audio o vídeo especificad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte [otras operaciones de REST](https://docs.microsoft.com/rest/api/media/).
+Consulte [otras operaciones de REST](/rest/api/media/).

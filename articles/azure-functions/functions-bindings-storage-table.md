@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: dd98d27f5a14d284174dd779ae20b29f534920b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 7616f6c502f0b5402aa784f707d0dafa31268d78
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559950"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853065"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Enlaces de Azure Table Storage para Azure Functions
 
@@ -140,7 +140,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-Para más información sobre cómo usar CloudTable, Consulte [Introducción a Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Para más información sobre cómo usar CloudTable, Consulte [Introducción a Azure Table Storage](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
@@ -306,7 +306,7 @@ public class LogEntity : TableEntity
 }
 ```
 
-Para más información sobre cómo usar CloudTable, Consulte [Introducción a Azure Table Storage](../cosmos-db/table-storage-how-to-use-dotnet.md).
+Para más información sobre cómo usar CloudTable, Consulte [Introducción a Azure Table Storage](../cosmos-db/tutorial-develop-table-dotnet.md).
 
 Si intenta enlazar a `CloudTable` y obtiene un mensaje de error, asegúrese de que tiene una referencia a [la versión correcta del SDK de Storage](#azure-storage-sdk-version-in-functions-1x).
 
@@ -607,7 +607,7 @@ Los datos de la tabla se pasan a la función como una cadena JSON. Anule la seri
 
 # <a name="java"></a>[Java](#tab/java)
 
-El atributo [TableInput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) da acceso a la fila de tabla que desencadenó la función.
+El atributo [TableInput](/java/api/com.microsoft.azure.functions.annotation.tableinput) da acceso a la fila de tabla que desencadenó la función.
 
 ---
 
@@ -978,15 +978,15 @@ Hay dos opciones para la generación de un mensaje de fila de Table Storage desd
 
 - **Valor devuelto**: Establezca la propiedad `name` de *function.json* en `$return`. Con esta configuración, el valor devuelto de la función se conserva como una fila de Table Storage.
 
-- **Imperativa**: Pase un valor al método [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como mensaje del centro de eventos.
+- **Imperativa**: Pase un valor al método [set](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) del parámetro declarado como tipo [Out](/python/api/azure-functions/azure.functions.out?view=azure-python). El valor pasado a `set` se conserva como mensaje del centro de eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Hay dos opciones para la generación de una fila de Table Storage desde una función mediante la anotación [TableStorageOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet):
+Hay dos opciones para la generación de una fila de Table Storage desde una función mediante la anotación [TableStorageOutput](/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet):
 
 - **Valor devuelto**: Al aplicar la anotación a la propia función, el valor devuelto de la función se conserva como una fila de Table Storage.
 
-- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding), donde `T` incluye las propiedades `PartitionKey` y `RowKey`. Estas propiedades suelen ir acompañadas de la implementación de `ITableEntity` o la herencia de `TableEntity`.
+- **Imperativa**: Para establecer explícitamente el valor del mensaje, aplique la anotación a un parámetro específico del tipo [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), donde `T` incluye las propiedades `PartitionKey` y `RowKey`. Estas propiedades suelen ir acompañadas de la implementación de `ITableEntity` o la herencia de `TableEntity`.
 
 ---
 
@@ -994,9 +994,9 @@ Hay dos opciones para la generación de una fila de Table Storage desde una func
 
 | Enlace | Referencia |
 |---|---|
-| Tabla | [Códigos de error de tabla](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
-| Blob, tabla, cola | [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, tabla, cola | [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Tabla | [Códigos de error de tabla](/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Blob, tabla, cola | [Códigos de error de almacenamiento](/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, tabla, cola | [Solución de problemas](/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

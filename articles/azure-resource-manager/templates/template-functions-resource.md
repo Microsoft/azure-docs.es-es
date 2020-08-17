@@ -3,12 +3,12 @@ title: 'Funciones de plantillas: recursos'
 description: Describe las funciones para usar en una plantilla de Azure Resource Manager para recuperar valores sobre recursos.
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: f79fa3420420a2ff440c3228f227cc71436b4a1c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 89241558164505573e098bdf580af6542c6095c5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099257"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372389"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funciones de recursos para plantillas de ARM
 
@@ -138,6 +138,7 @@ Los usos posibles de la lista* se muestran en la tabla siguiente.
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
 | Microsoft.Blockchain/blockchainMembers | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/blockchainmembers/listapikeys) |
 | Microsoft.Blockchain/blockchainMembers/transactionNodes | [listApiKeys](/rest/api/blockchain/2019-06-01-preview/transactionnodes/listapikeys) |
+| Microsoft.BotService/botServices/channels | [listChannelWithKeys](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/botservice/resource-manager/Microsoft.BotService/stable/2020-06-02/botservice.json#L553) |
 | Microsoft.Cache/redis | [listKeys](/rest/api/redis/redis/listkeys) |
 | Microsoft.CognitiveServices/accounts | [listKeys](/rest/api/cognitiveservices/accountmanagement/accounts/listkeys) |
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
@@ -664,7 +665,7 @@ La propiedad **managedBy** solo se devuelve para los grupos de recursos que cont
 
 ### <a name="remarks"></a>Observaciones
 
-La función `resourceGroup()` no se puede usar en una plantilla que está [implementada en el nivel de suscripción](deploy-to-subscription.md). Solo puede usarse en las plantillas que se implementan en un grupo de recursos. Puede usar la `resourceGroup()`función en una [plantilla vinculada o anidada (con ámbito interno)](linked-templates.md) que tenga como destino un grupo de recursos, incluso cuando la plantilla primaria se implementa en la suscripción. En ese escenario, la plantilla vinculada o anidada se implementa en el nivel de grupo de recursos. Para más información sobre cómo establecer como destino un grupo de recursos en una implementación de nivel de suscripción, consulte [Implementar recursos de Azure en más de una suscripción o un grupo de recursos](cross-resource-group-deployment.md).
+La función `resourceGroup()` no se puede usar en una plantilla que está [implementada en el nivel de suscripción](deploy-to-subscription.md). Solo puede usarse en las plantillas que se implementan en un grupo de recursos. Puede usar la `resourceGroup()`función en una [plantilla vinculada o anidada (con ámbito interno)](linked-templates.md) que tenga como destino un grupo de recursos, incluso cuando la plantilla primaria se implementa en la suscripción. En ese escenario, la plantilla vinculada o anidada se implementa en el nivel de grupo de recursos. Para más información sobre cómo establecer como destino un grupo de recursos en una implementación de nivel de suscripción, consulte [Implementar recursos de Azure en más de una suscripción o un grupo de recursos](cross-scope-deployment.md).
 
 Un uso común de la función resourceGroup es crear recursos en la misma ubicación que el grupo de recursos. En el ejemplo siguiente se utiliza la ubicación del grupo de recursos para un valor de parámetro predeterminado.
 
@@ -679,7 +680,7 @@ Un uso común de la función resourceGroup es crear recursos en la misma ubicaci
 
 También puede usar la función resourceGroup para aplicar etiquetas del grupo de recursos a un recurso. Para más información, consulte [Aplicación de etiquetas de un grupo de recursos](../management/tag-resources.md#apply-tags-from-resource-group).
 
-Al usar plantillas anidadas para implementar en varios grupos de recursos, puede especificar el ámbito para evaluar la función resourceGroup. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-resource-group-deployment.md).
+Al usar plantillas anidadas para implementar en varios grupos de recursos, puede especificar el ámbito para evaluar la función resourceGroup. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-scope-deployment.md).
 
 ### <a name="resource-group-example"></a>Ejemplo de grupo de recursos
 
@@ -889,7 +890,7 @@ La función devuelve el siguiente formato:
 
 ### <a name="remarks"></a>Observaciones
 
-Al usar plantillas anidadas para implementar en varias suscripciones, puede especificar el ámbito para evaluar la función de suscripción. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-resource-group-deployment.md).
+Al usar plantillas anidadas para implementar en varias suscripciones, puede especificar el ámbito para evaluar la función de suscripción. Para más información, consulte [Implementación de recursos de Azure en varias suscripciones y grupos de recursos](cross-scope-deployment.md).
 
 ### <a name="subscription-example"></a>Ejemplo de suscripción
 

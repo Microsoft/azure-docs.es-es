@@ -7,12 +7,12 @@ ms.author: cschorm
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 351f7ed131d545d2aa83df753cac3f26e76e4ccb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c73f007f85a963a09de4e05222082fd52f784c0
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84725858"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131572"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingesta de telemetría de IoT Hub en Azure Digital Twins
 
@@ -42,7 +42,7 @@ Este escenario se describe en un diagrama a continuación:
 
 Antes de continuar con este ejemplo, debe completar los siguientes requisitos previos.
 1. Cree un Centro de IoT. Consulte la sección *Creación de una instancia de IoT Hub* de [este inicio rápido de IoT Hub](../iot-hub/quickstart-send-telemetry-cli.md) para obtener instrucciones.
-2. Cree al menos una función de Azure para procesar los eventos de IoT Hub. Consulte [ Configure una función de Azure a fin de procesar los datos](how-to-create-azure-function.md) para crear una función básica de Azure que pueda conectarse a Azure Digital Twins y llamar a las funciones de la API de Azure Digital Twins. El resto de este procedimiento se creará en esta función.
+2. Cree al menos una función de Azure para procesar los eventos de IoT Hub. Consulte [*Procedimientos: Conexión de aplicaciones de Azure Functions para el procesamiento de datos*](how-to-create-azure-function.md) para crear una función básica de Azure que pueda conectarse a Azure Digital Twins y llamar a las funciones de la API de Azure Digital Twins. El resto de este procedimiento se creará en esta función.
 3. Configure un destino de evento para los datos del centro de conectividad. En [Azure Portal](https://portal.azure.com/), vaya a su instancia de IoT Hub. En *Eventos*, cree una suscripción para su función de Azure. 
 
     :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Azure Portal: Incorporación de una suscripción a un evento":::
@@ -55,7 +55,7 @@ Antes de continuar con este ejemplo, debe completar los siguientes requisitos pr
 
 ## <a name="create-an-azure-function-in-visual-studio"></a>Creación de una función de Azure en Visual Studio
 
-En esta sección se usan los mismos pasos de inicio de Visual Studio y el esqueleto de la función de Azure en [Procedimientos: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md). El esqueleto controla la autenticación y crea un cliente de servicio, listo para procesar los datos y llamar a las API de Azure Digital Twins como respuesta. 
+En esta sección se usan los mismos pasos de inicio de Visual Studio y el esqueleto de la función de Azure en [*Procedimientos: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md). El esqueleto controla la autenticación y crea un cliente de servicio, listo para procesar los datos y llamar a las API de Azure Digital Twins como respuesta. 
 
 El corazón de la función de esqueleto es el siguiente:
 
@@ -268,9 +268,9 @@ Ahora tiene una función de Azure que está equipada para leer e interpretar los
 
 ## <a name="debug-azure-function-apps-locally"></a>Depuración de aplicaciones de funciones de Azure de forma local.
 
-Es posible depurar funciones de Azure con un desencadenador de Event Grid de forma local. Para más información, consulte [Depuración de un desencadenador de Event Grid de forma local](../azure-functions/functions-debug-event-grid-trigger-local.md).
+Es posible depurar funciones de Azure con un desencadenador de Event Grid de forma local. Para más información, consulte [*Depuración de un desencadenador de Event Grid de forma local*](../azure-functions/functions-debug-event-grid-trigger-local.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre la entrada y salida de datos con Azure Digital Twins:
-* [Conceptos: Integración con otros servicios](concepts-integration.md)
+* [*Conceptos: Integración con otros servicios*](concepts-integration.md)

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e2f732a8cf51c51de1b6125717eafb672d7fff74
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7399bc60ffa88112fee87b429571772f634c0754
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027416"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285431"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos de Azure Database for MySQL con una clave administrada por el cliente
 
@@ -22,7 +22,7 @@ El cifrado de datos con claves administradas por el cliente para Azure Database 
 Key Vault es un sistema de administración de claves externas basado en la nube. Tiene una gran disponibilidad y ofrece almacenamiento seguro escalable para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite acceso directo a una clave almacenada, pero proporciona servicios de cifrado y descifrado a entidades autorizadas. Key Vault puede generar la clave, importarla o [hacer que se transfiera desde un dispositivo HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MySQL admita los planes de tarifa "Uso general" y "Optimizado para memoria".
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for MySQL admita los planes de tarifa "Uso general" y "Optimizado para memoria". Para otras limitaciones, consulte la sección [Limitaciones](concepts-data-encryption-mysql.md#limitations).
 
 ## <a name="benefits"></a>Ventajas
 
@@ -52,7 +52,7 @@ Para que un servidor de MySQL pueda usar claves administradas por el cliente alm
 * **wrapKey**: para poder cifrar la DEK.
 * **unwrapKey**: para poder descifrar la DEK.
 
-El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/azure-key-vault.md), de forma que se puedan auditar más adelante.
+El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), de forma que se puedan auditar más adelante.
 
 Cuando el servidor está configurado para usar la clave administrada por el cliente que se almacena en el almacén de claves, el servidor envía a este la DEK para que la cifre. Key Vault devuelve las DEK cifradas, que se almacenan en la base de datos del usuario. De igual modo, cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que la descifre. Los auditores pueden usar Azure Monitor para revisar los registros de eventos de auditoría de Key Vault, si está habilitado el registro.
 
@@ -136,9 +136,9 @@ En el caso de Azure Database for MySQL, la compatibilidad con el cifrado de dato
 
     > [!NOTE]
     > - En todos los nuevos servidores MySQL creados en las regiones mencionadas anteriormente, el soporte para el cifrado con claves de administrador de clientes está **disponible**. El servidor de Restauración a un momento dado (PITR) o la réplica de lectura no calificarán aunque en teoría son "nuevos".
-    > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo que admite el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. Aunque los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
+    > - Para validar si el servidor aprovisionado admite hasta 16 TB, puede ir a la hoja del plan de tarifa en el portal y ver el tamaño de almacenamiento máximo admitido por el servidor aprovisionado. Si puede subir el control deslizante hasta 4 TB, es posible que el servidor no admita el cifrado con claves administradas por el cliente. Pero los datos se cifran en todo momento con claves administradas por el servicio. Póngase en contacto con AskAzureDBforMySQL@service.microsoft.com si tiene alguna pregunta.
 
-* El cifrado solo se admite con la clave criptográfica RSA 2048.
+* El cifrado solo se admite con la clave criptográfica RSA 2048.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

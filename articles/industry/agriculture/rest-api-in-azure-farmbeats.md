@@ -1,24 +1,20 @@
 ---
-title: Referencias
-description: ''
+title: API de Azure FarmBeats
+description: Aprenda sobre las API de Azure FarmBeats, que proporcionan a las empresas agrícolas una interfaz RESTful estandarizada con respuestas basadas en JSON.
 author: sunasing
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sunasing
-ms.openlocfilehash: c3a70ed905edfcf1dc60e0a12f50aca19060230f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f15bee7e802b04d04a3c87d7f84fc975b88bf260
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488042"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536579"
 ---
-# <a name="references"></a>Referencias
+# <a name="azure-farmbeats-apis"></a>API de Azure FarmBeats
 
-En este artículo se describen las API de Azure FarmBeats.
-
-## <a name="rest-api"></a>API DE REST
-
-Las API de Azure FarmBeats proporcionan a los negocios agrícolas una interfaz RESTful estandarizada con respuestas basadas en JSON para ayudarle a aprovechar las funcionalidades de Azure Farmbeats, como las siguientes:
+En este artículo se describen las API de Azure FarmBeats. Las API de Azure FarmBeats proporcionan a los negocios agrícolas una interfaz RESTful estandarizada con respuestas basadas en JSON para ayudarle a aprovechar las funcionalidades de Azure Farmbeats, como las siguientes:
 
 - API para obtener datos de sensor, de cámara, de dron, del tiempo, de satélite y terrestres mantenidos.
 - Normalización y contextualización de datos en proveedores de datos comunes.
@@ -63,7 +59,7 @@ Para realizar una solicitud autenticada a las API REST, el código de cliente re
 
 El token de acceso se debe enviar en las solicitudes de API posteriores en la sección de encabezado como:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**}
 ```
 
@@ -182,6 +178,6 @@ Después de completar los pasos anteriores, el registro de aplicación (cliente)
 
 Use el token de acceso para enviarlo en las solicitudes de API posteriores en la sección de encabezado de la siguiente manera:
 
-```
+```http
 headers = {"Authorization": "Bearer " + **access_token**, "Content-Type" : "application/json" }
 ```

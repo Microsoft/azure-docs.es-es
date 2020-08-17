@@ -3,13 +3,13 @@ title: Creación de un proyecto de Azure Notebooks (versión preliminar) con un 
 description: Cree un proyecto en Azure Notebooks (versión preliminar) que esté configurado con un conjunto específico de scripts de inicio y paquetes instalados.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.custom: tracking-python
-ms.openlocfilehash: c5f73b73b4bab99e07874c2d16d47da69f8026ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 655c016b55abdcf4b6f546a1fe16348ec4c83724
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832906"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853371"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment-in-azure-notebooks-preview"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado en de Azure Notebooks (versión preliminar)
 

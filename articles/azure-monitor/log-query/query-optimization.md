@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: 9ae0aec6b87a746ed1f141dcf98f599acd20ab3a
-ms.sourcegitcommit: 602e6db62069d568a91981a1117244ffd757f1c2
+ms.openlocfilehash: dca320168805e9f7c8f6336b39c4f9394255f9b8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82864256"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87416322"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Optimización de las consultas de registro en Azure Monitor
 Los registros de Azure Monitor usan [Azure Data Explorer (ADX)](/azure/data-explorer/) para almacenar los datos de registro y ejecutar consultas para analizar los datos. Crea, administra y mantiene los clústeres de ADX automáticamente y los optimiza para la carga de trabajo de análisis de registros. Al ejecutar una consulta, se optimiza y se redirige al clúster de ADX adecuado que almacena los datos del área de trabajo. Tanto los registros de Azure Monitor como Azure Data Explorer usan muchos mecanismos de optimización de consultas automática. Aunque las optimizaciones automáticas proporcionan un aumento significativo, en algunos casos se puede mejorar drásticamente el rendimiento de las consultas. En este artículo se explican las consideraciones de rendimiento y varias técnicas para corregirlas.
@@ -98,14 +98,14 @@ Por ejemplo, las siguientes consultas producen exactamente el mismo resultado, p
 Heartbeat 
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
 | where IPRegion == "WestCoast"
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 ```Kusto
 //more efficient
 Heartbeat 
 | where RemoteIPLongitude  < -94
 | extend IPRegion = iif(RemoteIPLongitude  < -94,"WestCoast","EastCoast")
-| summarize count() by Computer
+| summarize count(), make_set(IPRegion) by Computer
 ```
 
 ### <a name="use-effective-aggregation-commands-and-dimensions-in-summarize-and-join"></a>Uso de dimensiones y comandos de agregación efectivos para resúmenes y uniones
@@ -157,7 +157,7 @@ Heartbeat
 > Este indicador solo presenta la CPU del clúster inmediato. En una consulta de varias regiones, solo representaría una de las regiones. En una consulta de varias áreas de trabajo, es posible que no incluya todas las áreas de trabajo.
 
 ### <a name="avoid-full-xml-and-json-parsing-when-string-parsing-works"></a>Evite el análisis XML y JSON completo cuando funcione el análisis de cadenas
-El análisis completo de un objeto XML o JSON puede consumir una gran cantidad de recursos de CPU y memoria. En muchos casos, cuando solo se necesitan uno o dos parámetros y los objetos XML o JSON son simples, es más fácil analizarlos como cadenas mediante el [operador parse](/azure/kusto/query/parseoperator) u otras [técnicas de análisis de texto](/azure/azure-monitor/log-query/parse-text). La mejora del rendimiento será más significativa a medida que aumente el número de registros en el objeto XML o JSON. Es fundamental cuando el número de registros alcanza decenas de millones.
+El análisis completo de un objeto XML o JSON puede consumir una gran cantidad de recursos de CPU y memoria. En muchos casos, cuando solo se necesitan uno o dos parámetros y los objetos XML o JSON son simples, es más fácil analizarlos como cadenas mediante el [operador parse](/azure/kusto/query/parseoperator) u otras [técnicas de análisis de texto](./parse-text.md). La mejora del rendimiento será más significativa a medida que aumente el número de registros en el objeto XML o JSON. Es fundamental cuando el número de registros alcanza decenas de millones.
 
 Por ejemplo, la consulta siguiente devolverá exactamente los mismos resultados que las consultas anteriores sin realizar un análisis XML completo. Tenga en cuenta que hace algunas suposiciones sobre la estructura del archivo XML, como que el elemento FilePath aparece después de FileHash y que ninguno de ellos tiene atributos. 
 
@@ -219,6 +219,64 @@ SecurityEvent
 | where EventID == 4624 //Logon GUID is relevant only for logon event
 | summarize LoginSessions = dcount(LogonGuid) by Account
 ```
+
+### <a name="avoid-multiple-scans-of-same-source-data-using-conditional-aggregation-functions-and-materialize-function"></a>Evitar varios exámenes de los mismos datos de origen mediante funciones de agregación condicional y la función materialize
+Cuando una consulta tiene varias subconsultas que se combinan mediante operadores join o union, cada subconsulta examina todo el origen por separado y, luego, combina los resultados. Como consecuencia, se multiplica el número de veces que se examinan los datos: un factor crítico en conjuntos de datos muy grandes.
+
+Una técnica para evitar esta situación es usar las funciones de agregación condicional. La mayoría de las [funciones de agregación](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) que se usan en el operador de resumen tienen una versión condicionada que le permite usar un único operador de resumen con varias condiciones. 
+
+Por ejemplo, las siguientes consultas muestran el número de eventos de inicio de sesión y el número de eventos de ejecución de proceso de cada cuenta. Se devuelven los mismos resultados, pero el primero examina los datos dos veces y el segundo los examina solo una vez:
+
+```Kusto
+//Scans the SecurityEvent table twice and perform expensive join
+SecurityEvent
+| where EventID == 4624 //Login event
+| summarize LoginCount = count() by Account
+| join 
+(
+    SecurityEvent
+    | where EventID == 4688 //Process execution event
+    | summarize ExecutionCount = count(), ExecutedProcesses = make_set(Process) by Account
+) on Account
+```
+
+```Kusto
+//Scan only once with no join
+SecurityEvent
+| where EventID == 4624 or EventID == 4688 //early filter
+| summarize LoginCount = countif(EventID == 4624), ExecutionCount = countif(EventID == 4688), ExecutedProcesses = make_set_if(Process,EventID == 4688)  by Account
+```
+
+Otro caso en el que las subconsultas no son necesarias es el filtrado previo del [operador Parse](/azure/data-explorer/kusto/query/parseoperator?pivots=azuremonitor) para asegurarse de que solo se procesan los registros que coinciden con un patrón específico. Esto no es necesario, ya que el operador Parse y otros operadores similares devuelven resultados vacíos cuando el patrón no coincide. Estas son dos consultas que devuelven exactamente los mismos resultados, si bien la segunda consulta examina los datos una sola vez. En la segunda consulta, cada comando Parse solo es importante para sus eventos. Después, el operador Extend muestra cómo hacer referencia a la situación de datos vacíos.
+
+```Kusto
+//Scan SecurityEvent table twice
+union(
+SecurityEvent
+| where EventID == 8002 
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" *
+| distinct FilePath
+),(
+SecurityEvent
+| where EventID == 4799
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" * 
+| distinct CallerProcessName1
+)
+```
+
+```Kusto
+//Single scan of the SecurityEvent table
+SecurityEvent
+| where EventID == 8002 or EventID == 4799
+| parse EventData with * "<FilePath>" FilePath "</FilePath>" * "<FileHash>" FileHash "</FileHash>" * //Relevant only for event 8002
+| parse EventData with * "CallerProcessName\">" CallerProcessName1 "</Data>" *  //Relevant only for event 4799
+| extend FilePath = iif(isempty(CallerProcessName1),FilePath,"")
+| distinct FilePath, CallerProcessName1
+```
+
+Cuando la situación anterior no permite evitar el uso de subconsultas, otra técnica es sugerir al motor de consultas que hay un único dato de origen que se usa en cada una de ellas mediante la función [materialize()](/azure/data-explorer/kusto/query/materializefunction?pivots=azuremonitor). Esto resulta útil cuando los datos de origen proceden de una función que se usa varias veces dentro de la consulta.
+
+
 
 ### <a name="reduce-the-number-of-columns-that-is-retrieved"></a>Reducción del número de columnas que se recuperan
 
@@ -375,7 +433,7 @@ Entre los comportamientos de las consultas que pueden reducir el paralelismo se 
 - Uso de las funciones de ventana y serialización, como [serialize operator](/azure/kusto/query/serializeoperator), [next()](/azure/kusto/query/nextfunction), [prev()](/azure/kusto/query/prevfunction) y [row](/azure/kusto/query/rowcumsumfunction). Las funciones de análisis de usuario y serie temporal pueden usarse en algunos de estos casos. También puede producirse una serialización ineficaz si los siguientes operadores no se usan al final de la consulta: [range](/azure/kusto/query/rangeoperator), [sort](/azure/kusto/query/sortoperator), [order](/azure/kusto/query/orderoperator), [top](/azure/kusto/query/topoperator), [top-hitters](/azure/kusto/query/tophittersoperator), [getschema](/azure/kusto/query/getschemaoperator).
 -    El uso de la función de agregación [dcount()](/azure/kusto/query/dcount-aggfunction) obliga al sistema a tener una copia central de los distintos valores. Cuando la escala de datos es alta, considere la posibilidad de usar los parámetros opcionales de la función dcount para reducir la precisión.
 -    En muchos casos, el operador [join](/azure/kusto/query/joinoperator?pivots=azuremonitor) reduce el paralelismo general. Considere la combinación de orden aleatorio como alternativa cuando el rendimiento sea problemático.
--    En las consultas con ámbito de recurso, las comprobaciones de ejecución previa de RBAC pueden quedarse en situaciones en las que hay un gran número de asignaciones de RBAC. Esto puede provocar comprobaciones más largas, lo que generaría un paralelismo más bajo. Por ejemplo, una consulta se ejecuta en una suscripción en la que hay miles de recursos y cada recurso tiene varias asignaciones de roles en el nivel de recurso, no en la suscripción ni en el grupo de recursos.
+-    En las consultas con ámbito de recurso, las comprobaciones de ejecución previa de RBAC pueden perdurar en situaciones en las que hay un gran número de asignaciones de rol de Azure. Esto puede provocar comprobaciones más largas, lo que generaría un paralelismo más bajo. Por ejemplo, una consulta se ejecuta en una suscripción en la que hay miles de recursos y cada recurso tiene varias asignaciones de roles en el nivel de recurso, no en la suscripción ni en el grupo de recursos.
 -    Si una consulta está procesando fragmentos de datos pequeños, su paralelismo será inferior, ya que el sistema no se propagará en muchos nodos de ejecución.
 
 

@@ -5,12 +5,12 @@ author: neilpeterson
 ms.date: 04/17/2020
 ms.topic: quickstart
 ms.author: nepeters
-ms.openlocfilehash: d36f8a9a8650b504da206e884d9be8e43e1becdb
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 06e7d3f291d32cecdcbf4d1f22ff9976d8970109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86058153"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040526"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-with-visual-studio-code"></a>Inicio rápido: Creación de plantillas de Azure Resource Manager con Visual Studio Code
 
@@ -102,7 +102,7 @@ Seleccione `New` > `All Parameters` > Seleccione el nombre y la ubicación del a
 
 Esta acción crea un archivo de parámetros y lo asigna a la plantilla a partir de la que se creó. La asignación de archivos de la plantilla o parámetro actuales se puede ver y modificar en la barra de estado de Visual Studio Code mientras la plantilla esté seleccionada.
 
-![](./media/quickstart-create-templates-use-visual-studio-code/16.png)
+![Imagen que muestra la asignación de plantilla y archivo de parámetros en la barra de estado de Visual Studio Code.](./media/quickstart-create-templates-use-visual-studio-code/16.png)
 
 Ahora que el archivo de parámetros se ha asignado a la plantilla, la extensión se valida tanto en la plantilla como en el archivo de parámetros a la vez. Para ver esta validación en la práctica, agregue un valor de dos caracteres al parámetro `storageAccountName` del archivo de parámetros y guarde el archivo.
 

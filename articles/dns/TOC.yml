@@ -79,11 +79,11 @@
           href: dns-alias-appservice.md
         - name: Administración de zonas DNS
           items:
-            - name: Azure Portal
+            - name: Azure portal
               href: dns-operations-dnszones-portal.md
             - name: Azure PowerShell
               href: dns-operations-dnszones.md
-            - name: Azure CLI
+            - name: CLI de Azure
               href: dns-operations-dnszones-cli.md
         - name: Administración de registros DNS
           items:
@@ -131,7 +131,7 @@
           href: cli-samples.md
         - name: Azure PowerShell
           href: /powershell/module/az.dns
-        - name: Azure CLI
+        - name: CLI de Azure
           href: /cli/azure/network/dns
         - name: .NET
           href: /dotnet/api/microsoft.azure.management.dns.models

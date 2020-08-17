@@ -1,6 +1,6 @@
 - name: Información general
   href: overview.md
-- name: Guía de inicio rápido
+- name: Inicio rápido
   items:
     - name: 'Bash: inicio rápido'
       href: quickstart.md
@@ -32,6 +32,8 @@
       href: msi-authorization.md
     - name: Inserción de Cloud Shell
       href: embed-cloud-shell.md
+    - name: Cloud Shell en Azure Virtual Network
+      href: private-vnet.md
 - name: Uso del editor de Cloud Shell
   href: using-cloud-shell-editor.md
 - name: Solución de problemas y limitaciones

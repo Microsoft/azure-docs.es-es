@@ -4,16 +4,16 @@ description: Introducción a las vistas de base de datos SQL de Azure Blockchain
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: 585084b4c85c48533bdad96d4f99813ef2e418b4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74325987"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003328"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Vistas de base de datos de Azure Blockchain Workbench
 
-Azure Blockchain Workbench (versión preliminar) entrega datos de libros de contabilidad distribuida a una base de datos SQL *fuera de la cadena*. La base de datos fuera de la cadena hace posible usar SQL y las herramientas existentes, como [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interactuar con los datos de la cadena de bloques.
+Azure Blockchain Workbench (versión preliminar) entrega datos de libros de contabilidad distribuida a una base de datos SQL *fuera de la cadena*. La base de datos fuera de la cadena hace posible usar SQL y las herramientas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interactuar con los datos de la cadena de bloques.
 
 Azure Blockchain Workbench proporciona un conjunto de vistas de base de datos que dan acceso a los datos y que le resultarán útiles al realizar las consultas. Estas vistas están muy desnormalizadas lo cual facilita los primeros pasos para generar rápidamente informes, análisis y, en caso contrario, consumir los datos de la cadena de bloques con las herramientas existentes y sin tener que volver a entrenar al personal de la base de datos.
 

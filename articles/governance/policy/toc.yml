@@ -10,16 +10,22 @@
   items:
     - name: 'Asignación de una directiva: Portal'
       displayName: 'assign, compliance'
-      href: assign-policy-portal.md
-    - name: 'Asignación de una directiva: Azure PowerShell'
-      displayName: 'assign, compliance'
-      href: assign-policy-powershell.md
+      href: ./assign-policy-portal.md
     - name: 'Asignación de una directiva: CLI de Azure'
       displayName: 'assign, compliance'
-      href: assign-policy-azurecli.md
+      href: ./assign-policy-azurecli.md
+    - name: 'Asignación de una directiva: Azure PowerShell'
+      displayName: 'assign, compliance'
+      href: ./assign-policy-powershell.md
+    - name: 'Asignación de una directiva: Python'
+      displayName: 'assign, compliance'
+      href: ./assign-policy-python.md
+    - name: 'Asignación de una directiva: REST'
+      displayName: 'armclient, postman'
+      href: ./assign-policy-rest-api.md
     - name: 'Asignación de una directiva: plantilla de Resource Manager'
       displayName: 'assign, compliance, resource manager'
-      href: assign-policy-template.md
+      href: ./assign-policy-template.md
 - name: Tutoriales
   items:
     - name: Creación y administración de Azure Policy
@@ -93,9 +99,14 @@
     - name: Diseño de flujos de trabajo de directiva como código
       displayName: 'devops, infrastructure as code, iac, release, continuous, delivery, deploy'
       href: ./concepts/policy-as-code.md
-    - name: Azure Policy para Kubernetes (versión preliminar)
-      displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
-      href: ./concepts/policy-for-kubernetes.md
+    - name: Integración de Kubernetes
+      items:
+        - name: Azure Policy para Kubernetes (versión preliminar)
+          displayName: 'aks, engine, k8s, rego, opa, open policy agent, gatekeeper, v3, crd, constraints, arc'
+          href: ./concepts/policy-for-kubernetes.md
+        - name: Protección de pods con Azure Policy (versión preliminar)
+          displayName: 'aks, psp, rego, opa'
+          href: ../../aks/use-pod-security-on-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Auditoría de máquinas virtuales con la configuración de invitado
       displayName: 'provider, tools, definition'
       href: ./concepts/guest-configuration.md
@@ -151,10 +162,10 @@
       items:
         - name: Implementación de Azure Monitor a escala
           displayName: 'monitor, diagnostic settings, dependency agent'
-          href: ../../azure-monitor/platform/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Habilitar Azure Monitor para VM (versión preliminar)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Solución de problemas
   href: ./troubleshoot/general.md
 - name: Referencia
@@ -223,6 +234,8 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Recursos
   items:
+    - name: Problemas conocidos
+      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: 'GitHub: Ejemplos de Azure Policy'
       href: 'https://github.com/Azure/azure-policy'
     - name: 'GitHub: repositorio de directivas de la comunidad'
@@ -241,8 +254,8 @@
           href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
         - name: Tarea de corrección
           href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: 'Vídeo: Compilación 2018'
-      href: 'https://channel9.msdn.com/events/Build/2018/THR2030'
+    - name: "Video: Ignite\_2019"
+      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
     - name: Azure Roadmap
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calculadora de precios

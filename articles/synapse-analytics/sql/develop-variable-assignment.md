@@ -9,18 +9,18 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 91e251c8274ad85fcb0b3a65a3bdbcc660ceba00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3bd04d037f7852bd7d9ea51719abf27f09093b0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85101005"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495682"
 ---
-# <a name="assigning-variables-with-synapse-sql"></a>Asignación de variables con SQL de Synapse
+# <a name="assign-variables-with-synapse-sql"></a>Asignación de variables con SQL de Synapse
 
 En este artículo, encontrará sugerencias para asignar variables de T-SQL con SQL de Synapse.
 
-## <a name="setting-variables-with-declare"></a>Configuración de variables con DECLARE
+## <a name="set-variables-with-declare"></a>Definición de variables con DECLARE
 
 Las variables de SQL de Synapse se establecen mediante las instrucciones `DECLARE` o `SET`. Inicializar variables con DECLARE es una de las maneras más flexibles de establecer el valor de una variable en el SQL de Synapse.
 
@@ -45,7 +45,7 @@ DECLARE @p1 int = 0
 ;
 ```
 
-## <a name="setting-values-with-set"></a>Configuración de valores con SET
+## <a name="set-values-with-set"></a>Definición de valores con SET
 
 SET es un método muy común para configurar una sola variable.
 

@@ -3,12 +3,12 @@ title: Estimación de los costos del plan de consumo en Azure Functions
 description: Obtenga información sobre cómo estimar mejor los costos que se pueden producir al ejecutar la aplicación de funciones en un plan de consumo de Azure.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 880d1c20c75ce297b556ac203e309e446227e97a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76963995"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083045"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Estimación de los costos según el plan de consumo
 
@@ -61,7 +61,7 @@ Los siguientes comportamientos de las funciones pueden afectar al tiempo de ejec
 
 ## <a name="view-execution-data"></a>Visualización del plan de ejecución
 
-En la [factura](/azure/billing/billing-download-azure-invoice), puede ver los datos relacionados con los costos del **total de ejecuciones: Funciones** y el **tiempo de ejecución: Funciones**, junto con los costos facturados reales. Sin embargo, estos datos de factura son un agregado mensual para un período de facturación anterior. 
+En la [factura](../cost-management-billing/understand/download-azure-invoice.md), puede ver los datos relacionados con los costos del **total de ejecuciones: Funciones** y el **tiempo de ejecución: Funciones**, junto con los costos facturados reales. Sin embargo, estos datos de factura son un agregado mensual para un período de facturación anterior. 
 
 Para comprender mejor el impacto en el costo de las funciones, puede usar Azure Monitor para ver las métricas relacionadas con los costos que se están generando actualmente en las aplicaciones de funciones. Puede usar el [explorador de métricas Azure Monitor](../azure-monitor/platform/metrics-getting-started.md) en [Azure Portal] o las API REST para obtener estos datos.
 
@@ -237,5 +237,5 @@ customMetrics
 > [!div class="nextstepaction"]
 > [Más información sobre la supervisión de las aplicaciones de funciones](functions-monitoring.md)
 
-[Página de precios]: https://azure.microsoft.com/pricing/details/functions/
+[Página de precios]:https://azure.microsoft.com/pricing/details/functions/
 [Azure Portal]: https://portal.azure.com

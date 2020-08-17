@@ -5,22 +5,21 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/18/2020
-ms.openlocfilehash: ae3179f388fa6aa2cc8f98899f525a3b3e7251ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf4ac48cfbb969ae617551f13b43c15819510f7b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079166"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322659"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
-El servicio [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
+El servicio [Azure Application Insights](./app-insights-overview.md) usa diversas direcciones IP. Quizás deba conocer estas direcciones si la aplicación que está supervisando se hospeda bajo el amparo de un firewall.
 
 > [!NOTE]
 > Aunque estas direcciones son estáticas, es posible que tengamos que cambiarlas de vez en cuando. Todo el tráfico de Application Insights representa el tráfico saliente a excepción de la supervisión de la disponibilidad y los webhooks, que requieren reglas de firewall de entrada.
 
 > [!TIP]
-> Puede usar [etiquetas de servicio de red](https://docs.microsoft.com/azure/virtual-network/service-tags-overview
-) de Azure para administrar el acceso si usa grupos de seguridad de red de Azure. Si administra el acceso para recursos híbridos o locales, puede descargar las listas de direcciones IP equivalentes como [archivos JSON](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#discover-service-tags-by-using-downloadable-json-files), que se actualizan cada semana. Para cubrir todas las excepciones de este artículo, debería usar las etiquetas de servicio: 'ActionGroup', 'ApplicationInsightsAvailability' y 'AzureMonitor'.
+> Puede usar [etiquetas de servicio de red](../../virtual-network/service-tags-overview.md) de Azure para administrar el acceso si usa grupos de seguridad de red de Azure. Si administra el acceso para recursos híbridos o locales, puede descargar las listas de direcciones IP equivalentes como [archivos JSON](../../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files), que se actualizan cada semana. Para cubrir todas las excepciones de este artículo, debería usar las etiquetas de servicio: 'ActionGroup', 'ApplicationInsightsAvailability' y 'AzureMonitor'.
 
 También se puede suscribir a esta página como fuente RSS. Para ello, agregue https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/azure-monitor/app/ip-addresses.md.atom a su lector RSS/ATOM favorito para recibir notificaciones sobre los cambios más recientes.
 
@@ -33,10 +32,6 @@ Debe abrir algunos puertos de salida en el firewall del servidor para permitir q
 | Telemetría |dc.applicationinsights.azure.com<br/>dc.applicationinsights.microsoft.com<br/>dc.services.visualstudio.com |40.114.241.141<br/>104.45.136.42<br/>40.84.189.107<br/>168.63.242.221<br/>52.167.221.184<br/>52.169.64.244<br/>40.85.218.175<br/>104.211.92.54<br/>52.175.198.74<br/>51.140.6.23<br/>40.71.12.231<br/>13.69.65.22<br/>13.78.108.165<br/>13.70.72.233<br/>20.44.8.7<br/>13.86.218.248<br/>40.79.138.41<br/>52.231.18.241<br/>13.75.38.7<br/>102.133.155.50<br/>52.162.110.67<br/>191.233.204.248<br/>13.69.66.140<br/>13.77.52.29<br/>51.107.59.180<br/>40.71.12.235<br/>20.44.8.10<br/>40.71.13.169<br/>13.66.141.156<br/>40.71.13.170<br/>13.69.65.23<br/>20.44.17.0<br/>20.36.114.207 <br/>51.116.155.246 <br/>51.107.155.178 <br/>51.140.212.64  | 443 |
 | Live Metrics Stream (Este de EE. UU.) |use.rt.prod.applicationinsights.trafficmanager.net |23.96.28.38<br/>13.92.40.198<br/>40.112.49.101<br/>40.117.80.207 |443 |
 | Live Metrics Stream (Centro-sur de EE. UU.) |ussc.rt.prod.applicationinsights.trafficmanager.net |157.55.177.6<br/>104.44.140.84<br/>104.215.81.124<br/>23.100.122.113 |443 |
-| Live Metrics Stream (Norte de Europa) |eun.rt.prod.applicationinsights.trafficmanager.net |40.115.103.168<br/>40.115.104.31<br/>40.87.140.215<br/>40.87.138.220 |443 |
-| Live Metrics Stream (Oeste de Europa) |euw.rt.prod.applicationinsights.trafficmanager.net |13.80.134.255<br/>40.68.61.229<br/>23.101.69.223<br/>52.232.106.242 |443 |
-| Live Metrics Stream (Este de Asia) |ase.rt.prod.applicationinsights.trafficmanager.net |23.100.90.7<br/>23.101.13.65<br/>23.101.0.142<br/>23.101.9.4 |443 |
-| Live Metrics Stream (Sudeste de Asia) |asse.rt.prod.applicationinsights.trafficmanager.net |207.46.224.101<br/>207.46.236.191<br/>137.116.151.139<br/>13.76.87.86 |443 |
 
 ## <a name="status-monitor"></a>Monitor de estado
 Configuración del Monitor de estado; solo lo necesitará en caso de que tenga que hacer cambios.
@@ -53,7 +48,7 @@ Configuración del Monitor de estado; solo lo necesitará en caso de que tenga q
 | Instalación | `globalcdn.nuget.org`, `packages.nuget.org` ,`api.nuget.org/v3/index.json` `nuget.org`, `api.nuget.org`, `dc.services.vsallin.net` | |`443` |
 
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
-Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.
+Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](./monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.
 
 ### <a name="service-tag"></a>Etiqueta de servicio
 
@@ -225,7 +220,6 @@ Nota: El dominio *.loganalytics.io pertenece al equipo de Log Analytics.
 | Propósito | URI | IP | Puertos |
 | --- | --- | --- | --- |
 | CDN del SDK de JS de Application Insights | az416426.vo.msecnd.net | dinámico | 80 443 |
-| SDK de Java de Application Insights | aijavasdk.blob.core.windows.net | dinámico | 80 443 |
 
 ## <a name="action-group-webhooks"></a>Webhooks de grupo de acciones
 
@@ -251,3 +245,4 @@ Nota: El dominio *.loganalytics.io pertenece al equipo de Log Analytics.
 | Agente | ppe.azureserviceprofiler.net<br/>*.ppe.azureserviceprofiler.net | 20.190.60.38<br/>20.190.60.32<br/>52.173.196.230<br/>52.173.196.209<br/>23.102.44.211<br/>23.102.45.216<br/>13.69.51.218<br/>13.69.51.175<br/>138.91.32.98<br/>138.91.37.93<br/>40.121.61.208<br/>40.121.57.2<br/>51.140.60.235<br/>51.140.180.52<br/>52.138.31.112<br/>52.138.31.127<br/>104.211.90.234<br/>104.211.91.254<br/>13.70.124.27<br/>13.75.195.15<br/>52.185.132.101<br/>52.185.132.170<br/>20.188.36.28<br/>40.89.153.171<br/>52.141.22.239<br/>52.141.22.149<br/>102.133.162.233<br/>102.133.161.73<br/>191.232.214.6<br/>191.232.213.239 | 443
 | Portal | ppe.gateway.azureserviceprofiler.net | dinámico | 443
 | Storage | *.core.windows.net | dinámico | 443
+

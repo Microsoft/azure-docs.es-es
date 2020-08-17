@@ -3,18 +3,18 @@ title: Documentación de la plataforma de identidad de Microsoft
 summary: La plataforma de identidad de Microsoft es un servicio de autenticación, bibliotecas de código abierto y herramientas de administración de aplicaciones. Aprenda a crear soluciones de autenticación modernas y basadas en estándares con nuestros inicios rápidos, tutoriales y ejemplos de código. Cree aplicaciones en que los usuarios y los clientes inician sesión para usar sus identidades de Microsoft o cuentas de redes sociales, y autorice el acceso a las API o a las API de Microsoft como Microsoft Graph.
 metadata:
   ms.topic: landing-page
-  ms.date: 07/13/2020
-  author: CelesteDG
-  ms.author: celested
+  ms.date: 08/11/2020
+  author: mmacy
+  ms.author: marsma
   ms.service: active-directory
   ms.subservice: develop
   ms.workload: identity
-  ms.openlocfilehash: 689fb9953f6de9c717d774e222824c5b3701527e
-  ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+  ms.openlocfilehash: d978cc0f2b59cdb1cd41b0cf5e23851ad5165558
+  ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/10/2020
-  ms.locfileid: "86230356"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88116740"
 landingContent:
 - title: Acerca de la plataforma de identidad de Microsoft
   linkLists:
@@ -76,14 +76,14 @@ landingContent:
       url: quickstart-v2-ios.md
     - text: Escritorio de Windows (WPF)
       url: quickstart-v2-windows-desktop.md
-- title: API web segura
+- title: API Web
   linkLists:
   - linkListType: get-started
     links:
     - text: ASP.NET
       url: quickstart-v2-dotnet-native-aspnet.md
     - text: ASP.NET Core
-      url: https://docs.microsoft.com/samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
+      url: /samples/azure-samples/active-directory-dotnet-native-aspnetcore-v2/calling-an-aspnet-core-web-api-from-a-wpf-application-using-azure-ad-v2/
 - title: Microsoft Graph
   linkLists:
   - linkListType: get-started
@@ -91,12 +91,38 @@ landingContent:
     - text: Uso de Microsoft Graph API
       url: microsoft-graph-intro.md
     - text: Introducción a la autenticación de Microsoft Graph
-      url: https://docs.microsoft.com/graph/auth/
-- title: SAML 2.0
+      url: /graph/auth/
+- title: Protocolos
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: OAuth 2.0 y OpenID Connect
+      url: active-directory-v2-protocols.md
+    - text: SAML 2.0
+      url: active-directory-saml-protocol-reference.md
+- title: Negocio a cliente (B2C)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: ¿Qué es Azure AD B2C?
+      url: ../../active-directory-b2c/overview.md
+    - text: Información técnica y sobre características
+      url: ../../active-directory-b2c/technical-overview.md
+- title: Identidades administradas
   linkLists:
   - linkListType: get-started
     links:
-    - text: Uso del protocolo SAML por parte de Azure AD
-      url: active-directory-saml-protocol-reference.md
-    - text: Inicio de sesión único de SAML en Azure AD
-      url: single-sign-on-saml-protocol.md
+    - text: Acerca de las identidades administradas de recursos de Azure
+      url: ../managed-identities-azure-resources/overview.md
+    - text: Identidades administradas y máquinas virtuales de Azure
+      url: ../managed-identities-azure-resources/how-managed-identities-work-vm.md
+- title: Novedades de la documentación
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 'Control de errores y excepciones: Android'
+      url: msal-android-handling-exceptions.md
+    - text: Atributos de extensión de esquema de directorio en notificaciones
+      url: active-directory-schema-extensions.md
+    - text: Código de autenticación de MSAL.js 2.0 + PKCE y CORS
+      url: quickstart-v2-javascript-auth-code.md

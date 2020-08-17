@@ -3,12 +3,12 @@ title: Uso de Azure DevTest Labs para desarrolladores | Microsoft Docs
 description: Aprenderá acerca de las diversas características de Azure DevTest Labs que se pueden utilizar para cumplir los requisitos del desarrollador y los pasos detallados que puede seguir para configurar un laboratorio.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c6bb2c4d21ee6b6cb072c550c82c380b3a380f24
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3fd8ae93c873d1450d4b09496dca3ad9014baa6d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481041"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293018"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>Uso de Azure DevTest Labs para desarrolladores
 Se puede utilizar Azure DevTest Labs para implementar numerosos escenarios clave pero uno de los principales escenarios implica el uso de DevTest Labs para máquinas de desarrollo host para desarrolladores. En este escenario, DevTest Labs ofrece estas ventajas:
@@ -45,7 +45,7 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | --- | --- |
    | [Configuración de imágenes de Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Aprenda a incluir imágenes de Azure Marketplace en una lista de permitidos y haga que estén disponibles para su selección solo las imágenes que desee para los desarrolladores.|
    | [Creación de una imagen personalizada](devtest-lab-create-template.md) |Cree una imagen personalizada instalando previamente el software que necesita para que los desarrolladores puedan crear rápidamente una máquina virtual con la imagen personalizada.|
-   | [Información acerca del generador de imágenes](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/) |Vea un vídeo que describe cómo configurar y usar un generador de imágenes.|
+   | [Información acerca del generador de imágenes](./devtest-lab-faq.md#blog-post) |Vea un vídeo que describe cómo configurar y usar un generador de imágenes.|
 
 3. **Creación de plantillas reutilizables para las máquinas de desarrollo** 
    
@@ -124,4 +124,3 @@ En este artículo, aprenderá acerca de las diversas características de Azure D
    | [Creación de un laboratorio mediante una plantilla de Resource Manager](devtest-lab-faq.md#how-do-i-create-a-lab-from-a-resource-manager-template) |Cree laboratorios en Azure DevTest Labs mediante plantillas de Resource Manager. |
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
-

@@ -4,12 +4,12 @@ description: En este artículo se obtiene información sobre las funcionalidades
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: f4b91302723119e707d12a86480bbaff2eb4bec5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 645bf701a8f8561b2cb4f19378036ada82c4bedd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485100"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054547"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Supervisión de cargas de trabajo de Azure Backup
 
@@ -28,7 +28,7 @@ Aquí se muestran los trabajos de las siguientes soluciones de Azure Backup:
 - Copia de seguridad de máquina virtual de Azure
 - Copia de seguridad de archivos de Azure
 - Copia de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
-- Agente de Azure Backup (MAB)
+- Agente de Microsoft Azure Recovery Services (MARS)
 
 Los trabajos procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran.
 
@@ -44,7 +44,7 @@ Las alertas son, fundamentalmente, los escenarios donde los usuarios reciben not
 El servicio define los siguientes escenarios como escenarios susceptibles de generar alertas.
 
 - Errores de copia de seguridad y restauración
-- Copia de seguridad correcta con advertencias para el agente de Azure Backup (MAB)
+- Copia de seguridad correcta con advertencias para el agente de Microsoft Azure Recovery Services (MARS)
 - Detener la protección con conservación de datos/Detener la protección con eliminación de datos
 
 ### <a name="alerts-from-the-following-azure-backup-solutions-are-shown-here"></a>Aquí se muestran las alertas de las siguientes soluciones de Azure Backup
@@ -52,7 +52,7 @@ El servicio define los siguientes escenarios como escenarios susceptibles de gen
 - Copias de seguridad de máquinas virtuales de Azure
 - Copias de seguridad de archivos de Azure
 - Copias de seguridad de cargas de trabajo de Azure, como SQL y SAP HANA
-- Agente de Azure Backup (MAB)
+- Agente de Microsoft Azure Recovery Services (MARS) 
 
 > [!NOTE]
 > Las alertas procedentes de System Center Data Protection Manager (SC-DPM) y Microsoft Azure Backup Server (MABS) NO se muestran aquí.

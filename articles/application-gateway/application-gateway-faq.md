@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 578d674a197936c6222d4520893fdb1afa00161e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d76506141b2563b3ae8d5779e774ad564022494d
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982006"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810010"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -337,6 +337,58 @@ Para el enrutamiento (basado en host) basado en varios dominios, puede crear age
 
 No, use solo caracteres alfanuméricos en la contraseña del archivo .pfx.
 
+### <a name="my-ev-certificate-is-issued-by-digicert-and-my-intermediate-certificate-has-been-revoked-how-do-i-renew-my-certificate-on-application-gateway"></a>DigiCert emitió mi certificado EV y el certificado intermedio se ha revocado. ¿Cómo renuevo mi certificado en Application Gateway?
+
+Los miembros del explorador de entidades de certificación (CA) han publicado recientemente informes con detalles sobre varios certificados que han emitido los proveedores de CA que usan nuestros clientes, Microsoft y la comunidad tecnológica al completo que no cumplen con los estándares del sector para las entidades de certificación de confianza pública. Los informes relacionados con las entidades de certificación no compatibles se pueden encontrar aquí:  
+
+* [Error 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
+* [Error 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
+
+Según los requisitos de cumplimiento de la industria, los proveedores de entidades de certificación comenzaron a revocar las CA que no eran compatibles y a emitir CA compatibles, por lo que los clientes deben emitir de nuevo sus certificados. Microsoft colabora estrechamente con estos proveedores para minimizar el potencial impacto en los servicios de Azure; **no obstante, los certificados autoemitidos o los certificados que se usan en los escenarios de "Bring Your Own Certificate" (BYOC) siguen en riesgo de revocarse inesperadamente**.
+
+Para comprobar si los certificados usados por la aplicación se han revocado, consulte el [Anuncio de DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) y el [seguimiento de revocación de certificados](https://misissued.com/#revoked). Si los certificados se han revocado o se van a revocar, deberá solicitar nuevos certificados del proveedor de CA que usan sus aplicaciones. Para evitar que se interrumpa la disponibilidad de la aplicación debido a la revocación inesperada de certificados o a la actualización de un certificado que se ha revocado, consulte la publicación sobre actualizaciones de Azure para obtener vínculos de corrección para varios servicios de Azure que admiten BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
+
+Para obtener información específica de Application Gateway, consulte lo siguiente:
+
+Si usa un certificado emitido por uno de los ICA revocados, la disponibilidad de la aplicación podría interrumpirse y, en función de la aplicación, puede recibir distintos mensajes de error, entre los que se incluyen los siguientes: 
+
+1.  Certificado no válido o certificado revocado
+2.  Se agotó el tiempo de espera de la conexión
+3.  HTTP 502
+
+Para evitar cualquier interrupción de la aplicación debido a este problema, o para volver a emitir una CA que se ha revocado, debe realizar las siguientes acciones: 
+
+1.  Póngase en contacto con su proveedor de certificados para volver a emitir los certificados.
+2.  Una vez que se haya vuelto a emitir, actualice los certificados en la instancia de Azure Application Gateway o WAF con la [cadena de confianza](https://docs.microsoft.com/windows/win32/seccrypto/certificate-chains) completa (certificado de hoja, intermedio o raíz). Ya sea que use el certificado en el cliente de escucha o en la configuración HTTP de Application Gateway, siga los pasos que se indican a continuación para actualizar los certificados y consulte los vínculos de la documentación mencionados para obtener más información.
+3.  Actualice los servidores de aplicaciones back-end para que usen el certificado que se volvió a emitir. Según el servidor back-end que use, los pasos de actualización del certificado podrían variar. Consulte la documentación de su proveedor.
+
+Para actualizar el certificado en el cliente de escucha:
+
+1.  En [Azure Portal](https://portal.azure.com/), abra el recurso de Application Gateway.
+2.  Abra la configuración del cliente de escucha que está asociado con el certificado.
+3.  Haga clic en "Renovar o editar el certificado seleccionado".
+4.  Cargue el nuevo certificado PFX con la contraseña y haga clic en Guardar.
+5.  Acceda al sitio web y compruebe si el sitio funciona según lo previsto. Para obtener más información, consulte la documentación [aquí](https://docs.microsoft.com/azure/application-gateway/renew-certificates).
+
+Si hace referencia a los certificados de Azure Key Vault en el cliente de escucha de Application Gateway, se recomienda seguir los siguientes pasos para realizar un cambio rápido:
+
+1.  En [Azure Portal](https://portal.azure.com/), vaya a la configuración de Azure Key Vault que se ha asociado con la instancia de Application Gateway
+2.  Agregue o importe el certificado reemitido en el almacén. Consulte [esta](https://docs.microsoft.com/azure/key-vault/certificates/quick-create-portal) documentación para obtener más información sobre el procedimiento.
+3.  Una vez que se haya importado el certificado, vaya a la configuración del cliente de escucha de Application Gateway y, en "Elegir un certificado de Key Vault", haga clic en la lista desplegable "Certificado" y elija el certificado agregado recientemente.
+4.  Haga clic en Guardar. Para obtener más información sobre la terminación TLS en Application Gateway con certificados de Key Vault, consulte la documentación [aquí](https://docs.microsoft.com/azure/application-gateway/key-vault-certs).
+
+
+Para actualizar el certificado en la configuración HTTP:
+
+Si usa la SKU v1 del servicio Application Gateway o WAF, tendrá que cargar el certificado nuevo como certificado de autenticación del servidor back-end.
+1.  En [Azure Portal](https://portal.azure.com/), abra el recurso de Application Gateway.
+2.  Abra la configuración HTTP que está asociada con el certificado.
+3.  Haga clic en "Agregar certificado", cargue el certificado reemitido y haga clic en Guardar.
+4.  Puede quitar el certificado antiguo más adelante al hacer clic en el botón de opciones "..." situado junto al certificado anterior, seleccione Eliminar y haga clic en Guardar.
+Para más información, consulte la documentación [aquí](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal#add-authenticationtrusted-root-certificates-of-back-end-servers).
+
+Si usa la SKU v2 del servicio Application Gateway o WAF, no tiene que cargar el certificado nuevo en la configuración HTTP, ya que la SKU v2 usa los "certificados raíz de confianza" y no es necesario realizar ninguna acción en este caso.
+
 ## <a name="configuration---ingress-controller-for-aks"></a>Configuración: controlador de entrada para AKS
 
 ### <a name="what-is-an-ingress-controller"></a>¿Qué es un controlador de entrada?
@@ -414,30 +466,6 @@ Sí. Si la configuración coincide con el siguiente escenario, no verá el tráf
 - Ha implementado Application Gateway V2.
 - Tiene un NSG en la subred de Application Gateway.
 - Ha habilitado los registros de flujo de NSG en ese NSG.
-
-### <a name="how-do-i-use-application-gateway-v2-with-only-private-frontend-ip-address"></a>¿Cómo usar Application Gateway V2 solo con una dirección IP de front-end privada?
-
-Actualmente, Application Gateway v2 no admite exclusivamente el modo de IP privada. Admite las siguientes combinaciones
-* IP privada e IP pública
-* Solo IP pública
-
-Pero si desea usar Application Gateway V2 con solo IP privada, puede seguir el siguiente proceso:
-1. Cree una Application Gateway con la dirección IP de front-end pública y privada
-2. No cree ningún cliente de escucha para la dirección IP pública de front-end. Application Gateway no escuchará ningún tráfico en la dirección IP pública si no se crea ningún cliente de escucha para él.
-3. Cree y adjunte un [Grupo de seguridad de red](https://docs.microsoft.com/azure/virtual-network/security-overview) para la subred de Application Gateway con la siguiente configuración en orden de prioridad:
-    
-    a. Permita el tráfico desde el origen como **etiqueta de servicio de GatewayManager** y el destino como **cualquier** y puerto de destino como **65200-65535**. Este intervalo de puertos es necesario para la comunicación de la infraestructura de Azure. Estos puertos están protegidos (bloqueados) por la autenticación de certificados. Las entidades externas, incluidos los administradores de usuarios de la puerta de enlace, no pueden iniciar cambios en esos puntos de conexión sin los certificados adecuados en su lugar
-    
-    b. Permita el tráfico desde el origen como la etiqueta de servicio **AzureLoadBalancer** y el puerto de destino como **cualquiera**.
-    
-    c. Deniegue todo el tráfico entrante desde el origen como la etiqueta del servicio **Internet** y el puerto de destino como **cualquiera**. Asigne a esta regla la *mínima prioridad* en las reglas de entrada
-    
-    d. Mantenga las reglas predeterminadas y permita la entrada de VirtualNetwork para que el acceso en la dirección IP privada no esté bloqueado.
-    
-    e. No puede bloquearse la conectividad saliente de Internet. De lo contrario, se producirán problemas con el registro, las métricas, etc.
-
-Ejemplo de configuración de NSG para acceso de IP privada solamente: ![Configuración de Application Gateway V2 NSG solo para acceso IP privado](./media/application-gateway-faq/appgw-privip-nsg.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

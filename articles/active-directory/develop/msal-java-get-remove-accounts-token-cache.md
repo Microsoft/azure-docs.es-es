@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
-ms.custom: aaddev
-ms.openlocfilehash: 150708e7d54e456e1a4e35cfe381e5de5d0f1e8c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-java
+ms.openlocfilehash: 6267c2118b7bac9befb42102d1118faac639bf49
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479358"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87312561"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Obtención y eliminación de cuentas de la memoria caché de tokens mediante MSAL para Java
 

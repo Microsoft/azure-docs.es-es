@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaeaa8625a5bdb5bbf8ce76a68e616a913da5655
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146995"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053055"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Sincronización de Azure AD Connect: Scheduler
 En este tema se describe el programador incorporado en la sincronización de Azure AD Connect (motor de sincronización).
@@ -171,7 +171,7 @@ Cuando se está ejecutando un ciclo de sincronización, no puede realizar cambio
 El programador todavía permanece activo y se inicia de nuevo en la siguiente oportunidad.
 
 ## <a name="custom-scheduler"></a>Programador personalizado
-Los cmdlets que se documentan en esta sección solo están disponibles en la compilación [1.1.130.0](reference-connect-version-history.md#111300) y versiones posteriores.
+Los cmdlets que se documentan en esta sección solo están disponibles en la compilación [1.1.130.0](reference-connect-version-history.md) y versiones posteriores.
 
 Si el programador integrado no cumple con sus requisitos, puede programar los conectores con PowerShell.
 

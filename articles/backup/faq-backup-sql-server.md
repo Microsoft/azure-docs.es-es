@@ -4,12 +4,12 @@ description: Busque las respuestas a preguntas habituales sobre la copia de segu
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 11657a5dda79fc550f4c07d4020d75c671335da4
-ms.sourcegitcommit: 8017209cc9d8a825cc404df852c8dc02f74d584b
+ms.openlocfilehash: 2781646e548f4f530b26ca41466f158597e817d9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84248267"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090984"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Preguntas más frecuentes sobre las bases de datos de SQL Server que se ejecutan en una copia de seguridad de máquina virtual de Azure
 
@@ -49,7 +49,7 @@ El valor predeterminado de DefaultBackupTasksThreshold es **20**.
 
 3. Guarde los cambios y cierre el archivo.
 4. En la instancia de SQL Server, abra el **Administrador de tareas**. Reinicie el servicio **AzureWLBackupCoordinatorSvc**.<br/> <br/>
- Aunque este método resulta útil si la aplicación está consumiendo muchos recursos, [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor?view=sql-server-2017) de SQL Server es una forma más genérica de especificar límites en la cantidad de CPU, E/S física y memoria que las solicitudes entrantes de la aplicación pueden utilizar.
+ Aunque este método resulta útil si la aplicación está consumiendo muchos recursos, [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) de SQL Server es una forma más genérica de especificar límites en la cantidad de CPU, E/S física y memoria que las solicitudes entrantes de la aplicación pueden utilizar.
 
 > [!NOTE]
 > En la experiencia del usuario todavía puede programar varias copias de seguridad en un momento dado, pero se procesarán en una ventana deslizante de, por ejemplo, 5, según el ejemplo anterior.

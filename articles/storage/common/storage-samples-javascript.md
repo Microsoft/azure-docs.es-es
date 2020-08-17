@@ -7,12 +7,13 @@ ms.date: 02/19/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 1d6b4d37a3d7c4accc3e407fb6cf841600ac1c16
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 466a1318dbe0a9299eebb9259ef8e0fe9bbbc0e7
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77485852"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433081"
 ---
 # <a name="azure-storage-samples-using-v12-javascript-client-libraries"></a>Ejemplos de Azure Storage mediante las bibliotecas de cliente de JavaScript v12
 

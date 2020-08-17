@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: e120eb20d247ce2def7f7c322ead3066c1d4386e
-ms.sourcegitcommit: 9bfd94307c21d5a0c08fe675b566b1f67d0c642d
+ms.openlocfilehash: 4f14a5cf21a372c66378521fd293b7569b181653
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84974660"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808667"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Instalación y ejecución de contenedores del servicio de voz (versión preliminar)
 
@@ -354,7 +354,7 @@ ApiKey={API_KEY}
 Este comando:
 
 * Ejecuta un contenedor *Conversión de texto a voz* desde la imagen de contenedor.
-* Asigna 2 núcleos de CPU y un gigabyte (GB) de memoria.
+* Asigna un núcleo de 1 CPU y 2 gigabytes (GB) de memoria.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Una vez que se produce la salida, quita automáticamente el contenedor. La imagen del contenedor sigue estando disponible en el equipo host.
 
@@ -394,7 +394,7 @@ ApiKey={API_KEY}
 Este comando:
 
 * Ejecuta un contenedor *Conversión de texto a voz personalizada* desde la imagen de contenedor.
-* Asigna 2 núcleos de CPU y un gigabyte (GB) de memoria.
+* Asigna un núcleo de 1 CPU y 2 gigabytes (GB) de memoria.
 * Carga el modelo de *Conversión de texto a voz personalizada* desde el montaje de entrada de volumen, por ejemplo, *C:\CustomVoice*.
 * Expone el puerto TCP 5000 y asigna un seudo-TTY para el contenedor.
 * Descarga el modelo dado el `ModelId` (si no se encuentra en el montaje de volumen).

@@ -3,12 +3,12 @@ title: Mejora de la confiabilidad de la aplicación con Advisor
 description: Use Azure Advisor para garantizar y mejorar la confiabilidad en las implementaciones de Azure críticas para la empresa.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 928e0b098cb2cf117eff40d2257fc79dbe114f85
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eba688a67a8684cdbb6846b389f83e61b349abe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85124629"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057681"
 ---
 # <a name="improve-the-reliability-of-your-application-by-using-azure-advisor"></a>Mejora de la confiabilidad de la aplicación mediante el uso de Azure Advisor
 
@@ -59,7 +59,7 @@ Si un perfil de Traffic Manager está configurado para el enrutamiento geográfi
 
 ## <a name="use-soft-delete-on-your-azure-storage-account-to-save-and-recover-data-after-accidental-overwrite-or-deletion"></a>Uso de la eliminación temporal en la cuenta de Azure Storage para guardar y recuperar datos después de una sobrescritura o eliminación accidentales
 
-Habilite la [eliminación temporal](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) en la cuenta de almacenamiento para que los blobs eliminados pasen a un estado de eliminación temporal en lugar de eliminarse de forma definitiva. Cuando se sobrescriben datos, se genera una instantánea de la eliminación temporal para guardar el estado de los datos sobrescritos. El uso de la eliminación temporal le permite efectuar una recuperación en caso de que se produzca una eliminación o sobrescritura accidentales. Advisor identifica las cuentas de Azure Storage que no tienen habilitada la eliminación temporal y sugiere habilitarla.
+Habilite la [eliminación temporal](../storage/blobs/soft-delete-overview.md) en la cuenta de almacenamiento para que los blobs eliminados pasen a un estado de eliminación temporal en lugar de eliminarse de forma definitiva. Cuando se sobrescriben datos, se genera una instantánea de la eliminación temporal para guardar el estado de los datos sobrescritos. El uso de la eliminación temporal le permite efectuar una recuperación en caso de que se produzca una eliminación o sobrescritura accidentales. Advisor identifica las cuentas de Azure Storage que no tienen habilitada la eliminación temporal y sugiere habilitarla.
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configuración de la puerta de enlace VPN como activo-activo para lograr la resistencia de conexión
 
@@ -107,7 +107,7 @@ A partir del 1 de julio de 2020, no podrá crear nuevos clústeres de Kafka medi
 A partir del 1 de julio de 2020, no podrá crear nuevos clústeres de Spark con Spark 2.1 o 2.2 en HDInsight 3.6. No podrá crear nuevos clústeres de Spark con Spark 2.3 en HDInsight 4.0. Los clústeres existentes se ejecutarán tal cual sin la compatibilidad de Microsoft. 
 
 ## <a name="enable-virtual-machine-replication"></a>Habilitar la replicación de máquinas virtuales
-Las máquinas virtuales que no tienen habilitada la replicación en otra región no son resistentes a las interrupciones regionales. La replicación de las máquinas virtuales reduce cualquier impacto adverso en el negocio durante el transcurso de una interrupción regional de Azure. Advisor detecta las máquinas virtuales en las que la replicación no está habilitada y recomienda su habilitación. Al habilitar la replicación, si se produce una interrupción, puede abrir rápidamente las máquinas virtuales en una región de Azure remota. [Más información sobre la replicación de máquinas virtuales](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+Las máquinas virtuales que no tienen habilitada la replicación en otra región no son resistentes a las interrupciones regionales. La replicación de las máquinas virtuales reduce cualquier impacto adverso en el negocio durante el transcurso de una interrupción regional de Azure. Advisor detecta las máquinas virtuales en las que la replicación no está habilitada y recomienda su habilitación. Al habilitar la replicación, si se produce una interrupción, puede abrir rápidamente las máquinas virtuales en una región de Azure remota. [Más información sobre la replicación de máquinas virtuales](../site-recovery/azure-to-azure-quickstart.md).
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre alta disponibilidad en Advisor
 

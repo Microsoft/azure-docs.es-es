@@ -7,12 +7,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 77b4dd4c0efbe6d03e64865f18c2c87614aaecb5
-ms.sourcegitcommit: d597800237783fc384875123ba47aab5671ceb88
+ms.openlocfilehash: 4b1b8a0cfa98d48d7cb92474c1572f17c79ffd0d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80632520"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498959"
 ---
 # <a name="vmware-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de VMware a Azure
 
@@ -30,10 +30,25 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
 **Servidores de VMware** | Las máquinas virtuales VMware se hospedan en servidores ESXi de vSphere locales. Se recomienda un servidor vCenter para administrar los hosts. | Durante la implementación de Site Recovery, se agregan servidores VMware al almacén de Recovery Services.
 **Máquinas replicadas** | Mobility Service está instalado en cada una de las máquinas virtuales de VMware que se van a replicar. | Se recomienda permitir la instalación automática desde el servidor de procesos. Si lo desea, también puede instalar manualmente el servicio o usar un método de implementación automatizada, como Configuration Manager.
 
-**Arquitectura de VMware a Azure**
+![Diagrama que muestra las relaciones de la arquitectura de replicación de VMware a Azure.](./media/vmware-azure-architecture/arch-enhanced.png)
 
-![Componentes](./media/vmware-azure-architecture/arch-enhanced.png)
+## <a name="set-up-outbound-network-connectivity"></a>Configuración de la conectividad de red saliente
 
+Para que Site Recovery funcione de la forma esperada, debe modificar la conectividad de red saliente para permitir la replicación de su entorno.
+
+> [!NOTE]
+> Site Recovery no admite el uso de un proxy de autenticación para controlar la conectividad de la red.
+
+### <a name="outbound-connectivity-for-urls"></a>Conectividad de salida para las direcciones URL
+
+Si usa un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe permitir el acceso a ellas:
+
+| **Nombre**                  | **Comercial**                               | **Gobierno**                                 | **Descripción** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
+| Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
+| Azure Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
 
 ## <a name="replication-process"></a>Proceso de replicación
 
@@ -54,9 +69,7 @@ En la tabla y el gráfico siguientes se proporciona una visión general de los c
     - El servidor de procesos recibe los datos de la replicación, los optimiza, los cifra y los envía a Azure Storage a través del puerto 443 de salida.
 5. Los datos de replicación registran el primer aterrizaje en una cuenta de almacenamiento en caché de Azure. Estos registros se procesan y los datos se almacenan en un disco administrado de Azure (denominado disco de inicialización ASR). Los puntos de recuperación se crean en ese disco.
 
-**Proceso de replicación de VMware a Azure**
-
-![Proceso de replicación](./media/vmware-azure-architecture/v2a-architecture-henry.png)
+![Diagrama que muestra el proceso de replicación de VMware a Azure.](./media/vmware-azure-architecture/v2a-architecture-henry.png)
 
 ## <a name="resynchronization-process"></a>Proceso de resincronización
 
@@ -91,9 +104,8 @@ Una vez que la replicación está configurada y tras ejecutar una exploración d
     - Fase 3: Una vez que las cargas de trabajo han conmutado por recuperación, debe habilitar de nuevo la replicación de las máquinas virtuales locales.
     
  
-**Conmutación por recuperación VMware desde Azure**
 
-![Conmutación por recuperación](./media/vmware-azure-architecture/enhanced-failback.png)
+![Diagrama que muestra la conmutación por recuperación de VMware desde Azure.](./media/vmware-azure-architecture/enhanced-failback.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

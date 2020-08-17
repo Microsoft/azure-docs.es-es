@@ -11,13 +11,13 @@ ms.subservice: anomaly-detector
 ms.topic: quickstart
 ms.date: 06/30/2020
 ms.author: aahi
-ms.custom: tracking-python
-ms.openlocfilehash: 5a8e1d99aee7035cddabce8069d55a038261872a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: d7ea875b9fed623c2a064aa9648314392a8c0c3f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986139"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849767"
 ---
 # <a name="quickstart-use-the-anomaly-detector-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Anomaly Detector
 

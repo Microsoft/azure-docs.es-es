@@ -4,16 +4,16 @@ description: Aprenda a usar Python para crear y administrar máquinas virtuales 
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2017
 ms.author: cynthn
-ms.custom: tracking-python
-ms.openlocfilehash: b5f8b0e8f22a476ad379b55275d79c2874966852
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 1e2558074275f9b97bd4a2fd9a3d111c5de02948
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84551982"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853422"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Creación y administración de máquinas virtuales Windows en Azure con Python
 
@@ -32,7 +32,7 @@ Tardará unos 20 minutos en realizar estos pasos.
 
 ## <a name="create-a-visual-studio-project"></a>Creación de un proyecto de Visual Studio
 
-1. Si aún no lo ha hecho, instale [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Seleccione **Desarrollo de Python** en la página Cargas de trabajo y haga clic en **Instalar**. En el resumen, verá que **Python 3 de 64 bits (3.6.0)** se selecciona automáticamente. Si ya ha instalado Visual Studio, puede agregar la carga de trabajo de Python con el selector de Visual Studio.
+1. Si aún no lo ha hecho, instale [Visual Studio](/visualstudio/install/install-visual-studio). Seleccione **Desarrollo de Python** en la página Cargas de trabajo y haga clic en **Instalar**. En el resumen, verá que **Python 3 de 64 bits (3.6.0)** se selecciona automáticamente. Si ya ha instalado Visual Studio, puede agregar la carga de trabajo de Python con el selector de Visual Studio.
 2. Después de instalar e iniciar Visual Studio, haga clic en **Archivo** > **Nuevo** > **Proyecto**.
 3. Haga clic en **Plantillas** > **Python** > **Python Application** (Aplicación de Python), escriba *myPythonProject* en el nombre del proyecto, seleccione la su ubicación y haga clic en **Aceptar**.
 
@@ -464,7 +464,7 @@ Puede detener una máquina virtual y mantener toda su configuración, pero se le
 
 ### <a name="resize-the-vm"></a>Cambio de tamaño de la máquina virtual
 
-Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos de la implementación. Para más información, consulte el artículo sobre los [tamaños de máquina virtual](sizes.md).
+Para decidir un tamaño de máquina virtual, se deben considerar muchos aspectos de la implementación. Para más información, consulte el artículo sobre los [tamaños de máquina virtual](../sizes.md).
 
 1. Para cambiar el tamaño de la máquina virtual, agregue esta función después de las variables en el archivo .py:
 
@@ -566,6 +566,5 @@ Dado que se le cobrará por los recursos utilizados en Azure, siempre es conveni
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Si se han producido problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../../resource-manager-troubleshoot-deployments-portal.md)
-- Más información acerca de la [biblioteca de Python de Azure](https://docs.microsoft.com/python/api/overview/azure/?view=azure-python)
-
+- Si se han producido problemas durante la implementación, el paso siguiente será consultar [Solución de problemas de implementaciones de grupo de recursos con Azure Portal](../../azure-resource-manager/templates/deployment-history.md)
+- Más información acerca de la [biblioteca de Python de Azure](/python/api/overview/azure/?view=azure-python)

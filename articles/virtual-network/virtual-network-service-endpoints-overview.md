@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 692d86fa27ea42df6fe1128b64e408a5d4a4d08b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444461"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132830"
 ---
 # <a name="virtual-network-service-endpoints"></a>Puntos de conexión de servicio de red virtual
 
@@ -123,7 +123,7 @@ Una vez que configure los puntos de conexión de servicio en un servicio concret
 
 Un usuario con acceso de escritura a una red virtual puede configurar puntos de conexión de servicio en redes virtuales de forma independiente. Para proteger los recursos de los servicios de Azure en una red virtual, el usuario debe tener permiso en *Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action* para las subredes agregadas. Los roles de administrador de servicios integrados incluyen este permiso de manera predeterminada. El permiso se puede modificar mediante la creación de roles personalizados.
 
-Para más información sobre los roles integrados, consulte [Roles integrados en los recursos de Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para más información sobre la asignación de permisos concretos a roles personalizados, consulte [Roles personalizados para recursos de Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Para obtener más información sobre los roles integrados, consulte [Roles integrados en Azure](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para obtener más información sobre la asignación de permisos concretos a roles personalizados, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Las redes virtuales y los recursos de servicio de Azure pueden encontrarse en la misma o en diferentes suscripciones. Si los recursos de servicio de Azure y de red virtual están en distintas suscripciones, los recursos deben estar en el mismo inquilino de Active Directory (AD). 
 
@@ -152,4 +152,3 @@ Consulte las [preguntas más frecuentes acerca de los puntos de conexión de ser
 - [Integración de servicios de Azure en redes virtuales](virtual-network-for-azure-services.md)
 - [Directivas de puntos de conexión de servicio de red virtual](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Plantilla de Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)
-

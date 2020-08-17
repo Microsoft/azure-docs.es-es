@@ -4,14 +4,14 @@ description: Obtenga información sobre cómo usar la cláusula OFFSET LIMIT par
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/29/2020
+ms.author: tisande
+ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76771564"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432712"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Cláusula OFFSET LIMIT en Azure Cosmos DB
 
@@ -39,9 +39,9 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
   Se necesitan los valores de `OFFSET` y `LIMIT` en la cláusula `OFFSET LIMIT`. Si se usa una cláusula `ORDER BY` opcional, se genera el conjunto de resultados mediante la omisión de los valores ordenados. En caso contrario, la consulta devolverá un orden fijo de valores.
 
-  El cargo por RU de una consulta con `OFFSET LIMIT` aumentará a medida que aumente el número de términos que se van a desplazar. En el caso de las consultas que tienen varias páginas de resultados, normalmente se recomienda usar tokens de continuación. Los tokens de continuación son un "marcador" del lugar donde se puede reanudar la consulta más adelante. Si usa `OFFSET LIMIT`, no hay "marcador". Si desea devolver la página siguiente de la consulta, tendría que empezar desde el principio.
+  El cargo por RU de una consulta con `OFFSET LIMIT` aumentará a medida que aumente el número de términos que se van a desplazar. En el caso de las consultas que tienen [varias páginas de resultados](sql-query-pagination.md), normalmente se recomienda usar [tokens de continuación](sql-query-pagination.md#continuation-tokens). Los tokens de continuación son un "marcador" del lugar donde se puede reanudar la consulta más adelante. Si usa `OFFSET LIMIT`, no hay "marcador". Si desea devolver la página siguiente de la consulta, tendría que empezar desde el principio.
   
-  Debe usar `OFFSET LIMIT` para los casos en los que quiera omitir documentos completamente y guardar los recursos del cliente. Por ejemplo, use `OFFSET LIMIT` si desea ir al resultado número 1000 de la consulta y no necesita ver los resultados 1 a 999. En el back-end, `OFFSET LIMIT` sigue cargando cada documento, incluidos los que se omiten. La ventaja en cuanto al rendimiento es un ahorro en los recursos de cliente porque se evita procesar documentos que no son necesarios.
+  Debe usar `OFFSET LIMIT` para los casos en los que quiera omitir elementos completamente y guardar los recursos del cliente. Por ejemplo, use `OFFSET LIMIT` si desea ir al resultado número 1000 de la consulta y no necesita ver los resultados 1 a 999. En el back-end, `OFFSET LIMIT` sigue cargando todos los elementos, incluidos los que se omiten. La ventaja en cuanto al rendimiento es un ahorro en los recursos de cliente porque se evita procesar elementos innecesarios.
 
 ## <a name="examples"></a>Ejemplos
 
@@ -68,7 +68,7 @@ Los resultados son:
 Esta es una consulta que omite el primer valor y devuelve el segundo (sin ordenar):
 
 ```sql
-   SELECT f.id, f.address.city
+    SELECT f.id, f.address.city
     FROM Families f
     OFFSET 1 LIMIT 1
 ```

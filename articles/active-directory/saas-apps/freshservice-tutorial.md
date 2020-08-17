@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/11/2019
+ms.date: 07/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 06b52ec552434f74c56333d1afe00cde2a285418
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74227529"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905438"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Freshservice
 
@@ -40,11 +39,15 @@ Para empezar, necesita los siguientes elementos:
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Una suscripción habilitada para el inicio de sesión único en FreshService (SSO).
 
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
+
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, va a configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
 * Freshservice admite el inicio de sesión único iniciado por **SP**
+* Una vez configurado Freshservice, puede aplicar el control de sesión, que protege contra la filtración y la infiltración de la información confidencial de la organización en tiempo real. El control de sesión procede del acceso condicional. [Aprenda a aplicar el control de sesión con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-freshservice-from-the-gallery"></a>Agregar Freshservice desde la galería
 
@@ -93,20 +96,6 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. Freshservice requiere una huella digital SHA-256 para que el inicio de sesión único funcione. Para obtener una huella digital SHA-256, realice los pasos siguientes:
-
-    ![FingerPrint](./media/freshservice-tutorial/ic790821.png "FingerPrint")
-
-    1. Abra el [vínculo](https://www.samltool.com/fingerprint.php) en un explorador web diferente.
-
-    1. Abra el archivo de certificado descargado (Base64) en el Bloc de notas y pegue el contenido en el cuadro de texto **X.509 Cert** (Certificado X.509).
-
-    1. Para el algoritmo, seleccione **sha256** en la lista desplegable.
-
-    1. Haga clic en **CALCULATE FINGERPRINT** (CALCULAR HUELLA DIGITAL).
-
-    1. Haga clic en el icono de copiar para copiar la **huella digital** generada y guardarla en el equipo.
-
 1. En la sección **Set up Freshservice** (Configurar Freshservice) de **Azure Portal**, copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
@@ -143,41 +132,38 @@ En esta sección, permitirá que B.Simon acceda a Freshservice para que use el i
 
 ## <a name="configure-freshservice-sso"></a>Configuración del inicio de sesión único de Freshservice
 
-1. Para automatizar la configuración en Freshservice, debe instalar la **extensión del explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Instalar la extensión**.
+1. Abra una nueva ventana del explorador web e inicie sesión en el sitio de la compañía Freshservice como administrador.
 
-    ![Extensión Mis aplicaciones](common/install-myappssecure-extension.png)
+1. En el menú de la izquierda, haga clic en **Admin** (Administrador) y seleccione **Helpdesk Security** (Seguridad del departamento de soporte técnico) en **General Settings** (Configuración general).
 
-2. Después de agregar la extensión al explorador, haga clic en **Setup Freshservice** (Configurar Freshservice) para acceder a la aplicación Freshservice. Una vez allí, especifique las credenciales del administrador para iniciar sesión en Freshservice. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 6.
+    ![Administrador](./media/freshservice-tutorial/configure-1.png "Administración")
 
-    ![Configuración](common/setup-sso.png)
+1. En **Security** (Seguridad), haga clic en **Go to Freshworks 360 Security** (Ir a la seguridad de Freshworks 360).
 
-3. Si quiere configurar Freshservice manualmente, abra una nueva ventana del explorador web, inicie sesión en el sitio de empresa de Freshservice como administrador y siga estos pasos:
+    ![Seguridad](./media/freshservice-tutorial/configure-2.png "Seguridad")
 
-4. En el menú de la parte superior, haga clic en **Administrador**.
+1. En la sección **Seguridad** , realice estos pasos:
 
-    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administración")
+    ![Inicio de sesión único](./media/freshservice-tutorial/configure-3.png "Inicio de sesión único")
+  
+    a. En **Single Sign On** (Inicio de sesión único), seleccione **On** (Activado).
 
-5. En el **Portal del cliente**, haga clic en **Seguridad**.
+    b. En **Login Method** (Método de inicio de sesión), seleccione **SAML SSO** (SSO de SAML).
 
-    ![Seguridad](./media/freshservice-tutorial/ic790815.png "Seguridad")
+    c. En el cuadro de texto **Entity ID provided by the IdP** (Identificador de entidad proporcionado por el IdP), pegue el valor de **Entity ID** (Id. de entidad) que ha copiado de Azure Portal.
 
-6. En la sección **Seguridad** , realice estos pasos:
+    d. En el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión único de SAML), pegue el valor de **URL de inicio de sesión** que copió en Azure Portal.
 
-    ![Inicio de sesión único](./media/freshservice-tutorial/ic790816.png "Inicio de sesión único")
+    e. En **Signing Options** (Opciones de firma), seleccione **Only Signed Assertions** (Solo aserciones firmadas) en la lista desplegable.
 
-    a. Cambie a **Inicio de sesión único**.
+    f. En el cuadro de texto **Sign Out URL** (URL de cierre de sesión), pegue el valor de **Logout URL** (Dirección URL de cierre de sesión) que ha copiado de Azure Portal.
 
-    b. Seleccione **Inicio de sesión único de SAML**.
+    g. En el cuadro de texto **Security Certificate** (Certificado de seguridad), pegue el valor de **Certificate (Base64)** (Certificado [Base64]), que ha obtenido anteriormente.
+  
+    h. Haga clic en **Save**(Guardar).
 
-    c. En el cuadro de texto **Dirección URL de inicio de sesión de SAML**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    d. En el cuadro de texto **URL de cierre de sesión**, pegue el valor de **Sign-Out URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
-
-    e. En el cuadro de texto **Security Certificate Fingerprint** (Huella digital de certificado de seguridad), pegue el valor **Huella digital** que ha generado anteriormente.
-
-    f. Haga clic en **Guardar**
-
-### <a name="create-freshservice-test-user"></a>Creación de un usuario de prueba de Freshservice
+## <a name="create-freshservice-test-user"></a>Creación de un usuario de prueba de Freshservice
 
 Para permitir que los usuarios de Azure AD inicien sesión en FreshService, deben aprovisionarse en FreshService. En el caso de FreshService, el aprovisionamiento es una tarea manual.
 
@@ -185,32 +171,25 @@ Para permitir que los usuarios de Azure AD inicien sesión en FreshService, debe
 
 1. Inicie sesión en el sitio de la compañía de **FreshService** como administrador.
 
-2. En el menú de la parte superior, haga clic en **Administrador**.
-
-    ![Administrador](./media/freshservice-tutorial/ic790814.png "Administración")
+2. En el menú de la izquierda, haga clic en **Admin** (Administrador).
 
 3. En la sección **User Management** (Administración de usuarios), haga clic en **Requesters** (Solicitantes).
 
-    ![Solicitantes](./media/freshservice-tutorial/ic790818.png "Solicitantes")
+    ![Solicitantes](./media/freshservice-tutorial/create-user-1.png "Solicitantes")
 
 4. Haga clic en **Nuevo solicitante**.
 
-    ![Nuevos solicitantes](./media/freshservice-tutorial/ic790819.png "Nuevos solicitantes")
+    ![Nuevos solicitantes](./media/freshservice-tutorial/create-user-2.png "Nuevos solicitantes")
 
-5. En la sección **New Requester** (Nuevo solicitante), lleve a cabo estos pasos:
-
-    ![Nuevo solicitante](./media/freshservice-tutorial/ic790820.png "Nuevo solicitante")  
-
-    a. Escriba los atributos **First Name** (Nombre) y **Email** (Correo electrónico) de una cuenta de Azure Active Directory válida que desee aprovisionar en los cuadros de texto relacionados.
-
-    b. Haga clic en **Save**(Guardar).
+5. En la sección **New Requester** (Nuevo solicitante), rellene los campos necesarios y haga clic en **Save** (Guardar).
+    ![Nuevo solicitante](./media/freshservice-tutorial/create-user-3.png "Nuevo solicitante")  
 
     > [!NOTE]
     > El titular de la cuenta de Azure Active Directory recibe un mensaje de correo electrónico con un vínculo para confirmar la cuenta antes de que se active.
     >  
 
-> [!NOTE]
-> Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FreshService que proporcione FreshService para aprovisionar cuentas de usuario de Azure AD.
+    > [!NOTE]
+    > Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de FreshService que proporcione FreshService para aprovisionar cuentas de usuario de Azure AD.
 
 ## <a name="test-sso"></a>Prueba de SSO
 

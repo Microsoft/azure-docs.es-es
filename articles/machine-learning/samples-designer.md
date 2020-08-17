@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: d2ed9a605b19287c2ea693187c445dc8a4b3b932
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206320"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318834"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Conjuntos de datos y canalizaciones de ejemplo en el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -25,6 +25,8 @@ Use los ejemplos integrados en el diseñador de Azure Machine Learning para empe
 
 * Suscripción a Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://aka.ms/AMLFree).
 * Un área de trabajo de Azure Machine Learning con un SKU de Enterprise.
+
+[!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
 ## <a name="use-sample-pipelines"></a>Canalizaciones de ejemplo
 

@@ -3,12 +3,12 @@ title: Administrar imágenes firmadas
 description: Aprenda a habilitar la confianza en el contenido para Azure Container Registry y a insertar y extraer imágenes firmadas. La confianza de contenido es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 09/06/2019
-ms.openlocfilehash: 74bc61f71fc001d5333fcd3c9ac47fa4dd90218c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34bb56bab869cb1f12541b65c59b06a73b215377
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076857"
 ---
 # <a name="content-trust-in-azure-container-registry"></a>Confianza en el contenido en Azure Container Registry
 
@@ -114,7 +114,7 @@ az role assignment create --scope $REGISTRY_ID --role AcrImageSigner --assignee 
 `<service principal ID>` puede ser el valor de **appId**, de **objectId** o uno de los valores de **servicePrincipalNames** de la entidad de servicio. Para más información sobre cómo trabajar con entidades de servicio y Azure Container Registry, consulte [Autenticación de Azure Container Registry con entidades de servicio](container-registry-auth-service-principal.md).
 
 > [!IMPORTANT]
-> Después de realizar cualquier cambio de rol, ejecute `az acr login` para actualizar el token de identidad local para la CLI de Azure, con el fin de que los nuevos roles surtan efecto. Para más información sobre la comprobación de roles para una identidad, consulte [Administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](../role-based-access-control/role-assignments-cli.md) y [Solución de problemas del control de acceso basado en rol para recursos de Azure](../role-based-access-control/troubleshooting.md).
+> Después de realizar cualquier cambio de rol, ejecute `az acr login` para actualizar el token de identidad local para la CLI de Azure, con el fin de que los nuevos roles surtan efecto. Para más información sobre la comprobación de roles para una identidad, consulte el artículo sobre la [administración del acceso a los recursos de Azure mediante RBAC y la CLI de Azure](../role-based-access-control/role-assignments-cli.md) y [Solución de problemas de Azure RBAC](../role-based-access-control/troubleshooting.md).
 
 ## <a name="push-a-trusted-image"></a>Inserción de una imagen de confianza
 

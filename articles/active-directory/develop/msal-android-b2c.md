@@ -13,16 +13,16 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0ad5fab685757d2efd91cd1df0e48a5f1258d17e
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696528"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119885"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Uso de MSAL para Android con B2C
 
-La biblioteca de autenticación de Microsoft (MSAL) permite a los desarrolladores de aplicaciones autenticar a los usuarios con identidades sociales y locales mediante [Azure Active Directory B2C (Azure AD B2C)](https://docs.microsoft.com/azure/active-directory-b2c/). Azure AD B2C es un servicio de administración de identidades. Utilícelo para personalizar y controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles cuando usan las aplicaciones.
+La biblioteca de autenticación de Microsoft (MSAL) permite a los desarrolladores de aplicaciones autenticar a los usuarios con identidades sociales y locales mediante [Azure Active Directory B2C (Azure AD B2C)](../../active-directory-b2c/index.yml). Azure AD B2C es un servicio de administración de identidades. Utilícelo para personalizar y controlar el modo en que los clientes se suscriben, inician sesión y administran sus perfiles cuando usan las aplicaciones.
 
 ## <a name="configure-known-authorities-and-redirect-uri"></a>Configuración de autoridades conocidas y URI de redireccionamiento
 
@@ -54,7 +54,7 @@ El archivo de configuración para la aplicación declararía dos `authorities`. 
 }
 ```
 
-`redirect_uri` debe estar registrado en la configuración de la aplicación y también en `AndroidManifest.xml` para admitir el redireccionamiento durante el [flujo de concesión de código de autorización](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-oauth-code).
+`redirect_uri` debe estar registrado en la configuración de la aplicación y también en `AndroidManifest.xml` para admitir el redireccionamiento durante el [flujo de concesión de código de autorización](../../active-directory-b2c/authorization-code-flow.md).
 
 ## <a name="initialize-ipublicclientapplication"></a>Inicialización de IPublicClientApplication
 
@@ -227,7 +227,7 @@ String tenantId = account.getTenantId();
 
 ### <a name="idtoken-claims"></a>Notificaciones de IdToken
 
-Las notificaciones devueltas en IdToken las rellena el servicio de token de seguridad (STS) y no MSAL. En función del proveedor de identidades (IdP) utilizado, puede que falten algunas notificaciones. Algunos proveedores de identidades no proporcionan actualmente la notificación `preferred_username`. Como MSAL usa esta notificación para el almacenamiento en caché, se utiliza un valor de marcador de posición, `MISSING FROM THE TOKEN RESPONSE`, en su lugar. Para más información sobre las notificaciones de IdToken de B2C, consulte [Información general de tokens de Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#claims).
+Las notificaciones devueltas en IdToken las rellena el servicio de token de seguridad (STS) y no MSAL. En función del proveedor de identidades (IdP) utilizado, puede que falten algunas notificaciones. Algunos proveedores de identidades no proporcionan actualmente la notificación `preferred_username`. Como MSAL usa esta notificación para el almacenamiento en caché, se utiliza un valor de marcador de posición, `MISSING FROM THE TOKEN RESPONSE`, en su lugar. Para más información sobre las notificaciones de IdToken de B2C, consulte [Información general de tokens de Azure Active Directory B2C](../../active-directory-b2c/tokens-overview.md#claims).
 
 ## <a name="managing-accounts-and-policies"></a>Administración de cuentas y directivas
 
@@ -239,4 +239,4 @@ Al renovar los tokens de una directiva con `acquireTokenSilent`, proporcione la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre Azure Active Directory B2C (Azure AD B2C) en [¿Qué es Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)
+Más información sobre Azure Active Directory B2C (Azure AD B2C) en [¿Qué es Azure Active Directory B2C?](../../active-directory-b2c/overview.md)

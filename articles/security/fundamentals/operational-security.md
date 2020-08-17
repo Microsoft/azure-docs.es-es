@@ -1,6 +1,6 @@
 ---
 title: Seguridad operativa de Azure | Microsoft Docs
-description: Obtenga información sobre los registros de Microsoft Azure Monitor, sus servicios y cómo funciona.
+description: Familiarícese con los registros de Microsoft Azure Monitor, sus servicios y cómo funciona mediante la lectura de esta introducción.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 34c0c52945abc6e0ab74b1cb180581c76464bee8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b6e5a22a073a2a61db4a630388fee886e2f4ed26
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75749958"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543340"
 ---
 # <a name="azure-operational-security"></a>Seguridad operativa de Azure
 ## <a name="introduction"></a>Introducción
@@ -108,7 +108,7 @@ Las [soluciones de administración](../../monitoring/monitoring-solutions.md) so
 
 ![Soluciones de administración](./media/operational-security/azure-operational-security-fig4.png)
 
-Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](../../automation/automation-update-management.md). Esta solución utiliza el agente de [registros de Azure Monitor](../../log-analytics/log-analytics-queries.md) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
+Un buen ejemplo de una solución que usa varios servicios para proporcionar funcionalidad adicional es la [solución Administración de actualizaciones](../../automation/update-management/update-mgmt-overview.md). Esta solución utiliza el agente de [registros de Azure Monitor](../../log-analytics/log-analytics-queries.md) de Windows y Linux para recopilar información acerca de las actualizaciones necesarias en cada agente. Escribe estos datos en el repositorio de registros de Azure Monitor en donde puede analizarlo con un panel incluido.
 
 Cuando se crea una implementación, se utilizan runbooks en [Azure Automation](../../automation/automation-intro.md) para instalar las actualizaciones necesarias. Todo este proceso se administra en el portal y no tiene que preocuparse sobre los detalles subyacentes.
 

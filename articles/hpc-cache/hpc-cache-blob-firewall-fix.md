@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.author: rohogue
-ms.openlocfilehash: 11e57e5d101e35c55dbaa39615dfe48511a8b87c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: 6916c79e9110a88beff65d487fac72441382c2f4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513828"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092379"
 ---
 # <a name="work-around-blob-storage-account-firewall-settings"></a>Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
 

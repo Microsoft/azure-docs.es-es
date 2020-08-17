@@ -7,18 +7,18 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: mialdrid
-ms.openlocfilehash: c68ffd019937f902567c3deda8d879448dc082da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e2c730906e8dcb31c3365259088240c74e416855
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847044"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537027"
 ---
 # <a name="expressroute-circuits-and-peering"></a>Circuitos ExpressRoute y emparejamiento
 
 Los circuitos ExpressRoute conectan la infraestructura local a Microsoft a través de un proveedor de conectividad. En este artículo se le ayudará a comprender los circuitos ExpressRoute y los dominios de enrutamiento/emparejamiento. En la ilustración siguiente se muestra una representación lógica de conectividad entre la WAN y Microsoft.
 
-![](./media/expressroute-circuit-peerings/expressroute-basic.png)
+![Diagrama que muestra cómo se conectan los circuitos ExpressRoute a la infraestructura local a Microsoft a través de un proveedor de conectividad.](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
 > [!IMPORTANT]
 > El emparejamiento público de Azure está en desuso y no está disponible para nuevos circuitos de ExpressRoute. Los nuevos circuitos admiten el emparejamiento privado y el emparejamiento de Microsoft.  
@@ -42,7 +42,7 @@ Se aplican límites y cuotas predeterminados para cada circuito ExpressRoute. Pa
 
 Un circuito ExpressRoute tiene asociados varios dominios de enrutamiento y emparejamiento: Azure público, Azure privado y Microsoft. Cada emparejamiento tiene una configuración idéntica en un par de enrutadores (configuración en activo-activo o de uso compartido de carga) para la alta disponibilidad. Los servicios de Azure se clasifican como *público de Azure* y *privado de Azure* para representar los esquemas de direcciones IP.
 
-![](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagrama que muestra cómo se configuran los emparejamientos públicos de Azure, privados de Azure y de Microsoft en un circuito de ExpressRoute.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="azure-private-peering"></a><a name="privatepeering"></a>Configuración entre pares privados de Azure
 

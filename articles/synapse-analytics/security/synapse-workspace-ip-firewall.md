@@ -1,5 +1,5 @@
 ---
-title: Configuración de reglas de firewall de IP en Azure Synapse Analytics
+title: Configuración de las reglas de firewall de IP
 description: En este artículo se muestra cómo configurar reglas de firewall de IP en Azure Synapse Analytics.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 255714fcf69a8ed72cf1f306e5aafabd49a199ca
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: a7e159c94bf1b9f3e8049fd657abb562f1c85671
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85194406"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503929"
 ---
 # <a name="azure-synapse-analytics-ip-firewall-rules-preview"></a>Reglas de firewall de IP de Azure Synapse Analytics (versión preliminar)
 
@@ -35,7 +35,7 @@ También puede agregar reglas de firewall de IP a un área de trabajo de Synapse
 
 ![Configuración de IP del área de trabajo de Azure Synapse en Azure Portal.](./media/synpase-workspace-ip-firewall/ip-firewall-3.png)
 
-## <a name="connecting-to-synapse-from-your-own-network"></a>Conexión a Synapse desde su propia red
+## <a name="connect-to-synapse-from-your-own-network"></a>Conexión con Synapse desde su propia red
 
 Puede conectarse al área de trabajo de Synapse con Synapse Studio. También puede usar SQL Server Management Studio (SSMS) para conectarse a los recursos de SQL (grupos de SQL y SQL a petición) en el área de trabajo.
 

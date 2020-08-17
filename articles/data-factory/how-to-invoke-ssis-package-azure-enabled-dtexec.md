@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
-ms.openlocfilehash: dce7fb87ee49aefdedf5653243fa5729eee34519
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 94b581f677e370911a60db08276ff7dd0eb45486
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81414323"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927086"
 ---
 # <a name="run-sql-server-integration-services-packages-with-the-azure-enabled-dtexec-utility"></a>Ejecución de paquetes de SQL Server Integration Services con la utilidad dtexec habilitada para Azure
 
@@ -87,7 +87,7 @@ La invocación de AzureDTExec ofrece opciones similares al invocar dtexec. Para 
 - **/F[ile]** : carga un paquete que está almacenado en el sistema de archivos, recurso compartido de archivos o Azure Files. Como valor de esta opción, puede especificar la ruta de acceso UNC para el archivo de paquete en el sistema de archivos, recurso compartido de archivos o Azure Files con la extensión .dtsx. Si la ruta de acceso UNC especificada contiene algún espacio, coloque las comillas alrededor de la ruta de acceso completa.
 - **/Conf[igFile]** : Especifica un archivo de configuración del que se van a extraer los valores. Con esta opción, puede establecer una configuración en tiempo de ejecución para el paquete que difiere de la especificada en tiempo de diseño. Puede almacenar valores diferentes en un archivo de configuración XML y, después, cargarlos antes de la ejecución del paquete. Para obtener más información, consulte [Configuraciones de paquetes de SSIS](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017). Para especificar el valor de esta opción, use la ruta de acceso UNC para el archivo de configuración en el sistema de archivos, recurso compartido de archivos o Azure Files con la extensión dtsConfig. Si la ruta de acceso UNC especificada contiene algún espacio, coloque las comillas alrededor de la ruta de acceso completa.
 - **/Conn[ection]** : Especifica las cadenas de conexión para los administradores de conexiones existentes en el paquete. Con esta opción, puede establecer las cadenas de conexión en tiempo de ejecución para los administradores de conexiones existentes en el paquete que difieren de las especificadas en tiempo de diseño. Especifique el valor de esta opción de la siguiente manera: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
-- **/Set**: Invalida la configuración de un parámetro, variable, propiedad, contenedor, proveedor de registro, enumerador Foreach o conexión en el paquete. Esta opción se puede especificar varias veces. Especifique el valor de esta opción de la siguiente manera: `property_path;value`. Por ejemplo, `\package.variables[counter].Value;1` invalida el valor de la variable `counter` como 1. Puede usar el asistente para la **configuración de paquetes** para buscar, copiar y pegar el valor de `property_path` para los elementos del paquete cuyo valor quiere invalidar. Para obtener más información, consulte [Asistente para la configuración de paquetes](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014).
+- **/Set**: Invalida la configuración de un parámetro, variable, propiedad, contenedor, proveedor de registro, enumerador Foreach o conexión en el paquete. Esta opción se puede especificar varias veces. Especifique el valor de esta opción de la siguiente manera: `property_path;value`. Por ejemplo, `\package.variables[counter].Value;1` invalida el valor de la variable `counter` como 1. Puede usar el asistente para la **configuración de paquetes** para buscar, copiar y pegar el valor de `property_path` para los elementos del paquete cuyo valor quiere invalidar. Para obtener más información, consulte [Asistente para la configuración de paquetes](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis).
 - **/De[crypt]** : establece la contraseña de descifrado para el paquete que está configurado con el nivel de protección **EncryptAllWithPassword**/**EncryptSensitiveWithPassword**.
 
 > [!NOTE]

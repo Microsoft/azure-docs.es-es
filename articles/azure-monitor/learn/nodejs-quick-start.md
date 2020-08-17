@@ -6,13 +6,13 @@ ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 2e50daf3d94d30e4799bf7a645f46bb70fd6750c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-javascript
+ms.openlocfilehash: 17e01894ac3d26720b1e74be9d0fd7fc193c463f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516505"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077312"
 ---
 # <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Inicio rápido: Empiece a supervisar su aplicación web creada con Node.js con Azure Application Insights
 
@@ -60,7 +60,7 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
    npm install applicationinsights --save
    ```
 
-3. Edite el primer archivo *.js* de la aplicación y agregue las dos líneas siguientes al principio del script. Si usa la [aplicación del inicio rápido de Node.js](../../app-service/app-service-web-get-started-nodejs.md), se modificará el archivo *index.js*. Reemplace `<instrumentation_key>` por la clave de instrumentación de la aplicación. 
+3. Edite el primer archivo *.js* de la aplicación y agregue las dos líneas siguientes al principio del script. Si usa la [aplicación del inicio rápido de Node.js](../../app-service/quickstart-nodejs.md), se modificará el archivo *index.js*. Reemplace `<instrumentation_key>` por la clave de instrumentación de la aplicación. 
 
    ```JavaScript
    const appInsights = require('applicationinsights');
@@ -112,11 +112,11 @@ Application Insights puede recopilar datos de telemetría de cualquier aplicaci�
    </script>
    ```
 
-5. En el lado izquierdo, seleccione **Métrica**. Utilice el Explorador de métricas para investigar el estado y la utilización del recurso. Puede seleccionar **Agregar nuevo gráfico** para crear vistas personalizadas adicionales o seleccionar **Editar** para modificar los tipos de gráfico existentes, el alto, la paleta de colores, las agrupaciones o las métricas. Por ejemplo, puede hacer un gráfico que muestre el tiempo de carga de páginas promedio del explorador si selecciona "Tiempo de carga de páginas del explorador" en la lista desplegable de las métricas y "Promedio" en la agregación. Para más información acerca del Explorador de métricas de Azure, consulte [Introducción al Explorador de métricas de Azure](../../azure-monitor/platform/metrics-getting-started.md).
+5. En el lado izquierdo, seleccione **Métrica**. Utilice el Explorador de métricas para investigar el estado y la utilización del recurso. Puede seleccionar **Agregar nuevo gráfico** para crear vistas personalizadas adicionales o seleccionar **Editar** para modificar los tipos de gráfico existentes, el alto, la paleta de colores, las agrupaciones o las métricas. Por ejemplo, puede hacer un gráfico que muestre el tiempo de carga de páginas promedio del explorador si selecciona "Tiempo de carga de páginas del explorador" en la lista desplegable de las métricas y "Promedio" en la agregación. Para más información acerca del Explorador de métricas de Azure, consulte [Introducción al Explorador de métricas de Azure](../platform/metrics-getting-started.md).
 
    ![Gráficos de métricas del servidor de Application Insights](./media/nodejs-quick-start/azure-app-insights-server-metrics.png)
 
-Para más información sobre la supervisión de Node.js, consulte la [documentación adicional de Node.js con Application Insights](../../azure-monitor/app/nodejs.md).
+Para más información sobre la supervisión de Node.js, consulte la [documentación adicional de Node.js con Application Insights](../app/nodejs.md).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -132,3 +132,4 @@ Cuando haya finalizado las pruebas, puede eliminar el grupo de recursos y todos 
 
 > [!div class="nextstepaction"]
 > [Búsqueda y diagnóstico de problemas de rendimiento](../log-query/log-query-overview.md)
+

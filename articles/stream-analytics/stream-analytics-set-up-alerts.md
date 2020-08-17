@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: d701a518dfa0bd21b33aa2f13f533ad6ef49430d
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: de8b69cbe3117a3ec248cee4808b676b39c56658
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037824"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324801"
 ---
 # <a name="set-up-alerts-for-azure-stream-analytics-jobs"></a>Configuración de alertas en Azure Stream Analytics
 
@@ -64,16 +64,8 @@ Se recomiendan las siguientes alertas para supervisar el rendimiento del trabajo
 |Retraso de la marca de agua|Mayor que|Máxima|Cuando el valor medio de esta métrica en los últimos 15 minutos es mayor que la tolerancia de llegada tardía (en segundos). Si no ha modificado la tolerancia de llegada tardía, el valor predeterminado se establece en 5 segundos.|Pruebe a aumentar el número de SU o a paralelizar su consulta. Para más información sobre las SU, consulte [Descripción y ajuste de las unidades de streaming](stream-analytics-streaming-unit-consumption.md#how-many-sus-are-required-for-a-job). Para más información sobre la paralelización de su consulta, consulte [Aprovechamiento de la paralelización de consultas en Azure Stream Analytics](stream-analytics-parallelization.md).|
 |Errores de deserialización de entrada|Mayor que|Total|0|Examine los registros de recursos o actividad y realice los cambios correspondientes en la entrada. Para más información sobre los registros de recursos, consulte [Solución de problemas de Azure Stream Analytics mediante registros de recursos](stream-analytics-job-diagnostic-logs.md).|
 
-## <a name="get-help"></a>Obtener ayuda
-
-Para más información sobre la configuración de alertas en Azure Portal, consulte el artículo sobre la [recepción de notificaciones de alerta](../azure-monitor/platform/alerts-overview.md).  
-
-Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
-
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
-* [Introducción al uso de Azure Stream Analytics](stream-analytics-get-started.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+
+* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
 

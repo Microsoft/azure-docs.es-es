@@ -6,12 +6,12 @@ author: mlearned
 ms.topic: conceptual
 ms.date: 07/01/2020
 ms.author: mlearned
-ms.openlocfilehash: f957ee5293d2804298d4723ed3a763fabac9dc93
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a210098652a18959debfeabe36b390d1bdfca7fc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244538"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287469"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>Conceptos de seguridad de las aplicaciones y los clústeres en Azure Kubernetes Service (AKS)
 
@@ -54,9 +54,9 @@ Los entornos de Kubernetes en AKS o en cualquier otro lugar no están completame
 
 ### <a name="compute-isolation"></a>Aislamiento de proceso
 
- Ciertas cargas de trabajo pueden requerir un alto grado de aislamiento de otras cargas de trabajo del cliente debido a los requisitos normativos o de cumplimiento. Para estas cargas de trabajo, Azure proporciona [máquinas virtuales aisladas](../virtual-machines/linux/isolation.md), que se pueden usar como nodos de agente en un clúster de AKS. Estas máquinas virtuales aisladas están aisladas de un tipo de hardware específico y están dedicadas a un solo cliente. 
+ Ciertas cargas de trabajo pueden requerir un alto grado de aislamiento de otras cargas de trabajo del cliente debido a los requisitos normativos o de cumplimiento. Para estas cargas de trabajo, Azure proporciona [máquinas virtuales aisladas](../virtual-machines/isolation.md), que se pueden usar como nodos de agente en un clúster de AKS. Estas máquinas virtuales aisladas están aisladas de un tipo de hardware específico y están dedicadas a un solo cliente. 
 
- Para usar estas máquinas virtuales aisladas con un clúster de AKS, seleccione uno de los tamaños de máquinas virtuales aisladas que aparecen [aquí](../virtual-machines/linux/isolation.md) como **tamaño de nodo** al crear un clúster de AKS o agregar un grupo de nodos.
+ Para usar estas máquinas virtuales aisladas con un clúster de AKS, seleccione uno de los tamaños de máquinas virtuales aisladas que aparecen [aquí](../virtual-machines/isolation.md) como **tamaño de nodo** al crear un clúster de AKS o agregar un grupo de nodos.
 
 
 ## <a name="cluster-upgrades"></a>Actualizaciones de clústeres
@@ -81,6 +81,8 @@ Por motivos de conectividad y seguridad con las redes locales, puede implementar
 ### <a name="azure-network-security-groups"></a>Grupos de seguridad de red de Azure
 
 Para filtrar el flujo del tráfico en las redes virtuales, Azure usa reglas de grupo de seguridad de red. Estas reglas definen los intervalos, los puertos y los protocolos de IP de origen y destino, a los que se permite o deniega el acceso a los recursos. Se crean reglas predeterminadas para permitir el tráfico TLS al servidor de API de Kubernetes. A medida que crea servicios con equilibradores de carga, asignaciones de puertos o rutas de entrada, AKS modifica automáticamente el grupo de seguridad de red para que el tráfico fluya adecuadamente.
+
+En los casos en los que proporcione su propia subred para el clúster de AKS y quiera modificar el flujo de tráfico, no modifique el grupo de seguridad de red del nivel de subred que administra AKS. Puede crear grupos de seguridad de red del nivel de subred adicionales para modificar el flujo de tráfico siempre y cuando no interfieran con el tráfico necesario para administrar el clúster, como el acceso al equilibrador de carga, la comunicación con el plano de control y la [salida][aks-limit-egress-traffic].
 
 ### <a name="kubernetes-network-policy"></a>Directiva de red de Kubernetes
 
@@ -123,6 +125,7 @@ Para obtener más información sobre los conceptos básicos de Kubernetes y AKS,
 [aks-concepts-scale]: concepts-scale.md
 [aks-concepts-storage]: concepts-storage.md
 [aks-concepts-network]: concepts-network.md
+[aks-limit-egress-traffic]: limit-egress-traffic.md
 [cluster-isolation]: operator-best-practices-cluster-isolation.md
 [operator-best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [developer-best-practices-pod-security]:developer-best-practices-pod-security.md

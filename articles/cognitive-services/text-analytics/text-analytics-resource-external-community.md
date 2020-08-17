@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 4cdf58974cd8fa9d7813df7e970caea260409225
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78251304"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291649"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenido externo y de la comunidad para Text Analytics en Cognitive Services
 
@@ -23,7 +23,7 @@ ms.locfileid: "78251304"
 
 ## <a name="blogs"></a>Blogs
 
-+ [Anuncio original de Text Analytics API (blog de Azure)](https://blogs.technet.microsoft.com/machinelearning/2015/04/08/introducing-text-analytics-in-the-azure-ml-marketplace/)
++ [Anuncio original de Text Analytics API (blog de Azure)](https://azure.microsoft.com/blog/using-text-analytics-in-call-centers/)
 
 + [Using Text Analytics Key Phrase Cognitive Services API from PowerShell (blog de AutomationNext)](https://automationnext.wordpress.com/tag/text-analytics/)
 

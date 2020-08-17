@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/01/2019
 ms.author: willzhan
-ms.openlocfilehash: 63b835d5d6c442f19f6d1fbe1710547ab96e1b40
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: d5d6c7738516337b3db90bbc5d1a94515e96b3ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060596"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming de PlayReady sin conexión para Windows 10 con Media Services v3
 
@@ -44,7 +44,7 @@ La dificultad a la que nos enfrentamos al implementar el modo sin conexión es l
 * MP4 es compatible con una gran variedad de reproductores y herramientas de codificador, pero no hay ningún enlace entre el contenedor de MP4 y DRM.
 * A largo plazo, la forma correcta es usar CFF con CENC. Pero, actualmente, el ecosistema de compatibilidad de herramientas o reproductores aún no está preparado. Necesitamos una solución hoy mismo.
  
-La idea es esta: el formato de archivo de streaming con velocidad de transmisión adaptable ([PIFF](https://docs.microsoft.com/iis/media/smooth-streaming/protected-interoperable-file-format)) con H264/AAC tiene un enlace con PlayReady (AES-128 CTR). El archivo .ismv individual de streaming con velocidad de transmisión adaptable (siempre que el audio se multiplexe en el vídeo) es en sí un archivo fMP4 y puede usarse para la reproducción. Si un contenido de streaming con velocidad de transmisión adaptable pasa por un cifrado de PlayReady, cada archivo .ismv se convierte en un MP4 fragmentado protegido por PlayReady. Podemos seleccionar un archivo .ismv con la velocidad de bits preferida y cambiar su extensión a .mp4 para su descarga.
+La idea es esta: el formato de archivo de streaming con velocidad de transmisión adaptable ([PIFF](/iis/media/smooth-streaming/protected-interoperable-file-format)) con H264/AAC tiene un enlace con PlayReady (AES-128 CTR). El archivo .ismv individual de streaming con velocidad de transmisión adaptable (siempre que el audio se multiplexe en el vídeo) es en sí un archivo fMP4 y puede usarse para la reproducción. Si un contenido de streaming con velocidad de transmisión adaptable pasa por un cifrado de PlayReady, cada archivo .ismv se convierte en un MP4 fragmentado protegido por PlayReady. Podemos seleccionar un archivo .ismv con la velocidad de bits preferida y cambiar su extensión a .mp4 para su descarga.
 
 Existen dos opciones para hospedar los archivos MP4 protegidos por PlayReady para su descarga progresiva:
 

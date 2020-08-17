@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: fd288cfb78bb97bd5c05c1cc59af3c082ab549a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687011"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386170"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configure claves administradas por el cliente para cifrar los datos en reposo para los entornos de servicio de integración (ISE) en Azure Logic Apps
 
@@ -39,7 +39,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
 * Un almacén de claves de Azure con las propiedades **Soft Delete** y **Do Not Purge**
 
-  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/overview-soft-delete.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/secrets/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](https://docs.microsoft.com/powershell/module/az.keyvault/new-azkeyvault).
+  Para obtener más información acerca de cómo habilitar estas propiedades, consulte [Información general sobre la eliminación temporal Azure Key Vault ](../key-vault/general/soft-delete-overview.md) y [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md). Si no está familiarizado con Azure Key Vault, obtenga información acerca de [cómo crear un almacén de claves](../key-vault/secrets/quick-create-portal.md#create-a-vault) mediante el Azure Portal o mediante el comando de Azure PowerShell, [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault).
 
 * En el almacén de claves, una clave se crea con estos valores de propiedad:
 
@@ -52,7 +52,7 @@ En este tema se muestra cómo configurar y especificar su propia clave de cifrad
 
   ![Creación de clave de cifrado administrada por el cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
 
-  Para obtener más información, configure [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) o el comando de Azure PowerShell [Add-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/Add-AzKeyVaultKey).
+  Para obtener más información, configure [Configurar las claves administradas por el cliente con Azure Key Vault](../storage/common/storage-encryption-keys-portal.md) o el comando de Azure PowerShell [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey).
 
 * Una herramienta que puede usar para crear su ISE mediante una llamada a la API de REST de Logic Apps con una solicitud HTTPS PUT. Por ejemplo, puede usar [Postman](https://www.getpostman.com/downloads/) o puede compilar una aplicación lógica que realice esta tarea.
 
@@ -199,7 +199,7 @@ En este cuerpo de solicitud de ejemplo se muestran los valores de ejemplo:
 
 En un plazo de *30 minutos* después de enviar la solicitud HTTPS PUT que crea su ISE, debe proporcionar una directiva de acceso para el almacén de claves para la identidad asignada por el sistema de ISE. De lo contrario, se producirá un error en la creación del ISE y que tendrá como consecuencia un error de permisos. 
 
-Para esta tarea, puede usar el comando de Azure PowerShell [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), o bien puede seguir estos pasos en el Azure Portal:
+Para esta tarea, puede usar el comando de Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy), o bien puede seguir estos pasos en el Azure Portal:
 
 1. Abra el almacén de claves de Azure en [Azure Portal](https://portal.azure.com).
 

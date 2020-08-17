@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 08/05/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 38e319efb100d326d55f6f821e7c903306a7c7d0
-ms.sourcegitcommit: a53fe6e9e4a4c153e9ac1a93e9335f8cf762c604
+ms.openlocfilehash: 29c57411a2a35c36d0b4a9d4def931821b795094
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80991014"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121143"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>API web que llama a API web: Configuración del código
 
@@ -27,120 +27,74 @@ El código que usa para configurar su API web para que llame a las API web de ba
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/aspnetcore)
 
-## <a name="code-subscribed-to-ontokenvalidated"></a>Código suscrito a OnTokenValidated
+## <a name="client-secrets-or-client-certificates"></a>Secretos de cliente o certificados de cliente
 
-Además de la configuración de código para cualquier API web protegida, debe suscribirse a la validación del token de portador que se recibe cuando se llama a su API:
+Dado que la API web ahora llama a una API web de nivel inferior, debe proporcionar un secreto de cliente o un certificado de cliente en el archivo *appsettings.json*.
 
-```csharp
-/// <summary>
-/// Protects the web API with the Microsoft identity platform, or Azure Active Directory (Azure AD) developer platform
-/// This supposes that the configuration files have a section named "AzureAD"
-/// </summary>
-/// <param name="services">The service collection to which to add authentication</param>
-/// <param name="configuration">Configuration</param>
-/// <returns></returns>
-public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollection services,
-                                                             IConfiguration configuration,
-                                                             IEnumerable<string> scopes)
+```JSON
 {
-    services.AddTokenAcquisition();
-    services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
-    {
-        // When an access token for our own web API is validated, we add it
-        // to the MSAL.NET cache so that it can be used from the controllers.
-        options.Events = new JwtBearerEvents();
-
-        options.Events.OnTokenValidated = async context =>
-        {
-            context.Success();
-
-            // Adds the token to the cache and handles the incremental consent
-            // and claim challenges
-            AddAccountToCacheFromJwt(context, scopes);
-            await Task.FromResult(0);
-        };
-    });
-    return services;
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+  
+   // To call an API
+   "ClientSecret": "[Copy the client secret added to the app from the Azure portal]",
+   "ClientCertificates": [
+  ]
+ }
 }
 ```
 
-## <a name="on-behalf-of-flow"></a>Flujo con derechos delegados
+En lugar de un secreto de cliente, puede proporcionar un certificado de cliente. En el fragmento de código siguiente se muestra el uso de un certificado almacenado en Azure Key Vault.
 
-El método AddAccountToCacheFromJwt() debe:
-
-- Crear una instancia de una aplicación cliente confidencial de biblioteca de autenticación de Microsoft (MSAL).
-- Llame al método `AcquireTokenOnBehalf` . Esta llamada intercambia el token de portador que ha adquirido el cliente para la API web por un token de portador para el mismo usuario, pero hace que la API llame a una API de bajada.
-
-### <a name="instantiate-a-confidential-client-application"></a>Creación de una instancia de una aplicación cliente confidencial
-
-Este flujo solo está disponible en el flujo de cliente confidencial, por lo que la API web protegida proporciona las credenciales del cliente (certificado o secreto de cliente) para la [clase ConfidentialClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder) mediante los métodos `WithClientSecret` o `WithCertificate`.
-
-![Lista de métodos IConfidentialClientApplication](https://user-images.githubusercontent.com/13203188/55967244-3d8e1d00-5c7a-11e9-8285-a54b05597ec9.png)
-
-```csharp
-IConfidentialClientApplication app;
-
-#if !VariationWithCertificateCredentials
-app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
-           .WithClientSecret(config.ClientSecret)
-           .Build();
-#else
-// Building the client credentials from a certificate
-X509Certificate2 certificate = ReadCertificate(config.CertificateName);
-app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
-    .WithCertificate(certificate)
-    .Build();
-#endif
-```
-
-Por último, en lugar de demostrar su identidad mediante un secreto de cliente o un certificado, las aplicaciones cliente confidenciales pueden demostrar su identidad mediante aserciones de cliente.
-Para obtener más información acerca de este escenario avanzado, consulte [Aserciones de cliente confidenciales](msal-net-client-assertions.md).
-
-### <a name="how-to-call-on-behalf-of"></a>Cómo llamar con derechos delegados
-
-La llamada con derechos delegados (OBO) se realiza llamando al [método AcquireTokenOnBehalf](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.acquiretokenonbehalfofparameterbuilder) en la interfaz `IConfidentialClientApplication`.
-
-La clase `UserAssertion` se compila a partir del token de portador recibido por la API web desde sus propios clientes. Hay [dos constructores](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientcredential.-ctor?view=azure-dotnet):
-* Uno que toma un token de portador JSON Web Token (JWT)
-* y otro que toma cualquier tipo de aserción de usuario, otra clase de token de seguridad, cuyo tipo se especifica posteriormente en un parámetro adicional llamado `assertionType`.
-
-![Propiedades y métodos de UserAssertion](https://user-images.githubusercontent.com/13203188/37082180-afc4b708-21e3-11e8-8af8-a6dcbd2dfba8.png)
-
-En la práctica, el flujo con derechos delegados se usa a menudo para adquirir un token para una API de bajada y almacenarlo en la caché de tokens de usuario MSAL.NET. De esta forma, otras partes de la API web pueden llamar posteriormente en las [invalidaciones](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase.acquiretokensilent?view=azure-dotnet) de ``AcquireTokenOnSilent`` para llamar a las API de bajada. Esta llamada tiene el efecto de actualizar los tokens, si es necesario.
-
-```csharp
-private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityToken jwtToken, ClaimsPrincipal principal, HttpContext httpContext)
+```JSON
 {
-    try
-    {
-        UserAssertion userAssertion;
-        IEnumerable<string> requestedScopes;
-        if (jwtToken != null)
-        {
-            userAssertion = new UserAssertion(jwtToken.RawData, "urn:ietf:params:oauth:grant-type:jwt-bearer");
-            requestedScopes = scopes ?? jwtToken.Audiences.Select(a => $"{a}/.default");
-        }
-        else
-        {
-            throw new ArgumentOutOfRangeException("tokenValidationContext.SecurityToken should be a JWT Token");
-        }
-
-        // Create the application
-        var application = BuildConfidentialClientApplication(httpContext, principal);
-
-        // .Result to make sure that the cache is filled in before the controller tries to get access tokens
-        var result = application.AcquireTokenOnBehalfOf(requestedScopes.Except(scopesRequestedByMsalNet),
-                                                        userAssertion)
-                                .ExecuteAsync()
-                                .GetAwaiter().GetResult();
-     }
-     catch (MsalException ex)
-     {
-         Debug.WriteLine(ex.Message);
-         throw;
-     }
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "ClientId": "[Client_id-of-web-api-eg-2ec40e65-ba09-4853-bcde-bcb60029e596]",
+    "TenantId": "common"
+  
+   // To call an API
+   "ClientCertificates": [
+      {
+        "SourceType": "KeyVault",
+        "KeyVaultUrl": "https://msidentitywebsamples.vault.azure.net",
+        "KeyVaultCertificateName": "MicrosoftIdentitySamplesCert"
+      }
+  ]
+ }
 }
 ```
+
+Microsoft.Identity.Web proporciona varias maneras de describir certificados, tanto mediante configuración como mediante código. Para obtener más información, consulte el [wiki de Microsoft.Identity.Web: uso de certificados](https://github.com/AzureAD/microsoft-identity-web/wiki/Using-certificates) en GitHub.
+
+## <a name="startupcs"></a>Startup.cs
+
+Con Microsoft.Identity.Web, si desea que la API web llame a las API web de nivel inferior, agregue la línea `.AddMicrosoftWebApiCallsWebApi()` después de `.AddMicrosoftWebApiAuthentication(Configuration)` y, después, elija una implementación de la caché de tokens, por ejemplo `.AddInMemoryTokenCaches()`, en *Startup.cs*:
+
+```csharp
+using Microsoft.Identity.Web;
+
+public class Startup
+{
+  ...
+  public void ConfigureServices(IServiceCollection services)
+  {
+   // ...
+   services.AddMicrosoftWebApiAuthentication(Configuration)
+           .AddMicrosoftWebApiCallsWebApi(Configuration)
+           .AddInMemoryTokenCaches();
+  // ...
+  }
+  // ...
+}
+```
+
+Al igual que con las aplicaciones web, puede elegir varias implementaciones de la caché de tokens. Para obtener más información, consulte el [wiki de Microsoft.Identity.Web: Serialización de la caché de tokens](https://aka.ms/ms-id-web/token-cache-serialization) en GitHub.
+
+Si está seguro de que la API web necesitará ámbitos específicos, puede pasarlos opcionalmente como argumentos a `AddMicrosoftWebApiCallsWebApi`.
+
 # <a name="java"></a>[Java](#tab/java)
 
 El flujo "en nombre de" (OBO) se usa para obtener un token para llamar a la API web de nivel inferior. En este flujo, la API web recibe un token de portador con permisos delegados de usuario de la aplicación cliente y, a continuación, intercambia este token por otro token de acceso para llamar a la API web de nivel inferior.
@@ -222,7 +176,7 @@ También puede ver un ejemplo de implementación del flujo con derechos delegado
 
 ## <a name="protocol"></a>Protocolo
 
-Para más información acerca del protocolo OBO, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow).
+Para más información acerca del protocolo OBO, consulte [Plataforma de identidad de Microsoft y flujo con derechos delegados de OAuth 2.0](./v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

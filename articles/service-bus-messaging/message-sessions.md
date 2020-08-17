@@ -3,12 +3,12 @@ title: Sesiones de mensajes de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo usar sesiones de para habilitar la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c1b714df1df7e2c3ba39c63581dc3c40a2ff9d1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05efc550e119186a2925c13d3fcfed11bec17251
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341190"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511303"
 ---
 # <a name="message-sessions"></a>Sesiones de mensajes
 Las sesiones de Microsoft Azure Service Bus permiten la administración ordenada y conjunta de secuencias sin enlace de mensajes relacionados. Se pueden usar sesiones en patrones **FIFO (primero en entrar, primero en salir)** y de **solicitud-respuesta**. En este artículo se muestra cómo usar sesiones para implementar estos patrones al utilizar Service Bus. 
@@ -31,7 +31,7 @@ La característica de sesión de Service Bus permite una operación de recepció
 
 En el portal, establezca la marca con la casilla siguiente:
 
-![][2]
+![Captura de pantalla del cuadro de diálogo Crear cola con la opción Habilitar sesiones seleccionada y resaltada en rojo.][2]
 
 > [!NOTE]
 > Cuando las sesiones están habilitadas en una cola o una suscripción, las aplicaciones cliente ***ya no*** pueden enviar ni recibir mensajes normales. Todos los mensajes se deben enviar como parte de una sesión (estableciendo el identificador de sesión) y recibir mediante la recepción de la sesión.
@@ -42,7 +42,7 @@ Las API de las sesiones existen en los clientes de colas y suscripciones. Hay un
 
 Las sesiones proporcionan la demultiplexación simultánea de flujos de mensajes intercalados, al tiempo que se conserva y garantiza la entrega ordenada.
 
-![][1]
+![Un diagrama que muestra la forma en que la característica Sesiones mantiene la entrega ordenada.][1]
 
 El cliente que acepta la sesión crea un receptor [MessageSession](/dotnet/api/microsoft.servicebus.messaging.messagesession). El cliente llama a [QueueClient.AcceptMessageSession](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesession#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSession) o [QueueClient.AcceptMessageSessionAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.acceptmessagesessionasync#Microsoft_ServiceBus_Messaging_QueueClient_AcceptMessageSessionAsync) en C#. En el modelo de devolución de llamada reactivo, se registra un controlador de sesión.
 

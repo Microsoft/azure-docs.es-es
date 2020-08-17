@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 06/01/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: ad01155259ea03806f56c6e75b315ff85b606220
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.openlocfilehash: 6632d65fa07788e35b24c2f957e713f824f6b091
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84302477"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542745"
 ---
 # <a name="find-and-delete-unattached-azure-managed-and-unmanaged-disks---azure-portal"></a>Búsqueda y eliminación de discos administrados y no administrados de Azure no conectados: Azure Portal
 
@@ -27,7 +27,7 @@ Si tiene discos administrados no conectados y ya no necesita los datos en ellos,
 
     En la hoja **Discos**, se muestra una lista de todos los discos. Cualquier disco que tenga " **-** " en la columna **Propietario** es un disco no conectado.
 
-    [![](media/disks-find-unattached-portal/managed-disk-unattached-owner.png "Screenshot of the managed disks blade, if a disk has - in the Owner column, it is an unattached disk")](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
+    [![Captura de pantalla de la hoja de discos administrados, si un disco tiene - en la columna Propietario, se trata de un disco no conectado.](media/disks-find-unattached-portal/managed-disk-unattached-owner.png)](media/disks-find-unattached-portal/managed-disk-owner-unattached.png#lightbox)
 
 1. Seleccione el disco no conectado que desea eliminar; de este modo, se abrirá la hoja del disco.
 1. En la hoja del disco, puede confirmar que el disco tiene un estado no conectado y, después, seleccionar **Eliminar**.
@@ -61,4 +61,4 @@ Si tiene discos no administrados que no están conectados a una máquina virtual
 
 Si desea una forma automatizada de buscar y eliminar cuentas de almacenamiento no asociadas, consulte nuestros artículos sobre la [CLI](linux/find-unattached-disks.md) o [PowerShell](windows/find-unattached-disks.md).
 
-Para más información, consulte [Eliminación de una cuenta de almacenamiento](../storage/common/storage-account-create.md#delete-a-storage-account) e [Identificación de discos huérfanos con PowerShell](https://blogs.technet.microsoft.com/ukplatforms/2018/02/21/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell/).
+Para más información, consulte [Eliminación de una cuenta de almacenamiento](../storage/common/storage-account-create.md#delete-a-storage-account) e [Identificación de discos huérfanos con PowerShell](/archive/blogs/ukplatforms/azure-cost-optimisation-series-identify-orphaned-disks-using-powershell).

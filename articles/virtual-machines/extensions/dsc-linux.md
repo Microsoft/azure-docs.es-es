@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: a33d74c01771c2b60ac8667a1494ebe80271a8ac
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a1a166d12ef753a7a6fc7225d0467ead08514f99
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494792"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876723"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión de DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
@@ -29,25 +29,17 @@ Desired State Configuration (DSC) es una plataforma de administración que puede
 
 Microsoft publica y admite la extensión DSCForLinux. La extensión instala los agentes OMI y DSC en las máquinas virtuales de Azure. La extensión DSC también puede realizar las siguientes acciones:
 
-
 - Registrar la máquina virtual Linux en la cuenta de Azure Automation para extraer las configuraciones del servicio Azure Automation (Register ExtensionAction).
 - Insertar las configuraciones de MOF en la máquina virtual Linux (Push ExtensionAction).
 - Aplicar la configuración de Meta MOF en la máquina virtual Linux para configurar un servidor de extracción y extraer la configuración de nodo (Pull ExtensionAction).
 - Instalar módulos personalizados de DSC en la máquina virtual Linux (Install ExtensionAction).
 - Eliminar módulos personalizados de DSC en la máquina virtual Linux (Remove ExtensionAction).
 
- 
-
 ## <a name="prerequisites"></a>Prerrequisitos
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión DSC de Linux es compatible con todas las [distribuciones de Linux aprobadas en Azure](../linux/endorsed-distros.md), excepto:
-
-| Distribución | Versión |
-|---|---|
-| Debian | Todas las versiones |
-| Ubuntu| 18,04 |
+Para los nodos que ejecutan Linux, la extensión DSC de Linux admite todas las distribuciones de Linux que se enumeran en la [documentación de DSC de PowerShell](/powershell/scripting/dsc/getting-started/lnxgettingstarted).
  
 ### <a name="internet-connectivity"></a>Conectividad de Internet
 

@@ -2,23 +2,27 @@
 title: Archivos y directorios de Azure Batch
 description: Obtenga información sobre archivos y directorios y cómo se usan en un flujo de trabajo de Azure Batch desde el punto de vista del desarrollo.
 ms.topic: conceptual
-ms.date: 05/12/2020
-ms.openlocfilehash: e7babb7e2cfdbbe78f61be766c549c1e80cacf98
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.date: 08/03/2020
+ms.openlocfilehash: eafea6c234c3b261521f8a791b7a03e25388f02a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83790872"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552650"
 ---
 # <a name="files-and-directories-in-azure-batch"></a>Archivos y directorios de Azure Batch
 
-En Azure Batch, cada tarea tiene un directorio de trabajo en el que se crean cero o más archivos y directorios. Este directorio de trabajo se puede usar para almacenar el programa que va a ejecuta la tarea, los datos que procesa y el resultado del procesamiento que realiza. Todos los archivos y directorios de una tarea son propiedad del usuario de la tarea.
+En Azure Batch, cada tarea tiene un directorio de trabajo en el que se pueden crear archivos y directorios. Este directorio de trabajo se puede usar para almacenar el programa que va a ejecuta la tarea, los datos que procesa y el resultado del procesamiento que realiza. Todos los archivos y directorios de una tarea son propiedad del usuario de la tarea.
 
-El servicio Batch expone parte del sistema de archivos en un nodo como *directorio raíz*. Las tareas pueden acceder al directorio raíz haciendo referencia a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR` . Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](jobs-and-tasks.md#environment-settings-for-tasks).
+El servicio Batch expone parte del sistema de archivos en un nodo como *directorio raíz*. Este directorio raíz se encuentra en la unidad de almacenamiento temporal de la máquina virtual, no directamente en la unidad del sistema operativo.
+
+Las tareas pueden acceder al directorio raíz haciendo referencia a la variable de entorno `AZ_BATCH_NODE_ROOT_DIR` . Para obtener más información sobre el uso de variables de entorno, consulte [Configuración del entorno para las tareas](jobs-and-tasks.md#environment-settings-for-tasks).
+
+## <a name="root-directory-structure"></a>Estructura del directorio raíz
 
 El directorio raíz contiene la siguiente estructura de directorio:
 
-![Compute node directory structure][media\files-and-directories\node-folder-structure.png]
+![Captura de pantalla de la estructura de directorio del nodo de proceso.](media\files-and-directories\node-folder-structure.png)
 
 - **applications**: contiene información acerca de los detalles de los paquetes de aplicación instalados en el nodo de ejecución. Las tareas pueden acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_APP_PACKAGE` .
 
@@ -33,7 +37,7 @@ El directorio raíz contiene la siguiente estructura de directorio:
 - **workitems**: este directorio contiene los directorios de los trabajos y sus tareas en el nodo de ejecución.
 
     En el directorio **workitems**, se crea un directorio **Tasks** para cada tarea que se ejecuta en el nodo. Se puede acceder a este directorio haciendo referencia a la variable de entorno `AZ_BATCH_TASK_DIR`.
-    
+
     Dentro de cada directorio **Tasks**, el servicio Batch crea un directorio de trabajo (`wd`) cuya ruta de acceso único se especifica con la variable de entorno `AZ_BATCH_TASK_WORKING_DIR`. Este directorio proporciona acceso de lectura y escritura a la tarea. La tarea puede crear, leer, actualizar y eliminar archivos en este directorio. Este directorio se conserva en función de la restricción *RetentionTime* especificada para la tarea.
 
     Los archivos `stdout.txt` y `stderr.txt` se escriben en la carpeta **Tasks** durante la ejecución de esta.

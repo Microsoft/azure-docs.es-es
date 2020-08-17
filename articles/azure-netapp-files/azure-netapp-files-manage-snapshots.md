@@ -1,6 +1,6 @@
 ---
 title: Administración de instantáneas mediante Azure NetApp Files | Microsoft Docs
-description: Se describe cómo crear instantáneas para un volumen o realizar una restauración a partir de una instantánea en un nuevo volumen mediante Azure NetApp Files.
+description: Describe cómo crear y administrar instantáneas mediante Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,24 +12,24 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/03/2020
+ms.date: 07/24/2020
 ms.author: b-juche
-ms.openlocfilehash: ed13c61646bd2a6672b613964507d291a69a6821
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 271c3c9f63ee3f761826e214f3bf32a8df5f1cbe
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483608"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533298"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
-Puede usar Azure NetApp Files para crear manualmente una instantánea a petición para un volumen o realizar una restauración de una instantánea a un nuevo volumen. El servicio Azure NetApp Files no crea automáticamente instantáneas de volumen.  
+Azure NetApp Files admite la creación de instantáneas a petición y el uso de directivas de instantáneas para programar la creación automática de instantáneas.  También puede restaurar una instantánea en un nuevo volumen.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creación de una instantánea a petición para un volumen
 
-Solo puede crear instantáneas a petición. Las directivas de instantánea no se admiten actualmente.
+Puede crear instantáneas de volumen a petición. 
 
-1.  En la hoja Volume (Volumen), haga clic en **Snapshots** (Instantáneas).
+1.  Vaya al volumen para el que desee crear una instantánea. Haga clic en **Instantáneas**.
 
     ![Desplazamiento hasta las instantáneas](../media/azure-netapp-files/azure-netapp-files-navigate-to-snapshots.png)
 
@@ -43,47 +43,128 @@ Solo puede crear instantáneas a petición. Las directivas de instantánea no se
 
 4. Haga clic en **OK**. 
 
+## <a name="manage-snapshot-policies"></a>Administración de directivas de instantánea
+
+Puede programar la realización automática de instantáneas de volumen mediante el uso de directivas de instantánea. También puede modificar una directiva de instantánea según sea necesario o eliminar una directiva de instantánea que ya no necesite.  
+
+### <a name="register-the-feature"></a>Registrar la característica
+
+La característica **directiva de instantánea** está actualmente en la versión preliminar. Si usa esta característica por primera vez, debe registrarla primero. 
+
+1. Registre la característica: 
+
+    ```azurepowershell-interactive
+    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+2. Compruebe el estado del registro de la característica: 
+
+    > [!NOTE]
+    > **RegistrationState** puede estar en el estado `Registering` durante varios minutos antes de cambiar a `Registered`. Espere hasta que el estado sea **Registrado** antes de continuar.
+
+    ```azurepowershell-interactive
+    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSnapshotPolicy
+    ```
+
+### <a name="create-a-snapshot-policy"></a>Creación de una directiva de instantánea 
+
+Una directiva de instantánea le permite especificar la frecuencia de creación de instantáneas en ciclos de horas, diarios, semanales o mensuales. También debe especificar el número máximo de instantáneas que se conservarán para el volumen.  
+
+1.  En la vista Cuenta de NetApp, haga clic en **Directiva de instantánea**.
+
+    ![Navegación por la directiva de instantánea](../media/azure-netapp-files/snapshot-policy-navigation.png)
+
+2.  En la ventana Directiva de instantánea, establezca el estado de la directiva en **Habilitado**. 
+
+3.  Haga clic en la pestaña **Por hora**, **Cada día**, **Semanalmente** o **Mensualmente** para crear directivas de instantánea por hora, diarias, semanales o mensuales. Seleccione el **número de instantáneas que desea mantener**.  
+
+    Consulte [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md) acerca del número máximo de instantáneas permitido para un volumen. 
+
+    En el ejemplo siguiente se muestra la configuración de la directiva de instantánea por hora. 
+
+    ![Directiva de instantánea por hora](../media/azure-netapp-files/snapshot-policy-hourly.png)
+
+    En el ejemplo siguiente se muestra la configuración de la directiva de instantánea diaria.
+
+    ![Directiva de instantánea diaria](../media/azure-netapp-files/snapshot-policy-daily.png)
+
+    En el ejemplo siguiente se muestra la configuración de la directiva de instantánea semanal.
+
+    ![Directiva de instantánea semanal](../media/azure-netapp-files/snapshot-policy-weekly.png)
+
+    En el ejemplo siguiente se muestra la configuración de la directiva de instantánea mensual.
+
+    ![Directiva de instantánea mensual](../media/azure-netapp-files/snapshot-policy-monthly.png) 
+
+4.  Haga clic en **Save**(Guardar).  
+
+Si tiene que crear directivas de instantánea adicionales, repita el paso 3.
+Las directivas que ha creado aparecen en la página Directiva de instantánea.
+
+Si desea que un volumen use la directiva de instantánea, debe [aplicar la directiva al volumen](azure-netapp-files-manage-snapshots.md#apply-a-snapshot-policy-to-a-volume). 
+
+### <a name="apply-a-snapshot-policy-to-a-volume"></a>Aplicación de una directiva de instantánea a un volumen
+
+Si desea que un volumen use una directiva de instantánea que haya creado, debe aplicarla al volumen. 
+
+1.  Vaya a la página **Volúmenes**, haga clic con el botón derecho en el volumen al que desee aplicar una directiva de instantánea y seleccione **Editar**.
+
+    ![Menú contextual de volúmenes](../media/azure-netapp-files/volume-right-cick-menu.png) 
+
+2.  En la ventana de edición, en **Directiva de instantánea**, seleccione la directiva que se vaya a usar para el volumen.  Haga clic en **Aceptar** para aplicar la directiva.  
+
+    ![Edición de directiva de instantánea](../media/azure-netapp-files/snapshot-policy-edit.png) 
+
+### <a name="modify-a-snapshot-policy"></a>Modificación de una directiva de instantánea 
+
+Puede modificar una directiva de instantánea existente para cambiar su estado, la frecuencia (cada hora, diariamente, semanalmente o mensualmente) o el número de instantáneas que se deben conservar.  
+ 
+1.  En la vista Cuenta de NetApp, haga clic en **Directiva de instantánea**.
+
+2.  Haga clic con el botón derecho en la directiva de instantánea que desee modificar y, a continuación, seleccione **Editar**.
+
+    ![Menú contextual de directiva de instantánea](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Realice los cambios en la ventana Directiva de instantánea que aparezca y, a continuación, haga clic en **Guardar**. 
+
+### <a name="delete-a-snapshot-policy"></a>Eliminación de una directiva de instantánea 
+
+Puede eliminar una directiva de instantánea que ya no desee conservar.   
+
+1.  En la vista Cuenta de NetApp, haga clic en **Directiva de instantánea**.
+
+2.  Haga clic con el botón derecho en la directiva de instantánea que desee modificar y, a continuación, seleccione **Eliminar**.
+
+    ![Menú contextual de directiva de instantánea](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
+
+3.  Haga clic en **Sí** para confirmar que desea eliminar la directiva de instantánea.   
+
+    ![Confirmación de la eliminación de una directiva de instantánea](../media/azure-netapp-files/snapshot-policy-delete-confirm.png) 
+
 ## <a name="restore-a-snapshot-to-a-new-volume"></a>Restauración de una instantánea a un nuevo volumen
 
 Actualmente, puede restaurar una instantánea solo a un nuevo volumen. 
-1. Vaya a la hoja **Administración de instantáneas** desde la hoja Volumen para mostrar la lista de instantáneas. 
-2. Seleccione una instantánea para restaurarla.  
-3. Haga clic con el botón derecho en el nombre de la instantánea y seleccione **Restaurar al nuevo volumen** en la opción de menú.  
+1. Seleccione **Instantáneas** en la hoja Volumen para mostrar la lista de instantáneas. 
+2. Haga clic con el botón derecho en la instantánea que desee restaurar y seleccione **Restaurar al nuevo volumen** en la opción de menú.  
 
     ![Restauración de la instantánea al nuevo volumen](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
-4. En la ventana Nuevo volumen, proporcione información para el nuevo volumen:  
+3. En la ventana Crear un volumen, especifique la información del nuevo volumen:  
     * **Nombre**   
         Especifique el nombre para el volumen que va a crear.  
         
         El nombre debe ser único dentro de un grupo de recursos. Debe tener tres caracteres de longitud, como mínimo.  Puede usar cualquier carácter alfanumérico.
 
-    * **Ruta de acceso del archivo**     
-        Especifique la ruta de acceso de archivo que se usará para crear la ruta de acceso de exportación para el nuevo volumen. La ruta de acceso de exportación se usa para montar el volumen y tener acceso a él.   
-        
-        Un destino de montaje es el punto de conexión de la dirección IP del servicio NFS. Se genera automáticamente.   
-        
-        El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres. 
-
     * **Cuota**  
-        Especifique la cantidad de almacenamiento lógico que se asigna al volumen.  
+        Especifique la cantidad de almacenamiento lógico que desee asignar al volumen.  
 
-        El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.
+    ![Restauración en el nuevo volumen](../media/azure-netapp-files/snapshot-restore-new-volume.png) 
 
-    *   **Red virtual**  
-        Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
-        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede acceder a Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de VNET. También puede acceder al volumen desde la red local mediante ExpressRoute. 
-
-    * **Subred**  
-        Especifique la subred que desea usar para el volumen.  
-        La red virtual que especifique debe estar delegada en el servicio Azure NetApp Files. Puede crear una nueva subred seleccionando **Crear nuevo** en el campo de la subred.  
-   <!--
-    ![Restored new volume](../media/azure-netapp-files/azure-netapp-files-snapshot-new-volume.png) 
-   -->
-
-5. Haga clic en **OK**.   
+4. Haga clic en **Revisar y crear**.  Haga clic en **Crear**.   
+    El nuevo volumen utiliza el mismo protocolo que la instantánea.   
     El nuevo volumen al que se restaura la instantánea aparece en la hoja Volúmenes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Información sobre la jerarquía del almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+* [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)

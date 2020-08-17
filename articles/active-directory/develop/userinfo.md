@@ -13,12 +13,12 @@ ms.date: 05/22/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 08386e2c54a45fe4a6e35ce6d7ebb51145827a6d
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 59e811b7813ef94682896e0f95e971ca0094ef65
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84268443"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119647"
 ---
 # <a name="microsoft-identity-platform-userinfo-endpoint"></a>Punto de conexión de UserInfo de la Plataforma de identidad de Microsoft
 
@@ -34,7 +34,7 @@ Como parte de la especificación de OpenID Connect, a menudo las [bibliotecas co
 
 La información disponible en el token de id. que la aplicación puede recibir es un superconjunto de la información que puede obtener del punto de conexión de UserInfo.  Dado que se puede obtener un token de id. al mismo tiempo que se obtiene un token para llamar al punto de conexión de UserInfo, se recomienda usar ese token de id. para obtener información sobre el usuario en lugar de llamar al punto de conexión de UserInfo.  El uso del token de id. eliminará de una a dos solicitudes de red del inicio de la aplicación, lo que reduce la latencia de dicha aplicación.
 
-Si necesita más detalles sobre el usuario, debe llamar a [Microsoft Graph`/user` API](https://docs.microsoft.com/graph/api/user-get) para obtener información como el número de la oficina o el puesto.   También se pueden usar [notificaciones opcionales](active-directory-optional-claims.md) para incluir información adicional del usuario en sus tokens de id. y de acceso.
+Si necesita más detalles sobre el usuario, debe llamar a [Microsoft Graph`/user` API](/graph/api/user-get) para obtener información como el número de la oficina o el puesto.   También se pueden usar [notificaciones opcionales](active-directory-optional-claims.md) para incluir información adicional del usuario en sus tokens de id. y de acceso.
 
 ## <a name="calling-the-userinfo-endpoint"></a>Llamada al punto de conexión de UserInfo
 

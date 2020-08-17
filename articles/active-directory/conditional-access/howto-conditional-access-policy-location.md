@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5350e728ad9c30a6e9258ce9c7615baf020473a8
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: 6f1eae9cc067f8aa10ad49d70dfe0393f4bed6c5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83995129"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518426"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Acceso condicional: Bloqueo del acceso por ubicación
 
@@ -43,17 +43,15 @@ Para más información sobre la condición de ubicación en el acceso condiciona
 1. Asigne un nombre a la directiva. Se recomienda que las organizaciones creen un estándar significativo para los nombres de sus directivas.
 1. En **Asignaciones**, seleccione **Usuarios y grupos**.
    1. En **Incluir**, seleccione **Todos los usuarios**.
-   1. Seleccione **Listo**.
-1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube** y, luego, **Listo**.
+1. En **Aplicaciones en la nube o acciones** > **Incluir**, seleccione **Todas las aplicaciones en la nube**.
 1. En **Condiciones** > **Ubicación**:
    1. Establezca **Configurar** en **Sí**.
-   1. En **Incluir**, seleccione **Ubicaciones seleccionadas**
+   1. En **Incluir**, seleccione **Ubicaciones seleccionadas**.
    1. Seleccione la ubicación bloqueada que ha creado para su organización.
-   1. Haga clic en **Seleccionar** > **Listo** > **Listo**.
-1. En **Condiciones** > **Aplicaciones cliente (versión preliminar)** , establezca **Configurar** en **Sí** y seleccione **Listo**.
-1. En **Controles de acceso** > **Bloquear**, elija **Seleccionar**.
+   1. Haga clic en **Seleccionar**.
+1. En **Controles de acceso** > seleccione **Bloquear acceso** y seleccione **Seleccionar**.
 1. Confirme la configuración y establezca **Habilitar directiva** en **Activado**.
-1. Seleccione **Crear** para crear la directiva.
+1. Seleccione **Crear** para crear una directiva de acceso condicional.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

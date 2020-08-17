@@ -10,15 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 06/10/2020
+ms.date: 07/22/2020
 ms.author: apimpm
 ms.custom: references_regions
-ms.openlocfilehash: e7323793dcbbd05fc5abf032d140b2caa5975da4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ee23b2bc58f8c1f15a7e51b05dee954c1e584293
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249468"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489629"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (redes virtuales) le permiten colocar cualquier recurso de Azure en una red distinta de Internet que se pueda enrutar y a la que controle el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -118,8 +118,8 @@ A continuación se muestra una lista de problemas de errores de configuración c
 | * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de Azure SQL**                           | Externa e interna  |
 | * / 5671, 5672, 443          | Salida           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependencia de la [directiva de registro en el centro de eventos](api-management-howto-log-event-hubs.md) y el agente de supervisión | Externa e interna  |
 | * / 445                      | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | Dependencia del recurso compartido de archivos de Azure para [GIT](api-management-configuration-repository-git.md)                      | Externa e interna  |
-| * / 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensión Estado y supervisión         | Externa e interna  |
-| * / 1886, 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [Registros de diagnóstico y métricas](api-management-howto-use-azure-monitor.md) y [Resource Health](../service-health/resource-health-overview.md)                     | Externa e interna  |
+| * / 443, 12 000                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureCloud            | Extensión Estado y supervisión         | Externa e interna  |
+| * / 1886, 443                     | Salida           | TCP                | VIRTUAL_NETWORK / AzureMonitor         | Publicar [métricas y registros de diagnóstico](api-management-howto-use-azure-monitor.md), [Resource Health](../service-health/resource-health-overview.md) y [Application Insights](api-management-howto-app-insights.md)                   | Externa e interna  |
 | * / 25, 587, 25028                       | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Conexión a la retransmisión de SMTP para enviar correos electrónicos                    | Externa e interna  |
 | * / 6381 - 6383              | Entrada y salida | TCP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Acceso al servicio de Redis para las directivas de [almacenamiento en memoria caché](api-management-caching-policies.md) entre máquinas         | Externa e interna  |
 | * / 4290              | Entrada y salida | UDP                | VIRTUAL_NETWORK/VIRTUAL_NETWORK     | Sincronización de contadores para las directivas de [límite de velocidad](api-management-access-restriction-policies.md#LimitCallRateByKey) entre máquinas         | Externa e interna  |
@@ -152,6 +152,8 @@ A continuación se muestra una lista de problemas de errores de configuración c
 + **Diagnósticos de Azure Portal**: para permitir el flujo de registros de diagnóstico desde Azure Portal al usar la extensión API Management desde dentro de una red Virtual, se requiere el acceso saliente a `dc.services.visualstudio.com` en el puerto 443. Esto ayuda a solucionar los problemas que pueden surgir al usar la extensión.
 
 + **Azure Load Balancer**: Permitir la solicitud de entrada desde la etiqueta de servicio `AZURE_LOAD_BALANCER` no es un requisito para la SKU `Developer`, ya que solo implementamos una unidad de proceso detrás de ella. Pero la entrada desde [168.63.129.16](../virtual-network/what-is-ip-address-168-63-129-16.md) se convierte en crítica al escalar a una SKU superior como `Premium`, ya que un error en el sondeo de estado de Load Balancer produce un error en una implementación.
+
++ **Application Insights**: Si la supervisión de [Azure Application Insights](api-management-howto-app-insights.md) está habilitada en API Management, tendremos que permitir la conectividad de salida hacia el [punto de conexión de telemetría](/azure/azure-monitor/app/ip-addresses#outgoing-ports) desde la red virtual. 
 
 + **Forzar la tunelización del tráfico al firewall local mediante la aplicación virtual de red o de Express Route**: Una configuración común de los clientes es definir su propia ruta predeterminada (0.0.0.0/0) que fuerza a todo el tráfico de la subred delegada de API Management a pasar a través de un firewall local o a una aplicación virtual de red. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución requiere que se hagan un par de cosas:
 

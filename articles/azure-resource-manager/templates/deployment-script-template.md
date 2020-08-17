@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/08/2020
+ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 8906ac7a00a349e2312eb80f5e25e32292a089ab
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134572"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291799"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Uso de scripts de implementación en plantillas (versión preliminar)
 
@@ -138,16 +138,16 @@ Detalles de los valores de propiedad:
 - **Identidad**: el servicio de scripts de implementación utiliza una identidad administrada asignada por el usuario para ejecutar los scripts. Actualmente, solo se admiten identidades asignadas por el usuario.
 - **kind**: especifique el tipo de script. Actualmente, se admiten los scripts de Azure PowerShell y de la CLI de Azure. Los valores son **AzurePowerShell** y **AzureCLI**.
 - **forceUpdateTag**: el cambio de este valor entre implementaciones de plantilla obliga a que se vuelva a ejecutar el script de implementación. Utilice la función newGuid() o utcNow() que hay que establecer como defaultValue de un parámetro. Para más información, consulte la sección [Ejecución de un script varias veces](#run-script-more-than-once).
-- **containerSettings**: permite especificar la configuración para personalizar la instancia de contenedor de Azure.  **containerGroupName** es para especificar el nombre del grupo de contenedores.  Si no se especifica, el nombre de grupo se generará automáticamente.
+- **containerSettings**: permite especificar la configuración para personalizar la instancia de contenedor de Azure.  **containerGroupName** es para especificar el nombre del grupo de contenedores.  Si no se especifica, el nombre de grupo se genera automáticamente.
 - **storageAccountSettings**: permite especificar la configuración para usar una cuenta de almacenamiento existente. Si no se especifica, se crea una cuenta de almacenamiento automáticamente. Consulte [Uso de una cuenta de almacenamiento existente](#use-existing-storage-account).
 - **azPowerShellVersion**/**azCliVersion**: Especifique la versión del módulo que se va a usar. Para una lista de las versiones compatibles de PowerShell y de la CLI, consulte los [requisitos previos](#prerequisites).
 - **arguments**: Especifique los valores de los parámetros. Los valores se separan con espacios.
 
     Los scripts de implementación dividen los argumentos en una matriz de cadenas mediante la invocación de la llamada del sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw). Esto es necesario porque los argumentos se pasan como [propiedad del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a Azure Container Instances, y la propiedad del comando es una matriz de cadena.
 
-    Si los argumentos contienen caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para que estos caracteres sean de escape doble. Pegue la cadena de escape original en la herramienta y, a continuación, seleccione **Escape**.  La herramienta genera una cadena de escape doble. Por ejemplo, en la plantilla de ejemplo anterior, el argumento es **-name \\"John Dole\\"**.  La cadena de escape es **-name \\\\\\"John dole\\\\\\"**.
+    Si los argumentos contienen caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para que estos caracteres sean de escape doble. Pegue la cadena de escape original en la herramienta y, a continuación, seleccione **Escape**.  La herramienta genera una cadena de escape doble. Por ejemplo, en la plantilla de ejemplo anterior, el argumento es **-name \\"John Dole\\"** .  La cadena de escape es **-name \\\\\\"John dole\\\\\\"** .
 
-    Para pasar un parámetro de plantilla de Resource Manager del tipo Objeto como argumento, convierta el objeto en una cadena mediante la función [string()](./template-functions-string.md#string) y, a continuación, use la función [replace()](./template-functions-string.md#replace) para reemplazar cualquier **\\"** en **\\\\\\"**. Por ejemplo:
+    Para pasar un parámetro de plantilla de Resource Manager del tipo Objeto como argumento, convierta el objeto en una cadena mediante la función [string()](./template-functions-string.md#string) y, a continuación, use la función [replace()](./template-functions-string.md#replace) para reemplazar cualquier **\\"** en **\\\\\\"** . Por ejemplo:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -179,7 +179,7 @@ La plantilla siguiente tiene un recurso definido con el tipo `Microsoft.Resource
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-54" highlight="34-40":::
 
 > [!NOTE]
-> Como los scripts de implementación insertados se escriben entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples o entre caracteres de escape como **&#92;**. También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON.
+> Como los scripts de implementación insertados se escriben entre comillas dobles, las cadenas dentro de los scripts de implementación deben incluirse entre comillas simples o entre caracteres de escape como **&#92;** . También puede plantearse la posibilidad de usar la sustitución de cadenas tal y como se muestra en el ejemplo anterior de JSON.
 
 El script toma un parámetro y genera el valor del parámetro. **DeploymentScriptOutputs** se usa para almacenar las salidas.  En la sección de salidas, la línea **value** muestra cómo acceder a los valores almacenados. `Write-Output` se utiliza con fines de depuración. Para obtener información sobre cómo acceder al archivo de salida, consulte la sección sobre cómo [supervisar y solucionar problemas de los scripts de implementación](#monitor-and-troubleshoot-deployment-scripts).  Para ver las descripciones de las propiedades, consulte [Plantillas de ejemplo](#sample-templates).
 
@@ -556,50 +556,37 @@ La ejecución del script de implementación es una operación idempotente. Si no
 
 ## <a name="configure-development-environment"></a>Configuración del entorno de desarrollo
 
-Puede usar una imagen de contenedor de Docker preconfigurada como entorno de desarrollo del script de implementación. Para instalar Docker, consulte [Obtener Docker](https://docs.docker.com/get-docker/).
-También debe configurar el uso compartido de archivos para montar el directorio que contiene los scripts de implementación en el contenedor de Docker.
-
-1. Extraiga la imagen del contenedor de scripts de implementación en el equipo local:
-
-    ```command
-    docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    En este ejemplo se usa PowerShell versión 2.7.0.
-
-    Para extraer una imagen de la CLI de un Registro de contenedor de Microsoft (MCR):
-
-    ```command
-    docker pull mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-    En este ejemplo se usa la CLI versión 2.0.80. El script de implementación usa las imágenes predeterminadas de contenedores de la CLI que se encuentran [aquí](https://hub.docker.com/_/microsoft-azure-cli).
-
-1. Ejecute la imagen de Docker localmente.
-
-    ```command
-    docker run -v <host drive letter>:/<host directory name>:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    Reemplace **&lt;letra de unidad del host >** y **&lt;nombre del directorio host >** por una carpeta existente en la unidad compartida.  La carpeta se asigna a la carpeta **/data** del contenedor. Por ejemplo, para asignar D:\docker:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
-    ```
-
-    **-it** significa mantener activa la imagen del contenedor.
-
-    Un ejemplo de la CLI:
-
-    ```command
-    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
-    ```
-
-1. En la siguiente captura de pantalla se muestra cómo ejecutar un script de PowerShell, dado que tiene un archivo helloworld.ps1 en la unidad compartida.
-
-    ![CMD de Docker del script de implementación de plantilla de Resource Manager](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
+Puede usar una imagen de contenedor preconfigurada como entorno de desarrollo del script de implementación. Para más información, vea [Configuración del entorno de desarrollo para scripts de implementación en plantillas](./deployment-script-template-configure-dev.md).
 
 Después de que el script se pruebe correctamente, puede usarlo como script de implementación en sus plantillas.
+
+## <a name="deployment-script-error-codes"></a>Códigos de error del script de implementación
+
+| Código de error | Descripción |
+|------------|-------------|
+| DeploymentScriptInvalidOperation | La definición de recursos del script de implementación de la plantilla contiene nombres de propiedad no válidos. |
+| DeploymentScriptResourceConflict | No se puede eliminar un recurso de script de implementación que se encuentra en estado no terminal cuando la ejecución no ha superado 1 hora. O bien, no puede volver a ejecutar el mismo script de implementación con el mismo identificador de recurso (la misma suscripción, el mismo nombre de grupo de recursos y el mismo nombre de recurso), sino un contenido de cuerpo de script diferente al mismo tiempo. |
+| DeploymentScriptOperationFailed | Error interno en la operación del script de implementación. Póngase en contacto con el soporte técnico de Microsoft. |
+| DeploymentScriptStorageAccountAccessKeyNotSpecified | No se ha especificado la clave de acceso para la cuenta de almacenamiento existente.|
+| DeploymentScriptContainerGroupContainsInvalidContainers | Un grupo de contenedores creado por el servicio de script de implementación se modificó externamente y se agregaron contenedores no válidos. |
+| DeploymentScriptContainerGroupInNonterminalState | Dos o más recursos de script de implementación usan el mismo nombre de instancia de contenedor de Azure en el mismo grupo de recursos, y uno de ellos todavía no ha terminado de ejecutarse. |
+| DeploymentScriptStorageAccountInvalidKind | La cuenta de almacenamiento existente del tipo BlobBlobStorage o BlobStorage no admite recursos compartidos de archivos y, por tanto, no se puede usar. |
+| DeploymentScriptStorageAccountInvalidKindAndSku | La cuenta de almacenamiento existente no admite recursos compartidos de archivos. Para obtener una lista de los tipos de cuenta de almacenamiento admitidos, vea [Uso de la cuenta de almacenamiento existente](#use-existing-storage-account). |
+| DeploymentScriptStorageAccountNotFound | La cuenta de almacenamiento no existe, o bien una herramienta o proceso externo la ha eliminado. |
+| DeploymentScriptStorageAccountWithServiceEndpointEnabled | La cuenta de almacenamiento especificada tiene un punto de conexión de servicio. No se admite una cuenta de almacenamiento con un punto de conexión de servicio. |
+| DeploymentScriptStorageAccountInvalidAccessKey | Se ha especificado una clave de acceso no válida para la cuenta de almacenamiento existente. |
+| DeploymentScriptStorageAccountInvalidAccessKeyFormat | Formato no válido de la clave de la cuenta de almacenamiento. Vea [Administración de las claves de acceso de la cuenta de almacenamiento](../../storage/common/storage-account-keys-manage.md). |
+| DeploymentScriptExceededMaxAllowedTime | El tiempo de ejecución del script de implementación superó el valor de tiempo de espera especificado en la definición de recursos del script de implementación. |
+| DeploymentScriptInvalidOutputs | La salida del script de implementación no es un objeto JSON válido. |
+| DeploymentScriptContainerInstancesServiceLoginFailure | La identidad administrada asignada por el usuario no pudo iniciar sesión después de 10 intentos con un intervalo de 1 minuto. |
+| DeploymentScriptContainerGroupNotFound | Un grupo de contenedores creado por el servicio del script de implementación se eliminó mediante una herramienta o un proceso externo. |
+| DeploymentScriptDownloadFailure | Error al descargar un script auxiliar. Vea [Uso de scripts auxiliares](#use-supporting-scripts).|
+| DeploymentScriptError | El script de usuario generó un error. |
+| DeploymentScriptBootstrapScriptExecutionFailed | El script de arranque produjo un error. Script de arranque es el script del sistema que organiza la ejecución del script de implementación. |
+| DeploymentScriptExecutionFailed | Error desconocido durante la ejecución del script de implementación. |
+| DeploymentScriptContainerInstancesServiceUnavailable | Al crear la instancia de contenedor de Azure (ACI), ACI generó un error de servicio no disponible. |
+| DeploymentScriptContainerGroupInNonterminalState | Al crear la instancia de contenedor de Azure (ACI), otro script de implementación usa el mismo nombre de ACI en el mismo ámbito (la misma suscripción, el mismo nombre de grupo de recursos y el mismo nombre de recurso). |
+| DeploymentScriptContainerGroupNameInvalid | El nombre de la instancia de contenedor de Azure (ACI) especificado no cumple los requisitos de ACI. Vea [Solución de problemas habituales de Azure Container Instances](../../container-instances/container-instances-troubleshooting.md#issues-during-container-group-deployment).|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,15 +4,15 @@ description: Especificaciones de las máquinas virtuales de la serie Mv2.
 author: ayshakeen
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: jushiman
-ms.openlocfilehash: 4576a8bdcb6077a9d5de20c52f99325fdcacc0f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f86400f1fb45217133bbd715788986994f5f77cc
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84673705"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836265"
 ---
 # <a name="mv2-series"></a>Serie Mv2
 
@@ -28,14 +28,14 @@ Migración en vivo: No compatible
 
 Actualizaciones con conservación de memoria: No compatible
 
-Acelerador de escritura: [Compatible](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
+Acelerador de escritura: [Compatible](./windows/how-to-enable-write-accelerator.md)
 
-|Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. de NIC/ancho de banda de red esperado (Mbps) |
-|---|---|---|---|---|---|---|---|
-| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16000 |
-| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 / 16000 |
-| Standard_M416ms_v2<sup>1</sup> | 416 | 11 400 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 / 32 000 |
-| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 / 32 000 |
+|Size | vCPU | Memoria: GiB | GiB de almacenamiento temporal (SSD) | Discos de datos máx. | Rendimiento máximo de almacenamiento temporal y en caché: IOPS / MBps (tamaño de caché en GiB) | Rendimiento máximo del disco sin almacenamiento en la caché: IOPS / MBps | Nº máx. NIC | Ancho de banda de red esperado (Mbps) |
+|---|---|---|---|---|---|---|---|---|
+| Standard_M208ms_v2<sup>1</sup> | 208 | 5700 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 | 16000 |
+| Standard_M208s_v2<sup>1</sup> | 208 | 2850 | 4096 | 64 | 80000/800 (7040) | 40000/1000 | 8 | 16000 |
+| Standard_M416ms_v2<sup>1</sup> | 416 | 11 400 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
+| Standard_M416s_v2<sup>1</sup> | 416 | 5700 | 8192 | 64 | 250 000 / 1600 (14 080) | 80000 / 2000 | 8 | 32000 |
 
 <sup>1</sup> Las máquinas virtuales de la serie Mv2 solo son de generación 2 y admiten un subconjunto de imágenes admitidas de la generación 2. A continuación puede encontrar la lista completa de imágenes admitidas de la serie Mv2. Si usa Linux, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./linux/generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. Si usa Windows, consulte [Compatibilidad para máquinas virtuales de generación 2 en Azure](./windows/generation-2.md) para obtener instrucciones sobre cómo buscar y seleccionar una imagen. 
 
@@ -48,7 +48,7 @@ Acelerador de escritura: [Compatible](https://docs.microsoft.com/azure/virtual-m
 
 [!INCLUDE [virtual-machines-common-sizes-table-defs](../../includes/virtual-machines-common-sizes-table-defs.md)]
 
-## <a name="other-sizes"></a>Otros tamaños
+## <a name="other-sizes-and-information"></a>Otros tamaños e información
 
 - [Uso general](sizes-general.md)
 - [Memoria optimizada](sizes-memory.md)
@@ -56,6 +56,11 @@ Acelerador de escritura: [Compatible](https://docs.microsoft.com/azure/virtual-m
 - [GPU optimizada](sizes-gpu.md)
 - [Proceso de alto rendimiento](sizes-hpc.md)
 - [Generaciones anteriores](sizes-previous-gen.md)
+
+Calculadora de precios: [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/)
+
+Más información sobre los tipos de disco: [Tipos de disco](./linux/disks-types.md#ultra-disk)
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

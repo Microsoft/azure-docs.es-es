@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/28/2020
-ms.openlocfilehash: b5c4005c95a88a40a836b9c0f6d1fd01e0417ed0
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170280"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078674"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Llamada, desencadenamiento o anidamiento de aplicaciones lógicas con puntos de conexión HTTPS en Azure Logic Apps
 
@@ -388,7 +388,7 @@ Para ver la definición de JSON de la acción de respuesta y la definición comp
 
 #### <a name="q-what-about-url-security"></a>P: ¿Qué se puede decir sobre la seguridad de las direcciones URL?
 
-**R.** : Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una [firma de acceso compartido (SAS)](https://docs.microsoft.com/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda ejecutar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
+**R.** : Azure genera direcciones URL de devolución de llamada de la aplicación lógica de manera segura con una [firma de acceso compartido (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Esta firma pasa como un parámetro de consulta y debe validarse antes de que se pueda ejecutar la aplicación lógica. Azure genera la firma mediante una combinación única de una clave secreta por aplicación lógica, el nombre del desencadenador y la operación que se realiza. Por tanto, a menos que alguien tenga acceso a la clave de aplicación lógica secreta, no se puede generar una firma válida.
 
 > [!IMPORTANT]
 > En sistemas de más alta seguridad y de producción, se recomienda encarecidamente no llamar a la aplicación lógica directamente desde el explorador. Los motivos son estos:

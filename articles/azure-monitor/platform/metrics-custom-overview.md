@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/01/2020
 ms.subservice: metrics
-ms.openlocfilehash: 930e32cfc57cb5b48180c7695b7b6c7d11df8caa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ca697fe0174a62532f3fa9ffbc5b3fcfc0c06ad7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506980"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321282"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas en Azure Monitor (versión preliminar)
 
-A medida que implementa recursos y aplicaciones en Azure, querrá empezar a recopilar datos de telemetría para obtener conclusiones detalladas sobre su rendimiento y mantenimiento. Azure pone algunas métricas a su disposición de manera estándar. Estas métricas se denominan [estándar o de plataforma](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported). Sin embargo, están limitadas por naturaleza. 
+A medida que implementa recursos y aplicaciones en Azure, querrá empezar a recopilar datos de telemetría para obtener conclusiones detalladas sobre su rendimiento y mantenimiento. Azure pone algunas métricas a su disposición de manera estándar. Estas métricas se denominan [estándar o de plataforma](./metrics-supported.md). Sin embargo, están limitadas por naturaleza. 
 
 Es posible que quiera recopilar algunos indicadores de rendimiento personalizados o métricas específicas del negocio para obtener conclusiones más detalladas. Estas métricas **personalizadas** pueden recopilarse a través de los datos de telemetría de la aplicación, un agente que se ejecute en sus recursos de Azure o, incluso, fuera del sistema de supervisión y enviarse directamente a Azure Monitor. Una vez publicadas en Azure Monitor, puede examinar, consultar y generar una alerta sobre métricas personalizadas para sus recursos y aplicaciones de Azure en paralelo con las métricas estándar emitidas por Azure.
 
@@ -28,7 +28,7 @@ Las métricas personalizadas pueden enviarse a Azure Monitor a través de distin
 - Instrumente la aplicación con el SDK de Azure Application Insights y envíe datos de telemetría personalizados a Azure Monitor. 
 - Instale la extensión Windows Azure Diagnostics (WAD) en su [máquina virtual Azure](collect-custom-metrics-guestos-resource-manager-vm.md), [conjunto de escalado de máquinas virtuales](collect-custom-metrics-guestos-resource-manager-vmss.md), [máquina virtual clásica](collect-custom-metrics-guestos-vm-classic.md) o [Cloud Services clásico](collect-custom-metrics-guestos-vm-cloud-service-classic.md), y envíe los contadores de rendimiento a Azure Monitor. 
 - Instale el [agente de InfluxData Telegraf](collect-custom-metrics-linux-telegraf.md) en su máquina virtual Linux de Azure y envíe las métricas mediante el complemento de salida de Azure Monitor.
-- Envíe las métricas personalizadas [directamente a la API REST de Azure Monitor](../../azure-monitor/platform/metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
+- Envíe las métricas personalizadas [directamente a la API REST de Azure Monitor](./metrics-store-custom-rest-api.md), `https://<azureregion>.monitoring.azure.com/<AzureResourceID>/metrics`.
 
 ## <a name="pricing-model-and-retention"></a>Modelo de precios y retención
 
@@ -37,7 +37,7 @@ Consulte la [página de tarifas de Azure Monitor](https://azure.microsoft.com/pr
 Las métricas personalizadas se conservan durante el [mismo tiempo que las métricas de plataforma](data-platform-metrics.md#retention-of-metrics). 
 
 > [!NOTE]  
-> Las métricas enviadas a Azure Monitor mediante el SDK de Application Insights se facturan como datos de registro ingeridos. Los cargos de métricas adicionales solo tienen un costo si se ha seleccionado la característica Application Insights [Habilitar la creación de alertas sobre las dimensiones de las métricas personalizadas](https://docs.microsoft.com/azure/azure-monitor/app/pre-aggregated-metrics-log-metrics#custom-metrics-dimensions-and-pre-aggregation). Esta casilla envía datos a la base de datos de métricas de Azure Monitor mediante la API de métricas personalizadas para permitir unas alertas más complejas.  Obtenga más información sobre el [modelo de tarifas de Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/pricing#pricing-model) y las [tarifas en su región](https://azure.microsoft.com/pricing/details/monitor/).
+> Las métricas enviadas a Azure Monitor mediante el SDK de Application Insights se facturan como datos de registro ingeridos. Los cargos de métricas adicionales solo tienen un costo si se ha seleccionado la característica Application Insights [Habilitar la creación de alertas sobre las dimensiones de las métricas personalizadas](../app/pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation). Esta casilla envía datos a la base de datos de métricas de Azure Monitor mediante la API de métricas personalizadas para permitir unas alertas más complejas.  Obtenga más información sobre el [modelo de tarifas de Application Insights](../app/pricing.md#pricing-model) y las [tarifas en su región](https://azure.microsoft.com/pricing/details/monitor/).
 
 
 ## <a name="how-to-send-custom-metrics"></a>Cómo enviar métricas personalizadas
@@ -46,8 +46,8 @@ Al enviar las métricas personalizadas a Azure Monitor, cada punto de datos (o v
 
 ### <a name="authentication"></a>Authentication
 Para enviar métricas personalizadas a Azure Monitor, la entidad que envía la métrica debe tener un token de Azure Active Directory (Azure AD) válido en el encabezado de **portador** de la solicitud. Existen algunas formas admitidas para adquirir un token de portador válido:
-1. [Identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Proporciona una identidad a un recurso de Azure mismo, por ejemplo, una máquina virtual. Managed Service Identity (MSI) está diseñado para proporcionar permisos a los recursos para llevar a cabo determinadas operaciones. Un ejemplo es permitir que un recurso emita métricas sobre sí mismo. Se puede conceder a un recurso, o a su MSI, permisos de **Publicador de métricas de supervisión** en otro recurso. Con este permiso, el MSI puede emitir métricas también para otros recursos.
-2. [Entidad de servicio de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). En este escenario, en una aplicación de Azure AD, o servicio, pueden asignarse permisos para emitir métricas sobre un recurso de Azure.
+1. [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Proporciona una identidad a un recurso de Azure mismo, por ejemplo, una máquina virtual. Managed Service Identity (MSI) está diseñado para proporcionar permisos a los recursos para llevar a cabo determinadas operaciones. Un ejemplo es permitir que un recurso emita métricas sobre sí mismo. Se puede conceder a un recurso, o a su MSI, permisos de **Publicador de métricas de supervisión** en otro recurso. Con este permiso, el MSI puede emitir métricas también para otros recursos.
+2. [Entidad de servicio de Azure AD](../../active-directory/develop/app-objects-and-service-principals.md). En este escenario, en una aplicación de Azure AD, o servicio, pueden asignarse permisos para emitir métricas sobre un recurso de Azure.
 Para autenticar la solicitud, Azure Monitor valida el token de aplicación mediante las claves públicas de Azure AD. El rol **Supervisión del publicador de métricas** existente ya tiene este permiso. Está disponible en Azure Portal. La entidad de servicio, en función de para qué recursos vaya a emitir las métricas personalizadas, puede recibir el rol **Supervisión del publicador de métricas** en el ámbito necesario. Algunos ejemplos son una suscripción, un grupo de recursos o un recurso específico.
 
 > [!TIP]  
@@ -235,6 +235,7 @@ Use métricas personalizadas desde distintos servicios:
  - [Conjunto de escalado de máquinas virtuales](collect-custom-metrics-guestos-resource-manager-vmss.md)
  - [Azure Virtual Machines (clásico)](collect-custom-metrics-guestos-vm-classic.md)
  - [Máquina virtual Linux que usa el agente Telegraf](collect-custom-metrics-linux-telegraf.md)
- - [REST API](../../azure-monitor/platform/metrics-store-custom-rest-api.md)
+ - [REST API](./metrics-store-custom-rest-api.md)
  - [Cloud Services clásico](collect-custom-metrics-guestos-vm-cloud-service-classic.md)
  
+

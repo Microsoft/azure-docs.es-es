@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/27/2019
-ms.openlocfilehash: 7b5e4174da3ffa0dff5c840e5da1d98435e8d07b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/21/2020
+ms.openlocfilehash: 24c7e0a3c9a7d3c28823db0418e17cb94bc101ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985557"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325073"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Información general del modelo de núcleo virtual: Azure SQL Database y Azure SQL Managed Instance 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ El modelo de compra de núcleo virtual usado por Azure SQL Database e Instancia 
 - Mayores límites de proceso, memoria, E/S y almacenamiento.
 - Control sobre la generación de hardware para satisfacer mejor los requisitos de proceso y memoria de la carga de trabajo.
 - Descuentos en los precios de [Ventaja híbrida de Azure (AHB)](../azure-hybrid-benefit.md) e [Instancia reservada (RI)](reserved-capacity-overview.md).
-- Mayor transparencia en los detalles de hardware que potencian el proceso; facilita la planeación de las migraciones desde implementaciones locales.
+- Mayor transparencia en los detalles de hardware que potencian el proceso, lo que facilita la planeación de las migraciones desde implementaciones locales.
 
 ## <a name="service-tiers"></a>Niveles de servicio
 
@@ -69,7 +69,7 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) escala automáti
 
 ## <a name="hardware-generations"></a>Generaciones de hardware
 
-Entre las opciones de generación de hardware del modelo de núcleo virtual se incluyen Gen 4/5, la serie M (versión preliminar) y la serie Fsv2 (versión preliminar). En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
+Entre las opciones de generación de hardware del modelo de núcleo virtual se incluyen Gen 4/5, la serie M y la serie Fsv2. En general, la generación de hardware define los límites de proceso y de memoria, así como otras características que afectan al rendimiento de la carga de trabajo.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -77,21 +77,21 @@ Entre las opciones de generación de hardware del modelo de núcleo virtual se i
 
 Para ver las regiones en las que Gen4/Gen5 está disponible, vea la [disponibilidad de Gen4/Gen5](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Serie Fsv2 (versión preliminar)
+### <a name="fsv2-series"></a>Serie Fsv2
 
 - La serie Fsv2 es una opción de hardware optimizado para proceso que ofrece una latencia de CPU baja y una velocidad de reloj elevada para las cargas de trabajo más exigentes de CPU.
 - En función de la carga de trabajo, la serie Fsv2 puede ofrecer más rendimiento de CPU por núcleo virtual que Gen5, y el tamaño de 72 núcleos virtuales puede proporcionar más rendimiento de CPU con menos costos que 80 núcleos virtuales en Gen5. 
 - Fsv2 proporciona menos memoria y tempdb por núcleo virtual que otro hardware, por lo que se pueden tomar en consideración las series Gen5 y M para las cargas de trabajo sensibles a esos límites.  
 
-La serie Fsv2 solo se admite en el nivel De uso general.  Para las regiones en las que está disponible la serie Fsv2, consulte la [disponibilidad de la serie Fsv2](#fsv2-series).
+La serie Fsv2 solo se admite en el nivel De uso general. Para las regiones en las que está disponible la serie Fsv2, consulte la [disponibilidad de la serie Fsv2](#fsv2-series-1).
 
 
-### <a name="m-seriespreview"></a>Serie M (versión preliminar)
+### <a name="m-series"></a>Serie M
 
 - La serie M es una opción de hardware optimizado para memoria para las cargas de trabajo que exigen más memoria y mayores límites de proceso que los proporcionados por Gen5.
-- La serie M proporciona 29 GB por núcleo virtual y 128 núcleos virtuales, lo que aumenta el límite de memoria con respecto a Gen5 por 8x hasta casi 4 TB.
+- La serie M cuenta con 29 GB por cada núcleo virtual y hasta 128 núcleos virtuales, lo que multiplica por ocho el límite de memoria con respecto a Gen5 hasta alcanzar prácticamente los 4 TB.
 
-La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.  La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA).  Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series).
+La serie M solo se admite en el nivel Crítico para la empresa y no es compatible con la redundancia de zona.  La suscripción debe ser un tipo de oferta de pago, como Pago por uso o Contrato Enterprise (EA). Para ver las regiones en las que la serie M está disponible, consulte la [disponibilidad de la serie M](#m-series-1).
 
 <!--
 To enable M-series hardware for a subscription and region, a support request must be opened. The subscription must be a paid offer type including Pay-As-You-Go or Enterprise Agreement (EA).  If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
@@ -104,8 +104,8 @@ To enable M-series hardware for a subscription and region, a support request mus
 |:---------|:---------|:---------|
 |Gen4     |- Procesadores Intel E5-2673 v3 (Haswell) 2,4 GHz<br>- Aprovisionamiento de hasta 24 núcleos virtuales (1 núcleo virtual = 1 núcleo físico)  |- 7 GB por núcleo virtual<br>- Aprovisionamiento de hasta 168 GB|
 |Gen5     |**Proceso aprovisionado**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)*<br>- Aprovisionamiento de hasta 80 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)<br><br>**Proceso sin servidor**<br>- Procesadores Intel E5-2673 v4 (Broadwell) de 2,3 GHz e Intel SP-8160 (Skylake)*<br>- Escalado vertical automático de hasta 16 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|**Proceso aprovisionado**<br>- 5,1 GB por núcleo virtual<br>- Aprovisionamiento de hasta 408 GB<br><br>**Proceso sin servidor**<br>- Escalado vertical automático de hasta 24 GB por núcleo virtual<br>- Escalado vertical automático de hasta 48 GB máx.|
-|Serie Fsv2     |- Procesadores Intel Xeon Platinum 8168 (SkyLake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de 136 GB|
-|Serie M     |- Procesadores Intel Xeon E7-8890 v3 de 2,5 GHz e Intel Xeon Platinum 8280M de 2,7 GHz (Cascade Lake)<br>- Aprovisionamiento de 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de 3,7 TB|
+|Serie Fsv2     |- Procesadores Intel Xeon Platinum 8168 (SkyLake)<br>- Presentación de una velocidad de reloj turbo sostenida de todos los núcleos de hasta 3,4 GHz y una velocidad de reloj turbo de un solo núcleo máxima de 3,7 GHz.<br>- Aprovisionamiento de hasta 72 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|1,9 GB por núcleo virtual<br>- Aprovisionamiento de hasta 136 GB|
+|Serie M     |- Procesadores Intel Xeon E7-8890 v3 de 2,5 GHz e Intel Xeon Platinum 8280M de 2,7 GHz (Cascade Lake)<br>- Aprovisionamiento de hasta 128 núcleos virtuales (1 núcleo virtual = 1 hiperproceso)|29 GB por núcleo virtual<br>- Aprovisionamiento de hasta 3,7 TB|
 
 \* En la vista de administración dinámica [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database), la generación de hardware para bases de datos Gen5 que usan procesadores Intel SP-8160 (Skylake) aparece como Gen6. Los límites de recursos en todas las bases de datos Gen5 son los mismos, independientemente del tipo de procesador (Broadwell o Skylake).
 
@@ -154,7 +154,7 @@ En la página de instancia administrada de SQL, seleccione el vínculo **Plan de
 
 ![cambiar el hardware de instancia administrada de SQL](./media/service-tiers-vcore/change-managed-instance-hardware.png)
 
-En la página **Plan de tarifa** podrá cambiar la generación de hardware como se describe en los pasos anteriores.
+En la página Plan de tarifa, podrá cambiar la generación de hardware tal y como se describe en los pasos anteriores.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -164,7 +164,7 @@ Use el siguiente script de PowerShell:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Para obtener más detalles, vea el comando [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
+Para más información, vea el comando [Set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance).
 
 # <a name="the-azure-cli"></a>[La CLI de Azure](#tab/azure-cli)
 
@@ -174,7 +174,7 @@ Use el siguiente comando de la CLI:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Para obtener más detalles, vea el comando [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update).
+Para más información, vea el comando [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update).
 
 ---
 

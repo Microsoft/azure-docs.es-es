@@ -11,12 +11,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 09/19/2019
-  ms.openlocfilehash: 5be853f9e1f9778eb767aa93497c546cb35fa0df
-  ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+  ms.openlocfilehash: ff7af5ead7cc14deb974700e7bf6f3553f2e71f7
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/16/2020
-  ms.locfileid: "81422411"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87387751"
 landingContent:
 - title: Acerca de Azure Key Vault
   linkLists:
@@ -24,12 +24,14 @@ landingContent:
     links:
     - text: ¿Qué es el Almacén de claves de Azure?
       url: overview.md
+    - text: Noticias importantes sobre la eliminación temporal
+      url: soft-delete-change.md
   - linkListType: concept
     links:
     - text: Conceptos básicos
       url: basic-concepts.md
     - text: Eliminación temporal
-      url: overview-soft-delete.md
+      url: soft-delete-overview.md
     - text: Limitaciones
       url: overview-throttling.md
 - title: Tutoriales
@@ -38,10 +40,10 @@ landingContent:
     links:
     - text: Key Vault desde una aplicación web
       url: tutorial-net-create-vault-azure-web-app.md
-    - text: Azure Key Vault con una máquina virtual Linux de Azure
-      url: tutorial-net-windows-virtual-machine.md
-    - text: 'Key Vault con Python: Windows'
-      url: tutorial-python-windows-virtual-machine.md
+    - text: Key Vault con una máquina virtual en .NET
+      url: tutorial-net-virtual-machine.md
+    - text: Key Vault con una máquina virtual en Python
+      url: tutorial-python-virtual-machine.md
 - title: Seguridad
   linkLists:
   - linkListType: overview

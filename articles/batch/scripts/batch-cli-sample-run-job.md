@@ -3,12 +3,13 @@ title: 'Ejemplo de script de la CLI de Azure: ejecución de un trabajo con Batch
 description: Este script crea un trabajo de Batch y agrega una serie de tareas a dicho trabajo. También muestra cómo supervisar un trabajo y sus tareas.
 ms.topic: sample
 ms.date: 12/12/2019
-ms.openlocfilehash: eefc6cfdc01ddf4b8fe05b3b52360994e5763013
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d8efce1bc8dc32070b770769104b7fdc38e683cd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85957286"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500238"
 ---
 # <a name="cli-example-run-a-job-and-tasks-with-azure-batch"></a>Ejemplo de la CLI: ejecución de un trabajo y tareas con Azure Batch
 

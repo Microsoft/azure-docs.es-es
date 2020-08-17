@@ -7,25 +7,25 @@ ms.topic: reference
 ms.date: 06/09/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 553492a3ca6868279b1aec9446e2ce04ca673ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 656161849ce8d48fb15cfac4024ec5b77adb5fee
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945365"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87829516"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El [registro de actividad de Azure](platform-logs-overview.md) proporciona información sobre los eventos que se han producido en Azure en el nivel de la suscripción. En este artículo se describen las categorías de registro de actividad y el esquema de cada una. 
 
 El esquema variará en función de cómo acceda al registro:
  
-- Los esquemas que se describen en este artículo corresponden al acceso al registro de actividad desde la [API REST](https://docs.microsoft.com/rest/api/monitor/activitylogs). Este es también el esquema que se usa al seleccionar la opción **JSON** al ver un evento en Azure Portal.
+- Los esquemas que se describen en este artículo corresponden al acceso al registro de actividad desde la [API REST](/rest/api/monitor/activitylogs). Este es también el esquema que se usa al seleccionar la opción **JSON** al ver un evento en Azure Portal.
 - Consulte la sección final titulada [Esquema de la cuenta de almacenamiento y Event Hubs](#schema-from-storage-account-and-event-hubs) para el esquema correspondiente cuando se usa una [configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a Azure Storage o Azure Event Hubs.
-- Consulte [Referencia de datos de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/reference/) parar conocer el esquema correspondiente cuando se usa una [configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics.
+- Consulte [Referencia de datos de Azure Monitor](/azure/azure-monitor/reference/) parar conocer el esquema correspondiente cuando se usa una [configuración de diagnóstico](diagnostic-settings.md) para enviar el registro de actividad a un área de trabajo de Log Analytics.
 
 
 ## <a name="categories"></a>Categorías
-Cada evento del registro de actividad tiene una categoría determinada que se describe en la tabla siguiente. Consulte las secciones siguientes para más información sobre cada categoría y su esquema al acceder al registro de actividad desde el portal, PowerShell, la CLI y la API REST. El esquema es diferente cuando el [registro de actividad se transmite a Azure Storage o a Event Hubs](resource-logs-stream-event-hubs.md). En la última sección del artículo, encontrará la correspondencia de las propiedades en el [esquema de registros de recursos](diagnostic-logs-schema.md).
+Cada evento del registro de actividad tiene una categoría determinada que se describe en la tabla siguiente. Consulte las secciones siguientes para más información sobre cada categoría y su esquema al acceder al registro de actividad desde el portal, PowerShell, la CLI y la API REST. El esquema es diferente cuando el [registro de actividad se transmite a Azure Storage o a Event Hubs](./resource-logs.md#send-to-azure-event-hubs). En la última sección del artículo, encontrará la correspondencia de las propiedades en el [esquema de registros de recursos](./resource-logs-schema.md).
 
 | Category | Descripción |
 |:---|:---|
@@ -214,7 +214,7 @@ Esta categoría contiene el registro de los incidentes de estado del servicio qu
   }
 }
 ```
-Consulte el artículo sobre las [notificaciones de estado de servicio](./../../azure-monitor/platform/service-notifications.md) para la documentación sobre los valores de las propiedades.
+Consulte el artículo sobre las [notificaciones de estado de servicio](../../service-health/service-notifications.md) para la documentación sobre los valores de las propiedades.
 
 ## <a name="resource-health-category"></a>Categoría de estado de los recursos
 Esta categoría contiene el registro de los eventos de estado del servicio que se han producido en los recursos de Azure. Un ejemplo del tipo de evento que aparece en esta categoría es "El estado de mantenimiento de la máquina virtual se cambió a No disponible". Los eventos de mantenimiento de recursos pueden representar uno de los cuatro estados de mantenimiento siguientes: Disponible, No disponible, Degradado y Desconocido. Además, los eventos de mantenimiento de recursos se pueden clasificar como iniciados por la plataforma o por el usuario.
@@ -793,10 +793,10 @@ Esta categoría contiene registros de todas las operaciones de acción de efecto
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema de una cuenta de almacenamiento y un centro de eventos
-Cuando el registro de actividad de Azure se transmite a una cuenta de almacenamiento o a un centro de eventos, los datos siguen el [esquema de registros de recursos](diagnostic-logs-schema.md). En la tabla siguiente, se muestra la correspondencia de las propiedades entre los esquemas anteriores y el esquema de los registros de recursos.
+Cuando el registro de actividad de Azure se transmite a una cuenta de almacenamiento o a un centro de eventos, los datos siguen el [esquema de registros de recursos](./resource-logs-schema.md). En la tabla siguiente, se muestra la correspondencia de las propiedades entre los esquemas anteriores y el esquema de los registros de recursos.
 
 > [!IMPORTANT]
-> El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento](diagnostic-logs-append-blobs.md) para más información sobre este cambio de formato.
+> El formato de los datos de registro de actividad escritos en una cuenta de almacenamiento cambiaron a Líneas JSON el 1 de noviembre de 2018. Consulte [Preparación para el cambio de formato a los registros de recursos de Azure Monitor archivados en una cuenta de almacenamiento](./resource-logs-blob-format.md) para más información sobre este cambio de formato.
 
 
 | Propiedad del esquema de registros de recursos | Propiedad del esquema de API REST de registro de actividad | Notas |
@@ -885,4 +885,3 @@ A continuación, se muestra un ejemplo de un evento que utiliza este esquema.
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre el registro de actividad](platform-logs-overview.md)
 * [Creación de una configuración de diagnóstico para enviar el registro de actividad a un área de trabajo de Log Analytics, Azure Storage o Event Hubs](diagnostic-settings.md)
-

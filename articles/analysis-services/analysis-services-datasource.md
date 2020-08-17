@@ -4,15 +4,15 @@ description: Describe los orígenes de datos y los conectores admitidos para los
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 07/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dc25c853a37de5c310d37e7ee64c6f762283cb0a
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 72a1a37bf240355e6bc87cbfd62b0dc2d25ce68b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077446"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503606"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -80,7 +80,7 @@ Los orígenes de datos y los conectores que se muestran en Obtener datos o en el
 <a name="tab1400b">6</a>: Tabular 1400 y modelos posteriores solamente.  
 <a name="sqlim">7</a>: Cuando se especifica como un origen de datos de *proveedor* en los modelos tabulares 1200 y posteriores, especifique Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (recomendado), SQL Server Native Client 11.0 o Proveedor de datos .NET Framework para SQL Server.  
 <a name="instgw">8</a>: Si especifica MSOLEDBSQL como proveedor de datos, puede que sea necesario descargar e instalar [Microsoft OLE DB Driver for SQL Server](https://docs.microsoft.com/sql/connect/oledb/oledb-driver-for-sql-server) en el mismo equipo que la puerta de enlace de datos local.  
-<a name="oracle">9</a>: Para los modelos tabulares 1200, o como origen de datos de *proveedor* en los modelos tabulares 1400 o posteriores, especifique el proveedor de datos de Oracle para .NET.  
+<a name="oracle">9</a>: Para los modelos tabulares 1200, o como origen de datos de *proveedor* en los modelos tabulares 1400 o posteriores, especifique el proveedor de datos de Oracle para .NET. Si se especifica como un origen de datos estructurado, no olvide [habilitar el proveedor administrado de Oracle](#enable-oracle-managed-provider).   
 <a name="teradata">10</a>: Para los modelos tabulares 1200, o como origen de datos de *proveedor* en los modelos tabulares 1400 o posteriores, especifique el proveedor de datos de Teradata para .NET.  
 <a name="filesSP">11</a>: No se admiten archivos en SharePoint en el entorno local.
 
@@ -123,6 +123,43 @@ Para orígenes de datos en la nube:
 En el caso de los modelos tabulares con el nivel de compatibilidad 1400 y superior que emplean el modo en memoria, Azure SQL Database, Azure Synapse (anteriormente, SQL Data Warehouse), Dynamics 365 y la lista de SharePoint admiten las credenciales de OAuth. Azure Analysis Services administra la actualización de tokens para los orígenes de datos de OAuth para evitar los tiempos de espera con las operaciones de actualización de ejecución prolongadas. Para generar tokens válidos, establezca las credenciales mediante SSMS.
 
 El modo de consulta directa no es compatible con las credenciales de OAuth.
+
+## <a name="enable-oracle-managed-provider"></a>Habilitación del proveedor administrado de Oracle
+
+En algunos casos, las consultas DAX que se realizan en un origen de datos de Oracle pueden devolver resultados inesperados. Esto puede deberse al proveedor que se utiliza para establecer la conexión del origen de datos.
+
+Tal y como se indica en la sección [Descripción de los proveedores](#understanding-providers), los modelos tabulares se conectan a orígenes de datos como un origen de datos *estructurado* o como un origen de datos de *proveedor*. En el caso de los modelos con un origen de datos de Oracle especificado como un origen de datos de proveedor, asegúrese de que el proveedor especificado es Oracle Data Provider for .NET (Oracle.DataAccess.Client). 
+
+Si el origen de datos de Oracle se especifica como un origen de datos estructurado, habilite la propiedad **MDataEngine\UseManagedOracleProvider** del servidor. Al configurar esta propiedad, se asegura de que el modelo se conecta al origen de datos de Oracle utilizando el proveedor administrado de Oracle Data Provider for .NET recomendado.
+ 
+Para habilitar el proveedor administrado de Oracle:
+
+1. En SQL Server Management Studio, conéctese al servidor.
+2. Cree una consulta XMLA con el siguiente script. Sustituya **ServerName** por el nombre completo del servidor y ejecute la consulta.
+
+    ```xml
+    <Alter AllowCreate="true" ObjectExpansion="ObjectProperties" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+        <Object />
+        <ObjectDefinition>
+            <Server xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" 
+    xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" 
+    xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" 
+    xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500">
+                <ID>ServerName</ID>
+                <Name>ServerName</Name>
+                <ServerProperties>
+                    <ServerProperty>
+                        <Name>MDataEngine\UseManagedOracleProvider</Name>
+                        <Value>1</Value>
+                    </ServerProperty>
+                </ServerProperties>
+            </Server>
+        </ObjectDefinition>
+    </Alter>
+    ```
+
+3. Reinicie el servidor.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

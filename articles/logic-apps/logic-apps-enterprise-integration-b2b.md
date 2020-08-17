@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: b576fc99e2f203bb3d690a8135ee76cee26b3de8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 2fd96777a5fe74d44aeed5f6de82e54b2663a024
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792367"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090389"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Recepción y confirmación de mensajes B2B AS2 con Azure Logic Apps y Enterprise Integration Pack
 
@@ -35,7 +35,7 @@ En este artículo se muestra cómo crear una aplicación lógica que recibe una 
 
   Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) asociada a la suscripción de Azure y vinculada a la aplicación lógica. Tanto la cuenta de integración como la aplicación de lógica deben existir en la misma ubicación o región de Azure.
+* Una [cuenta de integración](./logic-apps-enterprise-integration-create-integration-account.md) asociada a la suscripción de Azure y vinculada a la aplicación lógica. Tanto la cuenta de integración como la aplicación de lógica deben existir en la misma ubicación o región de Azure.
 
 * Al menos dos [entidades](../logic-apps/logic-apps-enterprise-integration-partners.md) que ya haya definido en su cuenta de integración, junto con los[contratos AS2 y X12](logic-apps-enterprise-integration-agreements.md) para esas entidades.
 

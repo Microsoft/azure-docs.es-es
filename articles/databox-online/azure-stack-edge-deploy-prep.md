@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 06/03/2019
+ms.date: 07/22/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: e6b752eab3f6a8f40fad8b2f947a82f86a8ccfe5
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c8f64bc81afb941e13dd310a7efd9432639ec281
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83652066"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131844"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge"></a>Tutorial: Preparación de la implementación de Azure Stack Edge  
 
@@ -57,32 +57,35 @@ Antes de comenzar, asegúrese de que:
 
 * Tiene acceso de propietario o colaborador a nivel de grupo de recursos para los recursos de Azure Stack Edge o Data Box Gateway, IoT Hub y Azure Storage.
 
-  * Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También deberá asegurarse de que el proveedor `Microsoft.DataBoxEdge` está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+  * Para conceder acceso de colaborador debe ser **Propietario** en el nivel de suscripción. Para conceder acceso de colaborador a otra persona, en Azure Portal, vaya a **Todos los servicios** > **Suscripciones** > **Control de acceso (IAM)**  >  **+ Agregar** > **Agregar asignación de roles**. Para más información, consulte el [Tutorial: Concesión de acceso de usuario a los recursos de Azure mediante Azure Portal](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal).
+
+  * Para crear cualquier recurso de Azure Stack Edge o Data Box Gateway, debe tener permisos de colaborador (o superiores) con ámbito en el nivel del grupo de recursos. También tendrá que asegurarse de que el proveedor de recursos `Microsoft.DataBoxEdge` está registrado. Para obtener información sobre cómo registrar un proveedor de recursos, consulte [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Para crear cualquier recurso de IoT Hub, asegúrese de que el proveedor Microsoft.Devices está registrado. Para obtener información acerca de cómo registrarse, vaya a [Registro de proveedores de recursos](azure-stack-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
   * Para crear un recurso de una cuenta de Storage también se necesita acceso de colaborador, o superior, con ámbito en el nivel de grupo de recursos. De forma predeterminada Azure Storage es un proveedor de recursos registrado.
 * Debe tener acceso de administrador o usuario a Graph API de Azure Active Directory. Para más información, vea [Graph API de Azure Active Directory](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 * Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
+* No está bloqueado por ninguna directiva de Azure configurada por el administrador del sistema. Para más información sobre las directivas, consulte [Inicio rápido: Creación de una asignación de directiva para identificar recursos no compatibles](https://docs.microsoft.com/azure/governance/policy/assign-policy-portal).
 
 ### <a name="for-the-azure-stack-edge-device"></a>Para el dispositivo de Azure Stack Edge
 
 Antes de implementar un dispositivo físico, asegúrese de que:
 
-- Ha revisado la información de seguridad que se incluyó en el paquete de envío.
-- Tiene una ranura 1U disponible en un bastidor estándar de 19" en el centro de datos para montar el dispositivo.
-- Tiene acceso a una superficie de trabajo plana, estable y nivelada en la que el dispositivo pueda apoyarse con seguridad.
-- La ubicación en la que desea efectuar la instalación del dispositivo dispone de corriente alterna estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con un sistema de alimentación ininterrumpida (UPS).
-- Tiene acceso a un dispositivo físico.
+* Ha revisado la información de seguridad que se incluyó en el paquete de envío.
+* Tiene una ranura 1U disponible en un bastidor estándar de 19" en el centro de datos para montar el dispositivo.
+* Tiene acceso a una superficie de trabajo plana, estable y nivelada en la que el dispositivo pueda apoyarse con seguridad.
+* La ubicación en la que desea efectuar la instalación del dispositivo dispone de corriente alterna estándar de una fuente independiente o una unidad de distribución de energía (PDU) en bastidor con un sistema de alimentación ininterrumpida (UPS).
+* Tiene acceso a un dispositivo físico.
 
 ### <a name="for-the-datacenter-network"></a>Para la red del centro de datos
 
 Antes de comenzar, asegúrese de que:
 
-- La red del centro de datos está configurada según los requisitos de red para el dispositivo de Azure Stack Edge. Para más información, consulte [Requisitos del sistema de Azure Stack Edge](azure-stack-edge-system-requirements.md).
+* La red del centro de datos está configurada según los requisitos de red para el dispositivo de Azure Stack Edge. Para más información, consulte [Requisitos del sistema de Azure Stack Edge](azure-stack-edge-system-requirements.md).
 
-- Para que Azure Stack Edge funcione normalmente, necesita lo siguiente:
+* Para que Azure Stack Edge funcione normalmente, necesita lo siguiente:
 
-    - Un ancho de banda mínimo de 10 Mbps para garantizar que el dispositivo se mantiene actualizado.
-    - Un ancho de banda mínimo de 20 Mbps dedicado a carga y descarga para transferir archivos.
+  * Un ancho de banda mínimo de 10 Mbps para garantizar que el dispositivo se mantiene actualizado.
+  * Un ancho de banda mínimo de 20 Mbps dedicado a carga y descarga para transferir archivos.
 
 ## <a name="create-a-new-resource"></a>Crear un nuevo recurso
 
@@ -106,7 +109,7 @@ Siga estos pasos en Azure Portal para crear un recurso de Azure Stack Edge.
 
 3. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
     
-    |Configuración  |Value  |
+    |Configuración  |Valor  |
     |---------|---------|
     |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
     |Resource group  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/resource-group-overview.md).     |
@@ -173,6 +176,3 @@ En el siguiente tutorial aprenderá a instalar Azure Stack Edge.
 
 > [!div class="nextstepaction"]
 > [Instalación de Azure Stack Edge](./azure-stack-edge-deploy-install.md)
-
-
-

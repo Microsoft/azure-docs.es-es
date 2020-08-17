@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15d2b029937c58d45a2c1148c568cd396cea336a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ec20a1bda8021e61f5147142a8e6bddd6cf5d166
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84634649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027621"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
 
@@ -221,7 +221,7 @@ Deshabilitar la extensión NPS:
 -   Determine si la autenticación principal para la VPN se realiza correctamente.
 
 Una vez que se haya recuperado el servicio y esté listo para volver a aplicar MFA a los usuarios, habilite la extensión NPS: 
--   Importe la clave del registro HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters a partir de la copia de seguridad. 
+-   Importe la clave del registro HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\AuthSrv\Parameters desde la copia de seguridad. 
 -   Reinicie el servicio de directivas de redes (IAS) para que los cambios surtan efecto. 
 -   Determine si la autenticación principal y la autenticación secundaria para la VPN se han realizado correctamente.
 -   Revise el servidor NPS y el registro de VPN para determinar qué usuarios han iniciado sesión durante la ventana de emergencia.

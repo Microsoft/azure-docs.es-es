@@ -13,12 +13,12 @@ metadata:
   ms.author: iainfou
   manager: daveba
   ms.date: 08/01/2019
-  ms.openlocfilehash: f5fa27e19da6bb64b7e214ec32cbfbf0a417118e
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 859c5ecbfc549d1dff1d874977aaecd86a899af0
+  ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "70010559"
+  ms.lasthandoff: 08/15/2020
+  ms.locfileid: "88245152"
 landingContent:
 - title: Acerca de Azure AD Domain Services
   linkLists:
@@ -34,7 +34,7 @@ landingContent:
       url: synchronization.md
     - text: Preguntas más frecuentes
       url: faqs.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: deploy
     links:
@@ -62,7 +62,7 @@ landingContent:
       url: deploy-kcd.md
     - text: Protección de un dominio administrado
       url: secure-your-domain.md
-- title: Administrar
+- title: Administración
   linkLists:
   - linkListType: how-to-guide
     links:
@@ -74,7 +74,7 @@ landingContent:
       url: check-health.md
     - text: Configuración de notificaciones de correo electrónico
       url: notifications.md
-    - text: Habilitación de auditorías de seguridad (versión preliminar)
+    - text: Habilitación de Security Center
       url: security-audit-events.md
 - title: Unión a dominio de máquinas virtuales
   linkLists:
@@ -88,6 +88,8 @@ landingContent:
       url: join-ubuntu-linux-vm.md
     - text: Red Hat Enterprise Linux
       url: join-rhel-linux-vm.md
+    - text: SUSE Linux Enterprise
+      url: join-suse-linux-vm.md
 - title: Solución de problemas
   linkLists:
   - linkListType: how-to-guide

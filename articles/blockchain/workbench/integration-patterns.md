@@ -4,12 +4,12 @@ description: Introducción a los patrones de integración de contratos inteligen
 ms.date: 11/20/2019
 ms.topic: conceptual
 ms.reviewer: mmercuri
-ms.openlocfilehash: 716255f5e71ec19b5b9c5a0a32740abc39f1a40b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dae63e16356e825d3be31380df1648749e59d8bd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254640"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538384"
 ---
 # <a name="smart-contract-integration-patterns"></a>Patrones de integración de contratos inteligentes
 
@@ -134,7 +134,7 @@ Este patrón normalmente se implementa mediante el siguiente método:
 -   El cambio de estado aparece como un evento para un consumidor de nivel inferior.
 -   El consumidor de nivel inferior recibe el evento y desencadena la ejecución externa del código.
 
-![Transición del control al proceso externo](./media/integration-patterns/transition-external-process.png)
+![El diagrama muestra un cambio de estado en el contrato que provoca que un evento vaya al libro de contabilidad distribuida. Luego, Blockchain Workbench toma el evento y lo publica.](./media/integration-patterns/transition-external-process.png)
 
 #### <a name="return-of-control-from-the-smart-contract"></a>Devolución del control desde el contrato inteligente
 
@@ -142,7 +142,7 @@ Según la capacidad de personalizar el sistema externo, es posible que este pued
 
 ##### <a name="direct-delivery-of-an-azure-blockchain-workbench-in-the-expected-format"></a>Entrega directa de una instancia de Azure Blockchain Workbench en el formato esperado
 
-![](./media/integration-patterns/direct-delivery.png)
+![El diagrama muestra el mensaje A P I del sistema externo que Blockchain Workbench ha seleccionado a través de Service Bus. Luego, Blockchain Workbench envía un mensaje, en forma de transacción, al libro de contabilidad distribuida en nombre del agente. Se pasa al contrato, donde provoca un cambio de estado.](./media/integration-patterns/direct-delivery.png)
 
 En este modelo, se produce la comunicación con el contrato y el cambio de estado subsiguiente siguiendo los pasos del proceso descrito anteriormente, en el que:
 

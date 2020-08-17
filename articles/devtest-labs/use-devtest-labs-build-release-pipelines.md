@@ -3,12 +3,12 @@ title: Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azu
 description: Obtenga información sobre cómo usar Azure DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 71af1e0dfe205fe1028f7b82b41f3ed38ebefd3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d04ed5dd7bebac0c8f24deb9145c3d2e4b77122e
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483081"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080341"
 ---
 # <a name="use-devtest-labs-in-azure-pipelines-build-and-release-pipelines"></a>Uso de DevTest Labs en canalizaciones de compilaciones y versiones de Azure Pipelines
 En este artículo se proporciona información sobre cómo se puede usar DevTest Labs en canalizaciones de versiones y compilaciones de Azure Pipelines. 
@@ -26,7 +26,7 @@ Una vez que la compilación se haya completado correctamente, la **canalización
 
 Una de las premisas necesarias es que toda la información necesaria para volver a crear el ecosistema probado esté disponible dentro de los artefactos de compilación, incluida la configuración de los recursos de Azure. Debido a que el uso de estos supone un costo, las empresas quieren controlar o realizar un seguimiento del uso de estos recursos. En algunas situaciones, otro departamento, como el de TI, puede administrar las plantillas de Azure Resource Manager que se usan para crear y configurar los recursos. Además, estas plantillas pueden almacenarse en otro repositorio. Esto da lugar a una situación interesante, en la que se creará y probará una compilación, y tanto el código como la configuración se tendrán que almacenar en los artefactos de compilación para poder volver a crear correctamente el sistema en entornos de producción. 
 
-Mediante el uso de DevTest Labs durante la fase de compilación y prueba, puede agregar plantillas de Azure Resource Manager y archivos auxiliares a los orígenes de la compilación para que, durante la fase de publicación, la configuración exacta empleada para realizar la prueba se implemente en producción. La tarea **Creación de entorno de Azure DevTest Labs** con la configuración adecuada guardará las plantillas de Resource Manager en los artefactos de compilación. En este ejemplo, se usará el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md) para implementar y probar la aplicación web en Azure.
+Mediante el uso de DevTest Labs durante la fase de compilación y prueba, puede agregar plantillas de Azure Resource Manager y archivos auxiliares a los orígenes de la compilación para que, durante la fase de publicación, la configuración exacta empleada para realizar la prueba se implemente en producción. La tarea **Creación de entorno de Azure DevTest Labs** con la configuración adecuada guardará las plantillas de Resource Manager en los artefactos de compilación. En este ejemplo, se usará el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md) para implementar y probar la aplicación web en Azure.
 
 ![Flujo general](./media/use-devtest-labs-build-release-pipelines/overall-flow.png)
 
@@ -40,7 +40,7 @@ Hay un par de elementos que se deben crear con antelación:
 La canalización de compilación creará un entorno de DevTest Labs e implementará el código para las pruebas.
 
 ## <a name="set-up-a-build-pipeline"></a>Configuración de una canalización de compilación
-En Azure Pipelines, cree una canalización de compilación con el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/app-service-web-tutorial-dotnetcore-sqldb.md). Use la plantilla **ASP.NET Core**, que rellenará la tarea necesaria para compilar, probar y publicar el código.
+En Azure Pipelines, cree una canalización de compilación con el código de [Tutorial: Compilación de una aplicación web .NET Core y SQL Database en Azure App Service](../app-service/tutorial-dotnetcore-sqldb-app.md). Use la plantilla **ASP.NET Core**, que rellenará la tarea necesaria para compilar, probar y publicar el código.
 
 ![Selección de la plantilla ASP.NET](./media/use-devtest-labs-build-release-pipelines/select-asp-net.png)
 

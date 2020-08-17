@@ -8,6 +8,8 @@
       href: overview.md
     - name: Comparación de los servicios de mensajería
       href: compare-messaging-services.md
+    - name: Notas de la versión
+      href: whats-new.md
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -91,7 +93,7 @@
     - name: Plantillas de Resource Manager
       href: template-samples.md
     - name: Ejemplos de código
-      href: 'https://docs.microsoft.com/samples/browse/?term=Event%20Grid'
+      href: /samples/browse/?term=Event+Grid
     - name: Elementos integrados de Azure Policy
       href: ./policy-samples.md
 - name: Conceptos
@@ -236,7 +238,7 @@
           href: configure-private-endpoints.md
         - name: Configuración de la dirección IP del firewall (versión preliminar)
           href: configure-firewall.md
-        - name: "Protección de webhook con\_AAD"
+        - name: Protección de webhook con AAD
           href: secure-webhook-delivery.md
         - name: Entrega de evento con identidad administrada
           href: managed-service-identity.md

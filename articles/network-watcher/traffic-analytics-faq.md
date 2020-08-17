@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: damendo
-ms.openlocfilehash: 84e9dab149cfed265833336577d718e57bd9bc2d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: fa1ed25e8c9a80dda2bf0e4625d28a3befaa49c9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165335"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479853"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -36,7 +36,7 @@ Los requisitos previos de Análisis de tráfico son los siguientes:
 
 Debe cumplir alguno de los siguientes requisitos para habilitar Análisis de tráfico:
 
-- Su cuenta debe tener cualquiera de los siguientes roles del control de acceso basado en rol (RBAC) en el ámbito de la suscripción: propietario, colaborador, lector o colaborador de red.
+- Su cuenta debe tener cualquiera de los siguientes roles de Azure en el ámbito de la suscripción: propietario, colaborador, lector o colaborador de red.
 - Si la cuenta no está asignada a uno de los roles mencionados anteriormente, se debe asignar a un rol personalizado que tenga asignadas las acciones siguientes en el nivel de suscripción.
             
     - Microsoft.Network/applicationGateways/read
@@ -401,4 +401,3 @@ La página de topología de subredes virtuales contiene dos secciones principale
 - Para moverse a otros nodos resaltados de la vista de topología, use la tecla `Shift+Right arrow` para avanzar hacia delante. 
 - Cuando se selecciona uno de estos nodos, el foco se desplaza al **cuadro de herramientas de información** del nodo. De forma predeterminada, el foco se desplaza al botón **Más información** del **cuadro de herramientas de información**. Si desea moverse dentro de la vista del **cuadro**, utilice las teclas `Right arrow` y `Left arrow` para moverse hacia delante y hacia atrás, respectivamente. Si presiona `Enter`, conseguirá el mismo efecto que si selecciona el botón con el foco en el **cuadro de herramientas de información**.
 - En la selección de cualquiera de estos nodos, puede visitar todas sus conexiones, una a una, presionando la tecla `Shift+Left arrow`. El foco se mueve al **cuadro de herramientas de información** de esa conexión. En cualquier momento, el foco se puede desplazar hacia el nodo presionando `Shift+Right arrow` de nuevo.    
-

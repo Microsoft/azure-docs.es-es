@@ -1,19 +1,20 @@
 ---
 title: Operaciones de E/S principales | Microsoft Azure Maps
 description: Obtenga información sobre cómo leer y escribir datos XML y delimitados de forma eficaz mediante las bibliotecas principales del módulo de E/S espacial.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 0b8fe1b319dc480879944d28f10645025a8cb38e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 021680a81cc5f97bb92c3a9e14036e1a88dae278
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371451"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279515"
 ---
 # <a name="core-io-operations"></a>Operaciones de E/S principales
 
@@ -30,7 +31,7 @@ La clase `atlas.io.core.CsvReader` lee las cadenas que contienen conjuntos de da
 
 De forma predeterminada, el lector usará el carácter de coma como delimitador. Sin embargo, el delimitador se puede cambiar por cualquier carácter individual o establecerse en `'auto'`. Cuando se establezca en `'auto'`, el lector analizará la primera línea de texto de la cadena. A continuación, seleccionará el carácter más común de la tabla siguiente para usarlo como delimitador.
 
-| | |
+| Delimitador | Carácter |
 | :-- | :-- |
 | Coma | `,` |
 | Pestaña | `\t` |

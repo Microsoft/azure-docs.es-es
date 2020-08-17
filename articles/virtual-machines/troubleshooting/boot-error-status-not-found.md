@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2020
 ms.author: v-miegge
-ms.openlocfilehash: 817f9e362e639cbb8f0cc79607c376c0e8216ec7
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 3677d67f55cfccdc80245b2ec870ffa76b0a1940
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83663733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088672"
 ---
 # <a name="troubleshoot-windows-boot-manager-error----0xc0000225-status-not-found"></a>Solución del error de Administración de arranque de Windows: 0xC0000225 "Estado no encontrado"
  
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver problemas en los que s
 
 ## <a name="symptoms"></a>Síntomas
 
-Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la VM, verá que se muestra un error que indica que Windows no puede iniciar con el código *0xc0000225*.
+Si usa [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que se muestra un error que indica que Windows no puede iniciar con el código *0xc0000225*.
 
 El archivo asociado a este código de error le informará de los pasos que se deben realizar para resolver el problema. Busque el texto de la sección **File:** para determinar el curso de acción adecuado.
 
@@ -90,7 +90,7 @@ Un subárbol del Registro dañado puede deberse a:
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una VM de reparación y acceso a ella
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 1. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="select-a-solution"></a>Selección de una solución
@@ -178,7 +178,7 @@ Si esta recopilación de información genera un error que indica que no hay ning
          sel disk <DISK #>
          ```
 
-         La siguiente imagen muestra los resultados de enumeración y selección de un disco. Se enumeran el disco 0 (127 GB | en línea), el disco 1 (32 GB | en línea) y el disco 2 (127 GB | en línea), y el disco 2 se selecciona mediante el comando `sel disk 2`.
+         La siguiente imagen muestra los resultados de enumeración y selección de un disco. Se enumeran el disco 0 (127 GB / en línea), el disco 1 (32 GB / en línea) y el disco 2 (127 GB / en línea), y el disco 2 se selecciona mediante el comando `sel disk 2`.
 
          ![Resultados de enumerar y, a continuación, seleccionar un disco. Se enumeran el disco 0 (127 GB | en línea), el disco 1 (32 GB | en línea) y el disco 2 (127 GB | en línea), y el disco 2 se selecciona.](./media/troubleshoot-boot-error-status-not-found/9.png)
 
@@ -189,7 +189,7 @@ Si esta recopilación de información genera un error que indica que no hay ning
          sel partition <PARTITION #>
          ```
 
-         En la imagen siguiente se muestran los resultados de la lista y la selección de una partición. Se enumeran la partición 1 (reservada | 16 MB), la partición 2 (sistema | 100 MB) y la partición 3 (primaria | 126 GB), y se selecciona la partición 2 con el comando `sel part 2`.
+         En la imagen siguiente se muestran los resultados de la lista y la selección de una partición. Se enumeran la partición 1 (reservada / 16 MB), la partición 2 (sistema / 100 MB) y la partición 3 (primaria / 126 GB), y se selecciona la partición 2 con el comando `sel part 2`.
 
          ![Resultados de enumerar y, a continuación, seleccionar una partición. Se enumeran la partición 1 (reservada | 16 MB), la partición 2 (sistema | 100 MB) y la partición 3 (primaria | 126 GB), y se selecciona la partición 2.](./media/troubleshoot-boot-error-status-not-found/10.png)
 
@@ -303,4 +303,4 @@ El error **Archivo del Registro** tiene una solución, pero tendrá que [crear u
    
 ### <a name="rebuild-the-vm"></a>Recompilación de la máquina virtual
 
-Realice el [paso 5 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a crear la VM.
+Realice el [paso 5 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a crear la VM.

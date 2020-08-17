@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: 317d5681ac3b09cb433cdc2bc3c83b6b1c8d37dc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: b656774762f5930c5665166a701bda7333940307
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516369"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322438"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Búsqueda y diagnóstico de excepciones en tiempo de ejecución con Azure Application Insights
 
@@ -36,7 +36,7 @@ Para completar este tutorial:
     - Desarrollo de Azure
 - Descargue e instale [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Habilite [Visual Studio Snapshot Debugger](../app/snapshot-debugger.md).
-- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../../azure-monitor/app/asp-net.md). 
+- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../app/asp-net.md). 
 - El tutorial realiza un seguimiento de la identificación de una excepción en la aplicación, así que modifique el código en los entornos de desarrollo o prueba para generar una excepción. 
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
@@ -63,7 +63,7 @@ Application Insights recopila los errores de la aplicación y permite ver su fre
 
     ![Ejemplos de solicitudes con errores](media/tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. Los detalles de la solicitud con errores muestran el gráfico de Gantt que indica que había dos errores de dependencia en esta transacción, que también se atribuyen a más del 50 % de la duración total de la transacción. Esta experiencia presenta toda la telemetría, a través de los componentes de una aplicación distribuida que están relacionados con este identificador de operación. [Más información acerca de la nueva experiencia](../../azure-monitor/app/transaction-diagnostics.md). Puede seleccionar cualquiera de los elementos para ver sus detalles en el lado derecho. 
+6. Los detalles de la solicitud con errores muestran el gráfico de Gantt que indica que había dos errores de dependencia en esta transacción, que también se atribuyen a más del 50 % de la duración total de la transacción. Esta experiencia presenta toda la telemetría, a través de los componentes de una aplicación distribuida que están relacionados con este identificador de operación. [Más información acerca de la nueva experiencia](../app/transaction-diagnostics.md). Puede seleccionar cualquiera de los elementos para ver sus detalles en el lado derecho. 
 
     ![Detalles de las solicitudes con errores](media/tutorial-runtime-exceptions/failed-request-details.png)
 
@@ -112,4 +112,5 @@ Si conecta Application Insights a un sistema de seguimiento, como GitHub y Azure
 Ahora que ha aprendido a identificar las excepciones en tiempo de ejecución, pase al siguiente tutorial, donde aprenderá a identificar y diagnosticar problemas de rendimiento.
 
 > [!div class="nextstepaction"]
-> [Identificar problemas de rendimiento](../../azure-monitor/learn/tutorial-performance.md)
+> [Identificar problemas de rendimiento](./tutorial-performance.md)
+

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 03/25/2020
+ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 74210864332319dabb16eda865da9dc9793e3dbd
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187682"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534352"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -240,6 +240,19 @@ Para configurarlo mediante programación, agregue la propiedad `additionalColumn
     }
 ]
 ```
+
+## <a name="auto-create-sink-tables"></a>Creación automática de tablas de receptores
+
+Al copiar datos en SQL Database o Azure Synapse Analytics, si la tabla de destino no existe, la actividad de copia permite la creación automática en función de los datos de origen. Esto pretende ayudarle a empezar rápidamente a cargar los datos y evaluar SQL Database o Azure Synapse Analytics. Después de la ingesta de datos, puede revisar y ajustar el esquema de la tabla de receptores según sus necesidades.
+
+Esta característica se acepta cuando se copian datos desde cualquier origen en los siguientes almacenes de datos de receptor. Puede encontrar la opción en la *interfaz de usuario de creación de ADF* – > *Sink* – > *Table option* – > *Auto create table* (Receptor -> Opción de tabla -> Creación automática de tabla) de la actividad de copia o bien a través de la propiedad `tableOption` en la carga útil del receptor de la actividad de copia.
+
+- [Azure SQL Database](connector-azure-sql-database.md)
+- [Instancia administrada de Azure SQL Database](connector-azure-sql-managed-instance.md)
+- [Azure Synapse Analytics (anteriormente Azure SQL Data Warehouse) ](connector-azure-sql-data-warehouse.md)
+- [SQL Server](connector-sql-server.md)
+
+![Creación de tablas de receptores](media/copy-activity-overview/create-sink-table.png)
 
 ## <a name="fault-tolerance"></a>Tolerancia a errores
 

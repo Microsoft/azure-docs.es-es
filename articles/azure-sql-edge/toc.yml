@@ -8,6 +8,8 @@
       href: features.md
     - name: Notas de la versión
       href: release-notes.md
+    - name: Recopilación de datos de uso y diagnóstico
+      href: usage-and-diagnostics-data-configuration.md
 - name: Guías de inicio rápido
   expanded: true
   items:

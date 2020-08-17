@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplo de script de la CLI de Azure: filtrar el tráfico de red de VM | Microsoft Docs'
-description: 'Ejemplo de script de la CLI de Azure: filtrar el tráfico de red de VM entrante y saliente.'
+description: Use un script de la CLI de Azure para filtrar el tráfico de red de máquina virtual entrante y saliente.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 07/07/2017
 ms.author: kumud
-ms.openlocfilehash: e91e59e8e8acbf76ed35cff6b2f654103bb763b5
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d685da261a917b2d7b6432da65d1c1600ca07961
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73888569"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281657"
 ---
-# <a name="filter-inbound-and-outbound-vm-network-traffic"></a>Filtrar el tráfico de red de VM entrante y saliente
+# <a name="use-an-azure-cli-script-to-filter-inbound-and-outbound-vm-network-traffic"></a>Uso de un script de la CLI de Azure para filtrar el tráfico de red de máquina virtual entrante y saliente
 
 Este ejemplo de script crea una red virtual con subredes de front-end y back-end. El tráfico de red entrante hacia la subred de front-end se limita a HTTP, HTTPS y SSH, mientras que el tráfico saliente hacia Internet desde la subred back-end no se permite. Después de ejecutar el script, tendrá una máquina virtual con dos NIC. Cada NIC se conecta a una subred diferente.
 

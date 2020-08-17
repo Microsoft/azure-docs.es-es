@@ -3,16 +3,16 @@ title: Creación de flujos de trabajo automatizados basados en aprobación
 description: 'Tutorial: Creación de un flujo de trabajo automatizado basado en aprobación que procesa las suscripciones de listas de distribución de correo mediante Azure Logic Apps'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/20/2019
-ms.openlocfilehash: 7d7f573e5b18e6e0e63d3275aecefe408a9143fb
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d9d2f29ffc34c203e5f3b3ebf094e73fb9cdfb75
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75456609"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132405"
 ---
 # <a name="tutorial-create-automated-approval-based-workflows-by-using-azure-logic-apps"></a>Tutorial: Creación de flujos de trabajo automatizados basados en aprobación mediante Azure Logic Apps
 
@@ -21,6 +21,7 @@ En este tutorial se muestra cómo compilar una [aplicación lógica](../logic-ap
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
+>
 > * Crear una aplicación lógica en blanco.
 > * Agregue un desencadenador que supervise las solicitudes de suscripción en los correos electrónicos.
 > * Agregue una acción que envíe correos electrónicos para aprobar o rechazar estas solicitudes.
@@ -41,11 +42,9 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 * Una cuenta de correo electrónico de Office 365 Outlook o Outlook.com, que admita flujos de trabajo de aprobación. Este artículo utiliza Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 
-## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
-
 ## <a name="create-your-logic-app"></a>Creación de una aplicación lógica
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
 
 1. En el menú principal de Azure, seleccione **Crear un recurso** > **Integración** > **Aplicación lógica**.
 
@@ -106,7 +105,7 @@ A continuación, agregue un [desencadenador](../logic-apps/logic-apps-overview.m
 
       ![Incorporación de la propiedad "Subject Filter" al desencadenador](./media/tutorial-process-mailing-list-subscriptions-workflow/add-trigger-add-properties.png)
 
-      Para más información acerca de las propiedades de este desencadenador, consulte la [referencia del conector de Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) o la [referencia del conector de Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+      Para más información acerca de las propiedades de este desencadenador, consulte la [referencia del conector de Office 365 Outlook](/connectors/office365/) o la [referencia del conector de Outlook.com](/connectors/outlook/).
 
    1. Después de que la propiedad aparezca en el desencadenador, escriba este texto: `subscribe-test-members-ML`
 
@@ -145,7 +144,7 @@ Ahora que tiene un desencadenador, agregue una [acción](../logic-apps/logic-app
 
    Por ahora, ignore la lista de contenido dinámico que aparece al hacer clic en los cuadros específicos de edición. Esta lista le permite seleccionar la salida disponible de las acciones anteriores que puede usar como entradas en el flujo de trabajo.
 
-   Para más información acerca de las propiedades de esta acción, consulte la [referencia del conector de Office 365 Outlook](https://docs.microsoft.com/connectors/office365/) o la [referencia del conector de Outlook.com](https://docs.microsoft.com/connectors/outlook/).
+   Para más información acerca de las propiedades de esta acción, consulte la [referencia del conector de Office 365 Outlook](/connectors/office365/) o la [referencia del conector de Outlook.com](/connectors/outlook/).
  
 1. Guarde la aplicación lógica.
 
@@ -210,7 +209,7 @@ Ahora, agregue una acción que incorpore al miembro aprobado a la lista de distr
    | **Dirección de correo electrónico** | Sí | <*new-member-email-address*> | En la lista de contenido dinámico, seleccione **De** en **When a new email arrives** (Cuando llega un nuevo correo) que pasa la dirección de correo electrónico del nuevo miembro. |
    ||||
 
-   Para más información sobre las propiedades de esta acción, consulte la [referencia del conector MailChimp](https://docs.microsoft.com/connectors/mailchimp/).
+   Para más información sobre las propiedades de esta acción, consulte la [referencia del conector MailChimp](/connectors/mailchimp/).
 
 1. Guarde la aplicación lógica.
 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: c93938db4632f6509e386d440c9be75596ea254f
-ms.sourcegitcommit: acc558d79d665c8d6a5f9e1689211da623ded90a
+ms.openlocfilehash: fb62d4d2ca22b6043e63645006c2d60cf0b7859b
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82597902"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88078638"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Protección de un nombre DNS personalizado con un enlace TLS/SSL en Azure App Service
 
@@ -52,7 +52,7 @@ Para completar esta guía paso a paso, debe:
 
 Siga estos pasos:
 
-En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<nombre-de-aplicación>** .
+En <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, en el menú de la izquierda, seleccione **App Services** >  **\<app-name>** .
 
 En el panel de navegación izquierdo de la aplicación, inicie el cuadro de diálogo **Enlace TLS/SSL** de la siguiente manera:
 
@@ -153,7 +153,7 @@ Una vez completada la operación, la aplicación rechaza todas las conexiones co
 
 En App Service, la [terminación TLS](https://wikipedia.org/wiki/TLS_termination_proxy) tiene lugar en los equilibradores de carga de red, por lo que todas las solicitudes HTTPS llegan a la aplicación en forma de solicitudes HTTP sin cifrar. Si su aplicación lógica necesita comprobar si las solicitudes de usuario están cifradas, inspeccione el encabezado `X-Forwarded-Proto`.
 
-Guías de configuración específicas del lenguaje, como la guía [Configuración de Node.js en Linux](containers/configure-language-nodejs.md#detect-https-session), que muestra cómo detectar una sesión HTTPS en el código de la aplicación.
+Guías de configuración específicas del lenguaje, como la guía [Configuración de Node.js en Linux](configure-language-nodejs.md#detect-https-session), que muestra cómo detectar una sesión HTTPS en el código de la aplicación.
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 

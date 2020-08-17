@@ -12,13 +12,13 @@ keywords: Nube de SQL Server, SQL Server en la nube, base de datos PaaS, DBaaS, 
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/27/2020
-ms.openlocfilehash: 7a4f26b11911caaa7bce40b77570331b492ceb9d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 07/27/2020
+ms.openlocfilehash: ff8dd9d10bf5970a5a96080beb51e2c111d481e3
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080183"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280858"
 ---
 # <a name="what-is-azure-sql"></a>¿Qué es Azure SQL? 
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -110,7 +110,7 @@ Habitualmente, SQL Database e Instancia administrada de SQL pueden aumentar cons
 | Azure SQL Database | Instancia administrada de Azure SQL | SQL Server en máquina virtual de Azure |
 | :--- | :--- | :--- |
 |Admite la mayoría de las funcionalidades de nivel de base de datos locales. Las características de SQL Server más utilizadas están disponibles.<br/>99,995 % de disponibilidad garantizada.<br/>Copias de seguridad, revisiones y acciones de recuperación integradas.<br/>Versión más reciente y estable del motor de base de datos.<br/>Capacidad para asignar los recursos necesarios (CPU y almacenamiento) a bases de datos individuales.<br/>Seguridad e inteligencia avanzadas e integradas.<br/>Cambio en línea de recursos (CPU y almacenamiento).| Admite casi todas las funcionalidades de nivel de instancia y nivel de base de datos locales. Alta compatibilidad con SQL Server.<br/>99,99 % de disponibilidad garantizada.<br/>Copias de seguridad, revisiones y acciones de recuperación integradas.<br/>Versión más reciente y estable del motor de base de datos.<br/>Migración sencilla desde SQL Server.<br/>Dirección IP privada dentro de Azure Virtual Network.<br/>Seguridad e inteligencia avanzadas e integradas.<br/>Cambio en línea de recursos (CPU y almacenamiento).| Tiene control total sobre el motor de SQL Server. Admite todas las funcionalidades locales.<br/>Disponibilidad de hasta el 99,99 %.<br/>Paridad completa con la versión correspondiente de una instancia local de SQL Server.<br/>Versión del motor de base de datos corregida y conocida.<br/>Migración sencilla desde SQL Server.<br/>Dirección IP privada dentro de Azure Virtual Network.<br/>Tiene la posibilidad de implementar aplicaciones o servicios en el host donde se sitúa la instancia de SQL Server.|
-|La migración desde SQL Server puede ser un desafío.<br/>Algunas características de SQL Server no están disponibles.<br/>El tiempo exacto de mantenimiento no se garantiza (pero es casi transparente).<br/>La compatibilidad con la versión de SQL Server se puede lograr solo con los niveles de compatibilidad de la base de datos.<br/>No se puede asignar ninguna dirección IP privada (puede limitar el acceso mediante reglas de firewall).|Sigue habiendo un número mínimo de características de SQL Server que no están disponibles.<br/>El tiempo exacto de mantenimiento no se garantiza (pero es casi transparente).<br/>La compatibilidad con la versión de SQL Server se puede lograr solo con los niveles de compatibilidad de la base de datos.|Deberá administrar usted mismo las copias de seguridad y revisiones.<br>Deberá implementar su propia solución de alta disponibilidad.<br/>Existe un tiempo de inactividad mientras se cambian los recursos (CPU y almacenamiento)|
+|La migración desde SQL Server puede ser un desafío.<br/>Algunas características de SQL Server no están disponibles.<br/>El tiempo exacto de mantenimiento no se garantiza (pero es casi transparente).<br/>La compatibilidad con la versión de SQL Server se puede lograr solo con los niveles de compatibilidad de la base de datos.<br/>Compatibilidad de direcciones IP privadas con [Azure Private Link](database/private-endpoint-overview.md).|Sigue habiendo un número mínimo de características de SQL Server que no están disponibles.<br/>El tiempo exacto de mantenimiento no se garantiza (pero es casi transparente).<br/>La compatibilidad con la versión de SQL Server se puede lograr solo con los niveles de compatibilidad de la base de datos.|Deberá administrar usted mismo las copias de seguridad y revisiones.<br>Deberá implementar su propia solución de alta disponibilidad.<br/>Existe un tiempo de inactividad mientras se cambian los recursos (CPU y almacenamiento)|
 | Bases de datos de hasta 100 TB. | Hasta 8 TB. | Instancias de SQL Server con hasta 256 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. |
 | La aplicación local puede obtener acceso a datos de Azure SQL Database. | [Implementación nativa de redes virtuales](managed-instance/vnet-existing-add-subnet.md) y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway. | Con las máquinas virtuales con SQL se pueden tener aplicaciones que se ejecuten parcialmente en la nube y parcialmente en la instalación local. Por ejemplo, se puede ampliar la red local y el Dominio de Active Directory a la nube mediante [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para obtener más información sobre las soluciones de la nube híbrida, consulte [Ampliación de las soluciones de datos locales a la nube](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 

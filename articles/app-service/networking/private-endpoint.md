@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: fdad2f7c2ce4f82529866b4235ebebab8da664d3
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 4fab75aef2a94ba7108085e9d5b5dbbf190342f6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054583"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068294"
 ---
 # <a name="using-private-endpoints-for-azure-web-app-preview"></a>Uso de puntos de conexión privados para una aplicación web de Azure (versión preliminar)
 
@@ -127,7 +127,7 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 - Para implementar un punto de conexión privado para la aplicación web mediante el portal, consulte [Cómo conectarse de forma privada a una aplicación web con el Portal][howtoguide1].
 - Para implementar un punto de conexión privado para la aplicación web con el CLI de Azure, consulte [Cómo conectarse de forma privada a una aplicación web con CLI de Azure][howtoguide2].
 - Para implementar un punto de conexión privado para la aplicación web con PowerShell, consulte [Cómo conectarse de forma privada a una aplicación web con PowerShell][howtoguide3].
-
+- Para implementar un punto de conexión privado para la aplicación web con la plantilla de Azure, consulte [Cómo conectarse de forma privada a una aplicación web con la plantilla de Azure][howtoguide4].
 
 
 <!--Links-->
@@ -143,3 +143,4 @@ Estamos mejorando la característica Private Link y el punto de conexión privad
 [howtoguide1]: https://docs.microsoft.com/azure/private-link/create-private-endpoint-webapp-portal
 [howtoguide2]: https://docs.microsoft.com/azure/app-service/scripts/cli-deploy-privateendpoint
 [howtoguide3]: https://docs.microsoft.com/azure/app-service/scripts/powershell-deploy-private-endpoint
+[howtoguide4]: https://docs.microsoft.com/azure/app-service/scripts/template-deploy-private-endpoint

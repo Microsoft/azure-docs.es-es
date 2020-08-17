@@ -3,12 +3,12 @@ title: 'Versión preliminar: Descripción de Azure Policy para Kubernetes'
 description: Obtenga información sobre cómo Azure Policy usa Rego y Open Policy Agent para administrar clústeres que ejecutan Kubernetes en Azure o en el entorno local. Esta es una característica en vista previa.
 ms.date: 06/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: a044ea33f1a7710c4bb97d30cf8f11d4de2838b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 461dd467ecda2764c6753ed6eeee0405f8420bbc
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373631"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373766"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Descripción de Azure Policy para clústeres de Kubernetes (versión preliminar)
 
@@ -373,7 +373,7 @@ Como parte de las propiedades _details.constraintTemplate_ y _details.constraint
 
 ## <a name="assign-a-built-in-policy-definition"></a>Asignación de una definición de directiva integrada
 
-Para asignar una definición de directiva al clúster de Kubernetes, debe tener asignadas las operaciones de asignación de directivas de control de acceso basado en rol (RBAC) adecuadas. Los roles de RBAC integrados **Colaborador de la directiva de recursos** y **Propietario** tienen estas operaciones. Para obtener más información, vea [Permisos de RBAC en Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+Para asignar una definición de directiva al clúster de Kubernetes, debe tener asignadas las operaciones de asignación de directivas de control de acceso basado en rol (RBAC) adecuadas. Los roles de Azure integrados **Colaborador de la directiva de recursos** y **Propietario** tienen estas operaciones. Para obtener más información, vea [Permisos de RBAC en Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
 Siga estos pasos para buscar las directivas integradas para administrar el clúster mediante Azure Portal:
 

@@ -5,18 +5,18 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: Obtenga información sobre el proceso de habilitación de Azure Dev Spaces en un clúster de AKS y la instalación de las herramientas de cliente.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s
-ms.openlocfilehash: b62c4a4861529c19363f159b8cc64a32a0ba11e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac010a466f7db7b829cc3d6f0687dbdbefdd7b6c
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83996268"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407904"
 ---
 # <a name="enable-azure-dev-spaces-on-an-aks-cluster-and-install-the-client-side-tools"></a>Habilitación de Azure Dev Spaces en un clúster de AKS e instalación de las herramientas de cliente
 
 En este artículo se muestran varias maneras de habilitar Azure Dev Spaces en un clúster de AKS, así como de instalar las herramientas de cliente.
 
-## <a name="enable-or-remove-azure-dev-spaces-using-the-cli"></a>Habilitación o eliminación de Azure Dev Spaces con la CLI
+## <a name="enable-azure-dev-spaces-using-the-cli"></a>Habilitación de Azure Dev Spaces con la CLI
 
 Para poder habilitar Dev Spaces mediante la CLI, necesitará lo siguiente:
 * Suscripción a Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][az-portal-create-account].
@@ -49,7 +49,23 @@ Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is
 
 El comando `use-dev-spaces` también instala la CLI de Azure Dev Spaces.
 
-Para quitar Azure Dev Spaces del clúster de AKS, use el comando `azds remove`. Por ejemplo:
+## <a name="install-the-client-side-tools"></a>Instalación de las herramientas de cliente
+
+Puede usar las herramientas de cliente de Azure Dev Spaces para interactuar con Dev Spaces en un clúster de AKS desde la máquina local. Hay varias maneras de instalar las herramientas de cliente:
+
+* En [Visual Studio Code][vscode], instale la [extensión de Azure Dev Spaces][vscode-extension].
+* En [Visual Studio 2019][visual-studio], instale la carga de trabajo de desarrollo de Azure.
+* Descargue e instale la CLI de [Windows][cli-win], [Mac][cli-mac] o [Linux][cli-linux].
+
+## <a name="remove-azure-dev-spaces-using-the-cli"></a>Eliminación de Azure Dev Spaces con la CLI
+
+Para quitar Azure Dev Spaces del clúster de AKS, use el comando `azds remove`.
+
+```azurecli
+azds remove -g MyResourceGroup -n MyAKS
+```
+
+La salida del ejemplo siguiente muestra cómo quitar Azure Dev Spaces del clúster de *MyAKS*.
 
 ```azurecli
 $ azds remove -g MyResourceGroup -n MyAKS
@@ -58,15 +74,7 @@ Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that tar
 Deleting Azure Dev Spaces Controller 'MyAKS' in resource group 'MyResourceGroup' that targets resource 'MyAks' in resource group 'MyResourceGroup' (takes a few minutes)...
 ```
 
-El comando anterior quita Azure Dev Spaces del clúster *MyAKS* de *MyResourceGroup*. Los espacios de nombres creados con Azure Dev Spaces se conservan junto con sus cargas de trabajo, pero las nuevas cargas de trabajo de esos espacios de nombres no se instrumentan con Azure Dev Spaces. Además, si reinicia los pods existentes instrumentados con Azure Dev Spaces, pueden aparecer errores. Esos pods deben volver a implementarse sin herramientas de Azure Dev Spaces. Para quitar Azure Dev Spaces por completo del clúster, elimine todos los pods de todos los espacios de nombres en los que se haya habilitado Azure Dev Spaces.
-
-## <a name="install-the-client-side-tools"></a>Instalación de las herramientas de cliente
-
-Puede usar las herramientas de cliente de Azure Dev Spaces para interactuar con Dev Spaces en un clúster de AKS desde la máquina local. Hay varias maneras de instalar las herramientas de cliente:
-
-* En [Visual Studio Code][vscode], instale la [extensión de Azure Dev Spaces][vscode-extension].
-* En [Visual Studio 2019][visual-studio], instale la carga de trabajo de desarrollo de Azure.
-* Descargue e instale la CLI de [Windows][cli-win], [Mac][cli-mac] o [Linux][cli-linux].
+Los espacios de nombres creados con Azure Dev Spaces se conservan junto con sus cargas de trabajo, pero las nuevas cargas de trabajo de esos espacios de nombres no se instrumentan con Azure Dev Spaces. Además, si reinicia los pods existentes instrumentados con Azure Dev Spaces, pueden aparecer errores. Esos pods deben volver a implementarse sin herramientas de Azure Dev Spaces. Para quitar Azure Dev Spaces por completo del clúster, elimine todos los pods de todos los espacios de nombres en los que se haya habilitado Azure Dev Spaces.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

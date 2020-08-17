@@ -3,12 +3,12 @@ title: Referencia de host.json para Azure Functions 2.x
 description: Documentación de referencia para el archivo host.json de Azure Functions con el entorno en tiempo de ejecución de la versión 2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 8d9ea01ffd5bcf2adb25d4f1b3900ff291438ac8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 629f579642185c5600586473d1280d9b26f4cba3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298504"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055296"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referencia de host.json para Azure Functions 2.x y versiones posteriores 
 
@@ -181,7 +181,7 @@ Para obtener la estructura JSON completa, consulte el [archivo host.json de ejem
 
 ### <a name="applicationinsightssnapshotconfiguration"></a>applicationInsights.snapshotConfiguration
 
-Para obtener más información sobre las instantáneas, vea los artículos sobre cómo [depurar instantáneas cuando se producen excepciones en aplicaciones de .NET](/azure/azure-monitor/app/snapshot-debugger) y [solucionar problemas de habilitación del servicio Snapshot Debugger de Application Insights o ver instantáneas](/azure/azure-monitor/app/snapshot-debugger-troubleshoot).
+Para obtener más información sobre las instantáneas, vea los artículos sobre cómo [depurar instantáneas cuando se producen excepciones en aplicaciones de .NET](../azure-monitor/app/snapshot-debugger.md) y [solucionar problemas de habilitación del servicio Snapshot Debugger de Application Insights o ver instantáneas](../azure-monitor/app/snapshot-debugger-troubleshoot.md).
 
 |Propiedad | Valor predeterminado | Descripción |
 | --------- | --------- | --------- | 
@@ -310,7 +310,7 @@ Controla los comportamientos de registro de la aplicación de función, Applicat
 |Propiedad  |Valor predeterminado | Descripción |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qué nivel de registro de archivos está habilitado.  Las opciones son `never`, `always`, `debugOnly`. |
-|logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En las versiones 2.x y posteriores se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esta configuración permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
+|logLevel|N/D|Objeto que define el filtrado por categoría de registro para las funciones de la aplicación. En las versiones 2.x y posteriores se sigue el diseño de filtrado por categoría de registro de ASP.NET Core. Esta configuración permite el filtrado del registro de funciones específicas. Para más información, consulte [Filtrado del registro](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) en la documentación de ASP.NET Core. |
 |console|N/D| Configuración del registro de [consola](#console). |
 |applicationInsights|N/D| Configuración de [applicationInsights](#applicationinsights). |
 

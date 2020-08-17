@@ -1,24 +1,22 @@
 ---
-title: 'Entorno de Windows Virtual Desktop: Azure'
-description: Elementos básicos de un entorno de Windows Virtual Desktop.
-services: virtual-desktop
+title: 'Entorno de Windows Virtual Desktop (clásico): Azure'
+description: Elementos básicos de un entorno de Windows Virtual Desktop (clásico).
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 153532b3c33158ee1a43db7883eb7a9ec621ade7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 4fa281f6435013e9feb6808aab04ffa69c5f96c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86241682"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008617"
 ---
-# <a name="windows-virtual-desktop-environment"></a>Entorno de Windows Virtual Desktop
+# <a name="windows-virtual-desktop-classic-environment"></a>Entorno de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../environment-setup.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../environment-setup.md).
 
 Windows Virtual Desktop es un servicio que ofrece a los usuarios un acceso fácil y seguro a sus escritorios virtualizados y a RemoteApps. Este tema le proporcionará más información sobre la estructura general del entorno de Windows Virtual Desktop.
 

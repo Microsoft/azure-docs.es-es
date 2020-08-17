@@ -3,16 +3,16 @@ title: Esquema JSON de módulo gemelo - Azure
 description: En este tema se describe el esquema JSON de módulo gemelo de Live Video Analytics on IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a342c59b35c7ebb4b6021163da76bdd3e0d449c3
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 8bd86bdc2c8de9ee586e785db2074fa772100420
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266821"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053064"
 ---
 # <a name="module-twin-json-schema"></a>Esquema JSON de módulo gemelo
 
-Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un dispositivo gemelo para cada dispositivo que se conecta a IoT Hub. Para obtener una explicación detallada, consulte [Uso de módulos gemelos en IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins).
+Los dispositivos gemelos son documentos JSON que almacenan información acerca del estado del dispositivo, incluidos metadatos, configuraciones y condiciones. Azure IoT Hub mantiene un dispositivo gemelo para cada dispositivo que se conecta a IoT Hub. Para obtener una explicación detallada, consulte [Uso de módulos gemelos en IoT Hub](../../iot-hub/iot-hub-devguide-module-twins.md).
 
 En este tema se describe el esquema JSON de módulo gemelo de Live Video Analytics on IoT Edge.
 
@@ -43,7 +43,7 @@ Live Video Analytics on IoT Edge expone las siguientes propiedades de módulo ge
 
 <sup>*</sup>DEBE proporcionar una contraseña o certificado de entidad de servicio. 
 
-Las propiedades dinámicas se pueden actualizar sin necesidad de reiniciar el módulo. Para obtener los valores de algunas de estas propiedades, siga las instrucciones del artículo [Obtención de credenciales para acceder a la API de Media Services](../latest/access-api-cli-how-to.md). 
+Las propiedades dinámicas se pueden actualizar sin necesidad de reiniciar el módulo. Para obtener los valores de algunas de estas propiedades, siga las instrucciones del artículo [Obtención de credenciales para acceder a la API de Media Services](../latest/access-api-howto.md). 
 
 Consulte el artículo sobre [la supervisión y el registro](monitoring-logging.md) para obtener más información sobre el rol de la configuración de diagnóstico opcional.
 

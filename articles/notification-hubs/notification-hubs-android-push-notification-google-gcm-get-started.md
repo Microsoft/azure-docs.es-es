@@ -11,17 +11,17 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: tutorial
-ms.custom: mvc
+ms.custom: mvc, devx-track-java
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 3f2ad007ff0e1012f957c718d125b2e5b2e40964
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 8bbdf984311883006fcd6af16f42d7f7972cc169
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85249249"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323322"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Tutorial: Envío de notificaciones push a dispositivos Android con Azure Notification Hubs y Google Cloud Messaging (en desuso)
 
@@ -485,7 +485,7 @@ Además, asegúrese de haber agregado su cuenta de Google al emulador en ejecuci
 
 ## <a name="optional-send-push-notifications-directly-from-the-app"></a>(Opcional) Envío de notificaciones push directamente desde la aplicación
 
-Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos casos, puede que quiera enviar notificaciones push directamente desde la aplicación cliente. En esta sección se explica cómo enviar notificaciones desde el cliente mediante la [API de REST del Centro de notificaciones de Azure](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos casos, puede que quiera enviar notificaciones push directamente desde la aplicación cliente. En esta sección se explica cómo enviar notificaciones desde el cliente mediante la [API de REST del Centro de notificaciones de Azure](/previous-versions/azure/reference/dn223264(v=azure.100)).
 
 1. En la vista de proyecto de Android Studio, expanda **App** > **src** > **main** > **res** > **layout**. Abra el archivo de diseño `activity_main.xml` y haga clic en la pestaña **Texto** para actualizar el contenido de texto del archivo. Actualícelo con el siguiente código, que agrega nuevos controles `Button` y `EditText` para enviar mensajes de notificación push al Centro de notificaciones. Agregue este código al final, inmediatamente antes de `</RelativeLayout>`.
 
@@ -544,7 +544,7 @@ Lo habitual es enviar notificaciones mediante un servidor back-end. En algunos c
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Cree un token de firma de acceso a software (SaS) para autenticar una solicitud POST de envío de mensajes al centro de notificaciones. Analice los datos de clave de la cadena de conexión y cree el token SaS como se menciona en la referencia de API REST de [Conceptos comunes](https://msdn.microsoft.com/library/azure/dn495627.aspx). El código siguiente es un ejemplo de implementación.
+6. Cree un token de firma de acceso a software (SaS) para autenticar una solicitud POST de envío de mensajes al centro de notificaciones. Analice los datos de clave de la cadena de conexión y cree el token SaS como se menciona en la referencia de API REST de [Conceptos comunes](/previous-versions/azure/reference/dn495627(v=azure.100)). El código siguiente es un ejemplo de implementación.
 
     En `MainActivity.java`, agregue el método siguiente a la clase `MainActivity` para analizar la cadena de conexión.
 
@@ -741,7 +741,7 @@ En este tutorial se envían las notificaciones de difusión a todos los disposit
 [Get started with push notifications in Mobile Services]: ../mobile-services-javascript-backend-android-get-started-push.md 
 [Mobile Services Android SDK]: https://go.microsoft.com/fwLink/?LinkID=280126&clcid=0x409
 [Referencing a library project]: https://go.microsoft.com/fwlink/?LinkId=389800
-[Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
+[Notification Hubs Guidance]: /previous-versions/azure/azure-services/jj927170(v=azure.100)
 [Use Notification Hubs to push notifications to users]: notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md
 [Use Notification Hubs to send breaking news]: notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md
 [Azure Portal]: https://portal.azure.com

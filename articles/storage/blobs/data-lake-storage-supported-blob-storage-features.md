@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 07/31/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 15e6cf7adfda995148a75ec21b8d8e5d8a5cab2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e7cedaea89e2ed3d998df6ffe0ecaa06115e265
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559066"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513798"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Características de Blob Storage disponibles en Azure Data Lake Storage Gen2
 
@@ -40,19 +40,23 @@ En esta tabla se enumeran las características de Blob Storage que puede usar co
 |API de Blob Storage|Disponibilidad general|Versión preliminar|[Inicio rápido: Biblioteca cliente de Azure Blob Storage v12 para .NET](storage-quickstart-blobs-dotnet.md)<br>[Inicio rápido: Administración de blobs con el SDK de Java v12](storage-quickstart-blobs-java.md)<br>[Inicio rápido: Administración de blobs con el SDK de Python v12](storage-quickstart-blobs-python.md)<br>[Inicio rápido: Administración de blobs con el SDK de JavaScript v12 en Node.js](storage-quickstart-blobs-nodejs.md)|
 |Registros de diagnóstico|Disponibilidad general|Versión preliminar <div role="complementary" aria-labelledby="diagnostic-logging"><sup>1</sup></div> |[Registro de Azure Storage Analytics](../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Nivel de acceso de archivo|Disponibilidad general|No compatible|[Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](storage-blob-storage-tiers.md)|
+|Directivas de administración del ciclo de vida|Disponibilidad general|Todavía no se admite|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
 |Registro en Azure Monitor|Versión preliminar |Todavía no se admite|[Supervisión de Azure Storage](../common/monitor-storage.md)|
-|Instantáneas|Versión preliminar|Todavía no se admite|[Instantáneas de blob](snapshots-overview.md)|
-|Sitios web estáticos|Versión preliminar|Todavía no se admite|[Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website.md)|
-|Almacenamiento inmutable|Versión preliminar|Todavía no se admite|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
-|Directivas de administración del ciclo de vida|Versión preliminar|Todavía no se admite|[Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md)|
+|Instantáneas|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Todavía no se admite|[Instantáneas de blob](snapshots-overview.md)|
+|Sitios web estáticos|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Todavía no se admite|[Hospedaje de sitios web estáticos en Azure Storage](storage-blob-static-website.md)|
+|Almacenamiento inmutable|Versión preliminar<div role="complementary" aria-labelledby="preview-form"><sup>3</sup></div>|Todavía no se admite|[Almacenamiento inmutable de los datos críticos para la empresa en Azure Blob Storage](storage-blob-immutable-storage.md)|
 |Blobfuse|Versión preliminar|Todavía no se admite|[Cómo montar el almacenamiento de blobs como sistema de archivos con blobfuse](storage-how-to-mount-container-linux.md)|
 |Fuente de cambios|Todavía no se admite|Todavía no se admite|[Compatibilidad con la fuente de cambios en Azure Blob Storage](storage-blob-change-feed.md)|
 |Conmutación por error de cuenta|Todavía no se admite|Todavía no se admite|[Recuperación ante desastres y conmutación por error de la cuenta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|ACL del contenedor de blobs|Todavía no se admite|Todavía no se admite|[Establecer lista de control de acceso de contenedor](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
+|ACL del contenedor de blobs|Todavía no se admite<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|Todavía no se admite<div role="complementary" aria-labelledby="blob-container-ACL"><sup>2</sup></div>|[Establecer lista de control de acceso de contenedor](https://docs.microsoft.com/rest/api/storageservices/set-container-acl)|
 |Dominios personalizados|Todavía no se admite|Todavía no se admite|[Asignación de un dominio personalizado a un punto de conexión de Azure Blob Storage](storage-custom-domain-name.md)|
 |Eliminación temporal|Todavía no se admite|Todavía no se admite|[Eliminación temporal de blobs de Azure Storage](storage-blob-soft-delete.md)|
 
-<div id="diagnostic-logging"><sup>1</sup> Para las cuentas de almacenamiento de blobs en bloques Premium, los registros de diagnóstico (versión clásica) no se pueden habilitar mediante Azure Portal. Puede habilitarlos mediante PowerShell.</div>
+<div id="diagnostic-logging"><sup>1</sup> Para las cuentas de almacenamiento de blobs en bloques Premium, los registros de diagnóstico (versión clásica) no se pueden habilitar mediante Azure Portal. Puede habilitarlos mediante PowerShell.</div><br>
+
+<div id="blob-container-ACL"><sup>2</sup> Puede establecer las ACL en la carpeta raíz del contenedor, pero no en el propio contenedor.</div><br>
+
+<div id="preview-form"><sup>3</sup> Para usar instantáneas, almacenamiento inmutable o sitios web estáticos con Data Lake Storage Gen2, debe inscribirse en la versión preliminar completando este <a href=https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VUOUc3NTNQSUdOTjgzVUlVT1pDTzU4WlRKRy4u>formulario</a>.  </div>
 
 ## <a name="see-also"></a>Consulte también
 

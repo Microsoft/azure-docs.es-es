@@ -13,22 +13,22 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: a28d4d96f643c12eeb6aa542db2c6af06f4fd954
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78244638"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090066"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
-En Azure Media Services, un [evento en directo](https://docs.microsoft.com/rest/api/media/liveevents) se puede establecer en una *codificación de paso a través* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). 
+En Azure Media Services, un [evento en directo](/rest/api/media/liveevents) se puede establecer en una *codificación de paso a través* (un codificador en directo local envía una secuencia de velocidad de bits múltiple) o en una *codificación en directo* (un codificador en directo local envía una secuencia de velocidad de bits única). 
 
 En este artículo se comparan las características de los tipos de eventos en directo.
 
 ## <a name="types-comparison"></a>Comparación de tipos 
 
-En la tabla siguiente se comparan las características de los tipos de LiveEvent. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
+En la tabla siguiente se comparan las características de los tipos de LiveEvent. Los tipos se establecen durante la creación mediante [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
 * **LiveEventEncodingType.None**: un codificador en directo local envía una secuencia de velocidad de bits múltiple. Las secuencias ingeridas pasan por el evento en directo sin más procesamiento. También se conoce como evento en directo de paso a través.
 * **LiveEventEncodingType.Standard**: un codificador en directo local envía una secuencia única de velocidad de bits al evento en directo y Media Services crea varias secuencias de velocidad de bits. Si la fuente de contribución tiene una resolución de 720p o más, el valor predeterminado **Default720p** codificará un conjunto de 6 pares de velocidad de bits-resolución (los detalles se muestran más adelante en el artículo).
@@ -65,7 +65,7 @@ En la tabla siguiente se comparan las características de los tipos de LiveEvent
 
 ## <a name="system-presets"></a>Valores predeterminados del sistema
 
-Las resoluciones y velocidades de bits contenidas en la salida del codificador en directo vienen determinadas por [presetName](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencoding). Si usa un codificador en directo **Standard** (LiveEventEncodingType.Standard), el valor predeterminado *Default720p* especifica un conjunto de 6 pares de resolución-velocidad de bits descritos debajo. En caso contrario, si usa un codificador en directo **Premium1080p** (LiveEventEncodingType.Premium1080p), el valor predeterminado *Default1080p* especifica el conjunto de salida de pares de resolución-velocidad de bits.
+Las resoluciones y velocidades de bits contenidas en la salida del codificador en directo vienen determinadas por [presetName](/rest/api/media/liveevents/create#liveeventencoding). Si usa un codificador en directo **Standard** (LiveEventEncodingType.Standard), el valor predeterminado *Default720p* especifica un conjunto de 6 pares de resolución-velocidad de bits descritos debajo. En caso contrario, si usa un codificador en directo **Premium1080p** (LiveEventEncodingType.Premium1080p), el valor predeterminado *Default1080p* especifica el conjunto de salida de pares de resolución-velocidad de bits.
 
 > [!NOTE]
 > No se puede aplicar el valor predeterminado Default1080p a un evento en directo si se ha configurado para la codificación en directo Standard. Si lo hace, se producirá un error. También obtendrá un error si intenta aplicar el valor predeterminado Default720p predeterminado a un codificador en directo Premium1080p.

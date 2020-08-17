@@ -7,13 +7,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.custom: tracking-python
-ms.openlocfilehash: 4c490d252fa1153324df62a6119ae6bdc548c331
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-python
+ms.openlocfilehash: f6d1b25cb502b8cb208ba5b59c91667e03c77778
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341043"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064390"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>Inicio rápido: Uso de temas y suscripciones de Service Bus con Python
 
@@ -176,7 +176,7 @@ Al eliminar un tema, se eliminan todas las suscripciones al tema. También puede
 bus_service.delete_subscription('mytopic', 'HighMessages')
 ```
 
-De forma predeterminada, los temas y las suscripciones son persistentes y existen hasta que se eliminan. Para eliminar automáticamente las suscripciones después de que transcurra un período determinado, puede establecer el parámetro [auto_delete_on_idle](https://docs.microsoft.com/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) de la suscripción. 
+De forma predeterminada, los temas y las suscripciones son persistentes y existen hasta que se eliminan. Para eliminar automáticamente las suscripciones después de que transcurra un período determinado, puede establecer el parámetro [auto_delete_on_idle](/python/api/azure-mgmt-servicebus/azure.mgmt.servicebus.models.sbsubscription?view=azure-python) de la suscripción. 
 
 > [!TIP]
 > Puede administrar los recursos de Service Bus con el [Explorador de Service Bus](https://github.com/paolosalvatori/ServiceBusExplorer/). El Explorador de Service Bus permite conectarse a un espacio de nombres de Service Bus y administrar fácilmente las entidades de mensajería. La herramienta dispone de características avanzadas, como la funcionalidad de importación y exportación o la capacidad de probar temas, colas, suscripciones, servicios de retransmisión, centros de notificaciones y centros de eventos. 
@@ -192,4 +192,4 @@ Ahora que conoce los fundamentos de los temas de Service Bus, siga estos víncu
 [Azure Python package]: https://pypi.python.org/pypi/azure
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [SqlFilter.SqlExpression]: service-bus-messaging-sql-filter.md
-[Service Bus quotas]: service-bus-quotas.md 
+[Service Bus quotas]: service-bus-quotas.md

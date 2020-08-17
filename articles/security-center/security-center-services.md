@@ -11,28 +11,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/27/2020
+ms.date: 07/12/2020
 ms.author: memildin
-ms.openlocfilehash: 060db99cf0163876b68eeee2cff8ef2d03e2b5b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 95b514999d7c38140bd3dd275b8ba103ee9af20e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187020"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519255"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de características para las máquinas
 
-En las tablas siguientes se muestran las características de Azure Security Center disponibles para las máquinas virtuales y los servidores.
+En las dos tablas siguientes se muestran las características de Azure Security Center disponibles para las máquinas virtuales y los servidores Windows y Linux.
 
 ## <a name="supported-features-for-virtual-machines-and-servers"></a>Características admitidas para máquinas virtuales y servidores <a name="vm-server-features"></a>
 
-### <a name="windows-machines"></a>[Máquinas de Windows](#tab/features-windows)
+### <a name="windows-machines"></a>[**Máquinas Windows**](#tab/features-windows)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Característica**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas que no son de Azure**|**Precios**
+|----|:----:|:----:|:----:|:----:|
 |[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Estándar|
-|[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](threat-protection.md)|✔|✔|✔|Recomendaciones (gratuito) </br></br> Alertas de seguridad (estándar)|
+|[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](threat-protection.md)|✔|✔|✔|Estándar|
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|✔|✔|✔|Estándar|
 |[Alertas de seguridad basadas en la red](threat-protection.md#network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
@@ -43,21 +42,20 @@ En las tablas siguientes se muestran las características de Azure Security Cent
 |[Protección de red adaptable](security-center-adaptive-network-hardening.md)|✔|-|-|Estándar|
 |[Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)|✔|✔|✔|Estándar|
 |Recomendaciones y protección frente a amenazas en contenedores IaaS hospedados en Docker|-|-|-|Estándar|
-|Evaluación de revisiones de SO que faltan|✔|✔|✔|Gratuito|
-|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Gratuito|
-|[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Gratuito|
+|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Estándar|
+|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Estándar|
+|[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Estándar|
 |Evaluación de Disk Encryption|✔|✔|-|Gratuito|
 |Evaluación de vulnerabilidades de terceros|✔|-|-|Gratuito|
 |[Evaluación de la seguridad de red](security-center-network-recommendations.md)|✔|✔|-|Gratuito|
 
 
-### <a name="linux-machines"></a>[Equipos Linux](#tab/features-linux)
+### <a name="linux-machines"></a>[**Máquinas Linux**](#tab/features-linux)
 
-|||||||||
-|----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 |**Característica**|**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**Máquinas que no son de Azure**|**Precios**
+|----|:----:|:----:|:----:|:----:|
 |[Integración de ATP de Microsoft Defender](security-center-wdatp.md)|-|-|-|Estándar|
-|[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](security-center-alerts-iaas.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Recomendaciones (gratuito) </br></br> Alertas de seguridad (estándar)|
+|[Análisis del comportamiento de máquinas virtuales (y alertas de seguridad)](security-center-alerts-iaas.md)|✔</br>✔ (en versiones admitidas)|✔</br>✔ (en versiones admitidas)|✔|Estándar|
 |[Alertas de seguridad sin archivos](alerts-reference.md#alerts-windows)|-|-|-|Estándar|
 |[Alertas de seguridad basadas en la red](threat-protection.md#network-layer)|✔|✔|-|Estándar|
 |[Acceso de máquina virtual Just-In-Time](security-center-just-in-time.md)|✔|-|-|Estándar|
@@ -66,11 +64,10 @@ En las tablas siguientes se muestran las características de Azure Security Cent
 |[Controles de aplicación adaptables](security-center-adaptive-application.md)|✔|-|✔|Estándar|
 |[Mapa de red](security-center-network-recommendations.md#network-map)|✔|✔|-|Estándar|
 |[Protección de red adaptable](security-center-adaptive-network-hardening.md)|✔|-|-|Estándar|
-|Controles de red adaptables|✔|✔|-|Estándar|
 |[Panel e informes de cumplimiento normativo](security-center-compliance-dashboard.md)|✔|✔|✔|Estándar|
 |Recomendaciones y protección frente a amenazas en contenedores IaaS hospedados en Docker|✔|✔|✔|Estándar|
-|Evaluación de revisiones de SO que faltan|✔|✔|✔|Gratuito|
-|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Gratuito|
+|Evaluación de revisiones de SO que faltan|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Estándar|
+|Evaluación de configuraciones de seguridad incorrectas|✔|✔|✔|Azure: Gratuito<br><br>No de Azure: Estándar|
 |[Evaluación de EndPoint Protection](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|Gratuito|
 |Evaluación de Disk Encryption|✔|✔|-|Gratuito|
 |Evaluación de vulnerabilidades de terceros|✔|-|-|Gratuito|
@@ -96,9 +93,9 @@ Para más información sobre cuándo se generan recomendaciones para cada una de
 |------|------|-----|-----|
 | Windows Defender (Microsoft Antimalware)| Windows Server 2016| No, se integra en el sistema operativo.| Sí |
 | System Center Endpoint Protection (Microsoft Antimalware) | Windows Server 2012 R2, 2012, 2008 R2 (consulte la nota que hay a continuación) | Mediante extensión | Sí |
-| Trend Micro: Deep Security | Familia de Windows Server  | No | Sí |
-| Symantec v12.1.1100+| Familia de Windows Server  | No | Sí |
-| McAfee v10 o posterior | Familia de Windows Server  | No | Sí |
+| Trend Micro: Deep Security | Familia de Windows Server  | Sin | Sí |
+| Symantec v12.1.1100+| Familia de Windows Server  | Sin | Sí |
+| McAfee v10 o posterior | Familia de Windows Server  | Sin | Sí |
 | McAfee v10 o posterior | Familia de Linux Server  | No | Sí **\*** |
 | Sophos V9+| Familia de Linux Server  | No | Sí **\***  |
 

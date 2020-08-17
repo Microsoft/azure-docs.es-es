@@ -2,18 +2,19 @@
 title: 'CLI de Azure: Implementación del servidor de FHIR de código abierto para Azure: Azure API for FHIR'
 description: En este inicio rápido se explica cómo implementar el servidor de FHIR de código abierto de Microsoft para Azure.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: f8047ebeb8e47f609db79e3ac1235b5cd65a4fd4
-ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+ms.author: matjazl
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 10af71afd8843e75d5df3be57c909c56a7abca01
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "84819980"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843596"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-cli"></a>Inicio rápido: Implementación del servidor de FHIR de código abierto mediante la CLI de Azure
 
@@ -44,7 +45,7 @@ az group deployment create -g $servicename --template-uri https://raw.githubuser
 
 Obtenga una instrucción de funcionalidad del servidor de FHIR con:
 
-```console
+```azurecli-interactive
 metadataurl="https://${servicename}.azurewebsites.net/metadata"
 curl --url $metadataurl
 ```

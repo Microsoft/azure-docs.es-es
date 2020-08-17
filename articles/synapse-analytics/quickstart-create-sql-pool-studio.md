@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Synapse SQL (versión preliminar) mediante Synapse Studio'
+title: 'Inicio rápido: Creación de un grupo de Synapse SQL mediante Synapse Studio'
 description: Siga los pasos de esta guía para crear un grupo de Synapse SQL mediante Synapse Studio.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: sql
 ms.date: 3/19/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 4aac32ec69a4572a0988a22f1bc3b7bdf3f947d7
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: f85731a7f3ffef0adf35812ee8da4e0bbd89124f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274278"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036580"
 ---
-# <a name="quickstart-create-a-synapse-sql-pool-preview-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Synapse SQL (versión preliminar) mediante Synapse Studio
+# <a name="quickstart-create-a-synapse-sql-pool-using-synapse-studio"></a>Inicio rápido: Creación de un grupo de Synapse SQL mediante Synapse Studio
 
 Azure Synapse Analytics ofrece varios motores de análisis que le ayudarán a ingerir, transformar, modelar y analizar sus datos. Un grupo de SQL ofrece funcionalidades de proceso y almacenamiento basadas en T-SQL. Después de crear un grupo de SQL en el área de trabajo de Synapse, los datos se pueden cargar, modelar, procesar y entregar para tener información para los análisis más rápidamente.
 

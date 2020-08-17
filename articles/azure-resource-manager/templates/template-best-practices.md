@@ -3,12 +3,12 @@ title: Procedimientos recomendados para las plantillas
 description: En este artículo se describen los enfoques recomendados para la creación de plantillas de Azure Resource Manager. Se ofrecen sugerencias para evitar problemas comunes al usar las plantillas.
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 272c7e7f824eb193ed48d79c5256167f1dbbbce5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1121c66e0bcd7de39afd5bea85866fd9ad007ce4
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86248924"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809262"
 ---
 # <a name="arm-template-best-practices"></a>Procedimientos recomendados para plantilla de Resource Manager
 
@@ -226,7 +226,7 @@ La información siguiente puede ser útil cuando se trabaja con [recursos](templ
    
      Para obtener más información sobre cómo conectarse a máquinas virtuales, consulte:
    
-   * [Ejecución de máquinas virtuales para una arquitectura de n niveles en Azure](../../guidance/guidance-compute-n-tier-vm.md)
+   * [Ejecución de máquinas virtuales para una arquitectura de n niveles en Azure](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
    * [Configuración de acceso a WinRM para máquinas virtuales en Azure Resource Manager](../../virtual-machines/windows/winrm.md)
    * [Habilitación del acceso externo a la máquina virtual mediante Azure Portal](../../virtual-machines/windows/nsg-quickstart-portal.md)
    * [Habilitación del acceso externo a la máquina virtual mediante PowerShell](../../virtual-machines/windows/nsg-quickstart-powershell.md)

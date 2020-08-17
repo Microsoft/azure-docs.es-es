@@ -60,6 +60,8 @@
         - name: Sus ventajas de Marketplace
           href: ./gtm-your-marketplace-benefits.md
           items:
+            - name: Ventaja del compromiso de consumo de Azure
+              href: ./azure-consumption-commitment-benefit.md
             - name: Participación de asociados de venta conjunta
               href: ./marketplace-co-sell.md
             - name: Soluciones preferidas
@@ -119,7 +121,7 @@
                   href: ./partner-center-portal/create-azure-vm-technical-asset.md
                 - name: Preguntas frecuentes sobre los recursos técnicos de máquina virtual de Azure
                   href: ./partner-center-portal/common-issues-during-vhd-creation.md
-                - name: Certificación de una imagen de máquina virtual de Azure
+                - name: Prueba de máquina virtual implementada desde un disco duro virtual
                   href: ./partner-center-portal/azure-vm-image-certification.md
                 - name: URI de SAS
                   items:
@@ -129,7 +131,7 @@
                       href: ./partner-center-portal/common-sas-uri-issues.md
         - name: Servicios de consultoría
           items:
-            - name: Requisitos previos
+            - name: Prerrequisitos
               href: ./partner-center-portal/consulting-service-prerequisites.md
             - name: Creación de una oferta de servicios de consultoría
               href: ./partner-center-portal/create-consulting-service-offer.md
@@ -167,6 +169,14 @@
               href: ./partner-center-portal/offer-creation-checklist.md
             - name: Creación de una oferta SaaS
               href: ./partner-center-portal/create-new-saas-offer.md
+            - name: "Autenticación de Azure\_AD para SaaS"
+              items:
+                - name: "Introducción a Azure\_AD y SaaS"
+                  href: ./azure-ad-saas.md
+                - name: Página de aterrizaje de las ofertas procesables
+                  href: ./azure-ad-transactable-saas-landing-page.md
+                - name: Página de aterrizaje de las ofertas gratuitas o de prueba
+                  href: ./azure-ad-free-or-trial-landing-page.md
             - name: API de suministro de SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -266,7 +276,7 @@
       items:
         - name: Información general
           href: ./cloud-partner-portal-api-overview.md
-        - name: Requisitos previos
+        - name: Prerrequisitos
           href: ./cloud-partner-portal-api-prerequisites.md
         - name: Consideraciones
           href: ./cloud-partner-portal-api-considerations.md

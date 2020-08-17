@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 4eee6aeaff045264c8d23276ac91a83592ddc601
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 297241c5f939ae15fc77b29614b55d9b2bd63c84
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207808"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445908"
 ---
 # <a name="tutorial-securing-azure-remote-rendering-and-model-storage"></a>Tutorial: Protección de Azure Remote Rendering y el almacenamiento de modelos
 
@@ -176,16 +176,13 @@ El script **RemoteRenderingCoordinator** tiene un delegado llamado **ARRCredenti
 1. Siga el tutorial [Procedimiento: Configuración de la autenticación: autenticación para aplicaciones implementadas](../../../how-tos/authentication.md#authentication-for-deployed-applications); en concreto, seguirá las instrucciones que se indican en [Autenticación de usuarios de Azure AD](https://docs.microsoft.com/azure/spatial-anchors/concepts/authentication?tabs=csharp#azure-ad-user-authentication) de la documentación de Azure Spatial Anchors. Esto implica registrar una nueva aplicación de Azure Active Directory y configurar el acceso a la instancia de ARR.
 1. Después de configurar la nueva aplicación de AAD, compruebe que tenga el aspecto que se muestra en las siguientes imágenes:
 
-    **Aplicación de AAD -> Autenticación**\
-    ![Autenticación de la aplicación](./media/app-authentication-public.png)
+    **Aplicación AAD -> Autenticación** ![Autenticación de aplicación](./media/app-authentication-public.png)
 
-    **Aplicación de AAD -> Permisos de API**\
-    ![API de aplicaciones](./media/request-api-permissions-step-five.png)
+    **Aplicación de AAD -> Permisos de API** ![API de aplicaciones](./media/request-api-permissions-step-five.png)
 
 1. Después de configurar la cuenta de Remote Rendering, compruebe que la configuración se parece a la de la siguiente imagen:
 
-    **AAR-> AccessControl (IAM)** \
-    ![Rol de ARR](./media/azure-remote-rendering-role-assignment-complete.png)
+    **AAR-> AccessControl (IAM)** ![Rol de ARR](./media/azure-remote-rendering-role-assignment-complete.png)
 
     >[!NOTE]
     > El rol *Propietario* no es suficiente para administrar sesiones mediante la aplicación cliente. A cada usuario al que quiera conceder la capacidad de administrar sesiones le debe proporcionar el rol **Cliente de Remote Rendering**. A cada usuario que quiera que administre las sesiones y convierta los modelos le debe proporcionar el rol **Administrador de Remote Rendering**.
@@ -357,9 +354,7 @@ En el editor de Unity, cuando la autenticación de AAD esté activa, tendrá que
 1. Presione el botón de reproducción en el editor de Unity y dé su consentimiento a la ejecución de una sesión.
     Puesto que el componente **AADAuthentication** tiene un controlador de vista, se enlaza automáticamente para mostrar un aviso después del panel modal de autorización de la sesión.
 1. Siga las instrucciones que se encuentran en el panel a la derecha de **AppMenu**.
-    Verá algo parecido a esto:
-    ![Componente de autenticación de AAD](./media/device-flow-instructions.png)\
-    Después de escribir el código proporcionado en el dispositivo secundario (o en el explorador del mismo dispositivo) e iniciar sesión con sus credenciales, se devolverá un token de acceso a la aplicación que realiza la solicitud, en este caso, el editor de Unity.
+    Verá algo parecido a esto: ![Componente de autenticación de AAD](./media/device-flow-instructions.png) Después de escribir el código proporcionado en el dispositivo secundario (o en el explorador del mismo dispositivo) e iniciar sesión con sus credenciales, se devolverá un token de acceso a la aplicación que realiza la solicitud, en este caso, el editor de Unity.
 1. Llegados a este punto, todas las fases de la aplicación proseguirán normalmente. Si no es así, compruebe la consola de Unity para ver si hay errores.
 
 ## <a name="build-to-device"></a>Compilación en el dispositivo

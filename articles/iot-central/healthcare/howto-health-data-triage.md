@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 99b27ec53d955079b5f73986408e698955c0969b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ed06aef4d494fbdce5a07c5bc50bad9737ba5433
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021651"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497053"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Tutorial: Creación de un panel de proveedor de Power BI
 
 
 
-Al crear la solución de supervisión continua de pacientes, puede crear también un panel para un equipo de cuidados hospitalarios para visualizar los datos de los pacientes. En este tutorial aprenderá a crear un panel de streaming en tiempo real de Power BI a partir de la plantilla de la aplicación de supervisión continua de pacientes de IoT Central.
+Al crear la solución de supervisión continua de pacientes, puede crear también un panel para un equipo de cuidados hospitalarios para visualizar los datos de los pacientes. En este tutorial aprenderá a crear un panel de streaming en tiempo real de Power BI a partir de la plantilla de la aplicación de supervisión continua de pacientes de IoT Central. Si el caso de uso no requiere acceso a los datos en tiempo real, puede usar el [panel de Power BI de IoT Central](../core/howto-connect-powerbi.md), que tiene un proceso de implementación simplificado. 
 
 >[!div class="mx-imgBorder"]
 >![GIF del panel](media/dashboard-gif-3.gif)
@@ -38,7 +38,7 @@ En este tutorial, aprenderá a:
 > * Transmisión de datos a Power BI desde la aplicación lógica
 > * Creación de un panel en tiempo real para las constantes vitales de los pacientes
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
@@ -77,7 +77,7 @@ Para más información sobre los conjuntos de datos de streaming en Power BI, p
 ## <a name="connect-your-logic-app-to-azure-event-hubs"></a>Conexión de la aplicación lógica a Azure Event Hubs
 Para conectar la aplicación lógica a Azure Event Hubs, puede seguir las instrucciones que se describen en este documento sobre [Envío de eventos con Azure Event Hubs y Azure Logic Apps](https://docs.microsoft.com/azure/connectors/connectors-create-api-azure-event-hubs#add-event-hubs-action). Estos son algunos parámetros sugeridos:
 
-|Parámetro|Value|
+|Parámetro|Valor|
 |---|---|
 |Tipo de contenido|application/json|
 |Intervalo|3|
@@ -141,7 +141,7 @@ El siguiente paso consiste en analizar los datos procedentes del centro de event
 
 2. Ahora que ha inspeccionado las cargas JSON, vuelva al diseñador de aplicaciones lógicas y seleccione **+ Nuevo paso**. Busque y agregue **Inicializar variable** como paso siguiente y especifique los parámetros siguientes:
 
-    |Parámetro|Value|
+    |Parámetro|Valor|
     |---|---|
     |Nombre|Nombre de la interfaz|
     |Tipo|String|

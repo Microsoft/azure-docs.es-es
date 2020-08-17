@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 06/11/2020
+ms.date: 07/31/2020
 ms.author: juliako
-ms.openlocfilehash: 20389c8298f4e970c4b3ba93d96f811fdc905003
-ms.sourcegitcommit: 6571e34e609785e82751f0b34f6237686470c1f3
+ms.openlocfilehash: 032a3c719610d658ec32492033a04a610117643d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84791612"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489782"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empaquetado dinámico en Media Services v3
 
@@ -28,11 +28,13 @@ Microsoft Azure Media Services se puede usar para codificar muchos formatos de a
 En Media Services, un [punto de conexión de streaming](streaming-endpoint-concept.md) (origen) representa un empaquetado dinámico (Just-In-Time) y el servicio de origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción de cliente. Usa uno de los protocolos de streaming de multimedia comunes que se mencionan en la sección siguiente. El *empaquetado dinámico* es una característica incluida en todos los puntos de conexión de streaming (Estándar o Premium).
 
 > [!NOTE]
-> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](https://docs.microsoft.com/rest/api/media/), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+> Puede usar [Azure Portal](https://portal.azure.com/) para administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3, ver los [recursos](assets-concept.md) de la versión 3, obtener información sobre el acceso a las API. Para las restantes tareas de administración (por ejemplo, Transformaciones y trabajos y Protección de contenido), use la [API REST](/rest/api/media/), la [CLI](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Para preparar los archivos de origen para su entrega
 
 Para aprovechar el empaquetado dinámico, tiene que [codificar](encoding-concept.md) el archivo intermedio (origen) en un conjunto de archivos MP4 de varias velocidades de bits (archivo multimedia base ISO 14496-12). Tiene que tener un [recurso](assets-concept.md) con los archivos MP4 y de configuración de streaming codificados que el empaquetado dinámico de Media Services necesita. A partir de este conjunto de archivos MP4, puede usar el empaquetado dinámico para proporcionar vídeo mediante los protocolos de streaming multimedia que se describen a continuación.
+
+El empaquetado dinámico de Azure Media Services solo admite archivos de audio y vídeo en el formato del contenedor de MP4. Los archivos de audio deben estar codificados en un contenedor de MP4 también cuando se usen otros códecs, como Dolby.  
 
 > [!TIP]
 > Una manera de obtener los archivos de configuración de streaming y MP4 consiste en [codificar su archivo intermedio con Media Services](#encode-to-adaptive-bitrate-mp4s). 
@@ -87,7 +89,7 @@ En el siguiente diagrama se muestra el flujo de trabajo para streaming a petici�
 
 ![Diagrama de un flujo de trabajo para streaming a petición con empaquetado dinámico](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-La ruta de acceso de descarga aparece en la imagen anterior solo para mostrarle que puede descargar un archivo MP4 directamente a través del *punto de conexión de streaming* (origen) (debe especificar la [directiva de streaming](streaming-policy-concept.md) descargable en el localizador de streaming).<br/>El empaquetador dinámico no está modificando el archivo. 
+La ruta de acceso de descarga aparece en la imagen anterior solo para mostrarle que puede descargar un archivo MP4 directamente a través del *punto de conexión de streaming* (origen) (debe especificar la [directiva de streaming](streaming-policy-concept.md) descargable en el localizador de streaming).<br/>El empaquetador dinámico no está modificando el archivo. Opcionalmente puede usar las API de Azure Blob Storage para acceder a un MP4 directamente para la descarga progresiva si desea omitir las características del *punto de conexión de streaming* (origen). 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificación en archivos MP4s de velocidad de bits adaptable
 
@@ -123,17 +125,17 @@ Para más información acerca del streaming en vivo en Media Services v3, consu
 
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Códecs de vídeo compatibles con el empaquetado dinámico
 
-El empaquetado dinámico admite archivos MP4, que contienen vídeo codificado con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) o [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
+El empaquetado dinámico admite archivos de vídeo que estén en el formato de archivo del contenedor de MP4 y que contengan vídeo que esté codificado con [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1) o [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 > [!NOTE]
-> Se han probado resoluciones de hasta 4K y velocidades de fotogramas de hasta 60 fotogramas por segundo con el *empaquetado dinámico*. El [codificador Premium](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) admite la codificación en H.265, mediante las API heredadas de la versión v2.
+> Se han probado resoluciones de hasta 4K y velocidades de fotogramas de hasta 60 fotogramas por segundo con el *empaquetado dinámico*. El [codificador Premium](../previous/media-services-encode-asset.md#media-encoder-premium-workflow) admite la codificación en H.265, mediante las API heredadas de la versión v2.
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Códecs de audio compatibles con el empaquetado dinámico
 
-El empaquetado dinámico admite audio que está codificado con los siguientes protocolos:
+El empaquetado dinámico también admite archivos de audio que estén almacenado en el formato del contenedor de archivos MP4 que contengan flujo de audio codificado con uno de los siguientes códecs:
 
-* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, o HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3)
+* [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 o HE-AAC v2). 
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3).  El audio codificado se debe almacenar en el formato del contenedor de MP4 para que funcione con el empaquetado dinámico.
 * Dolby Atmos
 
    El streaming de contenido Dolby Atmos es compatible con estándares como el protocolo MPEG-DASH con formato de streaming común (CSF) o formato de aplicación multimedia común (CMAF) MP4 fragmentado, y mediante HTTP Live Streaming (HLS) con CMAF.
@@ -146,6 +148,10 @@ El empaquetado dinámico admite audio que está codificado con los siguientes pr
     * DTS-HD Lossless (sin núcleo) (dtsl)
 
 El empaquetado dinámico admite varias pistas de audio con DASH o HLS (versión 4 o posterior) para recursos de streaming que tienen varias pistas de audio con varios códecs y lenguajes.
+
+En todos los códecs de audio anteriores, el audio codificado se debe almacenar en el formato del contenedor de MP4 para que funcione con el empaquetado dinámico. El servicio no admite formatos de archivo de flujo elemental sin procesar en Blob Storage (por ejemplo, los formatos .dts y .ac3 no se aceptarían) 
+
+Para el empaquetado de audio solo se admiten los archivos con las extensiones .mp4 o .mp4a. 
 
 ### <a name="limitations"></a>Limitaciones
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 580ec443dc087f270e30856c336a5699bbf1ae71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80bcac36271d86334e11cb3cd161cd96777e6fe5
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71058441"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87832457"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Restablecer los Servicios de Escritorio remoto o su contraseña de administrador en una máquina virtual Windows
 Si no puede conectarse a una máquina virtual Windows, puede restablecer la contraseña de administrador local o la configuración de los Servicios de Escritorio remoto (esto no se admite en los controladores de dominio de Windows). Para restablecer la contraseña, use Azure Portal o la extensión de acceso de máquina virtual en Azure PowerShell. Una vez haya iniciado sesión en la máquina virtual, restablezca la contraseña del administrador local.  
-Si usa PowerShell, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azure/overview) y de haber iniciado sesión en su suscripción a Azure. También puede [realizar estos pasos para máquinas virtuales creadas con el modelo de implementación clásica](https://docs.microsoft.com/azure/virtual-machines/windows/classic/reset-rdp).
+Si usa PowerShell, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azure/) y de haber iniciado sesión en su suscripción a Azure. También puede [realizar estos pasos para máquinas virtuales creadas con el modelo de implementación clásica](/previous-versions/azure/virtual-machines/windows/classic/reset-rdp).
 
 Puede restablecer los Servicios de Escritorio remoto y las credenciales de las siguientes maneras:
 
@@ -55,11 +55,11 @@ Este proceso habilitará el servicio de Escritorio remoto en la máquina virtual
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Restablecimiento mediante la extensión de VMAccess y PowerShell
 
-En primer lugar, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azure/overview) y de haber iniciado sesión en su suscripción de Azure con el cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount).
+En primer lugar, asegúrese de tener [instalado y configurado el módulo de PowerShell más reciente](/powershell/azure/) y de haber iniciado sesión en su suscripción de Azure con el cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ### <a name="reset-the-local-administrator-account-password"></a>**Restablecer la contraseña de cuenta de administración local**
 
-- Restablezca la contraseña de administrador o el nombre de usuario con el comando de PowerShell [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension). La configuración de `typeHandlerVersion` debe ser 2.0 o posterior, ya que la versión 1 está en desuso. 
+- Restablezca la contraseña de administrador o el nombre de usuario con el comando de PowerShell [Set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension). La configuración de `typeHandlerVersion` debe ser 2.0 o posterior, ya que la versión 1 está en desuso. 
 
     ```powershell
     $SubID = "<SUBSCRIPTION ID>" 
@@ -77,7 +77,7 @@ En primer lugar, asegúrese de tener [instalado y configurado el módulo de Powe
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Restablecer la configuración de los Servicios de Escritorio remoto**
 
-1. Restablezca el acceso remoto a la VM con el cmdlet de PowerShell [Set-AzVMAccessExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmaccessextension). En el ejemplo siguiente se habilita se restablece la extensión de acceso llamada `myVMAccess` en la máquina virtual denominada `myVM` en el grupo de recursos `myResourceGroup`:
+1. Restablezca el acceso remoto a la VM con el cmdlet de PowerShell [Set-AzVMAccessExtension](/powershell/module/az.compute/set-azvmaccessextension). En el ejemplo siguiente se habilita se restablece la extensión de acceso llamada `myVMAccess` en la máquina virtual denominada `myVM` en el grupo de recursos `myResourceGroup`:
 
     ```powershell
     Set-AzVMAccessExtension -ResourceGroupName "myResoureGroup" -VMName "myVM" -Name "myVMAccess" -Location WestUS -typeHandlerVersion "2.0" -ForceRerun
@@ -94,7 +94,6 @@ En primer lugar, asegúrese de tener [instalado y configurado el módulo de Powe
 
 - [Más información sobre las características y extensiones de la máquina virtual de Azure](../extensions/features-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-- [Conexión a una máquina virtual de Azure con RDP o SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
+- [Conexión a una máquina virtual de Azure con RDP o SSH](/previous-versions/azure/dn535788(v=azure.100))
 
 - [Solucionar problemas de conexiones de Escritorio remoto a una máquina virtual de Azure basada en Windows](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-

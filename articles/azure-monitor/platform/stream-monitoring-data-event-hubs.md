@@ -1,22 +1,22 @@
 ---
-title: Transmisión de datos de supervisión de Azure a un centro de eventos
+title: Transmisión de datos de supervisión de Azure a un centro de eventos y asociados externos
 description: Obtenga información sobre cómo hacer streaming de los datos de supervisión de Azure a un centro de eventos para que una herramienta de un asociado de Administración de eventos e información de seguridad o de análisis puedan disponer de ellos.
-author: bwren
 services: azure-monitor
-ms.topic: conceptual
-ms.date: 11/15/2019
+author: bwren
 ms.author: bwren
+ms.topic: conceptual
+ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: 8bfec756c365c451a4e2b8236814454980d1d563
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f6272e3d976c7c3b04d5b1332e2d7b3410c3045c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539319"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318885"
 ---
-# <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Transmisión de datos de supervisión de Azure a un centro de eventos
-Azure Monitor proporciona una solución completa de supervisión de pila para aplicaciones y servicios en Azure, en otras nubes y locales. Asimismo, se puede usar Azure Monitor para analizar esos datos y aprovecharlos en diferentes escenarios de supervisión, aunque es posible que deba enviarlos a otras herramientas de supervisión de su entorno. El método más efectivo en la mayoría de los casos para transmitir datos de supervisión a herramientas externas, es usar [Azure Event Hubs](../../event-hubs/index.yml). En este artículo se proporciona una breve descripción de cómo puede transmitir datos de supervisión desde diferentes orígenes a un centro de eventos y vínculos a instrucciones detalladas.
+# <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmisión de datos de supervisión de Azure a un centro de eventos o asociado externo
 
+Azure Monitor proporciona una solución completa de supervisión de pila para aplicaciones y servicios en Azure, en otras nubes y locales. Asimismo, se puede usar Azure Monitor para analizar esos datos y aprovecharlos en diferentes escenarios de supervisión, aunque es posible que deba enviarlos a otras herramientas de supervisión de su entorno. En la mayoría de los casos, el método más efectivo para transmitir datos de supervisión a herramientas externas, es usar [Azure Event Hubs](../../event-hubs/index.yml). En este artículo se proporciona una breve descripción de cómo hacerlo y luego se enumeran algunos de los asociados en los que puede enviar datos. Algunos tienen una integración especial con Azure Monitor y se pueden hospedar en Azure.  
 
 ## <a name="create-an-event-hubs-namespace"></a>Creación de un espacio de nombres de Event Hubs
 
@@ -38,7 +38,7 @@ En [Orígenes de datos de supervisión de Azure Monitor](data-sources.md) se de
 | [Suscripción de Azure](data-sources.md#azure-subscription) | Azure Activity Log | Cree un perfil de registro para exportar eventos del registro de actividades a Event Hubs.  Consulte [Transmisión de registros de plataforma de Azure a Azure Event Hubs](./resource-logs.md#send-to-azure-event-hubs) para más información. |
 | [Recursos de Azure](data-sources.md#azure-resources) | Métricas de la plataforma<br> Registros del recurso |Ambos tipos de datos se envían a un centro de eventos mediante la configuración de diagnóstico de recursos. Consulte [Transmisión de registros de recursos de Azure a un centro de eventos](./resource-logs.md#send-to-azure-event-hubs) para más detalles. |
 | [Sistema operativo (invitado)](data-sources.md#operating-system-guest) | Azure Virtual Machines | Instale la [extensión de Azure Diagnostics](diagnostics-extension-overview.md) en máquinas virtuales de Windows y Linux en Azure. Consulte [Streaming de datos de Azure Diagnostics en la ruta de acceso activa mediante Event Hubs](diagnostics-extension-stream-event-hubs.md) para obtener detalles sobre las VM de Windows y [Usar la extensión de diagnósticos de Linux para supervisar métricas y registros](../../virtual-machines/extensions/diagnostics-linux.md#protected-settings) para obtener detalles sobre las VM de Linux. |
-| [Código de aplicación](data-sources.md#application-code) | Application Insights | Application Insights no proporciona un método directo para transmitir datos a LOS centros de eventos. Puede [configurar la exportación continua](../../azure-monitor/app/export-telemetry.md) de los datos de Application Insights a una cuenta de almacenamiento y luego usar una aplicación lógica para enviar esos datos a un centro de eventos, tal como se describe en [Streaming manual con la aplicación lógica](#manual-streaming-with-logic-app). |
+| [Código de aplicación](data-sources.md#application-code) | Application Insights | Application Insights no proporciona un método directo para transmitir datos a LOS centros de eventos. Puede [configurar la exportación continua](../app/export-telemetry.md) de los datos de Application Insights a una cuenta de almacenamiento y luego usar una aplicación lógica para enviar esos datos a un centro de eventos, tal como se describe en [Streaming manual con la aplicación lógica](#manual-streaming-with-logic-app). |
 
 ## <a name="manual-streaming-with-logic-app"></a>Streaming manual con la aplicación lógica
 Para los datos que no puede transmitir directamente a un centro de eventos, puede escribir en Azure Storage y luego usar una aplicación lógica que se desencadene según tiempo y que [extraiga datos de Blob Storage](../../connectors/connectors-create-api-azureblobstorage.md#add-action) y [ los envíe como mensaje al centro de eventos](../../connectors/connectors-create-api-azure-event-hubs.md#add-action). 
@@ -58,8 +58,10 @@ El enrutamiento de los datos de supervisión a un centro de eventos con Azure M
 | LogRhythm | No| Las instrucciones necesarias para configurar LogRhythm con el fin de recopilar registros de un centro de eventos están disponibles [aquí](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
 |Logz.io | Sí | Para más información, consulte [Introducción a la supervisión y el registro con Logz.io para aplicaciones Java que se ejecutan en Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio).
 
+También pueden estar disponibles otros asociados. Para obtener una lista completa de todos los asociados de Azure Monitor y sus funcionalidades, consulte [Integraciones de asociados de Azure Monitor](partners.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Archivar el registro de actividad en una cuenta de almacenamiento](./activity-log.md#legacy-collection-methods)
-* [Leer la introducción sobre el registro de actividad de Azure](../../azure-monitor/platform/platform-logs-overview.md)
-* [Configurar una alerta basada en un evento del registro de actividad](../../azure-monitor/platform/alerts-log-webhook.md)
+* [Leer la introducción sobre el registro de actividad de Azure](./platform-logs-overview.md)
+* [Configurar una alerta basada en un evento del registro de actividad](./alerts-log-webhook.md)
+

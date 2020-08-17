@@ -1,18 +1,18 @@
 ---
-title: Referencias
-description: ''
+title: Referencias de Azure FarmBeats
+description: Explore los vínculos de referencia a los artículos de FarmBeats de Azure, como la API REST de FarmBeats y Swagger del centro de datos de FarmBeats.
 author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 893ebefea205088bc300b456c1afcdb82de9cd46
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c07311e63b034b1b3f9eb7dba3b047f4eb7aaf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77121214"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536596"
 ---
-# <a name="references"></a>Referencias
+# <a name="reference-information-for-farmbeats"></a>Información de referencia de FarmBeats
 
 [API de REST de FarmBeats](rest-api-in-azure-farmbeats.md).
 

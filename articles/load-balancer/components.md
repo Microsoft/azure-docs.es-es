@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2020
 ms.author: allensu
-ms.openlocfilehash: 7aa0889ab95cdac37f9fe0735c7ad58569621059
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: bf9e403fb8691f378558ef5f0403d132214ed187
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205413"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421780"
 ---
 # <a name="azure-load-balancer-components"></a>Componentes de Azure Load Balancer
 
@@ -75,7 +75,7 @@ Las reglas de Load Balancer se usan para definir cómo se distribuye el tráfico
 Por ejemplo, use una regla de equilibrio de carga para el puerto 80, a fin de enrutar el tráfico de la dirección IP de front-end al puerto 80 de las instancias de back-end.
 
 <p align="center">
-  <img src="./media/load-balancer-components/lbrules.svg" width="512" title="Reglas de equilibrio de carga">
+  <img src="./media/load-balancer-components/lbrules.svg" alt= "Figure depicts how Azure Load Balancer directs frontend port 80 to three instances of backend port 80." width="512" title="Reglas de equilibrio de carga">
 </p>
 
 *Ilustración: Reglas de equilibrio de carga*
@@ -97,7 +97,7 @@ La decisión de equilibrio de carga se toma por cada flujo. Esta acción se basa
 Las reglas de equilibrio de carga de puertos de alta disponibilidad le ayudan a la hora de usar escenarios críticos como aquellos con alta disponibilidad y escalabilidad para dispositivos virtuales de red (NVA) que estén en redes virtuales. La característica puede ayudar cuando hay que equilibrar la carga de un gran número de puertos.
 
 <p align="center">
-  <img src="./media/load-balancer-components/harules.svg" width="512" title="Reglas de puertos de alta disponibilidad">
+  <img src="./media/load-balancer-components/harules.svg" alt="Figure depicts how Azure Load Balancer directs all frontend ports to three instances of all backend ports" width="512" title="Reglas de puertos de alta disponibilidad">
 </p>
 
 *Ilustración: Reglas de puertos de alta disponibilidad*
@@ -111,7 +111,7 @@ Una regla NAT de entrada reenvía el tráfico entrante enviado a la combinación
 Por ejemplo, so desea que las sesiones de Secure Shell (SSH) o del Protocolo de escritorio remoto (RDP) separan las instancias de máquina virtual en un grupo de back-end. Se pueden asignar varios puntos de conexión internos a puertos de la misma dirección IP de front-end. Las direcciones IP de front-end se pueden usar para administrar de forma remota máquinas virtuales sin un jumpbox adicional.
 
 <p align="center">
-  <img src="./media/load-balancer-components/inboundnatrules.svg" width="512" title="Reglas NAT de entrada">
+  <img src="./media/load-balancer-components/inboundnatrules.svg" alt="Figure depicts how Azure Load Balancer directs frontend ports 3389, 443, and 80 to backend ports with the same values on separate servers." width="512" title="Reglas NAT de entrada">
 </p>
 
 *Ilustración: Reglas NAT de entrada*

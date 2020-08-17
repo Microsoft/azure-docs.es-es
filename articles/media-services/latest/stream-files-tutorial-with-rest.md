@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/16/2020
 ms.author: juliako
-ms.openlocfilehash: 35be4ec2c4f5f8c299120c0ba7dbdcb1dd112473
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f12771e55ced3b8783b6c7497b83e6b041c66b75
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79472040"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074475"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>Tutorial: Codificación de un archivo remoto según una dirección URL y transmisión del vídeo: REST
 
@@ -42,7 +42,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md).
+- [Cree una cuenta de Media Services](./create-account-howto.md).
 
     Asegúrese de recordar los valores que usó para el nombre de la cuenta de Media Services y el nombre del grupo de recursos
 
@@ -125,7 +125,7 @@ En esta sección se enviarán solicitudes que son significativas para codificar 
 
 ### <a name="start-a-streaming-endpoint"></a>Inicio de un punto de conexión de streaming
 
-Para iniciar la transmisión del vídeo, primero debe iniciar el [punto de conexión de streaming](https://docs.microsoft.com/azure/media-services/latest/streaming-endpoint-concept) desde el que quiere hacerlo.
+Para iniciar la transmisión del vídeo, primero debe iniciar el [punto de conexión de streaming](./streaming-endpoint-concept.md) desde el que quiere hacerlo.
 
 > [!NOTE]
 > Solo se le cobrará cuando el punto de conexión de streaming esté en estado de ejecución.
@@ -147,11 +147,11 @@ Para iniciar la transmisión del vídeo, primero debe iniciar el [punto de conex
         
         `https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/<resourceGroupName>/providers/Microsoft.Media/mediaservices/<accountName>/streamingendpointoperations/1be71957-4edc-4f3c-a29d-5c2777136a2e?api-version=2018-07-01`
 
-        En el artículo [Seguimiento de las operaciones asincrónicas de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations) se explica de forma detallada cómo realizar un seguimiento del estado de las operaciones asincrónicas de Azure mediante los valores devueltos en la respuesta.
+        En el artículo [Seguimiento de las operaciones asincrónicas de Azure](../../azure-resource-manager/management/async-operations.md) se explica de forma detallada cómo realizar un seguimiento del estado de las operaciones asincrónicas de Azure mediante los valores devueltos en la respuesta.
 
 ### <a name="create-an-output-asset"></a>Creación de un recurso de salida
 
-El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacena el resultado del trabajo de codificación. 
+El [recurso](/rest/api/media/assets) de salida almacena el resultado del trabajo de codificación. 
 
 1. En la ventana izquierda de la aplicación Postman, seleccione "Assets" (Recursos).
 2. A continuación, seleccione "Create or update an Asset" (Crear o actualizar un recurso).
@@ -175,14 +175,14 @@ El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacen
 
 ### <a name="create-a-transform"></a>Creación de una transformación
 
-Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
+Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](./transforms-jobs-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
 
-Al crear una nueva instancia de la [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto **TransformOutput**. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **valor preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se utilizarán para generar el objeto **TransformOutput** deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. Para más información sobre este valor preestablecido, consulte el artículo sobre la [generación automática de la escala de velocidad de bits](autogen-bitrate-ladder.md).
+Al crear una nueva instancia de la [transformación](/rest/api/media/transforms), debe especificar qué desea originar como salida. El parámetro requerido es un objeto **TransformOutput**. Cada objeto **TransformOutput** contiene un **valor preestablecido**. El **valor preestablecido** describe las instrucciones paso a paso de las operaciones de procesamiento de vídeo o audio que se utilizarán para generar el objeto **TransformOutput** deseado. El ejemplo descrito en este artículo utiliza un valor preestablecido integrado denominado **AdaptiveStreaming**. El valor preestablecido codifica el vídeo de entrada en una escala de velocidad de bits generada automáticamente (pares resolución-velocidad de bits) basada en la resolución y la velocidad de bits, y produce archivos ISO MP4 con vídeo H.264 y audio AAC correspondiente a cada par resolución-velocidad de bits. Para más información sobre este valor preestablecido, consulte el artículo sobre la [generación automática de la escala de velocidad de bits](autogen-bitrate-ladder.md).
 
 Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos personalizados. 
 
 > [!Note]
-> Al crear una [transformación](https://docs.microsoft.com/rest/api/media/transforms), debe comprobar primero si ya existe una con el método **Get**. En este tutorial se da por hecho que va a crear la transformación con un nombre único.
+> Al crear una [transformación](/rest/api/media/transforms), debe comprobar primero si ya existe una con el método **Get**. En este tutorial se da por hecho que va a crear la transformación con un nombre único.
 
 1. En la ventana izquierda de la aplicación Postman, seleccione "Encoding and Analysis" (Codificación y análisis).
 2. A continuación, seleccione "Create Transform" (Crear transformación).
@@ -215,7 +215,7 @@ Puede usar un valor de EncoderNamedPreset integrado o valores preestablecidos pe
 
 ### <a name="create-a-job"></a>Creación de un trabajo
 
-Un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services para aplicar la **transformación** creada a un determinado contenido de vídeo o audio. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida.
+Un [trabajo](/rest/api/media/jobs) es la solicitud real a Media Services para aplicar la **transformación** creada a un determinado contenido de vídeo o audio. El **trabajo** especifica información como la ubicación del vídeo de entrada y la ubicación de la salida.
 
 En este ejemplo, la entrada del trabajo se basa en una dirección URL HTTPS ("https:\//nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/").
 
@@ -256,18 +256,18 @@ El **trabajo** pasa normalmente por los siguientes estados: **Programado**, **En
 
 #### <a name="job-error-codes"></a>Códigos de error de trabajo
 
-Consulte [Códigos de error](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode).
+Consulte [Códigos de error](/rest/api/media/jobs/get#joberrorcode).
 
 ### <a name="create-a-streaming-locator"></a>Creación de un localizador de streaming
 
-Una vez finalizado el trabajo de codificación, el siguiente paso es poner el vídeo del **recurso** de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: primero, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, en segundo lugar, cree las direcciones URL de streaming que pueden usar los clientes. 
+Una vez finalizado el trabajo de codificación, el siguiente paso es poner el vídeo del **recurso** de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: primero, cree un objeto [StreamingLocator](/rest/api/media/streaminglocators) y, en segundo lugar, cree las direcciones URL de streaming que pueden usar los clientes. 
 
 El proceso de creación de un localizador de streaming se denomina publicación. De forma predeterminada, el localizador de streaming es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, va a transmitir contenido no cifrado, de modo que se puede usar la directiva de streaming sin cifrar predefinida, "Predefined_ClearStreamingOnly".
+Al crear un objeto [StreamingLocator](/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, va a transmitir contenido no cifrado, de modo que se puede usar la directiva de streaming sin cifrar predefinida, "Predefined_ClearStreamingOnly".
 
 > [!IMPORTANT]
-> Al utilizar el objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos de cifrado. 
+> Al utilizar el objeto [StreamingPolicy](/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus objetos StreamingLocator siempre que se necesiten las mismas opciones y protocolos de cifrado. 
 
 La cuenta de Media Service tiene una cuota para el número de entradas de **Streaming Policy**. No debe crear un objeto **Streaming Policy** para cada localizador de streaming.
 
@@ -297,7 +297,7 @@ La cuenta de Media Service tiene una cuota para el número de entradas de **Stre
 
 #### <a name="list-paths"></a>Enumeración de rutas de acceso
 
-Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming.
+Ahora que se ha creado el objeto [StreamingLocator](/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming.
 
 1. En la ventana izquierda de la aplicación Postman, seleccione "Streaming Policies" (Directivas de streaming).
 2. A continuación, seleccione "List Paths" (Enumerar rutas de acceso).

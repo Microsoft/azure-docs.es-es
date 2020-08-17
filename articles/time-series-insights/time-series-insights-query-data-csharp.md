@@ -1,29 +1,29 @@
 ---
-title: Consulta de datos desde un entorno de GA mediante código de C# (Azure Time Series Insights) | Microsoft Docs
-description: Aprenda a consultar datos desde un entorno de Azure Time Series Insights mediante una aplicación personalizada escrita en C#.
+title: 'Consulta de datos desde un entorno Gen1 mediante código de C#: Azure Time Series Insights Gen1 | Microsoft Docs'
+description: Aprenda a consultar datos desde un entorno de Azure Time Series Insights Gen1 mediante una aplicación personalizada escrita en C#.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: 754d1b80236d138693987cccee7a218ccd96b16b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c794cfb5f0d652e25007131d9ca39fb73e2218e2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383881"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080682"
 ---
-# <a name="query-data-from-the-azure-time-series-insights-ga-environment-using-c"></a>Consulta de datos desde el entorno de Azure Time Series Insights GA mediante C#
+# <a name="query-data-from-the-azure-time-series-insights-gen1-environment-using-c"></a>Consulta de datos desde el entorno de Azure Time Series Insights Gen1 mediante C#
 
-En este ejemplo de C# se muestra cómo usar las [API de consulta de disponibilidad general](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) para consultar datos desde entornos de Azure Time Series Insights de disponibilidad general.
+En este ejemplo de C# se muestra cómo usar las [API de consulta de Gen1](https://docs.microsoft.com/rest/api/time-series-insights/ga-query) para consultar datos desde entornos de Azure Time Series Insights Gen1.
 
 > [!TIP]
-> Consulte ejemplos de código C# de disponibilidad general en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Consulte ejemplos de código C# de Gen1 en [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="summary"></a>Resumen
 
@@ -33,14 +33,14 @@ En el código de ejemplo siguiente se muestran las siguientes características:
 
 * Cómo pasar ese token de acceso adquirido en el encabezado `Authorization` de las solicitudes de API de consulta subsiguientes. 
 
-* En el ejemplo se llama a cada una de las API de consulta de disponibilidad general demostrando cómo se hacen las solicitudes HTTP a:
+* En el ejemplo se llama a cada una de las API de consulta de Gen1 para demostrar cómo se hacen las solicitudes HTTP a:
     * [Get Environments API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environments-api) para devolver los entornos a los que tiene acceso el usuario.
     * [Get Environment Availability API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-availability-api)
     * [Get Environment Metadata API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-metadata-api) para recuperar los metadatos del entorno.
     * [Get Environments Events API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api)
     * [Get Environment Aggregates API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api)
     
-* Cómo interactuar con las API de consulta de disponibilidad general mediante WSS para enviar un mensaje a:
+* Cómo interactuar con las API de consulta de Gen1 mediante WSS para enviar un mensaje a:
 
    * [Get Environment Events Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-streamed-api)
    * [Get Environment Aggregates Streamed API](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-streamed-api)
@@ -49,7 +49,7 @@ En el código de ejemplo siguiente se muestran las siguientes características:
 
 Realice los pasos siguientes antes de compilar y ejecutar el código de ejemplo:
 
-1. [Aprovisione un entorno de disponibilidad general de Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. [Aprovisione un entorno de Azure Time Series Insights Gen1](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
 1. Configure el entorno de Azure Time Series Insights para Azure Active Directory, tal como se describe en [Autenticación y autorización](time-series-insights-authentication-and-authorization.md). 
 1. Instale las dependencias de proyecto necesarias.
 1. Edite el código de ejemplo siguiente y reemplace cada **#DUMMY#** por el identificador de entorno adecuado.

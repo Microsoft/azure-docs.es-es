@@ -4,12 +4,12 @@ description: Obtenga información sobre cómo habilitar la supervisión de un nu
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 86ace49ea60bf1bd11633b5a883401f678ecaf8d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7706df4f457167f5bb4d17f1d506594615364380
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516641"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320330"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar la supervisión de un nuevo clúster de Azure Kubernetes Service (AKS)
 
@@ -29,7 +29,7 @@ Para habilitar la supervisión de un nuevo clúster de AKS creado con la CLI de 
 
 ## <a name="enable-using-terraform"></a>Habilitación con Terraform
 
-Si va a [implementar un nuevo clúster de AKS mediante Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), especifique los argumentos necesarios en el perfil [para crear un área de trabajo de Log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) si no eligió especificar uno existente. 
+Si va a [implementar un nuevo clúster de AKS mediante Terraform](/azure/developer/terraform/create-k8s-cluster-with-tf-and-aks), especifique los argumentos necesarios en el perfil [para crear un área de trabajo de Log Analytics](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) si no eligió especificar uno existente. 
 
 >[!NOTE]
 >Si decide usar Terraform, debe ejecutar el proveedor de Azure RM para Terraform versión 1.17.0 o superior.
@@ -118,3 +118,4 @@ Transcurridos unos minutos, el comando se completa y devuelve información en fo
 * Si experimenta problemas al intentar incorporar la solución, consulte la [guía de solución de problemas](container-insights-troubleshoot.md).
 
 * Con la supervisión habilitada para recopilar el estado y la utilización de recursos de su clúster AKS y las cargas de trabajo que se ejecutan en ellos, aprenda [cómo usar](container-insights-analyze.md) Azure Monitor para contenedores.
+

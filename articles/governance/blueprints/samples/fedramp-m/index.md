@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de FedRAMP Moderate, introducción
 description: Introducción al ejemplo de plano técnico de FedRAMP Moderate. Este ejemplo de plano técnico ayuda a los clientes a evaluar controles concretos de FedRAMP Moderate.
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: b25c000ac9593eb0997ae1d4f1f69a4e20732226
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: 6d0ec128a09f3426dbcec63353f04395ed92996d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83816223"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495801"
 ---
 # <a name="overview-of-the-fedramp-moderate-blueprint-sample"></a>Introducción al ejemplo de planos técnico de FedRAMP Moderate
 

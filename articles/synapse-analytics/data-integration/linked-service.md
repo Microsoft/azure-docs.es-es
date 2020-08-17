@@ -1,6 +1,6 @@
 ---
-title: Aprovisionamiento y protección de un servicio vinculado en Azure Synapse Analytics
-description: Aprenda a aprovisionar y proteger un servicio vinculado con una red virtual administrada
+title: Protección de servicios vinculados
+description: Aprenda a aprovisionar y proteger un servicio vinculado con una VNET administrada.
 services: synapse-analytics
 author: acomet
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 435c3fd6b1e6444fa3a31c68b4d74c2553d2e634
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427240"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387255"
 ---
-# <a name="securing-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados 
+# <a name="secure-a-linked-service-with-private-links"></a>Protección de un servicio vinculado con vínculos privados 
 
 En este artículo, obtendrá información sobre cómo proteger un servicio vinculado en Synapse con un punto de conexión privado.
 
@@ -52,11 +52,11 @@ En caso de no haber hecho clic en el hipervínculo al probar la conexión anteri
 1. Seleccione **Crear**
 1. Después de esperar algunos segundos, debería ver que el vínculo privado creado necesita una aprobación.
 
-## <a name="approval-of-a-private-link"></a>Aprobación de un vínculo privado
+## <a name="private-link-approval"></a>Aprobación del vínculo privado
 1. Seleccione el punto de conexión privado que creó anteriormente. Puede ver un hipervínculo que le permitirá aprobar el punto de conexión privado a nivel de la cuenta de almacenamiento. *Una alternativa es ir directamente a la cuenta de almacenamiento en Azure Portal e ir a la hoja **Conexiones de punto de conexión privado**.*
 1. Marque el punto de conexión privado que creó en Studio y seleccione **Aprobar**.
 1. Agregue una descripción y haga clic en **Sí**.
-1. Vuelva a Synapse Studio en la sección **Managed Virtual Networks** (redes virtuales administradas) de la pestaña **Administrar**.
+1. Vuelva a Synapse Studio en la sección **Managed Virtual Networks** (Redes virtuales administradas) de la pestaña **Manage** (Administrar).
 1. La aprobación tardará aproximadamente 1 minuto en verse reflejada para el punto de conexión privado.
 
 ## <a name="check-the-connection-works"></a>Comprobación de que la conexión funciona

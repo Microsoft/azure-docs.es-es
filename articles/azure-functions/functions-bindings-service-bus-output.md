@@ -6,13 +6,13 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 6159ea7c9e00e822019a0d6542be2e84dbbdc335
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: c377d9882b59731857641e1f593dd6b7b24ca7f9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603645"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844089"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Enlace de salida de Azure Service Bus para Azure Functions
 
@@ -311,7 +311,7 @@ Cuando trabaje con funciones de C#:
 
 * Las funciones asincrónicas necesitan un valor devuelto o `IAsyncCollector`, en lugar de un parámetro `out`.
 
-* Para tener acceso al identificador de sesión, enlace a un tipo [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) y use la propiedad `sessionId`.
+* Para tener acceso al identificador de sesión, enlace a un tipo [`Message`](/dotnet/api/microsoft.azure.servicebus.message) y use la propiedad `sessionId`.
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
@@ -328,7 +328,7 @@ Cuando trabaje con funciones de C#:
 
 * Las funciones asincrónicas necesitan un valor devuelto o `IAsyncCollector`, en lugar de un parámetro `out`.
 
-* Para tener acceso al identificador de sesión, enlace a un tipo [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) y use la propiedad `sessionId`.
+* Para tener acceso al identificador de sesión, enlace a un tipo [`Message`](/dotnet/api/microsoft.azure.servicebus.message) y use la propiedad `sessionId`.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
@@ -336,11 +336,11 @@ Puede acceder a la cola o al tema mediante el uso de `context.bindings.<name fro
 
 # <a name="python"></a>[Python](#tab/python)
 
-Use el [SDK de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) en lugar del enlace de salida integrado.
+Use el [SDK de Azure Service Bus](../service-bus-messaging/index.yml) en lugar del enlace de salida integrado.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Use el [SDK de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging) en lugar del enlace de salida integrado.
+Use el [SDK de Azure Service Bus](../service-bus-messaging/index.yml) en lugar del enlace de salida integrado.
 
 ---
 
@@ -348,8 +348,8 @@ Use el [SDK de Azure Service Bus](https://docs.microsoft.com/azure/service-bus-
 
 | Enlace | Referencia |
 |---|---|
-| Azure Service Bus | [Códigos de error de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-exceptions) |
-| Azure Service Bus | [Límites de Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quotas) |
+| Azure Service Bus | [Códigos de error de Service Bus](../service-bus-messaging/service-bus-messaging-exceptions.md) |
+| Azure Service Bus | [Límites de Service Bus](../service-bus-messaging/service-bus-quotas.md) |
 
 <a name="host-json"></a>  
 
@@ -388,7 +388,7 @@ Si `isSessionsEnabled` se ha establecido en `true`, se respetará `sessionHandle
 |---------|---------|---------|
 |prefetchCount|0|Obtiene o establece el número de mensajes que el destinatario del mensaje puede solicitar simultáneamente.|
 |maxAutoRenewDuration|00:05:00|Duración máxima dentro de la cual el bloqueo de mensajes se renovará automáticamente.|
-|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
+|autoComplete|true|Si el desencadenador debe llamar automáticamente a Complete después del procesamiento o si el código de la función llamará manualmente a Complete.<br><br>La configuración en `false` solo se admite en C#.<br><br>Si se establece en `true`, el desencadenador completa automáticamente el mensaje si la ejecución de la función se completa correctamente y abandona el mensaje en caso contrario.<br><br>Cuando se establece en `false`, usted es responsable de llamar a los métodos [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) para completar, abandonar o cerrar el mensaje. Si se produce una excepción (y no se llama a ninguno de los métodos `MessageReceiver`), se mantiene el bloqueo. Una vez que el bloqueo expira, el mensaje se vuelve a poner en cola con la `DeliveryCount` incrementada y el bloqueo se renueva automáticamente.<br><br>En las funciones que no son C#, las excepciones en la función dan como resultado las llamadas en tiempo de ejecución `abandonAsync` en segundo plano. Si no se produce ninguna excepción, se llama a `completeAsync` en segundo plano. |
 |maxConcurrentCalls|16|Número máximo de llamadas simultáneas a la devolución de llamada que el bombeo de mensajes debe iniciar por instancia con escala. De forma predeterminada, el entorno de ejecución de Functions procesa simultáneamente varios mensajes.|
 |maxConcurrentSessions|2000|Número máximo de sesiones que se puede administrar simultáneamente por instancia con escala.|
 

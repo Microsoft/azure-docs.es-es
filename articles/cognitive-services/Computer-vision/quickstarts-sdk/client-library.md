@@ -10,14 +10,14 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: c08b733a3ecfaa3ce6204654cf01c1bac6f8bb20
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 699f2c3b16346a88bdd5828c32dc64225a712e05
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85560211"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852045"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Inicio rápido: Uso de la biblioteca cliente de Computer Vision
 

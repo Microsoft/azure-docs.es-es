@@ -145,7 +145,11 @@
         - name: Creación de usuarios
           href: howto-create-users.md
         - name: Cadenas de conexión
-          href: howto-connection-string.md
+          items:
+            - name: Conexión de aplicaciones
+              href: howto-connection-string.md
+            - name: Azure PowerShell
+              href: howto-connection-string-powershell.md
         - name: Configuración de SSL
           href: howto-configure-ssl.md
         - name: Configuración de TLS

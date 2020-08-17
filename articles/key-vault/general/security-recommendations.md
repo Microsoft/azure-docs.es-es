@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: 28b768e421ac72be363ab187312e52ba15d34970
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c541c848290988bb1f358f045abb2d0cd221de7
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83872987"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386765"
 ---
 # <a name="security-recommendations-for-azure-key-vault"></a>Recomendaciones de seguridad para Azure Key Vault
 
@@ -30,7 +30,7 @@ Algunas de las recomendaciones incluidas en este artículo se pueden supervisar 
 
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
-|Habilitación de la eliminación temporal | La [eliminación temporal](overview-soft-delete.md) permite recuperar almacenes y objetos de almacén eliminados. |  - |
+|Habilitación de la eliminación temporal | La [eliminación temporal](soft-delete-overview.md) permite recuperar almacenes y objetos de almacén eliminados. |  - |
 | Limitación del acceso a datos de almacén  | Siga el principio de privilegios mínimos y limite qué miembros de su organización tienen acceso a los datos del almacén. |  - |
 
 ## <a name="identity-and-access-management"></a>Administración de identidades y acceso

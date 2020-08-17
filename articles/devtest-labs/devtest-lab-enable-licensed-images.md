@@ -3,12 +3,12 @@ title: Habilitación de una imagen con licencia en su laboratorio en Azure DevTe
 description: Aprenda a habilitar una imagen con licencia en Azure DevTest Labs mediante Azure Portal
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6a4023a0107acf5aa4cabc2178d17f7be40301f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a043679e27580254c56fe118838dd355be5a58de
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481024"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286519"
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitación de una imagen con licencia en su laboratorio en Azure DevTest Labs
 
@@ -50,7 +50,7 @@ Siga estos pasos para habilitar la implementación mediante programación para u
     ![Configuración de la ventana de implementación mediante programación](./media/devtest-lab-create-custom-image-from-licensed-image/devtest-lab-licensed-images.png)
 
    > [!NOTE]
-   > Las máquinas virtuales de ciencia de datos son imágenes de Azure Virtual Machines preinstaladas, configuradas y probadas con varias de las herramientas más populares que se usan habitualmente para análisis de datos, aprendizaje automático y entrenamiento con inteligencia artificial. La [Introducción a la máquina virtual de ciencia de datos de Azure ](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) es una gran oportunidad para obtener información sobre DSVM.
+   > Las máquinas virtuales de ciencia de datos son imágenes de Azure Virtual Machines preinstaladas, configuradas y probadas con varias de las herramientas más populares que se usan habitualmente para análisis de datos, aprendizaje automático y entrenamiento con inteligencia artificial. La [Introducción a la máquina virtual de ciencia de datos de Azure ](../machine-learning/data-science-virtual-machine/overview.md) es una gran oportunidad para obtener información sobre DSVM.
    >
    >
 
@@ -78,7 +78,7 @@ Siga estos pasos para habilitar la implementación mediante programación para u
 
 ## <a name="related-blog-posts"></a>Entradas blogs relacionadas
 
-- [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
+- [Custom images or formulas? (¿Imágenes personalizadas o fórmulas?)](./devtest-lab-faq.md#blog-post)
 - [Copying Custom Images between Azure DevTest Labs (Copiar imágenes personalizadas entre instancias de Azure DevTest Labs)](https://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
 ## <a name="next-steps"></a>Pasos siguientes

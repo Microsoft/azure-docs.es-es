@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 1c8acd2d8055359288608f7bd2e5f54f8c4f6cc3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b49669dac2b28dac631f71b9cd07c0851ff8df05
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84809193"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448850"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Registros de Azure Monitor para el equilibrador de carga básica público
 
@@ -29,7 +29,7 @@ Puede usar diferentes tipos de registros en Azure para administrar y solucionar 
 * **Registro de sondeo de estado:** puede utilizar este registro para ver los problemas detectados por el sondeo de estado, como el número de instancias en el grupo back-end que no reciben las solicitudes del equilibrador de carga debido a errores de sondeo de estado. Este registro se escribe cuando se produce un cambio en el estatus del sondeo de estado.
 
 > [!IMPORTANT]
-> Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
+> **Los registros de eventos de sondeo de estado no funcionan en la actualidad y aparecen listados en los [problemas conocidos de Azure Load Balancer](whats-new.md#known-issues).** Los registros de Azure Monitor solo funcionan con los equilibradores de carga públicos. Los registros solo están disponibles para los recursos implementados en el modelo de implementación del Administrador de recursos. No puede usar los registros de recursos del modelo de implementación clásica. Para más información sobre estos modelos de implementación, consulte [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/management/deployment-models.md) (Descripción de la implementación de Resource Manager y la implementación clásica).
 
 ## <a name="enable-logging"></a>Habilitar registro
 
@@ -40,7 +40,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene un 
 1. En el portal, haga clic en **Grupos de recursos**.
 2. Seleccione el grupo de recursos **\<resource-group-name>** donde esté el equilibrador de carga.
 3. Seleccione el equilibrador de carga.
-4. Seleccione **Supervisión** > **Configuración de diagnóstico**.
+4. Seleccione **Registro de actividades** > **Configuración de diagnóstico**.
 5. En el panel **Configuración de diagnóstico**, en **Configuración de diagnóstico**, seleccione **+ Agregar configuración de diagnóstico**.
 6. En el panel de creación **Configuración de diagnóstico**, escriba **myLBDiagnostics** en el campo **Nombre**.
 7. Tiene tres opciones para la **Configuración de diagnóstico**.  Puede elegir una, dos o las tres y configurar cada una de ellas según sus requisitos:

@@ -117,14 +117,20 @@
               href: azure-stack-edge-manage-access-power-connectivity-mode.md
             - name: A través de PowerShell
               href: azure-stack-edge-connect-powershell-interface.md
-        - name: Solución de problemas
-          href: azure-stack-edge-troubleshoot.md
-        - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
-          href: azure-stack-edge-contact-microsoft-support.md
+            - name: Solución de problemas
+              items:
+                - name: Mediante registros
+                  href: azure-stack-edge-troubleshoot.md
+                - name: Problemas de ordenación
+                  href: azure-stack-edge-troubleshoot-ordering.md
+                - name: Ponerse en contacto con el servicio de soporte técnico de Microsoft
+                  href: azure-stack-edge-contact-microsoft-support.md
         - name: Supervisión
           href: azure-stack-edge-monitor.md
-        - name: Devolución o sustitución de dispositivo
+        - name: Dispositivo de retorno
           href: azure-stack-edge-return-device.md
+        - name: Dispositivo de sustitución
+          href: azure-stack-edge-replace-device.md
     - name: Notas de la versión
       items:
         - name: '2007: actual'
@@ -137,6 +143,14 @@
           href: data-box-gateway-1905-release-notes.md
         - name: Disponibilidad general (GA)
           href: data-box-gateway-release-notes.md
+    - name: Referencia
+      items:
+        - name: Azure PowerShell
+          href: 'https://docs.microsoft.com/powershell/module/az.stackedge/?view=azps-4.4.0#stack_edge'
+        - name: API DE REST
+          href: 'https://docs.microsoft.com/rest/api/databoxedgegateway'
+        - name: .NET SDK
+          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/databoxedge/databoxgateway?view=azure-dotnet'
 - name: Recursos
   items:
     - name: Ejemplos de módulo de C# de Azure Stack Edge (. NET)

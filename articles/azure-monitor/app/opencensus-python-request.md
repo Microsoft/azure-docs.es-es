@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.custom: tracking-python
-ms.openlocfilehash: c9d69c0f39d9cad52dc86c3ab33d202c88131ab0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: c94bc949f13ee19a9d2150c9d3c1b6a2bdb959b2
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753205"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850073"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Seguimiento de las solicitudes entrantes con OpenCensus para Python
 
 Los datos de solicitudes entrantes se recopilan con OpenCensus para Python y sus diversas integraciones. Realice el seguimiento de los datos de solicitudes entrantes enviados a las aplicaciones web creadas sobre los marcos web más populares `django`, `flask` y `pyramid`. Los datos se envían después a Application Insights en Azure Monitor como telemetría `requests`.
 
-En primer lugar, instrumente la aplicación con el [SDK de OpenCensus para Python](../../azure-monitor/app/opencensus-python.md) más reciente.
+En primer lugar, instrumente la aplicación con el [SDK de OpenCensus para Python](./opencensus-python.md) más reciente.
 
 ## <a name="tracking-django-applications"></a>Seguimiento de aplicaciones de Django
 
@@ -119,8 +119,9 @@ En primer lugar, instrumente la aplicación con el [SDK de OpenCensus para Pytho
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Mapa de aplicación](../../azure-monitor/app/app-map.md)
-* [Disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Búsqueda](../../azure-monitor/app/diagnostic-search.md)
-* [Consulta de Log (Analytics)](../../azure-monitor/log-query/log-query-overview.md)
-* [Diagnósticos de transacción](../../azure-monitor/app/transaction-diagnostics.md)
+* [Mapa de aplicación](./app-map.md)
+* [Disponibilidad](./monitor-web-app-availability.md)
+* [Búsqueda](./diagnostic-search.md)
+* [Consulta de Log (Analytics)](../log-query/log-query-overview.md)
+* [Diagnósticos de transacción](./transaction-diagnostics.md)
+

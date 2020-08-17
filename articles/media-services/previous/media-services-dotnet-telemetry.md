@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1ffaefc51121aeb7421d6e49a3c0e58c76d4391e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c101f6f2007e9d772f03be5d69e56d5f52866d6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "61464953"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052773"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-net"></a>Configuración de la telemetría de Azure Media Services con .NET 
 
@@ -30,7 +30,7 @@ En este artículo se describen los pasos generales que puede llevar a cabo al co
 
 Puede utilizar los datos de telemetría de una de las maneras siguientes:
 
-- Leer datos directamente desde Azure Table Storage (por ejemplo, mediante el SDK de Storage). Para obtener la descripción de las tablas de almacenamiento de telemetría, consulte la sección sobre el **uso de información de telemetría** de [este](https://msdn.microsoft.com/library/mt742089.aspx) artículo.
+- Leer datos directamente desde Azure Table Storage (por ejemplo, mediante el SDK de Storage). Para obtener la descripción de las tablas de almacenamiento de telemetría, consulte la sección sobre el **uso de información de telemetría** de [este](/previous-versions/azure/mt742089(v=azure.100)) artículo.
 
 Or
 

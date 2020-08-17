@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 34b1ce42850fcefcc2b0d146e7f33d720fd8062d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a99499110951ccbc0458b5ce848930fed9205dad
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202534"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372044"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Use la interfaz de usuario web local para administrar los dispositivos Data Box y Data Box Heavy
 
@@ -35,7 +35,7 @@ Este artículo incluye los siguientes tutoriales:
 
 Si experimenta los problemas con el dispositivo, puede crear un paquete de soporte técnico de los registros del sistema. El Soporte técnico de Microsoft usa este paquete para solucionar el problema. Para generar un paquete de soporte técnico, realice los pasos siguientes:
 
-1. En la interfaz de usuario web local, vaya a **Contacto con soporte técnico** y haga clic en **Crear un paquete de soporte técnico**.
+1. En la interfaz de usuario web local, vaya a **Ponerse en contacto con el soporte técnico** y haga clic en **Crear un paquete de soporte técnico**.
 
     ![Crear el paquete de soporte técnico 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,14 +43,13 @@ Si experimenta los problemas con el dispositivo, puede crear un paquete de sopor
 
     ![Crear el paquete de soporte técnico 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Una vez completada la creación del paquete de soporte técnico, haga clic en **Descargar el paquete de soporte técnico**. 
+3. Una vez completada la creación del paquete de soporte técnico, seleccione **Descargar el paquete de soporte técnico**.
 
     ![Crear el paquete de soporte técnico 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
 4. Busque y elija la ubicación de descarga. Abra la carpeta para ver el contenido.
 
     ![Crear el paquete de soporte técnico 5](media/data-box-local-web-ui-admin/create-support-package-5.png)
-
 
 ## <a name="shut-down-or-restart-your-device"></a>Apagar o reiniciar el dispositivo
 
@@ -59,7 +58,7 @@ Puede apagar o reiniciar el dispositivo virtual mediante la interfaz de usuario 
 Para apagar el dispositivo, siga estos pasos.
 
 1. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
-2. Haga clic en **Apagar**.
+2. Seleccione **Apagar**.
 
     ![Apagar Data Box 1](media/data-box-local-web-ui-admin/shut-down-local-web-ui-1.png)
 
@@ -72,11 +71,11 @@ Una vez que el dispositivo se apague, use el botón de encendido del panel front
 Para reiniciar su Data Box, realice los pasos siguientes.
 
 1. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
-2. Haga clic en **Restart**(Reiniciar).
+2. Seleccione **Reiniciar**.
 
     ![Reiniciar Data Box 1](media/data-box-local-web-ui-admin/restart-local-web-ui-1.png)
 
-3. Cuando se le pida confirmación, haga clic en **Aceptar** para continuar.
+3. Cuando se le pida confirmación, seleccione **Aceptar** para continuar.
 
    El dispositivo se apaga y, a continuación, se reinicia.
 
@@ -90,9 +89,9 @@ Antes de comenzar, asegúrese de completar en el dispositivo el paso **Preparaci
 
     ![Dispositivo listo para el envío](media/data-box-portal-admin/ready-to-ship.png)
 
-2. Haga clic en **Download list of files** (Descargar lista de archivos) para descargar la lista de archivos que se copiaron en Data Box.
+2. Seleccione **Descargar lista de archivos** para descargar la lista de archivos que se copiaron en Data Box.
 
-    ![Haga clic en Download list of files (Descargar lista de archivos)](media/data-box-portal-admin/download-list-of-files.png)
+    ![Seleccionar Descargar lista de archivos](media/data-box-portal-admin/download-list-of-files.png)
 
 3. En el Explorador de archivos, verá que se generan listas de archivos independientes según el protocolo utilizado para conectarse al dispositivo y el tipo de instancia de Azure Storage empleado.
 
@@ -179,10 +178,51 @@ Recomendamos encarecidamente que no deshabilite la suma de comprobación, a meno
     ![Deshabilitar la suma de comprobación](media/data-box-local-web-ui-admin/disable-checksum.png)
 
 2. **Deshabilite** la validación de la suma de comprobación.
-3. Haga clic en **Aplicar**.
+3. Seleccione **Aplicar**.
 
 > [!NOTE]
 > La opción para omitir el cálculo de la suma de comprobación solo está disponible cuando Azure Data Box está desbloqueado. No verá esta opción cuando el dispositivo esté bloqueado.
 
-- Obtenga información sobre cómo [administrar Data Box y Data Box Heavy mediante Azure Portal](data-box-portal-admin.md).
+## <a name="enable-smb-signing"></a>Habilitación de la firma de SMB
 
+La firma del bloque de mensajes del servidor (SMB) es una característica que permite firmar digitalmente las comunicaciones que usan SMB en el nivel de paquete. Esta firma evita ataques que modifican los paquetes SMB en tránsito.
+
+Para obtener más información relacionada con la firma de SMB, consulte [Introducción a la firma del bloque de mensajes de servidor](https://support.microsoft.com/help/887429/overview-of-server-message-block-signing).
+
+Para habilitar la firma de SMB en el dispositivo de Azure:
+
+1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
+
+    ![Abrir Configuración](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Habilite** la firma de SMB.
+
+    ![Habilitación de la firma de SMB](media/data-box-local-web-ui-admin/data-box-smb-signing-1.png)
+
+3. Seleccione **Aplicar**.
+4. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
+5. Seleccione **Reiniciar**.
+
+## <a name="enable-tls-11"></a>Habilitación de TLS 1.1
+
+De manera predeterminada, Azure Data Box usa la Seguridad de la capa de transporte (TLS) 1.2 para el cifrado, ya que es más segura que TSL 1.1. Sin embargo, si usted o sus clientes usan un explorador para obtener acceso a datos que no admiten TLS 1.2, puede habilitar TLS 1.1.
+
+Para obtener más información relacionada con TLS, consulte [Seguridad de Azure Data Box Gateway](../databox-online/data-box-gateway-security.md).
+
+Para habilitar TLS 1.1 en el dispositivo de Azure:
+
+1. En la esquina superior derecha de la interfaz de usuario web local del dispositivo, seleccione **Configuración**.
+
+    ![Abrir Configuración](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+
+2. **Habilite** TLS 1.1.
+
+    ![Habilitación de TLS 1.1](media/data-box-local-web-ui-admin/data-box-tls-1-1.png)
+
+3. Seleccione **Aplicar**.
+4. En la interfaz de usuario web local, vaya a **Apagar o reiniciar**.
+5. Seleccione **Reiniciar**.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Obtenga información sobre cómo [administrar Data Box y Data Box Heavy mediante Azure Portal](data-box-portal-admin.md).

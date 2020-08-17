@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 88f06bd30c97f857cd5a81068322a95c480a7b34
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187428"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562691"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Base de referencia de seguridad de Azure para Automation
 
@@ -34,7 +34,7 @@ Para obtener más aislamiento para los runbooks, puede usar instancias de Hybrid
 
 Como alternativa, si tiene un requisito específico, también puede usarse Azure Firewall para cumplirlo.
 
-* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/network-overview.md)
 
 * [Creación de una red virtual](../virtual-network/quick-create-portal.md)
 
@@ -66,7 +66,7 @@ Aunque las reglas de grupo de seguridad de red y las rutas definidas por el usua
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -220,7 +220,7 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel o en una 
 
 * [Regiones admitidas para el área de trabajo de Log Analytics vinculada](./how-to/region-mappings.md)
 
-* [Consulta de registros de Update Management](./automation-update-management-query-logs.md)
+* [Consulta de registros de Update Management](./update-management/update-mgmt-query-logs.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -320,7 +320,7 @@ Sin embargo, al usar la característica Hybrid Runbook Worker, puede usar Micros
 
 **Guía**: Al usar Azure Automation con los trabajadores de runbooks multiinquilino, este control no es aplicable y la plataforma controla las máquinas virtuales subyacentes.
 
-Sin embargo, al usar la característica Hybrid Runbook Worker, Azure Security Center proporciona la supervisión del registro de eventos de seguridad para Azure Virtual Machines. Security Center aprovisiona el agente de Log Analytics en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen si el aprovisionamiento automático está habilitado. O bien puede instalar el agente manualmente. El agente habilita el evento 4688 de creación de procesos y el campo commandline dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la máquina virtual y los servicios de detección de Security Center supervisa dichos procesos.
+Sin embargo, al usar la característica Hybrid Runbook Worker, Azure Security Center proporciona la supervisión del registro de eventos de seguridad para Azure Virtual Machines. Security Center aprovisiona el agente de Log Analytics en todas las máquinas virtuales de Azure compatibles y en las nuevas que se creen si el aprovisionamiento automático está habilitado. O bien puede instalar el agente manualmente. El agente habilita el evento 4688 de creación de procesos y el campo commandline dentro del evento 4688. El registro de eventos registra los nuevos procesos creados en la máquina virtual y los servicios de detección de Security Center los supervisan.
 
 * [Recopilación de datos en Azure Security Center](../security-center/security-center-enable-data-collection.md#data-collection-tier)
 
@@ -646,9 +646,9 @@ Al usar instancias de Hybrid Runbook Worker, los discos virtuales de las máquin
 
 Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machines, use Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Update Management en Azure](./automation-update-management.md)
+* [Update Management en Azure](./update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./automation-tutorial-update-management.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -660,9 +660,9 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machines, puede usar Azure Update Management para administrar las actualizaciones y las revisiones de las máquinas virtuales. Update Management se basa en el repositorio de actualización configurado localmente para aplicar revisiones a sistemas de Windows compatibles. Herramientas como System Center Updates Publisher (Updates Publisher) le permiten publicar actualizaciones personalizadas en Windows Server Update Services (WSUS). Este escenario permite que Update Management aplique revisiones a las máquinas que usan Configuration Manager como repositorio de actualizaciones con software de terceros.
 
-* [Solución Update Management de Azure](./automation-update-management.md)
+* [Solución Update Management de Azure](./update-management/update-mgmt-overview.md)
 
-* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./automation-tutorial-update-management.md)
+* [Administración de actualizaciones y revisiones para las máquinas virtuales de Azure](./update-management/update-mgmt-manage-updates-for-vm.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -742,7 +742,7 @@ Si usa instancias de Hybrid Runbook Worker respaldadas por Azure Virtual Machine
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: Supervisión de recursos de Azure no aprobados
 
-**Instrucciones**: Use Azure Policy para aplicar restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Guía**: Use Azure Policy para aplicar restricciones en el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 - Tipos de recursos no permitidos
 - Tipos de recursos permitidos
 
@@ -848,7 +848,7 @@ El control de aplicaciones adaptables es una solución de un extremo a otro inte
 
 **Guía**: Las aplicaciones de alto riesgo implementadas en el entorno de Azure se pueden aislar mediante una red y contenedores de recursos independientes, con construcciones como redes virtuales, subred, suscripciones, grupos de administración, y pueden protegerse suficientemente con una instancia de Azure Firewall, un firewall de aplicaciones web (WAF) o un grupo de seguridad de red (NSG).
 
-* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/windows/network-overview.md)
+* [Redes virtuales y máquinas virtuales en Azure](../virtual-machines/network-overview.md)
 
 * [Información general de Azure Firewall](../firewall/overview.md)
 
@@ -918,7 +918,7 @@ Cuando se usa la característica Hybrid Runbook Worker, use la recomendación de
 
 * [Descripción de los efectos de Azure Policy](../governance/policy/concepts/effects.md)
 
-* [Implementación de una cuenta de Automation con una plantilla de Azure Resource Manager](./automation-create-account-template.md#deploy-the-template)
+* [Implementación de una cuenta de Automation con una plantilla de Azure Resource Manager](./quickstart-create-automation-account-template.md#deploy-the-template)
 
 * [Complementos de ejemplo de Azure Policy para Azure Automation](./policy-samples.md)
 
@@ -1064,7 +1064,7 @@ Cuando use la característica Hybrid Runbook Worker, use State Configuration de 
 
 **Instrucciones**: Implemente el escáner de credenciales para identificar las credenciales en el código. El escáner de credenciales también fomenta el traslado de credenciales detectadas a ubicaciones más seguras, como Azure Key Vault.
 
-* [Configuración del escáner de credenciales](https://secdevtools.azurewebsites.net/helpcredscan.htm)
+* [Configuración del escáner de credenciales](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -1124,7 +1124,7 @@ Use la característica de integración del control de código fuente para manten
 
 * [Referencia de plantillas de Azure Resource Manager para recursos de Azure Automation](/azure/templates/microsoft.automation/allversions)
 
-* [Creación de una cuenta de Automation con una plantilla de Azure Resource Manager](./automation-create-account-template.md)
+* [Creación de una cuenta de Automation con una plantilla de Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Exportación de uno y varios recursos a una plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1150,7 +1150,7 @@ Use la característica de integración del control de código fuente para manten
 
 * [Referencia de plantillas de Azure Resource Manager para recursos de Azure Automation](/azure/templates/microsoft.automation/allversions)
 
-* [Creación de una cuenta de Automation con una plantilla de Azure Resource Manager](./automation-create-account-template.md)
+* [Creación de una cuenta de Automation con una plantilla de Azure Resource Manager](./quickstart-create-automation-account-template.md)
 
 * [Exportación de uno y varios recursos a una plantilla en Azure Portal](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -1232,7 +1232,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="103-test-security-response-procedures"></a>10.3: Prueba de los procedimientos de respuesta de seguridad
 
-**Guía**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente para ayudar a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
+**Instrucciones**: Realice ejercicios para probar las funcionalidades de respuesta a los incidentes de los sistemas periódicamente; así, ayudará a proteger los recursos de Azure. Identifique puntos débiles y brechas y revise el plan según sea necesario.
 
 * [Publicación de NIST: Guía para probar, entrenar y ejecutar programas para planes y funcionalidades de TI](https://csrc.nist.gov/publications/detail/sp/800-84/final)
 
@@ -1278,7 +1278,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 
-**Guía**: Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft. Use la estrategia de Microsoft y la ejecución de pruebas de penetración de sitios activos y ataques simulados en la infraestructura en la nube, los servicios y las aplicaciones administrados por Microsoft.
+**Guía**: Siga las reglas de compromiso de Microsoft para asegurarse de que las pruebas de penetración no infrinjan las directivas de Microsoft. Use la estrategia de Microsoft y la ejecución de las pruebas de penetración del equipo rojo y sitios activos en la infraestructura de nube, los servicios y las aplicaciones administradas por Microsoft.
 
 * [Reglas de interacción de las pruebas de penetración](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 

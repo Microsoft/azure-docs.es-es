@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/19/2018
 ms.author: liydu
-ms.openlocfilehash: 6bebe8ac6b9869466938600d6267fd0062c84477
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dae797e73d52391288a5e8b7cf4a5c6ab2a122fc
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75977293"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337881"
 ---
 # <a name="door-monitor----using-azure-functions-and-sendgrid-send-email-when-a-door-is-opened"></a>Monitor de puerta: uso de Azure Functions y SendGrid, envío de correo electrónico cuando se abre una puerta           
 
@@ -197,7 +197,4 @@ Si tiene algún problema, consulte las [preguntas más frecuentes de DevKit de I
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ha aprendido a conectar un dispositivo de DevKit al acelerador de soluciones de supervisión remota de Azure IoT y a utilizar el servicio SendGrid para enviar un correo electrónico. Estos son los siguientes pasos que le sugerimos:
-
-* [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)
-* [Connect an MXChip IoT DevKit device to your Microsoft IoT Central application](/azure/iot-central/core/howto-connect-devkit) (Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Microsoft IoT Central)
+Ha aprendido a conectar un dispositivo de DevKit al acelerador de soluciones de supervisión remota de Azure IoT y a utilizar el servicio SendGrid para enviar un correo electrónico. El siguiente paso sugerido es: [Información general sobre el acelerador de la solución de supervisión remota de Azure IoT](https://docs.microsoft.com/azure/iot-suite/)

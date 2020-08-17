@@ -3,12 +3,12 @@ title: Creación de alertas de Resource Health mediante Azure Portal
 description: Cree una alerta mediante Azure Portal que notifique cuándo dejan de estar disponibles los recursos de Azure.
 ms.topic: conceptual
 ms.date: 6/23/2020
-ms.openlocfilehash: b44df4f63fa2ae2bde9be431e2df268144a036fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3a0f4704880d040106a2e4112d621b6d8ffbede6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091579"
 ---
 # <a name="configure-resource-health-alerts-using-azure-portal"></a>Configuración de alertas del estado de los recursos mediante Azure Portal
 
@@ -45,7 +45,7 @@ Alerta de Resource Health mediante Azure Portal
 1. En Azure [Portal](https://portal.azure.com/), seleccione **Mantenimiento del servicio**.
 
     ![Selección de Mantenimiento del servicio](./media/resource-health-alert-monitor-guide/service-health-selection.png)
-2. En la sección **Estado de los recursos**, seleccione **Estado de los recursos**.
+2. En la sección **Estado de los recursos**, seleccione **Service Health**.
 3. Seleccione **Add resource health alert** (Agregar alerta de mantenimiento del recurso) y rellene los campos.
 4. En Destino de la alerta, seleccione estos datos para los que desea recibir alertas: **Suscripción**, **Tipos de recursos**, **Grupos de recursos** y **Recurso**.
 

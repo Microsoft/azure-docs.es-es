@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: cshoe
-ms.openlocfilehash: 72a76fb513dc6eb008fcf1d1e19ffc33e713cfdc
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 6738f598275e91ce8a811c3ef6bcc6d5dc84e0bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259259"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089505"
 ---
 # <a name="quickstart-building-your-first-static-web-app"></a>Inicio rápido: creación de la primera aplicación web estática
 
@@ -68,8 +68,8 @@ Ahora que se ha creado el repositorio, puede crear una aplicación web estática
 
 - Vaya a [Azure Portal](https://portal.azure.com).
 - Haga clic en **Crear un recurso**.
-- Busque **Static Web Apps**.
-- Haga clic en **Static Web Apps (Preview)** (Static Web Apps [versión preliminar]).
+- Busque **Static Web Apps**.
+- Haga clic en **Static Web Apps (Preview)** (Static Web Apps (versión preliminar)).
 - Haga clic en **Crear**
 
 ### <a name="basics"></a>Aspectos básicos
@@ -96,6 +96,9 @@ Una vez que inicie sesión con GitHub, escriba la información del repositorio.
 - Haga clic en el botón **Siguiente: Compilar >** para editar la configuración de compilación.
 
 :::image type="content" source="media/getting-started/next-build-button.png" alt-text="Botón Siguiente: Compilar":::
+
+> [!NOTE]
+>  Si no ve ningún repositorio, es posible que deba autorizar Azure Static Web Apps en GitHub. Vaya al repositorio de GitHub y, a continuación, a **Configuración > Aplicaciones > Aplicaciones de OAuth autorizadas**, seleccione **Azure Static Web Apps** y, después, **Conceder**. En el caso de los repositorios de la organización, debe ser propietario de la organización para conceder los permisos.
 
 ### <a name="build"></a>Build
 

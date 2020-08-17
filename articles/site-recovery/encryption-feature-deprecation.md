@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: rajanaki
-ms.openlocfilehash: b9d333467864f67bc357314830ff885af4232ba0
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 79c129fee6d0339eed752abe94059fa566859bc0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133196"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086190"
 ---
 # <a name="deprecation-of-site-recovery-data-encryption-feature"></a>Desuso de la característica de cifrado de datos de Site Recovery
 
@@ -22,14 +22,14 @@ En este documento se describen los detalles de desuso y la acción correctiva qu
 ## <a name="deprecation-information"></a>Información sobre el desuso
 
 
-El cifrado de datos de Site Recovery estaba disponible para los clientes que protegen máquinas virtuales de Hyper-V para asegurarse de que los datos replicados estaban protegidos contra amenazas de seguridad. Esta característica estará en desuso el **30 de diciembre de 2019**. Se está reemplazando por la característica más avanzada [Cifrado en reposo](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/), que usa [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE). Con SSE, los datos se cifran antes de guardarse en el almacenamiento y se descifran en la recuperación y, tras la conmutación por error en Azure, las máquinas virtuales se ejecutarán desde las cuentas de almacenamiento cifradas, lo que permite un mejor objetivo de tiempo de recuperación (RTO).
+El cifrado de datos de Site Recovery estaba disponible para los clientes que protegen máquinas virtuales de Hyper-V para asegurarse de que los datos replicados estaban protegidos contra amenazas de seguridad. Esta característica caerá en desuso el **30 de abril de 2022**. Se está reemplazando por la característica más avanzada [Cifrado en reposo](https://azure.microsoft.com/blog/azure-site-recovery-encryption-at-rest/), que usa [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE). Con SSE, los datos se cifran antes de guardarse en el almacenamiento y se descifran en la recuperación y, tras la conmutación por error en Azure, las máquinas virtuales se ejecutarán desde las cuentas de almacenamiento cifradas, lo que permite un mejor objetivo de tiempo de recuperación (RTO).
 
 Tenga en cuenta que si es un cliente que usa esta característica, ya habrá recibido información con los detalles de desuso y los pasos de corrección. 
 
 
 ## <a name="what-are-the-implications"></a>¿Qué implica este cambio?
 
-Después del **30 de diciembre de 2019**, cualquier máquina virtual que siga usando la característica de cifrado retirada no podrá realizar la conmutación por error. 
+Después del **30 de abril de 2022**, cualquier VM que siga usando la característica de cifrado retirada no podrá realizar la conmutación por error. 
 
 ## <a name="required-action"></a>Acción necesaria
 Para continuar con las operaciones de conmutación por error correctas y las replicaciones, siga los pasos que se mencionan a continuación:
@@ -44,4 +44,3 @@ Después de completar la replicación inicial en las cuentas de almacenamiento c
 
 ## <a name="next-steps"></a>Pasos siguientes
 Planee la realización de los pasos de corrección y ejecútelos lo más pronto posible. En caso de que tenga consultas relacionadas, póngase en contacto con Soporte técnico de Microsoft. Para más información sobre el escenario de Hyper-V a Azure, visite [este sitio](hyper-v-vmm-architecture.md).
-

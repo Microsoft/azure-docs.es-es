@@ -1,19 +1,19 @@
 ---
 title: Procedimientos recomendados del servicio Search de Azure Maps | Microsoft Azure Maps
 description: Obtenga información sobre cómo poner en marcha algunos procedimientos recomendados relativos al servicio Search de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8f8f5a2f605f8e8b7109267e5223593eb1e2cfb9
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 5e98763a3a1c8273cdeec5e945dd324ae43e773f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84264373"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87064265"
 ---
 # <a name="best-practices-for-azure-maps-search-service"></a>Procedimientos recomendados del servicio Search de Azure Maps
 
@@ -28,7 +28,7 @@ En este artículo se explica cómo aplicar buenas prácticas cuando se llama a d
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar llamadas a las API de servicio de Azure Maps, necesita una cuenta de Azure Maps y una clave. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
+Para realizar llamadas a las API de servicio de Azure Maps, necesita una cuenta de Azure Maps y una clave. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-azure-maps-account) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). 
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
 

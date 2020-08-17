@@ -5,20 +5,20 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9604f0c6eeb9d0ac4b7d07f1ab1ba03285fd60fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a552f03c8a8fa05ed7d2c6eb87374d4e7e17838d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640063"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070086"
 ---
-# <a name="how-to-scale-your-time-series-insights-environment"></a>Escalado de su entorno de Time Series Insights
+# <a name="how-to-scale-your-azure-time-series-insights-gen1-environment"></a>Escalado del entorno de Azure Time Series Insights Gen1
 
 En este artículo se describe cómo cambiar la capacidad de su entorno de Azure Time Series Insights mediante [Azure Portal](https://portal.azure.com). La capacidad es el multiplicador que se aplica a la tasa de entrada, la capacidad de almacenamiento y el costo asociado a la SKU seleccionada.
 
@@ -32,11 +32,11 @@ Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un en
 
 ## <a name="change-the-capacity-of-your-environment"></a>Cambio de la capacidad del entorno
 
-1. En Azure Portal, localice y seleccione el entorno de Time Series Insights.
+1. En Azure Portal, localice y seleccione el entorno de Azure Time Series Insights.
 
-1. En el menú de su entorno de Time Series Insights, seleccione **Configuración de almacenamiento**.
+1. En el menú de su entorno de Azure Time Series Insights, seleccione **Configuración de almacenamiento**.
 
-   [![Configuración de la capacidad de Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
+   [![Configuración de la capacidad de Azure Time Series Insights](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. Utilice el control deslizante **Capacidad** para seleccionar la que cumpla los requisitos para la velocidad de entrada y la capacidad de almacenamiento. Tenga en cuenta la **velocidad de entrada**, **la capacidad de almacenamiento** y las actualizaciones de la **estimación de costos** dinámicamente para mostrar el efecto del cambio.
 
@@ -50,7 +50,7 @@ Sin embargo, el plan de tarifa de la SKU no se puede cambiar. Por ejemplo, un en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener más información, consulte [Understanding retention in Time Series Insights](time-series-insights-concepts-retention.md) (Información sobre la retención en Time Series Insights).
+- Para más información, consulte [Descripción de la retención de datos en Azure Time Series Insights](time-series-insights-concepts-retention.md).
 
 - Aprenda a [configurar la retención de datos en Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 

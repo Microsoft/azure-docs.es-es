@@ -12,18 +12,18 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 85a9cad80156dc6ac40e78610c91805d485ff3df
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 49226ba703e8ade963b368616102db035b3c07ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80585991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092072"
 ---
 # <a name="content-key-policies"></a>Directivas de clave de contenido
 
 Con Media Services puede entregar el contenido cifrado de forma dinámica en vivo y a petición con el Estándar de cifrado avanzado (AES-128) o cualquiera de los tres sistemas de administración de derechos digitales (DRM) principales: Microsoft PlayReady, Google Widevine y Apple FairPlay. Media Services también proporciona un servicio para entregar claves AES y licencias de DMR (PlayReady, Widevine y FairPlay) a los clientes autorizados. 
 
-Para especificar opciones de cifrado en la secuencia, debe crear la [directiva de streaming](streaming-policy-concept.md) y asociarla con su [localizador de streaming](streaming-locators-concept.md). La [directiva de clave de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies) se crea para configurar el modo en que la clave de contenido (que proporciona acceso seguro a sus [recursos](assets-concept.md)) se entrega a los clientes finales. Debe establecer los requisitos (restricciones) en la directiva de clave de contenido que se deben cumplir para que las claves con la configuración especificada se entreguen a los clientes. La directiva de clave de contenido no es necesaria para el streaming ni la descarga sin cifrar. 
+Para especificar opciones de cifrado en la secuencia, debe crear la [directiva de streaming](streaming-policy-concept.md) y asociarla con su [localizador de streaming](streaming-locators-concept.md). La [directiva de clave de contenido](/rest/api/media/contentkeypolicies) se crea para configurar el modo en que la clave de contenido (que proporciona acceso seguro a sus [recursos](assets-concept.md)) se entrega a los clientes finales. Debe establecer los requisitos (restricciones) en la directiva de clave de contenido que se deben cumplir para que las claves con la configuración especificada se entreguen a los clientes. La directiva de clave de contenido no es necesaria para el streaming ni la descarga sin cifrar. 
 
 Por lo general, se asocia la directiva de clave de contenido con el [localizador de streaming](streaming-locators-concept.md). Como alternativa, puede especificar la directiva de clave de contenido dentro de una [directiva de streaming](streaming-policy-concept.md) (al crear una directiva de streaming personalizada para escenarios avanzados). 
 
@@ -43,7 +43,7 @@ Por lo general, se asocia la directiva de clave de contenido con el [localizador
 * Si tiene que crear una nueva directiva, tiene que crear un nuevo localizador de streaming para el recurso.
 * Se recomienda permitir que Media Services genere automáticamente la clave de contenido. 
 
-   Normalmente, usaría una clave de larga duración y comprobaría la existencia de la directiva de clave de contenido con [Get](https://docs.microsoft.com/rest/api/media/contentkeypolicies/get). Para obtener la clave, debe llamar a un método de acción independiente para conseguir los secretos o credenciales. Vea el ejemplo siguiente.
+   Normalmente, usaría una clave de larga duración y comprobaría la existencia de la directiva de clave de contenido con [Get](/rest/api/media/contentkeypolicies/get). Para obtener la clave, debe llamar a un método de acción independiente para conseguir los secretos o credenciales. Vea el ejemplo siguiente.
 
 ## <a name="example"></a>Ejemplo
 

@@ -1,5 +1,5 @@
 ---
-title: archivo de inclusión
+title: Archivo de inclusión
 description: archivo de inclusión
 services: backup
 author: dcurwin
@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: c0f717e26534151585a51badf4bb1fe1ba58eb00
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8586d90631e8d38fa020ff9dab3f626aaedb2760
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970539"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003826"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
@@ -51,6 +51,10 @@ Para crear un almacén de Recovery Services, siga los pasos que se indican a con
       > Si no está seguro de la ubicación del origen de datos, cierre el cuadro de diálogo. Vaya a la lista de recursos en el portal. Si tiene orígenes de datos en varias regiones, cree un almacén de Recovery Services para cada una de ellas. Cree el almacén en la primera ubicación, antes de crear el almacén de otra. No es preciso especificar cuentas de almacenamiento para almacenar los datos de la copia de seguridad. Tanto el almacén de Recovery Services como Azure Backup lo controlan automáticamente.
       >
       >
+
+1. Después de especificar los valores, seleccione **Revisar y crear**.
+
+    ![Crear almacén de Recovery Services](./media/backup-create-rs-vault/review-and-create.png)
 
 1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
 

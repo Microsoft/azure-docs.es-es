@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 2679bc8a9ddf9f748cd0e9d51e1534d120484d0c
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 29190cee748db17caee32497de5512bee736bae0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047723"
 ---
 # <a name="how-to-identify-scenarios-and-plan-for-advanced-analytics-data-processing"></a>Identificación de escenarios y planeamiento del procesamiento analítico avanzado de datos
 
@@ -145,7 +145,7 @@ Hay muchas opciones para lenguajes, entornos de desarrollo y herramientas. Sea c
 
 ### <a name="what-tools-should-you-use-for-data-analysis"></a>¿Qué herramientas debe usar para analizar los datos?
 
-* [Microsoft Azure PowerShell](/powershell/azure/overview): un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script
+* [Microsoft Azure PowerShell](/powershell/azure/): un lenguaje de script que se usa para administrar los recursos de Azure en un lenguaje de script
 * [Azure Machine Learning Studio](../studio/what-is-ml-studio.md)
 * [Revolution Analytics](https://www.microsoft.com/sql-server/machinelearningserver)
 * [RStudio](https://www.rstudio.com)

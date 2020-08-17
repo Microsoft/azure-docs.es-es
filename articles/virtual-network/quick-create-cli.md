@@ -1,7 +1,7 @@
 ---
 title: 'Inicio rápido: Creación de una red virtual mediante la CLI de Azure'
 titlesuffix: Azure Virtual Network
-description: En esta guía de inicio rápido, aprenderá a crear una red virtual mediante la CLI de Azure. Una red virtual permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada entre sí y con Internet.
+description: En esta guía de inicio rápido, aprenda a crear una red virtual mediante la CLI de Azure. Una red virtual permite que los recursos de Azure se comuniquen entre sí y con Internet.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 2a4c63aeaa303692fa0f2d115a3df0d80cfab0b1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 5421ea73d13683948baa1cff828cb8422668ed6d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80235196"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489561"
 ---
-# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Guía de inicio rápido: Creación de una red virtual mediante la CLI de Azure
+# <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>Inicio rápido: Creación de una red virtual mediante la CLI de Azure
 
 Una red virtual permite que los recursos de Azure, como las máquinas virtuales, se comuniquen de manera privada entre sí y con Internet. En esta guía de inicio rápido aprenderá a crear una red virtual. Después de crear una red virtual, implementará dos máquinas virtuales en la red virtual. Luego, conéctese a las máquinas virtuales desde Internet y, de manera privada, comuníquese a través de la red virtual nueva.
 

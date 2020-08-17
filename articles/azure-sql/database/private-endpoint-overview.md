@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: cd2f88d78a967b46c1983e7eb96328c14d90a81a
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 730109a096b352b6d179693293128b465e0be83f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84344006"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063264"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Azure Private Link para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -146,7 +146,7 @@ El resultado muestra que una dirección IP está activa, la cual corresponde a l
 
 ### <a name="check-connectivity-using-sql-server-management-studio-ssms"></a>Comprobación de la conectividad mediante SQL Server Management Studio (SSMS)
 > [!NOTE]
-> Use el **nombre de dominio completo (FQDN)** del servidor en las cadenas de conexión de los clientes. Cualquier intento de inicio de sesión realizado directamente en la dirección IP generará un error. Este comportamiento es así por diseño, ya que el punto de conexión privado enruta el tráfico a SQL Gateway en la región y es preciso especificar el nombre de dominio completo para que los inicios de sesión se realicen correctamente.
+> Use el **nombre de dominio completo (FQDN)** del servidor en las cadenas de conexión de los clientes (`<server>.database.windows.net`). Cualquier intento de inicio de sesión realizado directamente en la dirección IP o con el nombre de dominio completo del vínculo privado (`<server>.privatelink.database.windows.net`) generará un error. Este comportamiento es así por diseño, ya que el punto de conexión privado enruta el tráfico a la puerta de enlace de SQL de la región y es preciso especificar el nombre de dominio completo correcto para que los inicios de sesión se realicen correctamente.
 
 Siga los pasos para usar [SSMS para conectarse a SQL Database](connect-query-ssms.md). Tras conectarse a SQL Database mediante SSMS, compruebe que ha establecido la conexión desde la dirección IP de la máquina virtual de Azure, para lo que debe ejecutar la siguiente consulta:
 

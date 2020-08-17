@@ -1,14 +1,14 @@
 ---
-title: 'Pruebas de DevOps: LUIS'
+title: Prueba de DevOps para aplicaciones de LUIS
 description: Cómo probar una aplicación de Language Understanding (LUIS) en un entorno de DevOps.
 ms.topic: conceptual
 ms.date: 06/3/2020
-ms.openlocfilehash: dceced66d47ec78364b6f18462e66cb3eb407c85
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 2556d2e904aff720bc02e4c7d58bf5a72af4d413
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783639"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538078"
 ---
 # <a name="testing-for-luis-devops"></a>Pruebas de DevOps de LUIS
 

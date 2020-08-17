@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres de VMware con Azu
 description: Obtenga respuestas a las preguntas comunes sobre cómo configurar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure mediante Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: a523df21caca2a6def4274542979e9963345384b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135166"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086156"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Preguntas frecuentes sobre la replicación de VMware en Azure
 
@@ -181,6 +181,10 @@ No. Un cambio en la instancia de VMware vCenter o la migración afectará a la r
 ### <a name="can-i-replicate-to-a-cache-or-target-storage-account-that-has-a-virtual-network-with-azure-firewalls-configured-on-it"></a>¿Puedo replicar en una cuenta de almacenamiento en caché o de destino que tenga una red virtual (con instancias de Azure Firewall) configurada?
 
 No, Site Recovery no admite la replicación ni en Azure Storage ni en redes virtuales.
+
+### <a name="what-is-the-frequency-of-generation-of-crash-consistent-recovery-points"></a>¿Cuál es la frecuencia de generación de puntos de recuperación coherentes frente a bloqueos?
+
+Site Recovery genera puntos de recuperación coherentes frente a bloqueos cada 5 minutos.
 
 ## <a name="component-upgrade"></a>Actualización de componentes
 

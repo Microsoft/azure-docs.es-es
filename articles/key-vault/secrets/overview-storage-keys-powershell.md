@@ -8,12 +8,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 8cd9c1ba85666a6556e24e4966e1e6cb9b7ef124
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 87dc1ccb887638226607a1e398c7532de8d2c94f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449318"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534539"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Administración de claves de cuenta de almacenamiento con Key Vault y Azure PowerShell
 
@@ -99,12 +99,12 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Proporcionar a Key Vault acceso a la cuenta de almacenamiento
 
-Para que Key Vault tenga acceso y pueda administrar las claves de cuenta de almacenamiento, debe autorizar su acceso a la cuenta de almacenamiento. La aplicación Key Vault necesita permisos para *mostrar* y *regenerar* las claves de la cuenta de almacenamiento. Estos permisos se habilitan a través del rol RBAC integrado [Rol de servicio de operador de claves de cuentas de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
+Para que Key Vault tenga acceso y pueda administrar las claves de cuenta de almacenamiento, debe autorizar su acceso a la cuenta de almacenamiento. La aplicación Key Vault necesita permisos para *mostrar* y *regenerar* las claves de la cuenta de almacenamiento. Estos permisos se habilitan a través del rol integrado de Azure [Rol de servicio de operador de claves de cuentas de almacenamiento](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role). 
 
 Para asignar este rol a la entidad de servicio de Key Vault, que limita el ámbito a la cuenta de almacenamiento, use el cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) de Azure PowerShell.
 
 ```azurepowershell-interactive
-# Assign RBAC role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
+# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
@@ -164,7 +164,7 @@ Tags                :
 
 ### <a name="enable-key-regeneration"></a>Habilitación de la regeneración de clave
 
-Si desea que Key Vault regenere las claves de cuenta de almacenamiento periódicamente, puede usar el cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) de Azure PowerShell para establecer un período de regeneración. En el ejemplo siguiente se establece un período de regeneración de tres días. Después de tres días, Key Vault volverá a generar "key2" y cambiará la clave activa de "key2" a "key1" (reemplace por "primary" y "secondary" para las cuentas de almacenamiento clásicas).
+Si desea que Key Vault regenere las claves de cuenta de almacenamiento periódicamente, puede usar el cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) de Azure PowerShell para establecer un período de regeneración. En el ejemplo siguiente se establece un período de regeneración de tres días. Cuando es el momento de girar, Key Vault regenera la clave que no está activa y, a continuación, establece la clave recién creada como activa. Solo se usa una de las claves para emitir tokens de SAS en cualquier momento. Esta es la clave activa.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)

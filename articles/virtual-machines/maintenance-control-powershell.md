@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: e0bb3586d637c9399db057b7cd3225bf8cd36e2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3204de6ea497666108ce63b1a3cfa77c6faa6b59
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675850"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028658"
 ---
 # <a name="control-updates-with-maintenance-control-and-azure-powershell"></a>Control de las actualizaciones con el control de mantenimiento y Azure PowerShell
 
@@ -47,7 +47,7 @@ New-AzResourceGroup `
    -Name myMaintenanceRG
 ```
 
-Use [New-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/new-azmaintenanceconfiguration) para crear una configuración de mantenimiento. En este ejemplo se crea una configuración de mantenimiento denominada *myConfig* en el ámbito del host. 
+Use [New-AzMaintenanceConfiguration](/powershell/module/az.maintenance/new-azmaintenanceconfiguration) para crear una configuración de mantenimiento. En este ejemplo se crea una configuración de mantenimiento denominada *myConfig* en el ámbito del host. 
 
 ```azurepowershell-interactive
 $config = New-AzMaintenanceConfiguration `
@@ -61,7 +61,7 @@ El uso de `-MaintenanceScope host` garantiza que la configuración de mantenimie
 
 Si intenta crear una configuración con el mismo nombre, pero en una ubicación diferente, obtendrá un error. Los nombres de configuración deben ser únicos dentro de su suscripción.
 
-Puede consultar las configuraciones de mantenimiento disponibles mediante [Get-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
+Puede consultar las configuraciones de mantenimiento disponibles mediante [Get-AzMaintenanceConfiguration](/powershell/module/az.maintenance/get-azmaintenanceconfiguration).
 
 ```azurepowershell-interactive
 Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
@@ -69,7 +69,7 @@ Get-AzMaintenanceConfiguration | Format-Table -Property Name,Id
 
 ## <a name="assign-the-configuration"></a>Asignación de la configuración
 
-Use [New-AzConfigurationAssignment](https://docs.microsoft.com/powershell/module/az.maintenance/new-azconfigurationassignment) para asignar la configuración a la máquina virtual aislada o a Azure Dedicated Host.
+Use [New-AzConfigurationAssignment](/powershell/module/az.maintenance/new-azconfigurationassignment) para asignar la configuración a la máquina virtual aislada o a Azure Dedicated Host.
 
 ### <a name="isolated-vm"></a>Máquina virtual aislada
 
@@ -106,7 +106,7 @@ New-AzConfigurationAssignment `
 
 ## <a name="check-for-pending-updates"></a>Búsqueda de actualizaciones pendientes
 
-Use [Get-AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) para ver si hay actualizaciones pendientes. Use `-subscription` para especificar la suscripción de Azure de la máquina virtual, en caso de que no sea la misma en la que ha iniciado sesión.
+Use [Get-AzMaintenanceUpdate](/powershell/module/az.maintenance/get-azmaintenanceupdate) para ver si hay actualizaciones pendientes. Use `-subscription` para especificar la suscripción de Azure de la máquina virtual, en caso de que no sea la misma en la que ha iniciado sesión.
 
 Si no hay ninguna actualización para mostrar, este comando no devolverá nada. De lo contrario, devolverá un objeto PSApplyUpdate:
 
@@ -152,7 +152,7 @@ Get-AzMaintenanceUpdate `
 
 ## <a name="apply-updates"></a>Aplicación de actualizaciones
 
-Use [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) para aplicar las actualizaciones pendientes.
+Use [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate) para aplicar las actualizaciones pendientes.
 
 ### <a name="isolated-vm"></a>Máquina virtual aislada
 
@@ -183,7 +183,7 @@ New-AzApplyUpdate `
 ```
 
 ## <a name="check-update-status"></a>Comprobación del estado de actualización
-Use [Get-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) para comprobar el estado de una actualización. Los comandos que se muestran a continuación muestran el estado de la última actualización mediante `default` para el parámetro `-ApplyUpdateName`. Puede sustituir el nombre de la actualización (devuelto por el comando [New-AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate)) para obtener el estado de una actualización específica.
+Use [Get-AzApplyUpdate](/powershell/module/az.maintenance/get-azapplyupdate) para comprobar el estado de una actualización. Los comandos que se muestran a continuación muestran el estado de la última actualización mediante `default` para el parámetro `-ApplyUpdateName`. Puede sustituir el nombre de la actualización (devuelto por el comando [New-AzApplyUpdate](/powershell/module/az.maintenance/new-azapplyupdate)) para obtener el estado de una actualización específica.
 
 ```text
 Status         : Completed
@@ -227,7 +227,7 @@ Get-AzApplyUpdate `
 
 ## <a name="remove-a-maintenance-configuration"></a>Eliminación de una configuración de mantenimiento
 
-Use [Remove-AzMaintenanceConfiguration](https://docs.microsoft.com/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) para eliminar una configuración de mantenimiento.
+Use [Remove-AzMaintenanceConfiguration](/powershell/module/az.maintenance/remove-azmaintenanceconfiguration) para eliminar una configuración de mantenimiento.
 
 ```azurepowershell-interactive
 Remove-AzMaintenanceConfiguration `

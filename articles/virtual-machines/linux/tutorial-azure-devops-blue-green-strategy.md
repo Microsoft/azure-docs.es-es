@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 4/10/2020
 ms.author: moala
 ms.custom: devops
-ms.openlocfilehash: a98989ed48e515cafeca27ae492c83efca6002c4
-ms.sourcegitcommit: f57297af0ea729ab76081c98da2243d6b1f6fa63
+ms.openlocfilehash: 0d001144f1a2703db118261e5cae5417b1d8c17a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/06/2020
-ms.locfileid: "82871596"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080138"
 ---
 # <a name="tutorial---configure-the-blue-green-deployment-strategy-for-azure-linux-virtual-machines"></a>Tutorial: Configuración de la estrategia de implementación azul-verde para Azure Linux Virtual Machines
 
@@ -29,7 +29,7 @@ En este artículo, se muestra cómo configurar una canalización de CI/CD que ut
 
 ### <a name="configure-cicd-on-virtual-machines"></a>Configuración de CI/CD en máquinas virtuales
 
-Las máquinas virtuales se pueden agregar como destinos a un [grupo de implementación](https://docs.microsoft.com/azure/devops/pipelines/release/deployment-groups). Posteriormente, se pueden establecer como destino para las actualizaciones de varias máquinas. Después de efectuar la implementación en las máquinas, vea el **historial de implementación** para un grupo de implementación. Esta vista le permite hacer un seguimiento de la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación.
+Las máquinas virtuales se pueden agregar como destinos a un [grupo de implementación](/azure/devops/pipelines/release/deployment-groups). Posteriormente, se pueden establecer como destino para las actualizaciones de varias máquinas. Después de efectuar la implementación en las máquinas, vea el **historial de implementación** para un grupo de implementación. Esta vista le permite hacer un seguimiento de la máquina virtual hasta la canalización y, posteriormente, hasta la confirmación.
 
 ### <a name="blue-green-deployments"></a>Implementaciones azul-verde
 
@@ -88,5 +88,5 @@ Se puede comenzar a utilizar Azure fácilmente. En Azure DevOps Projects, puede 
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Starter](https://docs.microsoft.com/azure/devops-project/azure-devops-project-vms)
-- [Implementación continua de una aplicación en un conjunto de escalado de máquinas virtuales de Azure](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)
+- [Implementación de una aplicación de ASP.NET en máquinas virtuales de Azure mediante Azure DevOps Starter](../../devops-project/azure-devops-project-vms.md)
+- [Implementación continua de una aplicación en un conjunto de escalado de máquinas virtuales de Azure](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset)

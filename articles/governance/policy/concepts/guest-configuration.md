@@ -3,12 +3,12 @@ title: Información sobre cómo auditar el contenido de máquinas virtuales
 description: Obtenga información sobre cómo Azure Policy usa Guest Configuration para auditar la configuración dentro de las máquinas virtuales.
 ms.date: 05/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: ec2a9f53fbe2ad0201af0250b0dcfa8dc4d519f0
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f2f07a3e88984a84ca1529052d5899ad8570a268
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971103"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072828"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Información sobre Guest Configuration de Azure Policy
 
@@ -35,9 +35,8 @@ Para poder usar Guest Configuration debe registrar el proveedor de recursos. El 
 Para auditar la configuración en una máquina, se habilita una [extensión de máquina virtual](../../../virtual-machines/extensions/overview.md) y la máquina debe tener una identidad administrada por el sistema. La extensión descarga la asignación de directiva aplicable y la definición de configuración correspondiente. La identidad se usa para autenticar la máquina a medida que lee y escribe en el servicio de configuración de invitado. La extensión no es necesaria para las máquinas conectadas a Arc porque se incluye en el agente Connected Machine de Arc.
 
 > [!IMPORTANT]
-> La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a gran escala, asigne las siguientes definiciones de directiva: 
->  - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
->  - [Implemente los requisitos previos para habilitar la directiva de configuración de invitado en VM de Linux.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb27e9e0-526e-4ae1-89f2-a2a0bf0f8a50)
+> La extensión de configuración de invitado y una identidad administrada son necesarias para realizar auditorías en las máquinas virtuales de Azure. La extensión de configuración de invitado es necesaria para realizar auditorías en las máquinas virtuales de Azure. Para implementar la extensión a escala, asigne la siguiente iniciativa de directiva: > implementar la extensión a escala, asigne las siguientes definiciones de directiva: 
+>  - [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8)
 
 ### <a name="limits-set-on-the-extension"></a>Límites establecidos en la extensión
 
@@ -81,10 +80,11 @@ Para comunicarse con el proveedor de recursos de la configuración de invitado e
 
 ## <a name="managed-identity-requirements"></a>Requisitos de identidad administrada
 
-Las directivas **DeployIfNotExists** que agregan la extensión a las máquinas virtuales también habilitan una identidad administrada asignada por el sistema, si no existe ninguna.
+Las directivas de la iniciativa [Implementar los requisitos previos para habilitar directivas de configuración de invitado en máquinas virtuales](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F12794019-7a00-42cf-95c2-882eed337cc8) habilitan una identidad administrada asignada por el sistema, si no existe ninguna. Hay dos definiciones de directivas en la iniciativa que administran la creación de identidades. Las condiciones IF en las definiciones de directiva garantizan el comportamiento correcto en función del estado actual del recurso de máquina en Azure.
 
-> [!WARNING]
-> Evite habilitar una identidad administrada asignada por el usuario en las máquinas virtuales del ámbito para las directivas que permiten la identidad administrada asignada por el sistema. La identidad asignada por el usuario se reemplaza y la máquina podría dejar de responder.
+Si la máquina no tiene ninguna identidad administrada actualmente, la directiva efectiva será: [\[Versión preliminar\]: Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en máquinas virtuales sin identidades](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3cf2ab00-13f1-4d0c-8971-2ac904541a7e)
+
+Si la maquina tiene actualmente una identidad del sistema asignada por el usuario, la directiva efectiva será: [\[Versión preliminar\]: Agregar una identidad administrada asignada por el sistema para habilitar las asignaciones de configuración de invitado en máquinas virtuales con una identidad asignada por el usuario](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F497dff13-db2a-4c0f-8603-28fa3b331ab6)
 
 ## <a name="guest-configuration-definition-requirements"></a>Requisitos de definición de Guest Configuration
 

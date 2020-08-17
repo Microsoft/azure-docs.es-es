@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 771cfa11375e97f2f6a94fc65cbd72306b12cd7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64884f07bc59e5ff2b29eac645ddb469ef3db465
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803963"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325192"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Cómo consultar registros de Azure Monitor para VM
 
-Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
+Azure Monitor para VM recopila métricas de rendimiento y conexión, datos de inventario de proceso y equipo, e información sobre el estado, y reenvía estos datos al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 ## <a name="map-records"></a>Registros de asignación
 
@@ -473,6 +473,7 @@ Los contadores de rendimiento recopilados actualmente en la tabla *InsightsMetri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si eres nuevo a la hora de escribir consultas en Azure Monitor, revisa el tema sobre el [uso de Log Analytics](../../azure-monitor/log-query/get-started-portal.md) en Azure Portal para escribir consultas de registro.
+* Si eres nuevo a la hora de escribir consultas en Azure Monitor, revisa el tema sobre el [uso de Log Analytics](../log-query/get-started-portal.md) en Azure Portal para escribir consultas de registro.
 
-* Información acerca de la [escritura de consultas de búsqueda](../../azure-monitor/log-query/search-queries.md).
+* Información acerca de la [escritura de consultas de búsqueda](../log-query/search-queries.md).
+

@@ -6,6 +6,8 @@
       items:
         - name: ¿Qué es Traductor?
           href: translator-info-overview.md
+        - name: Compatibilidad con idiomas
+          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
     - name: Guías de inicio rápido
       items:
         - name: Traducir texto
@@ -50,7 +52,7 @@
           href: firewalls.md
     - name: Ejemplos
       items:
-        - name: 'C#'
+        - name: C#
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp'
         - name: Java
           href: 'https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java'
@@ -92,22 +94,20 @@
               href: ctf-reporting.md
             - name: Devolver las mejores traducciones
               href: return-n-best-translations.md
+        - name: Límites de solicitud
+          href: request-limits.md
     - name: Recursos
       items:
         - name: Ejemplos de código en GitHub
           href: 'https://aka.ms/TranslatorGitHub'
         - name: Preguntas más frecuentes
           href: 'https://www.microsoft.com/translator/faq.aspx'
-        - name: Compatibilidad con idiomas
-          href: language-support.md
         - name: Precios
           href: 'https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/'
         - name: Disponibilidad regional
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Cumplimiento normativo
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
-        - name: Límites de solicitud
-          href: request-limits.md
         - name: Stack Overflow
           href: 'https://stackoverflow.com/questions/tagged/microsoft-translator'
 - name: Custom Translator
@@ -162,8 +162,6 @@
           href: custom-translator/unsupported-language-deployments.md
     - name: Recursos
       items:
-        - name: Compatibilidad con idiomas
-          href: 'https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization'
         - name: Glosario
           href: custom-translator/glossary.md
         - name: Preguntas más frecuentes

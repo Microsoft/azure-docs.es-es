@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 06/21/2020
 ms.author: rajosh
-ms.openlocfilehash: e80ec71bef8c34331fac076b7b08be48a9571c2e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: db1de363856fd560fea97f8f9cdf542717c4cca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107706"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090100"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Creación de plan de migración con Azure Migrate
 
@@ -151,7 +151,7 @@ Antes de finalizar el plan de migración, asegúrese de que estas consideracione
 
 - Obtenga soporte técnico para su implementación si es necesario. Muchas organizaciones optan por la ayuda externa para respaldar la migración en la nube. Para pasar a Azure de forma rápida y confiable con asistencia personalizada, considere la posibilidad de un  [proveedor de servicios administrados por expertos de Azure](https://www.microsoft.com/solution-providers/search?cacheId=9c2fed4f-f9e2-42fb-8966-4c565f08f11e&ocid=CM_Discovery_Checklist_PDF) o [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/?ocid=CM_Discovery_Checklist_PDF).  
 
-Cree un plan de migración efectivo en la nube que incluya información detallada sobre la lista o los grupos de aplicaciones que desea migrar, la disponibilidad de la aplicación y la base de datos y las restricciones de tiempo de inactividad, así como los hitos de migración deseados. El plan de migración también debe tener en cuenta cuánto tiempo tardará la copia de datos e incluir un búfer para las pruebas posteriores a la migración y las actividades de transferencia. Las pruebas posteriores a la migración deben incluir casos de uso funcional, integración, seguridad y pruebas de rendimiento para garantizar que las aplicaciones migradas funcionen según lo previsto y que todos los objetos de base de datos y las relaciones de datos se hayan transferido correctamente a la nube. Las pruebas posteriores a la migración deben incluir casos de uso funcional, integración, seguridad y pruebas de rendimiento para garantizar que las aplicaciones migradas funcionen según lo previsto y que todos los objetos de base de datos y las relaciones de datos se hayan transferido correctamente a la nube.  
+Cree un plan de migración efectivo en la nube que incluya información detallada sobre la lista o los grupos de aplicaciones que desea migrar, la disponibilidad de la aplicación y la base de datos y las restricciones de tiempo de inactividad, así como los hitos de migración deseados. El plan de migración también debe tener en cuenta cuánto tiempo tardará la copia de datos e incluir un búfer para las pruebas posteriores a la migración y las actividades de transferencia. Las pruebas posteriores a la migración deben incluir casos de uso funcional, integración, seguridad y pruebas de rendimiento para garantizar que las aplicaciones migradas funcionen según lo previsto y que todos los objetos de base de datos y las relaciones de datos se hayan transferido correctamente a la nube.  
 
 Use este análisis para crear un mapa de ruta de migración y declarar una ventana de mantenimiento para migrar las aplicaciones y bases de datos con un tiempo de inactividad mínimo de cero y limitar el posible impacto operativo o empresarial durante la migración.  
 

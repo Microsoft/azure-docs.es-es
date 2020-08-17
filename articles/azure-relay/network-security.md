@@ -3,12 +3,12 @@ title: Seguridad de red para Azure Relay
 description: En este artículo se describe cómo configurar el acceso desde puntos de conexión privados
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: a1ade21df39890b7f1c31a81fca1fffafe2acaa0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf49eff29385b5b72639420416df87b9187845e8
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322158"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532992"
 ---
 # <a name="network-security-for-azure-relay"></a>Seguridad de red para Azure Relay 
 En este artículo se describe cómo usar las siguientes características de seguridad con Azure Relay: 
@@ -23,7 +23,7 @@ En este artículo se describe cómo usar las siguientes características de segu
 ## <a name="ip-firewall"></a>Firewall de dirección IP 
 De forma predeterminada, se puede acceder en Internet a los espacios de nombres de Relay, siempre que la solicitud tenga una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
-Esta característica es útil en escenarios en los que Azure Relay debe ser accesible únicamente desde ciertos sitios conocidos. Las reglas de firewall permiten configurar reglas para aceptar el tráfico procedente de direcciones IPv4 concretas. Por ejemplo, si usa Relay con [Azure Express Route](/azure/expressroute/expressroute-faqs#supported-services), puede crear una **regla de firewall** para permitir el tráfico procedente única y exclusivamente de las direcciones IP de la infraestructura local. 
+Esta característica es útil en escenarios en los que Azure Relay debe ser accesible únicamente desde ciertos sitios conocidos. Las reglas de firewall permiten configurar reglas para aceptar el tráfico procedente de direcciones IPv4 concretas. Por ejemplo, si usa Relay con [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services), puede crear una **regla de firewall** para permitir el tráfico procedente única y exclusivamente de las direcciones IP de la infraestructura local. 
 
 Las reglas de firewall de IP se aplican en el nivel del espacio de nombres de Relay. Por lo tanto, las reglas se aplican a todas las conexiones de clientes que usan cualquier protocolo admitido. Cualquier intento de conexión desde una dirección IP que no coincida con una regla IP admitida en el espacio de nombres de Relay se rechaza como no autorizado. La respuesta no menciona la regla IP. Las reglas de filtro IP se aplican en orden y la primera regla que coincida con la dirección IP determina la acción de aceptar o rechazar.
 

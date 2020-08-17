@@ -10,6 +10,8 @@
       href: quickstart-create-templates-use-the-portal.md
     - name: 'Creación de plantillas: VS Code'
       href: quickstart-create-templates-use-visual-studio-code.md
+    - name: Creación e implementación de especificaciones de plantillas
+      href: quickstart-create-template-specs.md
     - name: Servicios de Azure
       items:
         - name: IA + Machine Learning
@@ -28,6 +30,8 @@
               href: ../../analysis-services/analysis-services-create-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Databricks
               href: /azure/databricks/scenarios/quickstart-create-databricks-workspace-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Data Factory
+              href: ../../data-factory/quickstart-create-data-factory-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Event Hubs
               href: ../../event-hubs/event-hubs-resource-manager-namespace-event-hub.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: 'HDInsight: Hadoop'
@@ -114,6 +118,8 @@
           items:
             - name: Advisor
               href: ../../advisor/advisor-alerts-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+            - name: Automation
+              href: ../../automation/quickstart-create-automation-account-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Copia de seguridad
               href: ../../backup/quick-backup-vm-template.md?toc=/azure/azure-resource-manager/templates/toc.json
             - name: Cost Management + facturación
@@ -201,6 +207,14 @@
         - name: '3: creación de una canalización'
           displayName: Devop
           href: deployment-tutorial-pipeline.md
+    - name: Especificaciones de plantilla
+      items:
+        - name: Creación con plantillas vinculadas
+          displayName: template specs
+          href: template-specs-create-linked.md
+        - name: Implementación como plantilla vinculada
+          displayName: template specs
+          href: template-specs-deploy-linked-template.md
     - name: Plantillas avanzadas
       items:
         - name: Uso de referencia de plantilla
@@ -240,6 +254,8 @@
       href: template-best-practices.md
     - name: Preguntas más frecuentes
       href: frequently-asked-questions.md
+    - name: Especificaciones de plantilla
+      href: template-specs.md
     - name: Plantillas para mantener la coherencia en la nube
       href: templates-cloud-consistency.md
     - name: Modos de implementación
@@ -288,6 +304,8 @@
         - name: Script de implementación
           displayName: custom script
           href: deployment-script-template.md
+        - name: Creación de un entorno de desarrollo de scripts de implementación
+          href: deployment-script-template-configure-dev.md
         - name: Modularización de plantillas
           displayName: 'linked templates, nested templates'
           href: linked-templates.md
@@ -350,8 +368,8 @@
           href: deploy-to-management-group.md
         - name: Inquilino
           href: deploy-to-tenant.md
-        - name: Grupo de recursos cruzados
-          href: cross-resource-group-deployment.md
+        - name: Implementaciones entre ámbitos
+          href: cross-scope-deployment.md
     - name: Suministro de parámetros
       items:
         - name: Creación de archivo de parámetros

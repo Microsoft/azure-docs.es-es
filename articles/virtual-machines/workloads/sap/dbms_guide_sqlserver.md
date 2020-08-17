@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ae716345275bda2cb23cd331f7c96d0ca5faedc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6e217540b1dd3744da855c71e0add289dd1c9e18
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525252"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831063"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -74,7 +74,7 @@ ms.locfileid: "86525252"
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:/powershell/azureps-cmdlets-docs
+[azure-ps]:/powershell/azure/
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -336,7 +336,7 @@ Según la descripción general, los archivos ejecutables de SQL Server se deben 
 
 
 * Con todos los tipos de máquina virtual certificados de SAP (consulte la nota de SAP [1928533]), salvo las máquinas virtuales de la serie A, los datos de tempdb y los archivos de registro se pueden colocar en la unidad D:\ no persistente. 
-* No obstante, se recomienda usar varios archivos de datos de tempdb. Tenga en cuenta que los volúmenes de la unidad D:\ serán diferentes en función del tipo de máquina virtual. Para saber cuáles son los tamaños exactos de la unidad D:\ de las distintas máquinas virtuales, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../windows/sizes.md).
+* No obstante, se recomienda usar varios archivos de datos de tempdb. Tenga en cuenta que los volúmenes de la unidad D:\ serán diferentes en función del tipo de máquina virtual. Para saber cuáles son los tamaños exactos de la unidad D:\ de las distintas máquinas virtuales, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md).
 
 Estas configuraciones permiten que tempdb consuma más espacio que el que la unidad del sistema puede proporcionar. La unidad D:\ no persistente también ofrece un mejor rendimiento y latencia de E/S (a excepción de las máquinas virtuales de la serie A). Para determinar el tamaño correcto de tempdb, puede comprobar los tamaños de tempdb en los sistemas existentes. 
 
@@ -379,7 +379,7 @@ SQL Server 2014 y versiones posteriores ofrecen la posibilidad de almacenar arch
 
 * La cuenta de almacenamiento utilizada debe estar en la misma región de Azure que la que se empleó para implementar la máquina virtual que se está ejecutando en SQL Server.
 * Para este método de implementaciones también se aplican las consideraciones que se indicaron anteriormente relacionadas con la distribución de los discos virtuales en diferentes cuentas de Azure Storage. Significa que el número de operaciones de E/S cuenta para los límites de la cuenta de Azure Storage.
-* En lugar de contabilizarse en la cuota de E/S de almacenamiento de la máquina virtual, el tráfico de los blobs de almacenamiento que representan los datos y los archivos de registro de SQL Server se contabilizará en el ancho de banda de red de la máquina virtual del tipo de máquina virtual concreto. Para saber cuál es la red y el ancho de banda de red de un determinado tipo de máquina virtual, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../windows/sizes.md).
+* En lugar de contabilizarse en la cuota de E/S de almacenamiento de la máquina virtual, el tráfico de los blobs de almacenamiento que representan los datos y los archivos de registro de SQL Server se contabilizará en el ancho de banda de red de la máquina virtual del tipo de máquina virtual concreto. Para saber cuál es la red y el ancho de banda de red de un determinado tipo de máquina virtual, consulte el artículo [Tamaños de las máquinas virtuales Windows en Azure](../../sizes.md).
 * Como resultado de la inserción de E/S de archivos mediante la cuota de red, se eliminará mayormente la cuota de almacenamiento y, con ese uso, solo parcialmente el ancho de banda de red general de la máquina virtual.
 * Ya no se aplican los objetivos de rendimiento de E/S y de IOPS que tiene Azure Premium Storage para los distintos tamaños de disco. Incluso si los blobs que ha creado están en Azure Premium Storage. Los objetivos están documentados en el artículo [Discos administrados y Premium Storage de alto rendimiento para VM](../../windows/disks-types.md#premium-ssd). Como resultado de colocar los archivos de datos y los archivos de registro de SQL Server directamente en blobs que se almacenan en Azure Premium Storage, las características de rendimiento pueden variar respecto a los discos duros virtuales de Azure Premium Storage.
 * El almacenamiento en caché basado en host que está disponible para los discos de Azure Premium Storage no está disponible al colocar los archivos de datos de SQL Server directamente en los blobs de Azure.

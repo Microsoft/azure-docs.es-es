@@ -2,15 +2,15 @@
 title: Preguntas más frecuentes sobre las plantillas de Resource Manager
 description: Preguntas más frecuentes (P+F) sobre las plantillas de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/30/2020
+ms.date: 07/27/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: fb4bac00c4d971e7b056c18fe609d77b077dbcbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e23334daf0f4f6d5a6917af49c786d47c4557375
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296872"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327266"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Preguntas más frecuentes sobre las plantillas de Resource Manager
 
@@ -48,7 +48,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
   Para más información sobre el nuevo lenguaje de plantilla, [suscríbase a las notificaciones](https://aka.ms/armLangUpdates).
 
-  Para obtener la versión preliminar de las especificaciones de plantilla, [únase a la lista de espera](https://aka.ms/templateSpecsWaitlist).
+  Para más información acerca de las especificaciones de plantilla, consulte [Especificaciones de plantilla de Azure Resource Manager (versión preliminar)](template-specs.md).
 
 ## <a name="creating-and-testing-templates"></a>Creación y pruebas de plantillas
 
@@ -64,7 +64,7 @@ En este artículo se responde a preguntas frecuentes sobre las plantillas de Azu
 
 * **¿Puedo crear un grupo de recursos en una plantilla de Resource Manager e implementar recursos en él?**
 
-  Sí, puede crear un grupo de recursos en una plantilla al implementar la plantilla en el nivel de la suscripción de Azure. Para obtener un ejemplo de cómo crear un grupo de recursos e implementar recursos, consulte [Grupo de recursos y recursos](deploy-to-subscription.md#resource-group-and-resources).
+  Sí, puede crear un grupo de recursos en una plantilla al implementar la plantilla en el nivel de la suscripción de Azure. Para obtener un ejemplo de cómo crear un grupo de recursos e implementar recursos, consulte [Grupo de recursos y recursos](deploy-to-subscription.md#resource-groups).
 
 * **¿Puedo crear una suscripción en una plantilla de Resource Manager?**
 

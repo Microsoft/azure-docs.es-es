@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 1996f607d05cb84a80acbb105504ce0b5d3bb0c1
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856898"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048106"
 ---
 # <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Referencia de módulo y algoritmo para el diseñador de Azure Machine Learning (versión preliminar)
 
@@ -43,7 +43,7 @@ Para obtener ayuda con la elección de algoritmos, consulte
 
 | Funcionalidad | Descripción | módulo |
 | --- |--- | --- |
-| Regresión | Prediga un valor. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regresión del árbol de decisión ampliado) <br/> [Regresión de bosque de decisión](decision-forest-regression.md) <br/> [Regresión lineal](linear-regression.md)  <br/> [Regresión de red neuronal](neural-network-regression.md)  <br/> |
+| Regresión | Prediga un valor. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regresión del árbol de decisión ampliado) <br/> [Regresión de bosque de decisión](decision-forest-regression.md) <br/> [Regresión rápida de bosque por cuantiles](fast-forest-quantile-regression.md)  <br/> [Regresión lineal](linear-regression.md)  <br/> [Regresión de red neuronal](neural-network-regression.md)  <br/> [Regresión de Poisson](poisson-regression.md)  <br/>|
 | Agrupación en clústeres | Agrupe datos.| [Agrupación en clústeres K-Means](k-means-clustering.md)
 | clasificación | Prediga una clase.  Elija en algoritmos binarios (dos clases) o multiclase.| [Árbol de decisión ampliado multiclase](multiclass-boosted-decision-tree.md) <br/> [Bosque de decisión multiclase](multiclass-decision-forest.md) <br/> [Regresión logística multiclase](multiclass-logistic-regression.md)  <br/> [Red neuronal multiclase](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Multiclase uno frente a todos) <br/> [Perceptrón promedio de dos clases](two-class-averaged-perceptron.md) <br/>  [Two-Class Boosted Decision Tree](two-class-boosted-decision-tree.md) (Árbol de decisión promovido por dos clases)  <br/> [Bosque de decisión de dos clases](two-class-decision-forest.md) <br/>  [Regresión logística de dos clases](two-class-logistic-regression.md) <br/> [Red neuronal de dos clases](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Máquina de vectores compatible con dos clases) | 
 

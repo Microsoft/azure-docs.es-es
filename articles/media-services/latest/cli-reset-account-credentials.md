@@ -14,12 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/20/2019
 ms.author: juliako
-ms.openlocfilehash: 63f2abe7a3890efbaf4c79186467a3eb20d8afda
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 16eaf5ab9b0af97e18a7253d132516a16003d25b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382994"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489986"
 ---
 # <a name="azure-cli-example-reset-the-account-credentials"></a>Ejemplo de la CLI de Azure: restablecimiento de las credenciales de la cuenta
 
@@ -27,7 +28,7 @@ El script de la CLI de Azure de este artículo le muestra cómo restablecer las 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md).
+[Cree una cuenta de Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

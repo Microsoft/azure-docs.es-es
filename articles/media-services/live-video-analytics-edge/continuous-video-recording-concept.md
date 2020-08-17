@@ -3,12 +3,12 @@ title: 'Grabación de vídeo continua: Azure'
 description: Grabación de vídeo continua (CVR) hace referencia al proceso de grabación continua del vídeo desde un origen de vídeo. En este tema se trata qué es CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 9a785125d4cfb2324224f4676e1d429342ec325c
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260628"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043307"
 ---
 # <a name="continuous-video-recording"></a>Grabación de vídeo continua  
 
@@ -34,7 +34,7 @@ El análisis de vídeo en directo en IoT Edge admite el funcionamiento cuando la
     "localMediaCacheMaximumSizeMiB": "2048",
     "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
-Las dos últimas propiedades son apropiadas para la grabación resistente (también son propiedades obligatorias para un nodo de receptor de recursos). La propiedad localMediaCachePath indica al receptor de recursos que use la ruta de acceso de la carpeta para almacenar en caché los datos multimedia antes de cargarlos en el recurso. Puede consultar [este](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module) artículo para entender de qué forma puede el módulo IoT Edge usar el almacenamiento local del dispositivo. La propiedad localMediaCacheMaximumSizeMiB define cuánto espacio en disco puede usar el receptor de recursos como memoria caché (1 MiB = 1024 * 1024 bytes). 
+Las dos últimas propiedades son apropiadas para la grabación resistente (también son propiedades obligatorias para un nodo de receptor de recursos). La propiedad localMediaCachePath indica al receptor de recursos que use la ruta de acceso de la carpeta para almacenar en caché los datos multimedia antes de cargarlos en el recurso. Puede consultar [este](../../iot-edge/how-to-access-host-storage-from-module.md) artículo para entender de qué forma puede el módulo IoT Edge usar el almacenamiento local del dispositivo. La propiedad localMediaCacheMaximumSizeMiB define cuánto espacio en disco puede usar el receptor de recursos como memoria caché (1 MiB = 1024 * 1024 bytes). 
 
 Si el módulo IoT Edge pierde la conectividad durante mucho tiempo y el contenido almacenado en la carpeta de la caché alcanza el valor localMediaCacheMaximumSizeMiB, el receptor de recursos empezará a descartar los datos de la caché, empezando por los más antiguos. Por ejemplo, si el dispositivo perdió la conectividad a las 10 a. m. y la caché alcanza el límite máximo a las 6 p. m., el receptor de recursos empieza a eliminar los datos grabados a las 10 a. m. 
 

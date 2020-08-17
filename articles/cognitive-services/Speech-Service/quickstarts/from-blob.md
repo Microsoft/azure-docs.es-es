@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 1469e02b675af9458b6cbdf9d05edca0185ab984
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 4d284dab671b86b4cbbe31b9689bba9450a71311
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391679"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406185"
 ---
 # <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Inicio rápido: Reconocimiento de voz almacenada en Blob Storage
 

@@ -3,12 +3,12 @@ title: 'Supervisión del rendimiento de aplicaciones web: Azure Application Insi
 description: Cómo encaja Application Insights en el ciclo de devOps
 ms.topic: conceptual
 ms.date: 12/21/2018
-ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2c3326c3f655d4bdfeaa42ac272658b251b7f82
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77669699"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324495"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnósticos detallados para servicios y aplicaciones web con Application Insights
 ## <a name="why-do-i-need-application-insights"></a>¿Por qué necesito Application Insights?
@@ -85,7 +85,7 @@ El Real Madrid utiliza el módulo Power BI para ver estos datos.
 ![Vistas de telemetría de Application Insights en Power BI](./media/devops/080.png)
 
 ## <a name="smart-detection"></a>Detección inteligente
-[Proactive diagnostics](../../azure-monitor/app/proactive-diagnostics.md) es una característica reciente. Sin ninguna configuración especial por parte del usuario, Application Insights detecta y le avisa automáticamente de cualquier aumento en la tasa de errores en la aplicación. Es lo suficientemente inteligente como para omitir un trasfondo de errores ocasionales y también de aumentos que son simplemente proporcionales a un aumento en las solicitudes. Por ejemplo, si se produce un error en uno de los servicios de los que depende, o si la nueva compilación que acaba de implementar no funciona tan bien, lo sabrá en cuanto mire su correo electrónico. (Y hay webhooks para que pueda desencadenar otras aplicaciones).
+[Proactive diagnostics](./proactive-diagnostics.md) es una característica reciente. Sin ninguna configuración especial por parte del usuario, Application Insights detecta y le avisa automáticamente de cualquier aumento en la tasa de errores en la aplicación. Es lo suficientemente inteligente como para omitir un trasfondo de errores ocasionales y también de aumentos que son simplemente proporcionales a un aumento en las solicitudes. Por ejemplo, si se produce un error en uno de los servicios de los que depende, o si la nueva compilación que acaba de implementar no funciona tan bien, lo sabrá en cuanto mire su correo electrónico. (Y hay webhooks para que pueda desencadenar otras aplicaciones).
 
 Otro aspecto de esta característica es que realiza un análisis exhaustivo a diario de los datos de telemetría, buscando patrones de rendimiento poco habituales difíciles de detectar. Por ejemplo, puede encontrar un rendimiento lento asociado a una zona geográfica determinada, o a una versión de explorador determinada.
 
@@ -110,7 +110,7 @@ El mapa de aplicación detecta automáticamente la topología de la aplicación 
 ![Mapa de aplicación](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights Analytics
-Con [Analytics](../../azure-monitor/app/analytics.md), puede escribir consultas arbitrarias en un lenguaje avanzado, tipo SQL.  El diagnóstico en la pila entera de aplicaciones se convierte en una tarea sencilla gracias a la conexión de diversas perspectivas, y puede formular las preguntas adecuadas para correlacionar el rendimiento del servicio con las métricas empresariales y la experiencia del cliente. 
+Con [Analytics](../log-query/log-query-overview.md), puede escribir consultas arbitrarias en un lenguaje avanzado, tipo SQL.  El diagnóstico en la pila entera de aplicaciones se convierte en una tarea sencilla gracias a la conexión de diversas perspectivas, y puede formular las preguntas adecuadas para correlacionar el rendimiento del servicio con las métricas empresariales y la experiencia del cliente. 
 
 Puede consultar todas instancias de telemetría y los datos sin procesar de métricas en el portal. El lenguaje incluye el filtro, unión, agregación y otras operaciones. Puede calcular campos y realizar análisis estadísticos. Dispone de visualizaciones tanto gráficas como tabulares.
 
@@ -145,9 +145,9 @@ Durante la depuración, tiene la opción de conservar los datos de telemetría e
 Cuando se genera una alerta, Application Insights puede crear automáticamente un elemento de trabajo en su sistema de seguimiento de trabajos.
 
 ## <a name="but-what-about"></a>Pero, ¿y qué sucede con...?
-* [Privacidad y almacenamiento](../../azure-monitor/app/data-retention-privacy.md) : la telemetría se mantiene en servidores seguros de Azure.
+* [Privacidad y almacenamiento](./data-retention-privacy.md) : la telemetría se mantiene en servidores seguros de Azure.
 * Rendimiento: el impacto es muy bajo. la telemetría se procesa por lotes.
-* [Precios](../../azure-monitor/app/pricing.md) : puede comenzar de forma gratuita y continuar así mientras el volumen sea bajo.
+* [Precios](./pricing.md) : puede comenzar de forma gratuita y continuar así mientras el volumen sea bajo.
 
 
 ## <a name="video"></a>Vídeo
@@ -157,7 +157,7 @@ Cuando se genera una alerta, Application Insights puede crear automáticamente u
 ## <a name="next-steps"></a>Pasos siguientes
 Empezar a usar Application Insights es fácil. Tiene opciones principalmente para:
 
-* [Servidores IIS](../../azure-monitor/app/monitor-performance-live-website-now.md) y también para [Azure App Service](../../azure-monitor/app/app-insights-overview.md).
-* Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](../../azure-monitor/app/asp-net.md) o [Java](../../azure-monitor/app/java-get-started.md), así como para [Node.js](../../azure-monitor/app/nodejs.md) y [otros tipos](../../azure-monitor/app/platforms.md). 
-* Instrumentar [cualquier página web](../../azure-monitor/app/javascript.md) agregando un fragmento de código corto.
+* [Servidores IIS](./monitor-performance-live-website-now.md) y también para [Azure App Service](./app-insights-overview.md).
+* Instrumentar el proyecto durante el desarrollo. Puede hacerlo para aplicaciones de [ASP.NET](./asp-net.md) o [Java](./java-get-started.md), así como para [Node.js](./nodejs.md) y [otros tipos](./platforms.md). 
+* Instrumentar [cualquier página web](./javascript.md) agregando un fragmento de código corto.
 

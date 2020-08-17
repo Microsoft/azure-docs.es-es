@@ -3,12 +3,13 @@ title: Ejemplos de la CLI de Azure (az) y de la CLI de Azure Service Fabric (sfc
 description: Ejemplos de la CLI de Azure (az) y la CLI de Azure Service Fabric (sfctl) sobre la administración de clústeres, aplicaciones y servicios.
 ms.topic: sample
 ms.date: 04/09/2018
-ms.openlocfilehash: b54efcf6ca6ef66beb655c423283ea1ad0a59d72
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 12a48c525d1458b2d920f6a25d91d67e58749a96
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86182821"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502433"
 ---
 # <a name="azure-cli-az-and-azure-service-fabric-cli-sfctl-samples"></a>Ejemplos de la CLI de Azure (az) y de la CLI de Azure Service Fabric (sfctl)
 

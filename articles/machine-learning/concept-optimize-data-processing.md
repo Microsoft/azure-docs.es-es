@@ -4,18 +4,18 @@ titleSuffix: Azure Machine Learning
 description: Obtenga información sobre los procedimientos recomendados para optimizar las velocidades de procesamiento de datos y qué integraciones admite Azure Machine Learning para el procesamiento de datos a gran escala.
 services: machine-learning
 ms.service: machine-learning
-author: sgilley
 ms.author: sgilley
+author: sdgilley
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 09e48bd5c27dc4835ba0261ccd929f858fdb58b4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6bb85ada5ab1cd443d47ed85024b45d98354e97f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481891"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500970"
 ---
 # <a name="optimize-data-processing-with-azure-machine-learning"></a>Optimización del procesamiento de datos con Azure Machine Learning
 
@@ -65,7 +65,6 @@ Si las recomendaciones anteriores no son suficientes y no puede obtener una máq
 
 * Escalar horizontalmente a un clúster mediante un marco distribuido. En esta opción, las cargas de procesamiento de datos se dividen y procesan en varias CPU que funcionan en paralelo, y el resultado final se recopila al final.
 
-
 ### <a name="recommended-distributed-frameworks"></a>Marcos distribuidos recomendados
 
 En la tabla siguiente se recomiendan los marcos distribuidos que se integran en Azure Machine Learning en función del tamaño de los datos o de la preferencia del código.
@@ -82,4 +81,4 @@ Puede crear clústeres de `Dask` en el clúster de proceso de Azure Machine Lear
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Opciones de ingesta de datos con Azure Machine Learning](concept-data-ingestion.md).
-* [Ingesta de datos con Azure Data Factory](how-to-data-ingest-adf.md).
+* [Creación y registro de conjuntos de datos](how-to-create-register-datasets.md)

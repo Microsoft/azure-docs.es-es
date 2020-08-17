@@ -3,19 +3,19 @@ title: Docker en la documentación de Azure
 summary: Docker es una conocida plataforma de creación de imágenes y administración de contenedores que le permite trabajar rápidamente con contenedores en Linux y Windows. Aprenda a sacar el máximo partido a Docker en Azure.
 metadata:
   title: Docker en la documentación de Azure
-  description: Docker es una conocida plataforma de creación de imágenes y administración de contenedores que le permite trabajar rápidamente con contenedores en Linux y Windows. Aprenda a sacar el máximo partido a Docker en Azure.
+  description: Docker es una conocida plataforma de creación de imágenes y administración de contenedores que le permite trabajar rápidamente con contenedores en Linux y Windows.
   services: multiple
   ms.service: multiple
   ms.topic: landing-page
   author: georgewallace
   ms.author: gwallace
   ms.date: 03/08/2020
-  ms.openlocfilehash: daff334cbbe118d6fdbc42a5497313f9671fd7f1
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 94d5dd74aad11e2271de52dd082cfb9287eb10c1
+  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "78944018"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88224584"
 landingContent:
 - title: Implementación de Docker en Azure
   linkLists:
@@ -23,12 +23,12 @@ landingContent:
     links:
     - text: Implementación de Docker en la plantilla de inicio rápido de Ubuntu
       url: https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: tutorial
     links:
     - text: Ejecución de una aplicación web Python (Django) con PostgreSQL en Azure App Service
-      url: ../app-service/containers/tutorial-python-postgresql-app.md
+      url: ../app-service/tutorial-python-postgresql-app.md
     - text: Creación de una infraestructura de desarrollo en una máquina virtual Linux en Azure con Jenkins, GitHub y Docker
       url: ../jenkins/tutorial-jenkins-github-docker-cicd.md
 - title: Recursos

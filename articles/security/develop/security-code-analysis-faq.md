@@ -1,6 +1,6 @@
 ---
 title: Preguntas más frecuentes sobre la documentación de Análisis de código de seguridad de Microsoft
-description: En este artículo se incluyen las preguntas más frecuentes sobre la extensión Análisis de código de seguridad de Microsoft
+description: Obtenga información sobre la extensión Microsoft Security Code Analysis mediante la revisión de las preguntas más frecuentes.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 3d5eac2d3e2f3cd87ddad02aac68ce015163bd00
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f872159e538dc85121a7a6d4d6503fd18a263628
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362081"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543051"
 ---
 # <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ¿Tiene alguna pregunta? Consulte estas Preguntas más frecuentes para más información.
@@ -106,15 +106,17 @@ A continuación se muestran detalles de dos de los escenarios de eliminación m�
 
 Como se muestra en el ejemplo siguiente, se necesita la clave hash del secreto ubicada en el archivo de salida de CredScan.
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
-                "_justification": "Secret used by MSDN sample, it is fake."
-            }
-          ]
-        }
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "hash": "CLgYxl2FcQE8XZgha9/UbKLTkJkUh3Vakkxh2CAdhtY=",
+        "_justification": "Secret used by MSDN sample, it is fake."
+    }
+  ]
+}
+```
 
 >[!WARNING]
 > La clave hash se genera mediante una parte del valor coincidente o del contenido del archivo. Cualquier revisión de código fuente puede cambiar la clave hash y deshabilitar la regla de eliminación.
@@ -133,19 +135,21 @@ Ejemplos de reglas de eliminación válidas:
 - \lib\angular.js
 - angular.js: elimina cualquier archivo con el mismo nombre
 
-        {
-            "tool": "Credential Scanner",
-            "suppressions": [
-            {
-                "file": "\\files\\AdditonalSearcher.xml", 
-                "_justification": "Additional CredScan searcher specific to my team"
-            },
-            {
-                "file": "\\files\\unittest.pfx", 
-                "_justification": "Legitimate UT certificate file with private key"
-            }
-          ]
-        }      
+```js
+{
+    "tool": "Credential Scanner",
+    "suppressions": [
+    {
+        "file": "\\files\\AdditonalSearcher.xml", 
+        "_justification": "Additional CredScan searcher specific to my team"
+    },
+    {
+        "file": "\\files\\unittest.pfx", 
+        "_justification": "Legitimate UT certificate file with private key"
+    }
+  ]
+}
+```
 
 >[!WARNING] 
 > Todos los secretos futuros que se agreguen al archivo también se eliminarán automáticamente.

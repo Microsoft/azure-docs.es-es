@@ -175,6 +175,22 @@
               href: roles-custom-available-permissions.md
             - name: Delegación de permisos de administración de aplicaciones
               href: roles-delegate-app-roles.md
+        - name: Uso de grupos para las asignaciones de roles
+          items:
+            - name: Versión preliminar de la asignación de roles basada en grupo
+              href: roles-groups-concept.md
+            - name: Creación de un grupo al que se pueden asignar roles
+              href: roles-groups-create-eligible.md
+            - name: Asignación de roles a un grupo
+              href: roles-groups-assign-role.md
+            - name: Eliminación de asignaciones de roles de un grupo
+              href: roles-groups-remove-assignment.md
+            - name: Visualización de las asignaciones de roles de un grupo
+              href: roles-groups-view-assignments.md
+            - name: Hacer que un grupo sea válido para un rol en PIM
+              href: roles-groups-pim-eligible.md
+            - name: Preguntas más frecuentes y solución de problemas
+              href: roles-groups-faq-troubleshooting.md
         - name: Roles con privilegios mínimos por tarea
           href: roles-delegate-by-task.md
         - name: Roles de Microsoft 365
@@ -189,11 +205,11 @@
           items:
             - name: Introducción a las unidades administrativas
               href: directory-administrative-units.md
-            - name: Incorporación y administración de unidades administrativas
+            - name: Adición y administración de unidades administrativas
               href: roles-admin-units-manage.md
-            - name: Incorporación y administración de usuarios en unidades administrativas
+            - name: Adición y administración de usuarios en unidades administrativas
               href: roles-admin-units-add-manage-users.md
-            - name: Incorporación y administración de grupos en unidades administrativas
+            - name: Adición y administración de grupos en unidades administrativas
               href: roles-admin-units-add-manage-groups.md
             - name: Asignación de un rol con el ámbito de unidad administrativa
               href: roles-admin-units-assign-roles.md

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 51111d92e85c6ddbdfac85c333293c2af8b31fbe
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 720a768679cdbd45224e5c9a05b8f8d0c9b9ea81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498974"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326093"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solución Network Performance Monitor en Azure
 
@@ -66,6 +66,9 @@ La lista de regiones admitidas para la Supervisión de ExpressRoute está dispon
 
 ## <a name="set-up-and-configure"></a>Instalación y configuración
 
+> [!NOTE]
+> Debe saber que el agente de Log Analytics también se denomina a veces Microsoft Monitoring Agent (MMA) o agente de OMS para Linux.
+
 ### <a name="install-and-configure-agents"></a>Instalación y configuración de agentes 
 
 Use los procesos básicos para instalar agentes en [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md) y [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
@@ -110,7 +113,7 @@ Network Performance Monitor usa transacciones sintéticas para supervisar el ren
 
 ### <a name="configure-the-solution"></a>Configuración de la solución 
 
-1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). También puede usar el proceso que se describe en cómo [agregar soluciones de Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md). 
+1. Agregue la solución Network Performance Monitor al área de trabajo desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). También puede usar el proceso que se describe en cómo [agregar soluciones de Azure Monitor desde la Galería de soluciones](./solutions.md). 
 2. Abra el área de trabajo de Log Analytics y seleccione el icono **Overview** (Información general). 
 3. Seleccione el icono denominado **Network Performance Monitor** con el mensaje *La solución necesita una configuración adicional*.
 
@@ -288,3 +291,4 @@ La información sobre los precios está disponible [en línea](network-performan
 
 ## <a name="next-steps"></a>Pasos siguientes 
 Más información sobre [Monitor de rendimiento](network-performance-monitor-performance-monitor.md), [Monitor de conectividad de servicio](network-performance-monitor-performance-monitor.md) y [Supervisión de ExpressRoute](network-performance-monitor-expressroute.md). 
+

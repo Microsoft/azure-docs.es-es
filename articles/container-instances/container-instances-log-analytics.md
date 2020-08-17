@@ -2,14 +2,14 @@
 title: Recopilar y analizar registros de recursos
 description: Obtenga información sobre cómo enviar registros de recursos y datos de eventos de grupos de contenedores en Azure Container Instances a los registros de Azure Monitor.
 ms.topic: article
-ms.date: 07/02/2020
+ms.date: 07/13/2020
 ms.author: danlep
-ms.openlocfilehash: d9f3e844e9d82e540776cdcf821770929d238e3f
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: efd71d181059ab395aeec4da364110a42d2cccd3
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259616"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524019"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Registro de instancias y grupos de contenedores con registros de Azure Monitor
 
@@ -38,11 +38,10 @@ Azure Container Instances necesita permiso para enviar datos a su área de traba
 Para obtener el identificador y la clave principal del área de trabajo de Log Analytics:
 
 1. Vaya al área de trabajo de Log Analytics en Azure Portal
-1. En **Configuración**, seleccione **Configuración avanzada**.
-1. Seleccione **Orígenes conectados** > **Servidores de Windows** (o **Servidores de Linux**, ya que tanto el identificador como las claves son las mismas para ambos)
+1. En **Configuración**, seleccione **Agents management** (Administración de agentes).
 1. Anote el valor de:
-   * **ID. DEL ÁREA DE TRABAJO**
-   * **CLAVE PRINCIPAL**
+   * **Id. de área de trabajo**
+   * **Clave principal**
 
 ## <a name="create-container-group"></a>Creación de un grupo de contenedores
 
@@ -102,7 +101,9 @@ Debería recibir una respuesta de Azure con detalles de implementación poco des
 
 ## <a name="view-logs"></a>Ver registros
 
-Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. Para ver los registros del grupo de contenedores en la tabla `ContainerInstanceLog_CL`:
+Una vez que haya implementado el grupo de contenedores, las primeras entradas de registro pueden tardar varios minutos (hasta 10) en aparecer en Azure Portal. 
+
+Para ver los registros del grupo de contenedores en la tabla `ContainerInstanceLog_CL`:
 
 1. Vaya al área de trabajo de Log Analytics en Azure Portal
 1. En **General**, seleccione **Registros**.  

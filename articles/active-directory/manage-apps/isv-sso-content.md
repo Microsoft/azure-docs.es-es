@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26fa2b82b89c7b9ce1e05062718f2c4d0c93197c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cabcaacbdc7e3e94e62c8fb45274c4d4f9390ddd
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763285"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87273412"
 ---
 # <a name="enable-single-sign-on-for-your-multi-tenant-application"></a>Habilitar el inicio de sesión único para la aplicación multiinquilino  
 
@@ -61,4 +61,4 @@ Habilitar el inicio de sesión único en la aplicación multiinquilino presenta 
 1. [Cree el inquilino de Azure](isv-tenant-multi-tenant-app.md) y pruebe la aplicación.
 1. [Cree y publique la documentación sobre el inicio de sesión único en su sitio web](isv-create-sso-documentation.md).
 1. [Envíe el listado de aplicaciones](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) y asóciese con Microsoft para crear la documentación en el sitio web de Microsoft.
-1. [Únase a Microsoft Partner Network (gratis) y cree su plan de comercialización](https://partner.microsoft.com/en-us/explore/commercial#gtm).
+1. [Únase a Microsoft Partner Network (gratis) y cree su plan de comercialización](https://partner.microsoft.com/explore/commercial#gtm).

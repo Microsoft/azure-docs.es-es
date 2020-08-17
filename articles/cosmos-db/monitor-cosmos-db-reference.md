@@ -2,43 +2,43 @@
 title: Referencia de datos de supervisión de Azure Cosmos DB | Microsoft Docs
 description: Referencia de registro y métricas para la supervisión de datos de Azure Cosmos DB.
 author: bwren
-services: azure-monitor
-ms.service: azure-monitor
+services: cosmos-db
+ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/11/2019
+ms.date: 07/17/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.subservice: logs
-ms.openlocfilehash: 446d876033b09728ebcbec43c6300884a5c29cd3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21e1d93e206751b5a55b0b3549e8bd566612ddbe
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262742"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080460"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Cosmos DB
-En este artículo se proporciona una referencia de datos de registro y métricas recopilados para analizar el rendimiento y la disponibilidad de Azure Cosmos DB. Consulte [Supervisión de Cosmos DB](monitor-cosmos-db.md) para obtener más información sobre la recopilación y el análisis de datos de supervisión para Azure Cosmos DB.
 
+En este artículo se proporciona una referencia de datos de registro y métricas recopilados para analizar el rendimiento y la disponibilidad de Azure Cosmos DB. Para información sobre cómo recopilar y analizar los datos de supervisión de Azure Cosmos DB, consulte el artículo [Supervisión de Azure Cosmos DB](monitor-cosmos-db.md).
 
 ## <a name="resource-logs"></a>Registros del recurso
-En la tabla siguiente se enumeran las propiedades de los registros de recursos de Azure Cosmos DB cuando se recopilan en registros de Azure Monitor o Azure Storage. En los registros de Azure Monitor, se recopilan en la tabla **AzureDiagnostics** con un valor **ResourceProvider** de *MICROSOFT.DOCUMENTDB*. 
+
+En la tabla siguiente se enumeran las propiedades de los registros de recursos de Azure Cosmos DB. Los registros de recursos se recopilan en los registros de Azure Monitor o en Azure Storage. En Azure Monitor, los registros se recopilan en la tabla **AzureDiagnostics** bajo el nombre del proveedor de recursos** de `MICROSOFT.DOCUMENTDB`.
 
 | Propiedad o campo de Azure Storage | Propiedad de registros de Azure Monitor | Descripción |
 | --- | --- | --- |
 | **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
 | **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
-| **category** | **Categoría** | En el caso de los registros de Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption** y **ControlPlaneRequests** son los tipos de registro disponibles. |
-| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **category** | **Categoría** | En el caso de Azure Cosmos DB, los tipos de registro disponibles son **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption** y **ControlPlaneRequests**. |
+| **operationName** | **OperationName** | Nombre de la operación. El nombre de la operación puede ser `Create`, `Update`, `Read`, `ReadFeed`, `Delete`, `Replace`, `Execute`, `SqlQuery`, `Query`, `JSQuery`, `Head`, `HeadFeed` o `Upsert`.   |
 | **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
-| **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|
-| **requestResourceType** | **requestResourceType_s** | Tipo de recurso al que se accede. Este valor puede ser cualquiera de los tipos de recursos siguientes: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction u Offer. |
+| **userAgent** | **userAgent_s** | Cadena que especifica el agente de usuario cliente desde el que se envió la solicitud. El formato del agente de usuario es `{user agent name}/{version}`.|
+| **requestResourceType** | **requestResourceType_s** | Tipo de recurso al que se accede. Este valor puede ser una base de datos, un contenedor, un documento, datos adjuntos, un usuario, un permiso, un procedimiento almacenado, un desencadenador, una función definida por el usuario o una oferta. |
 | **statusCode** | **statusCode_s** | Estado de respuesta de la operación. |
-| **requestResourceId** | **ResourceId** | El valor resourceId que pertenece a la solicitud. El valor puede apuntar a databaseRid, collectionRid o documentRid, según la operación realizada.|
+| **requestResourceId** | **ResourceId** | El valor resourceId que pertenece a la solicitud. Según la operación realizada, este valor puede apuntar a `databaseRid`, `collectionRid`o `documentRid`.|
 | **clientIpAddress** | **clientIpAddress_s** | Dirección IP del cliente. |
-| **requestCharge** | **requestCharge_s** | El número de RU que se utiliza en la operación |
+| **requestCharge** | **requestCharge_s** | El número de RU/s que se utilizan en la operación. |
 | **collectionRid** | **collectionId_s** | Identificador único de la colección.|
-| **duration** | **duration_s** | Duración de la operación en milisegundos. |
+| **duration** | **duration_d** | Duración de la operación en milisegundos. |
 | **requestLength** | **requestLength_s** | Longitud de la solicitud, en bytes. |
 | **responseLength** | **responseLength_s** | Longitud de la respuesta, en bytes.|
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Este valor no está vacío cuando se usan [tokens de recursos](https://docs.microsoft.com/azure/cosmos-db/secure-access-to-data#resource-tokens) para la autenticación. Los puntos de valor para el identificador de recurso del usuario. |
@@ -49,7 +49,7 @@ Para obtener una lista de todas las categorías de registros de Azure Monitor y 
 ## <a name="metrics"></a>Métricas
 En las tablas siguientes se enumeran las métricas de plataforma recopiladas para Azure Cosmos DB. Todas las métricas se almacenan en el espacio de nombres de las **métricas estándar de Cosmos DB**.
 
-Para obtener una lista de todas las métricas compatibles de Azure Monitor (incluido CosmosDB), consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md). 
+Para ver una lista de todas las métricas compatibles con Azure Monitor (incluido Azure Cosmos DB), consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md). 
 
 #### <a name="request-metrics"></a>Solicitud de métricas
             
@@ -98,7 +98,7 @@ Para obtener una lista de todas las métricas compatibles de Azure Monitor (incl
 |Métrica (nombre para mostrar de la métrica)|Unidad (tipo de agregación)|Descripción|Dimensions| Granularidades de tiempo| Uso |
 |---|---|---|---| ---| ---|
 | CassandraRequests (solicitudes de Cassandra) | Count (recuento) | Número de solicitudes de Cassandra API realizadas| DatabaseName, CollectionName, ErrorCode, Region, OperationType, ResourceType| All| Se usa para supervisar las solicitudes de Cassandra en una granularidad por minuto. Para obtener el promedio de solicitudes por segundo, utilice la agregación Count en un minuto y divida por 60.|
-| CassandraRequestsCharges (cargos de solicitudes de Cassandra) | Count (suma, mínimo, máximo, promedio) | Unidades de solicitud consumidas por solicitudes de Cassandra API| DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Se usa para supervisar las RU por minuto por una cuenta de Cassandra API.|
+| CassandraRequestsCharges (cargos de solicitudes de Cassandra) | Count (suma, mínimo, máximo, promedio) | Unidades de solicitud consumidas por Cassandra API | DatabaseName, CollectionName, Region, OperationType, ResourceType| All| Se usa para supervisar las RU por minuto por una cuenta de Cassandra API.|
 | CassandraConnectionClosures (cierres de conexión de Cassandra) |Count (recuento) |Número de conexiones de Cassandra cerradas| ClosureReason, Region| All | Se usa para supervisar la conectividad entre los clientes y Cassandra API de Azure Cosmos DB.|
 
 ## <a name="see-also"></a>Consulte también

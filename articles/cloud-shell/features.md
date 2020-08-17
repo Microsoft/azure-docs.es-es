@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: 409e8667f03843ae1b1bad56f189ff17b29d549a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e7324bfec32368e952af8f24afabe893011454df
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506572"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538180"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
 
@@ -49,19 +49,19 @@ La unidad de Azure permite detectar y navegar fácilmente por los recursos de Az
 Puede seguir usando los [cmdlets de Azure PowerShell](https://docs.microsoft.com/powershell/azure) que ya conoce para administrar estos recursos sin importar la unidad en la que se encuentre.
 Cualquier cambio que se realice en los recursos de Azure, ya sea directamente en Azure Portal o mediante los cmdlets de Azure PowerShell, se reflejan en la unidad de Azure.  Puede ejecutar `dir -Force` para actualizar los recursos.
 
-![](media/features-powershell/azure-drive.png)
+![Captura de pantalla de una instancia de Azure Cloud Shell que se va a inicializar y una lista de recursos de directorio](media/features-powershell/azure-drive.png)
 
 ### <a name="manage-exchange-online"></a>Administración de Exchange Online
 
 PowerShell en Cloud Shell contiene una compilación privada del módulo de Exchange Online.  Ejecute `Connect-EXOPSSession` para obtener los cmdlets de Exchange.
 
-![](media/features-powershell/exchangeonline.png)
+![Captura de pantalla de una instancia de Azure Cloud Shell que ejecuta los comandos Connect-EXOPSSession y Get-User.](media/features-powershell/exchangeonline.png)
 
  Ejecute `Get-Command -Module tmp_*`:
 > [!NOTE]
 > El nombre del módulo debe comenzar por `tmp_`. Si ha instalado los módulos con el mismo prefijo, también se expondrán los cmdlets. 
 
-![](media/features-powershell/exchangeonlinecmdlets.png)
+![Captura de pantalla de una instancia de Azure Cloud Shell que ejecuta el comando Get-Command-Module tmp_*.](media/features-powershell/exchangeonlinecmdlets.png)
 
 ### <a name="deep-integration-with-open-source-tooling"></a>Profunda integración con herramientas de código abierto
 

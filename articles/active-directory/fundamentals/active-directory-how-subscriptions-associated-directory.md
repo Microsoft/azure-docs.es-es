@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc81cca10bacc581e72c7caa70a0b74b7ae99f9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 347232d452b5d309da7cdb7c8fe34f0e41abde00
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604223"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025345"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -85,7 +85,7 @@ Cambiar el directorio de suscripción es una operación de nivel de servicio, po
 
 Después de asociar una suscripción a un directorio diferente, puede que tenga que realizar las siguientes tareas para reanudar las operaciones:
 
-- Si tiene almacenes de claves, debe cambiar el Id. de inquilino del almacén de claves. Para más información, consulte [Cambio del identificador de inquilino de Key Vault después de mover una suscripción](../../key-vault/general/subscription-move-fix.md).
+- Si tiene almacenes de claves, debe cambiar el Id. de inquilino del almacén de claves. Para más información, consulte [Cambio del identificador de inquilino de Key Vault después de mover una suscripción](../../key-vault/general/move-subscription.md).
 
 - Si usaba identidades administradas asignadas por el sistema para los recursos, debe volver a habilitar estas identidades. Si usaba identidades administradas asignadas por el usuario, debe volver a crear estas identidades. Después de volver a habilitar o crear las identidades administradas, debe volver a restablecer los permisos asignados a esas identidades. Para más información, consulte [¿Qué es Managed Identities for Azure Resources?](../managed-identities-azure-resources/overview.md)
 

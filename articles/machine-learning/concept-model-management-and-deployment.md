@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 12d86f9415f7f5b813d2dce8eb3ad4bb63dec30c
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: d1d14fa9730e3ddd47378a45ff7a1442bdee69ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82929764"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543391"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Administración, implementación y supervisión de modelos con Azure Machine Learning
 
@@ -74,7 +74,7 @@ Para más información, consulte la sección de registro de modelos de [Implemen
 ### <a name="profile-models"></a>Modelos de perfil
 
 Azure Machine Learning puede ayudarle a comprender los requisitos de CPU y memoria del servicio que se creará al implementar el modelo. La generación de perfiles prueba el servicio que ejecuta el modelo y devuelve información como el uso de la CPU, el uso de memoria y la latencia de respuesta. También proporciona una recomendación de CPU y memoria basada en el uso de recursos.
-Para más información, consulte la sección de generación de perfiles de [Implementación de modelos](how-to-deploy-and-where.md#profilemodel).
+Para más información, consulte la sección de generación de perfiles de [Implementación de modelos](how-to-deploy-profile-model.md).
 
 ### <a name="package-and-debug-models"></a>Empaquetado y depuración de modelos
 

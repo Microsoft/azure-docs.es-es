@@ -4,12 +4,13 @@ description: En este artículo se proporciona un script de la CLI de Azure de ej
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 04d69d440dc971908b1fe2931721c50e671cd7d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: fe81be64ea4672d233564726cfdae5b60951057d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171404"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494339"
 ---
 # <a name="subscribe-to-events-for-an-azure-subscription-with-azure-cli"></a>Suscripción a eventos de una suscripción de Azure con la CLI de Azure
 
@@ -41,4 +42,4 @@ Este script usa el siguiente comando para crear la suscripción de eventos. Cada
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para información sobre la consulta de suscripciones, consulte [Consulta de suscripciones de Event Grid](../query-event-subscriptions.md).
-* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

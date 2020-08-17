@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 6624cd0ff70ab359f4af36ca2f1f107d8f0b5fd9
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659275"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386136"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -22,27 +22,26 @@ Para poder [conectarse a orígenes de datos locales desde Azure Logic Apps](../l
 * [Puerta de enlace de datos local de Microsoft Power Apps](/powerapps/maker/canvas-apps/gateway-reference)
 * [Puerta de enlace de datos local de Azure Analysis Services](../analysis-services/analysis-services-gateway.md)
 
-En este artículo se muestra cómo descargar, instalar y configurar la puerta de enlace de datos local para que pueda acceder a los orígenes de datos locales desde Azure Logic Apps. También puede obtener más información sobre [cómo funciona la puerta de enlace de datos](#gateway-cloud-service) más adelante en este tema. Para más información sobre la puerta de enlace, consulte [¿Qué es una puerta de enlace de datos local?](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem). Para automatizar las tareas de instalación y administración de la puerta de enlace, consulte [Cmdlets de PowerShell de la puerta de enlace de datos](https://www.powershellgallery.com/packages/DataGateway/3000.15.15) en la galería de PowerShell.
+En este artículo se muestra cómo descargar, instalar y configurar la puerta de enlace de datos local para que pueda acceder a los orígenes de datos locales desde Azure Logic Apps. También puede obtener más información sobre [cómo funciona la puerta de enlace de datos](#gateway-cloud-service) más adelante en este tema. Para más información sobre la puerta de enlace, consulte [¿Qué es una puerta de enlace de datos local?](/data-integration/gateway/service-gateway-onprem). Para automatizar las tareas de instalación y administración de la puerta de enlace, consulte [Cmdlets de PowerShell de la puerta de enlace de datos](https://www.powershellgallery.com/packages/DataGateway/3000.15.15) en la galería de PowerShell.
 
 <a name="requirements"></a>
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-* Una cuenta y una suscripción de Azure. Si no tiene una cuenta de Azure con suscripción, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
+* Una cuenta y una suscripción de Azure. Si no tiene una cuenta de Azure con suscripción, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-  * Su cuenta de Azure debe pertenecer a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Debe usar la misma cuenta de Azure para instalar y administrar la puerta de enlace en su equipo local.
-
-  * Durante la instalación de la puerta de enlace, inicie sesión con su cuenta de Azure, que vincula la instalación de la puerta de enlace a su cuenta de Azure y solo a esa cuenta. Más adelante, en Azure Portal, deberá usar la misma cuenta de Azure y el mismo inquilino de Azure AD para crear un recurso de puerta de enlace de Azure que registre y notifique la instalación de la puerta de enlace. En Azure Logic Apps, los desencadenadores y las acciones locales usan el recurso de puerta de enlace para conectarse a orígenes de datos locales.
+  * La cuenta de Azure debe ser una cuenta profesional o educativa, que tiene el siguiente aspecto `username@contoso.com`. No puede usar cuentas de Azure B2B (invitado) o cuentas Microsoft personales, como @hotmail.com o @outlook.com.
 
     > [!NOTE]
-    > Solo puede vincular una instalación de puerta de enlace a un recurso de puerta de enlace de Azure. No se puede vincular la misma instalación de puerta de enlace a varias cuentas de Azure o a recursos de puerta de enlace de Azure. Sin embargo, una cuenta de Azure puede vincularse a varias instalaciones de puerta de enlace y recursos de puerta de enlace de Azure. En un desencadenador o acción locales puede seleccionar entre varias suscripciones de Azure y un recurso de puerta de enlace asociado.
+    > Si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico del trabajo, la dirección de inicio de sesión podría tener un aspecto similar a `username@domain.onmicrosoft.com`. La cuenta se almacena en un inquilino de Azure AD. En la mayoría de los casos, el nombre principal de usuario de la cuenta de Azure AD es el mismo que su dirección de correo electrónico.
 
-  * Debe iniciar sesión con una cuenta profesional o educativa, que también se conocen como *cuentas organizativas*, similares a `username@contoso.com`. No puede usar cuentas de Azure B2B (invitado) o cuentas Microsoft personales, como @hotmail.com o @outlook.com.
+    Para usar una [suscripción estándar de Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) que esté asociada a una cuenta Microsoft, primero [cree un inquilino de Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) o use el directorio predeterminado. Agregue un usuario con contraseña al directorio y conceda acceso a la suscripción de Azure a ese usuario. A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
 
-    > [!TIP]
-    > Si se suscribió a una oferta de Office 365 y no proporcionó su correo electrónico del trabajo, la dirección de inicio de sesión podría tener un aspecto similar a `username@domain.onmicrosoft.com`. La cuenta se almacena en un inquilino de Azure Active Directory (Azure AD). En la mayoría de los casos, el nombre principal de usuario de la cuenta de Azure AD es el mismo que su dirección de correo electrónico.
-    >
-    > Para usar una [suscripción estándar de Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) vinculada a una cuenta Microsoft, primero [cree un inquilino en Azure AD](../active-directory/develop/quickstart-create-new-tenant.md) o use el directorio predeterminado. Agregue un usuario con contraseña al directorio y conceda acceso a la suscripción de Azure a ese usuario. A continuación, puede iniciar sesión durante la instalación de la puerta de enlace con este nombre de usuario y contraseña.
+  * La cuenta de Azure debe pertenecer solo a un único [inquilino o directorio de Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md#terminology). Debe usar la misma cuenta de Azure para instalar y administrar la puerta de enlace en su equipo local.
+
+  * Al instalar la puerta de enlace, inicie sesión con su cuenta de Azure, que vincula la instalación de la puerta de enlace a su cuenta de Azure y solo a esa cuenta. No se puede vincular la misma instalación de puerta de enlace a varias cuentas de Azure o inquilinos de Azure AD.
+
+  * Más adelante, en Azure Portal, debe usar la misma cuenta de Azure para crear un recurso de puerta de enlace de Azure que la vincule a la instalación de la puerta de enlace. Solo puede vincular una instalación de puerta de enlace a un recurso de puerta de enlace de Azure. Sin embargo, la cuenta de Azure puede vincularse a diferentes instalaciones de puerta de enlace asociadas a un recurso de puerta de enlace de Azure. Las aplicaciones lógicas pueden usar este recurso de puerta de enlace en desencadenadores y acciones que pueden tener acceso a orígenes de datos locales.
 
 * Estos son los requisitos para el equipo local:
 
@@ -80,7 +79,7 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
   * La puerta de enlace tiene dos modos: modo estándar y modo personal, que solo se aplica a Power BI. No se puede ejecutar más de una puerta de enlace en el mismo modo en el mismo equipo.
 
-  * Azure Logic Apps admite operaciones de lectura y escritura mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem#considerations).
+  * Azure Logic Apps admite operaciones de lectura y escritura mediante la puerta de enlace. Sin embargo, estas operaciones tienen [límites en su tamaño de carga](/data-integration/gateway/service-gateway-onprem#considerations).
 
 <a name="install-gateway"></a>
 
@@ -143,8 +142,8 @@ En este artículo se muestra cómo descargar, instalar y configurar la puerta de
 
 La puerta de enlace de datos local depende de [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) para la conectividad en la nube y establece las conexiones salientes correspondientes a la región de Azure asociada de la puerta de enlace. Si su entorno de trabajo requiere que el tráfico pase a través de un proxy o firewall para acceder a Internet, esta restricción podría impedir la conexión de la puerta de enlace de datos local al servicio en la nube de la puerta de enlace y Azure Service Bus. La puerta de enlace tiene varias configuraciones de comunicación que se pueden ajustar. Para más información, consulte los temas siguientes:
 
-* [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [Configuración de los valores del proxy para la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [Ajuste de la configuración de comunicación para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-communication)
+* [Configuración de los valores del proxy para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -156,7 +155,7 @@ Para evitar puntos de error únicos en el acceso a datos locales, puede tener va
 
 * La puerta de enlace principal debe ejecutar la actualización de puerta de enlace de noviembre de 2017 o posterior.
 
-Después de configurar la puerta de enlace principal, cuando vaya a instalar otra puerta de enlace, seleccione **Agregar a un clúster de puerta de enlace existente**, seleccione la puerta de enlace principal, que es la primera puerta de enlace que instaló, y proporcione la clave de recuperación para esa puerta. Para obtener más información, consulte [Clústeres de alta disponibilidad para puerta de enlace a datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
+Después de configurar la puerta de enlace principal, cuando vaya a instalar otra puerta de enlace, seleccione **Agregar a un clúster de puerta de enlace existente**, seleccione la puerta de enlace principal, que es la primera puerta de enlace que instaló, y proporcione la clave de recuperación para esa puerta. Para obtener más información, consulte [Clústeres de alta disponibilidad para puerta de enlace a datos local](/data-integration/gateway/service-gateway-install#add-another-gateway-to-create-a-cluster).
 
 <a name="update-gateway-installation"></a>
 
@@ -186,7 +185,7 @@ Si tiene que cambiar la ubicación de la puerta de enlace, trasladar la instalac
 
 ## <a name="tenant-level-administration"></a>Administración de nivel de inquilino
 
-Para obtener visibilidad de todas las puertas de enlace de datos locales en un inquilino de Azure AD, los administradores globales de ese inquilino pueden iniciar sesión en el [centro de administración de Power Platform](https://powerplatform.microsoft.com) como administrador de inquilinos y seleccionar la opción **Puertas de enlace de datos**. Para obtener más información, consulte [Administración de nivel de inquilino para la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tenant-level-admin).
+Para obtener visibilidad de todas las puertas de enlace de datos locales en un inquilino de Azure AD, los administradores globales de ese inquilino pueden iniciar sesión en el [centro de administración de Power Platform](https://powerplatform.microsoft.com) como administrador de inquilinos y seleccionar la opción **Puertas de enlace de datos**. Para obtener más información, consulte [Administración de nivel de inquilino para la puerta de enlace de datos local](/data-integration/gateway/service-gateway-tenant-level-admin).
 
 <a name="restart-gateway"></a>
 
@@ -197,7 +196,7 @@ De forma predeterminada, la instalación de la puerta de enlace del equipo local
 > [!NOTE]
 > Su cuenta de servicio de Windows no es la misma que se usa para conectarse a orígenes de datos locales, ni la cuenta de Azure que usa para iniciar sesión en servicios en la nube.
 
-Al igual que con cualquier otro servicio de Windows, puede iniciar y detener la puerta de enlace de varias maneras. Para obtener más información, consulte [Reinicio de una puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-restart).
+Al igual que con cualquier otro servicio de Windows, puede iniciar y detener la puerta de enlace de varias maneras. Para obtener más información, consulte [Reinicio de una puerta de enlace de datos local](/data-integration/gateway/service-gateway-restart).
 
 <a name="gateway-cloud-service"></a>
 
@@ -261,9 +260,9 @@ Estas son algunas formas de hacer coincidir las cuentas de Active Directory loca
 
 ## <a name="faq-and-troubleshooting"></a>Preguntas más frecuentes y solución de problemas
 
-* [Preguntas más frecuentes sobre la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-onprem-faq)
-* [Solución de problemas de la puerta de enlace de datos local](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot)
-* [Supervisión y optimización del rendimiento de la puerta de enlace](https://docs.microsoft.com/data-integration/gateway/service-gateway-performance)
+* [Preguntas más frecuentes sobre la puerta de enlace de datos local](/data-integration/gateway/service-gateway-onprem-faq)
+* [Solución de problemas de la puerta de enlace de datos local](/data-integration/gateway/service-gateway-tshoot)
+* [Supervisión y optimización del rendimiento de la puerta de enlace](/data-integration/gateway/service-gateway-performance)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

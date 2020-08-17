@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: bfbab26e47befbd84ed7b060992d6c0b239ae4db
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: 8fd670104a04229ed688b365de89e2ffc22b5429
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193437"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499388"
 ---
 # <a name="what-are-durable-functions"></a>¿Qué es Durable Functions?
 
@@ -189,18 +189,14 @@ La creación automática de puntos de control que se produce en la llamada a `yi
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 
 
 def orchestrator_function(context: df.DurableOrchestrationContext):
-    parallel_tasks = []
-
     # Get a list of N work items to process in parallel.
     work_batch = yield context.call_activity("F1", None)
 
-    for i in range(0, len(work_batch)):
-        parallel_tasks.append(context.call_activity("F2", work_batch[i]))
+    parallel_tasks = [ context.call_activity("F2", b) for b in work_batch ]
     
     outputs = yield context.task_all(parallel_tasks)
 
@@ -232,21 +228,21 @@ Durable Functions proporciona **compatibilidad integrada** con este patrón, lo 
 En el ejemplo siguiente se muestran los comandos REST para iniciar un orquestador y consultar su estado. Para que el ejemplo se vea con mayor claridad se omiten algunos detalles del protocolo.
 
 ```
-> curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
+> curl -X POST https://myfunc.azurewebsites.net/api/orchestrators/DoWork -H "Content-Length: 0" -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"id":"b79baf67f717453ca9e86c5da21e03ec", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 202 Accepted
 Content-Type: application/json
-Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec
+Location: https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec
 
 {"runtimeStatus":"Running","lastUpdatedTime":"2019-03-16T21:20:47Z", ...}
 
-> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/b79baf67f717453ca9e86c5da21e03ec -i
+> curl https://myfunc.azurewebsites.net/runtime/webhooks/durabletask/instances/b79baf67f717453ca9e86c5da21e03ec -i
 HTTP/1.1 200 OK
 Content-Length: 175
 Content-Type: application/json
@@ -333,7 +329,6 @@ module.exports = df.orchestrator(function*(context) {
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 
@@ -434,7 +429,6 @@ Para crear el temporizador durable, llame a `context.df.createTimer`. `context.d
 # <a name="python"></a>[Python](#tab/python)
 
 ```python
-import azure.functions as func
 import azure.durable_functions as df
 import json
 from datetime import timedelta 

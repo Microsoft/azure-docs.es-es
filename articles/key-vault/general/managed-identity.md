@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: bb5288d043ab5638bb33c357cea55c64b03fcf1d
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: d2d4af5086e3cf4099013969cd359f8e11873c6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090644"
 ---
 # <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Autenticación de Key Vault con una identidad administrada
 
@@ -35,14 +35,14 @@ Para completar esta guía, necesitará los recursos siguientes:
    - [Creación de un almacén de claves con Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Creación de un almacén de claves con Azure Portal](../secrets/quick-create-portal.md)
 - Una aplicación de App Service existente a la que conceder acceso al almacén de claves. Puede crear una rápidamente si sigue los pasos descritos en la [documentación de App Service](../../app-service/overview.md).
-- La [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview). Como alternativa, puede usar [Azure Portal](https://portal.azure.com).
+- La [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/). Como alternativa, puede usar [Azure Portal](https://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Adición de una identidad asignada por el sistema 
 
 En primer lugar, debe agregar una identidad asignada por el sistema a una aplicación. 
  
-### <a name="azure-portal"></a>Portal de Azure 
+### <a name="azure-portal"></a>Azure portal 
 
 Para configurar una identidad administrada en el portal, primero creará una aplicación como lo hace normalmente y, a continuación, habilitará la característica. 
 
@@ -52,7 +52,7 @@ Para configurar una identidad administrada en el portal, primero creará una apl
 
 1. En la pestaña **Asignado por el sistema**, cambie **Estado** a **Activado**. Haga clic en **Save**(Guardar). 
 
-    ![](../media/managed-identity-system-assigned.png)
+   ![Captura de pantalla que muestra cómo guardar una identidad asignada por el sistema.](../media/managed-identity-system-assigned.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -100,7 +100,7 @@ Anote `PrincipalId`, que se necesitará en la siguiente sección.
 
 1.  Haga clic en **Agregar** para terminar de agregar la nueva directiva de acceso.
 
-    ![](../media/managed-identity-access-policy.png)
+    ![Captura de pantalla que muestra cómo agregar una nueva directiva de acceso en Azure Portal.](../media/managed-identity-access-policy.png)
 
 ### <a name="azure-cli"></a>Azure CLI
 

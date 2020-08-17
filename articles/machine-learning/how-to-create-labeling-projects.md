@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 8c0aabc3242bf9576de917ad63ce4f71bec9905e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146533"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326472"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creación de un proyecto de etiquetado de datos y exportación de etiquetas 
 
@@ -21,11 +21,11 @@ ms.locfileid: "86146533"
 
 Etiquetar datos voluminosos en proyectos de Machine Learning suele ser una tarea compleja. Los proyectos que tienen un componente de Computer Vision (como la clasificación de imágenes o la detección de objetos) normalmente requieren etiquetar miles de imágenes.
  
-[Azure Machine Learning](https://ml.azure.com/) proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado (versión preliminar pública). Úselo para coordinar los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. Machine Learning permite la clasificación de imágenes (de varias etiquetas y varias clases) y la identificación de objetos mediante rectángulos de selección.
+El etiquetado de datos de [Azure Machine Learning](https://ml.azure.com/) proporciona una ubicación central para crear, administrar y supervisar proyectos de etiquetado. Úselo para coordinar los datos, las etiquetas y los miembros del equipo para administrar de forma eficaz las tareas de etiquetado. Machine Learning permite la clasificación de imágenes (de varias etiquetas y varias clases) y la identificación de objetos mediante rectángulos de selección.
 
-Azure Machine Learning realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas.
+El etiquetado de datos realiza un seguimiento del progreso y el mantenimiento de la cola de tareas de etiquetado incompletas.
 
-Puede iniciar y detener el proyecto y supervisar el progreso de etiquetado. Puede exportar los datos etiquetados en formato COCO o como un conjunto de datos de Azure Machine Learning.
+Puede iniciar y detener el proyecto y controlar el progreso de etiquetado. Puede revisar los datos etiquetados y exportarlos en formato COCO o como un conjunto de datos de Azure Machine Learning.
 
 > [!Important]
 > Actualmente solo se admiten proyectos de etiquetado de clasificación de imágenes e identificación de objetos. Además, las imágenes de datos deben estar disponibles en un almacén de datos de blobs de Azure. (Si no tiene un almacén de datos existente, puede cargar las imágenes durante la creación del proyecto).
@@ -57,9 +57,9 @@ Para crear un proyecto, seleccione **Agregar proyecto**. Asigne un nombre adecua
 
 :::image type="content" source="media/how-to-create-labeling-projects/labeling-creation-wizard.png" alt-text="Asistente para la creación de proyectos de etiquetado":::
 
-* Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola clase* de un conjunto de clases a una imagen.
-* Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de clases a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
-* Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una clase y un rectángulo de selección a cada objeto de una imagen.
+* Elija un proyecto de tipo **Clasificación de imágenes con varias clases** cuando quiera aplicar una *sola etiqueta* de un conjunto de etiquetas a una imagen.
+* Elija un proyecto de tipo **Clasificación de imágenes con varias etiquetas** cuando quiera aplicar *una o varias* etiquetas de un conjunto de etiquetas a una imagen. Por ejemplo, una fotografía de un perro podría etiquetarse como *perro* y *diurno*.
+* Elija un proyecto de tipo **Identificación del objeto (rectángulo de selección)** cuando quiera asignar una etiqueta y un rectángulo de selección a cada objeto de una imagen.
 
 Seleccione **Siguiente** cuando esté listo para continuar.
 
@@ -148,6 +148,10 @@ En el caso de los rectángulos de selección, estas son algunas preguntas import
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
+> [!IMPORTANT]
+> El etiquetado con asistencia de ML se encuentra actualmente en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 La página **Etiquetado con asistencia de ML** permite desencadenar modelos de Machine Learning automáticos para acelerar la tarea de etiquetado. Al principio del proyecto de etiquetado, las imágenes se presentan en orden aleatorio para reducir el posible sesgo. Sin embargo, los sesgos presentes en el conjunto de datos se reflejarán en el modelo entrenado. Por ejemplo, si el 80 % de las imágenes son de una sola clase, aproximadamente el 80 % de los datos usados para entrenar el modelo serán de esa clase. Este entrenamiento no incluye el aprendizaje activo.
 
 Seleccione *Habilitar el etiquetado con asistencia de ML* y especifique una GPU para habilitar el etiquetado con asistencia, que consta de dos fases:
@@ -183,14 +187,54 @@ Una vez inicializado el proyecto de etiquetado, algunos aspectos del proyecto so
 > Puede que esta página no se actualice automáticamente. Espere unos momentos y actualice la página manualmente para ver el estado del proyecto como **Creado**.
 
 ## <a name="run-and-monitor-the-project"></a>Ejecutar y supervisar el proyecto
+Después de inicializar el proyecto, Azure comenzará a ejecutarlo. Seleccione el proyecto en la página **Etiquetado de datos** para ver los detalles del proyecto.
 
-Después de inicializar el proyecto, Azure comenzará a ejecutarlo. Seleccione el proyecto en la página **Data Labeling** (Etiquetado de datos) para ir a **Project details** (Detalles del proyecto). En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
+Para pausar o reiniciar el proyecto, alterne el estado **En ejecución** en la parte superior derecha. Solo se pueden etiquetar datos cuando el proyecto se está ejecutando.
+
+### <a name="dashboard"></a>Panel
+
+En la pestaña **Panel** se muestra el progreso de la tarea de etiquetado.
+
+:::image type="content" source="media/how-to-create-labeling-projects/labeling-dashboard.png" alt-text="Panel de etiquetado de datos":::
+
+El gráfico de progreso muestra cuántos elementos se han etiquetado y cuántos no todavía.  Es posible que los elementos pendientes:
+
+* Todavía no se hayan agregado a una tarea.
+* Se hayan incluido en una tarea que está asignada a un etiquetador, pero que aún no se hayan completado. 
+* Se encuentren en la cola de tareas que todavía se deben asignar.
+
+En la sección central se muestra la cola de tareas que todavía se deben asignar. Cuando el etiquetado con asistencia de ML esté desactivado, en esta sección se mostrará el número de tareas manuales que se van a asignar. Cuando el etiquetado con asistencia de ML esté activado, también se mostrará:
+
+* Tareas que contienen elementos agrupados en la cola
+* Tareas que contienen elementos etiquetados previamente en la cola
+
+Además, cuando el etiquetado con asistencia de ML está habilitado, se muestra una pequeña barra de progreso cuando se produce la siguiente ejecución de entrenamiento.  En la sección Experimentos se proporcionan vínculos para cada una de las ejecuciones de aprendizaje automático.
+
+* Entrenamiento: Entrena un modelo para predecir las etiquetas.
+* Validación: Determina si se usará la predicción de este modelo para etiquetar previamente los elementos. 
+* Inferencia: Ejecución de predicción para nuevos elementos.
+* Caracterización: Elementos de clúster (solo para proyectos de clasificación de imágenes).
+
+En el lado derecho, se muestra una distribución de las etiquetas de las tareas que se han completado.  Recuerde que en algunos tipos de proyecto, un elemento puede tener varias etiquetas, en cuyo caso, el número total de etiquetas puede ser mayor que el número total de elementos.
+
+### <a name="data-tab"></a>Pestaña Datos
 
 En la pestaña **Datos**, puede ver el conjunto de datos y revisar los datos etiquetados. Si ve datos etiquetados incorrectamente, selecciónelos y elija **Rechazar**; se quitarán las etiquetas y los datos se volverán a colocar en la cola sin etiquetar.
 
-Para poner en pausa o reiniciar el proyecto, seleccione el botón **Pausar**/**Iniciar**. Solo se pueden etiquetar datos cuando el proyecto se está ejecutando.
+### <a name="details-tab"></a>Pestaña Detalles
 
-Puede etiquetar los datos directamente desde la página **Detalles del proyecto** si selecciona **Label data** (Etiquetar datos).
+Vea los detalles del proyecto.  En esta pestaña, puede:
+
+* Ver los detalles del proyecto y los conjuntos de datos de entrada
+* Habilitar la actualización incremental
+* Ver detalles del contenedor de almacenamiento usado para almacenar salidas etiquetadas en el proyecto
+* Agregar etiquetas al proyecto
+* Editar las instrucciones que proporcione a las etiquetas
+* Editar los detalles del etiquetado con asistencia de ML, incluido habilitar o deshabilitar
+
+### <a name="access-for-labelers"></a>Acceso para etiquetadores
+
+Cualquier usuario que tenga acceso al área de trabajo puede etiquetar los datos del proyecto.  También puede personalizar los permisos de los etiquetadores para que puedan acceder al etiquetado, pero no a otras partes del área de trabajo o al proyecto de etiquetado.  Para obtener más información, consulte [Administración del acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md) y aprenda a crear el [rol personalizado de etiquetador](how-to-assign-roles.md#labeler).
 
 ## <a name="add-new-label-class-to-a-project"></a>Incorporación de una nueva clase de etiqueta a un proyecto
 
@@ -199,7 +243,7 @@ Durante el proceso de etiquetado es posible que se necesiten etiquetas adicional
 Siga estos pasos para agregar una o varias etiquetas a un proyecto:
 
 1. Seleccione el proyecto en la página principal **Data Labeling** (Etiquetado de datos).
-1. En la parte superior de la página, seleccione **Pause** (Pausa) para detener la actividad de los etiquetadores.
+1. En la parte superior derecha de la página, cambie **En ejecución** a **En pausa** para detener la actividad de los etiquetadores.
 1. Seleccione la pestaña **Details** (Detalles).
 1. En la lista de la izquierda, seleccione **Label classes** (Clases de etiquetas).
 1. En la parte superior de la lista, seleccione **+ Add Labels** (+ Agregar etiquetas) ![Add a label](media/how-to-create-labeling-projects/add-label.png) (Agregar una etiqueta).
@@ -208,7 +252,7 @@ Siga estos pasos para agregar una o varias etiquetas a un proyecto:
     * Vuelva a empezar y conserve todas las etiquetas existentes.  Elija esta opción para marcar todos los datos como sin etiquetar, pero mantener las etiquetas existentes como predeterminadas para las imágenes etiquetadas previamente.
     * Continúe y conserve todas las etiquetas existentes. Elija esta opción para mantener todos los datos ya etiquetados como están y empezar a usar la nueva etiqueta para los datos que aún no se hayan etiquetado.
 1. Modifique la página de instrucciones según sea necesario para las nuevas etiquetas.
-1. Una vez que haya agregado todas las etiquetas nuevas, en la parte superior de la página, seleccione **Start** (Iniciar) para reiniciar el proyecto.  
+1. Una vez que haya agregado todas las etiquetas nuevas, en la parte superior derecha de la página, cambie **En pausa** a **En ejecución** para reiniciar el proyecto.  
 
 ## <a name="export-the-labels"></a>Exportar las etiquetas
 

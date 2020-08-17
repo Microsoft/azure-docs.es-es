@@ -3,12 +3,12 @@ title: 'Tipos de entidades: LUIS'
 description: Una entidad extrae datos de una expresión de usuario en tiempo de ejecución de predicción. Un propósito _opcional_ y secundario es impulsar la predicción de la intención o de otras entidades usando la entidad como una característica.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 61dc0688cd304a672321f846a3ae5798c271345d
-ms.sourcegitcommit: f01c2142af7e90679f4c6b60d03ea16b4abf1b97
+ms.openlocfilehash: ced4a3e23b8e532b54d0b3cf974dab233b81b375
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84676495"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337626"
 ---
 # <a name="extract-data-with-entities"></a>Extracción de datos con entidades
 
@@ -77,6 +77,12 @@ Para compilar las entidades de aprendizaje automático de forma eficaz:
 * El etiquetado debe ser coherente en todas las intenciones. Esto incluye incluso las expresiones que proporcione en la intención **None** que incluyan esta entidad. De lo contrario, el modelo no podrá determinar las secuencias de forma eficaz.
 * Si tiene una entidad de aprendizaje automático con subentidades, asegúrese de que los distintos órdenes y variantes de la entidad y las subentidades se presenten en las expresiones etiquetadas. Las expresiones etiquetadas de ejemplo deben incluir todas las formas válidas e incluir entidades que aparecen y que están ausentes, y que también se reordenan dentro de la expresión.
 * Debe evitar sobreajustar las entidades a un conjunto muy fijo. El **sobreajuste** tiene lugar cuando el modelo no está bien generalizado, y es un problema común en los modelos de Machine Learning. Esto implica que la aplicación no funcionaría correctamente con datos nuevos. A su vez, debe variar las expresiones etiquetadas de ejemplo para que la aplicación pueda generalizar más allá de los ejemplos limitados que proporcione. Debe variar las distintas subentidades con cambios suficientes para que el modelo piense más en el concepto en lugar de solo en los ejemplos mostrados.
+
+## <a name="effective-prebuilt-entities"></a>Entidades eficaces precompiladas
+
+Para crear entidades eficaces que extraigan datos comunes, como los proporcionados por las [entidades precompiladas](luis-reference-prebuilt-entities.md), se recomienda el siguiente proceso.
+
+Mejore la extracción de datos mediante la incorporación de sus propios datos a una entidad como una característica. De este modo, todas las etiquetas adicionales de los datos aprenderán el contexto de dónde existen los nombres de persona en la aplicación.
 
 <a name="composite-entity"></a>
 <a name="list-entity"></a>

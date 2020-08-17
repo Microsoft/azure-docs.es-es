@@ -25,7 +25,7 @@ landingContent:
     links:
     - text: Vídeos de Azure Advisor
       url: https://azure.microsoft.com/resources/videos/index/?services=advisor
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: get-started
     links:

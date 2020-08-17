@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre Azure DevTest Labs | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure DevTest Labs.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: b687ae5c7b64239387dad7a51e124fa2f507f2b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: 3f36b8238ccb69b3b1f14166b522e47d5debe54e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85481670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289369"
 ---
 # <a name="azure-devtest-labs-faq"></a>Preguntas más frecuentes sobre Azure DevTest Labs
 En este artículo se ofrecen respuestas a algunas de las preguntas más frecuentes sobre Azure DevTest Labs.
@@ -36,7 +36,7 @@ Nuestro identificador de Twitter: [@azlabservices](https://twitter.com/azlabserv
 Si su pregunta no aparece aquí, háganoslo saber para que podamos ayudarlo a encontrar una respuesta.
 
 - Publique una pregunta al final de este documento.
-- Para llegar a un público más amplio, publique una pregunta en la [página de preguntas y respuestas de Microsoft sobre Azure DevTest Labs](https://docs.microsoft.com/answers/topics/azure-devtestlabs.html). Póngase en contacto con el equipo de Azure DevTest Labs y otros miembros de la comunidad.
+- Para llegar a un público más amplio, publique una pregunta en la [página de preguntas y respuestas de Microsoft sobre Azure DevTest Labs](/answers/topics/azure-devtestlabs.html). Póngase en contacto con el equipo de Azure DevTest Labs y otros miembros de la comunidad.
 - Para solicitudes de características, envíe sus solicitudes e ideas al sitio [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 
 ### <a name="what-is-a-microsoft-account"></a>¿Qué es una cuenta Microsoft?
@@ -200,7 +200,7 @@ Para copiar las máquinas virtuales existentes a los laboratorios de DevTest Lab
 Sí, puede adjuntar varios discos a sus máquinas virtuales.
 
 ### <a name="are-gen-2-images-supported-by-devtest-labs"></a>¿Admite DevTest Labs imágenes de Gen 2?
-No. El servicio DevTest Labs no admite [imágenes de Gen 2](../virtual-machines/windows/generation-2.md). Si hay versiones de Gen 1 y Gen 2 disponibles para una imagen, DevTest Labs solo muestra la versión de Gen 1 de la imagen al crear una máquina virtual. No verá una imagen si solo está disponible su versión de Gen 2. 
+Sí. El servicio DevTest Labs admite [imágenes de Gen 2](../virtual-machines/windows/generation-2.md). Sin embargo, si hay versiones de Gen 1 y Gen 2 disponibles para una imagen, DevTest Labs solo muestra la versión de Gen 1 de la imagen al crear una máquina virtual. Verá la imagen si solo está disponible su versión de Gen 2. 
 
 ### <a name="if-i-want-to-use-a-windows-os-image-for-my-testing-do-i-have-to-purchase-an-msdn-subscription"></a>Si quiero usar una imagen de sistema operativo Windows para mi prueba, ¿tengo que comprar una suscripción a MSDN?
 Para usar imágenes de sistema operativo cliente de Windows (Windows 7 o una versión posterior) para el desarrollo o las pruebas en Azure, siga uno de los siguientes pasos:
@@ -212,7 +212,7 @@ Para obtener más información acerca de los créditos de Azure para cada oferta
 
 
 ### <a name="how-do-i-automate-the-process-of-deleting-all-the-vms-in-my-lab"></a>¿Cómo se automatiza el proceso de eliminación de todas las máquinas virtuales en mi laboratorio?
-Como propietario de laboratorio, puede eliminar las máquinas virtuales en el laboratorio en Azure Portal. También puede eliminar todas las máquinas virtuales en el laboratorio mediante un script de PowerShell. En el ejemplo siguiente, en el comentario **Values to change** (Valores para cambiar), modifique los valores del parámetro. Puede recuperar los valores subscriptionId, labResourceGroup y labName del panel del laboratorio en Azure Portal.
+Como propietario de laboratorio, puede eliminar las máquinas virtuales en el laboratorio en Azure Portal. También puede eliminar todas las máquinas virtuales en el laboratorio mediante un script de PowerShell. En el ejemplo siguiente, en el comentario **Values to change** (Valores para cambiar), modifique los valores del parámetro. Puede recuperar los valores `subscriptionId`, `labResourceGroup` y `labName` del panel del laboratorio en Azure Portal.
 
 ```powershell
 # Delete all the VMs in a lab.
@@ -340,7 +340,7 @@ Para otras cadenas de herramientas de entrega continua (CD) o integración conti
 ## <a name="networking"></a>Redes
 
 ### <a name="when-should-i-create-a-new-virtual-network-for-my-devtest-labs-environment-vs-using-an-existing-virtual-network"></a>¿Cuándo se debe crear una red virtual para un entorno de DevTest Labs en lugar de usar una red virtual existente?
-Si las máquinas virtuales necesitan interactuar con la infraestructura existente, considere la posibilidad de utilizar una red virtual existente dentro de su entorno de DevTest Labs. Si usa ExpressRoute, es posible que desee minimizar la cantidad de redes virtuales y subredes para no fragmentar el espacio de direcciones IP que se asigna para su uso en las suscripciones.
+Si las máquinas virtuales necesitan interactuar con la infraestructura existente, considere la posibilidad de utilizar una red virtual existente dentro de su entorno de DevTest Labs. Si usa ExpressRoute, es posible que desee minimizar el número de redes virtuales y subredes para no fragmentar el espacio de direcciones IP que se asigna para su uso en las suscripciones.
 
 Considere la posibilidad de usar aquí también el patrón de emparejamiento de la red virtual ([modelo tipo hub-and-spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)). Este enfoque permite la comunicación de red virtual o subred entre suscripciones. En caso contrario, cada entorno de DevTest Labs podría tener su propia red virtual.
 

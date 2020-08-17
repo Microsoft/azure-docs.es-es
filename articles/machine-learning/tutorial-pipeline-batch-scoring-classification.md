@@ -6,17 +6,17 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: trevorbye
-ms.author: trbye
+author: lobrien
+ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
-ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: de1d548be7f426f42b369ae7607bd6f798b42317
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.custom: contperfq4, devx-track-python
+ms.openlocfilehash: 4cd0ab588e921eb41c5ccc9800e8fe807d3e8108
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85296175"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852385"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Tutorial: Compilación de una canalización de Azure Machine Learning para la puntuación por lotes
 

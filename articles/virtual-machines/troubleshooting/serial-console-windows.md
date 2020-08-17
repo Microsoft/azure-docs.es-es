@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: 4f02d92e6264a05ed2cb4021adb5ae6312f58a85
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c30999a5f0239e60c842084b60b44c165fb7182e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146634"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424007"
 ---
 # <a name="azure-serial-console-for-windows"></a>Consola serie de Azure para Windows
 
@@ -26,10 +26,12 @@ La consola serie de Azure Portal proporciona acceso a una consola basada en text
 
 La consola serie funciona de la misma manera para las máquinas virtuales y las instancias de conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente las instancias de conjunto de escalado de máquinas virtuales, a menos que se indique lo contrario.
 
+La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
+
 Para obtener documentación sobre la consola serie para Linux, consulte [Consola serie para Linux](serial-console-linux.md).
 
 > [!NOTE]
-> La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
+> Actualmente, la consola serie no es compatible con una cuenta de almacenamiento de diagnósticos de arranque administrado. Para usar la consola serie, asegúrese de que está usando una cuenta de almacenamiento personalizada.
 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -38,7 +40,7 @@ Para obtener documentación sobre la consola serie para Linux, consulte [Consola
 
 - La cuenta que usa una consola serie debe tener el [rol Colaborador de la máquina virtual](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) y la cuenta de almacenamiento de [diagnósticos de arranque](boot-diagnostics.md).
 
-- La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben tener un usuario con contraseña. Puede crear una con la función para [restablecer la contraseña](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
+- La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben tener un usuario con contraseña. Puede crear una con la función para [restablecer la contraseña](../extensions/vmaccess.md#reset-password) de la extensión de acceso de máquina virtual. Seleccione **Restablecer contraseña** en la sección **Soporte técnico y solución de problemas**.
 
 * La máquina virtual para el conjunto de escalado de máquinas virtuales debe tener el [diagnóstico de arranque](boot-diagnostics.md) habilitado.
 
@@ -50,7 +52,7 @@ Para obtener documentación sobre la consola serie para Linux, consulte [Consola
 > Si no ve nada en la consola serie, asegúrese de que el diagnóstico de arranque está habilitado en la máquina virtual o en el conjunto de escalado de máquinas virtuales.
 
 ### <a name="enable-the-serial-console-in-custom-or-older-images"></a>Habilitación de la consola serie en imágenes personalizadas o antiguas
-Las imágenes más nuevas de Windows Server en Azure tienen la [consola de administración especial](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) habilitada de forma predeterminada. SAC se admite en versiones de servidor de Windows, pero no está disponible en versiones de cliente (por ejemplo, Windows 10, Windows 8 o Windows 7).
+Las imágenes más nuevas de Windows Server en Azure tienen la [consola de administración especial](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) (SAC) habilitada de forma predeterminada. SAC se admite en versiones de servidor de Windows, pero no está disponible en versiones de cliente (por ejemplo, Windows 10, Windows 8 o Windows 7).
 
 En el caso de las imágenes de Windows Server anteriores (creadas antes de febrero de 2018), puede habilitar automáticamente la consola serie mediante la característica de ejecución de comandos de Azure Portal. En Azure Portal, seleccione **Ejecutar comando** y, a continuación, seleccione el comando llamado **EnableEM** de la lista.
 
@@ -76,11 +78,11 @@ Si es necesario SAC también puede habilitarse sin conexión:
 
 #### <a name="how-do-i-know-if-sac-is-enabled"></a>¿Cómo se puede saber si SAC está habilitada o no?
 
-Si [SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) no está habilitado, la consola serie no mostrará el símbolo del sistema de SAC. En algunos casos, se muestra la información de mantenimiento de la máquina virtual y, en otros casos, se queda en blanco. Si utiliza una imagen de Windows Server creada antes de febrero de 2018, es probable que SAC no esté habilitado.
+Si [SAC](/previous-versions/windows/it-pro/windows-server-2003/cc787940(v=ws.10)) no está habilitado, la consola serie no mostrará el símbolo del sistema de SAC. En algunos casos, se muestra la información de mantenimiento de la máquina virtual y, en otros casos, se queda en blanco. Si utiliza una imagen de Windows Server creada antes de febrero de 2018, es probable que SAC no esté habilitado.
 
 ### <a name="enable-the-windows-boot-menu-in-the-serial-console"></a>Habilitación del menú de arranque de Windows en la consola serie
 
-Si tiene que habilitar los mensajes del cargador de arranque de Windows para que se muestren en la consola serie, puede agregar las siguientes opciones adicionales a los datos de la configuración de arranque. Para más información, consulte [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set).
+Si tiene que habilitar los mensajes del cargador de arranque de Windows para que se muestren en la consola serie, puede agregar las siguientes opciones adicionales a los datos de la configuración de arranque. Para más información, consulte [bcdedit](/windows-hardware/drivers/devtest/bcdedit--set).
 
 1. Conéctese a la máquina virtual o la instancia de conjunto de escalado de máquinas virtuales Windows mediante Escritorio remoto.
 
@@ -126,7 +128,7 @@ Para obtener información sobre cómo configurar Windows para crear un archivo d
 Las teclas de función están habilitadas para usarse en la consola serie en máquinas virtuales Windows. La tecla F8 en la lista desplegable de la consola serie ofrece la comodidad de especificar fácilmente el menú de configuración de arranque avanzado, pero la consola serie es compatible con todas las demás teclas de función. Es posible que tenga que presionar **Fn** + **F1** (o F2, F3, etc.) en el teclado en función del equipo en el que use la consola serie.
 
 ### <a name="use-wsl-in-serial-console"></a>Uso de WSL en la consola serie
-Subsistema de Windows para Linux (WSL) se ha habilitado para Windows Server 2019 o versiones posteriores, por lo que también es posible habilitar WSL para usarlo dentro de la consola serie si se ejecuta Windows Server 2019 o posterior. Esto puede resultar útil para los usuarios que también conocen los comandos de Linux. Para obtener instrucciones que permitan habilitar WSL para Windows Server, consulte la [Guía de instalación](https://docs.microsoft.com/windows/wsl/install-on-server).
+Subsistema de Windows para Linux (WSL) se ha habilitado para Windows Server 2019 o versiones posteriores, por lo que también es posible habilitar WSL para usarlo dentro de la consola serie si se ejecuta Windows Server 2019 o posterior. Esto puede resultar útil para los usuarios que también conocen los comandos de Linux. Para obtener instrucciones que permitan habilitar WSL para Windows Server, consulte la [Guía de instalación](/windows/wsl/install-on-server).
 
 ### <a name="restart-your-windows-vmvirtual-machine-scale-set-instance-within-serial-console"></a>Reinicio de la máquina virtual o la instancia de conjunto de escalado de máquinas virtuales Windows en la consola serie
 Puede comenzar el reinicio dentro de la consola serie si va al botón de encendido y hace clic en "Reiniciar VM". Así se iniciará un reinicio de la máquina virtual, y verá una notificación en Azure Portal relativa al reinicio.
@@ -147,7 +149,7 @@ El acceso a la consola serie está limitado a los usuarios que tienen un rol de 
 Todos los datos enviados y recibidos se cifran en la conexión.
 
 ### <a name="audit-logs"></a>Registros de auditoría
-Todo el acceso a la consola serie queda registrado en los registros de los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) de la máquina virtual. El administrador de la máquina virtual de Azure es el propietario y el que controla el acceso a estos registros.
+Todo el acceso a la consola serie queda registrado en los registros de los [diagnósticos de arranque](./boot-diagnostics.md) de la máquina virtual. El administrador de la máquina virtual de Azure es el propietario y el que controla el acceso a estos registros.
 
 > [!CAUTION]
 > Las contraseñas de acceso de la consola no se registran. Sin embargo, si los comandos ejecutados en la consola contienen o generan contraseñas, secretos, nombres de usuario o cualquier otra forma de información de identificación personal, se escribirán en los registros de diagnóstico de arranque de la máquina virtual. Se escribirán junto con el resto del texto visible, como parte de la implementación de la función de desplazamiento de la consola serie. Estos registros son circulares y solo tienen acceso a ellos aquellas personas con permisos de lectura a la cuenta de almacenamiento de diagnósticos. Sin embargo, recomendamos usar el Escritorio remoto para cualquier operación que pueda implicar secretos o información de identificación personal.
@@ -173,7 +175,7 @@ Escenario          | Acciones en la consola serie
 :------------------|:-----------------------------------------
 Reglas de firewall incorrectas | Accede a la consola de serie y corrige las reglas de firewall de Windows.
 Comprobación o daños en el sistema de archivos | Acceda a la consola serie y recupere el sistema de archivos.
-Problemas de configuración de RDP | Acceda a la consola serie y cambie la configuración. Para más información, consulte la [documentación de RDP](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
+Problemas de configuración de RDP | Acceda a la consola serie y cambie la configuración. Para más información, consulte la [documentación de RDP](/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
 Sistema de bloqueo de red | Acceda a la consola serie desde Azure Portal para administrar el sistema. Algunos comandos de red se enumeran en [Comandos de Windows: CMD y PowerShell](serial-console-cmd-ps-commands.md).
 Interacción con el cargador de arranque | Acceda a BCD mediante la consola serie. Para obtener información, consulte [Habilitación del menú de arranque de Windows en la consola serie](#enable-the-windows-boot-menu-in-the-serial-console).
 

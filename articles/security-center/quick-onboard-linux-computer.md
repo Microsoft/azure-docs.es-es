@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: memildin
-ms.openlocfilehash: 3b7181550fd76f158ec04e9779f4301bd74484e1
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: 72c0c33c973219a9701c8a7c8d45324681e14850
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435976"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529784"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Inicio rápido: Incorporación de equipos Linux a Azure Security Center
 Después de incorporar las suscripciones de Azure, puede habilitar Security Center para recursos de Linux que se ejecutan fuera de Azure, por ejemplo, en entornos locales o en otras nubes, mediante el aprovisionamiento de un agente. El agente se denomina agente de Log Analytics, pero también se conoce como agente de OMS.
@@ -56,7 +56,7 @@ Debe disponer del plan de tarifa Estándar de Security Center para poder iniciar
 
    ![Instalación del agente][5]
 
-Los registros del agente se pueden encontrar en: */var/opt/microsoft/omsagent/\<workspace id>/log/* .
+Los registros del agente se pueden encontrar en: */var/opt/microsoft/omsagent/\<workspace id>/log/*
 
   ![Registros del agente][6]
 

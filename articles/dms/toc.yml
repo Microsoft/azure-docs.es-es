@@ -59,6 +59,10 @@
           href: tutorial-postgresql-azure-postgresql-online-portal.md
         - name: a Azure DB for PostgreSQL (CLI de Azure)
           href: tutorial-postgresql-azure-postgresql-online.md
+    - name: "Migración de Azure\_DB for PostgreSQL: servidor único"
+      items:
+        - name: a Azure DB for PostgreSQL (Azure Portal)
+          href: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
     - name: Migración de PostgreSQL de RDS
       items:
         - name: a Azure DB for PostgreSQL

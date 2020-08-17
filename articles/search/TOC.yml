@@ -110,6 +110,13 @@
           href: knowledge-store-projection-overview.md
         - name: Enriquecimiento incremental
           href: cognitive-search-incremental-indexing-conceptual.md
+    - name: Seguridad
+      items:
+        - name: Introducción a la seguridad
+          href: search-security-overview.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
 - name: Guías paso a paso
   items:
     - name: Creación de índices y construcciones
@@ -176,7 +183,7 @@
                   href: search-howto-index-json-blobs.md
             - name: Azure Tables
               href: search-howto-indexing-azure-tables.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-index-cosmosdb.md
             - name: Azure Data Lake Storage Gen2
               href: search-howto-index-azure-data-lake-storage.md
@@ -192,7 +199,7 @@
               href: search-howto-managed-identities-data-sources.md
             - name: Azure Storage
               href: search-howto-managed-identities-storage.md
-            - name: "Azure Cosmos\_DB"
+            - name: Azure Cosmos DB
               href: search-howto-managed-identities-cosmos-db.md
             - name: SQL Database
               href: search-howto-managed-identities-sql.md
@@ -305,9 +312,15 @@
         - name: Lista de características en versión preliminar
           href: search-api-preview.md
         - name: Desarrollo en .NET
-          href: search-howto-dotnet-sdk.md
+          items:
+            - name: Uso de Microsoft.Azure.Search (v10)
+              href: search-howto-dotnet-sdk.md
+            - name: Primeros pasos (v10)
+              href: search-get-started-dotnet-v10.md
         - name: Actualización del SDK
           items:
+            - name: "SDK de .NET\_11.0"
+              href: search-dotnet-sdk-migration-version-11.md
             - name: .NET SDK 10.0
               href: search-dotnet-sdk-migration-version-10.md
             - name: .NET SDK 9.0
@@ -324,12 +337,12 @@
           href: search-api-migration.md
     - name: Seguridad
       items:
-        - name: Información general
-          href: search-security-overview.md
         - name: Cifrado de datos
           items:
             - name: Claves administradas por el cliente
               href: search-security-manage-encryption-keys.md
+            - name: Obtención de información clave
+              href: search-security-get-encryption-keys.md
         - name: Seguridad de entrada
           items:
             - name: Claves de acceso de API
@@ -342,7 +355,7 @@
           items:
             - name: Filtros de seguridad
               href: search-security-trimming-for-azure-search.md
-            - name: Filtro por identidades de AAD
+            - name: Filtro por identidades de usuario
               href: search-security-trimming-for-azure-search-with-aad.md
     - name: Administrar
       items:

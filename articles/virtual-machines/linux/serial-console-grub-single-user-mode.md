@@ -4,16 +4,16 @@ description: Uso de la consola serie para GRUB en máquinas virtuales de Azure.
 services: virtual-machines-linux
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 2aa7110ab4e52fdc5c3804bd27be5f41081fb435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: da7e558464c82db9d71132c4b1f53f9892d2d653
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758512"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292242"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.
@@ -78,7 +78,7 @@ Si ha configurado GRUB y el acceso a la raíz con las instrucciones anteriores, 
 1. Presione Ctrl + X para salir y reiniciar con la configuración aplicada
 1. Se le pedirá la contraseña de administrador para poder especificar el modo de usuario único: se trata de la misma contraseña que creó en las instrucciones anteriores    
 
-    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![Imagen animada que muestra una interfaz de línea de comandos. El usuario selecciona un servidor, localiza el final de la línea del kernel y, a continuación, escribe el texto especificado.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Especificación del modo de usuario único sin una cuenta raíz habilitada en RHEL
 Si no ha realizado los anteriores pasos para habilitar el usuario raíz, aún puede restablecer la contraseña raíz. Use las siguientes instrucciones:
@@ -95,7 +95,7 @@ Si no ha realizado los anteriores pasos para habilitar el usuario raíz, aún pu
 1. Cuando arranque en modo de usuario único, escriba en `chroot /sysroot` para cambiar a la cárcel `sysroot`
 1. Ahora ya es raíz. Puede restablecer la contraseña raíz con `passwd` y, a continuación, seguir las instrucciones anteriores para especificar el modo de usuario único. Escriba `reboot -f` para reiniciar una vez que haya terminado.
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![Imagen animada que muestra una interfaz de línea de comandos. El usuario selecciona un servidor, localiza el final de la línea del kernel y escribe los comandos especificados.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Nota: Si ejecuta las instrucciones anteriores se le pondrá en el shell de emergencia, de tal forma que pueda también realizar tareas como editar `fstab`. Sin embargo, la recomendación general es restablecer la contraseña raíz y usarla para especificar el modo de usuario único. 
 
@@ -157,7 +157,7 @@ El acceso a GRUB en SUSE Linux Enterprise Server requiere la configuración del 
 1. Para especificar GRUB, reinicie la máquina virtual y presione cualquier tecla durante la secuencia de arranque para que GRUB permanezca en pantalla
     - El tiempo de espera predeterminado para GRUB es 1 s. Puede modificar esto cambiando la variable `GRUB_TIMEOUT` en `/etc/default/grub`
 
-![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![Imagen animada que muestra una interfaz de línea de comandos. El usuario escribe el texto especificado, selecciona la opción especificada y guarda la configuración.](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Modo de usuario único en SUSE Linux Enterprise Server
 Se le pondrá automáticamente en el shell de emergencia si SLES no puede arrancar normalmente. Para especificar manualmente el shell de emergencia, siga estas instrucciones:
@@ -178,7 +178,7 @@ Oracle Linux viene con GRUB habilitado listo para su uso. Para especificar GRUB,
 Siga las instrucciones anteriores para RHEL para habilitar el modo de usuario único en Oracle Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* La página principal de la documentación de Linux de la consola serie se encuentra [aquí](serial-console.md).
+* La página principal de la documentación de Linux de la consola serie se encuentra [aquí](../troubleshooting/serial-console-linux.md).
 * Uso de la consola serie para [llamadas NMI y SysRq](serial-console-nmi-sysrq.md)
-* La consola serie también está disponible para VM [Windows](../windows/serial-console.md)
-* Obtenga más información sobre [Diagnósticos de arranque](boot-diagnostics.md)
+* La consola serie también está disponible para VM [Windows](../troubleshooting/serial-console-windows.md)
+* Obtenga más información sobre [Diagnósticos de arranque](../troubleshooting/boot-diagnostics.md)

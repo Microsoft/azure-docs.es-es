@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: fa7dca62ed51c52b704c199ca04eadb6306be4df
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: c3d776362b0447b148c0b2bdedba1287fa56058b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170792"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000200"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carga de archivos en una cuenta de Media Services mediante API de REST  
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "86170792"
 > * [Portal](media-services-portal-upload-files.md)
 > 
 
-En Media Services, cargue los archivos digitales en un recurso. La entidad [Asset](https://docs.microsoft.com/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
+En Media Services, cargue los archivos digitales en un recurso. La entidad [Asset](/rest/api/media/operations/asset) puede contener archivos de vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y subtítulos (y los metadatos sobre estos archivos).  Una vez cargados los archivos en el recurso, el contenido se almacena de forma segura en la nube para un posterior procesamiento y streaming. 
 
 En este tutorial, obtendrá información sobre cómo cargar un archivo y otras operaciones asociadas:
 
@@ -45,7 +45,7 @@ En este tutorial, obtendrá información sobre cómo cargar un archivo y otras o
 - Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) antes de empezar.
 - [Cree una cuenta de Azure Media Services mediante Azure Portal](media-services-portal-create-account.md).
 - Revise el artículo [Acceso a Azure Media Services API con la autenticación de Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
-- Para obtener más información, vea [Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST](https://docs.microsoft.com/azure/media-services/previous/media-services-rest-connect-with-aad).
+- Para obtener más información, vea [Uso de la autenticación de Azure AD para acceder a la API de Media Services con REST](./media-services-rest-connect-with-aad.md).
 - Configure **Postman** tal y como se describe en [Configure Postman for Media Services REST API calls](media-rest-apis-with-postman.md) (Configuración de Postman para llamadas API de REST de Media Services).
 
 ## <a name="considerations"></a>Consideraciones
@@ -106,7 +106,7 @@ Para obtener los pasos sobre cómo configurar Postman para este tutorial, consul
 >[!NOTE]
 >Hay un límite de 1 000 000 directivas para diferentes directivas de AMS (por ejemplo, para la directiva de localizador o ContentKeyAuthorizationPolicy). Debe usar el mismo identificador de directiva si siempre usa los mismos permisos de acceso y días, por ejemplo, directivas para localizadores que vayan a aplicarse durante mucho tiempo (directivas distintas a carga). Para obtener más información, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) artículo.
 
-Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes tras la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](https://docs.microsoft.com/rest/api/media/operations/accesspolicy).
+Antes de cargar los archivos en el almacenamiento de blobs, establezca los derechos de la directiva de acceso para escribir en un recurso. Para ello, envíe una solicitud HTTP al conjunto de entidades AccessPolicies. Defina un valor DurationInMinutes tras la creación o recibirá un mensaje de error de servidor interno 500 como respuesta. Para obtener más información sobre AccessPolicies, consulte [AccessPolicy](/rest/api/media/operations/accesspolicy).
 
 ### <a name="create-an-access-policy"></a>Creación de una directiva de acceso
 
@@ -121,7 +121,7 @@ Antes de cargar los archivos en el almacenamiento de blobs, establezca los derec
 
 ### <a name="overview"></a>Información general
 
-Un [recurso](https://docs.microsoft.com/rest/api/media/operations/asset) es un contenedor para varios tipos o conjuntos de objetos en Media Services, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Media Services y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
+Un [recurso](/rest/api/media/operations/asset) es un contenedor para varios tipos o conjuntos de objetos en Media Services, como vídeo, audio, imágenes, colecciones de miniaturas, pistas de texto y archivos de subtítulos. En la API de REST, crear un recurso requiere el envío de una solicitud POST a Media Services y colocar la información sobre cualquier propiedad del recurso en el cuerpo de solicitud.
 
 Una de las propiedades que se pueden agregar al crear un recurso es **Opciones**. Puede especificar una de las siguientes opciones de cifrado: **None** (predeterminada, no se usa ningún cifrado), **StorageEncrypted** (para el contenido que se ha cifrado previamente con el cifrado de almacenamiento en el cliente), **CommonEncryptionProtected** o **EnvelopeEncryptionProtected**. Cuando tenga un recurso cifrado, tiene que configurar una directiva de entrega. Para obtener más información, consulte [Configuración de directivas de entrega de recursos](media-services-rest-configure-asset-delivery-policy.md).
 
@@ -144,9 +144,9 @@ En este ejemplo, crearemos un recurso no cifrado.
 
 Una vez establecidas AccessPolicy y Locator, el archivo real se carga en un contenedor de Azure Blob Storage mediante las API de REST de Azure Storage. Debe cargar los archivos como blobs en bloques. Azure Media Services no admite los blobs en páginas.  
 
-Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API).
+Para obtener más información sobre cómo trabajar con blobs de Almacenamiento de Azure, consulte [API de REST del servicio Blob](/rest/api/storageservices/blob-service-rest-api).
 
-Para recibir la dirección URL de carga real, cree un localizador de SAS (se muestra a continuación). Los localizadores definen la hora de inicio y el tipo de extremo de conexión para los clientes que desean tener acceso a archivos de un recurso. Puede crear varias entidades Locator para un par AccessPolicy y Asset determinado a fin de controlar las distintas solicitudes y necesidades del cliente. Cada uno de estos localizadores usa el valor StartTime más el valor DurationInMinutes de AccessPolicy para determinar la cantidad de tiempo que se puede usar una dirección URL. Para obtener más información, consulte [Localizador](https://docs.microsoft.com/rest/api/media/operations/locator).
+Para recibir la dirección URL de carga real, cree un localizador de SAS (se muestra a continuación). Los localizadores definen la hora de inicio y el tipo de extremo de conexión para los clientes que desean tener acceso a archivos de un recurso. Puede crear varias entidades Locator para un par AccessPolicy y Asset determinado a fin de controlar las distintas solicitudes y necesidades del cliente. Cada uno de estos localizadores usa el valor StartTime más el valor DurationInMinutes de AccessPolicy para determinar la cantidad de tiempo que se puede usar una dirección URL. Para obtener más información, consulte [Localizador](/rest/api/media/operations/locator).
 
 Una dirección URL de SAS tiene el formato siguiente:
 
@@ -175,9 +175,9 @@ Se aplican algunas consideraciones:
 
 Ahora que tiene la dirección URL de carga, tiene que escribir código directamente mediante las API de Blob de Azure para cargar el archivo en el contenedor de SAS. Para más información, consulte los siguientes artículos.
 
-- [Uso de la API de REST de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-rest-api-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-- [PUT Blob](https://docs.microsoft.com/rest/api/storageservices/put-blob)
-- [Carga de blobs a Blob Storage](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
+- [Uso de la API de REST de Azure Storage](../../storage/common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [PUT Blob](/rest/api/storageservices/put-blob)
+- [Carga de blobs a Blob Storage](/previous-versions/azure/storage/storage-use-azcopy#upload-blobs-to-blob-storage)
 
 ### <a name="upload-a-file-with-postman"></a>Carga de un archivo con Postman
 
@@ -209,7 +209,7 @@ El archivo debería estar cargado con los metadatos establecidos.
 
 ## <a name="validate"></a>Validación
 
-Para validar si el archivo se cargó correctamente, es recomendable consultar [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) y comparar **ContentFileSize** (u otros detalles) con lo que espera ver en el nuevo recurso. 
+Para validar si el archivo se cargó correctamente, es recomendable consultar [AssetFile](/rest/api/media/operations/assetfile) y comparar **ContentFileSize** (u otros detalles) con lo que espera ver en el nuevo recurso. 
 
 Por ejemplo, la siguiente operación **GET** obtiene los datos de archivo para el archivo de recursos (en este caso, el archivo BigBuckBunny.mp4). La consulta usa las [variables de entorno](postman-environment.md) establecidas anteriormente.
 
@@ -229,4 +229,3 @@ La respuesta contendrá el tamaño, el nombre y otra información.
 Ahora puede codificar los recursos cargados. Para más información, consulte [Encode an asset using Media Encoder Standard with the Azure portal](media-services-portal-encode.md)(Codificación de recursos mediante el estándar de codificador multimedia con Azure Portal).
 
 También puede usar Azure Functions para desencadenar un trabajo de codificación basado en un archivo que llega al contenedor configurado. Para más información, consulte [este ejemplo](https://azure.microsoft.com/resources/samples/media-services-dotnet-functions-integration/ ).
-

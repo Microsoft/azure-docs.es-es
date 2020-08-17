@@ -1,24 +1,28 @@
 ---
 title: Creación de la primera función mediante plantillas de Azure Resource Manager
-description: Cree e implemente en Azure una función sencilla sin servidor desencadenada por HTTP mediante una plantilla de Azure Resource Manager.
+description: Cree e implemente en Azure una función sencilla sin servidor desencadenada por HTTP mediante una plantilla de Azure Resource Manager (plantilla de ARM).
 ms.date: 3/5/2020
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: subject-armqs
-ms.openlocfilehash: 403ff6407105574c78b8e600c37efbe61d2f8b79
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.openlocfilehash: e409b3b64ac6bc39ba4cb58397506723a67a0de2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84740203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081719"
 ---
-# <a name="quickstart-create-and-deploy-azure-functions-resources-from-a-resource-manager-template"></a>Inicio rápido: Creación e implementación de recursos de Azure Functions a partir de una plantilla de Resource Manager
+# <a name="quickstart-create-and-deploy-azure-functions-resources-from-an-arm-template"></a>Inicio rápido: Creación e implementación de recursos de Azure Functions a partir de una plantilla de Resource Manager
 
-En este artículo va a utilizar una plantilla de Azure Resource Manager para crear una función que responda a solicitudes HTTP. 
+En este artículo va a utilizar una plantilla de Azure Resource Manager (plantilla de ARM) para crear una función que responda a solicitudes HTTP. 
 
 Este inicio rápido supone un pequeño costo en su cuenta de Azure. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-function-app-create-dynamic%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -48,13 +52,11 @@ Elija una de las siguientes pestañas, siga el vínculo y complete la sección p
 
 Una vez que haya creado el proyecto de forma local, debe crear los recursos necesarios para ejecutar la nueva función en Azure. 
 
-## <a name="create-a-serverless-function-app-in-azure"></a>Creación de una aplicación de funciones sin servidor en Azure
+## <a name="review-the-template"></a>Revisión de la plantilla
 
-### <a name="review-the-template"></a>Revisión de la plantilla
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-function-app-create-dynamic/).
 
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic).
-
-:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" :::
+:::code language="json" source="~/quickstart-templates/101-function-app-create-dynamic/azuredeploy.json" range="1-140" highlight="55-136":::
 
 Los siguientes cuatro recursos de Azure se han creado mediante esta plantilla:
 
@@ -63,7 +65,7 @@ Los siguientes cuatro recursos de Azure se han creado mediante esta plantilla:
 + [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): permite la creación de una aplicación de funciones.
 + [**microsoft.insights/components**](/azure/templates/microsoft.insights/components): permite la creación de una instancia de Application Insights para la supervisión.
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
 ```azurecli-interactive

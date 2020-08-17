@@ -30,6 +30,20 @@
       items:
         - name: Creación de una aplicación del centro de micrologística
           href: tutorial-micro-fulfillment-center.md
+    - name: 'Análisis de vídeo: detección de objetos y movimiento'
+      items:
+        - name: '1: Creación de una aplicación de análisis de vídeo'
+          href: tutorial-video-analytics-create-app.md
+        - name: '2: Configuración de un dispositivo IoT Edge'
+          items:
+            - name: Creación de un dispositivo de análisis de vídeo en el perímetro (máquina virtual Linux)
+              href: tutorial-video-analytics-iot-edge-vm.md
+            - name: Creación de un dispositivo de análisis de vídeo en el perímetro (Intel NUC)
+              href: tutorial-video-analytics-iot-edge-nuc.md
+        - name: '3: Supervisión y administración de una aplicación de análisis de vídeo'
+          href: tutorial-video-analytics-manage.md
+        - name: '4: Modificación y compilación de los módulos de la puerta de enlace de análisis de vídeo en directo'
+          href: tutorial-video-analytics-build-module.md
 - name: Conceptos
   items:
     - name: Arquitectura de la plantilla de aplicación de logística conectada
@@ -42,16 +56,18 @@
       href: store-analytics-architecture.md
     - name: Arquitectura de la plantilla de aplicación del centro de microcumplimiento
       href: architecture-micro-fulfillment-center.md
+    - name: Arquitectura de la plantilla de aplicación de análisis de vídeo
+      href: architecture-video-analytics.md
     - name: Conectividad
       href: ../core/concepts-get-connected.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: ¿Qué son las plantillas de aplicación?
       href: ../core/concepts-app-templates.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
 - name: Guías paso a paso
   items:
+    - name: Implementación de una aplicación de detección de objetos y de movimiento
+      href: howto-deploy-video-analytics-template.md
     - name: Conexión de dispositivos
       items:
-        - name: Preparación y conexión de una instancia de MXChip IoT DevKit
-          href: ../core/howto-connect-devkit.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Preparación y conexión a Rigado Cascade 500
           href: ../core/howto-connect-rigado-cascade-500.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
         - name: Preparación y conexión de un dispositivo RuuviTag
@@ -135,9 +151,9 @@
     - name: SDK de IoT de Azure
       items:
         - name: SDK de servicio de IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
         - name: SDK de dispositivo IoT
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+          href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
     - name: Solicitudes de datos del cliente
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/retail/toc.json&bc=/azure/iot-central/retail/breadcrumb/toc.json
     - name: Exploradores compatibles

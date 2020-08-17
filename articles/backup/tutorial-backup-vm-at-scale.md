@@ -1,19 +1,19 @@
 ---
 title: 'Tutorial: Copia de seguridad de varias máquinas virtuales de Azure'
 description: En este tutorial, aprenderá a crear un almacén de Recovery Services, a definir una directiva de copia de seguridad y a realizar copias de seguridad simultáneas de varias máquinas virtuales.
-ms.date: 01/31/2019
+ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: f9306f2ef5c4b2a53dcba17cafca9ea13b8dab43
-ms.sourcegitcommit: 940e16ff194d5163f277f98d038833b1055a1a3e
+ms.openlocfilehash: 7a8849bba51939a0c40cba81925e1b4b4a6e3826
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2020
-ms.locfileid: "80245249"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372559"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Uso de Azure Portal para realizar la copia de seguridad de varias máquinas virtuales
 
-Al realizar una copia de seguridad de datos en Azure, almacena esos datos en un recurso de Azure que se denomina “almacén de Recovery Services”. El recurso de almacén de Recovery Services está disponible en el menú Configuración de la mayoría de los servicios de Azure. La ventaja de tener el almacén de Recovery Services integrado en el menú Configuración de la mayoría de los servicios de Azure facilita la copia de seguridad de datos. Sin embargo, resulta tedioso trabajar individualmente con cada base de datos o máquina virtual de la empresa. ¿Qué ocurre si desea realizar una copia de seguridad de los datos de todas las máquinas virtuales de un departamento o una ubicación? Es fácil realizar la copia de seguridad de varias máquinas virtuales mediante la creación de una directiva de copia de seguridad y la aplicación de esa directiva a las máquinas virtuales deseadas. Este tutorial explica cómo realizar lo siguiente:
+Al realizar una copia de seguridad de datos en Azure, almacena esos datos en un recurso de Azure que se denomina “almacén de Recovery Services”. El recurso de almacén de Recovery Services está disponible en el menú Configuración de la mayoría de los servicios de Azure. La ventaja de tener el almacén de Recovery Services integrado en el menú Configuración de la mayoría de los servicios de Azure es la facilidad de realizar copias de seguridad de los datos. Sin embargo, resulta tedioso trabajar individualmente con cada base de datos o máquina virtual de la empresa. ¿Qué ocurre si desea realizar una copia de seguridad de los datos de todas las máquinas virtuales de un departamento o una ubicación? Realizar la copia de seguridad de varias máquinas virtuales mediante la creación de una directiva de copia de seguridad y la aplicación de esa directiva a las máquinas virtuales deseadas resulta sencillo. Este tutorial explica cómo realizar lo siguiente:
 
 > [!div class="checklist"]
 >
@@ -30,25 +30,38 @@ Inicie sesión en [Azure Portal](https://portal.azure.com/).
 
 El almacén de Recovery Services contiene los datos de la copia de seguridad y la directiva de copia de seguridad que se aplica a las máquinas virtuales protegidas. La copia de seguridad de máquinas virtuales es un proceso local. No puede hacer copias de seguridad de una máquina virtual de una ubicación en un almacén de Recovery Services que está en otra ubicación. Por lo tanto, para cada ubicación de Azure que tenga máquinas virtuales de las que se tengan que realizar copias de seguridad, debe existir al menos un almacén de Recovery Services en esa ubicación.
 
-1. En el menú izquierdo, seleccione **Todos los servicios** y, en la lista de servicios, escriba *Recovery Services*. A medida que escribe, se filtra la lista de recursos. Cuando vea la opción Almacenes de Recovery Services en la lista, selecciónela para abrir el menú Almacenes de Recovery Services.
+1. En el menú izquierdo, seleccione **Todos los servicios**.
 
-    ![Abrir el menú Almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
+    ![Seleccionar Todos los servicios](./media/tutorial-backup-vm-at-scale/click-all-services.png)
 
-2. En el menú **Almacenes de Recovery Services**, haga clic en **Agregar** para abrir el menú Almacén de Recovery Services.
+1. En el cuadro de diálogo **Todos los servicios**, escriba *Recovery Services*. La lista de recursos se filtra en función de lo que especifique. En la lista de recursos, seleccione **Almacenes de Recovery Services**.
 
-    ![Abrir el menú Almacén](./media/tutorial-backup-vm-at-scale/provide-vault-detail-2.png)
+    ![Escribir y elegir Almacenes de Recovery Services](./media/tutorial-backup-vm-at-scale/all-services.png)
 
-3. En el menú Almacén de Recovery Services,
+    Aparece la lista de almacenes de Recovery Services de la suscripción.
+
+1. En el panel **Almacenes de Recovery Services**, seleccione **Agregar**.
+
+    ![Agregar un almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/add-button-create-vault.png)
+
+1. En el menú Almacén de Recovery Services,
 
     * escriba *myRecoveryServicesVault* en **Nombre**.
     * El id. de suscripción actual aparecerá en **Suscripción**. Si tiene suscripciones adicionales, puede elegir otra suscripción para el nuevo almacén.
     * En **Grupo de recursos**, seleccione **Usar existente** y elija *myResourceGroup*. Si *myResourceGroup* no existe, seleccione **Crear nuevo** y escriba *myResourceGroup*.
     * En el menú desplegable **Ubicación**, elija *Oeste de Europa*.
-    * Haga clic en **Crear** para crear el almacén de Recovery Services.
 
-Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
+    ![Valores del almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado de la parte superior derecha del portal. Una vez creado el almacén, aparece en la lista de almacenes de Recovery Services.
+    Un almacén de Recovery Services debe estar en la misma ubicación que las máquinas virtuales que se están protegiendo. Si tiene máquinas virtuales en varias regiones, cree un almacén de Recovery Services en cada una de ellas. En este tutorial se crea un almacén de Recovery Services en *Oeste de Europa*, porque es la ubicación donde se creó *myVM* (la máquina virtual creada con el inicio rápido).
+
+1. Cuando esté listo para crear el almacén de Recovery Services, seleccione **Crear**.
+
+    ![Crear almacén de Recovery Services](./media/tutorial-backup-vm-at-scale/click-create-button.png)
+
+1. La creación del almacén de Recovery Services puede tardar unos minutos. Supervise las notificaciones de estado en el área de **notificaciones** de la parte superior derecha del portal. Tras crear el almacén, se ve en la lista de almacenes de Recovery Services. Si no lo ve, haga clic en **Actualizar**.
+
+     ![Actualizar lista de almacenes de Backup](./media/tutorial-backup-vm-at-scale/refresh-button.png)
 
 Cuando se crea un almacén de Recovery Services, este tiene almacenamiento con redundancia geográfica de forma predeterminada. Para proporcionar resistencia de datos, el almacenamiento con redundancia geográfica replica los datos varias veces en dos regiones de Azure.
 
@@ -60,37 +73,44 @@ Después de crear el almacén de Recovery Services, el siguiente paso es configu
 
    ![Abrir el menú Escenario](./media/tutorial-backup-vm-at-scale/open-vault-from-list.png)
 
-2. En el menú del panel del almacén, haga clic en **Copia de seguridad** para abrir el menú Copia de seguridad.
+1. En el menú del panel del almacén, seleccione **Copia de seguridad** para abrir el menú Copia de seguridad.
 
-3. En el menú Objetivo de Backup, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?** , elija *Azure*. En la lista desplegable **¿De qué desea hacer una copia de seguridad?** , elija *Máquina virtual* y luego haga clic en **Copia de seguridad**.
+1. En el menú Objetivo de Backup, en el menú desplegable **¿Dónde se ejecuta su carga de trabajo?** , elija *Azure*. En la lista desplegable **¿De qué desea hacer una copia de seguridad?** , elija *Máquina virtual* y seleccione **Copia de seguridad**.
 
     Estas acciones preparan el almacén de Recovery Services para interactuar con una máquina virtual. Los almacenes de Recovery Services tienen una directiva predeterminada que crea un punto de restauración al día y conserva los puntos de restauración durante 30 días.
 
-    ![Abrir el menú Escenario](./media/tutorial-backup-vm-at-scale/backup-goal.png)
+    ![Objetivo de copia de seguridad](./media/tutorial-backup-vm-at-scale/backup-goal.png)
 
-4. Para crear una nueva directiva, en el menú desplegable **Elegir directiva de copia de seguridad** del menú Directiva de copia de seguridad, seleccione *Crear nueva*.
+1. Para crear una nueva directiva, en el menú desplegable **Elegir directiva de copia de seguridad** del menú Directiva de copia de seguridad, seleccione *Create a new policy* (Crear nueva directiva).
 
-    ![Seleccionar carga de trabajo](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
+    ![Cree una nueva directiva.](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
-5. En el menú **Directiva de copia de seguridad**, en **Nombre de directiva**, escriba *Finanzas*. Especifique los siguientes cambios para la directiva de copia de seguridad:
+1. Se abrirá el panel **Directiva de Backup**. Rellene los siguientes detalles:
+   * En **Nombre de la directiva** escriba *Finance*. Especifique los siguientes cambios para la directiva de copia de seguridad:
    * Para **Frecuencia de copia de seguridad**, establezca la zona horaria en *Hora central*. Puesto que el complejo deportivo se encuentra en Texas, el propietario desea usar la hora local. Deje la frecuencia de copia de seguridad establecida en Diaria a las 3:30 a.m.
    * En **Retención de punto de copia de seguridad diaria**, establezca el período en 90 días.
    * En **Retención de punto de copia de seguridad semanal**, use el punto de restauración *Lunes* y consérvelo 52 semanas.
    * En **Retención de punto de copia de seguridad mensual**, use el punto de restauración desde el primer domingo del mes y el consérvelo 36 meses.
    * Anule la selección de la opción **Retención de punto de copia de seguridad anual**. El director de Finanzas no desea mantener los datos más allá de 36 meses.
-   * Haga clic en **Aceptar** para crear la directiva de copia de seguridad.
+   * Seleccione **Aceptar** para crear la directiva de copia de seguridad.
 
-     ![Seleccionar carga de trabajo](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Configuración de directivas de copia de seguridad](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
      Después de crear la directiva de copia de seguridad, asóciela a las máquinas virtuales.
 
-6. En el cuadro de diálogo **Seleccionar máquinas virtuales**, elija *myVM* y haga clic en **Aceptar** para implementar la directiva de copia de seguridad en las máquinas virtuales.
+1. En **Máquinas virtuales**, seleccione **Agregar**.
 
-    Aparecen todas las máquinas virtuales que estén en la misma ubicación y no estén asociadas todavía con una directiva de copia de seguridad. *myVMH1* y *myVMR1* se seleccionan para asociarse a la directiva *Finanzas*.
+     ![Agregar máquinas virtuales](./media/tutorial-backup-vm-at-scale/add-virtual-machines.png)
 
-    ![Seleccionar carga de trabajo](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
+1. El panel **Seleccionar máquinas virtuales** se abrirá. Seleccione *myVM* y **Aceptar** para implementar la directiva de copia de seguridad en las máquinas virtuales.
 
-    Cuando se complete la implementación, recibirá una notificación para indicarle que se completó correctamente.
+    Aparecerán todas las máquinas virtuales que estén en la misma ubicación y no estén asociadas todavía con una directiva de copia de seguridad. *myVMH1* y *myVMR1* se seleccionan para asociarse a la directiva *Finanzas*.
+
+    ![Selección de las máquinas virtuales que se van a proteger](./media/tutorial-backup-vm-at-scale/choose-vm-to-protect.png)
+
+1. Una vez elegidas las máquinas virtuales, seleccione **Enable Backup** (Habilitar la copia de seguridad).
+
+    Cuando termine la implementación, recibirá una notificación para indicarle que esta se completó correctamente.
 
 ## <a name="initial-backup"></a>Copia de seguridad inicial
 
@@ -98,31 +118,31 @@ Ha habilitado la copia de seguridad de los almacenes de Recovery Services, pero 
 
 Para ejecutar un trabajo de copia de seguridad a petición:
 
-1. En el panel del almacén, haga clic en **3** en **Elementos de copia de seguridad** para abrir el menú Elementos de copia de seguridad.
+1. En el panel del almacén, seleccione **3** en **Elementos de copia de seguridad** para abrir el menú correspondiente.
 
-    ![Icono Configuración](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Elementos de copia de seguridad](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
     Se abrirá el menú **Elementos de copia de seguridad**.
 
-2. En el menú **Elementos de copia de seguridad**, haga clic en **Máquina Virtual de Azure** para abrir la lista de máquinas virtuales asociadas con el almacén.
+1. En el menú **Elementos de copia de seguridad**, seleccione **Máquina virtual de Azure** para abrir la lista de máquinas virtuales asociadas con el almacén.
 
-    ![Icono Configuración](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
+    ![Lista de máquinas virtuales](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
 
-    Se abrirá la lista **Elementos de copia de seguridad**.
+1. Se abrirá la lista **Elementos de copia de seguridad**.
 
     ![Trabajo de copia de seguridad desencadenado](./media/tutorial-backup-vm-at-scale/initial-backup-context-menu.png)
 
-3. En la lista **Elementos de copia de seguridad**, haga clic en el botón de puntos suspensivos **...** para abrir el menú contextual.
+1. En la lista **Elementos de copia de seguridad**, seleccione el botón de puntos suspensivos **...** para abrir el menú contextual.
 
-4. En el menú contextual, seleccione **Realizar copia de seguridad ahora**.
+1. En el menú contextual, seleccione **Realizar copia de seguridad ahora**.
 
     ![Menú contextual](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Se abrirá el menú Realizar copia de seguridad ahora.
 
-5. En el menú Realizar copia de seguridad ahora, especifique el último día para conservar el punto de recuperación y haga clic en **Copia de seguridad**.
+1. En el menú Realizar copia de seguridad ahora, especifique el último día de conservación del punto de recuperación y seleccione **Aceptar**.
 
-    ![establece el último día en que se mantiene el punto de recuperación de Realizar copia de seguridad ahora](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
+    ![Establecimiento del último día de conservación del punto de recuperación de Realizar copia de seguridad ahora](./media/tutorial-backup-vm-at-scale/backup-now-short.png)
 
     Las notificaciones de implementación le permiten saber si se ha desencadenado el trabajo de copia de seguridad y que puede supervisar el progreso del trabajo en la página de trabajos de copia de seguridad. Según el tamaño de la máquina virtual, la creación de la copia de seguridad inicial puede tardar cierto tiempo.
 
@@ -134,37 +154,40 @@ Para ejecutar un trabajo de copia de seguridad a petición:
 
 Si tiene previsto seguir trabajando con los tutoriales siguientes, no elimine los recursos creados en este tutorial. Si no tiene previsto continuar, siga estos pasos para eliminar todos los recursos creados en este tutorial en Azure Portal.
 
-1. En el panel **myRecoveryServicesVault**, haga clic en **3** en **Elementos de copia de seguridad** para abrir el menú Elementos de copia de seguridad.
+1. En el panel **myRecoveryServicesVault**, seleccione **3** en **Elementos de copia de seguridad** para abrir el menú correspondiente.
 
-    ![Icono Configuración](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
+    ![Elementos de copia de seguridad](./media/tutorial-backup-vm-at-scale/tutorial-vm-back-up-now.png)
 
-2. En el menú **Elementos de copia de seguridad**, haga clic en **Máquina Virtual de Azure** para abrir la lista de máquinas virtuales asociadas con el almacén.
+1. En el menú **Elementos de copia de seguridad**, seleccione **Máquina virtual de Azure** para abrir la lista de máquinas virtuales asociadas con el almacén.
 
-    ![Icono Configuración](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
+    ![Lista de máquinas virtuales](./media/tutorial-backup-vm-at-scale/three-virtual-machines.png)
 
     Se abrirá la lista **Elementos de copia de seguridad**.
 
-3. En el menú **Elementos de copia de seguridad**, haga clic en los puntos suspensivos para abrir el menú contextual.
+1. En el menú **Elementos de copia de seguridad**, seleccione los puntos suspensivos para abrir el menú contextual.
 
-    ![Icono Configuración](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![Menú contextual](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
-4. En el menú contextual, seleccione **Detener copia de seguridad** para abrir el menú Detener copia de seguridad.
+1. En el menú contextual, seleccione **Detener copia de seguridad** para abrir el menú Detener copia de seguridad.
 
-    ![Icono Configuración](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
+    ![Menú Detener copia de seguridad](./media/tutorial-backup-vm-at-scale/context-menu-for-delete.png)
 
-5. En el menú **Detener copia de seguridad**, seleccione el menú desplegable superior y elija **Eliminar datos de copia de seguridad**.
+1. En el menú **Detener copia de seguridad**, seleccione el menú desplegable superior y elija **Eliminar datos de copia de seguridad**.
 
-6. En el cuadro de diálogo **Escriba el nombre del elemento de copia de seguridad**, escriba *myVM*.
+1. En el cuadro de diálogo **Escriba el nombre del elemento de copia de seguridad**, escriba *myVM*.
 
-7. Una vez comprobado el elemento de copia de seguridad (aparece una marca de verificación), se habilita el botón **Detener copia de seguridad**. Haga clic en **Detener copia de seguridad** para detener la directiva y eliminar los puntos de restauración.
+1. Una vez comprobado el elemento de copia de seguridad (aparece una marca de verificación), se habilita el botón **Detener copia de seguridad**. Seleccione **Detener copia de seguridad** para detener la directiva y eliminar los puntos de restauración.
 
-    ![hacer clic en Detener copia de seguridad para eliminar el almacén](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
+    ![Selección de Detener copia de seguridad para eliminar el almacén](./media/tutorial-backup-vm-at-scale/provide-reason-for-delete.png)
 
-8. En el menú **myRecoveryServicesVault**, haga clic en **Eliminar**.
+    >[!NOTE]
+    >Los elementos eliminados se conservan en estado de eliminación temporal durante 14 días. Solo después de ese período se puede eliminar el almacén. Para más información, consulte [Eliminación de un almacén de Recovery Services de Azure Backup](backup-azure-delete-vault.md).
 
-    ![hacer clic en Detener copia de seguridad para eliminar el almacén](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+1. Cuando ya no quede ningún elemento en el almacén, seleccione **Eliminar**.
 
-    Una vez eliminado el almacén, se volverá a mostrar la lista de almacenes de Recovery Services.
+    ![Selección de Detener copia de seguridad para eliminar el almacén](./media/tutorial-backup-vm-at-scale/deleting-the-vault.png)
+
+    Una vez eliminado el almacén, se volverá a la lista de almacenes de Recovery Services.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

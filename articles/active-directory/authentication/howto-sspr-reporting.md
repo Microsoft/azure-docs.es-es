@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 348082ad96a5efa4d8f866c3675044edf7b6f8a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4e3425407fdb131fb1499b2cd085fbe6d427804a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80652150"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035305"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -51,9 +51,9 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 6. En el menú **Filtrar** de la parte superior del panel, seleccione la lista desplegable **Servicio** y cámbiela al tipo de servicio **Self-service Password Management** (Administración de contraseñas de autoservicio).
 7. También puede filtrar la lista si elige la **actividad** específica que le interesa.
 
-### <a name="converged-registration-preview"></a>Registro convergido (versión preliminar)
+### <a name="combined-registration"></a>Registro combinado
 
-Si participa en la versión preliminar pública del registro convergido, la información relativa a la actividad del usuario en los registros de auditoría se encontrará en **Seguridad** > **Métodos de autenticación**.
+Si ha habilitado el [registro combinado](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined), la información relativa a la actividad del usuario en los registros de auditoría se encontrará en **Seguridad** > **Métodos de autenticación**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 

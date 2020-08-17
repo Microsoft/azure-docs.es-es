@@ -11,12 +11,12 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2a41dcf9c224e9e4a9a280078432e0b57e16c2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359422"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385150"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Escritura diferida de grupos en Azure AD Connect
 
@@ -40,7 +40,7 @@ Para habilitar la escritura diferida de grupos, siga estos pasos:
 6. En la página **Escritura diferida**, seleccione una unidad organizativa (UO) de Active Directory para almacenar los objetos que se sincronizan entre Office 365 y la organización local. A continuación, haga clic en **Siguiente**.
 7. En la página **Listo para configurar**, haga clic en **Configurar**.
 8. Una vez completado el asistente, haga clic en **Salir** en la página Configuración completada.
-9. Abra Windows PowerShell en el servidor de Azure Active Directory Connect y ejecute los siguientes comandos.
+9. Abra Windows PowerShell como administrador en el servidor de Azure Active Directory Connect y ejecute los siguientes comandos.
 
 ```Powershell
 $AzureADConnectSWritebackAccountDN =  <MSOL_ account DN>
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Para obtener más información sobre la configuración de los grupos de Office 365, consulte [Configuración de grupos de Microsoft 365 con Exchange híbrido local](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-office-365-groups#enable-group-writeback-in-azure-ad-connect).
+Para obtener más información sobre la configuración de los grupos de Office 365, consulte [Configuración de grupos de Microsoft 365 con Exchange híbrido local](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Deshabilitación de la escritura diferida de grupos
 Para deshabilitar la escritura diferida de grupos, siga estos pasos: 
@@ -65,7 +65,7 @@ Para deshabilitar la escritura diferida de grupos, siga estos pasos:
 4. Haga clic en **Configurar**.
 
  >[!NOTE]
- > Al deshabilitar la escritura diferida de grupos, se establecerán las marcas de importación y sincronización completas en "true" en el conector de Azure Active Directory, lo que provocará que se propaguen los cambios de la regla durante el siguiente ciclo de sincronización y se eliminen los grupos que se habían escrito previamente en Active Directory.
+ > Al deshabilitar la escritura diferida de grupos, se establecerán las marcas de importación y sincronización completas en "true" en el conector de Azure Active Directory, lo que provocará que se propaguen los cambios de la regla durante el siguiente ciclo de sincronización y se eliminen los grupos que se habían escrito previamente en Active Directory.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre la [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).

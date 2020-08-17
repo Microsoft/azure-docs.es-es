@@ -7,12 +7,12 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 2d5009086a24a54c9a2ec4734d3c4dcbebb04475
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84418645"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337116"
 ---
 # <a name="what-are-device-templates"></a>¿Qué son las plantillas de dispositivo?
 
@@ -28,6 +28,9 @@ En una plantilla de dispositivo se incluyen las secciones siguientes:
 - _Propiedades de la nube_. Esta parte de la plantilla de dispositivo permite al desarrollador de soluciones especificar los metadatos del dispositivo que se van a almacenar. Las propiedades de la nube nunca se sincronizan con los dispositivos y solo existen en la aplicación. Las propiedades de la nube no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
 - _Personalizaciones_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones reemplace algunas de las definiciones del DCM. Las personalizaciones son útiles si el desarrollador de soluciones desea restringir el modo en que la aplicación controla un valor, como cambiar el nombre para mostrar de una propiedad o el color usado para mostrar un valor de telemetría. Las personalizaciones no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
 - _Vistas_. Esta parte de la plantilla de dispositivo permite que el desarrollador de soluciones defina visualizaciones para ver los datos del dispositivo y los formularios para administrar y controlar un dispositivo. Las vistas usan el DCM, las propiedades de la nube y las personalizaciones. Las vistas no afectan al código que escribe el desarrollador de dispositivos para implementar el DCM.
+
+> [!NOTE]
+> La [versión de actualización de IoT Plug and Play Public (versión preliminar)](../../iot-pnp/overview-iot-plug-and-play.md) está dirigida a los desarrolladores de dispositivos y OEM para que empiecen a crear dispositivos que puedan certificarse en IoT Plug and Play con anterioridad al lanzamiento de disponibilidad general.
 
 ## <a name="device-capability-models"></a>Modelos de funcionalidad del dispositivo
 
@@ -221,6 +224,6 @@ La telemetría, las propiedades y los comandos que puede agregar a una vista vie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Como desarrollador de dispositivos, ahora conoce las plantillas de dispositivos, el siguiente paso que se sugiere es leer [Conexión a Azure IoT Central](./concepts-get-connected.md) para más información sobre cómo registrar dispositivos con IoT Central y cómo IoT Central protege las conexiones de dispositivos.
+Como desarrollador de dispositivos, ahora que conoce las plantillas de dispositivo, los siguientes pasos sugeridos consisten en leer [Cargas de telemetría, propiedades y comandos](./concepts-telemetry-properties-commands.md) para obtener más información sobre los datos que un dispositivo intercambia con IoT Central.
 
 Como desarrollador de soluciones, el siguiente paso sugerido es leer [Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central](./howto-set-up-template.md) para obtener más información sobre cómo crear una plantilla de dispositivo.

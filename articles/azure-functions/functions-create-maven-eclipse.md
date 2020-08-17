@@ -5,13 +5,13 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 1e4c989e4550c1ea504a08d3cc975f2add5a4ba2
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: mvc, devcenter, devx-track-java
+ms.openlocfilehash: a4e240837dd3c95efc4dc83a7491f2ad9163435a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054736"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373324"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse"></a>Creación de la primera función con Java y Eclipse 
 
@@ -28,7 +28,7 @@ Para desarrollar una aplicación de función con Java y Eclipse, debe tener inst
 -  [Kit para desarrolladores de Java](https://www.azul.com/downloads/zulu/), versión 8.
 -  [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), con compatibilidad con Java y Maven.
--  [CLI de Azure](https://docs.microsoft.com/cli/azure)
+-  [CLI de Azure](/cli/azure)
 
 > [!IMPORTANT] 
 > La variable de entorno JAVA_HOME se debe establecer en la ubicación de instalación del JDK para completar esta guía de inicio rápido.
@@ -43,7 +43,7 @@ Se recomienda encarecidamente instalar también [Azure Functions Core Tools, ver
 1. Asegúrese de rellenar los valores de todos los campos, incluidos `resourceGroup`, `appName`y `appRegion` (use un valor de appName distinto de **fabrikam-function-20170920120101928**) y, por último, seleccione **Finalizar**.
     ![Creación de Maven en Eclipse 2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
-Maven crea los archivos del proyecto en una carpeta nueva con el nombre _artifactId_. El código generado en el proyecto es una función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) simple que devuelve el cuerpo de la solicitud HTTP desencadenadora.
+Maven crea los archivos del proyecto en una carpeta nueva con el nombre _artifactId_. El código generado en el proyecto es una función [desencadenada por HTTP](./functions-bindings-http-webhook.md) simple que devuelve el cuerpo de la solicitud HTTP desencadenadora.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Ejecución local de funciones en el IDE
 

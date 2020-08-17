@@ -1,4 +1,4 @@
-- name: "Versión Spring\_2020 de Windows Virtual Desktop"
+- name: Windows Virtual Desktop
   href: index.yml
 - name: Información general
   items:
@@ -6,7 +6,7 @@
       href: overview.md
     - name: Novedades
       href: whats-new.md
-    - name: "Documentación de la versión Fall\_2019"
+    - name: Documentación de Windows Virtual Desktop (clásico)
       href: ./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md
 - name: Tutoriales
   items:
@@ -46,6 +46,8 @@
           href: expand-existing-host-pool.md
         - name: Administración de grupos de aplicaciones con PowerShell
           href: manage-app-groups-powershell.md
+    - name: Eliminación de un grupo de hosts
+      href: delete-host-pool.md
     - name: Creación de un contenedor de perfiles
       items:
         - name: Uso de un recurso compartido de archivos basado en máquina virtual
@@ -72,6 +74,8 @@
           href: set-up-customize-master-image.md
         - name: Instalación de Office en la imagen de un disco duro virtual principal
           href: install-office-on-wvd-master-image.md
+    - name: Escalado automático de hosts de sesiones
+      href: set-up-scaling-script.md
     - name: Personalización de fuente
       href: customize-feed-for-virtual-desktop-users.md
     - name: Uso de diagnósticos de servicios
@@ -108,6 +112,8 @@
       href: store-fslogix-profile.md
     - name: Integraciones de asociados
       href: partners.md
+    - name: Preguntas frecuentes acerca de Windows Virtual Desktop
+      href: faq.md
     - name: "Preguntas frecuentes sobre la sesión múltiple de Windows\_10\_Enterprise"
       href: windows-10-multisession-faq.md
     - name: Ubicaciones de datos
@@ -137,11 +143,13 @@
     - name: Compatibilidad de Linux
       href: linux-overview.md
     - name: Configuración de un archivo RDP compatible
-      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context'
+      href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
     - name: Guía de red
-      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context'
+      href: /windows-server/remote/remote-desktop-services/network-guidance?context=/azure/virtual-desktop/context/context
     - name: Guía para el ajuste de tamaño de las máquinas virtuales
-      href: 'https://docs.microsoft.com/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context'
+      href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
+    - name: Interfaz de la línea de comandos (CLI) de Azure
+      href: /cli/azure/ext/desktopvirtualization/?view=azure-cli-latest
 - name: Recursos
   items:
     - name: PowerShell
@@ -153,7 +161,7 @@
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Ruta de aprendizaje
-      href: 'https://docs.microsoft.com/learn/paths/m365-wvd/'
+      href: /learn/paths/m365-wvd/
     - name: Vídeos de procedimientos
       href: 'https://support.microsoft.com/help/4563049/how-to-videos-about-windows-virtual-desktop'
     - name: Grupo de soporte técnico de la comunidad

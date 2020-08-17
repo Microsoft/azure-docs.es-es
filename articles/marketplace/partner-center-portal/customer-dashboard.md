@@ -1,16 +1,18 @@
 ---
-title: Panel Cliente de los análisis de Marketplace comercial del Centro de partners
+title: Panel Cliente de los análisis del marketplace comercial del Centro de partners, Azure Marketplace y Microsoft AppSource
 description: Obtenga detalles sobre cómo acceder a la información de los clientes, incluidas las tendencias de crecimiento, mediante el panel Cliente de los análisis de marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 06/15/2020
-ms.openlocfilehash: 9f71a668b3473521e9d8d7c9318ab2e557380845
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2020
+author: shganesh-dev
+ms.author: shganesh
+ms.openlocfilehash: 44e992bb1445e1e58f42ec150a8e2c0682eea98b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121765"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317593"
 ---
 # <a name="customer-dashboard-in-commercial-marketplace-analytics"></a>Panel Cliente de los análisis de marketplace comercial
 
@@ -29,10 +31,12 @@ En el **panel Cliente** del menú **Analizar** se muestran los datos de los clie
 - [Clientes por geografía](#customer-by-geography)
 - [Tendencias de clientes](#customer-trends)
 - [Clientes por pedidos o uso](#customers-by-orders-and-usage)
-- [Clientes por SKU](#customers-by-skus)
+- [Clientes por planes](#customers-by-plans)
 - [Pedidos y uso por tipo de cliente](#orders-and-usage-by-customer-type)
 - [Tabla de detalles de clientes](#customer-details-table)
 - [Filtros de la página Clientes](#customer-page-filters)
+
+La latencia máxima entre la adquisición de clientes y la generación de informes en el Centro de partners es de 48 horas.
 
 ### <a name="customer-summary"></a>Resumen de clientes
 
@@ -50,7 +54,7 @@ Hay tres **tipos de clientes**: nuevos, existentes y perdidos.
 
 ### <a name="customer-by-geography"></a>Clientes por geografía
 
-En el gráfico **Clientes por geografía** se muestran los recuentos de todos los clientes y los clientes adquiridos durante el intervalo de fechas seleccionado y que se asignan en función del país o región del cliente. El tono del color de claro a oscuro del mapa representa el número de clientes de bajo a alto. Haga clic en un registro de la tabla para acercar un país o región.
+En el gráfico **Clientes por geografía** se muestran los recuentos de todos los clientes y los clientes adquiridos durante el intervalo de fechas seleccionado, que se asignan en función del país o región del cliente. El tono del color de claro a oscuro del mapa representa el número de clientes de bajo a alto. Seleccione un registro de la tabla para acercar un país o región.
 
 En el mapa térmico se muestra el número de clientes y el porcentaje por país o región del cliente. Puede mover el mapa para ver la ubicación exacta y hacer zoom en una ubicación específica. Este mapa tiene una cuadrícula complementaria que le permite ver el porcentaje de clientes por ubicación, así como los clientes que se agregaron recientemente a esa ubicación.
 
@@ -71,14 +75,14 @@ El gráfico **Clientes por pedido/uso** tiene las tres pestañas siguientes: "pe
 
 A modo de ejemplo, vea el siguiente gráfico para ver el uso normalizado: El 30.° percentil superior de clientes contribuye al 87 % del uso normalizado de forma acumulativa. El 30.º percentil de clientes solo contribuye con 1,57 millones de horas de uso.
 
-### <a name="customers-by-skus"></a>Clientes por SKU
+### <a name="customers-by-plans"></a>Clientes por planes
 
-A continuación, se describen los gráficos **Customers by SKUs/usage** (Clientes por SKU/uso).
+A continuación, se describen los gráficos **Customers by SKUs/usage** (Clientes por planes/uso).
 
 1. En la tabla de clasificación se presentan los detalles de los 50 clientes principales clasificados por recuento de pedidos. Después de seleccionar un cliente, los detalles de este se muestran en las secciones 2, 3 y 4 de esta tabla de clasificación.
 2. Los detalles del perfil Cliente se muestran en este espacio cuando los editores inician sesión con un rol de propietario. Si los editores inician sesión con un rol de colaborador, los detalles de esta sección no estarán disponibles.
-3. En el gráfico de anillos Pedidos por SKU se muestra el desglose de los pedidos realizados de SKU. Se muestran las 5 SKU principales con el número de pedidos más alto, mientras que el resto de los pedidos se agrupan en "Todo el resto".
-4. En el gráfico de anillos Puestos por SKU se muestra el desglose de los puestos pedidos de SKU. Se muestran las 5 SKU principales con el número de puestos más alto, mientras que el resto de los pedidos se agrupan en "Rest all" ("Todo el resto").
+3. En el gráfico de anillos **Pedidos por planes** se muestra el desglose de los pedidos realizados de planes. Se muestran los cinco planes principales con el número de pedidos más alto, mientras que el resto de los pedidos se agrupan en "Rest all" ("Todo el resto").
+4. En el gráfico de anillos **Seats by plans** (Puestos por planes) se muestra el desglose de los puestos pedidos de planes. Se muestran los cinco planes principales con el número de puestos más alto, mientras que el resto de los pedidos se agrupan en "Rest all" ("Todo el resto").
 
 ### <a name="orders-and-usage-by-customer-type"></a>Pedidos y uso por tipo de cliente
 
@@ -95,7 +99,7 @@ En la tabla **Detalles del cliente** se muestra una lista numerada de los primer
 - Cada columna de la cuadrícula se puede ordenar.
 - Los datos se pueden extraer en un archivo TSV si el recuento de los registros es inferior a 1000.
 - Si el número de registros es superior a 1000, los datos exportados se colocarán de forma asincrónica en una página de descargas durante los próximos 30 días.
-- Pueden aplicarse filtros a la tabla para mostrar solo los datos que le interesen. Los datos se pueden filtrar por nombre de empresa, identificador de cliente, identificador de suscripción de Marketplace, tipo de licencia de Azure, fecha de adquisición, fecha de pérdida, correo electrónico del cliente, país/estado/ciudad/código postal del cliente, idioma del cliente, etc.
+- Aplique filtros a la tabla para mostrar solo los datos que le interesen. Filtre los datos por nombre de empresa, identificador de cliente, identificador de suscripción de Marketplace, tipo de licencia de Azure, fecha de adquisición, fecha de pérdida, correo electrónico del cliente, país/estado/ciudad/código postal del cliente, idioma del cliente, etc.
 - Cuando un cliente protegido adquiere una oferta, la información de **Customer Detailed Data** (Datos detallados del cliente) se enmascara (************).
 - Los detalles de la dimensión del cliente, como el nombre de la empresa, el nombre del cliente y el correo electrónico del cliente, están en el nivel de identificador de la organización, no en el nivel de transacción de Azure Marketplace o AppSource.
 
@@ -104,7 +108,7 @@ En la tabla **Detalles del cliente** se muestra una lista numerada de los primer
 Los filtros de la página **Clientes** se aplican a nivel de la página Clientes. Puede seleccionar varios filtros para representar el gráfico para los criterios que quiera ver, así como los datos que quiera que se muestren en la cuadrícula o exportación "Datos detallados de los pedidos". Los filtros se aplican a los datos extraídos del intervalo de datos que ha seleccionado en la esquina superior derecha de la página de pedidos.
 
 >[!NOTE]
-> Las definiciones detalladas de cada uno de los campos de la cuadrícula Cliente, los filtros de página y sus selecciones posibles se encuentran en la sección [Preguntas más frecuentes y terminología de los análisis de Marketplace comercial](./faq-terminology.md).
+> Las definiciones detalladas de cada uno de los campos de la cuadrícula Cliente, los filtros de página y sus selecciones posibles se encuentran en el artículo de preguntas frecuentes indicado a continuación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

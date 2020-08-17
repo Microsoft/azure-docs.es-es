@@ -29,7 +29,7 @@ landingContent:
       url: storage-sync-files-planning.md
     - text: ¿Qué es Azure Files?
       url: storage-files-introduction.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: get-started
     links:

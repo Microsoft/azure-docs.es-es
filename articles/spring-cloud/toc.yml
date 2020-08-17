@@ -22,6 +22,8 @@
   items:
     - name: Escalado manual de una aplicación
       href: spring-cloud-tutorial-scale-manual.md
+    - name: Escalabilidad automática de una aplicación
+      href: spring-cloud-tutorial-setup-autoscale.md
     - name: Alertas y grupos de acciones
       href: spring-cloud-tutorial-alerts-action-groups.md
     - name: Uso de IntelliJ para implementar aplicaciones

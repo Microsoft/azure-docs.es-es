@@ -2,19 +2,19 @@
 title: Instalación de Hybrid Cloud Extension (HCX)
 description: Configuración de la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS)
 ms.topic: how-to
-ms.date: 05/19/2020
-ms.openlocfilehash: 3037d12ebbb036098cfc00a42521513bc2df6170
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: ea968cb21812f7273af342763d307c2faba1eea6
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85367553"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475454"
 ---
 # <a name="install-hcx-for-azure-vmware-solution"></a>Instalación de HCX para Azure VMware Solution
 
 En este artículo, se recorren los procedimientos para configurar la solución VMware Hybrid Cloud Extension (HCX) para la nube privada de Azure VMware Solution (AVS). HCX permite la migración de las cargas de trabajo de VMware a la nube y a otros sitios conectados mediante diversos tipos de migración integrados compatibles con HCX.
 
-HCX Advanced, la instalación predeterminada, admite hasta tres sitios externos. Si se necesitan más de tres sitios, los clientes tienen la opción de habilitar el complemento HCX Enterprise mediante el soporte técnico. La instalación de HCX Enterprise conlleva cargos adicionales para los clientes después de la disponibilidad general (GA), pero proporciona [características adicionales](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
+HCX Advanced, la instalación predeterminada, admite hasta tres instancias de vCenter. Si se necesitan más de tres, los clientes tienen la opción de habilitar el complemento HCX Enterprise mediante el soporte técnico. La instalación de HCX Enterprise conlleva cargos adicionales para los clientes después de la disponibilidad general (GA), pero proporciona [características adicionales](https://cloud.vmware.com/community/2019/08/08/introducing-hcx-enterprise/).
 
 
 Revise primero detenidamente las secciones [Antes de comenzar](#before-you-begin), [Requisitos de versión de software](#software-version-requirements) y [Requisitos previos](#prerequisites). 
@@ -52,7 +52,7 @@ Los componentes de la infraestructura deben ejecutar la versión mínima necesar
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Se debe configurar la comunicación global entre los circuitos de ER del SDDC de AVS y el entorno local.
+* Se debe configurar Global Reach de ExpressRoute entre los circuitos de ExpressRoute del SDDC de AVS y el entorno local.
 
 * Todos los puertos necesarios deben estar abiertos entre el SDDC de AVS y el entorno local (consulte la [documentación de VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-E456F078-22BE-494B-8E4B-076EF33A9CF4.html)).
 

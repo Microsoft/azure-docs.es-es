@@ -7,12 +7,13 @@ ms.date: 12/13/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 4e3953c56a9acf911c7dc2bbbd453b52b72f9bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f2d740184c160faa241e3c0267ec39e1309725a8
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833245"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431326"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-javascript"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para JavaScript
 
@@ -28,9 +29,14 @@ Use la biblioteca cliente de Azure Queue Storage v12 para JavaScript para reali
 * Eliminación de mensajes de una cola
 * Eliminación de una cola
 
-[Documentación de referencia de API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue) | [Paquete (administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-queue) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Recursos adicionales:
 
-## <a name="prerequisites"></a>Prerrequisitos
+* [Documentación de referencia de API](https://docs.microsoft.com/javascript/api/@azure/storage-queue/)
+* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-queue)
+* [Paquete (Administrador de paquetes de Node)](https://www.npmjs.com/package/@azure/storage-queue)
+* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

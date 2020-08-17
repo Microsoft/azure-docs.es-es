@@ -3,16 +3,16 @@ title: Acuerdos y enmiendas de Contrato Enterprise de Azure
 description: En este artículo se explica cómo los acuerdos y enmiendas del Contrato Enterprise de Azure afectan al uso del portal del Contrato Enterprise de Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/13/2020
+ms.date: 08/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 4d40ffb04882e9809fc818ab492a4c97260d1ff4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bc1749ba8246aa2181890c4c846f9159a0557aff
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537806"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563490"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Acuerdos y enmiendas de Contrato Enterprise de Azure
 
@@ -20,7 +20,7 @@ En este artículo se describe cómo los acuerdos y modificaciones del Contrato E
 
 ## <a name="enrollment-provisioning-status"></a>Estado de aprovisionamiento de inscripciones
 
-La fecha de inicio de un nuevo prepago de Azure se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de prepago de Azure a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra de prepago de Azure se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra en https://www.explore.ms muestra el inicio del prepago de Azure. La fecha de inicio de la cobertura es cuando el prepago de Azure aparece en Azure EA Portal.
+La fecha de inicio de un nuevo prepago de Azure se define por la fecha en que el centro de operaciones regional lo ha procesado. Como los pedidos de prepago de Azure a través de Azure EA Portal se procesan en la zona horaria UTC, puede producirse algún retraso si el pedido de compra de prepago de Azure se procesó en otra región. La fecha de inicio de la cobertura en el pedido de compra muestra el inicio del prepago de Azure. La fecha de inicio de la cobertura es cuando el prepago de Azure aparece en Azure EA Portal.
 
 ## <a name="support-for-enterprise-customers"></a>Soporte técnico para clientes de Enterprise
 
@@ -43,7 +43,7 @@ Una inscripción tiene uno de los siguientes valores de estado. Cada valor deter
 
 **Expired** (Expirado): la inscripción del Contrato Enterprise expira cuando se alcanza la fecha de finalización de este contrato. El cliente del Contrato Enterprise no participa en el período extendido y todos sus servicios están deshabilitados.
 
-A partir del 1 de agosto de 2019, no se aceptan nuevos formularios de no participación para los clientes comerciales de Azure. En su lugar, todas las inscripciones entran en un período extendido indefinido. Si desea dejar de usar los servicios de Azure, cierre la suscripción en [Azure Portal](https://portal.azure.com). O bien, el asociado puede enviar una solicitud de finalización en https://www.explore.ms. No hay ningún cambio para los clientes con los tipos de contrato de gobierno.
+A partir del 1 de agosto de 2019, no se aceptan nuevos formularios de no participación para los clientes comerciales de Azure. En su lugar, todas las inscripciones entran en un período extendido indefinido. Si desea dejar de usar los servicios de Azure, cierre la suscripción en [Azure Portal](https://portal.azure.com). O bien, el asociado puede enviar una solicitud de finalización. No hay ningún cambio para los clientes con los tipos de contrato de gobierno.
 
 **Transferred** (Transferido): el estado transferido se aplica a las inscripciones que tienen las cuentas y servicios asociados transferidos a una nueva inscripción. Las inscripciones no se transfieren automáticamente si se genera un nuevo número de inscripción durante la renovación. El número de inscripción anterior debe incluirse en la solicitud de renovación del cliente para una transferencia automática.
 

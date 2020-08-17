@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: carlrab, sstein
-ms.date: 06/10/2020
-ms.openlocfilehash: 4ffd92c0641b74682a74ffd2898e226999ac2dd4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: f71daab55139f6b4690df50472928db466774cb3
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668464"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128274"
 ---
 # <a name="resource-limits-for-elastic-pools-using-the-vcore-purchasing-model"></a>Límites de recursos para grupos elásticos que usan el modelo de compra de núcleo virtual
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -170,31 +170,64 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Uso general: proceso aprovisionado: serie Fsv2
 
-### <a name="fsv2-series-compute-generation-preview"></a>Generación de proceso de la serie Fsv2 (versión preliminar)
+### <a name="fsv2-series-compute-generation-part-1"></a>Generación de proceso de la serie Fsv2 (parte 1)
 
-|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_72|
-|:--- | --: |
-|Generación de procesos|Serie Fsv2|
-|Núcleos virtuales|72|
-|Memoria (GB)|136,2|
-|Máximo número de bases de datos por grupo <sup>1</sup>|500|
-|Compatible con almacén de columnas|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|
-|Tamaño máximo de datos (GB)|4096|
-|Tamaño máximo de registro (GB)|1024|
-|Tamaño máximo de datos de TempDB (GB)|333|
-|Tipo de almacenamiento|Premium Storage (remoto)|
-|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máximo de IOPS de datos por grupo <sup>2</sup>|16 000|
-|Velocidad de registro máxima por grupo (MBps)|37.5|
-|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|3780|
-|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|3780|
-|N.º máximo de sesiones simultáneas|30,000|
-|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0-72|
-|Número de réplicas|1|
-|AZ múltiple|N/D|
-|Escalado horizontal de lectura|N/D|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
+|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Generación de procesos|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|Núcleos virtuales|8|10|12|14|16|
+|Memoria (GB)|15,1|18,9|22,7|26,5|30,2|
+|Máximo número de bases de datos por grupo <sup>1</sup>|500|500|500|500|500|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|No aplicable|No aplicable|N/D|N/D|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1536|
+|Tamaño máximo de registro (GB)|336|336|336|336|512|
+|Tamaño máximo de datos de TempDB (GB)|333|333|333|333|333|
+|Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|2560|3200|3840|4480|5120|
+|Velocidad de registro máxima por grupo (MBps)|30|30|30|30|30|
+|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|400|500|600|700|800|
+|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|800|1000|1200|1400|1600|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0 a 8|0 a 10|0 a 12|0 a 14|0 a 16|
+|Número de réplicas|1|1|1|1|1|
+|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> El valor máximo de los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Generación de proceso de la serie Fsv2 (parte 2)
+
+|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generación de procesos|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|Núcleos virtuales|18|20|24|32|36|72|
+|Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Máximo número de bases de datos por grupo <sup>1</sup>|500|500|500|500|500|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Tamaño máximo de datos (GB)|1536|1536|1536|3072|3072|4096|
+|Tamaño máximo de registro (GB)|512|512|512|1024|1024|1024|
+|Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|5760|6400|7680|10240|11 520|23 040|
+|Velocidad de registro máxima por grupo (MBps)|30|30|30|30|30|30|
+|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|900|1000|1200|1600|1800|3600|
+|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|1800|2000|2400|3200|3600|7200|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0 a 18|0-20|0-24|0 a 32|0 a 36|0-72|
+|Número de réplicas|1|1|1|1|1|1|
+|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|No aplicable|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 <sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
 
@@ -247,7 +280,7 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 |Núcleos virtuales|7|8|9|10|16|24|
 |Memoria (GB)|49|56|63|70|112|159,5|
 |Máximo número de bases de datos por grupo <sup>1</sup>|100|100|100|100|100|100|
-|Compatible con almacén de columnas|N/D|N/D|N/D|N/D|N/D|N/D|
+|Compatible con almacén de columnas|N/D|No aplicable|No aplicable|No aplicable|No aplicable|N/D|
 |Almacenamiento OLTP en memoria (GB)|7|8|9.5|11|20|36|
 |Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
 |Tamaño máximo de datos (GB)|1024|1024|1024|1024|1024|1024|
@@ -339,31 +372,31 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Crítico para la empresa: proceso aprovisionado: serie M
 
-### <a name="m-series-compute-generation-preview"></a>Generación de proceso de la serie M (versión preliminar)
+### <a name="m-series-compute-generation-part-1"></a>Generación de proceso de la serie M (parte 1)
 
-|Tamaño de proceso (objetivo de servicio)|BC_M_128|
-|:--- | --: |
-|Generación de procesos|Serie M|
-|Núcleos virtuales|128|
-|Memoria (GB)|3767,1|
-|Máximo número de bases de datos por grupo <sup>1</sup>|100|
-|Compatible con almacén de columnas|Sí|
-|Almacenamiento OLTP en memoria (GB)|1768|
-|Tamaño máximo de datos (GB)|4096|
-|Tamaño máximo de registro (GB)|2048|
-|Tamaño máximo de datos de TempDB (GB)|4096|
-|Tipo de almacenamiento|SSD local|
-|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|Número máximo de IOPS de datos por grupo <sup>2</sup>|200 000|
-|Velocidad de registro máxima por grupo (MBps)|333|
-|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|13 440|
-|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|13 440|
-|N.º máximo de sesiones simultáneas|30,000|
-|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0-128|
-|Número de réplicas|4|
-|AZ múltiple|Sí|
-|Escalado horizontal de lectura|Sí|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
+|Tamaño de proceso (objetivo de servicio)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generación de procesos|Serie M|Serie M|Serie M|Serie M|Serie M|Serie M|
+|Núcleos virtuales|8|10|12|14|16|18|
+|Memoria (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Máximo número de bases de datos por grupo <sup>1</sup>|100|100|100|100|100|100|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|64|80|96|112|128|150|
+|Tamaño máximo de datos (GB)|512|640|768|896|1024|1152|
+|Tamaño máximo de registro (GB)|171|213|256|299|341|384|
+|Tamaño máximo de datos de TempDB (GB)|256|320|384|448|512|576|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|12 499|15 624|18 748|21 873|24 998|28 123|
+|Velocidad de registro máxima por grupo (MBps)|48|60|72|84|96|108|
+|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|800|1,000|1,200|1400|1600|1800|
+|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|800|1,000|1,200|1400|1600|1800|
+|N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|30000|
+|Opciones de núcleo virtual mín./máx. de grupos elásticos por base de datos|0 a 8|0 a 10|0 a 12|0 a 14|0 a 16|0 a 18|
+|Número de réplicas|4|4|4|4|4|4|
+|AZ múltiple|No|No|No|No|No|No|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 <sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
 
@@ -372,6 +405,42 @@ Puede establecer el nivel de servicio, el tamaño de proceso (objetivo de servic
 <sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
 
 Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. Azure SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
+
+
+
+### <a name="m-series-compute-generation-part-2"></a>Generación de proceso de la serie M (parte 2)
+
+|Tamaño de proceso (objetivo de servicio)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Generación de procesos|Serie M|Serie M|Serie M|Serie M|Serie M|
+|Núcleos virtuales|20|24|32|64|128|
+|Memoria (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Máximo número de bases de datos por grupo <sup>1</sup>|100|100|100|100|100|100|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|172|216|304|704|1768|
+|Tamaño máximo de datos (GB)|1280|1536|2048|4096|4096|
+|Tamaño máximo de registro (GB)|427|512|683|1024|1024|
+|Tamaño máximo de datos de TempDB (GB)|4096|2048|1024|768|640|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Número máximo de IOPS de datos por grupo <sup>2</sup>|31 248|37 497|49 996|99 993|160 000|
+|Velocidad de registro máxima por grupo (MBps)|120|144|192|264|264|
+|Número máximo de trabajos simultáneos por grupo (solicitudes) <sup>3</sup>|2\.000|2,400|3\.200|6\.400|12.800|
+|Número máximo de inicios de sesión simultáneos por grupo (solicitudes) <sup>3</sup>|2\.000|2,400|3\.200|6\.400|12.800|
+|N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|
+|Número de réplicas|4|4|4|4|4|
+|AZ múltiple|No|No|No|No|No|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+<sup>1</sup> Consulte [Administración de recursos en grupos elásticos densos](elastic-pool-resource-management.md) para conocer las consideraciones adicionales.
+
+<sup>2</sup> El valor máximo de los tamaños de E/S que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+<sup>3</sup> Para obtener el máximo de trabajos simultáneos (solicitudes) para cualquier base de datos individual, consulte [Límites de recursos de base de datos única](resource-limits-vcore-single-databases.md). Por ejemplo, si el grupo elástico usa Gen5 y el valor máximo de núcleo virtual por base de datos se establece en 2, el valor de máximo de trabajos simultáneos es 200.  Si el número máximo de núcleo virtual por base de datos se establece en 0,5, el valor de máximo de trabajos simultáneos es 50, ya que en Gen5 hay un máximo de 100 trabajos simultáneos por núcleo virtual. Para otras configuraciones de memoria con núcleo virtual máximo por base de datos que sean un núcleo virtual o menos, la cantidad máxima de trabajos simultáneos se escala de forma similar.
+
+Si todos los núcleos virtuales de un grupo elástico están ocupados, cada una de las bases de datos del grupo recibe la misma cantidad de recursos de proceso para procesar las consultas. Azure SQL Database proporciona ecuanimidad de uso compartido de recursos entre bases de datos garantizando los mismos segmentos de tiempo de proceso. La ecuanimidad de uso compartido de recursos del grupo elástico es adicional a cualquier cantidad de recursos garantizados de otro modo a cada base de datos cuando el número mínimo de núcleos virtuales por base de datos se establece en un valor distinto de cero.
+
 
 ## <a name="database-properties-for-pooled-databases"></a>Propiedades de base de datos para bases de datos agrupadas
 

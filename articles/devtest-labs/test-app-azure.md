@@ -3,12 +3,12 @@ title: Prueba de la aplicación en Azure | Microsoft Docs
 description: Aprenda a crear un recurso compartido de archivos en un laboratorio y montarlo en su máquina local y en una máquina virtual del laboratorio para, a continuación, implementar aplicaciones web o de escritorio en el recurso compartido de archivos y probarlas.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 30e77e67a1674b2170c1d1782f1389274afa4c35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2dbbf349da4e352fe20a22db03cc9063d801990
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476502"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282252"
 ---
 # <a name="test-your-app-in-azure"></a>Prueba de las aplicaciones en Azure 
 En este artículo se proporciona los pasos para probar la aplicación en Azure con DevTest Labs. En primer lugar, configurará un recurso compartido de archivos en un laboratorio y lo montará como una unidad en la máquina de desarrollo local y en una máquina virtual de un laboratorio. A continuación, usará Visual Studio 2019 para implementar la aplicación en el recurso compartido de archivos de forma que pueda ejecutar la aplicación en la máquina virtual del laboratorio.  
@@ -18,7 +18,7 @@ En este artículo se proporciona los pasos para probar la aplicación en Azure c
 ## <a name="prerequisites"></a>Requisitos previos 
 1. [Cree una suscripción a Azure](https://azure.microsoft.com/free/) si no tiene una e inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Siga las instrucciones de [este artículo](devtest-lab-create-lab.md) para crear un laboratorio con Azure DevTest Labs. Ancle el laboratorio al panel para que pueda encontrarlo fácilmente la próxima vez que inicie sesión. Azure DevTest Labs le permite crear recursos en Azure rápidamente, reducir los desperdicios y controlar los costos. Para más información sobre DevTest Labs, consulte [Introducción](devtest-lab-overview.md). 
-3. Cree una cuenta de Azure Storage en el grupo de recursos del laboratorio mediante las instrucciones del artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md). En la página **Crear cuenta de almacenamiento**, seleccione **Usar existente** en **Grupo de recursos** y seleccione el **grupo de recursos del laboratorio**. 
+3. Cree una cuenta de Azure Storage en el grupo de recursos del laboratorio mediante las instrucciones del artículo [Creación de una cuenta de almacenamiento](../storage/common/storage-account-create.md). En la página **Crear cuenta de almacenamiento**, seleccione **Usar existente** en **Grupo de recursos** y seleccione el **grupo de recursos del laboratorio**. 
 4. Cree un recurso compartido de archivos en su instancia de Azure Storage mediante las instrucciones del artículo [Creación de un recurso compartido de Azure Files](../storage/files/storage-how-to-create-file-share.md). 
 
 ## <a name="mount-the-file-share-on-your-local-machine"></a>Montaje del recurso compartido de archivos en la máquina local

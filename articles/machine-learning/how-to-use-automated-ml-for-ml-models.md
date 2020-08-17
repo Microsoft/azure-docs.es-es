@@ -5,23 +5,28 @@ description: Cree, revise e implemente modelos de aprendizaje automático automa
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: nibaccam
 author: aniththa
-manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2020
-ms.openlocfilehash: 9871d2ef46a4bbcaa0de7a2aee7d2c91f2bfefab
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.topic: conceptual
+ms.custom: how-to
+ms.openlocfilehash: 6e4ed8514cd99d42790296a58296a73696989b69
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831920"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539142"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creación, revisión e implementación de modelos de aprendizaje automático automatizado con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-En este artículo, aprenderá a crear, explorar e implementar modeles de aprendizaje automático automatizado sin una sola línea de código en la interfaz de Azure Machine Learning Studio. El aprendizaje automático automatizado es un proceso en el que se selecciona automáticamente el mejor algoritmo de aprendizaje automático para sus datos específicos. Este proceso le permite generar modelos de aprendizaje automático rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
+En este artículo, aprenderá a crear, explorar e implementar modelos de aprendizaje automático automatizado sin una sola línea de código en Azure Machine Learning Studio.
+
+>[!IMPORTANT]
+> La experiencia de aprendizaje automático automatizada de Azure Machine Learning Studio se encuentra en versión preliminar. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas.
+
+ El aprendizaje automático automatizado es un proceso en el que se selecciona automáticamente el mejor algoritmo de aprendizaje automático para sus datos específicos. Este proceso le permite generar modelos de aprendizaje automático rápidamente. [Más información sobre el aprendizaje automático automatizado](concept-automated-ml.md).
  
 Para obtener un ejemplo completo, pruebe el [tutorial para crear un modelo de clasificación con la interfaz de ML automatizado de Azure Machine Learning](tutorial-first-experiment-automated-ml.md). 
 
@@ -51,18 +56,22 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
 1. Seleccione **+ New automated ML run** (+ Nueva ejecución de ML automatizada) y rellene el formulario.
 
-1. Seleccione un conjunto de datos del contenedor de almacenamiento o cree un nuevo conjunto de datos. Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones URL web, almacenes de datos o Azure Open Datasets. 
+1. Seleccione un conjunto de datos del contenedor de almacenamiento o cree un nuevo conjunto de datos. Los conjuntos de datos se pueden crear a partir de archivos locales, direcciones URL web, almacenes de datos o Azure Open Datasets. Obtenga más información sobre la [creación de conjuntos de datos](how-to-create-register-datasets.md).  
 
     >[!Important]
     > Requisitos para los datos de entrenamiento:
     >* Los datos deben estar en formato tabular.
     >* El valor que quiere predecir (columna de destino) debe estar presente en los datos.
 
-    1. Para crear un nuevo conjunto de datos a partir de un archivo del equipo local, seleccione **Examinar** y seleccione el archivo. 
+    1. Para crear un nuevo conjunto de datos a partir de un archivo del equipo local, seleccione **+Crear conjunto de datos** y seleccione **From local file** (Desde archivo local). 
 
-    1. Asigne un nombre único al conjunto de datos y proporcione una descripción opcional. 
+    1. En el formulario **Información básica**, asígnele un nombre único al conjunto de datos e incluya una descripción opcional. 
 
     1. Seleccione **Siguiente** para abrir el formulario **Datastore and file selection** (Almacén de datos y selección de archivos). En este formulario, seleccione dónde quiere cargar el conjunto de datos: el contenedor de almacenamiento predeterminado que se crea automáticamente con el área de trabajo, o bien elija un contenedor de almacenamiento que quiera usar para el experimento. 
+    
+        1. Si los datos están detrás de una red virtual, debe habilitar la función de **omitir la validación** para asegurarse de que el área de trabajo pueda tener acceso a los datos. Obtenga más información sobre el [aislamiento de red y la privacidad](how-to-enable-virtual-network.md#machine-learning-studio). 
+    
+    1. Seleccione **Examinar** para cargar el archivo de datos del conjunto de datos. 
 
     1. Revise el formulario **Settings and preview** (Configuración y vista previa) para ver que todo está correcto. El formulario se rellena de forma inteligente según el tipo de archivo. 
 
@@ -96,8 +105,11 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
     Campo|Descripción
     ---|---
     Nombre del proceso| Escriba un nombre único que identifique el contexto del proceso.
+    Prioridad de la máquina virtual| Las máquinas virtuales de prioridad baja son más económicas, pero no garantizan nodos de proceso. 
+    Tipo de máquina virtual| Seleccione la CPU o GPU para el tipo de máquina virtual.
     Tamaño de la máquina virtual| Seleccione el tamaño de la máquina virtual para el proceso.
-    Número máximo y mínimo de nodos (en Configuración avanzada)| Para generar perfiles de datos, debe especificar uno o más nodos. escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
+    Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos. escriba el número máximo de nodos para el proceso. El valor predeterminado es seis nodos para un proceso de AML.
+    Configuración avanzada | Esta configuración le permite configurar una cuenta de usuario y una red virtual existente para el experimento. 
     
     Seleccione **Crear**. La creación de un nuevo proceso puede tardar unos minutos.
 
@@ -108,19 +120,21 @@ De lo contrario, verá una lista de los experimentos de aprendizaje automático 
 
 1. En el formulario **Task type and settings** (Tipo de tarea y configuración), seleccione el tipo de tarea: clasificación, regresión o previsión. Para más información, vea los [tipos de tareas admitidos](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast).
 
-    1. Para la clasificación, también puede habilitar el aprendizaje profundo, que se usa para las características de texto.
+    1. Para la **clasificación**, también puede habilitar el aprendizaje profundo, que se usa para las características de texto.
 
-    1. Para la previsión:
-        1. Seleccione la columna de tiempo: esta columna contiene los datos de tiempo que desea usar.
+    1. Para la **previsión**, puede: 
+    
+        1. Habilitar el aprendizaje profundo.
+    
+        1. Seleccionar la *columna de tiempo*: esta columna contiene los datos de tiempo que desea usar.
 
-        1. Seleccione el horizonte de previsión: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
+        1. Seleccionar el *horizonte de previsión*: Indique cuántas unidades de tiempo (minutos, horas, días, semanas, meses o años) será capaz predecir el modelo en el futuro. Cuanto más se exija al modelo que prediga en el futuro, menos preciso será. [Más información sobre la previsión y el horizonte de previsión](how-to-auto-train-forecast.md).
 
 1. (Opcional) Ver el apartado sobre la adición de configuraciones: opciones de configuración adicionales que puede usar para controlar mejor el trabajo de entrenamiento. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento. 
 
     Configuraciones adicionales|Descripción
     ------|------
     Métrica principal| Métrica principal usada para puntuar el modelo. [Más información sobre las métricas del modelo](how-to-configure-auto-train.md#explore-model-metrics).
-    Características automáticas| Seleccione esta opción para habilitar o deshabilitar la caracterización que el aprendizaje automático automatizado realiza. La caracterización automática incluye la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas. No se admite para el tipo de tarea de predicción de series temporales. [Obtenga más información sobre la caracterización](how-to-configure-auto-features.md#featurization). 
     Explicación del mejor modelo | Seleccione esta opción para habilitar o deshabilitar la visualización de la explicación del mejor modelo recomendado.
     Blocked algorithms (Algoritmos bloqueados)| Seleccione los algoritmos que desea excluir del trabajo de entrenamiento.
     Criterios de exclusión| Cuando se cumple alguno de estos criterios, se detiene el trabajo de entrenamiento. <br> *Tiempo de trabajo de entrenamiento (horas)* : cantidad de tiempo para permitir que el trabajo de entrenamiento se ejecute. <br> *Metric score threshold* (Umbral de puntuación de métrica):  puntuación mínima de métrica para todas las canalizaciones. Esto garantiza que si tiene una métrica objetivo definida que desee alcanzar, no dedicará más tiempo en el trabajo de entrenamiento que el necesario.
@@ -185,7 +199,7 @@ La pestaña **Modelos** contiene una lista de los modelos creados ordenados por 
 
 ### <a name="view-training-run-details"></a>Ver detalles de ejecución del entrenamiento
 
-Explore en profundidad los modelos completados para ver los detalles de la ejecución de entrenamiento, como las métricas de ejecución en la pestaña **Detalles del modelo** o gráficos de rendimiento en la pestaña **Visualizaciones**. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
+Explore en profundidad los modelos completados para ver los detalles de la ejecución de entrenamiento, como un resumen del modelo en la pestaña **Modelo** o gráficos de métricas de rendimiento en la pestaña **Métricas**. [Más información sobre los gráficos](how-to-understand-automated-ml.md).
 
 [![Detalles de la iteración](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
 
@@ -197,9 +211,14 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
 
 1. Tiene unas par de opciones de implementación. 
 
-    + Opción 1: Para implementar el mejor modelo (según los criterios de métrica que definió), seleccione el botón **Deploy best model** (Implementar el mejor modelo) en la pestaña **Detalles**.
+    + Opción 1: implementar el mejor modelo, según los criterios de métricas que haya definido. 
+        1. Una vez finalizado el experimento, vaya a la página de ejecución primaria seleccionando **Ejecución 1** en la parte superior de la pantalla. 
+        1.  Seleccione el modelo que aparece en la sección **Mejor resumen del modelo**. 
+        1. Seleccione **Implementar** en la parte superior izquierda de la ventana. 
 
-    + Opción 2: Si quiere implementar una iteración de modelo específica de este experimento, explore en profundidad el modelo para abrir su pestaña **Detalles del modelo** y seleccione **Implementar modelo**.
+    + Opción 2: implementar una iteración del modelo específica de este experimento.
+        1. Seleccione el modelo que quiera en la pestaña **Modelos**.
+        1. Seleccione **Implementar** en la parte superior izquierda de la ventana.
 
 1. Rellene el panel **Implementar modelo**.
 
@@ -210,7 +229,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
     Compute type (Tipo de proceso)| Seleccione el tipo de punto de conexión que desea implementar: *Azure Kubernetes Service (AKS)* o *Azure Container Instance (ACI)* .
     Nombre del proceso| *Solo se aplica a AKS:* Seleccione el nombre del clúster de AKS en que desea realizar la implementación.
     Enable authentication (Habilitar autenticación) | Seleccione esta opción para permitir la autenticación basada en token o basada en clave.
-    Use custom deployment assets (Usar recursos de implementación personalizados)| Habilite esta característica si desea cargar su propio archivo de entorno y script de puntuación. [Más información sobre los scripts de puntuación](how-to-deploy-and-where.md#script).
+    Use custom deployment assets (Usar recursos de implementación personalizados)| Habilite esta característica si desea cargar su propio archivo de entorno y script de puntuación. [Más información sobre los scripts de puntuación](how-to-deploy-and-where.md).
 
     >[!Important]
     > Los nombres de archivo deben tener menos de 32 caracteres y deben comenzar y terminar con caracteres alfanuméricos. Puede incluir guiones, caracteres de subrayado, puntos y caracteres alfanuméricos. No se permiten espacios.
@@ -218,7 +237,7 @@ ML automatizado le ayuda a implementar el modelo sin escribir código:
     El menú *Avanzado* ofrece características de implementación predeterminadas como la [recopilación de datos](how-to-enable-app-insights.md) y la configuración del uso de recursos. Si desea reemplazar estos valores predeterminados, hágalo en este menú.
 
 1. Seleccione **Implementar**. La implementación puede tardar unos 20 minutos en completarse.
-    Una vez iniciada la implementación, aparece la pestaña **Detalles del modelo**. Consulte el progreso de la implementación en la sección **Estado de implementación** del panel **Propiedades**. 
+    Una vez iniciada la implementación, aparece la pestaña **Resumen del modelo**. Consulte el progreso de la implementación en la sección **Estado de implementación**. 
 
 Ya tiene un servicio web operativo para generar predicciones. Puede probar las predicciones consultando el servicio de [soporte técnico de Azure Machine Learning de Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

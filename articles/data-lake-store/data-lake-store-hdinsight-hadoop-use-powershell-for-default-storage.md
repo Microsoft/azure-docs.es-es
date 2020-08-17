@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: 053ee85318d8ac9ccd5fb8b63fb44df966d34821
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: f7c41dc11e7321d6fb9e6f8c030eb74b586a1b3e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855041"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075029"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Crear clústeres de HDInsight con Azure Data Lake Storage Gen1 como almacenamiento predeterminado mediante PowerShell
 
@@ -38,7 +38,7 @@ Para configurar HDInsight para que funcione con Data Lake Storage Gen1 mediante 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 
 * **Una suscripción a Azure**: Vaya a [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 o versiones posteriores**: consulte [How to install and configure PowerShell](/powershell/azure/overview) (Instalación y configuración de Azure PowerShell).
+* **Azure PowerShell 1.0 o versiones posteriores**: consulte [How to install and configure PowerShell](/powershell/azure/) (Instalación y configuración de Azure PowerShell).
 * **Kit de desarrollo de software (SDK) para Windows**: para instalar el SDK de Windows, vaya a [Downloads and tools for Windows 10](https://dev.windows.com/downloads) (Descargas y herramientas para Windows 10). El SDK se usa para crear un certificado de seguridad.
 * **Entidad de servicio de Azure Active Directory**: en este tutorial se describe cómo crear entidades de servicio en Azure Active Directory (Azure AD). Sin embargo, para crear una entidad de servicio, debe ser administrador de Azure AD. Si ya lo es, puede hacer caso omiso a este requisito previo y continuar con el tutorial.
 

@@ -31,7 +31,7 @@ landingContent:
     links:
     - text: Demostración de DPS de IoT Hub
       url: https://azure.microsoft.com/resources/videos/iot-hub-dps-demo/
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
-ms.openlocfilehash: 2103c93e553cc5e1e94941b1567bd3c0f168eabf
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: d89d46e3365a97d9deea8a89de2d9a1d5799cb72
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85127529"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836061"
 ---
 # <a name="tutorial-send-push-notifications-to-ios-apps-using-azure-notification-hubs-version-204"></a>Tutorial: Envío de notificaciones push a aplicaciones iOS mediante Azure Notification Hubs (versión 2.0.4)
 
@@ -456,7 +456,7 @@ Las notificaciones push se envían normalmente en un servicio back-end como Mobi
 
 A continuación, presentamos una lista de algunos otros tutoriales que podría interesarle revisar para enviar notificaciones:
 
-- Azure Mobile Apps: Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Mobile Apps integrado con Notification Hubs, consulte [Incorporación de notificaciones push a la aplicación iOS](/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
+- Azure Mobile Apps: Para ver un ejemplo de cómo enviar notificaciones desde un back-end de Mobile Apps integrado con Notification Hubs, consulte [Incorporación de notificaciones push a la aplicación iOS](/previous-versions/azure/app-service-mobile/app-service-mobile-ios-get-started-push).
 - ASP.NET:  [Uso de Notification Hubs para enviar notificaciones push a los usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 - SDK de Java para Azure Notification Hubs: Consulte [Uso de Notification Hubs desde Java](notification-hubs-java-push-notification-tutorial.md) para enviar notificaciones desde Java. Esto se probó en Eclipse para el desarrollo de Android.
 - PHP: [Uso de Notification Hubs desde PHP](notification-hubs-php-push-notification-tutorial.md).
@@ -491,7 +491,7 @@ Para más información, consulte los siguientes artículos.
 - [Administración de registros](notification-hubs-push-notification-registration-management.md)
 - [Trabajo con etiquetas](notification-hubs-tags-segment-push-message.md)
 - [Trabajo con plantillas personalizadas](notification-hubs-templates-cross-platform-push-messages.md)
-- [Control de acceso de Service Bus con Firmas de acceso compartido](/azure/service-bus-messaging/service-bus-sas)
+- [Control de acceso de Service Bus con Firmas de acceso compartido](../service-bus-messaging/service-bus-sas.md)
 - [Generar tokens de SAS mediante programación](/rest/api/eventhub/generate-sas-token)
 - [Seguridad de Apple: cifrado común](https://developer.apple.com/security/)
 - [Tiempo UNIX](https://en.wikipedia.org/wiki/Unix_time)

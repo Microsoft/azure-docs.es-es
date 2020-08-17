@@ -4,13 +4,13 @@ description: 'Ejemplos de la CLI de Azure: Azure Functions'
 ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
 ms.topic: sample
 ms.date: 01/09/2018
-ms.custom: mvc
-ms.openlocfilehash: 61ac1b95055b8ec9e65c3009d76f79581721f594
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 619e974240b19465d50e394f87a7476efec41e45
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83779539"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504507"
 ---
 # <a name="azure-cli-samples"></a>Ejemplos de la CLI de Azure
 

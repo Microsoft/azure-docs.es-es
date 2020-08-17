@@ -3,12 +3,12 @@ title: Uso de PowerShell para administrar recursos de Azure Service Bus | Micros
 description: En este artículo se explica cómo usar el módulo de Azure PowerShell para crear y administrar entidades de Service Bus (espacios de nombres, colas, temas, suscripciones).
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 7ff79d8cf2aac09a0b8d2f04ade0b3d1d9b2e74e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6439deb2b86c2ea5b50fe3bdbad89a0875b2acc
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341752"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065750"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
 
@@ -159,8 +159,8 @@ Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/az.servi
 
 Hay varias formas alternativas de administrar entidades de Service Bus, tal como se describe en estas entradas de blog:
 
-* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
-* [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](https://docs.microsoft.com/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
+* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](/archive/blogs/paolos/how-to-create-service-bus-queues-topics-and-subscriptions-using-a-powershell-script)
+* [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](/archive/blogs/paolos/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script)
 * [Scripts de PowerShell de Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

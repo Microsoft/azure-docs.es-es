@@ -1,17 +1,17 @@
 ---
-title: Creación de una instancia de Azure HPC Cache
-description: Creación de una instancia de Azure HPC Cache
+title: Uso del espacio de nombres agregado de Azure HPC Cache
+description: Planeación del espacio de nombres virtual para Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: be09d8b903d63b9fb2b57f8b9b7486b02a60085c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.author: v-erkel
+ms.openlocfilehash: c16d2f9e9c94603361d9a096f33d559105f2d28d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045814"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497036"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planeamiento del espacio de nombres agregado
 
@@ -30,7 +30,7 @@ Por ejemplo, supongamos que cuenta con un sistema donde se usa una instancia de 
 Los datos de plantilla se almacenan en un centro de datos y la información necesaria para este trabajo se almacena en estos subdirectorios:
 
 * */goldline/templates/acme2017/sku798*
-* */goldline/templates/acme2017/sku980* 
+* */goldline/templates/acme2017/sku980*
 
 El sistema de almacenamiento del centro de datos expone estas exportaciones:
 
@@ -52,10 +52,10 @@ Un destino de almacenamiento NFS puede tener varias rutas de acceso de espacio d
 
 Dado que las rutas de acceso de origen NFS son subdirectorios de la misma exportación, deberá definir varias rutas de acceso de espacio de nombres desde el mismo destino de almacenamiento.
 
-| Nombre de host de destino de almacenamiento  | Ruta de exportación NFS      | Ruta de acceso del subdirectorio | Ruta de acceso del espacio de nombres    |
-|--------------------------|----------------------|-------------------|-------------------|
-| *Dirección IP o nombre de host* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
-| *Dirección IP o nombre de host* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
+| Nombre de host de destino de almacenamiento  | Ruta de exportación NFS     | Ruta de acceso del subdirectorio | Ruta de acceso del espacio de nombres    |
+|--------------------------|---------------------|-------------------|-------------------|
+| *Dirección IP o nombre de host* | /goldline/templates | acme2017/sku798   | /templates/sku798 |
+| *Dirección IP o nombre de host* | /goldline/templates | acme2017/sku980   | /templates/sku980 |
 
 Una aplicación cliente puede montar la memoria caché y acceder fácilmente a las rutas de archivo del espacio de nombres agregado ``/source``, ``/templates/sku798`` y ``/templates/sku980``.
 

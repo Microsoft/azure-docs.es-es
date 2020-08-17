@@ -3,16 +3,17 @@ title: 'Inicio rápido: Biblioteca de Azure Blob Storage v12: JavaScript en un e
 description: En este inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Blob Storage versión 12 para JavaScript en un explorador. Va a crear un contenedor y un objeto en el almacenamiento de blobs. A continuación, aprenderá a enumerar todos los blobs de un contenedor. Por último, aprenderá a eliminar blobs y a eliminar un contenedor.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 04/18/2020
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: af76025317436f7046b857731e4c8af9b504201f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 1f3ec5b2b1c46b40c6f99836fc10778c98b59d4c
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85833424"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432003"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
@@ -20,10 +21,12 @@ ms.locfileid: "85833424"
 
 Azure Blob Storage está optimizado para el almacenamiento de grandes cantidades de datos no estructurados. Los blobs son objetos que pueden contener datos de texto o datos binarios, como imágenes, documentos, elementos multimedia de streaming y datos de archivo. En este inicio rápido, aprenderá a administrar blobs mediante JavaScript en un explorador. Cargará y enumerará los blobs, y creará y eliminará los contenedores.
 
-[Documentación de referencia de la API](/javascript/api/@azure/storage-blob) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob) | [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-blob) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
+Recursos adicionales:
 
-> [!NOTE]
-> Para empezar a trabajar con la versión anterior del SDK, consulte [Inicio rápido: Administración de blobs con el SDK de JavaScript v10 en Node.js](storage-quickstart-blobs-nodejs-legacy.md)
+* [Documentación de referencia de API](/javascript/api/@azure/storage-blob)
+* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob)
+* [Paquete (npm)](https://www.npmjs.com/package/@azure/storage-blob)
+* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-javascript?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

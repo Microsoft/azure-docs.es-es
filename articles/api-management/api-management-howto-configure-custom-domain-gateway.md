@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: dacf1329d35117c65bcc48a82ac27a767ebd2b3b
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 0894203be4867e305c8e15467a2a867b9bfdc727
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203191"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506815"
 ---
 # <a name="configure-a-custom-domain-name"></a>Configurar un nombre de dominio personalizado
 
@@ -49,7 +49,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 ## <a name="use-the-azure-portal-to-set-a-custom-domain-name-for-your-self-hosted-gateway"></a>Uso de Azure Portal para configurar un nombre de dominio personalizado para la puerta de enlace autohospedada
 
-1. Seleccione **Puertas de enlace** en **Configuración**.
+1. Seleccione las **Puertas de enlace** en **Implementación e infraestructura**.
 2. Seleccione la puerta de enlace autohospedada para la que desea configurar el nombre de dominio.
 3. Seleccione **nombres de host** en **Configuración**.
 4. Seleccione **+ Agregar**.

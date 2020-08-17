@@ -5,17 +5,17 @@ description: Aprenda a usar una plantilla de Azure Resource Manager para crear u
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to, devx-track-azurecli
 ms.author: larryfr
 author: Blackmist
-ms.date: 07/09/2020
-ms.custom: seoapril2019
-ms.openlocfilehash: 4ba48e5beb8ce4b4ae126dd23acbe0dec650f655
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/27/2020
+ms.openlocfilehash: 06ab819065f96508bcc4ebd26371c743c89b9220
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232158"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87487809"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Uso de una plantilla de Azure Resource Manager para crear un área de trabajo para Azure Machine Learning
 
@@ -30,7 +30,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 * Una **suscripción de Azure**. Si no tiene una ya, pruebe la [versión gratuita o de pago de Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Para usar una plantilla desde una CLI, necesita [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+* Para usar una plantilla desde una CLI, necesita [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="workspace-resource-manager-template"></a>Plantilla de Resource Manager de área de trabajo
 
@@ -119,6 +119,9 @@ New-AzResourceGroupDeployment `
 
 De forma predeterminada, todos los recursos creados como parte de la plantilla son nuevos. Sin embargo, también tiene la opción de usar los recursos existentes. Si proporciona parámetros adicionales a la plantilla, puede usar los recursos existentes. Por ejemplo, si desea usar una cuenta de almacenamiento existente, establezca el valor **storageAccountOption** en **existing** y proporcione el nombre de la cuenta de almacenamiento en el parámetro **storageAccountName**.
 
+> [!IMPORTANT]
+> Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS y Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (se usa con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento predeterminada del área de trabajo.
+
 # <a name="azure-cli"></a>[CLI de Azure](#tab/azcli)
 
 ```azurecli
@@ -154,6 +157,9 @@ En la plantilla de ejemplo siguiente se muestra cómo crear un área de trabajo 
 * Habilitar la configuración de alta confidencialidad para el área de trabajo
 * Habilitar el cifrado para el área de trabajo
 * Usar una instancia de Azure Key Vault existente para recuperar las claves administradas por el cliente
+
+> [!IMPORTANT]
+> Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
 
 Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
 
@@ -354,6 +360,9 @@ Una configuración adicional que puede proporcionar para los datos es establecer
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
 * Habilita el filtrado de IP para asegurarse de que los servicios externos que no sean AzureMachineLearningService no puedan llamar a los grupos de lotes subyacentes.
 
+    > [!IMPORTANT]
+    > Una vez que se ha creado un área de trabajo, no se puede cambiar la configuración de datos confidenciales, cifrado, identificador de almacén de claves o identificadores de claves. Para cambiar estos valores, debe crear una nueva área de trabajo con los nuevos valores.
+
   Para obtener más información, consulte [Cifrado en reposo](concept-enterprise-security.md#encryption-at-rest).
 
 ## <a name="deploy-workspace-behind-a-virtual-network"></a>Implementación del área de trabajo detrás de una red virtual
@@ -368,7 +377,7 @@ Al establecer el valor del parámetro `vnetOption` en `new` o `existing`, podrá
 
 ### <a name="only-deploy-workspace-behind-private-endpoint"></a>Implementación del área de trabajo solo detrás de un punto de conexión privado
 
-Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado.
+Si los recursos asociados no están detrás de una red virtual, puede establecer el parámetro **privateEndpointType** en `AutoAproval` o `ManualApproval` para implementar el área de trabajo detrás de un punto de conexión privado. Esto puede hacerse tanto en áreas de trabajo nuevas como existentes. Al actualizar un área de trabajo existente, rellene los parámetros de la plantilla con la información del área de trabajo existente.
 
 > [!IMPORTANT]
 > La implementación solo es válida en las regiones que admiten puntos de conexión privados.
@@ -747,3 +756,4 @@ Para evitar este problema, se recomienda uno de los siguientes enfoques:
 
 * [Implementación de recursos con las plantillas de Resource Manager y la API REST de Resource Manager](../azure-resource-manager/templates/deploy-rest.md).
 * [Creación e implementación de grupos de recursos de Azure mediante Visual Studio](../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
+* [Para ver otras plantillas relacionadas con Azure Machine Learning, consulte el repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates)

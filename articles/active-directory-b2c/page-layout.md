@@ -8,21 +8,29 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/26/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4548b50e4168f260cb401c40dd4e61192cea1015
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78183982"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489544"
 ---
 # <a name="page-layout-versions"></a>Versiones de diseño de página
 
 Los paquetes de diseño de página se actualizan periódicamente para incluir correcciones y mejoras en sus elementos de la página. El registro de cambios siguiente especifica los cambios introducidos en cada versión.
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
+
+## <a name="210"></a>2.1.0
+
+- Página autoafirmada (`selfasserted`)
+  - Correcciones de localización y accesibilidad.
+- Página de SSP unificada (`unifiedssp`)
+  - Se ha agregado compatibilidad con varios vínculos de registro.
+  - Se ha agregado compatibilidad con la validación de entradas de usuario según las reglas de predicado definidas en la directiva.
 
 ## <a name="200"></a>2.0.0
 
@@ -40,6 +48,8 @@ Los paquetes de diseño de página se actualizan periódicamente para incluir co
   - Compatibilidad con la traducción de Chrome
 - Páginas unificadas y autoafirmadas
   - Los campos de nombre de usuario/correo electrónico y contraseña ahora usan el elemento HTML `form` para permitir que Microsoft Edge e Internet Explorer (IE) guarden correctamente esta información.
+- Página autoafirmada
+  - Se ha agregado un retraso configurable en la validación de entradas de usuario para mejorar la experiencia del usuario.
 
 ## <a name="110"></a>1.1.0
 

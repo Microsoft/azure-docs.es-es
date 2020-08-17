@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 507253fcddddf7331ff51c71904c2cdd8e7e5dfd
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf0fec1f081a232abc88941e3dd785fb7617fb57
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514735"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387122"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Cifrado de datos transparente de Azure SQL con una clave administrada por el cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -78,7 +78,7 @@ Los auditores pueden usar Azure Monitor para revisar los registros de los objeto
 
 - Key Vault y SQL Database (o una instancia administrada) deben pertenecer al mismo inquilino de Azure Active Directory. No se admiten las interacciones de servidor y almacén de claves entre inquilinos. Para mover los recursos después, se tendrá que volver a configurar el TDE con AKV. Obtenga más información sobre el [movimiento de recursos](../../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
-- La característica de [eliminación temporal](../../key-vault/general/overview-soft-delete.md) debe estar habilitada en el almacén de claves para protegerlo contra la pérdida de datos en caso de que se eliminen las claves (o el almacén de claves) de manera involuntaria. Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue dentro de ese plazo. Las acciones de *recuperación* y *purga* tienen permisos propios asociados a una directiva de acceso al almacén de claves. La característica de eliminación temporal está desactivada de forma predeterminada y se puede habilitar mediante [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) o la [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). No se puede habilitar mediante Azure Portal.  
+- La característica de [eliminación temporal](../../key-vault/general/soft-delete-overview.md) debe estar habilitada en el almacén de claves para protegerlo contra la pérdida de datos en caso de que se eliminen las claves (o el almacén de claves) de manera involuntaria. Los recursos eliminados temporalmente se conservan durante 90 días, a menos que el cliente los recupere o los purgue dentro de ese plazo. Las acciones de *recuperación* y *purga* tienen permisos propios asociados a una directiva de acceso al almacén de claves. La característica de eliminación temporal está desactivada de forma predeterminada y se puede habilitar mediante [PowerShell](../../key-vault/general/soft-delete-powershell.md#enabling-soft-delete) o la [CLI](../../key-vault/general/soft-delete-cli.md#enabling-soft-delete). No se puede habilitar mediante Azure Portal.  
 
 - Conceda al servidor o a la instancia administrada acceso al almacén de claves (get, wrapKey o unwrapKey) con su identidad de Azure Active Directory. Cuando usa Azure Portal, la identidad de Azure AD se crea automáticamente. Al usar PowerShell o la CLI, se debe crear explícitamente la identidad de Azure AD y se debe comprobar la finalización. Consulte [Configuración de TDE con BYOK](transparent-data-encryption-byok-configure.md) y [Configuración de TDE con BYOK para SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) para obtener instrucciones detalladas paso a paso cuando se usa PowerShell.
 

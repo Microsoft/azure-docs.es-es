@@ -3,16 +3,18 @@ title: Versiones de clúster compatibles en Azure Service Fabric
 description: Obtenga información sobre las versiones de clúster en Azure Service Fabric, incluido un vínculo a las versiones más recientes del blog del equipo de Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 88c91558360f6be8343c955f8e6185366cd3279a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 728d7403ee8e0ac9ccbd69260a718c65389adc43
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808914"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433184"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
 Asegúrese de que el clúster siempre ejecute una versión admitida de Azure Service Fabric. El soporte técnico para la versión anterior de Service Fabric finaliza al menos 60 días después del lanzamiento de la nueva versión. Las versiones nuevas se anuncian en el [blog del equipo de Service Fabric](https://azure.microsoft.com/updates/?product=service-fabric).
+
+En el caso de una versión determinada del entorno de ejecución de Service Fabric, puede usar las versiones especificadas o anteriores de los paquetes del SDK/NuGet. No se admiten las versiones más recientes de los paquetes y pueden presentar problemas con los clústeres más antiguos al establecerlos como destinos, ya que pueden tener cambios de características o protocolos no admitidos por estos entornos.
 
 Consulte los documentos siguientes para ver detalles sobre cómo hacer que el clúster ejecute una versión compatible de Service Fabric:
 
@@ -41,8 +43,9 @@ En la tabla siguiente se indican las versiones de Service Fabric y sus fechas de
 | 7.0.466.* | 6.5.* |Versión 4.0 o anterior|1 de agosto de 2020 |
 | 7.0.470.* | 7.0.466.* |Versión 4.0 o anterior |1 de agosto de 2020  |
 | 7.0.472.* | 7.0.466.* |Versión 4.0 o anterior |1 de agosto de 2020  |
-| 7.1.409.* | 7.0.466.* |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
-| 7.1.417.* | 7.0.466.* |Versión 4.0 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.1.409.* | 7.0.466.* |Versión 4.1 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.1.417.* | 7.0.466.* |Versión 4.1 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
+| 7.1.428.* | 7.0.466.* |Versión 4.1 o anterior |Versión actual; por lo tanto, sin fecha de finalización |
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos admitidos
 
@@ -113,3 +116,5 @@ En la tabla siguiente se indican los nombres de versión de Service Fabric y sus
 | 7.0 CU6 | 7.0.472.9590 | 7.0.471.1 |
 | 7.1 RTO | 7.1.409.9590 | 7.1.410.1 |
 | 7.1 CU1 | 7.1.417.9590 | 7.1.418.1 |
+| 7.1 CU2 | 7.1.428.9590 | 7.1.428.1 |
+

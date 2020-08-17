@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, srbozovi, bonova
 ms.date: 02/18/2019
-ms.openlocfilehash: 76c4e2c5052e70c4c6cb8ff631151a5e6fc544e5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3dc2990e810096310617e468a533a65626008ff
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706365"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542660"
 ---
 # <a name="quickstart-configure-an-azure-vm-to-connect-to-azure-sql-managed-instance"></a>Inicio rápido: Configuración de una VM de Azure para la conexión a Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
 
 1. Asegúrese de haber iniciado sesión en Azure Portal en otra pestaña del explorador. A continuación, seleccione el siguiente botón para crear una máquina virtual cliente e instalar SQL Server Management Studio:
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json)
 
 2. Rellene el formulario con la información de la siguiente tabla:
 
@@ -148,4 +148,4 @@ Después de conectarse, puede ver las bases de datos del sistema y de los usuari
 
 - Para obtener una guía de inicio rápido en la que se muestra cómo conectarse a una Instancia administrada desde un equipo cliente local mediante una conexión de punto a sitio, vea [Configuración de una conexión de punto a sitio](point-to-site-p2s-configure.md).
 - Para obtener información general acerca de las opciones de conexión de las aplicaciones, consulte el artículo sobre la [conexión de aplicaciones a Instancia administrada de SQL](connect-application-instance.md).
-- Para restaurar una base de datos SQL Server existente desde el entorno local en una Instancia administrada, puede usar [Azure Database Migration Service para la migración](../../dms/tutorial-sql-server-to-managed-instance.md), o bien el [comando T-SQL RESTORE](restore-sample-database-quickstart.md) para realizar la restauración a partir de un archivo de copia de seguridad de base de datos.
+- Para restaurar una base de datos SQL Server existente del entorno local a una instancia administrada, puede usar [Azure Database Migration Service para la migración](../../dms/tutorial-sql-server-to-managed-instance.md), o bien el [comando T-SQL RESTORE](restore-sample-database-quickstart.md) para restaurarla desde un archivo de copia de seguridad de base de datos.

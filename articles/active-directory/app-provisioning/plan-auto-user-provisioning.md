@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: dd5248996661be6d4ace81afd7ab942ab70eb4ff
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cecea24fe002ee64d54052635a6d7dec982aeee2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781640"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445651"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Planeamiento de una implementación del aprovisionamiento automático de usuarios
 
@@ -256,7 +256,7 @@ Elija los pasos que se ajusten a los requisitos de la solución.
 
 Cuando el servicio de aprovisionamiento de Azure AD se ejecuta por primera vez, el ciclo inicial en el sistema de origen y el sistema de destino crea una instantánea de todos los objetos de usuario para cada sistema de destino.
 
-Al habilitar el aprovisionamiento automático para una aplicación, el ciclo inicial puede tardar desde 20 minutos a varias horas. La duración depende del tamaño del directorio de Azure AD y el número de usuarios en el ámbito del aprovisionamiento. Consulte [Cómo mejorar el rendimiento del aprovisionamiento](../app-provisioning/application-provisioning-when-will-provisioning-finish.md).
+Al habilitar el aprovisionamiento automático para una aplicación, el ciclo inicial puede tardar desde 20 minutos a varias horas. La duración depende del tamaño del directorio de Azure AD y el número de usuarios en el ámbito del aprovisionamiento.
 
 El servicio de aprovisionamiento almacena el estado de ambos sistemas después del ciclo inicial, lo que permite mejorar el rendimiento de los ciclos incrementales siguientes.
 
@@ -299,8 +299,6 @@ Consulte los vínculos siguientes para solucionar los problemas que pueden surgi
 * [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](../app-provisioning/application-provisioning-config-problem.md)
 
 * [Sincronización de un atributo de Active Directory local con Azure AD para el aprovisionamiento en una aplicación](../app-provisioning/user-provisioning-sync-attributes-for-mapping.md)
-
-* [Aprovisionamiento de usuarios a una aplicación de la galería de Azure AD que tarda horas o más](../app-provisioning/application-provisioning-when-will-provisioning-finish.md)
 
 * [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](../app-provisioning/application-provisioning-config-problem-storage-limit.md)
 

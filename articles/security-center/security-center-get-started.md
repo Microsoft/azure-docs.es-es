@@ -1,6 +1,6 @@
 ---
-title: 'Actualización al nivel Estándar: Security Center'
-description: Esta guía de inicio rápido muestra cómo actualizarse al plan de tarifa Estándar de Security Center para incrementar la seguridad.
+title: 'Actualización al nivel Estándar: Azure Security Center'
+description: En este inicio rápido se muestra cómo realizar la actualización al plan de tarifa Estándar de Security Center para incrementar la seguridad.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 3f0d624605f617a8e5ab914c49c4c94a40ebdcc6
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: f16df87ca72b66003d8870dcd9d778616ea840d4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80435783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038552"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Inicio rápido: Incorporación de una suscripción de Azure a Security Center Standard
-Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades en local y en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
+Azure Security Center proporciona administración unificada de la seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Mientras el nivel Gratis solo ofrece seguridad limitada para los recursos de Azure, el nivel Estándar amplía estas funcionalidades tanto en un entorno local como en otras nubes. El nivel Estándar de Security Center le ayuda a encontrar y corregir vulnerabilidades de seguridad, aplicar controles de acceso y de aplicación para bloquear actividades malintencionadas, detectar amenazas mediante análisis e inteligencia y responder rápidamente en caso de ataque. Dicho plan se puede probar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
-En este artículo, actualizará al nivel Estándar para una mayor seguridad e instalará el agente de Log Analytics en las máquinas virtuales para supervisar las amenazas y vulnerabilidades de seguridad.
+En este artículo, se realiza la actualización al nivel Estándar para lograr mayor seguridad y se instala el agente de Log Analytics en las máquinas virtuales para supervisar las amenazas y vulnerabilidades de seguridad.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Para actualizar una suscripción al nivel Estándar, debe tener asignado el rol de propietario de la suscripción, colaborador de la suscripción o administrador de seguridad.
+Para actualizar una suscripción al nivel Estándar, debe tener asignado los roles Propietario de la suscripción, Colaborador de la suscripción o Administrador de seguridad.
 
 ## <a name="enable-your-azure-subscription"></a>Habilitación de la suscripción a Azure
 
@@ -47,10 +47,10 @@ A los pocos minutos de iniciar Security Center la primera vez, puede ver:
 - **Recomendaciones** para formas de mejorar la seguridad de las suscripciones de Azure. Al hacer clic en el icono **Recomendaciones** se iniciará una lista de prioridades.
 - Un inventario de los recursos **Proceso y aplicaciones**, **Redes**, **Seguridad de los datos** e **Identidad y acceso** a los que ahora accede Security Center junto con la posición de seguridad de cada uno de ellos.
 
-Para aprovechar al máximo Security Center, debe completar los pasos siguientes para actualizar al nivel Estándar e instalar el agente de Log Analytics.
+Para aprovechar al máximo Security Center, debe completar los pasos siguientes para realizar la actualización al nivel Estándar e instalar el agente de Log Analytics.
 
-## <a name="upgrade-to-the-standard-tier"></a>Actualización al nivel Estándar
-Para conseguir las guías de inicio rápido y los tutoriales de Security Center, debe actualizar al nivel Estándar. Hay una evaluación gratuita de Security Center Estándar. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). 
+## <a name="upgrade-to-the-standard-pricing-tier"></a>Actualización del plan de tarifa Estándar
+Para seguir los inicios rápidos y tutoriales de Security Center, debe realizar la actualización al nivel Estándar. Hay una evaluación gratuita de Security Center Estándar. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). 
 
 1. En el menú principal de Security Center, seleccione **Introducción**.
  
@@ -84,11 +84,11 @@ Con esta nueva información sobre VM de Azure, Security Center puede proporciona
   ![Recomendaciones][8]
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
-Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con las guías rápidas y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
+Otras guías de inicio rápido y tutoriales de esta colección se basan en los valores de esta. Si planea continuar trabajando con los inicios rápidos y tutoriales posteriores, debe seguir ejecutando el plan de tarifa Estándar y mantener el aprovisionamiento automático habilitado. Si no planea continuar o desea volver al nivel Gratis:
 
 1. Vuelva al menú principal de Security Center y seleccione **Precios y configuración**.
 2. Haga clic en la suscripción que desea cambiar al nivel gratis.
-3. Seleccione **Plan de tarifa** y **Gratis** para cambiar la suscripción del nivel Estándar a Gratis.
+3. Seleccione **Plan de tarifa** y, después, **Gratis** para cambiar la suscripción del nivel Estándar a Gratis.
 5. Seleccione **Guardar**.
 
 Si desea deshabilitar el aprovisionamiento automático:
@@ -103,10 +103,15 @@ Si desea deshabilitar el aprovisionamiento automático:
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo de inicio rápido ha actualizado al nivel Estándar y ha aprovisionado el agente de Log Analytics para la administración unificada de seguridad y protección contra amenazas para cargas de trabajo en la nube híbrida. Para más información sobre cómo usar Security Center, siga la guía de inicio rápido para la incorporación de equipos Windows que se encuentran en local y en otras nubes.
+En este inicio rápido, ha actualizado al nivel Estándar y ha aprovisionado el agente de Log Analytics para lograr una administración de la seguridad y una protección contra amenazas unificadas en sus cargas de trabajo en la nube híbrida. Para más información sobre cómo usar Security Center, siga la guía de inicio rápido para la incorporación de equipos Windows que se encuentran en local y en otras nubes.
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Incorporación de equipos Windows a Azure Security Center](quick-onboard-windows-computer.md)
+
+¿Quiere optimizar y ahorrar en el gasto en la nube?
+
+> [!div class="nextstepaction"]
+> [Comience a analizar los costos con Cost Management](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
 
 <!--Image references-->
 [2]: ./media/security-center-get-started/overview.png

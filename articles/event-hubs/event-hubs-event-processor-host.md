@@ -3,12 +3,12 @@ title: 'Recepción de eventos mediante el host del procesador de eventos: Azure 
 description: En este artículo se describe el host del procesador de eventos de Azure Event Hubs, que simplifica la administración de los eventos de punto de comprobación, concesión y lectura en paralelo.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 338b4e890d61aca0d48287db6f042f9dc088754b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd11e3ef77ff665a0207a2cf7e63b1b9f2df0e08
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320645"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002529"
 ---
 # <a name="event-processor-host"></a>Host del procesador de eventos
 > [!NOTE]
@@ -22,7 +22,7 @@ ms.locfileid: "85320645"
 
 Azure Event Hubs es un eficaz servicio de ingesta de telemetría que se puede usar para hacer streaming de millones de eventos a un bajo costo. En este artículo se describe cómo usar eventos ingeridos mediante el *host del procesador de eventos* (EPH), un agente de consumidor inteligente que simplifica la administración de la creación de puntos de comprobación, la concesión y los lectores de eventos paralelos.  
 
-La clave del escalado de Event Hubs es el concepto de consumidores con particiones. En contraposición al patrón de [consumidores de la competencia](https://msdn.microsoft.com/library/dn568101.aspx), el patrón de consumidores con particiones permite una alta escalabilidad mediante la eliminación de cuellos de botella de contención y la facilitación del paralelismo de principio a fin.
+La clave del escalado de Event Hubs es el concepto de consumidores con particiones. En contraposición al patrón de [consumidores de la competencia](/previous-versions/msp-n-p/dn568101(v=pandp.10)), el patrón de consumidores con particiones permite una alta escalabilidad mediante la eliminación de cuellos de botella de contención y la facilitación del paralelismo de principio a fin.
 
 ## <a name="home-security-scenario"></a>Escenario de seguridad en el hogar
 
@@ -162,7 +162,7 @@ Además, una sobrecarga de [RegisterEventProcessorAsync](/dotnet/api/microsoft.a
 Así es cómo funciona la época de recepción:
 
 ### <a name="with-epoch"></a>Con época
-La época es un identificador único (valor de tiempo) que usa el servicio para aplicar la propiedad de la partición o de la concesión. Para crear un receptor de época se usa el método [CreateEpochReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Este método crea un receptor basado en época. El receptor se crea para una partición de centro de eventos específica desde el grupo de consumidores especificado.
+La época es un identificador único (valor de tiempo) que usa el servicio para aplicar la propiedad de la partición o de la concesión. Para crear un receptor de época se usa el método [CreateEpochReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createepochreceiver?view=azure-dotnet). Este método crea un receptor basado en época. El receptor se crea para una partición de centro de eventos específica desde el grupo de consumidores especificado.
 
 La característica de época ofrece a los usuarios la posibilidad de garantizar que solo hay un receptor en un grupo de consumidores en cualquier momento dado, con las siguientes reglas:
 
@@ -171,7 +171,7 @@ La característica de época ofrece a los usuarios la posibilidad de garantizar 
 - Si hay un receptor con un valor de época de e1 y se crea un receptor con un valor de época de e2 donde e1 > e2 y, a continuación, la creación de e2 generará un error que indica que ya existe un receptor con la época e1.
 
 ### <a name="no-epoch"></a>No hay época
-Creará un receptor no basado en época mediante el método [CreateReceiver](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
+Creará un receptor no basado en época mediante el método [CreateReceiver](/dotnet/api/microsoft.azure.eventhubs.eventhubclient.createreceiver?view=azure-dotnet). 
 
 Hay algunos escenarios en el procesamiento de streaming en los que a los usuarios les gustaría crear varios receptores en un solo grupo de consumidores. Para admitir estos escenarios, tenemos la posibilidad de crear un receptor sin época y, en este caso, se permiten hasta cinco receptores simultáneos en el grupo de consumidores.
 

@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: db256c8361af740ac536e059969a5085e57df485
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263379"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447256"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Introducción a las opciones de autenticación basada en la identidad de Azure Files con el acceso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,9 +44,9 @@ Es útil entender algunos términos clave relacionados con la autenticación de 
 
     La integración de Active Directory Domain Services (AD DS) local en Azure Files proporciona los métodos para almacenar datos de directorio y poner dichos datos a disposición de los usuarios y administradores de la red. La seguridad se integra en AD DS mediante la autenticación de inicio de sesión y el control de acceso a los objetos del directorio. Con un único inicio de sesión de red, los administradores pueden administrar los datos del directorio y la organización a través de su red, y los usuarios de red autorizados pueden tener acceso a los recursos en cualquier parte de la red. Normalmente, son empresas en entornos locales las que adoptan AD DS, y usan las credenciales de AD DS como identidad para el control de acceso. Para obtener más información, consulte [Introducción a Active Directory Domain Services](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Control de acceso basado en rol (RBAC) de Azure**
+-   **Control de acceso basado en roles de Azure (Azure RBAC)**
 
-    El control de acceso basado en roles (RBAC) de Azure permite realizar una administración detallada del acceso para Azure. Con RBAC, puede administrar el acceso a los recursos mediante la concesión a los usuarios del menor número de permisos necesarios para realizar su trabajo. Para obtener más información sobre RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) en Azure?](../../role-based-access-control/overview.md)
+    El control de acceso basado en rol de Azure (Azure RBAC) permite realizar una administración detallada del acceso para Azure. Con RBAC, puede administrar el acceso a los recursos mediante la concesión a los usuarios del menor número de permisos necesarios para realizar su trabajo. Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../../role-based-access-control/overview.md).
 
 ## <a name="common-use-cases"></a>Casos de uso comunes
 
@@ -123,7 +123,7 @@ Puede habilitar la autenticación basada en identidad con Azure AD DS o AD DS
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Configuración de los permisos de nivel de recurso compartido para Azure Files
 
-Cuando se ha habilitado la autenticación de Azure AD DS o AD DS local, puede usar roles de RBAC integrados o configurar roles personalizados para las identidades de Azure AD y asignar derechos de acceso a cualquier recurso compartido de archivos en las cuentas de almacenamiento. El permiso asignado permite a la identidad concedida obtener acceso solo al recurso compartido, a nada más, ni siquiera al directorio raíz. Aún es necesario configurar por separado los permisos de nivel de archivo o directorio para los recursos compartidos de archivos de Azure.
+Cuando se ha habilitado la autenticación de Azure AD DS o AD DS local, puede usar roles integrados de Azure o configurar roles personalizados para las identidades de Azure AD y asignar derechos de acceso a cualquier recurso compartido de archivos en las cuentas de almacenamiento. El permiso asignado permite a la identidad concedida obtener acceso solo al recurso compartido, a nada más, ni siquiera al directorio raíz. Aún es necesario configurar por separado los permisos de nivel de archivo o directorio para los recursos compartidos de archivos de Azure.
 
 ### <a name="configure-directory-or-file-level-permissions-for-azure-files"></a>Configuración de los permisos de nivel de archivo o directorio para Azure Files
 

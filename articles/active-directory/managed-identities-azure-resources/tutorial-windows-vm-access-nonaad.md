@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd9f85e3bfd11ee655ce581c60a5b65e13f4497b
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971908"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018781"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Key Vault 
 
@@ -75,7 +75,7 @@ A continuación, agregue un secreto al almacén de claves, de forma que más ade
  
 ## <a name="access-data"></a>Acceso a los datos  
 
-En esta sección se muestra cómo obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves. Si no tiene PowerShell 4.3.1 o superior instalado, necesitará [descargar e instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/overview).
+En esta sección se muestra cómo obtener un token de acceso mediante la identidad de máquina virtual y usarlo para recuperar el secreto del almacén de claves. Si no tiene PowerShell 4.3.1 o superior instalado, necesitará [descargar e instalar la versión más reciente](https://docs.microsoft.com/powershell/azure/).
 
 En primer lugar, vamos a usar la identidad administrada asignada por el sistema de la máquina virtual a fin de obtener un token de acceso para autenticarse en Key Vault:
  

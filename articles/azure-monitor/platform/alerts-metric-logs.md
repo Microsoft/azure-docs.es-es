@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.subservice: alerts
-ms.openlocfilehash: 4c9998488013ce89b17a30a6c3948a02407d06bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7085dd601499004a91fc77a9181f0b097d0b543a
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945331"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446185"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Creación de alertas de métricas para registros en Azure Monitor
 
@@ -19,16 +19,16 @@ ms.locfileid: "84945331"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Azure Monitor admite el [tipo de alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md), que tiene ventajas sobre las [alertas clásicas](../../azure-monitor/platform/alerts-classic-portal.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](../../azure-monitor/platform/metrics-supported.md). En este artículo se explica el uso de un subconjunto (es decir) para el recurso `Microsoft.OperationalInsights/workspaces`.
+Azure Monitor admite el [tipo de alertas de métricas](./alerts-metric-near-real-time.md), que tiene ventajas sobre las [alertas clásicas](./alerts-classic-portal.md). Las métricas están disponibles para una [amplia lista de servicios de Azure](./metrics-supported.md). En este artículo se explica el uso de un subconjunto (es decir) para el recurso `Microsoft.OperationalInsights/workspaces`.
 
 También puede utilizar las alertas de métricas en los registros populares de Log Analytics extraídos como métricas como parte de las métricas de los registros, incluidos recursos en Azure o en la instancia local. A continuación se enumeran las soluciones de Log Analytics admitidas:
 
-- [Contadores de rendimiento](../../azure-monitor/platform/data-sources-performance-counters.md) para equipos con Windows y Linux
-- [Registros de latidos para Agent Health](../../azure-monitor/insights/solution-agenthealth.md)
-- Registros de [administración de actualizaciones](../../automation/automation-update-management.md)
-- [Datos de registros de eventos](../../azure-monitor/platform/data-sources-windows-events.md)
+- [Contadores de rendimiento](./data-sources-performance-counters.md) para equipos con Windows y Linux
+- [Registros de latidos para Agent Health](../insights/solution-agenthealth.md)
+- Registros de [administración de actualizaciones](../../automation/update-management/update-mgmt-overview.md)
+- [Datos de registros de eventos](./data-sources-windows-events.md)
 
-Hay muchas ventajas al usar **alertas de métricas para registros** a través de [alertas de registro](../../azure-monitor/platform/alerts-log.md) basadas en consultas en Azure; a continuación se enumeran algunas de ellas:
+Hay muchas ventajas al usar **alertas de métricas para registros** a través de [alertas de registro](./alerts-log.md) basadas en consultas en Azure; a continuación se enumeran algunas de ellas:
 
 - Las alertas de métricas ofrecen la funcionalidad de supervisión casi en tiempo real, y las alertas de métricas para registros bifurcan los datos a partir del origen de registro para garantizar lo mismo.
 - Las alertas de métricas tienen estado, solo se notifican una vez cuando se desencadena la alerta y una vez cuando se resuelva la alerta; a diferencia de las alertas de registro, que no tienen estado y siguen notificándose en cada intervalo si se cumple la condición de alerta.
@@ -39,10 +39,10 @@ Hay muchas ventajas al usar **alertas de métricas para registros** a través de
 
 ## <a name="metrics-and-dimensions-supported-for-logs"></a>Métricas y dimensiones compatibles para registros
 
- Las alertas de métricas admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Se incluye la lista completa de métricas admitidas para los registros de [áreas de trabajo de Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces); a través de las soluciones compatibles.
+ Las alertas de métricas admiten alertas de métricas que utilizan dimensiones. Puede usar dimensiones para filtrar las métricas al nivel adecuado. Se incluye la lista completa de métricas admitidas para los registros de [áreas de trabajo de Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces); a través de las soluciones compatibles.
 
 > [!NOTE]
-> Para ver una métrica admitida extraída de un área de trabajo de Log Analytics a través de [Azure Monitor: Métricas](../../azure-monitor/platform/metrics-charts.md), debe crearse una alerta de métrica para el registro en la métrica específica. Las dimensiones elegidas en la alerta de métrica para registros solo aparecerán para la exploración a través de Azure Monitor: Métricas.
+> Para ver una métrica admitida extraída de un área de trabajo de Log Analytics a través de [Azure Monitor: Métricas](./metrics-charts.md), debe crearse una alerta de métrica para el registro en la métrica específica. Las dimensiones elegidas en la alerta de métrica para registros solo aparecerán para la exploración a través de Azure Monitor: Métricas.
 
 ## <a name="creating-metric-alert-for-log-analytics"></a>Creación de alertas de métricas para Log Analytics
 
@@ -53,14 +53,14 @@ A continuación aparecen los medios para crear una alerta de métrica para regis
 
 Antes de que funcione la métrica para registros recopilada en los datos de Log Analytics, debe configurarse lo siguiente y estar disponible:
 
-1. **Área de trabajo de Log Analytics activa**: debe haber un área de trabajo de Log Analytics activa y válida. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../../azure-monitor/learn/quick-create-workspace.md).
-2. **Agente configurado para el área de trabajo de Log Analytics**: el agente debe configurarse para que las máquinas virtuales de Azure o las máquinas virtuales locales envíen datos al área de trabajo de Log Analytics usada en el paso anterior. Para obtener más información, consulte [Log Analytics - Agent Overview](../../azure-monitor/platform/agents-overview.md) (Log Analytics: Introducción al agente).
-3. **Soluciones de Log Analytics admitidas instaladas**: la solución de Log Analytics debe estar configurada y enviar datos al área de trabajo de Log Analytics; las soluciones admitidas son [Contadores de rendimiento para Windows y Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Registros de latidos para Agent Health](../../azure-monitor/insights/solution-agenthealth.md), [Administración de actualizaciones](../../automation/automation-update-management.md) y [Datos de eventos](../../azure-monitor/platform/data-sources-windows-events.md).
-4. **Soluciones de Log Analytics configuradas para enviar registros**: la solución de Log Analytics debe tener los datos o registros que corresponden a las [métricas admitidas para las áreas de trabajo de Log Analytics](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces) habilitadas. Por ejemplo, para el contador *% de memoria disponible*, debe configurarse primero en la solución [Contadores de rendimiento](../../azure-monitor/platform/data-sources-performance-counters.md).
+1. **Área de trabajo de Log Analytics activa**: debe haber un área de trabajo de Log Analytics activa y válida. Para obtener más información, consulte [Creación de un área de trabajo de Log Analytics en Azure Portal](../learn/quick-create-workspace.md).
+2. **Agente configurado para el área de trabajo de Log Analytics**: el agente debe configurarse para que las máquinas virtuales de Azure o las máquinas virtuales locales envíen datos al área de trabajo de Log Analytics usada en el paso anterior. Para obtener más información, consulte [Log Analytics - Agent Overview](./agents-overview.md) (Log Analytics: Introducción al agente).
+3. **Soluciones de Log Analytics admitidas instaladas**: la solución de Log Analytics debe estar configurada y enviar datos al área de trabajo de Log Analytics; las soluciones admitidas son [Contadores de rendimiento para Windows y Linux](./data-sources-performance-counters.md), [Registros de latidos para Agent Health](../insights/solution-agenthealth.md), [Administración de actualizaciones](../../automation/update-management/update-mgmt-overview.md) y [Datos de eventos](./data-sources-windows-events.md).
+4. **Soluciones de Log Analytics configuradas para enviar registros**: la solución de Log Analytics debe tener los datos o registros que corresponden a las [métricas admitidas para las áreas de trabajo de Log Analytics](./metrics-supported.md#microsoftoperationalinsightsworkspaces) habilitadas. Por ejemplo, para el contador *% de memoria disponible*, debe configurarse primero en la solución [Contadores de rendimiento](./data-sources-performance-counters.md).
 
 ## <a name="configuring-metric-alert-for-logs"></a>Configuración de alertas de métricas para registros
 
- Las alertas de métricas se pueden crear y administrar mediante Azure Portal, plantillas de Resource Manager, la API REST, PowerShell y la CLI de Azure. Dado que las alertas de métricas para registros es una variante de alertas de métricas: una vez que se cumplan los requisitos previos, se puede crear una alerta de métrica para registros para el área de trabajo de Log Analytics especificada. Todas las características y funcionalidades de [ alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md) se aplicarán a las alertas de métricas para registros, incluido el esquema de carga, los límites de cuota aplicables y el precio facturado.
+ Las alertas de métricas se pueden crear y administrar mediante Azure Portal, plantillas de Resource Manager, la API REST, PowerShell y la CLI de Azure. Dado que las alertas de métricas para registros es una variante de alertas de métricas: una vez que se cumplan los requisitos previos, se puede crear una alerta de métrica para registros para el área de trabajo de Log Analytics especificada. Todas las características y funcionalidades de [ alertas de métricas](./alerts-metric-near-real-time.md) se aplicarán a las alertas de métricas para registros, incluido el esquema de carga, los límites de cuota aplicables y el precio facturado.
 
 Para obtener instrucciones paso a paso y ejemplos, consulte [creación y administración de alertas de métricas](https://aka.ms/createmetricalert). En concreto, para las alertas de métricas de registros, siga las instrucciones para administrar las alertas de métricas y asegúrese de lo siguiente:
 
@@ -68,10 +68,10 @@ Para obtener instrucciones paso a paso y ejemplos, consulte [creación y adminis
 - La señal elegida para la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada es del tipo **Métrica**.
 - Filtrar por condiciones o recurso específicos mediante filtros de dimensión; las métricas para registros son multidimensionales.
 - Al configurar la *lógica de señal*, se puede crear una sola alerta para abarcar varios valores de dimensión (por ejemplo, equipo).
-- Si **no** usa Azure Portal para crear la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada, el usuario debe crear primero manualmente una regla explícita para convertir los datos de registro en una métrica mediante [Azure Monitor: Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) (Azure Monitor: Reglas de consulta programadas).
+- Si **no** usa Azure Portal para crear la alerta de métrica para el *área de trabajo de Log Analytics* seleccionada, el usuario debe crear primero manualmente una regla explícita para convertir los datos de registro en una métrica mediante [Azure Monitor: Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules) (Azure Monitor: Reglas de consulta programadas).
 
 > [!NOTE]
-> Al crear la alerta de métrica para el área de trabajo de Log Analytics mediante Azure Portal, la regla correspondiente para convertir datos de registro en la métrica a través de [Azure Monitor: Scheduled Query Rules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) se crea automáticamente en segundo plano,  *sin necesidad de ninguna intervención o acción del usuario*. Para la creación de alertas de métricas para registros a través de medios distintos de Azure Portal, consulte la sección [Plantilla de recursos para las alertas de métricas de registros](#resource-template-for-metric-alerts-for-logs) por medios de ejemplo para crear una regla de conversión de registro a métrica basada en ScheduledQueryRule antes de la creación de la alerta de métrica o, de lo contrario, no habrá datos para la alerta de métrica en los registros creados.
+> Al crear la alerta de métrica para el área de trabajo de Log Analytics mediante Azure Portal, la regla correspondiente para convertir datos de registro en la métrica a través de [Azure Monitor: Scheduled Query Rules](/rest/api/monitor/scheduledqueryrules) se crea automáticamente en segundo plano,  *sin necesidad de ninguna intervención o acción del usuario*. Para la creación de alertas de métricas para registros a través de medios distintos de Azure Portal, consulte la sección [Plantilla de recursos para las alertas de métricas de registros](#resource-template-for-metric-alerts-for-logs) por medios de ejemplo para crear una regla de conversión de registro a métrica basada en ScheduledQueryRule antes de la creación de la alerta de métrica o, de lo contrario, no habrá datos para la alerta de métrica en los registros creados.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Plantilla de recursos para las alertas de métricas de registros
 
@@ -688,5 +688,6 @@ az group deployment create --resource-group myRG --template-file metricfromLogsA
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre las [alertas de métricas](alerts-metric.md).
-- Más información sobre las [alertas de registro en Azure](../../azure-monitor/platform/alerts-unified-log.md).
+- Más información sobre las [alertas de registro en Azure](./alerts-unified-log.md).
 - Más información sobre las [alertas en Azure](alerts-overview.md).
+

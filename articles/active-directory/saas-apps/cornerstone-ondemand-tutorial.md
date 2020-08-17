@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34a92a11880d61ff3e75e0b2a982b6375841b4b7
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b0fb9f10dbe9b5018ce0a5d02bcb668b09cd5e5a
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76983582"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902327"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con Cornerstone OnDemand
 
@@ -38,6 +38,9 @@ Para empezar, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no tiene una suscripción, puede crear una [cuenta gratuita](https://azure.microsoft.com/free/).
 * Suscripción habilitada para el inicio de sesión único en Cornerstone OnDemand
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -67,8 +70,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con Cornerston
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-sso)** , para permitir que los usuarios puedan utilizar esta característica.
     1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con B.Simon.
     1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para habilitar a B.Simon para que use el inicio de sesión único de Azure AD.
-2. **[Configuración del inicio de sesión único de Cornerstone OnDemand](#configure-cornerstone-ondemand-sso)** , para configurar los valores de inicio de sesión único en la aplicación.
-    1. **[Creación de un usuario de prueba de Cornerstone OnDemand](#create-cornerstone-ondemand-test-user)** , para tener un homólogo de B.Simon en Cornerstone OnDemand vinculado a su representación en Azure AD.
+2. **[Configuración del inicio de sesión único de Cornerstone OnDemand](#configure-cornerstone-ondemand-sso)**, para configurar los valores de inicio de sesión único en la aplicación.
+    1. **[Creación de un usuario de prueba de Cornerstone OnDemand](#create-cornerstone-ondemand-test-user)**, para tener un homólogo de B.Simon en Cornerstone OnDemand vinculado a su representación en Azure AD.
 3. **[Prueba del inicio de sesión único](#test-sso)** : para comprobar si la configuración funciona.
 
 ## <a name="configure-azure-ad-sso"></a>Configuración del inicio de sesión único de Azure AD
@@ -138,7 +141,7 @@ El objetivo de esta sección es crear un usuario llamado B.Simon en Cornerstone 
 
 **Para crear un usuario manualmente, siga los pasos siguientes:**
 
-Para configurar el aprovisionamiento del usuario, envíe la información (por ejemplo, nombre, correo electrónico) sobre el usuario de Azure AD que desee aprovisionar al [equipo de soporte técnico de Cornerstone OnDemand](mailto:moreinfo@csod.com).
+Para configurar el aprovisionamiento de usuarios, envíe la información (p. ej.: nombre, correo electrónico) sobre el usuario de Azure AD que desee aprovisionar al [equipo de soporte técnico de Cornerstone OnDemand](mailto:moreinfo@csod.com).
 
 >[!NOTE]
 >Puede usar cualquier otra API o herramienta de creación de cuentas de usuario de Cornerstone OnDemand ofrecida por Cornerstone OnDemand para aprovisionar cuentas de usuario de Azure AD.

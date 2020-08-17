@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 06/08/2020
 ms.topic: how-to
-ms.openlocfilehash: dec9abc38bc0354ef3d22994a7988bfb006f5769
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6073f71eb21ba4a6739647964d4888044d6ee59a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609749"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283729"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Crear y ejecutar trabajos en la aplicación de Azure IoT Central
 
@@ -43,7 +43,11 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Se muestra cómo 
     > [!NOTE]
     > Puede ver hasta 30 días del historial de trabajos ejecutados anteriormente.
 
-7. Para ver una descripción general del trabajo, seleccione el trabajo que ver en la lista. Esta información general contiene detalles del trabajo, los dispositivos y los valores de estado del dispositivo. En esta descripción general también puede seleccionar **Descargar detalles del trabajo** para descargar un archivo CSV de los detalles del trabajo, incluidos los dispositivos y sus valores de estado. Esta información puede ser útil para solucionar problemas:
+7. Haga clic en el trabajo guardado y ejecútelo al hacer clic en el botón Ejecutar. Aparece la ventana emergente Ejecutar un trabajo. Para confirmar, haga clic en el botón Ejecutar trabajo. 
+
+    ![Ejecución de un trabajo](./media/howto-run-a-job/run-job.png)
+
+8. El trabajo pasa por distintas fases: pendiente, en ejecución y completado. Los detalles de ejecución del trabajo contienen métricas de resultados, detalles de duración y una cuadrícula de lista de dispositivos. En esta descripción general también puede seleccionar **Registro de resultados** para descargar un archivo CSV de los detalles del trabajo, incluidos los dispositivos y sus valores de estado. Esta información puede ser útil para solucionar problemas.
 
     ![Ver el estado del dispositivo](./media/howto-run-a-job/download-details.png)
 
@@ -51,13 +55,23 @@ En esta sección se muestra cómo crear y ejecutar un trabajo. Se muestra cómo 
 
 Para detener uno de los trabajos en ejecución, ábralo y seleccione **Detener**. El estado del trabajo cambia para reflejar que el trabajo se ha detenido. En la sección **Resumen** se muestran los dispositivos que se han completado, con errores o aún pendientes.
 
-Para ejecutar un trabajo que está detenido actualmente, selecciónelo y, a continuación, seleccione **Ejecutar**. El estado del trabajo cambia para reflejar que el trabajo está de nuevo en ejecución. La sección **Resumen** continúa actualizándose con el progreso más reciente.
-
 ![Manage job (Administrar trabajo)](./media/howto-run-a-job/manage-job.png)
+
+Una vez que el trabajo está en estado detenido, se puede hacer clic en **Continuar** para reanudar la ejecución. El estado del trabajo cambia para reflejar que el trabajo está de nuevo en ejecución. La sección **Resumen** continúa actualizándose con el progreso más reciente.
+
+![Trabajo detenido](./media/howto-run-a-job/stopped-job.png)
 
 ## <a name="copy-a-job"></a>Copia de un trabajo
 
-Para copiar uno de los trabajos existentes, selecciónelo en la página **Trabajos** y elija **Copiar**. Se abrirá una copia de la configuración del trabajo para editarla y se anexará **Copia** al nombre del trabajo. Puede guardar o ejecutar el nuevo trabajo:
+Para copiar uno de los trabajos existentes, selecciónelo en la página **Trabajos** y seleccione **Detalles del trabajo**. Se muestra la página Detalles del trabajo. 
+
+![Detalles del trabajo](./media/howto-run-a-job/job-details.png)
+
+Haga clic en **Copiar**
+
+![Detalles del trabajo](./media/howto-run-a-job/job-details-copy.png)
+
+Se abrirá una copia de la configuración del trabajo para editarla y se anexará **Copia** al nombre del trabajo. Puede guardar o ejecutar el nuevo trabajo:
 
 ![Copia de trabajo](./media/howto-run-a-job/copy-job.png)
 

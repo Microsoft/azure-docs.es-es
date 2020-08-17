@@ -6,18 +6,22 @@ manager: carmonm
 services: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: b06f39de9f977a9f777b21a53e93ca744fccdd93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560160"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799572"
 ---
 # <a name="azure-monitor-workbooks"></a>Libros de Azure Monitor
 
 Los libros proporcionan un lienzo flexible para el análisis de datos y la creación de informes visuales completos en el Azure Portal. Permiten acceder a varios orígenes de datos desde Azure y combinarlos en experiencias interactivas unificadas. 
+
+Este es un tutorial en vídeo sobre la creación de libros.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4B4Ap]
 
 ## <a name="data-sources"></a>Orígenes de datos
 
@@ -52,9 +56,9 @@ Los libros proporcionan un amplio conjunto de funciones para visualizar los dato
 
 Para explorar la experiencia de los libros, navegue primero hasta el servicio Azure Monitor. Para ello, escriba **monitor** en el cuadro de búsqueda de Azure Portal.
 
-Luego seleccione **Workbooks (preview)** Workbooks (versión preliminar).
+A continuación, seleccione **Libros**.
 
-![Captura de pantalla con el botón de Workbooks (versión preliminar) resaltado en un cuadro rojo](./media/workbooks-overview/workbooks-preview.png)
+![Captura de pantalla con el botón de Workbooks resaltado en un cuadro rojo](./media/workbooks-overview/workbooks.png)
 
 ### <a name="gallery"></a>Galería
 

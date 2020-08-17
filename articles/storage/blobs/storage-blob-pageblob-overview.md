@@ -9,12 +9,12 @@ ms.date: 06/15/2020
 ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
-ms.openlocfilehash: 2338c523c13b16b4a63ee9de0d966182e26c3286
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 447653cdcaeb1a0bbf891a26e8bc0af5ead87fdb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223302"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518714"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Introducción a blobs en páginas de Azure
 
@@ -33,6 +33,10 @@ Servicios de Microsoft de primera entidad, como Azure Site Recovery o Azure Back
 * Administración de instantáneas incrementales orientadas a la aplicación: las aplicaciones pueden aprovechar las API REST y las instantáneas de los blobs en páginas para guardar los puntos de control de las aplicaciones sin incurrir en costosas duplicaciones de datos. Azure Storage admite las instantáneas locales para blobs en páginas, que no requieren copiar todo el blob. Estas API de instantáneas públicas también permiten acceder y copiar las diferencias entre instantáneas.
 * Migración en vivo de aplicación y datos de local a la nube: Copie los datos locales y use las API de REST para escribir directamente en un blob en páginas de Azure mientras la máquina virtual local sigue ejecutándose. Una vez alcanzado el objetivo, puede conmutar por error rápidamente a la máquina virtual de Azure con esos datos. De esta forma, puede migrar las máquinas virtuales y los discos virtuales de local a la nube con un tiempo de inactividad mínimo, ya que la migración de datos se realiza en segundo plano mientras se sigue usando la máquina virtual y el tiempo de inactividad necesario para la conmutación por error es reducido (en minutos).
 * El acceso compartido [basado en SAS](../common/storage-sas-overview.md) permite escenarios como varios lectores y un único escritor, y admite el control de simultaneidad.
+
+## <a name="pricing"></a>Precios
+
+Ambos tipos de almacenamiento que se ofrecen con blobs en páginas tienen su propio modelo de precios. Los blobs en páginas Premium siguen el modelo de precios de los discos administrados, mientras que los blobs en páginas estándar se facturan, según el tamaño usado, por transacción. Para más información, consulte la página [Precios de blobs en páginas de Azure](https://azure.microsoft.com/pricing/details/storage/page-blobs/).
 
 ## <a name="page-blob-features"></a>Características de blobs en páginas
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 126cca9d3606b378e59e4f4e1c5b52d985d19d94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2c20f668c57e8c2e74c320ca535aea18e633daf8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055687"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326127"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solución Network Performance Monitor: Supervisión de rendimiento
 
@@ -128,4 +128,5 @@ En la siguiente imagen, la causa principal de las áreas problemáticas de la se
 ![Mapa de topología con propiedades del nodo seleccionadas](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Buscar registros](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
+[Buscar registros](../log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
+

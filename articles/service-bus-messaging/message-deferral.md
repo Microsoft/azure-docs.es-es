@@ -3,12 +3,13 @@ title: 'Azure Service Bus: aplazamiento de mensajes'
 description: En este artículo se explica cómo diferir la entrega de mensajes de Azure Service Bus. El mensaje permanece en la cola o suscripción, pero se mantiene separado.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: f4fe231c56a1bcdea4f15de90cb0e9406f0284a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7c9ec55de24c97df3530d80deef55ed87be84077
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341223"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511286"
 ---
 # <a name="message-deferral"></a>Aplazamiento de mensajes
 
@@ -19,6 +20,9 @@ El aplazamiento es una característica creada específicamente para escenarios d
 Un ejemplo sencillo es una secuencia de procesamiento de pedidos en la que una notificación de pago de un proveedor de pago externo aparece en un sistema antes de haberse propagado el pedido de compra correspondiente desde el escaparate al sistema de suministro. En ese caso, el sistema de suministro puede aplazar el procesamiento de la notificación de pago hasta que haya un pedido con el que se vaya a asociar. En escenarios de encuentro, donde los mensajes de orígenes diferentes conducen a un desvío de flujo de trabajo, el orden de ejecución en tiempo real puede, de hecho, ser correcto pero es posible que los mensajes reflejen que los resultados llegan sin orden.
 
 En última instancia, el aplazamiento contribuye a volver a ordenar los mensajes de su orden de llegada a un orden en el que se pueden procesar, lo que permite dejar los mensajes de forma segura en el almacén de mensajes cuyo procesamiento tiene que posponerse.
+
+> [!NOTE]
+> Los mensajes diferidos no se moverán de forma automática a la cola de mensajes fallidos [tras expirar](./service-bus-dead-letter-queues.md#exceeding-timetolive). Este comportamiento es así por diseño.
 
 ## <a name="message-deferral-apis"></a>API de aplazamiento de mensajes
 

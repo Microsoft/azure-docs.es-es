@@ -11,14 +11,14 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef482804c80602771963633bcc46feaf014c363
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373835"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518477"
 ---
-# <a name="azure-active-directory-connect-faq"></a>Preguntas más frecuentes sobre Azure Active Directory Connect
+# <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Preguntas frecuentes sobre el aprovisionamiento en la nube de Azure Active Directory Connect
 
 Lea las preguntas más frecuentes sobre el aprovisionamiento en la nube de Azure Active Directory (Azure AD) Connect.
 

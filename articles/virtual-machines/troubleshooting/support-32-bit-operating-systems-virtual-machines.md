@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: b4e08cba2b49f43baea16b01ec709d8d9ab6a18d
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 91e5ca10e97e8fc1646367ac6d575d6813f3a291
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079866"
 ---
 # <a name="support-for-32-bit-operating-systems-in-azure-virtual-machines"></a>Compatibilidad con sistemas operativos de 32 bits en máquinas virtuales de Azure
 
@@ -34,8 +34,8 @@ Para obtener más información acerca de los sistemas operativos que se admiten 
 ## <a name="references"></a>Referencias
 
 * [Más información sobre las actualizaciones de seguridad ampliadas gratis para Windows Server 2008/R2 en Azure](https://www.microsoft.com/cloud-platform/windows-server-2008)
-* [Más información sobre la compatibilidad con imágenes especializadas de Windows Server 2008 SP2 de 32 bits en Azure](https://docs.microsoft.com/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
-* [Más información sobre la compatibilidad con la migración de imágenes de Windows Server 2008 a Azure mediante Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-windows-server-2008)
+* [Más información sobre la compatibilidad con imágenes especializadas de Windows Server 2008 SP2 de 32 bits en Azure](/windows-server/get-started/uploading-specialized-ws08-image-to-azure)
+* [Más información sobre la compatibilidad con la migración de imágenes de Windows Server 2008 a Azure mediante Azure Site Recovery](../../site-recovery/migrate-tutorial-windows-server-2008.md)
 * [Más información sobre los sistemas operativos compatibles con la extensión de Azure](https://support.microsoft.com/help/4078134/azure-extension-supported-operating-systems)
 * [Más información sobre cómo ejecutar Windows Server 2003 en Microsoft Azure](https://support.microsoft.com/help/3206074/running-windows-server-2003-on-microsoft-azure)
 

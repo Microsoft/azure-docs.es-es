@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e58df0997c62a131a3c9987369f8e076a62d6654
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 82114164d70eae71678e70ff2bdb7ea44a54d4cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81408340"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076302"
 ---
 # <a name="security-control-logging-and-monitoring"></a>Control de seguridad: Registro y supervisión
 
@@ -124,9 +124,9 @@ Como alternativa, puede habilitar e incorporar datos en Azure Sentinel.
 
 Habilite la recopilación de eventos antimalware para Azure Virtual Machines y Cloud Services.
 
-- [Configuración de Microsoft Antimalware para Virtual Machines](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Configuración de Microsoft Antimalware para Virtual Machines](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
 
-- [Configuración de Microsoft Antimalware para Cloud Services](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Configuración de Microsoft Antimalware para Cloud Services](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Descripción de Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 

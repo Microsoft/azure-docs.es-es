@@ -1,25 +1,19 @@
 ---
 title: Instalación de Trend Micro Deep Security en una máquina virtual
 description: En este artículo se describe cómo instalar y configurar la seguridad de Trend Micro en una máquina virtual creada con el modelo de implementación clásica en Azure.
-services: virtual-machines-windows
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
 tags: azure-service-management
-ms.assetid: e991b635-f1e2-483f-b7ca-9d53e7c22e2a
 ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: 874e6f9b1c0bebedb5f50ca38d0703420be69de5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: bed1d567aa48a11c01ae952e6a4a2028e260e6e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186969"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288525"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Instalación y configuración de Trend Micro Deep Security como servicio en una máquina virtual de Azure
 
@@ -38,7 +32,7 @@ Si tiene una suscripción actual de Trend Micro para una solución local, puede 
 
 [Azure Portal](https://portal.azure.com) le permite instalar la extensión de seguridad de Trend Micro cuando usa una imagen de **Marketplace** para crear la máquina virtual. Si crea una sola máquina virtual, usar el portal es una forma simple para agregar la protección de Trend Micro.
 
-Mediante una entrada de **Marketplace** se abre un asistente que le ayuda a configurar la máquina virtual. Utilice la hoja **Configuración**, el tercer panel del asistente, para instalar la extensión de seguridad de Trend Micro.  Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows en Azure Portal](../windows/classic/tutorial.md).
+Mediante una entrada de **Marketplace** se abre un asistente que le ayuda a configurar la máquina virtual. Utilice la hoja **Configuración**, el tercer panel del asistente, para instalar la extensión de seguridad de Trend Micro.  Para obtener instrucciones generales, consulte [Creación de una máquina virtual que ejecuta Windows en Azure Portal](../windows/quick-create-portal.md).
 
 Cuando se encuentre en la hoja **Configuración** del asistente, realice los pasos siguientes:
 
@@ -57,7 +51,7 @@ Cuando se encuentre en la hoja **Configuración** del asistente, realice los pas
 ## <a name="install-the-deep-security-agent-on-an-existing-vm"></a>Instalación del Agente de Deep Security en una máquina virtual existente
 Para instalar el agente en una máquina virtual existente, necesitará los siguientes elementos:
 
-* El módulo Azure PowerShell, con una versión 0.8.2 o posterior, instalado en el equipo local. Puede comprobar la versión de Azure PowerShell que ha instalado con el comando **Get-Module azure | format-table version** . Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview). Inicie sesión en la suscripción de Azure mediante `Add-AzureAccount`.
+* El módulo Azure PowerShell, con una versión 0.8.2 o posterior, instalado en el equipo local. Puede comprobar la versión de Azure PowerShell que ha instalado con el comando **Get-Module azure | format-table version** . Para obtener instrucciones y un vínculo a la versión más reciente, consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/). Inicie sesión en la suscripción de Azure mediante `Add-AzureAccount`.
 * El agente de máquina virtual instalado en la MV de destino.
 
 En primer lugar, compruebe que el agente de máquina virtual ya está instalado. Introduzca el nombre de servicio de nube y el nombre de la máquina virtual y, a continuación, ejecute los siguientes comandos en un símbolo de sistema de Azure PowerShell con nivel de administrador. Reemplace todo el contenido dentro de las comillas, incluidos los caracteres < y >.
@@ -100,4 +94,4 @@ El agente tarda unos minutos en empezar la ejecución cuando se instala. Despué
 
 <!-- Link references -->
 [Inicio de sesión en una máquina virtual con Windows Server]:../windows/classic/connect-logon.md
-[Características y extensiones de máquina virtual de Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Características y extensiones de máquina virtual de Azure]: features-windows.md

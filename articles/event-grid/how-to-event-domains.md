@@ -3,12 +3,13 @@ title: Publicación de eventos con dominios de eventos mediante Azure Event Grid
 description: Muestra cómo administrar grandes conjuntos de temas de Azure Event Grid y publicar eventos en ellos con dominios de eventos.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 30a77d98fdb0d5bfd5169174999a0a08742adfd8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9016d26384827279a5a89afecff59f572d7ce273
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105569"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502042"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Administrar temas y publicar eventos con dominios de eventos
 
@@ -78,7 +79,7 @@ Anote `endpoint` y `id`, ya que se requieren para administrar el dominio y publi
 
 ## <a name="manage-access-to-topics"></a>Administración del acceso a temas
 
-La administración de acceso a temas se realiza mediante [asignación de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). La asignación de roles usa el control de acceso basado en roles para limitar las operaciones en recursos de Azure a los usuarios autorizados en un determinado ámbito.
+La administración de acceso a temas se realiza mediante [asignación de roles](../role-based-access-control/role-assignments-cli.md). La asignación de roles usa el control de acceso basado en roles para limitar las operaciones en recursos de Azure a los usuarios autorizados en un determinado ámbito.
 
 Event Grid tiene dos roles integrados, que puede utilizar para asignar acceso a determinados usuarios a varios temas dentro de un dominio. Estos roles son `EventGrid EventSubscription Contributor (Preview)`, que permite la creación y eliminación de suscripciones, y `EventGrid EventSubscription Reader (Preview)`, que permite solo enumerar las suscripciones a eventos.
 
@@ -135,7 +136,7 @@ New-AzureRmEventGridSubscription `
 
 Si necesita un punto de conexión de prueba al que suscribir sus eventos, siempre puede implementar una [aplicación web precompilada](https://github.com/Azure-Samples/azure-event-grid-viewer) que muestre los eventos entrantes. Puede enviar los eventos a su sitio web de prueba en `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 
 Los permisos que se establecen para un tema se almacenan en Azure Active Directory y se deben eliminar explícitamente. Eliminar una suscripción de eventos no revoca el acceso de un usuario para crear suscripciones de eventos si tiene acceso de escritura en un tema.
 

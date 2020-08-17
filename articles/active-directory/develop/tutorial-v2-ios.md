@@ -12,12 +12,12 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 0f712dbee6218ce8e012639b82a3a2ee7c177bb3
-ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+ms.openlocfilehash: 61a3884ce4d1075dbcac61a0c202c3a393d2d943
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84904769"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118151"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>Inicio de sesión de los usuarios y llamada a Microsoft Graph desde una aplicación para iOS o macOS
 
@@ -149,7 +149,7 @@ var webViewParameters : MSALWebviewParameters?
 var currentAccount: MSALAccount?
 ```
 
-El único valor que debe modificar arriba es el asignado a `kClientID` como [Identificador de aplicación](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id). Este valor forma parte de los datos de Configuración de MSAL que guardó al principio de este tutorial para registrar la aplicación en Azure Portal.
+El único valor que debe modificar arriba es el asignado a `kClientID` como [Identificador de aplicación](./developer-glossary.md#application-id-client-id). Este valor forma parte de los datos de Configuración de MSAL que guardó al principio de este tutorial para registrar la aplicación en Azure Portal.
 
 ## <a name="configure-xcode-project-settings"></a>Configuración de los valores del proyecto de Xcode
 
@@ -842,4 +842,4 @@ Después de iniciar sesión, esta aplicación mostrará los datos devueltos desd
 
 ## <a name="get-help"></a>Obtener ayuda
 
-Visite [Ayuda y soporte técnico](https://docs.microsoft.com/azure/active-directory/develop/developer-support-help-options) si tienes algún problema con este tutorial o con la plataforma de identidad de Microsoft.
+Visite [Ayuda y soporte técnico](./developer-support-help-options.md) si tienes algún problema con este tutorial o con la plataforma de identidad de Microsoft.

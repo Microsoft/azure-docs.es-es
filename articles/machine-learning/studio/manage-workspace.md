@@ -1,6 +1,5 @@
 ---
-title: Administración de áreas de trabajo
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): administración de áreas de trabajo de Azure'
 description: Administración del acceso a las áreas de trabajo de Azure Machine Learning Studio (clásico) e implementación y administración de servicios web de la API de Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 4d12b5fbfb934106f7c18edb2996b51e8f6a57f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f3661956c61eb20f4c336f8644f85eb7e1b4100
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705141"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433125"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Administración de un área de trabajo de Azure Machine Learning Studio (clásico)
+
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 > [!NOTE]
 > Para obtener información acerca de cómo administrar servicios web en el portal Servicios web Machine Learning, consulte [Administración de un servicio web mediante el portal Servicios web Azure Machine Learning](manage-new-webservice.md).
@@ -33,7 +35,7 @@ Puede administrar áreas de trabajo de Machine Learning Studio (clásico) en Azu
 Para administrar un área de trabajo de Studio en Azure Portal (clásico):
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/) mediante una cuenta de administrador de la suscripción de Azure.
-2. En el cuadro de búsqueda de la parte superior de la página, escriba "áreas de trabajo de Machine Learning Studio (clásico)" y, después, seleccione **Áreas de trabajo de Machine Learning Studio (clásico)** .
+2. En el cuadro de búsqueda de la parte superior de la página, escriba "áreas de trabajo de Machine Learning Studio (clásico)" y, después, seleccione **Áreas de trabajo de Machine Learning Studio (clásico)**.
 3. Haga clic en el área de trabajo que desea administrar.
 
 Además de la información de administración de recursos estándar y de las opciones disponibles, puede:

@@ -3,12 +3,12 @@ title: Valoraciones de máquinas virtuales de Azure en el Server Assessment de A
 description: Obtenga información sobre las evaluaciones en Server Assessment de Azure Migrate.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 52cdd6bb9cb062b5c36e10c67524fa4d266ca6e0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7664c8296f0d47f37f9542dee82d3c718be40126
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108008"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825997"
 ---
 # <a name="azure-vm-assessments-in-azure-migrate-server-assessment"></a>Valoraciones de máquinas virtuales de Azure en Azure Migrate: Server Assessment
 
@@ -152,7 +152,7 @@ Propiedad | Detalles | Estado de la preparación para Azure
 --- | --- | ---
 **Tipo de arranque** | Azure admite máquinas virtuales con un tipo de arranque de BIOS, no UEFI. | Condicionalmente preparada si el tipo de arranque es UEFI.
 **Núcleos** | Cada máquina no debe tener más de 128 núcleos, que es el número máximo compatible que admite una máquina virtual de Azure.<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta los núcleos utilizados para la comparación. Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos usados se multiplica por este.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si el número de núcleos está dentro del límite.
-**RAM** | Cada máquina no debe tener más de 3892 GB de RAM, que es el tamaño máximo que admite una máquina virtual Standard_M128m de la serie M de Azure&nbsp;<sup>2</sup>. [Más información](../virtual-machines/windows/sizes.md).<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta la RAM utilizada para la comparación. Si se especifica un factor de confort, la RAM utilizada se multiplica por este.<br/><br/> Si no hay ningún historial, se usa la RAM asignada sin aplicar el factor de confort.<br/><br/> | Preparada si la cantidad de RAM está dentro del límite.
+**RAM** | Cada máquina no debe tener más de 3892 GB de RAM, que es el tamaño máximo que admite una máquina virtual Standard_M128m de la serie M de Azure&nbsp;<sup>2</sup>. [Más información](../virtual-machines/sizes.md).<br/><br/> Si el historial de rendimiento está disponible, Azure Migrate tiene en cuenta la RAM utilizada para la comparación. Si se especifica un factor de confort, la RAM utilizada se multiplica por este.<br/><br/> Si no hay ningún historial, se usa la RAM asignada sin aplicar el factor de confort.<br/><br/> | Preparada si la cantidad de RAM está dentro del límite.
 **Disco de almacenamiento** | El tamaño asignado de un disco no debe ser superior a 32 TB. Aunque Azure admite discos de 64 TB con discos Azure SSD Ultra, Azure Migrate: Server Assessment utiliza actualmente 32 TB como límite de tamaño del disco, ya que todavía no admite SSD Ultra. <br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco del sistema operativo. | Preparada si el tamaño y el número de los discos están dentro de los límites.
 **Redes** | Una máquina no debe tener más de 32 interfaces de red (NIC) conectadas. | Preparada si el número de NIC está dentro del límite.
 

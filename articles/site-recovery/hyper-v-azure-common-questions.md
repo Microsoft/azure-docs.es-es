@@ -3,12 +3,12 @@ title: Preguntas comunes sobre la recuperación ante desastres en Hyper-V con Az
 description: En este artículo se resumen preguntas comunes sobre la configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V locales a Azure con el sitio de Azure Site Recovery.
 ms.date: 11/12/2019
 ms.topic: conceptual
-ms.openlocfilehash: b3d806908ce2274d07e6b508c8cc269b553e684f
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: c168ba9ff14e57f238069e8ca5b0c34a8fb58015
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132667"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799895"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
 
@@ -156,6 +156,10 @@ Cuando se replica en Azure, el tráfico de replicación alcanza los puntos de co
 ### <a name="what-are-the-replicated-vm-requirements"></a>¿Cuáles son los requisitos de las máquinas virtuales replicadas?
 
 Para realizar la replicación, una máquina virtual de Hyper-V debe ejecutar un sistema operativo compatible. Además, la máquina virtual debe cumplir con los requisitos de las máquinas virtuales de Azure. [Más información](hyper-v-azure-support-matrix.md#replicated-vms) en la matriz de compatibilidad.
+
+### <a name="why-is-an-additional-standard-storage-account-required-if-i-replicate-my-virtual-machine-disks-to-premium-storage"></a>¿Por qué se requiere una cuenta de almacenamiento estándar adicional si replico los discos de máquina virtual en Premium Storage?
+
+Al replicar los servidores físicos o máquinas virtuales locales en Premium Storage, todos los datos que residen en los discos de la máquina protegida se replican en la cuenta de Premium Storage. Se requiere una cuenta de almacenamiento estándar adicional para almacenar los registros de replicación. Una vez completada la fase inicial de replicación de los datos del disco, se realiza un seguimiento continuo de todos los cambios realizados en los datos del disco local y se almacenan como registros de replicación en esta cuenta de almacenamiento estándar adicional.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>¿Con qué frecuencia se puede replicar en Azure?
 

@@ -7,17 +7,18 @@ ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 05/06/2020
 tags: connectors
-ms.openlocfilehash: 66971d754d5cd524750fccaa6f89a2cdca138f2a
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: 3f1ae215bcfa8543d134722292bedc5fe1ac76ea
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82925922"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288129"
 ---
 # <a name="monitor-and-manage-wunderlist-by-using-azure-logic-apps"></a>Supervisión y administración de Wunderlist con Azure Logic Apps
 
-A partir del 6 de mayo de 2020, el servicio [Wunderlist se cerró](https://www.wunderlist.com/) y solicitó a los clientes que [migraran sus datos y empezaran a usar Microsoft To Do en su lugar](https://www.wunderlist.com/blog/goodbye-from-wunderlist/). Puede usar el [conector de Microsoft To Do](https://docs.microsoft.com/connectors/todo/) para reemplazar el [conector de Wunderlist](https://docs.microsoft.com/connectors/wunderlist/).
+A partir del 6 de mayo de 2020, el servicio [Wunderlist se cerró](https://www.wunderlist.com/) y solicitó a los clientes que [migraran sus datos y empezaran a usar Microsoft To Do en su lugar](https://www.wunderlist.com/blog/goodbye-from-wunderlist/). Puede usar el [conector de Microsoft To Do](/connectors/todo/) para reemplazar el [conector de Wunderlist](/connectors/wunderlist/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

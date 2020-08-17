@@ -5,26 +5,26 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fd34595d5ea942602efc920904ff326fc203c088
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: 005725acf7270ff87ac9418f27941bdb205ae986
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81380691"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059423"
 ---
-# <a name="understand-data-retention-in-azure-time-series-insights"></a>Descripción de la retención de datos en Azure Time Series Insights
+# <a name="understand-data-retention-in-azure-time-series-insights-gen1"></a>Descripción de la retención de datos en Azure Time Series Insights Gen1
 
 En este artículo se describen dos parámetros de configuración principales que tienen un impacto en la retención de datos en el entorno Azure Time Series Insights.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="the-following-video-summarizes-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>En el vídeo siguiente se resume la retención de datos de Time Series Insights y cómo planearla.</br>
+### <a name="the-following-video-summarizes-azure-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>En el vídeo siguiente se resume la retención de datos de Azure Time Series Insights y cómo planearla.</br>
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
@@ -36,15 +36,15 @@ Además, el entorno de Azure Time Series Insights tiene una configuración de **
 - **Pausar entradas**
 
 > [!NOTE]
-> De forma predeterminada, al crear un nuevo entorno, el período de retención está configurado en **Purgar datos antiguos**. Esta opción se puede activar o desactivar según sea necesario después de la creación en Azure Portal, en la página **Configurar** del entorno de Time Series Insights.
-> * Para información sobre cómo configurar las directivas de retención, lea [Configuración de la retención en Time Series Insights](time-series-insights-how-to-configure-retention.md).
+> De forma predeterminada, al crear un nuevo entorno, el período de retención está configurado en **Purgar datos antiguos**. Esta opción se puede activar o desactivar según sea necesario después de la creación mediante Azure Portal, en la página **Configure** (Configurar) del entorno de Azure Time Series Insights.
+> * Para información sobre cómo configurar las directivas de retención, lea [Configuración de la retención en Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 A continuación se describen con más detalle ambas directivas de retención de datos.
 
 ## <a name="purge-old-data"></a>Purgar datos antiguos
 
 - **Purgar datos antiguos** es la configuración predeterminada para los entornos de Azure Time Series Insights.  
-- **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren tener siempre los *datos más recientes* de su entorno de Time Series Insights.
+- **Purgar datos antiguos** es la opción preferida cuando los usuarios quieren tener siempre los *datos más recientes* en su entorno de Azure Time Series Insights.
 - La configuración **Purgar datos antiguos** *purga* los datos una vez que se alcanzan los límites del entorno (tiempo de retención, tamaño o cantidad, lo que llegue antes). La retención está establecida en 30 días de forma predeterminada.
 - Los datos ingeridos hace más tiempo se purgan primero (enfoque "primero en entrar, primero en salir").
 
@@ -69,7 +69,7 @@ En caso de que la tasa de entrada diaria del entorno sea superior a 0,166 GB por
 - Ayuda a proteger contra la pérdida de datos, pero puede generar una oportunidad para la pérdida de los datos más recientes si la entrada se pausa una vez alcanzado el periodo de retención del origen del evento.
 - Pero una vez alcanzada la capacidad máxima de un entorno, el entorno pausa la entrada de datos hasta que ocurran las acciones adicionales siguientes:
 
-   - El usuario aumenta la capacidad máxima del entorno para agregar más unidades de escalado, como se describe en [Escalado del entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+   - Se aumenta la capacidad máxima del entorno para agregar más unidades de escalado, como se describe en [Escalado del entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
    - Se alcanza el período de retención de datos y estos se purgan, poniendo al entorno por debajo de su capacidad máxima.
 
 ### <a name="example-three"></a>Ejemplo 3
@@ -86,16 +86,16 @@ Cuando se reanuda la entrada:
 > [!IMPORTANT]
 > Debe establecer alertas para proporcionar un aviso que ayude a evitar que el ingreso se pause. Es posible que se pierdan datos, ya que el tiempo predeterminado de retención es de 1 día para orígenes de eventos de Azure. Por lo tanto, cuando se pausa la entrada, es probable que pierdan los datos más recientes, a menos que se realice alguna acción adicional. Debe aumentar la capacidad, o cambiar el comportamiento a **Purgar datos antiguos** para evitar la posible pérdida de datos.
 
-En los Event Hubs afectados, considere la posibilidad de ajustar la propiedad **Retención de mensajes** para minimizar la pérdida de datos cuando se pausa la entrada en Time Series Insights.
+En los centros de eventos afectadas, considere la posibilidad de ajustar la propiedad **Retención de mensajes** para minimizar la pérdida de datos cuando se pausa la entrada en Azure Time Series Insights.
 
 [![Retención de mensajes de Event Hub.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
-Si no se configuran propiedades en el origen del evento (`timeStampPropertyName`), Time Series Insights se establece de manera predeterminada en la marca de tiempo de llegada al Event Hub como eje X. Si se configura `timeStampPropertyName` en algo diferente, el entorno busca el valor `timeStampPropertyName` configurado en el paquete de datos al analizar eventos.
+Si no se configuran propiedades en el origen de eventos (`timeStampPropertyName`), Azure Time Series Insights se establece de manera predeterminada en la marca de tiempo de llegada al centro de eventos como el eje X. Si se configura `timeStampPropertyName` en algo diferente, el entorno busca el valor `timeStampPropertyName` configurado en el paquete de datos al analizar eventos.
 
-Si necesita escalar su entorno para tener capacidad adicional o para aumentar la duración de la retención, lea [Escalado de su entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+Para escalar su entorno a fin de disponer de capacidad adicional o de aumentar la duración de la retención, lea [Escalado del entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para obtener información sobre la configuración o el cambio de los valores de retención de datos, consulte [Configuración de la retención en Time Series Insights](time-series-insights-how-to-configure-retention.md).
+- Para información sobre la configuración o el cambio de los valores de retención de datos, consulte [Configuración de la retención en Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
 - Más información sobre [Mitigación de la latencia en Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

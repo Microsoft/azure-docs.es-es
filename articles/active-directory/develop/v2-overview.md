@@ -12,12 +12,12 @@ ms.date: 07/09/2020
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: identityplatformtop40
-ms.openlocfilehash: 566893a9babc3f771e3198970e0a5ae97592e322
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: e34eeeca3b17087fb5bd43ae353e43b5ab355831
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231682"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119562"
 ---
 # <a name="microsoft-identity-platform-overview"></a>Introducción a la plataforma de identidad de Microsoft
 
@@ -59,7 +59,7 @@ Cuando trabaje con la plataforma de identidad de Microsoft para integrar autenti
 
 Aprenda cómo se aplican los conceptos básicos de autenticación y de Azure AD a la plataforma de identidad de Microsoft en este conjunto de artículos recomendado:
 
-- [Conceptos básicos sobre autenticación](authentication-scenarios.md)
+- [Conceptos básicos sobre autenticación](./authentication-vs-authorization.md)
 - [Aplicaciones y entidades de servicio](app-objects-and-service-principals.md)
 - [Audiencias](v2-supported-account-types.md)
 - [Permisos y consentimiento](v2-permissions-and-consent.md)
@@ -71,7 +71,7 @@ Aprenda cómo se aplican los conceptos básicos de autenticación y de Azure AD
 
 [Azure AD B2C](../../active-directory-b2c/overview.md): compile aplicaciones orientadas al cliente en las que los usuarios puedan iniciar sesión con sus cuentas de redes sociales, como Facebook o Google, o mediante una dirección de correo electrónico y una contraseña.
 
-[Azure AD B2B](../b2b/what-is-b2b.md): invite a usuarios externos a su inquilino Azure AD como usuarios "invitados" a los que puede asignar permisos para la autorización, al tiempo que les permite usar sus credenciales existentes para la autenticación.
+[Azure AD B2B](../external-identities/what-is-b2b.md): invite a usuarios externos a su inquilino Azure AD como usuarios "invitados" a los que puede asignar permisos para la autorización, al tiempo que les permite usar sus credenciales existentes para la autenticación.
 
 > [!TIP]
 > ¿Busca documentación sobre la *plataforma para desarrolladores de Azure Active Directory (v 1.0)* ? Consulte [Introducción a Azure Active Directory para desarrolladores (v1.0)](../azuread-dev/v1-overview.md).

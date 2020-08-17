@@ -4,18 +4,18 @@ description: Modelo de datos de Application Insights para la telemetría de even
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 69685afa14352a22b58bccbea342038e4273696e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671892"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320619"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>Telemetría de eventos: Modelo de datos de Application Insights
 
-Puede crear elementos de telemetría de eventos (en [Application Insights](../../azure-monitor/app/app-insights-overview.md)) para representar un evento producido en la aplicación. Normalmente es una interacción del usuario como un clic de botón o la desprotección de un pedido. También puede ser un evento de ciclo de vida de la aplicación como la actualización de la inicialización o la configuración. 
+Puede crear elementos de telemetría de eventos (en [Application Insights](./app-insights-overview.md)) para representar un evento producido en la aplicación. Normalmente es una interacción del usuario como un clic de botón o la desprotección de un pedido. También puede ser un evento de ciclo de vida de la aplicación como la actualización de la inicialización o la configuración. 
 
-Semánticamente, los eventos pueden estar correlacionados o no con las solicitudes. Pero si se usa correctamente, la telemetría de eventos es más importante que las solicitudes o los seguimientos. Los eventos representan la telemetría de negocio y deberían estar sujetos a un [muestreo](../../azure-monitor/app/api-filtering-sampling.md) independiente, menos agresivo.
+Semánticamente, los eventos pueden estar correlacionados o no con las solicitudes. Pero si se usa correctamente, la telemetría de eventos es más importante que las solicitudes o los seguimientos. Los eventos representan la telemetría de negocio y deberían estar sujetos a un [muestreo](./api-filtering-sampling.md) independiente, menos agresivo.
 
 ## <a name="name"></a>Nombre
 
@@ -34,5 +34,6 @@ Longitud máxima: 512 caracteres
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
-- [Escritura de telemetría de eventos personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)
-- Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.
+- [Escritura de telemetría de eventos personalizada](./api-custom-events-metrics.md#trackevent)
+- Consulte las [plataformas](./platforms.md) compatibles con Application Insights.
+

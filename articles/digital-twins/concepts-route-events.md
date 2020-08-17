@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 7c1f0c18fc8b867e16ce539a24839637e1d14379
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 394752792d143a3712d0bb9c50189936f23062f1
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85390795"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800473"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Enrutar eventos dentro y fuera de Azure Digital Twins
 
@@ -46,7 +46,7 @@ Como alternativa, el mensaje de evento también contiene el id. de gemelo de ori
 
 El recurso de proceso también debe establecer los permisos de acceso y seguridad de forma independiente.
 
-Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md).
+Para recorrer el proceso de configuración de una función de Azure para procesar eventos de gemelos digitales, consulte [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md).
 
 ## <a name="create-an-endpoint"></a>Crear un punto de conexión
 
@@ -77,7 +77,7 @@ await client.EventRoutes.AddAsync("<name-for-the-new-route>", new EventRoute("<e
 
 * El elemento `endpoint-name` identifica un punto de conexión, como un centro de eventos, Event Grid o Service Bus. Estos puntos de conexión deben crearse en la suscripción y conectarse a Azure Digital Twins mediante las API de plano de control antes de realizar esta llamada de registro.
 
-El objeto de ruta de eventos que se pasa a `EventRoutes.Add` también toma un [parámetro **filter**](./how-to-manage-routes.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta.
+El objeto de ruta de eventos que se pasa a `EventRoutes.Add` también toma un [parámetro **filter**](./how-to-manage-routes-apis-cli.md#filter-events), que se puede usar para restringir los tipos de eventos que siguen esta ruta.
 
 Las rutas también se pueden crear con la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
@@ -90,7 +90,7 @@ Los distintos tipos de eventos de IoT Hub y Azure Digital Twins generan distinto
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea cómo configurar y administrar una ruta de eventos:
-* [Procedimiento: Administración de puntos de conexión y rutas](how-to-manage-routes.md)
+* [*Procedimiento: Administración de puntos de conexión y rutas*](how-to-manage-routes-apis-cli.md)
 
 O bien, consulte cómo usar Azure Functions para enrutar eventos en Azure Digital Twins:
-* [Procedimiento: Configuración de una función de Azure para procesar datos](how-to-create-azure-function.md)
+* [*Procedimiento: Configuración de una función de Azure para procesar datos*](how-to-create-azure-function.md)

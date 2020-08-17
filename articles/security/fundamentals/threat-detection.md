@@ -1,6 +1,6 @@
 ---
 title: Detección de amenazas avanzada de Azure | Microsoft Docs
-description: Obtenga información sobre Azure AD Identity Protection y sus funcionalidades.
+description: Más información sobre la funcionalidad de detección de amenazas avanzada para Azure como, por ejemplo, el servicio Azure AD Identity Protection.
 services: security
 documentationcenter: na
 author: UnifyCloud
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 93b63450d65f55e96897f91a5c0c9fae1b0b47f8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1522d143f2837a57481a4d678911e7a3c44d084d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503292"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541029"
 ---
 # <a name="azure-advanced-threat-detection"></a>Detección de amenazas avanzada de Azure
 
@@ -340,7 +340,7 @@ La API de detección de anomalías es una solución eficaz y eficiente para una 
 
 Con las herramientas que ayudan a descubrir zonas oscuras de TI, evaluar los riesgos, aplicar directivas, investigar actividades y detener amenazas, la organización puede mover datos a la nube con mayor seguridad y sin perder el control sobre los datos críticos.
 
-| Categoría | Descripción |
+| Category | Descripción |
 | -------- | ----------- |
 | Descubra | Descubra las zonas oscuras de TI con Cloud App Security. Gane visibilidad al descubrir aplicaciones, actividades, usuarios, datos y archivos del entorno de la nube. Descubra las aplicaciones de terceros conectadas a su nube.|
 |Investigación | Investigue las aplicaciones de nube mediante herramientas forenses de nube en profundidad en las aplicaciones de riesgo o archivos y usuarios específicos de la red. Identifique patrones en los datos recopilados de la nube. Genere informes para supervisar su nube. |

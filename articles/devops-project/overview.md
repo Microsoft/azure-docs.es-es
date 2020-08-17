@@ -1,6 +1,6 @@
 ---
 title: Introducción a Azure DevOps Starter | Microsoft Docs
-description: Conozca el valor de Azure DevOps Starter
+description: Obtenga información sobre la forma en que Azure DevOps Starter le ayuda a iniciar, implementar y administrar cualquier aplicación desde una vista individual en Azure Portal.
 services: devops-project
 documentationcenter: ''
 author: mlearned
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 03/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 99a1fdb8caff9953041c996d0f5581318ce11c66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91e62cae242279e1923fc31970c233ec70bf7f11
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82233693"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461347"
 ---
 # <a name="overview-of-azure-devops-starter"></a>Introducción a Azure DevOps Starter
 

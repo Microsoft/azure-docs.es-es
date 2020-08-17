@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de recursos compartidos de archivos de Az
 description: Aprenda a hacer una copia de seguridad de los recursos compartidos de archivos de Azure en el almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 40cb9ca0bd34fd65ab1983af6384d617db26e996
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7441157d6346eefc256e9e7c29f9bb1fa5c13b79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539098"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289525"
 ---
 # <a name="about-azure-file-share-backup"></a>Acerca de la copia de seguridad de recursos compartidos de archivos de Azure
 
@@ -42,9 +42,11 @@ La copia de seguridad de recursos compartidos de archivos de Azure es una soluci
     >[!NOTE]
     >Los datos de los recursos compartidos de archivos no se transfieren al servicio Azure Backup, dado que este crea y administra las instantáneas que forman parte de la cuenta de almacenamiento y las copias de seguridad no se transfieren al almacén.
 
-6. Puede restaurar el contenido de los recursos compartidos de archivos de Azure (archivos individuales o el recurso compartido completo) de las instantáneas disponibles en el recurso compartido de archivos de origen. Una vez que se desencadena la operación, la dirección URL de la instantánea se recupera del almacén de metadatos y los datos se muestran y transfieren desde la instantánea de origen al recurso compartido de archivos de destino que elija.
+6. Puede restaurar el contenido de los recursos compartidos de archivos de Azure (archivos individuales o el recurso compartido completo) de las instantáneas disponibles en el recurso compartido de archivos de origen. Una vez que se desencadena la operación, la dirección URL de la instantánea se recupera del almacén de metadatos y los datos se muestran y transfieren desde la instantánea de origen al recurso compartido de archivos de destino que elija. 
 
-7. Los datos de supervisión de los trabajos de copia de seguridad y restauración se insertan en el servicio de supervisión de Azure Backup. Esto le permite supervisar las copias de seguridad en la nube de los recursos compartidos de archivos en un único panel. Además, también puede configurar alertas o notificaciones por correo electrónico cuando resulte afectado el estado de la copia de seguridad. Se envían correos electrónicos a través del servicio de correo electrónico de Azure.
+7. Si usa Azure File Sync, el servicio de copia de seguridad indica al servicio de Azure File Sync las rutas de acceso de los archivos que se están restaurando, lo que desencadena un proceso de detección de cambios en segundo plano en estos archivos. Los archivos que han cambiado se sincronizan con el punto de conexión del servidor. Este proceso se produce en paralelo a la restauración original en el recurso compartido de archivos de Azure. 
+
+8. Los datos de supervisión de los trabajos de copia de seguridad y restauración se insertan en el servicio de supervisión de Azure Backup. Esto le permite supervisar las copias de seguridad en la nube de los recursos compartidos de archivos en un único panel. Además, también puede configurar alertas o notificaciones por correo electrónico cuando resulte afectado el estado de la copia de seguridad. Se envían correos electrónicos a través del servicio de correo electrónico de Azure.
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad
 

@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6c6fccd473ae57139c0b46bf32dc9468a4ba1a8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: fa68c842495725c73a6a4b5629d38fb9c12a819f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74901274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038739"
 ---
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Administración de los puntos de conexión de streaming con el SDK de .NET  
 
 >[!NOTE]
->No olvide revisar el artículo de [Información general](media-services-streaming-endpoints-overview.md). Además, revise [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+>No olvide revisar el artículo de [Información general](media-services-streaming-endpoints-overview.md). Además, revise [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 En el código de este artículo se muestra cómo realizar las tareas siguientes con el SDK de .NET de Azure Media Services:
 
@@ -150,4 +150,3 @@ Consulte las rutas de aprendizaje de Media Services.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

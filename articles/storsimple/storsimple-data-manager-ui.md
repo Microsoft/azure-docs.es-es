@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 85be49ad88ac62d90235c3da6b89b0da6a11487c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 00748cfa60882e49336c3a0ac3ecfdec389021ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78933759"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496447"
 ---
 # <a name="manage-the-storsimple-data-manager-service-in-azure-portal"></a>Administración del servicio StorSimple Data Manager en Azure Portal
 
@@ -42,7 +42,7 @@ Siga estos pasos para crear un servicio StorSimple Data Manager.
 
    2. Elija una **Subscription** (Suscripción) en la lista desplegable. La suscripción está vinculada a la cuenta de facturación. Este campo se rellena automáticamente (y no se puede seleccionar) si tiene una sola suscripción.
 
-   3. Seleccione un grupo de recursos existente o cree uno nuevo. Para más información, consulte [Grupos de recursos en Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/).
+   3. Seleccione un grupo de recursos existente o cree uno nuevo. Para más información, consulte [Grupos de recursos en Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal).
 
    4. Especifique el valor de **Location** (Ubicación) para el servicio que aloje las cuentas de almacenamiento y el servicio StorSimple Data Manager. El servicio StorSimple Device Manager, el servicio Data Manager y la cuenta de almacenamiento asociada deben estar en las regiones admitidas.
     

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: larryfr
 ms.reviewer: larryfr
 ms.date: 06/11/2020
-ms.openlocfilehash: c8b25e1d3ef2d2b780d88fbf2ba6c6568b4a804d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 59671a0520d665d594356a2e6aee46116a8de5d3
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84744707"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541777"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Implementación de un modelo para su uso con Cognitive Search
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -216,7 +216,7 @@ Para obtener más información sobre los entornos, consulte el tema sobre la [cr
 La configuración de implementación define el entorno de hospedaje de Azure Kubernetes Service que se usa para ejecutar el servicio web.
 
 > [!TIP]
-> Si no está seguro de las necesidades de memoria, CPU o GPU de la implementación, puede usar la generación de perfiles para obtener información. Para más información, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md#prepare-to-deploy).
+> Si no está seguro de las necesidades de memoria, CPU o GPU de la implementación, puede usar la generación de perfiles para obtener información. Para más información, consulte [Cómo y dónde implementar modelos](how-to-deploy-and-where.md).
 
 ```python
 from azureml.core.model import Model

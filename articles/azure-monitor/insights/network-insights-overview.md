@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ccc5578944dc6eea9a62360045272896d78e2fac
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77654875"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128682"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Azure Monitor for Networks (versión preliminar)
 Azure Monitor for Networks ofrece una vista completa del estado y las métricas de todos los recursos de red implementados sin ninguna configuración. La capacidad de búsqueda avanzada ayuda a identificar dependencias de recursos, lo que habilita escenarios tales como la identificación de recursos que hospedan el sitio web con una simple búsqueda del nombre del sitio web hospedado.
@@ -48,7 +48,7 @@ Puede hacer clic en cada elemento de la vista de cuadrícula. Haga clic en el ic
 La cuadrícula **Alertas** de la derecha ofrece una vista de todas las alertas generadas para los recursos seleccionados en todas las suscripciones. Haga clic en el número de alertas para ir a la página de alertas detalladas.
 
 ## <a name="dependency-view"></a>Vista de dependencias
-La vista **Dependencia** ayuda a visualizar cómo se configura el recurso. Actualmente solo se admite la vista de dependencias en Application Gateway. Se puede acceder a la vista de dependencias haciendo clic en el nombre del recurso de Application Gateway desde la vista de cuadrícula de métricas.
+La vista **Dependencia** ayuda a visualizar cómo se configura el recurso. Actualmente se admite la vista Dependencias para Application Gateway, Virtual WAN y Load Balancer. Por ejemplo, en el caso de Application Gateway, se puede acceder a la vista Dependencias al hacer clic en el nombre del recurso de Application Gateway desde la vista de cuadrícula de métricas. Esto también se aplica a Virtual WAN y Load Balancer. 
 
 ![Vista Application Gateway](media/network-insights-overview/application-gateway.png)
 
@@ -70,4 +70,4 @@ Haga clic en **vista de métricas detalladas** para iniciar un libro preconfigur
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-- Obtenga más información sobre la supervisión de red en [¿Qué es Azure Network Watcher?](/azure/network-watcher/network-watcher-monitoring-overview)
+- Obtenga más información sobre la supervisión de red en [¿Qué es Azure Network Watcher?](../../network-watcher/network-watcher-monitoring-overview.md)

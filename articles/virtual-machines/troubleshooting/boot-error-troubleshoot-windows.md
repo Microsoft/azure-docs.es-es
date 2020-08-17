@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: f7e2b70b111cd195f688e236bf8f05b077acb000
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5ab1262def78da4971ea6e5535f3ac915a38ec8
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678773"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526765"
 ---
 # <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>El apagado de máquinas virtuales Windows en Azure está atascado en "Reiniciando", "Apagando" o "Deteniendo servicios".
 
@@ -25,7 +25,7 @@ En este artículo se proporcionan los pasos necesarios para resolver los problem
 
 ## <a name="symptoms"></a>Síntomas
 
-Cuando use los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual, es posible que vea que la captura de pantalla muestra el mensaje "Reiniciando", "Apagando" o "Deteniendo servicios".
+Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la máquina virtual, es posible que vea que la captura de pantalla muestra el mensaje "Reiniciando", "Apagando" o "Deteniendo servicios".
 
 ![Pantallas Reiniciando, Apagando o Deteniendo servicios](./media/boot-error-troubleshooting-windows/restart-shut-down-stop-service.png)
  
@@ -41,7 +41,7 @@ Windows usa el proceso de apagado tanto para realizar operaciones de mantenimien
 
 2. Desconecte el disco que contiene los archivos necesarios de la máquina virtual en funcionamiento y conéctelo a la máquina virtual rota. Vamos a llamar a este disco **Disco de utilidad**.
 
-Use la [Consola serie](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-windows) para completar los pasos siguientes:
+Use la [Consola serie](./serial-console-windows.md) para completar los pasos siguientes:
 
 1. Abra una instancia de PowerShell administrativa y compruebe el servicio que se bloquea al detenerse.
 
@@ -81,13 +81,13 @@ Si el problema no se soluciona después de esperar a que se hayan procesado los 
 
 **Conecte el disco del sistema operativo a una máquina virtual de recuperación**
 
-1. Tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](https://docs.microsoft.com/azure/virtual-machines/windows/snapshot-copy-managed-disk).
+1. Tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
 
-2. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+2. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](./troubleshoot-recovery-disks-portal-windows.md).
 
 3. Escritorio remoto a la máquina virtual de recuperación.
 
-4. Si el disco del sistema operativo está cifrado, debe desactivar el cifrado antes de pasar al siguiente paso. Para más información, consulte [Descifrado del disco de sistema cifrado en la máquina virtual que no arranca](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-bitlocker-boot-error#solution).
+4. Si el disco del sistema operativo está cifrado, debe desactivar el cifrado antes de pasar al siguiente paso. Para más información, consulte [Descifrado del disco de sistema cifrado en la máquina virtual que no arranca](./troubleshoot-bitlocker-boot-error.md#solution).
 
 **Busque el archivo de volcado de memoria y envíe una incidencia de soporte técnico**
 
@@ -142,7 +142,7 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
    reg unload HKLM\BROKENSYSTEM
    ```
 
-5. [Desconecte el disco del sistema operativo y, después, vuelva a conectarlo a la máquina virtual afectada](https://docs.microsoft.com/azure/virtual-machines/windows/troubleshoot-recovery-disks-portal).
+5. [Desconecte el disco del sistema operativo y, después, vuelva a conectarlo a la máquina virtual afectada](./troubleshoot-recovery-disks-portal-windows.md).
 
 6. Inicie la máquina virtual y acceda a la consola serie.
 

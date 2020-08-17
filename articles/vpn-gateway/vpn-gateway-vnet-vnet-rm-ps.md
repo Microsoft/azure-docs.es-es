@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5477eea12ee41bae42365555e38aa95ca0faeb3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 318656a779aa5ba2279f075fcc44589fe2039682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987098"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009499"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configuración de una conexión de VPN Gateway de red virtual a red virtual mediante PowerShell
 
@@ -81,7 +81,7 @@ Para este ejercicio, puede combinar las configuraciones, o bien elegir con la qu
 
 * Dado que se tarda hasta 45 minutos en crear una puerta de enlace, el tiempo de Azure Cloud Shell expirara periódicamente durante este ejercicio. Para reiniciar Cloud Shell, haga clic en la esquina superior izquierda del terminal. No olvide volver a declarar las variables cuando se reinicie el terminal.
 
-* Si prefiere instalar la versión más reciente del módulo Azure PowerShell localmente, consulte el artículo de [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+* Si prefiere instalar la versión más reciente del módulo Azure PowerShell localmente, consulte el artículo de [Instalación y configuración de Azure PowerShell](/powershell/azure/).
 
 ### <a name="step-1---plan-your-ip-address-ranges"></a><a name="Step1"></a>Paso 1: Planeamiento de los intervalos de direcciones IP
 

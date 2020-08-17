@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 078ed3e5f3a19bfa4350f9edea858b717c69e3f8
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: aea3a173fd07b66021d35142a84499ae9c66c014
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81537158"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518205"
 ---
 # <a name="a-web-api-that-calls-web-apis-move-to-production"></a>API web que llama a API web: Paso a producción
 
@@ -30,4 +30,4 @@ Ahora que conoce los conceptos básicos de cómo llamar a las API web desde su p
 
 | Muestra | Plataforma | Descripción |
 |--------|----------|-------------|
-| [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | API web de ASP.NET Core 2.2, escritorio (WPF) | La API web de ASP.NET Core 2.2 llama a Microsoft Graph, a donde llama desde una aplicación de WPF con la Plataforma de identidad de Microsoft (v2.0). |
+| Capítulo 1 de [active-directory-aspnetcore-webapi-tutorial-v2](https://github.com/Azure-Samples/active-directory-dotnet-native-aspnetcore-v2/tree/master/2.%20Web%20API%20now%20calls%20Microsoft%20Graph) | API web de ASP.NET Core, escritorio (WPF) | La API web de ASP.NET Core llama a Microsoft Graph, a donde llama desde una aplicación de WPF con la Plataforma de identidad de Microsoft (v2.0). |

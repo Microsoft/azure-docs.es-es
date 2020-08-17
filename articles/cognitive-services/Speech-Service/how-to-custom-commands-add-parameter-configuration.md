@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: sausin
-ms.openlocfilehash: 5417ff3b53526adbaeba2b9df58694ad495475d3
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: 45dba3b7f46ec558c46b8505da26fd3ef4de4cbc
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307331"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284190"
 ---
 # <a name="add-configurations-to-commands-parameters"></a>Adición de configuraciones a parámetros de comandos
 
@@ -112,7 +112,7 @@ Pruebe las validaciones con el comando **SetTemperature**. Use los siguientes pa
     | ---- | ---- | ---- |
     | Valor mínimo | `60` | En el caso de los parámetros numéricos, el valor mínimo que puede asumir este parámetro |
     | Valor máximo | `80` | En el caso de los parámetros numéricos, el valor máximo que puede asumir este parámetro |
-    | Error de respuesta |  Editor sencillo > Primera variación > `Sorry, I can only set temperature between 60 and 80 degrees` | Mensaje para solicitar un valor nuevo si se produce un error en la validación |
+    | Error de respuesta |  Editor sencillo > Primera variación > `Sorry, I can only set temperature between 60 and 80 degrees. What temperature do you want?` | Mensaje para solicitar un valor nuevo si se produce un error en la validación |
 
     > [!div class="mx-imgBorder"]
     > ![Agregue una validación de intervalo](media/custom-commands/add-validations-temperature.png).

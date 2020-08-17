@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 05/09/2020
-ms.openlocfilehash: 81c1c95e2af7b537a12c8c86245b009005aa0aa2
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: aebce8f284ed4bb21d99efffc8dd6d0c51b39533
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83005369"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001492"
 ---
 # <a name="encode-and-decode-flat-files-in-azure-logic-apps-by-using-the-enterprise-integration-pack"></a>Codificación y descodificación de archivos planos en Azure Logic Apps mediante Enterprise Integration Pack
 
@@ -25,7 +25,7 @@ Antes de enviar contenido XML a un socio comercial en un escenario de negocio a 
 
 * La aplicación lógica en la que quiere usar el conector de **archivos planos** y un desencadenador que inicie el flujo de trabajo de la aplicación lógica. El conector de **archivos planos** proporciona únicamente las acciones, no los desencadenadores. Puede usar el desencadenador u otra acción para insertar el contenido XML en la aplicación lógica para la codificación o descodificación. Si es la primera vez que usa aplicaciones lógicas, revise [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) asociada con la suscripción a Azure y [vinculada a las aplicaciones lógicas](logic-apps-enterprise-integration-accounts.md#link-account) en las que planea usar el conector de **archivos planos**. Tanto la cuenta de integración como la aplicación de lógica deben existir en la misma ubicación o región de Azure.
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) asociada con la suscripción a Azure y [vinculada a las aplicaciones lógicas](./logic-apps-enterprise-integration-create-integration-account.md#link-account) en las que planea usar el conector de **archivos planos**. Tanto la cuenta de integración como la aplicación de lógica deben existir en la misma ubicación o región de Azure.
 
 * El [esquema](logic-apps-enterprise-integration-schemas.md) del archivo plano que ha cargado a la cuenta de integración para codificar o descodificar el contenido XML
 

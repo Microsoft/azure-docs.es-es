@@ -7,12 +7,13 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: quickstart
 ms.date: 06/09/2020
-ms.openlocfilehash: 1281f5c3355a09659f2f45c4cf944271936f50d8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 92d92072fbc8ceebdd4fd9253620e5fba89bfb54
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636378"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87987518"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Inicio rápido: Configuración de Azure NetApp Files y creación de un volumen de NFS 
 
@@ -131,7 +132,7 @@ Este artículo de procedimientos requiere la versión 2.6.0 del módulo Az de A
 
     > [!NOTE]
     > Consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all) para conocer la lista actual de regiones admitidas.
-    > Para obtener el nombre de la región compatible con nuestras herramientas de línea de comandos, use `az account list-locations -query "[].{Region:name}" --out table`.
+    > Para obtener el nombre de la región compatible con nuestras herramientas de línea de comandos, use `az account list-locations --query "[].{Region:name}" --out table`.
     >
 
 2. Cree un nuevo grupo de recursos con el comando [az group create](/cli/azure/group#az-group-create):
@@ -411,4 +412,6 @@ Cuando haya terminado, y si lo desea, puede eliminar el grupo de recursos. La ac
 ## <a name="next-steps"></a>Pasos siguientes  
 
 > [!div class="nextstepaction"]
-> [Administración de volúmenes mediante Azure NetApp Files](azure-netapp-files-manage-volumes.md)  
+> [Jerarquía de almacenamiento de Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)   
+> [Niveles de servicio de Azure NetApp Files](azure-netapp-files-service-levels.md)   
+> [Creación de un volumen NFS](azure-netapp-files-create-volumes.md)   

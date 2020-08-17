@@ -3,12 +3,12 @@ title: Uso de la configuración de diagnóstico en almacenes de Recovery Service
 description: En este artículo, se explica cómo se utilizan los nuevos y los antiguos eventos de diagnóstico de Azure Backup.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: be99b73a4dac12c9e70e4cb8a85f34b97f5c42d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 7dbc6d97cd923c75a25eadccef2c2292b10deb41
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85854815"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514156"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Uso de la configuración de diagnóstico en almacenes de Recovery Services
 
@@ -29,15 +29,15 @@ Azure Backup proporciona los siguientes eventos de diagnóstico. Cada evento pro
 * AddonAzureBackupPolicy
 * AddonAzureBackupStorage
 
-Si usa el [evento heredado](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) AzureBackupReport, se recomienda cambiar al uso de los eventos anteriores lo antes posible.
+Si usa el [evento heredado](#legacy-event) AzureBackupReport, se recomienda cambiar al uso de los eventos anteriores lo antes posible.
 
-Para más información, consulte [Modelo de datos para eventos de diagnóstico de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model).
+Para más información, consulte [Modelo de datos para eventos de diagnóstico de Azure Backup](./backup-azure-reports-data-model.md).
 
 Los datos de estos eventos se pueden enviar a una cuenta de almacenamiento, al área de trabajo de Log Analytics o a un centro de eventos. Si va a enviar estos datos a un área de trabajo de Log Analytics, sitúe el alternador en **Específico del recurso** en la pantalla **Configuración de diagnóstico**. Para más información, consulte las siguientes secciones:
 
 ## <a name="use-diagnostics-settings-with-log-analytics"></a>Uso de la configuración de diagnóstico con Log Analytics
 
-Ahora, puede usar Azure Backup para enviar datos de diagnóstico de los almacenes a tablas de Log Analytics dedicadas a la copia de seguridad. Estas tablas se denominan [tablas específicas de recursos](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific).
+Ahora, puede usar Azure Backup para enviar datos de diagnóstico de los almacenes a tablas de Log Analytics dedicadas a la copia de seguridad. Estas tablas se denominan [tablas específicas de recursos](../azure-monitor/platform/resource-logs.md#send-to-log-analytics-workspace).
 
 Para enviar los datos de diagnóstico de un almacén a Log Analytics:
 
@@ -52,23 +52,23 @@ Para enviar los datos de diagnóstico de un almacén a Log Analytics:
 Cuando los datos se transmiten al área de trabajo de Log Analytics, se crean tablas dedicadas para cada uno de esos eventos en el área de trabajo. Puede consultar directamente cualquiera de esas tablas. Si es necesario, también puede realizar combinaciones o uniones entre las tablas.
 
 > [!IMPORTANT]
-> En los [informes de Backup](https://docs.microsoft.com/azure/backup/configure-reports), los seis eventos anteriores (CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage y AddonAzureBackupProtectedInstance) *solo* pueden utilizarse en el modo específico del recurso. *Si intenta enviar datos de estos seis eventos en el modo de diagnóstico de Azure, estos datos no podrán verse en los informes de Backup.*
+> En los [informes de Backup](./configure-reports.md), los seis eventos anteriores (CoreAzureBackup, AddonAzureBackupJobs, AddonAzureBackupAlerts, AddonAzureBackupPolicy, AddonAzureBackupStorage y AddonAzureBackupProtectedInstance) *solo* pueden utilizarse en el modo específico del recurso. *Si intenta enviar datos de estos seis eventos en el modo de diagnóstico de Azure, estos datos no podrán verse en los informes de Backup.*
 
 ## <a name="legacy-event"></a>Evento heredado
 
 Tradicionalmente, todos los datos de diagnóstico relacionados con las copias de seguridad de un almacén se incluían en un solo evento llamado AzureBackupReport. En realidad, los seis eventos que se describen anteriormente son un desglose de todos los datos de AzureBackupReport.
 
-En la actualidad, aún se permite utilizar el evento AzureBackupReport para garantizar la compatibilidad con versiones anteriores en aquellos casos en los que los usuarios tienen consultas personalizadas existentes relacionadas con este evento; por ejemplo, alertas de registro y visualizaciones personalizadas. *Es conveniente que actualice a los [nuevos eventos](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users) lo antes posible*. Estos nuevos eventos:
+En la actualidad, aún se permite utilizar el evento AzureBackupReport para garantizar la compatibilidad con versiones anteriores en aquellos casos en los que los usuarios tienen consultas personalizadas existentes relacionadas con este evento; por ejemplo, alertas de registro y visualizaciones personalizadas. *Es conveniente que actualice a los [nuevos eventos](#diagnostics-events-available-for-azure-backup-users) lo antes posible*. Estos nuevos eventos:
 
 * Facilitan enormemente el uso de datos en las consultas de registros.
 * Proporcionan una mayor capacidad de detección de los esquemas y su estructura.
 * Mejoran el rendimiento tanto de la latencia de ingesta como de los tiempos de consulta.
 
-*El evento heredado del modo de diagnóstico de Azure terminará quedando en desuso. Si decide utilizar los nuevos eventos, evitará las migraciones complejas en el futuro*. Los datos del evento heredado también van a dejar de admitirse en nuestra [solución de generación informes](https://docs.microsoft.com/azure/backup/configure-reports), que utiliza Log Analytics.
+*El evento heredado del modo de diagnóstico de Azure terminará quedando en desuso. Si decide utilizar los nuevos eventos, evitará las migraciones complejas en el futuro*. Los datos del evento heredado también van a dejar de admitirse en nuestra [solución de generación informes](./configure-reports.md), que utiliza Log Analytics.
 
 ### <a name="steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace"></a>Pasos para cambiar a la nueva configuración de diagnóstico en un área de trabajo de Log Analytics
 
-1. Identifique qué almacenes envían datos a las áreas de trabajo de Log Analytics utilizando el evento heredado y las suscripciones a las que pertenece. Ejecute las siguientes áreas de trabajo para identificar estos almacenes y suscripciones.
+1. Identifique qué almacenes envían datos a las áreas de trabajo de Log Analytics utilizando el evento heredado y las suscripciones a las que pertenece. Ejecute las siguientes consultas en cada una de sus áreas de trabajo para identificar estos almacenes y suscripciones.
 
     ````Kusto
     let RangeStart = startofday(ago(3d));
@@ -84,7 +84,7 @@ En la actualidad, aún se permite utilizar el evento AzureBackupReport para gara
         | project ResourceId, Category};
         // Some Workspaces will not have AzureDiagnostics Table, hence you need to use isFuzzy
     let CombinedVaultTable = (){
-        CombinedTable | union isfuzzy = true
+        union isfuzzy = true
         (VaultUnderAzureDiagnostics() ),
         (VaultUnderResourceSpecific() )
         | distinct ResourceId, Category};
@@ -96,7 +96,11 @@ En la actualidad, aún se permite utilizar el evento AzureBackupReport para gara
     | project ResourceId, SubscriptionId, VaultName
     ````
 
-1. Use la [directiva de Azure Policy integrada](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics) en Azure Backup para agregar una nueva configuración de diagnóstico en todos los almacenes del ámbito especificado. Esta directiva agrega una nueva configuración de diagnóstico a los almacenes que no cuentan con una configuración de diagnóstico o que solo disponen de una configuración de diagnóstico heredada. Esta directiva se puede asignar a una suscripción entera o a un grupo de recursos cada vez. Tenga en cuenta que necesitará acceso de "propietario" a cada suscripción en la que se asigne la directiva.
+    A continuación se muestra una captura de pantalla de la consulta en ejecución en una de las áreas de trabajo:
+
+    ![Consulta del área de trabajo](./media/backup-azure-diagnostics-events/workspace-query.png)
+
+2. Use la [directiva de Azure Policy integrada](./azure-policy-configure-diagnostics.md) en Azure Backup para agregar una nueva configuración de diagnóstico en todos los almacenes del ámbito especificado. Esta directiva agrega una nueva configuración de diagnóstico a los almacenes que no cuentan con una configuración de diagnóstico o que solo disponen de una configuración de diagnóstico heredada. Esta directiva se puede asignar a una suscripción entera o a un grupo de recursos cada vez. Tenga en cuenta que necesitará acceso de "propietario" a cada suscripción en la que se asigne la directiva.
 
 Si lo desea, puede optar por utilizar una configuración de diagnóstico diferente para AzureBackupReport y los seis eventos nuevos hasta que haya migrado todas las consultas personalizadas y se utilicen los datos de las nuevas tablas. En la imagen siguiente, se muestra un ejemplo de un almacén que tiene dos configuraciones de diagnóstico. La primera configuración, **Setting1**, envía datos del evento AzureBackupReport a un área de trabajo de Log Analytics en el modo de diagnóstico de Azure. La segunda configuración, **Setting2**, envía datos de los seis nuevos eventos de Azure Backup nuevos a un área de trabajo de Log Analytics en el modo específico del recurso.
 
@@ -126,4 +130,4 @@ En la imagen siguiente, se muestra un ejemplo de un usuario que tiene tres confi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre el modelo de datos de Log Analytics para eventos de diagnóstico](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
+[Más información sobre el modelo de datos de Log Analytics para eventos de diagnóstico](./backup-azure-reports-data-model.md)

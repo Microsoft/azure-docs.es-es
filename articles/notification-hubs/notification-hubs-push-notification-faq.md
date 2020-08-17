@@ -15,12 +15,12 @@ ms.date: 11/13/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 0fe4ae76645ec2a0ae8aae93b9db987ece9a45b9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85ebb7f5ac52f4eea25f9e6f1a2b1b5ac6f4caa5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255133"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077921"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 
@@ -138,7 +138,7 @@ Los registros desde el back-end de aplicación son útiles cuando tiene que aute
 
 ### <a name="what-is-the-push-notification-delivery-security-model"></a>¿Cuál es el modelo de seguridad de entrega de las notificaciones push?
 
-Azure Notification Hubs usa un modelo de seguridad basado en [firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md). Puede usar los tokens de firma de acceso compartido en el nivel de espacio de nombres raíz o en el nivel de centro de notificaciones detallado. Los tokens de firma de acceso compartido se pueden establecer para que sigan distintas reglas de autorización, por ejemplo, para enviar permisos de mensajes o para escuchar los permisos de notificaciones. Para más información, consulte el documento sobre el [modelo de seguridad de Notification Hubs].
+Azure Notification Hubs usa un modelo de seguridad basado en [firma de acceso compartido](../storage/common/storage-sas-overview.md). Puede usar los tokens de firma de acceso compartido en el nivel de espacio de nombres raíz o en el nivel de centro de notificaciones detallado. Los tokens de firma de acceso compartido se pueden establecer para que sigan distintas reglas de autorización, por ejemplo, para enviar permisos de mensajes o para escuchar los permisos de notificaciones. Para más información, consulte el documento sobre el [modelo de seguridad de Notification Hubs].
 
 ### <a name="how-should-i-handle-sensitive-payload-in-push-notifications"></a>¿Cómo debo controlar la carga confidencial de las notificaciones push?
 
@@ -203,15 +203,15 @@ También puede acceder a las métricas mediante programación. Para más informa
 [Azure Portal]: https://portal.azure.com
 [Precios de Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[API de REST de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
+[API de REST de Notification Hubs]: /previous-versions/azure/reference/dn530746(v=azure.100)
 [Mobile Services Pricing]: https://azure.microsoft.com/pricing/details/mobile-services/
-[Registro desde el back-end de la aplicación]: https://msdn.microsoft.com/library/azure/dn743807.aspx
-[Administración de registro]: https://msdn.microsoft.com/library/azure/dn530747.aspx
-[Modelo de seguridad de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn495373.aspx
-[Tutorial sobre inserciones seguras de Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-aspnet-backend-ios-secure-push/
-[Solución de problemas de Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-diagnosing/
+[Registro desde el back-end de la aplicación]: /previous-versions/azure/azure-services/dn743807(v=azure.100)
+[Administración de registro]: /previous-versions/azure/azure-services/dn530747(v=azure.100)
+[Modelo de seguridad de Notification Hubs]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
+[Tutorial sobre inserciones seguras de Notification Hubs]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
+[Solución de problemas de Notification Hubs]: ./notification-hubs-push-notification-fixer.md
 [Métricas de Notification Hubs]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
-[Procedimiento: cómo exportar y modificar registros en bloque]: https://docs.microsoft.com/azure/notification-hubs/export-modify-registrations-bulk
+[Procedimiento: cómo exportar y modificar registros en bloque]: ./export-modify-registrations-bulk.md
 [Azure Portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [App Service Pricing]: https://azure.microsoft.com/pricing/details/app-service/

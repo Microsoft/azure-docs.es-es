@@ -6,18 +6,18 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e5595620a2f888b06ad5b35d2e8a008f23861463
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.openlocfilehash: 41e090b9e1d4c091bd3972afd296c5751e6b8c58
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725897"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082722"
 ---
 # <a name="feature-list"></a>Lista de características #
 Esta es una lista de las características probadas y de las no admitidas:
 
-|                                         | PROBADAS | PROBADAS PARCIALMENTE | NO PROBADAS | NO ADMITIDAS | NOTAS                                                                                                                |
-|:----------------------------------------|--------|------------------|----------|-------------|:---------------------------------------------------------------------------------------------------------------------|
+| Característica | PROBADAS | PROBADAS PARCIALMENTE | NO PROBADAS | NO ADMITIDAS | NOTAS |
+| ------- | ------ | ---------------- | -------- | ----------- | ----- |
 | Reproducción                                |        |                  |          |             |                                                                                                                      |
 | Reproducción básica a petición                | X      |                  |          |             | Solo se admiten frecuencias de Azure Media Services                                                                      |
 | Reproducción básica en directo                     | X      |                  |          |             | Solo se admiten frecuencias de Azure Media Services                                                                      |

@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 04/02/2020
-ms.openlocfilehash: 01906935de76b2b262f2058563a3eee0e297e8a4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 08/12/2020
+ms.openlocfilehash: 33521a5aed38cacbc7ce87b4a2a917ade866e378
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985336"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142441"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidad para Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -95,16 +95,22 @@ En el diagrama siguiente se ilustra la versión con redundancia de zona de la ar
 
 ## <a name="testing-application-fault-resiliency"></a>Prueba de la resistencia a errores de la aplicación
 
-La alta disponibilidad es una parte fundamental de la plataforma SQL Database e Instancia administrada de SQL que funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a la aplicación antes de implementarla para producción. Puede llamar a una API especial para reiniciar una base de datos o un grupo elástico, que a su vez activará una conmutación por error. En el caso de una base de datos con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en una zona de disponibilidad diferente a la zona principal anterior. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si cambia el rendimiento de un extremo a otro debido a los cambios en la latencia de la red. Dado que la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 30 minutos para cada base de datos o grupo elástico.
+La alta disponibilidad es una parte fundamental de la plataforma SQL Database e Instancia administrada de SQL que funciona de modo transparente para la aplicación de base de datos. Sin embargo, podría ser conveniente probar el modo en que las operaciones de conmutación por error automáticas iniciadas durante los eventos planeados o no planeados afectarían a una aplicación antes de implementarla para producción. Puede desencadenar manualmente una conmutación por error mediante una llamada a una API especial para reiniciar una base de datos, un grupo elástico o una instancia administrada. En el caso de una base de datos con redundancia de zona o un grupo elástico, la llamada a la API daría lugar a la redirección de las conexiones de cliente al nuevo elemento principal en una zona de disponibilidad diferente a la zona principal anterior. Por lo tanto, además de probar cómo afecta la conmutación por error a las sesiones de base de datos existentes, también puede comprobar si cambia el rendimiento de un extremo a otro debido a los cambios en la latencia de la red. Dado que la operación de reinicio es intrusiva y un gran número de ellas podría agotar la plataforma, solo se permite una llamada de conmutación por error cada 30 minutos para cada base de datos, grupo elástico o instancia administrada.
 
-Se puede iniciar una conmutación por error mediante la API de REST o PowerShell. Para más información sobre la API de REST, consulte [Conmutación por error de la base de datos](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) y [Conmutación por error del grupo elástico](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover). Para PowerShell, consulte [Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover) y [Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover). También se pueden realizar llamadas a la API de REST desde la CLI de Azure mediante el comando [az rest](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-rest).
+Se puede iniciar una conmutación por error mediante PowerShell, la API REST o la CLI de Azure:
+
+|Tipo de implementación|PowerShell|API DE REST| Azure CLI|
+|:---|:---|:---|:---|
+|Base de datos|[Invoke-AzSqlDatabaseFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqldatabasefailover)|[Conmutación por error de la base de datos](/rest/api/sql/databases(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) se puede usar para invocar una llamada a la API REST desde la CLI de Azure.|
+|Grupo elástico|[Invoke-AzSqlElasticPoolFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlelasticpoolfailover)|[Conmutación por error del grupo elástico](/rest/api/sql/elasticpools(failover)/failover/)|[az rest](https://docs.microsoft.com/cli/azure/reference-index#az-rest) se puede usar para invocar una llamada a la API REST desde la CLI de Azure.|
+|de SQL DB|[Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/Invoke-AzSqlInstanceFailover/)|[Instancias administradas: conmutación por error](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover)|[az sql mi failover](/cli/azure/sql/mi/#az-sql-mi-failover)|
 
 > [!IMPORTANT]
-> El comando de conmutación por error no está disponible actualmente en el nivel de servicio Hiperescala ni para Instancia administrada.
+> El comando de conmutación por error no está disponible para las réplicas secundarias legibles de las bases de datos de hiperescala.
 
 ## <a name="conclusion"></a>Conclusión
 
-Azure SQL Database e Instancia administrada de SQL presentan una solución de alta disponibilidad incorporada, que está totalmente integrada con la plataforma de Azure. Depende de Service Fabric para la detección y la recuperación de errores, de Azure Blob Storage para la protección de datos y de Availability Zones para la mayor tolerancia a errores. Al mismo tiempo, SQL Database e Instancia administrada de SQL aprovechan la tecnología de grupo de disponibilidad Always On de la instancia de SQL Server para la replicación y la conmutación por error. La combinación de estas tecnologías permite que las aplicaciones obtengan todos los beneficios de un modelo de almacenamiento mixto y puedan admitir los SLA más exigentes.
+Azure SQL Database e Instancia administrada de SQL presentan una solución de alta disponibilidad incorporada, que está totalmente integrada con la plataforma de Azure. Depende de Service Fabric para la detección y la recuperación de errores, de Azure Blob Storage para la protección de datos y de Availability Zones para la mayor tolerancia a errores (como ya se ha mencionado en el documento, aún no es aplicable a Azure SQL Managed Instance). Al mismo tiempo, SQL Database e Instancia administrada de SQL aprovechan la tecnología de grupo de disponibilidad Always On de la instancia de SQL Server para la replicación y la conmutación por error. La combinación de estas tecnologías permite que las aplicaciones obtengan todos los beneficios de un modelo de almacenamiento mixto y puedan admitir los SLA más exigentes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

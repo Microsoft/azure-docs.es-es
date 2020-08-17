@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 06/08/2020
 ms.topic: conceptual
-ms.openlocfilehash: 192fd0fe73a34ca4d6ffc49badeac7ca8a080793
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: ca96f817407aaef808fa10fbedec7af7b5912dc8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185592"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447935"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Información general de Change Tracking e Inventario
 
@@ -203,7 +203,7 @@ Una funcionalidad clave de Change Tracking e Inventario son las alertas sobre lo
 
 - Para habilitar la característica desde una cuenta de Automation, vea [Habilitación de Change Tracking e Inventario desde una cuenta de Automation](automation-enable-changes-from-auto-acct.md).
 
-- Para habilitar la característica a través de Azure Portal, consulte [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-onboard-solutions-from-browse.md).
+- Para habilitar la característica a través de Azure Portal, consulte [Habilitación de Change Tracking e Inventario desde Azure Portal](automation-enable-changes-from-browse.md).
 
 - Para habilitar la característica desde un runbook, vea [Habilitación de Change Tracking e Inventario desde un runbook](automation-enable-changes-from-runbook.md).
 

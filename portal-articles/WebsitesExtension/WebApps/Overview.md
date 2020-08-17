@@ -8,29 +8,29 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: bc013469610d5535c89870947fe094da93660012
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: abd322ce7f89be70cb7caf52b3155ba4be904ac9
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "73488427"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080256"
 ---
 # <a name="app-service-documentation"></a>Documentación de App Service
 Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Azure DevOps Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux y Docker
-[Web Apps](/app-service/overview) es la oferta principal de App Service para la creación y el hospedaje de aplicaciones web mediante entornos de Windows. Los programadores que prefieran un entorno de Linux pueden elegir [App Service para Linux](/app-service/containers/app-service-linux-intro). Los desarrolladores también pueden implementar imágenes de Docker directamente en App Service para Linux para implementar entornos de tiempo de ejecución o marcos personalizados.
+[Web Apps](/app-service/overview) es la oferta principal de App Service para la creación y el hospedaje de aplicaciones web mediante entornos de Windows. Los programadores que prefieran un entorno de Linux pueden elegir [App Service para Linux](/app-service/overview#app-service-on-linux). Los desarrolladores también pueden implementar imágenes de Docker directamente en App Service para Linux para implementar entornos de tiempo de ejecución o marcos personalizados.
 
 ## <a name="5-minute-quickstarts"></a>Guías de inicio rápido de 5 minutos
 
 Aprenda a implementar su primera aplicación en la nube mediante App Service para Web Apps:
 
-- [.NET](/azure/app-service/app-service-web-get-started-dotnet)
-- [Node.js](/azure/app-service/app-service-web-get-started-nodejs)
-- [PHP](/azure/app-service/app-service-web-get-started-php)
-- [Java](/azure/app-service/app-service-web-get-started-java)
-- [Python](/azure/app-service/containers/quickstart-python)
-- [HTML](/azure/app-service/app-service-web-get-started-html)
+- [.NET](/azure/app-service/quickstart-dotnetcore)
+- [Node.js](/azure/app-service/quickstart-nodejs)
+- [PHP](/azure/app-service/quickstart-php)
+- [Java](/azure/app-service/quickstart-java)
+- [Python](/azure/app-service/quickstart-python)
+- [HTML](/azure/app-service/quickstart-html)
 
 ## <a name="step-by-step-tutorials"></a>Tutoriales paso a paso
 
@@ -38,9 +38,9 @@ Aprenda a implementar, administrar y supervisar aplicaciones web seguras en Azur
 
 - Cree una aplicación mediante:
   - [.NET con Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-  - [Node.js con MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
+  - [Node.js con MongoDB](/azure/app-service/tutorial-nodejs-mongodb-app)
   - [Java con MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python con PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
+  - [Python con PostgreSQL](/app-service/tutorial-python-postgresql-app)
 - [Asignación de un dominio personalizado existente a una aplicación ](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Enlace de un certificado SSL a la aplicación](/azure/app-service/configure-ssl-bindings)
 

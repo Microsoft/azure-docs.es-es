@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 05/26/2020
 ms.author: erhopf
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 2ab484f1662d365bc23aefe1bc3d9eb4aed98185
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 93daa49fd262cd802f217fcda4139039023af2e2
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146975"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876519"
 ---
 # <a name="quickstart-use-the-translator-to-detect-text-language"></a>Inicio rápido: Uso de Traductor para detectar el idioma del texto
 

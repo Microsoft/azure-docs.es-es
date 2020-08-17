@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4a9081b3d3c1c925efb4cc80201e6154752dc628
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc78df7ea904bf85f5f2561319e6fc773244e971
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84734782"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005220"
 ---
-# <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
+# <a name="frequently-asked-questions-faqs-about-azure-active-directory-ad-domain-services"></a>Preguntas más frecuentes (P+F) sobre Azure Active Directory (AD) Domain Services
 
 Esta página responde a las preguntas más frecuentes acerca de Azure Active Directory Domain Services.
 

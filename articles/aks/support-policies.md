@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: ce014fc338ebfad18b91ba65b614ca0a380a3f7c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243858"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050693"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Directivas de soporte técnico para Azure Kubernetes Service
 
@@ -137,7 +137,7 @@ Aunque los clientes pueden iniciar sesión en los nodos de trabajo y cambiarlos,
 
 ## <a name="network-ports-access-and-nsgs"></a>Puertos de red, acceso y grupos de seguridad de red
 
-Como servicio administrado, AKS tiene requisitos específicos de red y de conectividad. Estos requisitos son menos flexibles que los requisitos para los componentes normales de IaaS. En AKS, las operaciones como la personalización de las reglas de los grupos de seguridad de red, el bloqueo de un puerto específico (por ejemplo, mediante reglas de firewall que bloqueen el puerto de salida 443) y las direcciones URL permitidas pueden hacer que el clúster deje de ser compatible.
+Como servicio administrado, AKS tiene requisitos específicos de red y de conectividad. Estos requisitos son menos flexibles que los requisitos para los componentes normales de IaaS. En AKS, las operaciones como la personalización de las reglas de los grupos de seguridad de red, el bloqueo de un puerto específico (por ejemplo, mediante reglas de firewall que bloqueen el puerto de salida 443) y la adición de direcciones URL a una lista de permitidos pueden hacer que el clúster deje de ser compatible.
 
 > [!NOTE]
 > Actualmente, AKS no permite bloquear completamente el tráfico de salida del clúster. Para controlar la lista de direcciones URL y puertos que puede usar el clúster para el tráfico saliente, vea [Limitar el tráfico de salida](limit-egress-traffic.md).

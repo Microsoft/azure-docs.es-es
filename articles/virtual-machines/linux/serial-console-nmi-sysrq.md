@@ -3,16 +3,16 @@ title: Consola serie de Azure para llamadas SysRq y NMI
 description: Uso de la consola serie para llamadas SysRq y NMI en máquinas virtuales de Azure.
 author: asinn826
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 5541dec748f31818a0e9485fc0c56b7926ccaae7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d54d4266e4d1078676601a58ca9ac78ec3d4821b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758488"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292219"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Uso de la consola serie para llamadas SysRq y NMI
 
@@ -23,11 +23,11 @@ Una vez que se entrega la secuencia SysRq, la configuración del kernel controla
 
 La consola serie de Azure se puede usar para enviar un comando SysRq a una máquina virtual de Azure mediante el icono de teclado de la barra de comandos que se muestra a continuación.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
+![Captura de pantalla de la consola serie de Azure. El icono de teclado se resalta y su menú está visible. Ese menú contiene un elemento Enviar comando SysRq.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg)
 
 Al elegir "Send SysRq Command" (Enviar comando SysRq) se abre un cuadro de diálogo que proporciona opciones comunes de SysRq o que acepta una secuencia de comandos SysRq escritos en el cuadro de diálogo.  Esto permite que la serie de comandos SysRq realice una operación de alto nivel como un reinicio seguro mediante: `REISUB`.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
+![Captura de pantalla del cuadro de diálogo Enviar comando SysRq al invitado. Se selecciona la opción para escribir comandos y el cuadro de comandos contiene REISUB.](../media/virtual-machines-serial-console/virtual-machine-serial-console-sysreq_UI.png)
 
 No se puede usar el comando SysRq en máquinas virtuales que estén detenidas o cuyo kernel se encuentre en un estado sin respuesta (por ejemplo, una alerta de pánico del kernel).
 
@@ -96,7 +96,7 @@ Una interrupción no enmascarable (NMI) está diseñada para crear una señal qu
 
 La consola serie se puede usar para enviar una NMI a una máquina virtual de Azure mediante el icono de teclado de la barra de comandos que se muestra a continuación. Una vez que se entrega la NMI, la configuración de la máquina virtual controla cómo responde el sistema.  Los sistemas operativos Linux se pueden configurar para bloquearse y crear un volcado de memoria cuando el sistema operativo recibe una NMI.
 
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
+![Captura de pantalla de la consola serie. El icono de teclado se resalta y su menú está visible. Ese menú contiene un elemento Enviar interrupción no enmascarable.](../media/virtual-machines-serial-console/virtual-machine-serial-console-command-menu.jpg) <br>
 
 En el caso de sistemas Linux que admiten sysctl para configurar parámetros del kernel, puede habilitar una alerta de pánico al recibir esta NMI mediante estas acciones:
 1. Agregar esta línea a */etc/sysctl.conf* <br>
@@ -121,7 +121,7 @@ Para más información sobre las configuraciones del kernel de Linux, como `unkn
 - [Collecting crash logs](https://coreos.com/os/docs/latest/collecting-crash-logs.html) (Recopilación de registros de bloqueo)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* La página principal de la documentación de Linux de la consola serie se encuentra [aquí](serial-console.md).
+* La página principal de la documentación de Linux de la consola serie se encuentra [aquí](../troubleshooting/serial-console-linux.md).
 * Use la consola serie para arrancar en [GRUB y entrar en modo de usuario único](serial-console-grub-single-user-mode.md).
-* La consola serie también está disponible para VM [Windows](../windows/serial-console.md)
-* Obtenga más información sobre [Diagnósticos de arranque](boot-diagnostics.md)
+* La consola serie también está disponible para VM [Windows](../troubleshooting/serial-console-windows.md)
+* Obtenga más información sobre [Diagnósticos de arranque](../troubleshooting/boot-diagnostics.md)

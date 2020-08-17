@@ -18,6 +18,8 @@
   items:
     - name: "Creación de un clúster de Red Hat OpenShift en Azure\_4 privado"
       href: howto-create-private-cluster-4x.md
+    - name: "Actualización de secreto de extracción de un clúster de Red Hat OpenShift en Azure\_4"
+      href: howto-add-update-pull-secret.md
     - name: "Configuración del reenvío de DNS para un clúster de Red Hat OpenShift en Azure\_4"
       href: dns-forwarding.md
     - name: "Configuración de la autenticación de Azure\_Active\_Directory para un clúster de Red Hat OpenShift en Azure\_4"
@@ -26,6 +28,12 @@
           href: configure-azure-ad-cli.md
         - name: "Configuración de la autenticación de Azure\_Active\_Directory (Azure Portal)"
           href: configure-azure-ad-ui.md
+    - name: Creación de una copia de seguridad de una aplicación y restauración de la misma con Velero
+      items:
+        - name: Creación de una copia de seguridad de una aplicación de clúster con Velero
+          href: howto-create-a-backup.md
+        - name: Creación de una restauración de una aplicación de clúster con Velero
+          href: howto-create-a-restore.md
     - name: "Supervisión y registro de Red Hat OpenShift en Azure\_4"
       items:
         - name: "Azure Monitor para contenedores en Red Hat OpenShift en Azure\_4 (versión preliminar)"
@@ -67,6 +75,10 @@
               href: cluster-administration-cluster-admin-role.md
             - name: "2: Administración de restricciones del contexto de seguridad en Red Hat OpenShift en Azure\_3.11"
               href: cluster-administration-security-context-constraints.md
+- name: Conceptos
+  items:
+    - name: "Redes en clústeres de Red Hat OpenShift en Azure\_4"
+      href: concepts-networking.md
 - name: Referencia
   items:
     - name: CLI de Red Hat OpenShift en Azure
@@ -77,7 +89,7 @@
   items:
     - name: Preguntas más frecuentes
       href: openshift-faq.md
-    - name: Solucionar problemas
+    - name: Solución de problemas
       href: troubleshoot.md
     - name: "Recursos compatibles con Red Hat OpenShift en Azure\_3.11"
       href: supported-resources.md

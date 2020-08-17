@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ec15f87bdbf381b71faa7cefd986dd5e55e17a19
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9db7f2016de01edbedfa9e7d7254561fea957d2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964998"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495308"
 ---
 # <a name="use-t-sql-loops-in-synapse-sql"></a>Uso de bucles de T-SQL en Synapse SQL
 En este artículo encontrará sugerencias para usar bucles de T-SQL, reemplazar cursores y desarrollar soluciones relacionadas con el grupo de SQL en SQL de Synapse.
@@ -26,7 +26,7 @@ SQL de Synapse admite el bucle [WHILE](https://docs.microsoft.com/sql/t-sql/lang
 
 Los bucles en un grupo de SQL son útiles para reemplazar los cursores definidos en código SQL. Afortunadamente, casi todos los cursores que están escritos en código SQL son de la variedad avance rápido y solo lectura. Por lo tanto, los bucles [WHILE] son una buena alternativa para reemplazar los cursores.
 
-## <a name="replacing-cursors-in-sql-pool"></a>Reemplazo de cursores en el grupo de SQL
+## <a name="replace-cursors-in-sql-pool"></a>Sustitución de cursores en un grupo de SQL
 
 Antes de profundizar, se debe tener en cuenta la siguiente pregunta: "¿Se podría reescribir este cursor para usar operaciones basadas en conjuntos?". En muchos casos, la respuesta es afirmativa y este suele ser el mejor enfoque. Una operación basada en conjunto a menudo se ejecuta más rápido que un enfoque iterativo, fila a fila.
 

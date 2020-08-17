@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 01/15/2020
-ms.openlocfilehash: a82d2317314c79a82fe80c5a25afc950fb728815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/17/2020
+ms.openlocfilehash: c677b0278d29c499d4369967c1c76132a1ae9d21
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76155203"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519854"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Reglas de firewall del servidor de Azure Database para MySQL
 Los firewalls impiden todo acceso al servidor de bases de datos, excepto a aquellos equipos a los que haya concedido permiso. Asimismo, otorgan acceso al servidor según la dirección IP de origen de cada solicitud.
@@ -66,8 +66,12 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio del servidor 
 
 * **La dirección IP del servidor parece pública:** Las conexiones con el servidor de Azure Database for MySQL se enrutan mediante una puerta de enlace de Azure de acceso público. Sin embargo, la dirección IP real del servidor está protegida por el firewall. Para más información, consulte el [artículo de arquitectura de conectividad](concepts-connectivity-architecture.md). 
 
+* **No se puede conectar desde el recurso de Azure con la dirección IP permitida:** Compruebe si el punto de conexión de servicio **Microsoft.Sql** está habilitado para la subred desde la que se conecta. Si **Microsoft.Sql** está habilitado, indica que solo desea usar [reglas de punto de conexión de servicio de una red virtual](concepts-data-access-and-security-vnet.md) en esa subred.
+
+   Por ejemplo, puede ver el siguiente error si se conecta desde una máquina virtual de Azure en una subred con **Microsoft.Sql** habilitado, pero sin ninguna regla de red virtual correspondiente: `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](./howto-manage-firewall-using-portal.md)
 * [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](./howto-manage-firewall-using-cli.md)
-- [Puntos de conexión de servicio de red virtual en Azure Database for MySQL](./concepts-data-access-and-security-vnet.md)
+* [Puntos de conexión de servicio de red virtual en Azure Database for MySQL](./concepts-data-access-and-security-vnet.md)

@@ -9,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 808eef5424d678559ae94ffd04e41eacd0f16aee
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41e3f1ff430293ebc7b3828a0fd7090923fc209c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80371100"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281487"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Integración de aplicaciones controladas por pantallas 3270 en sistemas centrales de IBM con Azure mediante Azure Logic Apps y el conector de IBM 3270
 
@@ -292,7 +292,7 @@ En este modo, define un método asociado a su plan de navegación. Para cada par
    |---------------|-----------------|
    | **Tipo de datos** | Byte, Date Time, Decimal, Int, Long, Short y String |
    | **Técnica de relleno de campos** | Los parámetros admiten estos tipos de relleno, usando espacios en blanco en caso necesario: <p><p>- **Type**: escriba caracteres de forma secuencial en el campo. <p>- **Fill**: reemplace el contenido del campo por caracteres, usando espacios en blanco en caso necesario. <p>- **EraseEofType**: borre el campo y, a continuación, escriba caracteres de forma secuencial en el campo. |
-   | **Cadena de formato** | Algunos tipos de datos de parámetro usan una cadena de formato, que informa al conector 3270 de cómo se debe convertir el texto de la pantalla en un tipo de datos de .NET: <p><p>- **DateTime**: la cadena de formato DateTime sigue las [cadenas de formato de fecha y hora personalizadas de .NET](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings). Por ejemplo, la fecha `06/30/2019` usa la cadena de formato `MM/dd/yyyy`. <p>- **Decimal**: la cadena de formato decimal usa la [cláusula COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por ejemplo, el número `100.35` usa la cadena de formato `999V99`. |
+   | **Cadena de formato** | Algunos tipos de datos de parámetro usan una cadena de formato, que informa al conector 3270 de cómo se debe convertir el texto de la pantalla en un tipo de datos de .NET: <p><p>- **DateTime**: la cadena de formato DateTime sigue las [cadenas de formato de fecha y hora personalizadas de .NET](/dotnet/standard/base-types/custom-date-and-time-format-strings). Por ejemplo, la fecha `06/30/2019` usa la cadena de formato `MM/dd/yyyy`. <p>- **Decimal**: la cadena de formato decimal usa la [cláusula COBOL Picture](https://www.ibm.com/support/knowledgecenter/SS6SG3_5.2.0/com.ibm.cobol52.ent.doc/PGandLR/ref/rlddepic.html). Por ejemplo, el número `100.35` usa la cadena de formato `999V99`. |
    |||
 
 ## <a name="save-and-view-metadata"></a>Guardado y visualización de metadatos
@@ -409,7 +409,7 @@ Al completar todos estos pasos, podrá usar la acción que crea en su aplicació
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/si3270/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](/connectors/si3270/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
@@ -417,3 +417,4 @@ Si necesita más detalles técnicos sobre este conector, como los desencadenador
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

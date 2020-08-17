@@ -8,12 +8,13 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 04/06/2018
 ms.author: johnkem
-ms.openlocfilehash: 1d38a3cac5525de6835bbb0f9873cbd0636d44a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: b657231cb6b896479766654e5bd989468d9b73e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81869675"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501157"
 ---
 # <a name="azure-diagnostics-extension-for-windows-vms"></a>Extensión de Azure Diagnostics para máquinas virtuales de Windows
 
@@ -37,7 +38,7 @@ La extensión de Azure Diagnostics requiere que la máquina virtual de destino e
 
 ## <a name="template-deployment"></a>Implementación de plantilla
 
-Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar la extensión de Azure Diagnostics durante la implementación de una plantilla de Azure Resource Manager. Consulte [Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](extensions-diagnostics-template.md).
+Las extensiones de VM de Azure pueden implementarse con plantillas de Azure Resource Manager. El esquema JSON detallado en la sección anterior se puede usar en una plantilla de Azure Resource Manager para ejecutar la extensión de Azure Diagnostics durante la implementación de una plantilla de Azure Resource Manager. Consulte [Uso de la supervisión y el diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](../extensions/diagnostics-template.md).
 
 ## <a name="azure-cli-deployment"></a>Implementación de la CLI de Azure
 
@@ -55,7 +56,7 @@ az vm extension set \
 
 ## <a name="powershell-deployment"></a>Implementación de PowerShell
 
-Se puede utilizar el comando `Set-AzVMDiagnosticsExtension` para agregar la extensión de Azure Diagnostics a una máquina virtual existente. Consulte también [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](ps-extensions-diagnostics.md).
+Se puede utilizar el comando `Set-AzVMDiagnosticsExtension` para agregar la extensión de Azure Diagnostics a una máquina virtual existente. Consulte también [Uso de PowerShell para habilitar Diagnósticos de Azure en una máquina virtual con Windows](../extensions/diagnostics-windows.md).
 
  
 

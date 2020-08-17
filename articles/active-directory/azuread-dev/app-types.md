@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: c290cbf36fd53d5afb5fd805cda896fb6879bb4b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5ff2858dd8b91ba036c517cbff07be96a729ef8c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80154957"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116451"
 ---
 # <a name="application-types-in-v10"></a>Tipos de aplicaciones en v1.0
 
@@ -41,7 +41,7 @@ Estos son los cinco escenarios principales de aplicación que admite Azure AD:
 Siga los vínculos para obtener más información acerca de cada tipo de aplicación y entender los escenarios generales antes de empezar a trabajar con el código. También puede obtener información sobre las diferencias que necesita saber al escribir una aplicación específica que funcione con el punto de conexión v1.0 o v2.0.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure AD son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](../develop/active-directory-v2-limitations.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json).
+> No todas las características y escenarios de Azure AD son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](./azure-ad-endpoint-comparison.md?bc=%2fazure%2factive-directory%2fazuread-dev%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fazuread-dev%2ftoc.json).
 
 Puede desarrollar cualquiera de los escenarios o aplicaciones que se describen en este documento utilizando diferentes lenguajes y plataformas. Todos cuentan con completos ejemplos de código que están disponibles en la guías de [ejemplos de código de v1.0 por escenario](sample-v1-code.md) y [ejemplos de código de v2.0 por escenario](../develop/sample-v2-code.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json). También puede descargar los ejemplos de código directamente desde el [repositorio de ejemplos de GitHub](https://github.com/Azure-Samples?q=active-directory) correspondiente.
 

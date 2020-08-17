@@ -1,15 +1,15 @@
 ---
 title: Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 description: Implementación y configuración de una red del consorcio de Hyperledger Fabric en Azure Kubernetes Service
-ms.date: 07/07/2020
+ms.date: 07/27/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: e1cbfa56f1e4ea9f8cbaa0ad973d06e8b8d486ca
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 4bc55090234a4ab33125ba43b8416de1eadb702f
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085818"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533434"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Consorcio Hyperledger Fabric en Azure Kubernetes Service (AKS)
 
@@ -28,13 +28,15 @@ Antes de optar por usar la plantilla de solución, compare su escenario con los 
 
 Opción | Modelo de servicio | Caso de uso común
 -------|---------------|-----------------
-Plantillas de solución | IaaS | Las plantillas de solución son plantillas de Azure Resource Manager que puede usar para aprovisionar una topología de red de cadena de bloques totalmente configurada. Las plantillas implementan y configuran servicios de proceso, redes y almacenamiento de Microsoft Azure para un tipo de red de cadena de bloques determinado. Las plantillas de solución se proporcionan sin un contrato de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
+Plantillas de solución | IaaS | Las plantillas de solución son plantillas de Azure Resource Manager que puede usar para aprovisionar una topología de red de cadena de bloques totalmente configurada. Las plantillas implementan y configuran servicios de proceso, redes y almacenamiento de Microsoft Azure para un tipo de red de cadena de bloques determinado. Las plantillas de solución se proporcionan sin un contrato de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
 [Azure Blockchain Service](../service/overview.md) | PaaS | Azure Blockchain Service Preview simplifica la formación, administración y regulación de las redes de cadena de bloques del consorcio. Use Azure Blockchain Service para soluciones que requieran PaaS, administración de consorcios o privacidad de contratos y transacciones.
-[Azure Blockchain Workbench](../workbench/overview.md) | IaaS y PaaS | La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñada para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Use Azure Blockchain Workbench para crear un prototipo de una solución de cadena de bloques o una prueba de concepto de la aplicación de cadena de bloques. Azure Blockchain Workbench se proporciona sin un acuerdo de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
+[Azure Blockchain Workbench](../workbench/overview.md) | IaaS y PaaS | La versión preliminar de Azure Blockchain Workbench es una colección de servicios y funcionalidades de Azure diseñada para ayudarle a crear e implementar aplicaciones de cadena de bloques para compartir datos y procesos empresariales con otras organizaciones. Use Azure Blockchain Workbench para crear un prototipo de una solución de cadena de bloques o una prueba de concepto de la aplicación de cadena de bloques. Azure Blockchain Workbench se proporciona sin un acuerdo de nivel de servicio. Use la [página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html) para obtener soporte técnico.
 
 ## <a name="hyperledger-fabric-consortium-architecture"></a>Arquitectura del consorcio de Hyperledger Fabric
 
-Para compilar la red de Hyperledger Fabric en Azure, debe implementar el servicio de ordenación y la organización con nodos del mismo nivel. Los diferentes componentes fundamentales que se crean como parte de la implementación de la plantilla son:
+Para compilar la red de Hyperledger Fabric en Azure, debe implementar el servicio de ordenación y la organización con nodos del mismo nivel. Con la plantilla de la solución de Hyperledger Fabric en Azure Kubernetes Service, puede crear nodos de ordenación o nodos del mismo nivel. Debe implementar la plantilla para cada nodo que quiera crear.
+
+Los diferentes componentes fundamentales que se crean como parte de la implementación de la plantilla son:
 
 - **Nodos solicitantes**: Un nodo responsable del orden de las transacciones en el libro de contabilidad. Junto con otros nodos, los nodos ordenados forman el servicio de ordenación de la red de Hyperledger Fabric.
 
@@ -58,22 +60,13 @@ La plantilla de la implementación pone en marcha varios recursos de Azure en su
 - **Disco administrado de Azure**: El disco administrado de Azure es para el almacenamiento persistente de la base de datos de estado mundial del nodo del mismo nivel y el libro de contabilidad.
 - **Dirección IP pública**: Un punto de conexión de dirección IP pública del clúster de AKS implementado para interactuar con el clúster.
 
-## <a name="hyperledger-fabric-blockchain-network-setup"></a>Configuración de red de cadena de bloques de Hyperledger Fabric
+## <a name="deploy-the-ordererpeer-organization"></a>Implementación de la organización solicitante/del mismo nivel
 
 Para comenzar, necesita una suscripción a Azure que pueda admitir la implementación de varias máquinas virtuales y cuentas de almacenamiento estándar. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-Configure la red de cadena de bloques de Hyperledger Fabric mediante los pasos siguientes:
+Para empezar a trabajar con la implementación de componentes de red de HLF, vaya a [Azure Portal](https://portal.azure.com).
 
-- [Implementación de la organización solicitante/del mismo nivel](#deploy-the-ordererpeer-organization)
-- [Compilación del consorcio](#build-the-consortium)
-
-## <a name="deploy-the-ordererpeer-organization"></a>Implementación de la organización solicitante/del mismo nivel
-
-Para empezar a trabajar con la implementación de componentes de red de HLF, vaya a [Azure Portal](https://portal.azure.com). Seleccione **Crear un recurso > Cadena de bloques** > busque **Hyperledger Fabric en Azure Kubernetes Service**.
-
-1. Seleccione **Crear** para iniciar la implementación de la plantilla. Se muestra la opción de **crear Hyperledger Fabric en Azure Kubernetes Service**.
-
-    ![Plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-fabric-aks.png)
+1. Seleccione **Crear un recurso > Cadena de bloques** > busque **Hyperledger Fabric en Azure Kubernetes Service (versión preliminar)** .
 
 2. Escriba los detalles del proyecto en la página **Datos básicos**.
 
@@ -90,7 +83,7 @@ Para empezar a trabajar con la implementación de componentes de red de HLF, vay
 
 5. Escriba la siguiente información:
     - **Nombre de la organización**: El nombre de la organización de Fabric, que es necesario para varias operaciones del plano de datos. El nombre de la organización debe ser único en cada implementación.
-    - **Componente de red de Fabric**: Elija el servicio de ordenación o los nodos del mismo nivel basados en el componente de red de la cadena de bloques que desea configurar.
+    - **Componente de red de Fabric**: Elija los nodos del servicio de ordenación o del mismo nivel en función del componente de red de la cadena de bloques que quiera configurar.
     - **Número de nodos**: Estos son los dos tipos de nodos:
         - Servicio de ordenación: Seleccione el número de nodos para proporcionar tolerancia a errores a la red. Solo se admiten 3, 5 o 7 nodos solicitantes.
         - Nodos del mismo nivel: Puede elegir entre 1 y 10 nodos, según sus necesidades.
@@ -113,7 +106,7 @@ Para empezar a trabajar con la implementación de componentes de red de HLF, vay
     - **Prefijo de DNS**: Prefijo del nombre del sistema de nombres de dominio (DNS) para el clúster de AKS. Usará DNS para conectarse a la API de Kubernetes al administrar los contenedores después de crear el clúster.
     - **Tamaño del nodo**: El tamaño del nodo de Kubernetes, puede elegir en la lista de referencia de almacén (SKU) de máquinas virtuales disponible en Azure. Para obtener un rendimiento óptimo, se recomienda el estándar DS3 v2.
     - **Node count** (Número de nodos): Cantidad de nodos de Kubernetes que se van a implementar en el clúster. Se recomienda mantener este número de nodos al menos igual o superior que el número de nodos de HLF especificados en la configuración de Fabric.
-    - **Identificador de cliente de la entidad de servicio**: Escriba el identificador de cliente de una entidad de servicio existente o cree uno nuevo, que es necesario para la autenticación de AKS. Vea los pasos para la [creación de la entidad de servicio](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
+    - **Identificador de cliente de la entidad de servicio**: Escriba el identificador de cliente de una entidad de servicio existente o cree uno nuevo, que es necesario para la autenticación de AKS. Vea los pasos para la [creación de la entidad de servicio](/powershell/azure/create-azure-service-principal-azureps?view=azps-3.2.0#create-a-service-principal).
     - **Secreto de cliente de la entidad de servicio**: Escriba el secreto de cliente de la entidad de servicio proporcionada en el identificador del cliente de la entidad de servicio.
     - **Confirmar secreto del cliente**: Confirme el secreto de cliente proporcionado en el secreto de cliente de la entidad de servicio.
     - **Habilitar la supervisión de contenedores**: Opte por habilitar la supervisión de AKS, que permite que los registros de AKS se inserten en el área de trabajo de Log Analytics especificada.
@@ -136,9 +129,9 @@ Para compilar la publicación del consorcio de la cadena de bloques que implemen
 > El script HLF de Azure (azhlf) que se proporciona es útil solo para los escenarios de demostración/DevTest. El canal y el consorcio que ha creado este script tienen directivas de HLF básicas para simplificar el escenario de demostración/DevTest. Para la configuración de producción, se recomienda actualizar las directivas de canal/consorcio de HLF de acuerdo con las necesidades de cumplimiento de su organización mediante las API de HLF nativas.
 
 
-Todos los comandos para ejecutar el script HFL de Azure se pueden ejecutar a través de la interfaz de la línea de comandos de Azure Bash (CLI). Puede iniciar sesión en la versión web de Azure Shell a través de la opción  ![Plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) en la esquina superior derecha de Azure Portal. En el símbolo del sistema, escriba bash y escriba para cambiar a la CLI de Bash.
+Todos los comandos para ejecutar el script HFL de Azure se pueden ejecutar a través de la interfaz de la línea de comandos de Azure Bash (CLI). Puede iniciar sesión en la versión web de Azure Cloud Shell a través de la opción   ![plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/arrow.png) en la esquina superior derecha de Azure Portal. En el símbolo del sistema, escriba bash y presione Entrar para cambiar a la CLI de Bash o elija la opción *Bash* de la barra de herramientas de shell.
 
-Para más información, consulte [Introducción a Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+Para más información, consulte [Introducción a Azure Cloud Shell](../../cloud-shell/overview.md).
 
 ![Plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/hyperledger-powershell.png)
 
@@ -147,17 +140,17 @@ En la imagen siguiente se muestra el proceso paso a paso para crear el consorcio
 
 ![Plantilla de Hyperledger Fabric en Azure Kubernetes Service](./media/hyperledger-fabric-consortium-azure-kubernetes-service/process-to-build-consortium-flow-chart.png)
 
-Siga los siguientes comandos para la configuración inicial de la aplicación cliente: 
+Complete estas secciones para la configuración inicial de la aplicación cliente: 
 
-1.  [Descarga de los archivos de la aplicación cliente](#download-client-application-files)
-2.  [Configuración de las variables de entorno](#setup-environment-variables)
-3.  [Importación del perfil de conexión, el usuario administrador y MSP de la organización](#import-organization-connection-profile-admin-user-identity-and-msp)
+1. Descarga de los archivos de la aplicación cliente
+1. Configurar las variables de entorno
+1. Importación del perfil de conexión, el usuario administrador y MSP de la organización
 
-Después de completar la configuración inicial, puede usar la aplicación cliente para lograr las operaciones siguientes:  
+Después de completar la configuración inicial, use la aplicación cliente para realizar las operaciones siguientes:  
 
-- [Comandos de administración de canales](#channel-management-commands)
-- [Comandos de administración del consorcio](#consortium-management-commands)
-- [Comandos de administración de código de cadena](#chaincode-management-commands)
+- Administración de canales
+- Administración de consorcios
+- Administración de códigos de cadena
 
 ### <a name="download-client-application-files"></a>Descarga de los archivos de la aplicación cliente
 
@@ -168,19 +161,16 @@ curl https://raw.githubusercontent.com/Azure/Hyperledger-Fabric-on-Azure-Kuberne
 cd azhlfTool
 npm install
 npm run setup
-
 ```
-Estos comandos clonarán el código de la aplicación cliente de HLF de Azure del repositorio público de GitHub y, después, cargarán todos los paquetes npm dependientes. Después de ejecutar correctamente el comando, podrá ver una carpeta node_modules en el directorio actual. Todos los paquetes necesarios se cargan en la carpeta node_modules.
 
+Estos comandos clonarán el código de la aplicación cliente de HLF de Azure del repositorio público de GitHub y, después, cargarán todos los paquetes npm dependientes. Después de ejecutar correctamente el comando, podrá ver una carpeta node_modules en el directorio actual. Todos los paquetes necesarios se cargan en la carpeta node_modules.
 
 ### <a name="setup-environment-variables"></a>Configuración de las variables de entorno
 
 > [!NOTE]
 > Todas las variables de entorno siguen la convención de nomenclatura de recursos de Azure.
 
-
-**Configuración de las siguientes variables de entorno para el cliente de la organización solicitante**
-
+#### <a name="set-environment-variables-for-orderer-organization-client"></a>Configuración de las variables de entorno para el cliente de la organización solicitante
 
 ```bash
 ORDERER_ORG_SUBSCRIPTION=<ordererOrgSubscription>
@@ -189,7 +179,8 @@ ORDERER_ORG_NAME=<ordererOrgName>
 ORDERER_ADMIN_IDENTITY="admin.$ORDERER_ORG_NAME"
 CHANNEL_NAME=<channelName>
 ```
-**Configuración de las siguientes variables de entorno para el cliente de la organización solicitante del mismo nivel**
+
+#### <a name="set-the-environment-variables-for-peer-organization-client"></a>Configuración de las variables de entorno para el cliente de la organización del mismo nivel
 
 ```bash
 PEER_ORG_SUBSCRIPTION=<peerOrgSubscritpion>
@@ -202,7 +193,7 @@ CHANNEL_NAME=<channelName>
 > [!NOTE]
 > Según el número de organizaciones del mismo nivel en el consorcio, es posible que deba repetir los comandos del mismo nivel y establecer la variable de entorno según corresponda.
 
-**Configuración de las siguientes variables de entorno para configurar una cuenta de Azure Storage**
+#### <a name="set-the-environment-variables-for-setting-up-azure-storage-account"></a>Configuración de las variables de entorno para configurar una cuenta de Azure Storage
 
 ```bash
 STORAGE_SUBSCRIPTION=<subscriptionId>
@@ -212,7 +203,7 @@ STORAGE_LOCATION=<azureStorageAccountLocation>
 STORAGE_FILE_SHARE=<azureFileShareName>
 ```
 
-Siga los pasos que se indican a continuación para la creación de una cuenta de Azure Storage. Si ya ha creado una cuenta de Azure Storage, omita estos pasos
+Siga estos pasos para la creación de una cuenta de Azure Storage. Si ya ha creado una cuenta de Azure Storage, omítalos.
 
 ```bash
 az account set --subscription $STORAGE_SUBSCRIPTION
@@ -220,14 +211,14 @@ az group create -l $STORAGE_LOCATION -n $STORAGE_RESOURCE_GROUP
 az storage account create -n $STORAGE_ACCOUNT -g  $STORAGE_RESOURCE_GROUP -l $STORAGE_LOCATION --sku Standard_LRS
 ```
 
-Siga los pasos que se indican a continuación para la creación de un recurso compartido de archivos en una cuenta de Azure Storage. Si ya ha creado un recurso compartido de archivos, omita estos pasos
+Use los pasos siguientes para la creación de un recurso compartido de archivos en una cuenta de Azure Storage. Si ya ha creado un recurso compartido de archivos, omita estos pasos
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
 az storage share create  --account-name $STORAGE_ACCOUNT  --account-key $STORAGE_KEY  --name $STORAGE_FILE_SHARE
 ```
 
-Siga los pasos siguientes para generar la cadena de conexión del recurso compartido de archivos de Azure.
+Use los pasos siguientes para generar la cadena de conexión del recurso compartido de archivos de Azure.
 
 ```bash
 STORAGE_KEY=$(az storage account keys list --resource-group $STORAGE_RESOURCE_GROUP  --account-name $STORAGE_ACCOUNT --query "[0].value" | tr -d '"')
@@ -256,39 +247,13 @@ Para la organización del mismo nivel:
 ./azhlf msp import fromAzure -g $PEER_ORG_RESOURCE_GROUP -s $PEER_ORG_SUBSCRIPTION -o $PEER_ORG_NAME
 ```
 
-### <a name="channel-management-commands"></a>Comandos de administración de canal
-
-> [!NOTE]
-> Antes de comenzar con las operaciones de canal, asegúrese de que se ha realizado la configuración inicial de la aplicación cliente.  
-
-A continuación se muestran los dos comandos de administración de canales:
-
-1. [Comando de creación de canales](#create-channel-command)
-2. [Comando de establecimiento de delimitadores del mismo nivel](#setting-anchor-peers-command)
-
-
-#### <a name="create-channel-command"></a>Comando de creación de canales
+### <a name="create-channel-command"></a>Comando de creación de canales
 
 Emita el comando para crear un nuevo canal desde el cliente de la organización solicitante. Este comando creará un canal que incluirá solo a la organización solicitante.  
 
 ```bash
 ./azhlf channel create -c $CHANNEL_NAME -u $ORDERER_ADMIN_IDENTITY -o $ORDERER_ORG_NAME
 ```
-
-#### <a name="setting-anchor-peers-command"></a>Comando de establecimiento de delimitadores del mismo nivel
-En el cliente de la organización del mismo nivel, emita el comando siguiente para establecer delimitadores del mismo nivel para la organización del mismo nivel en el canal especificado.
-
->[!NOTE]
-> Antes de ejecutar este comando, asegúrese de que la organización del mismo nivel se agrega en el canal mediante los comandos de administración del consorcio.
-
-```bash
-./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY
-```
-
-`<anchorPeersList>` es una lista separada por espacios de nodos del mismo nivel que se establecerán como delimitadores del mismo nivel. Por ejemplo,
-
-  - Establezca `<anchorPeersList>` como "peer1" si quiere establecer solo al nodo peer1 como delimitador del mismo nivel.
-  - Establezca `<anchorPeersList>` como "peer1" "peer3" si quiere establecer solo a los nodos peer1 y peer3 como delimitadores del mismo nivel.
 
 ### <a name="consortium-management-commands"></a>Comandos de administración del consorcio
 
@@ -324,13 +289,28 @@ Ejecute los comandos siguientes en el orden indicado para agregar una organizaci
 
 Del mismo modo, para agregar más organizaciones del mismo nivel en el canal, actualice las variables de entorno del mismo nivel según la organización del mismo nivel requerida y ejecute los pasos 1 a 4.
 
+### <a name="set-anchor-peers-command"></a>Comando de establecimiento de delimitadores del mismo nivel
 
-### <a name="chaincode-management-commands"></a>Comandos de administración de código de cadena
+Desde el cliente de la organización del mismo nivel, emita el comando para establecer delimitadores del mismo nivel para la organización del mismo nivel en el canal especificado.
+
+>[!NOTE]
+> Antes de ejecutar este comando, asegúrese de que la organización del mismo nivel se agrega en el canal mediante los comandos de administración del consorcio.
+
+```bash
+./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
+```
+
+`<anchorPeersList>` es una lista separada por espacios de nodos del mismo nivel que se establecerán como delimitadores del mismo nivel. Por ejemplo,
+
+  - Establezca `<anchorPeersList>` como "peer1" si quiere establecer solo al nodo peer1 como delimitador del mismo nivel.
+  - Establezca `<anchorPeersList>` como "peer1" "peer3" si quiere establecer solo a los nodos peer1 y peer3 como delimitadores del mismo nivel.
+
+## <a name="chaincode-management-commands"></a>Comandos de administración de código de cadena
 
 >[!NOTE]
 > Antes de comenzar con la operación del código de cadena, asegúrese de que se ha realizado la configuración inicial de la aplicación cliente.  
 
-**Establecimiento de las siguientes variables de entorno para código de cadena**
+### <a name="set-the-below-chaincode-specific-environment-variables"></a>Establecimiento de las siguientes variables de entorno para código de cadena
 
 ```bash
 # peer organization name where chaincode operation is to be performed
@@ -344,19 +324,11 @@ CC_VERSION=<chaincodeVersion>
 # Default value is 'golang'  
 CC_LANG=<chaincodeLanguage>  
 # CC_PATH contains the path where your chaincode is place.
-# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/chaincode/src/chaincode_example02/go”
+# If you are using chaincode_example02 to validate then CC_PATH=“/home/<username>/azhlfTool/samples/chaincode/src/chaincode_example02/go”
 CC_PATH=<chaincodePath>  
 # Channel on which chaincode is to be instantiated/invoked/queried  
 CHANNEL_NAME=<channelName>  
 ```
-
-Se pueden realizar las siguientes operaciones de código de cadena:  
-
-- [Instalación del código de cadena](#install-chaincode)  
-- [Creación de instancia del código de cadena](#instantiate-chaincode)  
-- [Invocación del código de cadena](#invoke-chaincode)
-- [Consulta del código de cadena](#query-chaincode)
-
 
 ### <a name="install-chaincode"></a>Instalación del código de cadena  
 
@@ -378,13 +350,13 @@ Siga estos pasos:
 Desde la aplicación cliente del mismo nivel, ejecute el comando siguiente para crear una instancia de código de cadena en el canal.  
 
 ```bash
-./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -p $CC_PATH -v $CC_VERSION -l $CC_LANG -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
+./azhlf chaincode instantiate -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -v $CC_VERSION -c $CHANNEL_NAME -f <instantiateFunc> --args <instantiateFuncArgs>  
 ```
+
 Pase el nombre de la función de creación de instancias y la lista de argumentos separados por espacios en `<instantiateFunc>` y `<instantiateFuncArgs>`, respectivamente. Por ejemplo, en el código de cadena chaincode_example02.go, para crear una instancia, establezca `<instantiateFunc>` en `init` y `<instantiateFuncArgs>` en "a" "2000" "b" "1000".
 
 > [!NOTE]
 > Ejecute el comando para una vez desde una organización del mismo nivel en el canal. Una vez que la transacción se envía correctamente al solicitante, el solicitante distribuye esta transacción a todas las organizaciones del mismo nivel del canal. Por lo tanto, se crea una instancia del código de cadena en todos los nodos del mismo nivel en todas las organizaciones del mismo nivel del canal.  
-
 
 ### <a name="invoke-chaincode"></a>Invocación del código de cadena  
 
@@ -441,6 +413,6 @@ Para proporcionar comentarios sobre el producto o solicitar nuevas característi
 
 Interactúe con los ingenieros de Microsoft y con expertos de la comunidad de Azure Blockchain.
 
-- [Página de preguntas y respuestas de Microsoft](https://docs.microsoft.com/answers/topics/azure-blockchain-workbench.html). El soporte técnico para plantillas con cadena de bloques se limita a los problemas de implementación.
+- [Página de preguntas y respuestas de Microsoft](/answers/topics/azure-blockchain-workbench.html). El soporte técnico para plantillas con cadena de bloques se limita a los problemas de implementación.
 - [Comunidad tecnológica de Microsoft](https://techcommunity.microsoft.com/t5/Blockchain/bd-p/AzureBlockchain)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-blockchain-workbench)

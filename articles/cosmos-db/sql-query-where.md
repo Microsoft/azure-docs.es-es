@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: 483a0533eafc81ef8698d260a753062ae074f6d4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78898778"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523509"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Cláusula WHERE en Azure Cosmos DB
 
@@ -105,7 +105,7 @@ También puede usar los operadores unarios +, -, ~ y NOT en las consultas, tal c
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-Igualmente, puede usar referencias de propiedad en las consultas. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` con un valor igual a `true`. Cualquier otro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, excluye el elemento del resultado.
+Igualmente, puede usar referencias de propiedad en las consultas. Por ejemplo, `SELECT * FROM Families f WHERE f.isRegistered` devuelve el elemento JSON que contiene la propiedad `isRegistered` con un valor igual a `true`. Cualquier otro valor, como `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>` o `<array>`, excluye el elemento del resultado. Además, puede usar la función de comprobación de tipos `IS_DEFINED` para realizar consultas en función de la presencia o ausencia de una propiedad JSON determinada. Por ejemplo, `SELECT * FROM Families f WHERE NOT IS_DEFINED(f.isRegistered)` devuelve cualquier elemento JSON que no tiene un valor para `isRegistered`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

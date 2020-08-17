@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 12/17/2019
 ms.author: raynew
-ms.openlocfilehash: ea5893f45962d67f4b6f3e9a261c65aa0ec926bf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2994f68e4159c7c4aa7d82bef7a5891deb5055a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75497861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87292820"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Conmutación por error y conmutación por recuperación de servidores físicos replicados en Azure
 
@@ -84,7 +84,7 @@ Después de realizar la conmutación por error a Azure, vuelva a proteger las m�
 10. Compruebe los siguientes escenarios en los que no se puede realizar la conmutación por recuperación:
     - Si utiliza las ediciones gratuitas de ESXi 5.5 o vSphere Hypervisor 6, actualice a una versión diferente.
     - Si tiene un servidor físico de Windows Server 2008 R2 SP1.
-    - Las máquinas virtuales [que se han migrado](migrate-overview.md#what-do-we-mean-by-migration).
+    - Máquinas virtuales que han migrado.
     - Un a máquina virtual que se ha migrado a otro grupo de recursos.
     - Una máquina virtual de Azure de réplica que se ha eliminado.
     - Una máquina virtual de Azure de réplica que no está protegida (se está replicando en el sitio local).

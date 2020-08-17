@@ -3,18 +3,16 @@ title: Guía de programación de U-SQL para Azure Data Lake
 description: Obtenga más información sobre el conjunto de servicios de Azure Data Lake Analytics que le permiten crear una plataforma de macrodatos basada en la nube.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: how-to
 ms.date: 06/30/2017
-ms.openlocfilehash: 2fb54c821c50ff8e1364a125cc5db181aedf0437
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1c22aa9fb91b0a86704b95586afc1779023e85b6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110596"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288951"
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
 
@@ -127,7 +125,7 @@ Consulte las [instrucciones de registro de un ensamblado](https://blogs.msdn.mic
 
 
 ### <a name="use-assembly-versioning"></a>Uso del control de versiones de ensamblado
-Actualmente, U-SQL usa la versión 4.5 de .NET Framework. Por lo tanto, asegúrese de que sus propios ensamblados son compatibles con esa versión del tiempo de ejecución.
+Actualmente, U-SQL usa la versión 4.7.2 de .NET°Framework. Por lo tanto, asegúrese de que sus propios ensamblados son compatibles con esa versión del tiempo de ejecución.
 
 Como se mencionó anteriormente, U-SQL ejecuta código en un formato de 64 bits (x64). Por lo tanto, asegúrese de que el código se compila para ejecutarse en x64. De lo contrario, se produce el error de formato incorrecto mostrado anteriormente.
 
@@ -789,11 +787,7 @@ namespace USQL_Programmability
             }
 
             return new FiscalPeriod(FiscalQuarter, FiscalMonth);
-        }
-
-
-
-        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
+        }        [SqlUserDefinedType(typeof(FiscalPeriodFormatter))]
         public struct FiscalPeriod
         {
             public int Quarter { get; private set; }

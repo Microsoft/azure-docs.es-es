@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: f9484b81622e208077f0659975f42f46d90d2137
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 17616a223292ec07186b0a3fba264400423977ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232243"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058765"
 ---
 # <a name="enable-or-disable-a-firewall-rule-on-an-azure-vm-guest-os"></a>Habilitación o deshabilitación de una regla de firewall en el SO invitado de una máquina virtual de Azure
 
@@ -77,7 +77,7 @@ Si la máquina virtual está en línea y se puede acceder desde otra máquina vi
 
 Si la máquina virtual está en línea y se puede acceder desde otra máquina virtual en la misma red virtual, puede realizar estas mitigaciones mediante el uso de la otra máquina virtual.
 
-1.  En la máquina virtual donde está solucionando el problema, descargue [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+1.  En la máquina virtual donde está solucionando el problema, descargue [PSTools](/sysinternals/downloads/pstools).
 
 2.  Abra una instancia de CMD y acceda a la máquina virtual a través de su dirección IP interna. 
 

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 69d018db26a42c331ff41d242eae54d6fcc43990
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 66796a819c0ca7e114d82210a988fc7e13003941
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536258"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078197"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Supervisión del estado de ejecución, revisión del historial de los desencadenadores y configuración de alertas en Azure Logic Apps
 
@@ -86,7 +86,7 @@ Cada vez que el desencadenador se activa por un elemento o un evento, el motor d
      Podrá ver información como las entradas y las salidas de ese paso, por ejemplo:
 
    > [!NOTE]
-   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps. Solo se descifran cuando un usuario solicita ver esos datos. Puede [ocultar las entradas y salidas en el historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controlar el acceso de los usuarios a esta información mediante el [control de acceso basado en rol (RBAC) de Azure](../role-based-access-control/overview.md).
+   > Todos los eventos y los detalles de runtime se cifran en el servicio Logic Apps. Solo se descifran cuando un usuario solicita ver esos datos. Puede [ocultar las entradas y salidas en el historial de ejecución](../logic-apps/logic-apps-securing-a-logic-app.md#obfuscate) o controlar el acceso de los usuarios a esta información mediante el [control de acceso basado en roles de Azure (RBAC de Azure)](../role-based-access-control/overview.md).
 
 <a name="review-trigger-history"></a>
 

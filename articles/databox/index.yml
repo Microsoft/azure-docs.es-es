@@ -33,7 +33,7 @@ landingContent:
     links:
     - text: Elección de opciones de transferencia de datos de Azure
       url: /azure/storage/common/storage-choose-data-transfer-solution
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

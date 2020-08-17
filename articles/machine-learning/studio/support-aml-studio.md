@@ -1,6 +1,5 @@
 ---
-title: Obtención de soporte técnico y aprendizaje
-titleSuffix: ML Studio (classic) - Azure
+title: 'Tutorial de ML Studio (clásico): soporte técnico y entrenamiento (Azure)'
 description: Obtenga soporte técnico y aprendizaje, y envíe comentarios para Azure Machine Learning Studio (clásico)
 services: machine-learning
 ms.service: machine-learning
@@ -9,14 +8,17 @@ ms.topic: troubleshooting
 author: peterclu
 ms.author: peterlu
 ms.date: 01/18/2019
-ms.openlocfilehash: 708f337ebc627f863f632a677a2186a9d7fe99f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccf38dd6ed531c620719f25c7b70de5549fa2262
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213183"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431810"
 ---
 # <a name="get-support-and-training-for-azure-machine-learning-studio-classic"></a>Obtención de soporte técnico y aprendizaje para Azure Machine Learning Studio (clásico)
+
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 [!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
 

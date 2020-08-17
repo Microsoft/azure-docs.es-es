@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 16828435dc8913fff8da4717ee7f77cc701504ed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93ada332fdf9179cf0f582195779afc085416e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213081"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386238"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Procedimientos recomendados para utilizar Key Vault
 
@@ -56,5 +56,5 @@ Asegúrese de hacer copias de seguridad del almacén periódicamente, cuando act
 
 ## <a name="turn-on-recovery-options"></a>Activar las opciones de recuperación
 
-1. Active la [eliminación temporal](overview-soft-delete.md).
+1. Active la [eliminación temporal](soft-delete-overview.md).
 2. Active la protección de purgas si quiere tener protección frente a posibles eliminaciones forzadas de secretos o del almacén, incluso con la eliminación temporal activada.

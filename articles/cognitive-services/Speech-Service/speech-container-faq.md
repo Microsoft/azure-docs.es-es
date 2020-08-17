@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/24/2020
 ms.author: aahi
-ms.openlocfilehash: 17582244aef173da6ac700c980f7bd7fb0fec307
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: e6b90e17c96f7636fa509e31354f9413b312803f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81383080"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289033"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Preguntas frecuentes sobre los contenedores del servicio de voz
 
@@ -49,7 +49,7 @@ Por último, puede establecer el número de descodificadores que desee dentro de
 
 <details>
 <summary>
-<b>¿Puede ayudarme a planear la capacidad y estimar los costos de los contenedores de voz locales?</b>
+<b>¿Puede ayudarme a planear la capacidad y estimar los costos de los contenedores de voz a texto locales?</b>
 </summary>
 
 **Respuesta:** Para calcular la capacidad del contenedor en el modo de procesamiento por lotes, cada descodificador podría controlar dos o tres veces el tiempo real, con dos núcleos de CPU, para un solo reconocimiento. No se recomienda mantener más de dos reconocimientos simultáneos por instancia de contenedor, sino que se recomienda ejecutar más instancias de contenedores, por motivos de confiabilidad y disponibilidad, detrás de un equilibrador de carga.

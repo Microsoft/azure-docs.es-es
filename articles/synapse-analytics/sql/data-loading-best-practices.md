@@ -11,18 +11,18 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 6321fa484c883e196279ddf33661e78397bc3855
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: acfb2af7d482f9c0a51596818b1302584277defb
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85963893"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486823"
 ---
 # <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedimientos recomendados para la carga de datos en almacenamientos de datos
 
 Recomendaciones y optimizaciones de rendimiento para cargar datos
 
-## <a name="preparing-data-in-azure-storage"></a>Preparación de datos en Azure Storage
+## <a name="prepare-data-in-azure-storage"></a>Preparación de datos en Azure Storage
 
 Para minimizar la latencia, reubique la capa de almacenamiento y el almacenamiento de datos.
 
@@ -34,13 +34,13 @@ Todos los formatos de archivo tienen diferentes características de rendimiento.
 
 Dividir archivos comprimidos grandes en archivos comprimidos más pequeños.
 
-## <a name="running-loads-with-enough-compute"></a>Ejecución de cargas con suficientes recursos de proceso
+## <a name="run-loads-with-enough-compute"></a>Ejecución de cargas con suficientes recursos de proceso
 
 Para una velocidad de carga más rápida, ejecute solo una carga de trabajo de cada vez. Si no es factible, ejecute un número mínimo de cargas al mismo tiempo. Si espera un trabajo de carga grande, considere la posibilidad de escalar verticalmente el grupo de SQL antes de la carga.
 
 Para ejecutar cargas con recursos de proceso adecuados, cree usuarios de carga designados para ejecutar cargas. Asigne cada usuario de carga a un grupo de cargas de trabajo o una clase de recurso específicos. Para ejecutar una carga, inicie sesión como uno de los usuarios de carga y, a continuación, ejecute la carga. La carga se ejecuta con la clase de recurso del usuario.  Este método es más sencillo que intentar cambiar la clase de recursos de un usuario para que se ajuste a la necesidad actual de clase de recurso.
 
-### <a name="example-of-creating-a-loading-user"></a>Ejemplo de creación de un usuario de carga
+### <a name="create-a-loading-user"></a>Creación de un usuario de carga
 
 En este ejemplo se crea un usuario de carga para la clase de recurso staticrc20. El primer paso consiste en **conectarse al servidor principal** y crear un inicio de sesión.
 
@@ -62,7 +62,7 @@ Para ejecutar una carga con recursos de las clases de recursos staticRC20, inici
 
 Ejecute cargas en clases de recursos estáticas en lugar de dinámicas. El uso de clases de recursos estáticas garantiza los mismos recursos independientemente de las [unidades de almacenamiento de datos](resource-consumption-models.md). Si utiliza una clase de recursos dinámica, los recursos varían según el nivel de servicio. Para las clases dinámicas, un nivel de servicio inferior significa que probablemente necesita usar una clase de recursos más grande para el usuario de carga.
 
-## <a name="allowing-multiple-users-to-load"></a>Posibilidad de que varios usuarios realicen cargas
+## <a name="allow-multiple-users-to-load"></a>Posibilidad de que varios usuarios realicen cargas
 
 A menudo, es necesario que varios usuarios puedan cargar datos en un almacén de datos. La carga con [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) requiere permisos de CONTROL en la base de datos.  El permiso CONTROL ofrece control de acceso a todos los esquemas. Probablemente no desee que todos los usuarios de carga tengan control de acceso en todos los esquemas. Para limitar los permisos, use la instrucción DENY CONTROL.
 
@@ -75,13 +75,13 @@ Por ejemplo: tenemos los esquemas de base de datos schema_A para el departamento
 
 User_A y user_B estarán ahora bloqueados en el esquema de los otros departamentos.
 
-## <a name="loading-to-a-staging-table"></a>Carga en una tabla de almacenamiento provisional
+## <a name="load-to-a-staging-table"></a>Cargar los datos en una tabla de almacenamiento provisional
 
 Para lograr la velocidad de carga más rápida para mover datos a una tabla de almacenamiento de datos, cargue los datos en una tabla de almacenamiento provisional.  Definir la tabla de almacenamiento provisional como un montón y usar round robin para la opción de distribución.
 
 Tenga en cuenta que la carga suele ser un proceso de dos pasos en el que se carga primero en una tabla de almacenamiento provisional y, a continuación, se insertan los datos en una tabla de almacenamiento de datos de producción. Si la tabla de producción utiliza una distribución hash, el tiempo total para cargar e insertar puede ser más rápido si define la tabla de almacenamiento provisional con la distribución hash. Cargar la tabla de almacenamiento provisional lleva más tiempo, pero el segundo paso de insertar las filas en la tabla de producción no incurre en movimiento de datos a través de las distribuciones.
 
-## <a name="loading-to-a-columnstore-index"></a>Carga en un índice de almacén de columnas
+## <a name="load-to-a-columnstore-index"></a>Carga en un índice de almacén de columnas
 
 Los índices de almacén de columnas necesitan mucha memoria para comprimir los datos en grupos de filas de alta calidad. Para una mejor compresión y eficacia del índice, el índice de almacén de columnas tiene que comprimir el máximo de 1.048.576 filas en cada grupo de filas. Si no hay memoria suficiente, es posible que el índice de almacén de columnas no pueda lograr las tasas de compresión máximas. Esto afecta a su vez al rendimiento de las consultas. Para un análisis detallado, consulte [Maximización de la calidad del grupo de filas del almacén de columnas](data-load-columnstore-compression.md).
 
@@ -92,19 +92,19 @@ Los índices de almacén de columnas necesitan mucha memoria para comprimir los 
 
 Como se ha mencionado anteriormente, la carga con PolyBase proporcionará el mayor rendimiento con el grupo de SQL de Synapse. Si no puede usar PolyBase para cargar y debe usar SQLBulkCopy API (o BCP), considere la posibilidad de aumentar el tamaño del lote para mejorar el rendimiento, se recomienda un tamaño de lote entre 100 000 filas y 1 millón.
 
-## <a name="handling-loading-failures"></a>Control de errores de carga
+## <a name="manage-loading-failures"></a>Administración de errores al cargar
 
 Una carga que utiliza una tabla externa puede producir el error *"Consulta anulada: se alcanzó el umbral de rechazo máximo al leer desde un origen externo"* . Este mensaje indica que sus datos externos contienen registros con modificaciones. Un registro de datos se considera "con modificaciones" si los tipos de datos y l número de columnas no coincide con las definiciones de columna de la tabla externa o si los datos no se ajustan al formato de archivo externo especificado.
 
 Para corregir estos registros, asegúrese de que la tabla externa y las definiciones de formato de archivo externos son correctas y que los datos externos se ajustan a estas definiciones. En el caso de que un subconjunto de registros de datos externos contenga registros con modificaciones, puede rechazar estos registros para sus consultas mediante las opciones de rechazo en CREATE EXTERNAL TABLE.
 
-## <a name="inserting-data-into-a-production-table"></a>Inserción de datos en una tabla de producción
+## <a name="insert-data-into-a-production-table"></a>Inserción de datos en una tabla de producción
 
 Una tabla pequeña se puede cargar una sola vez con una [instrucción INSERT](/sql/t-sql/statements/insert-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest), o incluso una recarga periódica de una búsqueda puede funcionar bien con una instrucción del tipo `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Sin embargo las inserciones simples no son tan eficaces como para realizar una carga masiva.
 
 Si se tienen miles de inserciones simples a lo largo del día, agrúpelas por lotes para que pueda cargarlas masivamente.  Desarrolle los procesos para anexar las inserciones sencillas a un archivo y, a continuación, cree otro proceso que cargue el archivo de forma periódica.
 
-## <a name="creating-statistics-after-the-load"></a>Creación de estadísticas después de la carga
+## <a name="create-statistics-after-the-load"></a>Creación de estadísticas después de la carga
 
 Para mejorar el rendimiento de las consultas, es importante crear estadísticas de todas las columnas de todas las tablas después de la primera carga, o bien después de que se realicen cambios importantes en los datos.  Esto se puede realizar manualmente o bien puede habilitar la [creación automática de estadísticas](../sql-data-warehouse/sql-data-warehouse-tables-statistics.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
 

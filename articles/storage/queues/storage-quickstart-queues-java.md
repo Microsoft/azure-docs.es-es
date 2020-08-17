@@ -2,17 +2,18 @@
 title: 'Inicio rápido: Biblioteca de Azure Queue Storage v12 para Java'
 description: Aprenda a usar la biblioteca de Azure Queue v12 para Java para crear una cola y agregar mensajes a la cola. A continuación, aprenderá a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
 author: mhopkins-msft
+ms.custom: devx-track-java
 ms.author: mhopkins
 ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: a4c873e7ec1867b6ce53cd9f4c3d5c54242a6f16
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 753c245631d2fbdc8122f955c1db6562a1554031
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232345"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319378"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Java
 
@@ -27,9 +28,14 @@ Use la biblioteca cliente de Azure Queue Storage v12 para Java para realizar lo
 * Recepción y eliminación de mensajes de una cola
 * Eliminación de una cola
 
-[Documentación de referencia de la API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Recursos adicionales:
 
-## <a name="prerequisites"></a>Prerrequisitos
+* [Documentación de referencia de API](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html)
+* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue)
+* [Paquete (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue)
+* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * [Kit de desarrollo de Java (JDK)](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable), versión 8 o posterior
 * [Apache Maven](https://maven.apache.org/download.cgi)

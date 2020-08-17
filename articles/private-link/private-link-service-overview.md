@@ -7,20 +7,27 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: sumi
-ms.openlocfilehash: 9ba0ad1414a09aec7ec2fb6b8c209b23f3f37050
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: a6bbb2abe24eba96fd2c55b7aaf15ccd8ae33530
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82202220"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760961"
 ---
 # <a name="what-is-azure-private-link-service"></a>¿Qué es el servicio Azure Private Link?
 
 El servicio Azure Private Link es la referencia a su propio servicio que usa la tecnología de Azure Private Link. El servicio que se ejecuta de forma subyacente a [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) se puede habilitar para el acceso a Private Link de modo que los consumidores del servicio puedan tener acceso a este de forma privada desde sus propias redes virtuales. Sus clientes pueden crear un punto de conexión privado dentro de su red virtual y asignarlo a este servicio. En este artículo se explican conceptos relacionados con el lado del proveedor de servicios. 
 
+:::image type="content" source="./media/private-link-service-overview/consumer-provider-endpoint.png" alt-text="Flujo de trabajo del servicio Private Link" border="true":::
+
+*Ilustración: Servicio Azure Private Link.*
+
 ## <a name="workflow"></a>Flujo de trabajo
 
 ![Flujo de trabajo del servicio Private Link](media/private-link-service-overview/private-link-service-workflow.png)
+
+
+*Ilustración: Flujo de trabajo del servicio Azure Private Link.*
 
 ### <a name="create-your-private-link-service"></a>Creación de su servicio Private Link
 

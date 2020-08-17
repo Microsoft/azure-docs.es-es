@@ -1,6 +1,6 @@
 ---
-title: Implementación y creación de predicciones con ONNX en Azure SQL Edge (versión preliminar)
-description: Obtenga información sobre cómo entrenar un modelo, convertirlo a ONNX, implementarlo en Azure SQL Edge (versión preliminar) y, después, ejecutar la predicción nativa en los datos con el modelo de ONNX cargado.
+title: Implementación y realización de predicciones con ONNX
+description: Aprenda a entrenar un modelo, convertirlo a ONNX, implementarlo en Azure SQL Edge (versión preliminar) o Azure SQL Managed Instance (versión preliminar) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
 keywords: implementación de SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -8,32 +8,40 @@ ms.subservice: machine-learning
 ms.topic: conceptual
 author: dphansen
 ms.author: davidph
-ms.date: 05/19/2020
-ms.openlocfilehash: b5cd655aaf9992c6908a7f9287f691fd36d84871
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/14/2020
+ms.openlocfilehash: fe1e4a195903803d3103da5f350de30a016e614b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476740"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085020"
 ---
-# <a name="deploy-and-make-predictions-with-an-onnx-model-in-azure-sql-edge-preview"></a>Implementación y creación de predicciones con un modelo de ONNX en Azure SQL Edge (versión preliminar)
+# <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Implementación y realización de predicciones con un modelo de ONNX
 
-En esta guía de inicio rápido, aprenderá a entrenar un modelo, convertirlo a ONNX, implementarlo en Azure SQL Edge (versión preliminar) y, después, ejecutar la predicción nativa en los datos con el modelo de ONNX cargado. Para más información, consulte [Aprendizaje automático e inteligencia artificial con ONNX en SQL Edge (versión preliminar)](onnx-overview.md).
+En este inicio rápido, aprenderá a entrenar un modelo, convertirlo a ONNX, implementarlo en [Azure SQL Edge (versión preliminar)](onnx-overview.md) o [Azure SQL Managed Instance (versión preliminar)](../azure-sql/managed-instance/machine-learning-services-overview.md) y, después, ejecutar la cláusula PREDICT nativa en los datos con el modelo de ONNX cargado.
 
 Esta guía de inicio rápido se basa en **scikit-learn** y usa el [conjunto de datos de Boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-* Si no ha implementado un módulo de Azure SQL Edge, siga los pasos de [implementación de SQL Edge (versión preliminar) mediante Azure Portal](deploy-portal.md).
+* Si va a usar Azure SQL Edge y no ha implementado un módulo de Azure SQL Edge, siga los pasos que se indican en [Implementación de SQL Edge (versión preliminar) mediante Azure Portal](deploy-portal.md).
 
 * Instale [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 
-* Abra Azure Data Studio y siga estos pasos para instalar los paquetes necesarios para esta guía de inicio rápido:
+* Instale los paquetes de Python necesarios para este inicio rápido:
 
-    1. Abra un [nuevo cuaderno](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) conectado al kernel de Python 3. 
-    1. Haga clic en **Administrar paquetes** y en **Agregar nuevo**, busque **scikit-learn** e instale el paquete scikit-learn. 
-    1. Instale también los paquetes **setuptools**, **numpy**, **onnxmltools**, **onnxruntime**, **skl2onnx**, **pyodbc** y **sqlalchemy**.
-    
+  1. Abra un [nuevo cuaderno](https://docs.microsoft.com/sql/azure-data-studio/sql-notebooks) conectado al kernel de Python 3. 
+  1. Haga clic en **Administrar paquetes**.
+  1. En la pestaña **Instalado**, busque los siguientes paquetes de Python en la lista de paquetes instalados. Si alguno de estos paquetes no está instalado, seleccione la pestaña **Agregar nuevo**, busque el paquete y haga clic en **Instalar**.
+     - **scikit-learn**
+     - **numpy**
+     - **onnxmltools**
+     - **onnxruntime**
+     - **pyodbc**
+     - **setuptools**
+     - **skl2onnx**
+     - **sqlalchemy**
+
 * Introduzca cada parte del siguiente script en una celda del cuaderno de Azure Data Studio y ejecute la celda.
 
 ## <a name="train-a-pipeline"></a>Entrenar una canalización
@@ -219,7 +227,7 @@ MSE are equal
 
 ## <a name="insert-the-onnx-model"></a>Insertar el modelo de ONNX
 
-Almacene el modelo en Azure SQL Edge, en una tabla de `models` en una base de datos de `onnx`. En la cadena de conexión, especifique la **dirección del servidor**, el **nombre de usuario** y la **contraseña**.
+Almacene el modelo en Azure SQL Edge o Azure SQL Managed Instance, en una tabla `models` de una base de datos `onnx`. En la cadena de conexión, especifique la **dirección del servidor**, el **nombre de usuario** y la **contraseña**.
 
 ```python
 import pyodbc
@@ -277,7 +285,7 @@ conn.commit()
 
 ## <a name="load-the-data"></a>Carga de los datos
 
-Cargue los datos en Azure SQL Edge.
+Carga de los datos en SQL
 
 Primero, cree dos tablas, **características** y **destino**, para almacenar subconjuntos del conjunto de datos de Boston Housing.
 
@@ -350,7 +358,7 @@ Ahora puede ver los datos en la base de datos.
 
 ## <a name="run-predict-using-the-onnx-model"></a>Ejecución de predicción con el modelo de ONNX
 
-Con el modelo en Azure SQL Edge, ejecute la predicción nativa en los datos mediante el modelo de ONNX cargado.
+Con el modelo en SQL, ejecute la cláusula PREDICT nativa en los datos mediante el modelo de ONNX cargado.
 
 > [!NOTE]
 > Cambie el kernel del cuaderno a SQL para ejecutar la celda restante.
@@ -390,3 +398,4 @@ FROM PREDICT(MODEL = @model, DATA = predict_input, RUNTIME=ONNX) WITH (variable1
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Aprendizaje automático e IA con ONNX en SQL Edge](onnx-overview.md)
+* [Machine Learning Services de Azure SQL Managed Instance (versión preliminar)](../azure-sql/managed-instance/machine-learning-services-overview.md)

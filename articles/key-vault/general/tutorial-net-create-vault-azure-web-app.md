@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: mbaldwin
-ms.openlocfilehash: f6e70caaedf906142b19ba45f0eb4d818e2955e7
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: b957ea9131c5124925b74576fd78665522afd8dc
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85051898"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080239"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-web-app-with-net"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación web de Azure con .NET
 
@@ -28,7 +28,7 @@ Para completar esta guía de inicio rápido:
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [SDK de .NET Core 3.1 o posterior](https://dotnet.microsoft.com/download/dotnet-core/3.1).
-* [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+* [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -51,13 +51,9 @@ Para crear su propio almacén de claves, utilice el comando [az keyvault create]
 az keyvault create --name "<your-keyvault-name>" -g "myResourceGroup"
 ```
 
-Tome nota del valor `vaultUri`devuelto, que tendrá el formato "https://<your-keyvault-name>.vault.azure.net/". Se usará en el paso para [actualizar el código](#update-the-code).
+Tome nota del valor `vaultUri` devuelto, que tendrá el formato "https://&lt;your-keyvault-name&gt;.vault.azure.net/". Se usará en el paso para [actualizar el código](#update-the-code).
 
-Ahora puede agregar un secreto a su almacén de claves mediante el comando [az keyvault secret set](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-set). Utilice "MySecret" como nombre del secreto y establezca el valor en "Success!".
-
-```azurecli-interactive
-az keyvault secret set --vault-name "<your-keyvault-name>" --name "MySecret" --value "Success!"
-```
+[!INCLUDE [Create a secret](../../../includes/key-vault-create-secret.md)]
 
 ## <a name="create-a-net-web-app"></a>Creación de una aplicación web de .NET
 
@@ -144,7 +140,7 @@ Cuando se crea el plan de App Service, la CLI de Azure muestra información simi
 
 ### <a name="create-a-remote-web-app"></a>Creación de una aplicación web remota
 
-Creación de una [aplicación web de Azure](../../app-service/containers/app-service-linux-intro.md) en el plan de App Service `myAppServicePlan`. 
+Creación de una [aplicación web de Azure](../../app-service/overview.md#app-service-on-linux) en el plan de App Service `myAppServicePlan`. 
 
 > [!Important]
 > Al igual que sucede con Key Vault, una aplicación web de Azure debe tener un nombre único. Reemplace \<your-webapp-name\> por el nombre de su aplicación web en los ejemplos a continuación.

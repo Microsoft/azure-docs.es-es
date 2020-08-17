@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2020
 ms.author: yushwang
-ms.openlocfilehash: a8a4ba7ea3de9140d79856fad9d5d0bc42cf4c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984613"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081991"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Conexión de puertas de enlace Azure VPN Gateway a varios dispositivos VPN locales basados en directivas con PowerShell
 
@@ -36,9 +36,9 @@ Los diagramas siguientes resaltan los dos modelos:
 ### <a name="azure-support-for-policy-based-vpn"></a>Compatibilidad de Azure con VPN basada en directivas
 Actualmente, Azure admite los dos modos de puertas de enlace de VPN: puertas de enlace de VPN basadas en directivas y puertas de enlace de VPN basadas en rutas. Se crean en distintas plataformas internas, lo que da lugar a diferentes especificaciones:
 
-|                          | **VPN Gateway PolicyBased** | **VPN Gateway RouteBased**       |**VPN Gateway RouteBased**                          |
-| ---                      | ---                         | ---                              |---                                                 |
-| **SKU de puerta de enlace de Azure**    | Básica                       | Básica                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
+| Category | VPN Gateway PolicyBased | VPN Gateway RouteBased | VPN Gateway RouteBased |
+| -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
+| **SKU de puerta de enlace de Azure**    | Básica                       | Básico                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versión de IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
 | **Máx. de conexiones de sitio a sitio** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
@@ -205,6 +205,6 @@ La siguiente línea muestra si se usan los selectores de tráfico basados en dir
       ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para ver los pasos.
+Una vez completada la conexión, puede agregar máquinas virtuales a las redes virtuales. Consulte [Creación de una máquina virtual que ejecuta Windows en el Portal de Azure](../virtual-machines/windows/quick-create-portal.md) para ver los pasos.
 
 Consulte también [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) (Configuración de la directiva IPsec/IKE para conexiones VPN de sitio a sitio o de red virtual a red virtual) para obtener más información sobre las directivas IPsec/IKE personalizadas.

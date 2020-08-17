@@ -9,13 +9,13 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.custom: tracking-python
-ms.openlocfilehash: da437f830a452a57ea1290b3d85a3faa92895bcd
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-python
+ms.openlocfilehash: dee74c787f6546494d12ea582eab383fbd99079d
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147052"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876910"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Entrenamiento de modelos con Azure Machine Learning
 
@@ -92,9 +92,31 @@ Las canalizaciones de aprendizaje automático pueden usar los métodos de entren
 * [Ejemplos: canalización con aprendizaje automático automatizado](https://aka.ms/pl-automl)
 * [Ejemplos: canalización con estimadores](https://aka.ms/pl-estimator)
 
+### <a name="understand-what-happens-when-you-submit-a-training-job"></a>Descripción de lo que ocurre cuando se envía un trabajo de entrenamiento
+
+El ciclo de vida de entrenamiento de Azure consta de los pasos siguientes:
+
+1. Comprimir los archivos de la carpeta del proyecto y omitir los especificados en _.amlignore_ o _.gitignore_
+1. Escalar verticalmente el clúster de proceso 
+1. Compilar o descargar el Dockerfile en el nodo de proceso 
+    1. El sistema calcula un valor de hash de: 
+        - La imagen base 
+        - Pasos personalizados de Docker (consulte [Implementación de un modelo con una imagen base de Docker personalizada](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - El archivo YAML de definición de Conda (consulte [Creación y uso de entornos de software en Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. El sistema utiliza este valor de hash como clave en una búsqueda de la instancia de Azure Container Registry (ACR) del área de trabajo.
+    1. Si no la encuentra, busca una coincidencia en la instancia de ACR global.
+    1. Si no existe, el sistema genera una imagen (que se almacenará en la memoria caché y se registrará en la instancia de ACR del área de trabajo).
+1. Descargar el archivo de proyecto comprimido en el almacenamiento temporal del nodo de proceso.
+1. Descomprimir el archivo de proyecto.
+1. El nodo de proceso que ejecuta `python <entry script> <arguments>`.
+1. Guardar registros, archivos de modelo y otros archivos escritos en `./outputs` en la cuenta de almacenamiento asociada con el área de trabajo.
+1. Reducir verticalmente el proceso, incluida la eliminación del almacenamiento temporal. 
+
+Si elige entrenar en la máquina local ("configurar como ejecución local"), no es necesario usar Docker. Si lo prefiere, puede usar Docker localmente (consulte [Configurar de la canalización de ML](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) para ver un ejemplo).
+
 ## <a name="r-sdk"></a>SDK de R
 
-El SDK de R permite usar el lenguaje R con Azure Machine Learning. El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
+El SDK de R permite usar el lenguaje R con Azure Machine Learning. El SDK usa el paquete de reticulate para enlazar con el SDK de Python de Azure Machine Learning. Esto le permite acceder a los objetos y métodos principales implementados en el SDK de Python desde cualquier entorno de R.
 
 Para más información, consulte los siguientes artículos.
 

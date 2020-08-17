@@ -1,10 +1,10 @@
-- name: "Versión Fall\_2019 de Windows Virtual Desktop"
+- name: Windows Virtual Desktop (clásico)
   href: ../index.yml
 - name: Información general
   items:
     - name: ¿Qué es Windows Virtual Desktop?
       href: ../overview.md
-    - name: "Documentación de la versión Spring\_2020"
+    - name: Documentación sobre Windows Virtual Desktop
       href: ../create-host-pools-azure-marketplace.md
 - name: Tutoriales
   items:
@@ -70,6 +70,8 @@
           href: diagnostics-log-analytics-2019.md
     - name: Publicación de aplicaciones integradas
       href: publish-apps-2019.md
+    - name: Configuración de Azure Multi-Factor Authentication
+      href: ../set-up-mfa.md
 - name: Conceptos
   items:
     - name: Entorno de Windows Virtual Desktop

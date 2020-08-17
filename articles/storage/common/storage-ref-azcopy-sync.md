@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: d4b43b590b147335a70877a7c3c0b07f8b818e3c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 04b87f8d0dd6a8fff35e3ae769652b50e7d0ef34
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221057"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285210"
 ---
 # <a name="azcopy-sync"></a>azcopy sync
 
@@ -33,7 +33,7 @@ El comando sync difiere del comando copy de varias maneras:
 
 1. De manera predeterminada, la marca recursiva es true y sync copia todos los subdirectorios. Sync solo copia los archivos de nivel superior dentro de un directorio si la marca recursiva es false.
 2. Al sincronizar entre directorios virtuales, agregue una barra diagonal final a la ruta de acceso (consulte los ejemplos) si hay un blob con el mismo nombre que uno de los directorios virtuales.
-3. Si la marca "deleteDestination" está establecida en true o prompt, sync eliminará los archivos y blobs del destino que no estén presentes en el origen.
+3. Si la marca `deleteDestination` está establecida en true o prompt, sync eliminará los archivos y blobs del destino que no estén presentes en el origen.
 
 ## <a name="related-conceptual-articles"></a>Artículos conceptuales relacionados
 
@@ -66,10 +66,7 @@ Sincronización de un solo archivo:
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]"
 ```
 
-> [!NOTE]
-> *Debe* existir el blob de destino. Use `azcopy copy` para copiar un solo archivo que todavía no exista en el destino. De lo contrario, se produce el siguiente error: `Cannot perform sync due to error: sync must happen between source and destination of the same type, e.g. either file <-> file, or directory/container <-> directory/container`.
-
-Igual que antes, pero en esta ocasión también procesa el hash MD5 del contenido del archivo y lo guarda como la propiedad Content-MD5 del blob:
+Igual que antes, pero también procesa un hash MD5 del contenido del archivo y lo guarda como la propiedad Content-MD5 del blob. 
 
 ```azcopy
 azcopy sync "/path/to/file.txt" "https://[account].blob.core.windows.net/[container]/[path/to/blob]" --put-md5
@@ -87,22 +84,22 @@ or
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --put-md5
 ```
 
-Sincronización solo de los archivos principales de un directorio, pero no de sus subdirectorios:
+Sincronización solo de los archivos de un directorio, pero no de los subdirectorios ni de los archivos de estos:
 
 ```azcopy
 azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --recursive=false
 ```
 
-Sincronización de un subconjunto de archivos de un directorio (por ejemplo, solo los archivos jpg y pdf, o un archivo llamado "exactName"):
+Sincronización de un subconjunto de archivos de un directorio (por ejemplo, solo los archivos jpg y pdf, o un archivo llamado `exactName`):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include="*.jpg;*.pdf;exactName"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --include-pattern="*.jpg;*.pdf;exactName"
 ```
 
 Sincronización de un directorio completo, pero con la exclusión de ciertos archivos del ámbito (por ejemplo: todos los archivos que comienzan por "foo" o terminan por "bar"):
 
 ```azcopy
-azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude="foo*;*bar"
+azcopy sync "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/virtual/dir]" --exclude-pattern="foo*;*bar"
 ```
 
 Sincronización de un solo blob:
@@ -134,29 +131,31 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 ## <a name="options"></a>Opciones
 
-**--block-size-mb** float         Usa este tamaño de bloque (especificado en MiB) al cargar o descargar de Azure Storage. El valor predeterminado se calcula automáticamente en función del tamaño del archivo. Se permiten fracciones decimales (por ejemplo: 0,25).
+**--block-size-mb** float: usa este tamaño de bloque (especificado en MiB) al cargar o descargar de Azure Storage. El valor predeterminado se calcula automáticamente en función del tamaño del archivo. Se permiten fracciones decimales (por ejemplo: `0.25`).
 
-**--check-md5** string            Especifica qué tan estrictamente se deben validar los hashes MD5 al descargarse. Esta opción solo está disponible al descargar. Los valores disponibles son: NoCheck, LogOnly, FailIfDifferent, FailIfDifferentOrMissing. (el valor predeterminado es "FailIfDifferent") (el valor predeterminado es "FailIfDifferent")
+**--check-md5** string: especifica cómo de estrictamente se deben validar los hashes MD5 al descargarse. Esta opción solo está disponible al descargar. Entre los valores disponibles se incluyen: `NoCheck`, `LogOnly`, `FailIfDifferent` y `FailIfDifferentOrMissing`. (El valor predeterminado es `FailIfDifferent`). (`FailIfDifferent` por defecto)
 
-**--delete-destination** string   Define si se eliminan los archivos adicionales del destino que no están presentes en el origen. Se puede establecer en true, false o prompt. Si se establece en prompt, se le formulará al usuario una pregunta antes de programar archivos y blobs para su eliminación. (el valor predeterminado es "false") (el valor predeterminado es "false")
+**--delete-destination** string   Define si se eliminan los archivos adicionales del destino que no están presentes en el origen. Se puede establecer en `true`, `false` o `prompt`. Si se establece en `prompt`, se le formulará al usuario una pregunta antes de programar archivos y blobs para su eliminación. (El valor predeterminado es `false`). (`false` por defecto)
 
-**--exclude-attributes** string   (solo Windows) Excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
+**--exclude-attributes** string (solo Windows): excluye los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: `A;S;R`
 
-**--exclude-path** string Excluye estas rutas de acceso al copiar. Esta opción no permite caracteres comodín (*). Comprueba los prefijos de ruta de acceso relativa (por ejemplo: myFolder;myFolder/subDirName/file.pdf). Cuando se usa en combinación con recorrido de cuentas, las rutas de acceso no incluyen el nombre del contenedor.
+**--exclude-path** string: excluye estas rutas de acceso al comparar el origen con el destino. Esta opción no permite caracteres comodín (*). Comprueba el prefijo de ruta de acceso relativa (por ejemplo: `myFolder;myFolder/subDirName/file.pdf`).
 
-**--exclude-pattern** string      Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: \*.jpg;\* .pdf; exactName.
+**--exclude-pattern** string   Excluye los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
 
-**-h, --help**                        Ayuda de sync.
+**--help**: ayuda para la sincronización.
 
-**--include-attributes** string   (solo Windows) Incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: A;S;R
+**--include-attributes** string (solo Windows): incluye solo los archivos cuyos atributos coinciden con la lista de atributos. Por ejemplo: `A;S;R`
 
-**--include-pattern** string      Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: \*.jpg;\* .pdf; exactName.
+**--include-pattern** string   Incluye solo los archivos en los que el nombre coincide con la lista de patrones. Por ejemplo: `*.jpg;*.pdf;exactName`
 
-**--log-level** string            Define el nivel de detalle del registro para el archivo de registro. Niveles disponibles: INFO (todas las solicitudes y respuestas), WARNING (respuestas lentas), ERROR (solo solicitudes con error) y NONE (sin registros de salida). (Valor predeterminado: "INFO"). (Valor predeterminado: "INFO").
+**--log-level** string: define el nivel de detalle del registro para el archivo de registro, niveles disponibles: `INFO`(todas las solicitudes y respuestas), `WARNING`(respuestas lentas), `ERROR`(solo solicitudes con errores) y `NONE`(sin registros de salida). (El valor predeterminado es `INFO`). 
 
-**--put-md5**                     Crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
+**--put-md5**: crea un hash MD5 de cada archivo y lo guarda como la propiedad Content-MD5 del blob o archivo de destino. (De forma predeterminada, NO se crea el hash). Solo está disponible al cargar.
 
-**--recursive**                   "True" de manera predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es true). (El valor predeterminado es true)
+**--recursive**    `True` de forma predeterminada, busca en los subdirectorios de forma recursiva al sincronizar entre directorios. (El valor predeterminado es `True`). 
+
+**--s2s-preserve-access-tier**: conserva el nivel de acceso durante la copia de servicio a servicio. Consulte [Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) para asegurarse de que la cuenta de almacenamiento de destino admite la configuración del nivel de acceso. En los casos en los que no se admite el establecimiento del nivel de acceso, use s2sPreserveAccessTier=false para omitir la copia del nivel de acceso. (El valor predeterminado es `true`). 
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 

@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a66613406de66cf9478b90d4ad58c115a30fdf5d
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 82d797189096994e02c77e9d342c00b13dfa187d
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224772"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337099"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conexión a Azure IoT Central
 
@@ -213,13 +213,13 @@ Una de las características clave de IoT Central es la posibilidad de asociar pl
 
 En los fragmentos de código siguientes se muestra el formato de la carga adicional que el dispositivo debe enviar durante la llamada de registro de DPS para que funcione la asociación automática.
 
-Este es el formato para los dispositivos que usan el SDK de dispositivo disponible con carácter general que no admite IoT Plug and Play:
+Este es el formato para los dispositivos que usan el SDK de dispositivo disponible con carácter general:
 
 ```javascript
     iotcModelId: '< this is the URN for the capability model>';
 ```
 
-Este es el formato de los dispositivos que usan el SDK de dispositivo de versión preliminar pública que admite IoT Plug and Play:
+Este es el formato de los dispositivos que usan el SDK de dispositivo de versión preliminar pública:
 
 ```javascript
 '__iot:interfaces': {
@@ -280,8 +280,6 @@ En la tabla siguiente se resume cómo las características de los dispositivos d
 | Propiedad | Propiedades notificadas de dispositivos gemelos |
 | Propiedad (grabable) | Propiedades deseadas y notificadas de dispositivos gemelos |
 | Get-Help | Métodos directos |
-
-Para más información sobre el uso de los SDK de dispositivo, consulte [Conexión de un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central](howto-connect-devkit.md) para obtener código de ejemplo.
 
 ### <a name="protocols"></a>Protocolos
 

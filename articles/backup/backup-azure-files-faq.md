@@ -3,16 +3,16 @@ title: Preguntas frecuentes sobre la copia de seguridad de archivos de Azure
 description: En este artículo, encontrará respuestas a preguntas habituales sobre cómo proteger los recursos compartidos de archivos de Azure con el servicio Azure Backup.
 ms.date: 04/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ded1551dad1be34c116e61b9bf59f372169bca5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6c2ef95a6303fd061b1ce486e893ba9812b83e14
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84488705"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382719"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 
-En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en la [página de preguntas y respuestas de Microsoft para su debate](https://docs.microsoft.com/answers/topics/azure-backup.html).
+En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en la [página de preguntas y respuestas de Microsoft para su debate](/answers/topics/azure-backup.html).
 
 Para examinar rápidamente las secciones de este artículo, use los vínculos de la derecha que aparecen debajo de **En este artículo**.
 
@@ -34,13 +34,13 @@ Sí. La protección de recursos compartidos de archivos de Azure conectados a gr
 
 Al intentar realizar una copia de seguridad, si selecciono una cuenta de almacenamiento para detectar los recursos compartidos que hay en ella, se registra la cuenta de almacenamiento con el almacén desde el que se realiza esto. Si elige proteger los recursos compartidos de archivos con un almacén diferente, [anule el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento seleccionada de este almacén.
 
+### <a name="why-cant-i-change-the-vault-to-configure-backup-for-the-file-share"></a>¿Por qué no puedo cambiar el almacén para configurar la copia de seguridad del recurso compartido de archivos?
+
+Si la cuenta de almacenamiento ya está registrada con un almacén u otros recursos compartidos de archivos de la cuenta de almacenamiento están protegidos mediante un almacén, no se le ofrece la opción de cambiarla, ya que todos los recursos compartidos de archivos de una cuenta de almacenamiento solo se pueden proteger en el mismo almacén. En caso de que quiera cambiar el almacén, deberá [detener la protección de todos los recursos compartidos de archivos de la cuenta de almacenamiento](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anular el registro](manage-afs-backup.md#unregister-a-storage-account) de la cuenta de almacenamiento y, a continuación, elegir otro almacén para la protección.
+
 ### <a name="can-i-change-the-vault-to-which-i-back-up-my-file-shares"></a>¿Puedo cambiar el almacén en el que hago la copia de seguridad de mis recursos compartidos de archivos?
 
 Sí. Sin embargo, deberá [detener la protección en un recurso compartido de archivos](manage-afs-backup.md#stop-protection-on-a-file-share) desde el almacén conectado, [anular el registro](manage-afs-backup.md#unregister-a-storage-account) de esta cuenta de almacenamiento y protegerla desde un almacén distinto.
-
-### <a name="how-many-azure-file-shares-can-i-protect-in-a-vault"></a>¿Cuántos recursos compartidos de archivos de Azure se pueden proteger en un almacén?
-
-Puede proteger los recursos compartidos de archivos de Azure de hasta 50 cuentas de almacenamiento por almacén. También puede proteger hasta 200 recursos compartidos de archivos de Azure en un único almacén.
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>¿Puedo proteger dos recursos compartidos de archivos diferentes desde la misma cuenta de almacenamiento en almacenes diferentes?
 
@@ -56,7 +56,7 @@ En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso com
 
 ### <a name="can-i-recover-from-a-deleted-azure-file-share"></a>¿Se pueden recuperar los recursos compartidos de archivos de Azure eliminados?
 
-Si el estado del recurso compartido de archivos es eliminado temporalmente, primero debe recuperar el recurso compartido de archivos para poder realizar la operación de restauración. La operación de recuperación devolverá el recurso compartido de archivos al estado activo, donde puede realizar la restauración a cualquier momento dado. Para obtener información sobre cómo recuperar el recurso compartido de archivos, visite [este vínculo](https://docs.microsoft.com/azure/storage/files/storage-files-enable-soft-delete?tabs=azure-portal#restore-soft-deleted-file-share) o consulte [Script para recuperar un recurso compartido de archivos](./scripts/backup-powershell-script-undelete-file-share.md). Si el recurso compartido de archivos se eliminó de forma permanente, no podrá restaurar el contenido ni las instantáneas.
+Si el estado del recurso compartido de archivos es eliminado temporalmente, primero debe recuperar el recurso compartido de archivos para poder realizar la operación de restauración. La operación de recuperación devolverá el recurso compartido de archivos al estado activo, donde puede realizar la restauración a cualquier momento dado. Para obtener información sobre cómo recuperar el recurso compartido de archivos, visite [este vínculo](../storage/files/storage-files-enable-soft-delete.md?tabs=azure-portal#restore-soft-deleted-file-share) o consulte [Script para recuperar un recurso compartido de archivos](./scripts/backup-powershell-script-undelete-file-share.md). Si el recurso compartido de archivos se eliminó de forma permanente, no podrá restaurar el contenido ni las instantáneas.
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share"></a>¿Puedo restaurar las copias de seguridad si detuve la protección en un recurso compartido de archivos de Azure?
 

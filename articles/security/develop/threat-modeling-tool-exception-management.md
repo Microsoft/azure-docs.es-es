@@ -1,6 +1,6 @@
 ---
 title: 'Administración de excepciones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
-description: mitigaciones para amenazas expuestas en Threat Modeling Tool
+description: Obtenga información sobre la administración de excepciones en Threat Modeling Tool. Consulte la información de mitigación y los ejemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 074098c3adae0dd8ff2a127d819e2b3630b754da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05e9e627afecfc95e03eae39eed1183857df8b4b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83650087"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539941"
 ---
 # <a name="security-frame-exception-management--mitigations"></a>Marco de seguridad: Administración de excepciones: mitigaciones 
 | Producto o servicio | Artículo |

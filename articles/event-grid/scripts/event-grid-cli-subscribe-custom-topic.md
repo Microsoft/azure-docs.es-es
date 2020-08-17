@@ -4,12 +4,13 @@ description: En este artículo se proporciona un script de la CLI de Azure de ej
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 07/08/2020
-ms.openlocfilehash: 4a3cfe132da280d6b33ddfa6c396fd651bdbd7d5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 80eff2853db1083fa2805cdd719f03a3235fccac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171268"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499031"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Suscripción a eventos de un tema personalizado con la CLI de Azure
 
@@ -36,10 +37,10 @@ Este script usa el siguiente comando para crear la suscripción de eventos. Cada
 
 | Get-Help | Notas |
 |---|---|
-| [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Cree una suscripción de Event Grid. |
+| [az eventgrid event-subscription create](/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Cree una suscripción de Event Grid. |
 | [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create): versión de la extensión | Cree una suscripción de Event Grid. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para información sobre la consulta de suscripciones, consulte [Consulta de suscripciones de Event Grid](../query-event-subscriptions.md).
-* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
+* Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](/cli/azure).

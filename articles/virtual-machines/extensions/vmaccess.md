@@ -15,18 +15,18 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: akjosh
-ms.openlocfilehash: bd9dc05a84a4ee54fce40e6c88e87ac90bfee8a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3b6c9d5835f6d81ab8641d8a43fb7228b6b53ab
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707606"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085646"
 ---
 # <a name="manage-administrative-users-ssh-and-check-or-repair-disks-on-linux-vms-using-the-vmaccess-extension-with-the-azure-cli"></a>Administración de usuarios administrativos, SSH y comprobación o reparación de discos en máquinas virtuales Linux con la extensión VMAccess y la CLI de Azure
 ## <a name="overview"></a>Información general
 El disco de la máquina virtual de Linux muestra errores. De alguna forma, restableció la contraseña raíz de la máquina virtual de Linux o eliminó por accidente la clave privada SSH. Si esto sucedió en el centro de datos, deberá ir ahí y, luego, abrir el conmutador KVM para llegar a la consola del servidor. Piense en la extensión VMAccess de Azure como ese conmutador KVM que le permite tener acceso a la consola para restablecer el acceso a Linux o realizar el mantenimiento de nivel de disco.
 
-En este artículo se muestra cómo usar la extensión VMAccess de Azure para comprobar o reparar un disco, restablecer el acceso de usuarios administrativos, administrar cuentas de usuario o actualizar la configuración de SSH en Linux cuando se ejecutan como máquinas virtuales de Azure Resource Manager. Si necesita administrar máquinas virtuales clásicas, puede seguir las instrucciones que se encuentran en la documentación [de máquinas virtuales clásicas](../linux/classic/reset-access-classic.md). 
+En este artículo se muestra cómo usar la extensión VMAccess de Azure para comprobar o reparar un disco, restablecer el acceso de usuarios administrativos, administrar cuentas de usuario o actualizar la configuración de SSH en Linux cuando se ejecutan como máquinas virtuales de Azure Resource Manager. Si necesita administrar máquinas virtuales clásicas, puede seguir las instrucciones que se encuentran en la documentación [de máquinas virtuales clásicas](/previous-versions/azure/virtual-machines/linux/classic/reset-access-classic). 
  
 > [!NOTE]
 > Si utiliza la extensión VMAccess para restablecer la contraseña de la máquina virtual después de instalar la extensión de inicio de sesión de AAD, tendrá que volver a ejecutar esta última extensión para habilitar del nuevo el inicio de sesión de AAD en la máquina.

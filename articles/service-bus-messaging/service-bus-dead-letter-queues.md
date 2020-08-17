@@ -3,12 +3,13 @@ title: Colas de mensajes fallidos de Service Bus | Microsoft Docs
 description: Aquí se describen las colas de mensajes fallidos de Azure Service Bus. Las colas de Service Bus y las suscripciones a temas proporcionan una subcola secundaria que se denomina cola de mensajes fallidos.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 62db4e71d99d1242cfbb69bdb7979bf9e5dc67ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337586"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511218"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Información general de colas de mensajes fallidos de Service Bus
 
@@ -57,7 +58,7 @@ Este comportamiento no se puede deshabilitar, pero puede establecer [MaxDelivery
 
 Cuando las propiedades [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription) o [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) están establecidas en **true** (el valor predeterminado es **false**), todos los mensajes que expiran se mueven a la cola de mensajes fallidos y se especifica el código de motivo `TTLExpiredException`.
 
-Los mensajes expirados solo se purgan y se mueven a la cola de mensajes fallidos cuando hay, al menos, un receptor activo que extrae contenido de la cola o suscripción principal. Este es el comportamiento predeterminado.
+Los mensajes que hayan expirado solo se purgan y se mueven a la cola de mensajes con problemas de entrega cuando hay, al menos, un receptor activo que extrae contenido de la cola o suscripción principal, pero los [mensajes diferidos](./message-deferral.md) no se purgan y de mueven a la cola de mensajes con problemas de entrega tras su expiración. Estos comportamientos son los predeterminados.
 
 ## <a name="errors-while-processing-subscription-rules"></a>Errores al procesar reglas de suscripción
 

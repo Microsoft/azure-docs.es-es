@@ -2,18 +2,18 @@
 title: 'Registro de una aplicación cliente pública en Azure AD: Azure API for FHIR'
 description: En este artículo se explica cómo registrar una aplicación cliente pública en Azure Active Directory, como preparación para la implementación de la API de FHIR en Azure.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 5aa9e5a33dbe66e3ebd787decfa3a520454fc6f6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: df1e6159baafc11c4b73c33feaf936784c05469e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871005"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853048"
 ---
 # <a name="register-a-public-client-application-in-azure-active-directory"></a>Registro de una aplicación cliente pública en Azure Active Directory
 

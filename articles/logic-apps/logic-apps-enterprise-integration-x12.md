@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/29/2020
-ms.openlocfilehash: 9398b40763e8226cedf788f9cefbf5ed28cd649d
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 61f3f2af61bc24f76d061de672a3eaacd54f7f0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83739539"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066125"
 ---
 # <a name="exchange-x12-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Intercambio de mensajes X12 para la integración empresarial B2B en Azure Logic Apps con Enterprise Integration Pack
 
@@ -87,7 +87,7 @@ Una vez definidas las propiedades del contrato, puede configurar cómo este iden
 
 ![Esquemas para mensajes entrantes](./media/logic-apps-enterprise-integration-x12/x12-receive-settings-schemas.png)
 
-En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) de la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) para cada tipo de transacción (ST01) y aplicación de remitentes (GS02). La canalización de recepción de EDI desensambla el mensaje entrante haciendo coincidir los valores y el esquema que defina en esta sección con los valores de ST01 y GS02 del mensaje entrante y con el esquema del mensaje entrante. Después de completar cada fila, aparece una fila vacía automáticamente.
+En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) de la [cuenta de integración](./logic-apps-enterprise-integration-create-integration-account.md) para cada tipo de transacción (ST01) y aplicación de remitentes (GS02). La canalización de recepción de EDI desensambla el mensaje entrante haciendo coincidir los valores y el esquema que defina en esta sección con los valores de ST01 y GS02 del mensaje entrante y con el esquema del mensaje entrante. Después de completar cada fila, aparece una fila vacía automáticamente.
 
 | Propiedad | Descripción |
 |----------|-------------|
@@ -210,7 +210,7 @@ Una vez definidas las propiedades del contrato, puede configurar cómo este iden
 
 ![Esquemas para mensajes de salida](./media/logic-apps-enterprise-integration-x12/x12-send-settings-schemas.png)
 
-En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) de la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) para cada tipo de transacción (ST01). Después de completar cada fila, aparece una fila vacía automáticamente.
+En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) de la [cuenta de integración](./logic-apps-enterprise-integration-create-integration-account.md) para cada tipo de transacción (ST01). Después de completar cada fila, aparece una fila vacía automáticamente.
 
 | Propiedad | Descripción |
 |----------|-------------|
@@ -236,7 +236,7 @@ En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-in
 
 ![Número de versión de control para los mensajes de salida](./media/logic-apps-enterprise-integration-x12/x12-send-settings-control-version-number.png)
 
-En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) de la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-accounts.md) para cada intercambio. Después de completar cada fila, aparece una fila vacía automáticamente.
+En esta sección, seleccione un [esquema](../logic-apps/logic-apps-enterprise-integration-schemas.md) de la [cuenta de integración](./logic-apps-enterprise-integration-create-integration-account.md) para cada intercambio. Después de completar cada fila, aparece una fila vacía automáticamente.
 
 | Propiedad | Descripción |
 |----------|-------------|
@@ -381,7 +381,7 @@ Para especificar estos números de versión del documento y tipos de mensaje, si
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/x12/).
+Si necesita más detalles técnicos sobre este conector, como las acciones y los límites que se describen en el archivo de Swagger del conector, consulte la [página de referencia del conector](/connectors/x12/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa los [límites de mensajes B2B del ISE](../logic-apps/logic-apps-limits-and-config.md#b2b-protocol-limits).

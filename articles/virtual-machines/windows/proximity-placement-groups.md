@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: cynthn
 ms.reviewer: zivr
-ms.openlocfilehash: 2401e8c160fd1c2ee3a734f374f1d4409c52ed16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ea986b338d977102d78e9c12bcbe5b2f2c510e7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083453"
 ---
 # <a name="deploy-vms-to-proximity-placement-groups-using-powershell"></a>Implementación de máquinas virtuales en grupos de selección de ubicación de proximidad con PowerShell
 
@@ -24,7 +24,7 @@ Un grupo de selección de ubicación de proximidad es una agrupación lógica qu
 
 
 ## <a name="create-a-proximity-placement-group"></a>Creación de un grupo de selección de ubicación por proximidad
-Cree un grupo de selección de ubicación de proximidad con el cmdlet [New-AzProximityPlacementGroup](https://docs.microsoft.com/powershell/module/az.compute/new-azproximityplacementgroup). 
+Cree un grupo de selección de ubicación de proximidad con el cmdlet [New-AzProximityPlacementGroup](/powershell/module/az.compute/new-azproximityplacementgroup). 
 
 ```azurepowershell-interactive
 $resourceGroup = "myPPGResourceGroup"
@@ -49,7 +49,7 @@ Get-AzProximityPlacementGroup
 
 ## <a name="create-a-vm"></a>Crear una VM
 
-Cree una máquina virtual en el grupo de selección de ubicación de proximidad con `-ProximityPlacementGroup $ppg.Id` para hacer referencia al identificador de grupo de selección de ubicación de proximidad cuando use [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm) para crear la máquina virtual.
+Cree una máquina virtual en el grupo de selección de ubicación de proximidad con `-ProximityPlacementGroup $ppg.Id` para hacer referencia al identificador de grupo de selección de ubicación de proximidad cuando use [New-AzVM](/powershell/module/az.compute/new-azvm) para crear la máquina virtual.
 
 ```azurepowershell-interactive
 $vmName = "myVM"
@@ -146,7 +146,7 @@ foreach ($vmId in $vmIDs){
 
 ## <a name="scale-sets"></a>Conjuntos de escalado
 
-También puede crear un conjunto de escalado en el grupo de selección de ubicación de proximidad. Use el mismo parámetro `-ProximityPlacementGroup` con [New-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/new-azvmss) para crear un conjunto de escalado, y todas las instancias se crearán en el mismo grupo de selección de ubicación de proximidad.
+También puede crear un conjunto de escalado en el grupo de selección de ubicación de proximidad. Use el mismo parámetro `-ProximityPlacementGroup` con [New-AzVmss](/powershell/module/az.compute/new-azvmss) para crear un conjunto de escalado, y todas las instancias se crearán en el mismo grupo de selección de ubicación de proximidad.
 
 
 Para agregar o quitar un conjunto de escalado existente en un grupo de selección de ubicación de proximidad, primero debe detener el conjunto de escalado. 

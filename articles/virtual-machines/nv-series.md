@@ -4,15 +4,15 @@ description: Especificaciones de las máquinas virtuales de la serie NV.
 author: vikancha-MSFT
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e7fdc232d698e3eb2038bb6ec7a4c47a9c49944a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6dd912313176eecce1973849875234149700c5e6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84726606"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284785"
 ---
 # <a name="nv-series"></a>Serie NV
 

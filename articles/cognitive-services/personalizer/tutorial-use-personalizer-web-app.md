@@ -3,13 +3,12 @@ title: 'Uso de una aplicación web: Personalizer'
 description: Personalice una aplicación web de .NET en C# con un bucle de Personalizer que proporcione el contenido correcto a un usuario en función de las acciones (con características) y de las características del contexto.
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.author: diberry
-ms.openlocfilehash: 9514e92432c2be5441dec5ff998a9deede35d7f4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6e3373ef8ace401ff40b3d48026fc46b96f1ad79
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207597"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446366"
 ---
 # <a name="tutorial-add-personalizer-to-a-net-web-app"></a>Tutorial: Incorporación de Personalizer a una aplicación web de .NET
 
@@ -42,7 +41,7 @@ En este tutorial, las acciones son tipos de comida:
 * café
 * sopa
 
-Para ayudar a Personalizer a obtener información sobre las acciones, envíe las _acciones con características_ y las _características de contexto_ con cada solicitud de la API Rank.
+Para ayudar a Personalizer a obtener información sobre sus acciones, envíe tanto las _acciones con características_ como las _características de contexto_ con cada solicitud de API Rank.
 
 Una **característica** del modelo es la información sobre la acción o el contexto que se puede agregar (agrupar) entre los miembros de la base de usuarios de la aplicación web. Una característica _no_ específica de forma individual (como un identificador de usuario) o muy específica (por ejemplo, una hora exacta del día).
 

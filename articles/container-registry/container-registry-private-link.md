@@ -2,25 +2,28 @@
 title: Configuración de vínculo privado
 description: Configure un punto de conexión privado en un registro de contenedor y habilite un vínculo privado en una red virtual local. El acceso de vínculo privado es una característica del nivel de servicio Premium.
 ms.topic: article
-ms.date: 05/19/2020
-ms.openlocfilehash: f25f7b94a3008b829340cdaaed247d7ab1203c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 06/26/2020
+ms.openlocfilehash: 713b19e4a60e5dcad6cfd92d65f97af2e921c0e9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509345"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523849"
 ---
-# <a name="configure-azure-private-link-for-an-azure-container-registry"></a>Configuración de Azure Private Link para un registro de contenedor de Azure 
+# <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Conexión privada a un registro de contenedor de Azure mediante Azure Private Link
 
-Limite el acceso a un registro mediante la asignación de direcciones IP privadas de red virtual a los puntos de conexión del registro mediante [Azure Private Link](../private-link/private-link-overview.md). El tráfico de red entre los clientes de la red virtual y el registro atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet.
 
-Puede [establecer la configuración DNS](../private-link/private-endpoint-overview.md#dns-configuration) del punto de conexión privado de modo que la configuración se resuelva en la dirección IP privada asignada del registro. Con la configuración DNS, los clientes y servicios de la red pueden seguir accediendo al registro en el nombre de dominio completo de este, como *myregistry.azurecr.io*.
+Limite el acceso a un registro mediante la asignación de direcciones IP privadas de red virtual a los puntos de conexión del registro y el uso de [Azure Private Link](../private-link/private-link-overview.md). El tráfico de red entre los clientes de la red virtual y los puntos de conexión privados del registro atraviesa la red virtual y un vínculo privado de la red troncal de Microsoft, lo que elimina la exposición a la red pública de Internet. Private Link también habilita el acceso al registro privado desde el entorno local a través del emparejamiento privado de [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) o una [puerta de enlace de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+
+Puede [establecer la configuración DNS](../private-link/private-endpoint-overview.md#dns-configuration) de los puntos de conexión privados del registro, de modo que la configuración se resuelva en la dirección IP privada asignada del registro. Con la configuración DNS, los clientes y servicios de la red pueden seguir accediendo al registro en el nombre de dominio completo de este, como *myregistry.azurecr.io*. 
 
 Esta característica está disponible en el nivel de servicio de un registro de contenedor **Premium**. Para obtener información sobre los límites y niveles de servicio de registro, consulte [Niveles de Azure Container Registry](container-registry-skus.md).
+
 
 ## <a name="things-to-know"></a>Cosas que debe saber
 
 * Actualmente, el análisis de imágenes mediante Azure Security Center no está disponible en un registro configurado con un punto de conexión privado.
+* Actualmente, se puede configurar un máximo de 10 puntos de conexión privados para un registro.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -210,7 +213,7 @@ Configure un vínculo privado al crear un registro o agregue un vínculo privado
 1. En **Conectividad de red**, seleccione **Punto de conexión privado** >  **+ Agregar**.
 1. Escriba o seleccione la siguiente información:
 
-    | Configuración | Value |
+    | Configuración | Valor |
     | ------- | ----- |
     | Suscripción | Seleccione su suscripción. |
     | Resource group | Escriba el nombre de un grupo existente o cree uno nuevo.|

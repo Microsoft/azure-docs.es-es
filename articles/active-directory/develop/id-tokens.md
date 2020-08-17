@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/06/2020
+ms.date: 07/29/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: e0e327d169c246d023be1aca27d6844b9b92f03e
-ms.sourcegitcommit: a6d477eb3cb9faebb15ed1bf7334ed0611c72053
+ms.openlocfilehash: e242e6ce59c715cf3a9ca95523a9a9eda274407a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82926721"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87418923"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Tokens de id. de la plataforma de identidad de Microsoft
 
@@ -27,11 +27,11 @@ Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [O
 
 ## <a name="using-the-id_token"></a>Uso del id_token
 
-Los tokens de id. se deben usar para validar que un usuario es quien dice ser y obtener información útil adicional sobre ellos: no deben usarse para la autorización en lugar de un [token de acceso](access-tokens.md). Las notificaciones que proporciona pueden usarse para la experiencia del usuario en la aplicación, como claves en una base de datos, y proporcionar acceso a la aplicación cliente.  Al crear claves para una base de datos, `idp` no debe usarse, ya que estropea los escenarios de invitado.  La generación de claves debe realizarse `sub` solo (que siempre es único), usándose `tid` para el enrutamiento en caso necesario.  Si tiene que compartir datos entre los servidores, `oid`+`sub`+`tid` funcionarán, ya que todos los servicios obtienen el mismo `oid`.
+Los tokens de id. se deben usar para validar que un usuario es quien dice ser y obtener información útil adicional sobre ellos: no deben usarse para la autorización en lugar de un [token de acceso](access-tokens.md). Las notificaciones que proporciona pueden usarse para la experiencia del usuario en la aplicación, como [claves en una base de datos](#using-claims-to-reliably-identify-a-user-subject-and-object-id), y proporcionar acceso a la aplicación cliente.  
 
 ## <a name="claims-in-an-id_token"></a>Notificaciones de un id_token
 
-Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519) (JSON Web Token), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones de JWT que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
+Los `id_tokens` son elementos [JWT](https://tools.ietf.org/html/rfc7519) (JSON Web Token), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones de JWT que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -71,7 +71,7 @@ En esta lista se muestran las notificaciones de JWT que se encuentran en la mayo
 |`nbf` |  entero, una marca de tiempo de UNIX | La notificación "nbf" (no antes de) identifica la hora antes de la cual no debe ser aceptado el token JWT para su procesamiento.|
 |`exp` |  entero, una marca de tiempo de UNIX | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento.  Es importante tener en cuenta que un recurso puede rechazar el token antes de esta hora: si, por ejemplo, es necesario un cambio en la autenticación o se ha detectado una revocación del token. |
 | `c_hash`| String |El hash de código se incluye en los tokens de identificador solo cuando se emite el token de identificador con un código de autorización de OAuth 2.0. Se puede usar para validar la autenticidad de un código de autorización. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
-|`at_hash`| String |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token de identificador se emite con un token de acceso de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html). |
+|`at_hash`| String |El hash de token de acceso se incluye en los tokens de identificador solo cuando el token de identificador se emite desde el punto de conexión `/authorize` con un token de acceso de OAuth 2.0. Se puede usar para validar la autenticidad de un token de acceso. Para detalles sobre cómo realizar esta validación, consulte la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). Esto no se devuelve en tokens de identificador desde el punto de conexión de `/token`. |
 |`aio` | Cadena opaca | Una notificación interna usada por Azure AD para registrar los datos para la reutilización de tokens. Se debe omitir.|
 |`preferred_username` | String | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización. El ámbito `profile` es necesario para recibir esta notificación.|
 |`email` | String | La notificación `email` está presente de manera predeterminada para las cuentas de invitado que tengan una dirección de correo electrónico.  La aplicación puede solicitar la notificación de correo electrónico para los usuarios administrados (del mismo inquilino que el recurso) mediante la [notificación opcional](active-directory-optional-claims.md) de `email`.  En el punto de conexión v2.0, la aplicación también puede solicitar el ámbito `email` de OpenID Connect. No es necesario que solicite ambos, la notificación opcional y el ámbito para obtener la notificación.  La notificación de correo electrónico solo es compatible con correo direccionable desde la información del perfil del usuario. |
@@ -87,14 +87,25 @@ En esta lista se muestran las notificaciones de JWT que se encuentran en la mayo
 |`ver` | Cadena, 1.0 o 2.0 | Indica la versión del id_token. |
 
 > [!NOTE]
-> Los id_token v1 y v2 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. Fundamentalmente, la versión especifica el punto de conexión de la plataforma Azure AD desde donde se emitió. [La implementación de OAuth de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform) ha evolucionado a lo largo de los años. Actualmente tenemos dos puntos de conexión de OAuth diferentes para las aplicaciones de Azure AD. Puede usar cualquiera de los nuevos puntos de conexión que se clasifican como v2 o el anterior, que se indica como v1. Los puntos de conexión de OAuth de ambos son diferentes. El punto de conexión v2 es el más reciente al que estamos tratando de migrar todas las características del punto de conexión v1 y recomendamos a los nuevos desarrolladores que lo usen.
+> Los id_token v1.0 y v2.0 tienen diferencias en la cantidad de información que llevarán, como se ha visto en los ejemplos anteriores. La versión se basa en el punto de conexión desde donde se solicitó. Aunque es probable que las aplicaciones existentes utilicen el punto de conexión de Azure AD, las nuevas aplicaciones deben usar el punto de conexión v2.0 "Plataforma de identidad de Microsoft".
 >
-> - V1: Puntos de conexión de Azure Active Directory: `https://login.microsoftonline.com/common/oauth2/authorize`
-> - V2: Puntos de conexión de la plataforma de identidad de Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+> - v1.0: Puntos de conexión de Azure AD: `https://login.microsoftonline.com/common/oauth2/authorize`
+> - v2.0: Puntos de conexión de la plataforma de identidad de Microsoft: `https://login.microsoftonline.com/common/oauth2/v2.0/authorize`
+
+### <a name="using-claims-to-reliably-identify-a-user-subject-and-object-id"></a>Uso de notificaciones para identificar a un usuario de forma confiable (firmante e id. de objeto)
+
+Al identificar a un usuario (por ejemplo, buscarlo en una base de datos o decidir qué permisos tiene), es fundamental usar información que permanecerá constante y única a lo largo del tiempo.  Las aplicaciones heredadas a veces usan un campo como la dirección de correo electrónico, un número de teléfono o el UPN.  Todos ellos pueden cambiar con el tiempo y también se pueden reutilizar con el tiempo: cuando un empleado cambia su nombre, o a un empleado se le asigna una dirección de correo electrónico que coincide con la de un empleado anterior que ya no está presente). Por lo tanto, es **crítico** de que la aplicación no use datos legibles para identificar a un usuario; legible normalmente significa que alguien lo leerá y querrá cambiarlo.  En su lugar, use las notificaciones proporcionadas por el estándar OIDC o las notificaciones de extensión proporcionadas por Microsoft: las notificaciones `sub` y `oid`.
+
+Para almacenar correctamente la información por usuario, use solo `sub` o `oid` (que son únicos como los GUID), y use `tid` para el enrutamiento o el particionamiento si es necesario.  Si necesita compartir datos entre servicios, `oid`+`tid` es lo mejor cuando todas las aplicaciones obtienen las mismas notificaciones `oid` y `tid` para un usuario determinado.  La notificación `sub` en la plataforma de identidad de Microsoft es "por pares"; es única en función de una combinación del destinatario del token, el inquilino y el usuario.  Por lo tanto, dos aplicaciones que solicitan tokens de identificador para un usuario determinado recibirán diferentes notificaciones `sub`, pero las mismas notificaciones `oid` para ese usuario.
+
+>[!NOTE]
+> No utilice la notificación `idp` para almacenar información sobre un usuario en un intento de correlacionar a los usuarios entre inquilinos.  No funcionará, ya que las notificaciones `oid` y `sub` para un usuario cambian entre los inquilinos, por diseño, para asegurarse de que las aplicaciones no puedan realizar el seguimiento de los usuarios entre inquilinos.  
+>
+> Los escenarios de invitado, en los que un usuario se hospeda en un inquilino y se autentica en otro, deben tratar al usuario como si fuera un usuario completamente nuevo en el servicio.  Los documentos y privilegios del inquilino de Contoso no deben aplicarse en el inquilino de Fabrikam. Esto es importante para evitar la filtración accidental de datos entre los inquilinos.
 
 ## <a name="validating-an-id_token"></a>Validación de un id_token
 
-La validación de un `id_token` es similar al primer paso de la [validación de un token de acceso](access-tokens.md#validating-tokens): el cliente debe asegurarse de que el emisor correcto ha enviado de vuelta el token y que no se ha manipulado. Dado que los `id_tokens` siempre son un token JWT, existen muchas bibliotecas para validar estos tokens: se recomienda usar una de ellas en lugar de hacerlo usted mismo.
+La validación de un `id_token` es similar al primer paso de la [validación de un token de acceso](access-tokens.md#validating-tokens): el cliente puede validar que el emisor correcto ha enviado de vuelta el token y que no se ha manipulado. Dado que los `id_tokens` siempre son un token JWT, existen muchas bibliotecas para validar estos tokens: se recomienda usar una de ellas en lugar de hacerlo usted mismo.  Tenga en cuenta que solo los clientes confidenciales (los que tienen un secreto) deben validar los tokens de identificador.  Las aplicaciones públicas (el código se ejecuta completamente en un dispositivo o red que no controla; por ejemplo, el explorador de un usuario o su red doméstica) no se benefician de la validación del token de identificador, ya que un usuario malintencionado puede interceptar y editar las claves que se usan para la validación del token.
 
 Para validar manualmente el token, consulte los pasos detallados en [Validación de un token de acceso](access-tokens.md#validating-tokens). Después de validar la firma del token, se deben validar las siguientes notificaciones de JWT del id_token (esto también se podría hacer con la biblioteca de validación de tokens):
 

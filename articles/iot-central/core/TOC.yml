@@ -43,8 +43,6 @@
           href: tutorial-connect-device-nodejs.md
         - name: Conexión de un dispositivo (Python)
           href: tutorial-connect-device-python.md
-        - name: Conexión de un dispositivo Plug and Play (versión preliminar)
-          href: tutorial-connect-pnp-device.md
         - name: Creación de una plantilla de dispositivo de puerta de enlace
           href: tutorial-define-gateway-device-type.md
         - name: "Conexión de un dispositivo IoT\_Edge"
@@ -67,6 +65,8 @@
       href: concepts-app-templates.md
     - name: ¿Qué son las plantillas de dispositivo?
       href: concepts-device-templates.md
+    - name: Cargas útiles de mensajes
+      href: concepts-telemetry-properties-commands.md
     - name: Conectividad de dispositivos
       href: concepts-get-connected.md
     - name: Conexión de dispositivos de IoT Edge
@@ -77,8 +77,6 @@
       items:
         - name: Configuración de una plantilla de dispositivo
           href: howto-set-up-template.md
-        - name: Preparación y conexión de una instancia de MXChip IoT DevKit
-          href: howto-connect-devkit.md
         - name: Preparación y conexión de un kit de desarrollo de Azure Sphere
           href: howto-connect-sphere.md
         - name: Preparación y conexión de un dispositivo RuuviTag
@@ -107,8 +105,10 @@
           href: howto-run-a-job.md
     - name: Transformación
       items:
-        - name: Exportación de datos a destinos en Azure
+        - name: Exportación de datos a destinos de Azure (heredado)
           href: howto-export-data.md
+        - name: Exportación de datos a destinos en la nube (versión preliminar)
+          href: howto-use-data-export.md
         - name: Creación de webhooks en reglas
           href: howto-create-webhooks.md
         - name: Uso de flujos de trabajo para integrarlos con otros servicios
@@ -139,6 +139,8 @@
               href: howto-monitor-application-health.md
             - name: Acerca de su aplicación
               href: howto-get-app-info.md
+            - name: Inscripción de certificados X.509
+              href: how-to-roll-x509-certificates.md
         - name: Administración desde otros lugares
           items:
             - name: Administración desde Azure Portal

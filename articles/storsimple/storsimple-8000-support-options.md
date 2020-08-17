@@ -6,12 +6,12 @@ ms.service: storsimple
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: alkohli
-ms.openlocfilehash: d9a75cde58062061149fa4304eace587b1480dd1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 55cc3049e437cc18eac6dc537de3ee1c0d894c23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76277035"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070343"
 ---
 # <a name="storsimple-solution-support"></a>Soporte técnico de la solución StorSimple
 
@@ -28,8 +28,8 @@ Microsoft ofrece opciones de soporte técnico flexibles a los clientes de la sol
 
 ## <a name="storsimple-support-plans"></a>Planes de soporte técnico de StorSimple
 
-|                                                                                                                                                     | **ESTÁNDAR** <sup>1                                                 |  **PREMIUM** <sup>1                                                                         |
-|---------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------------------|
+| Característica de soporte técnico | ESTÁNDAR <sup>1 | PREMIUM <sup>1 |
+| --------------- | --------------- | -------------- |
 | Administración de facturas y suscripciones                                                                     | ✓                                                                               | ✓                                                                              |
 | Envío de solicitudes de soporte mediante Azure Portal                                                                          | ✓                                                                               | ✓                                                                              |
 | Acceso al portal de soporte técnico en línea                                                                            | ✓                                                                               | ✓                                                                              |
@@ -81,13 +81,13 @@ En todos los niveles de soporte se proporciona asistencia para problemas relacio
 
 | **GRAVEDAD** |**SITUACIÓN DEL CLIENTE**                                                                                                                                | RESPUESTA ESPERADA DE MICROSOFT <sup>2                                                                                       | RESPUESTA ESPERADA DEL CLIENTE                                                                                                                                                       |
 |----------|-----------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Un        | Impacto empresarial crítico: <ul> <br> <li> El negocio del cliente presenta pérdidas o degradaciones significativas de los servicios. <sup>1</sup> <br> <li> Necesita atención inmediata.                          | Respuesta inicial: <sup>1</sup> <ul><br> <li>1 hora o menos, para planes Premium. <br> <li> 2 horas o menos, para planes Estándar. <br> <li> Esfuerzo constante todos los días y a cualquier hora. | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante todos los días y a cualquier hora. <br> <li> Información de contacto adecuada del propietario del caso.                                                |
+| A        | Impacto empresarial crítico: <ul> <br> <li> El negocio del cliente presenta pérdidas o degradaciones significativas de los servicios. <sup>1</sup> <br> <li> Necesita atención inmediata.                          | Respuesta inicial: <sup>1</sup> <ul><br> <li>1 hora o menos, para planes Premium. <br> <li> 2 horas o menos, para planes Estándar. <br> <li> Esfuerzo constante todos los días y a cualquier hora. | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante todos los días y a cualquier hora. <br> <li> Información de contacto adecuada del propietario del caso.                                                |
 | B        | Impacto empresarial moderado: <ul><br> <li> El negocio del cliente presenta pérdidas o degradaciones moderadas de los servicios, pero el trabajo puede continuar parcialmente a pesar de la incidencia. | Respuesta inicial: <sup>1</sup><ul><br> <li> 2 horas o menos, para planes Premium. <br> <li> 4 horas o menos, para planes Estándar.                                      | <ul><li> Asignación de recursos adecuados para mantener el esfuerzo constante durante el horario laboral, a menos que el cliente opte por cancelar el servicio de tipo 24/7. <br> <li> Información de contacto adecuada del propietario del caso. |
 | C        | Impacto empresarial mínimo: <ul><br> <li> El negocio del cliente funciona sustancialmente con pocas o nulas incidencias en los servicios.                                 | Respuesta inicial: <sup>1</sup><ul> <br> <li> 4 horas o menos, para planes Premium. <br> <li> 8 horas o menos, para planes Estándar.                                      | <ul><li>Información de contacto adecuada del propietario del caso.                                                                                                                                    |
  
 <sup>1</sup> Es posible que Microsoft disminuya el nivel de gravedad de un caso de gravedad A si el cliente no aporta los recursos o las respuestas que se necesitan para poder continuar con los esfuerzos de resolución del problema.
 
-<sup>2</sup> El horario de atención para recibir una respuesta es ininterrumpido en inglés para casos de gravedad A, y en horario comercial local para incidentes de gravedad B y C; el servicio de soporte técnico en horario comercial local también está disponible en estos idiomas: japonés, taiwanés, chino tradicional y coreano.
+<sup>2</sup> El tiempo de respuesta esperado es de 24/7 en inglés para casos de gravedad A, y en horario comercial local para incidentes de gravedad B y C; el servicio de soporte técnico en horario comercial local también está disponible en estos idiomas: japonés, taiwanés, chino tradicional y coreano.
 
 ## <a name="cancellation-policy"></a>Directiva de cancelaciones
 Para recibir soporte técnico de StorSimple, el cliente debe adquirir planes de soporte técnico de tipo Estándar o Premium durante la vigencia de la suscripción. La cancelación del servicio no conllevará una devolución proporcional del dinero. Los planes de soporte técnico de StorSimple pueden abaratarse en el aniversario del EA. Sin embargo, Microsoft no puede proporcionar soporte técnico a los clientes de StorSimple que no tengan contratos de soporte técnico válidos.

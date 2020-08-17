@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 35ac39109bfcb4dc63b738c947d2ad8caf8ac0a6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 704c56745ad89e9ed2f79e8a863f1d0bc9845bf9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77021294"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001832"
 ---
 # <a name="tutorial-deploy-and-walkthrough-a-continuous-patient-monitoring-app-template"></a>Tutorial: Implementación y tutorial de una plantilla de aplicación de supervisión continua de pacientes
 
@@ -85,7 +85,10 @@ Si hace clic en la pestaña **Plantillas de dispositivo**, verá que hay dos tip
 >[!div class="mx-imgBorder"] 
 >![Plantilla de dispositivo Smart Vitals Patch](media/smart-vitals-device-template.png)
 
-Si hace clic en la pestaña **Grupos de dispositivos**, también verá que estas plantillas de dispositivo tienen automáticamente grupos de dispositivos creados.
+### <a name="device-groups"></a>Grupos de dispositivos 
+Los grupos de dispositivos permiten agrupar lógicamente un conjunto de dispositivos para así realizar consultas u operaciones masivas sobre ellos. 
+
+Si hace clic en la pestaña de grupos de dispositivos, verá que hemos creado algunos grupos de dispositivos predeterminados para cada una de las plantillas de dispositivo de la aplicación. Observe que también hemos creado dos grupos de dispositivos de ejemplo adicionales, denominados "Provision devices" (Aprovisionamiento de dispositivos) y "Devices with outdated firmware" (Dispositivos con firmware sin actualizar). Usaremos estos grupos de dispositivos de ejemplo como entradas para ejecutar algunos [Trabajos](#jobs).
 
 ### <a name="rules"></a>Reglas
 
@@ -100,6 +103,13 @@ Al saltar a la pestaña de reglas, verá tres reglas que existen en la plantilla
 >[!div class="mx-imgBorder"] 
 >![Brace temperature high rule](media/brace-temp-rule.png) (Regla de temperatura alta de rodillera)
 
+### <a name="jobs"></a>Trabajos
+
+Los trabajos le permiten ejecutar operaciones masivas en un conjunto de dispositivos con los [grupos de dispositivos](#device-groups) como entrada. Hemos propagado la plantilla de aplicación con dos trabajos de ejemplo que un operador de solución puede tener que ejecutar en algún momento del ciclo de vida de los dispositivos:
+* **Update knee brace firmware** (Actualización del firmware de la rodillera): Este trabajo buscará dispositivos en el grupo de dispositivos "devices with outdated firmware" (dispositivos con firmware sin actualizar), y ejecutará un comando para actualizar dichos dispositivos a la versión de firmware más reciente de la rodillera. En este trabajo de ejemplo se supone que los dispositivos tienen funcionalidades para recibir un comando "update" y capturar los archivos de firmware directamente de la nube.  
+
+* **Re-provision devices** (Reaprovisionamiento de dispositivos): Si tiene un conjunto de dispositivos que se han devuelto recientemente al hospital y tienen que volver a aprovisionarse para el siguiente conjunto de pacientes, puede ejecutar este trabajo para actualizar de forma masiva los dispositivos para aprovisionar. En este caso, vamos a tomar todos los dispositivos de un grupo de dispositivos denominado "provision device" (aprovisionamiento de dispositivos) y vamos a ejecutar un comando para aprovisionarlos. 
+
 ### <a name="devices"></a>Dispositivos
 
 Haga clic en la pestaña **Dispositivos**  y, a continuación, seleccione una instancia de la **Smart Knee Brace** (Rodillera inteligente). Verá que hay tres vistas para explorar la información sobre el dispositivo concreto que ha seleccionado. Estas vistas se crean y publican al compilar la plantilla del dispositivo, lo que significa que serán coherentes en todos los dispositivos que se conecten o simulen.
@@ -112,6 +122,10 @@ La pestaña **Comandos** le permitirá ejecutar los comandos que se hayan modela
 
 >[!div class="mx-imgBorder"] 
 >![Vistas de la rodillera](media/knee-brace-dashboard.png)
+
+### <a name="data-export"></a>Exportación de datos
+
+La exportación de datos permite exportar los datos del dispositivo de IoT Central de forma continua a otros servicios de Azure, [Azure API for FHIR](concept-continuous-patient-monitoring-architecture.md#export-to-azure-api-for-fhir) entre otros.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

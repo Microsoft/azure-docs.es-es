@@ -117,30 +117,16 @@
   items:
     - name: Documentación de texto a voz
       href: index-text-to-speech.yml
-    - name: Información general
-      items:
-        - name: ¿Qué es el texto a voz?
-          href: text-to-speech.md
-        - name: Aspectos básicos de la conversión de texto a voz
-          href: text-to-speech-basics.md
-    - name: Guía de inicio rápido
-      items:
-        - name: Síntesis de voz en un altavoz
-          href: quickstarts/text-to-speech.md
-        - name: Síntesis de voz en un archivo de audio
-          href: quickstarts/text-to-speech-audio-file.md
-        - name: Síntesis de voz con audio de formato largo
-          href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    - name: ¿Qué es el texto a voz?
+      href: text-to-speech.md
+    - name: Inicio rápido para la conversión de texto a voz
+      href: get-started-text-to-speech.md
     - name: Guías paso a paso
       items:
         - name: Mejora de síntesis con SSML
           href: speech-synthesis-markup.md
         - name: Síntesis de voz con Long Audio API
           href: long-audio-api.md
-        - name: Obtención de una lista de voces con REST (Python)
-          href: quickstart-python-get-text-to-speech-voices.md
-        - name: Conversión de texto a voz con REST (Python)
-          href: quickstart-python-text-to-speech.md
     - name: Personalización
       items:
         - name: Implementación responsable
@@ -416,6 +402,8 @@
                   href: how-to-custom-commands-add-interaction-rules.md
                 - name: Adición de plantillas de generación de idioma para respuestas de voz
                   href: how-to-custom-commands-add-language-generation-templates.md
+                - name: Uso de la Voz personalizada
+                  href: how-to-custom-commands-use-custom-voice.md
             - name: Integrate
               items:
                 - name: Integración con una aplicación cliente mediante el SDK de voz
@@ -452,6 +440,8 @@
               href: faq-voice-assistants.md
             - name: SDK de voz
               href: speech-sdk.md
+            - name: Cifrado de Comandos personalizados de datos en reposo
+              href: custom-commands-encryption-of-data-at-rest.md
     - name: Direct Line Speech
       items:
         - name: ¿Qué es Direct Line Speech?
@@ -490,10 +480,8 @@
       items:
         - name: Introducción a las palabras clave personalizadas
           href: custom-keyword-overview.md
-        - name: Directrices de nomenclatura de palabras clave personalizadas
-          href: speech-devices-sdk-kws-guidelines.md
-        - name: Reconocimiento de palabras clave personalizadas
-          href: speech-devices-sdk-create-kws.md
+        - name: Conceptos básicos de las palabras clave personalizadas
+          href: custom-keyword-basics.md
 - name: Speaker Recognition
   items:
     - name: Información general

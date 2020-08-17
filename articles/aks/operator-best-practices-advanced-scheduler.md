@@ -5,12 +5,12 @@ description: Conozca las prácticas recomendadas de operador de clúster para us
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 5b003c9f0c3b47779bd7da92fb64c57830911fae
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077854"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530068"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para características avanzadas del programador en Azure Kubernetes Service (AKS)
 
@@ -71,8 +71,6 @@ Cuando se implemente este pod, como el uso de `kubectl apply -f gpu-toleration.y
 
 Al aplicar valores taint, el trabajo con los desarrolladores y propietarios de su aplicación les permite definir las tolerancias necesarias en sus implementaciones.
 
-Para obtener más información sobre los valores taint y toleration, consulte [Applying taints and tolerations][k8s-taints-tolerations] (Aplicación de valores taint y toleration).
-
 Para obtener más información sobre cómo usar varios grupos de nodos en AKS, consulte [Creación y administración de varios grupos de nodos para un clúster en AKS][use-multiple-node-pools].
 
 ### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Comportamiento de taints y tolerations en AKS
@@ -80,6 +78,7 @@ Para obtener más información sobre cómo usar varios grupos de nodos en AKS, c
 Al actualizar un grupo de nodos en AKS, taints y tolerations siguen un patrón de conjunto a medida que se aplican a los nuevos nodos:
 
 - **Clústeres predeterminados que utilizan conjuntos de escalado de máquinas virtuales**
+  - Puede [agregar intolerancias a un grupo de nodos][taint-node-pool] desde la API de AKS para que los nuevos nodos que se escalen horizontalmente reciban las intolerancias de nodo especificadas por la API.
   - Supongamos que tiene un clúster de dos nodos: *node1* y *node2*. Actualice el grupo de nodos.
   - Se crean dos nodos adicionales, *node3* y *node4*, y se pasan los valores taints respectivamente.
   - Las versiones originales de *node1* y *node2* se eliminan.
@@ -198,3 +197,4 @@ Este artículo se ha centrado en las características avanzadas del programador 
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
 [aks-best-practices-identity]: operator-best-practices-identity.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
+[taint-node-pool]: use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool

@@ -4,18 +4,20 @@ description: API para publicar la oferta especificada.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: e3bc420a60c514e704a6caa38acee155b4981552
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 60e75aff79913896bdf1dcdc8754b6ecf5620b06
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115594"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272052"
 ---
 # <a name="publish-an-offer"></a>Publicación de una oferta
 
 > [!NOTE]
-> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar las ofertas al Centro de partners. La integración presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de las API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Inicia el proceso de publicación de la oferta especificada. Esta llamada es una operación de larga duración.
 
@@ -62,7 +64,6 @@ Inicia el proceso de publicación de la oferta especificada. Esta llamada es una
 |  notification-emails    | Lista de direcciones de correo electrónico separadas por comas para recibir una notificación del progreso de la operación de publicación. |
 |  |  |
 
-
 ### <a name="response"></a>Response
 
 #### <a name="migrated-offers"></a>Ofertas migradas
@@ -73,14 +74,12 @@ Inicia el proceso de publicación de la oferta especificada. Esta llamada es una
 
 `Location: /api/operations/contoso$contoso-offer$2$preview?api-version=2017-10-31`
 
-
 ### <a name="response-header"></a>Encabezado de respuesta
 
 |  **Nombre**             |    **Valor**                                                                 |
 |  -------------------- | ---------------------------------------------------------------------------- |
 | Location    | La ruta de acceso relativa para recuperar el estado de esta operación.     |
 |  |  |
-
 
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 

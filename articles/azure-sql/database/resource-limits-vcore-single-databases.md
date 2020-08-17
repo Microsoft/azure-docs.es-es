@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 07/09/2020
-ms.openlocfilehash: add2e0cc2852f9ab0b63565841f670ed6c53d9a7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.date: 07/21/2020
+ms.openlocfilehash: 64a21c0d0edcd035bdf42c3b17c5f2c0131dabfa
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206128"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117022"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-purchasing-model"></a>Límites de recursos para bases de datos únicas que utilizan el modelo de compra en núcleos virtuales
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -340,29 +340,55 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ## <a name="general-purpose---provisioned-compute---fsv2-series"></a>Uso general: proceso aprovisionado: serie Fsv2
 
-### <a name="fsv2-series-compute-generation-preview"></a>Generación de proceso de la serie Fsv2 (versión preliminar)
+### <a name="fsv2-series-compute-generation-part-1"></a>Generación de proceso de la serie Fsv2 (parte 1)
 
-|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_72|
-|:--- | --: |
-|Generación de procesos|Serie Fsv2|
-|Núcleos virtuales|72|
-|Memoria (GB)|136,2|
-|Compatible con almacén de columnas|Sí|
-|Almacenamiento OLTP en memoria (GB)|N/D|
-|Tamaño máximo de datos (GB)|4096|
-|Tamaño máximo de registro (GB)|1024|
-|Tamaño máximo de datos de TempDB (GB)|333|
-|Tipo de almacenamiento|SSD remoto|
-|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|
-|Número máx. de IOPS de datos *|12.800|
-|Velocidad de registro máx. (Mbps)|30|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|3600|
-|Máximo de inicios de sesión simultáneos|3600|
-|N.º máximo de sesiones simultáneas|30,000|
-|Número de réplicas|1|
-|AZ múltiple|N/D|
-|Escalado horizontal de lectura|N/D|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
+|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_8|GP_Fsv2_10|GP_Fsv2_12|GP_Fsv2_14| GP_Fsv2_16|
+|:---| ---:|---:|---:|---:|---:|
+|Generación de procesos|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|Núcleos virtuales|8|10|12|14|16|
+|Memoria (GB)|15,1|18,9|22,7|26,5|30,2|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|N/D|No aplicable|No aplicable|No aplicable|N/D|
+|Tamaño máximo de datos (GB)|1024|1024|1024|1024|1536|
+|Tamaño máximo de registro (GB)|336|336|336|336|512|
+|Tamaño máximo de datos de TempDB (GB)|333|333|333|333|333|
+|Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máx. de IOPS de datos *|2560|3200|3840|4480|5120|
+|Velocidad de registro máx. (Mbps)|30|30|30|30|30|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|400|500|600|700|800|
+|Máximo de inicios de sesión simultáneos|800|1000|1200|1400|1600|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|1|
+|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+### <a name="fsv2-series-compute-generation-part-2"></a>Generación de proceso de la serie Fsv2 (parte 2)
+
+|Tamaño de proceso (objetivo de servicio)|GP_Fsv2_18|GP_Fsv2_20|GP_Fsv2_24|GP_Fsv2_32| GP_Fsv2_36|GP_Fsv2_72|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generación de procesos|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|Serie Fsv2|
+|Núcleos virtuales|18|20|24|32|36|72|
+|Memoria (GB)|34,0|37,8|45,4|60,5|68,0|136,0|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Tamaño máximo de datos (GB)|1536|1536|1536|3072|3072|4096|
+|Tamaño máximo de registro (GB)|512|512|512|1024|1024|1024|
+|Tamaño máximo de datos de TempDB (GB)|83,25|92,5|111|148|166,5|333|
+|Tipo de almacenamiento|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|SSD remoto|
+|Latencia de E/S (aproximada)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|5-7 ms (escritura)<br>5-10 ms (lectura)|
+|Número máx. de IOPS de datos *|5760|6400|7680|10240|11 520|23 040|
+|Velocidad de registro máx. (Mbps)|30|30|30|30|30|30|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|900|1000|1200|1600|1800|3600|
+|Máximo de inicios de sesión simultáneos|1800|2000|2400|3200|3600|7200|
+|N.º máximo de sesiones simultáneas|30,000|30,000|30,000|30,000|30,000|30,000|
+|Número de réplicas|1|1|1|1|1|1|
+|AZ múltiple|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|No aplicable|
+|Escalado horizontal de lectura|N/D|No aplicable|No aplicable|No aplicable|No aplicable|N/D|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
 
@@ -479,34 +505,65 @@ El [nivel de proceso sin servidor](serverless-tier-overview.md) está actualment
 
 ## <a name="business-critical---provisioned-compute---m-series"></a>Crítico para la empresa: proceso aprovisionado: serie M
 
-### <a name="m-series-compute-generation-preview"></a>Generación de proceso de la serie M (versión preliminar)
+### <a name="m-series-compute-generation-part-1"></a>Generación de proceso de la serie M (parte 1)
 
-|Tamaño de proceso (objetivo de servicio)|BC_M_128|
-|:--- | --: |
-|Generación de procesos|Serie M|
-|Núcleos virtuales|128|
-|Memoria (GB)|3767.1|
-|Compatible con almacén de columnas|Sí|
-|Almacenamiento OLTP en memoria (GB)|1768|
-|Tamaño máximo de datos (GB)|4096|
-|Tamaño máximo de registro (GB)|2048|
-|Tamaño máximo de datos de TempDB (GB)|4096|
-|Tipo de almacenamiento|SSD local|
-|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|
-|Número máx. de IOPS de datos *|160 000|
-|Velocidad de registro máx. (Mbps)|264|
-|Cantidad máxima de trabajos (solicitudes) simultáneos|12.800|
-|Máximo de inicios de sesión simultáneos|12.800|
-|N.º máximo de sesiones simultáneas|30000|
-|Número de réplicas|4|
-|AZ múltiple|Sí|
-|Escalado horizontal de lectura|Sí|
-|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|
+|Tamaño de proceso (objetivo de servicio)|BC_M_8|BC_M_10|BC_M_12|BC_M_14|BC_M_16|BC_M_18|
+|:---| ---:|---:|---:|---:|---:|---:|
+|Generación de procesos|Serie M|Serie M|Serie M|Serie M|Serie M|Serie M|
+|Núcleos virtuales|8|10|12|14|16|18|
+|Memoria (GB)|235,4|294,3|353,2|412,0|470,9|529,7|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|64|80|96|112|128|150|
+|Tamaño máximo de datos (GB)|512|640|768|896|1024|1152|
+|Tamaño máximo de registro (GB)|171|213|256|299|341|384|
+|Tamaño máximo de datos de TempDB (GB)|256|320|384|448|512|576|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Número máx. de IOPS de datos *|12 499|15 624|18 748|21 873|24 998|28 123|
+|Velocidad de registro máx. (Mbps)|48|60|72|84|96|108|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|800|1,000|1,200|1400|1600|1800|
+|Máximo de inicios de sesión simultáneos|800|1,000|1,200|1400|1600|1800|
+|N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|30000|
+|Número de réplicas|4|4|4|4|4|4|
+|AZ múltiple|No|No|No|No|No|No|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
 
 \* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
+
+### <a name="m-series-compute-generation-part-2"></a>Generación de proceso de la serie M (parte 2)
+
+|Tamaño de proceso (objetivo de servicio)|BC_M_20|BC_M_24|BC_M_32|BC_M_64|BC_M_128|
+|:---| ---:|---:|---:|---:|---:|
+|Generación de procesos|Serie M|Serie M|Serie M|Serie M|Serie M|
+|Núcleos virtuales|20|24|32|64|128|
+|Memoria (GB)|588,6|706,3|941,8|1883,5|3767,0|
+|Compatible con almacén de columnas|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento OLTP en memoria (GB)|172|216|304|704|1768|
+|Tamaño máximo de datos (GB)|1280|1536|2048|4096|4096|
+|Tamaño máximo de registro (GB)|427|512|683|1024|1024|
+|Tamaño máximo de datos de TempDB (GB)|4096|2048|1024|768|640|
+|Tipo de almacenamiento|SSD local|SSD local|SSD local|SSD local|SSD local|
+|Latencia de E/S (aproximada)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|1-2 ms (escritura)<br>1-2 ms (lectura)|
+|Número máx. de IOPS de datos *|31 248|37 497|49 996|99 993|160 000|
+|Velocidad de registro máx. (Mbps)|120|144|192|264|264|
+|Cantidad máxima de trabajos (solicitudes) simultáneos|2\.000|2,400|3\.200|6\.400|12.800|
+|Máximo de inicios de sesión simultáneos|2\.000|2,400|3\.200|6\.400|12.800|
+|N.º máximo de sesiones simultáneas|30000|30000|30000|30000|30000|
+|Número de réplicas|4|4|4|4|4|
+|AZ múltiple|No|No|No|No|No|
+|Escalado horizontal de lectura|Sí|Sí|Sí|Sí|Sí|
+|Almacenamiento de copia de seguridad incluido|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|1X el tamaño de base de datos|
+
+\* El valor máximo de los tamaños de e/s que oscilan entre 8 KB y 64 KB. Las IOPS reales dependen de la carga de trabajo. Para obtener más información, consulte [Regulación de E/S de los datos](resource-limits-logical-server.md#resource-governance).
+
+> [!IMPORTANT]
+> En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

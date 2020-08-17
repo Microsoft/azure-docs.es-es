@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Habilitación del bot con voz mediante el SDK de voz: servicio de voz'
 titleSuffix: Azure Cognitive Services
-description: En este tutorial, creará un bot de eco con Microsoft Bot-Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot-Framework. A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
+description: En este tutorial, creará un bot de eco con Microsoft Bot Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot Framework. A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
@@ -10,30 +10,32 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/25/2020
 ms.author: trbye
-ms.openlocfilehash: a96ddfe2023fbddd6a4a25c97001875e0dddc7f3
-ms.sourcegitcommit: 4ac596f284a239a9b3d8ed42f89ed546290f4128
+ms.openlocfilehash: 38a2dd42c010e5b213fd89aa046c7c5b1e1d0a7f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84753195"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87758954"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>Tutorial: Habilitación del bot con voz mediante el SDK de voz
 
-Ahora puede usar la potencia del servicio de voz para habilitar fácilmente un bot de chat.
+Puede usar el servicio de voz para habilitar un bot de chat.
 
-En este tutorial, creará un bot de eco con Microsoft Bot-Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot-Framework. A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
+En este tutorial, creará un bot que repite lo que le dijo.
+Creará el bot con Microsoft Bot Framework, lo implementará en Azure y lo registrará en el canal Direct Line Speech de Bot Framework.
+A continuación, configurará una aplicación cliente de ejemplo para Windows que le permita hablar con el bot y oír su respuesta.
 
-Este tutorial está pensado para desarrolladores que empiezan a trabajar con Azure, con bots de Bot-Framework, con Direct Line Speech o con el SDK de voz y quieren crear rápidamente un sistema de trabajo con codificación limitada. No es necesario tener experiencia ni estar familiarizado con estos servicios.
+Este tutorial está pensado para desarrolladores que empiezan a trabajar con Azure, con bots de Bot Framework, con Direct Line Speech o con el SDK de voz y quieren crear rápidamente un sistema de trabajo con codificación limitada. No es necesario tener experiencia ni estar familiarizado con estos servicios.
 
-Al final de este ejercicio, habrá configurado un sistema que funcionará de la siguiente manera:
+El bot de chat habilitado para voz que realice en este tutorial sigue estos pasos:
 
 1. La aplicación cliente de ejemplo está configurada para conectarse al canal Direct Line Speech y al bot de eco.
-1. El audio se graba a través del micrófono predeterminado al presionar el botón (o se graba continuamente si se activa la palabra clave personalizada)
-1. Opcionalmente, se produce la detección de la palabra clave, que canaliza el streaming de audio a la nube.
-1. Con el SDK de voz, la aplicación se conecta al canal Direct Line Speech y transmite el audio.
+1. Cuando el usuario presiona un botón, el audio de voz se transmite desde el micrófono. (O el audio se graba continuamente cuando se usa una palabra clave personalizada).
+1. Si se usa una palabra clave personalizada, la detección de palabras clave se produce en el dispositivo local y se canaliza el streaming de audio a la nube.
+1. Con el SDK de voz, la aplicación cliente de ejemplo se conecta al canal Direct Line Speech y transmite el audio.
 1. Opcionalmente, se produce una comprobación de la palabra clave de mayor precisión en el servicio.
 1. El audio se pasa al servicio de reconocimiento de voz y se transcribe en texto.
-1. El texto reconocido se pasa al bot de eco como una actividad de Bot Framework. 
+1. El texto reconocido se pasa al bot de eco como una actividad de Bot Framework.
 1. El texto de la respuesta se convierte en audio mediante el servicio de conversión de texto a voz (TTS) y se vuelve a transmitir a la aplicación cliente para su reproducción.
 
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "El flujo de canales de voz")
@@ -50,12 +52,12 @@ Este tutorial abarca lo siguiente:
 > * Agregar la activación de la palabra clave personalizada
 > * Aprender cómo cambiar el idioma de la voz hablada y reconocida
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 Para completar este tutorial, necesitará lo siguiente:
 
 - Un equipo con Windows 10 con un micrófono y altavoces (o auriculares) que funcionen
-- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o cualquier versión posterior
+- [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) o posterior que tenga instalada la carga de trabajo de **desarrollo web y ASP.NET**
 - [Entorno de ejecución de .NET Framework 4.6.1](https://dotnet.microsoft.com/download) o cualquier versión posterior
 - Una cuenta de Azure. [Regístrese gratis](https://azure.microsoft.com/free/ai/).
 - Una cuenta [GitHub](https://github.com/)
@@ -63,7 +65,7 @@ Para completar este tutorial, necesitará lo siguiente:
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-La aplicación cliente que creará en este tutorial utiliza una serie de servicios de Azure. Para reducir el tiempo de ida y vuelta de las respuestas del bot, deberá asegurarse de que estos servicios se encuentran en la misma región de Azure. En esta sección, se crea un grupo de recursos en la región **Oeste de EE. UU.** Este grupo de recursos se usará al crear recursos individuales para Bot-Framework, el canal Direct Line Speech y el servicio de voz.
+La aplicación cliente que creará en este tutorial utiliza una serie de servicios de Azure. Para reducir el tiempo de ida y vuelta de las respuestas del bot, deberá asegurarse de que estos servicios se encuentran en la misma región de Azure. En esta sección, se crea un grupo de recursos en la región **Oeste de EE. UU.** Este grupo de recursos se usará al crear recursos individuales para Bot Framework, el canal Direct Line Speech y el servicio de voz.
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.ResourceGroup" target="_blank">Creación de un grupo de recursos <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 1. Se le pedirá que proporcione algo de información:
@@ -72,7 +74,7 @@ La aplicación cliente que creará en este tutorial utiliza una serie de servici
    * En la lista desplegable **Región**, seleccione **Oeste de EE. UU.**
 1. Haga clic en **Revisar y crear**. Debería ver un banner que indica **Validación superada**.
 1. Haga clic en **Crear**. La creación del grupo de recursos tardará unos minutos.
-1. Al igual que con los recursos que creará más adelante en este tutorial, es una buena idea anclar este grupo de recursos al panel para facilitar el acceso. Si desea anclar este grupo de recursos, haga clic en el icono de anclaje en la esquina superior derecha del panel.
+1. Al igual que con los recursos que creará más adelante en este tutorial, es una buena idea anclar este grupo de recursos al panel para facilitar el acceso. Si quiere anclar este grupo de recursos, haga clic en el icono de anclaje del nombre del grupo de recursos.
 
 ### <a name="choosing-an-azure-region"></a>Elección de una región de Azure
 
@@ -153,13 +155,13 @@ Ahora que ha creado algunos recursos, vamos a crear un bot. Vamos a empezar con 
    ```
 
 4. Después de haber cargado el proyecto, presione <kbd>F5</kbd> para compilar y ejecutar el proyecto.
-5. Debe iniciarse un explorador y verá una pantalla similar a esta.
+5. Se iniciará un explorador y verá una pantalla similar a esta.
     > [!div class="mx-imgBorder"]
     > [![echobot-running-on-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "Bot de eco que se ejecuta en un host local")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Prueba del ejemplo de bot con Bot Framework Emulator
 
-[Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) es una aplicación de escritorio que permite que los desarrolladores de bots prueben y depuren sus bots de manera local o remota mediante un túnel. Emulator admite texto escrito como entrada (no voz). El bot responderá con texto. Siga estos pasos para usar Bot Framework Emulator para probar la ejecución local de Bot de eco, con entrada de texto y salida de texto. Después de implementar el bot de Azure, se probará con entrada de voz y salida de voz.
+[Bot Framework Emulator](https://github.com/microsoft/botframework-emulator) es una aplicación de escritorio que permite que los desarrolladores de bots prueben y depuren sus bots de manera local (o remota mediante un túnel). Emulator acepta texto escrito como entrada (no voz). El bot también responderá con texto. Siga estos pasos para usar Bot Framework Emulator para probar la ejecución local de Bot de eco, con entrada de texto y salida de texto. Después de implementar el bot de Azure, se probará con entrada de voz y salida de voz.
 
 1. Instalación de [Bot Framework Emulator](https://github.com/Microsoft/BotFramework-Emulator/releases/latest) versión 4.3.0 o superior
 2. Inicie Bot Framework Emulator y abra el bot:
@@ -170,7 +172,7 @@ Ahora que ha creado algunos recursos, vamos a crear un bot. Vamos a empezar con 
    http://localhost:3978/api/messages
    ```
    y presione "Conectar".
-4. El bot debe saludarle inmediatamente con el mensaje de bienvenida. de la directiva). Escriba un mensaje de texto y confirme que obtiene una respuesta del bot.
+4. El bot debe saludarle con el mensaje de bienvenida. de la directiva). Escriba un mensaje de texto y confirme que obtiene una respuesta del bot.
 5. Este es el aspecto que podría tener un intercambio de comunicación con una instancia de Bot de eco: [![bot-framework-emulator](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework Emulator")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Implementación del bot en Azure App Service
@@ -180,6 +182,9 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
 > [!NOTE]
 > También, puede implementar un bot con la [CLI de Azure](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) y las [plantillas de implementación](https://github.com/microsoft/BotBuilder-Samples/tree/master/samples/csharp_dotnetcore/adaptive-dialog/03.core-bot).
 
+> [!NOTE]
+> Si la opción **Publicar...** no aparece al realizar los pasos siguientes, use el Instalador de Visual Studio para agregar la carga de trabajo de **desarrollo web y ASP.NET**.
+
 1. En Visual Studio, abra el bot de eco que se ha configurado para su uso con el canal Direct Line Speech:
 
    ```
@@ -187,18 +192,17 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
    ```
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto **EchoBot** y seleccione **Publicar...**
-1. Se abrirá una nueva ventana denominada **Elegir un destino de publicación**.
-1. Seleccione **App Service** en el panel de navegación **Servicios de Azure**, seleccione**Crear nuevo** y haga clic en **Crear perfil**.
-1. Cuando aparece la ventana **Crear servicio de aplicaciones**:
+1. Se abre una nueva ventana denominada **Publicar**.
+1. Seleccione **Azure**, haga clic en **Siguiente**, seleccione **Azure App Service (Windows)** , haga clic en **Siguiente** y, a continuación, haga clic en **Crear una nueva Azure App Service...** mediante el signo más de color verde.
+1. Cuando aparezca la ventana **App Service (Windows)** :
    * Haga clic en **Agregar una cuenta** e inicie sesión con las credenciales de la cuenta de Azure. Si ya ha iniciado sesión, seleccione la cuenta que desee en la lista desplegable.
-   * Para el **nombre de la aplicación**, deberá escribir un nombre único global para el bot. Este nombre se usa para crear una dirección URL única del bot. Se rellenará un valor predeterminado que incluye la fecha y la hora (por ejemplo: "EchoBot20190805125647"). En este tutorial, utilice los valores predeterminados.
+   * En **Nombre**, deberá escribir un nombre único global para el bot. Este nombre se usa para crear una dirección URL única del bot. Se rellenará un valor predeterminado que incluye la fecha y la hora (por ejemplo: "EchoBot20190805125647"). En este tutorial, utilice los valores predeterminados.
    * En **Suscripción**, establézcala en **Evaluación gratuita**.
    * En **Grupo de recursos**, seleccione **SpeechEchoBotTutorial-ResourceGroup**.
    * En **Plan de hospedaje**, seleccione **SpeechEchoBotTutorial-AppServicePlan**.
-   * En **Application Insights**, deje como **Ninguno**.
-1. Haga clic en **Crear**
-1. Haga clic en **Publicar** en el lado derecho del perfil que acaba de crear.
-1. Debería ver un mensaje de operación correcta en Visual Studio que tiene el siguiente aspecto:
+1. Haga clic en **Crear**. En la pantalla final del asistente, haga clic en **Finalizar**.
+1. Haga clic en **Publicar** en el lado derecho de la pantalla Publicar. Visual Studio implementa el bot en Azure.
+1. Debería ver un mensaje de operación correcta en la ventana de salida de Visual Studio que tiene el siguiente aspecto:
 
    ```
    Publish Succeeded.
@@ -206,7 +210,7 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
    ```
 
 1. Debería abrirse el explorador predeterminado y mostrar una página que diga: "El bot está listo".
-1. En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal y confirme que hay tres recursos:
+1. En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal y confirme estos tres recursos:
 
 | Nombre | Tipo  | Location |
 |------|-------|----------|
@@ -218,8 +222,8 @@ El siguiente paso es implementar el bot de eco en Azure. Hay varias maneras de i
 
 Tendrá que hacer un pequeño cambio de configuración para que el bot pueda comunicarse con el canal Direct Line Speech mediante sockets web. Siga estos pasos para habilitar los sockets web:
 
-1. Vaya a [Azure Portal](https://portal.azure.com) y busque la instancia de App Service. El recurso debe tener un nombre similar a **EchoBot20190805125647** (el nombre único de la aplicación).
-2. En el panel de navegación **Servicios de Azure**, en **Configuración**, haga clic en **Configuración**.
+1. Vaya a [Azure Portal](https://portal.azure.com) y haga clic en su App Service. El recurso debe tener un nombre similar a **EchoBot20190805125647** (el nombre único de la aplicación).
+2. En el panel de navegación izquierdo, en **Configuración**, haga clic en **Configuración**.
 3. Seleccione la pestaña **Configuración general**.
 4. Busque el botón de alternancia para **Sockets web** y establézcalo en **Activado**.
 5. Haga clic en **Save**(Guardar).
@@ -229,11 +233,7 @@ Tendrá que hacer un pequeño cambio de configuración para que el bot pueda com
 
 ## <a name="create-a-channel-registration"></a>Creación de un registro de canal
 
-Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el siguiente paso es crear un **registro de canales de bot**. La creación de un registro de canal es un requisito previo para registrar el bot con canales de Bot-Framework, incluido el canal Direct Line Speech.
-
-> [!NOTE]
-> Para más información sobre cómo los bots aprovechan los canales, consulte [Conexión de un bot a canales](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
-
+Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el siguiente paso es crear un **registro de canales de bot**. La creación de un registro de canal es un requisito previo para registrar el bot con canales de Bot Framework, incluido el canal Direct Line Speech. Para más información sobre cómo los bots usan los canales, consulte [Conexión de un bot a canales](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0).
 
 1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Creación de un registro de canales de bot de Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 2. Se le pedirá que proporcione algo de información:
@@ -247,13 +247,13 @@ Ahora que ha creado una instancia de Azure App Service para hospedar el bot, el 
      * Ignore **Auto create App ID and password** (Creación automática del identificador y contraseña de la aplicación).
 5. En la parte inferior de la hoja **Registro de canales de bot**, haga clic en **Crear**.
 
-En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal. Ahora debería mostrar cuatro recursos:
+En este punto, compruebe el grupo de recursos **SpeechEchoBotTutorial-ResourceGroup** en Azure Portal. Ahora debería mostrar al menos cuatro recursos:
 
 | Nombre | Tipo  | Location |
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | Oeste de EE. UU. |
 | SpeechEchoBotTutorial-AppServicePlan | Plan de App Service | Oeste de EE. UU. |
-| SpeechEchoBotTutorial-BotRegistration-8726 | Registro de canales de bot | global |
+| SpeechEchoBotTutorial-BotRegistration-8726 | Registro de canales de bot | Global |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | Oeste de EE. UU. |
 
 > [!IMPORTANT]
@@ -282,18 +282,18 @@ La página Azure Bot Channels Registration tiene la opción **Probar en el Chat 
 
 ## <a name="register-the-direct-line-speech-channel"></a>Registro del canal Direct Line Speech
 
-Ahora es el momento de registrar el bot con el canal Direct Line Speech. Este canal es lo que se usa para crear una conexión entre el bot de eco y una aplicación cliente compilada con el SDK de voz.
+Ahora es el momento de registrar el bot con el canal Direct Line Speech. Este canal crea una conexión entre el bot y una aplicación cliente compilada con el SDK de voz.
 
 1. Busque y abra el recurso **SpeechEchoBotTutorial-BotRegistration-####** en [Azure Portal](https://portal.azure.com).
 1. En **Administración de bots**, seleccione **Canales**.
-   * Busque **Más canales**, busque y haga clic en **Direct Line Speech**.
-   * Revise el texto de la página titulada **Configurar Direct Line Speech** y, a continuación, expanda el menú desplegable con la etiqueta de la cuenta de servicio de Cognitive.
+   * En **Más canales**, haga clic en **Direct Line Speech**.
+   * Revise el texto de la página titulada **Configurar Direct Line Speech** y, a continuación, expanda el menú desplegable de la **cuenta de servicio de Cognitive**.
    * Seleccione el recurso de voz que creó anteriormente (por ejemplo, **SpeechEchoBotTutorial-Speech**) en el menú para asociar el bot a la clave de suscripción de voz.
-   * Ignore los restantes campos opcionales
+   * Ignore los restantes campos opcionales.
    * Haga clic en **Save**(Guardar).
 
 1. En el panel de navegación **Bot management** (Administración de bots), haga clic en **Configuración**.
-   * Active la casilla de verificación **Enable Streaming Endpoint** (Habilitar punto de conexión de streaming). Esto es necesario para habilitar un protocolo de comunicación basado en sockets web entre el bot y el canal Direct Line Speech.
+   * Active la casilla de verificación **Enable Streaming Endpoint** (Habilitar punto de conexión de streaming). Esto es necesario para crear un protocolo de comunicación basado en sockets web entre el bot y el canal Direct Line Speech.
    * Haga clic en **Save**(Guardar).
 
 > [!TIP]
@@ -301,19 +301,20 @@ Ahora es el momento de registrar el bot con el canal Direct Line Speech. Este ca
 
 ## <a name="run-the-windows-voice-assistant-client"></a>Ejecución del cliente del asistente de voz de Windows
 
-En este paso, va a ejecutar el cliente del asistente de voz de Windows. El cliente es una aplicación de Windows Presentation Foundation (WPF) en C# que usa el [SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) para administrar la comunicación con el bot mediante el canal Direct Line Speech. Úselo para interactuar con el bot y probarlo antes de escribir una aplicación cliente personalizada. Es código abierto, por lo que puede descargar el archivo ejecutable y ejecutarlo, o bien compilarlo usted mismo.
+En este paso, ejecutará el cliente del asistente de voz de Windows. El cliente es una aplicación de Windows Presentation Foundation (WPF) en C# que usa el [SDK de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) para administrar la comunicación con el bot mediante el canal Direct Line Speech. Úselo para interactuar con el bot y probarlo antes de escribir una aplicación cliente personalizada. Es código abierto, por lo que puede descargar el archivo ejecutable y ejecutarlo, o bien compilarlo usted mismo.
 
 El cliente del asistente de voz de Windows tiene una interfaz de usuario simple que permite configurar la conexión al bot, ver la conversación de texto, ver actividades de Bot Framework en formato JSON y mostrar tarjetas adaptables. También admite el uso de palabras clave personalizadas. Va a utilizar este cliente para hablar con el bot y recibir una respuesta de voz.
 
-Antes de continuar, asegúrese de que el micrófono y los altavoces estén habilitados y en perfecto funcionamiento.
+> [!NOTE]
+> En este momento, confirme que el micrófono y los altavoces estén habilitados y en perfecto funcionamiento.
 
 1. Vaya al repositorio de GitHub para buscar el [cliente del asistente de voz de Windows](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/blob/master/clients/csharp-wpf/README.md).
 1. Siga las instrucciones que se proporcionan aquí para
-   * descargar un paquete ZIP que contiene el ejecutable que se va a ejecutar o para
+   * descargar un archivo ejecutable precompilado en un paquete ZIP para ejecutarlo, o bien
    * compilar usted mismo el ejecutable mediante la clonación del repositorio y la compilación del proyecto.
 
-1. Inicie la aplicación cliente y configúrela para conectarse a su bot. Para ello, siga las instrucciones del repositorio de GitHub.
-1. Haga clic en **Reconnect** (Volver a conectar) y asegúrese de que ve el mensaje **Press the mic button, or type to start talking to your bot** (Presione el botón MIC o escriba para empezar a hablar con el bot).
+1. Inicie la aplicación cliente `VoiceAssistantClient.exe` y configúrela para conectarse a su bot. Para ello, siga las instrucciones del repositorio de GitHub.
+1. Haga clic en **Volver a conectar** y asegúrese de que ve el mensaje **Se ha iniciado una conversación: escriba o presione el botón de micrófono**.
 1. Vamos a probarlo. Haga clic en el botón de micrófono y diga algunas palabras en inglés. El texto reconocido aparecerá mientras habla. Cuando haya terminado de hablar, el bot responderá en su propia voz, diciendo "echo" (eco) seguido de las palabras reconocidas.
 1. También puede utilizar el texto para comunicarse con el bot. Simplemente escriba el texto en la barra inferior. 
 
@@ -478,5 +479,5 @@ Si no va a seguir usando el bot eco que ha implementado en este tutorial, puede 
   * [Precios de Bot Service](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Servicio Voz](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
 * Creación e implementación del propio bot habilitado para voz:
-  * Creación de un [bot de Bot-Framework](https://dev.botframework.com/). Registro con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) y [personalización del bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
-  * Exploración de las [soluciones de Bot-Framework](https://microsoft.github.io/botframework-solutions/index) existentes: Compilación de un [asistente virtual](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) y [su ampliación a Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)
+  * Creación de un [bot de Bot Framework](https://dev.botframework.com/). Registro con el [canal Direct Line Speech](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) y [personalización del bot para voz](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
+  * Exploración de las [soluciones de Bot Framework](https://microsoft.github.io/botframework-solutions/index) existentes: Compilación de un [asistente virtual](https://microsoft.github.io/botframework-solutions/overview/virtual-assistant-solution/) y [su ampliación a Direct Line Speech](https://microsoft.github.io/botframework-solutions/clients-and-channels/tutorials/enable-speech/1-intro/)

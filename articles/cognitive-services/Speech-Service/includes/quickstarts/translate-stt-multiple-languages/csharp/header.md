@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/09/2019
 ms.author: erhopf
-ms.openlocfilehash: a0acb96eaee73e3286f3957564ef3fa1a93e72bb
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 58e0d916f876af916bc8db32c93af5029641878d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "75467925"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87103005"
 ---
-Si prefiere ponerse a trabajar de inmediato, vea o descargue todos los <a href="https://aka.ms/speech/github-csharp">ejemplos para C# del SDK de Voz</a> en GitHub. Si no, vamos a comenzar.
+Puede ver o descargar todos los <a href="https://aka.ms/speech/github-csharp">ejemplos de C# del SDK de Voz</a> en GitHub. 

@@ -10,12 +10,12 @@ metadata:
   author: rboucher
   ms.author: robb
   ms.date: 10/08/2019
-  ms.openlocfilehash: 83380e57a5d67431fccf1d808b8c8f69eddc5962
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: 66abf4fa5fb720b6537ab10ef06de506482aa37c
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "72966012"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87091562"
 landingContent:
 - title: Acerca de Azure Service Health
   linkLists:
@@ -38,6 +38,6 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Obtención de notificaciones cuando se produce un problema en un servicio de Azure que le afecta
-      url: alerts-activity-log-service-notifications.md
+      url: ./alerts-activity-log-service-notifications-portal.md
     - text: Obtención de notificaciones cuando el recurso de Azure no está disponible
       url: resource-health-alert-arm-template-guide.md

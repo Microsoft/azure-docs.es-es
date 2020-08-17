@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 04/28/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 8f03099cf2890882a1c1d4ba9d69fcb64d0db600
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0ac8dd189bee1c1d4f5a7a4d0f7de68b085fbc56
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82233965"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318154"
 ---
 # <a name="troubleshooting"></a>Solución de problemas
 
@@ -35,7 +35,7 @@ En este artículo se proporciona ayuda para solucionar problemas comunes que pue
 |----|---------|
 |Se produjo un error en el intento de conexión porque la parte conectada no respondió correctamente después de un período de tiempo  | Un firewall está bloqueando los agentes de prueba en determinadas ubicaciones.|
 |    |Se están redirigiendo determinadas direcciones IP a través de equilibradores de carga, administradores de tráfico geográfico o Azure Express Route. 
-|    |Si usa Azure ExpressRoute, hay escenarios en los que los paquetes se podrían descartar cuando se produce un [enrutamiento asimétrico](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
+|    |Si usa Azure ExpressRoute, hay escenarios en los que los paquetes se podrían descartar cuando se produce un [enrutamiento asimétrico](../../expressroute/expressroute-asymmetric-routing.md).|
 
 ## <a name="test-failure-with-a-protocol-violation-error"></a>Error de prueba con un error de infracción de protocolo.
 
@@ -66,11 +66,11 @@ Compruebe la configuración de alertas clásicas para confirmar que su correo el
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>No recibí la notificación de webhook.
 
-Compruebe que la aplicación que recibe la notificación de webhook esté disponible y procese correctamente las solicitudes de webhook. Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
+Compruebe que la aplicación que recibe la notificación de webhook esté disponible y procese correctamente las solicitudes de webhook. Para obtener más información, consulte [este artículo](../platform/alerts-log-webhook.md).
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Obtengo errores 403 Prohibido, ¿qué significa esto?
 
-Este error indica que es necesario agregar excepciones de firewall para permitir que los agentes de disponibilidad prueben la dirección URL de destino. Para obtener una lista completa de las direcciones IP del agente admitidas, consulte el [artículo sobre excepciones de IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+Este error indica que es necesario agregar excepciones de firewall para permitir que los agentes de disponibilidad prueben la dirección URL de destino. Para obtener una lista completa de las direcciones IP del agente admitidas, consulte el [artículo sobre excepciones de IP](./ip-addresses.md#availability-tests).
 
 ### <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Error de prueba intermitente con un error de infracción de protocolo.
 
@@ -81,7 +81,7 @@ El error ("infracción del protocolo... CR debe ir seguido de LF") indica un pro
 
 ### <a name="i-dont-see-any-related-server-side-telemetry-to-diagnose-test-failures"></a>No veo telemetría de servidor relacionada para diagnosticar errores de pruebas.
 
-Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](../../azure-monitor/app/sampling.md). Seleccione un resultado de disponibilidad diferente.
+Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](./sampling.md). Seleccione un resultado de disponibilidad diferente.
 
 ### <a name="can-i-call-code-from-my-web-test"></a>¿Puedo llamar a código desde mi prueba web?
 
@@ -96,8 +96,8 @@ Los dos términos se pueden usar indistintamente. El término "pruebas de dispon
 
    Hay dos soluciones posibles:
 
-   * Configure el firewall para que permita las solicitudes entrantes de las [direcciones IP de los agentes de prueba web](../../azure-monitor/app/ip-addresses.md).
-   * Escriba su propio código para comprobar periódicamente el servidor interno. Ejecute el código como un proceso en segundo plano en un servidor de prueba detrás del firewall. El proceso de prueba puede enviar sus resultados a Application Insights mediante la API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en el paquete de SDK principal. Para ello, es necesario que el servidor de prueba tenga acceso saliente al punto de conexión de ingesta de Application Insights, pero plantea un riesgo de seguridad mucho menor que la alternativa de permitir las solicitudes entrantes. Los resultados aparecerán en las hojas de pruebas web de disponibilidad, aunque la experiencia se verá ligeramente simplificada con respecto a lo que está disponible para las pruebas creadas mediante el portal. Las pruebas de disponibilidad personalizadas también aparecerán como resultados de disponibilidad en los análisis, las búsquedas y las métricas.
+   * Configure el firewall para que permita las solicitudes entrantes de las [direcciones IP de los agentes de prueba web](./ip-addresses.md).
+   * Escriba su propio código para comprobar periódicamente el servidor interno. Ejecute el código como un proceso en segundo plano en un servidor de prueba detrás del firewall. El proceso de prueba puede enviar sus resultados a Application Insights mediante la API [TrackAvailability()](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en el paquete de SDK principal. Para ello, es necesario que el servidor de prueba tenga acceso saliente al punto de conexión de ingesta de Application Insights, pero plantea un riesgo de seguridad mucho menor que la alternativa de permitir las solicitudes entrantes. Los resultados aparecerán en las hojas de pruebas web de disponibilidad, aunque la experiencia se verá ligeramente simplificada con respecto a lo que está disponible para las pruebas creadas mediante el portal. Las pruebas de disponibilidad personalizadas también aparecerán como resultados de disponibilidad en los análisis, las búsquedas y las métricas.
 
 ### <a name="uploading-a-multi-step-web-test-fails"></a>Al cargar una prueba web de varios pasos, se produce un error
 
@@ -134,3 +134,4 @@ Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real 
 
 * [Pruebas web de varios pasos](availability-multistep.md)
 * [Pruebas de ping de dirección URL](monitor-web-app-availability.md)
+

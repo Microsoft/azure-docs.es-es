@@ -2,18 +2,16 @@
 title: 'Creación y consulta de Azure Data Lake Analytics: PowerShell'
 description: Use Azure PowerShell para crear una cuenta de Azure Data Lake Analytics y enviar un trabajo de U-SQL.
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: 8a4e901e-9656-4a60-90d0-d78ff2f00656
 ms.topic: conceptual
 ms.date: 05/04/2017
-ms.openlocfilehash: f59a8df1031affb7cd3ca3c64ad67514e91f1c9d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccee8cef9cfcfc57ac19284b9c42e5c8371aa746
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564817"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132558"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introducción a Azure Data Lake Analytics mediante Azure PowerShell
 
@@ -28,7 +26,7 @@ Aprenda a usar Azure PowerShell para crear cuentas de Azure Data Lake Analytics 
 Antes de empezar este tutorial, debe tener la siguiente información:
 
 * **Una cuenta de Análisis de Azure Data Lake**. Consulte [Introducción a Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
-* **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/overview).
+* **Una estación de trabajo con Azure PowerShell**. Consulte [Instalación y configuración de Azure PowerShell](/powershell/azure/).
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 

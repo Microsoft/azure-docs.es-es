@@ -3,12 +3,12 @@ title: Copias de seguridad del estado del sistema de Windows en Azure
 description: Aprenda a hacer copias de seguridad del estado del sistema de Windows Server y/o equipos Windows en Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 4319e03f9673baa2be01c1650ac1929204741087
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ea38b76d9a8b7b8ccc1898ed9450177da2cb2458
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611448"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003841"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Copias de seguridad del estado del sistema de Windows en Azure
 
@@ -40,7 +40,7 @@ Cuando cree un almacén de Recovery Services, asegúrese de que la configuració
 
     ![opciones de configuración de almacenamiento](./media/backup-try-azure-backup-in-10-mins/choose-storage-configuration.png)
 
-    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. En esta página de [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy.md) encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy-grs.md) y [redundancia local](../storage/common/storage-redundancy-lrs.md).
+    De forma predeterminada, el almacén tiene almacenamiento con redundancia geográfica. Si usa Azure como punto de conexión de almacenamiento de copia de seguridad principal, siga utilizando **Redundancia geográfica**. Si no utiliza Azure como punto de conexión de almacenamiento de copia de seguridad principal, elija **Redundancia local** para reducir los costes de almacenamiento de Azure. En esta página de [información general sobre la redundancia del almacenamiento](../storage/common/storage-redundancy.md) encontrará más información sobre las opciones de almacenamiento con [redundancia geográfica](../storage/common/storage-redundancy.md) y [redundancia local](../storage/common/storage-redundancy.md).
 
 Ahora que ha creado un almacén, configúrelo para realizar copias de seguridad del estado del sistema de Windows.
 
@@ -174,7 +174,7 @@ Para realizar la copia de seguridad inicial use el agente de Microsoft Azure Rec
 
 5. Haga clic en **Cerrar** para cerrar el asistente. Si lo hace antes de que finalice la copia de seguridad, el asistente se sigue ejecutando en segundo plano.
     > [!NOTE]
-    > El agente de MARS desencadena SFC /verifyonly como parte de las comprobaciones previas antes de cada copia de seguridad del estado del sistema. Esto se hace para asegurarse de que los archivos de los que se ha realizado una copia de seguridad como parte del estado del sistema tienen las versiones correctas correspondientes a la versión de Windows. Más información acerca del comprobador de archivos de sistema (SFC) en [este artículo](https://docs.microsoft.com/windows-server/administration/windows-commands/sfc).
+    > El agente de MARS desencadena SFC /verifyonly como parte de las comprobaciones previas antes de cada copia de seguridad del estado del sistema. Esto se hace para asegurarse de que los archivos de los que se ha realizado una copia de seguridad como parte del estado del sistema tienen las versiones correctas correspondientes a la versión de Windows. Más información acerca del comprobador de archivos de sistema (SFC) en [este artículo](/windows-server/administration/windows-commands/sfc).
     >
 
 Una vez que finalice la copia de seguridad inicial, el estado **Trabajo completado** se refleja en la consola de Copia de seguridad.

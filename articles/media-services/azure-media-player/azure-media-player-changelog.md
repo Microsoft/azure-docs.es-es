@@ -5,15 +5,127 @@ author: IngridAtMicrosoft
 ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
-ms.date: 04/20/2020
-ms.openlocfilehash: a1a55ceec2679034125ddd202402cabcbf71e17e
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 07/27/2020
+ms.openlocfilehash: 9642f6d1090ef358cf86241640255c647dea52eb
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698312"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432660"
 ---
 # <a name="changelog"></a>Registro de cambios #
+
+## <a name="235-official-update-june-1-2020"></a>2.3.5 (actualización oficial del 1 de junio de 2020)
+
+### <a name="bug-fixes-235"></a>Correcciones de errores 2.3.5
+
+- [Accesibilidad] El cliente de escucha de la tecla Esc en el panel Opciones está conectado al documento.
+- [Accesibilidad] La interfaz de usuario del reproductor ya no desaparece cuando la barra de control o el menú de opciones tiene el foco.
+- La barra de control muestra el tiempo de reloj incorrecto cuando está habilitada la configuración de pantalla del tiempo de reloj.
+
+### <a name="changes-235"></a>Cambios 2.3.5
+
+- Se ha agregado el mensaje de error para el código de error 0x00400005 y se ha agregado a la documentación.
+
+## <a name="234-official-update-march-4-2020"></a>2.3.4 (actualización oficial del 4 de marzo de 2020)
+
+### <a name="bug-fixes-234"></a>Correcciones de errores 2.3.4
+
+- No se puede establecer el valor de overrideLicenseAcquistionUrl de PlayReady.
+- No se puede reproducir contenido con interrupciones.
+- [Accesibilidad] El valor del atributo de id. para la alerta del lector de pantalla debe ser único.
+- [Accesibilidad] Al navegar por el cuadro de diálogo Configuración de subtítulos, el foco se desplaza fuera del cuadro de diálogo.
+
+### <a name="changes-234"></a>Cambios 2.3.4
+
+- Longitud del contenido del registro después de una descarga correcta para ayudar a analizar los errores de descifrado 2.3.3 (actualización oficial del 12 de noviembre de 2019).
+
+### <a name="features-234"></a>Características 2.3.4
+
+- Se ha agregado compatibilidad para mostrar el tiempo de reloj de un vídeo como superposición, así como en la barra de control.
+
+### <a name="bug-fixes-234"></a>Correcciones de errores 2.3.4
+
+- El cambio de pista de audio funciona, pero genera un error en IE11 y Windows 7 "El objeto no admite la propiedad o el método 'habilitado'".
+- El cambio de pista de audio produce un error cuando el búfer se ha cargado por completo.
+- El cambio de pista de audio produce un error cuando el usuario pausa el vídeo y cambia entre pistas de audio con mucha rapidez.
+- [Accesibilidad] La información sobre herramientas no está definida para el control de vídeo en el reproductor de vídeo.
+- Faltan los botones de volumen en HTML5 en función del momento en que se recibe "loadstart".
+- [Accesibilidad] No hay forma de establecer el texto alternativo para la imagen de póster.
+- [Accesibilidad] Se pierde el foco de la aplicación después de seleccionar "Listo" en el cuadro de diálogo Configuración de subtítulos.
+- [Accesibilidad] Se definieron atributos Aria incorrectos para "video" en "segments preview".
+
+### <a name="changes-234"></a>Cambios 2.3.4
+
+- Se ha quitado la etiqueta o pista de subtítulo vacía al reproducir HLS en iOS y macOS Safari.
+- Se ha reducido el número de respuestas 412 para los subtítulos IMSC1.
+- Advertencia de salida en la consola para 10 respuestas de subtítulo IMSC1 vacíos consecutivas para ayudar a la depuración en directo.
+
+## <a name="232-official-update-october-9-2019"></a>2.3.2 (actualización oficial del 9 de octubre de 2019)
+
+### <a name="features-232"></a>Características de la versión 2.3.2
+
+-Se ha agregado compatibilidad con PlayReady para la reproducción de DASH del explorador Edge basado en Chromium.
+
+### <a name="bug-fixes-232"></a>Correcciones de errores 2.3.2
+
+- La velocidad de reproducción actual no se muestra visualmente en el menú de velocidad de reproducción a menos que el usuario la configure manualmente.
+- [Accesibilidad] El panel "Configuración" no se contrae con la tecla "Esc".
+- [Accesibilidad] La tecla de método abreviado "M" de AMP no funciona cuando el narrador está activado.
+
+### <a name="changes-232"></a>Cambios 2.3.2
+
+- En el caso de los exploradores que no admiten el códec de audio E-AC3, las pistas de audio E-AC3 están ocultas en el menú de pista de audio.
+- En el caso de los exploradores que admiten el códec de audio E-AC3, una pista de audio E-AC3 está seleccionada de forma predeterminada.
+- En el caso de los exploradores que no admiten el cambio de códec de audio, las pistas de audio con un códec diferente al de la pista seleccionada se ocultan en el menú de pistas de audio.
+
+## <a name="231-official-update-august-12-2019"></a>2.3.1 (actualización oficial del 12 de agosto de 2019)
+
+### <a name="features-231"></a>Características 2.3.1
+
+- Señalar un evento en el que se reciben cuadros "emsg" en la reproducción DASH: se ha agregado compatibilidad para mostrar las pistas de audio EC-3 en el menú Audio de los exploradores que admiten EC-3 y permitir el cambio de la pista de audio de AAC a EC3 y viceversa solo en el explorador Edge basado en Chromium.
+
+### <a name="bug-fixes-231"></a>Correcciones de errores 2.3.1
+
+- El menú Pista de audio se daña después de quitar las pistas EC-3.
+- El tiempo actual puede ser mayor que la duración del vídeo.
+- No es posible establecer la velocidad de reproducción mediante initialSpeed.
+- A veces después de una búsqueda, el reproductor parece bloqueado.
+- En Edge e IE con una pantalla táctil, después de acercar una página, presionar o mantener el mouse sobre la barra de búsqueda no se obtiene de forma precisa el segmento correcto del vídeo.
+- [Accesibilidad] La etiqueta Aria para Reproducir/Pausar no describe al reproductor de vídeo. Asignación del error Segmento en directo no encontrado para flashSS al error de AMP correcto.
+- [Accesibilidad] Los roles Aria usados para Reproducir/Pausar deben ajustarse a los valores válidos (.vjs-text-track-display).
+- [Accesibilidad] Determinados roles Aria deben incluirse en elementos primarios específicos.
+- [Accesibilidad] No se ha definido información sobre herramientas para el botón Reproducir/Pausar del reproductor de vídeo. Los subtítulos IMSC1 pueden desaparecer después de realizar búsquedas en el búfer de vídeo/audio actual.
+
+### <a name="changes-231"></a>Cambios 2.3.1
+
+- Al obtener un elemento segmentDecryptError cuando el reproductor ya está en el perímetro activo, el reproductor ahora actualiza el manifiesto en lugar de probar el siguiente segmento.
+- Se han agregado más registros para diagnóstico.
+- Se ha actualizado la documentación para incluir la compatibilidad de FairPlay con iOS Safari.
+- Se ha agregado un ejemplo para la opción "srclang" de IMSC1.
+- Se han agregado invalidaciones para los valores de padding, textPadding y boxShadow de las pistas de texto.
+- Se ha agregado un código de error (0x0020025B) para diferenciar un error de descarga de segmento debido a que no hay Internet, en lugar de simplemente devolver 0x00200259.
+
+## <a name="230-official-release-april-30-2019"></a>2.3.0 (lanzamiento oficial el 30 de abril de 2019)
+
+### <a name="features-230"></a>Características 2.3.0
+
+- Se ha agregado compatibilidad con los subtítulos IMSC1 para DASH.
+- Se ha agregado compatibilidad con los recursos solo de vídeo para DASH.
+- Se agregado presentationTimeOffsetInSec a la API.
+
+### <a name="bug-fixes-230"></a>Correcciones de errores 2.3.0
+
+- El perfil de heurística LowLatency de AMP interfiere con la reproducción de vídeo de iOS. Las opciones "silenciar" y "reactivar audio" de algunos idiomas tienen traducciones erróneas.
+- A veces, el valor Aria "now" del control deslizante de la barra de progreso a veces es incorrecto.
+- El valor Aria de "role" de la visualización de la pista de texto es incorrecto.
+
+### <a name="changes-230"></a>Cambios 2.3.0
+
+- Los registros ahora incluyen el tamaño de los fragmentos multimedia descargados.
+- Se ha quitado la compatibilidad con IE 9 e IE 10.
+- Se ha actualizado el ejemplo CEA708 para mostrar los subtítulos con alineación izquierda.
+- Se incluye MediaError.message en los registros de errores de reproducción.
 
 ## <a name="224-official-update-february-22-2019"></a>2.2.4 (actualización oficial del 22 de febrero de 2019) ##
 
@@ -31,7 +143,7 @@ ms.locfileid: "83698312"
 
 ## <a name="223-official-update-january-9-2019"></a>2.2.3 (actualización oficial del 9 de enero de 2019) ##
 
-### <a name="features"></a>Características ###
+### <a name="features-223"></a>Características 2.2.3 ###
 
 - [Característica][HLS] Se ha agregado el menú de pista de audio para la reproducción de Safari HLS.
 
@@ -72,7 +184,7 @@ ms.locfileid: "83698312"
 
 ### <a name="changes"></a>Cambios ###
 
-- [Cambio][Subtítulos en vivo] Se ha cambiado el nombre de la API en los subtítulos de CEA de 608 a 708. Para más información, consulte [Configuración de subtítulos de CEA708](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
+- [Cambio][Subtítulos en vivo] Se ha cambiado el nombre de la API en los subtítulos de CEA de 608 a 708. Para más información, consulte [Configuración de subtítulos de CEA708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versión oficial) ##
 
@@ -116,7 +228,7 @@ ms.locfileid: "83698312"
 
 ### <a name="changes-218"></a>Cambios en la versión 2.1.8 ###
 
-- [Cambio] Se ha actualizado el error 0x0600001 para que se muestre cuando se reproduce contenido AES con Flash 30, ya que no se admite actualmente. Para más información, consulte [Problemas conocidos](azure-media-player-known-issues.md)
+- [Cambio] Se ha actualizado el error 0x0600001 para que se muestre al reproducir contenido AES con Flash 30, ya que no se admite actualmente. Para más información, consulte [Problemas conocidos](azure-media-player-known-issues.md)
 - [Cambio] Se han agregado más reintentos para los escenarios en vivo cuando el manifiesto solicita 404 o devuelve manifiestos vacíos.
 
 ## <a name="217-official-update"></a>2.1.7 (actualización oficial) ##

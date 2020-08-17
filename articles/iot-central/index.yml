@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 0c433c2d09f101a9ab3fb9d1225e47741908b3bf
-  ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+  ms.openlocfilehash: fee76e6782fb01c6d18fd19c8c97d9f2c310c7ab
+  ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/29/2020
-  ms.locfileid: "82562192"
+  ms.lasthandoff: 08/11/2020
+  ms.locfileid: "88080684"
 highlightedContent:
   items:
   - title: ¿Qué es IoT Central?
@@ -43,9 +43,6 @@ conceptualContent:
     - url: ./core/howto-set-up-template.md
       itemType: how-to-guide
       text: Configuración de una plantilla de dispositivo
-    - url: ./core/tutorial-connect-pnp-device.md
-      itemType: tutorial
-      text: Conexión de un dispositivo IoT Plug and Play (versión preliminar)
     footerLink:
       url: ./core/index.yml
       text: Ver más
@@ -71,9 +68,9 @@ conceptualContent:
     - url: ./core/tutorial-create-telemetry-rules.md
       itemType: how-to-guide
       text: Creación de una regla de telemetría
-    - url: ./core/howto-export-data.md
+    - url: ./core/howto-use-data-export.md
       itemType: how-to-guide
-      text: Exportación de datos a destinos en Azure
+      text: Exportación de datos a destinos en la nube (versión preliminar)
     footerLink:
       url: ./core/index.yml
       text: Ver más
@@ -94,6 +91,8 @@ productDirectory:
       url: ./retail/tutorial-iot-central-connected-logistics.md
     - text: Creación de una aplicación del centro de distribución digital
       url: ./retail/tutorial-iot-central-digital-distribution-center.md
+    - text: Creación de una aplicación de análisis de vídeo
+      url: ./retail/tutorial-video-analytics-create-app.md
   - title: Creación para el sector sanitario
     imageSrc: ./healthcare/media/index/iot-central-healthcare.svg
     links:

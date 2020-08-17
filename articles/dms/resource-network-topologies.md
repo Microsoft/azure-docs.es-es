@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 31dfae60b1967e221e294195f66bb7fe59a15e64
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 69926671730e41845cd28df3108ec86b24a57075
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84187514"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448518"
 ---
 # <a name="network-topologies-for-azure-sql-managed-instance-migrations-using-azure-database-migration-service"></a>Topologías de red para migraciones de Instancia administrada de Azure SQL mediante Azure Database Migration Service
 
@@ -39,7 +39,7 @@ Use esta topología si su Instancia administrada de Azure SQL está conectada a 
 Use esta topología de red si su entorno requiere uno o varios de los siguientes escenarios:
 
 - Instancia administrada de SQL está aislada de la conectividad local pero la instancia de Azure Database Migration Service está conectada a la red local.
-- Si se han implementado directivas de control de acceso basado en roles (RBAC) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda Instancia administrada de SQL.
+- Si se han implementado directivas de control de acceso basado en rol de Azure (RBAC de Azure) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda SQL Managed Instance.
 - Las redes virtuales que se usan para Instancia administrada de SQL y Azure Database Migration Service se encuentran en suscripciones distintas.
 
 ![Topología de red para Instancia administrada aislada de la red local](media/resource-network-topologies/mi-isolated-workload.png)
@@ -64,7 +64,7 @@ Use esta topología si el servidor SQL Server de origen se hospeda en una VM de 
 Use esta topología de red si su entorno requiere uno o varios de los siguientes escenarios:
 
 - Instancia administrada de SQL se aprovisiona en una red virtual aislada.
-- Si se han implementado directivas de control de acceso basado en roles (RBAC) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda Instancia administrada de SQL.
+- Si se han implementado directivas de control de acceso basado en rol de Azure (RBAC de Azure) y tiene que limitar el acceso de los usuarios a la misma suscripción que hospeda SQL Managed Instance.
 - Las redes virtuales que se usan para Instancia administrada de SQL y Azure Database Migration Service se encuentran en suscripciones distintas.
 
 ![Topología de red para migraciones de nube a nube con una red virtual aislada](media/resource-network-topologies/cloud-to-cloud-isolated.png)

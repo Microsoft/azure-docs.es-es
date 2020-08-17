@@ -1,5 +1,5 @@
 ---
-title: Sincronización de Apache Spark para las definiciones de tablas externas de Azure Synapse en SQL On-Demand (versión preliminar)
+title: Sincronización de Apache Spark para las definiciones de tablas externas en SQL a petición (versión preliminar)
 description: Información general sobre cómo consultar tablas de Spark mediante SQL a petición (versión preliminar)
 services: synapse-analytics
 author: julieMSFT
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: db6b2d95bf8f38495296885d14260b9900af1d51
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3e9f688a31d2847505e974ab6a1557aa6a7b2047
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86247054"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046838"
 ---
 # <a name="synchronize-apache-spark-for-azure-synapse-external-table-definitions-in-sql-on-demand-preview"></a>Sincronización de Apache Spark para las definiciones de tablas externas de Azure Synapse en SQL On-Demand (versión preliminar)
 
@@ -35,7 +35,7 @@ SELECT * FROM [db].dbo.[spark_table]
 ```
 
 > [!NOTE]
-> Las operaciones de agregar, quitar o modificar columnas de tablas externas de Spark no se reflejarán en tablas externas de SQL a petición.
+> La adición, eliminación o modificación de comandos de una tabla externa de Spark en una columna no se verá reflejado en la tabla externa en SQL a petición.
 
 ## <a name="apache-spark-data-types-to-sql-data-types-mapping"></a>Asignación de tipos de datos de Apache Spark a tipos de datos de SQL
 

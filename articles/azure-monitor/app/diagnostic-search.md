@@ -3,18 +3,18 @@ title: Uso de Búsqueda en Azure Application Insights | Microsoft Docs
 description: Busque y filtre los datos de telemetría sin procesar que envía la aplicación web.
 ms.topic: conceptual
 ms.date: 07/30/2019
-ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f88e0fb8fbd7e9605635ede1e8f71b57de84b74e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84695664"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324461"
 ---
 # <a name="using-search-in-application-insights"></a>Uso de Búsqueda en Application Insights
 
-Búsqueda es una característica de [Application Insights](../../azure-monitor/app/app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
+Búsqueda es una característica de [Application Insights](./app-insights-overview.md) que se usa para buscar y explorar elementos de telemetría individuales, como vistas de páginas, excepciones o solicitudes web. Y puede ver los seguimientos de registros y eventos que haya codificado.
 
-(Para consultas más complejas sobre los datos, use [Analytics](../../azure-monitor/log-query/get-started-portal.md)).
+(Para consultas más complejas sobre los datos, use [Analytics](../log-query/get-started-portal.md)).
 
 ## <a name="where-do-you-see-search"></a>¿Dónde verá Search?
 
@@ -56,13 +56,13 @@ Abra el menú desplegable Tipos de evento y elija los tipos de evento que quiere
 
 Los tipos de evento son:
 
-* **Seguimiento** - [registros de diagnóstico](../../azure-monitor/app/asp-net-trace-logs.md), como llamadas a TrackTrace, log4Net, NLog y System.Diagnostic.Trace.
+* **Seguimiento** - [registros de diagnóstico](./asp-net-trace-logs.md), como llamadas a TrackTrace, log4Net, NLog y System.Diagnostic.Trace.
 * **Solicitud** - solicitudes HTTP recibidas por la aplicación de servidor, como páginas, scripts, imágenes, archivos de estilo y datos. Estos eventos se utilizan para crear los gráficos de información general de solicitudes y respuestas.
-* **Vista de página** - [es la telemetría enviada por el cliente web](../../azure-monitor/app/javascript.md) , que se usa para crear informes de vistas de página.
-* **Evento personalizado** - si ha insertado llamadas a TrackEvent() [para supervisar el uso](../../azure-monitor/app/api-custom-events-metrics.md) , puede buscarlas aquí.
-* **Excepción** - [excepciones no detectadas en el servidor](../../azure-monitor/app/asp-net-exceptions.md) y las que se registran mediante TrackException().
-* **Dependencia:**  - [ llamadas desde su aplicación de servidor](../../azure-monitor/app/asp-net-dependencies.md) a otros servicios, como API de REST o bases de datos, y llamadas de AJAX desde su [código de cliente](../../azure-monitor/app/javascript.md).
-* **Disponibilidad**: resultados de [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).
+* **Vista de página** - [es la telemetría enviada por el cliente web](./javascript.md) , que se usa para crear informes de vistas de página.
+* **Evento personalizado** - si ha insertado llamadas a TrackEvent() [para supervisar el uso](./api-custom-events-metrics.md) , puede buscarlas aquí.
+* **Excepción** - [excepciones no detectadas en el servidor](./asp-net-exceptions.md) y las que se registran mediante TrackException().
+* **Dependencia:**  - [ llamadas desde su aplicación de servidor](./asp-net-dependencies.md) a otros servicios, como API de REST o bases de datos, y llamadas de AJAX desde su [código de cliente](./javascript.md).
+* **Disponibilidad**: resultados de [pruebas de disponibilidad](./monitor-web-app-availability.md).
 
 ## <a name="filter-on-property-values"></a>Filtro de los valores de propiedad
 
@@ -81,10 +81,10 @@ Para buscar todos los elementos con el mismo valor de propiedad, escríbalo en l
 ## <a name="search-the-data"></a>Búsqueda de los datos
 
 > [!NOTE]
-> Para escribir consultas más complejas, abra [**Registros (Analytics)** ](../../azure-monitor/log-query/get-started-portal.md) desde la parte superior de la hoja Buscar.
+> Para escribir consultas más complejas, abra [**Registros (Analytics)** ](../log-query/get-started-portal.md) desde la parte superior de la hoja Buscar.
 >
 
-Puede buscar términos en cualquiera de los valores de propiedad. Esto es útil si ha escrito [eventos personalizados](../../azure-monitor/app/api-custom-events-metrics.md) con valores de propiedad.
+Puede buscar términos en cualquiera de los valores de propiedad. Esto es útil si ha escrito [eventos personalizados](./api-custom-events-metrics.md) con valores de propiedad.
 
 Quizás desee establecer un intervalo de tiempo, dado que las búsquedas en un intervalo más corto son más rápidas.
 
@@ -110,7 +110,7 @@ A continuación se muestran las expresiones de búsqueda que puede utilizar:
 
 Si la aplicación genera una gran cantidad de datos de telemetría (y está usando la versión 2.0.0-beta3 o posterior del SDK de ASP.NET), el módulo de muestreo adaptable reduce automáticamente el volumen que se envía al portal mediante el envío de solamente una fracción representativa de los eventos. Sin embargo, los eventos relacionados con la misma solicitud se seleccionan o deseleccionan como grupo, por lo que puede navegar entre ellos.
 
-[Más información sobre el muestreo](../../azure-monitor/app/sampling.md).
+[Más información sobre el muestreo](./sampling.md).
 
 ## <a name="create-work-item"></a>Creación de elemento de trabajo
 
@@ -128,24 +128,25 @@ La primera vez que lo haga, se le pedirá que configure un vínculo a la organiz
 
 Además de la telemetría inmediata enviada por el SDK de Application Insights, puede:
 
-* Capturar seguimientos de registros de su plataforma de registro de favoritos en [.NET](../../azure-monitor/app/asp-net-trace-logs.md) o [Java](../../azure-monitor/app/java-trace-logs.md). Esto significa que puede buscar en los seguimientos de registros y correlacionarlos con vistas de página, excepciones y otros eventos.
-* [Escribir código](../../azure-monitor/app/api-custom-events-metrics.md) para enviar eventos personalizados, vistas de página y excepciones.
+* Capturar seguimientos de registros de su plataforma de registro de favoritos en [.NET](./asp-net-trace-logs.md) o [Java](./java-trace-logs.md). Esto significa que puede buscar en los seguimientos de registros y correlacionarlos con vistas de página, excepciones y otros eventos.
+* [Escribir código](./api-custom-events-metrics.md) para enviar eventos personalizados, vistas de página y excepciones.
 
-[Aprender a enviar registros y telemetría personalizada a Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
+[Aprender a enviar registros y telemetría personalizada a Application Insights](./asp-net-trace-logs.md).
 
 ## <a name="q--a"></a><a name="questions"></a>Preguntas y respuestas
 
 ### <a name="how-much-data-is-retained"></a><a name="limits"></a>¿Qué cantidad de datos se conserva?
 
-Consulte [Resumen de límites](../../azure-monitor/app/pricing.md#limits-summary).
+Consulte [Resumen de límites](./pricing.md#limits-summary).
 
 ### <a name="how-can-i-see-post-data-in-my-server-requests"></a>¿Cómo puedo ver datos POST en mis solicitudes de servidor?
 
-Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](../../azure-monitor/app/asp-net-trace-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
+Aunque no registramos los datos POST automáticamente, puede usar [TrackTrace o llamadas de registro](./asp-net-trace-logs.md). Coloque los datos POST en el parámetro de mensaje. No puede filtrar por el mensaje de la misma forma que con las propiedades, pero el límite de tamaño es mayor.
 
 ## <a name="next-steps"></a><a name="add"></a>Pasos siguientes
 
-* [Escribir consultas complejas en Analytics](../../azure-monitor/log-query/get-started-portal.md)
-* [Envío de registros y telemetría personalizada a Application Insights](../../azure-monitor/app/asp-net-trace-logs.md).
-* [Configuración de pruebas de disponibilidad y de capacidad de respuesta](../../azure-monitor/app/monitor-web-app-availability.md)
-* [Solución de problemas](../../azure-monitor/app/troubleshoot-faq.md)
+* [Escribir consultas complejas en Analytics](../log-query/get-started-portal.md)
+* [Envío de registros y telemetría personalizada a Application Insights](./asp-net-trace-logs.md).
+* [Configuración de pruebas de disponibilidad y de capacidad de respuesta](./monitor-web-app-availability.md)
+* [Solución de problemas](../faq.md)
+

@@ -1,5 +1,5 @@
 ---
-title: Uso de .NET para Apache Spark con Azure Synapse Analytics
+title: Uso de .NET para Apache Spark
 description: Obtenga información sobre el uso de .NET y Apache Spark para realizar el procesamiento por lotes, el streaming en tiempo real, el aprendizaje automático y la escritura de consultas ad hoc en cuadernos de Azure Synapse Analytics.
 author: mamccrea
 services: synapse-analytics
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 05/01/2020
 ms.author: mamccrea
 ms.reviewer: jrasnick
-ms.openlocfilehash: f71d231f01f2f19bd63fb9ec8c32b98fcb3e9aee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 677b54a09a446ef8af0b410faea9f94b71634712
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194729"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999044"
 ---
 # <a name="use-net-for-apache-spark-with-azure-synapse-analytics"></a>Uso de .NET para Apache Spark con Azure Synapse Analytics
 

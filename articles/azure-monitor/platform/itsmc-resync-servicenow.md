@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 04/12/2020
-ms.openlocfilehash: f09f5010c18f5ea064b02f0fbbae107bf473e1f8
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: a3382f93990612b0ab34eb0848cbf3d6577c44ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81313681"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087941"
 ---
 # <a name="how-to-manually-fix-servicenow-sync-problems"></a>Cómo corregir manualmente los problemas de sincronización de ServiceNow
 
@@ -38,7 +38,7 @@ Use el proceso de sincronización siguiente para volver a activar la conexión y
     1. Haga clic en el nombre del conector para configurarlo.
     1. Elimine los conectores que ya no se estén usando.
 
-    1. Actualice los campos de acuerdo con [estas definiciones](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-connections) según el tipo de asociado.
+    1. Actualice los campos de acuerdo con [estas definiciones](./itsmc-connections.md) según el tipo de asociado.
 
     1. Haga clic en Sincronizar
 

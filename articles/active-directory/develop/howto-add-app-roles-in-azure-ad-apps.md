@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/24/2018
+ms.date: 07/15/2020
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 940ef671ab58074aaded49acb70db68a4971c1f2
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 0ec314e6b5abde60102dacfc81c9303cef16e887
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187037"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058633"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>Procedimientos: Agregar roles de aplicación en la aplicación y recibirlos en el token
 
@@ -76,7 +76,7 @@ El ejemplo siguiente muestra los distintos `appRoles` que se pueden asignar a `u
 > [!NOTE]
 >`displayName` no puede contener espacios.
 
-Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando están disponibles para `applications`, los roles de aplicación aparecen como permisos de aplicación en la hoja **Permisos necesarios**. El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
+Puede definir roles de aplicación para `users`, `applications` o ambos. Cuando esté disponible para `applications`, los roles de aplicación aparecen como permisos de aplicación en la sección **Administrar** > **Permisos de API > Agregar un permiso > Mis API > Elegir una API > Permisos de la aplicación**. El ejemplo siguiente muestra un rol de aplicación dirigido a un elemento `Application`.
 
 ```Json
 "appId": "8763f1c4-f988-489c-a51e-158e9ef97d6a",
@@ -118,6 +118,10 @@ Una vez que haya agregado los roles de aplicación en la aplicación, puede asig
 1. Elija un rol y presione el botón **Seleccionar**.
 1. Presione el botón **Asignar** en la parte inferior para finalizar las asignaciones de usuarios y grupos a la aplicación.
 1. Confirme que los usuarios y grupos que agregó se muestran en la lista **Usuarios y grupos** actualizada.
+
+### <a name="receive-roles-in-tokens"></a>Recepción de roles en tokens
+
+Cuando los usuarios asignados a los distintos roles de aplicación inicien sesión en la aplicación, los tokens tendrán sus roles asignados en la notificación `roles`.
 
 ## <a name="more-information"></a>Más información
 

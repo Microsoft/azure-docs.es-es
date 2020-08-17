@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 58d52cd194ca4391c61f2477189984273df1198a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e05c7a8388b662731c04ac4098d6eecb1d89fe4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84712401"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060151"
 ---
-# <a name="configure-a-content-key-authorization-policy"></a>Configuración de una directiva de autorización de claves de contenido
+# <a name="configure-a-content-key-authorization-policy-by-using-the-media-services-net-sdk"></a>Configuración de la directiva de autorización de claves mediante el SDK de Media Services para .NET
 
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
 
@@ -34,7 +34,7 @@ Si quiere que Media Services cifre un recurso, debe asociar una clave de cifrado
 
 Cuando un reproductor solicita una transmisión, Media Services usa la clave especificada para cifrar de forma dinámica el contenido mediante el cifrado AES o DRM. Para descifrar la secuencia, el reproductor solicitará la clave del servicio de entrega de claves. Para determinar si el usuario tiene permiso para obtener la clave, el servicio evalúa las directivas de autorización que especificó para la clave.
 
-Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de contenido puede tener una o varias restricciones de autorización. Las opciones son restricción de token o abierta. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en formato Token web simple ([SWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2)) y en formato JSON Web Token ([JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3)).
+Media Services admite varias formas de autenticar a los usuarios que realizan solicitudes de clave. La directiva de autorización de claves de contenido puede tener una o varias restricciones de autorización. Las opciones son restricción de token o abierta. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en formato Token web simple ([SWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_2)) y en formato JSON Web Token ([JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3)).
 
 Tenga en cuenta que Media Services no proporciona STS. Puede crear un STS personalizado o usar Azure Access Control Service para emitir tokens. El STS debe configurarse para crear un token firmado con las notificaciones especificadas de clave y el número que especificó en la configuración de restricción de token (como se describe en este artículo). Si el token es válido y las notificaciones del token coinciden con las que se han configurado en la clave de contenido, el servicio de entrega de claves de Media Services devuelve la clave de cifrado al cliente.
 
@@ -439,4 +439,3 @@ Para obtener un token de prueba basado en la restricción de token que se usó p
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha configurado la directiva de autorización de la clave de contenido, consulte [Configuración de directivas de entrega de recursos](media-services-dotnet-configure-asset-delivery-policy.md).
-

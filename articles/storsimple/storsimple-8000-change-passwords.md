@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: becbf7f89266fb0f56aaa053eb7cba9291da6896
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 038084ba9ae43e14bc2eb42bf258912be27d062c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514090"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527870"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Uso del servicio StorSimple Device Manager para cambiar las contraseñas de StorSimple
 
@@ -36,25 +36,25 @@ La primera contraseña que se estableció a través de la interfaz de Windows Po
 
 2. En la lista tabular de dispositivos, seleccione el dispositivo cuya contraseña tiene intención de cambiar y haga clic en él.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+    ![Captura de pantalla del servicio Administrador de dispositivos de StorSimple. En administración está seleccionada la opción Dispositivos. En la lista de dispositivos está seleccionado un dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. En la hoja **Configuración**, vaya a **Configuración del dispositivo > Seguridad**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+    ![Captura de pantalla de la hoja Configuración del servicio Administrador de dispositivos. En Configuración de dispositivo está seleccionada la opción Seguridad.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. En la hoja **Configuración de seguridad**, haga clic en **Contraseña** para cambiar la contraseña de administrador de dispositivos.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd3.png)
+    ![Captura de pantalla de la hoja Configuración de seguridad. Está resaltado el botón Contraseña.](./media/storsimple-8000-change-passwords/changepwd3.png)
 
 5. En la hoja **Contraseña**, especifique una contraseña de administrador que tenga entre 8 y 15 caracteres. La contraseña debe ser una combinación de tres o más caracteres en mayúsculas, minúsculas, números y caracteres especiales.
 
 6. Confirme la contraseña.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd4.png)
+    ![Captura de pantalla de la hoja Contraseña. En Contraseña de administrador de dispositivo, los cuadros Nueva contraseña y Confirmar contraseña están rellenos.](./media/storsimple-8000-change-passwords/changepwd4.png)
 
 7. Haga clic en **Guardar** y, cuando se le pida confirmación, haga clic en **Sí**.
 
-    ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+    ![Captura de pantalla de la hoja Contraseña. El botón Guardar está resaltado.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 Ahora debe actualizarse la contraseña del administrador de dispositivos. Puede usar esta contraseña modificada para tener acceso a la interfaz de Windows PowerShell.
 
@@ -70,25 +70,25 @@ La contraseña de StorSimple Snapshot Manager se puede establecer o cambiar a tr
 
 2. En la lista tabular de dispositivos, seleccione el dispositivo cuya contraseña de StorSimple Snapshot Manager tiene intención de establecer o cambiar, y haga clic en él.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd1.png)
+     ![Captura de pantalla del servicio Administrador de dispositivos de StorSimple. En Administración está seleccionada la opción Dispositivos. En la lista de dispositivos está seleccionado un dispositivo.](./media/storsimple-8000-change-passwords/changepwd1.png)
 
 3. En la hoja **Configuración**, vaya a **Configuración del dispositivo > Seguridad**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd2.png)
+     ![Captura de pantalla de la hoja Configuración del servicio Administrador de dispositivos. En Configuración de dispositivo está seleccionada la opción Seguridad.](./media/storsimple-8000-change-passwords/changepwd2.png)
 
 4. En la hoja **Configuración de seguridad**, haga clic en **Contraseña** para establecer o cambiar la contraseña de StorSimple Snapshot Manage.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd3.png) 
+     ![Captura de pantalla de la hoja Configuración de seguridad. Está resaltado el botón Contraseña.](./media/storsimple-8000-change-passwords/changepwd3.png) 
 
 5. En la hoja **Contraseña**, escriba una contraseña que tenga 14 o 15 caracteres. Asegúrese de que la contraseña contiene una combinación de tres o más caracteres en mayúsculas, minúsculas, números y caracteres especiales.
 
 6. Confirme la contraseña.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd5.png)
+     ![Captura de pantalla de la hoja Contraseña. En Contraseña de Snapshot Manager los cuadros Nueva contraseña y Confirmar contraseña están rellenos.](./media/storsimple-8000-change-passwords/changepwd5.png)
 
 7. Haga clic en **Guardar** y, cuando se le pida confirmación, haga clic en **Sí**.
 
-     ![](./media/storsimple-8000-change-passwords/changepwd6.png)
+     ![Captura de pantalla de la hoja Contraseña. El botón Guardar está resaltado.](./media/storsimple-8000-change-passwords/changepwd6.png)
 
 Ahora se debe actualizar la contraseña de StorSimple Snapshot Manager.
 

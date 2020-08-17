@@ -1,5 +1,5 @@
 ---
-title: Compatibilidad de versiones de Apache Spark para Azure Synapse Analytics
+title: Compatibilidad de las versiones de Azure Spark
 description: Versiones admitidas de Spark, Scala y Python
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 8914f081196c41dccf3acbed9cf87bd63df8b92c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eda93f64b503a1894f306be75dd5a3321d428eb9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193964"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089233"
 ---
 # <a name="supported-language-and-runtime-versions-for-apache-spark-and-dependent-components"></a>Versiones de lenguaje y entornos de ejecución admitidas para Apache Spark y los componentes dependientes  
 

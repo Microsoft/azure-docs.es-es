@@ -6,24 +6,51 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 06/29/2020
+ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: f43f17a0f3742831920836e448de3ef757f2dfa6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 763a13cf2ecbe845619101bc9e325cc51564260a
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568082"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553400"
 ---
 # <a name="scenario-isolating-vnets"></a>Escenario: Aislamiento de redes virtuales
 
-Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En este escenario, el objetivo es evitar que las redes virtuales puedan comunicarse entre sí. Esto se conoce como aislamiento de las redes virtuales. La carga de trabajo dentro de la red virtual permanece aislada y no es capaz de comunicarse con otras redes virtuales, como en un escenario universal. Sin embargo, es necesario que las redes virtuales tengan acceso a todas las ramas (VPN, ER y VPN de usuario). En este escenario, todas las conexiones VPN, ExpressRoute y VPN de usuario están asociadas a la misma tabla de rutas única. Todas las conexiones VPN, ExpressRoute y VPN de usuario propagan rutas al mismo conjunto de tablas de rutas. Para obtener información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+Al trabajar con el enrutamiento de centros virtuales de Virtual WAN, hay bastantes escenarios disponibles. En este escenario, el objetivo es evitar que las redes virtuales puedan comunicarse entre sí. Esto se conoce como aislamiento de las redes virtuales. Para obtener información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 
-## <a name="scenario-workflow"></a><a name="workflow"></a>Flujo de trabajo del escenario
+## <a name="design"></a><a name="design"></a>Diseño
+
+En este escenario, la carga de trabajo dentro de una red virtual concreta permanece aislada y no puede comunicarse con otras redes virtuales. Sin embargo, es necesario que las redes virtuales tengan acceso a todas las ramas (VPN, ER y VPN de usuario). Para averiguar el número de tablas de enrutamiento que va a necesitar, puede crear una matriz de conectividad. En el caso de este escenario, será similar a la tabla siguiente, donde cada celda representa si un origen (fila) puede comunicarse con un destino (columna):
+
+| De |   A |  *Redes virtuales* | *Ramas* |
+| -------------- | -------- | ---------- | ---|
+| Redes virtuales     | &#8594;|           |     X    |
+| Ramas   | &#8594;|    X     |     X    |
+
+Cada una de las celdas de la tabla anterior describe si una conexión de Virtual WAN (el lado "From" del flujo, los encabezados de fila) aprende un prefijo de destino (el lado "To"del flujo, los encabezados de columna en cursiva) de un flujo de tráfico concreto.
+
+Esta matriz de conectividad nos proporciona dos patrones de fila diferentes, que se traducen en dos tablas de enrutamiento. Virtual WAN ya tiene una tabla de enrutamiento predeterminada, por lo que hará falta otra. En este ejemplo, se asignará el nombre **RT_VNET** a la tabla de enrutamiento.
+
+Las redes virtuales se asociarán a la tabla de enrutamiento **RT_VNET**. Como necesitan conectividad con las ramas, estas necesitarán propagarse a **RT_VNET** (de lo contrario, las redes virtuales no aprenderían los prefijos de las ramas). Como las ramas siempre están asociadas a la tabla de enrutamiento predeterminada, las redes virtuales deberán propagarse a la tabla de enrutamiento predeterminada. En consecuencia, este es el diseño final:
+
+* Redes virtuales:
+  * Tabla de enrutamiento asociada: **RT_VNET**
+  * Propagación a tablas de enrutamiento: **Valor predeterminado**
+* Ramas:
+  * Tabla de enrutamiento asociada: **Valor predeterminado**
+  * Propagación a tablas de enrutamiento: **RT_VNET** y **Valor predeterminado**
+
+Tenga en cuenta que, puesto que las ramas son los únicos elementos que se propagan a la tabla de enrutamiento **RT_VNET**, serán los únicos prefijos que aprenderán las redes virtuales y no las de otras redes virtuales.
+
+Para obtener información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+
+## <a name="workflow"></a><a name="workflow"></a>Flujo de trabajo
 
 Para poder configurar este escenario, tenga en cuenta los siguientes pasos:
 
-1. Cree una tabla de rutas personalizada. En el ejemplo, la tabla de ruta es **RT_VNet**. Para crear una tabla de rutas, consulte [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md). Para obtener más información sobre las tablas de rutas, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+1. Cree una tabla de enrutamiento personalizada en cada centro. En el ejemplo, la tabla de ruta es **RT_VNet**. Para crear una tabla de rutas, consulte [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md). Para obtener más información sobre las tablas de rutas, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
 2. Cuando cree la tabla de rutas **RT_VNet**, configure las siguientes opciones:
 
    * **Asociación**: Seleccione las redes virtuales que desea aislar.
@@ -34,4 +61,4 @@ Para poder configurar este escenario, tenga en cuenta los siguientes pasos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para más información sobre Virtual WAN, consulte las [preguntas más frecuentes](virtual-wan-faq.md).
-* Para obtener más información sobre el enrutamiento de centros virtuales, consulte [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).
+* Para obtener más información sobre el enrutamiento de centros virtuales, vea [Acerca del enrutamiento de centros virtuales](about-virtual-hub-routing.md).

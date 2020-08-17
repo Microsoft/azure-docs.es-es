@@ -9,12 +9,12 @@ ms.date: 11/18/2019
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 69c921ba67159d28a913173cee5e90fb04dcbf0a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54014a0d76130b82788a1ae432e42baec28df2c2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561033"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448337"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Almacenamiento de datos de blobs críticos para la empresa con almacenamiento inmutable
 
@@ -78,7 +78,7 @@ Los límites siguientes se aplican a las directivas de retención:
 
 Los blobs en anexos se componen de bloques de datos y se optimizan para las operaciones de anexión de datos necesarias en escenarios de auditoría y registro. Por diseño, los blobs en anexos solo permiten agregar nuevos bloques al final del blob. Con independencia de la inmutabilidad, la modificación o eliminación de los bloques existentes en un blob en anexos básicamente no se permite. Para más información sobre los blobs en anexos, vea [Acerca de los blobs en anexos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs).
 
-Solo las directivas de retención de duración definida tienen una configuración `allowProtectedAppendWrites` que permite escribir nuevos bloques en un blob en anexos al tiempo que se mantiene la protección y el cumplimiento de inmutabilidad. Si se habilita, puede crear un blob en anexos directamente en el contenedor protegido mediante la directiva y continuar agregando nuevos bloques de datos al final de los blobs en anexos existentes mediante la API *AppendBlock*. Solo se pueden agregar nuevos bloques y los bloques existentes no se pueden modificar ni eliminar. Se sigue aplicando la protección de inmutabilidad de retención de tiempo, lo que impide la eliminación del blob en anexos hasta que haya transcurrido el período de retención vigente. La habilitación de esta configuración no afecta al comportamiento de inmutabilidad de los blobs en bloques ni los blobs en páginas.
+Solo las directivas de retención de duración definida tienen una configuración `allowProtectedAppendWrites` que permite escribir nuevos bloques en un blob en anexos al tiempo que se mantiene la protección y el cumplimiento de inmutabilidad. Si se habilita este valor, puede crear un blob en anexos directamente en el contenedor protegido mediante la directiva y continuar agregando nuevos bloques de datos al final de los blobs en anexos existentes mediante la API *AppendBlock*. Solo se pueden agregar nuevos bloques y los bloques existentes no se pueden modificar ni eliminar. Se sigue aplicando la protección de inmutabilidad de retención de tiempo, lo que impide la eliminación del blob en anexos hasta que haya transcurrido el período de retención vigente. La habilitación de esta configuración no afecta al comportamiento de inmutabilidad de los blobs en bloques ni los blobs en páginas.
 
 Como esta configuración forma parte de una directiva de retención de duración definida, los blobs en anexos todavía pueden permanecer en el estado inmutable durante el período de retención *efectivo*. Como se pueden anexar nuevos datos más allá de la creación inicial del blob en anexos, hay una ligera diferencia en el modo de determinar el período de retención. El período de retención efectivo es la diferencia entre la **hora de última modificación** del blob en anexos y el intervalo de retención especificado por el usuario. Como sucede al ampliar el intervalo de retención, el almacenamiento inmutable usa el valor más reciente del intervalo de retención especificado por el usuario para calcular el período de retención efectivo.
 

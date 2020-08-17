@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2019
 ms.author: wesmc
 ms.custom: include file
-ms.openlocfilehash: 3c064aa8e57a77b96161da06847f543816be1217
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e0557f8eb2fd120baeebee96acb4ef539344e3e7
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73719101"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528841"
 ---
 1. Para crear una instancia de caché, inicie sesión en [Azure Portal](https://portal.azure.com) y seleccione **Crear un recurso**. 
    
@@ -37,7 +37,10 @@ ms.locfileid: "73719101"
    
    ![Creación de una instancia de Azure Redis Cache](media/redis-cache-create/redis-cache-cache-create.png) 
    
-   La caché tarda un tiempo en crearse. Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
+   > [!NOTE]
+   > Lo habitual es que el aprovisionamiento de Azure Cache tarde entre 15 y 20 minutos.   
+   
+   Puede supervisar el progreso en la página **Información general** de Azure Cache for Redis. Cuando **Estado** se muestra como **En ejecución**, la memoria caché está lista para su uso.
    
    ![Instancia creada de Azure Redis Cache](media/redis-cache-create/redis-cache-cache-created.png)
 

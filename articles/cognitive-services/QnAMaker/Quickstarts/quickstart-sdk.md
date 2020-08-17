@@ -3,14 +3,14 @@ title: 'Inicio rápido: Uso del SDK para crear y administrar la base de conocimi
 description: En este inicio rápido se muestra cómo crear y administrar la base de conocimiento mediante el SDK de cliente.
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: f158fd0f9bfa6b2580e36b6588626afa05d1c19f
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e6a8a6d0688f362f934d1439c1ca0f6072acf6d6
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114558"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872929"
 ---
 # <a name="quickstart-qna-maker-client-library"></a>Inicio rápido: Biblioteca cliente de QnA Maker
 

@@ -1,5 +1,5 @@
 ---
-title: Consumo de recursos de Synapse Analytics SQL
+title: Consumo de recursos de Synapse SQL
 description: Más información sobre los modelos de consumo de Synapse SQL en Azure Synapse Analytics.
 services: synapse analytics
 author: vvasic-msft
@@ -8,14 +8,14 @@ ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
 ms.reviewer: jrasnick
-ms.openlocfilehash: b81f1e49b2209d0a236f1fb453bb7fe679bb3608
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: 086c853b21301074cf35f13db52db1fdb145518c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112751"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489578"
 ---
-# <a name="azure-synapse-analytics-sql-resource-consumption"></a>Consumo de recursos de SQL de Azure Synapse Analytics
+# <a name="synapse-sql-resource-consumption"></a>Consumo de recursos de Synapse SQL
 
 En este artículo se describen los modelos de consumo de recursos de Synapse SQL (versión preliminar).
 
@@ -27,7 +27,7 @@ SQL a petición es un servicio de pago por consulta que no requiere que se elija
 
 Se incluyen recomendaciones acerca de cómo elegir el número ideal de unidades de almacenamiento de datos (DWU) para optimizar el precio y el rendimiento y cómo cambiar el número de unidades.
 
-### <a name="what-are-data-warehouse-units"></a>Qué son las unidades de almacenamiento de datos
+### <a name="data-warehouse-units"></a>Unidades de almacenamiento de datos
 
 Un grupo de Synapse SQL representa una colección de recursos analíticos que se aprovisionan. Los recursos analíticos se definen como una combinación de CPU, memoria y E/S. Estos tres recursos se agrupan en unidades de escalado de proceso denominadas Unidades de almacenamiento de datos (DWU). Una DWU representa una medida abstracta y normalizada de recursos de proceso y rendimiento. Un cambio en el nivel de servicio modifica el número de DWU que están disponibles en el sistema, lo que a su vez ajusta el rendimiento y el costo del sistema.
 
@@ -79,7 +79,7 @@ A medida que aumente unidades de almacenamiento de datos, también se aumentan l
 
 Cada servidor SQL Server (por ejemplo, myserver.database.windows.net) tiene una cuota de [unidad de transacción de base de datos (DTU)](../../azure-sql/database/service-tiers-dtu.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) que permite un número específico de unidades de almacenamiento de datos. Para más información, consulte los [límites de capacidad de administración de cargas de trabajo](../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json#workload-management).
 
-### <a name="how-many-data-warehouse-units-do-i-need"></a>¿Cuántas unidades de almacenamiento de datos necesito
+### <a name="assess-the-number-of-data-warehouse-units-you-need"></a>Evaluación del número de unidades del almacenamiento de datos necesarias
 
 El número ideal de unidades de almacenamiento de datos depende en gran medida de la carga de trabajo y la cantidad de datos que cargó en el sistema.
 
@@ -99,7 +99,7 @@ Un grupo de SQL es un sistema de escalado horizontal que puede aprovisionar gran
 
 Para cambiar las unidades de almacenamiento de datos es necesario disponer de los permisos descritos en [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest).
 
-Los roles integrados para los recursos de Azure, tales como Colaborador de base de datos SQL y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
+Los roles integrados de Azure, como Colaborador de SQL DB y Colaborador de SQL Server, pueden cambiar la configuración de DWU.
 
 #### <a name="view-current-dwu-settings"></a>Ver la configuración de DWU actual
 

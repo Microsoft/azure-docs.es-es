@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de PowerShell: lista de todos los grupos de conectores de Application Proxy'
+title: Enumeración de los grupos de conectores de Azure AD Application Proxy para aplicaciones
 description: Ejemplo de PowerShell en el que se enumeran todos los grupos de conectores de Azure Active Directory (Azure AD) Application Proxy con las aplicaciones asignadas.
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 12/05/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9dcf2eb6a1904e4a7223a19e598f0c06ddc36f71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8f381d64e06d8b7abf67b08297baa616397cc439
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75475658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019444"
 ---
 # <a name="get-all-application-proxy-apps-and-list-by-connector-group"></a>Obtención de todas las aplicaciones de Application Proxy por grupo de conectores
 

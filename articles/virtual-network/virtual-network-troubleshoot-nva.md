@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de aplicaciones virtuales de red en Azure | Microsoft Docs
-description: Obtenga información sobre cómo solucionar los problemas de aplicaciones virtuales de red en Azure.
+description: Solución de problemas de la aplicación virtual de red (NVA) en Azure y validación de los requisitos básicos de la plataforma Azure para las configuraciones de NVA.
 services: virtual-network
 documentationcenter: na
 author: genlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: 353ab1f15a6df8700a9abda22233dc052aa10095
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 112792d4ccee2be7f85e6a5a6c0caf64df9a019e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130710"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286077"
 ---
 # <a name="network-virtual-appliance-issues-in-azure"></a>Problemas de aplicaciones virtuales de red en Azure
 

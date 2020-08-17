@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: 998c286cb5faa9f29d8e4687260440c578b5622b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/22/2020
+ms.openlocfilehash: 45ff681bdf0260b6e3c12f7e644d102a49206c9f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86520670"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288903"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guía de referencia para usar las funciones en las expresiones para Azure Logic Apps y Power Automate
 
@@ -1686,8 +1686,7 @@ Y devuelve este resultado: `"https://contoso.com"`
 
 ### <a name="div"></a>div
 
-Devuelve el resultado entero de dividir dos números.
-Para obtener el resultado del resto, consulte [mod()](#mod).
+Devuelve el resultado de dividir dos números. Para obtener el resultado del resto, consulte [mod()](#mod).
 
 ```
 div(<dividend>, <divisor>)
@@ -1701,19 +1700,26 @@ div(<dividend>, <divisor>)
 
 | Valor devuelto | Tipo | Descripción |
 | ------------ | ---- | ----------- |
-| <*resultado-cociente*> | Entero | Resultado entero de dividir el primer número entre el segundo número |
+| <*resultado-cociente*> | Integer o Float | Resultado de dividir el primer número entre el segundo número. Si el dividendo o el divisor es de tipo float, el resultado será de tipo float. <p><p>**Nota**: Para convertir el resultado de tipo float en un integer, intente [crear y llamar a una función de Azure](../logic-apps/logic-apps-azure-functions.md) desde la aplicación lógica. |
 ||||
 
-*Ejemplo*
+*Ejemplo 1*
 
-Ambos ejemplos dividen el primer número entre el segundo número:
+Ambos ejemplos devuelven este valor con el tipo integer: `2`
 
 ```
-div(10, 5)
-div(11, 5)
+div(10,5)
+div(11,5)
 ```
 
-Y devuelven este resultado: `2`
+*Ejemplo 2*
+
+Ambos ejemplos devuelven este valor con el tipo float: `2.2`
+
+```
+div(11,5.0)
+div(11.0,5)
+```
 
 <a name="encodeUriComponent"></a>
 
@@ -4740,21 +4746,15 @@ xpath('<xml>', '<xpath>')
 
 *Ejemplo 1*
 
-Este ejemplo busca los nodos que coinciden con el nodo `<name></name>` de los argumentos especificados y devuelve una matriz con los valores de nodo:
+Suponga que tiene este valor string XML `'items'`: 
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+En este ejemplo se pasa la expresión XPath (`'/produce/item/name'`) para buscar los nodos que coinciden con el nodo `<name></name>` de la string XML `'items'` y se devuelve una matriz con los siguientes valores de nodo:
 
 `xpath(xml(parameters('items')), '/produce/item/name')`
 
-Estos son los argumentos:
-
-* La cadena "items", que contiene este código XML:
-
-  `"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
-
-  El ejemplo utiliza la función [parameters()](#parameters) para obtener la cadena XML del argumento "items", pero debe también convertir la cadena a formato XML mediante la función [xml()](#xml).
-
-* Esta expresión XPath, que se pasa como una cadena:
-
-  `"/produce/item/name"`
+El ejemplo también usa la función [parameters()](#parameters) para obtener la string XML de `'items'` y convertir la string a formato XML mediante la función [xml()](#xml).
 
 Esta es la matriz de resultados con los nodos que coinciden `<name></name`:
 
@@ -4762,63 +4762,103 @@ Esta es la matriz de resultados con los nodos que coinciden `<name></name`:
 
 *Ejemplo 2*
 
-Siguiendo el ejemplo 1, este ejemplo busca nodos que coincidan con el nodo `<count></count>` y agrega los valores de nodo con la función `sum()`:
+Para continuar el Ejemplo 1, en este ejemplo se pasa la expresión XPath (`'/produce/item/name[1]'`) para buscar el primer elemento `name`, que es el elemento secundario de `item`.
 
-`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+`xpath(xml(parameters('items')), '/produce/item/name[1]')`
 
-Y devuelve este resultado: `30`
+Este es el resultado: `Gala`
 
 *Ejemplo 3*
 
-En este ejemplo, ambas expresiones buscan nodos que coincidan con el nodo `<location></location>` de los argumentos especificados, que incluye código XML con un espacio de nombres. 
+Para continuar el Ejemplo 1, en este ejemplo se pasa la expresión XPath (`'/produce/item/name[last()]'`) para buscar el último elemento `name`, que es el elemento secundario de `item`.
 
-> [!NOTE]
+`xpath(xml(parameters('items')), '/produce/item/name[last()]')`
+
+Este es el resultado: `Honeycrisp`
+
+*Ejemplo 4*
+
+En este ejemplo, supongamos que la string XML `items` contiene también los atributos `expired='true'` y `expired='false'`:
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+En este ejemplo se pasa la expresión XPath (`'//name[@expired]'`) para buscar todos los elementos `name` que tienen el atributo `expired`:
+
+`xpath(xml(parameters('items')), '//name[@expired]')`
+
+Este es el resultado: `[ Gala, Honeycrisp ]`
+
+*Ejemplo 5*
+
+En este ejemplo, supongamos que la string XML `items` contiene solo este atributo,`expired = 'true'`:
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+En este ejemplo se pasa la expresión XPath (`'//name[@expired = 'true']'`) para buscar todos los elementos `name` que tienen el atributo `expired = 'true'`:
+
+`xpath(xml(parameters('items')), '//name[@expired = 'true']')`
+
+Este es el resultado: `[ Gala ]`
+
+*Ejemplo 6*
+
+En este ejemplo, supongamos que la string XML `items` contiene también estos atributos: 
+
+* `expired='true' price='12'`
+* `expired='false' price='40'`
+
+`"<?xml version="1.0"?> <produce> <item> <name expired='true' price='12'>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name expired='false' price='40'>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+En este ejemplo se pasa la expresión XPath (`'//name[price>35]'`) para buscar todos los elementos `name` que tienen `price > 35`:
+
+`xpath(xml(parameters('items')), '//name[price>35]')`
+
+Este es el resultado: `Honeycrisp`
+
+*Ejemplo 7*
+
+En este ejemplo, supongamos que la string XML `items` es la misma que en el Ejemplo 1:
+
+`"<?xml version="1.0"?> <produce> <item> <name>Gala</name> <type>apple</type> <count>20</count> </item> <item> <name>Honeycrisp</name> <type>apple</type> <count>10</count> </item> </produce>"`
+
+Este ejemplo busca nodos que coincidan con el nodo `<count></count>` y agrega los valores de esos nodos con la función `sum()`:
+
+`xpath(xml(parameters('items')), 'sum(/produce/item/count)')`
+
+Este es el resultado: `30`
+
+*Ejemplo 8*
+
+En este ejemplo, supongamos que tiene esta string XML, que incluye el espacio de nombres del documento XML `xmlns="http://contoso.com"`:
+
+`"<?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>"`
+
+Estas expresiones usan alguna de las expresiones XPath (`/*[name()="file"]/*[name()="location"]` o `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`) para buscar los nodos que coinciden con el nodo `<location></location>`. En estos ejemplos se muestra la sintaxis que se usa en el diseñador de aplicaciones lógicas o en el editor de expresiones:
+
+* `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
+* `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
+
+Este es el nodo de resultados que coincide con el nodo `<location></location>`: 
+
+`<location xmlns="https://contoso.com">Paris</location>`
+
+> [!IMPORTANT]
 >
-> Si está trabajando en la vista de código, use el carácter de barra diagonal inversa (\\) para escapar la comilla doble ("). 
+> Si trabaja con la vista de código, use el carácter de barra diagonal inversa (\\) para escapar la comilla doble ("). 
 > Por ejemplo, debe usar caracteres de escape al serializar una expresión como una cadena JSON. 
-> Sin embargo, si está trabajando en el Diseñador de aplicación lógica o en el editor de expresiones, no es necesario escapar las comillas dobles porque el carácter de barra diagonal inversa se agrega automáticamente a la definición subyacente, por ejemplo:
+> Sin embargo, si trabaja en el Diseñador de aplicación lógica o en el editor de expresiones, no es necesario escapar las comillas dobles porque el carácter de barra diagonal inversa se agrega automáticamente a la definición subyacente, por ejemplo:
 > 
 > * Vista de código: `xpath(xml(body('Http')), '/*[name()=\"file\"]/*[name()=\"location\"]')`
 >
 > * Editor de expresiones: `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-> 
-> Los ejemplos siguientes se aplican a expresiones que se escriben en el editor de expresiones.
 
-* *Expresión 1*
+*Ejemplo 9*
 
-  `xpath(xml(body('Http')), '/*[name()="file"]/*[name()="location"]')`
-
-* *Expresión 2*
-
-  `xpath(xml(body('Http')), '/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]')`
-
-Estos son los argumentos:
-
-* Este código XML, que incluye el espacio de nombres del documento XML, `xmlns="http://contoso.com"`:
-
-  ```xml
-  <?xml version="1.0"?> <file xmlns="http://contoso.com"> <location>Paris</location> </file>
-  ```
-
-* Cualquier expresión XPath:
-
-  * `/*[name()="file"]/*[name()="location"]`
-
-  * `/*[local-name()="file" and namespace-uri()="http://contoso.com"]/*[local-name()="location"]`
-
-Este es el nodo de resultados que coincide con el nodo `<location></location>`:
-
-```xml
-<location xmlns="https://contoso.com">Paris</location>
-```
-
-*Ejemplo 4*
-
-Siguiendo el ejemplo 3, este ejemplo busca el valor en el nodo `<location></location>`:
+Para continuar el Ejemplo 8, en este ejemplo se usa la expresión XPath `'string(/*[name()="file"]/*[name()="location"])'` para buscar el valor en el nodo `<location></location>`:
 
 `xpath(xml(body('Http')), 'string(/*[name()="file"]/*[name()="location"])')`
 
-Y devuelve este resultado: `"Paris"`
+Este es el resultado: `Paris`
 
 ## <a name="next-steps"></a>Pasos siguientes
 

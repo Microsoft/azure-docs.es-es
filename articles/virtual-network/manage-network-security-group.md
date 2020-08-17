@@ -1,7 +1,7 @@
 ---
 title: Creación, modificación o eliminación de un grupo de seguridad de red de Azure
 titlesuffix: Azure Virtual Network
-description: Obtenga información sobre crear, modificar o eliminar un grupo de seguridad de red.
+description: Aprenda dónde encontrar información sobre las reglas de seguridad y cómo crear, cambiar o eliminar un grupo de seguridad de red.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
-ms.openlocfilehash: 38fe9582595969ac92d3468b3b7e8c0a9d793c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb6426ec4e75f6484df37008522b966ebc3af6f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708287"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281266"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Crear, modificar o eliminar un grupo de seguridad de red
 

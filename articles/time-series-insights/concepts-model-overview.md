@@ -1,31 +1,30 @@
 ---
-title: Modelo de serie temporal - Azure Time Series Insights | Microsoft Docs
-description: Más información sobre la versión preliminar del modelo de serie temporal en Azure Time Series Insights.
+title: 'Modelo de serie temporal: Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Información sobre el modelo de serie temporal en Azure Time Series Insights Gen2.
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: c5a22987b1d67f9e9f8384e5376343af2f91b5e0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f62a7eb895248f5d39f5c3df136c88a9b1f0e5b1
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049402"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141727"
 ---
-# <a name="time-series-model-in-azure-time-series-insights-preview"></a>Versión preliminar del modelo de serie temporal en Azure Time Series Insights
+# <a name="time-series-model-in-azure-time-series-insights-gen2"></a>Modelo de serie temporal en Azure Time Series Insights Gen2
 
-En este artículo se describen el modelo de serie temporal, las funciones y cómo empezar a crear y actualizar modelos propios en el entorno de la versión preliminar de Azure Time Series Insights.
+En este artículo se describen el modelo de serie temporal, las funciones y cómo empezar a crear y actualizar modelos propios en el entorno de Azure Time Series Insights Gen2.
 
 > [!TIP]
 >
 > * Vaya al entorno de la  [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) para obtener un ejemplo activo de modelo de serie temporal.
-> * Lea sobre el [explorador de la versión preliminar de Azure Time Series Insights](time-series-insights-update-explorer.md) para obtener información sobre cómo desplazarse por la interfaz de usuario del modelo de serie temporal.
-> * Aprenda a [trabajar con el modelo de serie temporal](time-series-insights-update-how-to-tsm.md) mediante el explorador web de Time Series Insights.
+> * Aprenda [a trabajar con un modelo de serie temporal](/azure/time-series-insights/how-to-edit-your-model) mediante el explorador de Azure Time Series Insights Gen2.
 
 ## <a name="summary"></a>Resumen
 
@@ -58,7 +57,7 @@ Estas limitaciones revelaron la importancia de las herramientas de visualizació
 
 ### <a name="key-capabilities"></a>Principales capacidades
 
-Con el objetivo de simplificar la gestión de la contextualización de serie temporal, el modelo de serie temporal habilita las siguientes capacidades en la versión preliminar de Time Series Insights. Esto le permitirá realizar lo siguiente:
+Con el objetivo de simplificar la gestión de la contextualización de serie temporal, el modelo de serie temporal habilita las siguientes capacidades en Azure Time Series Insights Gen2. Esto le permitirá realizar lo siguiente:
 
 * Crear y administrar cálculos o fórmulas mediante el aprovechamiento de funciones escalares, operaciones de agregación, etc.
 * Definir relaciones de primario a secundario para permitir la navegación, la búsqueda y la referencia.
@@ -72,11 +71,11 @@ El modelo de serie temporal tiene tres componentes principales:
 * [Jerarquías del modelo de serie temporal](#time-series-model-hierarchies)
 * [Tipos de modelo de serie temporal](#time-series-model-types)
 
-Estos componentes se combinan para especificar un modelo de serie temporal y organizar los datos de Azure Time Series Insights.
+Estos componentes se combinan para especificar un modelo de serie temporal y organizar los datos.
 
 [![Gráfico de información general del modelo de serie temporal](media/v2-update-tsm/time-series-model-overview.png)](media/v2-update-tsm/time-series-model-overview.png#lightbox)
 
-Un modelo de serie temporal se puede crear y administrar mediante la interfaz de [Time Series Insights Preview](time-series-insights-update-how-to-tsm.md). La configuración del modelo de serie temporal se puede administrar mediante la [API de configuración del modelo](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api).
+Un modelo de serie temporal se puede crear y administrar mediante el [explorador de Azure Time Series Insights Gen2](/azure/time-series-insights/concepts-model-overview). La configuración del modelo de serie temporal se puede administrar mediante la [API de configuración del modelo](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis).
 
 ## <a name="time-series-model-instances"></a>Instancias del modelo de serie temporal
 
@@ -88,7 +87,7 @@ Las instancias tienen información descriptiva asociada denominada *propiedades 
 
 Los *campos de instancia* son una colección de información descriptiva que puede incluir valores para los niveles de jerarquía, así como el fabricante, el operador, etc.
 
-Después de configurar un origen de evento para el entorno de Time Series Insights, las instancias se detectan y crean automáticamente en un modelo de serie temporal. Las instancias se pueden crear o actualizar mediante el explorador de Time Series Insights con consultas de modelo de serie temporal.
+Después de configurar un origen de evento para el entorno de Azure Time Series Insights Gen2, las instancias se detectan y crean automáticamente en un modelo de serie temporal. Las instancias se pueden crear o actualizar mediante el explorador de Azure Time Series Insights Gen2 con consultas de modelo de serie temporal.
 
 En la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) se proporcionan varios ejemplos de instancias activos.
 
@@ -130,15 +129,15 @@ Las instancias tienen la siguiente representación JSON:
 ```
 
 > [!TIP]
-> Para obtener información sobre la API Instance de Time Series Insights y la compatibilidad con crear, leer, actualizar y eliminar (CRUD), lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST Instance](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api).
+> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Instance API, lea el artículo [Consulta de datos](time-series-insights-update-tsq.md#time-series-model-query-tsm-q-apis) y la [documentación de Instance API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#instances-api).
 
 ## <a name="time-series-model-hierarchies"></a>Jerarquías del modelo de serie temporal
 
 Las *jerarquías* del modelo de serie temporal organizan instancias al especificar los nombres de las propiedades y sus relaciones.
 
-Puede configurar varias jerarquías en un entorno de Time Series Insights determinado. Una instancia del modelo de serie temporal puede asignarse a una sola o a varias jerarquías (relación varios a varios).
+En un entorno de Azure Time Series Insights Gen2 dado se pueden configurar varias jerarquías. Una instancia del modelo de serie temporal puede asignarse a una sola o a varias jerarquías (relación varios a varios).
 
-En la interfaz de cliente de la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) se muestra una instancia estándar y una jerarquía de tipos.
+En la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/preview/samples) se muestra una instancia estándar y una jerarquía de tipos.
 
 [![Ejemplo de jerarquía del modelo de serie temporal](media/v2-update-tsm/time-series-model-hierarchies.png)](media/v2-update-tsm/time-series-model-hierarchies.png#lightbox)
 
@@ -187,7 +186,7 @@ En el ejemplo JSON anterior:
 * `ManufactureDate` define una jerarquía con `year` primario y `month`secundario. Cada `ManufactureDate` puede tener varios `years` que, a su vez, pueden tener varios `months`.
 
 > [!TIP]
-> Para obtener información sobre la API Instance de Time Series Insights y la compatibilidad con CRUD, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST Hierarchy](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api).
+> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Hierarchy API, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de Hierarchy API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#hierarchies-api).
 
 ### <a name="hierarchy-example"></a>Ejemplo de jerarquía
 
@@ -217,13 +216,13 @@ Con los campos de instancia usados en la definición anterior y varias series te
 | ID4 | "building" = "1000", "floor" = "10"  |
 | ID5 | No hay ningún valor establecido en "building", "floor" o "room". |
 
-La series temporales **ID1** e **ID4** se muestran como parte de la jerarquía **H1** en el [explorador de Azure Time Series Insights](time-series-insights-update-explorer.md) porque tienen parámetros *building*, *floor* y *room* totalmente definidos y correctamente ordenados.
+Las series temporales **ID1** e **ID4** se muestran como parte de la jerarquía **H1** en el [explorador de Azure Time Series Insights Gen2](time-series-insights-update-explorer.md), ya que han definido completamente y han ordenado correctamente los parámetros *building*, *floor* y *room*.
 
 Las demás se clasifican como *instancias no primarias* porque no se ajustan a la jerarquía de datos especificada.
 
 ## <a name="time-series-model-types"></a>Tipos de modelo de serie temporal
 
-Los *tipos* de modelo de serie temporal le permiten definir variables o fórmulas para realizar cálculos. Los tipos están asociados a una instancia determinada de Time Series Insights.
+Los *tipos* de modelo de serie temporal le permiten definir variables o fórmulas para realizar cálculos. Los tipos se asocian con una instancia concreta.
 
 Un tipo puede tener una o más variables. Por ejemplo, una instancia de modelo de serie temporal podría ser de tipo *Sensor de temperatura*, que consta de las variables *temperatura media*, *temperatura mínima* y *temperatura máxima*.
 
@@ -232,7 +231,7 @@ En la [demostración Contoso Wind Farm](https://insights.timeseries.azure.com/pr
 [![Ejemplo de tipo del modelo de serie temporal](media/v2-update-tsm/time-series-model-types.png)](media/v2-update-tsm/time-series-model-types.png#lightbox)
 
 > [!TIP]
-> Para obtener información sobre la API Instance de Time Series Insights y la compatibilidad con CRUD, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de la API REST Type](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api).
+> Para obtener información sobre la compatibilidad con crear, leer, actualizar y eliminar (CRUD) de Types API, lea el artículo [Consulta de datos](concepts-query-overview.md#time-series-model-query-tsm-q-apis) y la [documentación de Type API REST](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis#types-api).
 
 ### <a name="type-properties"></a>Propiedades de tipo
 
@@ -266,7 +265,7 @@ Los tipos se ajustan al ejemplo JSON siguiente:
         "Interpolated Speed": {
           "kind": "numeric",
           "value": {
-              "tsx": "$event.[speed].Double"
+              "tsx": "$event['Speed-Sensor'].Double"
           },
           "filter": null,
           "interpolation": {
@@ -276,7 +275,7 @@ Los tipos se ajustan al ejemplo JSON siguiente:
               }
           },
           "aggregation": {
-              "tsx": "left($value)"
+              "tsx": "right($value)"
           }
         }
       }
@@ -285,113 +284,12 @@ Los tipos se ajustan al ejemplo JSON siguiente:
 }
 ```
 
-### <a name="variables"></a>variables
-
-Los tipos de Time Series Insights pueden tener muchas variables que especifican las reglas de fórmulas y cálculos en los eventos.
-
-Cada variable puede ser de tres *tipos*: *numérico*, *de categoría* y *de agregado*.
-
-* Los tipos **numéricos** funcionan con valores continuos.
-* Los tipos de **categoría** funcionan con un conjunto definido de valores discretos.
-* Los valores de **agregado** combinan varias variables de un único tipo (todos numéricos o todos de categoría).
-
-En la tabla siguiente se muestran las propiedades que son relevantes para cada tipo de variable.
-
-[![Ejemplo de variable del modelo de serie temporal](media/v2-update-tsm/time-series-model-variable-table.png)](media/v2-update-tsm/time-series-model-variable-table.png#lightbox)
-
-#### <a name="numeric-variables"></a>Variables numéricas
-
-| Propiedad de variable | Descripción |
-| --- | ---|
-| Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
-| Valor variable | Valores de telemetría usados para el cálculo procedentes del dispositivo o los sensores, o transformados mediante expresiones de serie temporal. Las variables de tipo numérico deben ser del tipo *Double*.|
-| Interpolación de variable | La interpolación especifica cómo reconstruir una señal mediante los datos existentes. Para las variables numéricas están disponibles las opciones de interpolación *Escalonada* y *Lineal*. |
-| Agregación de la variable | Se admite el cálculo mediante operadores *Avg*, *Min*, *Max*, *Sum*, *Count*, *First*, *Last* y ponderados en el tiempo (*Avg*, *Min*, *Max*, *Sum*, *Left*). |
-
-Las variables se ajustan al ejemplo JSON siguiente:
-
-```JSON
-"Interpolated Speed": {
-  "kind": "numeric",
-  "value": {
-    "tsx": "$event.[speed].Double"
-  },
-  "filter": null,
-  "interpolation": {
-    "kind": "step",
-    "boundary": {
-      "span": "P1D"
-    }
-  },
-  "aggregation": {
-    "tsx": "left($value)"
-  }
-}
-```
-
-#### <a name="categorical-variables"></a>Variables de categoría
-
-| Propiedad de variable | Descripción |
-| --- | ---|
-| Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
-| Valor variable | Valores de telemetría que se usan para el cálculo procedentes del dispositivo o de los sensores. Las variables de tipo de categoría deben ser *Long* o *String*. |
-| Interpolación de variable | La interpolación especifica cómo reconstruir una señal mediante los datos existentes. Para las variables de categoría está disponible la opción de interpolación *Escalonada*. |
-| Categorías de variable | Las categorías crean una asignación entre los valores procedentes del dispositivo o los sensores a una etiqueta. |
-| Categoría predeterminada de variable | La categoría predeterminada es para todos los valores que no se están asignando en la propiedad "categories". |
-
-Las variables se ajustan al ejemplo JSON siguiente:
-
-```JSON
-"Status": {
-  "kind": "categorical",
-  "value": {
-     "tsx": "toLong($event.[Status].Double)"
-},
-  "interpolation": {
-    "kind": "step",
-    "boundary": {
-      "span" : "PT1M"
-    }
-  },
-  "categories": [
-    {
-      "values": [0, 1, 2],
-      "label": "Good"
-    },
-    {
-      "values": [3],
-      "label": "Bad"
-    }
-  ],
-  "defaultCategory": {
-    "label": "Not Applicable"
-  }
-}
-```
-
-#### <a name="aggregate-variables"></a>Variables de agregado
-
-| Propiedad de variable | Descripción |
-| --- | ---|
-| Filtro de variables | Los filtros son cláusulas opcionales condicionales para restringir el número de filas que se tienen en cuenta para el cálculo. |
-| Agregación de la variable | Se admite el cálculo mediante *Avg*, *Min*, *Max*, *Sum*, *Count*, *First* y *Last*. |
-
-Las variables se ajustan al ejemplo JSON siguiente:
-
-```JSON
-"Aggregate Speed": {
-  "kind": "aggregate",
-  "filter": null,
-  "aggregation": {
-    "tsx": "avg($event.Speed.Double)"
-  }
-}
-```
-
-Las variables se almacenan en la definición de tipo de un modelo de serie temporal y se pueden proporcionar en línea a través de las [API de consulta](concepts-query-overview.md) para reemplazar la definición almacenada.
+Los tipos del modelo de serie temporal pueden tener muchas variables que especifiquen la fórmula y las reglas de cálculo en los eventos. Más información sobre [cómo definir variables del modelo de serie temporal](./concepts-variables.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Información acerca de [Consultas de datos](concepts-query-overview.md)
+* Lea la documentación de referencia del [modelo de la serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/reference-model-apis) para más información sobre cómo editarlo a través de las API.
 
-* Lea la documentación de referencia del [modelo de serie temporal](https://docs.microsoft.com/rest/api/time-series-insights/preview-model).
+* Explore las fórmulas y los cálculos que puede crear con las [variables del modelo de serie temporal](./concepts-variables.md)
+
+* Aprenda a [consultar datos](concepts-query-overview.md) en Azure Time Series Insights Gen2

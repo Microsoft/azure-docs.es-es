@@ -3,12 +3,12 @@ title: Evaluación de servidores físicos para la migración a Azure con Azure M
 description: Describe cómo evaluar los servidores físicos en el entorno local para la migración a Azure con Azure Migrate Server Assessment.
 ms.topic: tutorial
 ms.date: 04/15/2020
-ms.openlocfilehash: 2c0662c6ccf66f09413891c99da789c50847277e
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 5b4d5241e4236d4c11f2e2a5a8feb7c73258cba0
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080760"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171380"
 ---
 # <a name="assess-physical-servers-with-azure-migrateserver-assessment"></a>Evaluación de los servidores físicos con Azure Migrate:Server Assessment
 
@@ -179,13 +179,14 @@ Configure el dispositivo por primera vez.
 Ahora, conecte desde el dispositivo a los servidores físicos que se van a detectar e inicie la detección.
 
 1. Haga clic en **Agregar credenciales** para especificar las credenciales de la cuenta que el dispositivo utilizará para detectar los servidores.  
-2. Especifique el **sistema operativo**, el nombre descriptivo de las credenciales, el nombre de usuario y la contraseña. A continuación, haga clic en **Agregar**.
+2. Inicie sesión con el nombre de usuario y la contraseña. No se admite el inicio de sesión con una clave. Además, el usuario debe tener credenciales de inicio de sesión raíz o ser parte del grupo de administradores local.
+3. Especifique el **sistema operativo**, el nombre descriptivo de las credenciales, el nombre de usuario y la contraseña. A continuación, haga clic en **Agregar**.
 Puede agregar varias credenciales para los servidores Windows y Linux.
 4. Haga clic en **Agregar servidor** y especifique los detalles del servidor: FQDN/dirección IP y nombre descriptivo de las credenciales (una entrada por fila) para conectarse al servidor.
-3. Haga clic en **Validar**. Después de la validación, se muestra la lista de servidores que se pueden detectar.
+5. Haga clic en **Validar**. Después de la validación, se muestra la lista de servidores que se pueden detectar.
     - Si se produce un error de validación para un servidor, mantenga el puntero del mouse sobre el icono en la columna **Estado** para revisar el error. Corrija los problemas y vuelva a validar.
     - Para quitar un servidor, seleccione > **Eliminar**.
-4. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
+6. Después de la validación, haga clic en **Guardar e iniciar la detección** para iniciar el proceso de detección.
 
 De esta forma comienza la detección. Los metadatos de los servidores detectados tardan alrededor de 1.5 minutos por servidor en aparecer en Azure Portal.
 

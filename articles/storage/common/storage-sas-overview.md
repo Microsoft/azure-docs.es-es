@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: b853817b670f59bbfeef9ecd81c70dc63cbd367b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 185992284e353c3e58104bc46296c1741fbca7d9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804615"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502178"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Otorgar acceso limitado a recursos de Azure Storage con firmas de acceso compartido (SAS)
 
@@ -58,7 +58,7 @@ Puede firmar una SAS de dos maneras:
 
 - Con una *clave de delegación de usuarios* creada con las credenciales de Azure Active Directory (Azure AD). Una SAS de delegación de usuarios está firmada con la clave de delegación de usuarios.
 
-    Para obtener la clave de delegación de usuarios y crear la SAS, una entidad de seguridad de Azure AD debe tener asignado un rol de control de acceso basado en rol (RBAC) que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para obtener información detallada sobre los roles de RBAC con permisos para obtener la clave de delegación de usuarios, consulte [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas) (Creación de una SAS de delegación de usuarios [API REST]).
+    Para obtener la clave de delegación de usuarios y crear la SAS, a una entidad de seguridad de Azure AD se le debe asignar un rol de Azure que incluya la acción **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey**. Para obtener información detallada sobre los roles de Azure con permisos para obtener la clave de delegación de usuarios, consulte [Creación de una SAS de delegación de usuarios (API REST)](/rest/api/storageservices/create-user-delegation-sas).
 
 - Con la clave de la cuenta de almacenamiento. Tanto una SAS de servicio como una SAS de cuenta se firman con la clave de cuenta de almacenamiento. Para crear una SAS firmada con la clave de cuenta, una aplicación debe tener acceso a la clave de cuenta.
 
@@ -109,7 +109,7 @@ Las siguientes recomendaciones para el uso de firmas de acceso compartido pueden
 - **Defina una directiva de acceso almacenada para una SAS de servicio.** Las directivas de acceso almacenadas le ofrecen la posibilidad de revocar permisos para una SAS de servicio sin tener que volver a generar las claves de cuenta de almacenamiento. Establezca su expiración en un futuro muy lejano (o infinito) y asegúrese de que se actualiza regularmente para trasladarla a un punto posterior en el tiempo.
 - **Use horas de expiración a corto plazo en una SAS ad-hoc, SAS de servicio o SAS de cuenta.** De esta manera, incluso si una SAS está en peligro, es válida solo durante un breve período. Esta práctica es especialmente importante si no puede hacer referencia a una directiva de acceso almacenada. Las expiraciones a corto plazo también limitan la cantidad de datos que puede escribirse en un blob mediante la limitación del tiempo disponible para cargarlos.
 - **Haga que los clientes renueven automáticamente la SAS si fuese necesario.** Los clientes deben renovar la SAS correctamente antes de la expiración para que exista tiempo para los reintentos si el servicio que ofrece la SAS no está disponible. Si la SAS se ha creado para usarse en un número reducido de operaciones de corta duración e inmediatas, que se espera que se va a completar dentro del tiempo de expiración determinado, es posible que no sea necesario ese procedimiento, ya que no se espera que la SAS se renueve. Sin embargo, si dispone de un cliente que realice solicitudes de forma rutinaria a través de la SAS, existe la posibilidad de la expiración. La consideración clave es equilibrar la necesidad de que la SAS sea de corta duración (como se indicó anteriormente) con el requisito de garantizar que el cliente solicitan la renovación con la suficiente antelación como para evitar la interrupción debida a la expiración de SAS antes de una renovación correcta.
-- **Tenga cuidado con la hora de inicio de la SAS.** Si establece la hora de inicio de la SAS en **now**, pueden producirse errores intermitentes durante los primeros minutos debido al desplazamiento del reloj (diferencias en la hora actual según las distintas máquinas). En general, establezca la hora de inicio sea al menos 15 minutos en el pasado. O, no establezca esta opción en absoluto, lo que hará que sea válido inmediatamente en todos los casos. Normalmente se aplica lo mismo a la hora de expiración. Recuerde que debe tener en cuenta hasta 15 minutos de desplazamiento del reloj en cualquier dirección en una solicitud. Para los clientes con una versión REST anterior a 2012-02-12: la duración máxima de una SAS que no hace referencia a una directiva de acceso almacenada es de 1 hora y se producirá un error en las directivas que especifican un período más largo.
+- **Tenga cuidado con la hora de inicio de la SAS.** Si establece que la hora de inicio de un SAS es la hora actual, es probable que aparezcan errores intermitentes en los primeros minutos debido a que las diferentes máquinas tienen leves variaciones en la hora actual (lo que se conoce como sesgo del reloj). En general, establezca la hora de inicio sea al menos 15 minutos en el pasado. O, no establezca esta opción en absoluto, lo que hará que sea válido inmediatamente en todos los casos. Normalmente se aplica lo mismo a la hora de expiración. Recuerde que debe tener en cuenta hasta 15 minutos de desplazamiento del reloj en cualquier dirección en una solicitud. Para los clientes con una versión REST anterior a 2012-02-12: la duración máxima de una SAS que no hace referencia a una directiva de acceso almacenada es de 1 hora y se producirá un error en las directivas que especifican un período más largo.
 - **Tenga cuidado con el formato de fecha y hora de SAS.** Si establece la hora de inicio y la expiración de una SAS, para algunas utilidades (por ejemplo, la utilidad de línea de comandos AzCopy) necesitará que el formato de fecha y hora sea "+%Y-%m-%dT%H:%M:%SZ" y que incluya específicamente los segundos para que funcione con el token de SAS.  
 - **Sea específico con el recurso al que se va a tener acceso.** Un procedimiento recomendado de seguridad es proporcionar al usuario los privilegios mínimos necesarios. Si un usuario solo necesita acceso de lectura en una única entidad, concédale acceso de lectura a esa única entidad y no acceso de lectura, escritura o eliminación a todas las entidades. Esto también ayuda a reducir los daños si se pone en peligro una SAS porque la SAS tiene menor menos poder en manos de un atacante.
 - **Comprenda que se le hará un cargo en la cuenta por cualquier uso, incluido el realizado con la SAS.** Si proporciona acceso de escritura a un blob, el usuario puede seleccionar cargar un blob de 200 GB. Si le proporciona también acceso de lectura, puede seleccionar descargarlo 10 veces, lo que le supone 2 TB de costos de salida. Proporcione de nuevo permisos limitados para ayudar a mitigar acciones potenciales de usuarios malintencionados. Use una SAS de corta duración para reducir esa amenaza (pero tenga en cuenta el desplazamiento del reloj y la hora final).

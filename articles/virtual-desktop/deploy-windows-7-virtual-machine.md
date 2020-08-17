@@ -1,33 +1,28 @@
 ---
 title: Implementación de una máquina virtual con Windows 7 en Windows Virtual Desktop (Azure)
 description: Implementación de una máquina virtual con Windows 7 en Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 07/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 542d0bcea6cfae2af2918d699952d4c054bd68cb
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0dcf21190b52f966dafb9caa9ae28fdf9b99ba86
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277613"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007580"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Implementación de una máquina virtual Windows 7 en Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
->
-> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/deploy-windows-7-virtual-machine.md).
 
 El proceso de implementación de una máquina virtual con Windows 7 en Windows Virtual Desktop es ligeramente diferente al de las máquinas virtuales que ejecutan versiones posteriores de Windows. En esta guía se explica cómo implementar Windows 7.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, siga las instrucciones de [Creación de un grupo hosts con PowerShell](create-host-pools-powershell.md) para crear un grupo de hosts. Si va a usar el portal, siga las instrucciones de los pasos 1 a 9 del artículo [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md). Después, seleccione **Revisar y crear** para crear un grupo de hosts vacío. 
+Antes de empezar, siga las instrucciones de [Creación de un grupo hosts con PowerShell](create-host-pools-powershell.md) para crear un grupo de hosts. Si va a usar el portal, siga las instrucciones de los pasos 1 a 9 del artículo [Creación de un grupo de hosts con Azure Portal](create-host-pools-azure-marketplace.md). Después, seleccione **Revisar y crear** para crear un grupo de hosts vacío.
 
 ## <a name="configure-a-windows-7-virtual-machine"></a>Configuración de una máquina virtual con Windows 7
 
@@ -52,9 +47,9 @@ Para configurar una máquina virtual de Windows 7 en Windows Virtual Desktop:
      ```
 
 12. Siga las instrucciones descritas [aquí](/powershell/module/az.desktopvirtualization/new-azwvdregistrationinfo?view=azps-4.3.0) para obtener un token de registro.
-      
+
       - Si prefiere usar Azure Portal, también puede ir a la página de información general del grupo de hosts al que desea agregar la máquina virtual y crear un token en ella.
-  
+
 13. [Descargue el agente de Windows Virtual Desktop para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
 14. [Descargue el administrador de agente de Windows Virtual Desktop para Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
 15. Abra el instalador del agente de Windows Virtual Desktop y siga las instrucciones. Cuando se le solicite, proporcione la clave de registro que ha creado en el paso 12.

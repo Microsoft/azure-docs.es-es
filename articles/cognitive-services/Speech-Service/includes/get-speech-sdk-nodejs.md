@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 788c8f8093cbc70857727b5c3f89e1719f3ac171
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 0c48116c285ee5b9f0de0d9333a49d5f8ac183af
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035542"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87425049"
 ---
 :::row:::
     :::column span="3":::

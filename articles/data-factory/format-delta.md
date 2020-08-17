@@ -7,12 +7,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: daperlov
-ms.openlocfilehash: 74c2e738153b1afa5c90f4769b6d9b0e982af363
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: e9df7b00a384859fb29577be0ad05da233683f46
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86225027"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87044528"
 ---
 # <a name="delta-format-in-azure-data-factory"></a>Formato delta en Azure Data Factory
 
@@ -22,6 +22,8 @@ En este artículo se señala cómo copiar datos con un lago delta, como origen o
 
 > [!NOTE]
 > El conector de formato delta para flujos de datos de asignación está disponible actualmente como versión preliminar pública.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4ALTs]
 
 ## <a name="mapping-data-flow-properties"></a>Propiedades de Asignación de instancias de Data Flow
 
@@ -37,7 +39,7 @@ En la tabla siguiente se enumeran las propiedades que admite un origen delta. Pu
 | Sistema de archivos | Sistema de archivos o contenedor del lago delta | sí | String | fileSystem |
 | Ruta de acceso a la carpeta | Directo del lago delta | sí | String | folderPath |
 | Tipo de compresión | Tipo de compresión de la tabla delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | compressionLevel |
+| Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | `Optimal` o `Fastest` | compressionLevel |
 | Viaje en el tiempo | Elija si se debe consultar una instantánea anterior de una tabla delta | no | Consulta por marca de tiempo: Timestamp <br> Consulta por versión: Entero | timestampAsOf <br> versionAsOf |
 
 #### <a name="import-schema"></a>Importar esquema
@@ -73,7 +75,7 @@ En la tabla siguiente se enumeran las propiedades que admite un receptor delta. 
 | Sistema de archivos | Sistema de archivos o contenedor del lago delta | sí | String | fileSystem |
 | Ruta de acceso a la carpeta | Directo del lago delta | sí | String | folderPath |
 | Tipo de compresión | Tipo de compresión de la tabla delta | no | `bzip2`<br>`gzip`<br>`deflate`<br>`ZipDeflate`<br>`snappy`<br>`lz4` | compressionType |
-| Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | compressionLevel |
+| Nivel de compresión | Elija si la compresión debe completarse tan pronto como sea posible, incluso si el archivo resultante debe comprimirse de forma óptima. | obligatorio si se especifica `compressedType` | `Optimal` o `Fastest` | compressionLevel |
 | Vacío | Especifique el umbral de retención en horas para versiones anteriores de la tabla. Un valor de 0 o menos toma el valor predeterminado de 30 días | sí | Entero | vacuum |
 | Método de actualización | Especifique qué operaciones de actualización se permiten en el lago delta. En el caso de los métodos que no sean insert, se requiere una transformación Alter row anterior para marcar las filas. | sí | `true` o `false` | deletable <br> insertable <br> updateable <br> upsertable |
 

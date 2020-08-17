@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 58be0315b272199e74f28654aae315a8c6c5f7b5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558823"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141302"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>Aplicación de escritorio que llama a API web: Adquisición de un token
 
@@ -175,7 +175,7 @@ catch(MsalUiRequiredException)
 
 ### <a name="mandatory-parameters"></a>Parámetros obligatorios
 
-`AcquireTokenInteractive` solo tiene un parámetro obligatorio, ``scopes``, que contiene una enumeración de cadenas que definen los ámbitos en los que se necesita un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la sección denominada "Permisos" de la referencia de API de cada instancia de Microsoft Graph API. Por ejemplo, para [enumerar los contactos del usuario](https://docs.microsoft.com/graph/api/user-list-contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+`AcquireTokenInteractive` solo tiene un parámetro obligatorio, ``scopes``, que contiene una enumeración de cadenas que definen los ámbitos en los que se necesita un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la sección denominada "Permisos" de la referencia de API de cada instancia de Microsoft Graph API. Por ejemplo, para [enumerar los contactos del usuario](/graph/api/user-list-contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](/graph/permissions-reference).
 
 En Android, también debe especificar la actividad principal mediante `.WithParentActivityOrWindow`, como se muestra, para que el token vuelva a esa actividad principal tras la interacción. Si no se especifica, se produce una excepción al llamar a `.ExecuteAsync()`.
 
@@ -213,7 +213,7 @@ Comentarios:
 
 `WithPrompt()` se usa para controlar la interactividad con el usuario mediante la especificación de un símbolo del sistema.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Imagen que muestra los campos de la estructura del mensaje. Estos valores constantes controlan la interactividad con el usuario al definir el tipo de mensaje que muestra el método WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 La clase define las constantes siguientes:
 
@@ -278,7 +278,7 @@ El equipo de MSAL.NET ha vuelto a escribir las pruebas de interfaz de usuario pa
 
 ##### <a name="provide-a-great-experience-with-systemwebviewoptions"></a>Una gran experiencia con SystemWebViewOptions
 
-En [`SystemWebViewOptions`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) de MSAL.NET 4.1, puede especificar:
+En [`SystemWebViewOptions`](/dotnet/api/microsoft.identity.client.systemwebviewoptions?view=azure-dotnet) de MSAL.NET 4.1, puede especificar:
 
 - El URI al que se va a ir (`BrowserRedirectError`) o el fragmento HTML que se va a mostrar (`HtmlMessageError`) en caso de errores de inicio de sesión o consentimiento en el explorador web del sistema.
 - El URI al que se va a ir (`BrowserRedirectSuccess`) o el fragmento HTML que se va a mostrar (`HtmlMessageSuccess`) en caso de inicio de sesión o consentimiento correctos.
@@ -433,13 +433,13 @@ Para iniciar la sesión de un usuario de dominio en un equipo unido a un dominio
   - O bien, el administrador de inquilinos debe haber consentido anteriormente que todos los usuarios del inquilino usen la aplicación.
   - En otras palabras:
     - Usted como desarrollador ha hecho clic en el botón **Conceder** de Azure Portal.
-    - O bien, un administrador de inquilinos ha hecho clic en el botón **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** de la pestaña **Permisos de API** del registro de la aplicación. Para más información, consulte [Adición de permisos para acceder a las API web](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis).
-    - O bien, ha proporcionado una manera para que los usuarios den su consentimiento a la aplicación. Para más información, consulte [Solicitud de consentimiento de usuario individual](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent).
-    - O bien, ha proporcionado una forma para que el administrador de inquilinos otorgue su consentimiento a la aplicación. Para más información, consulte [Consentimiento del administrador](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-consent-for-an-entire-tenant).
+    - O bien, un administrador de inquilinos ha hecho clic en el botón **Conceder o revocar consentimiento del administrador para {dominio del inquilino}** de la pestaña **Permisos de API** del registro de la aplicación. Para más información, consulte [Adición de permisos para acceder a las API web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - O bien, ha proporcionado una manera para que los usuarios den su consentimiento a la aplicación. Para más información, consulte [Solicitud de consentimiento de usuario individual](./v2-permissions-and-consent.md#requesting-individual-user-consent).
+    - O bien, ha proporcionado una forma para que el administrador de inquilinos otorgue su consentimiento a la aplicación. Para más información, consulte [Consentimiento del administrador](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
 - Este flujo está habilitado para aplicaciones de escritorio de .NET, .NET Core y UWP.
 
-Para más información sobre el consentimiento, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent).
+Para más información sobre el consentimiento, consulte [Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](./v2-permissions-and-consent.md).
 
 ### <a name="learn-how-to-use-it"></a>Aprenda a usarlo
 

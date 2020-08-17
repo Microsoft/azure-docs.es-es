@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 07c507eb139c4c4d339db1ede46956cb09a61dcf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: c5d23770aab0bde745152d918adfe83209819899
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962924"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500766"
 ---
-# <a name="using-transactions-in-sql-pool"></a>Uso de transacciones en el grupo de SQL
+# <a name="use-transactions-in-sql-pool"></a>Uso de transacciones en un grupo de SQL
 
 Sugerencias para implementar transacciones en el grupo de SQL (almacenamiento de datos) para el desarrollo de soluciones.
 
@@ -183,7 +183,7 @@ Lo único que ha cambiado es que la operación ROLLBACK de la transacción tení
 
 También cabe destacar que el grupo de SQL no implementa o admite la función ERROR_LINE(). Si ha incluido esta función en el código, tendrá que quitarla para que sea compatible con el grupo de SQL. En su lugar, utilice etiquetas de consulta en el código para implementar una funcionalidad equivalente. Para obtener más información, vea el artículo sobre [etiquetas](develop-label.md).
 
-## <a name="using-throw-and-raiserror"></a>Uso de THROW y RAISERROR
+## <a name="use-of-throw-and-raiserror"></a>Uso de THROW y RAISERROR
 
 THROW es la implementación más moderna para producir excepciones en el grupo de SQL, pero también se admite RAISERROR. Sin embargo, hay algunas diferencias a las que se debe prestar atención.
 

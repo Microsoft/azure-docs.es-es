@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 23e98c40420a5f1ed9b048d5530eacfe5eedfb32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74887e6ee4656091aa647b481bc406dcc23b9c12
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85413984"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460089"
 ---
 # <a name="cloud-tiering-overview"></a>Información general de nube por niveles
 La nube por niveles es una característica opcional de Azure File Sync por la que los archivos a los que se tiene acceso con frecuencia se almacenan en caché localmente en el servidor mientras que todos los demás archivos se organizan en niveles en Azure Files, según la configuración de directiva. Cuando un archivo está en capas, el filtro del sistema de archivos de Azure File Sync (StorageSync.sys) sustituye al archivo localmente por un puntero o punto de repetición de análisis. El punto de repetición de análisis representa una dirección URL del archivo en Azure Files. Un archivo con niveles tiene los atributos “sin conexión” y FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS establecidos en NTFS para que las aplicaciones de terceros puedan identificar de forma segura archivos con niveles.
@@ -40,16 +40,19 @@ La nube por niveles no depende de la característica NTFS para el registro de la
 <a id="tiering-minimum-file-size"></a>
 ### <a name="what-is-the-minimum-file-size-for-a-file-to-tier"></a>¿Cuál es el tamaño de archivo mínimo para organizar un archivo en niveles?
 
-En las versiones del agente 9 y más recientes, el tamaño de archivo mínimo para organizar un archivo por niveles se basa en el tamaño del clúster del sistema de archivos. En la tabla siguiente se muestran los tamaños de archivo mínimos que se pueden organizar por niveles, en función del tamaño del clúster del volumen:
+En las versiones del agente 9 y más recientes, el tamaño de archivo mínimo para organizar un archivo por niveles se basa en el tamaño del clúster del sistema de archivos. El tamaño mínimo del archivo que se selecciona para la realizar agrupación en niveles en la nube se calcula en función del doble del tamaño del clúster y en un mínimo de 8 KB. En la tabla siguiente se muestran los tamaños de archivo mínimos que se pueden organizar por niveles, en función del tamaño del clúster del volumen:
 
 |Tamaño del clúster del volumen (bytes) |Los archivos de este tamaño o mayores se pueden organizar por niveles  |
 |----------------------------|---------|
-|4 KB (4096)                 | 8 KB    |
+|4 KB o más pequeño (4096)      | 8 KB    |
 |8 KB (8192)                 | 16 KB   |
 |16 KB (16384)               | 32 KB   |
-|32 KB (32768) y mayores    | 64 KB   |
+|32 KB (32768)               | 64 KB   |
+|64 KB (65536)               | 128 KB  |
 
-Todos los sistemas de archivos que usa Windows organizan el disco duro en función del tamaño del clúster (lo que también se conoce como tamaño de unidad de asignación). El tamaño del clúster representa la cantidad más pequeña de espacio en disco que se puede usar para conservar un archivo. Cuando los tamaños de archivo no son un múltiplo par del tamaño del clúster, se debe usar espacio adicional para conservar el archivo (hasta el siguiente múltiplo del tamaño del clúster).
+Con Windows Server 2019 y el agente de Azure File Sync (versión 12 y posteriores), también se admiten los tamaños de clúster de hasta 2 MB, y los niveles de clústeres de mayor tamaño funcionan de la misma manera. Las versiones anteriores del sistema operativo o del agente admiten tamaños de clúster de hasta 64 KB.
+
+Todos los sistemas de archivos que usa Windows organizan el disco duro en función del tamaño del clúster (lo que también se conoce como tamaño de la unidad de asignación). El tamaño del clúster representa la cantidad más pequeña de espacio en disco que se puede usar para conservar un archivo. Cuando los tamaños de archivo no son un múltiplo par del tamaño del clúster, se debe usar espacio adicional para conservar el archivo (hasta el siguiente múltiplo del tamaño del clúster).
 
 Azure File Sync se admite en volúmenes NTFS con Windows Server 2012 R2 y versiones más recientes. En la tabla siguiente se describen los tamaños de clúster predeterminados cuando se crea un nuevo volumen NTFS. 
 
@@ -62,7 +65,9 @@ Azure File Sync se admite en volúmenes NTFS con Windows Server 2012 R2 y versio
 |128 TB – 256 TB | 64 KB         |
 |> 256 TB       | No compatible |
 
-Es posible que, después de crear el volumen, se le haya aplicado formato manualmente con otro tamaño de clúster (unidad de asignación). Si el volumen procede de una versión anterior de Windows, los tamaños de clúster predeterminados también pueden diferir. [En este artículo se ofrecen más detalles sobre los tamaños de clúster predeterminados.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat)
+Es posible que, después de crear el volumen, se le haya aplicado formato manualmente con otro tamaño de clúster. Si el volumen procede de una versión anterior de Windows, los tamaños de clúster predeterminados también pueden diferir. [En este artículo se ofrecen más detalles sobre los tamaños de clúster predeterminados.](https://support.microsoft.com/help/140365/default-cluster-size-for-ntfs-fat-and-exfat) Incluso si elige un tamaño de clúster inferior a 4 KB, se seguirá aplicando un límite de 8 KB como el tamaño de archivo más pequeño que se puede organizar en niveles. (Aunque el tamaño doble del clúster técnicamente sea menor que 8 KB).
+
+El motivo del mínimo absoluto se encuentra en la forma en que NTFS almacena archivos extremadamente pequeños; por ejemplo, de 1 KB a 4 KB de tamaño. En función de otros parámetros del volumen, es posible que los archivos pequeños no se almacenen en un clúster del disco. Igualmente, es posible que sea más eficaz almacenar dichos archivos directamente en la tabla de archivos maestros del volumen o en "Registro de MFT". El punto de reanálisis de los niveles de la nube siempre se almacena en el disco y toma exactamente un clúster. La organización en niveles de estos pequeños archivos podría hacer que acabe sin espacio libre. Los casos extremos pueden incluso acabar usando más espacio con la opción de organizar la nube por niveles habilitada. Para evitar esto, el tamaño mínimo de un archivo que la nube por niveles distribuirá en niveles es de 8 KB en un clúster de 4 KB o inferior.
 
 <a id="afs-volume-free-space"></a>
 ### <a name="how-does-the-volume-free-space-tiering-policy-work"></a>¿Cómo funciona la directiva de organización por niveles de espacio disponible del volumen?
@@ -95,7 +100,7 @@ Get-StorageSyncHeatStoreInformation '<LocalServerEndpointPath>'
 
 Tenga en cuenta que la directiva de espacio disponible en el volumen siempre tiene prioridad, y cuando no haya espacio suficiente en el volumen para conservar todos los archivos que especifica la directiva de fechas, Azure File Sync seguirá organizando por niveles los archivos más antiguos hasta alcanzar el porcentaje de espacio libre en el volumen.
 
-Por ejemplo, supongamos que tiene una directiva de organización por niveles basada en fechas con un valor de 60 días y una directiva de espacio disponible en el volumen del 20 %. Si tras aplicar la directiva de fechas el espacio disponible en el volumen es menor al 20 %, la directiva de espacio libre se pondrá en marcha y anulará la directiva de fechas. Como resultado, se organizarán por niveles más archivos, de forma tal que la cantidad de datos almacenados en el servidor se reduzca quizá de 60 a 45 días de datos. En cambio, la directiva forzará la organización por niveles de los archivos que no coincidan con el intervalo de tiempo, incluso si no ha alcanzado el umbral de espacio libre; es decir, un archivo con una antigüedad de 61 días se organizará por niveles incluso si el volumen está vacío.
+Por ejemplo, supongamos que tiene una directiva de organización por niveles basada en fechas con un valor de 60 días y una directiva de espacio disponible en el volumen del 20 %. Si tras aplicar la directiva de fechas el espacio disponible en el volumen es menor al 20 %, la directiva de espacio libre se pondrá en marcha y anulará la directiva de fechas. Como resultado, se organizarán por niveles más archivos, de forma tal que la cantidad de datos almacenados en el servidor se reduzca quizá de 60 a 45 días de datos. En cambio, la directiva forzará la organización por niveles de los archivos que no coincidan con el intervalo de tiempo, incluso si no ha alcanzado el umbral de espacio libre; es decir, un archivo con una antigüedad de 61 días se organizará por niveles incluso si el volumen está vacío.
 
 <a id="volume-free-space-guidelines"></a>
 ### <a name="how-do-i-determine-the-appropriate-amount-of-volume-free-space"></a>¿Cómo se puede determinar la cantidad adecuada de espacio disponible del volumen?

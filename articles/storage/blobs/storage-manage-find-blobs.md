@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 637bdb02cd9fc5296c74633bbfa381e62673a4bf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b41609ec2b7cc9880fb22a76b9e3b40c315bc3c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355665"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499881"
 ---
 # <a name="manage-and-find-data-on-azure-blob-storage-with-blob-index-preview"></a>Administración y búsqueda de datos en Azure Blob Storage con el Índice de blobs (versión preliminar)
 
@@ -293,6 +293,7 @@ En esta sección se describen los problemas conocidos y las condiciones de la ve
 -   Actualmente no se admite la conmutación por error de cuentas. Es posible que el índice de blobs no se actualice correctamente después de la conmutación por error.
 -   La administración del ciclo de vida actualmente solo admite comprobaciones de igualdad con Coincidencia del índice de blobs.
 -   CopyBlob no copia las etiquetas de índice de blobs del blob de origen en el nuevo blob de destino. Puede especificar las etiquetas que desea que se apliquen al blob de destino durante la operación de copia. 
+- El elemento CopyBlob (copia asincrónica) de otra cuenta de almacenamiento con etiquetas aplicadas en el blob de destino hace que el motor de índices de blobs no devuelva el blob y sus etiquetas en el conjunto de filtros. Se recomienda usar CopyBlob desde la dirección URL (copia de sincronización) de forma provisional.
 -   Las etiquetas se conservan al crear la instantánea; sin embargo, la promoción de una instantánea no se admite actualmente y puede dar lugar a un conjunto de etiquetas vacío.
 
 ## <a name="faq"></a>Preguntas más frecuentes
@@ -308,5 +309,7 @@ No, las etiquetas de Azure Resource Manager ayudan a organizar los recursos del 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea un ejemplo de cómo usar el Índice de blobs. Consulte [Uso del Índice de blobs para administrar y buscar datos](storage-blob-index-how-to.md).
+Para ver un ejemplo de cómo se usan los índices de blob, consulte [Uso del índice de blobs para administrar y buscar datos](storage-blob-index-how-to.md).
+
+Obtenga información sobre la [administración del ciclo de vida](storage-lifecycle-management-concepts.md) y establezca una regla con coincidencia de índice de blobs.
 

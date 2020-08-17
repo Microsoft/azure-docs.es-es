@@ -3,12 +3,12 @@ title: Configuración de una red virtual en Azure DevTest Labs | Microsoft Docs
 description: Aprenda a configurar una red virtual existente y la subred y a usarlas en una máquina virtual con Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 0819527cfc2a9dfd4e93226542acb7cb0c6d7273
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 21fe23b6be6fdc924c5502ff97f9c03a3f3e759d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482656"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283561"
 ---
 # <a name="configure-a-virtual-network-in-azure-devtest-labs"></a>Configuración de una red virtual en Azure DevTest Labs
 Como se explica en el artículo [Adición de una máquina virtual a un laboratorio](devtest-lab-add-vm.md), al crear una máquina virtual en un laboratorio, puede especificar una red virtual configurada. Por ejemplo, puede que necesite acceder a los recursos de la red corporativa desde las máquinas virtuales mediante la red virtual que se ha configurado con ExpressRoute o VPN de sitio a sitio.
@@ -53,10 +53,9 @@ Los pasos siguientes le guiarán en el proceso de agregar una red virtual existe
 
 Ahora que está configurada la red virtual, se puede seleccionar al crear una nueva máquina virtual. Para ver cómo crear una máquina virtual y especificar una red virtual, consulte el artículo [Incorporación de una máquina virtual a un laboratorio](devtest-lab-add-vm.md). 
 
-La [Documentación de Virtual Network](https://docs.microsoft.com/azure/virtual-network) de Azure proporciona más información sobre cómo usar las redes virtuales, incluido cómo configurar y administrar una red virtual y conectarse a la red local.
+La [Documentación de Virtual Network](../virtual-network/index.yml) de Azure proporciona más información sobre cómo usar las redes virtuales, incluido cómo configurar y administrar una red virtual y conectarse a la red local.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 Después de agregar las redes virtuales deseadas al laboratorio, el paso siguiente consiste en [agregar una máquina virtual al laboratorio](devtest-lab-add-vm.md).
-

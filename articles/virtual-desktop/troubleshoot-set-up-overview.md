@@ -1,33 +1,28 @@
 ---
 title: 'Introducción a la solución de problemas de Windows Virtual Desktop: Azure'
 description: Información general para solucionar problemas al configurar un entorno de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 07857feb2e5552429c445b22c4c4b2f121f29a93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 171322fbec099aa9fafc36c4f951213b33007976
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976496"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009365"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>Información general sobre solución de problemas, comentarios y soporte técnico
+# <a name="troubleshooting-overview-feedback-and-support-for-windows-virtual-desktop"></a>Información general, comentarios y soporte técnico para la solución de problemas de Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización de primavera de 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión de otoño de 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
->
-> La actualización de primavera de 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos para Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-set-up-overview-2019.md).
 
 En este artículo se proporciona información general de los problemas que pueden surgir al configurar un entorno de Windows Virtual Desktop y proporciona distintas maneras de resolver los problemas.
 
-## <a name="report-issues-during-public-preview"></a>Notificación de problemas durante la versión preliminar pública
+## <a name="report-issues"></a>Informar de problemas
 
-Para notificar problemas o sugerir características durante la versión preliminar pública de la versión de primavera de 2020, visite la [comunidad tecnológica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Puede usar la comunidad tecnológica para analizar los procedimientos recomendados o sugerir y votar nuevas características. Si notifica un problema relacionado con la versión preliminar pública, asegúrese de etiquetar el tipo de problema como **Actualización de primavera de 2020 (versión preliminar)** .
+Para notificar problemas o sugerir características para Windows Virtual Desktop con la integración de Azure Resource Manager, visite la [comunidad técnica de Windows Virtual Desktop](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop). Puede usar la comunidad tecnológica para analizar los procedimientos recomendados o sugerir y votar nuevas características.
 
 Si realiza una publicación para solicitar ayuda o proponer una nueva característica, asegúrese de que describe el tema lo más detalladamente posible. La información detallada puede ayudar a otros usuarios a responder a su pregunta o comprender mejor la característica para la que pide un voto.
 

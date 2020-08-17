@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 07/05/2020
-ms.openlocfilehash: 4fb593f303eea0f4866dc248412af2f261993e92
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: eec056cbe246f129fb78e15faa0027846c271181
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170350"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382957"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Clave administrada por el cliente de Azure Monitor 
 
@@ -21,17 +21,17 @@ Se recomienda revisar la sección [Limitaciones y restricciones](#limitationsand
 
 ## <a name="customer-managed-key-cmk-overview"></a>Información general de la clave administrada por el cliente (CMK)
 
-[El cifrado en reposo](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)  es un requisito común de privacidad y seguridad en las organizaciones. Puede dejar que Azure administre completamente el cifrado en reposo, mientras dispone de varias opciones para administrar minuciosamente el cifrado o las claves de cifrado.
+[El cifrado en reposo](../../security/fundamentals/encryption-atrest.md)  es un requisito común de privacidad y seguridad en las organizaciones. Puede dejar que Azure administre completamente el cifrado en reposo, mientras dispone de varias opciones para administrar minuciosamente el cifrado o las claves de cifrado.
 
-Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado mediante su propia clave almacenada en [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview) a la que se tiene acceso mediante la autenticación de la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) asignada por el sistema. Esta clave (CMK) se puede [proteger mediante software o con módulos de seguridad de hardware (HSM)](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
+Azure Monitor garantiza que todos los datos y las consultas guardadas se cifren en reposo mediante claves administradas por Microsoft (MMK). Azure Monitor también proporciona una opción para el cifrado mediante su propia clave almacenada en [Azure Key Vault](../../key-vault/general/overview.md) a la que se tiene acceso mediante la autenticación de la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) asignada por el sistema. Esta clave (CMK) se puede [proteger mediante software o con módulos de seguridad de hardware (HSM)](../../key-vault/general/overview.md).
 
-El uso que hace Azure Monitor del cifrado es idéntico al del  [cifrado de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption#about-azure-storage-encryption) .
+El uso que hace Azure Monitor del cifrado es idéntico al del  [cifrado de Azure Storage](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) .
 
 CMK le permite controlar el acceso a los datos y revocarlos en cualquier momento. Azure Monitor Storage siempre respeta los cambios en los permisos de las claves en el plazo de una hora. Los datos ingeridos en los últimos 14 días también se conservan en la memoria caché activa (respaldada por SSD) para un funcionamiento eficaz del motor de consultas. Estos datos permanecen cifrados con las claves de Microsoft, independientemente de la configuración de CMK, pero el control sobre los datos de SSD se adhiere a [revocación de claves](#cmk-kek-revocation). Estamos trabajando para que los datos de SSD se cifren con CMK en la segunda mitad de 2020.
 
 La funcionalidad de CMK se proporciona en clústeres de Log Analytics dedicados. Para comprobar que tenemos la capacidad necesaria en la región, es necesario que la suscripción esté en la lista de permitidos de antemano. Use su contacto de Microsoft para obtener la inclusión de la suscripción en la lista de permitidos antes de empezar a configurar CMK.
 
-El  [modelo de precios de los clústeres de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-dedicated-clusters)  usa reservas de capacidad a partir de un nivel de 1000 GB/día.
+El  [modelo de precios de los clústeres de Log Analytics](./manage-cost-storage.md#log-analytics-dedicated-clusters)  usa reservas de capacidad a partir de un nivel de 1000 GB/día.
 
 ## <a name="how-cmk-works-in-azure-monitor"></a>Cómo funciona CMK en Azure Monitor
 
@@ -91,7 +91,7 @@ Donde *eyJ0eXAiO....* representa el token de autorización completo.
 
 Puede adquirir el token de las siguientes formas:
 
-1. Use el método [Registros de aplicaciones](https://docs.microsoft.com/graph/auth/auth-concepts#access-tokens).
+1. Use el método [Registros de aplicaciones](/graph/auth/auth-concepts#access-tokens).
 2. En el Portal de Azure
     1. Navegue hasta Azure Portal en la "herramienta para desarrolladores" (F12).
     1. Busque la cadena de autorización en "Encabezados de solicitud", en una de las instancias de "batch?api-version". Tiene el siguiente formato: "authorization: Bearer eyJ0eXAiO....". 
@@ -185,15 +185,16 @@ Cree un recurso de Azure Key Vault, o use uno que ya tenga, para generar o impor
 
 ![Configuración de la eliminación temporal y la protección de purga](media/customer-managed-keys/soft-purge-protection.png)
 
-Esta configuración está disponible a través de la CLI y mediante PowerShell:
-- [eliminación temporal](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-- La [Protección de purga](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) protege contra la eliminación forzada del secreto o almacén incluso después de la eliminación temporal.
+Esta configuración puede actualizarse a través de la CLI y PowerShell:
+
+- [eliminación temporal](../../key-vault/general/soft-delete-overview.md)
+- La [Protección de purga](../../key-vault/general/soft-delete-overview.md#purge-protection) protege contra la eliminación forzada del secreto o almacén incluso después de la eliminación temporal.
 
 ### <a name="create-cluster-resource"></a>Creación de un recurso de *clúster*
 
 Este recurso se usa como conexión de identidad intermedia entre su instancia de Key Vault y sus áreas de trabajo de Log Analytics. Después de recibir la confirmación de que las suscripciones se han incluido en la lista de permitidos, cree un recurso de *clúster* de Log Analytics en la región en la que se encuentran las áreas de trabajo.
 
-Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso de *Clúster*. El nivel de *capacidad de reserva* puede estar en el rango de 1000 a 2000 GB por día y se puede actualizar más adelante en etapas de 100. Si necesita un nivel de reserva de capacidad superior a 2000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. [Más información](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#log-analytics-clusters)
+Debe especificar el nivel (sku) de *capacidad de reserva* al crear un recurso de *Clúster*. El nivel de *capacidad de reserva* puede estar en el rango de 1000 a 3000 GB por día y se puede actualizar más adelante en etapas de 100. Si necesita un nivel de reserva de capacidad superior a 3000 GB por día, comuníquese con nosotros en LAIngestionRate@microsoft.com. [Más información](./manage-cost-storage.md#log-analytics-dedicated-clusters)
 
 La propiedad *billingType* determina la atribución de facturación para el recurso de *Clúster*y sus datos:
 - *Clúster* (valor predeterminado): los costos de Reserva de capacidad para el clúster se atribuyen al recurso de *clúster*.
@@ -210,7 +211,7 @@ Esta operación es asincrónica y puede tardar un tiempo en completarse.
 > 
 
 ```powershell
-New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity "daily-ingestion-gigabyte" 
+New-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -Location "region-name" -SkuCapacity daily-ingestion-gigabyte 
 ```
 
 ```rst
@@ -408,7 +409,7 @@ Content-type: application/json
 Los datos ingeridos se almacenan cifrados con la clave administrada después de la operación de asociación, que puede tardar hasta 90 minutos en completarse. Puede comprobar el estado de asociación del área de trabajo de dos maneras:
 
 1. Copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
-2. Envíe una solicitud [Áreas de trabajo: Get](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get) y observe la respuesta, el área de trabajo asociada tendrá un elemento clusterResourceId en "características".
+2. Envíe una solicitud [Áreas de trabajo: Get](/rest/api/loganalytics/workspaces/get) y observe la respuesta, el área de trabajo asociada tendrá un elemento clusterResourceId en "características".
 
 ```rest
 GET https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalInsights/workspaces/<workspace-name>?api-version=2020-03-01-preview
@@ -466,15 +467,15 @@ Se puede acceder a todos los datos después de la operación de rotación de cla
 El lenguaje de consulta utilizado en Log Analytics es expresivo y puede contener información confidencial en los comentarios que se agregan a las consultas o en la sintaxis de la consulta. Algunas organizaciones requieren que dicha información se mantenga protegida como parte de la directiva de CMK y debe guardar las consultas cifradas con su clave. Azure Monitor le permite almacenar consultas de *búsquedas guardadas* y de *alertas del registro* cifradas con su clave en su propia cuenta de almacenamiento cuando se conecta al área de trabajo. 
 
 > [!NOTE]
-> No se admite CMK para las consultas que se usan en los libros y paneles de Azure. Estas consultas permanecen cifradas con la clave de Microsoft.  
+> Las consultas de Log Analytics se pueden guardar en varios almacenes según el escenario usado. Las consultas permanecen cifradas con la clave de Microsoft (MMK) en los escenarios siguientes, independientemente de la configuración de CMK: Libros en Azure Monitor, paneles de Azure, Azure Logic Apps, Azure Notebooks y runbooks de automatización.
 
-Cuando [traiga su propio almacenamiento](https://docs.microsoft.com/azure/azure-monitor/platform/private-storage) (BYOS) y lo asocie a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* a la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](https://docs.microsoft.com/azure/storage/common/encryption-customer-managed-keys) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
+Cuando traiga su propio almacenamiento (BYOS) y lo asocie a su área de trabajo, el servicio carga consultas de *búsquedas guardadas* y de *alertas del registro* a la cuenta de almacenamiento. Esto significa que puede controlar la cuenta de almacenamiento y la [directiva de cifrado en reposo](../../storage/common/encryption-customer-managed-keys.md) con la misma clave que se usa para cifrar los datos en el clúster de Log Analytics o con una clave diferente. Sin embargo, será responsable de los costos asociados a esa cuenta de almacenamiento. 
 
 **Consideraciones antes de establecer CMK para las consultas**
 * Debe tener permisos de "escritura" en el área de trabajo y la cuenta de almacenamiento.
 * Asegúrese de crear la cuenta de almacenamiento en la misma región en la que se encuentra el área de trabajo de Log Analytics.
 * Las *búsquedas guardadas* en el almacenamiento se consideran artefactos de servicio y su formato puede cambiar.
-* Las *búsquedas guardadas* existentes se eliminan del área de trabajo. Copie las *búsquedas guardadas* que necesite antes de la configuración. Puede ver las *búsquedas guardadas* mediante [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/Get-AzOperationalInsightsSavedSearch).
+* Las *búsquedas guardadas* existentes se eliminan del área de trabajo. Copie las *búsquedas guardadas* que necesite antes de la configuración. Puede ver las *búsquedas guardadas* mediante [PowerShell](/powershell/module/az.operationalinsights/get-azoperationalinsightssavedsearch).
 * No se admite el historial de consultas y no podrá ver las consultas que se han ejecutado.
 * Puede asociar una sola cuenta de almacenamiento al área de trabajo con el fin de guardar las consultas, pero se puede usar tanto para las consultas de *búsquedas guardadas* como para las de *alertas del registro*.
 * No se admite el anclaje a un panel.
@@ -484,7 +485,7 @@ Cuando [traiga su propio almacenamiento](https://docs.microsoft.com/azure/azure-
 Asocie la cuenta de almacenamiento de *Consulta* con el área de trabajo. Las consultas de *búsquedas guardadas* se guardan en la cuenta de almacenamiento. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Query -StorageAccountIds $storageAccount.Id
 ```
 
@@ -511,7 +512,7 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
 Asocie la cuenta de almacenamiento de *Alertas* con el área de trabajo. Las consultas de *alertas del registro* se guardan en la cuenta de almacenamiento. 
 
 ```powershell
-$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "resource-group-name"storage-account-name"resource-group-name"
+$storageAccount.Id = Get-AzStorageAccount -ResourceGroupName "resource-group-name" -Name "storage-account-name"
 New-AzOperationalInsightsLinkedStorageAccount -ResourceGroupName "resource-group-name" -WorkspaceName "workspace-name" -DataSourceType Alerts -StorageAccountIds $storageAccount.Id
 ```
 
@@ -598,7 +599,7 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
 
 - **Actualización de la *reserva de capacidad* en el *recurso* de clúster**
 
-  Cuando cambie el volumen de datos en las áreas de trabajo asociadas con el tiempo y desee actualizar el nivel de reserva de capacidad adecuadamente. Siga la [actualización *del recurso* de clúster](#update-cluster-resource-with-key-identifier-details) y proporcione el valor de la nueva capacidad. Puede estar en el rango de 1000 a 2000 GB por día y en pasos de 100. Para un nivel superior a 2000 GB por día, comuníquese con su contacto de Microsoft para habilitarlo. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST y debe incluir la SKU:
+  Cuando cambie el volumen de datos en las áreas de trabajo asociadas con el tiempo y desee actualizar el nivel de reserva de capacidad adecuadamente. Siga la [actualización *del recurso* de clúster](#update-cluster-resource-with-key-identifier-details) y proporcione el valor de la nueva capacidad. Puede estar en el rango de 1000 a 3000 GB por día y en pasos de 100. Para un nivel superior a 3000 GB por día, comuníquese con su contacto de Microsoft para habilitarlo. Tenga en cuenta que no tiene que proporcionar el cuerpo completo de la solicitud de REST, pero debe incluir la SKU:
 
   ```powershell
   Update-AzOperationalInsightsCluster -ResourceGroupName "resource-group-name" -ClusterName "cluster-name" -SkuCapacity "daily-ingestion-gigabyte"
@@ -659,7 +660,7 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
   Los datos ingeridos después de que la operación de desasociación se almacena en el almacenamiento de Log Analytics, esto puede tardar 90 minutos en completarse. Puede comprobar el estado de asociación del área de trabajo de dos maneras:
 
   1. Copie el valor de la dirección URL de Azure-AsyncOperation de la respuesta y siga la [comprobación del estado de operaciones asincrónicas](#asynchronous-operations-and-status-check).
-  2. Envíe una solicitud [Áreas de trabajo: ](https://docs.microsoft.com/rest/api/loganalytics/workspaces/get)observe la respuesta, el área de trabajo asociada no tendrá un elemento *clusterResourceId* en *características*.
+  2. Envíe una solicitud [Áreas de trabajo: ](/rest/api/loganalytics/workspaces/get)observe la respuesta, el área de trabajo asociada no tendrá un elemento *clusterResourceId* en *características*.
 
 - **Comprobación del estado de la asociación del área de trabajo**
   
@@ -694,26 +695,25 @@ Después de la configuración, se guardará en el almacenamiento cualquier nueva
 
 ## <a name="limitationsandconstraints"></a>Limitaciones y restricciones
 
--CMK es compatible con un clúster de Log Analytics dedicado y adecuado para los clientes que envían 1 TB al día o más.
+- La CMK es compatible con un clúster de Log Analytics dedicado y adecuado para los clientes que envían 1 TB al día o más.
 
--El número máximo de los recursos de  *clúster*  por región y suscripción es 2
+- El número máximo de los recursos *Cluster* por región y suscripción es 2.
 
--Puede asociar un área de trabajo al recurso de  *Clúster*  y, a continuación, desasociarla si CMK no es necesario para el área de trabajo. El número de asociaciones del área de trabajo en un área de trabajo determinada en un período de 30 días se limita a 2
+- Puede asociar un área de trabajo al recurso *Cluster* y, a continuación, desasociarla si no se requiere CMK para el área de trabajo. El número de asociaciones del área de trabajo en un área de trabajo determinada en un período de 30 días se limita a 2.
 
-La asociación de los recursos  *Clúster*  al área de trabajo SOLO se debe llevar a cabo después de comprobar que se completó el aprovisionamiento del clúster de Log Analytics. Los datos que se envíen al área de trabajo antes de que se complete el aprovisionamiento se eliminarán y no se podrán recuperar.
+- La asociación de los recursos *Cluster* al área de trabajo SOLO se debe llevar a cabo después de comprobar que se completó el aprovisionamiento del clúster de Log Analytics. Los datos que se envíen al área de trabajo antes de que se complete el aprovisionamiento se eliminarán y no se podrán recuperar.
 
-El cifrado de CMK se aplica a los datos ingeridos después de la     configuración de CMK. Los datos que se ingieren antes de la     configuración de CMK permanecen cifrados con la clave de Microsoft. Puede consultar fácilmente     los datos ingeridos antes y después de la configuración de CMK.
+- El cifrado de CMK se aplica a los datos ingeridos después de la configuración de CMK. Los datos que se ingieren antes de la configuración de CMK permanecen cifrados con la clave de Microsoft. Puede consultar fácilmente los datos ingeridos antes y después de la configuración de CMK.
 
-\- La instancia de Azure Key Vault debe configurarse como recuperable. Las siguientes propiedades no están habilitadas de forma predeterminada y deben configurarse mediante la CLI o PowerShell:
+- La instancia de Azure Key Vault debe configurarse como recuperable. Las siguientes propiedades no están habilitadas de forma predeterminada y deben configurarse mediante la CLI o PowerShell:<br>
+  - [eliminación temporal](../../key-vault/general/soft-delete-overview.md)
+  - La [protección de purgas](../../key-vault/general/soft-delete-overview.md#purge-protection) debe estar activada si quiere tener protección frente a posibles eliminaciones forzadas de secretos o del almacén, incluso después de su eliminación temporal.
 
-  - [La eliminación temporal](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete)
-    debe estar activada y la  - [protección de purgas](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete#purge-protection) debe estar activada para protegerse frente a la eliminación forzada del secreto o del almacén incluso después de la eliminación temporal.
+- Actualmente no se admite el traslado de un recurso de *clúster* a otro grupo de recursos o a otra suscripción.
 
-Actualmente     no se admite el traslado de un recurso de - *clúster*  a otro grupo de recursos o a otra suscripción.
+- La instancia de Azure Key Vault, el recurso del *clúster* y las áreas de trabajo asociadas deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
 
-\- La instancia de Azure Key Vault, el recurso del  *clúster*  y las áreas de trabajo asociadas deben estar en la misma región y en el mismo inquilino de Azure Active Directory (Azure AD), pero pueden estar en distintas suscripciones.
-
-\- Se producirá un error al asociar el área de trabajo a un recurso de  *clúster*  si está     asociada a otro *recurso de* clúster
+- Se producirá un error al asociar el área de trabajo a un recurso de *clúster* si está asociada a otro recurso de *clúster*.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -743,3 +743,41 @@ Actualmente     no se admite el traslado de un recurso de - *clúster*  a 
   2. Envíe una solicitud GET al *clúster* o al área de trabajo y observe la respuesta. Por ejemplo, un área de trabajo sin asociar no tendrá el elemento *clusterResourceId* en la sección *features*.
 
 - Para obtener soporte técnico y ayuda relacionada con la clave administrada por el cliente, use sus contactos en Microsoft.
+
+- Mensajes de error
+  
+  Creación de un recurso *Cluster*:
+  -  400: El nombre del clúster no es válido. El nombre del clúster puede contener los caracteres a-z, A-Z, 0-9 y una longitud de 3 a 63.
+  -  400: El cuerpo de la solicitud es NULL o tiene un formato incorrecto.
+  -  400: El nombre de SKU no es válido. Establezca el nombre de SKU en capacityReservation.
+  -  400: Se proporcionó Capacity, pero la SKU no es capacityReservation. Establezca el nombre de la SKU en capacityReservation.
+  -  400: Falta Capacity en la SKU. Establezca el valor de Capacity en 1000 o más en incrementos de 100 (GB).
+  -  400: Capacity en la SKU no está en el rango. Debe ser 1000 como mínimo y hasta la capacidad máxima permitida que está disponible en "Uso y costos estimados" en el área de trabajo.
+  -  400: Capacity está bloqueado durante 30 días. Se permite la reducción de la capacidad 30 días después de la actualización.
+  -  400: No se estableció ninguna SKU. Establezca el nombre de la SKU en capacityReservation y el valor de Capacity en 1000 o más en incrementos de 100 (GB).
+  -  400: Identity es NULL o está vacío. Establezca Identity en el tipo systemAssigned.
+  -  400: KeyVaultProperties se estableció en la creación. Actualice KeyVaultProperties después de la creación del clúster.
+  -  400: No se puede ejecutar la operación ahora. La operación asincrónica está en un estado distinto del correcto. El clúster debe completar su operación antes de realizar cualquier operación de actualización.
+
+  Actualización del recurso *Cluster*
+  -  400: El clúster está en estado de eliminación. La operación asincrónica está en curso. El clúster debe completar su operación antes de realizar cualquier operación de actualización.
+  -  400: KeyVaultProperties no está vacío, pero tiene un formato incorrecto. Consulte [actualización de identificador de clave](#update-cluster-resource-with-key-identifier-details).
+  -  400: No se pudo validar la clave en Key Vault. Podría deberse a la falta de permisos o a que la clave no existe. Verifique que [estableció la clave y la directiva de acceso](#grant-key-vault-permissions) en Key Vault.
+  -  400: No se puede recuperar la clave. Key Vault debe establecerse para la eliminación temporal y protección de purga. Consulte la [documentación de Key Vault](../../key-vault/general/soft-delete-overview.md).
+  -  400: No se puede ejecutar la operación ahora. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
+  -  400: El clúster está en estado de eliminación. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
+
+    Obtención del recurso *Cluster*:
+    -  404: No se encontró el clúster, es posible que se haya eliminado. Si intenta crear un clúster con ese nombre y obtiene un conflicto, el clúster se encuentra en eliminación temporal durante 14 días. Puede ponerse en contacto con soporte técnico para recuperarlo o usar otro nombre para crear un nuevo clúster. 
+
+  Eliminación del recurso *Cluster*:
+    -  409: No se puede eliminar un clúster mientras está en estado de aprovisionamiento. Espere a que se complete la operación asincrónica e inténtelo de nuevo.
+
+  Asociación del área de trabajo:
+  -  404: No se encuentra el área de trabajo. El área de trabajo que especificó no existe o se eliminó.
+  -  409: Operación en curso de asociación o desasociación del área de trabajo.
+  -  400: No se encontró el clúster, el clúster que especificó no existe o se eliminó. Si intenta crear un clúster con ese nombre y obtiene un conflicto, el clúster se encuentra en eliminación temporal durante 14 días. Puede ponerse en contacto con el soporte técnico para recuperarlo.
+
+  Desasociación del área de trabajo:
+  -  404: No se encuentra el área de trabajo. El área de trabajo que especificó no existe o se eliminó.
+  -  409: Operación en curso de asociación o desasociación del área de trabajo.

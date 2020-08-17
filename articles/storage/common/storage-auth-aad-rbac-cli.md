@@ -1,29 +1,29 @@
 ---
 title: Uso de la CLI de Azure para asignar un rol de RBAC para el acceso a datos
 titleSuffix: Azure Storage
-description: Aprenda a usar la CLI de Azure para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles RBAC tanto integrados como personalizados para la autenticación a través de Azure AD.
+description: Aprenda a usar la CLI de Azure para asignar permisos a una entidad de seguridad de Azure Active Directory con el control de acceso basado en rol (RBAC). Azure Storage admite roles integrados y personalizados de Azure para la autenticación mediante Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 25a38fc6f9607ef878ad3c5bf7074f5b63d5c121
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: afa48c07e628eaeb013c24fa38fcda1adea2555a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808873"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368986"
 ---
 # <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Uso de la CLI de Azure para asignar un rol de RBAC para el acceso a datos de blobs y colas
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los datos de blob o de cola.
+Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles integrados de Azure que engloban los conjuntos comunes de permisos que se usan para acceder a los datos de los blobs o de las colas.
 
 Cuando un rol RBAC se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-En este artículo se describe cómo usar la CLI de Azure para mostrar los roles RBAC integrados y asignarlos a usuarios. Para obtener más información sobre cómo usar la CLI de Azure, vea [Interfaz de la línea de comandos (CLI) de Azure](https://docs.microsoft.com/cli/azure).
+En este artículo se describe cómo usar la CLI de Azure para enumerar los roles integrados de Azure y asignarlos a los usuarios. Para obtener más información sobre cómo usar la CLI de Azure, vea [Interfaz de la línea de comandos (CLI) de Azure](/cli/azure).
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Roles RBAC para blobs y colas
 
@@ -35,7 +35,7 @@ En este artículo se describe cómo usar la CLI de Azure para mostrar los roles 
 
 ## <a name="list-available-rbac-roles"></a>Mostrar los roles RBAC disponibles
 
-Para obtener una lista de los roles RBAC integrados disponibles con la CLI de Azure, use el comando [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+Para enumerar los roles integrados de Azure con la CLI de Azure, use el comando [az role definition list](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli-interactive
 az role definition list --out table

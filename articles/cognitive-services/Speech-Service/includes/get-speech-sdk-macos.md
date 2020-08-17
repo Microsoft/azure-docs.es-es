@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: cea48f2d30687e85c39f0969874489aa1d70a4a5
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 82c45919892721d689bd90b7480158c4eea16c03
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637414"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374944"
 ---
 Al desarrollar para macOS, hay tres SDK de voz disponibles.
 
@@ -43,7 +43,7 @@ platform :ios, '9.3'
 use_frameworks!
 
 target 'MyApp' do
-  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.12.1'
+  pod 'MicrosoftCognitiveServicesSpeech', '~> 1.13.0'
 end
 ```
 

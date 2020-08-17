@@ -9,12 +9,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/06/2020
-ms.openlocfilehash: 04c5d9c8eceb14ab68ca0d96f994bf6a64bbc431
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6297f7797758069ee75fe14960d72f9c497b0fe6
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045386"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132983"
 ---
 # <a name="azure-sql-connectivity-settings"></a>Configuración de la conectividad de Azure SQL
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -37,7 +37,7 @@ Cuando la opción **Denegar acceso desde red pública** está establecida en **S
 
  ![Captura de pantalla de la conectividad con la opción Denegar acceso desde red pública][2]
 
-Cualquier intento de establecer **Denegar acceso desde red pública** en **Sí** sin puntos de conexión privados existentes en el servidor lógico producirá un error con un mensaje similar al siguiente:  
+Cualquier intento de establecer la opción **Denegar acceso desde red pública** en **Sí** sin puntos de conexión privados existentes en el servidor lógico producirá un error con un mensaje similar al siguiente:  
 
 ```output
 Error 42102
@@ -173,7 +173,7 @@ $sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id -ApiVersion 2014-04-01 -Verbose).Properties.ConnectionType
 
 # Update connection policy
 Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f

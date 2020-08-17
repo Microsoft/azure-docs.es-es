@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia del com
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1f310eff1f6858618602c76a7458aadb06dc4d13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d7965b8d42a6fdd6ebd68307b01b322cfa7cc6
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84219927"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285244"
 ---
 # <a name="azcopy-make"></a>azcopy make
 
@@ -45,13 +45,13 @@ azcopy make "https://[account-name].[blob,file,dfs].core.windows.net/[top-level-
 |Opción|Descripción|
 |--|--|
 |-h, --help|Muestra el contenido de la ayuda para el comando make. |
-|--quota-gb uint32|Especifica el tamaño máximo del recurso compartido en gigabytes (GiB), 0 significa que acepta la cuota predeterminada del servicio de archivos.|
+|--quota-gb uint32|Especifica el tamaño máximo del recurso compartido en gigabytes (GiB), cero significa que acepta la cuota predeterminada del servicio de archivos.|
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 
 |Opción|Descripción|
 |---|---|
-|--cap-mbps uint32|Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.|
+|--cap-mbps número de punto flotante|Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.|
 |--output-type string|Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text".|
 |--trusted-microsoft-suffixes string   |Especifica sufijos de dominio adicionales en los que se pueden enviar tokens de inicio de sesión de Azure Active Directory.  El valor predeterminado es " *.core.windows.net;* .core.chinacloudapi.cn; *.core.cloudapi.de;* .core.usgovcloudapi.net". Los valores que se muestran aquí se agregan al valor predeterminado. Por seguridad, solo debe poner aquí dominios de Microsoft Azure. Separe las entradas con punto y coma.|
 

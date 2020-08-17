@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: apseth, divswa, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: bd6b05489d13f835de4dce2aa3d885132285efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c00d2e4f622bcfad7b2468013336f0d936e318c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87048657"
 ---
 # <a name="send-related-messages-in-order-by-using-a-sequential-convoy-in-azure-logic-apps-with-azure-service-bus"></a>Envío de mensajes relacionados en orden mediante un convoy secuencial en Azure Logic Apps con Azure Service Bus
 
-Cuando necesite enviar mensajes correlacionados en un orden específico, puede usar el [patrón *convoy secuencial*](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy) al usar [Azure Logic Apps](../logic-apps/logic-apps-overview.md) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
+Cuando necesite enviar mensajes correlacionados en un orden específico, puede usar el [patrón *convoy secuencial*](/azure/architecture/patterns/sequential-convoy) al usar [Azure Logic Apps](../logic-apps/logic-apps-overview.md) mediante el [conector de Azure Service Bus](../connectors/connectors-create-api-servicebus.md). Los mensajes correlacionados tienen una propiedad que define la relación entre esos mensajes, como el identificador de la [sesión](../service-bus-messaging/message-sessions.md) en Service Bus.
 
 Por ejemplo, supongamos que tiene 10 mensajes para una sesión denominada "Session 1" y tiene 5 mensajes para una sesión denominada "Session 2" que se envían todos a la misma [cola de Service Bus](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Puede crear una aplicación lógica que procese los mensajes de la cola de modo que una sola ejecución del desencadenar se encargue de todos los mensajes de "Session 1" y la siguiente ejecución del desencadenador se encargue de todos los mensajes de "Session 2".
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo crear una aplicación lógica que implementa 
 
 Para revisar el archivo JSON de esta plantilla, consulte [GitHub: service-bus-sessions.json](https://github.com/Azure/logicapps/blob/master/templates/service-bus-sessions.json).
 
-Para obtener más información, consulte [Patrón de convoy secuencial: patrones de diseño en la nube de arquitectura de Azure](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy).
+Para obtener más información, consulte [Patrón de convoy secuencial: patrones de diseño en la nube de arquitectura de Azure](/azure/architecture/patterns/sequential-convoy).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -202,7 +202,7 @@ Para proporcionar los valores para el desencadenador y las acciones en la planti
   | **Frecuencia** | Sí | **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** | Unidad de tiempo de la periodicidad que se va a usar al comprobar la existencia de mensajes. <p>**Sugerencia**: Para agregar una **Zona horaria** u **Hora de inicio**, seleccione estas propiedades en la lista **Agregar nuevo parámetro**. |
   |||||
 
-  Para más información sobre el desencadenador, consulte [Service Bus: Cuando se recibe un mensaje en una cola (bloque de inspección)](https://docs.microsoft.com/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). El desencadenador genera un [ServiceBusMessage](https://docs.microsoft.com/connectors/servicebus/#servicebusmessage).
+  Para más información sobre el desencadenador, consulte [Service Bus: Cuando se recibe un mensaje en una cola (bloque de inspección)](/connectors/servicebus/#when-a-message-is-received-in-a-queue-(peek-lock)). El desencadenador genera un [ServiceBusMessage](/connectors/servicebus/#servicebusmessage).
 
 Después de inicializar la sesión, el flujo de trabajo usa la acción **Inicializar variable** para crear una variable booleana que al principio se establece en `false` e indica cuando se cumplen las condiciones siguientes: 
 
@@ -422,4 +422,4 @@ Para probar la aplicación lógica, envíe mensajes a la cola de Service Bus.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información acerca de las [acciones y los desencadenadores del conector de Service Bus](https://docs.microsoft.com/connectors/servicebus/).
+* Más información acerca de las [acciones y los desencadenadores del conector de Service Bus](/connectors/servicebus/).

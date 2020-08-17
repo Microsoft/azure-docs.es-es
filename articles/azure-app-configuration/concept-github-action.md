@@ -6,12 +6,12 @@ ms.author: lcozzens
 ms.date: 02/20/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 6d072cd03fa0e5c8da4593d8633a268d3b5a50fb
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 66d0e32e7dfdd5ab2abee5108ac8ce54c5222747
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84197059"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371828"
 ---
 # <a name="sync-your-github-repository-to-app-configuration"></a>Sincronización del repositorio de GitHub con App Configuration
 
@@ -25,7 +25,7 @@ Un [flujo de trabajo](https://help.github.com/articles/about-github-actions#work
 La [documentación](https://help.github.com/actions/automating-your-workflow-with-github-actions/configuring-a-workflow) de GitHub proporciona una vista detallada de los flujos de trabajo y las acciones de GitHub. 
 
 ## <a name="enable-github-actions-in-your-repository"></a>Habilitación de Acciones de GitHub en el repositorio
-Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Haga clic en **New workflow** (Nuevo flujo de trabajo) y, luego, en **Set up a workflow yourself** (Configurar un flujo de trabajo por su cuenta). Por último, busque en Marketplace "Azure App Configuration Sync".
+Para empezar a usar esta acción de GitHub, vaya al repositorio y seleccione la pestaña **Acciones**. Seleccione **Nuevo flujo de trabajo** y, luego, **Configurar un flujo de trabajo por su cuenta**. Por último, busque en Marketplace "Azure App Configuration Sync".
 > [!div class="mx-imgBorder"]
 > ![Selección de la pestaña Acción](media/find-github-action.png)
 
@@ -211,7 +211,7 @@ jobs:
 ## <a name="use-azure-key-vault-with-github-action"></a>Uso de Azure Key Vault con una acción de GitHub
 Los desarrolladores que usan Azure Key Vault con App Configuration deben usar dos archivos independientes, normalmente appsettings.json y secretreferences.json. El archivo secretreferences.json contendrá la dirección URL del secreto de Key Vault.
 
-{ "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret"}" }
+{ "mySecret": "{\"uri\":\"https://myKeyVault.vault.azure.net/secrets/mySecret "}" }
 
 La acción de GitHub se puede configurar para realizar una sincronización en modo strict en el archivo appsettings.json, seguida de una sincronización no estricta en el archivo secretreferences.json. El ejemplo siguiente desencadenará una sincronización cuando se actualice cualquiera de los archivos:
 

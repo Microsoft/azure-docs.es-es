@@ -10,13 +10,13 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
-ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: e13d5f3421f3c0d4f3e14da29581ca585e7f9438
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.openlocfilehash: 10ae1c76d48c1cedbb915fec66177ac3612feea0
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145867"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115227"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web de Java
 
@@ -212,7 +212,7 @@ Si desea implementar el ejemplo web en Tomcat, necesitará hacer un par de cambi
 
 
 > [!IMPORTANT]
-> Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Dado que el secreto de cliente se agrega como texto sin formato a los archivos de proyecto, por motivos de seguridad se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar la aplicación como aplicación de producción. Para más información sobre cómo usar un certificado, consulte [Credenciales de certificado para la autenticación de la aplicación](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials).
+> Esta aplicación de inicio rápido usa un secreto de cliente para identificarse como cliente confidencial. Dado que el secreto de cliente se agrega como texto sin formato a los archivos de proyecto, por motivos de seguridad se recomienda que use un certificado en lugar de un secreto de cliente antes de considerar la aplicación como aplicación de producción. Para más información sobre cómo usar un certificado, consulte [Credenciales de certificado para la autenticación de la aplicación](./active-directory-certificate-credentials.md).
 
 ## <a name="more-information"></a>Más información
 
@@ -254,11 +254,11 @@ import com.microsoft.aad.msal4j.*;
 Más información sobre los permisos y el consentimiento:
 
 > [!div class="nextstepaction"]
-> [Permisos y consentimiento](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)
+> [Permisos y consentimiento](./v2-permissions-and-consent.md)
 
 Para más información sobre el flujo de autenticación en este escenario, consulte el flujo del código de autorización de OAuth 2.0:
 
 > [!div class="nextstepaction"]
-> [Flujo del código de autorización de OAuth](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow)
+> [Flujo del código de autorización de OAuth](./v2-oauth2-auth-code-flow.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

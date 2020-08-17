@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/01/2019
-ms.openlocfilehash: ac968271685c66c8fab8d7723d994a446f49e85f
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.date: 08/03/2020
+ms.openlocfilehash: 2bfe9115f38c79618924379837dda8014ee31ed5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81410315"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529371"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiar datos de Square con Azure Data Factory (versión preliminar)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,6 @@ Este conector Square es compatible con las actividades siguientes:
 
 - [Actividad de copia](copy-activity-overview.md) con [matriz de origen o receptor compatible](copy-activity-overview.md)
 - [Actividad de búsqueda](control-flow-lookup-activity.md)
-
 
 Puede copiar datos de Square en cualquier almacén de datos de receptor admitido. Consulte la tabla de [almacenes de datos compatibles](copy-activity-overview.md#supported-data-stores-and-formats) para ver una lista de almacenes de datos que la actividad de copia admite como orígenes o receptores.
 
@@ -52,13 +51,23 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Square:
 | Propiedad | Descripción | Obligatorio |
 |:--- |:--- |:--- |
 | type | La propiedad type debe establecerse en: **Square** | Sí |
+| connectionProperties | Grupo de propiedades que define cómo conectarse a Square. | Sí |
+| ***En`connectionProperties`:*** | | |
 | host | Dirección URL de la instancia de Square. (es decir, mystore.mysquare.com)  | Sí |
 | clientId | Id. de cliente asociado a la aplicación Square.  | Sí |
 | clientSecret | Secreto de cliente asociado a la aplicación Square. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
-| redirectUri | Dirección URL de redireccionamiento asignada en el panel de la aplicación Square. (Es decir, http:\//localhost:2500)  | Sí |
+| accessToken | Token de acceso obtenido de Square. Concede acceso limitado a una cuenta de Square solicitando permisos explícitos a un usuario autenticado. Los tokens de acceso de OAuth expiran 30 días después de emitirse, pero los tokens de actualización no expiran. Los tokens de acceso se pueden actualizar mediante un token de actualización.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md).  | Sí |
+| refreshToken | Token de actualización obtenido de Square. Se usa para obtener nuevos tokens de acceso cuando expira el actual.<br>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | No |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
-| usePeerVerification | Especifica si se debe comprobar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
+| usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de TLS. El valor predeterminado es true.  | No |
+
+Square admite dos tipos de tokens de acceso: **personal** y **OAuth**.
+
+- Los tokens de acceso personal se usan para que Connect API tenga acceso ilimitado a los recursos de su propia cuenta de Square.
+- Los tokens de acceso de OAuth se usan para que Connect API tenga acceso autenticado y por ámbito a cualquier cuenta de Square. Úselos cuando la aplicación acceda a recursos de otras cuentas de Square en nombre de los propietarios de la cuenta. Los tokens de acceso de OAuth también se pueden usar para acceder a recursos de su propia cuenta de Square.
+
+En Data Factory, la autenticación mediante el token de acceso personal solo necesita `accessToken`, mientras que la autenticación mediante OAuth necesita `accessToken` y `refreshToken`. Obtenga información sobre cómo recuperar el token de acceso [aquí](https://developer.squareup.com/docs/build-basics/access-tokens).
 
 **Ejemplo**:
 
@@ -68,13 +77,25 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Square:
     "properties": {
         "type": "Square",
         "typeProperties": {
-            "host" : "mystore.mysquare.com",
-            "clientId" : "<clientId>",
-            "clientSecret": {
-                 "type": "SecureString",
-                 "value": "<clientSecret>"
-            },
-            "redirectUri" : "http://localhost:2500"
+            "connectionProperties": {
+                "host": "<e.g. mystore.mysquare.com>", 
+                "clientId": "<client ID>", 
+                "clientSecrect": {
+                    "type": "SecureString",
+                    "value": "<clientSecret>"
+                }, 
+                "accessToken": {
+                    "type": "SecureString",
+                    "value": "<access token>"
+                }, 
+                "refreshToken": {
+                    "type": "SecureString",
+                    "value": "<refresh token>"
+                }, 
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true 
+            }
         }
     }
 }

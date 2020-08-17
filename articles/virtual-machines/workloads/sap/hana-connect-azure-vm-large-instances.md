@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 05/25/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb6f88fbfcbd539603e435b11661c428d54f3c34
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3231241e2fbc6e02725b5611d05b9ee4f0f1a35a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74224724"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082178"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Conexión de las máquinas virtuales de Azure a HANA Instancias grandes
 
-En el artículo [¿Qué es SAP HANA en Azure (instancias grandes)?](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) se menciona que la implementación mínima de HANA (instancias grandes) con el nivel de aplicación de SAP en Azure es similar a la siguiente:
+En el artículo [¿Qué es SAP HANA en Azure (instancias grandes)?](./hana-overview-architecture.md) se menciona que la implementación mínima de HANA (instancias grandes) con el nivel de aplicación de SAP en Azure es similar a la siguiente:
 
 ![Red virtual de Azure conectada a SAP HANA en Azure (Instancias grandes) y localmente](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -94,13 +94,13 @@ Ya se presentaron anteriormente algunos de los intervalos de direcciones IP nece
 
 Intervalos de direcciones IP opcionales que a la larga deben enviarse a Microsoft:
 
-- Si elige usar [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para permitir el enrutamiento directo desde el entorno local a las unidades de HANA (Instancias grandes), debe reservar otro intervalo de direcciones IP /29. Este intervalo no se puede superponer con ninguno de los otros intervalos de direcciones IP definidos antes.
-- Si opta por usar [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para permitir el enrutamiento directo entre inquilinos de HANA (Instancias grandes) de diferentes regiones de Azure, debe reservar otro intervalo de direcciones IP /29. Este intervalo no se puede superponer con ninguno de los otros intervalos de direcciones IP definidos antes.
+- Si elige usar [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) para permitir el enrutamiento directo desde el entorno local a las unidades de HANA (Instancias grandes), debe reservar otro intervalo de direcciones IP /29. Este intervalo no se puede superponer con ninguno de los otros intervalos de direcciones IP definidos antes.
+- Si opta por usar [ExpressRoute Global Reach](../../../expressroute/expressroute-global-reach.md) para permitir el enrutamiento directo entre inquilinos de HANA (Instancias grandes) de diferentes regiones de Azure, debe reservar otro intervalo de direcciones IP /29. Este intervalo no se puede superponer con ninguno de los otros intervalos de direcciones IP definidos antes.
 
 Para más información sobre ExpressRoute Global Reach y su uso en torno a instancias grandes de HANA, consulte los documentos:
 
-- [Arquitectura de red de SAP HANA (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture)
-- [Conexión de una red virtual a instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-connect-vnet-express-route)
+- [Arquitectura de red de SAP HANA (instancias grandes)](./hana-network-architecture.md)
+- [Conexión de una red virtual a instancias grandes de HANA](./hana-connect-vnet-express-route.md)
  
 Deberá definir y planificar los intervalos de direcciones IP que se describieron anteriormente. Sin embargo, no es necesario transmitirlos todos a Microsoft. Los intervalos de direcciones IP que debe notificar a Microsoft son:
 

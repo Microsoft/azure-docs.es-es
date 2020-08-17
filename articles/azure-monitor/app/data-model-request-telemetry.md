@@ -4,16 +4,16 @@ description: Modelo de datos de Application Insights para la telemetría de soli
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 57cc9c95137facaaf2ddf5bb212121f88e150f5b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a352f4ce3528d395599a91b53031c74b0873152
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807662"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320568"
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetría de solicitudes: Modelo de datos de Application Insights
 
-Un elemento de telemetría de solicitud (en [Application Insights](../../azure-monitor/app/app-insights-overview.md)) representa la secuencia lógica de ejecución desencadenada por una solicitud externa a la aplicación. Todas las ejecuciones de solicitud se identifican mediante un `ID` y una `url` únicos que contienen todos los parámetros de ejecución. Puede agrupar las solicitudes por `name` lógico y definir el `source` de esta solicitud. La ejecución de código puede ser `success` o `fail`, y tiene una `duration` determinada. Tanto las ejecuciones correctas como las erróneas se pueden seguir agrupando por `resultCode`. La hora de inicio de la telemetría de solicitudes se define en el nivel de sobre.
+Un elemento de telemetría de solicitud (en [Application Insights](./app-insights-overview.md)) representa la secuencia lógica de ejecución desencadenada por una solicitud externa a la aplicación. Todas las ejecuciones de solicitud se identifican mediante un `ID` y una `url` únicos que contienen todos los parámetros de ejecución. Puede agrupar las solicitudes por `name` lógico y definir el `source` de esta solicitud. La ejecución de código puede ser `success` o `fail`, y tiene una `duration` determinada. Tanto las ejecuciones correctas como las erróneas se pueden seguir agrupando por `resultCode`. La hora de inicio de la telemetría de solicitudes se define en el nivel de sobre.
 
 La telemetría de solicitudes admite el modelo de extensibilidad estándar mediante el uso de `properties` y `measurements` personalizadas.
 
@@ -27,7 +27,7 @@ Longitud máxima: 1024 caracteres
 
 ## <a name="id"></a>id
 
-Identificador de una instancia de llamada de solicitud. Se utiliza para la correlación entre la solicitud y otros elementos de telemetría. El identificador debe ser único en todo el mundo. Para obtener más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
+Identificador de una instancia de llamada de solicitud. Se utiliza para la correlación entre la solicitud y otros elementos de telemetría. El identificador debe ser único en todo el mundo. Para obtener más información, vea la página de [correlación](./correlation.md).
 
 Longitud máxima: 128 caracteres
 
@@ -39,7 +39,7 @@ Longitud máxima: 2048 caracteres
 
 ## <a name="source"></a>Source
 
-Origen de la solicitud. Algunos ejemplos son la clave de instrumentación del autor de la llamada o la dirección IP del autor de la llamada. Para obtener más información, vea la página de [correlación](../../azure-monitor/app/correlation.md).
+Origen de la solicitud. Algunos ejemplos son la clave de instrumentación del autor de la llamada o la dirección IP del autor de la llamada. Para obtener más información, vea la página de [correlación](./correlation.md).
 
 Longitud máxima: 1024 caracteres
 
@@ -73,7 +73,8 @@ Puede leer más sobre el código de resultados de solicitudes y el código de es
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Escritura de telemetría de solicitud personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)
+- [Escritura de telemetría de solicitud personalizada](./api-custom-events-metrics.md#trackrequest)
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
-- Aprenda a [configurar la aplicación ASP.NET Core](../../azure-monitor/app/asp-net.md) con Application Insights.
-- Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.
+- Aprenda a [configurar la aplicación ASP.NET Core](./asp-net.md) con Application Insights.
+- Consulte las [plataformas](./platforms.md) compatibles con Application Insights.
+

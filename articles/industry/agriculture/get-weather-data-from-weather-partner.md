@@ -5,34 +5,34 @@ author: sunasing
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: sunasing
-ms.openlocfilehash: 7666ee1a81c2ed93ee5e246b3ec79f056f9d63ab
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 35acf4e9bd338a0e67b046a59d8884df0626e516
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187785"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429260"
 ---
 # <a name="get-weather-data-from-weather-partners"></a>Obtener datos meteorológicos de asociados meteorológicos
 
-Azure FarmBeats le ayuda a reunir datos meteorológicos de los proveedores de datos meteorológicos mediante un marco de conectores basado en Docker. Con este marco, los proveedores de datos meteorológicos implementan un elemento de Docker que se puede integrar con FarmBeats. Actualmente, se admiten los siguientes proveedores de datos meteorológicos:
+Azure FarmBeats le ayuda a obtener datos meteorológicos de los proveedores de datos correspondientes mediante un marco de conectores basado en Docker. Mediante este marco, los proveedores de datos meteorológicos implementan una instancia de Docker que se puede integrar en FarmBeats. Actualmente, se admiten los siguientes proveedores de datos meteorológicos.
 
-  ![DTN](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  ![Asociados de FarmBeats](./media/get-sensor-data-from-sensor-partner/dtn-logo.png)
+  
+   [DTN](https://www.dtn.com/dtn-content-integration/)
 
-  [DTN](https://www.dtn.com/dtn-content-integration/)
-
-Los datos meteorológicos se pueden usar para generar información procesable y compilar modelos de inteligencia artificial o aprendizaje automático en FarmBeats.
+Los datos meteorológicos se pueden usar para generar información procesable y compilar modelos de inteligencia artificial o Machine Learning en FarmBeats.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Para obtener datos meteorológicos, asegúrese de que ha instalado FarmBeats. **La integración meteorológica es compatible con la versión 1.2.11 o posterior**. Para instalar Azure FarmBeats, vea [Instalación de FarmBeats](https://aka.ms/farmbeatsinstalldocumentation).
+Para obtener datos meteorológicos, asegúrese de que ha [instalado FarmBeats](https://aka.ms/farmbeatsinstalldocumentation). La integración de datos meteorológicos se admite en la versión 1.2.11 y en versiones posteriores. 
 
 ## <a name="enable-weather-integration-with-farmbeats"></a>Habilitación de la integración meteorológica con FarmBeats
 
-Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats, siga estos pasos:
+Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats:
 
-1. Vaya a Swagger en el centro de datos de FarmBeats (https://farmbeatswebsite-api.azurewebsites.net/swagger) ).
+1. Vaya a Swagger en el centro de datos de FarmBeats `https://farmbeatswebsite-api.azurewebsites.net/swagger`.
 
-2. Vaya a /Partner API y realice una solicitud POST con la carga de entrada siguiente:
+2. Vaya a /Partner API y, después, realice una solicitud POST. Use la siguiente carga de entrada:
 
    ```json
    {  
@@ -64,7 +64,7 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
    Por ejemplo, para obtener datos meteorológicos de DTN, use la carga siguiente. Puede modificar el nombre y la descripción según sus preferencias.
 
    > [!NOTE]
-   > El paso siguiente requiere una clave de API. Póngase en contacto con DTN para obtener la misma de la suscripción a DTN.
+   > El paso siguiente requiere una clave de API. Para obtener una clave para una suscripción a DTN, póngase en contacto con DTN.
 
    ```json
    {
@@ -88,28 +88,28 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
    ```
 
    > [!NOTE]
-   > Para más información sobre el objeto Partner, vea el [apéndice](get-weather-data-from-weather-partner.md#appendix).
+   > Para más información sobre el objeto partner, consulte el [apéndice](get-weather-data-from-weather-partner.md#appendix) de este artículo.
 
-   En el paso anterior, se aprovisionarán los recursos para permitir la ejecución de Docker en el entorno de FarmBeats del cliente.  
+   En el paso anterior, se aprovisionarán los recursos para que Docker se pueda ejecutar en el entorno de FarmBeats del cliente.  
 
-   El aprovisionamiento de los recursos anteriores tarda entre 10 y 15 minutos aproximadamente.
+   El aprovisionamiento de los recursos tarda entre 10 y 15 minutos.
 
-3. Compruebe el estado del objeto /Partner que creó en el paso 2. Para ello, realice una solicitud GET en /Partner API y compruebe el **estado** del objeto partner. Una vez que FarmBeats aprovisiona el asociado correctamente, el estado se establece en **activo**.
+3. Compruebe el estado del objeto /Partner que creó en el paso anterior. Para ello, compruebe el estado, realice una solicitud GET en /Partner API y compruebe el estado del objeto partner. Una vez que FarmBeats aprovisiona el asociado correctamente, el estado se establece en **activo**.
 
-4. Vaya a /JobType API y realice ahí mismo una solicitud GET. Busque los trabajos meteorológicos que se crean como parte del proceso de adición de asociados en el paso 2. El campo **pipelineName** de los trabajos meteorológicos tendrá el formato siguiente: "partner-name_partner-type_job-name".
+4. En /JobType API, realice una solicitud GET. Busque los trabajos meteorológicos que creó anteriormente, en el proceso de adición de asociados. En los trabajos meteorológicos, el campo **pipelineName** tiene el siguiente formato: **partner-name_partner-type_job-name**.
 
-5. Ahora la instancia de FarmBeats tiene un asociado de datos meteorológicos activo y puede ejecutar trabajos para solicitar datos meteorológicos para una ubicación (latitud y longitud) y un intervalo de fechas determinados. Las propiedades JobType tendrá detalles sobre los parámetros necesarios para ejecutar trabajos meteorológicos.
+      Ahora, la instancia de FarmBeats tiene un asociado de datos meteorológicos activo. Puede ejecutar trabajos para solicitar datos meteorológicos de una ubicación (latitud y longitud) y un intervalo de fechas determinados. Los tipos de trabajo tendrán detalles sobre cuáles son los parámetros necesarios para ejecutar trabajos meteorológicos.
 
-   Por ejemplo, para DTN, se crearán los siguientes JobType:
+      Por ejemplo, en el caso de DTN, se crearán los siguientes tipos de trabajo:
    
-   - get_dtn_daily_observations (obtener las observaciones diarias de una ubicación y un período de tiempo)
-   - get_dtn_daily_forecasts (obtener las previsiones diarias de una ubicación y un período de tiempo)
-   - get_dtn_hourly_observations (obtener observaciones por hora para una ubicación y un período de tiempo)
-   - get_dtn_hourly_forecasts (obtener previsiones por hora para una ubicación y un período de tiempo)
+      - **get_dtn_daily_observations**: obtiene las observaciones diarias de una ubicación y un período de tiempo.
+      - **get_dtn_daily_forecasts**: obtiene las previsiones diarias de una ubicación y un período de tiempo.
+      - **get_dtn_hourly_observations**: obtiene las observaciones horarias de una ubicación y un período de tiempo.
+      - **get_dtn_hourly_forecasts**: obtiene las previsiones horarias de una ubicación y un período de tiempo.
 
-6. Anote el **identificador** y los parámetros de las propiedades JobType.
+6. Anote el identificador y los parámetros de los tipos de trabajo.
 
-7. Vaya a /Jobs API y realice una solicitud POST en /Jobs con la carga de entrada siguiente:
+7. Vaya a /Jobs API y realice una solicitud POST en /Jobs. Use la siguiente carga de entrada:
 
    ```json
     {
@@ -141,19 +141,17 @@ Para empezar a obtener datos meteorológicos en el centro de datos de FarmBeats,
    }
    ```
 
-8. El paso anterior ejecutará los trabajos meteorológicos tal como se define en el Docker de asociados e ingerirá los datos meteorológicos en FarmBeats. Puede comprobar el estado del trabajo mediante una solicitud GET en /Jobs y buscar **currentState** en la respuesta. Cuando haya terminado, currentState se establece en **Succeeded**.
+8. En el paso anterior se ejecutan los trabajos meteorológicos tal y como se definieron en la instancia de Docker del asociado y se ingieren los datos meteorológicos en FarmBeats. Para comprobar el estado del trabajo, realice una solicitud GET en /Jobs. En la respuesta, busque **currentState**. Cuando termine, **currentState** se establecerá en **Succeeded** (Correcto).
 
 ## <a name="query-ingested-weather-data"></a>Consulta de los datos meteorológicos ingeridos
 
-Una vez completados los trabajos meteorológicos, puede consultar los datos meteorológicos ingeridos para crear modelos o información procesabl mediante las API REST de FarmBeats Datahub.
+Después de que se completen los trabajos meteorológicos, puede consultar los datos meteorológicos ingeridos para crear modelos o información procesable mediante las API REST del centro de datos de FarmBeats.
 
-### <a name="query-using-rest-api"></a>Consulta mediante API REST
+Para consultar los datos meteorológicos mediante una API REST de FarmBeats:
 
-Para consultar datos meteorológicos mediante la API de REST de FarmBeats, siga estos pasos:
+1. En [Swagger](https://yourdatahub.azurewebsites.net/swagger), en el centro de datos de FarmBeats, vaya a /WeatherDataLocation API y realice una solicitud GET. La respuesta incluye objetos /WeatherDataLocation creados para la ubicación (latitud y longitud) que la ejecución del trabajo ha especificado. Anote el **identificador** y la propiedad **weatherDataModelId** de los objetos.
 
-1. En Swagger en el centro de datos de FarmBeats (https://yourdatahub.azurewebsites.net/swagger) ), vaya a /WeatherDataLocation API y realice una solicitud GET. La respuesta tendrá objetos /WeatherDataLocation creados para la ubicación (latitud/longitud) especificada como parte de la ejecución del trabajo. Tome nota del **identificador** y de la propiedad **weatherDataModelId** de los objetos.
-
-2. Realice una solicitud GET/{id} en /WeatherDataModel API para la propiedad **weatherDataModelId**, como se indicó en el paso 1. El "Modelo de datos meteorológicos" tiene todos los metadatos y los detalles sobre los datos meteorológicos ingeridos. Por ejemplo, **Weather Measure** dentro del objeto **Modelo de datos meteorológicos** contiene detalles sobre qué información meteorológica se admite y en qué tipos y unidades. Por ejemplo,
+2. Realice una solicitud GET/{id} en /WeatherDataModel API para la propiedad **weatherDataModelId**, como ya hizo anteriormente. El modelo de datos meteorológicos muestra todos los metadatos y los detalles sobre los datos meteorológicos ingeridos. Por ejemplo, en el objeto del modelo de datos meteorológicos, la medición meteorológica contiene detalles sobre qué información meteorológica se admite y en qué tipos y unidades se admite. Por ejemplo:
 
    ```json
    {
@@ -166,9 +164,9 @@ Para consultar datos meteorológicos mediante la API de REST de FarmBeats, siga 
    }
    ```
 
-   Tome nota de la respuesta de la llamada GET/{id} para el modelo de datos meteorológicos.
+   Anote la respuesta de la llamada GET/{id} del modelo de datos meteorológicos.
 
-3. Vaya a **Telemetry** API y realice una solicitud POST con la carga de entrada siguiente:
+3. Vaya a Telemetry API y realice una solicitud POST. Use la siguiente carga de entrada:
 
    ```json
    {
@@ -180,7 +178,7 @@ Para consultar datos meteorológicos mediante la API de REST de FarmBeats, siga 
    }
    ```
 
-4. La respuesta que contiene los datos meteorológicos que están disponibles para el intervalo de tiempo especificado tendrá el siguiente aspecto:
+    La respuesta muestra los datos meteorológicos que están disponibles para el intervalo de tiempo especificado:
 
    ```json
    {
@@ -209,28 +207,28 @@ Para consultar datos meteorológicos mediante la API de REST de FarmBeats, siga 
    }
    ```
 
-En el ejemplo anterior, la respuesta tiene datos para dos marcas de tiempo junto con el nombre de medida ("Temperature") y los valores de los datos meteorológicos notificados en las dos marcas de tiempo. Tendrá que consultar el modelo de datos meteorológicos asociado (como se describe en el paso 2 anterior) para interpretar el tipo y la unidad de los valores notificados.
+En el ejemplo anterior, la respuesta muestra los datos de dos marcas de tiempo. También muestra el nombre de la medida (temperature) y los valores de los datos meteorológicos indicados en las dos marcas de tiempo. Consulte el modelo de datos meteorológicos asociado para interpretar el tipo y la unidad de los valores notificados.
 
 ## <a name="troubleshoot-job-failures"></a>Solución de problemas de errores de trabajos
 
-Para solucionar los errores de los trabajos, puede buscar los registros de trabajo. Para ello, siga los pasos indicados [aquí](troubleshoot-azure-farmbeats.md#weather-data-job-failures).
+Para solucionar los errores de los trabajos, [consulte los registros de trabajo](troubleshoot-azure-farmbeats.md#weather-data-job-failures).
 
 
 ## <a name="appendix"></a>Apéndice
 
 |        Asociado   |  Detalles   |
 | ------- | -------             |
-|     DockerDetails - imageName         |          Nombre de la imagen de Docker. Por ejemplo, docker.io/mydockerimage (imagen en hub.docker.com) O myazureacr.azurecr.io/mydockerimage (imagen en Azure Container Registry), etc. Si no se proporciona ningún registro, el valor predeterminado es hub.docker.com.      |
+|     DockerDetails - imageName         |          Nombre de la imagen de Docker. Por ejemplo, docker.io/mydockerimage (imagen en hub.docker.com) o myazureacr.azurecr.io/mydockerimage (imagen en Azure Container Registry), etc. Si no se proporciona ningún registro, el valor predeterminado es hub.docker.com.      |
 |          DockerDetails - imageTag             |         Nombre de etiqueta de la imagen de Docker. El valor predeterminado es "latest".     |
-|  DockerDetails - credentials      |  Credenciales para acceder al elemento de Docker privado. Esto lo proporcionará el asociado al cliente.   |
-|  DockerDetails - azureBatchVMDetails - batchVMSKU     |    SKU de la máquina virtual de Azure Batch. Consulte [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para todas las máquinas virtuales Linux disponibles. Los valores válidos son: "Small', 'ExtraLarge', 'Large', 'A8', 'A9', 'Medium', 'A5', 'A6', 'A7', 'STANDARD_D1', 'STANDARD_D2', 'STANDARD_D3', 'STANDARD_D4', 'STANDARD_D11', 'STANDARD_D12', 'STANDARD_D13', 'STANDARD_D14', 'A10', 'A11', 'STANDARD_D1_V2', 'STANDARD_D2_V2', 'STANDARD_D3_V2', 'STANDARD_D4_V2', 'STANDARD_D11_V2', 'STANDARD_D12_V2', 'STANDARD_D13_V2', 'STANDARD_D14_V2', 'STANDARD_G1', 'STANDARD_G2', 'STANDARD_G3', 'STANDARD_G4', 'STANDARD_G5', 'STANDARD_D5_V2', 'BASIC_A1', 'BASIC_A2', 'BASIC_A3', 'BASIC_A4', 'STANDARD_A1', 'STANDARD_A2', 'STANDARD_A3', 'STANDARD_A4', 'STANDARD_A5', 'STANDARD_A6', 'STANDARD_A7', 'STANDARD_A8', 'STANDARD_A9', 'STANDARD_A10', 'STANDARD_A11', 'STANDARD_D15_V2', 'STANDARD_F1', 'STANDARD_F2', 'STANDARD_F4', 'STANDARD_F8', 'STANDARD_F16', 'STANDARD_NV6', 'STANDARD_NV12', 'STANDARD_NV24', 'STANDARD_NC6', 'STANDARD_NC12', 'STANDARD_NC24', 'STANDARD_NC24r', 'STANDARD_H8', 'STANDARD_H8m', 'STANDARD_H16', 'STANDARD_H16m', 'STANDARD_H16mr', 'STANDARD_H16r', 'STANDARD_A1_V2', 'STANDARD_A2_V2', 'STANDARD_A4_V2', 'STANDARD_A8_V2', 'STANDARD_A2m_V2', 'STANDARD_A4m_V2', 'STANDARD_A8m_V2', 'STANDARD_M64ms', 'STANDARD_M128s', 'STANDARD_D2_V3'. **El valor predeterminado es "standard_d2_v2"** .  |
-|    DockerDetails - azureBatchVMDetails - dedicatedComputerNodes   |  No. nodos de ejecución dedicados para el grupo de Batch. El valor predeterminado es 1. |
-|    DockerDetails - azureBatchVMDetails - nodeAgentSKUID          |    Id. de SKU del agente del nodo de Azure Batch. Actualmente, solo se admite el agente del nodo de Batch "batch.node.ubuntu 18.04".    |
-| DockerDetails - partnerCredentials | Credenciales para llamar a la API de asociados en Docker. El asociado debe proporcionar esta información a sus clientes en función del mecanismo de autenticación admitido; por ejemplo, nombre de usuario/contraseña o claves de API. |
-| partnerType | "Meteorología" (otros tipos de asociados en FarmBeats son "sensor" e "imagen").  |
-|  name   |   Nombre deseado del asociado en el sistema FarmBeats.   |
-|  description |  Descripción   |
+|  DockerDetails - credentials      |  Credenciales para acceder a la instancia de Docker privada. El asociado proporciona las credenciales.   |
+|  DockerDetails - azureBatchVMDetails - batchVMSKU     |    SKU de la máquina virtual de Azure Batch. Para más información, consulte [todas las máquinas virtuales Linux disponibles](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <BR> <BR> Los valores válidos son: "Small", "ExtraLarge", "Large", "A8", "A9", "Medium", "A5", "A6", "A7", "STANDARD_D1", "STANDARD_D2", "STANDARD_D3", "STANDARD_D4", "STANDARD_D11", "STANDARD_D12", "STANDARD_D13", "STANDARD_D14", "A10", "A11", "STANDARD_D1_V2", "STANDARD_D2_V2", "STANDARD_D3_V2", "STANDARD_D4_V2", "STANDARD_D11_V2", "STANDARD_D12_V2", "STANDARD_D13_V2", "STANDARD_D14_V2", "STANDARD_G1", "STANDARD_G2", "STANDARD_G3", "STANDARD_G4", "STANDARD_G5", "STANDARD_D5_V2", "BASIC_A1", "BASIC_A2", "BASIC_A3", "BASIC_A4", "STANDARD_A1", "STANDARD_A2", "STANDARD_A3", "STANDARD_A4", "STANDARD_A5", "STANDARD_A6", "STANDARD_A7", "STANDARD_A8", "STANDARD_A9", "STANDARD_A10", "STANDARD_A11", "STANDARD_D15_V2", "STANDARD_F1", "STANDARD_F2", "STANDARD_F4", "STANDARD_F8", "STANDARD_F16", "STANDARD_NV6", "STANDARD_NV12", "STANDARD_NV24", "STANDARD_NC6", "STANDARD_NC12", "STANDARD_NC24", "STANDARD_NC24r", "STANDARD_H8", "STANDARD_H8m", "STANDARD_H16", "STANDARD_H16m", "STANDARD_H16mr", "STANDARD_H16r", "STANDARD_A1_V2", "STANDARD_A2_V2", "STANDARD_A4_V2", "STANDARD_A8_V2", "STANDARD_A2m_V2", "STANDARD_A4m_V2", "STANDARD_A8m_V2", "STANDARD_M64ms", "STANDARD_M128s", "STANDARD_D2_V3". *El valor predeterminado es "STANDARD_D2_V2"* .  |
+|    DockerDetails - azureBatchVMDetails - dedicatedComputerNodes   |  Número de nodos de equipos dedicados por grupo de Batch. El valor predeterminado es 1. |
+|    DockerDetails - azureBatchVMDetails - nodeAgentSKUID          |    Identificador de SKU del agente del nodo de Azure Batch. Actualmente, solo se admite el agente del nodo de Batch "batch.node.ubuntu 18.04".    |
+| DockerDetails - partnerCredentials | Credenciales para llamar a la API de asociado en Docker. El asociado proporciona esta información en función del mecanismo de autorización admitido; por ejemplo, nombre de usuario y contraseña, o claves de API. |
+| partnerType | "Weather". En FarmBeats, otros tipos de asociados son "Sensor" e "Imagery".  |
+|  name   |   Nombre deseado del asociado en el sistema de FarmBeats.   |
+|  description |  Descripción.   |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya ha consultado datos de sensores de la instancia de Azure FarmBeats. A continuación, aprenda a [generar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para las granjas.
+Ahora que ha consultado los datos de los sensores desde la instancia de Azure FarmBeats, aprenda a [generar mapas](generate-maps-in-azure-farmbeats.md#generate-maps) para las granjas.

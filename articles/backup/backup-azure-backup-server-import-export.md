@@ -3,12 +3,12 @@ title: Copia de seguridad sin conexión para DPM y Azure Backup Server
 description: Con Azure Backup, puede enviar datos fuera de la red mediante el servicio Azure Import/Export. En este artículo se explica el flujo de trabajo de la copia de seguridad sin conexión para DPM y Azure Backup Server.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 3f02c48ddd2c5cd4831d8c7a84dbbf42f55a562a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f27a38657bb43a1d1153a0372db0e1f9e284eccc
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187802"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067354"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flujo de trabajo de copia de seguridad sin conexión para DPM y Azure Backup Server (MABS)
 
@@ -49,7 +49,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
 
 * En el servidor de DPM o MABS, asegúrese de que esté instalado Microsoft Edge o Internet Explorer 11 y que JavaScript esté habilitado.
 * Cree una cuenta de Azure Storage en la misma suscripción que el almacén de Recovery Services.
-* Asegúrese de tener los [permisos necesarios](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión.
+* Asegúrese de tener los [permisos necesarios](../active-directory/develop/howto-create-service-principal-portal.md) para crear la aplicación de Azure Active Directory. El flujo de trabajo de la copia de seguridad sin conexión crea una aplicación de Azure Active Directory en la suscripción asociada con la cuenta de Azure Storage. El objetivo de la aplicación es proporcionar Azure Backup con el acceso seguro y limitado al servicio Azure Import que se requiere para el flujo de trabajo de la copia de seguridad sin conexión.
 * Registre el proveedor de recursos Microsoft.ImportExport con la suscripción que contiene la cuenta de Azure Storage. Para registrar el proveedor de recursos:
     1. En el menú principal, haga clic en **Suscripciones**.
     2. Si está suscrito a varias suscripciones, seleccione la suscripción que usa para la copia de seguridad sin conexión. Si solo usa una, aparecerá esa suscripción.
@@ -64,7 +64,7 @@ Asegúrese de que se cumplen los siguientes requisitos previos antes de iniciar 
 
 ## <a name="workflow"></a>Flujo de trabajo
 
-La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](https://docs.microsoft.com/azure/storage/common/storage-import-export-service) a la que se ha hecho referencia anteriormente.
+La información de esta sección le ayuda a completar el flujo de trabajo de copia de seguridad sin conexión, por lo que los datos se pueden entregar a un centro de datos de Azure y cargarse en Azure Storage. Si tiene alguna pregunta sobre el servicio de importación o cualquier aspecto del proceso, consulte la documentación sobre la [Información general del servicio de importación](../storage/common/storage-import-export-service.md) a la que se ha hecho referencia anteriormente.
 
 ## <a name="initiate-offline-backup"></a>Inicio de la copia de seguridad sin conexión
 
@@ -188,7 +188,7 @@ La cantidad de tiempo que se tarda en procesar un trabajo de importación de Azu
 
 ### <a name="monitor-azure-import-job-status"></a>Supervisión del estado del trabajo de importación de Azure
 
-Para supervisar el estado del trabajo de importación en Azure Portal, vaya a la página **Trabajos de Import/Export** y seleccione el trabajo. Para más información sobre el estado de los trabajos de importación, consulte el artículo sobre el [servicio de Import/Export de Storage](https://docs.microsoft.com/azure/storage/common/storage-import-export-service).
+Para supervisar el estado del trabajo de importación en Azure Portal, vaya a la página **Trabajos de Import/Export** y seleccione el trabajo. Para más información sobre el estado de los trabajos de importación, consulte el artículo sobre el [servicio de Import/Export de Storage](../storage/common/storage-import-export-service.md).
 
 ### <a name="complete-the-workflow"></a>Finalización del flujo de trabajo
 

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 04/24/2019
 ms.author: marsma
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: bb5950360734bc46923ef18424e3ad1ce275ad7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: 601a501114d754dc82991a3c19b977c0c63c5bc0
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652671"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88165743"
 ---
 # <a name="considerations-for-using-xamarin-android-with-msalnet"></a>Consideraciones para usar Xamarin Android con MSAL.NET
 En este artículo se describe lo que debe tener en cuenta al usar Xamarin Android con la Biblioteca de autenticación de Microsoft para .NET (MSAL.NET).
@@ -92,7 +92,7 @@ El archivo *AndroidManifest.xml* debe contener los valores siguientes:
 
 Sustituya el nombre del paquete que registró en Azure Portal por el valor `android:host=`. Sustituya el hash de clave que registró en Azure Portal por el valor `android:path=`. El hash de firma *no* debe estar codificado como dirección URL. Asegúrese de que aparece un carácter de barra inclinada (`/`) inicial al principio del hash de firma.
 
-Como alternativa, [cree la actividad en el código](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) en lugar de editar manualmente el archivo *AndroidManifest.xml*. Para crear la actividad en el código, cree primero una clase que incluya los atributos `Activity` y `IntentFilter`. 
+Como alternativa, [cree la actividad en el código](/xamarin/android/platform/android-manifest#the-basics) en lugar de editar manualmente el archivo *AndroidManifest.xml*. Para crear la actividad en el código, cree primero una clase que incluya los atributos `Activity` y `IntentFilter`. 
 
 A continuación se muestra un ejemplo de una clase que representa los valores del archivo XML:
 

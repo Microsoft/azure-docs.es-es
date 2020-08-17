@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 08/23/2019
 ms.author: genli
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0e0d9bfe46a473210b89701b5a8c56e999771d3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 23523a3618ad31e34a81152e48d4ee0f606e5aac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088539"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Errores de inicio de BitLocker en una máquina virtual de Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "86132945"
 
 ## <a name="symptom"></a>Síntoma
 
- Una máquina virtual de Windows no se inicia. Al revisar las capturas de pantalla en la ventana [Diagnósticos de arranque](../windows/boot-diagnostics.md), ve uno de los mensajes de error siguientes:
+ Una máquina virtual de Windows no se inicia. Al revisar las capturas de pantalla en la ventana [Diagnósticos de arranque](./boot-diagnostics.md), ve uno de los mensajes de error siguientes:
 
 - Inserte la unidad USB que tiene la clave de BitLocker
 
@@ -48,7 +48,7 @@ Para resolver este problema, detenga y desasocie la máquina virtual y, a contin
 Si este método no resuelve el problema, siga estos pasos para restaurar el archivo BEK manualmente:
 
 1. Tome una instantánea del disco del sistema de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Conecte el disco del sistema a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md). Para ejecutar el comando [manage-bde](https://docs.microsoft.com/windows-server/administration/windows-commands/manage-bde) en el paso 7, la característica **Cifrado de unidad BitLocker** debe estar habilitada en la máquina virtual de recuperación.
+2. [Conecte el disco del sistema a una máquina virtual de recuperación](troubleshoot-recovery-disks-portal-windows.md). Para ejecutar el comando [manage-bde](/windows-server/administration/windows-commands/manage-bde) en el paso 7, la característica **Cifrado de unidad BitLocker** debe estar habilitada en la máquina virtual de recuperación.
 
     Cuando conecte un disco administrado, puede recibir un mensaje de error que indique que "contiene configuración cifrada y, por lo tanto, no puede usarse como disco de datos". En esta situación, ejecute el siguiente script para probar asociar el disco de nuevo:
 
@@ -70,7 +70,7 @@ Si este método no resuelve el problema, siga estos pasos para restaurar el arch
     ```
      No se puede asociar un disco administrado a una máquina virtual que se restauró a partir de una imagen de blob.
 
-3. Después de asociar el disco, realice una conexión remota del Escritorio a la máquina virtual de recuperación para que pueda ejecutar algunos scripts de Azure PowerShell. Asegúrese de tener instalada la [versión más reciente de Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) en la máquina virtual de recuperación.
+3. Después de asociar el disco, realice una conexión remota del Escritorio a la máquina virtual de recuperación para que pueda ejecutar algunos scripts de Azure PowerShell. Asegúrese de tener instalada la [versión más reciente de Azure PowerShell](/powershell/azure/) en la máquina virtual de recuperación.
 
 4. Abra una sesión de Azure PowerShell con privilegios elevados (ejecución como administrador). Ejecute los siguientes comandos para iniciar sesión en la suscripción de Azure:
 

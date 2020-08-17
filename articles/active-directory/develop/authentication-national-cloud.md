@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 20a158aac6a03dfe0bd8929de9fa66ea215aa29c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d27498748f03fb101d165351ec80c77d57f78f1a
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194110"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141506"
 ---
 # <a name="national-clouds"></a>Nubes nacionales
 
@@ -67,7 +67,7 @@ En el caso de las aplicaciones de inquilino único, reemplace "common" en las di
 
 ## <a name="microsoft-graph-api"></a>Microsoft Graph API
 
-Para obtener información sobre cómo llamar a las API de Microsoft Graph en el entorno de nube nacional, vaya a [Microsoft Graph en implementaciones de nube nacional](https://developer.microsoft.com/graph/docs/concepts/deployments).
+Para obtener información sobre cómo llamar a las API de Microsoft Graph en el entorno de nube nacional, vaya a [Microsoft Graph en implementaciones de nube nacional](/graph/deployments).
 
 > [!IMPORTANT]
 > Ciertos servicios y características que se encuentran en regiones específicas del servicio mundial pueden no estar disponibles en todas las nubes nacionales. Para saber qué servicios están disponibles, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=all&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia,china-non-regional,china-east,china-east-2,china-north,china-north-2,germany-non-regional,germany-central,germany-northeast).
@@ -78,7 +78,7 @@ Para aprender a compilar una aplicación mediante la plataforma de identidad de 
 
 Más información sobre:
 
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Alemania](https://docs.microsoft.com/azure/germany/)
-- [Conceptos básicos sobre la autenticación de Azure AD](authentication-scenarios.md)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Alemania](../../germany/index.yml)
+- [Conceptos básicos sobre la autenticación de Azure AD](./authentication-vs-authorization.md)

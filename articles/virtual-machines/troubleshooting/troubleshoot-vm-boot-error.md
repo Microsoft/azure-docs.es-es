@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: tiag
-ms.openlocfilehash: 7774ea5138e6d77547e386531e573457cd6d2862
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a2fd7fcfdae8559bfb39bffff7c73c7082a86aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525949"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543289"
 ---
 # <a name="linux-vm-boots-to-grub-rescue"></a>Arranque de máquinas virtuales Linux en Rescate de GRUB
 
@@ -35,7 +35,7 @@ Siga los pasos de mitigación que se indican a continuación en función del err
 * Si recibe un error similar a **sistema de archivos desconocido**, puede deberse a que el sistema de archivos está dañado en la partición de arranque o a una configuración incorrecta del kernel.
 
    * Si los problemas provienen del sistema de archivos, siga los pasos que se indican en el artículo [Recuperación de Linux: no se puede utilizar SSH en una máquina virtual Linux debido a errores en el sistema de archivos (fsck, inodes)](/archive/blogs/linuxonazure/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck-inodes).
-   * Si los problemas provienen del kernel, siga los pasos que se indican en el artículo [Recuperación de Linux: corrección manual de problemas relacionados con el kernel que no afectan al arranque](/archive/blogs/linuxonazure/linux-recovery-manually-fixing-non-boot-issues-related-to-kernel-problems) o [Recuperación de Linux: corrección de problemas relacionados con el kernel que no afectan al arranque mediante chroot](/archive/blogs/linuxonazure/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot).
+   * Si tiene problemas con el kernel, siga los pasos descritos en el artículo [Cómo recuperar una máquina virtual Linux de Azure de problemas de arranque relacionados con el kernel](https://support.microsoft.com/help/4091524/how-recover-azure-linux-vm-from-kernel-related-boot-related-issues) o [Recuperación de Linux: corrección de problemas relacionados con el kernel que no afectan al arranque mediante chroot](http://linuxonazure.azurewebsites.net/linux-recovery-fixing-non-boot-issues-related-to-kernel-problems-using-chroot/).
    
 ### <a name="error---file-not-found"></a>Error: archivo no encontrado
 

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b864cc8bc0e5d39967a2307bd98bda082b6cfd5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 05f31993b7491dbfb0bff46c8fd2362b6bab0d4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515221"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077787"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Recuperación ante desastres y conmutación por error de dispositivos para la matriz virtual de StorSimple mediante Azure Portal
 
@@ -122,12 +122,12 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
 5. En la hoja **Desactivar**, se le solicitará confirmación. La desactivación de un dispositivo es un proceso *permanente* que no se puede deshacer. También se le recordará que desconecte los recursos compartidos o volúmenes en el host. Escriba el nombre del dispositivo para confirmar la eliminación y haga clic en **Desactivar**.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover1.png)
+    ![Captura de pantalla de la hoja Desactivar. Se rellena el cuadro del nombre del dispositivo y se resalta el botón Desactivar.](./media/storsimple-virtual-array-failover-dr/failover1.png)
 6. La desactivación se inicia. Recibirá una notificación cuando la desactivación se haya completado correctamente.
    
-    ![](./media/storsimple-virtual-array-failover-dr/failover2.png)
+    ![Captura de pantalla de una barra de progreso que indica que el dispositivo se está desactivando.](./media/storsimple-virtual-array-failover-dr/failover2.png)
 7. En la página Dispositivos, el estado del dispositivo cambiará a **Desactivado**.
-    ![](./media/storsimple-virtual-array-failover-dr/failover3.png)
+    ![Captura de pantalla de la página Dispositivos. Se muestran las propiedades del dispositivo desactivado, entre las que se incluye el estado, que aparece como Desactivado.](./media/storsimple-virtual-array-failover-dr/failover3.png)
 8. En la hoja **Dispositivos**, haga clic en el dispositivo de origen desactivado para conmutación por error. 
 9. En la hoja **Panel del dispositivo**, haga clic en **Conmutación por error**. 
 10. En la hoja **Dispositivo de conmutación por error**, haga lo siguiente:
@@ -140,22 +140,22 @@ Siga estos pasos para restaurar el dispositivo a un dispositivo virtual de StorS
 
     4. Haga clic en **Conmutación por error**.
     
-        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![Captura de pantalla de la hoja Dispositivo de conmutación por error, con los dispositivos de origen y de destino rellenados, la opción seleccionada y el botón Conmutación por error resaltado.](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. Se inicia un trabajo de conmutación por error y recibirá una notificación. Vaya a **Dispositivos > Trabajos** para supervisar la conmutación por error.
     
-     ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
+     ![Captura de pantalla de una barra de progreso que indica que se está produciendo una conmutación por error.](./media/storsimple-virtual-array-failover-dr/failover5.png)
 12. En la hoja **Trabajos**, verá un trabajo de conmutación por error creado para el dispositivo de origen. Este trabajo realiza las comprobaciones previas de recuperación ante desastres.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover6.png)
+    ![Captura de pantalla que muestra que un trabajo de conmutación por error se ha iniciado correctamente.](./media/storsimple-virtual-array-failover-dr/failover6.png)
     
      Después de que las comprobaciones previas de recuperación ante desastres se realizan correctamente, el trabajo de conmutación por error generará los trabajos de restauración para cada recurso compartido o volumen que exista en el dispositivo de origen.
     
-    ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
+    ![Captura de pantalla que muestra los detalles del trabajo de conmutación por error, como el estado, el dispositivo y la duración.](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. Una vez completada la conmutación por error, vaya a la hoja **Dispositivos**.
     
     1. Haga clic en el dispositivo de StorSimple que se usó como dispositivo de destino para el proceso de conmutación por error.
     2. Vaya a **Configuración > administración > Recursos compartidos** (o **Volúmenes** si se trata de un servidor iSCSI). En la hoja **Recursos compartidos**, puede ver todos los recursos compartidos (o volúmenes) del dispositivo antiguo.
-        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+        ![Captura de pantalla de la hoja Dispositivos. El dispositivo de destino se muestra con el estado En línea.](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. Tendrá que [crear un alias DNS](https://support.microsoft.com/kb/168322) para que todas las aplicaciones que están intentando conectarse se puedan redirigir al nuevo dispositivo.
 
 ## <a name="errors-during-dr"></a>Errores durante la recuperación ante desastres

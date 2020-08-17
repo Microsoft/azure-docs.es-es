@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 05/11/2020
-ms.openlocfilehash: 4d0d56dc4d6e7fa7765439e7387d67bb80a6ec9f
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: a31c089971b7e70e70c5906480deb2b17c197b9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124642"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043608"
 ---
 # <a name="known-issues"></a>Problemas conocidos #
 
@@ -50,7 +50,7 @@ La versión actual tiene los siguientes problemas conocidos.
 
 - Los recursos que son de audio no se reproducirán con la tecnología AzureHtml5JS.
   - Si desea reproducir recursos sin audio, puede hacerlo insertando audio en blanco con la [herramienta Explorador de Azure Media Services](https://aka.ms/amse).
-  - [Aquí](https://azure.microsoft.com/documentation/articles/media-services-advanced-encoding-with-mes/#silent_audio) encontrará instrucciones sobre cómo insertar audio silencioso
+  - [Aquí](../previous/media-services-advanced-encoding-with-mes.md#silent_audio) encontrará instrucciones sobre cómo insertar audio silencioso
 
 ## <a name="flash"></a>Intermitente ##
 

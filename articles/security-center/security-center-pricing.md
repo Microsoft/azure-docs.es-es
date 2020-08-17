@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2020
 ms.author: memildin
-ms.openlocfilehash: 4487d1452611b269eec756cdbc76e8e55c466cd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 882f8ab7e4f55809759f3a94fd04fb2c410fe188
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801145"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089726"
 ---
-# <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Actualizar al nivel estándar para mejorar la seguridad
+# <a name="upgrade-to-standard-tier-for-enhanced-security"></a>Actualización al nivel Estándar para mejorar la seguridad
 
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
 
@@ -69,7 +69,7 @@ Security Center ofrece una seguridad mejorada y una protección contra amenazas 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo se han presentado los precios de Security Center. Para más información sobre la seguridad mejorada y la protección contra amenazas avanzada de nivel Estándar, consulte:
+En este artículo se han presentado los precios de Security Center. Para más información sobre la seguridad mejorada y la protección contra amenazas avanzada de nivel estándar, consulte:
 
 - [Protección contra amenazas en Azure Security Center](threat-protection.md)
 - [Control de acceso a VM Just-In-Time](security-center-just-in-time.md)

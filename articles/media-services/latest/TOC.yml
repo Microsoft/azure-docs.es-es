@@ -52,7 +52,7 @@
   items:
     - name: "Ejemplos de Media Services\_v3"
       displayName: '.NET, Java'
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-media-services'
+      href: /samples/browse/?products=azure-media-services
     - name: Ejemplos de REST de Media Services v3
       href: 'https://github.com/Azure-Samples/media-services-v3-rest-postman'
 - name: Conceptos
@@ -171,10 +171,10 @@
           href: media-services-metrics-diagnostic-logs.md
         - name: Esquemas de registros de diagnóstico
           href: media-services-diagnostic-logs-schema.md
-    - name: Clientes de Player
+    - name: Azure Media Player
       items:
-        - name: Azure Media Player
-          href: use-azure-media-player.md
+        - name: Información general sobre Azure Media Player
+          href: ../azure-media-player/azure-media-player-overview.md
     - name: Desarrollo con las API de la versión v3
       items:
         - name: Información general
@@ -197,9 +197,6 @@
         - name: Vídeo bajo demanda
           displayName: 'failover, bcdr, HA, high availability'
           href: media-services-high-availability-encoding.md
-        - name: Streaming
-          displayName: 'failover, bcdr, HA, high availability'
-          href: media-services-high-availability-streaming.md
     - name: Solución de problemas
       items:
         - name: Preguntas más frecuentes
@@ -288,13 +285,21 @@
           items:
             - name: Con .NET
               displayName: 'encode, encoding, custom, transform'
-              href: customize-encoder-presets-how-to.md
+              items:
+                - name: Personalización de los valores preestablecidos del codificador
+                  href: customize-encoder-presets-how-to.md
+                - name: Creación de una transformación de superposición
+                  href: how-to-create-overlay.md
+                - name: Generación de miniaturas con .NET
+                  href: media-services-generate-thumbnails-dotnet.md
             - name: Con la CLI
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-cli-howto.md
             - name: Con REST
               displayName: 'encode, encoding, custom, transform'
               href: custom-preset-rest-howto.md
+            - name: Generación de miniaturas con REST
+              href: media-services-generate-thumbnails-rest.md
         - name: Realización de un subclip de vídeo
           items:
             - name: Con .NET
@@ -358,13 +363,21 @@
           href: download-results-howto.md
         - name: Audio descriptivo de señal
           href: signal-descriptive-audio-howto.md
+    - name: Uso de reproductores multimedia
+      items:
+        - name: Configuración completa de Azure Media Player
+          href: ../azure-media-player/azure-media-player-full-setup.md
+        - name: Uso del reproductor Video.js
+          href: how-to-video-js-player.md
+        - name: Uso el reproductor de vídeo Shaka
+          href: how-to-shaka-player.md
 - name: Referencia
   items:
     - name: Especificación OpenAPI (Swagger)
       href: 'https://aka.ms/ams-v3-rest-sdk'
       displayName: schema
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/media/'
+      href: /rest/api/media/
     - name: Azure CLI
       href: 'https://aka.ms/ams-v3-cli-ref'
     - name: SDK
@@ -376,7 +389,7 @@
         - name: Python
           href: 'https://aka.ms/ams-v3-python-ref'
         - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/mediaservices/management'
+          href: /javascript/api/overview/azure/mediaservices/management
         - name: Go
           href: 'https://aka.ms/ams-v3-go-ref'
     - name: Plantilla de Resource Manager

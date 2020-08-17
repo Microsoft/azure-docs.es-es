@@ -4,9 +4,11 @@
   items:
     - name: ¿Qué es Data Lake Analytics?
       href: data-lake-analytics-overview.md
+    - name: Novedades de Data Lake Analytics
+      href: data-lake-analytics-whats-new.md
 - name: Introducción
   items:
-    - name: Azure portal
+    - name: Azure Portal
       href: data-lake-analytics-get-started-portal.md
     - name: Visual Studio
       href: data-lake-analytics-data-lake-tools-get-started.md
@@ -14,13 +16,22 @@
       href: data-lake-analytics-data-lake-tools-for-vscode.md
     - name: Azure PowerShell
       href: data-lake-analytics-get-started-powershell.md
-    - name: Azure CLI
+    - name: CLI de Azure
       href: data-lake-analytics-get-started-cli.md
 - name: Ejemplos
   items:
     - name: Elementos integrados de Azure Policy
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
+- name: Conceptos
+  items:
+    - name: Seguridad
+      items:
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
+        - name: Línea de base de seguridad para Azure Security Benchmark
+          href: security-baseline.md
 - name: Procedimientos
   items:
     - name: Administración con Data Lake Analytics
@@ -87,7 +98,7 @@
               href: data-lake-analytics-data-lake-tools-develop-usql-database.md
             - name: Examen y visualización de trabajos
               href: data-lake-analytics-data-lake-tools-view-jobs.md
-            - name: 'Depuración de código C# personalizado'
+            - name: Depuración de código C# personalizado
               href: data-lake-analytics-debug-u-sql-jobs.md
             - name: Solución de problemas de trabajos periódicos
               href: data-lake-analytics-data-lake-tools-debug-recurring-job.md

@@ -8,16 +8,17 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 659cb9aabe5fcca68aea9a73ea9beadb8e52ec50
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 3d680fb105b6bde26e5b02544359009f316647bb
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259173"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513730"
 ---
 # <a name="about-virtual-hub-routing"></a>Acerca del enrutamiento de centros virtuales
 
-Las funcionalidades de enrutamiento de centros virtuales se proporcionan mediante un enrutador que administra todo el enrutamiento entre puertas de enlace mediante el Protocolo de puerta de enlace de borde (BGP). Un centro virtual puede contener varias puertas de enlace, como una puerta de enlace de VPN de sitio a sitio, una puerta de enlace de ExpressRoute, una puerta de enlace de punto a sitio y Azure Firewall. Este enrutador también proporciona conectividad de tránsito entre las redes virtuales que se conectan a un centro virtual y pueden admitir hasta un rendimiento agregado de 50 Gbps. Estas funcionalidades de enrutamiento se aplican a los clientes de Virtual WAN estándar.
+Las funcionalidades de enrutamiento de centros virtuales se proporcionan mediante un enrutador que administra todo el enrutamiento entre puertas de enlace mediante el Protocolo de puerta de enlace de borde (BGP). Un centro virtual puede contener varias puertas de enlace, como una puerta de enlace de VPN de sitio a sitio, una puerta de enlace de ExpressRoute, una puerta de enlace de punto a sitio y Azure Firewall. Este enrutador también proporciona conectividad de tránsito entre las redes virtuales que se conectan a un centro virtual y pueden admitir hasta un rendimiento agregado de 50 Gbps. Estas funcionalidades de enrutamiento se aplican a los clientes de Virtual WAN estándar. 
 
 Para configurar el enrutamiento, vea [Configuración del enrutamiento de centro virtual](how-to-virtual-hub-routing.md).
 
@@ -26,7 +27,7 @@ Para configurar el enrutamiento, vea [Configuración del enrutamiento de centro 
 En las secciones siguientes se describen los conceptos clave del enrutamiento de centros virtuales.
 
 > [!NOTE]
-> Es posible que aún se estén implementando algunos de estos nuevos conceptos para la tabla de rutas del centro, la asociación, la propagación y las rutas estáticas de una conexión de red virtual. Está previsto que dicha implementación se complete la semana del 3 de agosto.
+> Es posible que aún se estén implementando algunos de estos nuevos conceptos para la tabla de rutas del centro, la asociación, la propagación y las rutas estáticas de una conexión de red virtual. Está previsto que dicha implementación se complete la semana del 17 de agosto.
 >
 
 ### <a name="hub-route-table"></a><a name="hub-route"></a>Tabla de rutas del centro de conectividad
@@ -60,6 +61,9 @@ También está disponible una **tabla de rutas None** para cada centro virtual. 
 
 :::image type="content" source="./media/about-virtual-hub-routing/concepts-propagation.png" alt-text="Propagación":::
 
+### <a name="labels"></a><a name="static"></a>Etiquetas
+Las etiquetas proporcionan un mecanismo para agrupar las tablas de rutas de forma lógica. Esto es especialmente útil durante la propagación de rutas desde las conexiones a varias tablas de rutas. Por ejemplo, la tabla de rutas predeterminada tiene una etiqueta integrada denominada "Default". Cuando los usuarios propagan las rutas de conexión a la etiqueta "Default", se aplica automáticamente a todas las tablas de rutas predeterminadas que se encuentran en todos los concentradores de Virtual WAN. 
+
 ### <a name="configuring-static-routes-in-a-virtual-network-connection"></a><a name="static"></a>Configuración de rutas estáticas en una conexión de red virtual
 
 La configuración de rutas estáticas proporciona un mecanismo para dirigir el tráfico a través de una dirección IP de próximo salto, que podría ser de una aplicación virtual de red (NVA) aprovisionada en una red virtual radial conectada a un centro virtual. La ruta estática se compone de un nombre de ruta, una lista de prefijos de destino y una dirección IP de próximo salto.
@@ -73,9 +77,18 @@ Las tablas de rutas ahora tienen características para la asociación y propagac
 
 * **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**:
 
-Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 3 de agosto a que se complete la implementación en Azure. Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal).
+Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, luego, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de Azure Portal).
 
-* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 3 de agosto a que se complete la implementación en Azure. Si tiene rutas preexistentes en la sección Enrutamiento del centro de Azure Portal, primero debe eliminarlas y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
+* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
+
+## <a name="virtual-wan-routing-considerations"></a><a name="considerations"></a>Consideraciones sobre el enrutamiento Virtual WAN
+
+Tenga en cuenta lo siguiente al configurar el enrutamiento Virtual WAN:
+
+* Todas las conexiones de rama (de punto a sitio, de sitio a sitio y de ExpressRoute) deben estar asociadas a la tabla de rutas predeterminada. De este modo, todas las ramas aprenderán los mismos prefijos.
+* Todas las conexiones de rama deben propagar sus rutas al mismo conjunto de tablas de rutas. Por ejemplo, si decide que las rama deben propagarse a la tabla de rutas predeterminada, esta configuración debe ser coherente en todas las ramas. Como resultado, todas las conexiones asociadas a la tabla de rutas predeterminada podrán llegar a todas las ramas.
+* De momento no se admite el flujo de rama a rama a través de Azure Firewall.
+* Al usar Azure Firewall en varias regiones, todas las redes virtuales de radios deben estar asociadas a la misma tabla de rutas. Por ejemplo, no es posible tener un subconjunto de redes virtuales que pasen por Azure Firewall mientras otras redes virtuales se saltan Azure Firewall en el mismo centro virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

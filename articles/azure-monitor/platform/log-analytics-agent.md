@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/04/2020
-ms.openlocfilehash: c6bd45324313ebc44bd4c59cd6f09e2eaab28d32
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 36b94f53d3a9113c3980c94c3b8eff0713f11814
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505149"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446536"
 ---
 # <a name="log-analytics-agent-overview"></a>Introducción al agente de Log Analytics
 El agente de Log Analytics se desarrolló para administrar de forma integral máquinas virtuales de cualquier nube, máquinas del entorno local y máquinas supervisadas por [System Center Operations Manager](/system-center/scom/). Los agentes de Windows y Linux envían los datos recopilados de diferentes orígenes al área de trabajo de Log Analytics de Azure Monitor, así como cualquier registro o métrica únicos que se hayan definido en una solución de supervisión. El agente de Log Analytics también permite utilizar información detallada y otros servicios de Azure Monitor, como [Azure Monitor para VM](../insights/vminsights-enable-overview.md), [Azure Security Center](../../security-center/index.yml) y [Azure Automation](../../automation/automation-intro.md).
@@ -51,7 +51,7 @@ En la tabla siguiente, se muestran los tipos de datos que puede configurar en un
 El agente de Log Analytics envía datos al área de trabajo de Log Analytics de Azure Monitor. El agente de Windows puede hospedarse en diferentes sitios para enviar datos a varias áreas de trabajo y grupos de administración de System Center Operations Manager. El agente de Linux solo puede enviar datos a un único destino.
 
 ## <a name="other-services"></a>Otros servicios
-El agente para Windows y Linux no es solo para conectarse a Azure Monitor, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y otros servicios como [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md) y [Azure Security Center](../../security-center/security-center-intro.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
+El agente para Windows y Linux no es solo para conectarse a Azure Monitor, sino que también admite Azure Automation para hospedar el rol de trabajo Hybrid Runbook Worker y otros servicios como [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/update-management/update-mgmt-overview.md) y [Azure Security Center](../../security-center/security-center-intro.md). Para obtener más información acerca de la función Hybrid Runbook Worker, consulte [Hybrid Runbook Worker de Azure Automation](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## <a name="installation-and-configuration"></a>Instalación y configuración
 
@@ -72,15 +72,15 @@ Existen diferentes métodos para instalar el agente de Log Analytics y conectar 
 
 |Source | Método | Descripción|
 |-------|-------------|-------------|
-|Azure VM| [Manualmente desde Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) | Especifique las máquinas virtuales que desea implementar desde el área de trabajo de Log Analytics. |
+|Azure VM| [Manualmente desde Azure Portal](../learn/quick-collect-azurevm.md?toc=%2fazure%2fazure-monitor%2ftoc.json) | Especifique las máquinas virtuales que desea implementar desde el área de trabajo de Log Analytics. |
 | | Extensión de máquina virtual de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) con la CLI de Azure o con una plantilla de Azure Resource Manager | La extensión instala el agente de Log Analytics en máquinas virtuales de Azure y las inscribe en un área de trabajo de Azure Monitor existente. |
 | | [Azure Monitor para VM](../insights/vminsights-enable-overview.md) | Cuando se habilita la supervisión con Azure Monitor para VM, esta instala la extensión y el agente de Log Analytics. |
 | | [Aprovisionamiento automático de Azure Security Center](../../security-center/security-center-enable-data-collection.md) | Azure Security Center puede aprovisionar el agente de Log Analytics en todas las máquinas virtuales de Azure admitidas y en las nuevas máquinas virtuales que se creen si se habilita para supervisar las amenazas y vulnerabilidades de la seguridad. Si está habilitado, se aprovisionarán todas las máquinas virtuales nuevas o existentes sin un agente instalado. |
 | Equipo híbrido con Windows| [Instalación manual](agent-windows.md) | Instale Microsoft Monitoring Agent desde la línea de comandos. |
 | | [DSC de Azure Automation](agent-windows.md#install-the-agent-using-dsc-in-azure-automation) | Automatice la instalación con Azure Automation DSC. |
 | | [Plantilla de Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) | Utilice una plantilla de Resource Manager si tiene Microsoft Azure Stack implementado en el centro de datos.| 
-| Equipo híbrido con Linux| [Instalación manual](../../azure-monitor/learn/quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 
-| System Center Operations Manager|[Integrar Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md) | Configure la integración entre Operations Manager y los registros de Azure Monitor para reenviar datos recopilados de equipos Windows que informan a un grupo de administración.|  
+| Equipo híbrido con Linux| [Instalación manual](../learn/quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 
+| System Center Operations Manager|[Integrar Operations Manager con Log Analytics](./om-agents.md) | Configure la integración entre Operations Manager y los registros de Azure Monitor para reenviar datos recopilados de equipos Windows que informan a un grupo de administración.|  
 
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
@@ -153,6 +153,7 @@ En la tabla siguiente se indican los paquetes necesarios para las distribuciones
 |Glibc |    Biblioteca GNU C | 2.5-12 
 |Openssl    | Bibliotecas OpenSSL | 1.0.x o 1.1.x |
 |Curl | Cliente web de cURL | 7.15.5 |
+|Python | | 2.6+ o 3.3+
 |Python ctypes | | 
 |PAM | Módulos de autenticación conectables | | 
 
@@ -228,3 +229,4 @@ Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 * Revise los [orígenes de datos](agent-data-sources.md) para saber qué orígenes de datos hay disponibles para recopilar datos de su sistema Windows o Linux. 
 * Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 
 * Conozca las [soluciones de supervisión](../insights/solutions.md) que agregan funcionalidad a Azure Monitor y que también recopilan datos en el área de trabajo de Log Analytics.
+

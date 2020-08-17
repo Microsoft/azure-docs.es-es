@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: biblioteca cliente de Azure Key Vault para Python'
+title: 'Inicio rápido: administración de claves con la biblioteca cliente de Azure Key Vault para Python'
 description: Aprenda a crear, recuperar y eliminar claves desde una instancia de Azure Key Vault mediante la biblioteca cliente de Python
 author: msmbaldwin
 ms.author: mbaldwin
@@ -7,15 +7,15 @@ ms.date: 3/30/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: 5335d629ef6778cbab7273200652c19998c9c19d
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.custom: devx-track-python
+ms.openlocfilehash: c590fea274900f580a5c8415f6b04c2f9108f74f
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85125183"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876944"
 ---
-# <a name="quickstart-azure-key-vault-client-library-for-python"></a>Inicio rápido: biblioteca cliente de Azure Key Vault para Python
+# <a name="quickstart-azure-key-vault-keys-client-library-for-python"></a>Inicio rápido: biblioteca cliente de claves de Azure Key Vault para Python
 
 Introducción a la biblioteca cliente de Azure Key Vault para Python. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
 
@@ -33,7 +33,7 @@ Azure Key Vault ayuda a proteger claves criptográficas y secretos usados por se
 
 - Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Python 2.7, 3.5.3 o versiones posteriores
-- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview)
+- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/)
 
 En esta guía de inicio rápido se supone que está ejecutando la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) en una ventana de terminal de Linux.
 

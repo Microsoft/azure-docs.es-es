@@ -1,20 +1,22 @@
 ---
-title: 'Información de Marketplace: marketplace comercial de Microsoft'
+title: 'Información de Marketplace: Marketplace comercial de Microsoft, Microsoft AppSource y Azure Marketplace'
 description: Acceda a un resumen de análisis web de marketplace, que permite medir la involucración del cliente en Microsoft AppSource y Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 12/16/2019
-ms.openlocfilehash: 8b5f90449f27007febe93f1193c6d2245b076e7e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: article
+ms.date: 07/22/2019
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 877d5436628fdeb973f6d7f30cc71e91eeb92364
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323288"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Panel de Información de Marketplace en Centro de partners
 
-En este artículo se proporciona información sobre el panel Información de Marketplace del Centro de partners. En este panel se muestra un resumen de los análisis web de Marketplace, que permite a los editores medir la participación del cliente en sus respectivas páginas de detalles de productos en los escaparates de Marketplace de Microsoft AppSource y Azure Marketplace.
+En este artículo se proporciona información sobre el panel Información de Marketplace del Centro de partners. En este panel se muestra un resumen de los análisis web de marketplace que permite a los editores medir la participación del cliente en sus respectivas páginas de detalles de productos en los escaparates de marketplace comercial: Microsoft AppSource y Azure Marketplace.
 
 ## <a name="marketplace-insights-dashboard"></a>Panel de información de Marketplace
 
@@ -25,18 +27,20 @@ Puede ver representaciones gráficas de los elementos siguientes:
 - [Resumen de Información de Marketplace](#marketplace-insights-summary)
 - [Visitas a la página según la geografía](#page-visits-by-geography)  
 - [Tendencia de visitas a la página frente a visitantes únicos](#page-visits-versus-unique-visitors-trend)
-- [Llamada a la acción frente a visitantes únicos con llamadas a la acción](#call-to-action-versus-unique-visitors-with-ctas)
+- [Llamada a la acción (CTA) frente a visitantes únicos con llamadas a la acción](#call-to-action-versus-unique-visitors-with-ctas)
 - [Visitas a la página y llamadas a la acción según las ofertas](#page-visits-and-calls-to-action-by-offers)
 - [Tendencia del porcentaje de las llamadas a la acción](#call-to-action-percentage-trend)
 - [Visitas a la página y llamadas a la acción según los dominios de referencia](#page-visits-and-calls-to-action-by-referral-domains)
 - [Tabla de detalles de Información de Marketplace](#marketplace-insights-details-table)
+
+La latencia máxima entre los usuarios que visitan ofertas en Azure Marketplace o AppSource y los que presentan informes en el Centro de partners es de 48 horas.
 
 >[!NOTE]
 > Para obtener definiciones detalladas de la terminología de análisis, consulte [Preguntas más frecuentes y terminología del análisis de marketplace comercial](./faq-terminology.md).
 
 ### <a name="insights-dashboard-layout"></a>Diseño del panel de información
 
-Puede ver las métricas de Marketplace de varias maneras:
+Vea las métricas de marketplace comercial de varias maneras:
 
 - Pestañas de escaparate
 - Filtros de página
@@ -74,7 +78,7 @@ Este número representa el recuento de visitantes distinto durante el intervalo 
 
 ### <a name="call-to-action"></a>Llamada a la acción
 
-Este número representa el recuento de clics en el botón **Llamada a la acción** completados en la página de ofertas (página de detalles del producto). Las **llamadas a la acción** se cuentan cuando se seleccionan los botones **Obtener ahora**, **Prueba gratuita**, **Contacto** y **Versión de prueba**.
+Este número representa el recuento de clics en el botón **Llamada a la acción** completados en la página de ofertas (página de detalles del producto). Las **llamadas a la acción** se cuentan cuando los usuarios seleccionan los botones **Obtener ahora**, **Prueba gratuita**, **Contacto** o **Versión de prueba**.
 
 ![Resumen de la llamada a la acción de Información del Centro de partners](./media/insights-summary.png)
 
@@ -128,7 +132,7 @@ En esta tabla se proporciona una vista de lista de las visitas a la página y la
 
 - Los datos se pueden extraer en un archivo TSV si el recuento de los registros es inferior a 1000.
 - Si el número de registros es superior a 1000, los datos exportados se colocarán de forma asincrónica en una página de descargas durante los próximos 30 días.
-- Pueden aplicarse filtros para mostrar los datos que le interesen. Los datos se pueden filtrar según los nombres de las ofertas y las campañas.  
+- Filtre los datos por los nombres de las ofertas y las campañas para mostrar los datos que le interesan.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

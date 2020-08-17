@@ -11,12 +11,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 42cc10398fce831b6343f69df03104d428700ac3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 965e6fe3546630713f3fee2774c70aebd1ed2ae7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086088"
 ---
 # <a name="use-cli-to-add-an-azure-sql-database-elastic-pool-to-a-failover-group"></a>Use la CLI para agregar un grupo elástico de Azure SQL Database a un grupo de conmutación por error
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| | |
+| Get-Help | Descripción |
 |---|---|
 | [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Comandos del grupo de bases de datos elásticas. |
 | [az sql failover-group ](/cli/azure/sql/failover-group) | Comandos de grupo de conmutación por error. |

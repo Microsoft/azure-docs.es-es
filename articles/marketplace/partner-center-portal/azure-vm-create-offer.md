@@ -1,18 +1,18 @@
 ---
 title: Creación de una oferta de máquina virtual de Azure en Azure Marketplace
-description: Aprenda a crear una oferta de máquina virtual en Azure Marketplace con la SKU necesaria.
+description: Obtenga información sobre cómo publicar una oferta de máquina virtual en Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: how-to
 author: emuench
 ms.author: mingshen
-ms.date: 06/17/2020
-ms.openlocfilehash: fe53de2c81f9e9df5fd9270951f943b0b3505f1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/28/2020
+ms.openlocfilehash: 0adffbb9058141ea89daefc292b937841659c879
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110987"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798076"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creación de una oferta de máquina virtual de Azure en Azure Marketplace
 
@@ -245,16 +245,17 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 >[!NOTE]
 >Si tiene problemas al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-#### <a name="azure-marketplace-logos"></a>Logotipos de Azure Marketplace
+#### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione archivos PNG del logotipo de la oferta con las cuatro dimensiones de imágenes siguientes:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
 
-- **Pequeña** (48 &times; 48 píxeles)
-- **Mediana** (90 &times; 90 píxeles)
-- **Grande** (216 &times; 216 píxeles)
-- **Ancha** (255 &times; 115 píxeles)
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
-Los cuatro logotipos son obligatorios y se muestran en varias listas de Azure Marketplace.
+- **Pequeño (48 x 48)**
+- **Medio (90 x 90)**
+- **Grande** (entre 216 x 216 y 350 x 350)
+
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -286,7 +287,7 @@ Seleccione **Guardar borrador** antes de continuar con la siguiente sección.
 
 ## <a name="plan-overview"></a>Información general del plan
 
-Puede proporcionar una serie de opciones de planes dentro de la misma oferta en el Centro de partners. Estos planes se llamaban anteriormente SKU. Una oferta requiere al menos un plan, que puede variar en términos de audiencia de monetización, regiones de Azure, características o imágenes de máquina virtual.
+Puede proporcionar una serie de opciones de planes dentro de la misma oferta en el Centro de partners. Una oferta requiere al menos un plan (anteriormente denominada una SKU), que puede variar en términos de audiencia de monetización, regiones de Azure, características o imágenes de máquina virtual.
 
 Después de crear los planes, la pestaña **Plan overview** (Información general del plan) muestra lo siguiente:
 
@@ -368,7 +369,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 En este panel, configura:
 
-- Mercados en los que este plan está disponible.
+- Mercados en los que este plan está disponible. Todos los planes debe estar disponible al menos en un [mercado](../marketplace-geo-availability-currencies.md).
 - Precio por hora.
 - Si desea que el plan sea visible para todos los usuarios o solo para clientes específicos (audiencia privada).
 
@@ -412,7 +413,6 @@ Puede diseñar cada plan para que sea visible para todos los usuarios o solo par
 
 >[!Note]
 >Las ofertas privadas no son compatibles con las suscripciones de Azure que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP).
-
 
 #### <a name="hide-a-plan"></a>Ocultar un plan
 
@@ -516,10 +516,10 @@ En la página **Offer overview** (Información general de la oferta) se muestra 
 
 Esta página también incluye vínculos para ayudarle a trabajar con la oferta, en función de su estado:
 
-- Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer))
-- Si la oferta está activa: [Detención de la venta de una oferta o un plan](update-existing-offer.md#stop-selling-an-offer-or-plan))
-- Si la oferta está en versión preliminar: [Publicar](publishing-status.md#publisher-approval))
-- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación](update-existing-offer.md#cancel-publishing))
+- Si la oferta es un borrador: [Eliminación de una oferta borrador](update-existing-offer.md#delete-a-draft-offer)
+- Si la oferta está activa: [Detención de la venta de una oferta o un plan](update-existing-offer.md#stop-selling-an-offer-or-plan)
+- Si la oferta está en versión preliminar: [Publicar](publishing-status.md#publisher-approval)
+- Si no ha completado el cierre de sesión del anunciante: [Cancelación de la publicación](update-existing-offer.md#cancel-publishing)
 
 ## <a name="marketplace-examples"></a>Ejemplos de marketplace
 

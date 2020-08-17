@@ -1,14 +1,14 @@
 ---
-title: 'Características: LUIS'
+title: Características del aprendizaje automático con LUIS
 description: Agregue características a un modelo de lenguaje para proporcionar sugerencias sobre cómo reconocer la entrada que quiera etiquetar o clasificar.
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: fbf39382e418bef9a7d39886076a4100a26ce3e7
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 02a6fd27dbe22a40b29b47515edec5506d3b2075
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362465"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075168"
 ---
 # <a name="machine-learning-features"></a>Características del aprendizaje automático
 

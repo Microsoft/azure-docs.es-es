@@ -4,18 +4,18 @@ description: Application Insights realiza un análisis inteligente de la telemet
 ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: 22c1eeb00372b9b3c67d6a87f2300225a071438e
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: c817e2c7f609bbbec52eff1b898a8d7c53209a28
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84016855"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321316"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detección inteligente: anomalías de rendimiento
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) analiza automáticamente el rendimiento de su aplicación web y puede advertirle de los posibles problemas. Podría estar leyendo este artículo porque ha recibido una de nuestras notificaciones de detección inteligente.
+[Application Insights](./app-insights-overview.md) analiza automáticamente el rendimiento de su aplicación web y puede advertirle de los posibles problemas. Podría estar leyendo este artículo porque ha recibido una de nuestras notificaciones de detección inteligente.
 
-Esta característica no requiere ninguna configuración especial, tan solo ajustar los parámetros de la aplicación para Application Insights para el [idioma admitido](../../azure-monitor/app/platforms.md). Se activará cuando la aplicación genera suficientes datos de telemetría.
+Esta característica no requiere ninguna configuración especial, tan solo ajustar los parámetros de la aplicación para Application Insights para el [idioma admitido](./platforms.md). Se activará cuando la aplicación genera suficientes datos de telemetría.
 
 ## <a name="when-would-i-get-a-smart-detection-notification"></a>¿Cuándo recibiría una notificación de detección inteligente?
 
@@ -43,13 +43,13 @@ Las notificaciones incluyen información de diagnóstico. Este es un ejemplo:
 2. **Ámbito**. ¿Está el problema afectando a todo el tráfico o solo a algunas páginas? ¿Está limitado a ubicaciones o exploradores determinados? Esta información puede obtenerse de la notificación.
 3. **Diagnóstico**. A menudo, la información de diagnóstico de la notificación sugiere cuál es la naturaleza del problema. Por ejemplo, si el tiempo de respuesta se ralentiza cuando la velocidad de solicitudes es alta, el problema podría estar en que su servidor o dependencias están sobrecargadas. 
 
-    Si no sugiere la causa, abra la hoja Rendimiento de Application Insights. Allí encontrará los datos de [Profiler](profiler.md). Si se producen excepciones, también puede probar el [Depurador de instantáneas](../../azure-monitor/app/snapshot-debugger.md).
+    Si no sugiere la causa, abra la hoja Rendimiento de Application Insights. Allí encontrará los datos de [Profiler](profiler.md). Si se producen excepciones, también puede probar el [Depurador de instantáneas](./snapshot-debugger.md).
 
 
 
 ## <a name="configure-email-notifications"></a>Configuración de notificaciones de correo electrónico
 
-Las notificaciones de Detección inteligente se habilitan de forma predeterminada y se envían a aquellos que tienen el acceso [Lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y [Colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) a la suscripción en la que reside el recurso de Application Insights. Para cambiar esta configuración, haga clic en la opción **Configurar** de la notificación por correo electrónico, o bien abra la configuración de Detección inteligente en Application Insights. 
+Las notificaciones de Detección inteligente se habilitan de forma predeterminada y se envían a aquellos que tienen el acceso [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) a la suscripción en la que reside el recurso de Application Insights. Para cambiar esta configuración, haga clic en la opción **Configurar** de la notificación por correo electrónico, o bien abra la configuración de Detección inteligente en Application Insights. 
   
   ![Configuración de Detección inteligente](media/proactive-performance-diagnostics/smart_detection_configuration.png)
   
@@ -60,22 +60,22 @@ Los mensajes de correo electrónico de las anomalías de rendimiento de Detecci�
 ## <a name="faq"></a>Preguntas más frecuentes
 
 * *¿El personal de Microsoft mira mis datos?*
-  * No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](../../azure-monitor/app/data-retention-privacy.md).
+  * No. El servicio es completamente automático. Solo obtendrá las notificaciones. Sus datos son [privados](./data-retention-privacy.md).
 * *¿Analiza todos los datos recopilados por Application Insights?*
   * No en este momento. Actualmente, analizamos el tiempo de respuesta de la solicitud, el tiempo de respuesta de dependencia y el tiempo de carga de la página. En un futuro analizaremos más métricas.
 
 * ¿En qué tipos de aplicación funciona?
-  * Estas degradaciones se detectan en cualquier aplicación que generan los datos de telemetría. Si instaló Application Insights en su aplicación web, el seguimiento de las solicitudes y las dependencias se realiza automáticamente. Sin embargo, en los servicios back-end u otras aplicaciones, si insertó llamadas a [TrackRequest()](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest) o [TrackDependency](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency), la Detección inteligente funcionará de la misma manera.
+  * Estas degradaciones se detectan en cualquier aplicación que generan los datos de telemetría. Si instaló Application Insights en su aplicación web, el seguimiento de las solicitudes y las dependencias se realiza automáticamente. Sin embargo, en los servicios back-end u otras aplicaciones, si insertó llamadas a [TrackRequest()](./api-custom-events-metrics.md#trackrequest) o [TrackDependency](./api-custom-events-metrics.md#trackdependency), la Detección inteligente funcionará de la misma manera.
 
 * *¿Puedo crear mis propias reglas de detección de anomalías o personalizar las existentes?*
 
   * Aún no, pero puede realizar lo siguiente:
-    * [Configurar alertas](/azure/azure-monitor/platform/alerts-log) que le indiquen cuándo una métrica cruza un umbral.
-    * [Exportar telemetría](../../azure-monitor/app/export-telemetry.md) a una [base de datos](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md) o a [PowerBI](../../azure-monitor/app/export-power-bi.md ) para poder realizar un análisis usted mismo.
+    * [Configurar alertas](../platform/alerts-log.md) que le indiquen cuándo una métrica cruza un umbral.
+    * [Exportar telemetría](./export-telemetry.md) a una [base de datos](./code-sample-export-sql-stream-analytics.md) o a [PowerBI](./export-power-bi.md) para poder realizar un análisis usted mismo.
 * *¿Con qué frecuencia se lleva a cabo el análisis?*
 
   * Ejecutamos el análisis diariamente en la telemetría del día anterior (día completo en la zona horaria UTC).
-* *¿Sustituye esto a las [alertas de métricas](/azure/azure-monitor/platform/alerts-log)?*
+* *¿Sustituye esto a las [alertas de métricas](../platform/alerts-log.md)?*
   * No.  No nos comprometemos a detectar cada comportamiento que el usuario podría anómalo.
 
 
@@ -92,16 +92,16 @@ En primer lugar, ¿es realmente importante? Si una página siempre tarda en carg
 
 Use la instrucción de impacto (usuarios afectados o porcentaje de tráfico) como guía general, pero tenga en cuenta que esta no le va a explicar todo lo que pasa. Recopile otras pruebas para confirmar.
 
-Tenga en cuenta los parámetros del problema. Si es dependiente de la ubicación, configure [pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) que incluyan la región: simplemente puede que haya problemas de red en esa área.
+Tenga en cuenta los parámetros del problema. Si es dependiente de la ubicación, configure [pruebas de disponibilidad](./monitor-web-app-availability.md) que incluyan la región: simplemente puede que haya problemas de red en esa área.
 
 ### <a name="diagnose-slow-page-loads"></a>Diagnostico de cargas de página lentas
 ¿Dónde está el problema? ¿Es el servidor lento para responder, es la página muy larga o requiere mucho trabajo del explorador para mostrarla?
 
 Abra la hoja de métricas del navegador. La visualización segmentada del tiempo de carga de página del explorador muestra en qué se va el tiempo. 
 
-* Si el **tiempo de solicitud de envío** es alto, o bien el servidor responde con lentitud o la solicitud es un envío con una gran cantidad de datos. Mire las [métricas de rendimiento](../../azure-monitor/app/web-monitor-performance.md#metrics) para investigar los tiempos de respuesta.
-* Configure el [seguimiento de dependencias](../../azure-monitor/app/asp-net-dependencies.md) para ver si la lentitud se debe a los servicios externos o a su base de datos.
-* Si predomina la **recepción de respuesta** , la página y sus elementos dependientes (JavaScript, CSS, imágenes y demás, excluyendo los datos cargados de forma asincrónica) son largos. Configure una [prueba de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md), y asegúrese de establecer la opción de cargar los elementos dependientes. Cuando obtenga algunos resultados, abra el detalle de un resultado y expándalo para ver los tiempos de carga de los distintos archivos.
+* Si el **tiempo de solicitud de envío** es alto, o bien el servidor responde con lentitud o la solicitud es un envío con una gran cantidad de datos. Mire las [métricas de rendimiento](./web-monitor-performance.md#metrics) para investigar los tiempos de respuesta.
+* Configure el [seguimiento de dependencias](./asp-net-dependencies.md) para ver si la lentitud se debe a los servicios externos o a su base de datos.
+* Si predomina la **recepción de respuesta** , la página y sus elementos dependientes (JavaScript, CSS, imágenes y demás, excluyendo los datos cargados de forma asincrónica) son largos. Configure una [prueba de disponibilidad](./monitor-web-app-availability.md), y asegúrese de establecer la opción de cargar los elementos dependientes. Cuando obtenga algunos resultados, abra el detalle de un resultado y expándalo para ver los tiempos de carga de los distintos archivos.
 * Un **Tiempo de procesamiento del cliente** alto sugiere que los scripts se ejecutan con lentitud. Si el motivo no es obvio, considere la posibilidad de agregar algún código de control de tiempo y enviar las horas en llamadas de trackMetric.
 
 ### <a name="improve-slow-pages"></a>Mejora de páginas lentas
@@ -174,11 +174,12 @@ Modifique los filtros y el intervalo de tiempo para explorar la telemetría.
 Estas herramientas de diagnóstico lo ayudarán a inspeccionar los datos de telemetría de su aplicación:
 
 * [Generador de perfiles](profiler.md) 
-* [Depurador de instantáneas](../../azure-monitor/app/snapshot-debugger.md)
-* [Analytics](../../azure-monitor/log-query/get-started-portal.md)
-* [Diagnóstico de análisis inteligente](../../azure-monitor/app/analytics.md)
+* [depurador de instantáneas](./snapshot-debugger.md)
+* [Analytics](../log-query/get-started-portal.md)
+* [Diagnóstico de análisis inteligente](../log-query/log-query-overview.md)
 
 Las detecciones inteligentes son completamente automáticas. Pero ¿quizás le gustaría configurar algunas alertas más?
 
-* [Alertas de métricas configuradas manualmente](/azure/azure-monitor/platform/alerts-log)
-* [Pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Alertas de métricas configuradas manualmente](../platform/alerts-log.md)
+* [Pruebas web de disponibilidad](./monitor-web-app-availability.md)
+

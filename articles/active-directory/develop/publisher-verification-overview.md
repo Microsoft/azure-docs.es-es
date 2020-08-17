@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 73a96f295d5dfa74130927e5096e9278a0e348e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83682423"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120786"
 ---
 # <a name="publisher-verification-preview"></a>Comprobación del publicador (versión preliminar)
 
@@ -42,13 +42,13 @@ Hay algunos requisitos previos para la verificación del publicador, algunos de 
 
 -  Un id. de MPN de una cuenta de [Microsoft Partner Network](https://partner.microsoft.com/membership) válida que haya completado el proceso de [verificación](/partner-center/verification-responses). Esta cuenta de MPN debe ser la [cuenta global de asociado (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) de su organización. 
 
--  Un inquilino de Azure AD con un [dominio personalizado](/azure/active-directory/fundamentals/add-custom-domain) verificado por DNS. El dominio personalizado debe coincidir con el dominio de la dirección de correo electrónico utilizada durante la comprobación en el paso anterior. 
+-  Un inquilino de Azure AD con un [dominio personalizado](../fundamentals/add-custom-domain.md) verificado por DNS. El dominio personalizado debe coincidir con el dominio de la dirección de correo electrónico utilizada durante la comprobación en el paso anterior. 
 
 -  Una aplicación registrada en un inquilino de Azure AD, con un [dominio de publicador](howto-configure-publisher-domain.md) configurado con el mismo dominio que se usó anteriormente. 
 
 -  El usuario que realiza la comprobación debe estar autorizado para realizar cambios en el registro de aplicación en Azure AD y en la cuenta de MPN del Centro de partners. 
 
-    -  En Azure AD, este usuario debe ser el propietario de la aplicación o tener uno de los siguientes [roles](/azure/active-directory/users-groups-roles/directory-assign-admin-roles): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
+    -  En Azure AD, este usuario debe ser el propietario de la aplicación o tener uno de los siguientes [roles](../users-groups-roles/directory-assign-admin-roles.md): Administrador de aplicaciones, administrador de aplicaciones en la nube o administrador global. 
 
     -  En el Centro de partners, este usuario debe tener uno de los siguientes [roles](/partner-center/permissions-overview): Administrador de MPN, administrador de cuentas o administrador global (se trata de un rol compartido que se controla en Azure AD).
     
@@ -67,7 +67,7 @@ A continuación se muestran algunas de las preguntas más frecuentes sobre el pr
 
   Los desarrolladores que también se integran con Microsoft 365 pueden recibir ventajas adicionales de estos programas. Para obtener más información, consulte [Atestación del publicador de Microsoft 365](/microsoft-365-app-certification/docs/attestation) y [Certificación de aplicaciones de Microsoft 365](/microsoft-365-app-certification/docs/certification). 
 
-- **¿Es lo mismo que la Galería de aplicaciones de Azure AD?** No: la comprobación del publicador es un programa complementario, aunque independiente, para la [Galería de aplicaciones de Azure Active Directory](/azure/active-directory/azuread-dev/howto-app-gallery-listing). Los desarrolladores que cumplen los criterios anteriores deben completar el proceso de comprobación del publicador independientemente de la participación en dicho programa. 
+- **¿Es lo mismo que la Galería de aplicaciones de Azure AD?** No: la comprobación del publicador es un programa complementario, aunque independiente, para la [Galería de aplicaciones de Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md). Los desarrolladores que cumplen los criterios anteriores deben completar el proceso de comprobación del publicador independientemente de la participación en dicho programa. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información sobre cómo [marcar una aplicación como comprobada por el publicador](mark-app-as-publisher-verified.md).

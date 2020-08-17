@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 995ca20ed264d78e93e04a6f54e4f691ec551e84
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 61e2d4607ebe1b688b2874220a170b2539a2226e
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024866"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404181"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configuración de LDAP seguro para un dominio administrado de Azure Active Directory Domain Services
 
@@ -110,6 +110,7 @@ Para usar LDAP seguro, el tráfico de red se cifra mediante la infraestructura d
 * En el dominio administrado se aplica una **clave privada**.
     * Esta clave privada se usa para *descifrar* el tráfico LDAP seguro. La clave privada solo debe aplicarse al dominio administrado y no debe distribuirse por los equipos cliente.
     * Un certificado que incluye la clave privada utiliza el formato de archivo *.PFX*.
+    * El algoritmo de cifrado del certificado debe ser *TripleDES-SHA1*.
 * En los equipos cliente se aplica una **clave pública**.
     * Esta clave pública se utiliza para *cifrar* el tráfico LDAP seguro. La clave pública se puede distribuir a los equipos cliente.
     * Los certificados sin la clave privada usan el formato de archivo *.CER*.
@@ -149,7 +150,7 @@ Antes de poder usar el certificado digital creado en el paso anterior con el dom
 
 1. Como este certificado se utiliza para descifrar datos, debe controlar cuidadosamente el acceso. Se puede usar una contraseña para proteger su uso. Sin la contraseña correcta, el certificado no se puede aplicar a un servicio.
 
-    En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado.
+    En la página **Seguridad**, elija la opción de **Contraseña** para proteger el archivo de certificado *.PFX*. El algoritmo de cifrado debe ser *TripleDES-SHA1*. Escriba y confirme una contraseña y, después, seleccione **Siguiente**. Esta contraseña se usará en la sección siguiente para habilitar LDAP seguro para el dominio administrado.
 1. En la página **Archivo que se va a exportar**, especifique el nombre de archivo y la ubicación donde desea exportar el certificado como, por ejemplo, *C:\Users\nombreDeCuenta\azure-ad-ds.pfx*. Anote la contraseña y la ubicación del archivo *.PFX*, ya que necesitará esta información en los pasos siguientes.
 1. En la página de revisión, seleccione **Finalizar** para exportar el certificado a un archivo de certificado *.PFX*. Se muestra un cuadro de diálogo de confirmación cuando el certificado se ha exportado correctamente.
 1. Mantenga MMC abierto para usarlo en la sección siguiente.
@@ -210,7 +211,7 @@ Se muestra una notificación que indica que se está configurando LDAP seguro pa
 
 La habilitación de LDAP seguro para el dominio administrado tarda unos minutos. Si el certificado de LDAP seguro que proporciona no cumple los criterios necesarios, se produce un error en la acción que habilita LDAP seguro para el dominio administrado.
 
-Algunos motivos habituales de error son un nombre de dominio incorrecto o un certificado que va a expirar pronto o que ya ha expirado. Puede volver a crear el certificado con parámetros válidos y, a continuación, habilitar LDAP seguro con este certificado actualizado.
+Algunos motivos habituales del error que el nombre de dominio sea incorrecto, que el algoritmo de cifrado del certificado no sea *TripleDES-SHA1* o que el certificado expire pronto o ya haya expirado. Puede volver a crear el certificado con parámetros válidos y, a continuación, habilitar LDAP seguro con este certificado actualizado.
 
 ## <a name="lock-down-secure-ldap-access-over-the-internet"></a>Bloqueo del acceso LDAP seguro a través de Internet
 

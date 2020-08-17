@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/17/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: c1c9440f7ec70cea98f270f04c3030c800dd0fde
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0be481d90562ca611b021e2f05d9109eb51958c8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79461119"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023269"
 ---
 # <a name="protect-your-content-with-media-services-dynamic-encryption"></a>Protección del contenido mediante el cifrado dinámico de Media Services
 
@@ -245,7 +245,7 @@ streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://myk
 
 `ContentKeyId` tiene un valor de la clave solicitada. Puede usar el identificador `AlternativeMediaId` si desea asignar la solicitud a una entidad en su lado. Por ejemplo, `AlternativeMediaId` se puede usar para ayudarle a buscar los permisos.
 
-Para ejemplos de REST que utilizan direcciones URL de adquisición de claves y licencias personalizadas, consulte [Directivas de streaming: creación](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
+Para ejemplos de REST que utilizan direcciones URL de adquisición de claves y licencias personalizadas, consulte [Directivas de streaming: creación](/rest/api/media/streamingpolicies/create).
 
 > [!NOTE]
 > Widevine es un servicio que ofrece Google Inc. y que está sujeto a los términos del servicio y la directiva de privacidad de Google, Inc.
@@ -267,4 +267,4 @@ Consulte el artículo [Comunidad de Azure Media Services](media-services-communi
 * [Diseño del sistema de protección de contenido con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md)
 * [Cifrado del lado de almacenamiento](storage-account-concept.md#storage-side-encryption)
 * [Preguntas más frecuentes](frequently-asked-questions.md)
-* [Controlador de JSON Web Token](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)
+* [Controlador de JSON Web Token](/dotnet/framework/security/json-web-token-handler)

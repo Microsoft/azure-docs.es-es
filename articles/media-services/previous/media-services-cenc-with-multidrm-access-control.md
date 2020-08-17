@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 4b5a18f0dc5edc06e4800215e88b694e681b5bbb
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072029"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Diseño de un sistema de protección de contenido con control de acceso mediante Azure Media Services 
 
@@ -227,7 +227,7 @@ Para más información, consulte [Autenticación de token JWD en Azure Media Ser
 Para más información sobre Azure AD:
 
 * Puede encontrar información para desarrolladores en la [Guía para desarrolladores de Azure Active Directory](../../active-directory/azuread-dev/v1-overview.md).
-* Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-administer.md).
+* Puede encontrar información para administradores en [Administración del directorio de Azure AD](../../active-directory/fundamentals/active-directory-whatis.md).
 
 ### <a name="some-issues-in-implementation"></a>Algunos problemas de implementación
 Utilice la siguiente información para solución de problemas para obtener ayuda con problemas de implementación.
@@ -296,7 +296,7 @@ La sustitución de claves de firmas es un punto importante de su implementación
 
 Azure AD utiliza el estándar del sector para establecer la confianza entre sí mismo y las aplicaciones que usan Azure AD. En concreto, Azure AD utiliza una clave de firma que consta de un par de claves pública y privada. Cuando Azure AD crea un token de seguridad que contiene información sobre el usuario, Azure AD lo firma con una clave privada antes de enviarlo a la aplicación. Para comprobar que el token es válido y tiene su origen en Azure AD, la solicitud debe validar la firma del token. La aplicación utiliza la clave pública expuesta por Azure AD que se encuentra en el documento de metadatos de federación del inquilino. Esta clave pública, y la clave de firma de la que se deriva, es la misma que se utiliza en todos los inquilinos de Azure AD.
 
-Para más información sobre la sustitución de claves de Azure AD, consulte [Sustitución de claves de firma de Azure Active Directory](../../active-directory/active-directory-signing-key-rollover.md).
+Para más información sobre la sustitución de claves de Azure AD, consulte [Sustitución de claves de firma de Azure Active Directory](../../active-directory/develop/active-directory-signing-key-rollover.md).
 
 Entre el [par de claves pública y privada](https://login.microsoftonline.com/common/discovery/keys/):
 
@@ -329,7 +329,7 @@ Si observa cómo una aplicación web llama a una aplicación de API en la secci�
 * Azure AD autentica la aplicación y devuelve un token de acceso de JWT que se usa para llamar a la API web.
 * A través de HTTPS, la aplicación web usa el token de acceso de JWT devuelto para agregar la cadena JWT con una designación Bearer en el encabezado Authorization de la solicitud a la API web. La API web valida entonces el token JWT. Si la validación es correcta, devuelve el recurso deseado.
 
-En este flujo de identidad de aplicación, la API web confía en que la aplicación web ha autenticado al usuario. Por ello, este patrón se conoce como subsistema de confianza. El [diagrama de flujo de autorización](https://docs.microsoft.com/azure/active-directory/active-directory-protocols-oauth-code) describe cómo funciona el flujo de concesión del código de autorización.
+En este flujo de identidad de aplicación, la API web confía en que la aplicación web ha autenticado al usuario. Por ello, este patrón se conoce como subsistema de confianza. El [diagrama de flujo de autorización](../../active-directory/azuread-dev/v1-protocols-oauth-code.md) describe cómo funciona el flujo de concesión del código de autorización.
 
 La adquisición de licencias con restricción de token sigue el mismo patrón de subsistema de confianza. El servicio de entrega de licencias de Media Services es el recurso de API web o el recurso de back-end al que una aplicación web necesita acceso. Entonces, ¿dónde está el token de acceso?
 

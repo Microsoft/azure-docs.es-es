@@ -2,19 +2,19 @@
 title: Concesión de acceso basado en roles para usuarios
 titleSuffix: Azure Maps
 description: Uso del control de acceso basado en roles para conceder a los usuarios autorización para Azure Maps
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 06/17/2020
 ms.topic: include
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 86f89397f3685443071788580253ee11ce4b70be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b138dab2a97537a93b8d873f79b6ee9c00b4af4
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988450"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126759"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Concesión de acceso basado en roles para usuarios de Azure Maps
 

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
 ROBOTS: NOINDEX
-ms.openlocfilehash: bbd622ccb7aeecfff4d3dc744623105a593e6a67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1829127d1eaf65be586ddff3fb2615cae72c5d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85383587"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116145"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Depuración del inicio de sesión único basado en SAML en aplicaciones de Azure Active Directory
 
@@ -104,4 +104,4 @@ Para solucionar el error, siga estos pasos:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que el inicio de sesión único funciona para la aplicación, puede ir a la [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../manage-apps/user-provisioning.md) o a la [Introducción al acceso condicional en Azure Active Directory](../conditional-access/app-based-conditional-access.md).
+Ahora que el inicio de sesión único funciona para la aplicación, puede ir a la [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md) o a la [Introducción al acceso condicional en Azure Active Directory](../conditional-access/app-based-conditional-access.md).

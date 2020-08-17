@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: 5d16c62c14ff6f24e519173b979e11d21d997927
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7cfa3d5652e13ddc88db70674049069a5b391297
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505795"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322132"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Consulta de registros entre recursos en Azure Monitor  
 
@@ -120,7 +120,7 @@ app('Contoso-app5').requests
 
 
 
-Ahora puede [usar esta función](../../azure-monitor/log-query/functions.md#use-a-function) en una consulta entre recursos similar a la siguiente. El alias de la función _applicationsScoping_ devuelve la unión de la tabla de solicitudes de todas las aplicaciones definidas. A continuación, la consulta filtra las solicitudes erróneas y visualiza las tendencias por aplicación. El operador _parse_ es opcional en este ejemplo. Extrae el nombre de la aplicación de la propiedad _SourceApp_.
+Ahora puede [usar esta función](./functions.md#use-a-function) en una consulta entre recursos similar a la siguiente. El alias de la función _applicationsScoping_ devuelve la unión de la tabla de solicitudes de todas las aplicaciones definidas. A continuación, la consulta filtra las solicitudes erróneas y visualiza las tendencias por aplicación. El operador _parse_ es opcional en este ejemplo. Extrae el nombre de la aplicación de la propiedad _SourceApp_.
 
 ```Kusto
 applicationsScoping 
@@ -141,3 +141,4 @@ applicationsScoping
 
 - Consulte [Análisis de los datos de Log Analytics en Azure Monitor](log-query-overview.md) para obtener información general de las consultas de registros y cómo se estructuran los datos del registro de Azure Monitor.
 - Consulte las [consultas de registros de Azure Monitor](query-language.md) para ver todos los recursos de las consultas de registros de Azure Monitor.
+

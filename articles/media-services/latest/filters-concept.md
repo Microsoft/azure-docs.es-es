@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/23/2019
 ms.author: juliako
-ms.openlocfilehash: fdf29924da31db0347938df89e698cb258c2336b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e188a0e8ee8b5f2037c07c3f15fd78a42852ce9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708304"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023235"
 ---
 # <a name="filters"></a>Filtros
 
@@ -38,8 +38,8 @@ Media Services le permite crear **filtros de cuentas** y **filtros de recursos**
 
 Existen dos tipos de filtros: 
 
-* [Filtros de cuenta](https://docs.microsoft.com/rest/api/media/accountfilters) (global): se pueden aplicar a cualquier recurso de la cuenta de Azure Media Services; tienen una duración de la cuenta.
-* [Filtros de recursos](https://docs.microsoft.com/rest/api/media/assetfilters) (local): solo se pueden aplicar a un recurso con el que estaba asociado el filtro una vez creado; tienen una duración del recurso. 
+* [Filtros de cuenta](/rest/api/media/accountfilters) (global): se pueden aplicar a cualquier recurso de la cuenta de Azure Media Services; tienen una duración de la cuenta.
+* [Filtros de recursos](/rest/api/media/assetfilters) (local): solo se pueden aplicar a un recurso con el que estaba asociado el filtro una vez creado; tienen una duración del recurso. 
 
 Los tipos **Filtros de cuentas** y **Filtros de recursos** tienen exactamente las mismas propiedades para definir o describir el filtro. Excepto cuando se crea el **filtro de recursos**, deberá especificar el nombre del recurso con el que desea asociar el filtro.
 
@@ -139,7 +139,7 @@ En el ejemplo siguiente se define un filtro de streaming en vivo:
 
 ## <a name="associating-filters-with-streaming-locator"></a>Asociación de filtros con localizadores de streaming
 
-Ahora puede especificar una lista de los [filtros de recursos o de cuentas](filters-concept.md) en el [localizador de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. 
+Ahora puede especificar una lista de los [filtros de recursos o de cuentas](filters-concept.md) en el [localizador de streaming](/rest/api/media/streaminglocators/create#request-body). El [empaquetador dinámico](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación se genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. 
 
 Consulte los siguientes ejemplos:
 
@@ -161,4 +161,3 @@ Los artículos siguientes muestran cómo crear filtros mediante programación.
 - [Creación de filtros con las API REST](filters-dynamic-manifest-rest-howto.md)
 - [Creación de filtros con .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Creación de filtros con la CLI](filters-dynamic-manifest-cli-howto.md)
-

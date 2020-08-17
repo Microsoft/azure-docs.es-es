@@ -13,12 +13,12 @@ ms.date: 08/13/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa
 ms.custom: aaddev
-ms.openlocfilehash: 910aaf84d3563d4410826d3c0bdfde3d2dfc75e3
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 0574eb0b8ab0b5d4de671ad44a45a85e434393f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "80885640"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115584"
 ---
 # <a name="app-registration-reference"></a>Referencia del registro de aplicaciones
 
@@ -26,7 +26,7 @@ En este documento se proporciona el contexto y las descripciones de las distinta
 
 ## <a name="my-applications-or-converged-applications"></a>Mis aplicaciones o aplicaciones convergentes
 
-En esta lista se incluyen todas las aplicaciones que se registran para su uso con el punto de conexión de la Plataforma de identidad de Microsoft (v2.0). Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para más información sobre el punto de conexión de la plataforma de identidad, consulte la [introducción a v2.0](active-directory-appmodel-v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
+En esta lista se incluyen todas las aplicaciones que se registran para su uso con el punto de conexión de la Plataforma de identidad de Microsoft (v2.0). Estas aplicaciones tienen la capacidad de permitir el inicio de sesión de los usuarios tanto con cuentas personales de Microsoft como con cuentas profesionales o educativas de Azure Active Directory. Para más información sobre el punto de conexión de la plataforma de identidad, consulte la [introducción a v2.0](./v2-overview.md). Estas aplicaciones también se pueden usar para la integración con el punto de conexión de autenticación de la cuenta Microsoft, `https://login.live.com`.
 
 ## <a name="azure-ad-only-applications"></a>Aplicaciones que solo usan Azure AD
 
@@ -38,11 +38,11 @@ Esta lista contiene todas las aplicaciones registradas para su uso únicamente c
 
 ## <a name="application-secrets"></a>Secretos de aplicación
 
-Los secretos de aplicación son credenciales que permiten que la aplicación realice una [autenticación de cliente](https://tools.ietf.org/html/rfc6749#section-2.3) confiable con Azure AD. En OAuth y OpenID Connect, un secreto de aplicación se conoce comúnmente como `client_secret`. En el protocolo v2.0, cualquier aplicación que reciba un token de seguridad en una ubicación direccionable web (mediante un esquema `https` ) debe usar un secreto de aplicación para identificarse en Azure AD en el momento del canje de ese token de seguridad. Además, cualquier cliente nativo que reciba tokens en un dispositivo tendrá prohibido el uso de un secreto de aplicación para realizar la autenticación de cliente. De esta forma, se evita el almacenamiento de secretos en entornos no seguros.
+Los secretos de aplicación son credenciales que permiten que la aplicación realice una [autenticación de cliente](https://tools.ietf.org/html/rfc6749#section-2.3) confiable con la Plataforma de identidad de Microsoft. En OAuth y OpenID Connect, un secreto de aplicación se conoce comúnmente como `client_secret`. En el protocolo v2.0, cualquier aplicación que reciba un token de seguridad en una ubicación direccionable web (mediante un esquema `https`) debe usar un secreto de aplicación para identificarse en la Plataforma de identidad de Microsoft en el momento del canje de ese token de seguridad. Además, cualquier cliente nativo que reciba tokens en un dispositivo tendrá prohibido el uso de un secreto de aplicación para realizar la autenticación de cliente. De esta forma, se evita el almacenamiento de secretos en entornos no seguros.
 
 Cada aplicación puede contener dos secretos de aplicación válidos en un momento determinado. Al mantener dos secretos, tiene la posibilidad de realizar una sustitución de claves periódica en todo el entorno de la aplicación. Una vez que haya migrado la totalidad de la aplicación a un nuevo secreto, podrá eliminar el antiguo secreto y aprovisionar uno nuevo.
 
-En este momento, solo se permiten dos tipos de secretos de aplicación en el portal de registro de aplicaciones. Al elegir **Generar nueva contraseña**, se genera y almacena un secreto compartido en el almacén de datos correspondiente, que podrá utilizar en su aplicación. Al elegir **Generar nuevo par de claves**, se crea un nuevo par de claves pública y privada que puede descargar y usar para la autenticación de cliente en Azure AD. Al elegir **Cargar clave pública**, podrá usar su propio par de claves pública y privada.
+En este momento, solo se permiten dos tipos de secretos de aplicación en el portal de registro de aplicaciones. Al elegir **Generar nueva contraseña**, se genera y almacena un secreto compartido en el almacén de datos correspondiente, que podrá utilizar en su aplicación. Al elegir **Generar nuevo par de claves**, se crea un nuevo par de claves pública y privada que puede descargar y usar para la autenticación de cliente en la Plataforma de identidad de Microsoft. Al elegir **Cargar clave pública**, podrá usar su propio par de claves pública y privada.
 Debe cargar un certificado que incluya una clave pública.
 
 ## <a name="profile"></a>Perfil

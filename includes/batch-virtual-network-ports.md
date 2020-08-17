@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.date: 06/16/2020
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: 1b21141a4b3f9ae92cdcf1d5a93a457012cb136a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e4bca058f554f60dfa5c237633d1fecf06dfea7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506619"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87507361"
 ---
 ### <a name="general-requirements"></a>Requisitos generales
 
@@ -89,7 +89,7 @@ Configure el tráfico de entrada en los puertos 3389 (Windows) o 22 (Linux) solo
 
 `/subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicNetwork /virtualNetworks/{network}/subnets/{subnet}`
 
-**Permisos**: para utilizar una red virtual clásica, la entidad de servicio `Microsoft Azure Batch` debe tener el rol de Control de acceso basado en roles (RBAC) `Classic Virtual Machine Contributor` para la red virtual especificada.
+**Permisos**: la entidad de servicio `Microsoft Azure Batch` debe tener el rol `Classic Virtual Machine Contributor` de Azure para la red virtual especificada.
 
 #### <a name="network-security-groups"></a>Grupos de seguridad de red
 

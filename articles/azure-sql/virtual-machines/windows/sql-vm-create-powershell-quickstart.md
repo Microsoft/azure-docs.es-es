@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: e821c650bae7694070624aeebe7fcc3482f7a3b9
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: eafbf102c092b180a1f3c882f5ae626e60b80f30
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84667412"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514618"
 ---
 # <a name="quickstart-create-sql-server-on-a-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de un servidor con SQL Server en una máquina virtual Windows con Azure PowerShell
 
@@ -147,13 +147,34 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
    > [!TIP]
    > Se tarda unos minutos en crearla.
 
-## <a name="install-the-sql-iaas-agent"></a>Instalación del Agente de IaaS de SQL
+## <a name="register-with-sql-vm-rp"></a>Registro con el proveedor de recursos de máquina virtual de SQL 
 
-Para obtener las características de máquina virtual SQL e integración del portal, debe instalar la [Extensión del Agente de IaaS de SQL Server](sql-server-iaas-agent-extension-automate-management.md). Para instalar al agente en la nueva máquina virtual, ejecute el siguiente comando después de crearla.
+Para obtener las características de máquina virtual de SQL e integración del portal, debe instalar el [proveedor de recursos de máquina virtual de SQL](sql-vm-resource-provider-register.md).
 
-   ```powershell
-   Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "2.0" -Location $Location
-   ```
+Para obtener toda la funcionalidad, debe registrarse con el proveedor de recursos en modo completo. Sin embargo, si lo hace, se reinicia el servicio de SQL Server, por lo que el enfoque recomendado es registrarse en modo ligero y, a continuación, actualizar a modo completo durante una ventana de mantenimiento. 
+
+En primer lugar, registre la máquina virtual con SQL Server en modo ligero: 
+
+```powershell-interactive
+# Get the existing compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+        
+# Register SQL VM with 'Lightweight' SQL IaaS agent
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
+  -LicenseType PAYG -SqlManagementType LightWeight
+```
+
+Después, durante una ventana de mantenimiento, actualice al modo completo: 
+
+```powershell-interactive
+# Get the existing Compute VM
+$vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
+      
+# Register with SQL VM resource provider in full mode
+New-AzSqlVM -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -SqlManagementType Full
+```
+
+
 
 ## <a name="remote-desktop-into-the-vm"></a>Escritorio remoto en la máquina virtual
 

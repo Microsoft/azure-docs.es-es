@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aa2af4302613aad23bfd78b4883bbb46c5e5ddbb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3571455db6ecc600bf0948087b40c281d72512ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76960397"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091256"
 ---
 # <a name="enable-cloudsimple-private-cloud-dns-servers-to-forward-dns-lookup-of-on-premises-resources-to-your-dns-servers"></a>Habilitación de los servidores DNS de la nube privada de CloudSimple para la búsqueda directa de DNS de recursos locales a servidores DNS
 
@@ -32,7 +32,7 @@ La búsqueda directa de DNS para el servidor DNS local permite usar la nube priv
 Debe haber una conexión de red desde la red de nube privada a la red local para que la búsqueda directa de DNS funcione.  Puede configurar la conexión de red mediante:
 
 * [Conexión desde una red local a CloudSimple mediante ExpressRoute](on-premises-connection.md)
-* [Configuración de una puerta de enlace de VPN de sitio a sitio](https://docs.microsoft.com/azure/vmware-cloudsimple/vpn-gateway#set-up-a-site-to-site-vpn-gateway)
+* [Configuración de una puerta de enlace de VPN de sitio a sitio](./vpn-gateway.md#set-up-a-site-to-site-vpn-gateway)
 
 Los puertos de firewall deben estar abiertos en esta conexión para que la búsqueda de DNS funcione.  Los puertos que se usan son el puerto TCP 53 o UDP 53.
 

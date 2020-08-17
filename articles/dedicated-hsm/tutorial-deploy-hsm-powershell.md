@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
-ms.author: mbaldwin
-ms.openlocfilehash: c1a847a315a264591c0d003ff691d9938c2bf0f5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/14/2020
+ms.author: johndaw
+ms.openlocfilehash: e7958a722f7010d63794cacc072289030a72ed99
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79474431"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512510"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -62,13 +62,7 @@ Como ya se ha mencionado anteriormente, cualquier actividad de aprovisionamiento
 Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
-El comando siguiente comprueba las características de red necesarias para el servicio Dedicated HSM.
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
-```
-
-Ambos comandos deben devolver un estado "Registrado" (como se indica a continuación) antes de continuar.  Si tiene que registrarse para este servicio, póngase en contacto con su representante de cuenta Microsoft.
+El comando debe devolver un estado "Registrado" (como se muestra a continuación) antes de continuar.  Si no se ha registrado para este servicio, póngase en contacto con su representante de cuenta Microsoft.
 
 ![estado de la suscripción](media/tutorial-deploy-hsm-powershell/subscription-status.png)
 
@@ -190,7 +184,7 @@ Este comando tardará aproximadamente unos 20 minutos en completarse. La opción
 
 ![estado de aprovisionamiento](media/tutorial-deploy-hsm-powershell/progress-status.png)
 
-Cuando se haya completado correctamente, se muestra por "provisioningState": "Succeeded", puede conectarse a la máquina virtual existente y usar SSH para garantizar la disponibilidad del dispositivo HSM.
+Una vez que haya terminado correctamente, lo cual se muestra mediante "provisioningState": "Correcto", puede iniciar sesión en la máquina virtual existente y usar SSH para garantizar la disponibilidad del dispositivo HSM.
 
 ## <a name="verifying-the-deployment"></a>Comprobación de la implementación
 
@@ -217,7 +211,7 @@ La herramienta SSH se usa para conectarse a la máquina virtual. El comando ser�
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 La contraseña que se va a usar es la del archivo de parámetros.
-Una vez que ha iniciado sesión en la máquina virtual Linux, puede iniciar sesión en el HSM con la dirección IP privada que se encuentra en el portal para el recurso \<prefix>hsm_vnic.
+Una vez que ha iniciado sesión en la máquina virtual Linux puede iniciar sesión en el HSM con la dirección IP privada que se encuentra en el portal para el recurso \<prefix>hsm_vnic.
 
 ```powershell
 

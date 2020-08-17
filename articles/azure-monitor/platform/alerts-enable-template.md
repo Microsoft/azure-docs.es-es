@@ -6,17 +6,17 @@ ms.author: robb
 ms.topic: conceptual
 ms.date: 03/09/2020
 ms.subservice: alerts
-ms.openlocfilehash: fef975c9822cd44b94074874621e1c87a60ed27d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d7d9f55bbd3d8060670008f321a77b2a28376e47
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505455"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849026"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Creación de una alerta de métrica clásica con una plantilla de Resource Manager
+
 > [!WARNING]
-> 
-> En este artículo se describe cómo crear **alertas de métricas clásicas** mediante plantillas de Resource Manager. Las alertas clásicas se han retirado en agosto de 2019 y se ha establecido que estén completamente en desuso en junio de 2020. No puede crear nuevas alertas clásicas de Azure público. Es posible que algunas versiones regionales de Azure sigan teniendo la opción, pero le recomendamos que cree las [alertas de métricas nuevas](../../azure-monitor/platform/alerts-metric-near-real-time.md) mediante el uso de plantillas si es posible. [En este artículo](alerts-metric-create-templates.md) se proporcionan los detalles.
+> En este artículo se describe cómo crear alertas de métrica clásicas más antiguas. Azure Monitor ahora es compatible con [una nueva experiencia de alertas y las más recientes alertas de métrica casi en tiempo real](./alerts-overview.md). Las alertas clásicas se [retiran](./monitoring-classic-retirement.md), aunque siguen con un uso limitado para los recursos que aún no admiten las nuevas alertas.
 >
 
 En este artículo se describe cómo se puede utilizar una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métricas clásicas de Azure. Esto permite configurar automáticamente las alertas en los recursos cuando se crean para asegurarse de que todos los recursos se supervisan correctamente.
@@ -400,5 +400,6 @@ Una alerta en una plantilla de Resource Manager suele ser más útil al crear un
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Más información sobre alertas](alerts-overview.md)
-* [Agregue la Configuración de diagnóstico](../../azure-monitor/platform/diagnostic-settings-template.md) a la plantilla de Resource Manager
+* [Agregue la Configuración de diagnóstico](./diagnostic-settings-template.md) a la plantilla de Resource Manager
 * Para conocer las propiedades y la sintaxis de JSON, consulte la referencia de la plantilla [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).
+

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 56132eae03a52af425e00bec93a63a697a2a55e6
-ms.sourcegitcommit: 0fa52a34a6274dc872832560cd690be58ae3d0ca
+ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84204742"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423157"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedimientos recomendados de seguridad operativa de Azure
 En este artículo se proporciona un conjunto de procedimientos recomendados operativos para proteger los datos, aplicaciones y otros recursos en Azure.
@@ -55,7 +55,7 @@ En el portal de inscripción de Azure, puede asegurarse de que la información d
 ## <a name="organize-azure-subscriptions-into-management-groups"></a>Organización de las suscripciones de Azure en grupos de administración
 Si su organización tiene varias suscripciones, podría necesitar una manera de administrar el acceso, las directivas y el cumplimiento de esas suscripciones de forma eficaz. Los [grupos de administración de Azure](/azure/governance/management-groups/create) proporcionan un nivel de ámbito por encima de las suscripciones. Las suscripciones se organizan en contenedores llamados grupos de administración y las condiciones de gobernanza se aplican a los grupos de administración. Todas las suscripciones dentro de un grupo de administración heredan automáticamente las condiciones que se aplican al grupo de administración.
 
-Puede crear una estructura flexible de grupos de administración y suscripciones en un directorio. A cada directorio se le asigna un único grupo de administración de nivel superior denominado grupo de administración raíz. Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol (RBAC) se apliquen en el nivel de directorio.
+Puede crear una estructura flexible de grupos de administración y suscripciones en un directorio. A cada directorio se le asigna un único grupo de administración de nivel superior denominado grupo de administración raíz. Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de roles de Azure se apliquen en el nivel de directorio.
 
 Estos son algunos procedimientos recomendados para el uso de grupos de administración:
 
@@ -182,7 +182,7 @@ Es de vital importancia garantizar que una aplicación sea lo suficientemente re
 
 Para Azure Cloud Services, configure cada uno de los roles para utilizar [varias instancias](../../cloud-services/cloud-services-choose-me.md).
 
-En el caso de [Azure Virtual Machines](/azure/virtual-machines/windows/overview), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y de que cada una de ellas se incluya en un [conjunto de disponibilidad](/azure/virtual-machines/virtual-machines-windows-manage-availability). Se recomienda usar conjuntos de escalado de máquinas virtuales para contar con funcionalidades de escalado automático.
+En el caso de [Azure Virtual Machines](../../virtual-machines/windows/overview.md), asegúrese de que la arquitectura de las máquinas virtuales incluya más de una máquina virtual y de que cada una de ellas se incluya en un [conjunto de disponibilidad](../../virtual-machines/windows/tutorial-availability-sets.md). Se recomienda usar conjuntos de escalado de máquinas virtuales para contar con funcionalidades de escalado automático.
 
 **Procedimiento recomendado**: Disponer en niveles la defensa de la seguridad en una aplicación reduce las probabilidades de éxito de un ataque. Implemente diseños seguros para las aplicaciones con las funcionalidades integradas de la plataforma Azure.  
 **Detalles**: el riesgo de ataque aumenta con el tamaño (área expuesta) de la aplicación. Puede reducir el área expuesta mediante la creación de listas blancas para cerrar el espacio de direcciones IP expuesto y los puertos de escucha que no sean necesarios en los equilibradores de carga ([Azure Load Balancer](/azure/load-balancer/load-balancer-get-started-internet-portal) y [Azure Application Gateway](/azure/application-gateway/application-gateway-create-probe-portal)).

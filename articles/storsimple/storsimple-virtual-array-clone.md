@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2016
 ms.author: alkohli
-ms.openlocfilehash: 1596503f5f0a333bf061015827596464aed7558e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dd82f7dd821991bbcf57cc7d8105575e0baa4d12
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070687"
 ---
 # <a name="clone-from-a-backup-of-your-storsimple-virtual-array"></a>Clonación a partir de una copia de seguridad de StorSimple Virtual Array
 
@@ -127,7 +127,7 @@ Cada recurso compartido tiene una carpeta con formato *.backups* que contiene la
    * **Copias de seguridad programadas** denominadas &lt;nombreDeDispositivo&gt; DailySchedule-AAAAMMDD-HHMMSS-UTC.
    * **Copias de seguridad manuales** denominadas Ad-hoc-AAAAMMDD-HHMMSS-UTC.
      
-     ![](./media/storsimple-virtual-array-clone/image14.png)
+     ![Captura de pantalla del Explorador de archivos que muestra la carpeta .backups. Dentro de esa carpeta, se selecciona la carpeta de copias de seguridad manuales.](./media/storsimple-virtual-array-clone/image14.png)
 
 2. Identifique la copia de seguridad que contenga la versión más reciente del archivo eliminado. Aunque el nombre de la carpeta contiene una marca de tiempo UTC en cada uno de los casos anteriores, la hora en que se creó la carpeta es la hora real del dispositivo cuando comenzó la copia de seguridad. Use la marca de tiempo de la carpeta para localizar e identificar las copias de seguridad.
 

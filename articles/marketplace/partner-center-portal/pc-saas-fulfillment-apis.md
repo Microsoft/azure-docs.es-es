@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 218a0624f7e4adc1aa188dbd62db217bf79202f8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d9413deb99ce938429d05f7c6348c5914e7dd2b1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109304"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304146"
 ---
 # <a name="saas-fulfillment-apis-in-microsoft-commercial-marketplace"></a>API de suministro de SaaS en el marketplace comercial de Microsoft
 
@@ -45,7 +47,7 @@ En el escenario de revendedor (CSP), un proveedor de servicios de cifrado adquie
 
 No es necesario que el publicador implemente ninguno de los flujos de llamada de API de forma diferente para este escenario.
 
-Para obtener más información acerca de CSP, consulte https://partner.microsoft.com/en-us/licensing.
+Para obtener más información acerca de CSP, consulte https://partner.microsoft.com/licensing.
 
 >[!Warning]
 >La versión actual de esta API es la versión 2, que se debe usar para todas las nuevas ofertas de SaaS. La versión 1 de la API está en desuso y se mantiene para proporcionar soporte a las ofertas existentes.

@@ -3,26 +3,25 @@ title: 'Precios de ofertas de máquinas virtuales: Azure Marketplace'
 description: Explica los tres métodos para especificar el precio de las ofertas de máquinas virtuales.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
-ms.date: 04/08/2020
-ms.openlocfilehash: b3d38c59d4c79e908aeef857164603a2a5160e05
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.topic: reference
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115509"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271729"
 ---
-<a name="pricing-for-virtual-machine-offers"></a>Precios de ofertas de máquinas virtuales
-==================================
+# <a name="pricing-for-virtual-machine-offers"></a>Precios de ofertas de máquinas virtuales
 
 > [!NOTE]
-> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar las ofertas al Centro de partners. La integración presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de las API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en [Referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Hay tres maneras de especificar los precios de ofertas de máquina virtual: precios por núcleo personalizados, precios por núcleo y precios por hoja de cálculo.
 
-
-<a name="customized-core-pricing"></a>Precios por núcleo personalizados
------------------------
+## <a name="customized-core-pricing"></a>Precios por núcleo personalizados
 
 Los precios son específicos para cada combinación de región y núcleo. Se deben especificar todas las regiones en la lista de países de venta en la sección **virtualMachinePricing**/**regionPrices** de la definición.  Use los códigos de divisa correctos para cada [región](#regions) en la solicitud.  En el siguiente ejemplo se muestran estos requisitos:
 
@@ -66,9 +65,7 @@ Los precios son específicos para cada combinación de región y núcleo. Se deb
      }
 ```
 
-
-<a name="per-core-pricing"></a>Precios por núcleo
-----------------
+## <a name="per-core-pricing"></a>Precios por núcleo
 
 En este caso, los publicadores especifican un precio en USD para su SKU y todos los demás precios se generan automáticamente. El precio por núcleo se especifica en el **único** parámetro de la solicitud.
 
@@ -84,9 +81,7 @@ En este caso, los publicadores especifican un precio en USD para su SKU y todos 
      }
 ```
 
-
-<a name="spreadsheet-pricing"></a>Precios por hoja de cálculo
--------------------
+## <a name="spreadsheet-pricing"></a>Precios por hoja de cálculo
 
 El editor también puede cargar la hoja de cálculo de precios en una ubicación de almacenamiento temporal y, a continuación, incluir el URI en la solicitud, como otros artefactos del archivo. A continuación, la hoja de cálculo se carga, se traduce para evaluar la previsión de precios y, finalmente, actualiza la oferta con la información sobre precios. Las solicitudes GET posteriores de la oferta devuelven el URI de la hoja de cálculo y los precios evaluados para la región.
 
@@ -101,14 +96,11 @@ El editor también puede cargar la hoja de cálculo de precios en una ubicación
      }
 ```
 
-<a name="new-core-sizes-added-on-722019"></a>Nuevos tamaños de núcleo agregados el 2/7/2019
----------------------------
+## <a name="new-core-sizes-added-on-722019"></a>Nuevos tamaños de núcleo agregados el 2/7/2019
 
 A los publicadores de máquinas virtuales se les notificó el 2 de julio de 2019 la incorporación de nuevos precios para los nuevos tamaños de máquina virtual de Azure (en función del número de núcleos).  Los nuevos precios son para los tamaños de núcleo 10, 44, 48, 60, 120, 208 y 416.  Para ofertas de máquinas virtuales existentes, los nuevos precios para estos tamaños de núcleo se han calculado automáticamente en función de los precios actuales.  Los publicadores tienen hasta el 1 de agosto de 2019 para revisar los precios adicionales y realizar los cambios deseados.  Después de esta fecha, si el publicador no los ha vuelto a publicar, se aplicarán los precios calculados automáticamente para estos nuevos tamaños de núcleo.
 
-
-<a name="regions"></a>Regions
--------
+## <a name="regions"></a>Regions
 
 En la tabla siguiente se muestran las distintas regiones que se pueden especificar para precios por núcleo y sus códigos de moneda correspondientes.
 
@@ -119,7 +111,7 @@ En la tabla siguiente se muestran las distintas regiones que se pueden especific
 | AU         | Australia            | AUD               |
 | AT         | Austria              | EUR               |
 | BH         | Bahréin              | BHD               |
-| BY         | Bielorrusia              | RUB               |
+| BY         | Belarús              | RUB               |
 | BE         | Bélgica              | EUR               |
 | BR         | Brasil               | USD               |
 | BG         | Bulgaria             | BGN               |

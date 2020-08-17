@@ -3,19 +3,19 @@ title: Preguntas más frecuentes sobre los tamaños de máquina virtual de Azure
 description: En este artículo se proporcionan respuestas a las preguntas más frecuentes (P+F) sobre los tamaños de máquina virtual de Microsoft Azure que no tienen disco temporal local.
 author: brbell
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 413f53feedc4fee0877694e3f3a3a509c4d38001
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c36e37ba876b4b768d852d6ecedb8e3b4d8f09d0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783544"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288561"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamaños de máquina virtual de Azure sin disco temporal local 
-En este artículo se proporcionan respuestas a las preguntas más frecuentes (P+F) sobre los tamaños de máquina virtual de Azure que no tienen disco temporal local (por ejemplo, sin escritorio temporal local). Para más información sobre estos tamaños de máquina virtual, consulte [Especificaciones para las series Dv4 y Dsv4 (cargas de trabajo de uso general)](dv4-dsv4-series.md) o [Especificaciones para las series Ev4 y Esv4 (cargas de trabajo optimizadas para memoria)](ev4-esv4-series.md).
+En este artículo se proporcionan respuestas a las preguntas frecuentes sobre los tamaños de máquina virtual de Azure que no tienen disco temporal local (por ejemplo, sin disco temporal local). Para más información sobre estos tamaños de máquina virtual, consulte [Especificaciones para las series Dv4 y Dsv4 (cargas de trabajo de uso general)](dv4-dsv4-series.md) o [Especificaciones para las series Ev4 y Esv4 (cargas de trabajo optimizadas para memoria)](ev4-esv4-series.md).
 
 > [!IMPORTANT]
 > Los tamaños de máquina virtual de las series Dv4, Dsv4, Ev4 y Esv4 se encuentran ahora en versión preliminar pública. Para suscribirse a la versión preliminar pública, rellene este [formulario](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u). 
@@ -23,7 +23,7 @@ En este artículo se proporcionan respuestas a las preguntas más frecuentes (P+
 ## <a name="what-does-no-local-temp-disk-mean"></a>¿Qué significa que no hay disco temporal local? 
 Tradicionalmente, teníamos tamaños de máquina virtual (por ejemplo, Standard_D2s_v3 y Standard_E48_v3) que incluían un pequeño disco local (por ejemplo, una unidad D:). Ahora, con estos nuevos tamaños de máquina virtual, ese pequeño disco local ya no existe; sin embargo, todavía puede adjuntar discos HDD estándar, SSD Premium o SSD Ultra.
 
-## <a name="what-if-i-still-want-local-temp-disk"></a>¿Qué ocurre si quiero un disco temporal local?
+## <a name="what-if-i-still-want-a-local-temp-disk"></a>¿Qué ocurre si quiero un disco temporal local?
 Si la carga de trabajo requiere un disco temporal local, también tenemos disponibles los nuevos tamaños de máquina virtual [Ddv4 y Ddsv4](ddv4-ddsv4-series.md) o [Edv4 y Edsv4](edv4-edsv4-series.md). Estos tamaños ofrecen un disco temporal un 50 % mayor en comparación con los tamaños de la serie v3 anteriores.
 
 > [!NOTE]

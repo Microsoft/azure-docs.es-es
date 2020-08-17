@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 04/09/2020
-ms.openlocfilehash: 171b355f40939efb31e96a4bf8b2d77e97d19f25
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 77b5b52153c552008406b4b85083bcba5542cebe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012729"
 ---
 # <a name="prevent-overfitting-and-imbalanced-data-with-automated-machine-learning"></a>Evitar el sobreajuste y los datos desequilibrados con el aprendizaje automático automatizado
 
@@ -101,7 +101,7 @@ Las técnicas siguientes son otras opciones para controlar los datos no equilibr
 
 - Vuelva a muestrear para equilibrar el desequilibrio de clases, ya sea mediante el muestreo ascendente de las clases más pequeñas o el muestreo descendente de las más grandes. Estos métodos requieren conocimientos de proceso y análisis.
 
-- Revise las métricas de rendimiento de los datos desequilibrados. Por ejemplo, la puntuación F1 es un promedio ponderado de precisión y coincidencia. La precisión mide la exactitud de un clasificador (la precisión baja indica un gran número de falsos positivos), mientras que la coincidencia mide la integridad de un clasificador (la coincidencia baja indica un número elevado de falsos negativos).
+- Revise las métricas de rendimiento de los datos desequilibrados. Por ejemplo, la puntuación F1 es la media armónica de precisión y coincidencia. La precisión mide la exactitud de un clasificador, donde una precisión más alta indica menos falsos positivos, mientras que la coincidencia mide la integridad de un clasificador, donde una coincidencia más alta indica menos falsos negativos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

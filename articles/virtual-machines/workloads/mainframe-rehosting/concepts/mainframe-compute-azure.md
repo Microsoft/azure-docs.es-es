@@ -6,12 +6,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: 97f354d0a313d58c671366dd0e5f485504823e13
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9c5941ec88cd793961ad66245d0dc0b5e0d7772f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76288938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998942"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Movimiento del proceso del sistema central a Azure
 
@@ -94,13 +94,13 @@ El enfoque es migrar las LPAR a máquinas virtuales individuales. A continuació
 
 Una de las ventajas de una solución basada en Azure es la capacidad para escalar horizontalmente. La escalabilidad pone a disposición de una aplicación una capacidad de proceso casi ilimitada. Azure admite varios métodos para escalar horizontalmente la capacidad de proceso:
 
-- **Equilibrio de carga en un clúster.** En este escenario, una aplicación puede utilizar un [equilibrador de carga](/azure/load-balancer/load-balancer-overview) o un administrador de recursos para repartir la carga de trabajo entre varias máquinas virtuales de un clúster. Si se necesita más capacidad de procesamiento, se agregan más máquinas virtuales al clúster.
+- **Equilibrio de carga en un clúster.** En este escenario, una aplicación puede utilizar un [equilibrador de carga](../../../../load-balancer/load-balancer-overview.md) o un administrador de recursos para repartir la carga de trabajo entre varias máquinas virtuales de un clúster. Si se necesita más capacidad de procesamiento, se agregan más máquinas virtuales al clúster.
 
-- **Conjuntos de escalado de máquinas virtuales.** En este escenario de ráfaga, una aplicación puede escalar a [recursos de proceso](/azure/virtual-machine-scale-sets/overview) adicionales según el uso de la máquina virtual. Cuando la demanda cae, el número de máquinas virtuales de un conjunto de escalado también puede disminuir, lo que garantiza un uso eficaz de la capacidad de proceso.
+- **Conjuntos de escalado de máquinas virtuales.** En este escenario de ráfaga, una aplicación puede escalar a [recursos de proceso](../../../../virtual-machine-scale-sets/overview.md) adicionales según el uso de la máquina virtual. Cuando la demanda cae, el número de máquinas virtuales de un conjunto de escalado también puede disminuir, lo que garantiza un uso eficaz de la capacidad de proceso.
 
-- **Escalado de PaaS.** Las ofertas de PaaS de Azure escalan recursos de proceso. Por ejemplo, [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) asigna recursos de proceso para satisfacer aumentos en el volumen de solicitudes.
+- **Escalado de PaaS.** Las ofertas de PaaS de Azure escalan recursos de proceso. Por ejemplo, [Azure Service Fabric](../../../../service-fabric/service-fabric-overview.md) asigna recursos de proceso para satisfacer aumentos en el volumen de solicitudes.
 
-- **Clústeres de Kubernetes.** Las aplicaciones en Azure pueden usar [clústeres de Kubernetes](/azure/aks/concepts-clusters-workloads) para servicios de proceso en los recursos especificados. Azure Kubernetes Service (AKS) es un servicio administrado que organiza los nodos, grupos y clústeres de Kubernetes en Azure.
+- **Clústeres de Kubernetes.** Las aplicaciones en Azure pueden usar [clústeres de Kubernetes](../../../../aks/concepts-clusters-workloads.md) para servicios de proceso en los recursos especificados. Azure Kubernetes Service (AKS) es un servicio administrado que organiza los nodos, grupos y clústeres de Kubernetes en Azure.
 
 Para elegir el método adecuado para el escalado horizontal de los recursos de proceso, es importante entender las diferencias entre Azure y los sistemas centrales. La clave está en cómo los recursos de proceso comparten los datos o si lo hacen. En Azure, las diferentes máquinas virtuales no acostumbran a compartir los datos (de forma predeterminada). Si varias máquinas virtuales requieren el uso compartido de datos en un clúster de proceso de escalabilidad horizontal, los datos compartidos deben residir en un recurso que admita esta funcionalidad. En Azure, el uso compartido de datos implica almacenamiento tal como se describe en la sección siguiente.
 
@@ -115,7 +115,7 @@ Además, cada nivel también puede proporcionar servicios adecuados de recuperac
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Migración del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Rehospedaje del sistema central en Azure Virtual Machines](/azure/virtual-machines/workloads/mainframe-rehosting/overview)
+- [Rehospedaje del sistema central en Azure Virtual Machines](../overview.md)
 - [Mover el almacenamiento del sistema central a Azure](mainframe-storage-Azure.md)
 
 ### <a name="ibm-resources"></a>Recursos de IBM

@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico de FedRAMP moderado
 description: Pasos de implementación para el ejemplo de plano técnico de FedRAMP moderado incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 05/14/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 80c33fc854b00aa9fc33d288b8b466c80596a078
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 5fb8855f82b16a149e2ab8091a1722236f115171
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044794"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495835"
 ---
 # <a name="deploy-the-fedramp-moderate-blueprint-sample"></a>Implementación del ejemplo de plano técnico de FedRAMP moderado
 

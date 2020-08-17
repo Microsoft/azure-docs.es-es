@@ -3,12 +3,12 @@ title: 'Cuotas de Live Video Analytics en IoT Edge: Azure'
 description: En este artículo se describen las cuotas y limitaciones de Live Video Analytics en IoT Edge.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 9b01db8f1120174806f4b687f7e9ebc4e2386f3d
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 90141fa850c9ab3e3abbea15001249da0736ac45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260348"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091817"
 ---
 # <a name="quotas-and-limitations"></a>Cuotas y limitaciones
 
@@ -47,11 +47,8 @@ Con la versión preliminar, hay limitaciones sobre los diferentes nodos que se p
 * Procesador de la puerta de señales
    * Debe estar inmediatamente después que el origen RTSP.
 * Receptor de recursos 
-   * Como máximo puede haber uno de estos nodos por cada topología de grafo.
-      * Si se usa un receptor de recursos, no puede existir un receptor de archivos, o viceversa.
    * Debe estar inmediatamente después del origen RTSP o el procesador de la puerta de señales.
 * Receptor de archivos
-   * Como máximo solo puede haber un nodo de este tipo por cada topología de grafo (vea la nota anterior sobre el receptor de activos).
    * Debe estar inmediatamente después del procesador de la puerta de señales.
    * No puede estar inmediatamente después del procesador de extensión HTTP o del procesador de detección de movimiento
 * Receptor de IoT Hub

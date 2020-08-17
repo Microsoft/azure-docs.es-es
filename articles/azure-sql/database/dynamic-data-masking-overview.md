@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 tags: azure-synpase
-ms.openlocfilehash: 4a6de0b2067cdc847b830fba7607be8cb8f265ab
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 14ae9103571d72b0a48ee8e1a9c9dc6bb008373b
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981397"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552153"
 ---
 # <a name="dynamic-data-masking"></a>Enmascaramiento de datos dinámicos 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -76,7 +76,7 @@ Puede usar las API de REST para administrar las reglas y directivas de enmascara
 
 ### <a name="data-masking-policies"></a>Directivas de enmascaramiento de datos
 
-- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): crea o actualiza la etiqueta de confidencialidad de la columna especificada.
+- [Crear o actualizar](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/createorupdate): crea o actualiza una directiva de enmascaramiento de datos para la base de datos.
 - [Obtener](https://docs.microsoft.com/rest/api/sql/datamaskingpolicies/get): obtiene una directiva de enmascaramiento de datos para la base de datos. 
 
 ### <a name="data-masking-rules"></a>Reglas de enmascaramiento de datos

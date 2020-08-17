@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 06/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 182ceca11d6e9b9bbebcf2911de1783cef43dd1a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: ea951943c3f48443e4348d633c16ed61303f7aa8
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207336"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449055"
 ---
 # <a name="tutorial-manipulating-models"></a>Tutorial: Manipulación de modelos
 
@@ -332,18 +332,14 @@ Cuando una proyección de rayos se completa correctamente en **RemoteRayCastPoin
 
 2. En el elemento GameObject **TestModel** creado anteriormente, agregue los componentes **RemoteRayCastPointerHandler** y **RemoteEntityHelper**.
 1. Asigne el método `EntityToDebugLog` al evento `OnRemoteEntityClicked`. Cuando el tipo de salida del evento y el tipo de entrada del método coinciden, podemos usar el enlace de eventos dinámicos de Unity, que pasará automáticamente el valor del evento al método.
-    1. Cree un campo de devolución de llamada.
-    ![Adición de una devolución de llamada](./media/add-callback-remote-entity-clicked.png)
-    1. Arrastre el componente **RemoteEntityHelper** al campo Object (Objeto) para hacer referencia al elemento GameObject primario.
-    ![Asignación de objetos](./media/assign-object.png)
-    1. Asigne `EntityToDebugLog` como devolución de llamada.
-    ![Asignación de devolución de llamada](./media/remote-entity-event.png)
+    1. Cree un campo de devolución de llamada, ![Agregar devolución de llamada](./media/add-callback-remote-entity-clicked.png)
+    1. Arrastre el componente **RemoteEntityHelper** al campo Object (Objeto) para hacer referencia al objeto primario GameObject ![Asignar objeto](./media/assign-object.png)
+    1. Asigne `EntityToDebugLog` como devolución de llamada ![Asignar devolución de llamada](./media/remote-entity-event.png)
 1. Presione el botón de reproducción del editor de Unity para iniciar la escena, conéctese a una sesión remota y cargue el modelo de prueba.
 1. Con la simulación de manos de MRTK, mantenga presionada la tecla Mayús izquierda.
 1. Guíe la mano simulada para que el rayo de la mano se dirija al modelo de prueba.
 1. Realice un clic largo para simular una espita de aire, con la ejecución el evento `OnPointerClicked`.
-1. Observe que la consola de Unity muestra un mensaje de registro con el nombre de la entidad secundaria seleccionada. Por ejemplo:
-![Ejemplo de entidad secundaria](./media/child-entity-example.png)
+1. Observe que la consola de Unity muestra un mensaje de registro con el nombre de la entidad secundaria seleccionada. Por ejemplo: ![Ejemplo de entidad secundaria](./media/child-entity-example.png)
 
 ## <a name="synchronizing-the-remote-object-graph-into-the-unity-hierarchy"></a>Sincronización del gráfico de objetos remotos en la jerarquía de Unity
 
@@ -351,9 +347,9 @@ Hasta el momento, solo hemos visto un elemento GameObject local que representa t
 
 1. Inicie la escena y cargue el modelo de prueba.
 1. Expanda los elementos secundarios del elemento GameObject **TestModel** de la jerarquía de Unity y seleccione el elemento GameObject **TestModel_Entity**.
-1. En el inspector, haga clic en el botón *Show Children* (Mostrar elementos secundarios).
+1. En el Inspector, haga clic en el botón *Mostrar elementos secundarios*.
 ![Show children (Mostrar elementos secundarios)](./media/show-remote-children.png)
-1. Continúe expandiendo los elementos secundarios de la jerarquía y haciendo clic en *Show Children* (Mostrar elementos secundarios) hasta que aparezca una lista grande de elementos secundarios.
+1. Continúe con la expansión de elementos secundarios en la jerarquía y haciendo clic en *Mostrar elementos secundarios* hasta que aparezca una lista grande de elementos secundarios.
 ![Todos los elementos secundarios](./media/test-model-children.png)
 
 La jerarquía se rellenará ahora con una lista de decenas de entidades. Al seleccionar una de ellas, se mostrarán los componentes `Transform` y `RemoteEntitySyncObject` en el inspector. De forma predeterminada, cada entidad no se sincroniza automáticamente con cada fotograma, por lo que los cambios locales en `Transform` no se sincronizan con el servidor. Si activa *Sync Every Frame* (Sincronizar cada fotograma) y, luego, mueve, gira o cambia la escala de la transformación en la vista de escena, no verá el modelo representado en ella. Inspeccione la vista de juego para ver que la posición y la rotación del modelo se actualizan visualmente.
@@ -371,13 +367,13 @@ El mismo proceso se puede realizar mediante programación y es el primer paso pa
     }
     ```
 
-1. Agregue una devolución de llamada adicional al evento `OnRemoteEntityClicked` de **RemoteRayCastPointerHandler**, para lo cual debe establecerlo en `MakeSyncedGameObject`.
+1. Agregue una devolución de llamada adicional al evento `OnRemoteEntityClicked` de **RemoteRayCastPointerHandler** y establézcalo en `MakeSyncedGameObject`.
 ![Devolución de llamada adicional](./media/additional-callback.png)
 1. Con la simulación de manos de MRTK, mantenga presionada la tecla Mayús izquierda.
 1. Guíe la mano simulada para que el rayo de la mano se dirija al modelo de prueba.
 1. Realice un clic largo para simular una espita de aire, con la ejecución el evento `OnPointerClicked`.
-1. Compruebe y expanda la jerarquía para ver un nuevo objeto secundario, que representa la entidad en la que se hizo clic.
-![Representación de elementos GameObject](./media/gameobject-representing-entity.png)\
+1. Compruebe y expanda la jerarquía para ver un nuevo objeto secundario que representa la entidad en la que se ha hecho clic.
+![Representación de GameObject](./media/gameobject-representing-entity.png)
 1. Después de la prueba, quite la devolución de llamada de `MakeSyncedGameObject`, ya que se incorporará como parte de otros efectos más adelante.
 
 > [!NOTE]

@@ -3,12 +3,12 @@ title: Conceptos de DevTest Labs | Microsoft Docs
 description: Aprenda los conceptos básicos de DevTest Labs y cómo puede facilitar la creación, la administración y la supervisión de máquinas virtuales de Azure
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: b6e845acb34a398af52392b3a90b9213a9945dd2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 43d62d637686a785cafd29aa311ccf20cb942721
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482758"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283850"
 ---
 # <a name="devtest-labs-concepts"></a>Conceptos de DevTest Labs
 ## <a name="overview"></a>Información general
@@ -20,7 +20,7 @@ Un laboratorio es la infraestructura que abarca un grupo de recursos, como máqu
 ## <a name="virtual-machine"></a>Máquina virtual
 Una máquina virtual de Azure es uno de los distintos tipos de [recursos informáticos a petición y escalables](/azure/architecture/guide/technology-choices/compute-decision-tree) que ofrece Azure. Las máquinas virtuales de Azure proporcionan la flexibilidad de virtualización sin necesidad de comprar y mantener el hardware físico que la ejecuta, aunque todavía es necesario mantener la máquina virtual mediante la realización de ciertas tareas, como configurar, aplicar revisiones e instalar el software que se ejecuta en la máquina virtual.
 
-[Información general sobre las máquinas virtuales Windows en Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-overview) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
+[Información general sobre las máquinas virtuales Windows en Azure](../virtual-machines/windows/overview.md) proporciona información sobre lo que se debe considerar antes de crear una máquina virtual, cómo crearla y cómo administrarla.
 
 ## <a name="claimable-vm"></a>Creación de máquinas virtuales reclamables
 Una máquina virtual reclamable de Azure Claimable es una que está disponible para que pueda usarla cualquier usuario de laboratorio con permisos. Un administrador de laboratorio puede preparar las máquinas virtuales con los artefactos y las imágenes base específicas y guardarlas en un grupo compartido. Luego, un usuario de laboratorio puede solicitar una máquina virtual de trabajo del grupo cuando necesite una con esa configuración concreta.
@@ -28,7 +28,7 @@ Una máquina virtual reclamable de Azure Claimable es una que está disponible p
 Una máquina virtual reclamable no se asigna inicialmente a ningún usuario concreto, pero se mostrará en la lista de todos los usuarios en "Claimable virtual machines" (Máquinas virtuales reclamables). Después de que un usuario reclame una máquina virtual, se mueve hasta su área "Mis máquinas virtuales" y ya no podrá reclamarla otro usuario.
 
 ## <a name="environment"></a>Entorno
-En DevTest Labs, un entorno hace referencia a una colección de recursos de Azure en un laboratorio. [Esta entrada de blog](https://blogs.msdn.microsoft.com/devtestlab/2016/11/16/connect-2016-news-for-azure-devtest-labs-azure-resource-manager-template-based-environments-vm-auto-shutdown-and-more/) describe cómo crear entornos de varias máquinas virtuales a partir de las plantillas de Azure Resource Manager.
+En DevTest Labs, un entorno hace referencia a una colección de recursos de Azure en un laboratorio. [Esta entrada de blog](./devtest-lab-faq.md#blog-post) describe cómo crear entornos de varias máquinas virtuales a partir de las plantillas de Azure Resource Manager.
 
 ## <a name="base-images"></a>Imágenes base
 Las imágenes base son imágenes de máquina virtual con todas las herramientas y los valores de configuración preinstalados y configurados para crear rápidamente una máquina virtual. Puede aprovisionar una máquina virtual seleccionando una base existente y agregando un artefacto para instalar su agente de prueba. Luego puede guardar la máquina virtual aprovisionada como base para que esta pueda utilizarse sin que sea necesario volver a instalar al agente de prueba para cada aprovisionamiento de la máquina virtual.
@@ -56,7 +56,7 @@ Las directivas ayudan a controlar los costos en su laboratorio. Por ejemplo, pue
 Los límites son un mecanismo que sirve para minimizar la pérdida en el laboratorio. Por ejemplo, puede establecer un límite para restringir el número de máquinas virtuales que se pueden crear por usuario o en un laboratorio.
 
 ## <a name="security-levels"></a>Niveles de seguridad
-La seguridad del acceso viene determinada por el Control de acceso basado en roles (RBAC) de Azure. Para entender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
+El acceso de seguridad lo determina el control de acceso basado en roles de Azure (Azure RBAC). Para entender cómo funciona el acceso, es importante comprender las diferencias entre un permiso, un rol y un ámbito según se define en RBAC.
 
 * Permiso: un permiso es un acceso definido para una acción específica (por ejemplo, acceso de lectura a todas las máquinas virtuales).
 * Rol: un rol es un conjunto de permisos que se pueden agrupar y asignar a un usuario. Por ejemplo, el rol de *propietario de la suscripción* tiene acceso a todos los recursos dentro de una suscripción.
@@ -74,7 +74,7 @@ Puesto que los ámbitos son jerárquicos, cuando un usuario tiene permisos en un
 ## <a name="azure-resource-manager-templates"></a>Plantillas del Administrador de recursos de Azure
 Todos los conceptos tratados en este artículo pueden configurarse mediante el uso de plantillas de Azure Resource Manager, que permiten definir la configuración y la infraestructura de la solución de Azure e implementarla varias veces en un estado coherente.
 
-[Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates#template-format) describe la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de ella.
+[Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md#template-format) describe la estructura de una plantilla de Azure Resource Manager y las propiedades que están disponibles en las diferentes secciones de ella.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

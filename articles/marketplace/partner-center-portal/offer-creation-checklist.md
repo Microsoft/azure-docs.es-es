@@ -5,21 +5,23 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: c56295f1e56e4ba3b6af9caf8ba38ce1f0552eeb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 11c1c307d00b9347081a313308ad2467086ec208
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101715"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327402"
 ---
 # <a name="saas-offer-creation-checklist-in-partner-center"></a>Lista de comprobación de creación de ofertas de SaaS
 
-El proceso de creación de ofertas de SaaS le llevará a través de varias páginas.  Estos son los detalles que puede proporcionar en cada una de ellas, con vínculos para obtener más información acerca de cada elemento.
+El proceso de creación de ofertas de SaaS le lleva a través de varias páginas.  Este artículo describe los detalles que puede proporcionar en cada una de ellas, con vínculos para obtener más información acerca de cada elemento.
+
+> [!NOTE]
+> Si va a crear una oferta de SaaS comercializable, asegúrese de implementar la integración con la [API de suministro de SaaS](./pc-saas-fulfillment-apis.md).  La integración con las API es la única manera de que la transacción de Marketplace funcione correctamente. También debe asegurarse de que la aplicación usa la autenticación de Azure AD con el inicio de sesión único (SSO). Consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](../azure-ad-saas.md).
 
 Los elementos que tiene que proporcionar o especificar se detallan a continuación.  Algunas áreas son opcionales o tienen aplicados los valores proporcionados, que puede cambiar según desee.  No es necesario que trabaje en estas secciones en el orden que se muestra aquí.
-
->[!Note]
->Si va a crear una oferta de SaaS comercializable, asegúrese de implementar la integración con la [API de suministro de SaaS](./pc-saas-fulfillment-apis.md).  La integración con las API es la única manera de que la transacción de Marketplace funcione correctamente.
 
 | **Elemento**    | **Propósito**  |
 | :---------- | :-------------------|
@@ -28,7 +30,7 @@ Los elementos que tiene que proporcionar o especificar se detallan a continuaci�
 | [Página de propiedades](#properties-page) | Defina las categorías y los sectores que se usan para agrupar su oferta en los catálogos de soluciones, los contratos legales que dan soporte a su oferta y su versión de la aplicación. |
 | [Página de descripción de la oferta](#offer-listing-page) | Defina los detalles de la oferta que se muestran en Marketplace, lo que incluye descripciones de la oferta y los recursos de marketing.|
 | [Página de versión preliminar](#preview-page) | Defina un público preliminar limitado para publicar la oferta antes de ponerla a disposición de un público más amplio de Marketplace.|
-| [Página de configuración técnica de la oferta](#technical-configuration-page)  |  Solo está disponible si selecciona vender la oferta a través de Microsoft.  Defina los detalles técnicos (dirección URL de la página de aterrizaje, dirección URL del webhook de conexión, Id. de inquilino de Azure AD e Id. de la aplicación de Azure AD) que usa Marketplace para conectarse a la oferta.  Estos parámetros son necesarios para integrarse correctamente con la realización de SaaS y las API de facturación según el uso de Marketplace.|
+| [Página de configuración técnica](#technical-configuration-page)  |  Solo está disponible si selecciona vender la oferta a través de Microsoft.  Defina los detalles técnicos (dirección URL de la página de aterrizaje, dirección URL del webhook de conexión, Id. de inquilino de Azure AD e Id. de la aplicación de Azure AD) que usa Marketplace para conectarse a la oferta.  Estos parámetros son necesarios para integrarse correctamente con la realización de SaaS y las API de facturación según el uso de Marketplace.|
 | [**Modal de nuevo plan**](#plan-identity-modal) | Recopila información sobre la identidad del plan.  |
 | [Página de descripción del plan](#plan-listing-page)  | Solo está disponible si selecciona vender la oferta a través de Microsoft. Defina los detalles usados para mostrar el plan en Marketplace.  |
 | [Página de precios y disponibilidad del plan](#plan-pricing--availability-page)  | Solo está disponible si selecciona vender la oferta a través de Microsoft.  Recopila las características empresariales (modelo de precios), el público y la disponibilidad de mercado para cada plan (versión) de su oferta.  |
@@ -36,10 +38,9 @@ Los elementos que tiene que proporcionar o especificar se detallan a continuaci�
 | Página de configuración técnica de la versión de prueba  | Solo disponible si selecciona ofrecer una versión de prueba de la oferta. Define los detalles técnicos de la demostración (o "versión de prueba") que permitirá a los clientes probar su oferta antes de comprarla.  |
 | [Página de revisión y publicación](#review-and-publish-page)  | Seleccione los cambios que desee publicar, vea el estado de cada página y proporcione notas al equipo de certificación.  |
 
+## <a name="new-offer-modal"></a>Modal de nueva oferta
 
-## <a name="new-offer-modal"></a>Modal de nueva oferta 
-
-Los primeros datos que tendrá que proporcionar son un identificador y un alias para la oferta. 
+Los primeros datos que tendrá que proporcionar son un identificador y un alias para la oferta.
 
 | **Nombre del campo**    | **Notas**   |  
 | :---------------- | :-----------| 
@@ -106,6 +107,9 @@ La página de versión preliminar es donde se especifica el público que tendrá
 ## <a name="technical-configuration-page"></a>Página de configuración técnica 
 
 La página de configuración técnica es donde especifica los detalles técnicos usados por Microsoft para conectarse a su oferta. No verá esta página si ha decidido no vender a través de Microsoft.
+
+> [!NOTE]
+> En el caso de las ofertas comercializables, debe crear una página de aterrizaje y la aplicación debe usar la autenticación de Azure AD con el inicio de sesión único (SSO). Para más información, consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](../azure-ad-saas.md).
 
 | **Nombre del campo**    | **Notas**   |  
 | :---------------- | :-----------| 

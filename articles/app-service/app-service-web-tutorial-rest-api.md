@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/28/2020
 ms.custom: mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019, seodec18
-ms.openlocfilehash: c59ff344cc3e24387c764ba2f23bc3fe0065b371
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 78d44310420558d2f57d2b652f8453028b20c433
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559788"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077715"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Tutorial: Hospedaje de una API RESTful con CORS en Azure App Service
 
@@ -203,4 +203,4 @@ Puede usar sus propias utilidades CORS en lugar de CORS de App Service para una 
 Avance al siguiente tutorial para aprender a autenticar y autorizar a los usuarios.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro](app-service-web-tutorial-auth-aad.md)
+> [Tutorial: Autenticación y autorización de usuarios de un extremo a otro](tutorial-auth-aad.md)

@@ -6,13 +6,13 @@ ms.topic: sample
 author: bmitchell287
 ms.author: brendm
 ms.service: spring-cloud
-ms.custom: subject-policy-samples
-ms.openlocfilehash: 527edc45b127de8825b3b0356d5074da7cd50a89
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.custom: subject-policy-samples, devx-track-java
+ms.openlocfilehash: 189fef69ba6991e736f88529550fba193a9a506b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274122"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091477"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-spring-cloud"></a>Definiciones de directivas integradas de Azure Policy para Azure Spring Cloud
 

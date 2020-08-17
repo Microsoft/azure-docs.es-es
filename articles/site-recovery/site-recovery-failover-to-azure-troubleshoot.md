@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 01/08/2020
 ms.author: mayg
-ms.openlocfilehash: 09a4700ce794458ee4dcad2291a93e0b13ca5feb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 39a92dbdc0bdcd0fdd2bb06efe3fbd4bfe33069d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133762"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071184"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -54,9 +54,11 @@ Para cambiar manualmente el tipo de inicio de los controladores para el **sistem
 
     Proporciona el siguiente resultado si se requiere la hidratación:
 
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system doesn't meet no-hydration requirement.
+    This system doesn't meet no-hydration requirement.
+    ```
 
     En caso de que la máquina virtual cumpla el requisito de no hidratación, el script proporcionará el resultado "This system meets no-hydration requirement" (Este sistema cumple los requisitos de no hidratación). En este caso, todos los conductores y servicios están en el estado requerido por Azure y no se requiere hidratación en la máquina virtual.
 
@@ -65,12 +67,14 @@ Para cambiar manualmente el tipo de inicio de los controladores para el **sistem
     `.\Script-no-hydration.ps1 -set`
     
     Esto convertirá el tipo de inicio de los controladores y ofrecerá un resultado similar al siguiente:
-    
-        REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0 
 
-        Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0 
+    ```output
+    REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc           start =  3 expected value =  0
 
-        This system is now no-hydration compatible. 
+    Updating registry:  REGISTRY::HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\services\storvsc   start =  0
+
+    This system is now no-hydration compatible.
+    ```
 
 ## <a name="unable-to-connectrdpssh-to-the-failed-over-virtual-machine-due-to-grayed-out-connect-button-on-the-virtual-machine"></a>No se puede conectar/RDP/SSH a la máquina virtual que conmutó por error debido a que el botón Conectar de la máquina virtual no está disponible.
 
@@ -116,11 +120,15 @@ Si puede conectarse a la máquina mediante RDP pero no puede abrir la consola se
 
 * Si el sistema operativo de la máquina es Red Hat u Oracle Linux 7.*/8.0, ejecute el siguiente comando en la VM de Azure de conmutación por error con permisos raíz. Reinicie la VM después del comando.
 
-        grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
+  ```
 
 * Si el sistema operativo de la máquina es CentOS 7.*, ejecute el siguiente comando en la VM de Azure de conmutación por error con permisos raíz. Reinicie la VM después del comando.
 
-        grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```console
+  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
+  ```
 
 ## <a name="unexpected-shutdown-message-event-id-6008"></a>Mensaje de cierre inesperado (Id. de evento 6008)
 

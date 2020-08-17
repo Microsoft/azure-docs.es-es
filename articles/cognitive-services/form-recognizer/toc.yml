@@ -42,6 +42,8 @@
   items:
     - name: Uso de Form Recognizer con Cognitive Search
       href: 'https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-form'
+    - name: Uso de Form Recognizer con AI Builder
+      href: tutorial-ai-builder.md
 - name: Guías paso a paso
   items:
     - name: Creación de un conjunto de datos de aprendizaje
@@ -77,7 +79,7 @@
 - name: Recursos
   items:
     - name: Precios y límites
-      href: 'https://go.microsoft.com/fwlink/?linkid=2087258'
+      href: 'https://azure.microsoft.com/en-us/pricing/details/cognitive-services/form-recognizer/'
     - name: UserVoice
       href: 'https://go.microsoft.com/fwlink/?linkid=2090535'
     - name: Stack Overflow

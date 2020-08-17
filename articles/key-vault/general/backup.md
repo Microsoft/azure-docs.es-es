@@ -1,5 +1,5 @@
 ---
-title: Copia de seguridad de Azure Key Vault | Microsoft Docs
+title: Copia de seguridad de un secreto, una clave o un certificado almacenados en Azure Key Vault | Microsoft Docs
 description: Use este documento para ayudar a realizar copias de seguridad de un secreto, una clave o un certificado almacenados en Azure Key Vault.
 services: key-vault
 author: ShaneBala-keyvault
@@ -10,111 +10,114 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: sudbalas
-ms.openlocfilehash: 8a152e2771f0b207e81f42c6ecae2e4d14605051
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 668154b5e54ed4d496d272e33e8fc7f378e75e8a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156384"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386272"
 ---
 # <a name="azure-key-vault-backup"></a>Copia de seguridad de Azure Key Vault
 
-En este documento se muestra cómo realizar una copia de seguridad de los secretos, claves y certificados individuales almacenados en el almacén de claves. Esta copia de seguridad está diseñada para proporcionarle una copia sin conexión de todos los secretos en el caso improbable de que pierda el acceso al almacén de claves.
+En este documento se muestra cómo realizar copias de seguridad de secretos, claves y certificados almacenados en el almacén de claves. Esta copia de seguridad está diseñada para proporcionarle una copia sin conexión de todos los secretos en el caso improbable de que pierda el acceso al almacén de claves.
 
 ## <a name="overview"></a>Información general
 
-Key Vault proporciona automáticamente varias características para mantener la disponibilidad y evitar la pérdida de datos. Esta copia de seguridad solo se debe intentar si hay una justificación empresarial crítica para mantener una copia de seguridad de los secretos. La copia de seguridad de los secretos en el almacén de claves puede introducir desafíos operativos adicionales, como el mantenimiento de varios conjuntos de registros, permisos y copias de seguridad cuando los secretos expiran o rotan.
+Azure Key Vault proporciona automáticamente características para ayudarle a mantener la disponibilidad y evitar la pérdida de datos. Haga una copia de seguridad de los secretos solo si tiene una justificación empresarial crítica. La copia de seguridad de los secretos del almacén de claves puede plantear desafíos operativos adicionales, como el mantenimiento de varios conjuntos de registros, permisos y copias de seguridad cuando los secretos expiren o roten.
 
-Key Vault mantiene la disponibilidad en escenarios de desastre y realizará automáticamente una conmutación por error de las solicitudes a una región emparejada sin que sea necesaria la intervención del usuario. Para más información, consulte el vínculo siguiente. [Guía de recuperación ante desastres para el servicio de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance)
+Key Vault mantiene la disponibilidad en escenarios de desastre y realizará automáticamente una conmutación por error de las solicitudes a una región emparejada sin intervención del usuario. Para más información, consulte [Redundancia y disponibilidad de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
 
-Key Vault protege contra la eliminación accidental y malintencionada de los secretos mediante la protección de eliminación y purga de software. Si desea protección contra la eliminación accidental o malintencionada de los secretos, configure las características de protección de eliminación temporal y purga en el almacén de claves. Para más información, consulte el documento siguiente. [Recuperación de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete)
+Si desea protección contra la eliminación accidental o malintencionada de los secretos, configure las características de eliminación temporal y protección de purga en el almacén de claves. Para más información, consulte el artículo [Información general sobre la eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
 
 ## <a name="limitations"></a>Limitaciones
 
-Azure Key Vault no tiene actualmente una forma de realizar una copia de seguridad de un almacén de claves completo en una sola operación. Ni Microsoft ni el equipo de Azure Key Vault permitirán el uso de los comandos enumerados en este documento para llevar a cabo una copia de seguridad automatizada de un almacén de claves.
+Key Vault no proporciona actualmente una forma de realizar una copia de seguridad de un almacén de claves completo en una sola operación. Cualquier intento de usar los comandos enumerados en este documento para realizar una copia de seguridad automatizada de un almacén de claves puede producir errores y no será admitida por Microsoft ni el equipo de Azure Key Vault. 
 
-Si intenta utilizar los comandos mostrados en el documento siguiente para crear una automatización personalizada, pueden producirse errores.
+Tenga en cuenta también las consecuencias siguientes:
 
-* La copia de seguridad de secretos con varias versiones puede provocar errores de tiempo de espera.
-* La copia de seguridad crea una instantánea de un momento dado. Los secretos pueden renovarse durante una copia de seguridad, lo que provoca una falta de coincidencia de las claves de cifrado.
-* Si se superan los límites de servicio del almacén de claves para las solicitudes por segundo, el almacén de claves se limitará y se producirá un error en la copia de seguridad.
+* La copia de seguridad de secretos que tienen varias versiones podría producir errores de expiración del tiempo de espera.
+* Una copia de seguridad crea una instantánea a un momento dado. Los secretos pueden renovarse durante una copia de seguridad, lo que provoca una falta de coincidencia de las claves de cifrado.
+* Si se superan los límites de servicio de Key Vault en cuanto a solicitudes por segundo, el almacén de claves se limitará y se producirá un error en la copia de seguridad.
 
 ## <a name="design-considerations"></a>Consideraciones de diseño
 
-Al realizar una copia de seguridad de un objeto almacenado en el almacén de claves (secreto, clave o certificado), la operación de copia de seguridad descarga el objeto como un blob cifrado. Este blob no se puede descifrar fuera de Azure. Para obtener datos que se puedan usar de este blob, debe restaurar el blob en un almacén de claves dentro de la misma suscripción de Azure y en la zona geográfica de Azure.
-[Zonas geográficas de Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
+Al realizar una copia de seguridad de un objeto almacenado en el almacén de claves (secreto, clave o certificado), la operación de copia de seguridad descargará el objeto como un blob cifrado. Este blob no se puede descifrar fuera de Azure. Para obtener datos que se puedan usar de este blob, debe restaurar el blob en un almacén de claves dentro de la misma suscripción de Azure y [zona geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Permisos de nivel de colaborador o superior en una suscripción de Azure
-* Un almacén de claves principal que contenga los secretos de los que desee realizar una copia de seguridad
+Para realizar una copia de seguridad de un objeto de Key Vault, debe tener: 
+
+* Permisos de nivel de colaborador o superior en una suscripción de Azure.
+* Un almacén de claves principal que contenga los secretos de los que desea realizar una copia de seguridad.
 * Un almacén de claves secundario en el que se restaurarán los secretos.
 
-## <a name="back-up-and-restore-with-azure-portal"></a>Copia de seguridad y restauración con Azure Portal
+## <a name="back-up-and-restore-from-the-azure-portal"></a>Copia de seguridad y restauración desde Azure Portal
+
+Siga los pasos de esta sección para realizar copias de seguridad y restaurar objetos mediante Azure Portal.
 
 ### <a name="back-up"></a>Copia de seguridad
 
-1. Acceda a Azure Portal.
+1. Vaya a Azure Portal.
 2. Seleccione el almacén de claves.
 3. Vaya al objeto (secreto, clave o certificado) del que desea realizar una copia de seguridad.
 
-    ![Imagen](../media/backup-1.png)
+    ![Captura de pantalla que muestra dónde seleccionar la configuración de claves y un objeto en un almacén de claves.](../media/backup-1.png)
 
 4. Seleccione el objeto.
-5. Selección de "Descargar copia de seguridad"
+5. Seleccione **Descargar copia de seguridad**.
 
-    ![Imagen](../media/backup-2.png)
+    ![Captura de pantalla que muestra dónde seleccionar el botón Descargar copia de seguridad en un almacén de claves.](../media/backup-2.png)
     
-6. Haga clic en el botón "Descargar".
+6. Seleccione **Descargar**.
 
-    ![Imagen](../media/backup-3.png)
+    ![Captura de pantalla que muestra dónde seleccionar el botón Descargar en un almacén de claves.](../media/backup-3.png)
     
 7. Almacene el blob cifrado en una ubicación segura.
 
 ### <a name="restore"></a>Restauración
 
-1. Acceda a Azure Portal.
+1. Vaya a Azure Portal.
 2. Seleccione el almacén de claves.
-3. Desplácese hasta el tipo de objeto (secreto, clave o certificado) que desee restaurar.
-4. Seleccione "Restaurar copia de seguridad".
+3. Desplácese hasta el tipo de objeto (secreto, clave o certificado) que desea restaurar.
+4. Seleccione **Restaurar copia de seguridad**.
 
-    ![Imagen](../media/backup-4.png)
+    ![Captura de pantalla que muestra dónde seleccionar Restaurar copia de seguridad en un almacén de claves.](../media/backup-4.png)
     
 5. Vaya a la ubicación donde almacenó el blob cifrado.
-6. Seleccione "Aceptar".
+6. Seleccione **Aceptar**.
 
-## <a name="back-up-and-restore-with-the-azure-cli"></a>Copia de seguridad y restauración con la CLI de Azure
+## <a name="back-up-and-restore-from-the-azure-cli"></a>Copia de seguridad y restauración desde la CLI de Azure
 
 ```azurecli
-## Login To Azure
+## Log in to Azure
 az login
 
-## Set your Subscription
+## Set your subscription
 az account set --subscription {AZURE SUBSCRIPTION ID}
 
-## Register Key Vault as a Provider
+## Register Key Vault as a provider
 az provider register -n Microsoft.KeyVault
 
-## Backup a Certificate in Key Vault
+## Back up a certificate in Key Vault
 az keyvault certificate backup --file {File Path} --name {Certificate Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Key in Key Vault
+## Back up a key in Key Vault
 az keyvault key backup --file {File Path} --name {Key Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Backup a Secret in Key Vault
+## Back up a secret in Key Vault
 az keyvault secret backup --file {File Path} --name {Secret Name} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Certificate in Key Vault
+## Restore a certificate in Key Vault
 az keyvault certificate restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Key in Key Vault
+## Restore a key in Key Vault
 az keyvault key restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
-## Restore a Secret in Key Vault
+## Restore a secret in Key Vault
 az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --subscription {SUBSCRIPTION ID}
 
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Active el registro y la supervisión para Azure Key Vault. [Registro de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/logging)
+Active el [registro y la supervisión](https://docs.microsoft.com/azure/key-vault/general/logging) para Key Vault.

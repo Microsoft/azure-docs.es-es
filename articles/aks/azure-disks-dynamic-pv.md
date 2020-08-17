@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a crear de forma dinámica un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 03/01/2019
-ms.openlocfilehash: 44741452f95995327914978bbfd5b0a49566faa5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/10/2020
+ms.openlocfilehash: 0e7bc057d756215b1aa155f0e227c75c99c8737c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751353"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86518018"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con discos de Azure en Azure Kubernetes Service (AKS)
 
@@ -31,14 +31,14 @@ También es preciso que esté instalada y configurada la versión 2.0.59 de la C
 
 Una clase de almacenamiento se usa para definir cómo se crea dinámicamente una unidad de almacenamiento con un volumen persistente. Para más información sobre las clases de almacenamiento de Kubernetes, consulte las [clases de almacenamiento de Kubernetes][kubernetes-storage-classes].
 
-Cada clúster de AKS incluye dos clases de almacenamiento creadas previamente y configuradas ambas para funcionar con discos de Azure:
+Cada clúster de AKS incluye cuatro clases de almacenamiento creadas previamente, dos de las cuales están configuradas para funcionar con discos de Azure:
 
-* La clase de almacenamiento *predeterminada* aprovisiona un disco de Azure estándar.
-    * Standard Storage está respaldado por unidades de disco duro y ofrece un almacenamiento rentable, al tiempo que mantiene un rendimiento superior. Los discos estándar son ideales para cargas de trabajo de desarrollo y prueba rentables.
+* La clase de almacenamiento *predeterminada* aprovisiona un disco SSD de Azure estándar.
+    * Standard Storage está respaldado por SSD estándar y ofrece un almacenamiento rentable, al tiempo que proporciona un rendimiento fiable. 
 * La clase de almacenamiento *Premium administrada* aprovisiona un disco de Azure premium.
     * Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Si los nodos de AKS del clúster usan almacenamiento Premium, seleccione la clase *administrada Premium*.
     
-Si usa una de las clases de almacenamiento predeterminadas, no puede actualizar el tamaño del volumen una vez creada la clase de almacenamiento. Para poder actualizar el tamaño del volumen después de crear una clase de almacenamiento, agregue la línea `allowVolumeExpansion: true` a una de las clases de almacenamiento predeterminadas o también puede crear su propia clase de almacenamiento personalizada. Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. 
+Si usa una de las clases de almacenamiento predeterminadas, no puede actualizar el tamaño del volumen una vez creada la clase de almacenamiento. Para poder actualizar el tamaño del volumen después de crear una clase de almacenamiento, agregue la línea `allowVolumeExpansion: true` a una de las clases de almacenamiento predeterminadas o también puede crear su propia clase de almacenamiento personalizada. Tenga en cuenta que no se admite para reducir el tamaño de una PVC (para evitar la pérdida de datos). Puede editar una clase de almacenamiento existente con el comando `kubectl edit sc`. 
 
 Por ejemplo, si desea usar un disco de 4 TiB de tamaño, debe crear una clase de almacenamiento que defina `cachingmode: None`, porque el [almacenamiento en caché de discos no se admite en discos de 4 TiB y más grandes](../virtual-machines/windows/premium-storage-performance.md#disk-caching).
 
@@ -151,6 +151,9 @@ Events:
   Normal  SuccessfulMountVolume  1m    kubelet, aks-nodepool1-79590246-0  MountVolume.SetUp succeeded for volume "pvc-faf0f176-8b8d-11e8-923b-deb28c58d242"
 [...]
 ```
+
+## <a name="use-ultra-disks"></a>Uso de Ultra Disks
+Para utilizar el almacenamiento en disco Ultra, vea [Uso de Ultra Disks en Azure Kubernetes Service (AKS)](use-ultra-disks.md).
 
 ## <a name="back-up-a-persistent-volume"></a>Realización de una copia de seguridad de un volumen persistente
 
@@ -284,3 +287,11 @@ Obtenga más información sobre los volúmenes persistentes de Kubernetes con di
 [operator-best-practices-storage]: operator-best-practices-storage.md
 [concepts-storage]: concepts-storage.md
 [storage-class-concepts]: concepts-storage.md#storage-classes
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-feature-register]: /cli/azure/feature#az-feature-register
+[az-feature-list]: /cli/azure/feature#az-feature-list
+[az-provider-register]: /cli/azure/provider#az-provider-register

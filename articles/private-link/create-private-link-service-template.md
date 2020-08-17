@@ -1,6 +1,6 @@
 ---
 title: Creación de un servicio Private Link en Azure Private Link
-description: En este inicio rápido, usará una plantilla de Azure Resource Manager para crear un servicio Private Link.
+description: En esta guía de inicio rápido, usará una plantilla de Azure Resource Manager (plantilla de ARM) para crear un servicio de Private Link.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/29/2020
 ms.author: allensu
-ms.openlocfilehash: c9ed628501e8fa02b816a1564b91620404dfc379
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 2a3c7245a4e6c69e87791ca3364ad588b82572c6
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817614"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529614"
 ---
-# <a name="quickstart-create-a-private-link-service-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un servicio Private Link mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-a-private-link-service-by-using-an-arm-template"></a>Inicio rápido: Creación de un servicio de Private Link mediante una plantilla de ARM
 
-En este inicio rápido, usará una plantilla de Azure Resource Manager para crear un servicio Private Link.
+En esta guía de inicio rápido, usará una plantilla de Azure Resource Manager (plantilla de ARM) para crear un servicio de Private Link.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 También se puede completar este inicio rápido mediante [Azure Portal](create-private-link-service-portal.md), [Azure PowerShell](create-private-link-service-powershell.md) o la [CLI de Azure](create-private-link-service-cli.md).
 
-## <a name="prerequisite"></a>Requisito previo
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-link-service"></a>Creación de un servicio Private Link
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea un servicio Private Link.
 
-### <a name="review-the-template"></a>Revisión de la plantilla
-
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-privatelink-service/).
 
 :::code language="json" source="~/quickstart-templates/101-privatelink-service/azuredeploy.json" range="001-432" highlight="263-289":::
 
@@ -48,13 +50,13 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): hay dos direcciones IP públicas, una para cada máquina virtual.
 - [**Microsoft.Network/privateendpoints**](/azure/templates/microsoft.network/privateendpoints): punto de conexión privado para acceder al servicio.
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-A continuación, se muestra cómo implementar la plantilla de Azure Resource Manager en Azure:
+Aquí se muestra cómo implementar la plantilla de ARM en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea una máquina virtual, un equilibrador de carga estándar, un servicio Private Link, un punto de conexión privado, redes y una máquina virtual para validar.
 
-   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+   [![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-privatelink-service%2Fazuredeploy.json)
 
 2. Elija su grupo de recursos o cree uno.
 3. Escriba el nombre de usuario y la contraseña del administrador de la máquina virtual.
@@ -63,7 +65,7 @@ A continuación, se muestra cómo implementar la plantilla de Azure Resource Man
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 
 > [!NOTE]
-> La plantilla de Azure Resource Manager genera un nombre único para el recurso de la máquina virtual myConsumerVm<b>{uniqueid}</b>. Sustituya el valor generado para **{uniqueid}** .
+> La plantilla de ARM genera un nombre único para el recurso de la máquina virtual myConsumerVm<b>{uniqueid}</b>. Sustituya el valor generado para **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 
@@ -95,7 +97,7 @@ Conéctese a la máquina virtual _myConsumerVm{uniqueid}_ desde Internet de esta
 A continuación, se muestra cómo conectarse al servicio HTTP desde la máquina virtual mediante el punto de conexión privado.
 
 1.  Vaya al Escritorio remoto de _myConsumerVm{uniqueid}_ .
-2.  Abra un explorador y escriba la dirección del punto de conexión privado: http://10.0.0.5/.
+2.  Abra un explorador y escriba la dirección del punto de conexión privado: `http://10.0.0.5/`.
 3.  Aparece la página predeterminada de IIS.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

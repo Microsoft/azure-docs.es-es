@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: b553256d3e6a498e36e8b5c98d90c6c14b10df75
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 78eedb9bd4f12644a1bc992d0786a43b8af767a9
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224577"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86507937"
 ---
 # <a name="design-and-implement-an-oracle-database-in-azure"></a>Diseño e implementación de una base de datos de Oracle en Azure
 
@@ -43,17 +43,17 @@ Una diferencia importante es que en una implementación en Azure, los recursos, 
 
 En la tabla siguiente se enumeran algunas de las diferencias entre una implementación local y una implementación en Azure de una base de datos de Oracle.
 
-> 
-> |  | **Implementación local** | **Implementación en Azure** |
-> | --- | --- | --- |
-> | **Redes** |LAN/WAN  |SDN (Redes definidas por software)|
-> | **Grupo de seguridad** |Herramientas de restricción de IP y puerto |[Grupo de seguridad de red (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
-> | **Resistencia** |MTBF (tiempo medio entre errores) |MTTR (tiempo medio para recuperación)|
-> | **Mantenimiento planeado** |Aplicación de revisiones/actualizaciones|[Conjuntos de disponibilidad](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) (aplicación de revisiones o actualizaciones administradas por Azure) |
-> | **Recurso** |Dedicado  |Compartido con otros clientes|
-> | **Regiones** |Centros de datos |[Pares de región](https://docs.microsoft.com/azure/virtual-machines/windows/regions#region-pairs)|
-> | **Storage** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
-> | **Escala** |Escalado vertical |Escalado horizontal|
+
+|  | Implementación local | Implementación en Azure |
+| --- | --- | --- |
+| **Redes** |LAN/WAN  |SDN (Redes definidas por software)|
+| **Grupo de seguridad** |Herramientas de restricción de IP y puerto |[Grupo de seguridad de red (NSG)](https://azure.microsoft.com/blog/network-security-groups) |
+| **Resistencia** |MTBF (tiempo medio entre errores) |MTTR (tiempo medio para recuperación)|
+| **Mantenimiento planeado** |Aplicación de revisiones/actualizaciones|[Conjuntos de disponibilidad](../../windows/infrastructure-example.md) (aplicación de revisiones o actualizaciones administradas por Azure) |
+| **Recurso** |Dedicado  |Compartido con otros clientes|
+| **Regiones** |Centros de datos |[Pares de región](../../regions.md#region-pairs)|
+| **Storage** |SAN/discos físicos |[Almacenamiento administrado por Azure](https://azure.microsoft.com/pricing/details/managed-disks/?v=17.23h)|
+| **Escala** |Escalado vertical |Escalado horizontal|
 
 
 ### <a name="requirements"></a>Requisitos
@@ -116,11 +116,11 @@ El siguiente diagrama muestra el total de E/S de lectura y escritura. Hubo 59 GB
 
 #### <a name="2-choose-a-vm"></a>2. Elegir una máquina virtual
 
-En función de la información recopilada en el informe de AWR, el paso siguiente consiste en elegir una máquina virtual de un tamaño similar que cumpla los requisitos. Puede encontrar una lista de máquinas virtuales disponibles en el artículo [Optimización de memoria](../../linux/sizes-memory.md).
+En función de la información recopilada en el informe de AWR, el paso siguiente consiste en elegir una máquina virtual de un tamaño similar que cumpla los requisitos. Puede encontrar una lista de máquinas virtuales disponibles en el artículo [Optimización de memoria](../../sizes-memory.md).
 
 #### <a name="3-fine-tune-the-vm-sizing-with-a-similar-vm-series-based-on-the-acu"></a>3. Ajustar el tamaño de la máquina virtual con una serie de máquina virtual similar en función del valor de ACU
 
-Una vez que haya elegido la máquina virtual, preste atención a la ACU de la máquina virtual. Puede elegir una máquina virtual diferente en función del valor de ACU que mejor se adapte a sus necesidades. Para más información, consulte [Unidad de proceso de Azure (ACU)](https://docs.microsoft.com/azure/virtual-machines/windows/acu).
+Una vez que haya elegido la máquina virtual, preste atención a la ACU de la máquina virtual. Puede elegir una máquina virtual diferente en función del valor de ACU que mejor se adapte a sus necesidades. Para más información, consulte [Unidad de proceso de Azure (ACU)](../../acu.md).
 
 ![Captura de pantalla de la página de ACU](./media/oracle-design/acu_units.png)
 
@@ -143,8 +143,8 @@ En función de los requisitos de ancho de banda de red, puede elegir diferentes 
 
 - La latencia de red es superior en comparación con una implementación local. El rendimiento puede mejorar considerablemente si se reducen los recorridos de ida y vuelta de red.
 - Consolide las aplicaciones que tengan transacciones elevadas o estén "fragmentadas" en la misma máquina virtual para reducir los recorridos de ida y vuelta.
-- Use una instancia de Virtual Machines con las [redes aceleradas](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) para mejorar el rendimiento de la red.
-- En cuanto a ciertas distribuciones de Linux, habilite la [compatibilidad con TRIM/UNMAP](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm#trimunmap-support).
+- Use una instancia de Virtual Machines con las [redes aceleradas](../../../virtual-network/create-vm-accelerated-networking-cli.md) para mejorar el rendimiento de la red.
+- En cuanto a ciertas distribuciones de Linux, habilite la [compatibilidad con TRIM/UNMAP](../../linux/configure-lvm.md#trimunmap-support).
 - Instale [Oracle Enterprise Manager](https://www.oracle.com/technetwork/oem/enterprise-manager/overview/index.html) en una máquina virtual individual.
 - Las páginas de gran tamaño no están habilitadas en Linux de forma predeterminada. Habilite las páginas de gran tamaño y establezca `use_large_pages = ONLY` en Oracle DB. Esto puede ayudarle a mejorar el rendimiento. Puede encontrar más información [aquí](https://docs.oracle.com/en/database/oracle/oracle-database/12.2/refrn/USE_LARGE_PAGES.html#GUID-1B0F4D27-8222-439E-A01D-E50758C88390).
 
@@ -187,7 +187,7 @@ Una vez que se haya hecho una idea de los requisitos de E/S, puede elegir la com
 - Use la compresión de datos para reducir la E/S (para datos e índices).
 - Separe los registros de rehacer, sistema, temporales y de deshacer TS en discos de datos independientes.
 - No colocar ningún archivo de aplicación en el disco predeterminado del sistema operativo (/dev/sda). Estos discos están optimizados para un tiempo de arranque rápido de la máquina virtual y podría no proporcionar un buen rendimiento para la aplicación.
-- Al usar VM de la serie M en el almacenamiento Premium, habilite el [acelerador de escritura](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator) en el disco de registros de fase de puesta al día.
+- Al usar VM de la serie M en el almacenamiento Premium, habilite el [acelerador de escritura](../../linux/how-to-enable-write-accelerator.md) en el disco de registros de fase de puesta al día.
 
 ### <a name="disk-cache-settings"></a>Configuración de la caché de disco
 

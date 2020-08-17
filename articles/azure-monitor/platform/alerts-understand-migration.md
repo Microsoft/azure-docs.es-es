@@ -6,12 +6,12 @@ ms.date: 07/10/2019
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: d31c856e17348c23ad61130869af6ae440d3050d
-ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+ms.openlocfilehash: 533d114e08464ff95c654a6f071ea28a04caf510
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81114308"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564102"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>Descripción del funcionamiento de la herramienta de migración
 
@@ -64,7 +64,7 @@ Todas las alertas clásicas en las cuentas de almacenamiento se pueden migrar, e
 - SASThrottlingError
 - ThrottlingError
 
-La reglas de alertas clásicas en las métricas de porcentaje se deben migrar en función de la [asignación entre las métricas de almacenamiento antiguas y nuevas](https://docs.microsoft.com/azure/storage/common/storage-metrics-migration#metrics-mapping-between-old-metrics-and-new-metrics). Los umbrales deberán modificarse según corresponda porque la nueva métrica disponible es absoluta.
+La reglas de alertas clásicas en las métricas de porcentaje se deben migrar en función de la [asignación entre las métricas de almacenamiento antiguas y nuevas](../../storage/common/storage-metrics-migration.md#metrics-mapping-between-old-metrics-and-new-metrics). Los umbrales deberán modificarse según corresponda porque la nueva métrica disponible es absoluta.
 
 Las reglas de alertas clásicas en AnonymousThrottlingError, SASThrottlingError y ThrottlingError deben dividirse en dos nuevas alertas porque no hay ninguna métrica combinada que proporciona la misma funcionalidad. Los umbrales deberán adaptarse según corresponda.
 
@@ -104,7 +104,7 @@ Las alertas de las métricas de solicitudes con error de Mongo deben dividirse e
 
 ### <a name="classic-compute-metrics"></a>Métricas de proceso clásico
 
-Las alertas de métricas de proceso clásico no se migrarán con la herramienta de migración, ya que los recursos de proceso clásico todavía no se admiten con las nuevas alertas. En el futuro se agregará compatibilidad con las nuevas alertas en estos tipos de recursos. Una vez que esté disponible, los clientes deberán volver a crear reglas de alerta equivalentes basadas en las reglas de alerta clásicas antes de junio de 2020.
+Las alertas de métricas de proceso clásico no se migrarán con la herramienta de migración, ya que los recursos de proceso clásico todavía no se admiten con las nuevas alertas. La compatibilidad con nuevas alertas en estos tipos de recursos se encuentra actualmente en versión preliminar pública y los clientes pueden volver a crear nuevas reglas de alerta equivalentes en función de las reglas de alertas clásicas.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Reglas de alertas clásicas en métricas en desuso
 

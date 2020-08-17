@@ -5,12 +5,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: e66ae6aa0b9b7e309fbd6fcc3699cb873a266bbe
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 186d4c510b58e06fcb0b823ca0d5770a2684196e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83647900"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824994"
 ---
 # <a name="workspace-based-application-insights-resources-preview"></a>Recursos de Application Insights basados en área de trabajo (versión preliminar)
 
@@ -19,13 +19,13 @@ Los recursos basados en área de trabajo permiten la integración completa entre
 Esto también permite el control de acceso basado en rol (RBAC) común en los recursos y elimina la necesidad de consultas entre aplicaciones y áreas de trabajo.
 
 > [!NOTE]
-> La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( https://docs.microsoft.com/azure/azure-monitor/app/pricing#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
+> La ingesta de datos y la retención de recursos de Application Insights basados en área de trabajo se facturan por medio del área de trabajo de Log Analytics en la que se encuentran los datos. [Más información]( ./pricing.md#workspace-based-application-insights) sobre la facturación de recursos de Application Insights basados en área de trabajo.
 
 Para probar la nueva experiencia, inicie sesión en [Azure Portal](https://portal.azure.com) y cree un recurso de Application Insights:
 
 ![Recurso de Application Insights basado en área de trabajo](./media/create-workspace-resource/create-workspace-based.png)
 
-Si aún no tiene un área de trabajo de Log Analytics, [vea la documentación de creación de áreas de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+Si aún no tiene un área de trabajo de Log Analytics, [vea la documentación de creación de áreas de trabajo de Log Analytics](../learn/quick-create-workspace.md).
 
 Actualmente, en la versión preliminar pública, **los recursos basados en área de trabajo están limitados a Oeste de EE. UU. 2, Este de EE. UU. y Centro-sur de EE. UU.**
 
@@ -40,7 +40,7 @@ Al hacer clic en el texto del vínculo azul, se le lleva al área de trabajo de 
 
 ## <a name="copy-the-connection-string"></a>Copiar la cadena de conexión
 
-La [cadena de conexión](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
+La [cadena de conexión](./sdk-connection-string.md?tabs=net) identifica el recurso con el que se quieren asociar los datos de telemetría. También permite modificar los puntos de conexión que va a usar el recurso como destino de la telemetría. Tiene que copiar la cadena de conexión y agregarla al código de la aplicación o a una variable de entorno.
 
 ## <a name="monitoring-configuration"></a>Configuración de supervisión
 
@@ -52,14 +52,14 @@ En la supervisión de aplicaciones basada en código, solo se debe instalar el S
 
 Para obtener documentación detallada sobre la configuración de un SDK de Application Insights para la supervisión basada en código, vea la documentación específica del lenguaje o el marco:
 
-- [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net)
-- [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
-- [Tareas en segundo plano y aplicaciones de consola modernas (.NET/.NET Core)](https://docs.microsoft.com/azure/azure-monitor/app/worker-service)
-- [Aplicaciones de consola clásicas (.NET)](https://docs.microsoft.com/azure/azure-monitor/app/console) 
-- [Java](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started?tabs=maven)
-- [JavaScript](https://docs.microsoft.com/azure/azure-monitor/app/javascript)
-- [Node.js](https://docs.microsoft.com/azure/azure-monitor/app/nodejs)
-- [Python](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)
+- [ASP.NET](./asp-net.md)
+- [ASP.NET Core](./asp-net-core.md)
+- [Tareas en segundo plano y aplicaciones de consola modernas (.NET/.NET Core)](./worker-service.md)
+- [Aplicaciones de consola clásicas (.NET)](./console.md) 
+- [Java](./java-get-started.md?tabs=maven)
+- [JavaScript](./javascript.md)
+- [Node.js](./nodejs.md)
+- [Python](./opencensus-python.md)
 
 ### <a name="codeless-monitoring-and-visual-studio-resource-creation"></a>Supervisión sin código y creación de recursos de Visual Studio
 
@@ -102,7 +102,7 @@ az monitor app-insights component create --app
 az monitor app-insights component create --app demoApp --location eastus --kind web -g my_resource_group --workspace "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/test1234/providers/microsoft.operationalinsights/workspaces/test1234555"
 ```
 
-Para obtener la documentación completa de la CLI de Azure para este comando, vea la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
+Para obtener la documentación completa de la CLI de Azure para este comando, vea la [documentación de la CLI de Azure](/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -197,10 +197,10 @@ La funcionalidad de exportación continua heredada no es compatible con los recu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Exploración de métricas](../../azure-monitor/platform/metrics-charts.md)
-* [Escribir consultas de Analytics](../../azure-monitor/app/analytics.md)
+* [Exploración de métricas](../platform/metrics-charts.md)
+* [Escribir consultas de Analytics](../log-query/log-query-overview.md)
 
-[api]: ../../azure-monitor/app/api-custom-events-metrics.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[metrics]: ../../azure-monitor/platform/metrics-charts.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[api]: ./api-custom-events-metrics.md
+[diagnostic]: ./diagnostic-search.md
+[metrics]: ../platform/metrics-charts.md
+[start]: ./app-insights-overview.md

@@ -7,12 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 71a5737434e78bc39bccdfeb950e0dbc32ed0052
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+- 'Role: Operations'
+- 'Role: Technical Support'
+ms.openlocfilehash: bee22391664250888816dc2b4bbb93622cab7942
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84688983"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335569"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 
@@ -26,9 +30,9 @@ Cada instancia de IoT Hub se aprovisiona con un determinado número de unidades 
 
 El nivel también determina los valores de limitación que aplica Azure IoT Hub a las operaciones.
 
-### <a name="iot-plug-and-play"></a>IoT Plug and Play
+## <a name="iot-plug-and-play"></a>IoT Plug and Play
 
-Durante la versión preliminar pública, los dispositivos de IoT Plug and Play enviarán mensajes independientes por interfaz, lo que puede aumentar el número de mensajes considerados en la cuota de mensajes.
+Los dispositivos IoT Plug and Play envían al menos un mensaje de telemetría para cada interfaz, incluida la raíz, lo que puede aumentar el número de mensajes considerados en la cuota de mensajes.
 
 ## <a name="operation-throttles"></a>Limitaciones de operación
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 14e8b3e28115fb191760382ed2a9fbd5c5a04114
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: dc9e4e0a896677fd22baf33e7776e8158bd0bee6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919915"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011352"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Azure Blob Storage: niveles de acceso frecuente, esporádico y de archivo
 
@@ -248,7 +248,7 @@ Los niveles de acceso frecuente y esporádico, junto con el almacenamiento por n
 
 Los blobs del nivel de acceso frecuente tienen la misma latencia que los blobs de las cuentas de GPv1, GPv2 y Blob Storage. Los blobs del nivel de acceso esporádico tiene una latencia similar (en milisegundos) a la de los blobs de las cuentas de GPv1, GPv2 y Blob Storage. Los blobs del nivel de acceso de archivo presentan varias horas de latencia en cuentas de GPv1, GPv2 y Blob Storage.
 
-Los blobs del nivel de acceso esporádico tienen un nivel de servicio (SLA) de disponibilidad ligeramente inferior a los blobs almacenados en el nivel de acceso frecuente. Para más información, consulte [Contrato de nivel de servicio para Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+Los blobs del nivel de acceso esporádico tienen un nivel de servicio (SLA) de disponibilidad ligeramente inferior a los blobs almacenados en el nivel de acceso frecuente. Para más información, consulte [Contrato de nivel de servicio para Storage](https://azure.microsoft.com/support/legal/sla/storage/v1_5/).
 
 **¿Las operaciones entre los niveles de acceso frecuente, esporádico y de archivo son las mismas?**
 

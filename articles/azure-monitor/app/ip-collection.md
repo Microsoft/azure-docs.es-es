@@ -3,12 +3,13 @@ title: Colección de direcciones IP de Azure Application Insights | Microsoft Do
 description: Información acerca de cómo controlar las direcciones IP y la ubicación geográfica con Azure Application Insights
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: c7a4506c6a4246edc007a5ea2158998b472ec316
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 28a7fa50a06dc8b80c7d8dd284cd88ebe4645da6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85807135"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371658"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Administración de la ubicación geográfica y la dirección IP
 
@@ -27,7 +28,7 @@ Este comportamiento es así de forma predeterminada, ya que le ayudará a evitar
 
 ## <a name="overriding-default-behavior"></a>Invalidar el comportamiento predeterminado
 
-Aunque el comportamiento predeterminado debe minimizar la recopilación de datos personales, todavía ofrecemos la opción para recopilar y almacenar datos de direcciones IP. Antes de decidir si quiere almacenar datos personales como direcciones IP, le recomendamos que compruebe que esta acción no infrinja los requisitos de cumplimiento o la normativa local a los que pueda estar sujeto. Para obtener más información sobre la administración de datos personales en Application Insights, consulte la [guía de datos personales](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt).
+Aunque el comportamiento predeterminado debe minimizar la recopilación de datos personales, todavía ofrecemos la opción para recopilar y almacenar datos de direcciones IP. Antes de decidir si quiere almacenar datos personales como direcciones IP, le recomendamos que compruebe que esta acción no infrinja los requisitos de cumplimiento o la normativa local a los que pueda estar sujeto. Para obtener más información sobre la administración de datos personales en Application Insights, consulte la [guía de datos personales](../platform/personal-data-mgmt.md).
 
 ## <a name="storing-ip-address-data"></a>Almacenamiento de datos de direcciones IP
 
@@ -99,7 +100,7 @@ Si solo necesita modificar el comportamiento de un solo recurso de Application I
 
 ### <a name="rest-api"></a>API de REST
 
-La carga útil de la [API de Rest](https://docs.microsoft.com/rest/api/azure/) para realizar las mismas modificaciones es la siguiente:
+La carga útil de la [API de Rest](/rest/api/azure/) para realizar las mismas modificaciones es la siguiente:
 
 ```
 PATCH https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/microsoft.insights/components/<resource-name>?api-version=2018-05-01-preview HTTP/1.1
@@ -120,7 +121,7 @@ Content-Length: 54
 
 ## <a name="telemetry-initializer"></a>Inicializador de telemetría
 
-Si necesita una alternativa más flexible que `DisableIpMasking` para registrar todo o parte de las direcciones IP, puede usar un [inicializador de telemetría](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#addmodify-properties-itelemetryinitializer) para copiar todo o parte de la dirección IP en un campo personalizado. 
+Si necesita una alternativa más flexible que `DisableIpMasking` para registrar todo o parte de las direcciones IP, puede usar un [inicializador de telemetría](./api-filtering-sampling.md#addmodify-properties-itelemetryinitializer) para copiar todo o parte de la dirección IP en un campo personalizado. 
 
 ### <a name="aspnet--aspnet-core"></a>ASP.NET/ASP.NET Core
 
@@ -233,6 +234,6 @@ Las direcciones IP recién recopiladas deben aparecer en la columna `customDimen
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre la [recopilación de datos personales](https://docs.microsoft.com/azure/azure-monitor/platform/personal-data-mgmt) en Application Insights.
+* Obtenga más información sobre la [recopilación de datos personales](../platform/personal-data-mgmt.md) en Application Insights.
 
 * Obtenga más información sobre cómo funciona la [recopilación de direcciones IP](https://apmtips.com/posts/2016-07-05-client-ip-address/) en Application Insights. (Esta es una publicación de blog externa anterior que escribió uno de nuestros ingenieros. Es anterior al comportamiento predeterminado actual donde la dirección IP se registra como `0.0.0.0`, pero se profundiza en la mecánica del elemento `ClientIpHeaderTelemetryInitializer` integrado).

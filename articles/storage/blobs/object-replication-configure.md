@@ -6,15 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 9cb9f1a33c37487f4bfb1419d45d4e42a862d815
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 73b568057bbb846958b6fe95f11c285326fe3688
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888114"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495189"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configuración de la replicación de objetos para blobs en bloques (versión preliminar)
 
@@ -52,7 +53,7 @@ Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
     :::image type="content" source="media/object-replication-configure/configure-replication-policy.png" alt-text="Captura de pantalla que muestra las reglas de replicación en Azure Portal":::
 
-1. Si quiere, especifique uno o varios filtros para copiar solo los blobs que coinciden con un patrón de prefijo. Por ejemplo, si especifica un prefijo `b`, solo se replicarán los blobs cuyo nombre empiece por esa letra. Puede especificar un directorio virtual como parte del prefijo.
+1. Si quiere, especifique uno o varios filtros para copiar solo los blobs que coinciden con un patrón de prefijo. Por ejemplo, si especifica un prefijo `b`, solo se replicarán los blobs cuyo nombre empiece por esa letra. Puede especificar un directorio virtual como parte del prefijo. La cadena de prefijo no admite caracteres comodín.
 
     En la imagen siguiente se muestran filtros que restringen los blobs que se copian como parte de una regla de replicación.
 
@@ -68,7 +69,7 @@ Para crear una directiva de replicación en Azure Portal, siga estos pasos:
 
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Para crear una directiva de replicación con PowerShell, primero instale la versión [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) del módulo Az.Storage de PowerShell. Para instalar el módulo de la versión preliminar, siga estos pasos:
+Para crear una directiva de replicación con PowerShell, primero instale la versión [2.0.1-preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) o posterior del módulo Az.Storage de PowerShell. Para instalar el módulo de la versión preliminar, siga estos pasos:
 
 1. Desinstale cualquier instalación anterior de Azure PowerShell desde Windows usando el ajuste **Aplicaciones y características** en **Configuración**.
 

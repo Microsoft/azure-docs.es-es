@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 71176c87ee805eb4a634dd6c2f344922fc13c4f3
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132714"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835891"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Solución de problemas de conectividad de red de máquinas virtuales de Azure en Azure
 
@@ -18,12 +18,12 @@ En este artículo se describen los problemas comunes relacionados con la conecti
 
 Para que la replicación de Site Recovery funcione, la máquina virtual debe disponer de conectividad saliente a direcciones URL o intervalos IP específicos. Si la máquina virtual está detrás de un firewall o usa reglas de grupo de seguridad de red (NSG) para controlar la conectividad saliente, puede encontrarse alguno de estos problemas.
 
-| URL | Detalles |
-|---|---|
-| `*.blob.core.windows.net` | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce todas las cuentas de almacenamiento en caché para las máquinas virtuales, puede usar una lista de permitidos para las direcciones URL de la cuenta de almacenamiento específica. Por ejemplo, `cache1.blob.core.windows.net` y `cache2.blob.core.windows.net` en lugar de `*.blob.core.windows.net`. |
-| `login.microsoftonline.com` | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual. Puede usar la _dirección IP de Site Recovery_ correspondiente si el proxy del firewall es compatible con las direcciones IP. |
-| `*.servicebus.windows.net` | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual. Puede usar la _Dirección IP de supervisión de Site Recovery_ correspondiente si el proxy del firewall es compatible con las direcciones IP. |
+| **Nombre**                  | **Comercial**                               | **Gobierno**                                 | **Descripción** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce todas las cuentas de almacenamiento en caché para las máquinas virtuales, puede usar una lista de permitidos para las direcciones URL de la cuenta de almacenamiento específica. Por ejemplo, `cache1.blob.core.windows.net` y `cache2.blob.core.windows.net` en lugar de `*.blob.core.windows.net`. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery. |
+| Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual. Puede usar la _dirección IP de Site Recovery_ correspondiente si el proxy del firewall es compatible con las direcciones IP. |
+| Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual. Puede usar la _Dirección IP de supervisión de Site Recovery_ correspondiente si el proxy del firewall es compatible con las direcciones IP. |
 
 ## <a name="outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072"></a>Conectividad saliente para direcciones URL o intervalos IP de Site Recovery (código de error 151037 o 151072)
 
@@ -51,7 +51,7 @@ Intente acceder al servidor DNS desde la máquina virtual. Si no puede acceder a
 ### <a name="issue-2-site-recovery-configuration-failed-151196"></a>Problema 2: error de configuración de Site Recovery (151196)
 
 > [!NOTE]
-> Si las máquinas virtuales están detrás de un equilibrador de carga interno **estándar**, de manera predeterminada, no tendría acceso a las direcciones IP de Office 365 como `login.microsoftonline.com`. Cámbielo al tipo de equilibrador de carga interno **básico** o cree un acceso saliente, tal como se menciona en el artículo [Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure](../load-balancer/configure-load-balancer-outbound-cli.md).
+> Si las máquinas virtuales están detrás de un equilibrador de carga interno **estándar**, de manera predeterminada, no tendría acceso a las direcciones IP de Office 365 como `login.microsoftonline.com`. Cámbielo al tipo de equilibrador de carga interno **básico** o cree un acceso saliente, tal como se menciona en el artículo [Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure](../load-balancer/quickstart-load-balancer-standard-public-cli.md?tabs=option-1-create-load-balancer-standard#create-outbound-rule-configuration).
 
 #### <a name="possible-cause"></a>Causa posible
 

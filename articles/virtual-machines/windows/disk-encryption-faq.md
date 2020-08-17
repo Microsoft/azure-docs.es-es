@@ -4,16 +4,16 @@ description: En este artículo se ofrecen respuestas a las preguntas más frecue
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 11/01/2019
 ms.custom: seodec18
-ms.openlocfilehash: 78d4ffda62b98ca57a8204e6037f8ccd8c470924
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 0b910e3b119167fb4c6de55289d92b9d538c8ddb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508549"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284564"
 ---
 # <a name="azure-disk-encryption-for-windows-virtual-machines-faq"></a>Preguntas más frecuentes sobre Azure Disk Encryption para máquinas virtuales Windows
 

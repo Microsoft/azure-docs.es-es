@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 03/05/2020
 ms.author: hahamil
-ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 7cd2d5d8728e2a0539d5f106ab39c563e6e7c382
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: aaddev, identityplatformtop40, devx-track-javascript
+ms.openlocfilehash: a58da8b11876d662173ae83de43d8ed74ab43e93
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231699"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118304"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-api-from-an-angular-single-page-application"></a>Tutorial: Inicio de sesión de usuarios y llamada a Microsoft Graph API desde una aplicación de página única de Angular
 
@@ -31,7 +31,7 @@ En este tutorial se muestra cómo una aplicación de página única (SPA) de Ang
 
 ## <a name="how-the-sample-app-works"></a>Funcionamiento de la aplicación de ejemplo
 
-![Diagrama que muestra cómo funciona la aplicación de ejemplo generada en este tutorial](media/active-directory-develop-guidedsetup-javascriptspa-introduction/javascriptspa-intro.svg)
+![Diagrama que muestra cómo funciona la aplicación de ejemplo generada en este tutorial](./media/tutorial-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 ### <a name="more-information"></a>Más información
 
@@ -60,17 +60,18 @@ Para ejecutar este tutorial, necesitará:
 
 Genere una nueva aplicación de Angular con los siguientes comandos de npm:
 
-```Bash
+```bash
 npm install -g @angular/cli@8                    # Install the Angular CLI
-npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 ng new my-application --routing=true --style=css # Generate a new Angular app
+cd my-application                                # Change to the app directory
+npm install @angular/material@8 @angular/cdk@8   # Install the Angular Material component library (optional, for UI)
 npm install msal @azure/msal-angular             # Install MSAL and MSAL Angular in your application
 ng generate component page-name                  # To add a new page (such as a home or profile page)
 ```
 
 ## <a name="register-your-application"></a>Registrar su aplicación
 
-Siga las [instrucciones para registrar una aplicación de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) en Azure Portal.
+Siga las [instrucciones para registrar una aplicación de página única](./scenario-spa-app-registration.md) en Azure Portal.
 
 En la página de **información general** del registro de la aplicación, anote el valor de **Id. de aplicación (cliente)** para su uso posterior.
 
@@ -123,7 +124,7 @@ Registre el valor de **URI de redirección** como **http://localhost:4200/** y h
     |Nombre del valor|Información|
     |---------|---------|
     |Enter_the_Application_Id_Here|En la página de **información general** del registro de la aplicación, corresponde al valor de **Id. de aplicación (cliente)** . |
-    |Enter_the_Cloud_Instance_Id_Here|Esta es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba **https://login.microsoftonline.com** . Para las nubes nacionales (por ejemplo, China) consulte [Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+    |Enter_the_Cloud_Instance_Id_Here|Esta es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba **https://login.microsoftonline.com** . Para las nubes nacionales (por ejemplo, China) consulte [Nubes nacionales](./authentication-national-cloud.md).|
     |Enter_the_Tenant_Info_Here| Seleccione una de las siguientes opciones: Si la aplicación admite las *cuentas de este directorio organizativo*, reemplace este valor por el identificador del directorio (inquilino) o por el nombre del inquilino (por ejemplo, **contoso.microsoft.com**). Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**. Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por **común**. Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores**. |
     |Enter_the_Redirect_Uri_Here|Reemplace este valor por **http://localhost:4200** .|
 
@@ -148,7 +149,7 @@ Agregue el código siguiente a `AppComponent` para iniciar sesión con un usuari
 ```javascript
 export class AppComponent implements OnInit {
     constructor(private broadcastService: BroadcastService, private authService: MsalService) { }
-    
+
     ngOnInit() { }
 
     login() {

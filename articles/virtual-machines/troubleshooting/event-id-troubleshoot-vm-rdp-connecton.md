@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/01/2018
 ms.author: delhan
-ms.openlocfilehash: d569bf454a62272a5c60cc92abc0f24715218894
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 507cd6cfe9f251dbc304b579d634ff986b001264
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958402"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088604"
 ---
 # <a name="troubleshoot-azure-vm-rdp-connection-issues-by-event-id"></a>Solucionar problemas de conexión de RDP de máquinas virtuales de Azure en función de los identificadores de eventos 
 
@@ -290,13 +290,12 @@ Para corregir este problema, debe reinstalar el rol de Agente de conexión a Esc
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Eventos de Schannel](https://technet.microsoft.com/library/dn786445(v=ws.11).aspx)
+[Eventos de Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786445(v=ws.11))
 
-[Información general técnica de SSP de Schannel](https://technet.microsoft.com/library/dn786429(v=ws.11).aspx)
+[Información general técnica de SSP de Schannel](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn786429(v=ws.11))
 
-[RDP Fails with Event ID 1058 & Event 36870 with Remote Desktop Session Host Certificate & SSL Communication](https://blogs.technet.microsoft.com/askperf/2014/10/22/rdp-fails-with-event-id-1058-event-36870-with-remote-desktop-session-host-certificate-ssl-communication/) (Se produce un error en RDP con el id. de evento 1058 y 36870 con el certificado del host de sesión de Escritorio remoto y la comunicación de SSL)
+[RDP Fails with Event ID 1058 & Event 36870 with Remote Desktop Session Host Certificate & SSL Communication](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) (Se produce un error en RDP con el id. de evento 1058 y 36870 con el certificado del host de sesión de Escritorio remoto y la comunicación de SSL)
 
-[Schannel 36872 or Schannel 36870 on a Domain Controller](https://blogs.technet.microsoft.com/instan/2009/01/05/schannel-36872-or-schannel-36870-on-a-domain-controller/) (Schannel 36872 o Schannel 36870 en un controlador de dominio)
+[Schannel 36872 or Schannel 36870 on a Domain Controller](/archive/blogs/instan/schannel-36872-or-schannel-36870-on-a-domain-controller) (Schannel 36872 o Schannel 36870 en un controlador de dominio)
 
-[Event ID 1058 — Remote Desktop Services Authentication and Encryption](https://technet.microsoft.com/library/ee890862(v=ws.10).aspx) (Id. de evento 1058: autenticación y cifrado de los servicios de Escritorio remoto)
-
+[Event ID 1058 — Remote Desktop Services Authentication and Encryption](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee890862(v=ws.10)) (Id. de evento 1058: autenticación y cifrado de los servicios de Escritorio remoto)

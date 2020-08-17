@@ -3,19 +3,17 @@ title: 'Conceptos del lenguaje: QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: QnA Maker admite el contenido de la base de conocimiento en varios idiomas. Sin embargo, cada servicio QnA Maker se debe reservar para un único idioma. La primera base de conocimiento creada, cuyo destino es un servicio QnA Maker concreto, establece el idioma de dicho servicio.
 services: cognitive-services
-author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: diberry
-ms.openlocfilehash: 38701e8bbef1c5d78eca2242105e81fe7261c0f6
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b0d4250a6659996187923905955a9825a44cea42
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84693097"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132626"
 ---
 # <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Compatibilidad de idioma del contenido de la base de conocimiento para QnA Maker
 

@@ -1,14 +1,14 @@
 ---
-title: Roles y permisos de RBAC
-description: Use el control de acceso basado en roles (RBAC) de Azure y la administración de identidades y acceso (IAM) para proporcionar la personalización avanzada de permisos a recursos en una instancia de Azure Container Registry.
+title: Roles y permisos de Azure
+description: Use el control de acceso basado en roles (Azure RBAC) de Azure y la administración de identidades y acceso (IAM) para proporcionar la personalización avanzada de permisos a los recursos de una instancia de Azure Container Registry.
 ms.topic: article
 ms.date: 12/02/2019
-ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 90546b96f081893d312e66aae04e2125c1c210e5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74893491"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533315"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
@@ -85,7 +85,7 @@ Para definir un rol personalizado, consulte [Pasos para crear un rol personaliza
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga más información sobre cómo asignar roles RBAC a una identidad de Azure mediante [Azure Portal](../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../role-based-access-control/role-assignments-cli.md) u otras herramientas de Azure.
+* Obtenga más información sobre cómo asignar roles de Azure a una identidad de Azure mediante [Azure Portal](../role-based-access-control/role-assignments-portal.md), la [CLI de Azure](../role-based-access-control/role-assignments-cli.md) u otras herramientas de Azure.
 
 * Obtenga información sobre las [opciones de autenticación](container-registry-authentication.md) de Azure Container Registry.
 

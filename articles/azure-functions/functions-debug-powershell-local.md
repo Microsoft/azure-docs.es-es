@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 51edbc18a929f4f954fb1a582a417bc1600d1a6f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78163767"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082994"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Depuración local de Azure Functions de PowerShell
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Esta aplicación de funciones es similar a la que obtiene al completar el [inicio rápido de PowerShell](functions-create-first-function-powershell.md).
+Esta aplicación de funciones es similar a la que obtiene al completar el [inicio rápido de PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 El código de función de `run.ps1` es similar al siguiente script:
 
@@ -95,7 +95,7 @@ Para depurar sus funciones de PowerShell en Visual Studio Code, debe tener insta
 * [Extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md)
 * [PowerShell Core 6.2 o una versión posterior](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Después de instalar estas dependencias, cargue un proyecto existente de Functions de PowerShell o [cree su primer proyecto de Functions de PowerShell](functions-create-first-function-powershell.md).
+Después de instalar estas dependencias, cargue un proyecto existente de Functions de PowerShell o [cree su primer proyecto de Functions de PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
 
 >[!NOTE]
 > Si el proyecto no tiene los archivos de configuración necesarios, se le pedirá que los agregue.

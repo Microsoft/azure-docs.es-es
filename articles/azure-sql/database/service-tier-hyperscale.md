@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 3c4252f926163b00d3b4f4bf4a26373988017ac1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d74e3f196e58e522eb9377ca9f18fd05ec8460ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255013"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024000"
 ---
 # <a name="hyperscale-service-tier"></a>Nivel de servicio Hiperescala
 
@@ -218,7 +218,7 @@ Estas son las limitaciones actuales para el nivel de servicio Hiperescala en dis
 
 | Incidencia | Descripción |
 | :---- | :--------- |
-| En el panel Administrar copias de seguridad de un servidor no se muestran las bases de datos Hiperescala, que se filtran desde la vista.  | Hiperescala tiene un método independiente para administrar las copias de seguridad y, por tanto, la configuración de la retención de copias de seguridad correspondiente a la retención a largo plazo y a un momento dado no se aplican. En consecuencia, las bases de datos de Hiperescala no aparecen en el panel Administración de copias de seguridad.|
+| En el panel Administrar copias de seguridad de un servidor no se muestran las bases de datos Hiperescala, que se filtran desde la vista.  | Hiperescala tiene un método independiente para administrar las copias de seguridad y, por tanto, la configuración de la retención de copias de seguridad correspondiente a la retención a largo plazo y a un momento dado no se aplican. En consecuencia, las bases de datos de Hiperescala no aparecen en el panel Administración de copias de seguridad.<br><br>En el caso de las bases de datos migradas a Hiperescala desde otros niveles de servicio de Azure SQL Database, se conservan copias de seguridad previas a la migración durante el período de [retención de copias de seguridad](automated-backups-overview.md#backup-retention) de la base de datos de origen. Estas copias de seguridad se pueden utilizar para [restaurar](recovery-using-backups.md#programmatic-recovery-using-automated-backups) la base de datos de origen a un momento anterior a la migración.|
 | Restauración a un momento dado | No se puede restaurar una base de datos de Hiperescala en una base de datos que no sea de Hiperescala, ni se puede restaurar una base de datos que no sea de Hiperescala en una base de datos de Hiperescala. En el caso de una base de datos que no sea de Hiperescala que se ha migrado a Hiperescala mediante un cambio del nivel de servicio, la restauración a un momento dado antes de la migración y dentro del período de retención de copia de seguridad de la base de datos es posible [mediante programación](recovery-using-backups.md#programmatic-recovery-using-automated-backups). La base de datos restaurada no será de Hiperescala. |
 | Si una base de datos tiene uno o más archivos de datos de más de 1 TB, se produce un error en la migración | En algunos casos, es posible que se pueda solucionar este problema si se reducen los archivos de gran tamaño para que tengan menos de 1 TB. Si va a migrar una base de datos que se utiliza durante el proceso de migración, asegúrese de que ningún archivo tenga un tamaño superior a 1 TB. Utilice la siguiente consulta para determinar el tamaño de los archivos de base de datos. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | Instancia administrada de SQL | Actualmente Azure SQL Managed Instance no es compatible con las bases de datos de Hiperescala. |

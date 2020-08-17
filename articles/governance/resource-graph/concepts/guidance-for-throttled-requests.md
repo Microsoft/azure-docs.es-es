@@ -1,14 +1,14 @@
 ---
 title: Guía para solicitudes limitadas
 description: Aprenda a agrupar, escalonar, paginar y consultar en paralelo las solicitudes para evitar que Azure Resource Graph las limite.
-ms.date: 05/20/2020
+ms.date: 08/03/2020
 ms.topic: conceptual
-ms.openlocfilehash: dbcd438f1eda4edd30deef41542beeae6d746dc2
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 343d0c02e300431b63b908199931c20a50b85dd2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682049"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541845"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Guía de solicitudes limitadas en Azure Resource Graph
 
@@ -29,6 +29,8 @@ En cada respuesta de consulta, Azure Resource Graph agrega dos encabezados de li
 
 - `x-ms-user-quota-remaining` (int): la cuota de recurso restante para el usuario. Este valor se asigna al número de consultas.
 - `x-ms-user-quota-resets-after` (hh:mm:ss): el tiempo transcurrido hasta que se restablece el consumo de la cuota de un usuario.
+
+Cuando una entidad de seguridad tiene acceso a más de 5000 suscripciones en el inquilino o el [ámbito de consulta](./query-language.md#query-scope) del grupo de administración, la respuesta se limita a las primeras 5000 suscripciones y el encabezado `x-ms-tenant-subscription-limit-hit` se devuelve como `true`.
 
 Para ilustrar cómo funcionan los encabezados, echemos un vistazo a una respuesta de consulta que tiene el encabezado y los valores de `x-ms-user-quota-remaining: 10` y `x-ms-user-quota-resets-after: 00:00:03`.
 
@@ -239,6 +241,6 @@ Proporcione esta información:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte el lenguaje en uso en[Consultas básicas](../samples/starter.md).
-- Consulte los usos avanzados en [Consultas avanzadas](../samples/advanced.md).
+- Vea el lenguaje en uso en[Consultas básicas](../samples/starter.md).
+- Vea los usos avanzados en [Consultas avanzadas](../samples/advanced.md).
 - Obtenga más información sobre cómo [explorar recursos](explore-resources.md).

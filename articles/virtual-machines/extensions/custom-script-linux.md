@@ -1,5 +1,5 @@
 ---
-title: Ejecución de scripts personalizados en VM de Linux en Azure
+title: Ejecución de la extensión de script personalizado en máquinas virtuales Linux en Azure
 description: Automatización de tareas de configuración de máquinas virtuales Linux mediante la extensión de script personalizado v2
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/25/2018
 ms.author: mimckitt
-ms.openlocfilehash: 92bb254873669ae7c0894d633f17b5701b7ddc97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 367116948034fd4bedbeec15e655a09b179865d6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085731"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 2 con máquinas virtuales Linux
 La extensión de script personalizado versión 2 descarga y ejecuta scripts en máquinas virtuales de Azure. Esta extensión es útil para la configuración posterior a la implementación, la instalación de software o cualquier otra tarea de configuración o administración. Los scripts se pueden descargar desde Azure Storage u otra ubicación de Internet accesible, o se pueden proporcionar al tiempo de ejecución de la extensión. 
@@ -38,14 +38,14 @@ Cambie las implementaciones nuevas y existentes para que usen la nueva versión 
 
 ### <a name="operating-system"></a>Sistema operativo
 
-La extensión de script personalizado para Linux se ejecutará en los sistemas operativos admitidos de la extensión. Para más información, vea este [artículo](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+La extensión de script personalizado para Linux se ejecutará en los sistemas operativos admitidos de la extensión. Para más información, vea este [artículo](../linux/endorsed-distros.md).
 
 ### <a name="script-location"></a>Ubicación del script
 
 Puede emplear la extensión para usar las credenciales de Azure Blob Storage, a fin de tener acceso Azure Blob Storage. Como alternativa, la ubicación del script puede ser cualquier lugar, siempre y cuando la máquina virtual pueda enrutarse a ese punto de conexión, como GitHub, un servidor de archivos internos, etc.
 
 ### <a name="internet-connectivity"></a>Conectividad de Internet
-Si necesita descargar un script externamente, como GitHub o Azure Storage, deben abrirse puertos adicionales de firewall/grupo de seguridad de red. Por ejemplo, si el script se encuentra en Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Si necesita descargar un script externamente, como GitHub o Azure Storage, deben abrirse puertos adicionales de firewall/grupo de seguridad de red. Por ejemplo, si el script se encuentra en Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](../../virtual-network/security-overview.md#service-tags).
 
 Si el script se encuentra en un servidor local, puede que aún necesite que haya abiertos puertos adicionales de firewall/grupo de seguridad de red.
 
@@ -56,7 +56,8 @@ Si el script se encuentra en un servidor local, puede que aún necesite que haya
 * Los scripts tienen permitido un plazo de 90 minutos para ejecutarse; todo lo que dure más provocará un error de aprovisionamiento de la extensión.
 * No coloque reinicios dentro del script, ya que esto provocará problemas con otras extensiones que se estén instalando y, tras reiniciar el equipo, la extensión no continuará. 
 * Si tiene un script que provocará un reinicio, instale las aplicaciones y ejecute los scripts, etc. Debe programar el reinicio de un trabajo de Cron o usar herramientas como DSC, o extensiones de Chef o Puppet.
-* La extensión solo ejecutará un script una vez, si desea ejecutar un script en cada inicio, puede usar [cloud-init image](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init) y usar un módulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, puede usar el script para crear una unidad de servicio de SystemD.
+* La extensión solo ejecutará un script una vez, si desea ejecutar un script en cada inicio, puede usar [cloud-init image](../linux/using-cloud-init.md) y usar un módulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, puede usar el script para crear una unidad de servicio de SystemD.
+* Solo puede tener aplicada una versión de una extensión a la máquina virtual. Para ejecutar un segundo script personalizado, debe quitar la extensión de script personalizado y volver a aplicarla con el script actualizado. 
 * Si desea programar cuándo se ejecutará un script, debe utilizar la extensión para crear un trabajo de Cron. 
 * Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si quiere recibir actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
 * La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Curl*. 
@@ -134,7 +135,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 * `fileUris` (opcional, matriz de cadenas): direcciones URL de los archivos que se van a descargar.
 * `storageAccountName` (opcional, cadena): nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de `fileUris` deben ser direcciones URL de blobs de Azure.
 * `storageAccountKey` (opcional, cadena): clave de acceso de la cuenta de almacenamiento.
-* `managedIdentity`: (opcional, objeto JSON) la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos.
+* `managedIdentity`: (opcional, objeto JSON) la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para descargar archivos.
   * `clientId`: (opcional, cadena) el id. de cliente de la identidad administrada.
   * `objectId`: (opcional, cadena) el id. de objeto de la identidad administrada.
 
@@ -212,9 +213,9 @@ CustomScript usa el algoritmo siguiente para ejecutar un script.
 > [!NOTE]
 > Esta propiedad **debe** especificarse solo en la configuración protegida.
 
-CustomScript (versión 2.1 en adelante) admite la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
+CustomScript (versión 2.1 en adelante) admite la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
 
-Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o[asignada por el usuario](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) o[asignada por el usuario](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 Para usar la identidad asignada por el sistema en la máquina virtual/VMSS de destino, establezca el campo "managedidentity" a un objeto JSON vacío. 
 

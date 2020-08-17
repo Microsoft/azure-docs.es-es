@@ -12,9 +12,13 @@
   items:
     - name: Crear una máquina virtual en el portal
       href: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
-    - name: 'Creación de un panel: plantilla de Resource Manager'
-      displayName: Resource Manager
-      href: quick-create-template.md
+    - name: Creación de un panel
+      items:
+        - name: Azure PowerShell
+          href: quickstart-portal-dashboard-powershell.md
+        - name: Plantilla ARM
+          displayName: Resource Manager
+          href: quick-create-template.md
 - name: Conceptos
   items:
     - name: Uso compartido de paneles con el control de acceso basado en rol

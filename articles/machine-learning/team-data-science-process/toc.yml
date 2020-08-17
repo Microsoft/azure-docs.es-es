@@ -95,7 +95,7 @@
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
             - name: Introducción al uso del servidor de R en HDInsight
               href: /azure/hdinsight/r-server/r-server-overview?context=azure/machine-learning/team-data-science-process/context/ml-context
-        - name: Área de trabajo de Azure Machine Learning
+        - name: Área de trabajo de Machine Learning Studio (clásico)
           href: /azure/machine-learning/studio/create-workspace?context=azure/machine-learning/team-data-science-process/context/ml-context
     - name: Análisis de las necesidades empresariales
       items:
@@ -192,8 +192,6 @@
       href: deploy-models-in-production.md
 - name: Temas relacionados
   items:
-    - name: Azure Machine Learning
-      href: ../
     - name: Cognitive Services
       href: 'https://docs.microsoft.com/azure/cognitive-services/'
     - name: Detección de anomalías
@@ -211,7 +209,7 @@
     - name: Organizaciones que utilizan TDSP
       items:
         - name: New Signature
-          href: 'https://newsignature.com/services/professional-services/advanced-analytics/'
+          href: 'https://newsignature.com/services/'
         - name: Blue Granite
           href: 'https://www.blue-granite.com/blog/getting-more-from-your-data-science-teams-organization-and-process-considerations'
     - name: Recursos relacionados de Microsoft

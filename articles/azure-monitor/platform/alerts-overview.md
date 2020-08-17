@@ -4,12 +4,12 @@ description: Información general de las alertas de Azure Alertas, alertas clás
 ms.subservice: alerts
 ms.topic: conceptual
 ms.date: 01/28/2018
-ms.openlocfilehash: 3c4432300319c02cd7b1e31dec566f6e65ea9580
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e0741a23d7e5ece0898d83c53782afc353d9a7e5
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539574"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371607"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Información general sobre las alertas en Microsoft Azure 
 
@@ -52,11 +52,11 @@ Los atributos clave de las reglas de alertas son:
 - Sev 3 = Informativa
 - Sev 4 = Detallada 
 
-**Acción**: una acción específica llevada a cabo al desencadenarse la alerta. Para más información, vea [Grupos de acciones](../../azure-monitor/platform/action-groups.md).
+**Acción**: una acción específica llevada a cabo al desencadenarse la alerta. Para más información, vea [Grupos de acciones](./action-groups.md).
 
 ## <a name="what-you-can-alert-on"></a>Tipo de alertas que se pueden realizar
 
-Puede enviar alertas sobre métricas y registros tal y como se describe en el artículo sobre los [orígenes de datos de supervisión](../../azure-monitor/platform/data-sources.md). Estas incluyen, pero no se limitan a:
+Puede enviar alertas sobre métricas y registros tal y como se describe en el artículo sobre los [orígenes de datos de supervisión](./data-sources.md). Estas incluyen, pero no se limitan a:
 
 - Valores de métrica
 - Consultas de búsqueda de registros
@@ -69,7 +69,7 @@ Anteriormente, las métricas de Azure Monitor, Application Insights, Log Analyti
 | **Origen de supervisión** | **Tipo de señal**  | **Descripción** |
 |-------------|----------------|-------------|
 | Estado del servicio | Registro de actividades  | No compatible. Consulte [Creación de alertas del registro de actividad en notificaciones del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).  |
-| Application Insights | Pruebas de disponibilidad web | No compatible. Consulte [Alertas de pruebas web](../../azure-monitor/app/monitor-web-app-availability.md). Disponible para cualquier sitio web instrumentado para enviar datos a Application Insights. Reciba una notificación cuando la disponibilidad o la capacidad de respuesta de un sitio web está por debajo de las expectativas. |
+| Application Insights | Pruebas de disponibilidad web | No compatible. Consulte [Alertas de pruebas web](../app/monitor-web-app-availability.md). Disponible para cualquier sitio web instrumentado para enviar datos a Application Insights. Reciba una notificación cuando la disponibilidad o la capacidad de respuesta de un sitio web está por debajo de las expectativas. |
 
 ## <a name="manage-alerts"></a>Administrar alertas
 Puede establecer el estado de una alerta para especificar dónde se encuentra en el proceso de resolución. Cuando se cumplen los criterios especificados en la regla de alertas, se crea o se desencadena una alerta que tiene el estado *Nueva*. Puede cambiar el estado cuando se confirma una alerta y cuando se cierra. Todos los cambios de estado se almacenan en el historial de la alerta.
@@ -137,9 +137,9 @@ Aquí se explica cómo crear una nueva regla de alerta:
  
 Este proceso simplificado de creación ya no requiere que el usuario sepa las señales o el origen de supervisión admitidos antes de seleccionar un recurso de Azure. La lista de señales disponibles se filtra automáticamente según el recurso de destino que seleccione. También en función de ese destino, se le guía por la definición de la lógica de la regla de alerta automáticamente.  
 
-Puede obtener más información sobre cómo crear reglas de alertas en [Creación, visualización y administración de alertas mediante Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
+Puede obtener más información sobre cómo crear reglas de alertas en [Creación, visualización y administración de alertas mediante Azure Monitor](./alerts-metric.md).
 
-Las alertas están disponibles a través de varios servicios de supervisión de Azure. Para obtener más información sobre cómo y cuándo usar cada uno de estos servicios, consulte [Supervisión de aplicaciones y recursos de Azure](../../azure-monitor/overview.md). 
+Las alertas están disponibles a través de varios servicios de supervisión de Azure. Para obtener más información sobre cómo y cuándo usar cada uno de estos servicios, consulte [Supervisión de aplicaciones y recursos de Azure](../overview.md). 
 
 
 ## <a name="all-alerts-page"></a>Página Todas las alertas 
@@ -178,7 +178,7 @@ La página de detalles de alertas incluye las secciones siguientes:
 
 ## <a name="role-based-access-control-rbac-for-your-alert-instances"></a>Control de acceso basado en rol (RBAC) para las instancias de alertas
 
-El consumo y la administración de instancias de alertas requiere que el usuario tenga los roles RBAC integrados de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader). Estos roles se admiten en cualquier ámbito de Azure Resource Manager, desde el nivel de la suscripción hasta las asignaciones pormenorizadas en el nivel de un recurso. Por ejemplo, si un usuario solo tiene acceso de "colaborador de supervisión" para la máquina virtual `ContosoVM1`, puede consumir y administrar solo las alertas generadas en `ContosoVM1`.
+El consumo y la administración de instancias de alertas requiere que el usuario tenga los roles integrados de Azure de [colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) o [lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader). Estos roles se admiten en cualquier ámbito de Azure Resource Manager, desde el nivel de la suscripción hasta las asignaciones pormenorizadas en el nivel de un recurso. Por ejemplo, si un usuario solo tiene acceso de "colaborador de supervisión" para la máquina virtual `ContosoVM1`, puede consumir y administrar solo las alertas generadas en `ContosoVM1`.
 
 ## <a name="manage-your-alert-instances-programmatically"></a>Administrar las instancias de alertas mediante programación
 
@@ -208,7 +208,7 @@ Puede usar la [API de REST de Alert Management](https://aka.ms/alert-management-
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Más información sobre los grupos inteligentes](https://aka.ms/smart-groups)
-- [Información sobre los grupos de acciones](../../azure-monitor/platform/action-groups.md)
+- [Información sobre los grupos de acciones](./action-groups.md)
 - [Administración de instancias de alertas en Azure](https://aka.ms/managing-alert-instances)
 - [Administración de grupos inteligentes](https://aka.ms/managing-smart-groups)
 - [Más información acerca de los precios de alertas de Azure](https://azure.microsoft.com/pricing/details/monitor/)

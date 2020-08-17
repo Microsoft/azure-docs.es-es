@@ -11,12 +11,12 @@ metadata:
   author: cynthn
   ms.author: cynthn
   ms.date: 02/14/2020
-  ms.openlocfilehash: aa1492a021caa69303834ce4a144d33ca05b15e0
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: ea9b89a92aa271065a59de561dc684263ce1cdc4
+  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86502850"
+  ms.lasthandoff: 08/06/2020
+  ms.locfileid: "87829040"
 highlightedContent:
   items:
   - title: Creación de una máquina virtual Linux mediante la CLI de Azure
@@ -50,7 +50,7 @@ conceptualContent:
     - url: ./linux/image-builder.md
       itemType: how-to-guide
       text: Azure Image Builder
-    - url: /azure/virtual-machines/troubleshooting/linux-index
+    - url: ./troubleshooting/linux-index.yml
       itemType: how-to-guide
       text: Solución de problemas de máquinas virtuales Linux
     footerLink:
@@ -67,7 +67,7 @@ conceptualContent:
     - url: ../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md?context=azure/virtual-machines/windows/context/windows-vm-context
       itemType: how-to-guide
       text: Configuración de identidades administradas
-    - url: /azure/virtual-machines/troubleshooting/index
+    - url: ./troubleshooting/index.yml
       itemType: how-to-guide
       text: Solución de problemas de máquinas virtuales Windows
     footerLink:

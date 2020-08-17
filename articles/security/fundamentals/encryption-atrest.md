@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1e08e758fbba911d3391794f5bab31aaf6a5fc73
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: dd54c8f7e8a3784672f5364efc6f6b51186f911d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81454686"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529291"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Cifrado en reposo de datos de Azure
 
@@ -258,9 +258,8 @@ Se admite el cifrado del lado cliente de los datos de Azure SQL Database a trav�
 
 #### <a name="encryption-model-and-key-management-table"></a>Tabla de modelo de cifrado y administración de claves
 
-|                                  |                    | **Modelo de cifrado y administración de claves** |                    |
+| Producto, característica o servicio | Lado servidor con clave administrada por el servicio   | Lado servidor con clave administrada por el cliente | Lado cliente con clave administrada por el cliente  |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
-|                                  | **Cifrado del lado servidor mediante claves administradas del servicio**     | **Lado servidor mediante claves administradas por el cliente**             | **Lado cliente mediante clave administrada por el cliente**      |
 | **Inteligencia artificial y aprendizaje automático**      |                    |                    |                    |
 | Azure Cognitive Search           | Sí                | Sí                | -                  |
 | Azure Cognitive Services         | Sí                | Sí                | -                  |

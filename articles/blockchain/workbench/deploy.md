@@ -1,15 +1,16 @@
 ---
 title: Implementación de Azure Blockchain Workbench (versión preliminar)
 description: Cómo implementar Azure Blockchain Workbench (versión preliminar)
-ms.date: 01/08/2020
+ms.date: 07/16/2020
 ms.topic: how-to
-ms.reviewer: brendal
-ms.openlocfilehash: aaef42f715c9f4fa2550f4a2468b42c5077af14c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: ravastra
+ms.custom: references_regions
+ms.openlocfilehash: b46a35b45a51d0cc76942c4ca142c4c7792a28b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210785"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077017"
 ---
 # <a name="deploy-azure-blockchain-workbench-preview"></a>Implementación de Azure Blockchain Workbench (versión preliminar)
 
@@ -45,7 +46,7 @@ El costo de Blockchain Workbench se agrega al costo de los servicios de Azure su
 Azure Blockchain Workbench requiere de registros de aplicación y configuraciones de Azure AD. Puede elegir entre [configurar manualmente](#azure-ad-configuration) Azure AD antes de la implementación o ejecutar un script posterior a la implementación. Si está implementando nuevamente Blockchain Workbench, consulte la [configuración de Azure AD](#azure-ad-configuration) para verificar la configuración de Azure AD.
 
 > [!IMPORTANT]
-> El área de trabajo no tiene que implementarse en el mismo inquilino que el que se usa para registrar una aplicación de Azure AD. Se debe implementar en un inquilino donde tenga permisos suficientes para implementar recursos. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+> El área de trabajo no tiene que implementarse en el mismo inquilino que el que se usa para registrar una aplicación de Azure AD. Se debe implementar en un inquilino donde tenga permisos suficientes para implementar recursos. Para más información sobre los inquilinos de Azure AD, consulte [Obtención de un inquilino de Azure Active Directory](../../active-directory/develop/quickstart-create-new-tenant.md) e [Integración de aplicaciones con Azure Active Directory](../../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="deploy-blockchain-workbench"></a>Implementación de Blockchain Workbench
 
@@ -66,7 +67,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
     | Contraseña | La contraseña se usa para conectarse a las máquinas virtuales. |
     | SSH | Use una clave pública RSA en formato de una sola línea con **ssh-rsa** o utilice el formato PEM de varias líneas. Puede generar claves SSH mediante `ssh-keygen` en Linux y OS X o PuTTYGen en Windows. Para más información sobre las claves SSH, consulte [Uso de claves SSH con Windows en Azure](../../virtual-machines/linux/ssh-from-windows.md). |
     | Contraseña de la base de datos y Blockchain | Especifique la contraseña que se utilizará para acceder a la base de datos creada como parte de la implementación. La contraseña debe cumplir tres de los cuatro requisitos siguientes: debe tener una longitud de entre 12 y 72 caracteres, un carácter en minúscula, un carácter en mayúscula, un número y un carácter especial que no sea el signo de número (#), porcentaje (%), coma (,), asterisco (*), comilla inversa (\`), comilla doble ("), comilla simple ('), guion (-) y punto y coma (;). |
-    | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de **Ubicación**. |
+    | Región de la implementación | Especifique dónde se van a implementar los recursos de Blockchain Workbench. Para una mejor disponibilidad, el valor debe ser el mismo que el de la ubicación **Región**. No todas las regiones están disponibles durante la versión preliminar. Es posible que las características no estén disponibles en algunas regiones. Azure Blockchain Data Manager está disponible en las siguientes regiones de Azure: Este de EE. UU. y Oeste de Europa.|
     | Suscripción | Especifique la suscripción de Azure que desea usar para la implementación. |
     | Grupos de recursos | Cree un nuevo grupo de recursos seleccionando **Crear nuevo** y especifique un nombre de grupo de recursos único. |
     | Location | Especifique la región en la que desea implementar la plataforma. |
@@ -106,7 +107,7 @@ Una vez que se han completado los pasos descritos en los requisitos previos, est
      | Configuración de Azure Active Directory | Seleccione **Agregar más adelante**.</br>Nota: Si decide [configurar previamente Azure AD](#azure-ad-configuration) o volver a implementar, elija *Agregar ahora*. |
      | Selección de máquina virtual | Seleccione el rendimiento de almacenamiento y el tamaño de máquina virtual preferidos para la red de cadena de bloques. Elija un tamaño más pequeño de máquina virtual, como *Estándar DS1 v2*, si tiene una suscripción con límites de servicio bajos, como el nivel Gratis de Azure. |
 
-1. Seleccione **Aceptar** para finalizar la configuración avanzada.
+1. Seleccione **Revisar y crear** para finalizar con la configuración avanzada.
 
 1. Revise el resumen para comprobar que los parámetros son precisos.
 

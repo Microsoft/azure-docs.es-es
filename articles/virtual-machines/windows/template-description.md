@@ -4,19 +4,19 @@ description: Obtenga más información sobre cómo se define el recurso de máqu
 author: cynthn
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/03/2019
 ms.author: cynthn
-ms.openlocfilehash: 04dba192488744d1b54b0a0e2d885c0b1766bdc6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e420fe81941352d1002ed2c25c04fc686115c7c2
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82100539"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827459"
 ---
 # <a name="virtual-machines-in-an-azure-resource-manager-template"></a>Máquinas virtuales de una plantilla de Azure Resource Manager
 
-En este artículo se explican los aspectos de una plantilla de Azure Resource Manager que se aplican a las máquinas virtuales. En este artículo no se describe una plantilla completa para crear una máquina virtual. Para ello, necesita definiciones de recursos de cuentas de almacenamiento, interfaces de red, direcciones IP públicas y redes virtuales. Para obtener más información sobre cómo se pueden definir estos recursos juntos, consulte el [tutorial de plantilla de Resource Manager](../../azure-resource-manager/resource-manager-template-walkthrough.md).
+En este artículo se explican los aspectos de una plantilla de Azure Resource Manager que se aplican a las máquinas virtuales. En este artículo no se describe una plantilla completa para crear una máquina virtual. Para ello, necesita definiciones de recursos de cuentas de almacenamiento, interfaces de red, direcciones IP públicas y redes virtuales. Para obtener más información sobre cómo se pueden definir estos recursos juntos, consulte el [tutorial de plantilla de Resource Manager](../../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
 Hay muchas [plantillas en la galería](https://azure.microsoft.com/documentation/templates/?term=VM) que incluyen el recurso de máquina virtual. No todos los elementos que pueden incorporarse en una plantilla se describen aquí.
 
@@ -156,14 +156,14 @@ La versión de la API que especifica en la plantilla afecta a qué propiedades p
 
 Aproveche estas oportunidades para obtener las últimas versiones de API:
 
-- API de REST: [Mostrar todos los proveedores de recursos](https://docs.microsoft.com/rest/api/resources/providers)
-- PowerShell - [Get AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
-- CLI de Azure: [az provider show](https://docs.microsoft.com/cli/azure/provider)
+- API de REST: [Mostrar todos los proveedores de recursos](/rest/api/resources/providers)
+- PowerShell - [Get AzResourceProvider](/powershell/module/az.resources/get-azresourceprovider)
+- CLI de Azure: [az provider show](/cli/azure/provider)
 
 
 ## <a name="parameters-and-variables"></a>Parámetros y variables
 
-Los [parámetros](../../resource-group-authoring-templates.md) facilitan la tarea de especificar valores para la plantilla cuando la ejecuta. Esta sección de parámetros se utiliza en el ejemplo:
+Los [parámetros](../../azure-resource-manager/templates/template-syntax.md) facilitan la tarea de especificar valores para la plantilla cuando la ejecuta. Esta sección de parámetros se utiliza en el ejemplo:
 
 ```json
 "parameters": {
@@ -175,7 +175,7 @@ Los [parámetros](../../resource-group-authoring-templates.md) facilitan la tare
 
 Al implementar la plantilla de ejemplo, escriba valores para el nombre y la contraseña de la cuenta de administrador de cada máquina virtual y el número de máquinas virtuales que creará. Tiene la opción de especificar valores de parámetro en un archivo independiente que se administra con la plantilla, o bien proporcionarlos se le solicite.
 
-Las [variables](../../resource-group-authoring-templates.md) facilitan la tarea de establecer valores en la plantilla que se usan varias veces en ella o que cambian con el tiempo. Esta sección de variables se utiliza en el ejemplo:
+Las [variables](../../azure-resource-manager/templates/template-syntax.md) facilitan la tarea de establecer valores en la plantilla que se usan varias veces en ella o que cambian con el tiempo. Esta sección de variables se utiliza en el ejemplo:
 
 ```json
 "variables": { 
@@ -208,7 +208,7 @@ Las [variables](../../resource-group-authoring-templates.md) facilitan la tarea 
 }, 
 ```
 
-Al implementar la plantilla de ejemplo, los valores de las variables se utilizan para el nombre y el identificador de la cuenta de almacenamiento creada anteriormente. También se usan variables para proporcionar los valores de la extensión de diagnóstico. Lea [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../../resource-manager-template-best-practices.md) para ayudarlo a decidir cómo desea estructurar los parámetros y variables de la plantilla.
+Al implementar la plantilla de ejemplo, los valores de las variables se utilizan para el nombre y el identificador de la cuenta de almacenamiento creada anteriormente. También se usan variables para proporcionar los valores de la extensión de diagnóstico. Lea [Procedimientos recomendados para crear plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md) para ayudarlo a decidir cómo desea estructurar los parámetros y variables de la plantilla.
 
 ## <a name="resource-loops"></a>bucles de recursos
 
@@ -247,7 +247,7 @@ Tenga en cuenta que la creación de un bucle para un recurso de la plantilla pue
 
 ## <a name="dependencies"></a>Dependencias
 
-La mayoría de los recursos dependen de otros para que funcionen correctamente. Las máquinas virtuales deben estar asociadas con una red virtual y, para tal fin, necesita una interfaz de red. El elemento [dependsOn](../../resource-group-define-dependencies.md) se utiliza para asegurarse de que la interfaz de red está lista para usarse antes de que se creen las máquinas virtuales:
+La mayoría de los recursos dependen de otros para que funcionen correctamente. Las máquinas virtuales deben estar asociadas con una red virtual y, para tal fin, necesita una interfaz de red. El elemento [dependsOn](../../azure-resource-manager/templates/define-resource-dependency.md) se utiliza para asegurarse de que la interfaz de red está lista para usarse antes de que se creen las máquinas virtuales:
 
 ```json
 "dependsOn": [
@@ -274,10 +274,10 @@ Para establecer esta propiedad, debe existir la interfaz de red. Por lo tanto, n
 
 Al definir un recurso de máquina virtual, se utilizan varios elementos de perfil. Algunos son necesarios y otros, opcionales. Por ejemplo, los elementos hardwareProfile, osProfile, storageProfile y networkProfile son necesarios, pero diagnosticsProfile es opcional. Estos perfiles definen opciones como:
    
-- [size](sizes.md)
+- [size](../sizes.md)
 - [Nombre](/azure/architecture/best-practices/resource-naming) y credenciales
 - [Configuración del sistema operativo](cli-ps-findimage.md) y disco
-- [Interfaz de red](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md) 
+- [Interfaz de red](/previous-versions/azure/virtual-network/virtual-network-deploy-multinic-classic-ps) 
 - Diagnósticos de arranque
 
 ## <a name="disks-and-images"></a>Discos e imágenes
@@ -353,7 +353,7 @@ Si desea crear una máquina virtual a partir de una imagen personalizada, cambie
 
 ### <a name="attach-data-disks"></a>Conexión de discos de datos
 
-Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [número de discos](sizes.md) depende del tamaño del disco de sistema operativo que utilice. Con el tamaño de las máquinas virtuales establecido en Standard_DS1_v2, el número máximo de discos de datos que podría agregarse a es 2. En el ejemplo, se agrega un disco administrado a cada máquina virtual:
+Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [número de discos](../sizes.md) depende del tamaño del disco de sistema operativo que utilice. Con el tamaño de las máquinas virtuales establecido en Standard_DS1_v2, el número máximo de discos de datos que podría agregarse a es 2. En el ejemplo, se agrega un disco administrado a cada máquina virtual:
 
 ```json
 "dataDisks": [
@@ -369,7 +369,7 @@ Si lo desea, puede agregar discos de datos a las máquinas virtuales. El [númer
 
 ## <a name="extensions"></a>Extensiones
 
-Aunque las [extensiones](extensions-features.md) son un recurso independiente, están estrechamente relacionadas con las máquinas virtuales. Las extensiones pueden agregar como un recurso secundario de la máquina virtual o como uno independiente. El ejemplo muestra la [extensión de diagnóstico](extensions-diagnostics-template.md) que se agrega a las máquinas virtuales:
+Aunque las [extensiones](../extensions/features-windows.md) son un recurso independiente, están estrechamente relacionadas con las máquinas virtuales. Las extensiones pueden agregar como un recurso secundario de la máquina virtual o como uno independiente. El ejemplo muestra la [extensión de diagnóstico](../extensions/diagnostics-template.md) que se agrega a las máquinas virtuales:
 
 ```json
 { 
@@ -404,7 +404,7 @@ Aunque las [extensiones](extensions-features.md) son un recurso independiente, e
 
 Este recurso de extensión usa la variable storageName y las variables de diagnóstico para proporcionar valores. Si desea cambiar los datos recopilados mediante esta extensión, puede agregar más contadores de rendimiento a la variable wadperfcounters. También podría elegir poner los datos de diagnóstico en una cuenta de almacenamiento diferente a donde se almacenan los discos de máquina virtual.
 
-Existen muchas extensiones que se pueden instalar en una máquina virtual, pero la más útil es probablemente la de [script personalizado](extensions-customscript.md). En el ejemplo, un script de PowerShell denominado "start.ps1" se ejecuta en cada máquina virtual cuando se inicia por primera vez:
+Existen muchas extensiones que se pueden instalar en una máquina virtual, pero la más útil es probablemente la de [script personalizado](../extensions/custom-script-windows.md). En el ejemplo, un script de PowerShell denominado "start.ps1" se ejecuta en cada máquina virtual cuando se inicia por primera vez:
 
 ```json
 {
@@ -447,11 +447,11 @@ Si le preocupa el estado de los recursos de la implementación, consulte el grup
 
 ![Obtención de la información de implementación](./media/template-description/virtual-machines-deployment-info.png)
     
-No pasa nada por usar la misma plantilla para crear o actualizar recursos existentes. Al usar comandos para implementar plantillas, tiene la oportunidad de indicar qué [modo](../../resource-group-template-deploy.md) usar. El modo se puede establecer en **Completo** o **Incremental**. El valor predeterminado son actualizaciones incrementales. Tenga precaución al utilizar el modo **Completo** porque se pueden eliminar accidentalmente los recursos. Cuando se establece el modo en **Completo**, Resource Manager elimina los recursos del grupo de recursos que no están en la plantilla.
+No pasa nada por usar la misma plantilla para crear o actualizar recursos existentes. Al usar comandos para implementar plantillas, tiene la oportunidad de indicar qué [modo](../../azure-resource-manager/templates/deploy-powershell.md) usar. El modo se puede establecer en **Completo** o **Incremental**. El valor predeterminado son actualizaciones incrementales. Tenga precaución al utilizar el modo **Completo** porque se pueden eliminar accidentalmente los recursos. Cuando se establece el modo en **Completo**, Resource Manager elimina los recursos del grupo de recursos que no están en la plantilla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../resource-group-authoring-templates.md).
+- Cree su propia plantilla con las [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md).
 - Implemente la plantilla que creó mediante [Creación de una máquina virtual Windows con una plantilla de Resource Manager](ps-template.md).
 - Aprenda a administrar la máquina virtual que ha creado repasando el tema [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 - Para información sobre la sintaxis de JSON y las propiedades de los tipos de recursos de las plantillas, consulte [Azure Resource Manager template reference](/azure/templates/) (Referencia de las plantillas de Azure Resource Manager).

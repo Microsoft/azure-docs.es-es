@@ -1,6 +1,6 @@
 ---
 title: 'Emparejamiento de dos redes virtuales: ejemplo de script de la CLI de Azure'
-description: 'Ejemplo de script de la CLI de Azure: emparejar dos redes virtuales.'
+description: Use un script de ejemplo de la CLI de Azure para crear y conectar dos redes virtuales de la misma región mediante la red de Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,14 +12,15 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 2dd5336d66872cc8c56fd372e89b67ce9c892f3a
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 6cd6d61ba1404ca6b6de63a0151ec414b2df54e7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74083836"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492469"
 ---
-# <a name="peer-two-virtual-networks-script-sample"></a>Ejemplo de script de emparejamiento de dos redes virtuales
+# <a name="peer-two-virtual-networks-with-an-azure-cli-script-sample"></a>Emparejamiento de dos redes virtuales con un script de ejemplo de la CLI de Azure
 
 Este script de ejemplo crea y conecta dos redes virtuales de la misma región mediante la red de Azure. Después de ejecutar el script, tendrá un emparejamiento entre dos redes virtuales.
 

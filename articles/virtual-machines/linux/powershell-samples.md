@@ -3,18 +3,18 @@ title: Ejemplos de PowerShell de máquina virtual de Azure
 description: Ejemplos de PowerShell de máquina virtual de Azure
 author: cynthn
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 03/01/2019
 ms.author: cynthn
-ms.openlocfilehash: 6d476572ace6803dba6cd9cab97a55953be1d5f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 23dd47df33ef6571fefbf1c1964324bea5ca4488
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202255"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87369941"
 ---
-# <a name="azure-virtual-machine-powershell-samples"></a>Ejemplos de PowerShell de máquina virtual de Azure
+# <a name="azure-virtual-machine-powershell-samples-for-creating-and-managing-linux-vms"></a>Ejemplos de PowerShell de máquina virtual de Azure para crear y administrar VM con Linux
 
 En la tabla siguiente se incluyen vínculos a ejemplos de scripts de PowerShell que crean y administran máquinas virtuales Linux.
 

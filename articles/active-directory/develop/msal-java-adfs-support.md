@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 11/21/2019
 ms.author: sagonzal
 ms.reviewer: nacanuma
-ms.custom: aaddev
-ms.openlocfilehash: 3d834a8d1524595304c22fed9897094622dfd93f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: aaddev, devx-track-java
+ms.openlocfilehash: 5d01d1143563637e21aaa06a3f997c1507e4d8f1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696221"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114785"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-java"></a>Compatibilidad para los Servicios de federación de Active Directory (AD FS) en MSAL para Java
 
@@ -48,4 +48,4 @@ Al adquirir un token con `ConfidentialClientApplication.AcquireToken()` o `Publi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En cuanto al caso federado, consulte [Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-authentication-for-federated-users-portal).
+En cuanto al caso federado, consulte [Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio](../manage-apps/configure-authentication-for-federated-users-portal.md).

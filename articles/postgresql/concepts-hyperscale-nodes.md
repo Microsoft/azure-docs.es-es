@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 04ebb4298f8a5398b0aa9921d740e3eaacfd8e11
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/28/2020
+ms.openlocfilehash: af743ca56572f507091db01f11d3283294a9e3d5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74974009"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382804"
 ---
 # <a name="nodes-in-azure-database-for-postgresql--hyperscale-citus"></a>Nodos de Azure Database for PostgreSQL: Hiperescala (Citus)
 
@@ -22,7 +22,9 @@ El tipo de hospedaje Hiperescala (Citus) permite a los servidores de Azure Datab
 
 Cada grupo de servidores tiene un nodo de coordinación y varios trabajos. Las aplicaciones envían sus consultas al nodo de coordinación, que las retransmite a los trabajos pertinentes y acumula los resultados. Las aplicaciones no son capaces de conectarse directamente a los trabajos.
 
-Para cada consulta, el coordinador la enruta a un único nodo de trabajo o la paraleliza en varias según si los datos necesarios se encuentren en un único nodo o en varios. El coordinador decide qué hacer tras consultar las tablas de metadatos. Estas tablas hacen un seguimiento de los nombres DNS y del estado de los nodos de trabajo, y de la distribución de datos entre nodos.
+Hiperescala (Citus) permite al administrador de bases de datos *distribuir* tablas y almacenar distintas filas en nodos de trabajo diferentes. Las tablas distribuidas son la clave para el rendimiento de Hiperescala. Si no se distribuyen las tablas, las deja totalmente en el nodo de coordinación y no pueden aprovechar el paralelismo entre máquinas.
+
+Para cada consulta sobre las tablas distribuidas, el coordinador la enruta a un único nodo de trabajo o la paraleliza en varias según si los datos necesarios se encuentren en un único nodo o en varios. El coordinador decide qué hacer tras consultar las tablas de metadatos. Estas tablas hacen un seguimiento de los nombres DNS y del estado de los nodos de trabajo, y de la distribución de datos entre nodos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Obtenga información sobre cómo los nodos almacenan [datos distribuidos](concepts-hyperscale-distributed-data.md)
+- Más información sobre las [Tablas distribuidas](concepts-hyperscale-distributed-data.md).

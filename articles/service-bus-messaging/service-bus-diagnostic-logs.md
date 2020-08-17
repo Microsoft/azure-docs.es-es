@@ -3,12 +3,12 @@ title: Registros de diagnóstico de Azure Service Bus | Microsoft Docs
 description: En este artículo encontrará información general de todos los registros operativos y de diagnóstico que hay disponibles para Azure Service Bus.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: eeaa7e92488fd59994fc07ea0081b0f00c8768df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f227f5a988ccd51425b4f43e87b4ed4d9af74e1f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337540"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064441"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar registros de diagnóstico para Service Bus
 
@@ -101,7 +101,7 @@ Los registros operativos están deshabilitados de forma predeterminada. Para hab
 
 La nueva configuración surte efecto en unos 10 minutos. Los registros aparecen en el destino de archivo configurado, en el panel **Registros de diagnóstico**.
 
-Para más información sobre la configuración de diagnóstico, vea la [información general sobre registros de diagnóstico de Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
+Para más información sobre la configuración de diagnóstico, vea la [información general sobre registros de diagnóstico de Azure](../azure-monitor/platform/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

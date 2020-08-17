@@ -9,14 +9,14 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7b844bcf45417fefc7dd78a26d5dae0b2ce03249
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 8307f01e690536a71d98d5d5ca99f8f7a77a433f
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82982911"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383926"
 ---
-# <a name="ingesting-data-into-azure-data-lake-storage-gen2"></a>Ingesta de datos en Azure Data Lake Storage Gen2 
+# <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Ingesta de datos en Azure Data Lake Storage Gen2 
 
 En este artículo, aprenderá a ingerir datos desde una cuenta a otra en una cuenta de almacenamiento de Azure Data Lake Gen2 (Azure Data Lake Gen2) mediante Azure Synapse Analytics.
 

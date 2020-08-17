@@ -5,21 +5,21 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 7/10/2020
+ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: b7551ec01e3401c0636b47a25d83173b6322d06e
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 53967ab0bec9488691ff60cdabb8fedbb6b9730e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86219885"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386714"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales locales de Hyper-V en Azure
 
-
 En este artículo se resumen los ajustes y los componentes compatibles para la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
 
-
+>[!NOTE]
+> Site Recovery no mueve ni almacena los datos de los clientes fuera de la región de destino, en la que se ha configurado la recuperación ante desastres para las máquinas de origen. Los clientes pueden seleccionar un almacén de Recovery Services de otra región si así lo deciden. El almacén de Recovery Services contiene metadatos, pero ningún dato real de los clientes.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
 
@@ -32,13 +32,11 @@ Hyper-V sin Virtual Machine Manager | Ahora puede realizar la recuperación ante
 
 **Server** | **Requisitos** | **Detalles**
 --- | --- | ---
-Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 con las actualizaciones más recientes (incluida la instalación de Server Core de estos sistemas operativos, excepto Windows Server 2019) | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md)
-Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 (incluida la instalación de Server Core de estos sistemas operativos, excepto Virtual Machine Manager 2019) | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.
+Hyper-V en ejecución sin Virtual Machine Manager |  Windows Server 2019, Windows Server 2016, Windows Server 2012 R2 con las últimas actualizaciones <br/><br/> **Nota:** También se admite la instalación de Server Core de estos sistemas operativos. | Si ya ha configurado Windows Server 2012 R2 o SCVMM 2012 R2 con Azure Site Recovery, y va a actualizar el sistema operativo, siga las instrucciones de la [documentación.](upgrade-2012R2-to-2016.md)
+Hyper-V en ejecución con Virtual Machine Manager | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 <br/><br/> **Nota:** También se admite la instalación de Server Core de estos sistemas operativos.  | Si se usa Virtual Machine Manager, los hosts de Windows Server 2019 deben administrarse en Virtual Machine Manager 2019. De manera similar, los hosts de Windows Server 2016 se deben administrar en Virtual Machine Manager 2016.
 
 > [!NOTE]
->
-> - Asegúrese de que .NET Framework 4.6.2 o superior esté presente en el servidor local.
-> - La conmutación por error y por recuperación a una ubicación alternativa u original, en ejecución con o sin Virtual Machine Manager, no se admite para la versión de Server Core de Windows Server 2019.
+> Asegúrese de que .NET Framework 4.6.2 o superior esté presente en el servidor local.
 
 ## <a name="replicated-vms"></a>Máquinas virtuales replicadas
 
@@ -65,14 +63,15 @@ Agregar disco en máquina virtual de Hyper-V replicada | No compatible. Deshabil
 Red de host: Formación de equipos NIC | Sí | Sí
 Red de host: VLAN | Sí | Sí
 Red de host: IPv4 | Sí | Sí
-Red de host: IPv6 | No | No
+Red de host: IPv6 | No | Sin
 Red de máquina virtual invitada: Formación de equipos NIC | No | No
 Red de máquina virtual invitada: IPv4 | Sí | Sí
-Red de máquina virtual invitada: IPv6 | No | Sí
+Red de máquina virtual invitada: IPv6 | Sin | Sí
 Red de máquina virtual invitada: Dirección IP estática (Windows) | Sí | Sí
 Red de máquina virtual invitada: Dirección IP estática (Linux) | No | No
 Red de máquina virtual invitada: Varias NIC | Sí | Sí
-Proxy HTTPS | No | No
+Proxy HTTPS | No | Sin
+Acceso de vínculo privado al servicio Site Recovery | Sí. [Más información](hybrid-how-to-enable-replication-private-endpoints.md). | Sí. [Más información](hybrid-how-to-enable-replication-private-endpoints.md).
 
 
 
@@ -90,7 +89,7 @@ IP reservada | Sí | Sí
 IPv4 | Sí | Sí
 Conservar la dirección IP de origen | Sí | Sí
 Punto de conexión de servicio de red virtual de Azure<br/> (sin firewalls de Azure Storage) | Sí | Sí
-Redes aceleradas | No | No
+Redes aceleradas | Sin | Sin
 
 
 ## <a name="hyper-v-host-storage"></a>Almacenamiento de host de Hyper-V
@@ -111,17 +110,17 @@ VHD/VHDX | Sí | Sí
 VM de generación 2 | Sí | Sí
 EFI/UEFI<br></br>La máquina virtual migrada en Azure se convertirá automáticamente en una VM de arranque del BIOS. La máquina virtual debe estar ejecutando Windows Server 2012 o una versión posterior. El disco del sistema operativo debe tener un máximo de cinco particiones y el tamaño del disco del sistema operativo debe ser inferior a 300 GB.| Sí | Sí
 Disco en clúster compartido | No | No
-Disco cifrado | No | No
+Disco cifrado | Sin | Sin
 NFS | N/D | N/D
-SMB 3.0 | No | No
+SMB 3.0 | Sin | No
 RDM | N/D | N/D
 Disco > 1 TB | Sí, hasta 4095 GB | Sí, hasta 4095 GB
 Disco: sector físico y lógico de 4 K | No compatible: Gen 1, Gen 2 | No compatible: Gen 1, Gen 2
 Disco: Sector lógico de 4 K y sector físico de 512 bytes | Sí |  Sí
 Administración de volúmenes lógicos (LVM). Se admite LVM solo en discos de datos. Azure proporciona un único disco de sistema operativo. | Sí | Sí
 Volumen con disco seccionado > 1 TB | Sí | Sí
-Espacios de almacenamiento | No | No
-Agregar/quitar disco en caliente | No | No
+Espacios de almacenamiento | Sin | Sin
+Agregar/quitar disco en caliente | No | Sin
 Excluir el disco | Sí | Sí
 Varias rutas (MPIO) | Sí | Sí
 
@@ -132,15 +131,15 @@ Varias rutas (MPIO) | Sí | Sí
 Almacenamiento con redundancia local | Sí | Sí
 Almacenamiento con redundancia geográfica | Sí | Sí
 Almacenamiento con redundancia geográfica con acceso de lectura | Sí | Sí
-Almacenamiento de acceso esporádico | No | No
-Almacenamiento de acceso frecuente| No | No
-Blobs en bloques | No | No
+Almacenamiento de acceso esporádico | Sin | Sin
+Almacenamiento de acceso frecuente| Sin | No
+Blobs en bloques | No | Sin
 Cifrado en reposo (SSE)| Sí | Sí
 Cifrado en reposo (CMK) <br></br> (Solo para conmutación por error en discos administrados)| Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Cifrado de datos en reposo doble <br></br> (Solo para conmutación por error en discos administrados) <br></br> Más información sobre las regiones admitidas para [Windows](../virtual-machines/windows/disk-encryption.md) y [Linux](../virtual-machines/linux/disk-encryption.md) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante) | Sí (a través del módulo PowerShell Az 3.3.0 en adelante)
 Premium Storage | Sí | Sí
 Standard Storage | Sí | Sí
-Servicio Import/Export | No | No
+Servicio Import/Export | Sin | No
 Cuentas de Azure Storage con firewall habilitado | Sí. Para almacenamiento de destino y en caché. | Sí. Para almacenamiento de destino y en caché.
 Modificar cuenta de almacenamiento | No. No se puede modificar la cuenta de Azure Storage de destino después de habilitar la replicación. Para modificarla, deshabilite la recuperación ante desastres y vuelva a habilitarla. | No
 Opción de transferencia segura | Sí
@@ -178,7 +177,7 @@ Tipo de máquina virtual | Generación 1<br/><br/> Generación 2: Windows | Las 
 
 **Acción** |  **Hyper-V con VMM** | **Hyper-V sin VMM**
 --- | --- | ---
-Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | No | No
+Mover el almacén entre grupos de recursos<br/><br/> Entre las suscripciones | No | Sin
 Mover el almacenamiento, la red y las máquinas virtuales de Azure entre grupos de recursos<br/><br/> Entre las suscripciones | No | No
 
 > [!NOTE]

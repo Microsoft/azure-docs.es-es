@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: delhan
-ms.openlocfilehash: 415895b894261ade9b2332eb3fb926eba74fe937
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d7e56fe36af3d841cfd888dd6c1bf05502837cdd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078415"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079849"
 ---
 # <a name="vm-startup-is-stuck-on-getting-windows-ready-dont-turn-off-your-computer-in-azure"></a>El inicio de la máquina virtual está detenido en "Preparando Windows. No apague el equipo"en Azure
 
@@ -45,7 +45,7 @@ Si el problema no se soluciona después de esperar a que se hayan procesado los 
 ### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Conecte el disco del sistema operativo a una máquina virtual de recuperación.
 
 1. Tome una instantánea del disco del sistema operativo de la máquina virtual afectada como copia de seguridad. Para obtener más información, consulte [Instantánea de un disco](../windows/snapshot-copy-managed-disk.md).
-2. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
+2. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](./troubleshoot-recovery-disks-portal-windows.md).
 3. Escritorio remoto a la máquina virtual de recuperación. 
 4. Si el disco del sistema operativo está cifrado, debe desactivar el cifrado antes de pasar al siguiente paso. Para más información, consulte [Descifrado del disco de sistema cifrado en la máquina virtual que no arranca](troubleshoot-bitlocker-boot-error.md#solution).
 
@@ -99,7 +99,7 @@ Para habilitar el registro de volcado de memoria y Serial Console, ejecute el si
         reg unload HKLM\BROKENSYSTEM
         ```
 
-3. [Desconecte el disco del sistema operativo y, a continuación, vuelva a adjuntarlo a la máquina virtual afectada](../windows/troubleshoot-recovery-disks-portal.md).
+3. [Desconecte el disco del sistema operativo y, a continuación, vuelva a adjuntarlo a la máquina virtual afectada](./troubleshoot-recovery-disks-portal-windows.md).
 4. Inicie la máquina virtual y acceda a la consola serie.
 5. Seleccione **Enviar interrupción no enmascarable (NMI)** para desencadenar el volcado de memoria.
     ![Imagen de dónde enviar una interrupción no enmascarable](./media/troubleshoot-vm-configure-update-boot/run-nmi.png)

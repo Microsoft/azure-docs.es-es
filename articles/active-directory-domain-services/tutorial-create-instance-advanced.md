@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Creación de un dominio administrado de Azure Active Directory Domain Services | Microsoft Docs'
-description: En este tutorial aprenderá a crear y configurar un dominio administrado de Azure Active Directory Domain Services y a especificar opciones de configuración avanzada mediante Azure Portal.
+title: 'Tutorial: Creación de un dominio administrado personalizado de Azure Active Directory Domain Services | Microsoft Docs'
+description: En este tutorial aprenderá a crear y configurar un dominio administrado de Azure Active Directory Domain Services personalizado y a especificar opciones de configuración avanzada mediante Azure Portal.
 author: iainfoulds
 manager: daveba
 ms.service: active-directory
@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 78eef9c84bb7610b067855b22a3fa0f51bf08253
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 8b48cfa29555cf0ca15428758208df27a52a84f7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024798"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491144"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-managed-domain-with-advanced-configuration-options"></a>Tutorial: Creación y configuración de un dominio administrado de Azure Active Directory Domain Services con opciones de configuración avanzada
 
@@ -100,7 +100,7 @@ Complete los campos de la ventana *Datos básicos* de Azure Portal para crear un
     Para este tutorial, seleccione la SKU *Estándar*.
 1. Un *bosque* es una construcción lógica que Active Directory Domain Services utiliza para agrupar uno o más dominios. De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local.
 
-    Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
+    Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los hashes de contraseña de los usuarios locales nunca se sincronizan en un dominio administrado cuando se crea un bosque de recursos. Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].
 
     En este tutorial, elija crear un bosque de *Usuario*.
 
@@ -131,7 +131,7 @@ Complete los campos de la ventana *Red* de la siguiente manera:
     1. Si elige crear una red virtual, escriba un nombre para ella, por ejemplo, *myVnet* y, después, proporcione un intervalo de direcciones, como *10.0.1.0/24*.
     1. Cree una subred dedicada con un nombre claro, por ejemplo *DomainServices*. Indique un intervalo de direcciones, como *10.0.1.0/24*.
 
-    [![](./media/tutorial-create-instance-advanced/create-vnet.png "Create a virtual network and subnet for use with Azure AD Domain Services")](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
+    [ ![Creación de una red virtual y una subred para usarlas con Azure AD Domain Services](./media/tutorial-create-instance-advanced/create-vnet.png)](./media/tutorial-create-instance-advanced/create-vnet-expanded.png#lightbox)
 
     Asegúrese de seleccionar un intervalo de direcciones que se encuentre dentro de su intervalo de direcciones IP privadas. Los intervalos de direcciones IP que no son de su propiedad y que se encuentran en el espacio de direcciones públicas provocan errores en Azure AD DS.
 
@@ -159,7 +159,7 @@ El asistente crea automáticamente el grupo *Administradores de DC de AAD* en el
 
 ## <a name="configure-synchronization"></a>Configuración de la sincronización
 
-Azure AD DS permite sincronizar *todos* los usuarios y grupos disponibles en Azure AD, o bien realizar una sincronización *con ámbito* solo de grupos específicos. Si decide sincronizar *todos* los usuarios y grupos, no tendrá la opción de realizar más adelante solo una sincronización con ámbito. Para más información sobre la sincronización con ámbito, consulte [Sincronización con ámbito de Azure AD Domain Services][scoped-sync].
+Azure AD DS permite sincronizar *todos* los usuarios y grupos disponibles en Azure AD, o bien realizar una sincronización *con ámbito* solo de grupos específicos. Puede cambiar el ámbito de sincronización ahora o una vez implementado el dominio administrado. Para más información, consulte [Sincronización con ámbito de Azure AD Domain Services][scoped-sync].
 
 1. Para este tutorial, elija la sincronización de **Todos** los usuarios y grupos. Esta es la opción predeterminada de sincronización.
 

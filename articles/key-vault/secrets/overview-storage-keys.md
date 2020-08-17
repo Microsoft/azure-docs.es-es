@@ -9,12 +9,13 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 58f41742519effc3959a3868345ed77c64db6341
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 727a5052b0531cc0a37cc631e11bc498498be5b3
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508510"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534981"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Administración de claves de cuenta de almacenamiento con Key Vault y la CLI de Azure
 
@@ -70,7 +71,7 @@ az login
 
 Use el comando de la CLI de Azure [az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest) para proporcionar acceso a Key Vault a la cuenta de almacenamiento. Proporcione al comando los siguientes valores de parámetro:
 
-- `--role`: Pase el rol de RBAC "Rol de servicio del operador de claves de cuentas de almacenamiento". Este rol limita el ámbito de acceso a la cuenta de almacenamiento. Si se trata de una cuenta de almacenamiento clásica, pase el "Rol de servicio de operador de claves de cuentas de almacenamiento clásicas".
+- `--role`: Pase el rol de Azure "Rol de servicio del operador de claves de cuentas de almacenamiento". Este rol limita el ámbito de acceso a la cuenta de almacenamiento. Si se trata de una cuenta de almacenamiento clásica, pase el "Rol de servicio de operador de claves de cuentas de almacenamiento clásicas".
 - `--assignee`: Pase el valor "https://vault.azure.net", que es la URL de Key Vault en la nube pública de Azure. (Para la nube de Azure Government, use "--asingee-object-id" en su lugar; consulte [Id. de la aplicación de la entidad de servicio](#service-principal-application-id)).
 - `--scope`: Pase el identificador del recurso de la cuenta de almacenamiento, que tiene el formato `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Para buscar el identificador de suscripción, use el comando de la CLI de Azure [az account list](/cli/azure/account?view=azure-cli-latest#az-account-list). Para buscar el nombre de la cuenta de almacenamiento y el grupo de recursos de la cuenta de almacenamiento, use el comando de la CLI de Azure [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).
 
@@ -90,7 +91,7 @@ az keyvault set-policy --name <YourKeyVaultName> --upn user@domain.com --storage
 Tenga en cuenta que los permisos para las cuentas de almacenamiento no están disponibles en la página "Directivas de acceso" de la cuenta de almacenamiento en Azure Portal.
 ### <a name="create-a-key-vault-managed-storage-account"></a>Crear una cuenta de almacenamiento administrada de Key Vault
 
- Cree una cuenta de almacenamiento administrada de Key Vault mediante el comando de la CLI de Azure [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add). Establezca un período de regeneración de 90 días. Después de 90 días, Key Vault regenera `key1` e intercambia la clave activa de `key2` a `key1`. Después, `key1` se marca como la clave activa. Proporcione al comando los siguientes valores de parámetro:
+ Cree una cuenta de almacenamiento administrada de Key Vault mediante el comando de la CLI de Azure [az keyvault storage](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add). Establezca un período de regeneración de 90 días. Cuando sea el momento de girar, KeyVault regenera la clave que no está activa y, a continuación, establece la clave recién creada como activa. Solo una de las claves se usa para emitir tokens de SAS en cualquier momento, es decir, la clave activa. Proporcione al comando los siguientes valores de parámetro:
 
 - `--vault-name`: Pase el nombre del almacén de claves. Para buscar el nombre del almacén de claves, use el comando de la CLI de Azure [az keyvault list](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list).
 - `-n`: Pase el nombre de la cuenta de almacenamiento. Para buscar el nombre de la cuenta de almacenamiento, use el comando de la CLI de Azure [az storage account list](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list).

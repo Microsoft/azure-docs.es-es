@@ -4,12 +4,13 @@ description: Aprenda a implementar una plantilla de Azure Resource Manager desde
 ms.date: 05/20/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3112c3940f9d2668f4825de3c2e57a63af009d92
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ef52d20b20446e3b8f3b761949bf255b99d358cc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118909"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499592"
 ---
 # <a name="tutorial-deploy-a-local-azure-resource-manager-template"></a>Tutorial: Implementación de una plantilla de Azure Resource Manager local
 

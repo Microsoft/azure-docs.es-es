@@ -1,6 +1,6 @@
 ---
 title: Consideraciones sobre el rendimiento de Azure NetApp Files | Microsoft Docs
-description: Aquí se describen las consideraciones sobre el rendimiento de Azure NetApp Files.
+description: Obtenga información sobre el rendimiento de Azure NetApp Files, incluida la relación de la cuota y el límite de rendimiento, y cómo aumentar o reducir la cuota de volumen de forma dinámica.
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: b-juche
-ms.openlocfilehash: 4badf550809df6cc63711c47e6e6f5b3690fdfca
-ms.sourcegitcommit: 366e95d58d5311ca4b62e6d0b2b47549e06a0d6d
+ms.openlocfilehash: 5f88b4755c7b4c0b20f27065cf9de2351251bc1c
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82691314"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513883"
 ---
 # <a name="performance-considerations-for-azure-netapp-files"></a>Consideraciones sobre el rendimiento de Azure NetApp Files
 

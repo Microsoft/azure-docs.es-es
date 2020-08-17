@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/3/2019
 ms.author: jeedes
-ms.openlocfilehash: 423ba8c7aea9659a4c91f68a01392954c2ba6db2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0c83d43fe1a2068fa4c9f24a10c0975610142a84
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77059192"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87018696"
 ---
 # <a name="tutorial-configure-4me-for-automatic-user-provisioning"></a>Tutorial: Configuración de 4me para el aprovisionamiento automático de usuarios
 
@@ -128,7 +128,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Asignaciones de usuario de 4me](media/4me-provisioning-tutorial/4me-user-mapping.png)
     
-11. Examine los atributos de grupo que se sincronizan entre Azure AD y 4me en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 4me a fin de realizar operaciones de actualización. Seleccione el botón **Guardar** para confirmar los cambios.
+11. Examine los atributos de grupo que se sincronizan entre Azure AD y 4me en la sección **Asignación de atributos**. Los atributos seleccionados como propiedades **Coincidentes** se usan para establecer correspondencia con las cuentas del usuario en 4me a fin de realizar operaciones de actualización. Compruebe que [4me admite el filtrado](https://developer.4me.com/v1/scim/users/) por el atributo coincidente que ha elegido. Seleccione el botón **Guardar** para confirmar los cambios.
 
     ![Asignaciones de usuario de 4me](media/4me-provisioning-tutorial/4me-user-attributes.png)
     

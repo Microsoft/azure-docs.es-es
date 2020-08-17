@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b6753a0aa9e79624b9b972264611fd31f2bba8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c706de8a7638c16f3778d0d5295069c13b79d98
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764832"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387275"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>Inicio de sesión único de SAML para aplicaciones en el entorno local con Application Proxy
 
@@ -47,7 +47,7 @@ Los diagramas de protocolos siguientes describen la secuencia de inicio de sesi�
 
 4. Seleccione **SAML** como método de inicio de sesión único.
 
-5. En primer lugar, configure el inicio de sesión único de SAML para que funcione en la red corporativa. En la página **Configurar el inicio de sesión único con SAML**, vaya al encabezado **Configuración básica de SAML** y seleccione el icono de **edición** (un lápiz). Siga los pasos descritos en [Especificación de la configuración básica de SAML](configure-single-sign-on-non-gallery-applications.md#step-1-edit-the-basic-saml-configuration) para configurar la autenticación basada en SAML para la aplicación.
+5. En primer lugar, configure el inicio de sesión único de SAML para que funcione en la red corporativa, consulte la sección configuración básica de SAML de [Configuración del inicio de sesión único basado en SAML](configure-saml-single-sign-on.md) para configurar la autenticación basada en SAML para la aplicación.
 
 6. Agregue al menos un usuario a la aplicación y asegúrese de que la cuenta de prueba tenga acceso a la aplicación. Mientras esté conectado a la red corporativa, utilice la cuenta de prueba para ver si tiene inicio de sesión único en la aplicación. 
 

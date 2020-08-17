@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/22/2020
 ms.author: cynthn
-ms.openlocfilehash: 950f4cfda73b40db0de8ba035868573cda1a5017
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e914b904b0f6f1d3a4fae6c43c81cdf4eae819
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84675806"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080019"
 ---
 # <a name="managing-platform-updates-with-maintenance-control"></a>Administración de las actualizaciones de la plataforma con el control de mantenimiento 
 
@@ -23,12 +23,12 @@ El control de mantenimiento le permite decidir cuándo se aplican las actualizac
 Con el control de mantenimiento, puede:
 - Aplicar actualizaciones por lotes en un único paquete de actualización.
 - Esperar hasta 35 días para aplicar las actualizaciones. 
-- Automatizar las actualizaciones de la plataforma para la ventana de mantenimiento mediante Azure Functions.
+- Automatice las actualizaciones de la plataforma en su ventana de mantenimiento mediante [Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler).
 - Mantener el trabajo de las configuraciones entre suscripciones y grupos de recursos. 
 
 ## <a name="limitations"></a>Limitaciones
 
-- Las máquinas virtuales deben estar en un [host dedicado](./linux/dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](./linux/isolation.md).
+- Las máquinas virtuales deben estar en un [host dedicado](./linux/dedicated-hosts.md) o bien crearse con un [tamaño de máquina virtual aislada](isolation.md).
 - Después de 35 días, se aplicará automáticamente una actualización.
 - El usuario debe tener acceso de **colaborador del recurso**.
 
@@ -39,6 +39,8 @@ Puede crear y administrar configuraciones de mantenimiento con cualquiera de est
 - [CLI de Azure](maintenance-control-cli.md)
 - [Azure PowerShell](maintenance-control-powershell.md)
 - [Azure Portal](maintenance-control-portal.md)
+
+En el artículo sobre la [programación de actualizaciones de mantenimiento con control de mantenimiento y Azure Functions](https://github.com/Azure/azure-docs-powershell-samples/tree/master/maintenance-auto-scheduler) encontrará un ejemplo de Azure Functions.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

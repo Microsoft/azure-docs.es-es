@@ -11,12 +11,12 @@ metadata:
   author: msmbaldwin
   ms.author: mbaldwin
   ms.date: 04/07/2020
-  ms.openlocfilehash: 580f1982478c996d5a9d0406a73df6aa200d3000
-  ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+  ms.openlocfilehash: 4a96f74418536a60c1501f7bd593ab2f5b9f82ae
+  ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/29/2020
-  ms.locfileid: "84193641"
+  ms.lasthandoff: 07/29/2020
+  ms.locfileid: "87386476"
 landingContent:
 - title: Claves
   linkLists:
@@ -24,6 +24,8 @@ landingContent:
     links:
     - text: ¿Qué son las claves de Key Vault?
       url: about-keys.md
+    - text: Noticias importantes sobre la eliminación temporal
+      url: ../general/soft-delete-change.md
 - title: Introducción
   linkLists:
   - linkListType: quickstart
@@ -51,7 +53,7 @@ landingContent:
     - text: Conceptos básicos
       url: ../general/basic-concepts.md
     - text: Introducción a la eliminación temporal
-      url: ../general/overview-soft-delete.md
+      url: ../general/soft-delete-overview.md
     - text: Introducción a la seguridad
       url: ../general/overview-security.md
 - title: Microsoft Learn

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/23/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 839ce418fa8ad72e18537cf673c8af0479409ba7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa9a930195908671cc0e772fd9643dcbce9dbb1c
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386290"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562419"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Preguntas más frecuentes sobre Active Directory (Azure AD) Application Proxy
 
@@ -45,6 +45,10 @@ No, este escenario no se admite. La configuración predeterminada es la siguient
 - Conector de Microsoft AAD Application Proxy - WAPCSvc - Servicio de red
 - Microsoft AAD Application Proxy Connector Updater - WAPCUpdaterSvc - NT Authority\System
 
+### <a name="can-a-guest-user-with-the-global-administrator-or-the-application-administrator-role-register-the-connector-for-the-guest-tenant"></a>¿Puede un usuario invitado con el rol de administrador global o de administrador de aplicaciones registrar el conector para el inquilino (invitado)?
+
+No, actualmente no es posible. El intento de registro siempre se realiza en el inquilino principal del usuario.
+
 ### <a name="my-back-end-application-is-hosted-on-multiple-web-servers-and-requires-user-session-persistence-stickiness-how-can-i-achieve-session-persistence"></a>La aplicación de back-end se hospeda en varios servidores web y requiere la persistencia de la sesión de usuario (permanencia). ¿Cómo puedo conseguir la persistencia de la sesión? 
 
 Para ver más recomendaciones, consulte [Alta disponibilidad y equilibrio de carga de los conectores y las aplicaciones de Application Proxy](application-proxy-high-availability-load-balancing.md).
@@ -52,6 +56,9 @@ Para ver más recomendaciones, consulte [Alta disponibilidad y equilibrio de car
 ### <a name="is-tls-termination-tlshttps-inspection-or-acceleration-on-traffic-from-the-connector-servers-to-azure-supported"></a>¿Se admite la terminación TLS (inspección o aceleración de TLS/HTTPS) en el tráfico desde los servidores de conector a Azure?
 
 El conector de Application Proxy realiza la autenticación basada en certificados en Azure. Asimismo, la terminación TLS (inspección o aceleración de TLS/HTTPS) interrumpe este método de autenticación y no se admite. El tráfico del conector a Azure debe omitir todos los dispositivos que realicen la terminación TLS.  
+
+### <a name="is-tls-12-required-for-all-connections"></a>¿Se requiere TLS 1.2 para todas las conexiones?
+Sí. Para proporcionar el mejor cifrado a nuestros clientes, el servicio Application Proxy solo permite el acceso a los protocolos TLS 1.2. Estos cambios se han implementado gradualmente y han entrado definitivamente en vigor el 31 de agosto de 2019. Asegúrese de que todas las combinaciones de cliente-servidor y explorador-servidor están actualizadas para usar TLS 1.2 para mantener la conexión al servicio Application Proxy. Entre ellos, los clientes que los usuarios utilizan para tener acceso a las aplicaciones publicadas a través de Application Proxy. Vea [Preparación para usar TLS 1.2 en Office 365](https://docs.microsoft.com/microsoft-365/compliance/prepare-tls-1.2-in-office-365) para obtener referencias y recursos útiles.
 
 ### <a name="can-i-place-a-forward-proxy-device-between-the-connector-servers-and-the-back-end-application-server"></a>¿Puedo colocar un dispositivo proxy de reenvío entre los servidores del conector y el servidor de aplicaciones back-end?
 Sí, este escenario se admite a partir de la versión del conector 1.5.1526.0. Consulte [Trabajo con servidores proxy locales existentes](application-proxy-configure-connectors-with-proxy-servers.md).
@@ -93,6 +100,9 @@ En la página de registros de aplicaciones puede cambiar la dirección URL de la
 
 No, no hay ningún requisito de IIS para las aplicaciones que se publican. Puede publicar aplicaciones web que se ejecutan en servidores distintos de Windows Server. Sin embargo, es posible que no pueda usar la autenticación previa con un servidor que no sea de Windows Server, dependiendo de si el servidor web admite Negotiate (la autenticación de Kerberos). IIS no es necesario en el servidor en el que está instalado el conector.
 
+### <a name="can-i-configure-application-proxy-to-add-the-hsts-header"></a>¿Puedo configurar Application Proxy para agregar el encabezado HSTS?
+Application Proxy no agrega automáticamente el encabezado HTTP Strict-Transport-Security a las respuestas HTTPS, pero mantendrá el encabezado si está en la respuesta original enviada por la aplicación publicada. La incorporación de una configuración para habilitar esta funcionalidad está en el mapa de ruta. Si está interesado en una versión preliminar que permite agregar esto a las respuestas, póngase en contacto con aadapfeedback@microsoft.com para más información.
+
 ## <a name="integrated-windows-authentication"></a>Autenticación integrada de Windows
 
 ### <a name="when-should-i-use-the-principalsallowedtodelegatetoaccount-method-when-setting-up-kerberos-constrained-delegation-kcd"></a>¿Cuándo debo usar el método PrincipalsAllowedToDelegateToAccount al configurar la delegación restringida de Kerberos (KCD)?
@@ -133,7 +143,7 @@ Sí, es normal. El escenario de autenticación previa requiere un control Active
 
 ### <a name="is-the-remote-desktop-web-client-html5-supported"></a>¿Se admite el cliente web de Escritorio remoto (HTML5)?
 
-No, este escenario no se admite actualmente. Siga nuestro foro de comentarios [UserVoice](https://aka.ms/aadapuservoice) para obtener actualizaciones sobre esta característica.
+Sí, este escenario se encuentra actualmente en versión preliminar pública. Consulte [Publicación del Escritorio Remoto con Azure AD Application Proxy](application-proxy-integrate-with-remote-desktop-services.md).
 
 ### <a name="after-i-configured-the-pre-authentication-scenario-i-realized-that-the-user-has-to-authenticate-twice-first-on-the-azure-ad-sign-in-form-and-then-on-the-rdweb-sign-in-form-is-this-expected-how-can-i-reduce-this-to-one-sign-in"></a>Después de configurar el escenario de autenticación previa, me di cuenta de que el usuario tiene que autenticarse dos veces: primero en el formulario de inicio de sesión de Azure AD y, a continuación, en el formulario de inicio de sesión de RDWeb. ¿Es normal? ¿Cómo puedo reducir esto a un único inicio de sesión?
 

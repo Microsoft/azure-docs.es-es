@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar y configurar un controlador de entrada NGINX con una dirección IP pública estática en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: a59bd1cfcc03b0a6c9af218cb7108a0ba094377d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/21/2020
+ms.openlocfilehash: 38caddeece7b8e2a49d09e25a22e9996cf65d069
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255292"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87335960"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Cree un controlador de entrada con una dirección IP pública estática en Azure Kubernetes Service (AKS)
 
@@ -49,6 +49,9 @@ Después, cree una dirección IP pública con el método de asignación *estáti
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --sku Standard --allocation-method static --query publicIp.ipAddress -o tsv
 ```
 
+> [!NOTE]
+> Los comandos anteriores crean una dirección IP que se eliminará si elimina el clúster de AKS. Como alternativa, puede crear una dirección IP en otro grupo de recursos que se pueda administrar de forma independiente del clúster de AKS. Si crea una dirección IP en otro grupo de recursos, asegúrese de que la entidad de servicio usada por el clúster de AKS tenga permisos delegados para el otro grupo de recursos, como *Colaborador de la red*.
+
 Ahora implemente el gráfico *nginx-ingress* con Helm. Para obtener redundancia adicional, se implementan dos réplicas de los controladores de entrada NGINX con el parámetro `--set controller.replicaCount`. Para sacar el máximo provecho de las réplicas en ejecución del controlador de entrada, asegúrese de que hay más de un nodo en el clúster de AKS.
 
 Debe pasar dos parámetros adicionales a la versión de Helm para que el controlador de entrada tenga en cuenta la dirección IP estática del equilibrador de carga que se va a asignar al servicio de controlador de entrada y la etiqueta de nombre DNS que se está aplicando al recurso de dirección IP pública. Para que los certificados HTTPS funcionen correctamente, se usa una etiqueta de nombre DNS para configurar un FQDN para la dirección IP del controlador de entrada.
@@ -56,7 +59,7 @@ Debe pasar dos parámetros adicionales a la versión de Helm para que el control
 1. Agregue el parámetro `--set controller.service.loadBalancerIP`. Especifique su propia dirección IP pública creada en el paso anterior.
 1. Agregue el parámetro `--set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"`. Especifique una etiqueta de nombre DNS para aplicarla a la dirección IP pública que se creó en el paso anterior.
 
-El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server no deben ejecutar el controlador de entrada. Un selector de nodos se especifica mediante el parámetro `--set nodeSelector` para indicar al programador de Kubernetes que ejecute el controlador de entrada NGINX en un nodo basado en Linux.
+El controlador de entrada también debe programarse en un nodo de Linux. Los nodos de Windows Server no deben ejecutar el controlador de entrada. Un selector de nodos se especifica mediante el parámetro `--set nodeSelector` para indicar al programador de Kubernetes que ejecute el controlador de entrada NGINX en un nodo basado en Linux.
 
 > [!TIP]
 > En el siguiente ejemplo se crea un espacio de nombres de Kubernetes para los recursos de entrada denominado *ingress-basic*. Especifique un espacio de nombres para su propio entorno según sea necesario. Si su clúster de AKS no tiene RBAC habilitado, agregue `--set rbac.create=false` a los comandos de Helm.
@@ -64,7 +67,10 @@ El controlador de entrada también debe programarse en un nodo de Linux. Los nod
 > [!TIP]
 > Si quiere habilitar la [conservación de direcciones IP de origen del cliente][client-source-ip] para las solicitudes a los contenedores de su clúster, agregue `--set controller.service.externalTrafficPolicy=Local` al comando de instalación de Helm. La dirección IP de origen del cliente se almacena en el encabezado de la solicitud en *X-Forwarded-For*. Al usar un controlador de entrada con la conservación de direcciones IP de origen del cliente habilitada, el paso a través de TLS no funciona.
 
-Actualice el siguiente script con la **dirección IP** del controlador de entrada y el **nombre único** que le gustaría usar para el prefijo del FQDN:
+Actualice el siguiente script con la **dirección IP** del controlador de entrada y el **nombre único** que le gustaría usar para el prefijo de FQDN.
+
+> [!IMPORTANT]
+> Debe reemplazar mediante actualización *STATIC_IP* y *DNS_LABEL* por su propia dirección IP y nombre único cuando ejecute el comando.
 
 ```console
 # Create a namespace for your ingress resources
@@ -80,7 +86,7 @@ helm install nginx-ingress stable/nginx-ingress \
     --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux \
     --set controller.service.loadBalancerIP="STATIC_IP" \
-    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="demo-aks-ingress"
+    --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-dns-label-name"="DNS_LABEL"
 ```
 
 Cuando se crea el servicio del equilibrador de carga de Kubernetes para el controlador de entrada NGINX, se asigna la dirección IP estática, como se muestra en la salida del ejemplo siguiente:
@@ -170,9 +176,9 @@ clusterissuer.cert-manager.io/letsencrypt-staging created
 
 Se deben haber configurado una solución de administración de certificados y un controlador de entrada. Ahora vamos a ejecutar dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, Helm se usa para implementar dos instancias de una aplicación "Hola mundo" sencilla.
 
-Para ver el controlador de entrada en acción, ejecute dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, use `kubectl apply` para implementar dos instancias de una aplicación *Hola mundo* sencilla.
+Para ver el controlador de entrada en acción, ejecute dos aplicaciones de demostración en el clúster de AKS. En este ejemplo, usar `kubectl apply` para implementar dos instancias de una aplicación *Hola mundo* sencilla.
 
-Cree un archivo *aks-helloworld.yaml* y cópielo en el ejemplo siguiente de YAML:
+Crear un archivo *aks-helloworld.yaml* y copiarlo en el ejemplo siguiente de YAML:
 
 ```yml
 apiVersion: apps/v1
@@ -210,7 +216,7 @@ spec:
     app: aks-helloworld
 ```
 
-Cree un archivo *ingress-demo.yaml* y cópielo en el ejemplo siguiente de YAML:
+Crear un archivo *ingress-demo.yaml* y copiarlo en el ejemplo siguiente de YAML:
 
 ```yml
 apiVersion: apps/v1
@@ -248,7 +254,7 @@ spec:
     app: ingress-demo
 ```
 
-Ejecute las dos aplicaciones de demostración mediante `kubectl apply`:
+Ejecutar las dos aplicaciones de demostración mediante `kubectl apply`:
 
 ```console
 kubectl apply -f aks-helloworld.yaml --namespace ingress-basic
@@ -264,7 +270,7 @@ En el ejemplo siguiente, el tráfico a la dirección `https://demo-aks-ingress.e
 Cree un archivo denominado `hello-world-ingress.yaml` y cópielo en el ejemplo siguiente de YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress

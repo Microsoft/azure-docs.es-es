@@ -3,12 +3,12 @@ title: Restauración del estado del sistema a Windows Server
 description: Explicación detallada para restaurar el estado de sistema de Windows Server a partir de una copia de seguridad en Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5212e5ea0ed3a8c0e0a8e9d4fa45f1eb6c901bf5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 8ba4cb5d5617b6a051aec8c54a595e701f62fb87
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184483"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067359"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restauración del estado del sistema a Windows Server
 
@@ -183,7 +183,7 @@ En este artículo solo se describe el primer escenario, que llama a una restaura
         >[!NOTE]
         >Si va a restaurar todos los datos de Active Directory (y no quedan controladores de dominio que funcionen en el bosque), en el paso 9 anterior, asegúrese de seleccionar **Realizar una restauración autoritativa de los archivos de Active Directory**.
 
-    * Use la utilidad [wbadmin](https://docs.microsoft.com/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para realizar la restauración desde la línea de comandos.
+    * Use la utilidad [wbadmin](/windows-server/administration/windows-commands/wbadmin-start-systemstaterecovery) para realizar la restauración desde la línea de comandos.
 
         Necesitará el identificador de versión de la copia de seguridad que desea usar. Puede obtener una lista de los identificadores de versión ejecutando este comando:
 
@@ -193,7 +193,7 @@ En este artículo solo se describe el primer escenario, que llama a una restaura
 
         A continuación, use ese identificador de versión para ejecutar la restauración.
 
-        Por ejemplo, para realizar una [restauración no autoritativa de AD DS y una restauración autoritativa de la carpeta sysvol](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) mediante la copia de seguridad de 30/04/2020 a las 9:00 AM, que se almacena en el recurso compartido `\\servername\share` para `server01`, escriba:
+        Por ejemplo, para realizar una [restauración no autoritativa de AD DS y una restauración autoritativa de la carpeta sysvol](/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) mediante la copia de seguridad de 30/04/2020 a las 9:00 AM, que se almacena en el recurso compartido `\\servername\share` para `server01`, escriba:
 
         ```cmd
         wbadmin start systemstaterecovery -version:04/30/2020-09:00 -backupTarget:\\servername\share -machine:server01 -authsysvol

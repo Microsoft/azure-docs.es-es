@@ -4,16 +4,16 @@ description: Configure pruebas web en Application Insights. Obtenga alertas si u
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 61358051a8ddc32bc01ec5e231f4c28ebfa18ee0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670039"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87310283"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Supervisión de la disponibilidad de un sitio web
 
-Después de haber implementado la aplicación o sitio web, puede configurar pruebas periódicas para supervisar la disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Puede enviar una alerta si la aplicación no responde o si responde de manera demasiada lenta.
+Después de haber implementado la aplicación o sitio web, puede configurar pruebas periódicas para supervisar la disponibilidad y capacidad de respuesta. [Azure Application Insights](./app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Puede enviar una alerta si la aplicación no responde o si responde de manera demasiada lenta.
 
 Puede configurar pruebas de disponibilidad para cualquier punto de conexión HTTP o HTTPS que sea accesible desde la red pública de Internet. No hace falta realizar cambios en el sitio web que está probando. De hecho, incluso no hace falta que sea un sitio de su propiedad. Puede probar la disponibilidad de una API de REST de la que depende su servicio.
 
@@ -23,7 +23,7 @@ Hay tres tipos de pruebas de disponibilidad:
 
 * [Prueba de ping de la dirección URL](#create-a-url-ping-test): una prueba sencilla que se puede crear en el portal de Azure.
 * [Prueba web de varios pasos](availability-multistep.md): una grabación de una secuencia de solicitudes web que se pueden reproducir para probar los escenarios más complejos. Las pruebas web de varios pasos se crean en Visual Studio Enterprise y se carga en el portal para su ejecución.
-* [Pruebas de disponibilidad de seguimiento personalizado](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Si decide crear una aplicación personalizada para ejecutar pruebas de disponibilidad, puede usar el método `TrackAvailability()` para enviar los resultados a Application Insights.
+* [Pruebas de disponibilidad de seguimiento personalizado](/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Si decide crear una aplicación personalizada para ejecutar pruebas de disponibilidad, puede usar el método `TrackAvailability()` para enviar los resultados a Application Insights.
 
 **Puede crear hasta 100 pruebas de disponibilidad por recurso de Application Insights.**
 
@@ -51,7 +51,7 @@ Para crear la primera solicitud de disponibilidad, abra el panel Disponibilidad 
 |**Frecuencia de prueba**| establece la frecuencia con que se ejecuta la prueba desde cada ubicación de prueba. Con una frecuencia predeterminada de cinco minutos y cinco ubicaciones de prueba, el sitio se prueba, de media, cada minuto.|
 |**Ubicaciones de prueba**| Son los lugares desde donde nuestros servidores envían solicitudes web a la dirección URL. **El número mínimo de ubicaciones de prueba recomendadas es cinco** con el fin de asegurarse de que puede distinguir los problemas del sitio web de los problemas de la red. Puede seleccionar hasta 16 ubicaciones.
 
-**Si la dirección URL no es visible desde la red Internet pública, tiene la opción de abrir selectivamente el firewall para permitir solo las transacciones de prueba**. Para más información sobre las excepciones de firewall para nuestros agentes de prueba de disponibilidad, consulte la [guía de direcciones IP](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses#availability-tests).
+**Si la dirección URL no es visible desde la red Internet pública, tiene la opción de abrir selectivamente el firewall para permitir solo las transacciones de prueba**. Para más información sobre las excepciones de firewall para nuestros agentes de prueba de disponibilidad, consulte la [guía de direcciones IP](./ip-addresses.md#availability-tests).
 
 > [!NOTE]
 > Se recomienda probar desde varias ubicaciones con un **mínimo de cinco ubicaciones**. Esto es para evitar falsas alarmas que pueden deberse a problemas transitorios con una ubicación específica. Además, hemos descubierto que la configuración óptima es que el **número de ubicaciones de prueba sea igual que el umbral de ubicación de la alerta + 2**.
@@ -107,21 +107,21 @@ Puede ver los detalles de transacción en todos los componentes desde el resulta
 * Registrar un problema o elemento de trabajo en GIT o Azure Boards para realizar un seguimiento del problema. El error contiene un vínculo a este evento.
 * Abra el resultado de la prueba web en Visual Studio.
 
-Obtenga más información acerca de la experiencia de diagnósticos de transacción extremo a extremo [aquí](../../azure-monitor/app/transaction-diagnostics.md).
+Obtenga más información acerca de la experiencia de diagnósticos de transacción extremo a extremo [aquí](./transaction-diagnostics.md).
 
-Haga clic en la fila de excepciones para ver los detalles de la excepción del lado servidor que ha provocado un error en la prueba de disponibilidad sintética. También puede obtener la [instantánea de depuración](../../azure-monitor/app/snapshot-debugger.md) para realizar diagnósticos de nivel de código más completos.
+Haga clic en la fila de excepciones para ver los detalles de la excepción del lado servidor que ha provocado un error en la prueba de disponibilidad sintética. También puede obtener la [instantánea de depuración](./snapshot-debugger.md) para realizar diagnósticos de nivel de código más completos.
 
 ![Diagnósticos del servidor](./media/monitor-web-app-availability/open-instance-4.png)
 
-Además de los resultados sin formato, también puede ver dos métricas de disponibilidad clave en el [Explorador de métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started):
+Además de los resultados sin formato, también puede ver dos métricas de disponibilidad clave en el [Explorador de métricas](../platform/metrics-getting-started.md):
 
 1. Disponibilidad: Porcentaje de las pruebas que obtuvieron resultados satisfactorios en todas las ejecuciones de prueba.
 2. Duración de la prueba: Duración media de las pruebas en todas las ejecuciones de prueba.
 
 ## <a name="automation"></a>Automation
 
-* [Use scripts de PowerShell para configurar una prueba de disponibilidad](../../azure-monitor/app/powershell.md#add-an-availability-test) automáticamente.
-* Configure un [webhook](../../azure-monitor/platform/alerts-webhooks.md) que se llama cuando se genera una alerta.
+* [Use scripts de PowerShell para configurar una prueba de disponibilidad](./powershell.md#add-an-availability-test) automáticamente.
+* Configure un [webhook](../platform/alerts-webhooks.md) que se llama cuando se genera una alerta.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -131,5 +131,4 @@ Además de los resultados sin formato, también puede ver dos métricas de dispo
 
 * [Alertas de disponibilidad](availability-alerts.md)
 * [Pruebas web de varios pasos](availability-multistep.md)
-
 

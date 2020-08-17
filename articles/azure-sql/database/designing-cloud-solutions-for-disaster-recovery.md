@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 12/04/2018
-ms.openlocfilehash: 6a8770cfaf5acedcf3549d92f1365948acda8bc7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: a23330bb00fb06a3ed9d3dfe28666e8f27dae4fa
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344652"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87405048"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Diseño de servicios disponibles globalmente con Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -58,7 +58,13 @@ Si se produce una interrupción en la región B, se suspende el proceso de repli
 > Para recuperación ante desastres, se recomienda la configuración con la implementación de aplicaciones limitada a dos regiones. Esto es porque la mayoría de las ubicaciones geográficas de Azure tienen solo dos regiones. Esta configuración no protegerá la aplicación de un error grave simultáneo de ambas regiones. En el caso poco probable de que este error se produjese, podría recuperar sus bases de datos en una tercera región mediante una [operación de restauración geográfica](disaster-recovery-guidance.md#recover-using-geo-restore).
 >
 
- Una vez que se reduce la interrupción, la base de datos secundaria se resincroniza automáticamente con la principal. Durante la sincronización, el rendimiento de la principal puede verse afectado. El impacto específico depende de la cantidad de datos que adquirió la nueva principal desde la conmutación por error. El siguiente diagrama ilustra una interrupción en la región secundaria.
+ Una vez que se reduce la interrupción, la base de datos secundaria se resincroniza automáticamente con la principal. Durante la sincronización, el rendimiento de la principal puede verse afectado. El impacto específico depende de la cantidad de datos que adquirió la nueva principal desde la conmutación por error. 
+
+> [!NOTE]
+> Una vez mitigada la interrupción, Azure Traffic Manager comenzará a enrutar las conexiones a la aplicación de la región A como un punto de conexión con una prioridad más alta. Si pretende mantener la base de datos principal en la región B durante algún tiempo, debería cambiar la tabla de prioridades en el perfil de Azure Trafic Manager como corresponda. 
+>
+ 
+ El siguiente diagrama ilustra una interrupción en la región secundaria.
 
 ![Escenario 1. Configuración después de una interrupción en la región secundaria.](./media/designing-cloud-solutions-for-disaster-recovery/scenario1-c.png)
 

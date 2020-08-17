@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 3be81d104e32946e2bfd7dc76052dad464f95623
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 4e28a46b8d231b3f228a95ea06b7b9cada50de54
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130974"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498997"
 ---
 # <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Preparación de los recursos de Azure para la recuperación ante desastres en Hyper-V
 
@@ -63,7 +63,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 9. En **Ubicación**, elija la ubicación geográfica de la cuenta de almacenamiento. Para este tutorial, use **Oeste de Europa**.
 10. Seleccione **Crear** para crear la cuenta de almacenamiento.
 
-   ![Crear una cuenta de almacenamiento](media/tutorial-prepare-azure/create-storageacct.png)
+   ![Captura de pantalla de las opciones de Crear una cuenta de almacenamiento.](media/tutorial-prepare-azure/create-storageacct.png)
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Servicios de recuperación
 
@@ -74,7 +74,7 @@ Las imágenes de máquinas replicadas se conservan en Azure Storage. Las máquin
 3. En **Ubicación**, seleccione la región en la que debería estar el almacén. Para este tutorial, use **Oeste de Europa**.
 4. Para acceder rápidamente al almacén desde el panel, seleccione **Anclar al panel** > **Crear**.
 
-![Crear un nuevo almacén](./media/tutorial-prepare-azure/new-vault-settings.png)
+![Captura de pantalla de la página Create Recovery Services vault (Crear almacén de Recovery Services).](./media/tutorial-prepare-azure/new-vault-settings.png)
 
 El nuevo almacén aparecerá en **Panel** > **Todos los recursos** y en la página principal de **Almacenes de Recovery Services**.
 
@@ -91,7 +91,7 @@ Cuando se crean máquinas virtuales de Azure desde el almacenamiento después de
 7. Deje las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.
 8. Seleccione **Crear**.
 
-![Creación de una red virtual](media/tutorial-prepare-azure/create-network.png)
+![Captura de pantalla de las opciones de Crear red virtual.](media/tutorial-prepare-azure/create-network.png)
 
 La red virtual tarda unos segundos en crearse. Una vez creada, la verá en el panel de Azure Portal.
 

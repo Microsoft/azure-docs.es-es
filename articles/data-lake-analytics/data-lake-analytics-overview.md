@@ -9,16 +9,23 @@ ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: 65bf1b0d0b2168d8469c3e0233212eea6000d1ad
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: b86b569b1b14b943cdc6dcc805a7b7a208d03447
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800790"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475126"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>¿Qué es Azure Data Lake Analytics?
 
 Azure Data Lake Analytics es un servicio de trabajos de análisis a petición que simplifican los macrodatos. En lugar de implementar, configurar y ajustar el hardware, escribirá consultas para transformar los datos y extraer ideas valiosas. El servicio de análisis puede administrar trabajos de cualquier escala al instante, simplemente estableciendo el ajuste adecuado. Solo tiene que pagar por su trabajo cuando se está ejecutando, lo que hace que sea una solución económica. 
+
+## <a name="azure-data-lake-analytics-recent-update-information"></a>Información de la actualización reciente de Azure Data Lake Analytics
+
+El servicio Azure Data Lake Analytics se actualiza de forma periódica con un fin determinado. Seguimos proporcionando compatibilidad con este servicio con la actualización de componentes, la versión preliminar de los componentes, etc. 
+
+- Para obtener información general sobre la actualización más reciente, consulte [Novedades de Data Lake Analytics](data-lake-analytics-whats-new.md).
+- Para obtener información sobre todas las actualizaciones, consulte la [nota de la versión de Azure Data Lake Analytics](https://github.com/Azure/AzureDataLake/tree/master/docs/Release_Notes).
 
 ## <a name="dynamic-scaling"></a>Escalado dinámico
   
@@ -44,8 +51,10 @@ Análisis de Data Lake es una solución muy rentable para ejecutar cargas de tra
   
 Data Lake Analytics funciona con Azure Data Lake Storage para proporcionar el máximo rendimiento, capacidad de proceso y paralelización, y funciona con los blobs de Azure Storage, Azure SQL Database y Azure Synapse Analytics (antes Azure SQL Data Warehouse).
 
+
 ## <a name="next-steps"></a>Pasos siguientes
 
+* Consulte la actualización más reciente de Azure Data Lake Analytics en [Novedades de Azure Data Lake Analytics](data-lake-analytics-whats-new.md).
 * Introducción a Data Lake Analytics mediante [Azure Portal](data-lake-analytics-get-started-portal.md) | [Azure PowerShell](data-lake-analytics-get-started-powershell.md) | [CLI](data-lake-analytics-get-started-cli.md)
 * Administración de Azure Data Lake Analytics mediante [Azure Portal](data-lake-analytics-manage-use-portal.md) | [Azure PowerShell](data-lake-analytics-manage-use-powershell.md) | [CLI](data-lake-analytics-manage-use-cli.md) | [SDK de Azure .NET](data-lake-analytics-manage-use-dotnet-sdk.md) | [Node.js](data-lake-analytics-manage-use-nodejs.md)
 * [Control de costos y ahorro de dinero con Data Lake Analytics](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c)

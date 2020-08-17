@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 208bc42df4b6a1334ccbb06741d7527dec659b90
-ms.sourcegitcommit: 999ccaf74347605e32505cbcfd6121163560a4ae
+ms.openlocfilehash: 19cf90a2e0f96279396d04b1c3ea28d03e6e2d27
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/08/2020
-ms.locfileid: "82979618"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86545109"
 ---
-Si prefiere ponerse a trabajar de inmediato, vea o descargue todos los <a href="https://aka.ms/speech/github-javascript">ejemplos para JavaScript del SDK de voz</a> en GitHub. Si no, vamos a comenzar.
+Puede ver o descargar todos los <a href="https://aka.ms/speech/github-javascript">ejemplos de JavaScript del SDK de Voz</a> en GitHub. 

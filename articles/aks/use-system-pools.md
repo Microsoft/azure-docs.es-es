@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
-ms.openlocfilehash: 01dcd6b7b366b7a1ada581ec154409ee7598e7a6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 8c808bda624cca3bd7bd28c6adfbdfb52fa2c068
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250845"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562827"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Administración de grupos de nodos del sistema en Azure Kubernetes Service (AKS)
 
@@ -28,14 +28,16 @@ En Azure Kubernetes Service, los nodos de la misma configuración se agrupan en 
 Se aplican las siguientes limitaciones cuando crea y administra clústeres de AKS que admiten grupos de nodos del sistema.
 
 * Consulte [Cuotas, restricciones de tamaño de máquinas virtuales y disponibilidad de regiones en Azure Kubernetes Service (AKS)][quotas-skus-regions].
-* El clúster de AKS se debe crear con conjuntos de escalado de máquinas virtuales como tipo de máquina virtual.
+* El clúster de AKS debe compilarse con conjuntos de escalado de máquinas virtuales como tipo de máquina virtual y el equilibrador de carga de SKU *estándar*.
 * El nombre de un grupo de nodos solo puede contener caracteres alfanuméricos en minúsculas y debe comenzar con una letra minúscula. En el caso de los grupos de nodos de Linux, la longitud debe estar comprendida entre 1 y 12 caracteres. En el caso de los grupos de nodos de Windows, la longitud debe estar comprendida entre 1 y 6 caracteres.
 * Se debe usar una versión de API de 2020-03-01 o superior para establecer un modo de grupo de nodos. Los clústeres creados con versiones de API anteriores a la 2020-03-01 solo contienen grupos de nodos de usuario, pero se pueden migrar para que contengan grupos de nodos del sistema si sigue las [instrucciones del actualización del modo de grupo](#update-existing-cluster-system-and-user-node-pools).
 * El modo de un grupo de nodos es una propiedad obligatoria y se debe establecer explícitamente cuando se usan plantillas de Resource Manager o llamadas API directas.
 
 ## <a name="system-and-user-node-pools"></a>Grupos de nodos del sistema y del usuario
 
-Cada nodo del grupo de nodos del sistema tiene la etiqueta **kubernetes.azure.com/mode: system**. Cada clúster de AKS contiene al menos un grupo de nodos del sistema. Los grupos de nodos del sistema tienen las siguientes restricciones:
+Para un grupo de nodos del sistema, AKS asigna automáticamente la etiqueta **kubernetes.azure.com/mode: system** a sus nodos. Esto hace que AKS prefiera programar pods del sistema en grupos de nodos que contengan esta etiqueta. Esta etiqueta no impide que se programen pods de aplicación en grupos de nodos del sistema. Sin embargo, se recomienda aislar los pods del sistema críticos de los pods de aplicación para evitar que los pods de aplicación mal configurados o no autorizados eliminen accidentalmente los pods del sistema. Puede aplicar este comportamiento mediante la creación de un grupo de nodos del sistema dedicado. Use el valor de taint `CriticalAddonsOnly=true:NoSchedule` para evitar que los pods de aplicación se programen en grupos de nodos del sistema.
+
+Los grupos de nodos del sistema tienen las siguientes restricciones:
 
 * El valor de osType para los grupos del sistema debe ser Linux.
 * En el caso de los grupos de nodos del usuario puede ser Linux o Windows.
@@ -46,6 +48,7 @@ Cada nodo del grupo de nodos del sistema tiene la etiqueta **kubernetes.azure.co
 
 Puede hacer las siguientes operaciones con los grupos de nodos:
 
+* Crear un grupo de nodos del sistema dedicado (se prefiere la programación de pods del sistema a grupos de nodos de `mode:system`).
 * Cambiar un grupo de nodos del sistema para que sea un grupo de nodos del usuario, siempre que disponga de otro grupo de nodos del sistema que ocupe su lugar en el clúster de AKS.
 * Cambiar un grupo de nodos del usuario para que sea un grupo de nodos del sistema.
 * Eliminar grupos de nodos del usuario.
@@ -55,7 +58,7 @@ Puede hacer las siguientes operaciones con los grupos de nodos:
 
 ## <a name="create-a-new-aks-cluster-with-a-system-node-pool"></a>Creación de un nuevo clúster de AKS con un grupo de nodos del sistema
 
-Cuando crea un nuevo clúster de AKS, crea automáticamente un grupo de nodos del sistema con un único nodo. De forma predeterminada, el grupo de nodos inicial es del tipo sistema. Cuando crea nuevos grupos de nodos con az aks nodepool add, estos serán grupos de nodos del usuario a menos que especifique explícitamente lo contrario en el parámetro de modo.
+Cuando crea un nuevo clúster de AKS, crea automáticamente un grupo de nodos del sistema con un único nodo. De forma predeterminada, el grupo de nodos inicial es del tipo sistema. Cuando crea nuevos grupos de nodos con `az aks nodepool add`, estos serán grupos de nodos del usuario a menos que especifique explícitamente lo contrario en el parámetro de modo.
 
 En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGroup* en la región *eastus*.
 
@@ -63,54 +66,73 @@ En el ejemplo siguiente, se crea un grupo de recursos denominado *myResourceGrou
 az group create --name myResourceGroup --location eastus
 ```
 
-Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un grupo del sistema que contiene un nodo. Para las cargas de trabajo de producción, asegúrese de que usa grupos de nodos del sistema con al menos tres nodos. Esta operación puede tardar varios minutos en completarse.
+Use el comando [az aks create][az-aks-create] para crear un clúster de AKS. En el siguiente ejemplo se crea un clúster denominado *myAKSCluster* con un grupo del sistema dedicado que contiene un nodo. Para las cargas de trabajo de producción, asegúrese de que usa grupos de nodos del sistema con al menos tres nodos. Esta operación puede tardar varios minutos en completarse.
 
 ```azurecli-interactive
+# Create a new AKS cluster with a single system pool
 az aks create -g myResourceGroup --name myAKSCluster --node-count 1 --generate-ssh-keys
 ```
 
-## <a name="add-a-system-node-pool-to-an-existing-aks-cluster"></a>Incorporación de un grupo de nodos del sistema a un clúster de AKS existente
+## <a name="add-a-dedicated-system-node-pool-to-an-existing-aks-cluster"></a>Incorporación de un grupo de nodos del sistema dedicado a un clúster de AKS existente
 
-Puede agregar uno o varios grupos de nodos del sistema a los clústeres de AKS existentes. El siguiente comando le permite agregar un grupo de nodos del tipo sistema con un número predeterminado de tres nodos.
+> [!Important]
+> No se pueden cambiar los valores de taint del nodo a través de la CLI una vez creado el grupo de nodos.
+
+Puede agregar uno o varios grupos de nodos del sistema a los clústeres de AKS existentes. Se recomienda programar los pods de aplicación en grupos de nodos de usuario y dedicar grupos de nodos del sistema a los pods del sistema imprescindibles. Esto evita que los pods de aplicaciones no autorizadas eliminen por accidente los pods del sistema. Aplique este comportamiento con el [taint][aks-taints] `CriticalAddonsOnly=true:NoSchedule` de los grupos de nodos del sistema. 
+
+El siguiente comando le permite agregar un grupo de nodos del tipo sistema dedicado con un número predeterminado de tres nodos.
 
 ```azurecli-interactive
-az aks nodepool add -g myResourceGroup --cluster-name myAKSCluster -n mynodepool --mode system
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name systempool \
+    --node-count 3 \
+    --node-taints CriticalAddonsOnly=true:NoSchedule \
+    --mode system
 ```
 ## <a name="show-details-for-your-node-pool"></a>Visualización de detalles del grupo de nodos
 
 Puede comprobar los detalles del grupo de nodos con el siguiente comando.  
 
 ```azurecli-interactive
-az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
+az aks nodepool show -g myResourceGroup --cluster-name myAKSCluster -n systempool
 ```
 
-Un modo del tipo **sistema** se define para los grupos de nodos del sistema y uno del tipo **usuario** para los del usuario.
+Un modo del tipo **sistema** se define para los grupos de nodos del sistema y uno del tipo **usuario** para los del usuario. En el caso de un grupo de sistemas, compruebe que el sistema está establecido en `CriticalAddonsOnly=true:NoSchedule`, lo que impedirá que los pods de aplicación estén programados en este grupo de nodos.
 
 ```output
 {
   "agentPoolType": "VirtualMachineScaleSets",
   "availabilityZones": null,
-  "count": 3,
+  "count": 1,
   "enableAutoScaling": null,
   "enableNodePublicIp": false,
-  "id": "/subscriptions/666d66d8-1e43-4136-be25-f25bb5de5883/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/mynodepool",
+  "id": "/subscriptions/yourSubscriptionId/resourcegroups/myResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/agentPools/systempool",
   "maxCount": null,
   "maxPods": 110,
   "minCount": null,
   "mode": "System",
-  "name": "mynodepool",
+  "name": "systempool",
+  "nodeImageVersion": "AKSUbuntu-1604-2020.06.30",
   "nodeLabels": {},
-  "nodeTaints": null,
-  "orchestratorVersion": "1.15.10",
-  "osDiskSizeGb": 100,
+  "nodeTaints": [
+    "CriticalAddonsOnly=true:NoSchedule"
+  ],
+  "orchestratorVersion": "1.16.10",
+  "osDiskSizeGb": 128,
   "osType": "Linux",
-  "provisioningState": "Succeeded",
+  "provisioningState": "Failed",
+  "proximityPlacementGroupId": null,
   "resourceGroup": "myResourceGroup",
   "scaleSetEvictionPolicy": null,
   "scaleSetPriority": null,
   "spotMaxPrice": null,
   "tags": null,
   "type": "Microsoft.ContainerService/managedClusters/agentPools",
+  "upgradeSettings": {
+    "maxSurge": null
+  },
   "vmSize": "Standard_DS2_v2",
   "vnetSubnetId": null
 }
@@ -146,6 +168,16 @@ Anteriormente no podía eliminar el grupo de nodos del sistema que constituía e
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster -n mynodepool
 ```
 
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Para eliminar el clúster, use el comando [az group delete][az-group-delete] para eliminar el grupo de recursos de AKS:
+
+```azurecli-interactive
+az group delete --name myResourceGroup --yes --no-wait
+```
+
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo ha aprendido a crear y administrar grupos de nodos del sistema en un clúster de AKS. Para más información acerca de cómo usar varios grupos de nodos, consulte [Uso de grupos de varios nodos][use-multiple-node-pools].
@@ -159,6 +191,7 @@ En este artículo ha aprendido a crear y administrar grupos de nodos del sistema
 [kubernetes-label-syntax]: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#syntax-and-character-set
 
 <!-- INTERNAL LINKS -->
+[aks-taints]: use-multiple-node-pools.md#schedule-pods-using-taints-and-tolerations
 [aks-windows]: windows-container-cli.md
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-aks-create]: /cli/azure/aks#az-aks-create
@@ -180,6 +213,6 @@ En este artículo ha aprendido a crear y administrar grupos de nodos del sistema
 [supported-versions]: supported-kubernetes-versions.md
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [maximum-pods]: configure-azure-cni.md#maximum-pods-per-node

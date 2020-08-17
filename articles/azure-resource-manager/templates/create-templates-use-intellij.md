@@ -4,12 +4,13 @@ description: Aprenda cómo crear su primera plantilla de Azure Resource Manager 
 ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
-ms.openlocfilehash: fa09fbe8d239bbe10c0762d3aad7e19df23a9044
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.custom: devx-track-java
+ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057456"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321826"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creación e implementación de plantillas de ARM mediante IntelliJ IDEA
 
@@ -27,7 +28,7 @@ Para completar este artículo, necesitará lo siguiente:
 
 * [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition o Community Edition instalado
 * [Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053) instalado; consulte la [guía de administración de complementos de IntelliJ](https://www.jetbrains.com/help/idea/managing-plugins.html) para más información.
-* Haber [iniciado sesion](/java/azure/intellij/azure-toolkit-for-intellij-sign-in-instructions) en su cuenta de Azure para Azure Toolkit for IntelliJ.
+* Haber [iniciado sesion](/azure/developer/java/toolkit-for-intellij/sign-in-instructions) en su cuenta de Azure para Azure Toolkit for IntelliJ.
 
 ## <a name="deploy-a-quickstart-template"></a>Implementación de una plantilla de inicio rápido
 

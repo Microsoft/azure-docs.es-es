@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.service: service-bus
 ms.date: 07/02/2020
 ms.author: alvidela
-ms.openlocfilehash: df0541802dfc331ffc94e95be112ea7e005960b5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 373629c86f2d842ad2e02dd2b66739f3963bf7ed
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049410"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064560"
 ---
 # <a name="how-to-integrate-rabbitmq-with-azure-service-bus"></a>Cómo integrar RabbitMQ con Azure Service Bus
 
@@ -20,7 +20,7 @@ En esta guía, vamos aprenderemos a enviar mensajes desde RabbitMQ hasta Azure S
 
 Estos son algunos escenarios en los que podemos hacer uso de estas funcionalidades:
 
-- **Configuración perimetral**: Tenemos una configuración perimetral en la que enviamos mensajes a RabbitMQ, pero queremos reenviar esos mensajes a [Azure Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview) para un procesamiento posterior, de modo que podamos usar muchas de las [funciones de macrodatos de Azure ](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/big-data).
+- **Configuración perimetral**: Tenemos una configuración perimetral en la que enviamos mensajes a RabbitMQ, pero queremos reenviar esos mensajes a [Azure Service Bus](./service-bus-messaging-overview.md) para un procesamiento posterior, de modo que podamos usar muchas de las [funciones de macrodatos de Azure ](/azure/architecture/guide/architecture-styles/big-data).
 - **Nube híbrida**: Su empresa acaba de adquirir un tercero que usa RabbitMQ para sus necesidades de mensajería. Se encuentran en una nube diferente. Mientras realizan la transición a Azure, ya puede empezar a compartir datos mediante el puente de RabbitMQ con Azure Service Bus.
 - **Integración de terceros**: Un tercero usa RabbitMQ como agente y desea enviarnos sus datos, pero están fuera de la organización. Podemos proporcionarles una clave SAS que les permita acceder a un conjunto limitado de colas de Azure Service Bus a las que pueden reenviar sus mensajes.
 
@@ -28,7 +28,7 @@ La lista continúa, pero podemos resolver la mayoría de estos casos de uso medi
 
 En primer lugar, debe crear una cuenta gratuita de Azure al registrarse [aquí](https://azure.microsoft.com/free/)
 
-Una vez que haya iniciado sesión en su cuenta, vaya a [Azure Portal](https://portal.azure.com/) y cree un nuevo Azure Service Bus [espacio de nombres](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal). Los espacios de nombres son los contenedores de alcance donde se activarán nuestros componentes de mensajería, como las colas y los temas.
+Una vez que haya iniciado sesión en su cuenta, vaya a [Azure Portal](https://portal.azure.com/) y cree un nuevo Azure Service Bus [espacio de nombres](./service-bus-create-namespace-portal.md). Los espacios de nombres son los contenedores de alcance donde se activarán nuestros componentes de mensajería, como las colas y los temas.
 
 ## <a name="adding-a-new-azure-service-bus-namespace"></a>Agregue un nuevo espacio de nombres de Azure Service Bus
 
@@ -40,7 +40,7 @@ Después, seleccione Integración y haga clic en Azure Service Bus para crear un
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/integration.png" alt-text="Seleccione Azure Service Bus":::
 
-Se le pedirá que ingrese la información del espacio de nombres. Seleccione la suscripción de Azure que quiere usar. Si no tiene un [grupo de recursos](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) existente, puede crear uno.
+Se le pedirá que ingrese la información del espacio de nombres. Seleccione la suscripción de Azure que quiere usar. Si no tiene un [grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md) existente, puede crear uno.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-namespace.png" alt-text="Crear un espacio de nombres":::
 
@@ -76,7 +76,7 @@ Ahora es el momento de obtener las credenciales necesarias para conectar RabbitM
 
 ## <a name="connecting-rabbitmq-to-azure-service-bus"></a>Conexión de RabbitMQ con Azure Service Bus
 
-Tendrá que crear una [política de acceso compartido](https://docs.microsoft.com/azure/storage/common/storage-sas-overview) (SAS) para la cola, de modo que RabbitMQ pueda publicar mensajes en ella. Una directiva SAS le permite especificar qué entidad externa se puede hacer con el recurso. La idea es que RabbitMQ puede enviar mensajes, pero no escuchar ni administrar la cola.
+Tendrá que crear una [política de acceso compartido](../storage/common/storage-sas-overview.md) (SAS) para la cola, de modo que RabbitMQ pueda publicar mensajes en ella. Una directiva SAS le permite especificar qué entidad externa se puede hacer con el recurso. La idea es que RabbitMQ puede enviar mensajes, pero no escuchar ni administrar la cola.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/create-sas-policy.png" alt-text="Agregar directiva SAS":::
 
@@ -90,7 +90,7 @@ Antes de poder utilizar esa cadena de conexión, tendrá que convertirla al form
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/converter.png" alt-text="Convertir cadena de conexión":::
 
-Ahora, abra el complemento de administración de RabbitMQ en nuestros exploradores [http://localhost:15672/#/dynamic-shovels](http://localhost:15672/#/dynamic-shovels) y vaya a `Admin -> Shovel Management`, donde puede agregar el nuevo Shovel que se encargará de enviar mensajes desde una cola de RabbitMQ hasta la cola de Azure Service Bus.
+Ahora, abra el complemento de administración de RabbitMQ en nuestros exploradores `http://localhost:15672/#/dynamic-shovels` y vaya a `Admin -> Shovel Management`, donde puede agregar el nuevo Shovel que se encargará de enviar mensajes desde una cola de RabbitMQ hasta la cola de Azure Service Bus.
 
 :::image type="content" source="./media/service-bus-integrate-with-rabbitmq/add-shovel.png" alt-text="Agregar RabbitMQ Shovel":::
 

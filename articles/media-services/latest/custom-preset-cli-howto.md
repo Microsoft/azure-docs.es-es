@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.date: 05/14/2019
 ms.author: juliako
-ms.openlocfilehash: 7c1b446ccf04199449f012e738f6a03660735f50
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: 4ea328cc21d849367d36342ed1b0953a7eb26c77
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382960"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503895"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Procedimiento de codificación con una transformación personalizada: CLI de Azure
 
@@ -32,7 +32,7 @@ Al crear valores preestablecidos personalizados, se aplican las consideraciones 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md).
+[Cree una cuenta de Media Services](./create-account-howto.md).
 
 Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 

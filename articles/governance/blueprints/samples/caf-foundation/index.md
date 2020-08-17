@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico de Fundación CAF, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de una base de Cloud Adoption Framework (CAF) para Azure.
 ms.date: 04/15/2020
 ms.topic: sample
-ms.openlocfilehash: 3291fdc299652d2b22bff89f5b1dadbdc064e561
-ms.sourcegitcommit: 0fda81f271f1a668ed28c55dcc2d0ba2bb417edd
+ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82901300"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852351"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Introducción al ejemplo de plano técnico de fundamentos de Microsoft Cloud Adoption Framework para Azure
 
@@ -35,7 +35,7 @@ Esta implementación incorpora varios servicios de Azure que se usan para propor
   - El cifrado de transferencia segura de la cuenta de almacenamiento de Azure requerido
   - Tipos de recursos denegados (se elige durante la implementación)  
 - Iniciativas
-  - Habilitación de la supervisión en Azure Security Center (89 directivas)
+  - Habilitación de la supervisión en Azure Security Center (definiciones de más de cien directivas)
 
 Todos estos elementos se atienen a los procedimientos probados que se publicaron en [Centro de arquitectura de Azure: Arquitecturas de referencia](/azure/architecture/reference-architectures/).
 

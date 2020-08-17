@@ -2,14 +2,14 @@
 title: Contenedores sin servidor en Azure
 description: El servicio Azure Container Instances ofrece la forma más rápida y sencilla de ejecutar contenedores aislados, sin tener que administrar máquinas virtuales y sin necesidad de adoptar un orquestador de nivel superior.
 ms.topic: overview
-ms.date: 04/25/2019
+ms.date: 07/28/2020
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 261e5d0159b4201aab0e8aad1e05fa320cc76a14
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 2871aabe4d81cfb1441e9c74c8fa24e4e906d3b9
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259500"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498691"
 ---
 # <a name="what-is-azure-container-instances"></a>¿Qué es Azure Container Instances?
 
@@ -20,6 +20,11 @@ Azure Container Instances es una excelente solución para cualquier escenario qu
 ## <a name="fast-startup-times"></a>Tiempos de inicio rápido
 
 Los contenedores ofrecen importantes ventajas de inicio sobre las máquinas virtuales (VM). Azure Container Instances puede iniciar un contenedor en Azure en segundos sin que sea necesario aprovisionar y administrar máquinas virtuales.
+
+Traiga imágenes de contenedores Linux o Windows de Docker Hub, un [registro de contenedor de Azure](../container-registry/index.yml) privado, o cualquier otro registro de Docker basado en la nube. Azure Container Instances almacena en la caché varias imágenes del sistema operativo base comunes, lo que ayuda a acelerar la implementación de las imágenes de aplicación personalizadas.
+
+> [!NOTE]
+> Actualmente, no se puede implementar una imagen de un registro local en Azure Container Instances.
 
 ## <a name="container-access"></a>Acceso a contenedores
 
@@ -68,7 +73,7 @@ Azure Container Instances admite la programación de [grupos con varios contened
 
 ## <a name="virtual-network-deployment"></a>Implementación de Virtual Network
 
-Actualmente disponible para cargas de trabajo de producción en un subconjunto de regiones de Azure, esta característica de Azure Container Instances permite la [implementación de instancias de contenedor en una red virtual de Azure](container-instances-vnet.md). Al implementar instancias de contenedor en una subred dentro de la red virtual, pueden comunicarse de forma segura con otros recursos de la red virtual, incluidos los que están en el entorno local (mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
+Azure Container Instances permite la [implementación de instancias de contenedor en una red virtual de Azure](container-instances-vnet.md). Si se implementan en una subred que se encuentre en su red virtual, las instancias de contenedor pueden comunicarse de forma segura con otros recursos de la red virtual, incluidos los que estén en un entorno local (mediante [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) o [ ExpressRoute](../expressroute/expressroute-introduction.md)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

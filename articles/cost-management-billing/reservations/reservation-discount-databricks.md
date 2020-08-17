@@ -1,18 +1,18 @@
 ---
 title: Cómo se aplica un descuento de compra anticipada de Azure Databricks
-description: Obtenga información sobre cómo se aplica a su uso un descuento de compra anticipada de Azure Databricks.
+description: Obtenga información sobre cómo se aplica a su uso un descuento de compra anticipada de Azure Databricks. Puede usar estas instancias de Databricks en cualquier momento durante el plazo de compra.
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 69f83fc1d390fcbea77468045b89ee6024e7fe9a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 380c4c7fdcccf45d83adaf355c2cc12da0b327fc
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200323"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460327"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Cómo se aplica un descuento de compra anticipada de Azure Databricks
 

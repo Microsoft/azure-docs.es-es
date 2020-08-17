@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/08/2020
-ms.openlocfilehash: b9300845f6bc62d8ed90c2dc87efb626efae05bb
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.custom: devx-track-java
+ms.openlocfilehash: 2b68c4857d3d688c42779be9b5f5fa6e43e0403e
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224920"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116896"
 ---
 # <a name="tutorial-use-a-managed-identity-to-connect-key-vault-to-an-azure-spring-cloud-app"></a>Tutorial: Uso de una identidad administrada para conectar Key Vault a una aplicación de Azure Spring Cloud
 
@@ -97,7 +98,7 @@ Esta aplicación tendrá acceso a secretos de Azure Key Vault. Uso de la aplicac
     azure.keyvault.uri=https://<your-keyvault-name>.vault.azure.net
     ```
     > [!Note] 
-    > Debe agregar la dirección URL del almacén en `application.properties` como se indicó anteriormente. De lo contrario, es posible que la dirección URL del almacén de claves no se capture durante la ejecución.
+    > Debe agregar la dirección URL del almacén de claves en `application.properties`, como se indicó anteriormente. De lo contrario, es posible que la dirección URL del almacén de claves no se capture durante la ejecución.
 
 3. Agregue el ejemplo de código a src/main/java/com/example/demo/DemoApplication.java. Recupera la cadena de conexión del almacén de claves. 
 

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 85dd58398021ef61e425eb58797e818b233c491b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ba7875caa6a1db7638bfeafcfea1efa7b2462152
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170129"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489522"
 ---
 # <a name="configure-itsme-openid-connect-oidc-with-azure-active-directory-b2c"></a>Configuración de itsme OpenID Connect (OIDC) con Azure Active Directory B2C
 
@@ -104,7 +104,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 2. Seleccione **Nuevo flujo de usuario**.
 
-3. Elija **Registrarse e iniciar sesión**.
+3. Seleccione **Registrarse e iniciar sesión**, seleccione una versión y, a continuación, seleccione **Crear**.
 
 4. Escriba un **nombre**.
 

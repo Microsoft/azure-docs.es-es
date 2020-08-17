@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo crear y configurar recursos técni
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: dannyevers
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/13/2020
-ms.openlocfilehash: aee2016b422dcf447dbae047c8a77ae93bf79ab7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: afc012329d0d9e337dfca93a88615ba7c28f1754
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107162"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460378"
 ---
 # <a name="create-your-azure-virtual-machine-technical-assets"></a>Creación de recursos técnicos para máquinas virtuales de Azure
 
@@ -43,7 +43,7 @@ El diseño, la compilación y las pruebas de estos recursos lleva tiempo y requi
 
 Considere la posibilidad de usar uno de los siguientes entornos de scripting para ayudar a administrar los discos duros virtuales y las máquinas virtuales:
 
-* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
+* [Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
 * [CLI de Azure](https://code.visualstudio.com/)
 
 Además, considere la posibilidad de agregar las herramientas siguientes al entorno de desarrollo:
@@ -77,6 +77,7 @@ Seleccione el sistema operativo Windows o Linux como base.
 El VHD del sistema operativo para su imagen de máquina virtual basada en Windows debe basarse en una imagen base aprobada para Azure que contenga Windows Server o SQL Server. Para comenzar, cree una máquina virtual a partir de alguna de las imágenes de Azure Portal:
 
 * Windows Server ([2016](https://www.microsoft.com/evalcenter/evaluate-windows-server-2016), [2012 R2 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2012 Datacenter](https://www.microsoft.com/cloud-platform/windows-server-pricing), [2008 R2 SP1](https://azuremarketplace.microsoft.com/marketplace/apps/microsoftwindowsserver.windowsserver?tab=Overview))
+* [Windows 10 IoT Enterprise](/windows/iot-core/windows-iot-enterprise)
 * [SQL Server 2014](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
 * [SQL Server 2012 SP2](../../virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md) (Enterprise, Standard, Web)
 
@@ -282,4 +283,4 @@ Si tiene dificultades para crear el disco duro virtual basado en Azure, vea [Com
 
 De lo contrario:
 
-* [Certifique su imagen de máquina virtual](get-sas-uri.md): se explica cómo probar y enviar una imagen de máquina virtual para la certificación de Azure Marketplace, incluido dónde obtener la *herramienta de prueba de certificación para la herramienta Azure Certified* y cómo usarla para certificar la imagen de máquina virtual.
+* La [Prueba de máquina virtual implementada desde un disco duro virtual](azure-vm-image-certification.md) explica cómo probar y enviar una imagen de máquina virtual para la certificación de Azure Marketplace, incluido dónde obtener la *herramienta de prueba de certificación para la herramienta Azure Certified* y cómo usarla para certificar la imagen de máquina virtual.

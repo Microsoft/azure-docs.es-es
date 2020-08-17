@@ -6,16 +6,17 @@ author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 80932ebbedeca3f5e0a1b4cc2e68d73ef5b0d63a
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 05ecce2d6ef0f8a3f241570ba9364c5e38682f3e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025733"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319446"
 ---
-# <a name="create-and-explore-azure-machine-learning-dataset-with-labels-preview"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas (versión preliminar)
+# <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creación y exploración de un conjunto de datos de Azure Machine Learning con etiquetas
 
 En este artículo, aprenderá a exportar las etiquetas de datos desde un proyecto de etiquetado de datos de Azure Machine Learning y a cargarlos en formatos populares como tramas de datos de Pandas para la exploración de datos o conjuntos de datos de Torchvision para la transformación de imágenes. 
 

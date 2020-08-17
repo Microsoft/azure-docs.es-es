@@ -10,17 +10,25 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 4/26/2019
 ms.author: scottwhi
-ms.custom: tracking-python
-ms.openlocfilehash: 733eec452501a829d0162b91aca9ece191d68914
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 49daf816c4075820c9efc93611f33c4854a6042d
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85611431"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87849580"
 ---
 # <a name="use-an-insights-token-to-get-insights-for-an-image"></a>Uso de un token de información para obtener los detalles de una imagen
 
-Bing Visual Search API devuelve información sobre una imagen proporcionada. Puede proporcionar la imagen utilizando la dirección URL de la misma, un token de conclusiones, o simplemente cargando una imagen. Para obtener más información acerca de estas opciones, consulte [What is Bing Visual Search API?](overview.md) (¿Qué es Bing Visual Search API?). En este artículo se muestra cómo usar un token de información. Para ver ejemplos que demuestran cómo cargar una imagen para obtener información, consulte los inicios rápidos ([C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [Node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md)).
+Bing Visual Search API devuelve información sobre una imagen proporcionada. Puede proporcionar la imagen utilizando la dirección URL de la misma, un token de conclusiones, o simplemente cargando una imagen. Para obtener más información acerca de estas opciones, consulte [What is Bing Visual Search API?](overview.md) (¿Qué es Bing Visual Search API?). En este artículo se muestra cómo usar un token de información. Para ver ejemplos que demuestran cómo cargar una imagen a fin de obtener información, vea las guiás de inicio rápido siguientes:
+
+* ([C#](quickstarts/csharp.md)
+
+* [Java](quickstarts/java.md)
+
+* [Node.js](quickstarts/nodejs.md)
+
+* [Python](quickstarts/python.md)).
 
 Si envía a Bing Visual Search una dirección URL o un token de imagen, a continuación se muestran los datos de formulario que se deben incluir en el cuerpo de POST. Los datos de formulario deben incluir el encabezado `Content-Disposition` y su parámetro `name` se debe establecer en to "knowledgeRequest". Para detalles sobre el objeto `imageInfo`, consulte la solicitud:
 
@@ -59,7 +67,15 @@ Content-Disposition: form-data; name="knowledgeRequest"
 --boundary_1234-abcd--
 ```
 
-Para ver ejemplos que usan el token de información, consulte [C#](#use-with-c) | [Java](#use-with-java) | [Node.js](#use-with-nodejs) | [Python](#use-with-python).
+Para obtener ejemplos que usan el token de información, vea lo siguiente:
+
+* [C#](#use-with-c)
+
+* [Java](#use-with-java)
+
+* [Node.js](#use-with-nodejs)
+
+* [Python](#use-with-python)
 
 ## <a name="use-with-c"></a>Uso con C#
 

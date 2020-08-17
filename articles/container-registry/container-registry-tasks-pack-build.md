@@ -3,12 +3,13 @@ title: Compilar imagen con Cloud Native Buildpack
 description: Use el comando az acr pack build para compilar una imagen de contenedor desde una aplicación e insertarla en Azure Container Registry, sin usar ningún documento Dockerfile.
 ms.topic: article
 ms.date: 10/24/2019
-ms.openlocfilehash: c42bde6bbab5973094302a2d41f004d7600bdf9e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f99175165e01a9287a66c59957fc7a239b00393a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79087079"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077227"
 ---
 # <a name="build-and-push-an-image-from-an-app-using-a-cloud-native-buildpack"></a>Compilación e inserción de una imagen desde una aplicación mediante una instancia de Cloud Native Buildpacks
 
@@ -95,7 +96,7 @@ Vaya a `localhost:8080` en su explorador favorito para ver la aplicación web de
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de compilar e insertar una imagen de contenedor con `az acr pack build`, puede implementarla como cualquier imagen en un destino de su elección. Entre las opciones de implementación de Azure, se incluye su ejecución en [App Service](../app-service/containers/tutorial-custom-docker-image.md) o [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), entre otros.
+Después de compilar e insertar una imagen de contenedor con `az acr pack build`, puede implementarla como cualquier imagen en un destino de su elección. Entre las opciones de implementación de Azure, se incluye su ejecución en [App Service](../app-service/tutorial-custom-container.md) o [Azure Kubernetes Service](../aks/tutorial-kubernetes-deploy-cluster.md), entre otros.
 
 Para obtener más información sobre las características de ACR Tasks, vea el artículo [Automatización de compilaciones y mantenimiento de imágenes de contenedor con ACR Tasks](container-registry-tasks-overview.md).
 

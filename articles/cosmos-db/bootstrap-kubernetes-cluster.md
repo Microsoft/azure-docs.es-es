@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: sngun
-ms.openlocfilehash: e7e1480d00280fc567a69556f25db8ffab800f70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31c3c02f2b32594e5b20450d0bb519f4cdf82807
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262640"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497767"
 ---
 # <a name="how-to-use-azure-kubernetes-with-azure-cosmos-db-preview"></a>Procedimientos de uso de Azure Kubernetes con Azure Cosmos DB (versión preliminar)
 
@@ -33,7 +33,7 @@ Para obtener información sobre la API etcd de Azure Cosmos DB, consulte el art
 
    Azure Kubernetes Engine (**aks-engine**) genera plantillas de Azure Resource Manager para clústeres de Kubernetes en Azure. La entrada de aks-engine es un archivo de definición de clúster que describe el clúster deseado, incluidos el orquestador, las características y los agentes. La estructura de los archivos de entrada es similar a la API pública de Azure Kubernetes Service.
 
-1. La API etcd de Azure Cosmos DB está actualmente en versión preliminar. Regístrese para usar la versión preliminar en: https://aka.ms/cosmosetcdapi-signup. Después de enviar el formulario, la suscripción se incluirá en la lista de permitidos para usar la API etcd de Azure Cosmos. 
+1. La API etcd de Azure Cosmos DB está actualmente en versión preliminar. Regístrese para usar la versión preliminar en: https://aka.ms/cosmosetcdapi-signup. Después de enviar el formulario, se permitirá la suscripción para usar la API etcd de Azure Cosmos. 
 
 ## <a name="deploy-the-cluster-with-azure-cosmos-db"></a>Implementación del clúster con Azure Cosmos DB
 
@@ -43,7 +43,7 @@ Para obtener información sobre la API etcd de Azure Cosmos DB, consulte el art
    az login 
    ```
 
-1. Si tiene más de una suscripción, cambie a la suscripción que se ha incluido en la lista de permitidos para la API etcd de Azure Cosmos DB. Puede cambiar a la suscripción necesaria con el comando siguiente:
+1. Si tiene más de una suscripción, cambie a la suscripción que se ha permitido para la API etcd de Azure Cosmos DB. Puede cambiar a la suscripción necesaria con el comando siguiente:
 
    ```azurecli-interactive
    az account set --subscription "<Name of your subscription>"

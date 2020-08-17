@@ -1,26 +1,24 @@
 ---
-title: 'Conexión a Windows Virtual Desktop desde macOS: Azure'
-description: Cómo conectarse a Windows Virtual Desktop mediante el cliente macOS.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+title: 'Conexión a Windows Virtual Desktop (clásico) desde macOS: Azure'
+description: Conexión a Windows Virtual Desktop (clásico) mediante el cliente macOS.
+author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 024a1ab1a7fef58bd5fd8f9e7e0fc743a4ecee71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0d2bd6a07cfc9e5ebe205322550c9e898022846
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213166"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008447"
 ---
-# <a name="connect-with-the-macos-client"></a>Conexión con el cliente macOS
+# <a name="connect-to-windows-virtual-desktop-classic-with-the-macos-client"></a>Conexión a Windows Virtual Desktop (clásico) con el cliente macOS
 
 > Se aplica a: macOS 10.12, o cualquier versión posterior
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../connect-macos.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../connect-macos.md).
 
 Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos macOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente.
 

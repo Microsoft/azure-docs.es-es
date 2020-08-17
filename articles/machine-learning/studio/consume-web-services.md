@@ -1,6 +1,5 @@
 ---
-title: Consumo de un servicio web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): Consumo de servicios web: Azure'
 description: Una vez implementado un servicio de aprendizaje automático desde Azure Machine Learning Studio (clásico), se puede consumir el servicio web RESTFul como servicio de solicitud-respuesta en tiempo real o como servicio de ejecución por lotes.
 services: machine-learning
 ms.service: machine-learning
@@ -8,16 +7,19 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18, tracking-python
+ms.custom: seodec18, devx-track-python, devx-track-javascript
 ms.date: 05/29/2020
-ms.openlocfilehash: 8d78d26298790e033f006fd3f37567caf97f97ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bbecafbbd988530231d71892fb12a55c1a605442
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696633"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844378"
 ---
-# <a name="how-to-consume-an-azure-machine-learning-studio-classic-web-service"></a>Cómo consumir un servicio web de Azure Machine Learning Studio (clásico)
+# <a name="how-to-consume-a-machine-learning-studio-classic-web-service"></a>Consumo de un servicio web de Azure Machine Learning Studio (clásico)
+
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Una vez que implemente un modelo predictivo de Azure Machine Learning Studio (clásico) como servicio web, puede usar una API REST para enviarle datos y obtener predicciones. Puede enviar los datos en tiempo real o por lotes.
 

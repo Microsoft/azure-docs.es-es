@@ -1,19 +1,19 @@
 ---
 title: Incorporación de una capa de mapa de Open Geospatial Consortium (OGC) | Microsoft Azure Maps
 description: Obtenga información sobre cómo superponer una capa de mapa OGC en el mapa y cómo usar las diferentes opciones de la clase OgcMapLayer.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b753ecfc07cfb3806838f8a05dbe33ef0bb92730
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6efc6b27090ecc7171bb66deb303a4764d9b6f04
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334295"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87128563"
 ---
 # <a name="add-a-map-layer-from-the-open-geospatial-consortium-ogc"></a>Incorporación de una capa de mapa desde Open Geospatial Consortium (OGC)
 
@@ -28,7 +28,7 @@ En las secciones siguientes se describen las características del servicio de ma
 - GetFeatureInfo requiere que el servicio admita `EPSG:4326` o controle las reproyecciones. 
 - Operaciones compatibles:
 
-    | | |
+    | Operación | Descripción |
     | :-- | :-- |
     | GetCapabilities | Recupera los metadatos sobre el servicio con las funciones admitidas. |
     | GetMap | Recupera una imagen de mapa para una región especificada. |
@@ -42,7 +42,7 @@ En las secciones siguientes se describen las características del servicio de ma
 - El identificador TileMatrix debe ser un valor entero que se corresponda con un nivel de zoom en el mapa. En un mapa de Azure, el nivel de zoom es un valor entre `"0"` y `"22"`. Por lo tanto, `"0"` es compatible, pero `"00"` no.
 - Operaciones compatibles:
 
-    | | |
+    | Operación | Descripción |
     | :-- | :-- |
     | GetCapabilities | Recupera las operaciones y características admitidas |
     | GetTile | Recupera imágenes para un mosaico determinado |

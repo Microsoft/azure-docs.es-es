@@ -7,17 +7,17 @@ author: jasonnutter
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-javascript
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: f457e876cb9484fce29cba35c7570572b2771aed
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: bf921ce4ce3ad65f0787ccab2f0a064da8973af1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860059"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115244"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Inicio rápido: Inicio de sesión de usuarios y obtención de un token de acceso en un aplicación de página única de Angular
 
@@ -47,7 +47,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 > 1. Si la cuenta tiene acceso a más de un inquilino, seleccione la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD que desee utilizar.
-> 1. Siga las instrucciones para [registrar una aplicación de página única](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-app-registration) en Azure Portal.
+> 1. Siga las instrucciones para [registrar una aplicación de página única](./scenario-spa-app-registration.md) en Azure Portal.
 > 1. Agregue una nueva plataforma en el panel **Autenticación** del registro de la aplicación y registre el identificador URI de redireccionamiento: `http://localhost:4200/`.
 > 1. En este inicio rápido se usa el [flujo de concesión implícita](v2-oauth2-implicit-grant-flow.md). Seleccione la configuración de **Concesión implícita** para **Tokens de identificador** y **Tokens de acceso**. Tanto los tokens de identificador como los tokens de acceso son obligatorios, ya que esta aplicación inicia la sesión de los usuarios y llama a una API.
 
@@ -99,7 +99,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 >|Nombre del valor|Descripción|
 >|---------|---------|
 >|Enter_the_Application_Id_Here|En la página de **información general** del registro de la aplicación, corresponde al valor de **Id. de aplicación (cliente)** . |
->|Enter_the_Cloud_Instance_Id_Here|Esta es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba **https://login.microsoftonline.com** . Para las nubes nacionales (por ejemplo, China) consulte [Nubes nacionales](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).|
+>|Enter_the_Cloud_Instance_Id_Here|Esta es la instancia de la nube de Azure. En el caso de la nube principal o global de Azure, escriba **https://login.microsoftonline.com** . Para las nubes nacionales (por ejemplo, China) consulte [Nubes nacionales](./authentication-national-cloud.md).|
 >|Enter_the_Tenant_Info_Here| Seleccione una de las siguientes opciones: Si la aplicación admite las *cuentas de este directorio organizativo*, reemplace este valor por el identificador del directorio (inquilino) o por el nombre del inquilino (por ejemplo, **contoso.microsoft.com**). Si la aplicación admite *cuentas en cualquier directorio organizativo*, reemplace este valor por **organizaciones**. Si la aplicación admite *cuentas en cualquier directorio organizativo y cuentas Microsoft personales*, reemplace este valor por **común**. Para restringir la compatibilidad a *Personal Microsoft accounts only* (Solo cuentas Microsoft personales), reemplace este valor por **consumidores**. |
 >|Enter_the_Redirect_Uri_Here|Reemplácelo por **http://localhost:4200** .|
 >|cacheLocation  | (Opcional) Establece el almacenamiento del explorador para el estado de autenticación. El valor predeterminado es **sessionStorage**.   |
@@ -107,7 +107,7 @@ En este inicio rápido se usa un código de ejemplo que muestra cómo una aplica
 > > [!TIP]
 > > Para buscar los valores de **Identificador de aplicación (cliente)** , **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
 
-Para más información acerca de las opciones configurables disponibles, consulte [Inicializar aplicaciones cliente](msal-js-initializing-client-applications.md). 
+Para más información acerca de las opciones configurables disponibles, consulte [Inicializar aplicaciones cliente](msal-js-initializing-client-applications.md).
 
 Puede encontrar el código fuente de la biblioteca MSAL.js en el repositorio [AzureAD/microsoft-authentication-library-for-js](https://github.com/AzureAD/microsoft-authentication-library-for-js) de GitHub.
 
@@ -134,7 +134,7 @@ Cuando el explorador haya cargado la aplicación, seleccione **Iniciar sesión**
 
 ## <a name="how-the-sample-works"></a>Funcionamiento del ejemplo
 
-![Diagrama del funcionamiento de la aplicación de ejemplo en este inicio rápido](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+![Diagrama del funcionamiento de la aplicación de ejemplo en este inicio rápido](./media/quickstart-v2-angular/diagram-auth-flow-spa-angular.svg)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -142,5 +142,4 @@ Cuando el explorador haya cargado la aplicación, seleccione **Iniciar sesión**
 A continuación, aprenda a iniciar sesión en un usuario y adquirir tokens en el tutorial de Angular:
 
 > [!div class="nextstepaction"]
-> [Tutorial de Angular](https://docs.microsoft.com/azure/active-directory/develop/tutorial-v2-angular)
-
+> [Tutorial de Angular](./tutorial-v2-angular.md)

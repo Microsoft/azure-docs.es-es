@@ -3,13 +3,12 @@ title: 'Solución de problemas: Personalizer'
 description: En este artículo se incluyen respuestas a preguntas para solucionar problemas sobre Personalizer.
 ms.topic: troubleshooting
 ms.date: 02/26/2020
-ms.author: diberry
-ms.openlocfilehash: ca19fbfc505e3e46338a0930773b1879dce788c1
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 55b9068dbd7bfbb3ea3972c3381fda6d9cde5076
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586259"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126115"
 ---
 # <a name="personalizer-troubleshooting"></a>Solución de problemas de Personalizer
 

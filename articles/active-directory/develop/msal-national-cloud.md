@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f3bb4dd1c564e5f6c4a8ee1bb5bf7424a74a339e
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81533996"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119446"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Uso de MSAL en un entorno de nube nacional
 
@@ -40,7 +40,7 @@ Antes de empezar, asegúrese de que cumpla estos requisitos previos.
 
 ### <a name="choose-the-appropriate-identities"></a>Elección de las identidades adecuadas
 
-Las aplicaciones de [Azure Government](https://docs.microsoft.com/azure/azure-government/) pueden usar identidades de Azure AD Government e identidades pública de Azure AD para autenticar a los usuarios. Dado que puede usar cualquiera de estas identidades, debe decidir qué punto de conexión de autoridad debe elegir para su escenario:
+Las aplicaciones de [Azure Government](../../azure-government/index.yml) pueden usar identidades de Azure AD Government e identidades pública de Azure AD para autenticar a los usuarios. Dado que puede usar cualquiera de estas identidades, debe decidir qué punto de conexión de autoridad debe elegir para su escenario:
 
 - Azure AD público: se suele usar si la organización ya tiene un inquilino público de Azure AD para admitir Office 365 (público o GCC) u otra aplicación.
 - Azure AD Government: se suele usar si la organización ya tiene un inquilino de Azure AD Government para admitir Office 365 (GCC High o DoD) o está creando un nuevo inquilino en Azure AD Government.
@@ -49,7 +49,7 @@ Una vez decidido, debe tener en cuenta también dónde se realiza el registro de
 
 ### <a name="get-an-azure-government-subscription"></a>Obtener una suscripción a Azure Government
 
-Para obtener una suscripción a Azure Government, consulte [Administración y conexión a su suscripción en Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-manage-subscriptions).
+Para obtener una suscripción a Azure Government, consulte [Administración y conexión a su suscripción en Azure Government](../../azure-government/documentation-government-manage-subscriptions.md).
 
 Si no tiene una suscripción a Azure Government, cree una [cuenta gratuita](https://azure.microsoft.com/global-infrastructure/government/request/) antes de comenzar.
 
@@ -127,14 +127,14 @@ En el código:
     - Si la aplicación admite **Solo las cuentas de este directorio organizativo** , reemplace este valor por el identificador de inquilino o el nombre de inquilino (por ejemplo, contoso.microsoft.com).
     - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`.
 
-    Para buscar los puntos de conexión de autenticación para todas las nubes nacionales, consulte [Puntos de conexión de autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints).
+    Para buscar los puntos de conexión de autenticación para todas las nubes nacionales, consulte [Puntos de conexión de autenticación de Azure AD](./authentication-national-cloud.md#azure-ad-authentication-endpoints).
 
     > [!NOTE]
     > No se admiten cuentas de Microsoft personales en las nubes nacionales.
 
 - `graphEndpoint` es el punto de conexión de Microsoft Graph para la nube de Microsoft para el gobierno de Estados Unidos.
 
-   Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de Microsoft Graph en nubes nacionales](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+   Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de Microsoft Graph en nubes nacionales](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 ## <a name="python"></a>[Python](#tab/python)
 
@@ -150,7 +150,7 @@ Para habilitar la aplicación MSAL para Python para nubes soberanas:
     "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
     ```
 
-- Para llamar a Microsoft Graph, se requiere una dirección URL de punto de conexión de Graph específica que dependa de la nube que esté usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Para llamar a Microsoft Graph, se requiere una dirección URL de punto de conexión de Graph específica que dependa de la nube que esté usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
     A continuación se muestra un ejemplo de un punto de conexión de Graph con el ámbito:
 
@@ -173,7 +173,7 @@ Este es un ejemplo de autoridad:
 "authority": "https://login.microsoftonline.us/Enter_the_Tenant_Info_Here"
 ```
 
-- Para llamar a Microsoft Graph, se requiere una dirección URL de punto de conexión de Graph específica que dependa de la nube que esté usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](https://docs.microsoft.com/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
+- Para llamar a Microsoft Graph, se requiere una dirección URL de punto de conexión de Graph específica que dependa de la nube que esté usando. Para buscar los puntos de conexión de Microsoft Graph de todas las nubes nacionales, consulte [Puntos de conexión de raíz de servicio de Microsoft Graph y Graph Explorer](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 
 A continuación se muestra un ejemplo de un punto de conexión de Graph con el ámbito:
 
@@ -225,6 +225,6 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 Más información sobre:
 
 - [Autenticación en nubes nacionales](authentication-national-cloud.md)
-- [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
-- [Azure Alemania](https://docs.microsoft.com/azure/germany/)
+- [Azure Government](../../azure-government/index.yml)
+- [Azure China 21Vianet](/azure/china/)
+- [Azure Alemania](../../germany/index.yml)

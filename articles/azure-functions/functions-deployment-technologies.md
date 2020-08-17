@@ -1,17 +1,15 @@
 ---
 title: Tecnologías de implementación en Azure Functions
 description: Conozca las distintas formas de implementación de código en Azure Functions.
-author: ggailey777
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: glenga
-ms.openlocfilehash: 63c52b8b1ee9b9448a1ba6f78873ae6a036e3563
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 754a3ea2a316878cc8c2bd918b99476a7194b545
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540220"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562946"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologías de implementación en Azure Functions
 
@@ -39,7 +37,7 @@ Cada plan tiene diferentes comportamientos. No todas las tecnologías de impleme
 | FTP<sup>1</sup> |✔|✔|✔| |✔|✔|
 | Edición del portal |✔|✔|✔| |✔<sup>2</sup>|✔<sup>2</sup>|
 
-<sup>1</sup> Tecnología de implementación que requiere [sincronización manual de desencadenadores](#trigger-syncing).  
+<sup>1</sup> Tecnología de implementación que requiere [sincronización manual de desencadenadores](#trigger-syncing).
 <sup>2</sup> La edición del portal solo está habilitada para los desencadenadores HTTP y de temporizador de Functions en Linux con los planes Premium y Dedicado.
 
 ## <a name="key-concepts"></a>Conceptos clave
@@ -74,9 +72,9 @@ Para habilitar la compilación remota en Linux, se debe establecer la siguiente 
 * `ENABLE_ORYX_BUILD=true`
 * `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
 
-De forma predeterminada, tanto [Azure Functions Core Tools](functions-run-local.md) como la [extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) realizan compilaciones remotas cuando se implementa en Linux. Por este motivo, ambas herramientas crean automáticamente esta configuración en Azure. 
+De forma predeterminada, tanto [Azure Functions Core Tools](functions-run-local.md) como la [extensión de Azure Functions para Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure) realizan compilaciones remotas cuando se implementa en Linux. Por este motivo, ambas herramientas crean automáticamente esta configuración en Azure.
 
-Cuando las aplicaciones se compilan de forma remota en Linux, [se ejecutan desde el paquete de implementación](run-functions-from-deployment-package.md). 
+Cuando las aplicaciones se compilan de forma remota en Linux, [se ejecutan desde el paquete de implementación](run-functions-from-deployment-package.md).
 
 ##### <a name="consumption-plan"></a>Plan de consumo
 
@@ -94,7 +92,7 @@ En Azure Functions se encuentran disponibles los métodos de implementación si
 
 Puede utilizar la dirección URL del paquete externo para hacer referencia a un archivo (.zip) de paquete remoto que contiene la aplicación de funciones. El archivo se descarga desde la dirección URL proporcionada y la aplicación se ejecuta en modo de [ejecución desde el paquete](run-functions-from-deployment-package.md).
 
->__Cómo se debe usar:__ Agregue `WEBSITE_RUN_FROM_PACKAGE` a la configuración de la aplicación. El valor de esta opción debe ser una dirección URL (la ubicación del archivo de paquete específico que quiere ejecutar). Puede agregar una configuración cualquiera [en el portal](functions-how-to-use-azure-function-app-settings.md#settings) o [mediante la CLI de Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+>__Cómo se debe usar:__ Agregue `WEBSITE_RUN_FROM_PACKAGE` a la configuración de la aplicación. El valor de esta opción debe ser una dirección URL (la ubicación del archivo de paquete específico que quiere ejecutar). Puede agregar una configuración cualquiera [en el portal](functions-how-to-use-azure-function-app-settings.md#settings) o [mediante la CLI de Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 >
 >Si usa Azure Blob Storage, utilice un contenedor privado con una [firma de acceso compartido (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) para que Functions tenga acceso al paquete. Cada vez que se reinicia la aplicación, se captura una copia del contenido. La referencia debe ser válida durante la vigencia de la aplicación.
 
@@ -106,7 +104,7 @@ Utilice la implementación de archivo ZIP para insertar un archivo ZIP que conti
 
 >__Cómo se debe usar:__ Realice la implementación con su herramienta cliente favorita: [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure) o mediante la línea de comandos con [Azure Functions Core Tools](functions-run-local.md#project-file-deployment). De forma predeterminada, estas herramientas usan la implementación desde un archivo ZIP y se [ejecutan desde el paquete](run-functions-from-deployment-package.md). Core Tools y la extensión Visual Studio Code habilitan la [compilación remota](#remote-build) al implementar en Linux. Para implementar manualmente un archivo ZIP en la aplicación de funciones, siga las instrucciones que encontrará en [Deploying from a zip file or url](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url) (Implementación desde un archivo ZIP o una dirección URL).
 
->Si realiza la implementación mediante la implementación de archivos ZIP, puede establecer la aplicación para que [se ejecute desde el paquete](run-functions-from-deployment-package.md). Para ejecutarla desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure. 
+>Si realiza la implementación mediante la implementación de archivos ZIP, puede establecer la aplicación para que [se ejecute desde el paquete](run-functions-from-deployment-package.md). Para ejecutarla desde el paquete, defina el valor de configuración de la aplicación `WEBSITE_RUN_FROM_PACKAGE` en `1`. Se recomienda usar la implementación de archivos ZIP. Produce tiempos de carga más rápidos para las aplicaciones, y es el valor predeterminado para VS Code, Visual Studio y la CLI de Azure.
 
 >__Cuándo se debe usar__: La implementación de archivos ZIP es la tecnología de implementación recomendada para Azure Functions.
 
@@ -169,7 +167,7 @@ Puede usar FTP para transferir archivos directamente a Azure Functions.
 
 En el editor basado en el portal, puede editar directamente los archivos que se encuentran en la aplicación de funciones (en esencia, se implementan cada vez que guarde los cambios).
 
->__Cómo se debe usar:__ Para poder editar las funciones en Azure Portal, debe haber [creado las funciones en el portal](functions-create-first-azure-function.md). Para conservar un único origen de confianza, el uso de cualquier otro método de implementación hace que la función sea de solo lectura e impide la edición del portal de forma continuada. Para volver a un estado en el que pueda editar los archivos en Azure Portal, puede volver a activar manualmente el modo de edición en `Read/Write` y quitar la configuración de la aplicación relacionada con la implementación (como `WEBSITE_RUN_FROM_PACKAGE`). 
+>__Cómo se debe usar:__ Para poder editar las funciones en Azure Portal, debe haber [creado las funciones en el portal](functions-create-first-azure-function.md). Para conservar un único origen de confianza, el uso de cualquier otro método de implementación hace que la función sea de solo lectura e impide la edición del portal de forma continuada. Para volver a un estado en el que pueda editar los archivos en Azure Portal, puede volver a activar manualmente el modo de edición en `Read/Write` y quitar la configuración de la aplicación relacionada con la implementación (como `WEBSITE_RUN_FROM_PACKAGE`).
 
 >__Cuándo se debe usar__: El portal es una buena forma de empezar a trabajar con Azure Functions. Para un trabajo de desarrollo más intensivo, se recomienda usar una de las herramientas de cliente siguientes:
 >
@@ -198,7 +196,7 @@ Al implementar la aplicación de funciones en Azure, puede implementar en una ra
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Lea los siguientes artículos para obtener más información sobre cómo implementar las aplicaciones de funciones: 
+Lea los siguientes artículos para obtener más información sobre cómo implementar las aplicaciones de funciones:
 
 + [Implementación continua para Azure Functions](functions-continuous-deployment.md)
 + [Entrega continua con Azure DevOps](functions-how-to-azure-devops.md)

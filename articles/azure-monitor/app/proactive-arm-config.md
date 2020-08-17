@@ -6,12 +6,12 @@ author: harelbr
 ms.author: harelbr
 ms.date: 06/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7ca4df620739b2ab55b8ba986031cc48fe87f1fa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa8529abf3d7eea7d413c59ce62c93c7eb6c76d1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309348"
 ---
 # <a name="manage-application-insights-smart-detection-rules-using-azure-resource-manager-templates"></a>Administración de reglas de detección inteligente de Application Insights con plantillas de Azure Resource Manager
 
@@ -22,7 +22,7 @@ Este método puede usarse al implementar nuevos recursos de Application Insights
 
 Puede configurar los siguientes valores en una regla de detección inteligente:
 - Si la regla se habilita (el valor predeterminado es **true**).
-- Si no se deben enviar correos electrónicos a los usuarios asociados con los roles [Lector de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) y [Colaborador de supervisión](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) cuando se encuentra una detección (el valor predeterminado es **true**).
+- Si no se deben enviar correos electrónicos a los usuarios asociados con los roles [Lector de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-reader) y [Colaborador de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-contributor) cuando se encuentra una detección (el valor predeterminado es **true**).
 - Los destinatarios de correo electrónico adicionales que deben recibir una notificación cuando se encuentra una detección.
     -  La configuración de correo electrónico no está disponible para las reglas de detección inteligente marcadas como _versión preliminar_.
 
@@ -192,6 +192,7 @@ Esta plantilla de Azure Resource Manager muestra la configuración de una regla 
 
 Más información sobre la detección automática:
 
-- [Anomalías de error](../../azure-monitor/app/proactive-failure-diagnostics.md)
-- [Fugas de memoria](../../azure-monitor/app/proactive-potential-memory-leak.md)
-- [Anomalías de rendimiento](../../azure-monitor/app/proactive-performance-diagnostics.md)
+- [Anomalías de error](./proactive-failure-diagnostics.md)
+- [Fugas de memoria](./proactive-potential-memory-leak.md)
+- [Anomalías de rendimiento](./proactive-performance-diagnostics.md)
+

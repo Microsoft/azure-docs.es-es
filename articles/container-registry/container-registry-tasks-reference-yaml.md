@@ -2,13 +2,13 @@
 title: 'Referencia de YAML: ACR Tasks'
 description: Referencia para definir tareas en YAML para ACR Tasks, como propiedades de tareas, tipos de pasos, propiedades de pasos y variables integradas.
 ms.topic: article
-ms.date: 10/23/2019
-ms.openlocfilehash: 11771c32db3b3d7c975c0262bda228903a58978f
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/08/2020
+ms.openlocfilehash: 4710afe0d10a81f2a84437a335d3a012f3bac326
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171064"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479785"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
 
@@ -18,7 +18,7 @@ Este artículo contiene la referencia para crear archivos YAML de tarea de vario
 
 ## <a name="acr-taskyaml-file-format"></a>formato de archivo acr-task.yaml
 
-ACR Tasks admite la declaración de tareas de varios pasos en la sintaxis estándar de YAML. Puede definir los pasos de una tarea en un archivo YAML. Luego, puede ejecutar manualmente la tarea si pasa el archivo al comando [az acr run][az-acr-run]. O bien, use el archivo para crear una tarea con [az acr task create][az-acr-task-create] que se desencadena automáticamente en una confirmación de GIT o en una actualización de imagen base. Aunque en este artículo se hace referencia a `acr-task.yaml` como el archivo que contiene los pasos, ACR Tasks admite cualquier nombre de archivo válido con una [extensión admitida](#supported-task-filename-extensions).
+ACR Tasks admite la declaración de tareas de varios pasos en la sintaxis estándar de YAML. Puede definir los pasos de una tarea en un archivo YAML. Luego, puede ejecutar manualmente la tarea si pasa el archivo al comando [az acr run][az-acr-run]. O bien, use el archivo para crear una tarea con [az acr task create][az-acr-task-create] que se desencadena automáticamente en una confirmación de GIT, en una actualización de imagen base o en una programación. Aunque en este artículo se hace referencia a `acr-task.yaml` como el archivo que contiene los pasos, ACR Tasks admite cualquier nombre de archivo válido con una [extensión admitida](#supported-task-filename-extensions).
 
 Los primitivos `acr-task.yaml` de nivel superior son **propiedades de tareas**, **tipos de pasos** y **propiedades de pasos**:
 
@@ -80,9 +80,10 @@ Las propiedades de tareas suelen aparecer en la parte superior de un archivo `ac
 | `version` | string | Sí | La versión del archivo `acr-task.yaml` analizada por el servicio ACR Tasks. Si bien ACR Tasks se esfuerza por mantener la compatibilidad con versiones anteriores, este valor permite que ACR Tasks mantenga la compatibilidad dentro de una versión definida. Si no se especifica, se establece de manera predeterminada en la versión más reciente. | No | None |
 | `stepTimeout` | int (segundos) | Sí | El número máximo de segundos que se puede ejecutar un paso. Si la propiedad se especifica en una tarea, establece la propiedad `timeout` predeterminada de todos los pasos. Si la propiedad `timeout` se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | 600 (10 minutos) |
 | `workingDirectory` | string | Sí | El directorio de trabajo del contenedor durante el tiempo de ejecución. Si la propiedad se especifica en una tarea, establece la propiedad `workingDirectory` predeterminada de todos los pasos. Si se especifica en un paso, invalida la propiedad que la tarea proporciona. | Sí | `/workspace` |
-| `env` | [string, string, ...] | Sí |  Matriz de cadenas en formato `key=value` que define las variables de entorno de la tarea. Si la propiedad se especifica en una tarea, establece la propiedad `env` predeterminada de todos los pasos. Si se especifica en un paso, invalida las variables de entorno heredadas de la tarea. | None |
-| `secrets` | [secret, secret, ...] | Sí | Matriz de objetos de [secreto](#secret). | None |
-| `networks` | [network, network, ...] | Sí | Matriz de objetos de [red](#network). | None |
+| `env` | [string, string, ...] | Sí |  Matriz de cadenas en formato `key=value` que define las variables de entorno de la tarea. Si la propiedad se especifica en una tarea, establece la propiedad `env` predeterminada de todos los pasos. Si se especifica en un paso, invalida las variables de entorno heredadas de la tarea. | Sí | None |
+| `secrets` | [secret, secret, ...] | Sí | Matriz de objetos de [secreto](#secret). | No | None |
+| `networks` | [network, network, ...] | Sí | Matriz de objetos de [red](#network). | No | None |
+| `volumes` | [volume, volume, ...] | Sí | Matriz de objetos [volume](#volume). Especifica volúmenes con contenido de origen que se van a montar en un paso. | No | None |
 
 ### <a name="secret"></a>secret
 
@@ -105,6 +106,15 @@ El objeto de red tiene estas propiedades.
 | `ipv6` | bool | Sí | Si la red IPv6 está habilitada. | `false` |
 | `skipCreation` | bool | Sí | Si se omite la creación de la red. | `false` |
 | `isDefault` | bool | Sí | Si la red es una red predeterminada proporcionada con Azure Container Registry. | `false` |
+
+### <a name="volume"></a>volumen
+
+El objeto volume tiene las siguientes propiedades.
+
+| Propiedad | Tipo | Opcional | Descripción | Valor predeterminado |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | string | No | Nombre del volumen que se va a montar. Solo puede contener caracteres alfanuméricos, "-" y "_". | None |
+| `secret` | map[string]string | No | Cada clave del mapa es el nombre de un archivo creado y rellenado en el volumen. Cada valor es la versión de cadena del secreto. Los valores del secreto deben estar codificados con Base64. | None |
 
 ## <a name="task-step-types"></a>Tipos de pasos de tareas
 
@@ -161,6 +171,7 @@ El tipo de paso `build` admite las siguientes propiedades. Encuentre detalles de
 | `secret` | object | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
+| `volumeMount` | object | Opcional |
 | `when` | [string, string, ...] | Opcional |
 | `workingDirectory` | string | Opcional |
 
@@ -278,6 +289,7 @@ El tipo de paso `cmd` admite las siguientes propiedades:
 | `secret` | object | Opcional |
 | `startDelay` | int (segundos) | Opcional |
 | `timeout` | int (segundos) | Opcional |
+| `volumeMount` | object | Opcional |
 | `when` | [string, string, ...] | Opcional |
 | `workingDirectory` | string | Opcional |
 
@@ -352,6 +364,38 @@ Mediante la convención de referencia de imágenes `docker run` estándar, `cmd`
       - cmd: $Registry/myimage:mytag
     ```
 
+#### <a name="access-secret-volumes"></a>Obtener acceso a volúmenes secretos
+
+La propiedad `volumes` permite que los volúmenes y el contenido de sus secretos se especifiquen para los pasos `build` y `cmd` de una tarea. En cada paso, una propiedad `volumeMounts` opcional muestra los volúmenes y las rutas de acceso al contenedor que se van a montar en el contenedor en ese paso. Los secretos se proporcionan como archivos en la ruta de acceso de montaje de cada volumen.
+
+Ejecute una tarea y monte dos secretos en un paso: uno almacenado en un almacén de claves y el otro especificado en la línea de comandos:
+
+```azurecli
+az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://github.com/Azure-Samples/acr-tasks.git
+```
+
+<!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
+<!-- [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)] -->
+
+```yml
+# This template demonstrates mounting a custom volume into a container at a CMD step
+secrets:
+  - id: sampleSecret
+    keyvault: https://myacbvault2.vault.azure.net/secrets/SampleSecret
+
+volumes:
+  - name: mysecrets
+    secret:
+      mysecret1: {{.Secrets.sampleSecret | b64enc}}
+      mysecret2: {{.Values.mysecret | b64enc}}
+
+steps:
+  - cmd: bash cat /run/test/mysecret1 /run/test/mysecret2
+    volumeMounts:
+      - name: mysecrets
+        mountPath: /run/test
+```
+
 ## <a name="task-step-properties"></a>Propiedades de pasos de tareas
 
 Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla siguiente se definen todas las propiedades de pasos disponibles. No todos los tipos de pasos admiten todas las propiedades. Para ver cuál de estas propiedades está disponible para cada tipo de paso, consulte las acciones de referencia de tipos de pasos [cmd](#cmd), [build](#build) y [push](#push).
@@ -379,7 +423,17 @@ Cada tipo de paso admite varias propiedades adecuadas para su tipo. En la tabla 
 | `timeout` | int (segundos) | Sí | Número máximo de segundos que se puede ejecutar un paso antes de terminar. | 600 |
 | [`when`](#example-when) | [string, string, ...] | Sí | Configura la dependencia de un paso de uno o varios pasos dentro de la tarea. | None |
 | `user` | string | Sí | El nombre de usuario o UID de un contenedor. | None |
+| `volumeMounts` | object | No | Matriz de objetos [volumeMount](#volumemount). | None |
 | `workingDirectory` | string | Sí | Establece el directorio de trabajo de un paso. De forma predeterminada, ACR Tasks crea un directorio raíz como directorio de trabajo. Sin embargo, si la compilación tiene varios pasos, los pasos anteriores pueden compartir artefactos con los pasos posteriores mediante la especificación del mismo directorio de trabajo. | `/workspace` |
+
+### <a name="volumemount"></a>volumeMount
+
+El objeto volumeMount tiene estas propiedades.
+
+| Propiedad | Tipo | Opcional | Descripción | Valor predeterminado |
+| -------- | ---- | -------- | ----------- | ------- | 
+| `name` | string | No | Nombre del volumen que se va a montar. Debe coincidir exactamente con el nombre de una propiedad `volumes`. | None |
+| `mountPath`   | string | no | Ruta de acceso absoluta para montar archivos en el contenedor.  | None |
 
 ### <a name="examples-task-step-properties"></a>Ejemplos: Propiedades de pasos de tareas
 

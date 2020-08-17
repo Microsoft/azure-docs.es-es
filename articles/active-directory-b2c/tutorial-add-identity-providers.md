@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 746c406c4e6d458f699eb844156190e47d5c7a26
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1bdb7637624a1da5270eb1cba49e9f66e5042ccf
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384913"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482012"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C
 
@@ -133,7 +133,7 @@ Después de crear la aplicación para el proveedor de identidades que quiere agr
 
 En el tutorial que completó como parte de los requisitos previos, creó un flujo de usuario para registro e inicio de sesión denominado *B2C_1_signupsignin1*. En esta sección, puede agregar los proveedores de identidades al flujo de usuario *B2C_1_signupsignin1*.
 
-1. Seleccione **Flujos de usuario (directivas)** y, a continuación, seleccione el flujo *B2C_1_signupsignin1*.
+1. Seleccione **Flujos de usuario** y, luego, elija el flujo de usuario *B2C_1_signupsignin1*.
 2. Seleccione **Proveedores de identidades**, seleccione los proveedores de identidades de **Facebook** y **Contoso Azure AD** que agregó.
 3. Seleccione **Guardar**.
 

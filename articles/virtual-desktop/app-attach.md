@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76edc88f127d7e52514ab72539f7212ac982b5e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 328f7bb8c03cb78f4b5375eb4f6e3d9891b83942
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204480"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760675"
 ---
 # <a name="set-up-msix-app-attach"></a>Configuración de la asociación de aplicaciones en formato .MSIX
 
@@ -29,7 +29,7 @@ Este tema lo guiará a través de la configuración de la asociación de aplicac
 Antes de empezar, esto es lo que necesita para configurar la asociación de aplicaciones en formato MSIX:
 
 - Acceso al portal de Windows Insider para obtener la versión de Windows 10 con compatibilidad con las API de asociación de aplicaciones con formato MSIX.
-- Una implementación de Windows Virtual Desktop en funcionamiento. Para información sobre cómo implementar la versión Fall 2019 de Windows Virtual Desktop, consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para obtener información sobre cómo implementar la versión Spring 2020 de Windows Virtual Desktop, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
+- Una implementación de Windows Virtual Desktop en funcionamiento. Para obtener información sobre cómo implementar Windows Virtual Desktop (clásico), consulte [Creación de un inquilino en Windows Virtual Desktop](./virtual-desktop-fall-2019/tenant-setup-azure-active-directory.md). Para obtener información sobre cómo implementar Windows Virtual Desktop con la integración de Azure Resource Manager, consulte [Creación de un grupo de hosts con Azure Portal](./create-host-pools-azure-marketplace.md).
 - La herramienta de empaquetado MSIX.
 - Un recurso compartido de red en la implementación de Windows Virtual Desktop donde se almacenará el paquete MSIX.
 
@@ -202,12 +202,12 @@ Si la aplicación usa un certificado que no es de confianza pública o que fue a
 
 1. Haga clic con el botón derecho en el paquete y seleccione **Propiedades**.
 2. En la ventana que aparece, seleccione la pestaña **Firmas digitales**. Solo habrá un elemento en la lista en la pestaña, tal como se muestra en la imagen siguiente. Seleccione ese elemento para resaltar el elemento y, luego, seleccione **Detalles**.
-3. Cuando aparezca la ventana de detalles de firma digital, seleccione la pestaña **General** y, luego, **Instalar certificado**.
+3. Cuando aparezca la ventana de detalles de firma digital, seleccione la pestaña **General**, luego, **Ver certificado** y, por último, **Instalar certificado**.
 4. Cuando se abra el instalador, seleccione **máquina local** como su ubicación de almacenamiento y, luego, seleccione **Siguiente**.
 5. Si el instalador le pregunta si quiere permitir que la aplicación haga cambios en el dispositivo, seleccione **Sí**.
 6. Seleccione **Colocar todos los certificados en el siguiente almacén** y, después, **Examinar**.
 7. Cuando aparezca la ventana del almacén de certificados, seleccione **Trusted people** (Personas de confianza) y, luego, **Aceptar**.
-8. Seleccione **Finalizar**.
+8. Seleccione **Siguiente** y **Finalizar**.
 
 ## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Preparación de scripts para PowerShell para la asociación de aplicaciones en formato MSIX
 

@@ -7,12 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 07/08/2020
 ms.author: anfeldma
-ms.openlocfilehash: 30573eb3b35152ab5769c1aab9c4af052cb454a6
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.custom: devx-track-java
+ms.openlocfilehash: d8ad191476416bc6ced35c4086d336b7f0a926cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171030"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327844"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Sugerencias de rendimiento para la versión 4 del SDK de Java de Azure Cosmos DB
 

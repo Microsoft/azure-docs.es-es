@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 05/05/2020
+ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 0e24bcb54fd26d4a3d983681b3348ef736b277cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.openlocfilehash: 7ff0bb6d593a199bd249441cf484d1f0580774ac
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82884182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086054"
 ---
 # <a name="enable-and-manage-blob-versioning"></a>Habilitación y administración del control de versiones de blob
 
@@ -68,7 +68,7 @@ Para obtener más información sobre la implementación de recursos con plantill
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modificar un blob para desencadenar una nueva versión
 
-En el ejemplo de código siguiente se muestra cómo desencadenar la creación de una nueva versión con la biblioteca de cliente de Azure Storage para .NET versión 12. Antes de ejecutar este ejemplo, asegúrese de que ha habilitado el control de versiones para la cuenta de almacenamiento.
+En el ejemplo de código siguiente se muestra cómo desencadenar la creación de una nueva versión con la biblioteca de cliente de Azure Storage para .NET versión [12.5.0-preview.5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) o posterior. Antes de ejecutar este ejemplo, asegúrese de que ha habilitado el control de versiones para la cuenta de almacenamiento.
 
 En el ejemplo se crea un blob en bloques y, a continuación, se actualizan los metadatos del blob. La actualización de los metadatos del blob desencadena la creación de una nueva versión. En el ejemplo se recupera la versión inicial y la versión actual, y se muestra que solo la versión actual incluye los metadatos.
 

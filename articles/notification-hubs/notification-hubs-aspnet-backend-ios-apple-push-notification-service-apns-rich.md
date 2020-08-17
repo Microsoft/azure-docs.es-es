@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 9da629929ca88f406dc503710477104be94c47e3
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8ae4b984d0ce66dec2a32b3431301ed97fe2c3fd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "71212194"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530141"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Inserción enriquecida de Azure Notification Hubs
 
@@ -31,7 +31,7 @@ Para interactuar con los usuarios con contenido enriquecido instantánea, una ap
 
 Este tutorial es compatible con iOS 7 y 8.
 
-  ![][IOS1]
+  ![Tres capturas de pantalla: una pantalla de la aplicación con un botón Enviar inserción, una pantalla de inicio en un dispositivo y un logotipo de Windows con un botón Atrás.][IOS1]
 
 En un alto nivel:
 
@@ -49,7 +49,7 @@ En un alto nivel:
 3. Haga clic en **Mostrar todos los archivos** en el Explorador de soluciones y haga clic con el botón derecho en la carpeta para **Incluir en el proyecto**.
 4. Con la imagen seleccionada, cambie su acción de generación en la ventana Propiedades a **Recurso incrustado**.
 
-    ![][IOS2]
+    ![Captura de pantalla del Explorador de soluciones. El archivo de imagen está seleccionado y, en el panel Propiedades, el recurso incrustado aparece como la acción de compilación.][IOS2]
 5. En `Notifications.cs`, agregue la siguiente instrucción using:
 
     ```csharp
@@ -146,12 +146,12 @@ Ahora que ha modificado el back-end de la aplicación para enviar solo el *id* d
 1. Abra el proyecto iOS y habilite las notificaciones remotas yendo a su destino de la aplicación principal en la sección **Destinos** .
 2. Haga clic en **Funciones**, active los **Modos en segundo plano** y active la casilla **Notificaciones remotas**.
 
-    ![][IOS3]
+    ![Captura de pantalla del proyecto de iOS que muestra la pantalla Capacidades. Los modos en segundo plano están activados y la casilla Notificaciones remotas está seleccionada.][IOS3]
 3. Abra `Main.storyboard` y asegúrese de que dispone de un Controlador de vista (al que se hace referencia en este tutorial como Controlador de vista de inicio) del tutorial [Notificación a usuarios](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 4. Agregue un **Controlador de navegación** al guion gráfico y mantenga presionada la tecla Control mientras lo arrastra al Controlador de vista de inicio para convertirlo en la **vista raíz** de la navegación. Asegúrese de que esté seleccionado **Is Initial View Controller** en el Inspector de atributos solo para el Controlador de navegación.
 5. Agregue un **Controlador de vista** al guion gráfico y agregue una **Vista de imagen**. Esta es la página que verán los usuarios una vez que deseen obtener más información al hacer clic en la notificación. El guión gráfico debe tener el aspecto siguiente:
 
-    ![][IOS4]
+    ![Captura de pantalla de un guion gráfico. Hay tres pantallas de la aplicación visibles: una vista de navegación, una vista principal y una vista de imagen.][IOS4]
 6. Haga clic en el **Controlador de vista de inicio** en el guion gráfico y asegúrese de que tiene **homeViewController** como su **Clase personalizada** e **Id. de guion gráfico** en el Inspector de identidad.
 7. Haga lo mismo para el Controlador de vista de imagen como **imageViewController**.
 8. Luego cree una nueva clase de controlador de vista con título **imageViewController** para controlar la interfaz de usuario que acaba de crear.

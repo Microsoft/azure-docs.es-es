@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
-ms.openlocfilehash: 9cdbe0630060c9155187e1f62aba3d7a40ceae98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610479"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800377"
 ---
 # <a name="azure-spring-cloud-faq"></a>Preguntas frecuentes de Azure Spring Cloud
 
@@ -160,6 +161,21 @@ Al migrar los microservicios de Spring Cloud existentes a Azure Spring Cloud, es
 * Se recomienda usar las bibliotecas de Pivotal Spring oficiales estables. Las versiones no oficiales, beta o bifurcadas de las bibliotecas de Pivotal Spring no tienen el soporte de un Acuerdo de Nivel de Servicio (SLA).
 
 Después de la migración, supervise las métricas de la CPU y RAM, y el tráfico de red para garantizar que las instancias de la aplicación se escalan adecuadamente.
+
+## <a name="trouble-shooting"></a>Solución de problemas
+
+### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>¿Cuáles son las repercusiones del registro de servicio que raramente no está disponible?
+
+En un escenario que rara vez sucede, puede ver algunos errores como 
+```
+RetryableEurekaHttpClient: Request execution failure with status code 401; retrying on another server if available
+```
+desde los registros de aplicaciones. Este es un problema introducido por Spring Framework con una tasa muy baja debido a la inestabilidad de la red o a otros problemas de red. 
+
+No debe haber ninguna repercusión en la experiencia del usuario, ya que el cliente Eureka tiene una directiva de reintentos y latido para poder encargarse de ello. Puede considerarlo como un error transitorio y omitirlo de forma segura.
+
+Mejoraremos esta parte y evitaremos este error de las aplicaciones de los usuarios en breve.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

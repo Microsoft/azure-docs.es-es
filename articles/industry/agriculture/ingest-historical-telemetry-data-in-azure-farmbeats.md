@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
 ms.custom: has-adal-ref
-ms.openlocfilehash: 3833b27e9f90cbffa2320c84877d4eb5bb6520f7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a7d83c327eb1c37478c0c2e5725136d43a91a009
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82613275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87061212"
 ---
 # <a name="ingest-historical-telemetry-data"></a>Ingesta de datos de telemetría históricos
 
@@ -61,8 +61,14 @@ Siga estos pasos:
     ```azurepowershell-interactive 
     cd
     ```
+    
+6. Ejecute el siguiente comando: Se conecta una cuenta autenticada para su uso en solicitudes de Azure AD
 
-6. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+
+7. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
 
     ```azurepowershell-interactive 
 
@@ -70,7 +76,7 @@ Siga estos pasos:
 
     ```
 
-7. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
+8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
 
     ```azurepowershell-interactive 
 
@@ -78,7 +84,7 @@ Siga estos pasos:
 
     ```
 
-8. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
+9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
 
 
 ## <a name="create-device-or-sensor-metadata"></a>Creación de metadatos de dispositivo o sensor

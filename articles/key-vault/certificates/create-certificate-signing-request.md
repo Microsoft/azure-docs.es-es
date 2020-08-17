@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: ae2d6259bac6a2034edc98de9b0405f32f17fbc3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849493"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87043881"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creación y combinación de solicitudes de firma de certificado en Key Vault
 
@@ -80,6 +80,23 @@ Los pasos siguientes le ayudarán a crear un certificado procedente de entidades
 9.  Una vez que la entidad de certificación firme la solicitud, devuelva el archivo de certificado para **combinar la solicitud firmada** en la misma pantalla Operación de certificados.
 
 La solicitud de certificado se ha combinado correctamente.
+
+## <a name="adding-more-information-to-csr"></a>Incorporación de más información a CSR
+
+Si desea agregar más información al crear CSR, por ejemplo: 
+    - País:
+    - Ciudad o situación:
+    - Estado o provincia:
+    - Organización:
+    - Unidad organizativa: Puede agregar toda esta información al crear un CSR si la define en subjectName.
+
+Ejemplo
+    ```SubjectName="CN = docs.microsoft.com, OU = Microsoft Corporation, O = Microsoft Corporation, L = Redmond, S = WA, C = US"
+    ```
+
+>[!Note]
+>Si solicita un certificado de validación de dominio (DV) con todos esos detalles en el CSR, puede que la CA rechace la solicitud porque no pueda validar toda la información contenida en la misma. Si solicita un certificado de validación de organización (OV), sería más adecuado agregar toda esa información en el CSR.
+
 
 ## <a name="troubleshoot"></a>Solución de problemas
 

@@ -1,24 +1,22 @@
 ---
-title: 'Implementación de una herramienta de administración para Windows Virtual Desktop mediante la entidad de servicio: Azure'
-description: Cómo implementar la herramienta de administración de Windows Virtual Desktop mediante PowerShell.
-services: virtual-desktop
+title: 'Implementación de una herramienta de administración para Windows Virtual Desktop (clásico) mediante la entidad de servicio: Azure'
+description: Cómo implementar la herramienta de administración de Windows Virtual Desktop (clásico) mediante PowerShell.
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 0ae3bb87bfee681aa518a4dfef064677ffa97119
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08366735308e8b3c6fb79efd1adca469272dd053
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513394"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005778"
 ---
-# <a name="deploy-a-management-tool-with-powershell"></a>Implementación de una herramienta de administración con PowerShell
+# <a name="deploy-a-windows-virtual-desktop-classic-management-tool-with-powershell"></a>Implementación de una herramienta de administración de Windows Virtual Desktop (clásico) con PowerShell
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
 
 En este artículo se describe cómo implementar la herramienta de administración mediante el uso de PowerShell.
 

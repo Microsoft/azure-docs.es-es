@@ -13,13 +13,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 172a2ae863714b54e052819df93f872385b9c77a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 07/20/2020
+ms.openlocfilehash: e0b6aba2b857a16631871d13f4a0fc14b682393e
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183348"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926712"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante la actividad Ejecutar paquete SSIS de Azure Data Factory
 
@@ -57,7 +57,7 @@ En este paso, usa la interfaz de usuario de Data Factory o aplicación para crea
 
 En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquete SSIS), realice los pasos siguientes.
 
-   ![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
+![Establecimiento de propiedades en la pestaña General](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-general.png)
 
    1. En **Name** (Nombre), escriba el nombre de la actividad Execute SSIS Package (Ejecutar paquete de SSIS).
 
@@ -77,7 +77,7 @@ En la pestaña **General** de la actividad Execute SSIS Package (Ejecutar paquet
 
 En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
-   ![Establecer propiedades de la pestaña Settings (Configuración): Automatic (Automática)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
+![Establecer propiedades de la pestaña Settings (Configuración): Automatic (Automática)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings.png)
 
    1. En **Azure-SSIS IR**, seleccione la instancia de Azure-SSIS IR designada para ejecutar la actividad Execute SSIS Package (Ejecutar paquete de SSIS).
 
@@ -97,19 +97,19 @@ En la pestaña **Settings** (Configuración) de la actividad Execute SSIS Packag
 
 La ubicación del paquete **SSISDB** se selecciona automáticamente si Azure-SSIS IR se aprovisionó con un catálogo de SSIS (SSISDB) hospedado en el servidor de base de datos o la instancia administrada de Azure SQL; también la puede seleccionar el usuario. Si está seleccionada, siga estos pasos.
 
-   1. Si la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Seleccione **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. Para examinar y seleccionar los entornos para la ejecución de paquetes, debe configurar los proyectos antes de agregar esos entornos como referencias desde las mismas carpetas en SSISDB. Para más información, consulte [Creación y asignación de entornos SSIS](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014).
+   1. Si la instancia de Azure-SSIS IR está en ejecución y la casilla **Manual entries** (Entradas manuales) está desactivada, puede examinar y seleccionar sus carpetas, proyectos, paquetes y entornos existentes de SSISDB. Seleccione **Refresh** (Actualizar) para capturar las carpetas, proyectos, paquetes y entornos recién agregados de SSISDB, de forma que estén disponibles para su examen y selección. Para examinar y seleccionar los entornos para la ejecución de paquetes, debe configurar los proyectos antes de agregar esos entornos como referencias desde las mismas carpetas en SSISDB. Para más información, consulte [Creación y asignación de entornos SSIS](https://docs.microsoft.com/sql/integration-services/packages/deploy-integration-services-ssis-projects-and-packages).
 
    1. En **Logging level** (Nivel de registro), seleccione un ámbito predefinido de registro para la ejecución de su paquete. Active la casilla **Customized** (Personalizado), si quiere escribir en su lugar un nombre de registro personalizado. 
 
    1. Si la instancia de Azure-SSIS IR no se está ejecutando o la casilla **Manual entries** (Entradas manuales) está activada, escriba las rutas de acceso del paquete y el entorno de SSISDB directamente en los siguientes formatos: `<folder name>/<project name>/<package name>.dtsx` y `<folder name>/<environment name>`.
 
-   ![Establecer las propiedades en la pestaña Settings (Configuración): manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
+      ![Establecer las propiedades en la pestaña Settings (Configuración): manual](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings2.png)
 
 ##### <a name="package-location-file-system-package"></a>Ubicación del paquete: File System (Package) (Sistema de archivos [paquete])
 
 La ubicación del paquete **File System (Package)** (Sistema de archivos [paquete]) se selecciona automáticamente si Azure-SSIS IR se aprovisionó sin SSISDB; también la puede seleccionar el usuario. Si está seleccionada, siga estos pasos.
 
-   ![Establecimiento de las propiedades en la pestaña Properties (Propiedades): File System (Package) (Sistema de archivos [paquete])](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
+![Establecimiento de las propiedades en la pestaña Properties (Propiedades): File System (Package) (Sistema de archivos [paquete])](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings3.png)
    
    1. Especifique el paquete que se va a ejecutar, para lo que debe proporcionar una ruta de acceso UNC (Convención de nomenclatura universal) al archivo de paquete (con `.dtsx`) en el cuadro **Package path** (Ruta de acceso del paquete). Para examinar y seleccionar el paquete, elija **Browse file storage** (Examinar almacenamiento de archivos) o escriba su ruta de acceso manualmente. Por ejemplo, si almacena el paquete en Azure Files, su ruta de acceso es `\\<storage account name>.file.core.windows.net\<file share name>\<package name>.dtsx`. 
    
@@ -133,13 +133,13 @@ La ubicación del paquete **File System (Package)** (Sistema de archivos [paquet
    
    1. Especifique las credenciales para acceder a la carpeta de registro. Si previamente ha escrito los valores de las credenciales de acceso del paquete (consulte más arriba), puede volver a usarlas mediante la activación de la casilla **Same as package access credentials** (Igual que las credenciales de acceso al paquete). En caso contrario, escriba los valores de las credenciales de acceso del registro en los cuadros **Domain** (Dominio), **Username** (Nombre de usuario) y **Password** (Contraseña). Por ejemplo, si almacena los registros en Azure Files, el dominio es `Azure`, el nombre de usuario es `<storage account name>` y la contraseña es `<storage account key>`. También puede usar como valores los secretos almacenados en Azure Key Vault.
    
-   Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
+Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
 ##### <a name="package-location-file-system-project"></a>Ubicación del paquete: File System (Project) (Sistema de archivos [proyecto])
 
 Si selecciona **File System (Project)** (Sistema de archivos [proyecto]) como ubicación del paquete, realice los pasos siguientes.
 
-   ![Establecimiento de las propiedades en la pestaña Settings (Configuración): File System (Project) (Sistema de archivos [proyecto])](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
+![Establecimiento de las propiedades en la pestaña Settings (Configuración): File System (Project) (Sistema de archivos [proyecto])](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings4.png)
 
    1. Especifique el paquete que quiere ejecutar; para ello, proporcione una ruta de acceso UNC al archivo de proyecto (con `.ispac`) en el cuadro **Project path** (Ruta de acceso del proyecto) y un archivo de paquete (con `.dtsx`) del proyecto en el cuadro **Package name** (Nombre del paquete). Para examinar y seleccionar el proyecto, elija **Browse file storage** (Examinar almacenamiento de archivos) o escriba su ruta de acceso manualmente. Por ejemplo, si almacena el proyecto en Azure Files, su ruta de acceso será `\\<storage account name>.file.core.windows.net\<file share name>\<project name>.ispac`.
 
@@ -161,19 +161,19 @@ Si selecciona **File System (Project)** (Sistema de archivos [proyecto]) como ub
    
    1. Especifique las credenciales para acceder a la carpeta de registro. Si previamente ha escrito los valores de las credenciales de acceso del paquete (consulte más arriba), puede volver a usarlas mediante la activación de la casilla **Same as package access credentials** (Igual que las credenciales de acceso al paquete). En caso contrario, escriba los valores de las credenciales de acceso del registro en los cuadros **Domain** (Dominio), **Username** (Nombre de usuario) y **Password** (Contraseña). Por ejemplo, si almacena los registros en Azure Files, el dominio es `Azure`, el nombre de usuario es `<storage account name>` y la contraseña es `<storage account key>`. También puede usar como valores los secretos almacenados en Azure Key Vault.
    
-   Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
+Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
 ##### <a name="package-location-embedded-package"></a>Ubicación del paquete: Embedded package (Paquete insertado)
 
 Si selecciona **Embedded package** (Paquete insertado) como ubicación del paquete, realice los pasos siguientes.
 
-   ![Establecimiento de propiedades en la pestaña Configuración: Embedded package (Paquete insertado)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
+![Establecimiento de propiedades en la pestaña Configuración: Embedded package (Paquete insertado)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
 
-   1. Arrastre y coloque el paquete que se va a ejecutar o seleccione **Upload** (Cargar) para cargarlo desde una carpeta de archivos en el cuadro proporcionado. El paquete se comprimirá e insertará automáticamente en la carga de la actividad. Una vez insertado, puede **descargar** el paquete más adelante para su edición. También puede **parametrizar** el paquete insertado si lo asigna a un parámetro de canalización que se puede usar en varias actividades, por lo que se optimiza el tamaño de la carga de la canalización. 
+   1. Arrastre y coloque el archivo de paquete (con `.dtsx`) o **cárguelo** desde una carpeta de archivos en el cuadro proporcionado. El paquete se comprimirá e insertará automáticamente en la carga de la actividad. Una vez insertado, puede **descargar** el paquete más adelante para su edición. También puede **parametrizar** el paquete insertado si lo asigna a un parámetro de canalización que se puede usar en varias actividades, por lo que se optimiza el tamaño de la carga de la canalización. Actualmente no se admite la inserción de archivos de proyecto (con `.ispac`), por lo que no se pueden usar parámetros de SSIS ni administradores de conexión con el ámbito de nivel de proyecto en los paquetes insertados.
    
-   1. Si el paquete insertado no está cifrado por completo y se detecta el uso de la tarea Ejecutar paquete en su interior, la casilla **Tarea Ejecutar paquete** se activará automáticamente y se agregarán automáticamente los paquetes secundarios correspondientes con las referencias del sistema de archivos para que también los inserte. 
+   1. Si el paquete insertado no está cifrado por completo y se detecta el uso de la tarea Ejecutar paquete (EPT) en su interior, la casilla **Tarea Ejecutar paquete** se seleccionará automáticamente y se agregarán automáticamente los paquetes secundarios a los que hace referencia la ruta de acceso del sistema de archivos, así que también puede insertarlos.
    
-      Si no se puede detectar el uso de la tarea Ejecutar paquete, tendrá que activar la casilla **Tarea Ejecutar paquete** de forma manual y agregar los paquetes secundarios correspondientes con sus referencias del sistema de archivos de uno en uno para insertarlos también. Si los paquetes secundarios usan referencias de SQL Server, asegúrese de que Azure-SSIS IR pueda acceder a SQL Server.  Actualmente no se admite el uso de referencias de proyecto para paquetes secundarios.
+      Si no se puede detectar el uso de EPT, tendrá que seleccionar la casilla **Tarea Ejecutar paquete** de forma manual y agregar los paquetes secundarios a los que hacer referencia la ruta de acceso del sistema de archivos de uno en uno, para poder insertarlos también. Si los paquetes secundarios se almacenan en una base de datos de SQL Server (MSDB), no puede insertarlos, por lo que debe asegurarse de que Azure-SSIS IR pueda tener acceso a MSDB para capturarlos con sus referencias de SQL Server. Actualmente no se admite la inserción de archivos de proyecto (con `.ispac`), por lo que no se pueden usar referencias basadas en proyectos para los paquetes secundarios.
    
    1. Si ha usado el nivel de protección **EncryptAllWithPassword** o **EncryptSensitiveWithPassword** al crear el paquete a través de SSDT, escriba el valor de la contraseña en el cuadro **Encryption password** (Contraseña de cifrado). 
    
@@ -189,13 +189,13 @@ Si selecciona **Embedded package** (Paquete insertado) como ubicación del paque
    
    1. Especifique las credenciales de acceso a la carpeta de registro. para ello, escriba sus valores en los cuadros **Domain** (Dominio), **Username** (Nombre de usuario) y **Password** (Contraseña). Por ejemplo, si almacena los registros en Azure Files, el dominio es `Azure`, el nombre de usuario es `<storage account name>` y la contraseña es `<storage account key>`. También puede usar como valores los secretos almacenados en Azure Key Vault.
    
-   Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
+Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
 ##### <a name="package-location-package-store"></a>Ubicación del paquete: Package store (Almacén de paquetes)
 
 Si selecciona **Package store** (Almacén de paquetes) como ubicación del paquete, realice los pasos siguientes.
 
-   ![Establecimiento de las propiedades de la pestaña Settings (Configuración): Package store (Almacén de paquetes)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
+![Establecimiento de las propiedades de la pestaña Settings (Configuración): Package store (Almacén de paquetes)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings6.png)
    
    1. En **Package store name** (Nombre del almacén de paquetes), seleccione un almacén de paquetes existente que esté asociado a su instancia de Azure-SSIS IR.
 
@@ -221,49 +221,73 @@ Si selecciona **Package store** (Almacén de paquetes) como ubicación del paque
    
    1. Especifique las credenciales de acceso a la carpeta de registro. para ello, escriba sus valores en los cuadros **Domain** (Dominio), **Username** (Nombre de usuario) y **Password** (Contraseña). Por ejemplo, si almacena los registros en Azure Files, el dominio es `Azure`, el nombre de usuario es `<storage account name>` y la contraseña es `<storage account key>`. También puede usar como valores los secretos almacenados en Azure Key Vault.
    
-   Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
+Para todas las rutas de acceso UNC mencionadas anteriormente, el nombre de archivo completo debe tener menos de 260 caracteres. El nombre del directorio debe tener menos de 248 caracteres.
 
 #### <a name="ssis-parameters-tab"></a>Pestaña SSIS Parameters (Parámetros de SSIS)
 
 En la pestaña **SSIS Parameters** (Parámetros de SSIS) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
-   ![Establecer propiedades en la pestaña SSIS Parameters (Parámetros de SSIS)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
+![Establecer propiedades en la pestaña SSIS Parameters (Parámetros de SSIS)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-ssis-parameters.png)
 
    1. Si la instancia de Azure-SSIS IR está en ejecución, se selecciona **SSISDB** como la ubicación del paquete y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los parámetros de SSIS existentes en el proyecto o paquete seleccionados de SSISDB para que les asigne valores. De lo contrario, puede escribirlos uno por uno para asignarles valores manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. 
    
    1. Si ha usado el nivel de protección **EncryptSensitiveWithUserKey** al crear el paquete mediante SSDT y se ha seleccionado **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes) como ubicación del paquete, también debe volver a escribir las propiedades confidenciales del paquete para asignarles valores en esta pestaña. 
    
-   Al asignar valores a los parámetros, puede agregar contenido dinámico mediante expresiones, funciones, variables del sistema de Data Factory y parámetros o variables de canalización de Data Factory.
+Al asignar valores a los parámetros, puede agregar contenido dinámico mediante expresiones, funciones, variables del sistema de Data Factory y parámetros o variables de canalización de Data Factory.
 
-   También puede usar como valores los secretos almacenados en la instancia de Azure Key Vault. Para hacerlo, active la casilla **AZURE KEY VAULT** que aparece al lado. Seleccione o edite el servicio vinculado del almacén de claves existente o cree uno nuevo. Luego, seleccione el nombre del secreto y la versión del valor. Al crear o editar el servicio vinculado del almacén de claves, puede seleccionar o editar el almacén de claves existente o crear uno nuevo. Asegúrese de conceder a Data Factory el acceso de la identidad administrada a su almacén de claves si aún no lo ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<key vault linked service name>/<secret name>/<secret version>`. 
+También puede usar como valores los secretos almacenados en la instancia de Azure Key Vault. Para hacerlo, active la casilla **AZURE KEY VAULT** que aparece al lado. Seleccione o edite el servicio vinculado del almacén de claves existente o cree uno nuevo. Luego, seleccione el nombre del secreto y la versión del valor. Al crear o editar el servicio vinculado del almacén de claves, puede seleccionar o editar el almacén de claves existente o crear uno nuevo. Asegúrese de conceder a Data Factory el acceso de la identidad administrada a su almacén de claves si aún no lo ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<key vault linked service name>/<secret name>/<secret version>`. 
 
 #### <a name="connection-managers-tab"></a>Pestaña Administradores de conexiones
 
 En la pestaña **Connection Managers** (Administradores de conexones) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), haga lo siguiente.
 
-   ![Establecer propiedades en la pestaña Connection Managers (Administradores de conexiones)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
+![Establecer propiedades en la pestaña Connection Managers (Administradores de conexiones)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
    1. Si la instancia de Azure-SSIS IR está en ejecución, se selecciona **SSISDB** como ubicación del paquete y la casilla **Manual entries** (Entradas manuales) de la pestaña **Settings** (Configuración) está desactivada, se muestran los administradores de conexiones existentes del proyecto y del paquete seleccionados en SSISDB para que se asignen valores a sus propiedades. De lo contrario, puede escribirlos uno por uno para asignar valores a sus propiedades manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. 
    
-   1. Si ha usado el nivel de protección **EncryptSensitiveWithUserKey** al crear el paquete mediante SSDT y se ha seleccionado **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes) como ubicación del paquete, también debe volver a escribir las propiedades confidenciales del administrador de conexiones para asignarles valores en esta pestaña. 
-   
-   Al asignar valores a las propiedades del administrador de conexiones, puede agregar contenido dinámico mediante expresiones, funciones, variables del sistema de Data Factory y parámetros o variables de canalización de Data Factory. 
+      Puede obtener los nombres correctos de**SCOPE**, **NAME** y **PROPERTY** de cualquier administrador de conexiones; para ello, abra el paquete que lo contiene en SSDT. Una vez abierto el paquete, seleccione el administrador de conexiones correspondiente para mostrar los nombres y valores de todas sus propiedades en la ventana **Propiedades** de SSDT. Con esta información, puede invalidar los valores de las propiedades del administrador de conexiones en tiempo de ejecución. 
 
-   También puede usar como valores los secretos almacenados en la instancia de Azure Key Vault. Para hacerlo, active la casilla **AZURE KEY VAULT** que aparece al lado. Seleccione o edite el servicio vinculado del almacén de claves existente o cree uno nuevo. Luego, seleccione el nombre del secreto y la versión del valor. Al crear o editar el servicio vinculado del almacén de claves, puede seleccionar o editar el almacén de claves existente o crear uno nuevo. Asegúrese de conceder a Data Factory el acceso de la identidad administrada a su almacén de claves si aún no lo ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<key vault linked service name>/<secret name>/<secret version>`. 
+      ![Obtención de las propiedades del administrador de conexiones de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-connection-manager-properties.png)
+
+      Por ejemplo, sin modificar el paquete original en SSDT, puede convertir sus flujos de datos del entorno local al entorno local que se ejecutan en SQL Server en flujos de datos del entorno local a la nube que se ejecutan en SSIS IR en ADF mediante la invalidación de los valores de las propiedades **ConnectByProxy**, **ConnectionString** y **ConnectUsingManagedIdentity** en los administradores de conexiones existentes en tiempo de ejecución.
+      
+      Estas invalidaciones en tiempo de ejecución pueden habilitar IR autohospedado (SHIR) como proxy para SSIS IR al acceder a los datos locales, consulte [Configuración de IR autohospedado como proxy para Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis), y las conexiones de Instancia administrada/Azure SQL Database con el controlador MSOLEDBSQL más reciente que, a su vez, habilita la autenticación de Azure Active Directory (AAD) con la identidad administrada de ADF, consulte [Configuración de la autenticación de AAD con la identidad administrada de ADF para conexiones OLEDB](https://docs.microsoft.com/sql/integration-services/connection-manager/ole-db-connection-manager?view=sql-server-ver15#managed-identities-for-azure-resources-authentication).
+
+      ![Definición de propiedades desde SSDT en la pestaña Administradores de conexiones](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers2.png)
+   
+   1. Si ha usado el nivel de protección **EncryptSensitiveWithUserKey** al crear el paquete mediante SSDT y se ha seleccionado **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes) como ubicación del paquete, también debe volver a escribir las propiedades confidenciales del administrador de conexiones para asignarles valores en esta pestaña. 
+
+Al asignar valores a las propiedades del administrador de conexiones, puede agregar contenido dinámico mediante expresiones, funciones, variables del sistema de Data Factory y parámetros o variables de canalización de Data Factory. 
+
+También puede usar como valores los secretos almacenados en la instancia de Azure Key Vault. Para hacerlo, active la casilla **AZURE KEY VAULT** que aparece al lado. Seleccione o edite el servicio vinculado del almacén de claves existente o cree uno nuevo. Luego, seleccione el nombre del secreto y la versión del valor. Al crear o editar el servicio vinculado del almacén de claves, puede seleccionar o editar el almacén de claves existente o crear uno nuevo. Asegúrese de conceder a Data Factory el acceso de la identidad administrada a su almacén de claves si aún no lo ha hecho. Los secretos también se pueden escribir directamente en el siguiente formato: `<key vault linked service name>/<secret name>/<secret version>`. 
 
 #### <a name="property-overrides-tab"></a>Pestaña Property Overrides (Invalidaciones de propiedad)
 
 En la pestaña **Property Overrides** (Invalidaciones de propiedad) de la actividad Execute SSIS Package (Ejecutar paquete de SSIS), siga estos pasos.
 
-   ![Establecer propiedades en la pestaña Property Overrides (Reemplazos de propiedad)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
+![Establecer propiedades en la pestaña Property Overrides (Reemplazos de propiedad)](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-property-overrides.png)
 
    1. Escriba las rutas de acceso de las propiedades existentes en el paquete seleccionado una por una para asignarles valores manualmente. Asegúrese de que existen y que se han escrito correctamente para que la ejecución del paquete se realice satisfactoriamente. Por ejemplo, para invalidar el valor de la variable de usuario, escriba su ruta de acceso en el formato `\Package.Variables[User::<variable name>].Value`. 
+
+      Para obtener la **RUTA DE ACCESO DE LA PROPIEDAD** correcta para cualquier propiedad del paquete, puede abrir el paquete que la contiene en SSDT. Una vez abierto el paquete, seleccione su flujo de control y la propiedad **Configurations** en la ventana **Propiedades** de SSDT. Después, seleccione el botón de puntos suspensivos ( **…** ) situado junto a su propiedad **Configurations** para abrir el **Organizador de configuraciones de paquetes** que se usa normalmente para [crear configuraciones de paquetes en el modelo de implementación de paquetes](https://docs.microsoft.com/sql/integration-services/packages/legacy-package-deployment-ssis#create-package-configurations). 
+
+      ![Obtención de las propiedades de paquete desde la propiedad Configurations de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties.png)
+
+      En el **Organizador de configuraciones de paquetes**, active la casilla **Habilitar configuraciones de paquetes** y el botón **Agregar…** para abrir el **Asistente para la configuración de paquetes**. 
+      
+      En el **Asistente para la configuración de paquetes**, seleccione el elemento **Archivo de configuración XML** en el menú desplegable **Tipo de configuración** y el botón **Especificar valores de configuración  directamente**, escriba el nombre del archivo de configuración y seleccione el botón **Siguiente >** . 
+
+      ![Obtención de las propiedades de paquete desde el Organizador de configuraciones de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties2.png)
+
+      Por último, seleccione las propiedades del paquete cuya ruta de acceso desea y el botón **Siguiente >** .  Ahora puede ver, copiar & pegar las rutas de acceso de las propiedades del paquete que desee y guardarlas en el archivo de configuración. Con esta información, puede invalidar los valores de las propiedades del paquete en tiempo de ejecución. 
+
+      ![Obtención de las propiedades de paquete desde el Asistente para la configuración de SSDT](media/how-to-invoke-ssis-package-ssis-activity/ssdt-package-properties3.png)
    
    1. Si ha usado el nivel de protección **EncryptSensitiveWithUserKey** al crear el paquete mediante SSDT y se ha seleccionado **File System (Package)** (Sistema de archivos [paquete]), **File System (Project)** (Sistema de archivos [proyecto]), **Embedded package** (Paquete insertado) o **Package store** (Almacén de paquetes) como ubicación del paquete, también debe volver a escribir las propiedades confidenciales del paquete para asignarles valores en esta pestaña. 
    
-   Al asignar valores a las propiedades del paquete, puede agregar contenido dinámico mediante expresiones, funciones, variables del sistema de Data Factory y parámetros o variables de canalización de Data Factory.
+Al asignar valores a las propiedades del paquete, puede agregar contenido dinámico mediante expresiones, funciones, variables del sistema de Data Factory y parámetros o variables de canalización de Data Factory.
 
-   Los valores asignados en los archivos de configuración y en la pestaña **SSIS Parameters** (Parámetros de SSIS) se pueden invalidar mediante las pestañas **Connection Managers** (Administradores de conexiones) o **Property Overrides** (Reemplazos de propiedad). Los valores asignados en la pestaña **Connection Managers** (Administradores de conexiones) también se pueden usar con la pestaña **Property Overrides** (Reemplazos de propiedad).
+Los valores asignados en los archivos de configuración y en la pestaña **SSIS Parameters** (Parámetros de SSIS) se pueden invalidar mediante las pestañas **Connection Managers** (Administradores de conexiones) o **Property Overrides** (Reemplazos de propiedad). Los valores asignados en la pestaña **Connection Managers** (Administradores de conexiones) también se pueden usar con la pestaña **Property Overrides** (Reemplazos de propiedad).
 
 Para validar la configuración de la canalización, seleccione **Validate** (Validar) en la barra de herramientas. Para cerrar **Pipeline Validation Report** (Informe de comprobación de la canalización), seleccione **>>** .
 

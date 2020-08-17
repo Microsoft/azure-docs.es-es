@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 10/23/2019
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 54515b347a95b9315ca9ba87568fb2104c3b2b45
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb7d4d8a6f1c1ee55601cdd839e330147e60bcc7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011080"
 ---
 # <a name="orchestration-modes-preview"></a>Modo de orquestación (versión preliminar)
 
@@ -42,7 +42,7 @@ Los conjuntos de escalado de máquinas virtuales admitirán dos modos de orquest
 
 ## <a name="orchestration-modes"></a>Modos de orquestación
 
-|                             | "orchestrationMode": "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
+| Característica                     | "orchestrationMode”: "VM" (VirtualMachine) | "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |-----------------------------|--------------------------------------------|--------------------------------------------------------------|
 | Modelo de configuración de máquina virtual      | None                                       | Obligatorio |
 | Incorporación de una máquina virtual nueva a un conjunto de escalado  | Las máquinas virtuales se agregan de manera explícita al conjunto de escalado cuando se crea la máquina virtual. | Las máquinas virtuales se crean de manera implícita y se agregan al conjunto de escalado según el modelo de configuración de la máquina virtual, el recuento de instancias y las reglas de escalado automático. | |
@@ -64,4 +64,4 @@ Los conjuntos de escalado de máquinas virtuales admitirán dos modos de orquest
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información, consulte [Información general sobre las opciones de disponibilidad](availability.md).
+Para obtener más información, consulte [Información general sobre las opciones de disponibilidad](../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json).

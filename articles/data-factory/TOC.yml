@@ -2,7 +2,7 @@
   href: index.yml
 - name: Cambio a la documentación de la versión 1
   href: v1/data-factory-introduction.md
-- name: Información general
+- name: Introducción
   items:
     - name: Introducción a Data Factory
       href: introduction.md
@@ -167,8 +167,6 @@
       href: concepts-pipeline-execution-triggers.md
     - name: Tiempo de ejecución de integración
       href: concepts-integration-runtime.md
-    - name: Red virtual administrada
-      href: managed-virtual-network-private-endpoint.md
     - name: Seguridad
       items:
         - name: Línea de base de seguridad
@@ -211,14 +209,14 @@
       items:
         - name: Creación visual de factorías de datos
           href: author-visually.md
+        - name: Desarrollo y depuración iterativos
+          href: iterative-development-debugging.md
         - name: Centro de administración
           href: author-management-hub.md
         - name: Control de código fuente
           href: source-control.md
         - name: Integración y entrega continuas
           href: continuous-integration-deployment.md
-        - name: Desarrollo y depuración iterativos
-          href: iterative-development-debugging.md
     - name: Conectores
       items:
         - name: Introducción a los conectores
@@ -564,6 +562,8 @@
       items:
         - name: Parametrización de servicios vinculados
           href: parameterize-linked-services.md
+        - name: Parámetros globales
+          href: author-global-parameters.md
         - name: Lenguaje de expresiones
           href: control-flow-expression-language-functions.md
         - name: Variables del sistema
@@ -588,6 +588,8 @@
           href: data-factory-service-identity.md
         - name: Cifrado de claves administrado por el cliente
           href: enable-customer-managed-key.md
+        - name: Red virtual administrada
+          href: managed-virtual-network-private-endpoint.md
     - name: Supervisión y administración
       items:
         - name: Supervisión visual
@@ -618,6 +620,8 @@
           href: create-shared-self-hosted-integration-runtime-powershell.md
         - name: Scripts del entorno de ejecución de integración autohospedado de Automation
           href: self-hosted-integration-runtime-automation-scripts.md
+        - name: Ejecución de un entorno de ejecución de integración autohospedado en un contenedor de Windows
+          href: how-to-run-self-hosted-integration-runtime-in-windows-container.md
     - name: Ejecución de paquetes SSIS en Azure
       items:
         - name: Ejecución de paquetes SSIS en Azure
@@ -726,12 +730,16 @@
           href: pricing-concepts.md
     - name: Guías de solución de problemas
       items:
+        - name: Experiencia de usuario de Data Factory
+          href: data-factory-ux-troubleshoot-guide.md
         - name: Actividades
           href: data-factory-troubleshoot-guide.md
         - name: Conectores
           href: connector-troubleshoot-guide.md
         - name: Flujos de datos
           href: data-flow-troubleshoot-guide.md
+        - name: Herramienta Copiar datos
+          href: copy-data-tool-troubleshoot-guide.md
         - name: Entornos de ejecución de integración autohospedados
           href: self-hosted-integration-runtime-troubleshoot-guide.md
         - name: Integration Runtime de SSIS de Azure

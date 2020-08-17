@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 4625a0fa75f992ac18eeb91629af373a426aa955
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5e621cc3763cfa7fe28790baf2f5d9866c8d618
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84676580"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069788"
 ---
 # <a name="error-messages-for-spot-vms-and-scale-sets"></a>Mensajes de error de las máquinas virtuales y los conjuntos de escalado de Spot
 
@@ -35,7 +35,6 @@ Estos son algunos de los códigos de error que podría recibir al usar las máqu
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  El precio máximo solo es compatible con las máquinas virtuales de Azure Spot. | Para más información, consulte [Máquinas virtuales de Spot](./linux/spot-vms.md). |
 | MoveResourcesWithAzureSpotVMNotSupported  |  La solicitud Mover recursos contiene una máquina virtual de Azure Spot. Actualmente no se admite. Consulte los detalles del error para conocer los identificadores de máquina virtual. | Las máquinas virtuales de Spot no se pueden mover. |
 | MoveResourcesWithAzureSpotVmssNotSupported  |  La solicitud Mover recursos contiene un conjunto de escalado de máquinas virtuales de Azure Spot. Actualmente no se admite. Consulte los detalles del error para conocer los identificadores de conjunto de escalado de máquinas virtuales. | Los conjuntos de escalado de Spot no se pueden mover. |
-| EphemeralOSDisksNotSupportedForSpotVMs | Las máquinas virtuales de Spot no admiten discos de sistema operativo efímeros. | En este caso, use uno normal. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Con el modo de orquestación de máquinas virtuales en el conjunto de escalado no se admiten máquinas virtuales de Azure Spot. | Permita el uso de instancias de Spot en el modo de orquestación del conjunto de escalado de máquinas virtuales. |
 
 

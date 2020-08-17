@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0cf0ed943dd2135a3e8d545b76eda35285dae24d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84300797"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495070"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Supervisión de Site Recovery con registros de Azure Monitor
 
@@ -44,14 +44,14 @@ Le recomendamos que revise las [preguntas de supervisión más comunes](monitori
 
 1. En el almacén, haga clic en **Diagnostic settings** > **Add diagnostic setting** (Configuración de diagnóstico > Agregar configuración de diagnóstico).
 
-    ![Selección de registro de recursos](./media/monitoring-log-analytics/add-diagnostic.png)
+    ![Captura de pantalla que muestra la opción Agregar configuración de diagnóstico.](./media/monitoring-log-analytics/add-diagnostic.png)
 
 2. En **Configuración de diagnóstico** especifique un nombre y marque la casilla **Enviar a Log Analytics**.
 3. Seleccione la suscripción de los registros de Azure Monitor y el área de trabajo de Log Analytics.
 4. Seleccione **Azure Diagnostics** en el control de alternancia.
 5. En la lista de registros, seleccione todos los registros con el prefijo **AzureSiteRecovery**. A continuación, haga clic en **Aceptar**.
 
-    ![Selección del área de trabajo](./media/monitoring-log-analytics/select-workspace.png)
+    ![Captura de pantalla de Configuración de diagnóstico.](./media/monitoring-log-analytics/select-workspace.png)
 
 Los registros de Site Recovery comienzan a obtener datos en una tabla (**AzureDiagnostics**) en el área de trabajo seleccionada.
 
@@ -68,8 +68,8 @@ Puede capturar la información sobre la tasa de renovación de datos y la inform
 7. Una vez completada la instalación, vaya al área de trabajo de Log Analytics y haga clic en **Configuración avanzada**. Vaya a la página **Datos** y haga clic en **Contadores de rendimiento de Windows**. 
 8. Haga clic en **' + '** para agregar los dos contadores siguientes con un intervalo de muestra de 300 segundos:
 
-        ASRAnalytics(*)\SourceVmChurnRate 
-        ASRAnalytics(*)\SourceVmThrpRate 
+    - ASRAnalytics(*)\SourceVmChurnRate
+    - ASRAnalytics(*)\SourceVmThrpRate
 
 Los datos de la tasa de renovación y carga comenzarán a alimentarse en el área de trabajo.
 
@@ -125,7 +125,7 @@ rpoInSeconds_d <= 1800, "15-30Min", ">30Min") 
 | render barchart 
 ```
 
-![Consultar RPO](./media/monitoring-log-analytics/example1.png)
+![Captura de pantalla que muestra un gráfico de barras de las máquinas virtuales de Azure replicadas con Site Recovery.](./media/monitoring-log-analytics/example1.png)
 
 ### <a name="query-site-recovery-jobs"></a>Consultar trabajos de Site Recovery
 
@@ -190,7 +190,7 @@ AzureDiagnostics  
 | project TimeGenerated, name_s , RPO_in_seconds = rpoInSeconds_d   
 | render timechart 
 ```
-![Consultar el RPO de la máquina](./media/monitoring-log-analytics/example2.png)
+![Captura de pantalla de un gráfico de tendencias que realiza un seguimiento del RPO de una máquina virtual de Azure específica.](./media/monitoring-log-analytics/example2.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-an-azure-vm"></a>Consultar la velocidad de cambio de datos (renovación) y tasa de carga de una máquina virtual de Azure
 
@@ -207,7 +207,7 @@ Category contains "Upload", "UploadRate", "none") 
 | project TimeGenerated , InstanceWithType , Churn_MBps = todouble(Value_s)/1048576   
 | render timechart  
 ```
-![Consultar el cambio de datos](./media/monitoring-log-analytics/example3.png)
+![Captura de pantalla de un gráfico de tendencias de una máquina virtual de Azure específica.](./media/monitoring-log-analytics/example3.png)
 
 ### <a name="query-data-change-rate-churn-and-upload-rate-for-a-vmware-or-physical-machine"></a>Consultar la velocidad de cambio de datos (renovación) y tasa de carga de una máquina física o VMware
 

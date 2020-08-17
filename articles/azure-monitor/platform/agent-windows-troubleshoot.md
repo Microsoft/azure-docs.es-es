@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
-ms.openlocfilehash: 4112555347ce1d718375fbab3f166c6f2f5deeaa
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3d99293ea83c883f8d0870d78dfbec58f74c9bd1
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80333501"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927324"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Procedimientos para solucionar problemas relacionados con el agente de Log Analytics para Windows 
 
@@ -37,8 +37,9 @@ Compruebe que el firewall o proxy está configurado para permitir los puertos y 
 |*.ods.opinsights.azure.com |Puerto 443 |Salida|Sí |  
 |*.oms.opinsights.azure.com |Puerto 443 |Salida|Sí |  
 |*.blob.core.windows.net |Puerto 443 |Salida|Sí |  
+|*.agentsvc.azure-automation.net |Puerto 443 |Salida|Sí |  
 
-Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs). Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
+Para obtener información sobre el firewall necesaria para Azure Government, vea [Administración de Azure Government](../../azure-government/compare-azure-government-global-azure.md#azure-monitor). Si tiene previsto usar Hybrid Runbook Worker de Azure Automation para conectarse al servicio Automation y registrarse en él para usar runbooks o soluciones de administración en el entorno, debe tener acceso al número de puerto y las direcciones URL descritos en [Configuración de la red para Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
 Hay varias formas de comprobar si el agente se comunica de forma correcta con Azure Monitor.
 
@@ -60,7 +61,7 @@ Hay varias formas de comprobar si el agente se comunica de forma correcta con Az
 
 - Filtre el registro de eventos de *Operations Manager* por **Orígenes de eventos** - *Módulos de servicio de mantenimiento*, *HealthService* y *Conector de servicio*, y fíltrelo por **Nivel de evento** *Advertencia* y *Error* para confirmar si ha escrito eventos de la tabla siguiente. Si se han escrito, revise los pasos de resolución incluidos para cada evento posible.
 
-    |Id. de evento |Source |Descripción |Solución |
+    |Id. de evento |Source |Descripción |Resolución |
     |---------|-------|------------|-----------|
     |2133 y 2129 |Servicio de mantenimiento |Error de conexión con el servicio desde el agente |Este error se puede producir cuando el agente no se puede comunicar directamente o a través de un servidor proxy o firewall con el servicio Azure Monitor. Compruebe la configuración de proxy de agente o que el firewall o proxy de red permite el tráfico TCP desde el equipo al servicio.|
     |2138 |Módulos de servicio de mantenimiento |Se requiere autenticación del proxy |Configure las opciones del proxy de agente y especifique el nombre de usuario y la contraseña necesarios para autenticarse con el servidor proxy. |
@@ -98,9 +99,8 @@ Si la consulta devuelve resultados, tendrá que determinar si no se ha recopilad
 
 3. Si después de unos minutos no ve los datos esperados en la visualización o los resultados de la consulta, en función de si los ve desde una solución o desde Insight, desde el registro de eventos de *Operations Manager*, busque **Orígenes de eventos** *HealthService* y *Módulos de servicio de mantenimiento*, y filtre por **Nivel de evento** *Advertencia* y *Error* para confirmar si ha escrito eventos de la tabla siguiente.
 
-    |Id. de evento |Source |Descripción |Solución |
+    |Id. de evento |Source |Descripción |Resolución |
     |---------|-------|------------|
     |8000 |HealthService |Este evento especificará si un flujo de trabajo relacionado con el rendimiento, los eventos u otro tipo de datos recopilado no puede reenviar al servicio para la ingesta en el área de trabajo. | El id. de evento 2136 de la instancia de HealthService de origen se escribe junto con este evento y puede indicar que el agente no se puede comunicar con el servicio, posiblemente debido a una configuración incorrecta de las opciones de proxy y autenticación, a la interrupción de la red, o bien a que el firewall de red o el proxy no permite el tráfico TCP desde el equipo al servicio.| 
     |10102 y 10103 |Módulos de servicio de mantenimiento |El flujo de trabajo no ha podido resolver el origen de datos. |Esto puede ocurrir si el contador de rendimiento especificado o la instancia no existen en el equipo o se han definido incorrectamente en la configuración de datos del área de trabajo. Si se trata de un [contador de rendimiento](data-sources-performance-counters.md#configuring-performance-counters) especificado por el usuario, compruebe que la información especificada sigue el formato correcto y que existe en los equipos de destino. |
     |26002 |Módulos de servicio de mantenimiento |El flujo de trabajo no ha podido resolver el origen de datos. |Esto puede ocurrir si el registro de eventos de Windows especificado no existe en el equipo. Este error se puede omitir sin problemas si el equipo no espera que se registre este registro de eventos; en caso contrario, si se trata de un [registro de eventos](data-sources-windows-events.md#configuring-windows-event-logs) especificado por el usuario, compruebe que la información especificada sea correcta. |
-

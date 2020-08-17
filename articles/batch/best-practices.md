@@ -1,14 +1,14 @@
 ---
 title: Procedimientos recomendados
 description: Obtenga información sobre los procedimientos recomendados y sugerencias útiles para desarrollar su solución de Azure Batch.
-ms.date: 06/22/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7a66fb383195a7de347b5e6ce83ad89fa3706e96
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 535deebd0ba683d9387408ad081d165a504c91d1
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954156"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87474910"
 ---
 # <a name="azure-batch-best-practices"></a>Procedimientos recomendados de Azure Batch
 
@@ -56,6 +56,10 @@ Los errores de asignación de grupos pueden producirse en cualquier momento dura
 Los grupos de Batch pueden experimentar eventos de tiempo de inactividad en Azure. Tenga esto en cuenta al planear y desarrollar el escenario o el flujo de trabajo para Batch.
 
 En caso de que se produzca un error en un nodo, Batch intentará recuperar automáticamente estos nodos de proceso en su nombre. De esta forma se puede desencadenar la reprogramación de cualquier tarea en ejecución en el nodo que se recupera. Consulte [Diseño de reintentos](#design-for-retries-and-re-execution) para obtener más información sobre las tareas interrumpidas.
+
+### <a name="third-party-images"></a>Imágenes de terceros
+
+Pueden crearse grupos con imágenes de terceros publicadas en Azure Marketplace. Con cuentas de Batch en modo de suscripción de usuario, puede mostrarse el error "Allocation failed due to marketplace purchase eligibility check" (Error en la asignación debido a la comprobación de la validez de la compra en Marketplace) al crear un grupo con determinadas imágenes de terceros. Para resolver este error, acepte los términos establecidos por el publicador de la imagen. Puede hacerlo con [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
 
 ### <a name="azure-region-dependency"></a>Dependencia de la región de Azure
 
@@ -146,6 +150,10 @@ Las uniones de directorios, que a veces se denominan vínculos físicos, son dif
 ### <a name="collect-the-batch-agent-logs"></a>Recopilación de registros de agente de Batch
 
 Si observa un problema relacionado con el comportamiento de un nodo o tareas en ejecución en un nodo, recopile los registros del agente de Batch antes de desasignar los nodos en cuestión. Puede recopilar los registros del agente de Batch mediante la API de registros del servicio de Batch de carga. Estos registros se pueden proporcionar como parte de una incidencia de soporte técnico a Microsoft y ayudarán a solucionar los problemas.
+
+### <a name="manage-os-upgrades"></a>Administración de las actualizaciones del sistema operativo
+
+En el caso de las cuentas de Batch del modo de suscripción de usuario, las actualizaciones automáticas del sistema operativo pueden interrumpir el progreso de las tareas, especialmente si estas son de larga duración. La [creación de tareas idempotentes](#build-durable-tasks) puede ayudar a reducir los errores causados por estas interrupciones. También se recomienda [programar actualizaciones de imágenes de sistema operativo para las horas en las que no se espera que las tareas se ejecuten](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
 
 ## <a name="isolation-security"></a>Seguridad de aislamiento
 

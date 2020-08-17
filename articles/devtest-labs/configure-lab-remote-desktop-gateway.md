@@ -3,12 +3,12 @@ title: Configuración de un laboratorio para usar Puerta de enlace de Escritorio
 description: Obtenga información sobre cómo configurar un laboratorio en Azure DevTest Labs con una puerta de enlace de Escritorio remoto para garantizar el acceso seguro a las máquinas virtuales de laboratorio sin tener que exponer el puerto RDP.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 68cb830c765a71b06f9732c4062be23d9e7f67d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc45a0c2953f8f84289fa01d4af72bf98544bd7f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483846"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288085"
 ---
 # <a name="configure-your-lab-in-azure-devtest-labs-to-use-a-remote-desktop-gateway"></a>Configuración del laboratorio de Azure DevTest Labs para usar una puerta de enlace de Escritorio remoto
 En Azure DevTest Labs, puede configurar una puerta de enlace de Escritorio remoto para el laboratorio con el fin de garantizar el acceso seguro a las máquinas virtuales (VM) del laboratorio sin tener que exponer el puerto RDP. El laboratorio proporciona un lugar central para que los usuarios del laboratorio vean todas las máquinas virtuales a las que tienen acceso y se conecten a ellas. El botón **Connect** (Conectar) de la página **Virtual Machine** (Máquina Virtual) crea un archivo RDP específico de la máquina que se puede abrir para conectarse a ella. Puede personalizar y proteger aún más la conexión RDP si conecta el laboratorio a una puerta de enlace de Escritorio remoto. 
@@ -36,7 +36,7 @@ Para trabajar con la característica de autenticación de token de DevTest Labs,
 ### <a name="requirements-for-remote-desktop-gateway-machines"></a>Requisitos para máquinas de puerta de enlace de Escritorio remoto
 - En la máquina de puerta de enlace se debe instalar un certificado TLS/SSL para controlar el tráfico HTTPS. El certificado debe coincidir con el nombre de dominio completo (FQDN) del equilibrador de carga para la granja de servidores de puerta de enlace, o bien el FQDN de la propia máquina, si solo hay una. Los certificados TLS/SSL de comodín no funcionan.  
 - Un certificado de firma instalado en las máquinas de puerta de enlace. Para crear un certificado de firma, use el script [Create-SigningCertificate.ps1](https://github.com/Azure/azure-devtestlab/blob/master/samples/DevTestLabs/GatewaySample/tools/Create-SigningCertificate.ps1).
-- Instale el módulo [Autenticación conectable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que admite la autenticación de token para la puerta de enlace de Escritorio remoto. Un ejemplo de este tipo de módulo es `RDGatewayFedAuth.msi`, que se incluye con las [imágenes de System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807). Para más información sobre System Center, vea la [documentación de System Center](https://docs.microsoft.com/system-center/) y la [información sobre precios](https://www.microsoft.com/cloud-platform/system-center-pricing).  
+- Instale el módulo [Autenticación conectable](https://code.msdn.microsoft.com/windowsdesktop/Remote-Desktop-Gateway-517d6273) que admite la autenticación de token para la puerta de enlace de Escritorio remoto. Un ejemplo de este tipo de módulo es `RDGatewayFedAuth.msi`, que se incluye con las [imágenes de System Center Virtual Machine Manager (VMM)](/system-center/vmm/install-console?view=sc-vmm-1807). Para más información sobre System Center, vea la [documentación de System Center](/system-center/) y la [información sobre precios](https://www.microsoft.com/cloud-platform/system-center-pricing).  
 - El servidor de puerta de enlace puede controlar las solicitudes realizadas a `https://{gateway-hostname}/api/host/{lab-machine-name}/port/{port-number}`.
 
     El nombre de host de puerta de enlace es el FQDN del equilibrador de carga de la granja de servidores de puerta de enlace, o bien el FQDN de la propia máquina si solo hay una. `{lab-machine-name}` es el nombre de la máquina del laboratorio a la que se intenta conectar, y `{port-number}` es el puerto en el que se va a realizar la conexión.  De forma predeterminada, este puerto es 3389.  Pero si en la máquina virtual se usa la característica [IP compartida](devtest-lab-shared-ip.md) de DevTest Labs, el puerto será otro.
@@ -159,5 +159,3 @@ Siga estos pasos para configurar una solución de ejemplo para la granja de serv
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea el artículo siguiente para más información sobre Servicios de Escritorio remoto: [Documentación de Servicios de Escritorio remoto](/windows-server/remote/remote-desktop-services/Welcome-to-rds)
-
-

@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 51f277827ac0865eaede141e5817962b04d2bd49
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a9954b0ddd446c4e39d85ab6d3e37402176236d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86221460"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489646"
 ---
 # <a name="change-the-sku-for-an-existing-azure-active-directory-domain-services-managed-domain"></a>Cambio de SKU en un dominio administrado de Azure Active Directory Domain Services
 
-En Azure Active Directory Domain Services (Azure AD DS), el rendimiento y las características disponibles dependen del tipo de SKU. Las características difieren, por ejemplo, en la frecuencia con que se realizan copias de seguridad o en el número máximo de relaciones de confianza de salida unidireccionales que se establecen entre los bosques (actualmente en versión preliminar).
+En Azure Active Directory Domain Services (Azure AD DS), el rendimiento y las características disponibles dependen del tipo de SKU. Las características difieren, por ejemplo, en la frecuencia con que se realizan copias de seguridad o en el número máximo de relaciones de confianza de salida unidireccionales que se establecen entre los bosques.
 
 Puede seleccionar una SKU al crear el dominio administrado y ampliarla o reducirla después si las necesidades del negocio varían una vez que ha implementado el dominio administrado. Las necesidades del negocio pueden variar, por ejemplo, porque sea necesario aumentar la frecuencia de las copias de seguridad o crear nuevas relaciones de confianza entre los bosques. Para más información sobre los límites y los precios de las distintas SKU, consulte estas páginas sobre los [conceptos relacionados con SKU en Azure AD DS][concepts-sku] y los [precios de Azure AD DS][pricing].
 
@@ -38,7 +38,7 @@ Para completar este artículo, necesitará los siguientes recursos y privilegios
 
 ## <a name="sku-change-limitations"></a>Limitaciones de los cambios de SKU
 
-Puede aumentar o reducir las SKU una vez implementado el dominio administrado. Sin embargo, si utiliza un bosque de recursos (actualmente en versión preliminar) y se han creado relaciones de confianza de bosques de salida unidireccionales entre Azure AD DS y un entorno local de AD DS, los cambios de SKU estarán sujetos a algunas limitaciones. Las SKU *Premium* y *Enterprise* establecen un límite en el número de relaciones de confianza que se pueden crear. No se puede cambiar a una SKU cuyo límite máximo sea inferior a la configuración actual.
+Puede aumentar o reducir las SKU una vez implementado el dominio administrado. Sin embargo, si utiliza un bosque de recursos y se han creado relaciones de confianza de bosques de salida unidireccionales entre Azure AD DS y un entorno local de AD DS, los cambios de SKU estarán sujetos a algunas limitaciones. Las SKU *Premium* y *Enterprise* establecen un límite en el número de relaciones de confianza que se pueden crear. No se puede cambiar a una SKU cuyo límite máximo sea inferior a la configuración actual.
 
 Por ejemplo:
 
@@ -66,7 +66,7 @@ El cambio de SKU puede tardar un minuto o dos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si tiene un bosque de recursos y desea crear nuevas relaciones de confianza después de cambiar de SKU, consulte [Creación de una relación de confianza entre bosques de salida en un dominio local de Azure Active Directory Domain Services (versión preliminar)][create-trust].
+Si tiene un bosque de recursos y desea crear nuevas relaciones de confianza después de cambiar de SKU, consulte [Creación de una relación de confianza entre bosques de salida en un dominio local de Azure Active Directory Domain Services][create-trust].
 
 <!-- INTERNAL LINKS -->
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md

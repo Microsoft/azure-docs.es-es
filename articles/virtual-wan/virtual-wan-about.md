@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/29/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 909f120275c58b04d8674f0610c40e13b96804b6
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 713e980eb84032c98ccf08c52e68dab36eadd659
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143928"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513152"
 ---
 # <a name="about-azure-virtual-wan"></a>Acerca de Azure Virtual WAN
 
@@ -110,7 +110,7 @@ Virtual WAN proporciona mejoras de enrutamiento avanzadas. La capacidad para con
 
 ### <a name="global-vnet-peering"></a><a name="global"></a>Emparejamiento de red virtual global
 
-El emparejamiento de red virtual global proporciona un mecanismo para conectar dos redes virtuales de diferentes regiones. En Virtual WAN, las conexiones de red virtual conectan redes virtuales a centros virtuales. El usuario no necesita configurar el emparejamiento global de redes virtuales de forma explícita. Las redes virtuales conectadas a un centro virtual de la misma región incurren en cargos de emparejamiento de red virtual. Las redes virtuales conectadas a un centro virtual de otra región incurren en cargos de emparejamiento de red virtual global.
+El emparejamiento de red virtual global proporciona un mecanismo para conectar dos redes virtuales de diferentes regiones. En Virtual WAN, las conexiones de red virtual conectan redes virtuales a centros virtuales. El usuario no necesita configurar el emparejamiento global de redes virtuales de forma explícita. Las redes virtuales conectadas a un centro virtual en la misma región incurren en cargos de emparejamiento de red virtual. Las redes virtuales conectadas a un centro virtual de otra región incurren en cargos de emparejamiento de red virtual global.
 
 ### <a name="expressroute-traffic-encryption"></a><a name="encryption"></a>Cifrado del tráfico de ExpressRoute
 
@@ -124,9 +124,9 @@ Para obtener información de las ubicaciones, consulte el de ubicación, consult
 
 Las tablas de rutas ahora tienen características para la asociación y propagación. Una tabla de rutas preexistente es una tabla de enrutamiento que no tiene estas características. Si tiene rutas preexistentes en el enrutamiento del centro y desea usar las nuevas funcionalidades, tenga en cuenta lo siguiente:
 
-* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de tabla de rutas, espere hasta la semana del 3 de agosto a que se complete la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de conectividad en Azure Portal).
+* **Clientes de la versión Estándar de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, intentar crear tablas de rutas nuevas (disponibles en la sección Tablas de rutas del centro de conectividad en Azure Portal).
 
-* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de tabla de rutas, espere hasta la semana del 3 de agosto a que se complete la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
+* **Clientes de la versión Básica de Virtual WAN con rutas preexistentes en un centro virtual**: Para usar las nuevas funcionalidades de la tabla de rutas, espere hasta la semana del 17 de agosto, que es cuando se completa la implementación en Azure. Si tiene rutas preexistentes en la sección de enrutamiento del centro de conectividad en Azure Portal, debe eliminarlas primero y, después, **actualizar** la versión Básica de Virtual WAN a la versión Estándar. Consulte [Actualización de una virtual WAN de Básica a Estándar](upgrade-virtual-wan.md).
 
 ## <a name="faq"></a><a name="faq"></a>P+F
 

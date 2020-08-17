@@ -3,15 +3,16 @@ title: 'Comprobación del estado de cifrado para Linux: Azure Disk Encryption'
 description: En este artículo se proporcionan instrucciones para comprobar el estado de cifrado del nivel de plataforma y del sistema operativo.
 author: kailashmsft
 ms.service: security
-ms.topic: article
+ms.topic: how-to
 ms.author: kaib
 ms.date: 03/11/2020
-ms.custom: seodec18
-ms.openlocfilehash: e2916a71f167c415f6bf1dde8ff82a38b0e0557c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 1d99b2a69f1cfd31216ca1058d5bc6825be83bcd
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83873997"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503521"
 ---
 # <a name="verify-encryption-status-for-linux"></a>Comprobación del estado de cifrado para Linux 
 

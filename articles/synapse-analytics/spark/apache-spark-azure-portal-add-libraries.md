@@ -1,5 +1,5 @@
 ---
-title: Incorporación y administración de bibliotecas para Apache Spark en Azure Synapse Analytics
+title: Incorporación y administración de bibliotecas para Apache Spark
 description: Obtenga información sobre cómo agregar y administrar bibliotecas que usa Apache Spark en Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 85635ff3a52236d0c53b72c68eda0d71debe1f61
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: c0d34d80df77b5c6fcdefc39b3bc3b1619a93705
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145913"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496260"
 ---
 # <a name="add-and-manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Incorporación y administración de bibliotecas para Apache Spark en Azure Synapse Analytics
 
@@ -21,7 +21,7 @@ Apache Spark depende de muchas bibliotecas para ofrecer funcionalidades. Estas b
 
 Los paquetes de Python se pueden agregar en el nivel de grupo de Spark (versión preliminar) y los paquetes basados en .jar se pueden agregar en el nivel de las definiciones de trabajo de Spark.
 
-## <a name="adding-or-updating-python-libraries"></a>Incorporación o actualización de las bibliotecas de Python
+## <a name="add-or-update-python-libraries"></a>Incorporación o actualización de bibliotecas de Python
 
 Apache Spark en Azure Synapse Analytics tiene una instalación completa de Anaconda y otras bibliotecas adicionales. Puede encontrar la lista de bibliotecas completas en [Compatibilidad con las versiones de Apache Spark](apache-spark-version-support.md).
 
@@ -51,7 +51,7 @@ Cargue el archivo de configuración de entorno mediante el selector de archivos 
 
 ![Adición de bibliotecas de Python](./media/apache-spark-azure-portal-add-libraries/add-python-libraries.png "Adición de bibliotecas de Python")
 
-### <a name="verifying-installed-libraries"></a>Comprobación de las bibliotecas instaladas
+### <a name="verify-installed-libraries"></a>Comprobación de las bibliotecas instaladas
 
 Para comprobar si se han instalado las versiones correctas de las bibliotecas correctas, ejecute el código siguiente
 

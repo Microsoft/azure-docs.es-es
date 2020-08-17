@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: trbye
-ms.openlocfilehash: 7c30ee2ef4a6ab0cd4241cac921a59eeadf5ce17
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 15b69e664ae9a01635afb44d7b6b7c24d7551ce9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81401045"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87921425"
 ---
 # <a name="what-is-multi-device-conversation-preview"></a>¿Qué es la conversación entre varios dispositivos (versión preliminar)?
 
@@ -60,7 +60,7 @@ La transcripción y traducción en tiempo real puede ayudar a que las conversaci
 También puede proporcionar subtítulos para presentaciones y conferencias tanto en pantalla como en los propios dispositivos de los miembros de la audiencia. Una vez que el público se une con el código de la conversación, puede ver la transcripción en su idioma preferido y en su propio dispositivo.
 
 > [!NOTE]
-> Para ver un ejemplo, consulte [Traductor de presentaciones](https://www.microsoft.com/translator/apps/presentation-translator/), un complemento de PowerPoint que usa el servicio de conversación entre varios dispositivos. Puede descargarlas [aquí](https://www.microsoft.com/download/details.aspx?id=55024).
+> Para ver un ejemplo, consulte [Traductor de presentaciones](https://www.microsoft.com/translator/apps/presentation-translator/), un complemento de PowerPoint que usa el servicio de conversación entre varios dispositivos. Puede descargarlo [aquí](https://download.cnet.com/s/powerpoint-add-in/).
 
 ## <a name="how-it-works"></a>Funcionamiento
 

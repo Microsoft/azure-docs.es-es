@@ -8,12 +8,12 @@ manager: barbkess
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: mbaldwin
-ms.openlocfilehash: ac1ed9ac25d65d0391175fc6d43b48048da74926
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6ab6133faef4a6c7a8eb929e5f4cd1840e971a99
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82101593"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87088349"
 ---
 # <a name="security-controls-for-windows-virtual-machines"></a>Controles de seguridad para Windows Virtual Machines
 
@@ -28,13 +28,13 @@ En este artículo, se documentan los controles de seguridad integrados en Window
 | Compatibilidad con punto de conexión de servicio| Sí | |
 | Compatibilidad con la inserción de redes virtuales| Sí | |
 | Compatibilidad con el aislamiento de red y los firewalls| Sí |  |
-| Compatibilidad con la tunelización forzada| Sí | Consulte [Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager](/azure/vpn-gateway/vpn-gateway-forced-tunneling-rm). |
+| Compatibilidad con la tunelización forzada| Sí | Consulte [Configuración de la tunelización forzada mediante el modelo de implementación de Azure Resource Manager](../../vpn-gateway/vpn-gateway-forced-tunneling-rm.md). |
 
 ## <a name="monitoring--logging"></a>Supervisión y registro
 
 | Control de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | [Supervisión y actualización de una máquina virtual Windows en Azure](tutorial-monitoring.md). |
+| Compatibilidad con la supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | [Supervisión y actualización de una máquina virtual Windows en Azure](./tutorial-monitor.md). |
 | Registro y auditoría del plano de administración y de control| Sí |  |
 | Registro y auditoría del plano de datos | No |  |
 
@@ -49,9 +49,9 @@ En este artículo, se documentan los controles de seguridad integrados en Window
 
 | Control de seguridad | Sí/No | Notas |
 |---|---|--|
-| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Consulte [Cifrado de discos virtuales en una máquina virtual con Windows](/azure/virtual-machines/windows/disk-encryption-overview). |
-| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Azure Virtual Machines admite [ExpressRoute](/azure/expressroute) y el cifrado de red virtual. Consulte [Cifrado en tránsito en máquinas virtuales](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
-| Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sí | Las claves administradas por el cliente es un escenario de cifrado admitidos de Azure; consulte [Introducción al cifrado de Azure](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
+| Cifrado del lado servidor en reposo: Claves administradas por Microsoft | Sí | Consulte [Cifrado de discos virtuales en una máquina virtual con Windows](./disk-encryption-overview.md). |
+| Cifrado en tránsito (por ejemplo, cifrado de ExpressRoute, cifrado en la red virtual y cifrado de red virtual a red virtual)| Sí | Azure Virtual Machines admite [ExpressRoute](../../expressroute/index.yml) y el cifrado de red virtual. Consulte [Cifrado en tránsito en máquinas virtuales](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms). |
+| Cifrado del lado servidor en reposo: claves administradas por el cliente (BYOK) | Sí | Las claves administradas por el cliente es un escenario de cifrado admitidos de Azure; consulte [Introducción al cifrado de Azure](../../security/fundamentals/encryption-overview.md#in-transit-encryption-in-vms).|
 | Cifrado de nivel de columna (Azure Data Services)| N/D | |
 | Llamadas a API cifradas| Sí | A través de HTTPS y TLS. |
 

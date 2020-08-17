@@ -11,12 +11,12 @@ ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: f7c7358dc405b3db2b3f014bb99a96fa56580314
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77bb5211d13f9b0566f4226163918a5310287bd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075731"
 ---
 # <a name="partitioning-tables-in-synapse-sql-pool"></a>Creación de particiones de tablas en el grupo de SQL de Synapse
 
@@ -32,21 +32,33 @@ La creación de particiones puede beneficiar el mantenimiento de datos y el rend
 
 La principal ventaja de la creación de particiones en el grupo de SQL de Synapse es que se mejora la eficiencia y el rendimiento de la carga de datos mediante el uso de la eliminación, la conmutación y la combinación de particiones. En la mayoría de los casos, la creación de particiones de los datos se realiza en una columna de fecha que está estrechamente relacionada con el orden con el que se cargan los datos en la base de datos. Una de las mayores ventajas de utilizar particiones para mantener los datos es que se evita el registro de transacciones. Aunque la mera inserción, actualización o eliminación de datos puede ser el enfoque más sencillo, con un poco de esfuerzo, el uso de la creación de particiones durante el proceso de carga puede mejorar considerablemente el rendimiento.
 
-La conmutación de particiones se puede utilizar para quitar o reemplazar rápidamente cualquier sección de una tabla.  Por ejemplo, una tabla de datos de ventas podría contener datos solo de los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla.  Estos datos pueden eliminarse mediante el uso de una instrucción delete para eliminar los datos del mes más antiguo. Sin embargo, la eliminación una gran cantidad de datos fila a fila con una instrucción delete puede tardar mucho tiempo, así como crear el riesgo de transacciones grandes que podría tardar mucho tiempo en revertirse si algo va mal. Un enfoque mejor es colocar la partición de datos más antigua. Aunque la eliminación de las filas individuales podría tardar horas, la de toda una partición puede tardar segundos.
+La conmutación de particiones se puede utilizar para quitar o reemplazar rápidamente cualquier sección de una tabla.  Por ejemplo, una tabla de datos de ventas podría contener datos solo de los últimos 36 meses. Al final de cada mes, el mes más antiguo de datos de ventas se elimina de la tabla.  Estos datos pueden eliminarse mediante el uso de una instrucción delete para eliminar los datos del mes más antiguo. 
+
+Sin embargo, la eliminación una gran cantidad de datos fila a fila con una instrucción delete puede tardar mucho tiempo, así como crear el riesgo de transacciones grandes que podría tardar mucho tiempo en revertirse si algo va mal. Un enfoque mejor es colocar la partición de datos más antigua. Aunque la eliminación de las filas individuales podría tardar horas, la de toda una partición puede tardar segundos.
 
 ### <a name="benefits-to-queries"></a>Ventajas para las consultas
 
-La creación de particiones también puede utilizarse para mejorar el rendimiento de las consultas. Una consulta que aplica un filtro a los datos con particiones puede limitar el análisis a solo las particiones idóneas. Este método de filtrado puede evitar un recorrido de tabla completa y examinar solo un subconjunto más pequeño de datos. Con la introducción de índices de almacén de columnas en clúster, las ventajas de rendimiento de la eliminación del predicado son menores, pero en algunos casos puede haber beneficios para las consultas. Por ejemplo, si la tabla de datos de ventas se particiona en 36 meses mediante el campo de fecha de ventas, las consultas que se filtren por esa fecha de ventas pueden omitir la búsqueda en las particiones que no coincidan con el filtro.
+La creación de particiones también puede utilizarse para mejorar el rendimiento de las consultas. Una consulta que aplica un filtro a los datos con particiones puede limitar el análisis a solo las particiones idóneas. Este método de filtrado puede evitar un recorrido de tabla completa y examinar solo un subconjunto más pequeño de datos. Con la introducción de índices de almacén de columnas en clúster, las ventajas de rendimiento de la eliminación del predicado son menores, pero en algunos casos puede haber beneficios para las consultas. 
+
+Por ejemplo, si la tabla de datos de ventas se particiona en 36 meses mediante el campo de fecha de ventas, las consultas que se filtren por esa fecha de ventas pueden omitir la búsqueda en las particiones que no coincidan con el filtro.
 
 ## <a name="sizing-partitions"></a>Ajustar el tamaño de las particiones
 
-Aunque la creación de particiones se puede usar para mejorar el rendimiento en algunos escenarios, la creación de una tabla con **demasiadas** particiones pueden afectar negativamente al rendimiento en algunas circunstancias.  Estas cuestiones se dan especialmente en las tablas de almacén de columnas en clúster. Para que la creación de particiones sea útil, es importante saber cuándo usarla y el número de particiones que se deben crear. No hay ninguna regla inamovible con respecto a cuántas particiones son demasiadas, depende de los datos y del número de particiones que se cargan de manera simultánea. Normalmente, un esquema de partición correcta tiene decenas o centenas de particiones, no miles.
+Aunque la creación de particiones se puede usar para mejorar el rendimiento en algunos escenarios, la creación de una tabla con **demasiadas** particiones pueden afectar negativamente al rendimiento en algunas circunstancias.  Estas cuestiones se dan especialmente en las tablas de almacén de columnas en clúster. 
 
-Al crear particiones en tablas de **almacén de columnas en clúster**, es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, el grupo de SQL de Synapse ya divide cada tabla en 60 bases de datos distribuidas. Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que un grupo de SQL de Synapse tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. Para obtener más información, consulte el artículo [Indexación](sql-data-warehouse-tables-index.md), que incluye las consultas que pueden evaluar la calidad de los índices de almacén de columnas en clúster.
+Para que la creación de particiones sea útil, es importante saber cuándo usarla y el número de particiones que se deben crear. No hay ninguna regla inamovible con respecto a cuántas particiones son demasiadas, depende de los datos y del número de particiones que se cargan de manera simultánea. Normalmente, un esquema de partición correcta tiene decenas o centenas de particiones, no miles.
+
+Al crear particiones en tablas de **almacén de columnas en clúster**, es importante considerar el número de filas que pertenece a cada partición. Para que tanto la compresión como el rendimiento de las tablas de almacén de columnas en clúster sean óptimos, se necesita un mínimo de un millón de filas por partición y distribución. Antes de que se creen particiones, el grupo de SQL de Synapse ya divide cada tabla en 60 bases de datos distribuidas. 
+
+Todas las particiones que se agreguen a una tabla se sumarán a las distribuciones creadas en segundo plano. Usando este ejemplo, si la tabla de datos de ventas contenía 36 particiones mensuales, y dado que un grupo de SQL de Synapse tiene 60 distribuciones, la tabla de datos de ventas debería contener 60 millones de filas por mes, o 2 100 millones de filas cuando se rellenen todos los meses. Si una tabla contiene menos filas que el número mínimo recomendado de filas por partición, considere utilizar menos particiones para hacer que aumente el número de filas por partición. 
+
+Para obtener más información, consulte el artículo [Indexación](sql-data-warehouse-tables-index.md), que incluye las consultas que pueden evaluar la calidad de los índices de almacén de columnas en clúster.
 
 ## <a name="syntax-differences-from-sql-server"></a>Diferencias de sintaxis con respecto a SQL Server
 
-El grupo de SQL de Synapse introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan igual en el grupo de SQL de Synapse que en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL de Synapse admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
+El grupo de SQL de Synapse introduce una manera más sencilla de definir particiones que SQL Server. Las funciones y los esquemas de la creación de particiones no se usan igual en el grupo de SQL de Synapse que en SQL Server. En su lugar, lo único que se debe hacer es identificar la columna con particiones y los puntos limítrofes. 
+
+Aunque la sintaxis de la creación de particiones puede variar ligeramente con respecto a la de SQL Server, los conceptos básicos son los mismos. SQL Server y el grupo de SQL de Synapse admiten una columna de partición por tabla, que puede ser una partición por rangos. Para obtener más información sobre las particiones, consulte [Tablas e índices con particiones](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).
 
 En el siguiente ejemplo se usa una instrucción [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) para crear particiones en la tabla FactInternetSales en la columna OrderDateKey:
 
@@ -237,7 +249,11 @@ UPDATE STATISTICS [dbo].[FactInternetSales];
 
 ### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>Cargar en un solo paso datos nuevos en particiones que ya contienen datos
 
-La carga de datos en particiones mediante el cambio de partición es una forma muy útil de organizar nuevos datos en una tabla que no es visible para los usuarios al cambiar los nuevos datos.  Puede un desafío para los sistemas ocupados tratar con la contención de bloqueo asociada con el cambio de partición.  Para borrar los datos existentes en una partición, solía requerirse un `ALTER TABLE` para cambiar los datos.  Luego se requería otro `ALTER TABLE` para cambiar a los nuevos datos.  En el grupo de SQL de Synapse, la opción `TRUNCATE_TARGET` se admite en el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
+La carga de datos en particiones mediante el cambio de partición es una forma muy útil de organizar nuevos datos en una tabla que no es visible para los usuarios.  Puede un desafío para los sistemas ocupados tratar con la contención de bloqueo asociada con el cambio de partición.  
+
+Para borrar los datos existentes en una partición, solía requerirse un `ALTER TABLE` para cambiar los datos.  Luego se requería otro `ALTER TABLE` para cambiar a los nuevos datos.  
+
+En el grupo de SQL de Synapse, la opción `TRUNCATE_TARGET` se admite en el comando `ALTER TABLE`.  Con `TRUNCATE_TARGET` el comando `ALTER TABLE` sobrescribe los datos existentes en la partición con datos nuevos.  A continuación se muestra un ejemplo que usa `CTAS` para crear una nueva tabla con los datos existentes, inserta datos nuevos y luego cambia todos los datos de nuevo a la tabla de destino, sobrescribiendo los datos existentes.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -339,7 +355,7 @@ Para evitar que la definición de tabla se **oxide** en el sistema de control de
     DROP TABLE #partitions;
     ```
 
-con este enfoque, el código de control de código fuente permanece estático y se permite que los valores del límite de creación de particiones sean dinámicos, de tal forma que evolucionan con la base de datos con el tiempo.
+Con este enfoque, el código de control de código fuente permanece estático y se permite que los valores del límite de creación de particiones sean dinámicos, de tal forma que evolucionan con la base de datos con el tiempo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

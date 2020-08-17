@@ -103,6 +103,7 @@
           href: functions-bindings-example.md
         - name: Registro de extensiones de enlace
           href: functions-bindings-register.md
+          displayName: 'bundles, extension bundles'
         - name: Patrones de expresión de enlace
           href: functions-bindings-expressions-patterns.md
         - name: Uso de valores devueltos de enlace
@@ -129,6 +130,10 @@
           href: functions-reference-python.md
         - name: TypeScript
           href: functions-reference-node.md#typescript
+    - name: Marcos de trabajo
+      items:
+        - name: Express.js
+          href: shift-expressjs.md
     - name: Seguridad
       items:
         - name: Introducción a la seguridad
@@ -259,7 +264,7 @@
         - name: Funciones locales
           href: functions-runtime-install.md
         - name: Implementación mediante el complemento de Jenkins
-          href: /azure/jenkins/jenkins-azure-functions-deploy
+          href: /azure/developer/jenkins/deploy-to-azure-functions
           maintainContext: true
     - name: Configuración
       items:
@@ -268,8 +273,6 @@
           displayName: 'app setting, application setting'
         - name: Establecimiento de la versión del entorno de ejecución
           href: set-runtime-version.md
-        - name: Registro manual de una extensión
-          href: install-update-binding-extensions-manual.md
         - name: Deshabilitar una función
           href: disable-function.md
         - name: Recuperación ante desastres geográfica
@@ -341,8 +344,8 @@
       items:
         - name: Solución de problemas de almacenamiento
           href: functions-recover-storage-account.md
-        - name: Solución de problemas de dependencias de Python
-          href: recover-module-not-found.md
+        - name: Solución de problemas de funciones de Python
+          href: recover-python-functions.md
 - name: Referencia
   items:
     - name: Referencias de API
@@ -375,7 +378,7 @@
             - name: Output
               displayName: Blob storage
               href: functions-bindings-storage-blob-output.md
-        - name: "Azure Cosmos\_DB"
+        - name: Azure Cosmos DB
           items:
             - name: Functions 1.x
               href: functions-bindings-cosmosdb.md

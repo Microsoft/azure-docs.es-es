@@ -24,7 +24,7 @@
       href: tutorial-backup-vm-at-scale.md
     - name: Copia de seguridad de máquinas virtuales de Azure con PowerShell
       href: tutorial-backup-azure-vm.md
-    - name: Restauración de un disco
+    - name: Restauración de una máquina virtual con la CLI de Azure
       href: tutorial-restore-disk.md
     - name: Restauración de archivos individuales
       href: tutorial-restore-files.md
@@ -89,6 +89,8 @@
           href: backup-azure-monitor-alert-faq.md
     - name: Arquitectura de copia de seguridad
       href: backup-architecture.md
+    - name: Guía y procedimientos recomendados
+      href: guidance-best-practices.md
 - name: Guías de procedimientos
   items:
     - name: Almacén de Recovery Services
@@ -101,7 +103,7 @@
           href: backup-azure-delete-vault.md
         - name: Move
           href: backup-azure-move-recovery-services-vault.md
-        - name: Administrar
+        - name: Administración
           href: backup-azure-manage-windows-server.md
     - name: Copia de seguridad de máquina virtual de Azure
       items:
@@ -121,6 +123,8 @@
               href: backup-azure-vms-encryption.md
             - name: Configuración de copias de seguridad coherentes con aplicaciones de máquinas virtuales de Azure que ejecutan Linux
               href: backup-azure-linux-app-consistent.md
+            - name: Copia de seguridad de discos selectiva
+              href: selective-disk-backup-restore.md
         - name: Restauración
           items:
             - name: Acerca de la restauración de máquinas virtuales de Azure
@@ -133,7 +137,7 @@
               href: backup-azure-vms-encryption.md
             - name: Restauración de la clave y el secreto para máquinas virtuales cifradas
               href: backup-azure-restore-key-secret.md
-        - name: Administrar
+        - name: Administración
           items:
             - name: Administración de copias de seguridad de máquinas virtuales de Azure
               href: backup-azure-manage-vms.md
@@ -145,7 +149,7 @@
           href: backup-sql-server-database-azure-vms.md
         - name: Restauración
           href: restore-sql-database-azure-vm.md
-        - name: Administrar
+        - name: Administración
           href: manage-monitor-sql-database-backup.md
     - name: Copia de seguridad de Windows mediante el agente de MARS
       items:
@@ -181,7 +185,7 @@
               href: backup-afs.md
             - name: Restauración
               href: restore-afs.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup.md
         - name: Con la CLI de Azure
           items:
@@ -189,7 +193,7 @@
               href: backup-afs-cli.md
             - name: Restauración
               href: restore-afs-cli.md
-            - name: Administrar
+            - name: Administración
               href: manage-afs-backup-cli.md
         - name: Con PowerShell
           items:
@@ -375,6 +379,9 @@
           href: encryption-at-rest-with-cmk.md
         - name: Controles de seguridad integrados
           href: backup-security-controls.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Solución de problemas

@@ -3,12 +3,12 @@ title: Autenticación y autorización en Azure Relay | Microsoft Docs
 description: En este artículo se proporciona una introducción sobre la autenticación de firma de acceso compartido (SAS) con el servicio Azure Relay.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 63e075bc9bf75005a92866f9fa0f90ddaba2f016
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b0a5c7a092155a006419eedd170a63abed42bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316934"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033384"
 ---
 # <a name="azure-relay-authentication-and-authorization"></a>Autenticación y autorización en Azure Relay
 
@@ -20,7 +20,7 @@ La [autenticación de SAS](../service-bus-messaging/service-bus-sas.md) permite 
 
 Puede configurar claves para SAS en un espacio de nombres de Relay. A diferencia de la mensajería de Service Bus, [Conexiones híbridas de Relay](relay-hybrid-connections-protocol.md) admite remitentes no autorizados o anónimos. Puede habilitar el acceso anónimo para la entidad cuando la cree, tal y como se muestra en la siguiente captura de pantalla del portal:
 
-![][0]
+![Un cuadro de diálogo titulado "Crear conexión híbrida" tiene un cuadro de texto "Nombre" y una casilla denominada "Requiere autenticación de cliente", que está activada.][0]
 
 Para usar SAS, puede configurar un objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) en un espacio de nombres de Relay que consta de lo siguiente:
 

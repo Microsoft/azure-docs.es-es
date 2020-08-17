@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 05/31/2019
 ms.author: allensu
-ms.openlocfilehash: 3c61407b2a0c9d0423d1f856101400771e27d846
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a49912bc2275e478d657f06587c4ddc830210d3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887414"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040219"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-from-verizon-premium-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de Azure CDN de Verizon Premium
 
@@ -55,7 +55,7 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
     ![Opciones de nueva regla de CDN](./media/cdn-rules-engine/cdn-new-rule.png)
    
    > [!IMPORTANT]
-   > El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior.
+   > El orden en que se muestran varias reglas afecta a la manera en que se controlan. Una regla posterior puede invalidar las acciones especificadas por una regla anterior. Por ejemplo, si tiene una regla que permite el acceso a un recurso en función de una propiedad de solicitud y una regla que lo deniega a todas las solicitudes, la segunda regla invalida la primera. Las reglas invalidan las reglas anteriores solo si interactúan con las mismas propiedades.
    >
 
 3. Escriba un nombre en el cuadro de texto **Nombre/Descripción** .

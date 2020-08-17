@@ -4,12 +4,12 @@ description: Aprenda a controlar el acceso al archivo de configuración de Kuber
 services: container-service
 ms.topic: article
 ms.date: 05/06/2020
-ms.openlocfilehash: 4d25babd13bb8ecdcd8c9eb60a976a05702fb9b6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 5ed2f74d9de30b5fbdeaeb38316831db0777a0d6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255275"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501634"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Uso de los controles de acceso basados en roles de Azure para definir el acceso al archivo de configuración de Kubernetes en Azure Kubernetes Service (AKS)
 
@@ -27,7 +27,7 @@ En este artículo también se requiere que ejecute la versión 2.0.65 de la CLI
 
 Al interactuar con un clúster de AKS mediante la herramienta `kubectl`, se usa un archivo de configuración que define la información de conexión del clúster. Este archivo de configuración se almacena normalmente en *~/.kube/config*. En este archivo *kubeconfig* se pueden definir varios clústeres. El comando [kubectl config use-context][kubectl-config-use-context] sirve para cambiar de un clúster a otro.
 
-El comando [az aks get-credentials][az-aks-get-credentials] permite obtener las credenciales de acceso para un clúster de AKS y las combina en el archivo *kubeconfig*. Puede usar los controles de acceso basados en roles (RBAC) de Azure para controlar el acceso a estas credenciales. Estos roles RBAC de Azure permiten definir quién puede recuperar el archivo *kubeconfig* y los permisos correspondientes en el clúster.
+El comando [az aks get-credentials][az-aks-get-credentials] permite obtener las credenciales de acceso para un clúster de AKS y las combina en el archivo *kubeconfig*. Puede usar los controles de acceso basados en roles (RBAC) de Azure para controlar el acceso a estas credenciales. Estos roles de Azure permiten definir quién puede recuperar el archivo *kubeconfig* y los permisos correspondientes en el clúster.
 
 Los dos roles integrados son:
 

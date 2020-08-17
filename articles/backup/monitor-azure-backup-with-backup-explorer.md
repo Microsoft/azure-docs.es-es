@@ -4,12 +4,12 @@ description: En este artículo se describe cómo usar el Explorador de Backup pa
 ms.reviewer: dcurwin
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.openlocfilehash: e891ee1ccfbe929aaa8ac35518b40f5514da714f
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: f514f899f2db70ecb2924c2e627f3bed28e3dcad
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83715212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092803"
 ---
 # <a name="monitor-your-backups-with-backup-explorer"></a>Supervisión de las copias de seguridad con el Explorador de Backup
 
@@ -94,8 +94,8 @@ Puede seleccionar el icono de anclaje en la parte superior de cada tabla o gráf
 
 ## <a name="cross-tenant-views"></a>Vistas entre inquilinos
 
-Si es usuario de Azure Lighthouse con acceso delegado a las suscripciones en varios entornos de inquilinos, puede usar el filtro de suscripción predeterminado. Para mostrar las suscripciones para las que desea ver los datos, seleccione el icono de "filtro" en la parte superior derecha de Azure Portal. Cuando se usa esta característica, el Explorador de Backup agrega la información sobre todos los almacenes en las suscripciones seleccionadas. Para más información, consulte [¿Qué es Azure Lighthouse?](https://docs.microsoft.com/azure/lighthouse/overview)
+Si es usuario de Azure Lighthouse con acceso delegado a las suscripciones en varios entornos de inquilinos, puede usar el filtro de suscripción predeterminado. Para mostrar las suscripciones para las que desea ver los datos, seleccione el icono de "filtro" en la parte superior derecha de Azure Portal. Cuando se usa esta característica, el Explorador de Backup agrega la información sobre todos los almacenes en las suscripciones seleccionadas. Para más información, consulte [¿Qué es Azure Lighthouse?](../lighthouse/overview.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Aprenda a usar Azure Monitor para obtener información sobre los datos de copia de seguridad.](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor)
+[Aprenda a usar Azure Monitor para obtener información sobre los datos de copia de seguridad.](./backup-azure-monitoring-use-azuremonitor.md)

@@ -7,14 +7,14 @@ ms.date: 01/11/2019
 ms.topic: how-to
 ms.service: virtual-machines-linux
 ms.subservice: disks
-ms.openlocfilehash: a658bfc0815a03d0f6944d1c42eacdd04397458d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1dfcad5a4fb6611543e6421e82889f239f14951
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84660896"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010840"
 ---
-# <a name="benchmarking-a-disk"></a>Pruebas comparativas de un disco
+# <a name="benchmark-your-application-on-azure-disk-storage"></a>Pruebas comparativas de la aplicación en Azure Disk Storage
 
 Las pruebas comparativas consisten en el proceso de simular cargas de trabajo diferentes en la aplicación y medir el rendimiento de las aplicaciones para cada carga de trabajo. Siguiendo los pasos descritos en el [artículo sobre el diseño de alto rendimiento](premium-storage-performance.md). Al ejecutar las herramientas de pruebas comparativas en las máquinas virtuales en las que se hospeda la aplicación, puede determinar los niveles de rendimiento que la aplicación puede lograr con Premium Storage. En este artículo, se proporcionan ejemplos de pruebas comparativas realizadas con una máquina virtual estándar DS14 aprovisionada con discos de Azure Premium Storage.
 

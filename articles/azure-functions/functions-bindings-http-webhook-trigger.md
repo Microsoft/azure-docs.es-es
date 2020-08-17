@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: 437cbb87694adf89054161a7b0d40f6528b94199
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.custom: devx-track-python
+ms.openlocfilehash: 271787c47b29bc713cc923c7d27852a8e05703ef
+ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224101"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88042554"
 ---
 # <a name="azure-functions-http-trigger"></a>Desencadenador HTTP de Azure Functions
 
@@ -674,7 +674,7 @@ También puede leer esta información desde los datos de enlace. Esta funcionali
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-La información relacionada con los clientes autenticados está disponible como [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
+La información relacionada con los clientes autenticados está disponible como [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
 using System.Net;
@@ -706,7 +706,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="c-script"></a>[Script de C#](#tab/csharp-script)
 
-La información relacionada con los clientes autenticados está disponible como [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
+La información relacionada con los clientes autenticados está disponible como [ClaimsPrincipal](/dotnet/api/system.security.claims.claimsprincipal). ClaimsPrincipal está disponible como parte del contexto de solicitud, tal como se muestra en el ejemplo siguiente:
 
 ```csharp
 using System.Net;
@@ -824,7 +824,7 @@ En las funciones que no son de C#, las solicitudes enviadas con el tipo de conte
 
 ## <a name="limits"></a>Límites
 
-La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-functions-host/blob/3.x/src/WebJobs.Script.WebHost/web.config) especifica estos límites.
+La longitud de la solicitud HTTP está limitada a 100 MB (104 857 600 bytes) y la longitud de la dirección URL a 4 KB (4 096 bytes). El elemento `httpRuntime` del [archivo Web.config](https://github.com/Azure/azure-functions-host/blob/v3.x/src/WebJobs.Script.WebHost/web.config) especifica estos límites.
 
 Si una función que usa el desencadenador HTTP no se completa en menos de 230 segundos, [Azure Load Balancer](../app-service/faq-availability-performance-application-issues.md#why-does-my-request-time-out-after-230-seconds) agotará el tiempo de espera y devolverá un error HTTP 502. La función seguirá ejecutándose, pero no podrá devolver una respuesta HTTP. En el caso de funciones de ejecución prolongada, se recomienda que siga patrones asincrónicos y que devuelva una ubicación donde pueda hacer ping con el estado de la solicitud. Para más información sobre cuánto tiempo se puede ejecutar una función, consulte [Escalado y hospedaje: Plan de consumo](functions-scale.md#timeout).
 

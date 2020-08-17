@@ -7,12 +7,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ce9bf6fe6d130cf8511db2b2351c0de01b753d81
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77670362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318409"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Use Azure Application Insights para entender la forma en que los clientes utilizan su aplicación
 
@@ -36,9 +36,9 @@ Para completar este tutorial:
     - ASP.NET y desarrollo web
     - Desarrollo de Azure
 - Descargue e instale [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
-- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../../azure-monitor/app/asp-net.md). 
-- [Envíe telemetría desde su aplicación](../../azure-monitor/app/usage-overview.md#send-telemetry-from-your-app) para agregar eventos personalizados o vistas de página
-- Enviar el [contexto del usuario](https://docs.microsoft.com/azure/application-insights/app-insights-usage-send-user-context) para realizar un seguimiento de lo que un usuario hace con el tiempo y utilizar plenamente las características de uso.
+- Implemente una aplicación de .NET en Azure y [habilite el SDK de Application Insights](../app/asp-net.md). 
+- [Envíe telemetría desde su aplicación](../app/usage-overview.md#send-telemetry-from-your-app) para agregar eventos personalizados o vistas de página
+- Enviar el [contexto del usuario](../app/usage-send-user-context.md) para realizar un seguimiento de lo que un usuario hace con el tiempo y utilizar plenamente las características de uso.
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
@@ -102,16 +102,16 @@ Mientras que los paneles anteriores se centran en lo que han hecho los usuarios 
 
 1. Seleccione **Embudos** en el menú y haga clic en **Nuevo**. 
 
-    ![](media/tutorial-users/funnelsnew.png)
+    ![Captura de pantalla que muestra cómo crear un nuevo embudo.](media/tutorial-users/funnelsnew.png)
 
 2. Escriba un **nombre de embudo**.
 3. Cree un embudo con un mínimo de dos pasos y seleccione una acción para cada paso.  La lista de acciones se crea a partir de los datos de uso recopilados por Application Insights.
 
-    ![](media/tutorial-users/funnelsedit.png)
+    ![Captura de pantalla que muestra cómo crear pasos en un embudo nuevo.](media/tutorial-users/funnelsedit.png)
 
 4. Haga clic en **Guardar** para guardar el embudo y, después, vea sus resultados.  La ventana a la derecha del embudo muestra los eventos más comunes antes de la primera actividad y después de la última actividad para ayudarle a conocer las tendencias del usuario alrededor de la secuencia determinada.
 
-    ![](media/tutorial-users/funnelsright.png)
+    ![Captura de pantalla que muestra los resultados del evento de un embudo recién creado.](media/tutorial-users/funnelsright.png)
 
 
 ## <a name="learn-which-customers-return"></a>Información acerca de los clientes que vuelven
@@ -120,11 +120,11 @@ Mientras que los paneles anteriores se centran en lo que han hecho los usuarios 
 1. Seleccione **Retención** en el menú.
 2. De forma predeterminada, la información analizada incluye aquellos usuarios que realizaron alguna acción y volvieron para llevar a cabo alguna acción.  Este filtro se puede cambiar para que incluya a cualquiera, por ejemplo, solo aquellos usuarios que hayan vuelto después de completar una compra.
 
-    ![](media/tutorial-users/retentionquery.png)
+    ![Captura de pantalla que muestra cómo establecer un filtro de retención.](media/tutorial-users/retentionquery.png)
 
 3. Los usuarios que vuelven que coinciden con los criterios se muestran tanto en forma de gráfico como de tabla en distintas duraciones.  El patrón más frecuente es una caída gradual en la vuelta de los usuarios con el paso del tiempo.  Una caída repentina de un período de tiempo al siguiente puede provocar un problema. 
 
-    ![](media/tutorial-users/retentiongraph.png)
+    ![Captura de pantalla que muestra un grafo para los usuarios que coincidan con los criterios establecidos para un filtro de retención.](media/tutorial-users/retentiongraph.png)
 
 ## <a name="analyze-user-navigation"></a>Análisis de la navegación del usuario
 Un **flujo de usuarios** visualiza la forma en que los usuarios navegan entre las páginas y características de la aplicación.  Esto le ayuda a responder a preguntas como a qué lugar se suelen mover los usuarios desde una página concreta, cómo salen habitualmente de su aplicación y si hay acciones que se repitan de manera regular.
@@ -133,15 +133,15 @@ Un **flujo de usuarios** visualiza la forma en que los usuarios navegan entre la
 2.  Haga clic en **Nuevo** para crear un nuevo flujo de usuario y, a continuación, haga clic en **Editar** para editar sus detalles.
 3.  Aumente el valor de **Intervalo de tiempo** a 7 días y, luego, seleccione un evento inicial.  El flujo hará un seguimiento de las sesiones de usuario que empiezan por ese evento.
 
-    ![](media/tutorial-users/flowsedit.png)
+    ![Captura de pantalla que muestra cómo crear un nuevo flujo de usuario.](media/tutorial-users/flowsedit.png)
 
 4.  Se muestra el flujo de usuario y puede ver las rutas de acceso de los diferentes usuarios y el número de sesiones.  Las líneas azules indican una acción que el usuario ha realizado después de la acción actual.  Una línea roja indica el final de la sesión del usuario.
 
-    ![](media/tutorial-users/flows.png)
+    ![Captura de pantalla que muestra la visualización de rutas de acceso de usuario y recuentos de sesiones para un flujo de usuario.](media/tutorial-users/flows.png)
 
 5.  Para quitar un evento del flujo, haga clic en la **x** de la esquina de la acción y, después, en **Crear gráfico**.  El grafo se vuelve a dibujar sin ninguna de las instancias de dicho evento.  Haga clic en **Editar** para ver que el evento se ha agregado a **Eventos excluidos**.
 
-    ![](media/tutorial-users/flowsexclude.png)
+    ![Captura de pantalla que muestra la lista de eventos excluidos de un flujo de usuario.](media/tutorial-users/flowsexclude.png)
 
 ## <a name="consolidate-usage-data"></a>Consolidación de datos de uso
 Los **libros** combinan las visualizaciones de datos, las consultas de Analytics y texto en documentos interactivos.  Se pueden usar para agrupar la información de uso común, consolidar la información de un incidente determinado o informar al equipo sobre el uso de la aplicación.
@@ -150,12 +150,12 @@ Los **libros** combinan las visualizaciones de datos, las consultas de Analytics
 2.  Haga clic en **Nuevo** para crear un libro nuevo.
 3.  Ya se proporciona una consulta que incluye todos los datos de uso en el último día que se muestra como un gráfico de barras.  Puede usar esta consulta, editarla manualmente o hacer clic en **Consultas de ejemplo** para seleccionar otras consultas útiles.
 
-    ![](media/tutorial-users/samplequeries.png)
+    ![Captura de pantalla que muestra una lista de consultas de ejemplo que puede usar.](media/tutorial-users/samplequeries.png)
 
 4.  Haga clic en **Edición finalizada**.
 5.  Haga clic en **Editar** en el panel superior para editar el texto de la parte superior del libro.  Para darle formato se usa Markdown.
 
-    ![](media/tutorial-users/markdown.png)
+    ![Captura de pantalla que muestra cómo editar el texto en la parte superior del libro.](media/tutorial-users/markdown.png)
 
 6.  Haga clic en **Agregar usuarios** para agregar un grafo con información del usuario.  Si lo desea, edite los detalles del grafo y, después, haga clic en **Edición finalizada** para guardarlo.
 
@@ -164,4 +164,5 @@ Los **libros** combinan las visualizaciones de datos, las consultas de Analytics
 Ahora que ha aprendido a analizar a los usuarios, pase al siguiente tutorial para aprender a crear paneles personalizados que combinan esta información con otros datos útiles de la aplicación.
 
 > [!div class="nextstepaction"]
-> [Creación de paneles personalizados](../../azure-monitor/learn/tutorial-app-dashboards.md)
+> [Creación de paneles personalizados](./tutorial-app-dashboards.md)
+

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: 560f7b958e04b55a7d642c9f95750812b86d32bc
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: f87e3f4add0cb5949036ec6caca2e361e2e88ea0
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251729"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498130"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opciones de acceso e identidad en Azure Kubernetes Service (AKS)
 
@@ -73,9 +73,7 @@ Puede mejorar la seguridad de los clústeres de AKS con la integración de Azure
 
 Con los clústeres de AKS integrados en Azure AD, puede conceder a los usuarios o grupos acceso a los recursos de Kubernetes de un espacio de nombres o del clúster. Para obtener un contexto de configuración de `kubectl`, el usuario puede ejecutar el comando [az aks get-credentials][az-aks-get-credentials]. Cuando un usuario interactúa con el clúster de AKS con `kubectl`, se le pide que inicie sesión con sus credenciales de Azure AD. Este enfoque proporciona un único origen para la administración de cuentas de usuario y de las credenciales de contraseña. El usuario solo puede acceder a los recursos como defina el administrador de clústeres.
 
-La autenticación de Azure AD se proporciona a los clústeres de AKS con OpenID Connect. OpenID Connect es una capa de identidad creada basándose en el protocolo OAuth 2.0. Para obtener más información sobre OpenID Connect, consulte [Documentación de OpenID Connect][OpenID Connect]. Dentro del clúster de Kubernetes, se usa [la autenticación de token de webhook][webhook-token-docs] para verificar los tokens de autenticación. La autenticación de token de webhook se configura y administra como parte del clúster de AKS.
-
-Dentro del clúster de Kubernetes, se usa la autenticación de token de webhook para verificar los tokens de autenticación. La autenticación de token de webhook se configura y administra como parte del clúster de AKS.
+La autenticación de Azure AD se proporciona a los clústeres de AKS con OpenID Connect. OpenID Connect es una capa de identidad creada basándose en el protocolo OAuth 2.0. Puede encontrar más información sobre OpenID Connect en la [documentación de OpenID Connect][openid-connect]. Dentro del clúster de Kubernetes, se usa [la autenticación de token de webhook][webhook-token-docs] para verificar los tokens de autenticación. La autenticación de token de webhook se configura y administra como parte del clúster de AKS.
 
 ### <a name="webhook-and-api-server"></a>Webhook y servidor de API
 
@@ -105,11 +103,11 @@ Azure RBAC es un sistema de autorización basado en [Azure Resource Manager](../
 
 Con el control de acceso basado en rol de Azure, puede crear una *definición de rol* que describe los permisos que se aplicarán. A continuación, se asigna esta definición de rol a un usuario o grupo a través de una *asignación de roles* para un *ámbito* determinado que puede ser un recurso individual, un grupo de recursos o en toda la suscripción.
 
-Para más información, consulte [¿Qué es el control de acceso basado en rol de Azure?][azure-rbac]
+Para obtener más información, consulte [¿Qué es el control de acceso basado en roles (RBAC) de Azure?][azure-rbac]
 
 Hay dos niveles de acceso necesarios para operar completamente un clúster de AKS: 
-1. [Acceda al recurso de AKS en la suscripción de Azure](#azure-rbac-to-authorize-access-to-the-aks-resource). Este proceso permite controlar las cosas que escalan o actualizan el clúster mediante las API de AKS, así como la extracción de kubeconfig.
-2. Acceso al API de Kubernetes. Este acceso se controla mediante [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (tradicionalmente) o [la integración de Azure RBAC con AKS para la autorización de Kubernetes](#azure-rbac-for-kubernetes-authorization-preview).
+1. [Acceso al recurso de AKS en la suscripción de Azure](#azure-rbac-to-authorize-access-to-the-aks-resource) Este proceso permite controlar las cosas que escalan o actualizan el clúster mediante las API de AKS, así como la extracción de kubeconfig.
+2. Acceso al API de Kubernetes. Este acceso se controla mediante [Kubernetes RBAC](#kubernetes-role-based-access-controls-rbac) (tradicionalmente) o la [integración de Azure RBAC con AKS para la autorización de Kubernetes](#azure-rbac-for-kubernetes-authorization-preview).
 
 ### <a name="azure-rbac-to-authorize-access-to-the-aks-resource"></a>Azure RBAC para autorizar el acceso al recurso de AKS
 
@@ -121,7 +119,7 @@ Vea más información sobre cómo usar Azure RBAC para proteger el acceso al arc
 
 ### <a name="azure-rbac-for-kubernetes-authorization-preview"></a>Azure RBAC para la autorización de Kubernetes (versión preliminar)
 
-Con la integración de Azure RBAC, AKS usará un servidor de autorización de webhook de Kubernetes para que pueda administrar los permisos y las asignaciones de recursos de clúster de K8s integradas en Azure AD con la definición de roles y las asignaciones de roles de Azure RBAC.
+Con la integración de la característica RBAC de Azure, AKS utilizará un servidor de webhooks de autorización de Kubernetes, lo que le permitirá administrar los permisos y asignaciones de los recursos del clúster K8s integrados en Azure AD utilizando la definición y la asignación de roles de Azure AD.
 
 ![Azure RBAC para el flujo de autorización de Kubernetes](media/concepts-identity/azure-rbac-k8s-authz-flow.png)
 

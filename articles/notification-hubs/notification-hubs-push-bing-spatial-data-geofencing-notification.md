@@ -18,12 +18,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: ff37a3ecb55c6ee034d3fd2558909c3b4ef1d375
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 3065cd6f185c0fdfaea1d6c0d02d2fee69bd04c7
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223438"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116928"
 ---
 # <a name="tutorial-send-location-based-push-notifications-with-notification-hubs-and-bing-spatial-data"></a>Tutorial: Envío de notificaciones push basadas en la ubicación con Notification Hubs y Bing Spatial Data
 
@@ -63,7 +63,7 @@ En este tutorial, realizará los siguientes pasos:
 
     El archivo de canalización representa esta entidad:
 
-    ![Captura de pantalla de una marisquería de San Francisco con un polígono rojo que esquematiza un área de los muelles.](./media/notification-hubs-geofence/bing-maps-geofence.png)
+    ![Captura de pantalla de un mapa del litoral de San Francisco con un polígono rojo que delinea un área de los muelles.](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. En la página **Upload a data source** (Cargar un origen de datos), realice las siguientes acciones:
    1. Seleccione **canalización** como **Formato de datos**.
    2. Busque y seleccione el archivo `NotificationHubGeofence.pipe` que creó en el paso anterior.
@@ -164,7 +164,7 @@ En este tutorial, realizará los siguientes pasos:
     }
     ```
 
-    Para más información sobre cómo obtener la ubicación del usuario en las aplicaciones para UWP, consulte [Obtención de la ubicación del usuario](https://msdn.microsoft.com/library/windows/apps/mt219698.aspx).
+    Para más información sobre cómo obtener la ubicación del usuario en las aplicaciones para UWP, consulte [Obtención de la ubicación del usuario](/windows/uwp/maps-and-location/get-location).
 5. Para comprobar que la adquisición de ubicación funciona realmente, abra la parte de código de la página principal (`MainPage.xaml.cs`). Cree un nuevo controlador de eventos para el evento `Loaded` en el constructor `MainPage`.
 
     ```csharp
@@ -393,7 +393,7 @@ En este tutorial, realizará los siguientes pasos:
 
 Hay un par de pasos que quizá deba seguir para asegurarse de que la solución está preparada para producción.
 
-1. Primero debe asegurarse de que las geovallas sean dinámicas. Esto requiere un trabajo adicional con la API de Bing para poder cargar los nuevos límites dentro del origen de datos existente. Para más información, consulte la [documentación de API de Bing Spatial Data Services](https://msdn.microsoft.com/library/ff701734.aspx).
+1. Primero debe asegurarse de que las geovallas sean dinámicas. Esto requiere un trabajo adicional con la API de Bing para poder cargar los nuevos límites dentro del origen de datos existente. Para más información, consulte la [documentación de API de Bing Spatial Data Services](/bingmaps/spatial-data-services/).
 2. En segundo lugar, cuando se trabaja para garantizar que se realiza la entrega a los participantes adecuados, puede querer dirigirlos mediante el [etiquetado](notification-hubs-tags-segment-push-message.md).
 
-La solución de este tutorial describe un escenario en el que se puede tener una amplia variedad de plataformas de destino, por lo que se limita el geovallado a funcionalidades específicas del sistema. Dicho esto, Plataforma universal de Windows ofrece funcionalidades para [detectar geovallas directamente de fábrica](https://msdn.microsoft.com/windows/uwp/maps-and-location/set-up-a-geofence).
+La solución de este tutorial describe un escenario en el que se puede tener una amplia variedad de plataformas de destino, por lo que se limita el geovallado a funcionalidades específicas del sistema. Dicho esto, Plataforma universal de Windows ofrece funcionalidades para [detectar geovallas directamente de fábrica](/windows/uwp/maps-and-location/set-up-a-geofence).

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/21/2020
-ms.openlocfilehash: 469b402c694bcfae5a826c03ea35dbef2c365148
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70bf39011761bcf59c8270ecdcc0542e326aef42
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945416"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045860"
 ---
 # <a name="explore-azure-monitor-for-azure-cache-for-redis-preview"></a>Explore Azure Monitor para Azure Cache for Redis (versión preliminar)
 
@@ -120,7 +120,7 @@ Al seleccionar **Errores** en la parte superior de la página, se abre la tabla 
 
 ### <a name="metric-definitions"></a>Definiciones de métricas
 
-Para una lista completa de las definiciones de métricas que conforman estos libros, consulte el [artículo sobre las métricas disponibles y los intervalos de informes](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#available-metrics-and-reporting-intervals).
+Para una lista completa de las definiciones de métricas que conforman estos libros, consulte el [artículo sobre las métricas disponibles y los intervalos de informes](../../azure-cache-for-redis/cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
 
 ## <a name="view-from-an-azure-cache-for-redis-resource"></a>Vista desde un recurso de Azure Cache for Redis
 
@@ -156,7 +156,7 @@ Al seleccionar cualquiera de las demás pestañas para **Rendimiento** u **Opera
 
 ## <a name="pin-export-and-expand"></a>Anclaje, exportación y expansión
 
-Para anclar cualquier sección de métrica a un [panel de Azure](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards), seleccione el símbolo de chincheta en la esquina superior derecha de la sección.
+Para anclar cualquier sección de métrica a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md), seleccione el símbolo de chincheta en la esquina superior derecha de la sección.
 
 ![Una sección de métrica con el símbolo de chincheta resaltado](./media/cosmosdb-insights-overview/pin.png)
 
@@ -186,6 +186,6 @@ Para obtener instrucciones para la solución de problemas, consulte el [artícul
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications.md) para configurar alertas automáticas que ayuden a detectar los problemas.
+* Configure [alertas de métricas](../platform/alerts-metric.md) y [notificaciones de estado del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md) para configurar alertas automáticas que ayuden a detectar los problemas.
 
 * Conozca los escenarios compatibles con libros, cómo crear o personalizar informes y muchos otros temas en el artículo sobre cómo [crear informes interactivos con libros de Azure Monitor](../platform/workbooks-overview.md).

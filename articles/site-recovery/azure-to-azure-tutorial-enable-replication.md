@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 1/24/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e7f7535cf66da721e1738da6d0efbf335d97a6da
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 50bf1ec7f21ccbc3a3fa8feaea02e45bd08a158a
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134500"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421423"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure
 
@@ -66,12 +66,12 @@ Para que Site Recovery funcione de la forma esperada, debe modificar la conectiv
 
 Si usa un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe permitir el acceso a ellas:
 
-| **URL** | **Detalles** |
-| ------- | ----------- |
-| `*.blob.core.windows.net` | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
-| `login.microsoftonline.com` | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
-| `*.hypervrecoverymanager.windowsazure.com` | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
-| `*.servicebus.windows.net` | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
+| **Nombre**                  | **Comercial**                               | **Gobierno**                                 | **Descripción** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
+| Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
+| Azure Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
@@ -94,7 +94,7 @@ Azure Site Recovery proporciona tres roles integrados para controlar las operaci
 
 - **Lector de Site Recovery**: este rol tiene permisos para ver todas las operaciones de administración de Site Recovery. Este rol es ideal para un ejecutivo de supervisión de TI que puede supervisar el estado actual de protección y crear vales de soporte.
 
-Obtenga más información sobre los [roles integrados de Azure RBAC](../role-based-access-control/built-in-roles.md).
+Más información sobre los [roles integrados de Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="enable-replication-for-a-vm"></a>Habilitación de la replicación para una máquina virtual
 

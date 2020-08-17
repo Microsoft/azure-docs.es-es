@@ -4,15 +4,15 @@ description: Aprenda a ahorrar costos en Azure Synapse Analytics gracias a la ca
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/30/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 3706493f0132cd4cc57af589e0d2935c31d6657e
-ms.sourcegitcommit: 1895459d1c8a592f03326fcb037007b86e2fd22f
+ms.openlocfilehash: 4597268a177773266f0d42eaf5acb9b18bcb3edb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "82629157"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286536"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Ahorro en Azure Synapse Analytics con la capacidad reservada
 

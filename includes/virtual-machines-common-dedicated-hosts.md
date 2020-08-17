@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 7cf03de2efdb1026934985c225a2a9eecbfbb5a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 691293d0f7ecf5bb2ad83a3f292ad2c9b873e31e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84902804"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386542"
 ---
 ## <a name="limitations"></a>Limitaciones
 
@@ -53,7 +53,7 @@ Si asigna un grupo host a una zona de disponibilidad, todas las máquinas virtua
 
 Se puede crear un host en un dominio de error específico. Al igual que las máquinas virtuales de un conjunto de escalado o de un conjunto de disponibilidad, los hosts de distintos dominios de error se colocarán en distintos bastidores físicos del centro de datos. Al crear un grupo host, es necesario especificar el número de dominios de error. Al crear hosts en el grupo host, se asigna un dominio de error a cada host. Las máquinas virtuales no requieren ninguna asignación de dominio de error.
 
-Los dominios de error no son lo mismo que la colocación. Tener el mismo dominio de error para dos hosts no significa que estén próximos entre sí.
+Los dominios de error no son lo mismo que la coubicación. Tener el mismo dominio de error para dos hosts no significa que estén próximos entre sí.
 
 El ámbito de los dominios de error es el grupo host. No debe realizar ninguna suposición sobre la antiafinidad entre dos grupos host (a menos que se encuentren en zonas de disponibilidad diferentes).
 
@@ -79,7 +79,15 @@ Una vez que se aprovisiona un host dedicado, Azure lo asigna a un servidor físi
 
 ## <a name="quotas"></a>Cuotas
 
-Existe un límite de cuota predeterminado por región de 3000 vCPU para hosts dedicados. Sin embargo, el número de hosts que puede implementar también está limitado por la cuota de la familia de tamaños de máquina virtual que se usa para el host. Por ejemplo, una suscripción de **pago por uso** solo puede tener una cuota de 10 vCPU disponibles para la serie de tamaños Dsv3 en la región Este de EE. UU. En este caso, debe solicitar un aumento de la cuota a un mínimo de 64 vCPU para poder implementar un host dedicado. Seleccione el botón **Solicitar aumento** en la esquina superior derecha para archivar una solicitud, si es necesario.
+Hay dos tipos de cuota que se consumen al implementar un host dedicado.
+
+1. Cuota de vCPU de host dedicado. El límite de cuota predeterminado es 3000 vCPU por región.
+1. Cuota de la familia de tamaños de máquina virtual. Por ejemplo, una suscripción de **pago por uso** solo puede tener una cuota de 10 vCPU disponibles para la serie de tamaños Dsv3 en la región Este de EE. UU. Para implementar un host dedicado Dsv3, tendría que solicitar un aumento de la cuota de al menos 64 vCPU antes de poder implementar el host dedicado. 
+
+Para solicitar un aumento de la cuota, cree una solicitud de soporte técnico en [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+
+El aprovisionamiento de un host dedicado consumirá la cuota de vCPU de host dedicado y la cuota de vCPU de familia de VM, pero no consumirá la vCPU regional.
+
 
 ![Captura de pantalla de la página de uso y cuotas del portal](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 

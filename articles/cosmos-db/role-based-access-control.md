@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/03/2020
 ms.author: mjbrown
-ms.openlocfilehash: cbb97dd260e5aee53595afc24e577ce08334e2b2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 6edf5de852ea836de8be02636dd8a971ccebb86d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027025"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530578"
 ---
 # <a name="role-based-access-control-in-azure-cosmos-db"></a>Control de acceso basado en rol en Azure Cosmos DB
 
-Azure Cosmos DB proporciona un control de acceso basado en role (RBAC) integrado para escenarios de administración comunes en Azure Cosmos DB. Un usuario que tiene un perfil en Azure Active Directory puede asignar estos roles RBAC a usuarios, grupos, entidades de servicio o identidades administradas para conceder o denegar el acceso a recursos y operaciones en los recursos de Azure Cosmos DB. Las asignaciones de roles están dirigidas únicamente al acceso al plano de control, que incluye el acceso a las cuentas, bases de datos, contenedores y ofertas de Azure Cosmos (rendimiento).
+Azure Cosmos DB proporciona un control de acceso basado en role (RBAC) integrado para escenarios de administración comunes en Azure Cosmos DB. Los usuarios con un perfil en Azure Active Directory pueden asignar estos roles de Azure a usuarios, grupos, entidades de servicio o identidades administradas para conceder o denegar el acceso a recursos y operaciones en los recursos de Azure Cosmos DB. Las asignaciones de roles están dirigidas únicamente al acceso al plano de control, que incluye el acceso a las cuentas, bases de datos, contenedores y ofertas de Azure Cosmos (rendimiento).
 
 ## <a name="built-in-roles"></a>Roles integrados
 
@@ -39,16 +39,16 @@ El panel **Control de acceso (IAM)** de Azure Portal se utiliza para configurar 
 
 ## <a name="custom-roles"></a>Roles personalizados
 
-Además de los roles integrados, los usuarios también pueden crear [roles personalizados](../role-based-access-control/custom-roles.md) en Azure y aplicar estos roles a las entidades de servicio en todas las suscripciones dentro de su inquilino de Active Directory. Los roles personalizados proporcionan a los usuarios una forma de crear definiciones de roles RBAC con un conjunto personalizado de operaciones de los proveedores de recursos. Para saber qué operaciones están disponibles para crear roles personalizados para Azure Cosmos DB, consulte [Operaciones del proveedor de recursos de Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
+Además de los roles integrados, los usuarios también pueden crear [roles personalizados](../role-based-access-control/custom-roles.md) en Azure y aplicar estos roles a las entidades de servicio en todas las suscripciones dentro de su inquilino de Active Directory. Los roles personalizados proporcionan a los usuarios una forma de crear definiciones de roles de Azure con un conjunto personalizado de operaciones de los proveedores de recursos. Para saber qué operaciones están disponibles para crear roles personalizados para Azure Cosmos DB, consulte [Operaciones del proveedor de recursos de Azure Cosmos DB](../role-based-access-control/resource-provider-operations.md#microsoftdocumentdb).
 
-## <a name="preventing-changes-from-cosmos-sdk"></a>Evitar cambios en el SDK de Cosmos
+## <a name="preventing-changes-from-the-azure-cosmos-db-sdks"></a><a id="prevent-sdk-changes"></a>Bloqueo en los SDK de Azure Cosmos DB para evitar cambios
+
+El proveedor de recursos de Azure Cosmos DB se puede bloquear para evitar cambios en los recursos desde clientes que se conecten mediante claves de cuenta (es decir, aplicaciones que se conecten mediante el SDK de Azure Cosmos), cambios desde Azure Portal incluidos. Esta característica puede resultar útil para los usuarios que deseen mayores grados de control y gobernanza para los entornos de producción. Evitar los cambios desde el SDK también habilita características como los bloqueos de recurso y de registro de diagnóstico para las operaciones en el plano de control. Los clientes que se conecten mediante el SDK de Azure Cosmos DB no podrán cambiar ninguna propiedad de las cuentas, las bases de datos, los contenedores y el rendimiento de Azure Cosmos. Esto no afecta a las operaciones que implican la lectura y la escritura de datos en contenedores de Cosmos.
+
+Cuando esta característica está habilitada, solo pueden realizar cambios en los recursos los usuarios con el rol de Azure correspondiente y credenciales de Azure Active Directory, incluidas las instancias de Managed Service Identity.
 
 > [!WARNING]
-> La habilitación de esta característica puede tener un impacto peligroso en la aplicación. Lea detenidamente antes de habilitar esta característica.
-
-El proveedor de Azure Cosmos DB se puede bloquear para evitar cambios en recursos desde clientes que se conectan mediante claves de cuenta (es decir, aplicaciones que se conectan a través del SDK de Cosmos). También se incluyen los cambios realizados desde Azure Portal. Esto puede ser deseable para los usuarios que quieren mayores grados de control y gobernanza para entornos de producción, habilitar características como bloqueos de recursos y habilitar registros de diagnóstico para las operaciones del plano de control. Los clientes que se conecten a través del SDK de Cosmos DB no podrán cambiar ninguna propiedad de las cuentas, las bases de datos, los contenedores y el rendimiento de Cosmos. Las operaciones que implican la lectura y la escritura de datos en contenedores de Cosmos no se ven afectadas.
-
-Cuando se establecen, los cambios en cualquier recurso solo se pueden realizar desde un usuario con el rol de RBAC adecuado y credenciales de Azure Active Directory, incluidas las instancias de Managed Service Identity.
+> La habilitación de esta característica puede afectar la aplicación. Asegúrese de que entiende el riesgo antes de habilitarlo.
 
 ### <a name="check-list-before-enabling"></a>Lista de comprobación anterior a la habilitación
 
@@ -64,11 +64,11 @@ Esta configuración impedirá que se realicen cambios en cualquier recurso de Co
 
 - Modificar procedimientos almacenados, desencadenadores o funciones definidas por el usuario.
 
-Si las aplicaciones (o usuarios mediante Azure Portal) realizan alguna de estas acciones, deberán migrarse para ejecutarse mediante [Plantillas ARM](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), [CLI de Azure](manage-with-cli.md), [REST](/rest/api/cosmos-db-resource-provider/) o [Biblioteca de administración de Azure](https://github.com/Azure-Samples/cosmos-management-net). Tenga en cuenta que la administración de Azure está disponible en [varios idiomas](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
+Si las aplicaciones (o usuarios mediante Azure Portal) realizan alguna de estas acciones, deberán migrarse para ejecutarse mediante [Plantillas ARM](manage-sql-with-resource-manager.md), [PowerShell](manage-with-powershell.md), la [CLI de Azure](manage-with-cli.md), REST o la [Biblioteca de administración de Azure](https://github.com/Azure-Samples/cosmos-management-net). Tenga en cuenta que la administración de Azure está disponible en [varios idiomas](https://docs.microsoft.com/azure/?product=featured#languages-and-tools).
 
 ### <a name="set-via-arm-template"></a>Definición mediante una plantilla de ARM
 
-Para establecer esta propiedad mediante una plantilla de ARM, actualice la plantilla existente o exporte una nueva plantilla para la implementación actual y, a continuación, incluya `"disableKeyBasedMetadataWriteAccess": true` en las propiedades de los recursos de databaseAccounts. A continuación se muestra un ejemplo básico de una plantilla de Azure Resource Manager con este valor de propiedad.
+Para establecer esta propiedad mediante una plantilla de ARM, actualice la plantilla existente o exporte una nueva para la implementación actual e incluya `"disableKeyBasedMetadataWriteAccess": true` en las propiedades de los recursos de `databaseAccounts`. A continuación se muestra un ejemplo básico de una plantilla de Azure Resource Manager con este valor de propiedad.
 
 ```json
 {
@@ -93,7 +93,7 @@ Para establecer esta propiedad mediante una plantilla de ARM, actualice la plant
 
 ### <a name="set-via-azure-cli"></a>Definir mediante la CLI de Azure
 
-Para habilitar el uso de la CLI de Azure, use el siguiente comando:
+Para la habilitación mediante la CLI de Azure, use el siguiente comando:
 
 ```azurecli-interactive
 az cosmosdb update  --name [CosmosDBAccountName] --resource-group [ResourceGroupName]  --disable-key-based-metadata-write-access true

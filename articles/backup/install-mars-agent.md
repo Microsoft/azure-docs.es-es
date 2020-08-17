@@ -3,12 +3,12 @@ title: Instalación del agente de Microsoft Azure Recovery Services (MARS)
 description: Aprenda a instalar el agente de Microsoft Azure Recovery Services (MARS) para realizar copias de seguridad de máquinas Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 7a43f585e978b7d6974ac89fbb5d93f15aebb1d7
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 715153d445acbc372f8305ca39f5276bf8a39773
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855237"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533485"
 ---
 # <a name="install-the-azure-backup-mars-agent"></a>Instalación del agente de MARS de Azure Backup
 
@@ -42,10 +42,10 @@ Los datos disponibles para la copia de seguridad dependen de la ubicación en la
 
 ## <a name="modify-storage-replication"></a>Modificar la replicación de almacenamiento
 
-De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+De forma predeterminada, los almacenes usan el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy.md).
 
 * Si el almacén es su mecanismo principal de copia de seguridad, le recomendamos que use GRS.
-* Puede usar [almacenamiento con redundancia local (LRS)](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para reducir los costos de almacenamiento de Azure.
+* Puede usar [almacenamiento con redundancia local (LRS)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) para reducir los costos de almacenamiento de Azure.
 
 Para modificar el tipo de replicación de almacenamiento:
 
@@ -95,7 +95,7 @@ Para usar el emparejamiento de Microsoft, seleccione los siguientes servicios, r
 * Región de Azure (según la ubicación del almacén de Recovery Services)
 * Azure Storage (según la ubicación del almacén de Recovery Services)
 
-Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-routing).
+Para más información, consulte los [requisitos de enrutamiento de ExpressRoute](../expressroute/expressroute-routing.md).
 
 > [!NOTE]
 > El emparejamiento público está en desuso para circuitos nuevos.
@@ -155,7 +155,7 @@ Si ya ha instalado el agente en alguna máquina, asegúrese de que está ejecuta
 
     ![Adición de credenciales de almacén mediante el Asistente para registrar servidor](./media/backup-configure-vault/register1.png)
 
-1. En la página **Configuración de cifrado**, especifique una frase de contraseña que se usará para cifrar y descifrar copias de seguridad de la máquina.
+1. En la página **Configuración de cifrado**, especifique una frase de contraseña que se usará para cifrar y descifrar copias de seguridad de la máquina. [Consulte aquí](backup-azure-file-folder-backup-faq.md#what-characters-are-allowed-for-the-passphrase) más información sobre los caracteres de frase de contraseña permitidos.
 
     * Guarde la frase de contraseña en una ubicación segura. Es necesario para restaurar una copia de seguridad.
     * Si pierde u olvida la frase de contraseña, Microsoft no podrá ayudarle a recuperar los datos de copia de seguridad.

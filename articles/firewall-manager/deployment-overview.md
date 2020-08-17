@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 06/30/2020
+ms.date: 07/28/2020
 ms.author: victorh
-ms.openlocfilehash: 90f817ac3bbd475d8a84df44bc284f09fcd19ce3
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 748adbcc719df2cdcf734f308bd4b083e9ca6ec0
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85565809"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372372"
 ---
 # <a name="azure-firewall-manager-deployment-overview"></a>Información general sobre la implementación de Azure Firewall Manager
 
@@ -65,6 +65,13 @@ Hay más de una forma de implementar Azure Firewall Manager, pero se recomienda 
 > - No se puede tener más de un concentrador por red WAN virtual por región. Sin embargo, es posible agregar varias redes WAN virtuales en la región para lograrlo.
 > - No se pueden tener espacios de direcciones IP superpuestos para los concentradores de una vWAN.
 > - Las conexiones de red virtual del concentrador deben estar en la misma región que el concentrador.
+
+## <a name="convert-virtual-networks"></a>Conversión de redes virtuales
+
+La siguiente información se aplica si convierte una red virtual existente en una red virtual de centro de conectividad:
+
+- Si la red virtual tiene una instancia de Azure Firewall existente, seleccione una directiva de firewall para asociarla con el firewall existente. El estado de aprovisionamiento del firewall se actualizará mientras la directiva de firewall reemplaza las reglas de firewall. Durante el estado de aprovisionamiento, el firewall continúa procesando el tráfico y no hay ningún tiempo de inactividad. Puede importar las reglas existentes a una directiva de firewall mediante Firewall Manager o Azure PowerShell.
+- Si la red virtual no tiene una instancia de Azure Firewall asociada, se implementará un firewall y la directiva de firewall se asociará al nuevo firewall.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

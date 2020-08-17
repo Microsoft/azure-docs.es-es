@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: d1ed294412e44c79fc1eb8cbc01bf134f08a953f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.author: mingshen
+author: mingshen-ms
+ms.openlocfilehash: 07779769dae4c43148bbf4a8205feceea85ed363
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118943"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320058"
 ---
 # <a name="managed-application-metered-billing"></a>Facturación según uso de aplicaciones administradas 
 
@@ -109,21 +111,13 @@ El máximo de dimensiones que se pueden configurar para una única oferta es de 
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 
-Puede abrir una incidencia de soporte técnico en cualquiera de los casos siguientes.
+Puede abrir una incidencia de soporte técnico si tiene cualquiera de los problemas siguientes:
 
 * Incidencias técnicas de la API del servicio de medición de Marketplace.
 * Una incidencia que debe escalarse debido a un error por su parte (por ejemplo, un evento de uso incorrecto).
 * Cualquier otra incidencia relacionada con la facturación según uso.
 
-Siga los pasos siguientes para enviar una incidencia de soporte técnico:
-
-1. Vaya a la [página de soporte técnico](https://support.microsoft.com/supportforbusiness/productselection?sapId=48734891-ee9a-5d77-bf29-82bf8d8111ff). Los primeros menús desplegables se rellenan automáticamente. Para obtener soporte técnico de Marketplace, identifique la familia de productos como **Cloud and Online Services** (Servicios en la nube y en línea) y el producto como **Anunciante de Marketplace**. No cambie las selecciones de menú desplegable rellenadas previamente.
-2. En "Select the product version" (Seleccionar la versión del producto), seleccione **Live offer management** (Administración de ofertas en directo).
-3. En "Select a category that best describe the issue" (Seleccionar la categoría que mejor describa la incidencia), seleccione **Azure Applications offer (Oferta de aplicaciones de Azure)** .
-4. En "Select a problem that best describes the issue" (Seleccionar un problema que mejor describa la incidencia), seleccione **Metered billing** (Facturación medida).
-5. Al seleccionar el botón **Siguiente**, se le dirigirá a la página **Detalles del problema**, donde puede especificar más detalles de su incidencia.
-
-Para ver más opciones de soporte técnico para editores, consulte [Soporte técnico para el programa Marketplace comercial en el Centro de partners](support.md).
+Siga las instrucciones de [Soporte técnico para el programa de Marketplace comercial en el Centro de partners](./support.md) para conocer las opciones de soporte técnico para editores y abrir una incidencia de soporte técnico con Microsoft.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

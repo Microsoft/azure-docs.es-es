@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: 5e5fe7f2175db8990a7030284a9ede14b1f55d3a
-  ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+  ms.openlocfilehash: 58cb24b55be516fed5b72178ab83f38cc3d1caac
+  ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/02/2020
-  ms.locfileid: "85920941"
+  ms.lasthandoff: 08/04/2020
+  ms.locfileid: "87760658"
 landingContent:
 - title: Acerca de Computer Vision
   linkLists:
@@ -124,12 +124,12 @@ landingContent:
   linkLists:
   - linkListType: reference
     links:
+    - text: Computer Vision API v3.1, versión preliminar
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005
     - text: Computer Vision API v3.0
       url: https://aka.ms/computer-vision-v3-ref
     - text: Computer Vision API v2.1
       url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
-    - text: Computer Vision API v2.0
-      url: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
     - text: .NET SDK
       url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - text: SDK de Python

@@ -1,6 +1,6 @@
 ---
 title: Directivas de Azure API Management | Microsoft Docs
-description: Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API.
+description: Obtenga información acerca de cómo crear, editar y configurar directivas en Administración de API. Vea ejemplos de código y examine los recursos adicionales disponibles.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: cc19c5ea7a45f78110818bc6c8cea8fbe25981c0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a0786c1ce5d3a693dabe422b65af7177e16c20b9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243450"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87905523"
 ---
 # <a name="policies-in-azure-api-management"></a>Directivas de Azure API Management
 
@@ -34,7 +34,7 @@ La definición de la directiva es un documento XML simple que describe una secue
 Al hacer clic en una declaración habilitada se agregará el XML correspondiente en la ubicación del cursor en la vista de definición. 
 
 > [!NOTE]
-> Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección **Uso** de esa directiva en la [Referencia de directivas][Policy Reference].
+> Si la directiva que desea agregar no está habilitada, asegúrese de que se encuentra en el ámbito correcto para esa directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, compruebe la sección de **uso** de esa directiva en la [referencia de directivas][Policy Reference].
 > 
 > 
 

@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/01/2020
 ms.author: juliako
-ms.openlocfilehash: 055f651552313732c000a2e91d2862cda22a9c26
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995873"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446325"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Cuotas y límites de Azure Media Services
@@ -28,14 +28,14 @@ Este documento enumera algunos de los límites más comunes de Microsoft Azure M
 
 ## <a name="account-limits"></a>Límites de cuentas
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | [Cuentas de Media Services](media-services-account-concept.md) en una suscripción única | 25 (fijo) |
 
 ## <a name="asset-limits"></a>Límites de recursos
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | [Recursos](assets-concept.md) por cuenta de Media Services | 1 000 000|
 
 ## <a name="storage-limits"></a>Límites de Storage
@@ -86,14 +86,15 @@ Se eliminarán automáticamente los registros de trabajo de más de 90 días de 
 
 ## <a name="packaging--delivery-limits"></a>Límites de empaquetado y entrega
 
-| Resource | Límite predeterminado | 
-| --- | --- | 
+| Resource | Límite predeterminado |
+| --- | --- |
 | [Puntos de conexión de streaming](streaming-endpoint-concept.md) (detenidos o en ejecución) por cuenta de Media Services|2 |
+| Unidades de streaming premium | 10 |
 | [Filtros de manifiesto dinámico](filters-dynamic-manifest-overview.md)|100|
 | [Directivas de streaming](streaming-policy-concept.md) | 100 <sup>(6)</sup> |
 | [Localizadores de streaming](streaming-locators-concept.md) únicos asociados con un recurso al mismo tiempo | 100<sup>(7)</sup> (corregido) |
 
-<sup>6</sup> Al usar una [directiva de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizada, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. No debe crear una nueva directiva de streaming para cada localizador de streaming.
+<sup>6</sup> Al usar una [directiva de streaming](/rest/api/media/streamingpolicies) personalizada, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. No debe crear una nueva directiva de streaming para cada localizador de streaming.
 
 <sup>7</sup> Los localizadores de streaming no están diseñados para administrar el control de acceso por usuario. Para conceder derechos de acceso diferentes a usuarios individuales, use las soluciones de administración de derechos digitales (DRM).
 

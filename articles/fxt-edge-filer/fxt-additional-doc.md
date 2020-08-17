@@ -6,14 +6,14 @@ ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: e3205827f9603545b0a99b064a53e50fc94c374e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4fe2867343f07a7b1a7dd3d8eb2b44dd1ec1e271
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72254906"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086547"
 ---
-# <a name="additional-documentation"></a>Documentación adicional 
+# <a name="additional-documentation-for-azure-fxt-edge-filer"></a>Documentación adicional para Azure FXT Edge Filer
 
 Algunos recursos fuera del sitio web docs.microsoft.com pueden ayudarle a comprender y trabajar con su caché híbrida de Microsoft Azure FXT Edge Filer.
 

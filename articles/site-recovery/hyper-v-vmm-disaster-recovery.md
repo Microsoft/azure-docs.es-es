@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 482a3808065bb2ec565bad7e760b9337b3db7007
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2164f8927e5c3224f8b07c30d057f48fb7bbc32
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86133999"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495985"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>Configuración de la recuperación ante desastres para máquinas virtuales de Hyper-V en el sitio local secundario
 
@@ -80,7 +80,7 @@ Instale el proveedor de Azure Site Recovery en servidores VMM, y detecte y regis
 4. Descargue el archivo de instalación del proveedor de Azure Site Recovery.
 5. Descargue la clave de registro. Necesitará esta información cuando instale el proveedor. La clave será válida durante cinco días a partir del momento en que se genera.
 
-    ![Configurar origen](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
+    ![Captura de pantalla de las opciones para descargar el proveedor y la clave de registro.](./media/hyper-v-vmm-disaster-recovery/source-settings.png)
 
 6. Instale el proveedor en cada servidor VMM. No es necesario instalar explícitamente nada en los hosts de Hyper-V.
 
@@ -94,7 +94,7 @@ Instale el proveedor de Azure Site Recovery en servidores VMM, y detecte y regis
 4. En **Instalación**, acepte o modifique la ubicación predeterminada de instalación y haga clic en **Instalar**.
 5. Cuando finalice la instalación, haga clic en **Registrar** para registrar el servidor en el almacén.
 
-    ![Ubicación de instalación](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
+    ![Captura de pantalla de Instalación del proveedor que incluye la ubicación de instalación.](./media/hyper-v-vmm-disaster-recovery/provider-register.png)
 6. En **Nombre del almacén**, compruebe el nombre del almacén en el que se registrará el servidor. Haga clic en **Next**.
 7. En **Conexión de proxy**, especifique cómo se conecta a Azure el proveedor que se ejecuta en el servidor VMM.
    - Puede especificar que el proveedor debe conectarse a Internet directamente o a través de un proxy. Especifique la configuración de proxy según sea necesario.
@@ -115,7 +115,7 @@ Seleccione el servidor VMM y la nube de destino:
 1. Haga clic en **Preparar infraestructura** > **Destino** y seleccione el servidor VMM de destino.
 2. Se muestran las nubes VMM que están sincronizadas con Site Recovery. Seleccione la nube de destino.
 
-   ![Destino](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
+   ![Captura de pantalla de las selecciones de Servidor VMM y Nube de destino.](./media/hyper-v-vmm-disaster-recovery/target-vmm.png)
 
 
 ## <a name="set-up-a-replication-policy"></a>Configurar una directiva de replicación
@@ -138,7 +138,7 @@ Antes de comenzar, asegúrese de que todos los hosts que usan la directiva tiene
 5. Seleccione **Eliminar máquina virtual de réplica** para especificar que la máquina virtual de réplica debe eliminarse si se deshabilita la protección para la máquina virtual de origen. Si habilita esta configuración, cuando deshabilita la protección para la máquina virtual de origen, dicha máquina virtual se quita de la consola de Site Recovery, la configuración de Site Recovery de VMM se quita de la consola VMM y la réplica se elimina.
 6. En **Método de replicación inicial** , si va a replicar a través de la red, especifique si iniciará la replicación inicial o la programará. Para ahorrar ancho de banda de red, puede que quiera programarla fuera de las horas punta. A continuación, haga clic en **Aceptar**.
 
-     ![Directiva de replicación](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
+     ![Captura de pantalla de las opciones de la directiva de replicación.](./media/hyper-v-vmm-disaster-recovery/replication-policy.png)
      
 7. La nueva directiva se asocia automáticamente a la nube VMM. En **Directiva de replicación**, haga clic en **Aceptar**. 
 

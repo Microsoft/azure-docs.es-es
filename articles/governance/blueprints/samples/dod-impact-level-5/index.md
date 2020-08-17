@@ -5,6 +5,7 @@ ms.date: 06/30/2020
 ms.topic: sample
 ms.openlocfilehash: 0889da5f0eb9d177589d8ebc6a9a17b61fec624b
 ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 07/01/2020
 ms.locfileid: "85804380"

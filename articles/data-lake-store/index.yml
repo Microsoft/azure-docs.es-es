@@ -30,7 +30,7 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
-    - text: Portal de Azure
+    - text: Azure portal
       url: data-lake-store-get-started-portal.md
     - text: Azure PowerShell
       url: data-lake-store-get-started-powershell.md

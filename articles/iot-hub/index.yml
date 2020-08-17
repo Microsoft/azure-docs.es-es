@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 096f60773418066557a149b256cfc79acf8b61e2
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: 949a007a51fce4a76dcc840f187ca353c88e8ede
+  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86496934"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87291590"
 landingContent:
 - title: Introducción
   linkLists:
@@ -137,4 +137,4 @@ landingContent:
   - linkListType: reference
     links:
     - text: Referencias de PowerShell para IoT
-      url: /powershell/module/az.iothub
+      url: /powershell/module/az.iothub#iothub

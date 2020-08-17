@@ -1,15 +1,15 @@
 ---
-title: Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS)
+title: Creación de un contenedor de Windows Server en un clúster de AKS mediante la CLI de Azure
 description: Aprenda a crear rápidamente un clúster de Kubernetes y a implementar una aplicación en un contenedor de Windows Server en Azure Kubernetes Service (AKS) mediante la CLI de Azure.
 services: container-service
 ms.topic: article
-ms.date: 05/06/2020
-ms.openlocfilehash: 29ee22cb4b28726b25ead6ff78d90de99847666b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/16/2020
+ms.openlocfilehash: ff7fc00c8de5b4d577770c140d356d7f9da1b7e7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84886955"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421253"
 ---
 # <a name="create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Creación de un contenedor de Windows Server en un clúster de Azure Kubernetes Service (AKS) mediante la CLI de Azure
 
@@ -70,7 +70,7 @@ En la siguiente salida de ejemplo se muestra que los recursos se crearon correct
 Para ejecutar un clúster de AKS que admita grupos de nodos para contenedores de Windows Server, el clúster debe utilizar una directiva de red que use el complemento de red (avanzado) de [Azure CNI][azure-cni-about]. Para más información que le ayude a planear los intervalos de subred necesarios y las consideraciones de red, vea [Configuración de redes de Azure CNI][use-advanced-networking]. Use el comando [az aks create][az-aks-create] para crear un clúster de AKS denominado *myAKSCluster*. Este comando creará los recursos de red necesarios en caso de que no existan.
 
 * El clúster se configura con dos nodos.
-* Los parámetros *windows-admin-password* y *windows-admin-username* establecen las credenciales de administrador de todos los contenedores de Windows Server creados en el clúster.
+* Los parámetros *windows-admin-password* y *windows-admin-username* establecen las credenciales de administrador de los contenedores de Windows Server creados en el clúster y deben satisfacer los [requisitos de contraseña de Windows Server][windows-server-password].
 * El grupo de nodos usa `VirtualMachineScaleSets`.
 
 > [!NOTE]
@@ -94,8 +94,7 @@ az aks create \
 ```
 
 > [!NOTE]
-> Si recibe un error de validación de contraseña, intente crear el grupo de recursos en otra región.
-> A continuación, intente crear el clúster con el nuevo grupo de recursos.
+> Si recibe un error de validación de contraseña, compruebe que el parámetro *windows-admin-password* cumpla los [requisitos de contraseña de Windows Server][windows-server-password]. Si la contraseña cumple los requisitos, pruebe a crear el grupo de recursos en otra región. A continuación, intente crear el clúster con el nuevo grupo de recursos.
 
 Transcurridos unos minutos, el comando se completa y devuelve información en formato JSON sobre el clúster. En ocasiones, el clúster puede tardar más de unos minutos en aprovisionarse. Espere hasta 10 minutos en estos casos.
 
@@ -294,3 +293,4 @@ Para obtener más información sobre AKS y un ejemplo completo desde el código 
 [aks-faq]: faq.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[windows-server-password]: /windows/security/threat-protection/security-policy-settings/password-must-meet-complexity-requirements#reference

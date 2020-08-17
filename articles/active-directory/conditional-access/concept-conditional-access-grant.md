@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1d30a32a58dd2385a214d813307c645c56afdc8
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024471"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87274687"
 ---
 # <a name="conditional-access-grant"></a>Acceso condicional: Conceder
 
@@ -80,8 +80,7 @@ Esta configuración se aplica a las siguientes aplicaciones de iOS y Android:
 - Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
-- Microsoft Flow
-- Explorador administrado de Microsoft Intune
+- Microsoft Power Automate
 - Microsoft Invoicing
 - Microsoft Kaizala
 - Microsoft Launcher
@@ -123,9 +122,22 @@ Con el fin de aprovechar este control de concesión, el acceso condicional requi
 Esta configuración se aplica a las aplicaciones cliente siguientes:
 
 - Microsoft Cortana
+- Microsoft Edge
+- Microsoft Excel
+- Microsoft Office
 - Microsoft OneDrive
+- Microsoft OneNote
 - Microsoft Outlook
 - Microsoft Planner
+- Microsoft Power BI
+- Microsoft PowerPoint
+- Microsoft SharePoint
+- Microsoft Word
+- MultiLine for Intune
+- Nine Mail - Email & Calendar
+
+> [!NOTE]
+> Microsoft Kaizala, Microsoft Skype Empresarial y Microsoft Visio no admiten la concesión **Requerir directiva de protección de aplicaciones**. Si necesita que estas aplicaciones funcionen, use exclusivamente la concesión **Requerir aplicaciones aprobadas**. El uso de la cláusula OR entre las dos concesiones no funciona para estas tres aplicaciones.
 
 **Comentarios:**
 

@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 23a7c54a84ec083b8fa470f26582913fcc3d2ee6
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e730201812005a9b469a964e4acd081ebe86b100
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649736"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063949"
 ---
 # <a name="microsoftcommontagsbyresource-ui-element"></a>Elemento de la interfaz de usuario Microsoft.Common.TagsByResource
 
@@ -18,7 +18,7 @@ Un control para asociar [etiquetas](../management/tag-resources.md) a los recurs
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.tagsbyresource.png)
+![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft-common-tagsbyresource.png)
 
 ## <a name="schema"></a>Schema
 

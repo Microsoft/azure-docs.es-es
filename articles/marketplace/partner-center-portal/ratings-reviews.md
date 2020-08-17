@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 142e03ab8ae66e210bf572a7c640e19d17c38901
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109236"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304197"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Panel de análisis de Calificaciones y opiniones del Centro de partners
 
@@ -24,7 +26,7 @@ En este artículo se proporciona información sobre el panel Calificaciones y op
 
 ## <a name="access-the-dashboard"></a>Acceso al panel
 
-En el [panel de Marketplace comercial](https://partner.microsoft.com/en-us/dashboard/commercial-marketplace/overview) del Centro de partners, expanda la sección **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** y seleccione **Calificaciones y opiniones**.
+En el [panel de Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) del Centro de partners, expanda la sección **[Analizar](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** y seleccione **Calificaciones y opiniones**.
 
 El panel muestra una representación gráfica de la siguiente actividad del cliente:
 

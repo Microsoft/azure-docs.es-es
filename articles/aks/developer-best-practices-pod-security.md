@@ -2,16 +2,15 @@
 title: 'Procedimientos recomendados para desarrolladores: seguridad de pods en Azure Kubernetes Service (AKS)'
 description: Obtenga información acerca de los procedimientos recomendados para desarrolladores para la protección de pods en Azure Kubernetes Services (AKS)
 services: container-service
-author: zr-msft
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: 3a62dcbbec90ec73ded722a6efbbd5907fb21f9f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bd6891ff4d15dc326c846efbaa37aea997ef2e17
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84674047"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320687"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la seguridad de pods en Azure Kubernetes Service (AKS)
 
@@ -52,15 +51,16 @@ kind: Pod
 metadata:
   name: security-context-demo
 spec:
+  securityContext:
+    fsGroup: 2000
   containers:
     - name: security-context-demo
       image: nginx:1.15.5
-    securityContext:
-      runAsUser: 1000
-      fsGroup: 2000
-      allowPrivilegeEscalation: false
-      capabilities:
-        add: ["NET_ADMIN", "SYS_TIME"]
+      securityContext:
+        runAsUser: 1000
+        allowPrivilegeEscalation: false
+        capabilities:
+          add: ["NET_ADMIN", "SYS_TIME"]
 ```
 
 Colabore con el operador del clúster para determinar la configuración de contexto de seguridad que necesita. Intente diseñar las aplicaciones para minimizar los permisos adicionales y el acceso que requiere el pod. Hay características de seguridad adicionales para limitar el acceso mediante AppArmor y seccomp (informática segura) que los operadores del clúster pueden implementar. Para más información, consulte [Protección del acceso del contenedor a los recursos][apparmor-seccomp].

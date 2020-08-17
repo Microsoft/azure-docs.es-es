@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
-ms.openlocfilehash: 245eabdf4d77682c87062c2581239a554112d748
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 011f94cf24c6148ee01275541b090ba28d697018
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77468769"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052496"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -23,7 +23,7 @@ Al cargar vídeos con Video Indexer API, tiene las siguientes opciones de carga:
 
 * cargar el vídeo desde una dirección URL (opción preferida);
 * enviar el archivo de vídeo como una matriz de bytes en el cuerpo de la solicitud.
-* Para usar el recurso de Azure Media Services existente, proporcione el [identificador del recurso](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (solo se admite en cuentas de pago).
+* Para usar el recurso de Azure Media Services existente, proporcione el [identificador del recurso](../latest/assets-concept.md) (solo se admite en cuentas de pago).
 
 Una vez cargado el vídeo, Video Indexer puede codificarlo (lo que se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
 
@@ -58,7 +58,7 @@ En el artículo se muestra cómo cargar e indexar los vídeos con estas opciones
 
 Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media-encoder-standard-formats.md#input-containerfile-formats) para una lista de los formatos de archivo que puede usar con Video Indexer.
 
-## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a id="website"/>Carga e indexación de un vídeo desde el sitio web de Video Indexer
+## <a name="upload-and-index-a-video-using-the-video-indexer-website"></a><a name="website"></a>Carga e indexación de un vídeo desde el sitio web de Video Indexer
 
 > [!NOTE]
 > El nombre del vídeo no debe superar los 80 caracteres.
@@ -74,7 +74,7 @@ Consulte la sección [Formatos de archivo/contenedor de entrada](../latest/media
 
     Cuando Video Indexer ha terminado de analizar, recibirá una notificación con un vínculo a su vídeo y una breve descripción de lo que se ha encontrado en el vídeo. Por ejemplo: personas, temas u OCR.
 
-## <a name="upload-and-index-with-api"></a><a id="apis"/>Carga e indexación con API
+## <a name="upload-and-index-with-api"></a><a name="apis"></a>Carga e indexación con API
 
 Use la API para [Cargar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para cargar e indexar los vídeos según una dirección URL. En el ejemplo de código siguiente incluye el código con comentarios que muestra cómo cargar la matriz de bytes. 
 
@@ -142,7 +142,7 @@ Una vez cargado el vídeo, Video Indexer, codifica opcionalmente el vídeo. Desp
 
 Cuando se usa [Upload Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) o [Re-Index Video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) API, uno de los parámetros opcionales es `streamingPreset`. Si establece `streamingPreset` en `Default`, `SingleBitrate` o en `AdaptiveBitrate`, se desencadenará el proceso de codificación. Una vez realizados los trabajos de indexación y codificación, el vídeo se publica para que también pueda transmitirlo. El punto de conexión de streaming desde el que va a transmitir el vídeo debe estar en estado **Running** (En ejecución).
 
-Para ejecutar los trabajos de indexación y codificación, la cuenta de [Azure Media Services conectada a la cuenta de Video Indexer](connect-to-azure.md) requiere unidades reservadas. Para más información, consulte [Escalado del procesamiento de elementos multimedia](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Como son trabajos de proceso intensivo, se recomienda encarecidamente el tipo de unidad S3. El número de unidades reservadas define el número máximo de trabajos que se pueden ejecutar en paralelo. La recomendación de referencia son 10 unidades reservadas S3. 
+Para ejecutar los trabajos de indexación y codificación, la cuenta de [Azure Media Services conectada a la cuenta de Video Indexer](connect-to-azure.md) requiere unidades reservadas. Para más información, consulte [Escalado del procesamiento de elementos multimedia](../previous/media-services-scale-media-processing-overview.md). Como son trabajos de proceso intensivo, se recomienda encarecidamente el tipo de unidad S3. El número de unidades reservadas define el número máximo de trabajos que se pueden ejecutar en paralelo. La recomendación de referencia son 10 unidades reservadas S3. 
 
 Si solo desea indexar el vídeo pero no codificarlo, establezca `streamingPreset` en `NoStreaming`.
 

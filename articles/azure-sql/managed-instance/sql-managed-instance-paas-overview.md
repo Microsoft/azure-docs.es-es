@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 06/25/2020
-ms.openlocfilehash: 43fad6249d5c6f528353a819e03dd7401440e05d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d7ec95d2227076ff7b7a95ce6e72fffc840975
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391016"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073345"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>¿Qué es Instancia administrada de Azure SQL?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -115,105 +115,7 @@ Encontrará más información sobre la diferencia entre los niveles de servicio 
 
 ## <a name="management-operations"></a>Operaciones de administración
 
-Instancia administrada de SQL proporciona operaciones de administración que puede usar para implementar automáticamente instancias administradas nuevas, actualizar las propiedades de una instancia y eliminar instancias que ya no son necesarias. En esta sección se proporciona información sobre las operaciones de administración y sus duraciones típicas.
-
-Para admitir [implementaciones dentro de redes virtuales de Azure](../../virtual-network/virtual-network-for-azure-services.md) y brindar aislamiento y seguridad a los clientes, SQL Managed Instance se basa en [clústeres virtuales](connectivity-architecture-overview.md#high-level-connectivity-architecture), que representan un conjunto dedicado de máquinas virtuales aisladas implementado dentro de la subred de la red virtual del cliente. En esencia, cada implementación de instancia administrada en una subred vacía resulta en la creación de un clúster virtual.
-
-Las operaciones subsiguientes en las instancias administradas implementadas pueden tener efecto también en el clúster virtual subyacente. Esto afecta la duración de las operaciones de administración, debido a que la implementación de las máquinas virtuales adicionales conlleva una sobrecarga que se debe considerar cuando planea implementaciones nuevas o actualizaciones de instancias administradas existentes.
-
-Todas las operaciones de administración se pueden clasificar de la siguiente manera:
-
-- Implementación de una instancia (creación de instancia nueva).
-- Actualización de una instancia (cambio de las propiedades de una instancia, como núcleos virtuales o almacenamiento reservado).
-- Eliminación de una instancia.
-
-Por lo general, las operaciones en clústeres virtuales tardan más. La duración de las operaciones en los clústeres virtuales varía. A continuación, se muestran los valores que puede esperar habitualmente, en función de los datos de telemetría de servicio existentes:
-
-- **Creación de un clúster virtual**:  Este es un paso sincrónico en las operaciones de administración de una instancia. **El 90 % de las operaciones finaliza en 4 horas**.
-- **Cambio de tamaño del clúster virtual (expansión o reducción)** : La expansión es un paso sincrónico, mientras que la reducción se realiza de manera asincrónica (sin afectar la duración de las operaciones de administración de la instancia). **El 90 % de las expansiones de un clúster finaliza en menos de 2,5 horas**.
-- **Eliminación de un clúster virtual**: La eliminación es un paso asincrónico, pero también se puede [iniciar manualmente](virtual-cluster-delete.md) en un clúster virtual vacío, en cuyo caso se ejecuta de manera sincrónica. **El 90 % de las eliminaciones de clúster virtual finaliza en 1,5 horas**.
-
-Además, la administración de las instancias también puede incluir una de las operaciones en bases de datos hospedadas, lo que genera duraciones más largas:
-
-- **Asociación de archivos de base de datos desde Azure Storage**:  Se trata de un paso sincrónico, como el escalado o la reducción vertical de un proceso (núcleo virtual) o de un almacenamiento en el nivel de servicio De uso general. **El 90 % de estas operaciones finaliza en 5 minutos**.
-- **Inicialización de un grupo de disponibilidad AlwaysOn**: Se trata de un paso sincrónico, como el escalado o la reducción vertical de un proceso (núcleo virtual) o de un almacenamiento en el nivel de servicio Crítico para la empresa, así como en el cambio del nivel de servicio de De uso general a Crítico para la empresa (o viceversa). La duración de esta operación es proporcional al tamaño total de la base de datos, así como la actividad de base de datos actual (el número de transacciones activas). La actividad de la base de datos cuando se actualiza una instancia puede introducir una varianza considerable en la duración total. **El 90 % de estas operaciones se ejecuta a 220 GB/hora o más**.
-
-En la tabla siguiente se resumen las operaciones y las duraciones generales típicas:
-
-|Category  |Operación  |Segmento de larga duración  |Duración estimada  |
-|---------|---------|---------|---------|
-|**Implementación** |Primera instancia en una subred vacía|Creación de un clúster virtual|El 90 % de las operaciones finaliza en 4 horas.|
-|Implementación |Primera instancia de otra generación de hardware en una subred no vacía (por ejemplo, primera instancia Gen 5 en una subred con instancias Gen 4)|Creación de un clúster virtual*|El 90 % de las operaciones finaliza en 4 horas.|
-|Implementación |Creación de primera instancia de 4 núcleos virtuales en una subred vacía o no vacía|Creación de un clúster virtual**|El 90 % de las operaciones finaliza en 4 horas.|
-|Implementación |Creación de instancia subsiguiente dentro de la subred no vacía (segunda instancia, tercera instancia, etc.)|Cambio de tamaño de un clúster virtual|El 90 % de las operaciones finaliza en 2,5 horas.|
-|**Actualizar** |Cambio de una propiedad de una instancia (contraseña de administrador, inicio de sesión de Azure AD, marca de Ventaja híbrida de Azure)|N/D|Hasta 1 minuto.|
-|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio De uso general)|Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 5 minutos.|
-|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (nivel de servicio Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
-|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general)|- Cambio de tamaño de un clúster virtual<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 2,5 horas.|
-|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
-|Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (De uso general)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Adjuntar archivos de base de datos|El 90 % de las operaciones finaliza en 4 horas con 5 minutos.**|
-|Actualizar |Reducción vertical de una instancia a 4 núcleos virtuales (Crítico para la empresa)|- Cambio de tamaño de un clúster virtual (si se hace por primera vez, puede requerir la creación de un clúster virtual**)<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 4 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
-|Actualizar |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa)|- Cambio de tamaño de un clúster virtual<br>- Inicialización de un grupos de disponibilidad AlwaysOn|El 90 % de las operaciones finaliza en 2,5 horas + tiempo para inicializar todas las bases de datos (220 GB/hora).|
-|**Eliminación**|Eliminación de una instancia|Copia del final del registro para todas las bases de datos|El 90 % de las operaciones finaliza en hasta 1 minuto.<br>Nota: Si se elimina la última instancia de la subred, esta operación programará la eliminación del clúster virtual después de 12 horas.***|
-|Eliminación|Eliminación de un clúster virtual (como operación iniciada por el usuario)|Eliminación de un clúster virtual|El 90 % de las operaciones finaliza en hasta 1,5 hora.|
-
-\* El clúster virtual se crea por generación de hardware.
-
-\*\* La opción de cuatro núcleos virtuales se lanzó en junio de 2019 y requiere una versión de clúster virtual nueva. Si tenía instancias en la subred de destino creadas antes del 12 de junio, un clúster virtual nuevo se implementará automáticamente para hospedar las instancias de 4 núcleos virtuales.
-
-\*\*\* 12 horas es la configuración actual, pero eso podría cambiar en el futuro, por lo que no debe depender fuertemente de ella. Si necesita eliminar un clúster virtual anterior (por ejemplo, para liberar la subred), consulte [Eliminación de una subred después de eliminar una instancia administrada](virtual-cluster-delete.md).
-
-### <a name="instance-availability-during-management-operations"></a>Disponibilidad de una instancia durante las operaciones de administración
-
-SQL Managed Instance **está disponible durante las operaciones de actualización**, excepto durante un tiempo de inactividad breve provocado por la conmutación por error que se produce al final de la actualización. Normalmente tarda 10 segundos como máximo, incluso en el caso de transacciones de larga duración interrumpidas, gracias a la [recuperación acelerada de bases de datos](../accelerated-database-recovery.md).
-
-> [!IMPORTANT]
-> No se recomienda escalar el proceso ni el almacenamiento de Azure SQL Managed Instance ni cambiar el nivel de servicio al mismo tiempo con las transacciones de larga duración (importación de datos, trabajos de procesamiento de datos, recompilación del índice, etc.). La conmutación por error de la base de datos que se realizará al final de la operación cancelará todas las transacciones en curso.
-
-Instancia administrada de SQL no está disponible para las aplicaciones cliente durante las operaciones de implementación y eliminación.
-
-### <a name="management-operations-cross-impact"></a>Impacto de las operaciones de administración
-
-Las operaciones de administración de una instancia administrada pueden afectar a otras operaciones de administración de las instancias colocadas en el mismo clúster virtual. Incluye lo siguiente:
-
-- Las **operaciones de restauración de larga ejecución** de un clúster virtual pondrán en espera otras operaciones de creación de instancias o de escalado en la misma subred.<br/>**Ejemplo**: si hay una operación de restauración de larga duración y hay una solicitud de creación o escalado en la misma subred, esta solicitud tardará más tiempo en completarse, ya que esperará a que se complete la operación de restauración antes de continuar.
-    
-- La operación de creación o escalado de instancia que inició el cambio de tamaño del clúster virtual pondrá en espera una operación de **creación o escalado de la instancia posterior**.<br/>**Ejemplo**: si hay varias solicitudes de creación o escalado en la misma subred del mismo clúster virtual y una de ellas inicia el cambio de tamaño de este, todas las solicitudes que se enviaron más de cinco minutos después de la que requería el cambio de tamaño del clúster virtual tardarán más de lo esperado, ya que estas solicitudes tendrán que esperar a que el cambio de tamaño se complete antes de reanudarse.
-
-- **Las operaciones de creación y escalado enviadas en una ventana de 5 minutos** se procesarán por lotes y se ejecutarán en paralelo.<br/>**Ejemplo**: solo se realizará un cambio de tamaño del clúster virtual para todas las operaciones enviadas en la ventana de 5 minutos (medida a partir del momento de la ejecución de la primera solicitud de operación). Si otra solicitud se envía más de 5 minutos después de enviar la primera, tendrá que esperar a que el cambio de tamaño del clúster virtual se complete antes de iniciar la ejecución.
-
-> [!IMPORTANT]
-> Las operaciones de administración que se ponen en espera debido a otra operación en curso se reanudarán automáticamente una vez que se cumplan las condiciones para continuar. No se necesita ninguna acción del usuario para reanudar temporalmente las operaciones de administración en pausa.
-
-### <a name="canceling-management-operations"></a>Cancelación de operaciones de administración
-
-En la tabla siguiente se resume la capacidad de cancelar operaciones de administración específicas y las duraciones generales típicas:
-
-Category  |Operación  |Cancelable  |Duración de cancelación estimada  |
-|---------|---------|---------|---------|
-|Implementación |Creación de instancias |No |  |
-|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (De uso general) |No |  |
-|Actualizar |Escalado o reducción vertical del almacenamiento de una instancia (Crítico para la empresa) |Sí |El 90 % de las operaciones finaliza en 5 minutos. |
-|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (De uso general) |Sí |El 90 % de las operaciones finaliza en 5 minutos. |
-|Actualizar |Escalado y reducción vertical del proceso de una instancia (núcleos virtuales) (Crítico para la empresa) |Sí |El 90 % de las operaciones finaliza en 5 minutos. |
-|Actualizar |Cambio en el nivel de servicio de una instancia (De uso general a Crítico para la empresa y viceversa) |Sí |El 90 % de las operaciones finaliza en 5 minutos. |
-|Eliminar |Eliminación de una instancia |No |  |
-|Eliminar |Eliminación de un clúster virtual (como operación iniciada por el usuario) |No |  |
-
-Para cancelar la operación de administración, vaya a la hoja de información general y haga clic en el cuadro de notificación de la operación en curso. En el lado derecho, aparecerá una pantalla con la operación en curso y un botón para cancelar la operación. Después de hacer clic por primera vez, se le pedirá que haga clic de nuevo y confirme que quiere cancelar la operación.
-
-[![Cancelar operación](./media/sql-managed-instance-paas-overview/canceling-operation.png)](./media/sql-managed-instance-paas-overview/canceling-operation.png#lightbox)
-
-Una vez enviada y procesada una solicitud de cancelación, recibirá una notificación si el envío de la cancelación se realizó correctamente o no.
-
-En caso de que se cancele correctamente, la operación de administración se cancelará en un par de minutos, lo que generará un error.
-
-![Resultado de la operación de cancelación](./media/sql-managed-instance-paas-overview/canceling-operation-result.png)
-
-Si no se puede cancelar la solicitud o el botón Cancelar no está activo, significa que la operación de administración entró en un estado que no se puede cancelar y que finalizará en un par de minutos. La operación de administración continuará su ejecución hasta que se complete.
-
-> [!IMPORTANT]
-> La operación de cancelación solo se admite actualmente en el portal.
+Instancia administrada de SQL proporciona operaciones de administración que puede usar para implementar automáticamente instancias administradas nuevas, actualizar las propiedades de una instancia y eliminar instancias que ya no son necesarias. Puede encontrar una explicación detallada de las operaciones de administración en la página [Información general sobre operaciones de administración de instancias administradas](management-operations-overview.md).
 
 ## <a name="advanced-security-and-compliance"></a>Conformidad y seguridad avanzada
 

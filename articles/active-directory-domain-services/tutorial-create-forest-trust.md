@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 40dd7f1b177fd1319b145036c8263ba2c6e30137
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: a17764984e33e4312b9d81a5743d851dc14b5c05
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024679"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87492163"
 ---
-# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>Tutorial: creación de una confianza de bosque de salida en un dominio local en Azure Active Directory Domain Services (versión preliminar)
+# <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services"></a>Tutorial: Creación de una confianza de bosque de salida en un dominio local de Azure Active Directory Domain Services
 
-En entornos en los que no se pueden sincronizar los hash de contraseña, o en los que los usuarios inician sesión de forma exclusiva con tarjetas inteligentes y no saben su contraseña, puede usar un bosque de recursos en Azure Active Directory Domain Services (Azure AD DS). Un bosque de recursos usa una confianza de salida unidireccional desde Azure AD DS a uno o varios entornos locales de AD DS. Esta relación de confianza permite que los usuarios, las aplicaciones y los equipos se autentiquen en un dominio local desde el dominio administrado de Azure AD DS. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
+En entornos en los que no se pueden sincronizar los hash de contraseña, o en los que los usuarios inician sesión de forma exclusiva con tarjetas inteligentes y no saben su contraseña, puede usar un bosque de recursos en Azure Active Directory Domain Services (Azure AD DS). Un bosque de recursos usa una confianza de salida unidireccional desde Azure AD DS a uno o varios entornos locales de AD DS. Esta relación de confianza permite que los usuarios, las aplicaciones y los equipos se autentiquen en un dominio local desde el dominio administrado de Azure AD DS. En un bosque de recursos, los hashes de contraseña locales nunca se sincronizan.
 
 ![Diagrama de la confianza de bosque desde Azure AD DS a un entorno local de AD DS](./media/concepts-resource-forest/resource-forest-trust-relationship.png)
 

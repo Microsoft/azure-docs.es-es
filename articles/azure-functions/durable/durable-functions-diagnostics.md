@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fcd92f1f134b79d23da6848cbb04894b242fcec0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081821"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Diagnóstico con Durable Functions en Azure
 
@@ -20,7 +20,7 @@ Existen varias opciones para diagnosticar problemas con [Durable Functions](dura
 
 [Application Insights](../../azure-monitor/app/app-insights-overview.md) es la manera recomendada para realizar el diagnóstico y la supervisión en Azure Functions. Lo mismo se aplica a Durable Functions. Para introducción al aprovechamiento de Application Insights en las aplicaciones de función, consulte [Supervisión de Azure Functions](../functions-monitoring.md).
 
-La extensión Azure Durable Functions también emite *eventos de seguimiento* que permiten realizar el seguimiento de la ejecución de un extremo de una orquestación al otro. Estos eventos de seguimiento se pueden encontrar y consultar mediante la herramienta [Application Insights Analytics](../../azure-monitor/app/analytics.md) de Azure Portal.
+La extensión Azure Durable Functions también emite *eventos de seguimiento* que permiten realizar el seguimiento de la ejecución de un extremo de una orquestación al otro. Estos eventos de seguimiento se pueden encontrar y consultar mediante la herramienta [Application Insights Analytics](../../azure-monitor/log-query/log-query-overview.md) de Azure Portal.
 
 ### <a name="tracking-data"></a>Datos de seguimiento
 
@@ -383,7 +383,7 @@ Azure Functions admite la depuración directa de código de función y esa misma
 
 ## <a name="storage"></a>Storage
 
-De forma predeterminada, Durable Functions almacena el estado en Azure Storage. Este comportamiento significa que puede inspeccionar el estado de las orquestaciones con herramientas como el [Explorador de Microsoft Azure Storage](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+De forma predeterminada, Durable Functions almacena el estado en Azure Storage. Este comportamiento significa que puede inspeccionar el estado de las orquestaciones con herramientas como el [Explorador de Microsoft Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 ![Captura de pantalla del Explorador de Azure Storage](./media/durable-functions-diagnostics/storage-explorer.png)
 

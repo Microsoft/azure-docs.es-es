@@ -2,7 +2,7 @@
 title: Tipos de tokens y notificaciones en Azure AD
 description: Una guía en la que se describen y evalúan las notificaciones en los tokens SAML 2.0 y los tokens web JSON (JWT) emitidos por Azure Active Directory (AAD)
 documentationcenter: na
-author: rwike77
+author: kenwith
 services: active-directory
 manager: CelesteDG
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: develop
 ms.topic: reference
 ms.workload: identity
 ms.date: 06/22/2018
-ms.author: ryanwi
-ms.reviewer: hirsin
+ms.author: kenwith
+ms.reviewer: paulgarn
 ms.custom: aaddev
-ms.openlocfilehash: 27582bf7f06a659a26f67c455cb9e196a9996781
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bab21bfc6dba6e9cd35c8053e943cb76339e2254
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830339"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88114972"
 ---
 # <a name="azure-ad-saml-token-reference"></a>Referencia de tokens SAML de Azure AD
 
@@ -154,7 +154,7 @@ Este es un ejemplo de token SAML típico.
 
 ## <a name="related-content"></a>Contenido relacionado
 
-* Consulte el [recurso Policy](https://docs.microsoft.com/graph/api/resources/policy?view=graph-rest-beta) para obtener más información sobre la administración de directivas de vigencia de tokens mediante Microsoft Graph API.
+* Consulte el [recurso Policy](/graph/api/resources/policy?view=graph-rest-beta) para obtener más información sobre la administración de directivas de vigencia de tokens mediante Microsoft Graph API.
 * Para más información y ejemplos acerca de cómo administrar las directivas a través de los cmdlets de PowerShell, incluidos ejemplos, consulte [Configurable Token Lifetimes in Azure Active Directory](../develop/active-directory-configurable-token-lifetimes.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) (Vigencias de tokens configurables en Azure Active Directory). 
 * Agregue [notificaciones opcionales y personalizadas](../develop/active-directory-optional-claims.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) a los tokens de la aplicación.
 * Uso del [inicio de sesión único (SSO) con SAML](single-sign-on-saml-protocol.md).

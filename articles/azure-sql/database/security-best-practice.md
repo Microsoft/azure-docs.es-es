@@ -1,7 +1,7 @@
 ---
 title: Cuaderno de estrategias para abordar requisitos de seguridad comunes
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
-description: En este artículo se proporcionan requisitos de seguridad comunes y procedimientos recomendados de seguridad en Azure SQL Database e Instancia administrada de Azure SQL.
+description: En este artículo se proporcionan requisitos de seguridad comunes y procedimientos recomendados de seguridad en Azure SQL Database y en Azure SQL Managed Instance.
 ms.service: sql-db-mi
 ms.subservice: security
 ms.custom: sqldbrb=2
@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 8104302afa84446e2d57c7156f33bc0160e31472
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986790"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541726"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Cuaderno de estrategias para abordar requisitos de seguridad comunes con Azure SQL Database y Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -240,8 +240,8 @@ Asigne solo los permisos [necesarios](https://docs.microsoft.com/sql/relational-
   - Asegúrese de no asignar usuarios a roles innecesarios.
 
 - En Azure Resource Manager:
-  - Use los roles integrados, si están disponibles, o roles de RBAC personalizados y asigne los permisos necesarios.
-    - [Roles integrados para Azure](../../role-based-access-control/built-in-roles.md)
+  - Use los roles integrados, si están disponibles, o roles personalizados de Azure y asigne los permisos necesarios.
+    - [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md)
     - [Roles personalizados en los recursos de Azure](../../role-based-access-control/custom-roles.md)
 
 **Procedimientos recomendados**:
@@ -291,7 +291,7 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 - Identifique una jerarquía completa de los usuarios (y procesos automatizados) que tienen acceso al sistema.
 
 - Cree roles según los grupos de usuarios necesarios y asigne permisos a los roles.
-  - En el caso de las tareas en el nivel de administración en Azure Portal o a través de la automatización de PowerShell, use los roles de RBAC. Busque un rol integrado que coincida con el requisito o cree un rol de RBAC personalizado con los permisos disponibles.
+  - En el caso de las tareas en el nivel de administración en Azure Portal o a través de la automatización de PowerShell, use los roles de Azure. Busque un rol integrado que coincida con el requisito o cree un rol personalizado de Azure con los permisos disponibles.
   - Cree roles de servidor para las tareas de servidor (crear inicios de sesión y bases de datos) en una instancia administrada.
   - Cree roles de base de datos para las tareas en el nivel de base de datos.
 
@@ -318,13 +318,13 @@ La separación de tareas, que también se denomina "separación de obligaciones"
 
 - Cree y use roles definidos por el usuario cuando los roles integrados concedan demasiados permisos o permisos insuficientes.
 
-- Las asignaciones de roles también se pueden realizar de manera temporal, algo que también se conoce como "separación dinámica de tareas" (DSD), ya sea dentro de los pasos de trabajo del Agente SQL en T-SQL o mediante Azure PIM para los roles de RBAC.
+- Las asignaciones de roles también se pueden realizar de manera temporal, algo que también se conoce como "separación dinámica de tareas" (DSD), ya sea dentro de los pasos de trabajo del Agente SQL en T-SQL o mediante Azure PIM para los roles de Azure.
 
 - Asegúrese de que los administradores de bases de datos no tengan acceso a las claves de cifrado o los almacenes de claves y que los administradores de seguridad con acceso a las claves no tengan, a su vez, acceso a la base de datos. El uso de la [Administración extensible de claves (EKM)](https://docs.microsoft.com/sql/relational-databases/security/encryption/extensible-key-management-ekm) puede facilitar esta separación. [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) se puede usar para implementar EKM.
 
 - Asegúrese siempre de tener una pista de auditoría para las acciones relacionadas con la seguridad.
 
-- Puede recuperar la definición de los roles de RBAC integrados para ver los permisos usados y crear un rol personalizado basado en extractos y acumulaciones de estos a través de PowerShell.
+- Puede recuperar la definición de los roles integrados de Azure para ver los permisos usados y crear un rol personalizado basado en extractos y acumulaciones de estos a través de PowerShell.
 
 - Puesto que cualquier miembro del rol de base de datos db_owner puede cambiar una configuración de seguridad como Cifrado de datos transparente (TDE) o cambiar el SLO, es necesario tener cuidado al conceder esta pertenencia. No obstante, existen muchas tareas que requieren privilegios db_owner. Tareas como cambiar cualquier valor de base de datos (por ejemplo, opciones de la base de datos). La auditoría desempeña un papel clave en cualquier solución.
 
@@ -342,7 +342,7 @@ En el caso de los lectores que quieran profundizar en SoD, se recomiendan los re
   - [Firmar procedimientos almacenados](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Para la administración de recursos de Azure:
-  - [Roles integrados para Azure](../../role-based-access-control/built-in-roles.md)
+  - [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md)
   - [Roles personalizados en los recursos de Azure](../../role-based-access-control/custom-roles.md)
   - [Uso de Azure AD Privileged Identity Management para acceso con privilegios elevados](https://www.microsoft.com/itshowcase/using-azure-ad-privileged-identity-management-for-elevated-access)
 

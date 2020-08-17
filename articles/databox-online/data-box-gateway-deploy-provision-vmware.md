@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b62441a4b1307a232ad2f592f13253c0759b5431
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 64a33b12da0e9b90eaeb7039f65b2493a839a0c4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85564207"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054122"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-vmware"></a>Tutorial: Aprovisionamiento de Azure Data Box Gateway en VMware
 
@@ -93,7 +93,7 @@ Realice los pasos siguientes para aprovisionar un dispositivo virtual en el hipe
   
 3. Cargue el VMDK al servidor de ESXi. En el panel Navegador, seleccione **Almacenamiento**.
 
-   ![](./media/data-box-gateway-deploy-provision-vmware/image2.png)
+   ![Captura de pantalla de una página en el sitio del servidor ESXi que muestra el panel del navegador con la opción Almacenamiento seleccionada.](./media/data-box-gateway-deploy-provision-vmware/image2.png)
 
 4. En el panel derecho, bajo **Datastores**(Almacenes de datos), seleccione el almacén de datos donde quiere cargar el VMDK. 
 

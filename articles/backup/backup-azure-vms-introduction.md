@@ -3,16 +3,16 @@ title: Acerca de la copia de seguridad de máquina virtual de Azure
 description: En este artículo, aprenderá cómo el servicio Azure Backup realiza copias de seguridad de las máquinas virtuales de Azure y cómo seguir los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 9838f4993e71f2991500af0e152abee36f996050
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c73b489404d1e8198fbd984b5188a7a2ccb973f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84322916"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091052"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Información general sobre la copia de seguridad de máquinas virtuales de Azure
 
-En este artículo se describe cómo el [servicio Azure Backup](backup-introduction-to-azure-backup.md) realiza una copia de seguridad de las máquinas virtuales (VM) de Azure.
+En este artículo se describe cómo el [servicio Azure Backup](./backup-overview.md) realiza una copia de seguridad de las máquinas virtuales (VM) de Azure.
 
 Azure Backup proporciona copias de seguridad independientes y aisladas para impedir la destrucción accidental de los datos en las máquinas virtuales. Las copias de seguridad se almacenan en un almacén de Recovery Services con administración integrada de puntos de recuperación. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
 
@@ -26,8 +26,8 @@ Aquí se explica cómo Azure Backup completa una copia de seguridad para las VM 
 
 1. Para VM de Azure que están seleccionadas para copia de seguridad, Azure Backup inicia un trabajo de copia de seguridad según la programación que especifique el usuario.
 1. Durante la primera copia de seguridad, se instala una extensión de copia de seguridad en la VM si esta se encuentra en ejecución.
-    - En máquinas virtuales Windows, se instala la [extensión VMSnapshot](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-windows).
-    - En máquinas virtuales Linux, se instala la [extensión VMSnapshotLinux](https://docs.microsoft.com/azure/virtual-machines/extensions/vmsnapshot-linux).
+    - En máquinas virtuales Windows, se instala la [extensión VMSnapshot](../virtual-machines/extensions/vmsnapshot-windows.md).
+    - En máquinas virtuales Linux, se instala la [extensión VMSnapshotLinux](../virtual-machines/extensions/vmsnapshot-linux.md).
 1. En el caso de VM Windows en ejecución, Azure Backup coordina con el Servicio de instantáneas de volumen (VSS) de Windows para obtener una instantánea coherente con la aplicación de la VM.
     - De forma predeterminada, Azure Backup realiza copias de seguridad de VSS completas.
     - Si Azure Backup no puede realizar una instantánea coherente con la aplicación, realiza una instantánea coherente con archivos del almacenamiento subyacente (ya que no se produce ninguna escritura en la aplicación mientras la VM está detenida).
@@ -64,7 +64,7 @@ También se crea una copia de seguridad de las BEK. Por lo tanto, si se pierden 
 
 Azure Backup toma instantáneas según la programación de copia de seguridad.
 
-- **VM de Windows**: para las VM de Windows, el servicio de copia de seguridad coordina con VSS para tomar una instantánea coherente con la aplicación de los discos de la VM.  De forma predeterminada, Azure Backup toma una copia de seguridad completa de VSS (trunca los registros de la aplicación, como SQL Server, en el momento de la copia de seguridad para obtener una copia de seguridad coherente en el nivel de aplicación).  Si utiliza una base de datos de SQL Server en la copia de seguridad de VM de Azure, puede modificar la configuración para realizar una copia de seguridad de la copia de VSS (para conservar los registros). Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues).
+- **VM de Windows**: para las VM de Windows, el servicio de copia de seguridad coordina con VSS para tomar una instantánea coherente con la aplicación de los discos de la VM.  De forma predeterminada, Azure Backup toma una copia de seguridad completa de VSS (trunca los registros de la aplicación, como SQL Server, en el momento de la copia de seguridad para obtener una copia de seguridad coherente en el nivel de aplicación).  Si utiliza una base de datos de SQL Server en la copia de seguridad de VM de Azure, puede modificar la configuración para realizar una copia de seguridad de la copia de VSS (para conservar los registros). Para obtener más información, consulte [este artículo](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
 
 - **VM de Linux:** para realizar instantáneas coherentes con la aplicación de una VM de Linux, use el marco de script anterior y posterior para escribir scripts personalizados a fin de garantizar la coherencia.
 
@@ -81,6 +81,9 @@ En la siguiente tabla se explica los diferentes tipos de coherencia de instantá
 **Coherente con la aplicación** | Las copias de seguridad coherentes con las aplicaciones capturan el contenido de la memoria y las operaciones de E/S pendientes. Las instantáneas coherentes con la aplicación usan el escritor VSS (o scripts anteriores o posteriores para Linux) para garantizar la coherencia de datos de la aplicación antes de que se produzca una copia de seguridad. | Cuando se va a recuperar una VM con una instantánea coherente con la aplicación, la VM se inicia. No se pierden ni se dañan los datos. Las aplicaciones se inician en un estado coherente. | Windows: Todas las instancias de VSS Writer son correctas<br/><br/> Linux: Los scripts anteriores o posteriores están configurados y son correctos
 **Coherencia con el sistema de archivos** | Las copias de seguridad coherentes con el sistema de archivos proporcionan coherencia al hacer una instantánea de todos los archivos al mismo tiempo.<br/><br/> | Cuando se va a recuperar una VM con una instantánea coherente con el sistema de archivos, la VM se inicia. No se pierden ni se dañan los datos. Las aplicaciones deben implementar su propio mecanismo de corrección para asegurarse de que los datos restaurados son coherentes. | Windows: Se produjeron errores en algunas instancias de VSS Writer <br/><br/> Linux: Valor predeterminado (si los scripts anteriores y posteriores no están configurados o tienen errores)
 **Coherente frente a bloqueos** | Las instantáneas coherentes con bloqueos suelen producirse si una VM de Azure se apaga en el momento en que se hace la copia de seguridad. Solamente se capturan y se hace una copia de seguridad de los datos que ya existen en el disco en el momento de la copia de seguridad. | Comienza con el proceso de arranque de la máquina virtual seguido de una comprobación de disco para corregir los posibles daños. Los datos en memoria o las operaciones de escritura que no se han transferido al disco antes del bloqueo se pierden. Las aplicaciones implementan su propia comprobación de los datos. Por ejemplo, una aplicación de base de datos puede usar su registro de transacciones para la comprobación. Si el registro de transacciones tiene entradas que no están presentes en la base de datos, el software de base de datos realiza una reversión de las transacciones hasta que los datos sean coherentes. | La máquina virtual se encuentra en un estado apagado (desasignado o detenido).
+
+>[!NOTE]
+> Si el estado de aprovisionamiento es **correcto**, Azure Backup realiza copias de seguridad coherentes con el sistema de archivos. Si el estado de aprovisionamiento es **no disponible** o **con error**, se realizan copias de seguridad coherentes frente a bloqueos. Si el estado de aprovisionamiento es **creando** o **eliminando**, significa que Azure Backup está reintentando las operaciones.
 
 ## <a name="backup-and-restore-considerations"></a>Consideraciones sobre las operaciones de copia de seguridad y restauración
 
@@ -108,8 +111,8 @@ Estos escenarios comunes pueden afectar al tiempo total de copia de seguridad:
 Al configurar las copias de seguridad de VM, se recomienda seguir estos procedimientos recomendados:
 
 - Modificar las horas de programación predeterminadas que se establecen en una directiva. Por ejemplo, si la hora predeterminada en la directiva es 00:00 h, incremente el tiempo en varios minutos para que los recursos se usen de forma óptima.
-- Si va a restaurar las máquinas virtuales desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
-- Para la copia de seguridad de VM que usan almacenamiento Premium, con restauración instantánea, se recomienda asignar un espacio libre del *50 %* , del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
+- Si va a restaurar las máquinas virtuales desde un solo almacén, recomendamos encarecidamente que use diferentes [cuentas de almacenamiento de uso general v2](../storage/common/storage-account-upgrade.md) para asegurarse de que no se vea limitada la cuenta de almacenamiento de destino. Por ejemplo, cada VM debe tener una cuenta de almacenamiento diferente. Por ejemplo, si se restauran 10 máquinas virtuales, use 10 cuentas de almacenamiento diferentes.
+- Para la copia de seguridad de VM que usan almacenamiento Premium con restauración instantánea, se recomienda asignar un espacio libre del *50 %* del espacio de almacenamiento total asignado, que **solo** es necesario para la primera copia de seguridad. El espacio libre del 50 % no es un requisito para las copias de seguridad una vez completada la primera copia de seguridad.
 - El límite del número de discos por cuenta de almacenamiento es relativo a la frecuencia de acceso a los discos de parte de las aplicaciones que se ejecutan en una VM de infraestructura como servicio (IaaS). Como práctica general, si hay entre 5 y 10 o más en una única cuenta de almacenamiento, mueva algunos discos a cuentas de almacenamiento separadas para equilibrar la carga.
 
 ## <a name="backup-costs"></a>Costos de la copia de seguridad

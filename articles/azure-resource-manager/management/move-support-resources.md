@@ -3,12 +3,12 @@ title: Compatibilidad con la operación de traslado por tipo de recurso
 description: Enumera los tipos de recursos de Azure que se pueden trasladar a un nuevo grupo de recursos o suscripción.
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 7b7f6f05c9cae80cffb64245a3fc8a6b0890d577
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079500"
 ---
 # <a name="move-operation-support-for-resources"></a>Compatibilidad con la operación de traslado para recursos
 
@@ -288,6 +288,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
+> [!IMPORTANT]
+> Un servicio API Management establecido en la SKU de consumo no se puede mover.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -298,9 +301,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | reportfeedback | No | No |
 > | service | Sí | Sí |
 > | validateservicename | No | No |
-
-> [!IMPORTANT]
-> Un servicio API Management establecido en la SKU de consumo no se puede mover.
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -330,15 +330,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftappservice"></a>Microsoft.AppService
 
+> [!IMPORTANT]
+> Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | apiapps | No | No |
 > | appidentities | No | No |
 > | gateways | No | No |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
@@ -375,6 +375,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
+> [!IMPORTANT]
+> Los runbooks deben encontrarse en el mismo grupo de recursos que la cuenta de Automation.
+>
+> Para obtener más información, consulte [Traslado de la cuenta de Azure Automation a otra suscripción](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -388,11 +393,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | automationaccounts/softwareupdateconfigurations | No | No |
 > | automationaccounts/webhooks | No | No |
 > | operaciones | No | No |
-
-> [!IMPORTANT]
-> Los runbooks deben encontrarse en el mismo grupo de recursos que la cuenta de Automation.
->
-> Para obtener más información, consulte [Traslado de la cuenta de Azure Automation a otra suscripción](../../automation/how-to/move-account.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
@@ -626,6 +626,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
+> [!IMPORTANT]
+> Si la instancia de Azure Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Consulte las [Limitaciones de movimiento de redes](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -638,9 +641,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | redis/eventgridfilters | No | No |
 > | redis/privatelinkresources | No | No |
 > | redisenterprise | No | No |
-
-> [!IMPORTANT]
-> Si la instancia de Azure Redis Cache está configurada con una red virtual, la instancia no se puede mover a otra suscripción. Consulte las [Limitaciones de movimiento de redes](./move-limitations/networking-move-limitations.md).
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
@@ -700,6 +700,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
+> [!IMPORTANT]
+> Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -707,9 +710,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | certificateorders/certificates | No | No |
 > | operaciones | No | No |
 > | validatecertificateregistrationinformation | No | No |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftchangeanalysis"></a>Microsoft.ChangeAnalysis
 
@@ -719,6 +719,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | operaciones | No | No |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
+
+> [!IMPORTANT]
+> Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
@@ -746,20 +749,20 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | virtualmachines/metricdefinitions | No | No |
 > | virtualmachines/metrics | No | No |
 
+## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
+
 > [!IMPORTANT]
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
-
-## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | classicinfrastructureresources | No | No |
 
+## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
+
 > [!IMPORTANT]
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
-
-## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
@@ -776,10 +779,10 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | virtualnetworks/remotevirtualnetworkpeeringproxies | No | No |
 > | virtualnetworks/virtualnetworkpeerings | No | No |
 
+## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
+
 > [!IMPORTANT]
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
-
-## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
@@ -807,18 +810,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | storageaccounts/vmimages | No | No |
 > | vmimages | No | No |
 
+## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
+
 > [!IMPORTANT]
 > Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
-
-## <a name="microsoftclassicsubscription"></a>Microsoft.ClassicSubscription
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
 > | operaciones | No | No |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de implementación clásica](./move-limitations/classic-model-move-limitations.md). Los recursos de implementación clásica se pueden mover entre suscripciones con una operación específica de ese escenario.
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
@@ -843,6 +843,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | usageaggregates | No | No |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
+
+> [!IMPORTANT]
+> Vea [Guía de movimiento de Virtual Machines](./move-limitations/virtual-machines-move-limitations.md).
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
@@ -888,9 +891,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | virtualmachinescalesets/publicipaddresses | No | No |
 > | virtualmachinescalesets/virtualmachines | No | No |
 > | virtualmachinescalesets/virtualmachines/networkinterfaces | No | No |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de Virtual Machines](./move-limitations/virtual-machines-move-limitations.md).
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
@@ -1613,6 +1613,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
+> [!IMPORTANT]
+> Puede mover clústeres de HDInsight a una nueva suscripción o un nuevo grupo de recursos. Sin embargo, no puede mover entre suscripciones los recursos de red vinculados al clúster de HDInsight (por ejemplo, la red virtual, una NIC o un equilibrador de carga). Además, tampoco se puede mover a un nuevo grupo de recursos una NIC que está conectada a una máquina virtual del clúster.
+>
+> Al mover un clúster de HDInsight a una nueva suscripción, mueva primero otros recursos (por ejemplo, la cuenta de almacenamiento). Después, mover el clúster de HDInsight.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -1627,11 +1632,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | locations/usages | No | No |
 > | locations/validatecreaterequest | No | No |
 > | operaciones | No | No |
-
-> [!IMPORTANT]
-> Puede mover clústeres de HDInsight a una nueva suscripción o un nuevo grupo de recursos. Sin embargo, no puede mover entre suscripciones los recursos de red vinculados al clúster de HDInsight (por ejemplo, la red virtual, una NIC o un equilibrador de carga). Además, tampoco se puede mover a un nuevo grupo de recursos una NIC que está conectada a una máquina virtual del clúster.
->
-> Al mover un clúster de HDInsight a una nueva suscripción, mueva primero otros recursos (por ejemplo, la cuenta de almacenamiento). Después, mover el clúster de HDInsight.
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
@@ -1699,6 +1699,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftinsights"></a>microsoft.insights
 
+> [!IMPORTANT]
+> Asegúrese de que el movimiento a una nueva suscripción no exceda las [cuotas de suscripción](azure-subscription-service-limits.md#azure-monitor-limits).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -1754,9 +1757,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | workbooks | Sí | Sí |
 > | workbooktemplates | Sí | Sí |
 
-> [!IMPORTANT]
-> Asegúrese de que el movimiento a una nueva suscripción no exceda las [cuotas de suscripción](azure-subscription-service-limits.md#azure-monitor-limits).
-
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
@@ -1779,6 +1779,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
+> [!IMPORTANT]
+> Los almacenes de claves usados para el cifrado de discos no se pueden mover a grupos de recursos de la misma suscripción ni entre suscripciones.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -1795,9 +1798,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | vaults/accesspolicies | No | No |
 > | vaults/eventgridfilters | No | No |
 > | vaults/secrets | No | No |
-
-> [!IMPORTANT]
-> Los almacenes de claves usados para el cifrado de discos no se pueden mover a grupos de recursos de la misma suscripción ni entre suscripciones.
 
 ## <a name="microsoftkubernetes"></a>Microsoft.Kubernetes
 
@@ -2115,6 +2115,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
+> [!IMPORTANT]
+> Consulte [Guía de movimiento de redes](./move-limitations/networking-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -2188,7 +2191,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | locations/usages | No | No |
 > | locations/validateresourceownership | No | No |
 > | locations/virtualnetworkavailableendpointservices | No | No |
-> | natgateways | No | Sin |
+> | natgateways | No | No |
 > | networkexperimentprofiles | No | No |
 > | networkintentpolicies | Sí | Sí |
 > | networkinterfaces | Sí | Sí |
@@ -2237,9 +2240,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | vpnserverconfigurations | No | No |
 > | vpnsites (Virtual WAN) | No | No |
 
-> [!IMPORTANT]
-> Consulte [Guía de movimiento de redes](./move-limitations/networking-move-limitations.md).
-
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -2272,6 +2272,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
+> [!IMPORTANT]
+> Asegúrese de que el movimiento a una nueva suscripción no exceda las [cuotas de suscripción](azure-subscription-service-limits.md#azure-monitor-limits).
+>
+> Las áreas de trabajo que tienen una cuenta de automatización vinculada no se pueden mover. Antes de comenzar una operación de movimiento, asegúrese de desvincular todas las cuentas de automatización.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -2289,11 +2294,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | workspaces/metadata | No | No |
 > | workspaces/query | No | No |
 > | workspaces/scopedprivatelinkproxies | No | No |
-
-> [!IMPORTANT]
-> Asegúrese de que el movimiento a una nueva suscripción no exceda las [cuotas de suscripción](azure-subscription-service-limits.md#azure-monitor-limits).
->
-> Las áreas de trabajo que tienen una cuenta de automatización vinculada no se pueden mover. Antes de comenzar una operación de movimiento, asegúrese de desvincular todas las cuentas de automatización.
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
@@ -2406,6 +2406,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
+> [!IMPORTANT]
+> Vea [Guía de movimiento de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -2426,9 +2429,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | operaciones | No | No |
 > | replicationeligibilityresults | No | No |
 > | vaults | Sí | Sí |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de Recovery Services](../../backup/backup-azure-move-recovery-services-vault.md?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftredhatopenshift"></a>Microsoft.RedHatOpenShift
 
@@ -2532,6 +2532,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
+> [!IMPORTANT]
+> No puede mover varios recursos de Search de regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -2540,9 +2543,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | operaciones | No | No |
 > | resourcehealthmetadata | No | No |
 > | searchservices | Sí | Sí |
-
-> [!IMPORTANT]
-> No puede mover varios recursos de Search de regiones diferentes en una operación. En su lugar, muévalos en operaciones independientes.
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
@@ -2748,6 +2748,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftsql"></a>Microsoft.Sql
 
+> [!IMPORTANT]
+> La base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure Synapse Analytics.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -2922,9 +2925,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | servers/vulnerabilityassessments | No | No |
 > | virtualclusters | Sí | Sí |
 
-> [!IMPORTANT]
-> La base de datos y el servidor deben residir en el mismo grupo de recursos. Cuando se mueve un servidor SQL Server, se mueven también todas sus bases de datos. Este comportamiento se aplica a las bases de datos de Azure SQL Database y Azure Synapse Analytics.
-
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
@@ -3012,6 +3012,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
+> [!IMPORTANT]
+> Los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -3020,9 +3023,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | locations/quotas | No | No |
 > | operaciones | No | No |
 > | streamingjobs | Sí | Sí |
-
-> [!IMPORTANT]
-> Los trabajos de Stream Analytics no se pueden mover si se encuentran en estado de ejecución.
 
 ## <a name="microsoftstreamanalyticsexplorer"></a>Microsoft.StreamAnalyticsExplorer
 
@@ -3110,6 +3110,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
 
+> [!IMPORTANT]
+> Para cambiar la suscripción de Azure DevOps, vea [Cambiar la suscripción de Azure usada para la facturación](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -3118,9 +3121,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | account/project | No | No |
 > | checknameavailability | No | No |
 > | operaciones | No | No |
-
-> [!IMPORTANT]
-> Para cambiar la suscripción de Azure DevOps, vea [Cambiar la suscripción de Azure usada para la facturación](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json).
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -3178,6 +3178,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
+> [!IMPORTANT]
+> Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
+
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Suscripción |
 > | ------------- | ----------- | ---------- |
@@ -3232,9 +3235,6 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | staticsites | No | No |
 > | validate | No | No |
 > | verifyhostingenvironmentvnet | No | No |
-
-> [!IMPORTANT]
-> Vea [Guía de movimiento de App Service](./move-limitations/app-service-move-limitations.md).
 
 ## <a name="microsoftwindowsesu"></a>Microsoft.WindowsESU
 

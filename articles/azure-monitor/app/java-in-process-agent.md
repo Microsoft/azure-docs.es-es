@@ -3,12 +3,12 @@ title: 'Supervisión de aplicaciones Java en cualquier entorno: Application Insi
 description: Supervisión del rendimiento de aplicaciones para aplicaciones Java que se ejecutan en cualquier entorno sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 3e3d108603ad6210143deea58049ff7b230bb6fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3ca6e7050b1c7649298d2417f9f7f66ef8898816
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319710"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87014344"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights---public-preview"></a>Supervisión de aplicaciones sin código de Java con Azure Monitor Application Insights: versión preliminar pública
 
@@ -32,11 +32,11 @@ Agregue `-javaagent:path/to/applicationinsights-agent-3.0.0-PREVIEW.5.jar` a los
 
 Los argumentos típicos de JVM son `-Xmx512m` y `-XX:+UseG1GC`. Por lo tanto, si sabe dónde debe agregarlos, lo mismo se aplica para este.
 
-Para obtener ayuda adicional con la configuración de los argumentos de JVM de la aplicación, consulte [Versión preliminar 3.0: sugerencias para actualizar los argumentos de JVM](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-arguments).
+Para obtener ayuda adicional con la configuración de los argumentos de JVM de la aplicación, consulte [Versión preliminar 3.0: sugerencias para actualizar los argumentos de JVM](./java-standalone-arguments.md).
 
 **3. Apunte el agente al recurso de Application Insights.**
 
-Si aún no tiene ningún recurso de Application Insights, puede crear uno nuevo siguiendo los pasos descritos en la [guía de creación de recursos](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource).
+Si aún no tiene ningún recurso de Application Insights, puede crear uno nuevo siguiendo los pasos descritos en la [guía de creación de recursos](./create-new-resource.md).
 
 Apunte el agente hacia el recurso de Application Insights, ya sea estableciendo una variable de entorno:
 
@@ -80,7 +80,7 @@ En el archivo `ApplicationInsights.json`, también puede configurar lo siguiente
 * Proxy HTTP
 * Diagnóstico automático
 
-Consulte los detalles en [Versión preliminar pública 3.0: opciones de configuración](https://docs.microsoft.com/azure/azure-monitor/app/java-standalone-config).
+Consulte los detalles en [Versión preliminar pública 3.0: opciones de configuración](./java-standalone-config.md).
 
 ## <a name="autocollected-requests-dependencies-logs-and-metrics"></a>Solicitudes, dependencias, registros y métricas recopilados automáticamente
 

@@ -1,5 +1,5 @@
 ---
-title: Uso de imágenes de máquina virtual compartidas para crear un conjunto de escalado en Azure
+title: Uso de imágenes de máquinas virtuales compartidas para crear un conjunto de escalado en Azure PowerShell
 description: Obtenga información sobre cómo usar Azure PowerShell para crear imágenes de máquinas virtuales compartidas que se utilizarán para implementar conjuntos de escalado de máquina virtual en Azure.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: d0912958aaa897e4f8bc18aa88e0c41078d375a8
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 55ca80296bfdfde162ca5a4df348fd80328dd184
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82792792"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86494928"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Creación y uso de imágenes compartidas personalizada para conjuntos de escalado de máquinas virtuales con Azure PowerShell
 

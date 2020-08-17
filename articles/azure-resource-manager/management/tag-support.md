@@ -2,13 +2,13 @@
 title: Compatibilidad de etiquetas de los recursos
 description: Muestra los tipos de recursos de Azure que admiten etiquetas. Proporciona detalles de todos los servicios de Azure.
 ms.topic: conceptual
-ms.date: 07/06/2020
-ms.openlocfilehash: f59e50e3eadb50db97756aa990f4de822a8ba089
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.date: 07/28/2020
+ms.openlocfilehash: 2ebf55a15233c401904460d459a118fc46142ac3
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026379"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87338000"
 ---
 # <a name="tag-support-for-azure-resources"></a>Compatibilidad de etiquetas de los recursos de Azure
 En este artículo se describe si un tipo de recurso admite [etiquetas](tag-resources.md). La columna con la etiqueta **Admite etiquetas** indica si el tipo de recurso tiene una propiedad para la etiqueta. La columna con la etiqueta **Etiqueta en el informe de costos** indica si ese tipo de recurso pasa la etiqueta al informe de costos. Puede ver los costos por etiquetas en el [análisis de costos de Cost Management](../../cost-management-billing/costs/group-filter.md) y los [datos de uso diario y de facturación de Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -323,15 +323,19 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | automationAccounts/softwareUpdateConfigurations | No | No |
 > | automationAccounts/webhooks | No | No |
 
+>[!NOTE]
+>Azure Automation solo admite la creación de un máximo de 15 pares de nombre/valor de etiqueta para cada recurso de Automation.
+> 
+
 ## <a name="microsoftavs"></a>Microsoft.AVS
 
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | privateClouds | Sí | Sí |
-> | privateClouds/authorizations | No | No |
-> | privateClouds/clusters | No | No |
-> | privateClouds/hcxEnterpriseSites | No | No |
+> | privateClouds / authorizations | No | No |
+> | privateClouds / clusters | No | No |
+> | privateClouds / hcxEnterpriseSites | No | No |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
@@ -544,11 +548,11 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | Redis | Sí | Sí |
-> | Redis/EventGridFilters | No | No |
-> | Redis/privateEndpointConnectionProxies | No | No |
-> | Redis/privateEndpointConnectionProxies/validate | No | No |
-> | Redis/privateEndpointConnections | No | No |
-> | Redis/privateLinkResources | No | No |
+> | Redis / EventGridFilters | No | No |
+> | Redis / privateEndpointConnectionProxies | No | No |
+> | Redis / privateEndpointConnectionProxies / validate | No | No |
+> | Redis / privateEndpointConnections | No | No |
+> | Redis / privateLinkResources | No | No |
 > | redisEnterprise | Sí | Sí |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
@@ -728,7 +732,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | virtualMachines | Sí | Sí |
 > | virtualMachines/extensions | Sí | Sí |
 > | virtualMachines/metricDefinitions | No | No |
-> | virtualMachines/runCommands | Sí | Sí |
+> | virtualMachines / runCommands | Sí | Sí |
 > | virtualMachineScaleSets | Sí | Sí |
 > | virtualMachineScaleSets/extensions | No | No |
 > | virtualMachineScaleSets/networkInterfaces | No | No |
@@ -794,13 +798,13 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | registries/buildTasks | Sí | Sí |
 > | registries/buildTasks/steps | No | No |
 > | registries/eventGridFilters | No | No |
-> | registries/exportPipelines | No | No |
+> | registries / exportPipelines | No | No |
 > | registries/generateCredentials | No | No |
 > | registries/getBuildSourceUploadUrl | No | No |
 > | registries/GetCredentials | No | No |
 > | registries/importImage | No | No |
-> | registries/importPipelines | No | No |
-> | registries/pipelineRuns | No | No |
+> | registries / importPipelines | No | No |
+> | registries / pipelineRuns | No | No |
 > | registries/privateEndpointConnectionProxies | No | No |
 > | registries/privateEndpointConnectionProxies/validate | No | No |
 > | registries / privateEndpointConnections | No | No |
@@ -1106,7 +1110,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | digitalTwinsInstances | Sí | Sí |
-> | digitalTwinsInstances/endpoints | No | No |
+> | digitalTwinsInstances / endpoints | No | No |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -1267,12 +1271,12 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | services | Sí | Sí |
-> | services/iomtconnectors | No | No |
-> | services/iomtconnectors/connections | No | No |
-> | services/iomtconnectors/mappings | No | No |
-> | services/privateEndpointConnectionProxies | No | No |
-> | services/privateEndpointConnections | Sí | Sí |
-> | services/privateLinkResources | Sí | Sí |
+> | services / iomtconnectors | No | No |
+> | services / iomtconnectors / connections | No | No |
+> | services / iomtconnectors / mappings | No | No |
+> | services / privateEndpointConnectionProxies | No | No |
+> | services / privateEndpointConnections | Sí | Sí |
+> | services / privateLinkResources | Sí | Sí |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1472,8 +1476,8 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | managedNetworks | Sí | Sí |
-> | managedNetworks/managedNetworkGroups | Sí | Sí |
-> | managedNetworks/managedNetworkPeeringPolicies | Sí | Sí |
+> | managedNetworks / managedNetworkGroups | Sí | Sí |
+> | managedNetworks / managedNetworkPeeringPolicies | Sí | Sí |
 > | notificación | Sí | Sí |
 
 ## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
@@ -1559,15 +1563,15 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | mediaservices/liveEventOperations | No | No |
 > | mediaservices/liveEvents | Sí | Sí |
 > | mediaservices/liveEvents/liveOutputs | No | No |
-> | mediaservices/liveEvents/privateEndpointConnectionProxies | No | No |
+> | mediaservices / liveEvents / privateEndpointConnectionProxies | No | No |
 > | mediaservices/liveOutputOperations | No | No |
 > | mediaservices/mediaGraphs | No | No |
 > | mediaservices/streamingEndpointOperations | No | No |
 > | mediaservices/streamingEndpoints | Sí | Sí |
-> | mediaservices/streamingEndpoints/privateEndpointConnectionProxies | No | No |
+> | mediaservices / streamingEndpoints / privateEndpointConnectionProxies | No | No |
 > | mediaservices/streamingLocators | No | No |
 > | mediaservices/streamingPolicies | No | No |
-> | mediaservices/streamingPrivateEndpointConnectionProxyOperations | No | No |
+> | mediaservices / streamingPrivateEndpointConnectionProxyOperations | No | No |
 > | mediaservices/transforms | No | No |
 > | mediaservices/transforms/jobs | No | No |
 
@@ -1624,31 +1628,31 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | connections | Sí | Sí |
 > | ddosCustomPolicies | Sí | Sí |
 > | ddosProtectionPlans | Sí | Sí |
-> | dnsOperationStatuses | No | No |
+> | dnsOperationStatuses | No | Sin |
 > | dnszones | Sí | Sí |
-> | dnszones/A | No | No |
-> | dnszones/AAAA | No | No |
-> | dnszones/all | No | No |
-> | dnszones/CAA | No | No |
-> | dnszones/CNAME | No | No |
-> | dnszones/MX | No | No |
-> | dnszones/NS | No | No |
-> | dnszones/PTR | No | No |
-> | dnszones/recordsets | No | No |
-> | dnszones/SOA | No | No |
-> | dnszones/SRV | No | No |
+> | dnszones/A | No | Sin |
+> | dnszones/AAAA | No | Sin |
+> | dnszones/all | No | Sin |
+> | dnszones/CAA | No | Sin |
+> | dnszones/CNAME | No | Sin |
+> | dnszones/MX | No | Sin |
+> | dnszones/NS | No | Sin |
+> | dnszones/PTR | No | Sin |
+> | dnszones/recordsets | No | Sin |
+> | dnszones/SOA | No | Sin |
+> | dnszones/SRV | No | Sin |
 > | dnszones/TXT | No | No |
 > | expressRouteCircuits | Sí | Sí |
 > | expressRouteCrossConnections | Sí | Sí |
 > | expressRouteGateways | Sí | Sí |
 > | expressRoutePorts | Sí | Sí |
-> | expressRouteServiceProviders | No | No |
+> | expressRouteServiceProviders | No | Sin |
 > | firewallPolicies | Sí | Sí |
 > | frontdoors | Sí, pero con límites (consulte la [nota siguiente](#frontdoor)) | Sí |
 > | frontdoorWebApplicationFirewallManagedRuleSets | Sí, pero con límites (consulte la [nota siguiente](#frontdoor)) | No |
 > | frontdoorWebApplicationFirewallPolicies | Sí, pero con límites (consulte la [nota siguiente](#frontdoor)) | Sí |
-> | getDnsResourceReference | No | No |
-> | internalNotify | No | No |
+> | getDnsResourceReference | No | Sin |
+> | internalNotify | No | Sin |
 > | loadBalancers | Sí | Sí |
 > | localNetworkGateways | Sí | Sí |
 > | natGateways | Sí | Sí |
@@ -1658,18 +1662,18 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | networkSecurityGroups | Sí | Sí |
 > | networkWatchers | Sí | Sí |
 > | networkWatchers/connectionMonitors | Sí | No |
-> | networkWatchers/flowLogs | No | No |
+> | networkWatchers/flowLogs | No | Sin |
 > | networkWatchers/lenses | Sí | No |
 > | networkWatchers/pingMeshes | Sí | No |
 > | p2sVpnGateways | Sí | Sí |
-> | privateDnsOperationStatuses | No | No |
+> | privateDnsOperationStatuses | No | Sin |
 > | privateDnsZones | Sí | Sí |
-> | privateDnsZones/A | No | No |
-> | privateDnsZones/AAAA | No | No |
-> | privateDnsZones/all | No | No |
-> | privateDnsZones/CNAME | No | No |
-> | privateDnsZones/MX | No | No |
-> | privateDnsZones/PTR | No | No |
+> | privateDnsZones/A | No | Sin |
+> | privateDnsZones/AAAA | No | Sin |
+> | privateDnsZones/all | No | Sin |
+> | privateDnsZones/CNAME | No | Sin |
+> | privateDnsZones/MX | No | Sin |
+> | privateDnsZones/PTR | No | Sin |
 > | privateDnsZones/SOA | No | No |
 > | privateDnsZones/SRV | No | No |
 > | privateDnsZones/TXT | No | No |
@@ -1800,7 +1804,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | privateLinkServicesForPowerBI | Sí | Sí |
 > | tenants | Sí | Sí |
-> | inquilinos / áreas de trabajo | No | No |
+> | tenants / workspaces | No | No |
 > | workspaceCollections | Sí | Sí |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
@@ -1858,7 +1862,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | namespaces/authorizationrules | No | No |
 > | namespaces/hybridconnections | No | No |
 > | namespaces/hybridconnections/authorizationrules | No | No |
-> | namespaces/privateEndpointConnections | No | No |
+> | namespaces / privateEndpointConnections | No | No |
 > | namespaces/wcfrelays | No | No |
 > | namespaces/wcfrelays/authorizationrules | No | No |
 
@@ -1904,7 +1908,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | resourceGroups | Sí | No |
 > | subscriptions | Sí | No |
 > | templateSpecs | Sí | Sí |
-> | templateSpecs/versions | Sí | Sí |
+> | templateSpecs / versions | Sí | Sí |
 > | tenants | No | No |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -2237,9 +2241,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | privateLinkHubs | Sí | Sí |
 > | workspaces | Sí | Sí |
-> | workspaces/bigDataPools | Sí | Sí |
-> | workspaces/operationStatuses | No | No |
-> | workspaces/sqlPools | Sí | Sí |
+> | workspaces / bigDataPools | Sí | Sí |
+> | workspaces / operationStatuses | No | No |
+> | workspaces / sqlPools | Sí | Sí |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
@@ -2257,7 +2261,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | almacenes | Sí | Sí |
-> | stores/accessPolicies | No | No |
+> | stores / accessPolicies | No | No |
 > | stores/services | No | No |
 > | stores/services/tokens | No | No |
 
@@ -2267,7 +2271,7 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | imageTemplates | Sí | Sí |
-> | imageTemplates/runOutputs | No | No |
+> | imageTemplates / runOutputs | No | No |
 
 ## <a name="microsoftvmware"></a>Microsoft.VMware
 
@@ -2394,9 +2398,9 @@ Vaya a un espacio de nombres del proveedor de recursos:
 > | Tipo de recurso | Compatible con las etiquetas | Etiqueta en el informe de costos |
 > | ------------- | ----------- | ----------- |
 > | workloads | Sí | Sí |
-> | workloads/instances | No | No |
-> | workloads/versions | No | No |
-> | workloads/versions/artifacts | No | No |
+> | workloads / instances | No | No |
+> | workloads / versions | No | No |
+> | workloads / versions / artifacts | No | No |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 

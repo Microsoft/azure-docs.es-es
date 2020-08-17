@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/25/2020
 ms.author: trrwilson
-ms.openlocfilehash: 1b8d557d36b0265e9c32d4af6ca7435697531a50
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: ee6b6c29c89c39c72144371af8268760da843170
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84637494"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375057"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,7 +29,7 @@ Antes de comenzar:
 Actualice el archivo go.mod con la versión más reciente del SDK agregando esta línea:
 ```sh
 require (
-    github.com/Microsoft/cognitive-services-speech-sdk-go v1.12.1
+    github.com/Microsoft/cognitive-services-speech-sdk-go v1.13.0
 )
 ```
 

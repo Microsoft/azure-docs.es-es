@@ -5,14 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 ms.date: 05/19/2020
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 95edc9ae621cb7e62729d529c1c43c355ddc7e63
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 7b4125990ab3dea4dff9db4a5a23c9a5b6377a9d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109690"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317681"
 ---
 Estas son algunas sugerencias para escribir la descripción:
 

@@ -5,13 +5,13 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
-ms.custom: tracking-python
-ms.openlocfilehash: c88ace8693d15a58c78c70ba46001c98e92fc0a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python
+ms.openlocfilehash: 28b608446c543fc568a5c322ffce1df6100d4a73
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84559981"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852470"
 ---
 # <a name="azure-blob-storage-trigger-for-azure-functions"></a>Desencadenador de Azure Blob Storage para Azure Functions
 
@@ -301,7 +301,7 @@ Acceda a los datos de BLOB mediante `context.bindings.<NAME>` donde `<NAME>` coi
 
 # <a name="python"></a>[Python](#tab/python)
 
-Acceda a los datos de blob a través del parámetro con el tipo [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Vea el [ejemplo de desencadenador](#example) para más información.
+Acceda a los datos de blob a través del parámetro con el tipo [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Vea el [ejemplo de desencadenador](#example) para más información.
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -331,7 +331,7 @@ El ejemplo siguiente se desencadena solo en blobs del contenedor `input` que com
 "path": "input/original-{name}",
 ```
 
-Si el nombre de blob es *original Blob1.txt*, el valor de la variable `name` en el código de la función es `Blob1`.
+Si el nombre de blob es *original Blob1.txt*, el valor de la variable `name` en el código de la función es `Blob1.txt`.
 
 ### <a name="filter-on-file-type"></a>Filtrar por tipo de archivo
 
@@ -412,7 +412,7 @@ El desencadenador de blob utiliza una cola internamente, por lo que el número m
 
 [El plan de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita una aplicación de función de una máquina virtual (VM) a 1,5 GB de memoria. Tanto las instancias de función que se ejecutan de forma simultánea como el entorno de ejecución de Functions utilizan la memoria. Si una función desencadenada por un blob carga el blob entero a la memoria, la memoria máxima utilizada por esa función solo para blobs tiene un tamaño máximo de blob de 24 *. Por ejemplo, una aplicación de función con tres funciones desencadenadas por un blob y la configuración predeterminada tendrían una simultaneidad máxima por máquina virtual de 3*24 = 72 invocaciones de función.
 
-Las funciones de JavaScript y Java cargan el blob entero a la memoria, mientras que las funciones de C# lo hacen si establece un enlace a `string`, `Byte[]` o POCO.
+Las funciones de JavaScript y Java cargan el blob entero en la memoria, mientras que las funciones de C# lo hacen si establece un enlace a `string` o `Byte[]`.
 
 ## <a name="polling"></a>Sondeo
 

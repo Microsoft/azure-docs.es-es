@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 04706de4b1cc18a4f3146f75442de84340319cef
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: a54f86081774ffb9ac2fe23a72c8ba83e3d6845c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220158"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053339"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Codificación de vídeo y audio con Media Services
 
@@ -29,7 +29,7 @@ Normalmente, los vídeos se entregan a los dispositivos y aplicaciones a través
 > [!IMPORTANT]
 > Media Services no factura los trabajos cancelados o con errores. Por ejemplo, un trabajo que se ha completado al 50 % y se ha cancelado, no se factura al 50 % de los minutos del trabajo. Solo se cobran los trabajos finalizados.
 
-* Para la entrega a través de una descarga progresiva, puede usar Azure Media Services para convertir un archivo multimedia digital (intermedio) en un archivo [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) que contiene el vídeo que se ha codificado con el códec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) y audio que se ha codificado con el códec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Este archivo MP4 se escribe en un recurso de la cuenta de almacenamiento. Puede usar los SDK o las API de Azure Storage (por ejemplo, [API REST de almacenamiento](../../storage/common/storage-rest-api-auth.md) o [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para descargar el archivo directamente. Si creó el recurso de salida con un nombre de contenedor específico en el almacenamiento, use esa ubicación. De lo contrario, puede usar Media Services para [enumerar las direcciones URL del contenedor de recursos](https://docs.microsoft.com/rest/api/media/assets/listcontainersas). 
+* Para la entrega a través de una descarga progresiva, puede usar Azure Media Services para convertir un archivo multimedia digital (intermedio) en un archivo [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) que contiene el vídeo que se ha codificado con el códec [H.264](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) y audio que se ha codificado con el códec [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding). Este archivo MP4 se escribe en un recurso de la cuenta de almacenamiento. Puede usar los SDK o las API de Azure Storage (por ejemplo, [API REST de almacenamiento](../../storage/common/storage-rest-api-auth.md) o [SDK de .NET](../../storage/blobs/storage-quickstart-blobs-dotnet.md)) para descargar el archivo directamente. Si creó el recurso de salida con un nombre de contenedor específico en el almacenamiento, use esa ubicación. De lo contrario, puede usar Media Services para [enumerar las direcciones URL del contenedor de recursos](/rest/api/media/assets/listcontainersas). 
 * Para preparar el contenido para la entrega a través del streaming con velocidad de bits adaptable, el archivo intermedio se debe codificar en varias velocidades de bits (de alta a baja). Para garantizar una transición correcta de la calidad, se reduce la resolución del vídeo a medida que disminuye la velocidad de bits. Esto resulta en lo que se conoce como una escala de codificación: una tabla de resoluciones y velocidades de bits (consulte [Escala de velocidad de bits generada automáticamente](autogen-bitrate-ladder.md)). Puede usar Media Services para codificar los archivos intermedios con varias velocidades de bits. Al hacerlo, obtendrá un conjunto de archivos MP4 y archivos de configuración de streaming asociados que se escriben en un recurso en la cuenta de almacenamiento. Luego puede usar la funcionalidad de [empaquetado dinámico](dynamic-packaging-overview.md) de Media Services para entregar el vídeo a través de protocolos de streaming, como [MPEG-DASH](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) y [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming). Esto requiere crear un [localizador de streaming](streaming-locators-concept.md) y generar direcciones URL de streaming que correspondan a los protocolos admitidos, que luego se pueden entregar a los dispositivos o aplicaciones según sus funcionalidades.
 
 En el siguiente diagrama se muestra el flujo de trabajo para la codificación a petición con empaquetado dinámico.
@@ -40,7 +40,7 @@ En este tema se proporcionan instrucciones sobre cómo codificar el contenido co
 
 ## <a name="transforms-and-jobs"></a>Transformaciones y trabajos
 
-Para codificar con Media Services v3, debe crear una [transformación](https://docs.microsoft.com/rest/api/media/transforms) y un [trabajo](https://docs.microsoft.com/rest/api/media/jobs). La transformación define la receta para la configuración de la codificación y las salidas, y el trabajo es una instancia de la receta. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
+Para codificar con Media Services v3, debe crear una [transformación](/rest/api/media/transforms) y un [trabajo](/rest/api/media/jobs). La transformación define la receta para la configuración de la codificación y las salidas, y el trabajo es una instancia de la receta. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
 
 Al codificar con Media Services, se usan valores preestablecidos para indicar al codificador cómo se deben procesar los archivos multimedia de entrada. En Media Services v3, se usa Standard Encoder para codificar los archivos. Por ejemplo, puede especificar la resolución de vídeo o el número de canales de audio que desea en el contenido codificado.
 
@@ -72,9 +72,9 @@ El vídeo de entrada se puede almacenar como un recurso de Media Services, en cu
 
 ### <a name="creating-job-input-with-subclipping"></a>Creación de la entrada del trabajo con creación de subclips
 
-Al codificar un vídeo, puede especificar que también se recorte el archivo de origen y que se genere una salida que solo tenga una parte deseada de la entrada de vídeo. Esta funcionalidad se puede usar con cualquier elemento [Transformación](https://docs.microsoft.com/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset).
+Al codificar un vídeo, puede especificar que también se recorte el archivo de origen y que se genere una salida que solo tenga una parte deseada de la entrada de vídeo. Esta funcionalidad se puede usar con cualquier elemento [Transformación](/rest/api/media/transforms) compilado mediante los valores preestablecidos [BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) o [StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset).
 
-Puede especificar crear un [trabajo](https://docs.microsoft.com/rest/api/media/jobs/create) con un solo clip de un vídeo a petición o archivo en directo (un evento grabado). La entrada del trabajo podría ser un recurso o una dirección URL HTTPS.
+Puede especificar crear un [trabajo](/rest/api/media/jobs/create) con un solo clip de un vídeo a petición o archivo en directo (un evento grabado). La entrada del trabajo podría ser un recurso o una dirección URL HTTPS.
 
 > [!TIP]
 > Si quiere hacer streaming de un sublip del vídeo sin volver a codificarlo, considere la posibilidad de usar [manifiestos de filtrado previo con el empaquetador dinámico](filters-dynamic-manifest-overview.md).
@@ -92,7 +92,7 @@ Media Services admite los siguientes valores preestablecidos de codificación in
 
 ### <a name="builtinstandardencoderpreset"></a>BuiltInStandardEncoderPreset
 
-[BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) se usa para establecer un valor preestablecido integrado para codificar el vídeo de entrada con Standard Encoder.
+[BuiltInStandardEncoderPreset](/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) se usa para establecer un valor preestablecido integrado para codificar el vídeo de entrada con Standard Encoder.
 
 Actualmente se admiten los valores preestablecidos siguientes:
 
@@ -109,13 +109,13 @@ Actualmente se admiten los valores preestablecidos siguientes:
 - **EncoderNamedPreset.H264SingleBitrate720p**: genera un archivo MP4 en el que el vídeo se codifica con el códec H.264 a 4500 kbps y una altura de imagen de 720 píxeles y el audio estéreo se codifica con el códec AAC-LC a 64 kbps.
 - **EncoderNamedPreset.H264SingleBitrateSD**: genera un archivo MP4 en el que el vídeo se codifica con el códec H.264 a 2200 kbps y una altura de imagen de 480 píxeles y el audio estéreo se codifica con el códec AAC-LC a 64 kbps.
 
-Para ver la lista más actualizada de valores preestablecidos, consulte los [valores preestablecidos integrados que se usarán para codificar vídeos](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset).
+Para ver la lista más actualizada de valores preestablecidos, consulte los [valores preestablecidos integrados que se usarán para codificar vídeos](/rest/api/media/transforms/createorupdate#encodernamedpreset).
 
 Para ver cómo se usan los valores preestablecidos, consulte [Carga, codificación y transmisión en secuencias de videos](stream-files-tutorial-with-api.md).
 
 ### <a name="standardencoderpreset"></a>StandardEncoderPreset
 
-[StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) describe la configuración que se utilizará al codificar el vídeo de entrada con Standard Encoder. Utilice este valor preestablecido al personalizar los valores preestablecidos de transformación.
+[StandardEncoderPreset](/rest/api/media/transforms/createorupdate#standardencoderpreset) describe la configuración que se utilizará al codificar el vídeo de entrada con Standard Encoder. Utilice este valor preestablecido al personalizar los valores preestablecidos de transformación.
 
 #### <a name="considerations"></a>Consideraciones
 
@@ -136,7 +136,7 @@ Media Services es totalmente compatible con la personalización de todos los val
 
 ## <a name="preset-schema"></a>Esquema de valores preestablecidos
 
-En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API de REST](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (o en otra documentación de referencia del SDK de Media Services v3).
+En Media Services v3, los valores preestablecidos son entidades fuertemente tipadas en la propia API. Encontrará la definición de "esquema" de estos objetos en la [especificación de Open API (o Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). También puede ver las definiciones preestablecidas (como **StandardEncoderPreset**) en la [API de REST](/rest/api/media/transforms/createorupdate#standardencoderpreset) y el [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (o en otra documentación de referencia del SDK de Media Services v3).
 
 ## <a name="scaling-encoding-in-v3"></a>Escalado de la codificación en v3
 

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 648ec2d9fea3e4e112e65cec44a0518b653ddbea
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8694b766d98c6240d7745b814d13358debe714e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119980"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387054"
 ---
 # <a name="best-practices-for-creating-assessments"></a>Procedimientos recomendados para crear evaluaciones
 
@@ -132,8 +132,8 @@ Puede que una evaluación no tenga todos los puntos de datos debido a varios mot
 ### <a name="migration-tool-guidance-for-avs-assessments"></a>Guía de la herramienta de migración para valoraciones de AVS
 
 En el informe preparación de Azure para la valoración de Azure VMware Solution (AVS), puede ver las siguientes herramientas sugeridas: 
-- **VMware HCX o Enterprise**: En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMWare es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
-- **Desconocido**: En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMWare.
+- **VMware HCX o Enterprise** En el caso de las máquinas de VMware, la solución Hybrid Cloud Extension (HCX) de VMware es la herramienta de migración sugerida para migrar la carga de trabajo local a la nube privada de Azure VMware Solution (AVS). [Más información](../azure-vmware/hybrid-cloud-extension-installation.md).
+- **Desconocido**: En el caso de las máquinas importadas mediante un archivo CSV, se desconoce la herramienta de migración predeterminada. Sin embargo, para las máquinas de VMware, se recomienda usar la solución Hybrid Cloud Extension (HCX) de VMware.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

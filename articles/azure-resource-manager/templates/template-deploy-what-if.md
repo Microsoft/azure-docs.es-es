@@ -3,23 +3,23 @@ title: Despliegue de plantillas hipotéticas (Vista previa)
 description: Determine los cambios que se producirán en los recursos antes de implementar una plantilla de Azure Resource Manager.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/16/2020
+ms.date: 08/05/2020
 ms.author: tomfitz
-ms.openlocfilehash: 1e2c83167e7ccc1e3e98b23711fba567ef11ac23
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 27efe1e03b8a0d373d566106a53a41007731973e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888753"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810078"
 ---
 # <a name="arm-template-deployment-what-if-operation-preview"></a>Operación hipotética de la implementación de plantilla de Resource Manager (vista previa)
 
-Antes de implementar una plantilla de Azure Resource Manager (ARM), puede obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
+Antes de implementar una plantilla de Azure Resource Manager (plantilla de ARM), puede obtener una vista previa de los cambios que se producirán. Azure Resource Manager proporciona la operación hipotética que le permite ver cómo cambiarán los recursos si implementa la plantilla. La operación hipotética no realiza ningún cambio en los recursos existentes. En su lugar, predice los cambios si se implementa la plantilla especificada.
 
 > [!NOTE]
 > La operación hipotética se encuentra actualmente en versión preliminar. Como versión preliminar, los resultados a veces pueden mostrar que un recurso cambiará cuando realmente no se produzca ningún cambio. Trabajamos para reducir estos problemas, pero necesitamos su ayuda. Informe de estos problemas en [https://aka.ms/whatifissues](https://aka.ms/whatifissues).
 
-Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST. La operación what-if se admite en las implementaciones de grupo de recursos y nivel de suscripción.
+Puede usar la operación what-if con Azure PowerShell, la CLI de Azure o las operaciones de la API REST. La operación what-if se admite en las implementaciones de grupos de recursos, nivel de suscripción, grupos de administración e inquilinos.
 
 ## <a name="install-azure-powershell-module"></a>Instalación del módulo de Azure PowerShell
 
@@ -125,20 +125,23 @@ Los comandos anteriores devuelven un resumen de texto que puede inspeccionar man
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Para obtener una vista previa de los cambios antes de implementar una plantilla, use [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) o [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if).
+Para obtener una vista previa de los cambios antes de implementar una plantilla, use:
 
-* `az deployment group what-if` para implementaciones de grupos de recursos
-* `az deployment sub what-if` para implementaciones de nivel de suscripción
+* [az deployment group what-if](/cli/azure/deployment/group#az-deployment-group-what-if) para implementaciones de grupos de recursos
+* [az deployment sub what-if](/cli/azure/deployment/sub#az-deployment-sub-what-if) para implementaciones de nivel de suscripción
+* [az deployment mg what-if](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-what-if) para implementaciones de grupos de administración
+* [az deployment tenant what-if](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-what-if) para implementaciones de inquilinos
 
-Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación. Agregue este modificador a [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create) o [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create).
+Puede usar el modificador `--confirm-with-what-if` (o su forma abreviada `-c`) para obtener una vista previa de los cambios y recibir un aviso para continuar con la implementación. Agregue este modificador a:
 
-* `az deployment group create --confirm-with-what-if` o `-c` para implementaciones de grupos de recursos
-* `az deployment sub create --confirm-with-what-if` o `-c` para implementaciones de nivel de suscripción
+* [az deployment group create](/cli/azure/deployment/group#az-deployment-group-create)
+* [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create)
+* [az deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create)
+* [az deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create)
 
-Los comandos anteriores devuelven un resumen de texto que puede inspeccionar manualmente. Para obtener un objeto JSON en el que pueda inspeccionar los cambios mediante programación, use:
+Por ejemplo, use `az deployment group create --confirm-with-what-if` o `-c` para implementaciones de grupos de recursos.
 
-* `az deployment group what-if --no-pretty-print` para implementaciones de grupos de recursos
-* `az deployment sub what-if --no-pretty-print` para implementaciones de nivel de suscripción
+Los comandos anteriores devuelven un resumen de texto que puede inspeccionar manualmente. Para obtener un objeto JSON en el que pueda inspeccionar los cambios mediante programación, use el modificador `--no-pretty-print`. Por ejemplo, use `az deployment group what-if --no-pretty-print` para implementaciones de grupos de recursos.
 
 Si quiere devolver los resultados sin colores, abra el archivo de [configuración de la CLI de Azure](/cli/azure/azure-cli-configuration). Establezca **no_color** en **yes**.
 
@@ -147,7 +150,9 @@ Si quiere devolver los resultados sin colores, abra el archivo de [configuració
 Para la API REST, use:
 
 * [Implementaciones: What If](/rest/api/resources/deployments/whatif) para implementaciones de grupos de recursos
-* [Implementaciones: What If en el ámbito de suscripción](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementaciones de nivel de suscripción
+* [Implementaciones: What If en el ámbito de suscripción](/rest/api/resources/deployments/whatifatsubscriptionscope) para implementaciones de nivel de suscripción.
+* [Implementaciones: What If en el ámbito del grupo de administración](/rest/api/resources/deployments/whatifatmanagementgroupscope) para implementaciones de grupos de administración.
+* [Implementaciones: What If en el ámbito de inquilino](/rest/api/resources/deployments/whatifattenantscope) para implementaciones de inquilinos.
 
 ## <a name="change-types"></a>Tipos de cambio
 
@@ -312,7 +317,7 @@ Resource changes: 1 to modify.
 
 Observe en la parte superior de la salida que los colores están definidos para indicar el tipo de cambios.
 
-En la parte inferior de la salida, se muestra que se eliminó el propietario de la etiqueta. El prefijo de dirección cambió de 10.0.0.0/16 a 10.0.0.0/15. Se eliminó la subred denominada subnet001. Recuerde que estos cambios no se implementaron realmente. Obtendrá una vista previa de los cambios que se producirán si implementa la plantilla.
+En la parte inferior de la salida, se muestra que se eliminó el propietario de la etiqueta. El prefijo de dirección cambió de 10.0.0.0/16 a 10.0.0.0/15. Se eliminó la subred denominada subnet001. Recuerde que estos cambios no se implementaron. Obtendrá una vista previa de los cambios que se producirán si implementa la plantilla.
 
 Algunas de las propiedades que se enumeran como eliminadas no cambiarán realmente. Las propiedades se pueden notificar incorrectamente como eliminadas cuando no están en la plantilla, pero se establecen de forma automática durante la implementación como valores predeterminados. Este resultado se considera "ruido" en la respuesta what-if. El recurso implementado final tendrá los valores establecidos para las propiedades. A medida que la operación what-if evolucione, estas propiedades se excluirán del resultado.
 

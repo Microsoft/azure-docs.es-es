@@ -4,12 +4,12 @@ description: Obtenga información sobre el escalado en Azure Kubernetes Service 
 services: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: 41d4088a0942eb408d3d3c9eeb2d13ff38fc0362
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 1a14615e96d5be4fbc8994073d66677997281131
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244521"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499892"
 ---
 # <a name="scaling-options-for-applications-in-azure-kubernetes-service-aks"></a>Opciones de escalado de aplicaciones en Azure Kubernetes Service (AKS)
 
@@ -58,7 +58,7 @@ Cluster Autoscaler se usa normalmente junto con Horizontal Pod Autoscaler. Cuand
 
 Para empezar a usar Cluster Autoscaler en AKS, consulte [Cluster Autoscaler en AKS][aks-cluster-autoscaler].
 
-### <a name="scale-up-events"></a>Escalado vertical de eventos
+### <a name="scale-out-events"></a>Eventos de escalado horizontal
 
 Si un nodo no tiene suficientes recursos de proceso para ejecutar un pod solicitado, el pod no avanza por el progreso de la programación. El pod no se puede iniciar, salvo que haya recursos de proceso adicionales disponibles en el grupo de nodos.
 
@@ -66,7 +66,7 @@ Si Cluster Autoscaler detecta pods que no se pueden programar debido a restricci
 
 Si su aplicación necesita escalar rápidamente, algunos de los pods pueden permanecer en un estado de espera de programación hasta que los nodos adicionales implementados por Cluster Autoscaler puedan aceptar los pods programados. Para las aplicaciones que tienen una alta demanda de ráfaga, puede realizar el escalado con nodos virtuales y Azure Container Instances.
 
-### <a name="scale-down-events"></a>Reducción vertical de eventos
+### <a name="scale-in-events"></a>Eventos de reducción horizontal
 
 Cluster Autoscaler también supervisa el estado de programación de los pods en los nodos que no han recibido recientemente nuevas solicitudes de programación. Este escenario indica que el grupo de nodos tiene más recursos de proceso de los necesarios y que se puede reducir el número de nodos.
 

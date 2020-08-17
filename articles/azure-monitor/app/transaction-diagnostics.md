@@ -4,12 +4,12 @@ description: Diagnósticos de transacción de extremo a extremo de Application I
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 552e80d6c90a18180ab41dce72e995b6804a91bc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671144"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318919"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnósticos de transacción entre componentes unificados
 
@@ -64,7 +64,7 @@ En este panel contraíble se muestran los otros resultados que cumplen los crite
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler y Snapshot Debugger
 
-[Application Insights Profiler](../../azure-monitor/app/profiler.md) y [Snapshot Debugger](snapshot-debugger.md) le ayudan a realizar diagnósticos al nivel de código para conocer los problemas de rendimiento y errores. Con esta experiencia, podrá ver seguimientos de Profiler o instantáneas de cualquier componente con tan solo un clic.
+[Application Insights Profiler](./profiler.md) y [Snapshot Debugger](snapshot-debugger.md) le ayudan a realizar diagnósticos al nivel de código para conocer los problemas de rendimiento y errores. Con esta experiencia, podrá ver seguimientos de Profiler o instantáneas de cualquier componente con tan solo un clic.
 
 Si no pudo conseguir que Profiler funcionara, póngase en contacto con **serviceprofilerhelp\@microsoft.com**.
 
@@ -95,3 +95,4 @@ Las escalas de tiempo se ajustan para los desfases temporales en el gráfico de 
 *¿Por qué faltan en la nueva experiencia la mayoría de las consultas de elementos relacionadas?*
 
 es así por diseño. Todos los elementos relacionados, en todos los componentes, están disponibles en el lado izquierdo (secciones superior e inferior). La nueva experiencia tiene dos elementos relacionados que no se tratan en el lado izquierdo: todos los datos de telemetría de los cinco minutos anteriores y posteriores a este evento y la escala de tiempo del usuario.
+

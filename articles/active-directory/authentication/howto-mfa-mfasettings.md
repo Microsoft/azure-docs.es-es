@@ -12,16 +12,16 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 3c16724dc3eb99549b692df93ee6cd5f1fc0bf30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484023"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027706"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
-Para personalizar la experiencia del usuario final de Azure Multi-Factor Authentication, puede definir opciones de configuración como los umbrales de bloqueo de la cuenta o las alertas y notificaciones de fraude. Algunas configuraciones están directamente en Azure Portal para Azure Active Directory (Azure AD) y otras en un portal de Azure Multi-Factor Authentication independiente.]
+Para personalizar la experiencia del usuario final de Azure Multi-Factor Authentication, puede definir opciones de configuración como los umbrales de bloqueo de la cuenta o las alertas y notificaciones de fraude. Algunas configuraciones están directamente en Azure Portal para Azure Active Directory (Azure AD) y otras en un portal de Azure Multi-Factor Authentication independiente.
 
 Las siguientes configuraciones de Azure Multi-Factor Authentication están disponibles en Azure Portal:
 

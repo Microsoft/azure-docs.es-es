@@ -6,12 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.openlocfilehash: 581d77a5568b9533d85ff476b63001c8a237bc4e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: 1f48cd185f2aa25954627a9ff26f3e59b8e76e7a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84457208"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037319"
 ---
 # <a name="how-to-self-diagnose-and-solve-problems-in-azure-spring-cloud"></a>Procedimientos de autodiagnóstico y solución de problemas en Azure Spring Cloud
 Los diagnósticos de Azure Spring Cloud constituyen una experiencia interactiva que le ayuda a solucionar problemas de la aplicación. No se requiere ninguna configuración. Cuando encuentre problemas, el diagnóstico de Azure Spring Cloud indica lo que es incorrecto y le guía por la información que ayuda a solucionar el problema.

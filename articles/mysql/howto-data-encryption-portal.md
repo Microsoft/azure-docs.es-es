@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/13/2020
-ms.openlocfilehash: c3bb15e494638d543795ac5b95e2513cb5871a2a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 097e07f3f39fc647d311af5e4eface4a7c6b3675
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118637"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498487"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-portal"></a>Cifrado de datos para Azure Database for MySQL mediante Azure Portal
 
@@ -22,13 +23,13 @@ Aprenda a usar Azure Portal para configurar y administrar el cifrado de datos de
 * Debe tener una suscripción de Azure y ser un administrador en esa suscripción.
 * En Azure Key Vault, cree un almacén de claves y una clave que se usará como clave administrada por el cliente.
 * Para ello, el almacén de claves debe tener las siguientes propiedades:
-  * [Eliminación temporal](../key-vault/general/overview-soft-delete.md)
+  * [Eliminación temporal](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Protegido contra purgas](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Protegido contra purgas](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true

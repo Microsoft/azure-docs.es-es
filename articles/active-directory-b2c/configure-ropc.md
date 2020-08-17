@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/12/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4f44e9853182a8fcb222b8f895796cf5efc67def
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3dbafac99ebc1b7472bf884647ad5e8657f0de0b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389605"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482862"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configuración del flujo de credenciales de contraseña de propietario del recurso en Azure AD B2C
 
@@ -30,13 +30,14 @@ El flujo de credenciales de contraseña de propietario del recurso (ROPC) es un 
 
 1. Inicie sesión en Azure Portal como administrador global del inquilino de Azure AD B2C.
 2. Para cambiar al inquilino de Azure AD B2C, seleccione el directorio B2C en la esquina superior derecha del portal.
-3. Haga clic en **Flujos de usuario**y seleccione **Nuevo flujo de usuario**.
-4. Haga clic en la pestaña **Todos** y seleccione **Iniciar sesión mediante ROPC**.
-5. Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
-6. En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
-7. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
-8. Seleccione **Aceptar** y después **Crear**.
-9. Haga clic en **Ejecutar flujo de usuario**.
+3. Seleccione **Flujos de usuario** y **Nuevo flujo de usuario**.
+4. Seleccione **Inicio de sesión con las credenciales de contraseña del propietario del recurso (ROPC)** .
+5. En **Versión**, asegúrese de que se haya seleccionado **Versión preliminar** y, a continuación, seleccione **Crear**.
+7. Proporcione un nombre para el flujo de usuario, como *ROPC_Auth*.
+8. En **Notificaciones de la aplicación**, haga clic en **Mostrar más**.
+9. Seleccione las notificaciones de la aplicación que necesite para su aplicación, como el nombre para mostrar, la dirección de correo electrónico y el proveedor de identidades.
+10. Seleccione **Aceptar** y después **Crear**.
+11. Haga clic en **Ejecutar flujo de usuario**.
 
    A continuación, verá un punto de conexión como en este ejemplo:
 
@@ -131,7 +132,3 @@ Una respuesta correcta se parece al siguiente ejemplo:
 La implementación de Azure AD B2C cumple los estándares de OAuth 2.0 para las credenciales de contraseña de propietario de recursos del cliente público y debe ser compatible con la mayoría de SDK de cliente. Hemos probado este flujo (en producción) exhaustivamente con AppAuth para iOS y AppAuth para Android. Para obtener la información más reciente, consulte [Procedimientos recomendados de implementación modernos para el SDK de aplicaciones nativas para OAuth 2.0 y OpenID Connect](https://appauth.io/).
 
 Descargue ejemplos funcionales que se han configurado para su uso con Azure AD B2C desde GitHub, [para Android](https://aka.ms/aadb2cappauthropc) y [para iOS](https://aka.ms/aadb2ciosappauthropc).
-
-
-
-

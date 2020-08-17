@@ -4,12 +4,12 @@ description: Automatizar informes personalizados diarios, semanales o mensuales 
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 4eb580b90c0bf9acafc4e8f805c2eef7eaae06d3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: abd87af1a9cf61aba21e9231350aabc661e5091b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540084"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320415"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar informes personalizados con datos de Azure Application Insights
 
@@ -150,7 +150,8 @@ Estos pasos se aplican solo si aún no ha configurado ninguna cuenta de SendGrid
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre cómo crear [consultas de análisis](../../azure-monitor/log-query/get-started-queries.md).
+* Más información sobre cómo crear [consultas de análisis](../log-query/get-started-queries.md).
 * Obtenga más información sobre [consultar mediante programación los datos de Application Insights](https://dev.applicationinsights.io/).
 * Más información acerca de [Logic Apps](../../logic-apps/logic-apps-overview.md).
 * Más información sobre [Microsoft Flow](https://ms.flow.microsoft.com).
+

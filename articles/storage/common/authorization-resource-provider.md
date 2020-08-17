@@ -9,12 +9,12 @@ ms.date: 12/12/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 73077b6b25c09c17deb4ad468c79fe6d5ddd648e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d0ef8a8641c3814fa7c9964786a7f24f5e54a01
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85833262"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534947"
 ---
 # <a name="use-the-azure-storage-resource-provider-to-access-management-resources"></a>Uso del proveedor de recursos de Azure Storage para acceder a los recursos de administración
 
@@ -26,17 +26,17 @@ El proveedor de recursos de Azure Storage se puede usar para realizar acciones t
 
 Microsoft proporciona dos API REST para trabajar con recursos de Azure Storage. Estas API forman la base de todas las acciones que se pueden realizar en Azure Storage. La API REST de Azure Storage permite trabajar con los datos de una cuenta de almacenamiento, lo que incluye datos de blobs, colas, archivos y tablas. La API REST del proveedor de recursos de Azure Storage permite trabajar tanto con la cuenta de almacenamiento como con los recursos relacionados.
 
-Una solicitud que lee o escribe datos de blobs requiere permisos diferentes que los de una que realiza una operación de administración. RBAC proporciona un control específico de los permisos de ambos tipos de recursos. Al asignar un rol de RBAC a una entidad de seguridad, asegúrese de que conoce los permisos que está va a conceder. Para obtener una referencia detallada que describa las acciones asociadas a cada rol de RBAC integrado, consulte [Roles integrados en los recursos de Azure](../../role-based-access-control/built-in-roles.md).
+Una solicitud que lee o escribe datos de blobs requiere permisos diferentes que los de una que realiza una operación de administración. RBAC proporciona un control específico de los permisos de ambos tipos de recursos. Cuando asigne un rol de Azure a una entidad de seguridad, asegúrese de que sabe qué permisos va a conceder dicha entidad. Para obtener una referencia detallada que describa las acciones asociadas a cada rol integrado de Azure, consulte [Roles integrados de Azure](../../role-based-access-control/built-in-roles.md).
 
-Azure Storage admite el uso de Azure AD para autorizar solicitudes en Blob Storage y Queue Storage. Para más información sobre los roles de RBAC para las operaciones de datos de blobs y colas, consulte [Autorización del acceso a blobs y colas con Azure Active Directory](storage-auth-aad.md).
+Azure Storage admite el uso de Azure AD para autorizar solicitudes en Blob Storage y Queue Storage. Para más información sobre los roles de Azure para las operaciones de datos de blobs y colas, consulte [Autorización del acceso a blobs y colas mediante Active Directory](storage-auth-aad.md).
 
 ## <a name="assign-management-permissions-with-role-based-access-control-rbac"></a>Asignación de permisos de administración con el control de acceso basado en rol (RBAC)
 
 Cada suscripción de Azure tiene una instancia de Azure Active Directory asociada que administra usuarios, grupos y aplicaciones. A los usuarios, grupos o aplicaciones también se los denomina como entidad de seguridad en el contexto de la [plataforma de identidad de Microsoft](/azure/active-directory/develop/). Mediante el control de acceso basado en rol (RBAC) es posible conceder a los recursos de una suscripción acceso a una entidad de seguridad que se defina en Active Directory.
 
-Cuando se asigna un rol de RBAC a una entidad de seguridad, también se indica el ámbito en el que están en vigor los permisos que concede el rol. En el caso de las operaciones de administración, puede asignar un rol en el nivel de la suscripción, el grupo de recursos o la cuenta de almacenamiento. Para asignar un rol de RBAC a una entidad de seguridad, utilice [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azureps-cmdlets-docs) o las [API REST del proveedor de recursos de Azure Storage](/rest/api/storagerp).
+Cuando se asigna un rol de Azure a una entidad de seguridad, también se indica el ámbito en el que están en vigor los permisos que concede el rol. En el caso de las operaciones de administración, puede asignar un rol en el nivel de la suscripción, el grupo de recursos o la cuenta de almacenamiento. Para asignar un rol de Azure a una entidad de seguridad, utilice [Azure Portal](https://portal.azure.com/), las [herramientas de la CLI de Azure](../../cli-install-nodejs.md), [PowerShell](/powershell/azure/) o la [API REST del proveedor de recursos de Azure Storage](/rest/api/storagerp).
 
-Para obtener más información, consulte [¿Qué es el control de acceso basado en roles (RBAC) de Azure?](../../role-based-access-control/overview.md) y [Roles de administrador de suscripciones clásico de Azure RBAC y roles de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+Para obtener más información, consulte [¿Qué es el control de acceso basado en roles (RBAC) de Azure?](../../role-based-access-control/overview.md) y [Roles de administrador de suscripciones clásico de Azure y roles de administrador de Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 ### <a name="built-in-roles-for-management-operations"></a>Roles integrados para las operaciones de administración
 
@@ -44,7 +44,7 @@ Azure proporciona roles integrados que conceden permisos para llamar a las opera
 
 Los roles integrados que conceden permisos para llamar a las operaciones de administración del almacenamiento incluyen los que se describen en la siguiente tabla:
 
-|    Rol de RBAC    |    Descripción    |    ¿Incluye acceso a las claves de las cuentas?    |
+|    Rol de Azure    |    Descripción    |    ¿Incluye acceso a las claves de las cuentas?    |
 |---------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------|
 | **Propietario** | Puede administrar todos los recursos de almacenamiento y acceder a los recursos.  | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
 | **Colaborador**  | Puede administrar todos los recursos de almacenamiento, pero no puede administrar la asignación a los recursos. | Si, proporciona permisos para ver y volver a generar las claves de la cuenta de almacenamiento. |
@@ -57,7 +57,7 @@ La tercera columna de la tabla indica si el rol integrado admite **Microsoft.Sto
 
 ### <a name="custom-roles-for-management-operations"></a>Roles personalizados para las operaciones de administración
 
-Azure también admite la definición de roles de RBAC personalizados para el acceso a los recursos de administración. Para más información sobre los roles personalizados, consulte [Roles personalizados en los recursos de Azure](../../role-based-access-control/custom-roles.md).
+Azure también admite la definición de roles personalizados de Azure para el acceso a los recursos de administración. Para más información sobre los roles personalizados, consulte [Roles personalizados de Azure](../../role-based-access-control/custom-roles.md).
 
 ## <a name="code-samples"></a>Ejemplos de código
 

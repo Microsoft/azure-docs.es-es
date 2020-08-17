@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b258b0b5dba902e94e8d221e0d8f0292fdec9f67
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: faf0db31b458ed6b8dd4961fffbf2a810990574d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057405"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084490"
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicación de contenido en Azure Portal  
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ Para más información, consulte la [introducción a la entrega de contenidos](m
 > 
 > 
 
-Para actualizar una fecha de expiración en un localizador, puede usar una [API de REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) o una [API de .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
+Para actualizar una fecha de expiración en un localizador, puede usar una [API de REST](/rest/api/media/operations/locator#update_a_locator) o una [API de .NET](https://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
 > Cuando se actualiza la fecha de expiración de un localizador de firma de acceso compartido, la dirección URL cambia.
@@ -97,4 +97,3 @@ Se aplican algunas consideraciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
-

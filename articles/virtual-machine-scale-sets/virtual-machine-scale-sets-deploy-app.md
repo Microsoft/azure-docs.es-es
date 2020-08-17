@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 7c39088890680b6cfc903083283ed09cb7618d16
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 90cda1e8d48e6c7f9e925d6d1b9e11b5d2514e93
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83124931"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080529"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementación de la aplicación en conjuntos de escalado de máquinas virtuales
 
@@ -113,4 +113,4 @@ Si usa una imagen de máquina virtual personalizada con la aplicación preinstal
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Al crear e implementar aplicaciones en los conjuntos de escalado, puede revisar [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) (Información general sobre el diseño del conjunto de escalado). Para obtener más información sobre cómo administrar el conjunto de escalado, consulte [Use PowerShell to manage your scale set](virtual-machine-scale-sets-windows-manage.md) (Uso de PowerShell para administrar el conjunto de escalado).
+Al crear e implementar aplicaciones en los conjuntos de escalado, puede revisar [Scale Set Design Overview](virtual-machine-scale-sets-design-overview.md) (Información general sobre el diseño del conjunto de escalado). Para obtener más información sobre cómo administrar el conjunto de escalado, consulte [Use PowerShell to manage your scale set](./virtual-machine-scale-sets-manage-powershell.md) (Uso de PowerShell para administrar el conjunto de escalado).

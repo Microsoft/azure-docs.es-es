@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a92e96a835f24ac54fa55b05086a35b9a91d609e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 94c668e7ffaff81fed9c2e511bc38239069fa43e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80298345"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305217"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conexión de equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics en Azure Monitor
 
@@ -89,7 +89,7 @@ La puerta de enlace de Log Analytics está disponible en los idiomas siguientes:
 
 La puerta de enlace de Log Analytics solo admite Seguridad de la capa de transporte (TLS) 1.0, 1.1 y 1.2.  No se admite Capa de sockets seguros (SSL).  Para garantizar la seguridad de datos en tránsito en Log Analytics, configure la puerta de enlace para que use como mínimo TLS 1.2. Las versiones anteriores de TLS o SSL son vulnerables. Aunque permiten actualmente compatibilidad con versiones anteriores, evite su uso.  
 
-Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
+Para información adicional, revise [Sending data securely using TLS 1.2](./data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número admitido de conexiones del agente
 
@@ -149,7 +149,7 @@ Para instalar una puerta de enlace mediante el asistente para la instalación, s
 
 ## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instalación de la puerta de enlace de Log Analytics mediante la línea de comandos
 
-El archivo descargado para la puerta de enlace es un paquete de Windows Installer que admite la instalación silenciosa desde la línea de comandos u otro método automatizado. Si no está familiarizado con las opciones de línea de comandos estándar de Windows Installer, consulte [Opciones de línea de comandos](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).
+El archivo descargado para la puerta de enlace es un paquete de Windows Installer que admite la instalación silenciosa desde la línea de comandos u otro método automatizado. Si no está familiarizado con las opciones de línea de comandos estándar de Windows Installer, consulte [Opciones de línea de comandos](/windows/desktop/msi/command-line-options).
  
 En la tabla siguiente se resaltan los parámetros admitidos por el programa de instalación.
 
@@ -185,11 +185,11 @@ Después de la instalación, puede confirmar que se ha aceptado la configuració
 
 ## <a name="configure-network-load-balancing"></a>Configuración de equilibrio de carga de red
 
-Puede configurar la puerta de enlace para lograr alta disponibilidad con equilibrio de carga de red (NLB) mediante [Equilibrio de carga de red de (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing) de Microsoft, [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) o equilibradores de carga basados en hardware. El equilibrador de carga administra el tráfico al redirigir las conexiones solicitadas desde los agentes de Log Analytics o los servidores de administración de Operations Manager mediante sus nodos. Si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otros nodos.
+Puede configurar la puerta de enlace para lograr alta disponibilidad con equilibrio de carga de red (NLB) mediante [Equilibrio de carga de red de (NLB)](/windows-server/networking/technologies/network-load-balancing) de Microsoft, [Azure Load Balancer](../../load-balancer/load-balancer-overview.md) o equilibradores de carga basados en hardware. El equilibrador de carga administra el tráfico al redirigir las conexiones solicitadas desde los agentes de Log Analytics o los servidores de administración de Operations Manager mediante sus nodos. Si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otros nodos.
 
 ### <a name="microsoft-network-load-balancing"></a>Equilibrio de carga de red de Microsoft
 
-Para más información sobre cómo diseñar e implementar un clúster de equilibrio de carga de red de Windows Server 2016, consulte [Equilibrio de carga de red](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing). Los pasos siguientes describen cómo configurar un clúster de equilibrio de carga de red de Microsoft.  
+Para más información sobre cómo diseñar e implementar un clúster de equilibrio de carga de red de Windows Server 2016, consulte [Equilibrio de carga de red](/windows-server/networking/technologies/network-load-balancing). Los pasos siguientes describen cómo configurar un clúster de equilibrio de carga de red de Microsoft.  
 
 1. Inicie sesión en el servidor Windows que sea miembro del clúster NLB con una cuenta administrativa.  
 2. Abra el Administrador de equilibrio de carga de red en el Administrador del servidor, haga clic en **Herramientas** y, luego, en **Administrador de equilibrio de carga de red**.
@@ -350,7 +350,7 @@ Para recopilar eventos registrados por la puerta de enlace, debe tener instalado
 
 En la tabla siguiente, se muestran los identificadores de evento y las descripciones de los eventos de registro de la puerta de enlace de Log Analytics.
 
-| **Id** | **Descripción** |
+| **ID** | **Descripción** |
 | --- | --- |
 | 400 |Cualquier error de la aplicación que no tiene un identificador específico. |
 | 401 |Configuración errónea. Por ejemplo, listenPort = "text", en lugar de un entero. |
@@ -388,4 +388,5 @@ Para solicitar asistencia, seleccione el icono de signo de interrogación en la 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Agregue orígenes de datos](../../azure-monitor/platform/agent-data-sources.md) para recopilar datos de los orígenes conectados y almacenar los datos en el área de trabajo de Log Analytics.
+[Agregue orígenes de datos](./agent-data-sources.md) para recopilar datos de los orígenes conectados y almacenar los datos en el área de trabajo de Log Analytics.
+

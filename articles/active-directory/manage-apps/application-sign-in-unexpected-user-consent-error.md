@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a7709cf0522727257025b2dddc495b20fe8448
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0be99a673fe3d062e114f375891f3c821c118d76
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763761"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499507"
 ---
 # <a name="unexpected-error-when-performing-consent-to-an-application"></a>Error inesperado al otorgar consentimiento a una aplicación
 
@@ -38,6 +38,8 @@ Determinadas condiciones deben cumplirse para que un usuario otorgue su consenti
 Este error se produce cuando un usuario que no es administrador de la empresa intenta usar una aplicación que está solicitando permisos que solo un administrador puede conceder. Este error se puede solucionar si un administrador otorga el acceso a la aplicación en nombre de la organización.
 
 Este error también puede producirse cuando se impide que un usuario otorgue consentimiento a una aplicación debido a que Microsoft detecta que la solicitud de permisos es arriesgada. En este caso, también se registrará un evento de auditoría con la categoría "ApplicationManagement", el tipo de actividad "Consentimiento a la aplicación" y el motivo de estado "Aplicación arriesgada detectada".
+
+Otro escenario en el que se puede producir este error es cuando se requiere la asignación de usuario para la aplicación, pero no se proporcionó ningún consentimiento del administrador. En este caso, el administrador debe proporcionar primero el consentimiento del administrador.   
 
 ## <a name="policy-prevents-granting-permissions-error"></a>Error porque la directiva impide conceder permisos
 * **AADSTS90093:** Un administrador de &lt;tenantDisplayName&gt; ha establecido una directiva que le impide otorgar a &lt;nombre de la aplicación&gt; los permisos que está solicitando. Póngase en contacto con un administrador de &lt;tenantDisplayName&gt;, que puede conceder permisos a esta aplicación en su nombre.

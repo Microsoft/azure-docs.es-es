@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 11/14/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bf1e3abc1d4fceaa6547f63346ecd64e1128eac2
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 1d2675a55133d405041be6e309e0cc4d1596084e
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234957"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835497"
 ---
 # <a name="windows-virtual-machines-in-azure"></a>Máquinas virtuales Windows en Azure
 
@@ -30,7 +30,7 @@ Las máquinas virtuales de Azure se pueden usar de diversas maneras. Ejemplos:
 El número de máquinas virtuales usadas por su aplicación se puede escalar vertical y horizontalmente a la cifra necesaria para satisfacer sus necesidades.
 
 ## <a name="what-do-i-need-to-think-about-before-creating-a-vm"></a>¿Qué hay que considerar antes de crear una máquina virtual?
-Siempre hay gran cantidad de [consideraciones de diseño](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/windows-vm) cuando se crea una infraestructura de aplicaciones en Azure. Es importante pensar en estos aspectos de una máquina virtual antes de empezar:
+Siempre hay gran cantidad de [consideraciones de diseño](/azure/architecture/reference-architectures/n-tier/windows-vm) cuando se crea una infraestructura de aplicaciones en Azure. Es importante pensar en estos aspectos de una máquina virtual antes de empezar:
 
 * Los nombres de los recursos de la aplicación
 * La ubicación donde se almacenan los recursos
@@ -47,17 +47,17 @@ En esta tabla se muestran algunas de las formas en que puede obtener una lista d
 
 | Método | Descripción |
 | --- | --- |
-| Azure portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
-| Azure PowerShell |Use el comando [Get-AzLocation](https://docs.microsoft.com/powershell/module/az.resources/get-azlocation). |
-| API DE REST |Use la operación para [mostrar la lista de ubicaciones](https://docs.microsoft.com/rest/api/resources/subscriptions). |
-| Azure CLI |Use la operación[az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest). |
+| Azure Portal |Seleccione una ubicación en la lista cuando cree una máquina virtual. |
+| Azure PowerShell |Use el comando [Get-AzLocation](/powershell/module/az.resources/get-azlocation). |
+| API DE REST |Use la operación para [mostrar la lista de ubicaciones](/rest/api/resources/subscriptions). |
+| Azure CLI |Use la operación[az account list-locations](/cli/azure/account?view=azure-cli-latest). |
 
 ## <a name="availability"></a>Disponibilidad
 Azure anunció un Acuerdo de Nivel de Servicio líder de la industria de máquinas virtuales de una sola instancia del 99,9 % siempre y cuando la máquina virtual se implemente con Premium Storage en todos los discos.  Para que su implementación pueda optar al Acuerdo de Nivel de Servicio estándar de máquina virtual del 99,95 %, debe implementar dos o más máquinas virtuales que ejecuten la carga de trabajo dentro de un conjunto de disponibilidad. Un conjunto de disponibilidad garantiza que las máquinas virtuales se distribuyen en varios dominios de error de los centros de datos de Azure y que se implementan en hosts con diferentes ventanas de mantenimiento. En el [SLA de Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) completo se explica la disponibilidad garantizada de Azure como un conjunto.
 
 
 ## <a name="vm-size"></a>Tamaño de VM
-El [tamaño](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.
+El [tamaño](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de la máquina virtual que use depende de la carga de trabajo que vaya a ejecutar. El tamaño que elija determina factores tales como la capacidad de almacenamiento, la memoria y la capacidad de procesamiento. Azure ofrece una amplia variedad de tamaños para admitir muchos tipos de usos.
 
 Azure cobra un [precio por hora](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) en función del tamaño y el sistema operativo de la máquina virtual. Para las fracciones de hora, solo cobra los minutos usados. El precio del almacenamiento se calcula y se cobra por separado.
 
@@ -73,29 +73,29 @@ En esta tabla se muestran algunas maneras de encontrar la información sobre una
 
 | Método | Descripción |
 | --- | --- |
-| Azure portal |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
-| Azure PowerShell |[Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
-| API de REST |[List image publishers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](https://docs.microsoft.com/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
-| Azure CLI |[az vm image list-publishers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *ubicación*<BR>[az vm image list-offers](https://docs.microsoft.com/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
+| Azure Portal |Los valores se especifican automáticamente cuando se selecciona una imagen para usarla. |
+| Azure PowerShell |[Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) -Location *location*<BR>[Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) -Location *location* -Publisher *publisherName*<BR>[Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) -Location *location* -Publisher *publisherName* -Offer *offerName* |
+| API de REST |[List image publishers](/rest/api/compute/platformimages/platformimages-list-publishers) (Lista de publicadores de imágenes)<BR>[List image offers](/rest/api/compute/platformimages/platformimages-list-publisher-offers) (Lista de ofertas de imágenes)<BR>[List image skus](/rest/api/compute/platformimages/platformimages-list-publisher-offer-skus) (Lista de SKU de imágenes) |
+| Azure CLI |[az vm image list-publishers](/cli/azure/vm/image?view=azure-cli-latest) --location *ubicación*<BR>[az vm image list-offers](/cli/azure/vm/image?view=azure-cli-latest) --location *location* --publisher *publisherName*<BR>[az vm image list-skus](/cli/azure/vm?view=azure-cli-latest) --location *location* --publisher *publisherName* --offer *offerName*|
 
 Puede elegir [cargar y usar su propia imagen](upload-generalized-managed.md) y, cuando lo haga, no se usan el nombre del publicador, la oferta ni la SKU.
 
 ### <a name="extensions"></a>Extensiones
-Las [extensiones](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) de máquina virtual ofrecen funcionalidades adicionales de máquina virtual por medio de la configuración posterior a la implementación y tareas automatizadas.
+Las [extensiones](../extensions/features-windows.md?toc=/azure/virtual-machines/windows/toc.json) de máquina virtual ofrecen funcionalidades adicionales de máquina virtual por medio de la configuración posterior a la implementación y tareas automatizadas.
 
 Pueden llevarse a cabo estas tareas comunes mediante las extensiones:
 
-* **Ejecutar scripts personalizados**: la [extensión de script personalizado](extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayuda a configurar cargas de trabajo en la máquina virtual al ejecutar su script cuando se aprovisiona la máquina virtual.
-* **Implementar y administrar configuraciones**: la [extensión de configuración de estado deseado (DSC) de PowerShell](extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayuda a configurar DSC en una máquina virtual para administrar entornos y configuraciones.
-* **Recopilar datos de diagnóstico**: la [extensión Diagnósticos de Azure](extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) ayuda a configurar la máquina virtual para que recopile datos de diagnóstico que sirvan para supervisar el estado de la aplicación.
+* **Ejecutar scripts personalizados**: la [extensión de script personalizado](../extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json) ayuda a configurar cargas de trabajo en la máquina virtual al ejecutar su script cuando se aprovisiona la máquina virtual.
+* **Implementar y administrar configuraciones**: la [extensión de configuración de estado deseado (DSC) de PowerShell](../extensions/dsc-overview.md?toc=/azure/virtual-machines/windows/toc.json) ayuda a configurar DSC en una máquina virtual para administrar entornos y configuraciones.
+* **Recopilar datos de diagnóstico**: la [extensión Diagnósticos de Azure](../extensions/diagnostics-template.md?toc=/azure/virtual-machines/windows/toc.json) ayuda a configurar la máquina virtual para que recopile datos de diagnóstico que sirvan para supervisar el estado de la aplicación.
 
 ### <a name="related-resources"></a>Recursos relacionados
 Los recursos de esta tabla se usan en la máquina virtual y deben ya existir o crearse al tiempo que la máquina virtual.
 
-| Recurso | Obligatorio | Descripción |
+| Resource | Obligatorio | Descripción |
 | --- | --- | --- |
 | [Grupos de recursos](../../azure-resource-manager/management/overview.md) |Sí |La máquina virtual debe encontrarse en un grupo de recursos. |
-| [Cuenta de almacenamiento](../../storage/common/storage-create-storage-account.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
+| [Cuenta de almacenamiento](../../storage/common/storage-account-create.md) |Sí |La máquina virtual necesita la cuenta de almacenamiento para almacenar sus discos duros virtuales. |
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) |Sí |La máquina virtual debe ser miembro de una red virtual. |
 | [Dirección IP pública](../../virtual-network/public-ip-addresses.md) |No |La máquina virtual puede tener una dirección IP pública asignada para acceder remotamente a ella. |
 | [Interfaz de red](../../virtual-network/virtual-network-network-interface.md) |Sí |La máquina virtual necesita la interfaz de red para comunicarse en la red. |
@@ -108,4 +108,3 @@ Creación de la primera máquina virtual
 - [Portal](quick-create-portal.md)
 - [PowerShell](quick-create-powershell.md)
 - [CLI de Azure](quick-create-cli.md)
-

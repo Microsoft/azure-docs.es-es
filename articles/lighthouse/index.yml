@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: JnHs
   ms.author: jenhayes
-  ms.date: 04/14/2020
-  ms.openlocfilehash: 8599ddc8a4216b97be6d5bf183eea68654ff65a4
-  ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+  ms.date: 07/20/2020
+  ms.openlocfilehash: f30f07fd200a5ac14e9733e5def7541b197004b2
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/08/2020
-  ms.locfileid: "86111548"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87072670"
 landingContent:
 - title: Acerca de Azure Lighthouse
   linkLists:
@@ -80,7 +80,7 @@ landingContent:
     - text: Uso de registros de Azure Monitor
       url: ./how-to/monitor-at-scale.md
     - text: Supervisión de cambios en la delegación
-      url: ./how-to/monitor-at-scale.md
+      url: ./how-to/monitor-delegation-changes.md
     - text: implementación de Azure Policy
       url: ./how-to/policy-at-scale.md
     - text: Implementación de una directiva que se pueda corregir

@@ -3,12 +3,12 @@ title: Cómo detener la supervisión del clúster de Azure y Red Hat OpenShift 
 description: En este artículo se describe cómo puede detener la supervisión del clúster de Red Hat OpenShift en Azure y Red Hat OpenShift versión 4 con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 768c4db8d72778b555a4f343cf2e23b8fa861991
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: bf61457b9c8cff40eb3fee2c93c7184fbaae6db5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82196965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091154"
 ---
 # <a name="how-to-stop-monitoring-your-azure-and-red-hat-openshift-v4-cluster"></a>Cómo detener la supervisión del clúster de Azure y Red Hat OpenShift v4
 
@@ -49,4 +49,4 @@ El cambio de configuración puede tardar unos minutos en completarse. Dado que H
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el área de trabajo de Log Analytics se creó solamente para admitir la supervisión del clúster y ya no es necesaria, tiene que eliminarla manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Si el área de trabajo de Log Analytics se creó solamente para admitir la supervisión del clúster y ya no es necesaria, tiene que eliminarla manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../platform/delete-workspace.md).

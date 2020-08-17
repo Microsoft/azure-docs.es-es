@@ -6,12 +6,12 @@ ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
-ms.openlocfilehash: 2eb1a016e04a4150a76112c68683926810f5c66d
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: fa834e3ac4946c4f617e857342f850445eebfd30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80674556"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87055453"
 ---
 # <a name="quickstart-create-your-first-http-triggered-function-with-kotlin-and-intellij"></a>Inicio rápido: Creación de la primera función desencadenada por HTTP con Kotlin e IntelliJ
 
@@ -26,7 +26,7 @@ Para desarrollar una función con Kotlin e IntelliJ, instale el software siguien
 - [Kit de desarrolladores de Java](https://aka.ms/azure-jdks) (JDK), versión 8
 - [Apache Maven](https://maven.apache.org), versión 3.0 o posterior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versión Community o Ultimate con Maven
-- [CLI de Azure](https://docs.microsoft.com/cli/azure)
+- [CLI de Azure](/cli/azure)
 - [Versión 2.x](functions-run-local.md#v2) de Azure Functions Core Tools. que proporciona un entorno de desarrollo local para escribir, ejecutar y depurar Azure Functions.
 
 > [!IMPORTANT]
@@ -45,7 +45,7 @@ Para desarrollar una función con Kotlin e IntelliJ, instale el software siguien
 1. Seleccione **Aceptar** y después **Siguiente**.
 1. Especifique los detalles del proyecto actual y seleccione **Finish** (Finalizar).
 
-Maven crea los archivos del proyecto en una carpeta nueva con el mismo nombre que el valor _ArtifactId_. El código generado en el proyecto es una función [desencadenada por HTTP](/azure/azure-functions/functions-bindings-http-webhook) simple que devuelve el cuerpo de la solicitud HTTP desencadenadora.
+Maven crea los archivos del proyecto en una carpeta nueva con el mismo nombre que el valor _ArtifactId_. El código generado en el proyecto es una función [desencadenada por HTTP](./functions-bindings-http-webhook.md) simple que devuelve el cuerpo de la solicitud HTTP desencadenadora.
 
 ## <a name="run-functions-locally-in-the-ide"></a>Ejecución local de funciones en el IDE
 

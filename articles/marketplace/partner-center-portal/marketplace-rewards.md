@@ -5,29 +5,31 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 01/18/2019
-ms.openlocfilehash: e393b6a499ad2b84f25ca1a1c062ca4ef2eec21c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 25a164fc8709d7c9f6249336ece34bd8a5378f23
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120745"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496022"
 ---
 # <a name="marketplace-rewards"></a>Recompensas de Marketplace
 
-Las Recompensas de Marketplace están diseñadas para ayudarlo en su fase de crecimiento específica, empezando por las actividades de reconocimiento para ayudarlo a obtener sus primeros clientes. A medida que crezca en Marketplace, podrá desbloquear nuevas ventajas diseñadas para ayudarlo a convertir clientes y cerrar acuerdos. 
+Marketplace Rewards están diseñado para ayudarle en su fase de crecimiento específica, empezando por las actividades de reconocimiento para que pueda obtener sus primeros clientes. A medida que crezca en el marketplace comercial, podrá desbloquear nuevas ventajas diseñadas para ayudarlo a convertir clientes y cerrar acuerdos.
 
-El programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento están diseñadas para llevarle hasta la fase siguiente, lo que le permite llevar el negocio a los clientes de Microsoft, con el campo de Microsoft, y a través del canal de Microsoft mediante el aprovechamiento de Marketplace comercial como plataforma. 
+Este programa crea un bucle de retroalimentación positivo: las ventajas de cada fase de crecimiento le permitirán llegar hasta la fase siguiente, por lo que podrá llevar su negocio a los clientes de Microsoft gracias al campo de Microsoft y a través del canal de Microsoft; para ello, solo debe aprovechar la opción comercial de Marketplace como plataforma.
 
-Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](../determine-your-listing-type.md#choose-a-publishing-option).
+Sus ventajas se diferencian en función de si la oferta es de [Lista, Prueba o Transacción](../determine-your-listing-type.md#choose-a-call-to-action).
 
-Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad. 
+Un miembro del equipo de Recompesas se pondrá en contacto con usted cuando se publique la oferta, en función de su idoneidad.
 
-En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma de Marketplace, se desbloquean mayores ventajas por nivel. 
+En el caso de los asociados de transacciones, a medida que aumenta las ventas facturadas a través de la plataforma de Marketplace, se desbloquean mayores ventajas por nivel.
 
-El requisito mínimo para publicar en los escaparates es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma. 
+El requisito mínimo para publicar en los escaparates es un MPNID, por lo que estas ventajas están disponibles para todos los asociados, con independencia del estado de la competencia de MPN o del tipo de asociado. Cada asociado está capacitado para hacer crecer su negocio con Marketplace como plataforma.
 
-Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/) 
+Obtendrá ayuda para entender los recursos que tiene disponibles y en la implementación de los procedimientos recomendados, lo que también puede [revisar por su cuenta.](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/)
 
 Compruebe si cumple los requisitos del programa Marketplace Rewards [aquí](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace).
 
@@ -43,15 +45,12 @@ Los pasos para comenzar son sencillos:
     1. Proporcione el teléfono de contacto y el idioma preferido para este contacto de marketing. Cuando termine de escribir esta información, seleccione **Asignar usuario**.
     1. Una vez que haya actualizado el contacto de marketing, seleccione **Activar** para la ventaja que desea empezar a usar. Una vez que active una ventaja, un miembro del equipo de Rewards se comunicará con el contacto de marketing en el plazo de una semana.
 
-**Ventajas técnicas**
+## <a name="technical-benefits"></a>Ventajas técnicas
 
 1. Puede usar sus ventajas técnicas para solicitar asistencia técnica durante las fases de preventa, diseño, implementación y desarrollo de aplicaciones de sus soluciones híbridas y en la nube. Para solicitar asistencia, rellene el formulario de solicitud y, a continuación, seleccione **Enviar solicitud**.
 2. El uso de las ventajas de patrocinio de Azure se compartirá por correo electrónico a medida que desbloquee estas ventajas.
 
->[!Note]
->Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe con la organización quién es el propietario de la oferta en cuestión, ya sea mirando Cloud Partner Portal o en el Centro de partners. Deberían tener la comunicación y los pasos siguientes.
-
->[!Note] 
->Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en https://aka.ms/marketplacepublishersupport.
+>[!NOTE]
+>Si su oferta ha estado activa durante más de cuatro semanas y no ha recibido ningún mensaje, compruebe en el Centro de partners quién es el propietario de la oferta en la organización. Deberían tener la comunicación y los pasos siguientes. Si no puede determinar el propietario o si el propietario ya no trabaja en la empresa, puede generar una incidencia de soporte técnico en https://aka.ms/marketplacepublishersupport.
 
 El ámbito de las actividades disponibles para usted se expande a medida que crecen sus ofertas en Marketplace. Todas las listas reciben un nivel básico de recomendaciones de optimización y promoción como parte de un correo electrónico de autoservicio de recursos y procedimientos recomendados.

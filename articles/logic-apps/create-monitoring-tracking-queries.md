@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 46989ed2468469443d4e91a1834bc20b12c25a1e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: cb1af437fc663fcb95c768ec295862209a26064e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76907315"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090406"
 ---
 # <a name="view-and-create-queries-for-monitoring-and-tracking-in-azure-monitor-logs-for-azure-logic-apps"></a>Visualización y creación de consultas para supervisar y realizar un seguimiento de los registros de Azure Monitor para Azure Logic Apps
 
-Puede ver las consultas subyacentes que producen los resultados en los [registros de Azure Monitor](../log-analytics/log-analytics-overview.md) y crear consultas que filtren los resultados en función de sus criterios específicos. Por ejemplo, puede encontrar mensajes según un número de control de intercambio específico. Las consultas usan el [lenguaje de consulta Kusto](https://aka.ms/LogAnalyticsLanguageReference), que puede modificar si quiere ver otros resultados. Para más información, consulte las [consultas de registro de Azure Monitor](../azure-monitor/log-query/query-language.md).
+Puede ver las consultas subyacentes que producen los resultados en los [registros de Azure Monitor](../azure-monitor/log-query/log-query-overview.md) y crear consultas que filtren los resultados en función de sus criterios específicos. Por ejemplo, puede encontrar mensajes según un número de control de intercambio específico. Las consultas usan el [lenguaje de consulta Kusto](https://aka.ms/LogAnalyticsLanguageReference), que puede modificar si quiere ver otros resultados. Para más información, consulte las [consultas de registro de Azure Monitor](../azure-monitor/log-query/query-language.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 

@@ -4,15 +4,15 @@ description: Obtenga información acerca de cómo renovar automáticamente las r
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 02/12/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: fc82fe0f63b244adb74d2242d25270528669380a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 644156c29ec084bbc3050aa1d12b779b53084524
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77199405"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286553"
 ---
 # <a name="automatically-renew-reservations"></a>Renovación automática de reservas
 

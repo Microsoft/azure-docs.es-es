@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: f051d02ac06163cf1861ab6bfc6afd0dcbb0ad8a
-ms.sourcegitcommit: 856db17a4209927812bcbf30a66b14ee7c1ac777
+ms.openlocfilehash: 7058160819c9b6ccc3f63511f86e930fcbfc413b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82559533"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011658"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Supervisión de métricas y registros de diagnóstico de Media Services a través de Azure Monitor
 
@@ -58,7 +58,7 @@ También debe revisar las [cuotas y límites](limits-quotas-constraints.md) de l
 
 ### <a name="streaming-endpoint"></a>Punto de conexión de streaming
 
-Se admiten estas métricas de [Puntos de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) de Media Services:
+Se admiten estas métricas de [Puntos de conexión de streaming](/rest/api/media/streamingendpoints) de Media Services:
 
 |Nombre de métrica|Nombre para mostrar|Descripción|
 |---|---|---|

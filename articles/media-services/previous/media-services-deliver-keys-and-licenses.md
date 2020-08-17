@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b1f8b158c511919a72e72629d72b0e5ff73ff7db
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58657ca604e7bd0fc081d6a5bb6ef18a8b7b5b48
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78268109"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091715"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Uso de Media Services para entregar licencias de DRM a claves AES 
 
 > [!NOTE]
-> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. <br/>Finalice la compra de la versión más reciente, [Media Services v3](../latest/index.yml). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 Azure Media Services permite ingerir, codificar, agregar protección de contenido y transmitir el contenido. Para obtener más información, consulte [Usar el cifrado dinámico común de PlayReady o Widevine](media-services-protect-with-playready-widevine.md). Algunos clientes quieren utilizar Media Services únicamente para entregar licencias y/o claves, así como para codificar, cifrar y hacer streaming con sus servidores locales. Este artículo describe cómo puede usar Media Services para entregar licencias de PlayReady y/o Widevine, pero realizar el resto con los servidores locales. 
 

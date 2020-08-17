@@ -5,14 +5,15 @@ author: roygara
 ms.service: storage
 ms.topic: how-to
 ms.date: 09/19/2017
+ms.custom: devx-track-java
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 54f545c2d4f897f85ab3e5fd10d07666e93e4f41
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b1edc13888a42086cdcd3c3c7756491bd5f43241
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85509683"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87314482"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Desarrollo con Java para Azure Files
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]

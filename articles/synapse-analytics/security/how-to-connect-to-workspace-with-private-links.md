@@ -1,5 +1,5 @@
 ---
-title: Conexión a un área de trabajo de Azure Synapse mediante vínculos privados
+title: Conexión a un área de trabajo de Synapse mediante vínculos privados
 description: En este artículo se explica cómo conectarse a su área de trabajo de Azure Synapse mediante vínculos privados.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 0f2e01390a1ddd179e50523a8b5748994524a52e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17636bf993df5105093ca690e36db22493a2472e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193879"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005980"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Conexión a su área de trabajo de Azure Synapse mediante vínculos privados (versión preliminar)
 
@@ -47,7 +47,7 @@ Seleccione **Siguiente: Configuración >** para avanzar a la siguiente parte de 
 
 En la pestaña **Configuración**, seleccione la **Red virtual** y la **Subred** en la que se debe crear el punto de conexión privado. También debe crear un registro DNS que se asigne al punto de conexión privado.
 
-Seleccione **Sí** para **Integrar con la zona DNS privada** para integrar el punto de conexión privado en una zona DNS privada. Si no tiene una zona DNS privada asociada a la red virtual, se crea una nueva zona DNS privada. Seleccione **Revisar y crear** cuando haya terminado.
+Seleccione **Sí** para **Integrar con la zona DNS privada** para integrar el punto de conexión privado en una zona DNS privada. Si no tiene una zona DNS privada asociada a la instancia de Microsoft Azure Virtual Network, se crea una nueva zona DNS privada. Seleccione **Revisar y crear** cuando haya terminado.
 
 ![Selección de los detalles de suscripción y región](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-4.png)
 
@@ -57,7 +57,7 @@ Una vez que se complete la implementación, abra el área de trabajo de Azure Sy
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre [Red virtual de área de trabajo administrada](./synapse-workspace-managed-vnet.md)
+Más información sobre [Red virtual del área de trabajo administrada](./synapse-workspace-managed-vnet.md)
 
 Más información sobre los [puntos de conexión privados administrados](./synapse-workspace-managed-private-endpoints.md)
 

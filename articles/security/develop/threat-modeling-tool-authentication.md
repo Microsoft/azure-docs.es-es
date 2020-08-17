@@ -1,6 +1,6 @@
 ---
 title: 'Autenticación: Herramienta de modelado de amenazas de Microsoft (Azure) | Microsoft Docs'
-description: mitigaciones para amenazas expuestas en Threat Modeling Tool
+description: Más información sobre la mitigación de la autenticación en Threat Modeling Tool. Consulte la información de mitigación y los ejemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref
-ms.openlocfilehash: 569e8d769d56acbb4c7fb4258952ec19e44b58e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: has-adal-ref, devx-track-javascript
+ms.openlocfilehash: 11158749f3cae222c0948286e7365b1629cebbf2
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82607833"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543986"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Marco de seguridad: autenticación | Mitigaciones
 

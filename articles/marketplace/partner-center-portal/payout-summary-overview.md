@@ -4,26 +4,26 @@ description: En el resumen de pagos se muestran los detalles sobre el dinero que
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 087f7df8f8e3cc5e6e01ff023a88306d5fc4102d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86535967"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87479819"
 ---
 # <a name="payout-summary-overview"></a>Introducción al resumen de pagos
 
 El [resumen de pagos](./payout-summary.md) muestra detalles sobre el dinero que ha ganado con Microsoft. También le permite saber cuándo recibirá los pagos y cuánto le pagarán.
 
-Si vende ofertas en Azure Marketplace, también verá información sobre los pagos realizados correctamente. Para más información sobre el pago en Azure Marketplace, consulte las [directivas de participación de Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) y el [contrato del editor de Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+Si vende ofertas en Azure Marketplace, también verá información sobre los pagos realizados correctamente. Para más información sobre el pago en Azure Marketplace, consulte las [directivas de participación de Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) y el [contrato del editor de Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Para poder acceder a esta opción, sus ganancias deben alcanzar el [umbral de pago](./payment-thresholds-methods-timeframes.md) de 50 USD. Para más información sobre el umbral de pago, consulte el [contrato del editor de Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3ypvt).
+> Para poder acceder a esta opción, sus ganancias deben alcanzar el [umbral de pago](./payment-thresholds-methods-timeframes.md) de 50 USD. Para más información sobre el umbral de pago, consulte el [contrato del editor de Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
-Todos los informes y la información detallada de la opción de publicación de transacciones están disponibles en la sección Análisis del Centro de partners, al que se accede mediante este icono en la esquina superior derecha del portal:
+Para ver los detalles de pago, inicie sesión en el [Centro de partners](https://partner.microsoft.com/dashboard/home) y seleccione el icono de pago en la esquina superior derecha de la pantalla:
 
 ![Se muestra el icono Pago en la esquina superior derecha del portal del Centro de partners.](./media/payout-overview.png)
 

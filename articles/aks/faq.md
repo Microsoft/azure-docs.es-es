@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 description: Encuentre respuestas a algunas de las preguntas comunes sobre Azure Kubernetes Service (AKS).
 ms.topic: conceptual
-ms.date: 05/14/2020
-ms.openlocfilehash: ba4ceaf0d7f9e3b344b2a6efbb84f2145c4a2f65
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.date: 07/31/2020
+ms.openlocfilehash: 6d30bc1faa6a896233d09f9247fe8c56f82371fa
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86275723"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87485633"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 
@@ -79,7 +79,7 @@ Mientras trabaje con el grupo de recursos del nodo, tenga en cuenta que no puede
 
 ## <a name="can-i-modify-tags-and-other-properties-of-the-aks-resources-in-the-node-resource-group"></a>¿Puedo modificar etiquetas y otras propiedades de los recursos de AKS en el grupo de recursos del nodo?
 
-Si modifica o elimina etiquetas creadas por Azure y otras propiedades de recursos en el grupo de recursos del nodo, es posible que obtenga resultados inesperados, como errores de escalado y actualización. AKS permite crear y modificar las etiquetas personalizadas creadas por los usuarios finales. Es posible que quiera crear o modificar etiquetas personalizadas, por ejemplo, para asignar un centro de costos o una unidad de negocio. Esto se puede lograr mediante la creación de directivas de Azure con un ámbito en el grupo de recursos administrado.
+Si modifica o elimina etiquetas creadas por Azure y otras propiedades de recursos en el grupo de recursos del nodo, es posible que obtenga resultados inesperados, como errores de escalado y actualización. AKS permite crear y modificar etiquetas personalizadas generadas por usuarios finales, que se pueden agregar al [crear un grupo de nodos](use-multiple-node-pools.md#specify-a-taint-label-or-tag-for-a-node-pool). Es posible que quiera crear o modificar etiquetas personalizadas, por ejemplo, para asignar un centro de costos o una unidad de negocio. Esto también puede conseguirse creando directivas de Azure cuyo ámbito sea el grupo de recursos administrado.
 
 Pero la modificación de las **etiquetas creadas por Azure** en los recursos del grupo de recursos del nodo en el clúster de AKS es una acción no admitida que interrumpe el objetivo de nivel de servicio (SLO). Para obtener más información, consulte [¿AKS ofrece un contrato de nivel de servicio?](#does-aks-offer-a-service-level-agreement)
 
@@ -137,7 +137,7 @@ Los nodos de agente de AKS se facturan como máquinas virtuales de Azure estánd
 
 ## <a name="can-i-movemigrate-my-cluster-between-azure-tenants"></a>¿Puedo mover o migrar mi clúster entre inquilinos de Azure?
 
-El comando `az aks update-credentials` se puede usar para mover un clúster de AKS entre inquilinos de Azure. Siga las instrucciones de [Elija actualizar o crear una entidad de servicio](./update-credentials.md) y luego [actualice el clúster de AKS con las nuevas credenciales](./update-credentials.md#update-aks-cluster-with-new-service-principal-credentials).
+Actualmente, no puede mover el clúster de AKS entre inquilinos.
 
 ## <a name="can-i-movemigrate-my-cluster-between-subscriptions"></a>¿Puedo mover o migrar mi clúster entre suscripciones?
 
@@ -190,6 +190,10 @@ Aunque AKS tiene mecanismos de resistencia para admitir este tipo de configuraci
 ## <a name="can-i-use-custom-vm-extensions"></a>¿Puedo usar extensiones de máquina virtual personalizadas?
 
 No, AKS es un servicio administrado y no se admite la manipulación de los recursos de IaaS. Para instalar componentes personalizados, etc. Aproveche las API y los mecanismos de Kubernetes. Por ejemplo, aproveche DaemonSets para instalar los componentes necesarios.
+
+## <a name="does-aks-store-any-customer-data-outside-of-the-clusters-region"></a>¿AKS guarda datos de los clientes fuera de la región del clúster?
+
+No. Todos los datos que se crean en un clúster de AKS se mantienen en la región del clúster.
 
 <!-- LINKS - internal -->
 

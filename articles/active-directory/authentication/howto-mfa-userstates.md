@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e8ef25df8fdb11715ebba954e31a97939d6ac0e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bd688a9e488c1206b0c8531698b061f650e2afe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85476842"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87417937"
 ---
 # <a name="enable-per-user-azure-multi-factor-authentication-to-secure-sign-in-events"></a>Habilitación de Azure Multi-Factor Authentication por usuario para proteger los eventos de inicio de sesión
 
@@ -55,7 +55,7 @@ Para acceder a la página de Azure Portal en la que puede ver y administrar los 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) como administrador.
 1. Busque y seleccione *Azure Active Directory* y, a continuación, seleccione **Usuarios** > **Todos los usuarios**.
-1. Seleccione **Multi-Factor Authentication**. Es posible que tenga que desplazarse hacia la derecha para ver esta opción de menú. Seleccione la siguiente captura de pantalla de ejemplo para ver la ventana de Azure Portal completa y la ubicación del menú: [![](media/howto-mfa-userstates/selectmfa-cropped.png "Selección de Multi-Factor Authentication desde la ventana Usuarios en Azure AD")](media/howto-mfa-userstates/selectmfa.png#lightbox)
+1. Seleccione **Multi-Factor Authentication**. Es posible que tenga que desplazarse hacia la derecha para ver esta opción de menú. Seleccione la siguiente captura de pantalla de ejemplo para ver la ventana de Azure Portal completa y la ubicación del menú: [![Selección de Multi-Factor Authentication desde la ventana Usuarios en Azure AD.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Se abre una nueva página que muestra el estado del usuario, tal y como se muestra en el ejemplo siguiente.
    ![Captura de pantalla que muestra información de ejemplo del estado del usuario de Azure Multi-Factor Authentication](./media/howto-mfa-userstates/userstate1.png)
 
@@ -78,7 +78,7 @@ Después de habilitar los usuarios, notifíquelos por correo electrónico. Indiq
 
 ## <a name="change-state-using-powershell"></a>Cambio del estado mediante PowerShell
 
-Para cambiar el estado del usuario mediante [PowerShell de Azure AD](/powershell/azure/overview), cambie el parámetro `$st.State` de una cuenta de usuario. Hay tres estados posibles para una cuenta de usuario:
+Para cambiar el estado del usuario mediante [PowerShell de Azure AD](/powershell/azure/), cambie el parámetro `$st.State` de una cuenta de usuario. Hay tres estados posibles para una cuenta de usuario:
 
 * *Enabled*
 * *Aplicado*
@@ -177,12 +177,12 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> Hemos cambiado recientemente el comportamiento y este script de PowerShell. Anteriormente, el script se guardaba fuera de los métodos de MFA, se deshabilitó MFA y restauraba los métodos. Ahora, ya no es necesario que el comportamiento predeterminado para deshabilitar no borre los métodos.
->
 > Si se vuelve a habilitar MFA en un objeto de usuario que ya tiene detalles de registro, como el teléfono o el correo electrónico, los administradores deben hacer que el usuario se vuelva a registrar en MFA a través de Azure Portal o PowerShell. Si el usuario no se vuelve a registrar, su estado de MFA no pasa de *Habilitado* a *Aplicado* en la interfaz de usuario de administración de MFA.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para configurar opciones de Azure Multi-Factor Authentication como las direcciones IP de confianza, los mensajes de voz personalizados y las alertas de fraude, consulte [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md). Para administrar la configuración del usuario de Azure Multi-factor Authentication, consulte [Administración de la configuración del usuario con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
+Para configurar las opciones de Azure Multi-Factor Authentication, consulte [Configuración de Azure Multi-Factor Authentication](howto-mfa-mfasettings.md).
+
+Para administrar la configuración del usuario de Azure Multi-factor Authentication, consulte [Administración de la configuración del usuario con Azure Multi-Factor Authentication](howto-mfa-userdevicesettings.md).
 
 Para saber por qué se ha solicitado o no a un usuario que realice MFA, consulte [Informes de Azure Multi-Factor Authentication](howto-mfa-reporting.md).

@@ -4,14 +4,14 @@ description: Obtenga información sobre la configuración y cambio de la directi
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/04/2020
 ms.author: tisande
-ms.openlocfilehash: a335da61fac914368b4044a97582ef0060f5de4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3981e828e7ffe401be3b72f68185c272ab11645
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636332"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760828"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
@@ -20,7 +20,7 @@ En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que deter
 En algunas situaciones, puede que quiera invalidar este comportamiento automático para ajustarse mejor a sus requerimientos. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación* e incluir o excluir las *rutas de acceso de propiedad*.
 
 > [!NOTE]
-> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core).
+> El método de actualización de las directivas de indexación que se describe en este artículo solo se aplica a la API de Azure Cosmos DB SQL (Core). Obtenga más información sobre la indexación en [API de Azure Cosmos DB para MongoDB](mongodb-indexing.md).
 
 ## <a name="indexing-mode"></a>Modo de indexación
 
@@ -36,7 +36,7 @@ De forma predeterminada, la directiva de indexación se establece en `automatic`
 
 ## <a name="including-and-excluding-property-paths"></a><a id="include-exclude-paths"></a> Inclusión y exclusión de rutas de acceso de propiedad
 
-Una directiva de indexación personalizada puede especificar rutas de acceso de propiedad que se incluyen o excluyen de forma explícita de la indexación. Al optimizar el número de rutas de acceso que se indexan, puede reducir la cantidad de almacenamiento que utiliza el contenedor y mejorar la latencia de las operaciones de escritura. Estas rutas de acceso se definen siguiendo [el método descrito en la sección de introducción a la indexación](index-overview.md#from-trees-to-property-paths), con las siguientes adiciones:
+Una directiva de indexación personalizada puede especificar rutas de acceso de propiedad que se incluyen o excluyen de forma explícita de la indexación. Al optimizar el número de rutas de acceso que están indexadas, puede reducir considerablemente la latencia y el cargo de RU de las operaciones de escritura. Estas rutas de acceso se definen siguiendo [el método descrito en la sección de introducción a la indexación](index-overview.md#from-trees-to-property-paths), con las siguientes adiciones:
 
 - Una ruta de acceso que lleva a un valor escalar (cadena o número) termina con `/?`.
 - Los elementos de una matriz se dirigen juntos a través de la notación `/[]` (en lugar de `/0`, `/1` etcétera).
@@ -129,7 +129,7 @@ Al definir una ruta de acceso espacial en la directiva de indexación, debe defi
 
 * LineString
 
-De forma predeterminada, Azure Cosmos DB no creará ningún índice espacial. Si quiere usar funciones integradas de SQL espaciales, debe crear un índice espacial en las propiedades necesarias. Consulte [esta sección](geospatial.md) para obtener ejemplos de directivas de indexación sobre la adición de índices espaciales.
+De forma predeterminada, Azure Cosmos DB no creará ningún índice espacial. Si quiere usar funciones integradas de SQL espaciales, debe crear un índice espacial en las propiedades necesarias. Consulte [esta sección](sql-query-geospatial-index.md) para obtener ejemplos de directivas de indexación sobre la adición de índices espaciales.
 
 ## <a name="composite-indexes"></a>Índices compuestos
 
@@ -259,16 +259,23 @@ Las consideraciones siguientes se usan cuando se crean índices compuestos para 
 
 ## <a name="modifying-the-indexing-policy"></a>Modificación de la directiva de indexación
 
-Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). El índice de la directiva antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
+Se puede actualizar en cualquier momento una directiva de indexación de un contenedor [mediante Azure Portal o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en local (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). El índice de la directiva antigua se transforma eficientemente en la nueva directiva sin que ello afecte a la disponibilidad de escritura, la disponibilidad de lectura ni al rendimiento aprovisionado en el contenedor. La transformación del índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño.
 
 > [!NOTE]
-> Mientras agrega un intervalo o un índice espacial, es posible que las consultas no devuelvan todos los resultados coincidentes y no se devolverá ningún error. Esto significa que los resultados de consultas no pueden ser coherentes hasta que se complete la transformación del índice. Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
+> Es posible realizar un seguimiento del progreso de transformación del índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
 
-Si el modo nuevo de la directiva de indexación se establece en coherente, no se puede aplicar ningún otro cambio de directiva de indexación mientras la transformación del índice esté en curso. Se puede cancelar una transformación del índice en ejecución al establecer el modo de la directiva de indexación en None (lo que inmediatamente anulará el índice).
+No afecta a la disponibilidad de escritura durante las transformaciones del índice. La transformación del índice usa las RU aprovisionadas, pero en una prioridad más baja que las consultas u operaciones de CRUD.
+
+No afecta a la disponibilidad de lectura al agregar un índice nuevo. Las consultas solo utilizarán nuevos índices una vez completada la transformación del índice. Durante la transformación del índice, el motor de consulta seguirá usando los índices existentes, por lo que observará un rendimiento de lectura similar durante la transformación de indexación al que observó antes de iniciar el cambio de indexación. Al agregar índices nuevos, tampoco hay riesgo de resultados de consulta incompletos o incoherentes.
+
+Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita varios índices y lo hace en un único cambio de directiva de indexación, el motor de consulta garantiza resultados coherentes y completos durante la transformación del índice. Sin embargo, si elimina los índices a través de varios cambios de directiva de indexación, el motor de consulta no garantiza resultados coherentes o completos hasta que se completen todas las transformaciones del índice. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que usan esos índices de inmediato, por lo que, en la práctica, esta situación es poco probable.
+
+> [!NOTE]
+> Siempre que sea posible, debe intentar agrupar varios cambios de indexación en una única modificación de directiva de indexación.
 
 ## <a name="indexing-policies-and-ttl"></a>Directivas de indexación y TTL
 
-La [característica periodo de vida (TTL)](time-to-live.md) requiere que la indexación esté activa en el contenedor que esté activado. Esto significa que:
+El uso de la [característica Período de vida (TTL)](time-to-live.md) requiere indexación. Esto significa que:
 
 - No es posible activar el TTL en un contenedor en el que se establece el modo de indexación en None.
 - No es posible establecer el modo de indexación en None en un contenedor donde el TTL está activado.

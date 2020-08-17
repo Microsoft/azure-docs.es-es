@@ -1,24 +1,22 @@
 ---
-title: 'PowerShell para Windows Virtual Desktop: Azure'
-description: Cómo solucionar problemas de PowerShell al configurar un entorno de inquilinos de Windows Virtual Desktop.
-services: virtual-desktop
+title: 'PowerShell de Windows Virtual Desktop (clásico): Azure'
+description: Solución de problemas de PowerShell al configurar un entorno de inquilinos de Windows Virtual Desktop (clásico).
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: de3933b1686b433a720e78d89bd3e50c0ce5e5dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23d1e4b06c9c0278742da0cec8ac565b5f80a362
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82614293"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88004899"
 ---
-# <a name="windows-virtual-desktop-powershell"></a>PowerShell para Windows Virtual Desktop
+# <a name="windows-virtual-desktop-classic-powershell"></a>PowerShell de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../troubleshoot-powershell.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-powershell.md).
 
 Use este artículo para resolver los problemas y errores al usar PowerShell con Windows Virtual Desktop. Para más información sobre PowerShell para Servicios de Escritorio remoto, consulte [PowerShell para Windows Virtual Desktop](/powershell/module/windowsvirtualdesktop/).
 

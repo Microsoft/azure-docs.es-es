@@ -6,18 +6,18 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 06/15/2020
+ms.date: 07/28/2020
 ms.author: aahi
-ms.openlocfilehash: 906e8e9e6cde80a2151c6b8671f64854cb431250
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4ac65e85e05f408b8d2f37a1d6845dc9e28e2bab
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108518"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373084"
 ---
 ## <a name="health-entity-categories"></a>Categorías de la entidad de salud:
 
-[Text Analytics for Health](../../how-tos/text-analytics-for-health.md) devuelve las siguientes categorías de entidad.  Tenga en cuenta que solo se admite texto en inglés en versión preliminar de contenedor y solo se proporciona una versión de modelo en cada imagen de contenedor.
+[Text Analytics for Health](../../how-tos/text-analytics-for-health.md) devuelve las categorías de entidad siguientes.  Tenga en cuenta que solo se admite texto en inglés en versión preliminar de contenedor y solo se proporciona una versión de modelo en cada imagen de contenedor.
 
 ### <a name="named-entity-recognition"></a>Reconocimiento de entidades con nombre
 

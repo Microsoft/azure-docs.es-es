@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 07/13/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 6b2983bbaf22ae1b9e09ff3362a4bc06e6658b33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a3fdde755a5e024efead5c8861a1d5cd769b6d23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506212"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036835"
 ---
 # <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-powershell"></a>Configuración de claves administradas por el cliente con Azure Key Vault mediante PowerShell
 
@@ -39,15 +39,16 @@ Para obtener información sobre cómo configurar identidades administradas que e
 
 ## <a name="create-a-new-key-vault"></a>Creación de un almacén de claves nuevo
 
-Para crear un almacén de claves nuevo con PowerShell, llame a [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault). El almacén de claves que se usará para almacenar las claves que administre el cliente para el cifrado de Azure Storage debe tener dos configuraciones de protección de claves habilitadas: la **eliminación temporal** y la opción de **no purgar**.
+Para crear un nuevo almacén de claves mediante PowerShell, instale la versión 2.0.0 o posterior del módulo [Az.KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault/2.0.0) de PowerShell. Luego llame a [New-AzKeyVault](/powershell/module/az.keyvault/new-azkeyvault) para crear un nuevo almacén de claves.
 
-No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
+El almacén de claves que se usará para almacenar las claves que administre el cliente para el cifrado de Azure Storage debe tener dos configuraciones de protección de claves habilitadas: la **eliminación temporal** y la opción de **no purgar**. En la versión 2.0.0 y posteriores del módulo Az.KeyVault, la eliminación temporal está habilitada de forma predeterminada cuando se crea un nuevo almacén de claves.
+
+En el ejemplo siguiente se crea un nuevo almacén de claves con las propiedades **Eliminación temporal** y **No purgar** habilitadas. No olvide reemplazar los valores del marcador de posición entre corchetes con sus propios valores.
 
 ```powershell
 $keyVault = New-AzKeyVault -Name <key-vault> `
     -ResourceGroupName <resource_group> `
     -Location <location> `
-    -EnableSoftDelete `
     -EnablePurgeProtection
 ```
 
@@ -78,9 +79,27 @@ El cifrado de almacenamiento de Azure admite claves RSA y RSA-HSM de los tamaño
 
 ## <a name="configure-encryption-with-customer-managed-keys"></a>Configuración del cifrado con claves que administra el cliente
 
-De forma predeterminada, el cifrado de Azure Storage usa claves que administra Microsoft. En este paso, configure la cuenta de Azure Storage para usar las claves que administra el cliente y especifique la clave para asociar a la cuenta de almacenamiento.
+De forma predeterminada, el cifrado de Azure Storage usa claves que administra Microsoft. En este paso, configure la cuenta de Azure Storage para usar las claves administradas por el cliente con Azure Key Vault, y especifique la clave para asociar a la cuenta de almacenamiento.
 
-Llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento, tal y como se muestra en el ejemplo siguiente. Incluya la opción **-KeyvaultEncryption** para habilitar claves administradas por el cliente para la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+Al configurar el cifrado con claves administradas por el cliente, puede optar por rotar automáticamente la clave que se usa para el cifrado cuando la versión cambie en el almacén de claves asociado. Como alternativa, puede especificar explícitamente una versión de clave que se usará para el cifrado hasta que la versión de la clave se actualice manualmente.
+
+### <a name="configure-encryption-for-automatic-rotation-of-customer-managed-keys"></a>Configuración del cifrado para la rotación automática de claves administradas por el cliente
+
+Para configurar el cifrado para la rotación automática de claves administradas por el cliente, instale el módulo [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage), versión 2.0.0 o posterior.
+
+Para rotar automáticamente las claves administradas por el cliente, omita la versión de la clave al configurar las claves administradas por el cliente para la cuenta de almacenamiento. Llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento, como se muestra en el ejemplo siguiente, e incluya la opción **-KeyvaultEncryption** para habilitar las claves administradas por el cliente para la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
+    -AccountName $storageAccount.StorageAccountName `
+    -KeyvaultEncryption `
+    -KeyName $key.Name `
+    -KeyVaultUri $keyVault.VaultUri
+```
+
+### <a name="configure-encryption-for-manual-rotation-of-key-versions"></a>Configuración del cifrado para la rotación manual de las versiones de clave
+
+Para especificar de manera explícita una versión de la clave que se va a usar para el cifrado, indique la versión de la clave al configurar el cifrado con las claves administradas por el cliente para la cuenta de almacenamiento. Llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento, como se muestra en el ejemplo siguiente, e incluya la opción **-KeyvaultEncryption** para habilitar las claves administradas por el cliente para la cuenta de almacenamiento. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
@@ -91,9 +110,7 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
     -KeyVaultUri $keyVault.VaultUri
 ```
 
-## <a name="update-the-key-version"></a>Actualización de la versión de la clave
-
-Al crear una nueva versión de una clave, tendrá que actualizar la cuenta de almacenamiento para que utilice la versión nueva. En primer lugar, llame a [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obtener la versión más reciente de la clave. A continuación, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento y así poder usar la nueva versión de la clave, tal como se muestra en la sección anterior.
+Al rotar manualmente la versión de la clave, deberá actualizar la configuración de cifrado de la cuenta de almacenamiento para usar la nueva versión. En primer lugar, llame a [Get-AzKeyVaultKey](/powershell/module/az.keyvault/get-azkeyvaultkey) para obtener la versión más reciente de la clave. A continuación, llame a [Set-AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) para actualizar la configuración de cifrado de la cuenta de almacenamiento y así poder usar la nueva versión de la clave, tal como se muestra en el ejemplo anterior.
 
 ## <a name="use-a-different-key"></a>Uso de una clave distinta
 
@@ -101,7 +118,7 @@ Para cambiar la clave usada para el cifrado de Azure Storage, llame a [Set-AzSto
 
 ## <a name="revoke-customer-managed-keys"></a>Revocación de claves administradas por el cliente
 
-Si cree que una clave puede estar en peligro, puede revocar las claves administradas por el cliente. Para ello, deberá quitar la directiva de acceso del almacén de claves. Para revocar una clave administrada por el cliente, llame al comando [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy), como se muestra en el siguiente ejemplo. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
+Para revocar las claves administradas por el cliente, quite la directiva de acceso del almacén de claves. Para revocar una clave administrada por el cliente, llame al comando [Remove-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/remove-azkeyvaultaccesspolicy), como se muestra en el siguiente ejemplo. Recuerde reemplazar los valores de marcador de posición entre corchetes por sus propios valores y usar las variables definidas en los ejemplos anteriores.
 
 ```powershell
 Remove-AzKeyVaultAccessPolicy -VaultName $keyVault.VaultName `

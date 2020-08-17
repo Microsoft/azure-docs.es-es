@@ -5,16 +5,16 @@ ms.topic: reference
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/06/2020
-ms.openlocfilehash: 21e98ee9dc59e7520fb715f1146e492b9198f883
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 2227facfcf469bc22034da0da504b390cc0deee1
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891611"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324189"
 ---
 # <a name="dependency-auto-collection"></a>Recopilación automática de dependencias
 
-A continuación encontrará la lista de las llamadas de dependencia admitida actualmente que se detectan automáticamente como dependencias sin requerir ninguna modificación adicional en el código de la aplicación. Estas dependencias se visualizan en el [Mapa de aplicación](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) de Application Insights y las vistas de [Diagnóstico de transacciones](https://docs.microsoft.com/azure/application-insights/app-insights-transaction-diagnostics). Si la dependencia no se encuentra en la siguiente lista, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+A continuación encontrará la lista de las llamadas de dependencia admitida actualmente que se detectan automáticamente como dependencias sin requerir ninguna modificación adicional en el código de la aplicación. Estas dependencias se visualizan en el [Mapa de aplicación](./app-map.md) de Application Insights y las vistas de [Diagnóstico de transacciones](./transaction-diagnostics.md). Si la dependencia no se encuentra en la siguiente lista, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="net"></a>.NET
 
@@ -62,7 +62,7 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 
 > [!NOTE]
 > \* Excepto el soporte técnico de programación reactivo.
-> <br>† Requiere la instalación del [agente de JVM](https://docs.microsoft.com/azure/application-insights/app-insights-java-agent#install-the-application-insights-agent-for-java).
+> <br>† Requiere la instalación del [agente de JVM](./java-agent.md#install-the-application-insights-agent-for-java).
 
 ## <a name="nodejs"></a>Node.js
 
@@ -88,9 +88,10 @@ A continuación encontrará la lista de las llamadas de dependencia admitida act
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Configuración del seguimiento de dependencias personalizadas para [.NET](../../azure-monitor/app/asp-net-dependencies.md).
-- Configuración del seguimiento de dependencias personalizadas para [Java](../../azure-monitor/app/java-agent.md).
-- Configuración del seguimiento de dependencias personalizado para [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md).
-- [Escritura de una telemetría de dependencia personalizada](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency)
-- Consulte [modelo de datos](../../azure-monitor/app/data-model.md) para los tipos y el modelo de datos de Application Insights.
-- Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.
+- Configuración del seguimiento de dependencias personalizadas para [.NET](./asp-net-dependencies.md).
+- Configuración del seguimiento de dependencias personalizadas para [Java](./java-agent.md).
+- Configuración del seguimiento de dependencias personalizado para [OpenCensus Python](./opencensus-python-dependency.md).
+- [Escritura de una telemetría de dependencia personalizada](./api-custom-events-metrics.md#trackdependency)
+- Consulte [modelo de datos](./data-model.md) para los tipos y el modelo de datos de Application Insights.
+- Consulte las [plataformas](./platforms.md) compatibles con Application Insights.
+

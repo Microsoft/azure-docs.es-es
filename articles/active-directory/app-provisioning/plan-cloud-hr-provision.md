@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 09ecaf327b2030a77f8a91d99f291cebb0281235
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8dd108e8c2877c7fe459819bf01b0e5b206cd9c0
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781606"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445559"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Planeamiento de la aplicación de RR. HH. en la nube para el aprovisionamiento de usuarios de Azure Active Directory
 
@@ -404,7 +404,6 @@ Para solucionar los problemas que pueden surgir durante el aprovisionamiento, ve
 
 - [Problema al configurar el aprovisionamiento de usuarios para una aplicación de la galería de Azure AD](application-provisioning-config-problem.md)
 - [Sincronización de un atributo de Active Directory local con Azure AD para el aprovisionamiento en una aplicación](user-provisioning-sync-attributes-for-mapping.md)
-- [Aprovisionamiento de usuarios a una aplicación de la galería de Azure AD que tarda horas o más](application-provisioning-when-will-provisioning-finish.md)
 - [Problema al guardar las credenciales de administrador al configurar el aprovisionamiento de usuarios em una aplicación de galería de Azure Active Directory](application-provisioning-config-problem-storage-limit.md)
 - [No se aprovisionan usuarios en una aplicación de la galería de Azure AD](application-provisioning-config-problem-no-users-provisioned.md)
 - [Aprovisionamiento de un conjunto de usuarios incorrecto en una aplicación de la galería de Azure AD](application-provisioning-config-problem-wrong-users-provisioned.md)

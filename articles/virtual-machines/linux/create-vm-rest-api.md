@@ -3,15 +3,15 @@ title: Creación de una máquina virtual Linux mediante la API REST
 description: Aprenda a crear una máquina virtual Linux e Azure que use Managed Disks y autenticación de SSH con la API REST de Azure.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
-ms.openlocfilehash: 1594c030839cccdd48c4b032c6ad92f746f78e26
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d6e5195f43991f4d40af57c1ab4b87aaca475b64
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78970272"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373409"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 
@@ -46,7 +46,7 @@ Los siguientes encabezados son obligatorios:
 | Encabezado de solicitud   | Descripción |
 |------------------|-----------------|
 | *Content-Type:*  | Necesario. Establézcalo en `application/json`. |
-| *Authorization:* | Necesario. Establézcalo en un [token de acceso](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |
+| *Authorization:* | Necesario. Establézcalo en un [token de acceso](/rest/api/azure/#authorization-code-grant-interactive-clients) `Bearer` válido. |
 
 Para obtener información general sobre cómo trabajar con solicitudes de la API REST, consulte [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse) (Componentes de una solicitud/respuesta de la API REST).
 
@@ -122,7 +122,7 @@ Para obtener una lista completa de las definiciones disponibles en el cuerpo de 
 
 ## <a name="sending-the-request"></a>Envío de la solicitud
 
-Puede usar al cliente de su preferencia para enviar esta solicitud HTTP. También puede usar una [herramienta en el explorador](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate) al hacer clic en el botón **Pruébelo**.
+Puede usar al cliente de su preferencia para enviar esta solicitud HTTP. También puede usar una [herramienta en el explorador](/rest/api/compute/virtualmachines/createorupdate) al hacer clic en el botón **Pruébelo**.
 
 ### <a name="responses"></a>Respuestas
 
@@ -151,4 +151,4 @@ Para más información sobre las API REST de Azure u otras herramientas de admin
 - [API REST del proveedor de Azure Compute](/rest/api/compute/)
 - [Get started with Azure REST API](/rest/api/azure/) (Introducción a la API REST de Azure)
 - [CLI de Azure](/cli/azure/)
-- [Módulo de Azure PowerShell](/powershell/azure/overview)
+- [Módulo de Azure PowerShell](/powershell/azure/)

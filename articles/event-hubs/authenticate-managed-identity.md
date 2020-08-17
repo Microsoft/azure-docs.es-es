@@ -3,12 +3,12 @@ title: Autenticación de una identidad administrada con Azure Active Directory
 description: En este artículo se proporciona información sobre cómo autenticar una identidad administrada con Azure Active Directory para acceder a recursos de Azure Event Hubs.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 4e3460fa4fc3807cda23d6e3835a9f0b843eb36d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537282"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079148"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Event Hubs
 Azure Event Hubs admite la autenticación de Azure Active Directory (Azure AD) con [identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md). Las identidades administradas para recursos de Azure pueden autorizar el acceso a los recursos de Event Hubs con credenciales de Azure AD desde aplicaciones que se ejecutan en máquinas virtuales (VM) de Azure, aplicaciones de función, conjuntos de escalado de máquinas virtuales y otros servicios. Si usa identidades administradas para recursos de Azure junto con autenticación de Azure AD, puede evitar el almacenamiento de credenciales con las aplicaciones que se ejecutan en la nube.
@@ -25,14 +25,14 @@ Para poder usar identidades administradas para recursos de Azure a fin de autori
 - [Bibliotecas cliente de Azure Resource Manager](../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="grant-permissions-to-a-managed-identity-in-azure-ad"></a>Concesión de permisos a una identidad administrada en Azure AD
-Para autorizar una solicitud al servicio Event Hubs desde una identidad administrada de la aplicación, primero configure los valores del control de acceso basado en roles (RBAC) de esa identidad administrada. Azure Event Hubs define roles RBAC que abarcan los permisos para enviar y leer desde Event Hubs. Cuando el rol RBAC se asigna a una identidad administrada, a esta se le concede acceso a los datos de Event Hubs en el ámbito adecuado.
+Para autorizar una solicitud al servicio Event Hubs desde una identidad administrada de la aplicación, primero configure los valores del control de acceso basado en roles (RBAC) de esa identidad administrada. Azure Event Hubs define los roles de Azure que abarcan los permisos para enviar y leer desde Event Hubs. Cuando el rol de Azure se asigna a una identidad administrada, a esta se le concede acceso a los datos de Event Hubs en el ámbito adecuado.
 
-Para más información sobre la asignación de roles RBAC, consulte [Autenticación con Azure Active Directory para el acceso a recursos de Event Hubs](authorize-access-azure-active-directory.md).
+Para más información sobre la asignación de roles de Azure, consulte [Autenticación con Azure Active Directory para el acceso a recursos de Event Hubs](authorize-access-azure-active-directory.md).
 
 ## <a name="use-event-hubs-with-managed-identities"></a>Uso de Event Hubs con identidades administradas
 Para usar Event Hubs con identidades administradas, debe asignar la identidad del rol y el ámbito adecuado. En el procedimiento de esta sección se usa una aplicación sencilla que se ejecuta en una identidad administrada y accede a los recursos de Event Hubs.
 
-A continuación, usaremos una aplicación web de ejemplo hospedada en [Azure App Service](https://azure.microsoft.com/services/app-service/). Para instrucciones paso a paso sobre cómo crear una aplicación web, consulte [Creación de una aplicación web de ASP.NET Core en Azure](../app-service/app-service-web-get-started-dotnet.md).
+A continuación, usaremos una aplicación web de ejemplo hospedada en [Azure App Service](https://azure.microsoft.com/services/app-service/). Para instrucciones paso a paso sobre cómo crear una aplicación web, consulte [Creación de una aplicación web de ASP.NET Core en Azure](../app-service/quickstart-dotnetcore.md).
 
 Una vez creada la aplicación, siga estos pasos: 
 
@@ -46,7 +46,7 @@ Una vez habilitada esta configuración, se crea una identidad de servicio en Azu
 
 Ahora, asigne esta identidad de servicio a un rol en el ámbito requerido en los recursos de Event Hubs.
 
-### <a name="to-assign-rbac-roles-using-the-azure-portal"></a>Para asignar roles RBAC mediante Azure Portal
+### <a name="to-assign-azure-roles-using-the-azure-portal"></a>Para asignar roles de Azure mediante Azure Portal
 Para asignar un rol a los recursos de Event Hubs, vaya a ese recurso en Azure Portal. Acceda a la configuración Access Control (IAM) del recurso y siga estas instrucciones para administrar las asignaciones de roles:
 
 > [!NOTE]

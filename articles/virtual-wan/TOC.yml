@@ -38,6 +38,8 @@
           href: virtual-wan-configure-automation-providers.md
     - name: Conceptos de los precios
       href: pricing-concepts.md
+    - name: Acerca de NVA en un centro virtual
+      href: about-nva-hub.md
     - name: Enrutamiento
       items:
         - name: Acerca del enrutamiento de centros virtuales
@@ -56,10 +58,12 @@
               href: scenario-route-through-nva.md
             - name: 'Ruta a través de NVA: personalizada (versión preliminar)'
               href: scenario-route-through-nvas-custom.md
-            - name: 'Azure Firewall: Interhub (versión preliminar)'
-              href: scenario-route-between-hubs-firewall.md
             - name: 'Azure Firewall: personalizado'
               href: scenario-route-between-vnets-firewall.md
+    - name: Supervisión
+      items:
+        - name: Acerca de Azure Monitor Insights para Virtual WAN (vista preliminar)
+          href: azure-monitor-insights.md
     - name: De sitio a sitio
       items:
         - name: Acerca de las directivas IPsec
@@ -70,6 +74,8 @@
   items:
     - name: Actualización de SKU de Virtual WAN
       href: upgrade-virtual-wan.md
+    - name: Creación de NVA en un centro virtual (versión preliminar)
+      href: How-to-nva-hub.md
     - name: ExpressRoute
       items:
         - name: Creación de una conexión de ExpressRoute

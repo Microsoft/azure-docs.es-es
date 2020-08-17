@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e134c2e49df5b53ed37acddd86e41af17f43a048
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54a6c455f3702433398035a2eb6398c39b609ce9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84464171"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337456"
 ---
 # <a name="how-to-configure-and-enable-risk-policies"></a>Instrucciones: Configuración y habilitación de directivas de riesgo
 
@@ -55,7 +55,7 @@ Para habilitar las directivas de riesgo de usuario e inicio de sesión, complete
 
 1. Acceda a [Azure Portal](https://portal.azure.com).
 1. Vaya a **Azure Active Directory** > **Seguridad** > **Identity Protection** > **Información general**.
-1. Seleccione **Configurar directiva de riesgo de usuario**.
+1. Seleccione **Directiva de riesgo de usuario**.
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.
@@ -64,7 +64,7 @@ Para habilitar las directivas de riesgo de usuario e inicio de sesión, complete
       1. **Acceso**: la recomendación de Microsoft es **Permitir el acceso** y **Requerir cambio de contraseña**.
    1. **Aplicar directiva** - **Activado**
    1. **Guardar**: esta acción le devolverá a la página **Información general**.
-1. Seleccione **Configurar directiva de riesgo de inicio de sesión**.
+1. Seleccione **Directiva de riesgo de inicio de sesión**.
    1. En **Asignaciones**
       1. **Usuarios**: elija **Todos los usuarios** o **Seleccionar individuos y grupos** si limita el lanzamiento.
          1. Opcionalmente, puede optar por excluir usuarios de la directiva.

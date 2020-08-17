@@ -5,13 +5,13 @@ author: jimzim
 ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 05/29/2020
-ms.openlocfilehash: 0c4c5ddfebe9e2b5b37a2c28ec4941f6c38668f1
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.date: 07/31/2020
+ms.openlocfilehash: 93507bae3f817f92cfa427ceca10f651352a46bc
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84219235"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497586"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Preguntas más frecuentes de Red Hat OpenShift en Azure
 
@@ -235,3 +235,7 @@ En el caso de los clústeres 3.11, los datos no se cifran en el nivel de etcd. A
 En el caso de los clústeres 4.x, Azure Disk (Premium_LRS) se configura como la clase de almacenamiento predeterminada. Para obtener más información sobre los proveedores de almacenamiento y los detalles de configuración (incluido Azure File), vea la documentación de Red Hat sobre [almacenamiento persistente](https://docs.openshift.com/aro/4/storage/understanding-persistent-storage.html).
 
 En el caso de los clústeres 3.11, se proporcionan dos clases de almacenamiento de forma predeterminada: una para Azure Disk (Premium_LRS) y otra para Azure File.
+
+## <a name="does-aro-store-any-customer-data-outside-of-the-clusters-region"></a>¿ARO guarda datos de los clientes fuera de la región del clúster?
+
+No. Todos los datos que se crean en un clúster de ARO se mantienen en la región del clúster.

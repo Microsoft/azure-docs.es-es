@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: ae6205db4e120f0496fa47be6788887b155361b0
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ecc442049ba63b64f951335940c312dc71985453
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077165"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501532"
 ---
 # <a name="understand-and-work-with-scopes"></a>Descripción y uso de ámbitos
 
@@ -93,8 +93,8 @@ Aunque los ámbitos de gobernanza están enlazados a un único directorio, los �
 
 Los ámbitos de facturación de EA admiten los siguientes roles:
 
-- **Administrador de empresa**: puede administrar la configuración y el acceso de la cuenta de facturación, puede ver todos los costos y puede administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de EA es el mismo que el del [rol RBAC de Azure de colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Usuario de solo lectura de Enterprise**: puede ver la configuración de la cuenta de facturación, los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de EA es el mismo que el del [rol RBAC de Azure de lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrador de empresa**: puede administrar la configuración y el acceso de la cuenta de facturación, puede ver todos los costos y puede administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de EA es el mismo que el del [rol de Azure del colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Usuario de solo lectura de Enterprise**: puede ver la configuración de la cuenta de facturación, los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de EA es el mismo que el del [rol de Azure del lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Administrador de departamento**: puede administrar la configuración del departamento como, por ejemplo, el centro de costo y puede acceder, ver todos los costos y administrar su configuración. Por ejemplo, presupuestos y exportaciones.  El valor **DA view charges** (El administrador del departamento ve los cargos) debe estar habilitado para que los administradores de departamentos y los usuarios de solo lectura puedan ver los costos. Si el valor **DA view charges** está deshabilitado, los usuarios del departamento no podrán ver los costos en ningún nivel, incluso si son propietarios de una cuenta o suscripción.
 - **Usuario de solo lectura del departamento**: puede ver la configuración del departamento, los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. Si el valor **DA view charges** está deshabilitado, los usuarios del departamento no podrán ver los costos en ningún nivel, incluso si son propietarios de una cuenta o suscripción.
 - **Propietario de la cuenta**: puede administrar la configuración de la cuenta de inscripción (por ejemplo, el centro de costo), ver todos los costos y administrar la configuración de estos (por ejemplo, los presupuestos y las exportaciones) para la cuenta de inscripción. El valor **AO view charges** (El propietario de la cuenta ve los cargos) debe estar habilitado para que los propietarios de la cuentas y los usuarios de RBAC puedan ver los costos.
@@ -141,10 +141,10 @@ Los ámbitos de facturación de los contratos de cliente no se aplican a los aso
 
 Los ámbitos de facturación de los contratos de cliente admiten los siguientes roles:
 
-- **Propietario**: puede administrar la configuración de facturación y el acceso, ver todos los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de los contratos de cliente es el mismo que el del [rol RBAC de Azure de colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Colaborador**: puede administrar la configuración de facturación excepto el acceso, ver todos los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de los contratos de cliente es el mismo que el del [rol RBAC de Azure de colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
-- **Lector**: puede ver la configuración de facturación, los datos de costos y la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del [rol RBAC de Azure de lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
-- **Administrador de facturación**: puede ver y pagar facturas, y puede ver los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del [rol RBAC de Azure de lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Propietario**: puede administrar la configuración de facturación y el acceso, ver todos los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Colaborador**: puede administrar la configuración de facturación excepto el acceso, ver todos los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, el ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del colaborador de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-contributor).
+- **Lector**: puede ver la configuración de facturación, los datos de costos y la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
+- **Administrador de facturación**: puede ver y pagar facturas, y puede ver los datos y la configuración de los costos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del [rol de Azure del lector de Cost Management](../../role-based-access-control/built-in-roles.md#cost-management-reader).
 - **Creador de la suscripción de Azure**: puede crear suscripciones de Azure, ver los costos y administrar la configuración de estos. Por ejemplo, presupuestos y exportaciones. En la práctica, este ámbito de facturación de los contratos de cliente es el mismo que el del rol Propietario de la cuenta de las inscripciones de EA.
 
 Las suscripciones de Azure están anidadas en las secciones de la factura, al igual que lo están en las cuentas de las inscripciones de EA. Los usuarios de facturación tienen acceso a los datos de costo de las suscripciones y grupos de recursos que están bajo sus respectivos ámbitos. Sin embargo, no tienen acceso para ver ni administrar recursos en Azure Portal. Para que los usuarios de facturación puedan ver los costos, deben ir a **Administración de costos + facturación** en la lista de servicios de Azure Portal. Después, pueden filtrar los costos de las suscripciones y grupos de recursos específicos sobre los cuales deben informar.

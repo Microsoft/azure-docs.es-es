@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 8adffcc6c7ae4af2e33587f75c83430473180203
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b7bcdaf9e3935c01a0906ecfaa1570e4bc7caba9
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118399"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798127"
 ---
 # <a name="offer-listing-best-practices"></a>Procedimientos recomendados para la publicación de ofertas
 
@@ -56,89 +56,7 @@ Seleccione las categorías y subcategorías que mejor se alineen con su oferta y
 * Máximo de dos (2) categorías, incluidas una categoría principal y una secundaria (opcional).
 * Máximo de dos (2) subcategorías para cada categoría principal o secundaria. Si no se selecciona ninguna subcategoría, solo se podrá detectar en la categoría seleccionada.
 
-| [**Azure Marketplace**](https://azuremarketplace.microsoft.com/marketplace/apps) (profesionales y desarrolladores de TI)  | [**AppSource**](https://appsource.microsoft.com/marketplace/apps) (usuarios empresariales)|
-| :------------------- |:----------------|
-|**Analytics** | **Analytics** |
-| &nbsp;&nbsp;Conclusiones cognitivas sobre los datos | &nbsp;&nbsp;Análisis avanzado  |
-| &nbsp;&nbsp;Análisis de datos |  &nbsp;&nbsp;Visualización e informes |
-| &nbsp;&nbsp;Macrodatos | **Inteligencia artificial y aprendizaje automático**  |
-| &nbsp;&nbsp;Análisis predictivo | &nbsp;&nbsp;Inteligencia artificial para empresas |
-| &nbsp;&nbsp;Análisis en tiempo real/streaming | &nbsp;&nbsp;Aplicaciones de bot |
-| **Inteligencia artificial y aprendizaje automático** | **Colaboración** |
-| &nbsp;&nbsp;Bot Service | &nbsp;&nbsp;Contacto y personas |
-| &nbsp;&nbsp;Cognitive Services | &nbsp;&nbsp;Administración de reuniones |
-| &nbsp;&nbsp;Servicio de ML | &nbsp;&nbsp;Administración y diseño de sitios |
-| &nbsp;&nbsp;Machine Learning automatizado | &nbsp;&nbsp;Administración de proyectos y tareas |
-| &nbsp;&nbsp;Automatización de procesos empresariales o robóticos | &nbsp;&nbsp;Conferencia de voz o videoconferencia |
-| &nbsp;&nbsp;Etiquetado de datos | **Cumplimiento y legalidad** |
-| &nbsp;&nbsp;Preparación de datos | &nbsp;&nbsp;Auditoría e impuestos |
-| &nbsp;&nbsp;Minería de conocimiento | &nbsp;&nbsp;Legal |
-| &nbsp;&nbsp;Operaciones de ML | &nbsp;&nbsp;Datos, gobernanza y privacidad |
-| **Blockchain**  | &nbsp;&nbsp;Salud y seguridad |
-| &nbsp;&nbsp;Aceleradores de aplicación | **Servicio de atención al cliente**  |
-| &nbsp;&nbsp;Libro de contabilidad de nodo único | &nbsp;&nbsp;Centro de contacto |
-| &nbsp;&nbsp;Libro de contabilidad de varios nodos | &nbsp;&nbsp;Servicio presencial |
-| &nbsp;&nbsp;Herramientas | &nbsp;&nbsp;Área de operaciones y servicio para empleados |
-| **Proceso**  | &nbsp;&nbsp;Administración de caso y de conocimiento |
-| &nbsp;&nbsp;Infraestructura de la aplicación | &nbsp;&nbsp;Redes sociales e interacción omnicanal |
-| &nbsp;&nbsp;Sistemas operativos | **Sector financiero** |
-| &nbsp;&nbsp;Caché | &nbsp;&nbsp;Contabilidad |
-| **Contenedores**  | &nbsp;&nbsp;Administración de recursos |
-| &nbsp;&nbsp;Introducción a los contenedores | &nbsp;&nbsp;Análisis, consolidación e informes |
-| &nbsp;&nbsp;Aplicaciones de contenedor | &nbsp;&nbsp;Colecciones y crédito |
-| &nbsp;&nbsp;Imágenes de contenedor | &nbsp;&nbsp;Administración de riesgos y cumplimiento |
-| **Bases de datos**  | **Geolocalización** |
-| &nbsp;&nbsp;Bases de datos NoSQL | &nbsp;&nbsp;Maps |
-| &nbsp;&nbsp;Bases de datos relacionales | &nbsp;&nbsp;Noticias y el tiempo |
-| &nbsp;&nbsp;Bases de datos de cadena de bloques o libro de contabilidad | **Recursos humanos** |
-| &nbsp;&nbsp;Lagos de datos | &nbsp;&nbsp;Adquisición de Talent |
-| &nbsp;&nbsp;Almacenamiento de datos | &nbsp;&nbsp;Administración de Talent |
-| **Herramientas para desarrolladores**  | &nbsp;&nbsp;Operaciones de recursos humanos |
-| &nbsp;&nbsp;Herramientas | &nbsp;&nbsp;Análisis y planeamiento de recursos |
-| &nbsp;&nbsp;Scripts | **Herramientas de administración y TI** |
-| &nbsp;&nbsp;Servicio de desarrolladores | &nbsp;&nbsp;Soluciones de administración |
-| **DevOps**  | &nbsp;&nbsp;Business Applications |
-| **Integración**  | **Internet de las cosas** |
-| &nbsp;&nbsp;Mensajería | &nbsp;&nbsp;Operaciones y administración de recursos |
-| **Herramientas de administración y TI**  | &nbsp;&nbsp;Productos conectados |
-| &nbsp;&nbsp;Soluciones de administración | &nbsp;&nbsp;Cadena de suministro inteligente |
-| &nbsp;&nbsp;Business Applications | &nbsp;&nbsp;Mantenimiento predictivo |
-| **Identidad**  | &nbsp;&nbsp;Supervisión remota |
-| &nbsp;&nbsp;Administración de acceso | &nbsp;&nbsp;Seguridad y protección |
-| **Internet de las cosas**  | &nbsp;&nbsp;Recursos e infraestructuras inteligentes |
-| &nbsp;&nbsp;Conectividad de IoT | &nbsp;&nbsp;Vehículos y movilidad |
-| &nbsp;&nbsp;Servicios de IoT Core | **Marketing** |
-| &nbsp;&nbsp;Módulos de IoT Edge | &nbsp;&nbsp;Anuncio |
-| &nbsp;&nbsp;Soluciones de IoT | &nbsp;&nbsp;Analytics |
-| &nbsp;&nbsp;Visualización y análisis de datos | &nbsp;&nbsp;Automatización y administración de campañas |
-| **Elementos multimedia**  | &nbsp;&nbsp;Marketing por correo electrónico |
-| &nbsp;&nbsp;Media Services | &nbsp;&nbsp;Administración de recursos y eventos |
-| &nbsp;&nbsp;Content Protection | &nbsp;&nbsp;Investigación y análisis |
-| &nbsp;&nbsp;Streaming a petición y en directo | &nbsp;&nbsp;Redes sociales |
-| **Supervisión y diagnósticos**  | **Cadena de operaciones y suministros** |
-| **Migración**  | &nbsp;&nbsp;Administración de producción y recursos |
-| &nbsp;&nbsp;Migración de datos | &nbsp;&nbsp;Previsión de la demanda |
-| **Realidad mixta**  | &nbsp;&nbsp;Conectividad y administración de la información |
-| **Redes**  | &nbsp;&nbsp;Planeamiento, compra e informe |
-| &nbsp;&nbsp;Administradores de dispositivos | &nbsp;&nbsp;Administración de servicios y calidad |
-| &nbsp;&nbsp;Conectividad | &nbsp;&nbsp;Administración de pedidos y ventas |
-| &nbsp;&nbsp;Firewalls | &nbsp;&nbsp;Administración de transporte y almacén |
-| &nbsp;&nbsp;Equilibradores de carga | **Productividad** |
-| **Seguridad**  | &nbsp;&nbsp;Administración y creación de contenido |
-| &nbsp;&nbsp;Administración de identidad y acceso | &nbsp;&nbsp;Administración de documentos |
-| &nbsp;&nbsp;Protección contra amenazas | &nbsp;&nbsp;Administración de correo electrónico |
-| &nbsp;&nbsp;Information Protection | &nbsp;&nbsp;Idioma y traducción |
-| **Storage**  | &nbsp;&nbsp;Búsqueda y referencia |
-| &nbsp;&nbsp;Copia de seguridad y recuperación | &nbsp;&nbsp;Ludificación |
-| &nbsp;&nbsp;Almacenamiento híbrido empresarial | **Ventas** |
-| &nbsp;&nbsp;Uso compartido de archivos | &nbsp;&nbsp;Televentas |
-| &nbsp;&nbsp;Administración del ciclo de vida de los datos | &nbsp;&nbsp;Configuración, precio, oferta (CPQ) |
-| **Web**  | &nbsp;&nbsp;Administración de contratos |
-| &nbsp;&nbsp;Blogs y CMS | &nbsp;&nbsp;CRM |
-| &nbsp;&nbsp;Aplicaciones web de Starter | &nbsp;&nbsp;Comercio electrónico |
-| &nbsp;&nbsp;Comercio electrónico | &nbsp;&nbsp;Enriquecimiento de datos empresariales  |
-| &nbsp;&nbsp;Marcos para aplicaciones web | &nbsp;&nbsp;Habilitación de ventas  |
-| &nbsp;&nbsp;Web Apps |  |
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 **IMPORTANTE: ofertas de SaaS y complementos de Microsoft 365**
 
@@ -201,9 +119,9 @@ Pueden ayudar a los clientes a encontrar su oferta cuando realicen búsquedas Id
 ## <a name="storefront-marketing-details"></a>Detalles de marketing del escaparate
 | Configuración del escaparate | Procedimiento recomendado |
 |:--- |:--- |  
-| Logotipo de la oferta (formato .png, 48&nbsp;&times;&nbsp;48): página de búsqueda | Diseñe y optimice su logotipo para un medio digital:<br>Cargue el logotipo en formato PNG para la página de búsqueda de la oferta. |
-| Logotipo de la oferta (formato PNG, 216&nbsp;&times;&nbsp;216): página de detalles de la aplicación | Diseñe y optimice su logotipo para un medio digital:<br>Cargue el logotipo en formato PNG para la página de publicación de detalles de la aplicación de la oferta. |
-| Documentos de "Más información" | Incluya recursos auxiliares de ventas y marketing en "Más información", como: <ul> <li> notas del producto, </li> <li> folletos, </li> <li> listas de comprobación, </li> <li> presentaciones de PowerPoint.</li> </ul>Guarde todos los archivos en formato PDF. El objetivo debe ser informar a los clientes acerca del producto, no venderlo. <br><br>Agregue un vínculo a la página principal de la aplicación en todos los documentos e incluya parámetros de URL para ayudarlo a realizar un seguimiento de los visitantes y las evaluaciones. |
+| Logotipo de la oferta (formato PNG, entre 216 × 216 y 350 x 350 píxeles): página de detalles de la aplicación | Diseñe y optimice su logotipo para un medio digital:<br>Cargue el logotipo en formato PNG para la página de publicación de detalles de la aplicación de la oferta. El Centro de partners cambiará su tamaño a los tamaños de logotipo necesarios. |
+| Logotipo de la oferta (formato .png, 48 x 48 píxeles): página de búsqueda | El Centro de partners generará este logotipo a partir del logotipo grande que ha cargado. Opcionalmente, puede reemplazarlo por una imagen diferente. |
+| Documentos de "Más información" | Incluya recursos auxiliares de ventas y marketing en "Más información", como:<ul><li>notas del producto</li><li> folletos</li><li>listas de comprobación,</li><li> presentaciones de PowerPoint</li></ul><br>Guarde todos los archivos en formato PDF. El objetivo debe ser informar a los clientes acerca del producto, no venderlo.<br><br>Agregue un vínculo a la página principal de la aplicación en todos los documentos e incluya parámetros de URL para ayudarlo a realizar un seguimiento de los visitantes y las evaluaciones. |
 | Videos: solo AppSource, servicios de consultoría y ofertas de SaaS | Los vídeos más atractivos comunican el valor de la oferta en forma de narración:<ul> <li> Asegúrese de que el héroe de la historia es el cliente, no su negocio. </li> <li> El vídeo debe abordar los objetivos y retos más importantes del cliente de destino. </li> <li> Longitud recomendada: de 60 a 90 segundos.</li> <li> Incorpore palabras clave de búsqueda que usan el nombre de los vídeos. </li> <li> Considere la posibilidad de agregar otros vídeos como, por ejemplo, de instrucciones, de introducción o de testimonios de clientes. </li> </ul> |
 | Capturas de pantalla (1280&nbsp;&times;&nbsp;720) | Agregue hasta cinco capturas de pantalla:<br>Incorpore palabras clave de búsqueda en los nombres de archivos. |
 

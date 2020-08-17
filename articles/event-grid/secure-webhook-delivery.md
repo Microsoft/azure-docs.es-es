@@ -3,16 +3,16 @@ title: Protección de la entrega de webhooks con Azure AD en Azure Event Grid
 description: Describe cómo enviar eventos a puntos de conexión HTTPS protegidos por Azure Active Directory mediante Azure Event Grid
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b0503d7da9e191e9d6764076392ead8faa5109a1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 90d06f203bc93177101a87a7a774d816b11b16f6
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119130"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460718"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Publicación de eventos en puntos de conexión protegidos por Azure Active Directory
 
-En este artículo se describe cómo aprovechar las ventajas de Azure Active Directory para proteger la conexión entre su suscripción de eventos y el punto de conexión de webhook. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](https://docs.microsoft.com/azure/active-directory/develop/v2-overview).
+En este artículo se describe cómo aprovechar las ventajas de Azure Active Directory para proteger la conexión entre su suscripción de eventos y el punto de conexión de webhook. Para una introducción a las entidades de servicio y aplicaciones de Azure AD, consulte [Introducción a la Plataforma de identidad de Microsoft (versión 2.0)](../active-directory/develop/v2-overview.md).
 
 En este artículo se usa Azure Portal para la demostración; sin embargo, la característica también se puede habilitar mediante la CLI, PowerShell o los SDK.
 
@@ -28,7 +28,7 @@ Empiece por crear una aplicación de Azure AD para el punto de conexión proteg
 Use el siguiente script de PowerShell para crear un rol y una entidad de servicio en la aplicación Azure AD. Necesitará el identificador de inquilino y el identificador de objeto de la aplicación Azure AD:
 
    > [!NOTE]
-   > Debe ser miembro del [rol Administrador de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#available-roles) para ejecutar este script.
+   > Debe ser miembro del [rol Administrador de aplicaciones de Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md#available-roles) para ejecutar este script.
     
 1. Modifique el valor de $myTenantId del script de PowerShell para usar el identificador de inquilino de Azure AD.
 1. Modifique el valor de $myAzureADApplicationObjectId del script de PowerShell para usar el identificador de objeto de Azure AD.

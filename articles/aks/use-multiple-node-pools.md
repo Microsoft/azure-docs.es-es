@@ -4,12 +4,12 @@ description: Aprenda a crear y administrar grupos de varios nodos para un clúst
 services: container-service
 ms.topic: article
 ms.date: 04/08/2020
-ms.openlocfilehash: c35b3cdbde79a771eccc42c7c3a60b0ab4e08e8a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 128b8d07a3fb18ecd70f6ce5a37f41ad0fdd3db1
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250862"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563184"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Creación y administración de varios grupos de nodos para un clúster de Azure Kubernetes Service (AKS)
 
@@ -489,6 +489,8 @@ Solo los pods a los que se ha aplicado este valor toleration se pueden programar
 
 ## <a name="specify-a-taint-label-or-tag-for-a-node-pool"></a>Especificación de un valor taint o una etiqueta para un grupo de nodos
 
+### <a name="setting-nodepool-taints"></a>Configuración de las intolerancias de un grupo de nodos
+
 Al crear un grupo de nodos, puede agregar valores taint o etiquetas a ese grupo de nodos. Al agregar un valor taint o una etiqueta, todos los nodos de ese grupo de nodos también obtienen ese valor taint o etiqueta.
 
 Para crear un grupo de nodos con un valor taint, use [az aks nodepool add][az-aks-nodepool-add]. Especifique el nombre *taintnp* y use el parámetro `--node-taints` para especificar *sku=gpu:NoSchedule* para el valor taint.
@@ -502,6 +504,9 @@ az aks nodepool add \
     --node-taints sku=gpu:NoSchedule \
     --no-wait
 ```
+
+> [!NOTE]
+> Solo pueden crearse intolerancias para los grupos de nodos cuando estos se crean.
 
 En la siguiente salida de ejemplo del comando [az aks nodepool list][az-aks-nodepool-list] se puede ver que *taintnp* está creando (*Creating*) nodos con el valor *nodeTaints* especificado:
 
@@ -528,6 +533,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ```
 
 La información del valor taint está visible en Kubernetes para controlar las reglas de programación de los nodos.
+
+### <a name="setting-nodepool-labels"></a>Configuración de etiquetas de grupos de nodos
 
 También puede agregar etiquetas a un grupo de nodos durante la creación del mismo. Las etiquetas establecidas en el grupo de nodos se agregan a cada nodo del grupo de nodos. Estas [etiquetas están visibles en Kubernetes][kubernetes-labels] para controlar las reglas de programación de los nodos.
 
@@ -571,7 +578,13 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
+### <a name="setting-nodepool-azure-tags"></a>Configuración de etiquetas de Azure para grupos de nodos
+
 Puede aplicar una etiqueta de Azure a grupos de nodos en su clúster de AKS. Las etiquetas aplicadas a un grupo de nodos se aplican a cada nodo del grupo y se conservan de una actualización a otra. También se aplican etiquetas a los nuevos nodos que se agregan a un grupo durante las operaciones de escalado horizontal. Agregar una etiqueta puede ayudar con tareas como el seguimiento de directivas o la estimación de costos.
+
+Las etiquetas de Azure tienen claves que no distinguen mayúsculas y minúsculas en las operaciones; por ejemplo, cuando se recupera una etiqueta buscando la clave. En este caso, una etiqueta con la clave especificada se actualizará o recuperará independientemente del uso de mayúsculas y minúsculas. Los valores de etiqueta distinguen mayúsculas de minúsculas.
+
+En AKS, si varias etiquetas están configuradas con claves que son idénticas salvo por el uso de mayúsculas y minúsculas, la etiqueta que se utilizará será la primera en orden alfabético. Por ejemplo, si se utiliza `{"Key1": "val1", "kEy1": "val2", "key1": "val3"}`, se configurará `Key1` y `val1`.
 
 Cree un grupo de nodos mediante el comando [az aks nodepool add][az-aks-nodepool-add]. Especifique el nombre *tagnodepool* y use el parámetro `--tag` para especificar *dept=IT* y *costcenter=9999* para las etiquetas.
 
@@ -846,7 +859,7 @@ Use [grupos con ubicación por proximidad][reduce-latency-ppg] para disminuir la
 [supported-versions]: supported-kubernetes-versions.md
 [tag-limitation]: ../azure-resource-manager/management/tag-resources.md
 [taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[vm-sizes]: ../virtual-machines/linux/sizes.md
+[vm-sizes]: ../virtual-machines/sizes.md
 [use-system-pool]: use-system-pools.md
 [ip-limitations]: ../virtual-network/virtual-network-ip-addresses-overview-arm#standard
 [node-resource-group]: faq.md#why-are-two-resource-groups-created-with-aks

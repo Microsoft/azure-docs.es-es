@@ -1,7 +1,7 @@
 ---
 title: Incorporación, modificación o eliminación de una subred de red virtual de Azure
 titlesuffix: Azure Virtual Network
-description: Obtenga información sobre la incorporación, la modificación o la eliminación de una subred de red virtual en Azure.
+description: Aprenda dónde encontrar información acerca de redes virtuales y cómo agregar, cambiar o eliminar una subred de red virtual en Azure.
 services: virtual-network
 documentationcenter: na
 author: KumudD
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
-ms.openlocfilehash: b43fb027116d746a60c9cd4e690e63181fff4ade
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 15fe5d6d16948875253d65e70d9d440214a4a2e8
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711024"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286111"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Incorporación, cambio o eliminación de una subred de red virtual
 

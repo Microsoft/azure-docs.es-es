@@ -6,12 +6,12 @@ ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2019
-ms.openlocfilehash: 9a5c03664205676d53c083bddcfa6833ace641d2
-ms.sourcegitcommit: ba8df8424d73c8c4ac43602678dae4273af8b336
+ms.openlocfilehash: 21d980bcaa73af6367908b2f24c0c856d6a6c8ad
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/05/2020
-ms.locfileid: "84457157"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86505829"
 ---
 # <a name="azure-monitor-overview"></a>Introducción a Azure Monitor
 
@@ -44,7 +44,7 @@ En muchos recursos de Azure, los datos recopilados por Azure Monitor aparecen di
 
 ![Métricas](media/overview/metrics.png)
 
-Los datos de registro recopilados por Azure Monitor se pueden analizar con [consultas](log-query/log-query-overview.md) que recuperan, consolidan y analizan rápidamente los datos recopilados.  Puede crear y probar consultas mediante [Log Analytics](log-query/portals.md) en Azure Portal y después analizar los datos directamente mediante estas herramientas o guardar las consultas para usarlas con las [visualizaciones](visualizations.md) o las [reglas de alertas](platform/alerts-overview.md).
+Los datos de registro recopilados por Azure Monitor se pueden analizar con [consultas](log-query/log-query-overview.md) que recuperan, consolidan y analizan rápidamente los datos recopilados.  Puede crear y probar consultas mediante [Log Analytics](./log-query/log-query-overview.md) en Azure Portal y después analizar los datos directamente con otras herramientas o guardar las consultas para usarlas con las [visualizaciones](visualizations.md) o las [reglas de alertas](platform/alerts-overview.md).
 
 Azure Monitor utiliza una versión del [lenguaje de consulta Kusto](/azure/kusto/query/) utilizado por Azure Data Explorer, que es adecuado para realizar búsquedas de registros simples, pero también dispone de funciones avanzadas, como agregaciones, combinaciones y análisis inteligentes. Puede aprender rápidamente el lenguaje de consulta con [diversas lecciones](log-query/get-started-queries.md).  Se proporciona orientación concreta a los usuarios que ya están familiarizados con [SQL](log-query/sql-cheatsheet.md) y [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -90,7 +90,7 @@ La solución [Azure Monitor para VM](insights/vminsights-overview.md) supervisa 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### <a name="monitoring-solutions"></a>Soluciones de supervisión
-Las [soluciones de supervisión](insights/solutions.md) de Azure Monitor son conjuntos empaquetados de lógica que proporcionan información sobre una determinada aplicación o servicio. Incluyen la lógica para recopilar datos de supervisión para la aplicación o servicio, [consultas](log-query/log-query-overview.md) para analizar esos datos y [vistas](../log-analytics/log-analytics-view-designer.md) para su visualización. Las soluciones de supervisión están [disponibles en Microsoft](insights/solutions-inventory.md) y otros asociados, y ofrecen herramientas de supervisión para distintos servicios de Azure y otras aplicaciones.
+Las [soluciones de supervisión](insights/solutions.md) de Azure Monitor son conjuntos empaquetados de lógica que proporcionan información sobre una determinada aplicación o servicio. Incluyen la lógica para recopilar datos de supervisión para la aplicación o servicio, [consultas](log-query/log-query-overview.md) para analizar esos datos y [vistas](./platform/view-designer.md) para su visualización. Las soluciones de supervisión están [disponibles en Microsoft](./monitor-reference.md) y otros asociados, y ofrecen herramientas de supervisión para distintos servicios de Azure y otras aplicaciones.
 
 ![Soluciones de supervisión](media/overview/solutions-overview.png)
 
@@ -119,12 +119,12 @@ Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) permiten comb
 ![Panel](media/overview/dashboard.png)
 
 ### <a name="views"></a>Vistas
-Las [vistas](../log-analytics/log-analytics-view-designer.md) representan visualmente los datos de registro de Azure Monitor.  Cada vista contiene un icono que da acceso a una combinación de visualizaciones, como gráficos de barras y líneas, así como a listas en las que resumen los datos críticos.  Las soluciones de supervisión contienen vistas en las que se resumen los datos de una determinada aplicación. Puede crear sus propias vistas para presentar los datos de cualquier consulta de registros. Al igual que otros elementos de Azure Monitor, las vistas se pueden agregar a los paneles de Azure.
+Las [vistas](./platform/view-designer.md) representan visualmente los datos de registro de Azure Monitor.  Cada vista contiene un icono que da acceso a una combinación de visualizaciones, como gráficos de barras y líneas, así como a listas en las que resumen los datos críticos.  Las soluciones de supervisión contienen vistas en las que se resumen los datos de una determinada aplicación. Puede crear sus propias vistas para presentar los datos de cualquier consulta de registros. Al igual que otros elementos de Azure Monitor, las vistas se pueden agregar a los paneles de Azure.
 
 ![Ver](media/overview/view.png)
 
 ### <a name="power-bi"></a>Power BI
-[Power BI](https://powerbi.microsoft.com) es un servicio de análisis empresarial que proporciona visualizaciones interactivas en una serie de orígenes de datos y que constituye un mecanismo eficaz para poner los datos a disposición de personas que están dentro y fuera de la organización. Puede configurar Power BI para que [los datos de registro se importen automáticamente desde Azure Monitor](../log-analytics/log-analytics-powerbi.md) y utilizar estas otras visualizaciones.
+[Power BI](https://powerbi.microsoft.com) es un servicio de análisis empresarial que proporciona visualizaciones interactivas en una serie de orígenes de datos y que constituye un mecanismo eficaz para poner los datos a disposición de personas que están dentro y fuera de la organización. Puede configurar Power BI para que [los datos de registro se importen automáticamente desde Azure Monitor](./platform/powerbi.md) y utilizar estas otras visualizaciones.
 
 
 ![Power BI](media/overview/power-bi.png)
@@ -134,7 +134,7 @@ Las [vistas](../log-analytics/log-analytics-view-designer.md) representan visual
 A menudo, necesitará integrar Azure Monitor con otros sistemas y crear soluciones personalizadas que utilicen los datos de supervisión. Otros servicios de Azure funcionan con Azure Monitor para proporcionar esta integración.
 
 ### <a name="event-hub"></a>Centro de eventos
-[Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs) es una plataforma de streaming y un servicio de ingesta de eventos que puede transformar y almacenar los datos utilizando cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento de datos. Utilice Event Hubs para [transmitir datos de Azure Monitor](platform/stream-monitoring-data-event-hubs.md) a herramientas de supervisión y administración de eventos e información de seguridad de asociados.
+[Azure Event Hubs](../event-hubs/index.yml) es una plataforma de streaming y un servicio de ingesta de eventos que puede transformar y almacenar los datos utilizando cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento de datos. Utilice Event Hubs para [transmitir datos de Azure Monitor](platform/stream-monitoring-data-event-hubs.md) a herramientas de supervisión y administración de eventos e información de seguridad de asociados.
 
 
 ### <a name="logic-apps"></a>Logic Apps
@@ -150,4 +150,4 @@ Más información sobre:
 * Las [métricas y registros](platform/data-platform.md) de los datos que recopila Azure Monitor.
 * Los [orígenes de datos](platform/data-sources.md) de la forma en que los distintos componentes de la aplicación envían la telemetría.
 * Las [consultas de registros](log-query/log-query-overview.md) para analizar los datos recopilados.
-* [Procedimientos recomendados](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) para supervisar los servicios y las aplicaciones en la nube.
+* [Procedimientos recomendados](/azure/architecture/best-practices/monitoring) para supervisar los servicios y las aplicaciones en la nube.

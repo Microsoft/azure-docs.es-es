@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/26/2020
-ms.openlocfilehash: d7c3613a0ddce217e9d07c3fc2eba55b78c53a1b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7421162ed68a879d9f935a3efd5c6267e159a648
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516570"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324308"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-cli-20"></a>Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0
 
@@ -24,8 +24,8 @@ La CLI de Azure 2.0 se usa para crear y administrar recursos de Azure desde la l
 
 Para otros orígenes, como las máquinas virtuales de Azure y la máquinas virtuales Windows o Linux del entorno, consulte los temas siguientes:
 
-* [Recopilación de datos de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md)
-* [Recopilación de datos de un equipo Linux híbrido](../learn/quick-collect-linux-computer.md)
+* [Recopilación de datos de máquinas virtuales de Azure](./quick-collect-azurevm.md)
+* [Recopilación de datos de un equipo Linux híbrido](./quick-collect-linux-computer.md)
 * [Recopilación de datos de un equipo Windows híbrido](quick-collect-windows-computer.md)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
@@ -133,3 +133,4 @@ Ahora que tiene un área de trabajo disponible, puede configurar la recopilació
 * [Agregue System Center Operations Manager como origen de datos](../platform/om-agents.md) para recopilar datos de agentes que informan a su grupo de administración de Operations Manager y almacenarlos en el repositorio del área de trabajo de Log Analytics.  
 * Conecte [Configuration Manager](../platform/collect-sccm.md) para importar equipos que son miembros de colecciones en la jerarquía.  
 * Revise las [soluciones de supervisión](../insights/solutions.md) disponibles y cómo agregar o quitar una solución del área de trabajo.
+

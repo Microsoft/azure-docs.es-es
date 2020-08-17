@@ -14,16 +14,16 @@ ms.date: 04/29/2020
 ms.author: curtand
 ms.reviewer: sumitp
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d0d83d3b981968949d558cb7ee5672094b00555
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb464f758aca33e0b6547f69e2a9cc842582ea3f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84727337"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025224"
 ---
 # <a name="powershell-and-graph-examples-for-group-based-licensing-in-azure-ad"></a>Ejemplos de PowerShell y Graph para licencias basadas en grupos de Azure AD
 
-Toda la funcionalidad de licencias basadas en grupos está disponible en [Azure Portal](https://portal.azure.com) y, actualmente, la compatibilidad con PowerShell y Microsoft Graph está limitada a las operaciones de solo lectura. Sin embargo, hay algunas tareas útiles que se pueden realizar con los [cmdlets existentes de MSOnline PowerShell](https://docs.microsoft.com/powershell/msonline/v1/azureactivedirectory) y Microsoft Graph. Este documento proporciona ejemplos de lo que es posible.
+Toda la funcionalidad de licencias basadas en grupos está disponible en [Azure Portal](https://portal.azure.com) y, actualmente, la compatibilidad con PowerShell y Microsoft Graph está limitada a las operaciones de solo lectura. Sin embargo, hay algunas tareas útiles que se pueden realizar con los [cmdlets existentes de MSOnline PowerShell](/powershell/module/msonline) y Microsoft Graph. Este documento proporciona ejemplos de lo que es posible.
 
 > [!NOTE]
 > Antes de comenzar a ejecutar los cmdlets, asegúrese de conectarse primero a su organización con el cmdlet `Connect-MsolService` .

@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 04/18/2019
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: 597a9e3b018f4ddb68710dff65094f35828b3c4b
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 37602f7b9a8669ce0e8db984f7f7617cffdd431c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232668"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029287"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
 
@@ -89,7 +89,7 @@ Puede configurar el escalado vertical para que se desencadene en función de las
 ## <a name="create-an-azure-automation-account-with-run-as-capability"></a>Creación de una cuenta de Azure Automation con funciones de ejecución
 Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará los runbooks que se usan para escalar las instancias del conjunto de escalado de máquinas virtuales. Recientemente, [Azure Automation](https://azure.microsoft.com/services/automation/) presentó la característica "Cuenta de ejecución", que permite realizar la configuración de la entidad de servicio para ejecutar los runbooks automáticamente en nombre de un usuario. Para más información, consulte:
 
-* [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
+* [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/manage-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importación de runbooks de escalado vertical de Azure Automation a la suscripción
 

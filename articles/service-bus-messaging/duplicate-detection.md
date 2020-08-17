@@ -3,12 +3,12 @@ title: Detección de mensajes duplicados de Azure Service Bus | Microsoft Docs
 description: En este artículo se explica cómo puede detectar duplicados en mensajes de Azure Service Bus. El mensaje duplicado se puede omitir y quitar.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c8935fa67dda28bb2fec663c5e714982933f0f22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbca1b4b4f894d35835e7d37e0b4e742a2d3b917
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083895"
 ---
 # <a name="duplicate-detection"></a>Detección de duplicados
 
@@ -33,7 +33,7 @@ El valor *MessageId* siempre puede ser algún GUID, pero el anclaje del identifi
 
 En el portal, la característica se activa durante la creación de la entidad con la casilla **Habilitar detección de duplicados**, que está desactivada de forma predeterminada. La configuración para la creación de nuevos temas es equivalente.
 
-![][1]
+![Captura de pantalla del cuadro de diálogo Crear cola con la opción Habilitar detección de duplicados seleccionada y resaltada en rojo.][1]
 
 > [!IMPORTANT]
 > No puede habilitar o deshabilitar la detección de duplicados después de crear la cola. Solo puede hacerlo en el momento de creación de la cola. 
@@ -42,7 +42,7 @@ Mediante programación, establezca el indicador con la propiedad [QueueDescripti
 
 El valor predeterminado del historial del tiempo de detección de duplicados es de 30 segundos para colas y temas, con un valor máximo de 7 días. Esta configuración se puede cambiar en la ventana de propiedades de colas y temas de Azure Portal.
 
-![][2]
+![Captura de pantalla de la característica de Service Bus con el valor Propiedades resaltado y la opción del historial de detección de duplicados resaltada en rojo.][2]
 
 Mediante programación, puede configurar el tamaño de la ventana de detección de duplicados durante el cual se conservan los identificadores de mensaje, mediante la propiedad [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) con la API de .NET Framework completa. Con la API de Azure Resource Manager, el valor se establece con la propiedad [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 

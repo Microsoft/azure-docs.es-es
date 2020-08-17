@@ -9,21 +9,21 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6530d05b8e1aa565e64256054e81b785572edfb0
-ms.sourcegitcommit: 4042aa8c67afd72823fc412f19c356f2ba0ab554
+ms.openlocfilehash: a7d9aa7de8bb75a22acc85c77924765eaa1b6b3b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85307079"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080155"
 ---
 # <a name="azure-linux-vm-provisioning"></a>Aprovisionamiento de máquinas virtuales Linux en Azure
 Al crear una máquina virtual a partir de una imagen generalizada (Shared Image Gallery o imagen administrada), el plano de control permitirá crear una máquina virtual y pasar los parámetros y valores a la máquina virtual. Esto se denomina *aprovisionamiento* de una máquina virtual. Durante el aprovisionamiento, la plataforma pone los valores necesarios de los parámetros de VM Create (hostname, username, password, SSH keys, customData) a disposición de la máquina virtual cuando esta arranca. 
 
 Un agente de aprovisionamiento incorporado en la imagen hará de interfaz con la plataforma (se conectará a varias interfaces de aprovisionamiento independientes), establecerá las propiedades e indicará a la plataforma que ha finalizado. 
 
-Los agentes de aprovisionamiento pueden ser el [agente Linux de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) o [cloud-init](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init). Estos son los [requisitos previos](create-upload-generic.md) para la creación de imágenes generalizadas.
+Los agentes de aprovisionamiento pueden ser el [agente Linux de Azure](../extensions/agent-linux.md) o [cloud-init](./using-cloud-init.md). Estos son los [requisitos previos](create-upload-generic.md) para la creación de imágenes generalizadas.
 
-Los agentes de aprovisionamiento proporcionan compatibilidad con todas las [distribuciones de Linux aprobadas en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) y, en muchos casos, las imágenes de las distribuciones aprobadas se enviarán tanto con cloud-init como con el agente Linux. Esto permite que cloud-init controle el aprovisionamiento y que, después, el agente Linux proporcione compatibilidad para controlar las [extensiones de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/features-windows). Proporcionar compatibilidad con las extensiones significa que la máquina virtual podrá ser apta para usar servicios adicionales de Azure, como VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk Encryption, etc.
+Los agentes de aprovisionamiento proporcionan compatibilidad con todas las [distribuciones de Linux aprobadas en Azure](./endorsed-distros.md) y, en muchos casos, las imágenes de las distribuciones aprobadas se enviarán tanto con cloud-init como con el agente Linux. Esto permite que cloud-init controle el aprovisionamiento y que, después, el agente Linux proporcione compatibilidad para controlar las [extensiones de Azure](../extensions/features-windows.md). Proporcionar compatibilidad con las extensiones significa que la máquina virtual podrá ser apta para usar servicios adicionales de Azure, como VM Password Reset, Azure Monitoring, Azure Backup, Azure Disk Encryption, etc.
 
 Una vez que se complete el aprovisionamiento, cloud-init se ejecutará en todos los arranques. Cloud-init supervisará los cambios que se realicen en la máquina virtual, como los cambios de red, el montaje y formateo del disco efímero, y el inicio del agente Linux. El agente Linux se ejecuta continuamente en el servidor, ya que busca un "estado de objetivo" (nueva configuración) de la plataforma Azure, por lo que cada vez que se instalan las extensiones, el agente podrá procesarlas.
 

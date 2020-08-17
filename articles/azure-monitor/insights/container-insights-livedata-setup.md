@@ -4,12 +4,12 @@ description: En este artículo se describe cómo configurar la vista en tiempo r
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.custom: references_regions
-ms.openlocfilehash: cbd697f743d0d3369a8c35537ac2755ae5d3fc8c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ef3fd6ce2a5be4f3d06a37b135e0f9cf0851effb
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516471"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87116711"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Cómo configurar la característica de datos en directo (versión preliminar)
 
@@ -42,7 +42,7 @@ En el Azure Portal se le pedirá que valide las credenciales de inicio de sesió
 >La autorización para el clúster se administra mediante Kubernetes y el modelo de seguridad con el que está configurado. Los usuarios que tienen acceso a esta característica requieren permiso para descargar la configuración de Kubernetes (*kubeconfig*), similar a la ejecución de `az aks get-credentials -n {your cluster name} -g {your resource group}`. Este archivo de configuración contiene el token de autorización y autenticación para **rol de usuario de clúster de Azure Kubernetes Service**, en el caso de los clústeres habilitados para RBAC de Azure y AKS sin la autorización RBAC habilitada. Contiene información sobre Azure AD y detalles de registro del cliente cuando AKS se habilita con el inicio de sesión único basado en SAML de Azure Active Directory (AD).
 
 >[!IMPORTANT]
->Los usuarios de estas características requieren [rol de usuario de clúster de Azure Kubernetes](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) al clúster para descargar el `kubeconfig` y usar esta característica. Los usuarios **no**  necesitan el acceso de colaborador al clúster para utilizar esta característica.
+>Los usuarios de estas características requieren [rol de usuario de clúster de Azure Kubernetes](../../role-based-access-control/built-in-roles.md) al clúster para descargar el `kubeconfig` y usar esta característica. Los usuarios **no**  necesitan el acceso de colaborador al clúster para utilizar esta característica.
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>Uso de clusterMonitoringUser con clústeres habilitados para RBAC
 

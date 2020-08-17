@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 9a7aa512c636f700cf9c6d990814d9367007c942
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76f73df01b34cb20be48aefa3b5b3a6392a35b8b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125781"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045200"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Enviar métricas de SO invitado al almacén de métricas de Azure Monitor con una plantilla de Azure Resource Manager para un conjunto de escalado de máquinas virtuales de Windows
 
@@ -26,9 +26,9 @@ Si no está familiarizado con las plantillas de Resource Manager, obtenga inform
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- La suscripción debe estar registrada en [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
+- La suscripción debe estar registrada en [Microsoft.Insights](../../azure-resource-manager/management/resource-providers-and-types.md). 
 
-- Debe tener instalado [Azure PowerShell](/powershell/azure), o puede usar [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- Debe tener instalado [Azure PowerShell](/powershell/azure), o puede usar [Azure CloudShell](../../cloud-shell/overview.md). 
 
 - El recurso de máquina virtual debe estar en una [región que admita métricas personalizadas](metrics-custom-overview.md#supported-regions).
 
@@ -293,5 +293,3 @@ A continuación, también puede elegir usar las dimensiones en esta métrica par
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de las [métricas personalizadas](metrics-custom-overview.md).
-
-

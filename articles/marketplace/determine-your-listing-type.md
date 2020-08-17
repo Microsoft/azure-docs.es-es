@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 06/22/2020
-ms.openlocfilehash: 3d8692d3180e4164bff544f71a1216097a390773
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 37647a9591c0f686e4fc3f1fd858baa46e01f7ac
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103660"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498079"
 ---
 # <a name="determine-your-publishing-option"></a>Determinar la opción de publicación
 
@@ -47,18 +47,7 @@ En la tabla siguiente se muestran las opciones de publicación de los tipos de o
 
 &#42;&#42; Las ofertas de Microsoft 365 se instalan gratis y se pueden monetizar a través de una oferta de SaaS como servicio de licencia. Para más información, consulte el artículo sobre cómo [monetizar el complemento de Office 365 a través de Marketplace comercial de Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
-## <a name="selecting-a-storefront"></a>Selección de un escaparate
-
-Antes de seleccionar una opción de publicación, es importante comprender los requisitos de idoneidad de escaparate para las soluciones, las aplicaciones y los servicios de Marketplace comercial. Cada escaparate cumple con los requisitos únicos del cliente y apunta a audiencias específicas. El tipo de oferta, las funcionalidades de transacción y la categoría o el sector determinarán dónde publicar su oferta.
-
-Las aplicaciones de **Microsoft AppSource** son soluciones de línea de negocio que se pueden basar en Azure o diseñar para: Dynamics 365, Office 365, Power BI o Power Apps. Los servicios de consultoría de AppSource son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Dynamics 365 y Power BI o a acelerar su uso.
-
-Las aplicaciones de **Azure Marketplace** son soluciones técnicas de "bloques de creación" integradas en Azure o creadas para Azure y dirigidas a un público de desarrolladores o expertos en TI. Los servicios de consultoría de Azure Marketplace son ofertas de servicios profesionales que ayudan a los clientes a empezar a usar Azure o a acelerar su uso.
-
->[!Note]
->"Listados cruzados" (solo para aplicaciones SaaS): si su oferta de SaaS está diseñada para una audiencia técnica (Azure Marketplace) y una audiencia empresarial (AppSource), puede seleccionar una categoría o subcategoría aplicable a cualquier escaparate. No olvide que la intención de hacer "listados cruzados" para su oferta debe basarse en una propuesta de valor que se amplíe a ambas audiencias. Haga clic [aquí](./gtm-offer-listing-best-practices.md#categories) para ver las categorías aplicables a cada escaparate.
-
-## <a name="choose-a-publishing-option"></a>Selección de la opción de publicación
+## <a name="choose-a-call-to-action"></a>Elegir una llamada a la acción
 
 Las opciones de publicación disponibles ofrecen un compromiso diferenciado del cliente y le ofrecen acceso al uso compartido de clientes potenciales y a [ventajas de Marketplace comercial](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Tenga en cuenta las llamadas a la acción que se corresponden con la opción de publicación:
 
@@ -71,6 +60,43 @@ Las opciones de publicación disponibles ofrecen un compromiso diferenciado del 
 
 > [!Note]
 > Cuando se usa la opción de publicación de transacciones, es importante comprender las consideraciones sobre precios, facturación y pago antes de seleccionar un tipo de oferta y crear la oferta. Para más información, revise el artículo sobre las [funcionalidades de transacción de Marketplace comercial](./marketplace-commercial-transaction-capabilities-and-considerations.md).
+
+## <a name="selecting-a-storefront"></a>Selección de un escaparate
+
+Cada escaparate cumple con los requisitos únicos del cliente y apunta a audiencias específicas. El tipo de oferta, las funcionalidades de transacción y la categoría determinarán dónde se publicará la oferta. Las categorías y subcategorías se asignan a cada escaparate en función de la audiencia de destino:
+
+**Microsoft AppSource** se dirige a los usuarios empresariales que buscan soluciones de línea de negocio o del sector y servicios de consultoría para Dynamics 365, Microsoft 365 y Power Platform.
+
+**Azure Marketplace** se dirige a los profesionales de TI y a los desarrolladores que buscan soluciones creadas para o en Azure, así como servicios de consultoría que aceleran su uso de Azure.
+
+Seleccione la categoría y la subcategoría que mejor se adapte al público de destino. Por ejemplo, un firewall de aplicaciones web debe publicarse en Azure Marketplace, en la categoría de seguridad, ya que el público previsto son profesionales de TI. En su lugar, se debe publicar una aplicación de administración de contratos en AppSource en la categoría de ventas, ya que el público previsto son usuarios empresariales. La selección de una categoría o subcategoría incorrecta puede hacer que la oferta se publique en el escaparate equivocado.
+
+### <a name="publishing-to-both-storefronts-saas-offers-only"></a>Publicación en ambos escaparates (solo ofertas de SaaS)
+
+Las ofertas de SaaS pueden publicarse en Azure Marketplace o AppSource. Si su oferta de SaaS está diseñada *tanto* para una audiencia técnica (Azure Marketplace) como para una audiencia empresarial (AppSource), seleccione una categoría o subcategoría aplicable a cada escaparate. Las ofertas publicadas en ambos escaparates deben tener una propuesta de valor que se extienda a los profesionales de TI *y* a los usuarios empresariales.
+
+> [!IMPORTANT]
+> Las ofertas de SaaS con facturación de uso medido están disponibles a través de Azure Marketplace y Azure Portal. Las ofertas de SaaS con planes privados exclusivamente están disponibles en Azure Portal.
+
+| Facturación de uso medido | Plan público | Plan privado | Disponible en: |
+|---|---|---|---|
+| Sí             | Sí         | No           | Azure Marketplace y Azure Portal |
+| Sí             | Sí         | Sí          | Azure Marketplace y Azure Portal* |
+| Sí             | No          | Sí          | Azure Portal solamente |
+| No              | No          | Sí          | Azure Portal solamente |
+
+&#42; El plan privado de la oferta solo estará disponible en Azure Portal.
+
+Por ejemplo, una oferta con facturación de uso medido y un plan privado solo (ningún plan público) lo comprarán los clientes en Azure Portal. Obtenga más información sobre [Ofertas privadas en el marketplace comercial de Microsoft](private-offers.md).
+
+### <a name="categories"></a>Categorías
+
+Las categorías y subcategorías se asignan a cada escaparate en función de la audiencia de destino. Seleccione las categorías y subcategorías que mejor se adapten a su oferta y a la audiencia prevista. Puede seleccionar:
+
+- Al menos una categoría, hasta un máximo de dos. Tiene la opción de elegir una categoría principal y una secundaria.
+- Hasta dos subcategorías para cada categoría principal o secundaria. Si no selecciona ninguna subcategoría, la oferta se podrá detectar en la categoría seleccionada.
+
+[!INCLUDE [categories and subcategories](./includes/categories.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

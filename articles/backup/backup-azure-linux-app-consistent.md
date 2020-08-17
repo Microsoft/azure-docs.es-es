@@ -1,15 +1,14 @@
 ---
 title: Copias de seguridad coherentes con la aplicación de VM Linux
 description: Cree copias de seguridad coherentes con la aplicación de sus máquinas virtuales Linux en Azure. En este artículo se explica la configuración del marco de trabajo del script para la copia de seguridad de máquinas virtuales de Linux implementadas en Azure. Este artículo también incluye información sobre la solución de problemas.
-ms.reviewer: anuragm
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 36eeb9f63c67a01bf37412101e23be035596de94
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74173003"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87407105"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Copias de seguridad coherentes con la aplicación de las máquinas virtuales Linux de Azure
 
@@ -59,13 +58,13 @@ Los scripts anteriores invocan las API nativas de la aplicación, que ponen en m
 
     - **timeoutInSeconds**: especifique los tiempos de espera individuales para el script previo y el posterior (el valor máximo es 1 800).
 
-    - **continueBackupOnFailure**: establezca este valor en **true** si desea que Azure Backup revierta a una copia de seguridad coherente con el sistema de archivos o coherente frente a bloqueos en caso de que el script anterior o posterior sufran un error. Si se establece en **false**, se producirá un error de la copia de seguridad en caso de error del script (excepto en el caso de una máquina virtual de un solo disco, en el que se revertirá a una copia de seguridad coherente frente a bloqueos independientemente de este valor).
+    - **continueBackupOnFailure**: establezca este valor en **true** si desea que Azure Backup revierta a una copia de seguridad coherente con el sistema de archivos o coherente frente a bloqueos en caso de que el script anterior o posterior sufran un error. Si se establece en **false**, se producirá un error de la copia de seguridad si hay un error del script (excepto en el caso de una máquina virtual de un solo disco, en el que se revertirá a una copia de seguridad coherente frente a bloqueos independientemente de este valor). Cuando el valor de **continueBackupOnFailure** está establecido en false, si se produce un error en la copia de seguridad, se volverá a intentar la operación de copia de seguridad en función de una lógica de reintento en el servicio (para el número de intentos estipulado).
 
     - **fsFreezeEnabled**: especifique si se debe llamar a fsfreeze de Linux al realizar la instantánea de la máquina virtual para garantizar la coherencia del sistema de archivos. Es recomendable mantener este valor en **true** a menos que la aplicación tenga una dependencia al deshabilitar fsfreeze.
 
     - **ScriptsExecutionPollTimeSeconds**: establece el tiempo durante el cual la extensión tiene que entrar en suspensión entre cada sondeo a la ejecución del script. Por ejemplo, si el valor es 2, la extensión comprueba si la ejecución del script anterior o posterior se ha completado cada 2 segundos. Los valores mínimo y máximo que puede tomar son 1 y 5, respectivamente. El valor debe ser estrictamente un número entero.
 
-6. Ahora ya está configurado el marco de trabajo del script. Si ya está configurada la copia de seguridad de la máquina virtual, la copia de seguridad siguiente invoca los scripts y desencadena la copia de seguridad coherente con la aplicación. Si la copia de seguridad de la máquina virtual no está configurada, hágalo siguiendo las instrucciones descritas en [Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
+6. Ahora ya está configurado el marco de trabajo del script. Si ya está configurada la copia de seguridad de la máquina virtual, la copia de seguridad siguiente invoca los scripts y desencadena la copia de seguridad coherente con la aplicación. Si la copia de seguridad de la máquina virtual no está configurada, hágalo siguiendo las instrucciones descritas en [Copia de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services.](./backup-azure-vms-first-look-arm.md)
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -86,4 +85,4 @@ Asegúrese de que agrega el registro adecuado al escribir el script anterior y e
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Configuración de la copia de seguridad en un almacén de Recovery Services](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
+[Configuración de la copia de seguridad en un almacén de Recovery Services](./backup-azure-vms-first-look-arm.md)

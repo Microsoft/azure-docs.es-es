@@ -9,16 +9,19 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 611ab503dfea44e8287e95cf607ce6af3b447d1f
-ms.sourcegitcommit: fc0431755effdc4da9a716f908298e34530b1238
+ms.openlocfilehash: a74b77ac59ece98f1a64839fd5000f4ab5d638f7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/24/2020
-ms.locfileid: "83815798"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497886"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalación y ejecución de contenedores de Face (versión preliminar)
+
+> [!IMPORTANT]
+> Se ha alcanzado el límite de usuarios del contenedor de Face. Actualmente no aceptamos nuevas aplicaciones para el contenedor de Face.
 
 Azure Cognitive Services Face proporciona un contenedor de Linux estandarizado para Docker que detecta rostros humanos en imágenes. También identifica atributos, incluidos faciales (como narices y ojos), sexo, edad y otras características faciales previstas por la máquina. Además de la detección, Face puede comprobar si dos rostros en la misma o en imágenes diferentes coinciden mediante una puntuación de confianza. Face también puede comparar rostros en una base de datos para ver si ya existe algún otro rostro similar o idéntico. También puede organizar rostros similares en grupos mediante rasgos visuales compartidos.
 
@@ -35,12 +38,6 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 |Recurso de Face |Para usar el contenedor, debe tener:<br><br>Un recurso de Azure **Face** y la clave de API y el URI de punto de conexión asociados. Ambos valores están disponibles en las páginas de **introducción** y **claves** del recurso. Esto es necesario para iniciar el contenedor.<br><br>**{API_KEY}** : una de las dos claves de recurso disponibles en la página **Claves**<br><br>**{ENDPOINT_URI}** : el punto de conexión tal como se proporciona en la página de **Información general**.
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
-
-## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
-
-Rellene y envíe el [formulario de solicitud](https://aka.ms/cognitivegate) para solicitar acceso al contenedor. 
-
-[!INCLUDE [Request access to private container registry](../../../includes/cognitive-services-containers-request-access.md)]
 
 ### <a name="the-host-computer"></a>El equipo host
 

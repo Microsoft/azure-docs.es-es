@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 3/18/2020
-ms.openlocfilehash: 777febb86e6a1fa719b6a7d74c32defebcf3b58c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 7/17/2020
+ms.openlocfilehash: 4cfbc757b33c10ac559e7f8d6b62b9ccdaed404e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85099823"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86536103"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mariadb"></a>Uso de reglas y puntos de conexión de servicio de red virtual para Azure Database for MariaDB
 
@@ -23,6 +23,8 @@ Para crear una regla de red virtual, primero debe haber una [red virtual][vm-vir
 
 > [!NOTE]
 > Esta característica está disponible en todas las regiones de Azure donde se implementa Azure Database for MariaDB para servidores de uso general y optimizados para memoria.
+
+También puede considerar la posibilidad de usar [Private Link](concepts-data-access-security-private-link.md) para las conexiones. Private Link proporciona una dirección IP privada en la red virtual para el servidor de Azure Database for MariaDB.
 
 <a name="anch-terminology-and-description-82f"></a>
 
@@ -62,11 +64,6 @@ Para recuperar la opción de IP, puede obtener una dirección IP *estática* par
 
 Sin embargo, el enfoque de IP estática puede resultar difícil de administrar, y es costoso si se realiza a escala. Las reglas de red virtual son más sencillas de establecer y administrar.
 
-### <a name="c-cannot-yet-have-azure-database-for-mariadb-on-a-subnet-without-defining-a-service-endpoint"></a>C. Todavía no se puede tener Azure Database for MariaDB en una subred sin definir ningún punto de conexión de servicio
-
-Si su servidor de **Microsoft.Sql** fuera un nodo de una subred de la red virtual, todos los nodos de la red virtual podrían comunicarse con su servidor de Azure Database for MariaDB. En este caso, las máquinas virtuales podrían comunicarse con Azure Database for MariaDB sin necesitar ninguna regla de IP ni reglas de red virtual.
-
-No obstante, a fecha de agosto de 2018, el servicio de Azure Database for MariaDB aún no se encuentra entre los servicios que se pueden asignar directamente a una subred.
 
 <a name="anch-details-about-vnet-rules-38q"></a>
 
@@ -119,6 +116,8 @@ Para Azure Database for MariaDB, la característica de las reglas de red virtual
 
 - La compatibilidad con puntos de conexión de servicio de red virtual solo existe para servidores de uso general y optimizados para memoria.
 
+- Si **Microsoft.Sql** está habilitado en una subred, indica que solo desea usar reglas de red virtual para conectarse. Las [reglas de firewall que no sean de red virtual](concepts-firewall-rules.md) no funcionarán en esa subred.
+
 - En el firewall, los intervalos de direcciones IP se aplican a los siguientes elementos de red, pero no las reglas de red virtual:
     - [Red privada virtual (VPN) de sitio a sitio (S2S)][vpn-gateway-indexmd-608y]
     - Entorno local a través de [ExpressRoute][expressroute-indexmd-744v]
@@ -129,9 +128,9 @@ Si la red está conectada a la red de Azure mediante el uso de [ExpressRoute][ex
 
 Para permitir la comunicación desde el circuito a Azure Database for MariaDB, tiene que crear reglas de red IP para direcciones IP públicas de los circuitos. Para encontrar las direcciones IP públicas del circuito de ExpressRoute, abra un vale de soporte con ExpressRoute mediante Azure Portal.
 
-## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Agregar una regla de firewall de VNET al servidor sin tener que activar los puntos de conexión de servicio
+## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Adición de una regla de firewall de red virtual al servidor sin activar los puntos de conexión de servicio de la red virtual
 
-Si solo establece una regla de firewall, no tendrá el servidor protegido en la red virtual. Por lo tanto, también debe **activar** los puntos de conexión de servicio de red virtual para que la seguridad surta efecto. Al **activar** los puntos de conexión de servicio, la subred de la red virtual experimenta cierto tiempo de inactividad hasta que estos puntos se **activan** **totalmente**. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
+Si solo establece una regla de firewall de red virtual, no tendrá el servidor protegido en la red virtual. Por lo tanto, también debe **activar** los puntos de conexión de servicio de red virtual para que la seguridad surta efecto. Al **activar** los puntos de conexión de servicio, la subred de la red virtual experimenta cierto tiempo de inactividad hasta que estos puntos se **activan** **totalmente**. Esto sucede especialmente en redes virtuales de gran tamaño. Puede usar la marca **IgnoreMissingServiceEndpoint** para reducir o eliminar el tiempo de inactividad durante la activación.
 
 Puede establecer la marca **IgnoreMissingServiceEndpoint** mediante la CLI de Azure o el portal.
 

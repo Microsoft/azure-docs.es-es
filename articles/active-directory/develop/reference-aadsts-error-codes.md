@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: dabaecfd31ac9ec6250e7b482fde7699a13df044
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 2d18a50a21c41830796c913a424707897d277218
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266600"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87026771"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Códigos de error de autenticación y autorización de Azure AD
 
@@ -264,6 +264,7 @@ Busque en la parte numérica del código de error devuelto.  Por ejemplo, si ha 
 | AADSTS90093 | GraphUserUnauthorized: Graph devolvió un código de error de prohibido para la solicitud. |
 | AADSTS90094 | AdminConsentRequired: es necesario el consentimiento del administrador. |
 | AADSTS900382 | El cliente confidencial no se admite en una solicitud entre nubes. |
+| AADSTS90099 | No se ha autorizado la aplicación "{appId}" ({appName}) en el inquilino "{tenant}". Las aplicaciones deben estar autorizadas para acceder al inquilino del cliente para que los administradores delegados del asociado puedan usarlas. Proporcione consentimiento previo o ejecute la API del Centro de partners correspondiente para autorizar la aplicación. |
 | AADSTS90100 | InvalidRequestParameter: el parámetro está vacío o no es válido. |
 | AADSTS901002 | AADSTS901002: No se admite el parámetro de solicitud "resource". |
 | AADSTS90101 | InvalidEmailAddress: los datos proporcionados no son una dirección de correo electrónico válida. El formato de la dirección de correo electrónico debe ser `someone@example.com`. |

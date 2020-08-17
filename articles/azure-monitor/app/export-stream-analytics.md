@@ -3,12 +3,12 @@ title: Exportación mediante Stream Analytics desde Azure Application Insights |
 description: Stream Analytics puede transformar, filtrar y enrutar continuamente los datos de que exportan desde Application Insights.
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 70f952dcd6f8d942ac272afed58a7fe0f47d8a6e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d90b965ca65af0acf7032067c77591a2ac4d4b02
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539965"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324359"
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Uso de Stream Analytics para procesar datos exportados de Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) es la herramienta ideal para procesar los datos [exportados desde Application Insights](export-telemetry.md). Stream Analytics puede extraer datos de una variedad de orígenes. Puede transformar y filtrar los datos y, después, enrutarlos a una variedad de receptores.
@@ -16,7 +16,7 @@ ms.locfileid: "86539965"
 En este ejemplo, vamos a crear un adaptador que toma datos de Application Insights, cambia su nombre y procesa algunos de los campos, y después los canaliza a Power BI.
 
 > [!WARNING]
-> Hay formas recomendadas mucho mejores [y sencillas de mostrar datos de Application Insights en Power BI](../../azure-monitor/app/export-power-bi.md ). La ruta de acceso que se muestra aquí es solo un ejemplo para mostrar cómo se procesan los datos exportados.
+> Hay formas recomendadas mucho mejores [y sencillas de mostrar datos de Application Insights en Power BI](./export-power-bi.md). La ruta de acceso que se muestra aquí es solo un ejemplo para mostrar cómo se procesan los datos exportados.
 > 
 > 
 
@@ -55,7 +55,7 @@ La exportación continua siempre envía los datos a una cuenta de Azure Storage,
 
     ![Elija los tipos de evento.](./media/export-stream-analytics/080.png)
 
-1. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](../../azure-monitor/platform/metrics-charts.md) y eventos individuales en la [búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md). 
+1. Permita que se acumulen algunos datos. Póngase cómo y deje que los usuarios usen su aplicación durante un tiempo. Así, aparecerá la telemetría y verá gráficos estadísticos en el [explorador de métricas](../platform/metrics-charts.md) y eventos individuales en la [búsqueda de diagnóstico](./diagnostic-search.md). 
    
     Y, además, exportará los datos en el almacenamiento. 
 2. Inspeccione los datos exportados. En Visual Studio, elija **Ver/Cloud Explorer** y abra Azure/Almacenamiento. (Si no tiene esta opción de menú, deberá instalar Azure SDK: abra el cuadro de diálogo Nuevo proyecto y Visual C#/Nube/Obtener Microsoft Azure SDK para. NET).
@@ -186,7 +186,7 @@ Espere hasta que el trabajo esté en ejecución.
 
 ## <a name="see-results-in-power-bi"></a>Visualización de resultados en Power BI
 > [!WARNING]
-> Hay formas recomendadas mucho mejores [y sencillas de mostrar datos de Application Insights en Power BI](../../azure-monitor/app/export-power-bi.md ). La ruta de acceso que se muestra aquí es solo un ejemplo para mostrar cómo se procesan los datos exportados.
+> Hay formas recomendadas mucho mejores [y sencillas de mostrar datos de Application Insights en Power BI](./export-power-bi.md). La ruta de acceso que se muestra aquí es solo un ejemplo para mostrar cómo se procesan los datos exportados.
 > 
 > 
 
@@ -211,4 +211,5 @@ Noam Ben Zeev muestra cómo procesar los datos exportados mediante Stream Analyt
 ## <a name="next-steps"></a>Pasos siguientes
 * [Exportación continua](export-telemetry.md)
 * [Referencia detallada del modelo de datos para los tipos y valores de propiedad.](export-data-model.md)
-* [Application Insights](../../azure-monitor/app/app-insights-overview.md)
+* [Application Insights](./app-insights-overview.md)
+

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/19/2020
 ms.author: yelevin
-ms.openlocfilehash: ded28ef872bbc3147793ea3d68c94f8dde35f74e
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 44a2c0c1b4bc9b4e6fc1247497640b261d1d0fa1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83674181"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387921"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Configuración de claves administradas por el cliente en Azure Sentinel
 
@@ -64,9 +64,9 @@ Para aprovisionar CMK, siga estos pasos: 
 
 1.  [Active las opciones de recuperación:](../key-vault/general/best-practices.md#turn-on-recovery-options)
 
-    -   Asegúrese de que la [eliminación temporal](../key-vault/general/overview-soft-delete.md) esté activada.
+    -   Asegúrese de que la [eliminación temporal](../key-vault/general/soft-delete-overview.md) esté activada.
 
-    -   Active la [protección de purgas](../key-vault/general/overview-soft-delete.md#purge-protection) para protegerse frente a la eliminación forzada del secreto o el almacén incluso después de una eliminación temporal.
+    -   Active la [protección de purgas](../key-vault/general/soft-delete-overview.md#purge-protection) para protegerse frente a la eliminación forzada del secreto o el almacén incluso después de una eliminación temporal.
 
 ### <a name="step-2-enable-cmk-on-your-log-analytics-workspace"></a>PASO 2: Habilitación de CMK en el área de trabajo de Log Analytics
 

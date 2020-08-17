@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 3c5e22c14d0df46ddac9a503f43df8d54c3c93d5
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2f7ba4c1e4fdfad33a74fcb159fbb9efca3b5271
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964760"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836452"
 ---
 # <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Cómo generar vistas en miniatura mediante el Codificador multimedia estándar con .NET 
 
@@ -282,7 +282,7 @@ Tenga en cuenta el uso de macro {Resolution} en el nombre de archivo. Indica al 
 Aunque todos los ejemplos anteriores han explicado cómo enviar una tarea de codificación que solo generará imágenes, también puede combinar la codificación de audio y vídeo con generación de miniaturas. El siguiente valor preestablecido JSON y XML indica a **Media Encoder Standard** que genere una miniatura durante la codificación.
 
 ### <a name="json-preset"></a><a id="json"></a>Valor preestablecido JSON
-Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artículo.
+Para obtener información sobre el esquema, consulte [este](./media-services-mes-schema.md) artículo.
 
 ```json
     {
@@ -347,7 +347,7 @@ Para obtener información sobre el esquema, consulte [este](https://msdn.microso
 ```
 
 ### <a name="xml-preset"></a><a id="xml"></a>Valor preestablecido XML
-Para obtener información sobre el esquema, consulte [este](https://msdn.microsoft.com/library/mt269962.aspx) artículo.
+Para obtener información sobre el esquema, consulte [este](./media-services-mes-schema.md) artículo.
 
 ```csharp
     <?xml version="1.0" encoding="utf-16"?>
@@ -576,4 +576,3 @@ Puede comprobar el [progreso del trabajo](media-services-check-job-progress.md) 
 
 ## <a name="see-also"></a>Consulte también
 [Información general sobre la codificación de Media Services](media-services-encode-asset.md)
-

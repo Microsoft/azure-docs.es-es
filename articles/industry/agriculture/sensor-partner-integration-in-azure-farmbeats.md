@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 37a387b93f1c6b3796b66993405787cf43990bc4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88a8dcb53ab2f845f52121b11c96c23ad0a3e791
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83684009"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078928"
 ---
 # <a name="sensor-partner-integration"></a>Integración de partners de sensores
 
@@ -131,7 +131,7 @@ El centro de datos de FarmBeats tiene las siguientes API que permiten a los asoc
 - /**SensorModel**: SensorModel se corresponde con los metadatos del sensor, por ejemplo, el fabricante, el tipo de sensor (analógico o digital) o la medida de sensor (como temperatura ambiente y presión).
 - /**Sensor**: El sensor corresponde a un sensor físico que registra valores. Un sensor normalmente se conecta a un dispositivo con un identificador de dispositivo.
 
-  **DeviceModel** |  |
+  DeviceModel | Descripción |
   --- | ---
   Type (nodo, puerta de enlace)  | Tipo del dispositivo: nodo o puerta de enlace |
   Fabricante  | Nombre del fabricante |
@@ -140,7 +140,7 @@ El centro de datos de FarmBeats tiene las siguientes API que permiten a los asoc
   Nombre  | Nombre para identificar el recurso. Por ejemplo, nombre del modelo o nombre del producto. |
   Descripción  | Proporciona una descripción significativa del modelo. |
   Propiedades  | Propiedades adicionales del fabricante. |
-  **Dispositivo** |  |
+  **Dispositivo** | **Descripción** |
   DeviceModelId  |Identificador del modelo de dispositivo asociado. |
   HardwareId   |Identificador único del dispositivo, como la dirección MAC.  |
   ReportingInterval |Intervalo de informes en segundos. |
@@ -149,7 +149,7 @@ El centro de datos de FarmBeats tiene las siguientes API que permiten a los asoc
   Nombre  | Nombre para identificar el recurso. Los asociados de dispositivo deberán enviar un nombre que se corresponda con el del dispositivo en el lado del asociado de dispositivo. Si el nombre del dispositivo está definido por el usuario en el lado del partner de dispositivo, ese mismo nombre definido por el usuario se debe propagar a FarmBeats.  |
   Descripción  | Proporciona una descripción significativa.  |
   Propiedades  |Propiedades adicionales del fabricante.  |
-  **SensorModel** |  |
+  **SensorModel** | **Descripción** |
   Type (analog, digital)  |Indica un tipo analógico o digital.|
   Fabricante  | Nombre del fabricante. |
   ProductCode  | Código de producto o nombre o número de modelo. Por ejemplo, RS-CO2-N01.  |
@@ -163,7 +163,7 @@ El centro de datos de FarmBeats tiene las siguientes API que permiten a los asoc
   Nombre  | Nombre para identificar el recurso. Por ejemplo, nombre del modelo o nombre del producto.
   Descripción  | Proporciona una descripción significativa del modelo.
   Propiedades  | Propiedades adicionales del fabricante.
-  **Sensor**  |  |
+  **Sensor**  | **Descripción** |
   HardwareId  | Identificador único del sensor establecido por el fabricante.
   SensorModelId  | Identificador del modelo de sensor asociado.
   Location  | Latitud (de -90 a +90), longitud (de -180 a 180) y elevación (en metros) del sensor.

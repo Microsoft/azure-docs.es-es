@@ -4,17 +4,17 @@ description: Información general sobre el concepto de unidades de proceso de Az
 author: mimckitt
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: mimckitt
 ms.reviewer: davberg
-ms.openlocfilehash: 74c0f5be7998450b0fb868ff4969e412fdaa4788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 072e42f642de3daf3d0d03a706435cffa8953888
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85414477"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543629"
 ---
 # <a name="azure-compute-unit-acu"></a>Unidad de proceso de Azure (ACU)
 
@@ -30,7 +30,7 @@ El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el 
 > La ACU es solo una referencia. Los resultados de la carga de trabajo pueden variar.
 <br>
 
-| Familia de SKU | ACU \ vCPU | vCPU: Core |
+| Familia de SKU | ACU \ vCPU | vCPU: núcleo |
 | --- | --- |---|
 | [A0](sizes-previous-gen.md) |50 | 1:1 |
 | [A1 - A4](sizes-previous-gen.md) |100 | 1:1 |
@@ -69,6 +69,7 @@ El concepto de unidad de proceso de Azure (ACU) ofrece una forma de comparar el 
 | [L4s - L32s](sizes-previous-gen.md) |180 - 240* | 1:1 |
 | [L8s_v2 - L80s_v2](lsv2-series.md) |150 - 175** | 2:1 |
 | [M](m-series.md) | 160 - 180 | 2:1\*\*\* |
+| [NV4](nvv4-series.md) |230 - 260** | 2:1 |
 
 Estos son algunos vínculos con información sobre los distintos tamaños:
 

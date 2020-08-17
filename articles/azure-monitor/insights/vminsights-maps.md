@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
-ms.openlocfilehash: acb96984a49e4ad8535f87a41da11b3b63ae207b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3227585b62583d0a05f8dbc0444ee5bb4a27df77
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80283861"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320517"
 ---
 # <a name="use-the-map-feature-of-azure-monitor-for-vms-to-understand-application-components"></a>Uso de la característica de asignación de Azure Monitor para VM para conocer los componentes de una aplicación
 En Azure Monitor para VM, puede ver los componentes de la aplicación detectados en las máquinas virtuales (VM) de Windows y Linux que se ejecutan en Azure o en su entorno. Puede observar las VM de dos maneras. Ver una asignación directamente desde una VM o ver un asignación desde Azure Monitor para ver los componentes de los grupos de VM. En este artículo le ayudamos a comprender estos dos métodos de visualización y a usar la característica de asignación. 
@@ -49,7 +49,7 @@ Para hacer que la característica de asignación muestre las alertas pertinentes
 - Incluya una cláusula para agrupar alertas por equipo (por ejemplo, **by Computer interval 1 minute**).
 - Basar la alerta en una métrica.
 
-Para obtener más información sobre Alertas de Azure y crear reglas de alertas, consulte el artículo [Alertas unificadas en Azure Monitor](../../azure-monitor/platform/alerts-overview.md).
+Para obtener más información sobre Alertas de Azure y crear reglas de alertas, consulte el artículo [Alertas unificadas en Azure Monitor](../platform/alerts-overview.md).
 
 En la esquina superior derecha, la opción **Leyenda** describe los símbolos y roles en la asignación. Para obtener una visión más detallada en el mapa y moverlo, use los controles de zoom de la esquina inferior derecha. Puede establecer el nivel de zoom y ajustar el mapa al tamaño de la página.  
 
@@ -128,10 +128,11 @@ Desde Azure Monitor, la característica de asignación proporciona una visión g
 
 Elija un área de trabajo con el selector **Área de trabajo** en la parte superior de la página. Si tiene más de un área de trabajo de Log Analytics, elija el área de trabajo que está habilitado con la solución y que tiene VM que dependen de él. 
 
-El selector de **grupos** devuelve las suscripciones, los grupos de recursos, los [grupos de equipos](../../azure-monitor/platform/computer-groups.md) y los conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o estado.
+El selector de **grupos** devuelve las suscripciones, los grupos de recursos, los [grupos de equipos](../platform/computer-groups.md) y los conjuntos de escalado de máquinas virtuales de los equipos relacionados con el área de trabajo seleccionada. La selección solo se aplica a la característica de asignación y no se aplica a las secciones de rendimiento o estado.
 
 De forma predeterminada, la asignación muestra los últimos 30 minutos. Si quiere ver el aspecto de las dependencias en el pasado, puede consultar los intervalos de tiempo históricos de hasta hace una hora. Para ejecutar la consulta, use el selector **TimeRange**. Puede ejecutar una consulta, por ejemplo, durante un incidente o para ver el estado antes de un cambio.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para identificar los cuellos de botella, comprobar el rendimiento y comprender el uso general de las VM, consulte [View performance status for Azure Monitor for VMs](vminsights-performance.md) (Ver el estado del rendimiento de Azure Monitor para VM). 
+

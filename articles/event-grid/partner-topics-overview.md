@@ -3,12 +3,12 @@ title: Temas del asociado de Azure Event Grid
 description: Envíe eventos de los asociados PaaS y SaaS de Event Grid de terceros directamente a los servicios de Azure con Azure Event Grid.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 97829f262a00e2353624b2a3fa9df210518ad3a0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e56055c55a3b30c5d13736b9838257f3c0bbec10
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116002"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831913"
 ---
 # <a name="partner-topics-in-azure-event-grid-preview"></a>Temas del asociado en Azure Event Grid (versión preliminar)
 Mediante el uso de los temas del asociado, puede conectar orígenes de eventos de terceros directamente a Azure Event Grid. Esta integración le permite suscribirse a eventos de los asociados de la misma manera que se suscribe a los eventos de los servicios de Azure. 
@@ -22,7 +22,7 @@ El primer asociado disponible mediante los temas del asociado de Event Grid es A
 Los temas del asociado se cobran con la misma tarifa de operación que los temas del sistema.
 
 ## <a name="limits"></a>Límites
-Los temas del asociado se encuentran en versión preliminar pública. Durante la versión preliminar pública, los temas del asociado están sujetos a los [mismos límites](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#event-grid-limits) que los temas del sistema y los temas personalizados.
+Los temas del asociado se encuentran en versión preliminar pública. Durante la versión preliminar pública, los temas del asociado están sujetos a los [mismos límites](../azure-resource-manager/management/azure-subscription-service-limits.md#event-grid-limits) que los temas del sistema y los temas personalizados.
 
 ## <a name="how-do-i-become-an-event-grid-partner"></a>¿Cómo ser un asociado de Event Grid?
 La infraestructura creada para admitir esta versión hace que los nuevos asociados puedan integrar de forma fácil y rápida sus funcionalidades de generación de eventos con Event Grid. Para más información, consulte la [documentación de incorporación de asociados](partner-onboarding-overview.md).

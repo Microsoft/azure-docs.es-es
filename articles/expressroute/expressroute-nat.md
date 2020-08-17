@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9f5c5cc3a943ad4a8882a91ffdcee89c2ad39743
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62effa04fd6130c35d3e2e64a401c124fe383200
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79233776"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86521928"
 ---
 # <a name="expressroute-nat-requirements"></a>Requisitos de NAT ExpressRoute
 Para conectarse a los Servicios en la nube de Microsoft mediante ExpressRoute, necesitará configurar y administrar NAT. Algunos proveedores de conectividad ofrecen la configuración y administración de NAT como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece tal servicio. Si no lo hace, debe cumplir los requisitos que se describen a continuación. 
@@ -22,7 +22,7 @@ Revise la página [Circuitos y dominios de enrutamiento ExpressRoute](expressrou
 ## <a name="nat-requirements-for-microsoft-peering"></a>Requisitos NAT para el emparejamiento de Microsoft
 El emparejamiento de Microsoft le permite conectarse a los servicios en la nube de Microsoft que no se admiten a través de la ruta de acceso de emparejamiento público de Azure. La lista de servicios incluye servicios de Office 365, como Exchange Online, SharePoint Online y Skype Empresarial. Microsoft espera poder admitir conectividad bidireccional en el emparejamiento de Microsoft. Al tráfico destinado a los Servicios en la nube de Microsoft se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. Se debe aplicar SNAT al tráfico destinado a su red desde Servicios en la nube de Microsoft en el perímetro de Internet para evitar el [enrutamiento asimétrico](expressroute-asymmetric-routing.md). En la ilustración siguiente, se muestra un esquema general acerca de cómo debería configurarse NAT para el emparejamiento de Microsoft.
 
-![](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+![Diagrama general de cómo debe configurarse NAT para el emparejamiento de Microsoft.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
 
 ### <a name="traffic-originating-from-your-network-destined-to-microsoft"></a>Tráfico procedente de la red destinado a Microsoft
 * Debe asegurarse de que el tráfico se introduce en la ruta de acceso de emparejamiento de Microsoft con una dirección IPv4 pública válida. Microsoft debe poder validar al propietario del grupo de direcciones NAT IPv4 en el registro de Internet de enrutamiento regional (RIR) o en un registro de enrutamiento de Internet (IRR). Se realizará una comprobación basándose en el número AS de emparejamiento y las direcciones IP usadas para NAT. Consulte la página [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para obtener información sobre los registros de enrutamiento.
@@ -53,7 +53,7 @@ La ruta de acceso de emparejamiento público de Azure le permite conectarse a to
 
 Al tráfico destinado a Microsoft Azure en el emparejamiento público se le debe aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft. La ilustración siguiente proporciona una imagen de alto nivel de cómo NAT podría configurarse para satisfacer el requisito anterior.
 
-![](./media/expressroute-nat/expressroute-nat-azure-public.png) 
+![Diagrama general de cómo debe configurarse para aplicar SNAT a direcciones IPv4 públicas válidas antes de que entre en la red de Microsoft.](./media/expressroute-nat/expressroute-nat-azure-public.png) 
 
 ### <a name="nat-ip-pool-and-route-advertisements"></a>Anuncios de ruta y grupo de direcciones IP NAT
 Debe asegurarse de que el tráfico se introduce en la ruta de acceso de emparejamiento público de Azure con la dirección IPv4 pública válida. Microsoft debe poder validar la propiedad del grupo de direcciones NAT IPv4 en un registro de Internet de enrutamiento regional (RIR) o en un registro de enrutamiento de Internet (IRR). Se realizará una comprobación basándose en el número AS de emparejamiento y las direcciones IP usadas para NAT. Consulte la página [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para obtener información sobre los registros de enrutamiento.

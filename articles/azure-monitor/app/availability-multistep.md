@@ -3,12 +3,12 @@ title: 'Supervisión con pruebas web de varios pasos: Azure Application Insights
 description: Configuración de pruebas web de varios pasos para supervisar las aplicaciones web con Azure Application Insights
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 04361f7b3306c5f7c164a849d8b05d7cf4756999
-ms.sourcegitcommit: 64fc70f6c145e14d605db0c2a0f407b72401f5eb
+ms.openlocfilehash: 2df8b7450423c901665090608da83f68b43b30e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83873345"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024783"
 ---
 # <a name="multi-step-web-tests"></a>Pruebas web de varios pasos
 
@@ -17,7 +17,7 @@ Puede supervisar una secuencia registrada de direcciones URL e interacciones con
 > [!NOTE]
 > Las pruebas web de varios pasos dependen de los archivos de pruebas web de Visual Studio. Se [anunció](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) que Visual Studio 2019 será la última versión con la funcionalidad de prueba web. Es importante comprender que, aunque no se agregarán nuevas características, la funcionalidad de pruebas web de Visual Studio 2019 todavía se admite y se seguirá admitiendo durante el ciclo de vida de soporte técnico del producto. El equipo de productos de Azure Monitor ha abordado las preguntas sobre el futuro de las pruebas de disponibilidad de varios pasos [aquí](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101).  
 > </br>
-> **No se admiten** las pruebas web de varios pasos en la nube de[ Azure Government](https://docs.microsoft.com/azure/azure-government/).
+> **No se admiten** las pruebas web de varios pasos en la nube de[ Azure Government](../../azure-government/index.yml).
 
 
 ## <a name="pre-requisites"></a>Requisitos previos
@@ -37,7 +37,7 @@ Para encontrar el requisito de las herramientas de prueba. Inicie el **Instalado
 > [!WARNING]
 > Ya no se recomienda usar la grabadora de varios pasos. La grabadora se desarrolló para páginas HTML estáticas con interacciones básicas y no proporciona una experiencia funcional para páginas web modernas.
 
-Para obtener instrucciones sobre cómo crear pruebas web de Visual Studio, consulte la [documentación oficial de Visual Studio 2019](https://docs.microsoft.com/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
+Para obtener instrucciones sobre cómo crear pruebas web de Visual Studio, consulte la [documentación oficial de Visual Studio 2019](/visualstudio/test/how-to-create-a-web-service-test?view=vs-2019).
 
 ## <a name="upload-the-web-test"></a>Carga de la prueba web
 

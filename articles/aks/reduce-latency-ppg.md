@@ -4,32 +4,29 @@ description: Aprenda a usar los grupos con ubicación por proximidad para dismin
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 06/22/2020
-ms.openlocfilehash: 1bcdfb4bb3c910feeac0521308e1e7d733fbd959
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/10/2020
+author: jluk
+ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244079"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986719"
 ---
 # <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Reducción de la latencia con grupos con ubicación por proximidad (versión preliminar)
 
 > [!Note]
-> Cuando se usan los grupos con ubicación por proximidad con AKS, la coubicación solo se aplica a los nodos de agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
+> Cuando se usan los grupos con ubicación por proximidad en AKS, la coubicación solo se aplica a los nodos agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
 
-Al implementar la aplicación en Azure, la propagación de instancias de máquina virtual (VM) entre regiones o zonas de disponibilidad crea una latencia de red, lo que puede afectar al rendimiento general de la aplicación. Un grupo con ubicación por proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Algunas aplicaciones como juegos, simulaciones de ingeniería y operaciones bursátiles de alta frecuencia (HFT) requieren una latencia baja y tareas que se completen rápidamente. Para escenarios de informática de alto rendimiento (HPC), como estos, considere la posibilidad de usar [grupos con ubicación por proximidad](../virtual-machines/linux/co-location.md#proximity-placement-groups) para los grupos de nodos del clúster.
+Al implementar la aplicación en Azure, la propagación de instancias de máquina virtual (VM) entre regiones o zonas de disponibilidad crea una latencia de red, lo que puede afectar al rendimiento general de la aplicación. Un grupo con ubicación por proximidad es una agrupación lógica que se usa para asegurarse de que los recursos de proceso de Azure se encuentran físicamente cercanos entre sí. Algunas aplicaciones como juegos, simulaciones de ingeniería y operaciones bursátiles de alta frecuencia (HFT) requieren una latencia baja y tareas que se completen rápidamente. En escenarios de informática de alto rendimiento (HPC), como estos, considere la posibilidad de usar [grupos con ubicación por proximidad](../virtual-machines/linux/co-location.md#proximity-placement-groups) (PPG) en los grupos de nodos del clúster.
 
 ## <a name="limitations"></a>Limitaciones
 
-* El grupo con ubicación por proximidad abarca una sola zona de disponibilidad.
-* No hay compatibilidad actual con los clústeres de AKS que usan conjuntos de disponibilidad de máquinas virtuales.
-* No se pueden modificar los grupos de nodos existentes para usar un grupo con ubicación por proximidad.
+* Un grupo con ubicación por proximidad se puede asignar a una zona de disponibilidad como máximo.
+* Un grupo de nodos debe usar Virtual Machine Scale Sets para asociar un grupo con ubicación por proximidad.
+* Un grupo de nodos puede asociar un grupo con ubicación por proximidad solo en el momento de la creación del grupo de nodos.
 
-> [!IMPORTANT]
-> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> - [Directivas de soporte técnico para AKS](support-policies.md)
-> - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
+[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -40,7 +37,7 @@ Debe tener instalados los siguientes recursos:
 ### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Configuración de la característica en vista previa (GB) para los grupos con ubicación por proximidad
 
 > [!IMPORTANT]
-> Cuando se usan los grupos con ubicación por proximidad con AKS, la coubicación solo se aplica a los nodos de agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
+> Cuando se usan grupos con ubicación por proximidad con grupos de nodos de AKS, la coubicación solo se aplica a los nodos agente. Se mejora la latencia nodo a nodo y la latencia pod a pod hospedado correspondiente. La coubicación no afecta la selección de ubicación del plano de control de un clúster.
 
 ```azurecli-interactive
 # register the preview feature
@@ -63,6 +60,7 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
 ## <a name="node-pools-and-proximity-placement-groups"></a>Grupos de nodos y grupos con ubicación por proximidad
 
 El primer recurso que se implementa con un grupo con ubicación por proximidad se adjunta a un centro de datos específico. Los recursos adicionales implementados con el mismo grupo con ubicación por proximidad se colocan en el mismo centro de datos. Una vez que todos los recursos que usan el grupo con ubicación por proximidad se han detenido (desasignado) o eliminado, ya no se adjuntan.
@@ -70,13 +68,23 @@ El primer recurso que se implementa con un grupo con ubicación por proximidad s
 * Muchos grupos de nodos pueden asociarse a un solo grupo con ubicación por proximidad.
 * Un grupo de nodos solo se puede asociar a un solo grupo con ubicación por proximidad.
 
+### <a name="configure-proximity-placement-groups-with-availability-zones"></a>Configuración de grupos con ubicación por proximidad con zonas de disponibilidad
+
+> [!NOTE]
+> Aunque los grupos con ubicación por proximidad necesitan un grupo de nodos para poder usar como máximo una zona de disponibilidad, el [Acuerdo de Nivel de Servicio de máquina virtual de Azure de línea de base del 99,9 %](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_9/) sigue vigente para las máquinas virtuales de una sola zona.
+
+Los grupos de ubicación por proximidad son un concepto de grupo de nodos y están asociados a cada grupo de nodos individual. El uso de un recurso PPG no afecta a la disponibilidad del plano de control de AKS. Sí puede afectar al modo en que un clúster debe diseñarse con zonas. Para que un clúster se distribuya entre varias zonas, se recomienda el diseño siguiente.
+
+* Aprovisione un clúster con el primer grupo del sistema usando tres zonas y sin grupo de ubicación por proximidad asociado. De esta forma, se garantiza que los pods del sistema aterrizan en un grupo de nodos dedicado que se distribuirá entre varias zonas.
+* Agregue grupos de nodos de usuario adicionales con una única zona y un grupo de ubicación por proximidad asociado a cada grupo. Por ejemplo, nodepool1 en la zona 1 y PPG1, nodepool2 en la zona 2 y PPG2 o nodepool3 en la zona 3 con PPG3. Así, se tiene la seguridad de que, en el nivel de clúster, los nodos se reparten entre varias zonas y cada grupo de nodos individual se ubica en la zona designada con un recurso de PPG dedicado.
+
 ## <a name="create-a-new-aks-cluster-with-a-proximity-placement-group"></a>Creación de un clúster de AKS con un grupo con ubicación por proximidad
 
-El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *centralus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create]. 
+El ejemplo siguiente usa el comando [az group create][az-group-create] para crear un grupo de recursos denominado *myResourceGroup* en la región *centralus*. Se crea un clúster de AKS denominado *myAKSCluster* mediante el comando [az aks create][az-aks-create].
 
 Las redes aceleradas mejoran en gran medida el rendimiento de red de las máquinas virtuales. Idealmente, use grupos con ubicación por proximidad junto con redes aceleradas. De forma predeterminada, AKS usa redes aceleradas en las [instancias de máquinas virtuales admitidas](../virtual-network/create-vm-accelerated-networking-cli.md?toc=/azure/virtual-machines/linux/toc.json#limitations-and-constraints), que incluyen la mayoría de las máquinas virtuales de Azure con dos o más CPU virtuales.
 
-Cree un clúster de AKS con un grupo con ubicación por proximidad:
+Cree un clúster de AKS con un grupo de ubicación por proximidad asociado al primer grupo de nodos del sistema:
 
 ```azurecli-interactive
 # Create an Azure resource group
@@ -110,7 +118,7 @@ El comando genera una salida, que incluye el valor *id* que necesita para los co
 Use el id. de recurso del grupo con ubicación por proximidad para el valor *myPPGResourceID* en el comando siguiente:
 
 ```azurecli-interactive
-# Create an AKS cluster that uses a proximity placement group for the initial node pool
+# Create an AKS cluster that uses a proximity placement group for the initial system node pool only. The PPG has no effect on the cluster control plane.
 az aks create \
     --resource-group myResourceGroup \
     --name myAKSCluster \

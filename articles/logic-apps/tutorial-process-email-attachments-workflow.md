@@ -3,16 +3,16 @@ title: Automatización de tareas con varios servicios de Azure
 description: 'Tutorial: Creación de los flujos de trabajo automatizados para procesar correos electrónicos con Azure Logic Apps, Azure Storage y Azure Functions'
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/27/2020
-ms.openlocfilehash: 332be9cb0f31119e7d2f2d9fe2d3dc1f73e6d3ab
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 925759b63d1225c720ad439f15b82632a4921cbb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82146725"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132337"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>Tutorial: Automatización de tareas para procesar correos electrónicos mediante Azure Logic Apps, Azure Functions y Azure Storage
 
@@ -38,22 +38,20 @@ Cuando haya terminado, la aplicación lógica se parecerá a este flujo de traba
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](https://docs.microsoft.com/connectors/).
+* Una cuenta de correo electrónico con un proveedor de correo electrónico compatible con Logic Apps, como Office 365 Outlook, Outlook.com o Gmail. En el caso de otros proveedores, [consulte la lista de conectores que se muestra aquí](/connectors/).
 
   Esta aplicación lógica usa una cuenta de Office 365 Outlook. Si utiliza una cuenta de correo electrónico diferente, los pasos generales siguen siendo los mismos pero la interfaz de usuario podría ser ligeramente distinta.
 
   > [!IMPORTANT]
-  > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
+  > Si quiere usar el conector de Gmail, solo las cuentas empresariales de G-Suite pueden usar este conector sin restricciones en las aplicaciones lógicas. Si tiene una cuenta de consumidor de Gmail, puede usar este conector solo con servicios específicos aprobados por Google, o puede [crear una aplicación cliente de Google para usarla en la autenticación con el conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para más información, consulte [Directivas de privacidad y seguridad de datos de los conectores de Google en Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
 * Descargue e instale el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/), una herramienta que es gratuita. Esta herramienta le ayuda a comprobar que el contenedor de almacenamiento esté configurado correctamente.
-
-## <a name="sign-in-to-azure-portal"></a>Inicio de sesión en Azure Portal
-
-Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
 
 ## <a name="set-up-storage-to-save-attachments"></a>Configuración del almacenamiento para guardar datos adjuntos
 
 Puede guardar los correos electrónicos entrantes y los datos adjuntos como blobs en un [contenedor de Azure Storage](../storage/common/storage-introduction.md).
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
 
 1. Para crear un contenedor de almacenamiento, [cree una cuenta de almacenamiento](../storage/common/storage-account-create.md) con esta configuración en la pestaña **Datos básicos** de Azure Portal:
 
@@ -65,7 +63,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
    | **Ubicación** | <*Azure-region*> | La región en la que se va a almacenar la información sobre su cuenta de almacenamiento. En este ejemplo se utiliza "Oeste de EE. UU.". |
    | **Rendimiento** | Estándar | Esta configuración especifica los tipos de datos admitidos y los medios para almacenar los datos. Consulte [Tipos de cuentas de almacenamiento](../storage/common/storage-introduction.md#types-of-storage-accounts). |
    | **Tipo de cuenta** | Uso general | El [tipo de cuenta de almacenamiento](../storage/common/storage-introduction.md#types-of-storage-accounts) |
-   | **Replicación** | Almacenamiento con redundancia local (LRS) | Esta configuración especifica cómo se copian, se almacenan, se administran y se sincronizan los datos. Consulte [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../storage/common/storage-redundancy-lrs.md). |
+   | **Replicación** | Almacenamiento con redundancia local (LRS) | Esta configuración especifica cómo se copian, se almacenan, se administran y se sincronizan los datos. Consulte [Almacenamiento con redundancia local (LRS): redundancia de datos de bajo costo para Azure Storage](../storage/common/storage-redundancy.md). |
    | **Nivel de acceso (predeterminado)** | Mantenga la configuración actual. |
    ||||
 
@@ -76,7 +74,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
    | **Se requiere transferencia segura** | Disabled | Esta configuración especifica la seguridad que necesitan las solicitudes en las conexiones. Consulte [Exigencia de transferencia segura](../storage/common/storage-require-secure-transfer.md). |
    ||||
 
-   Para crear una cuenta de almacenamiento también puede usar [Azure PowerShell](../storage/common/storage-quickstart-create-storage-account-powershell.md) o la [CLI de Azure](../storage/common/storage-quickstart-create-storage-account-cli.md).
+   Para crear una cuenta de almacenamiento también puede usar [Azure PowerShell](../storage/common/storage-account-create.md?tabs=powershell) o la [CLI de Azure](../storage/common/storage-account-create.md?tabs=azure-cli).
 
 1. Seleccione **Revisar y crear** cuando haya terminado.
 
@@ -88,7 +86,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
 
       ![Copiar y guardar el nombre y la clave de la cuenta de almacenamiento](./media/tutorial-process-email-attachments-workflow/copy-save-storage-name-key.png)
 
-   Para obtener la clave de acceso de su cuenta de almacenamiento, también puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/get-azstorageaccountkey) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
+   Para obtener la clave de acceso de su cuenta de almacenamiento, también puede usar [Azure PowerShell](/powershell/module/az.storage/get-azstorageaccountkey) o la [CLI de Azure](/cli/azure/storage/account/keys?view=azure-cli-latest.md#az-storage-account-keys-list).
 
 1. Cree un contenedor de almacenamiento de blobs para los datos adjuntos de correo electrónico.
 
@@ -104,7 +102,7 @@ Puede guardar los correos electrónicos entrantes y los datos adjuntos como blob
 
       ![Contenedor de almacenamiento finalizado](./media/tutorial-process-email-attachments-workflow/created-storage-container.png)
 
-   Para crear un contenedor de almacenamiento, también puede usar [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.storage/new-azstoragecontainer) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
+   Para crear un contenedor de almacenamiento, también puede usar [Azure PowerShell](/powershell/module/az.storage/new-azstoragecontainer) o la [CLI de Azure](/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create).
 
 A continuación, conecte el Explorador de Storage a la cuenta de almacenamiento.
 
@@ -244,7 +242,7 @@ Después de comprobar que funciona la función, cree la aplicación lógica. Aun
    | **Grupos de recursos** | LA-Tutorial-RG | El mismo grupo de recursos de Azure que usó anteriormente. |
    | **Nombre de la aplicación lógica** | LA-ProcessAttachment | Nombre de la aplicación lógica |
    | **Seleccione la ubicación**. | Oeste de EE. UU. | La misma región que usó anteriormente. |
-   | **Log Analytics** | Off | En este tutorial, seleccione el valor **Desactivado**. |
+   | **Log Analytics** | Desactivado | En este tutorial, seleccione el valor **Desactivado**. |
    ||||
 
 1. Una vez que Azure implemente la aplicación, en la barra de herramientas de Azure, seleccione el icono de Notificaciones y, después, **Ir al recurso**.

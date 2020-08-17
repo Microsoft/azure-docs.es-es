@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 description: Pasos de implementación para el ejemplo de plano técnico de nivel de impacto alto de FedRAMP incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 01/31/2020
+ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: c4b2915222bc2d1772a2772c719d5d6cc4b59657
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: c444d943f1fc72e33cb34a36bd0fa6d97ddf87ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044811"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495886"
 ---
 # <a name="deploy-the-fedramp-high-blueprint-sample"></a>Implementación del ejemplo de plano técnico con un nivel de impacto alto de FedRAMP
 

@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: bb21bcefa0f9fb6f691ebfb578177c64543c1403
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46c219a82d45129ed0856d22d88be819938e5240
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549657"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325311"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>Creación de una aplicación web de Service Manager mediante el script automatizado
 
-Use el siguiente script para crear la aplicación web para la instancia de Service Manager. Aquí puede obtener más información sobre la conexión de Service Manager. [Aplicación web de Service Manager](../../azure-monitor/platform/itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
+Use el siguiente script para crear la aplicación web para la instancia de Service Manager. Aquí puede obtener más información sobre la conexión de Service Manager. [Aplicación web de Service Manager](./itsmc-connections.md#create-and-deploy-service-manager-web-app-service)
 
 Ejecute el script proporcionando los siguientes detalles necesarios:
 
@@ -318,4 +318,5 @@ if(!$err)
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Configuración de la conexión híbrida](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).
+[Configuración de la conexión híbrida](./itsmc-connections.md#configure-the-hybrid-connection).
+

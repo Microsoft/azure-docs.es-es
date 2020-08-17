@@ -4,17 +4,17 @@ description: En este artículo se proporciona información sobre cómo puede usa
 services: service-bus-relay
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 0383d99aaca487bb89ab198c42d0ce189ad20249
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fcc0f820983da388d808cadf8ce64a555e8ef0a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314368"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532890"
 ---
 # <a name="azure-relay-metrics-in-azure-monitor"></a>Métricas de Azure Relay en Azure Monitor 
 Las métricas de Azure Relay le permiten conocer el estado de los recursos de su suscripción de Azure. Con un amplio conjunto de datos de métricas, puede evaluar el estado general de los recursos de Relay, no solo en el nivel de espacio de nombres, sino también en el nivel de entidad. Estas estadísticas pueden ser importantes, ya que le ayudan a supervisar el estado de Azure Relay. Las métricas también pueden ayudarle a solucionar problemas de causa principal sin necesidad de ponerse en contacto con el soporte técnico de Azure.
 
-Azure Monitor proporciona interfaces de usuario unificadas para la supervisión de distintos servicios de Azure. Para obtener más información, vea [Supervisión de Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md) y el ejemplo [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) (Recuperación de métricas de Azure Monitor con .NET) en GitHub.
+Azure Monitor proporciona interfaces de usuario unificadas para la supervisión de distintos servicios de Azure. Para obtener más información, vea [Supervisión de Microsoft Azure](../azure-monitor/overview.md) y el ejemplo [Retrieve Azure Monitor metrics with .NET](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) (Recuperación de métricas de Azure Monitor con .NET) en GitHub.
 
 > [!IMPORTANT]
 > Este artículo solo se aplica a la característica Conexiones híbridas de Azure Relay, no a WCF Relay. 
@@ -29,7 +29,7 @@ De forma predeterminada, las métricas están habilitadas y puede acceder a dato
 
 Una vez transcurrido un tiempo, las métricas se pueden supervisar en [Azure Portal](https://portal.azure.com). En el ejemplo siguiente se muestra cómo ver las solicitudes correctas y las solicitudes entrantes en el nivel de cuenta:
 
-![][1]
+![Una página titulada "Monitor: Métricas (versión preliminar)" muestra un gráfico de líneas de uso de memoria para los últimos 30 días.][1]
 
 También puede tener acceso a las métricas directamente a través del espacio de nombres. Para ello, seleccione el espacio de nombres y, después, haga clic en **Métricas**. 
 
@@ -50,24 +50,24 @@ Los valores de las métricas se envían a Azure Monitor cada minuto. La granular
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-| ListenerConnections-Success  | Número de conexiones correctas del agente de escucha a Azure Relay durante un determinado periodo. <br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|ListenerConnections-ClientError |Número de errores de cliente en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|ListenerConnections-ServerError |Número de errores del servidor en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|SenderConnections-Success |Número de conexiones correctas del remitente durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|SenderConnections-ClientError |Número de errores de cliente en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|SenderConnections-ServerError |Número de errores del servidor en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|ListenerConnections-TotalRequests |Número total de errores en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|SenderConnections-TotalRequests |Solicitudes de conexión realizadas por los remitentes durante un determinado periodo.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|ActiveConnections |Número de conexiones activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|ActiveListeners |El número de licencias activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: recuento <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|ListenerDisconnects |Número de agentes de escucha desconectados durante un determinado periodo.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
-|SenderDisconnects |Número de remitentes desconectados durante un determinado periodo.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+| ListenerConnections-Success  | Número de conexiones correctas del agente de escucha a Azure Relay durante un determinado periodo. <br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ListenerConnections-ClientError |Número de errores de cliente en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ListenerConnections-ServerError |Número de errores del servidor en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|SenderConnections-Success |Número de conexiones correctas del remitente durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|SenderConnections-ClientError |Número de errores de cliente en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|SenderConnections-ServerError |Número de errores del servidor en las conexiones del remitente durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ListenerConnections-TotalRequests |Número total de errores en las conexiones del agente de escucha durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|SenderConnections-TotalRequests |Solicitudes de conexión realizadas por los remitentes durante un determinado periodo.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ActiveConnections |Número de conexiones activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ActiveListeners |El número de licencias activas. Este valor es un valor de un momento dado.<br/><br/> Unidad: Count <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|ListenerDisconnects |Número de agentes de escucha desconectados durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
+|SenderDisconnects |Número de remitentes desconectados durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="memory-usage-metrics"></a>Métricas de uso de memoria
 
 | Nombre de la métrica | Descripción |
 | ------------------- | ----------------- |
-|BytesTransferred |Número de bytes transferidos durante un determinado periodo.<br/><br/> Unidad: bytes <br/> Tipo de agregación: total <br/> Dimensión: EntityName|
+|BytesTransferred |Número de bytes transferidos durante un determinado periodo.<br/><br/> Unidad: Bytes <br/> Tipo de agregación: Total <br/> Dimensión: EntityName|
 
 ## <a name="metrics-dimensions"></a>Dimensiones de métricas
 
@@ -79,10 +79,6 @@ Azure Relay admite las siguientes dimensiones para las métricas de Azure Monito
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Vea [Información general sobre la supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md).
+Vea [Información general sobre la supervisión en Microsoft Azure](../azure-monitor/overview.md).
 
 [1]: ./media/relay-metrics-azure-monitor/relay-monitor1.png
-
-
-
-

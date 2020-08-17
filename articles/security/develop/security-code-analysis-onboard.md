@@ -1,6 +1,6 @@
 ---
 title: Guía de incorporación de Análisis de código de seguridad de Microsoft
-description: En este artículo se describe la instalación de la extensión Análisis de código de seguridad de Microsoft
+description: Obtenga información sobre cómo incorporar e instalar la extensión Análisis de código de seguridad de Microsoft. Vea los requisitos previos y los recursos adicionales.
 author: sukhans
 manager: sukhans
 ms.author: terrylan
@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: a7fab9515051180fdb1b894602478768a60177ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5366da1048e7c6d9612ad8b6b1f1694068bb35fb
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85362064"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543034"
 ---
 # <a name="onboarding-and-installing"></a>Incorporación e instalación
 
@@ -50,7 +50,7 @@ Si cumple las cualificaciones anteriores, póngase en contacto con un asociado d
 
 - Zones - Información de contacto: cloudsupport@zones.com
 - Wortell - Información de contacto: info@wortell.nl
-- Logicalis – Información de contacto: Matthew.Curtis@us.logicalis.com 
+- Logicalis – Información de contacto: logicalisleads@us.logicalis.com
 
 ### <a name="become-a-partner"></a>Convertirse en asociado
 

@@ -4,15 +4,15 @@ description: Aprenda a instalar y configurar una puerta de enlace de datos local
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 07/29/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1d090070dd7b2afe5ea1ece9b5da8b8b5b7b0780
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77062156"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87438961"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Instalación y configuración de una puerta de enlace de datos local
 
@@ -44,11 +44,11 @@ Para más información sobre el funcionamiento de Azure Analysis Services con la
 * Inicie sesión en Azure con una cuenta de Azure AD que tenga el mismo [inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant) que la suscripción donde va a registrar la puerta de enlace. No se pueden utilizar cuentas B2B (invitadas) de Azure para instalar y registrar una puerta de enlace.
 * Si los orígenes de datos se encuentran en una red Azure Virtual Network (VNet) debe configurar la propiedad de servidor [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 
-## <a name="download"></a><a name="download"></a>Descarga
+## <a name="download"></a>Descargar
 
  [Descargar la puerta de enlace](https://go.microsoft.com/fwlink/?LinkId=820925&clcid=0x409)
 
-## <a name="install"></a><a name="install"></a>Instalación
+## <a name="install"></a>Instalar
 
 1. Ejecute la configuración.
 
@@ -67,7 +67,7 @@ Para más información sobre el funcionamiento de Azure Analysis Services con la
    > [!NOTE]
    > Si inicia sesión con una cuenta de dominio, se asignará a la cuenta profesional de Azure AD. La cuenta profesional se usará como administrador de la puerta de enlace.
 
-## <a name="register"></a><a name="register"></a>Registro
+## <a name="register"></a>Register
 
 Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia local que instaló con el servicio en la nube de la puerta de enlace. 
 
@@ -83,7 +83,7 @@ Para crear un recurso de puerta de enlace en Azure, debe registrar la instancia 
    ![Register](media/analysis-services-gateway-install/aas-gateway-register-name.png)
 
 
-## <a name="create-an-azure-gateway-resource"></a><a name="create-resource"></a>Creación de un recurso de puerta de enlace de Azure
+## <a name="create-an-azure-gateway-resource"></a>Creación de un recurso de puerta de enlace de Azure
 
 Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso de puerta de enlace en Azure. Inicie sesión en Azure con la misma cuenta que usó al registrar la puerta de enlace.
 
@@ -107,7 +107,12 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
      Cuando haya terminado, haga clic en **Crear**.
 
-## <a name="connect-servers-to-the-gateway-resource"></a><a name="connect-servers"></a>Conexión de servidores al recursos de la puerta de enlace
+## <a name="connect-gateway-resource-to-server"></a>Conexión de un recurso de puerta de enlace a un servidor
+
+> [!NOTE]
+> No se puede establecer conexión con un recurso de puerta de enlace de una suscripción diferente a la del servidor desde el portal, pero sí mediante PowerShell.
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
 
 1. En la introducción al servidor de Azure Analysis Services, haga clic en **Puerta de enlace de datos local**.
 
@@ -124,6 +129,27 @@ Una vez que ha instalado y registrado la puerta de enlace, debe crear un recurso
 
 
     ![Conexión correcta de un servidor a un recurso de puerta de enlace](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Utilice [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource) para obtener el identificador de recurso de la puerta de enlace. A continuación, conecte el recurso de puerta de enlace a un servidor nuevo o existente especificando **-GatewayResourceID** en [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver) o [New-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/new-azanalysisservicesserver).
+
+Para obtener el identificador de recurso de la puerta de enlace:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforGateway -Environment "AzureCloud"
+$GatewayResourceId = $(Get-AzResource -ResourceType "Microsoft.Web/connectionGateways" -Name $gatewayName).ResourceId  
+
+```
+
+Para configurar un servidor existente:
+
+```azurepowershell-interactive
+Connect-AzAccount -Tenant $TenantId -Subscription $subscriptionIdforAzureAS -Environment "AzureCloud"
+Set-AzAnalysisServicesServer -ResourceGroupName $RGName -Name $servername -GatewayResourceId $GatewayResourceId
+
+```
+---
 
 Eso es todo. Si necesita abrir puertos o solucionar cualquier problema, asegúrese de consultar [Puerta de enlace de datos local](analysis-services-gateway.md).
 

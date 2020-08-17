@@ -19,6 +19,8 @@
       href: terminology.md
     - name: Roles y requisitos
       href: concepts-roles-permissions.md
+    - name: Descripción de los precios
+      href: concepts-pricing.md
 - name: Ejemplos
   items:
     - name: Ejemplos de código
@@ -29,12 +31,12 @@
   items:
     - name: Supervisión
       href: how-to-monitor.md
-    - name: Configuración de asignaciones de conjuntos de datos
-      href: how-to-configure-mapping.md
     - name: Solución de problemas
       href: data-share-troubleshoot.md
     - name: Adición de conjuntos de datos
       href: how-to-add-datasets.md
+    - name: Configuración de asignaciones de conjuntos de datos
+      href: how-to-configure-mapping.md
     - name: Adición de destinatarios
       href: how-to-add-recipients.md
     - name: Eliminación de una invitación
@@ -54,7 +56,7 @@
     - name: API DE REST
       href: /rest/api/datashare
     - name: Azure CLI
-      href: azure-cli-references-for-data-share.md
+      href: 'https://docs.microsoft.com/cli/azure/azure-cli-reference-for-data-share?view=azure-cli-latest'
 - name: Recursos
   items:
     - name: Página de preguntas y respuestas de Microsoft

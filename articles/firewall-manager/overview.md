@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: overview
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 8b457198655af50427545a0e93e2cfe6903131c8
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: 37cbc3737b826060e96524528b065bc8d711bd8b
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85563737"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87384776"
 ---
 # <a name="what-is-azure-firewall-manager"></a>¿Qué es Azure Firewall Manager?
 
@@ -81,10 +81,10 @@ Azure Firewall Manager presenta los siguientes problemas conocidos:
 |Actualmente no se admite la división del tráfico.|Actualmente no se admite la división del tráfico de PaaS público de Azure y de Office 365. Como tal, la selección de un proveedor de terceros para V2I o B2I también envía todo el tráfico de PaaS público de Azure y de Office 365 a través del servicio de asociados.|La división del tráfico en el centro de conectividad se está investigando.
 |Un centro virtual protegido por región.|No se puede tener más de un centro virtual protegido por región.|Cree varias WAN virtuales en una región.|
 |Las directivas base deben estar en la misma región que la directiva local.|Cree todas las directivas locales en la misma región que la directiva de base. Puede seguir aplicando una directiva que se creó en una región de un centro seguro desde otra región.|Investigando|
-|La comunicación entre centros no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos.|Investigando|
+|La comunicación entre centros de conectividad no funciona con los centros virtuales protegidos|Aún no se admite la comunicación entre centros virtuales protegidos. Sin embargo, la comunicación entre centros de conectividad todavía funciona.|Investigando|
 |Todos los centros virtuales protegidos que comparten la misma WAN virtual deben estar en el mismo grupo de recursos.|Este comportamiento ya se alinea con los centros WAN virtuales en la actualidad.|Cree varias WAN virtuales para permitir que se creen centros virtuales protegidos en grupos de recursos diferentes.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte [Información general sobre la implementación de Azure Firewall Manager](deployment-overview.md).
+- Vea [Información general sobre la implementación de Azure Firewall Manager](deployment-overview.md).
 - Información sobre [centros de conectividad virtuales protegidos](secured-virtual-hub.md).

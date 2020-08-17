@@ -1,17 +1,15 @@
 ---
 title: Preguntas más frecuentes acerca de las redes en Azure Functions
 description: Respuestas a algunas de las preguntas y escenarios de redes con Azure Functions más comunes.
-author: alexkarcher-msft
 ms.topic: troubleshooting
 ms.date: 4/11/2019
-ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: acb1e942c1f342ce6fee7d8aeacafcc1d7b6fd91
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 52e0a6f9261d89ecd7c660be118162a898988526
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75409526"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385915"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Preguntas más frecuentes acerca de las redes en Azure Functions
 
@@ -55,7 +53,7 @@ También puede desencadenar una función a partir de todos los demás recursos d
 
 ## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>¿Cómo puedo implementar mi aplicación de funciones en una red virtual?
 
-La implementación en una instancia de App Service Environment es la única forma de crear una aplicación de funciones que esté totalmente dentro de una red virtual. Para obtener más información sobre el uso de un equilibrador de carga interno con una instancia de App Service Environment, empiece con el artículo [Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+La implementación en una instancia de App Service Environment es la única forma de crear una aplicación de funciones que esté totalmente dentro de una red virtual. Para obtener más información sobre el uso de un equilibrador de carga interno con una instancia de App Service Environment, empiece con el artículo [Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 Para escenarios donde necesita solo acceso unidireccional a recursos de red virtual o un aislamiento de red menos exhaustivo, consulte el tema de [información general de redes de Functions](functions-networking-options.md).
 

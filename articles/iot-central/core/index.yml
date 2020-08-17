@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 02/18/2020
-  ms.openlocfilehash: 53988177d28de184b5fcc494284185fac619b170
-  ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+  ms.openlocfilehash: 6f8cabab3b2feaa219c52c4ed8c53d1cccb4b658
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 05/19/2020
-  ms.locfileid: "83660293"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87337201"
 landingContent:
 - title: Acerca de Azure IoT Central
   linkLists:
@@ -44,15 +44,11 @@ landingContent:
   - linkListType: tutorial
     links:
     - text: Conexión de un dispositivo
-      url: tutorial-connect-device-nodejs.md
-    - text: Conexión de un dispositivo IoT Plug and Play (versión preliminar)
-      url: tutorial-connect-pnp-device.md
+      url: tutorial-connect-device.md
   - linkListType: how-to-guide
     links:
     - text: Configuración de una plantilla de dispositivo
       url: howto-set-up-template.md
-    - text: Preparación y conexión de una instancia de MXChip IoT DevKit
-      url: howto-connect-devkit.md
     - text: Conexión a otras nubes de IoT
       url: howto-build-iotc-device-bridge.md
 - title: Mantenimiento de la conexión

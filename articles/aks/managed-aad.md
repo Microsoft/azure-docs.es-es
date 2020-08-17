@@ -3,21 +3,17 @@ title: Uso de Azure AD en Azure Kubernetes Service
 description: Aprenda a usar Azure AD en Azure Kubernetes Service (AKS).
 services: container-service
 manager: gwallace
-author: TomGeske
 ms.topic: article
-ms.date: 07/08/2020
+ms.date: 07/20/2020
 ms.author: thomasge
-ms.openlocfilehash: b30c5b0e81f4748d5e94c05d016be83163c1e78e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 06a97126df449b77bf3fcc48bd23231512c9dff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056654"
 ---
-# <a name="aks-managed-azure-active-directory-integration-preview"></a>Integración de Azure Active Directory administrado por AKS (versión preliminar)
-
-> [!NOTE]
-> Los clústeres de AKS (Azure Kubernetes Service) existentes con la integración de Azure Active Directory (Azure AD) no se ven afectados por la nueva experiencia de Azure AD administrado por AKS.
+# <a name="aks-managed-azure-active-directory-integration"></a>Integración de Azure Active Directory administrado por AKS
 
 La integración de Azure AD administrado por AKS está diseñada para simplificar la experiencia de integración de Azure AD, donde los usuarios debían crear una aplicación cliente y otra de servidor, y donde el inquilino de Azure AD debía conceder permisos de lectura para Active Directory. En la nueva versión, el proveedor de recursos de AKS administra las aplicaciones de cliente y servidor.
 
@@ -27,98 +23,98 @@ Los administradores del clúster pueden configurar el control de acceso basado e
 
 Obtenga más información sobre el flujo de integración de AAD en la [documentación de los conceptos de la integración de Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
 
+## <a name="region-availability"></a>Disponibilidad en regiones
+
+La integración de Azure Active Directory administrado por AKS está disponible en las regiones públicas donde [se admite AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
+
+* Azure Government no se admite actualmente.
+* Azure China 21Vianet no se admite actualmente.
+
+## <a name="limitations"></a>Limitaciones 
+
+* No se puede deshabilitar la integración de Azure AD administrados por AKS.
+* Los clústeres no habilitados para RBAC no se admiten en la integración de AAD administrado por AKS.
+* No se admite el cambio del inquilino de Azure AD asociado a la integración de AAD administrado por AKS.
+
 > [!IMPORTANT]
-> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte:
->
-> - [Directivas de soporte técnico para AKS](support-policies.md)
+> Las características en versión preliminar de AKS están disponibles como opción de participación y autoservicio. Las versiones preliminares se proporcionan "tal cual" y "como están disponibles", y están excluidas de los Acuerdos de Nivel de Servicio y la garantía limitada. Las versiones preliminares de AKS reciben cobertura parcial del soporte al cliente en la medida de lo posible. Por lo tanto, estas características no están diseñadas para usarse en producción. Para más información, consulte los siguientes artículos de soporte: 
+> - [Directivas de soporte técnico para AKS](support-policies.md) 
 > - [Preguntas más frecuentes de soporte técnico de Azure](faq.md)
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="prerequisites"></a>Requisitos previos
 
-* Busque el identificador de inquilino de su cuenta de Azure. Para ello, vaya a Azure Portal y seleccione Azure Active Directory > Propiedades > Id. de directorio.
+* La CLI de Azure, versión 2.9.0 o posterior
+* Kubectl con la versión [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180) como mínimo
 
 > [!Important]
 > Debe usar Kubectl con la versión 1.18, como mínimo.
 
-Debe tener instalados los siguientes recursos:
-
-- La CLI de Azure, versión 2.5.1 o cualquier versión posterior
-- Extensión aks-preview 0.4.38
-- Kubectl con la versión [1.18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180) como mínimo
-
-Para instalar o actualizar la extensión aks-preview, use los siguientes comandos de la CLI de Azure:
-
-```azurecli
-az extension add --name aks-preview
-az extension list
-```
-
-```azurecli
-az extension update --name aks-preview
-az extension list
-```
-
 Para instalar kubectl, use los comandos siguientes:
 
-```azurecli
+```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
 ```
 
 Siga [estas instrucciones](https://kubernetes.io/docs/tasks/tools/install-kubectl/) para otros sistemas operativos.
 
-```azurecli-interactive
-az feature register --name AAD-V2 --namespace Microsoft.ContainerService
-```
+```azurecli-interactive 
+az feature register --name AAD-V2 --namespace Microsoft.ContainerService    
+``` 
 
-Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list):
+Pueden pasar unos minutos hasta que el estado aparezca como **Registrado**. Puede comprobar el estado del registro con el comando [az feature list](/cli/azure/feature?view=azure-cli-latest#az-feature-list): 
 
-```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"
-```
+```azurecli-interactive 
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AAD-V2')].{Name:name,State:properties.state}"    
+``` 
 
-Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):    
 
-```azurecli-interactive
-az provider register --namespace Microsoft.ContainerService
-```
+```azurecli-interactive 
+az provider register --namespace Microsoft.ContainerService 
+``` 
 
-## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Creación de un clúster de AKS con Azure AD habilitado
 
-Cree un clúster de AKS con los comandos de la CLI siguientes.
+## <a name="before-you-begin"></a>Antes de empezar
 
-Cree un grupo de recursos de Azure:
-
-```azurecli-interactive
-# Create an Azure resource group
-az group create --name myResourceGroup --location centralus
-```
-
-Puede usar un grupo de Azure AD existente o crear uno nuevo. Necesita el id. de objeto del grupo de Azure AD.
+Para el clúster, necesita un grupo de Azure AD. Este grupo es necesario como grupo de administradores para que el clúster conceda permisos de administrador de clústeres. Puede usar un grupo de Azure AD existente o crear uno nuevo. Anote el identificador de objeto del grupo de Azure AD.
 
 ```azurecli-interactive
 # List existing groups in the directory
-az ad group list
+az ad group list --filter "displayname eq '<group-name>'" -o table
 ```
 
 Para crear un grupo de Azure AD para los administradores de clúster, use el comando siguiente:
 
 ```azurecli-interactive
 # Create an Azure AD group
-az ad group create --display-name MyDisplay --mail-nickname MyDisplay
+az ad group create --display-name myAKSAdminGroup --mail-nickname myAKSAdminGroup
+```
+
+## <a name="create-an-aks-cluster-with-azure-ad-enabled"></a>Creación de un clúster de AKS con Azure AD habilitado
+
+Cree un clúster de AKS con los comandos de la CLI siguientes.
+
+Crear un grupo de recursos de Azure:
+
+```azurecli-interactive
+# Create an Azure resource group
+az group create --name myResourceGroup --location centralus
 ```
 
 Cree un clúster de AKS y habilite el acceso de administración para el grupo de Azure AD
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
-az aks create -g MyResourceGroup -n MyManagedCluster --enable-aad [--aad-admin-group-object-ids <id>] [--aad-tenant-id <id>]
+az aks create -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
 ```
 
 Un clúster de Azure AD administrado por AKS creado correctamente contiene la sección siguiente en el cuerpo de la respuesta
-```
+```output
 "AADProfile": {
-    "adminGroupObjectIds": null,
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
     "clientAppId": null,
     "managed": true,
     "serverAppId": null,
@@ -127,7 +123,7 @@ Un clúster de Azure AD administrado por AKS creado correctamente contiene la s
   }
 ```
 
-El clúster se crea en pocos minutos.
+Una vez creado el clúster, puede empezar a acceder a él.
 
 ## <a name="access-an-azure-ad-enabled-cluster"></a>Acceso a un clúster habilitado para Azure AD
 
@@ -136,7 +132,7 @@ Necesitará el rol integrado del [usuario del clúster de Azure Kubernetes Servi
 Obtenga las credenciales de usuario para acceder al clúster:
  
 ```azurecli-interactive
- az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster
+ az aks get-credentials --resource-group myResourceGroup --name myManagedCluster
 ```
 Siga las instrucciones para iniciar sesión.
 
@@ -162,8 +158,33 @@ Si está bloqueado permanentemente al no tener acceso a un grupo de Azure AD v�
 Para llevar a cabo estos pasos, necesitará tener acceso al rol integrado [Administrador de clúster de Azure Kubernetes Service](../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-admin-role).
 
 ```azurecli-interactive
-az aks get-credentials --resource-group myResourceGroup --name MyManagedCluster --admin
+az aks get-credentials --resource-group myResourceGroup --name myManagedCluster --admin
 ```
+
+## <a name="upgrading-to-aks-managed-azure-ad-integration"></a>Actualización a la integración de Azure AD administrado por AKS
+
+Si el clúster usa la integración de Azure AD heredada, puede actualizar a la integración de Azure AD administrado por AKS.
+
+```azurecli-interactive
+az aks update -g myResourceGroup -n myManagedCluster --enable-aad --aad-admin-group-object-ids <id> [--aad-tenant-id <id>]
+```
+
+Una migración correcta de un clúster de Azure AD administrado por AKS contiene la sección siguiente en el cuerpo de la respuesta:
+
+```output
+"AADProfile": {
+    "adminGroupObjectIds": [
+      "5d24****-****-****-****-****afa27aed"
+    ],
+    "clientAppId": null,
+    "managed": true,
+    "serverAppId": null,
+    "serverAppSecret": null,
+    "tenantId": "72f9****-****-****-****-****d011db47"
+  }
+```
+
+Si quiere acceder al clúster, siga los pasos que se indican [aquí][access-cluster].
 
 ## <a name="non-interactive-sign-in-with-kubelogin"></a>Inicio de sesión no interactivo con kubelogin
 
@@ -195,3 +216,5 @@ Hay algunos escenarios no interactivos, como las canalizaciones de integración 
 [operator-best-practices-identity]: operator-best-practices-identity.md
 [azure-ad-rbac]: azure-ad-rbac.md
 [azure-ad-cli]: azure-ad-integration-cli.md
+[access-cluster]: #access-an-azure-ad-enabled-cluster
+[aad-migrate]: #upgrading-to-aks-managed-azure-ad-integration

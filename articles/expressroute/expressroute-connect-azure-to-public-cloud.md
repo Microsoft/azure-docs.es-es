@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: article
 ms.date: 07/24/2019
 ms.author: osamaz
-ms.openlocfilehash: b8a454c2a104dfe8545cf734bf0b020b8f749bb1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 80863b56334b0d2d76cdf505dcd15c5cc4c14c52
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73889622"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081107"
 ---
 # <a name="connecting-azure-with-public-clouds"></a>Conexión de Azure a nubes públicas
 
@@ -34,7 +34,7 @@ Los proveedores Layer3 se suelen conocer como proveedores de VPN de IP o VPN de 
  
 Al conectarse a través del proveedor Layer3, Microsoft anuncia las rutas de la red virtual del cliente al proveedor de servicios mediante BGP. El proveedor puede tener dos implementaciones diferentes.
 
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
+![Diagrama que muestra un proveedor Layer3.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l3.png)
 
 Es posible que el proveedor haga que cada proveedor de servicios en la nube aterrice en un VRF independiente, por ejemplo, si el tráfico de todos los proveedores de servicios en la nube va a llegar al enrutador del cliente. Si el cliente ejecuta BGP con el proveedor de servicios, estas rutas se volverán a anunciar a otros proveedores de servicios en la nube de forma predeterminada. 
 
@@ -45,7 +45,7 @@ Cada nube pública tiene un límite de prefijo diferente, por lo que al distribu
 ### <a name="layer2-provider-and-direct-connection"></a>Proveedor Layer2 y conexión directa
 
 Aunque la conectividad física de ambos modelos es diferente, BGP en Layer3 se establece directamente entre MSEE y el enrutador del cliente. Para ExpressRoute, el cliente directo se conecta a MSEE directamente. Mientras que en el caso de Layer2, el proveedor de servicios amplía la VLAN de las instalaciones del cliente a la nube. Los clientes ejecutan BGP a partir de la red de Layer2 para conectar sus controladores de red a la nube.
-![](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
+![Diagrama que muestra un proveedor Layer2 y conexión directa.](media/expressroute-connect-azure-to-public-cloud/azure-to-public-clouds-l2.png)
 En ambos casos, el cliente tendrá conexiones de punto a punto a cada nube pública. El cliente establecerá una conexión BGP independiente a cada nube pública. De forma predeterminada, las rutas que recibe un proveedor de servicios en la nube se anuncian a otro. Cada proveedor de servicios en la nube tiene un límite de prefijo diferente, por lo que al anunciar las rutas, el cliente debe prestarles atención. El cliente puede usar los botones de BGP habituales con Microsoft mientras anuncia rutas de otras nubes públicas.
 
 ## <a name="direct-connection-with-expressroute"></a>Conexión directa con ExpressRoute

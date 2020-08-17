@@ -3,12 +3,12 @@ title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
 ms.date: 05/06/2020
 ms.topic: overview
-ms.openlocfilehash: 3a7cece81027bd8ac79250f2f2cd08da637b5f0b
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: a8cec34bb5bdd52b22063a4109153c7f455aaa65
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970933"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530412"
 ---
 # <a name="what-is-azure-blueprints"></a>¿Qué es Azure Blueprint?
 
@@ -39,7 +39,7 @@ Un plano técnico es un paquete o contenedor para crear conjuntos muy específic
 
 Una [directiva](../policy/overview.md) es un sistema de denegación explícita y permisos predeterminados que se centra en las propiedades de recursos durante su implementación y para los recursos ya existentes. Admite la gobernanza de la nube al validar que los recursos de una suscripción cumplen los requisitos y estándares.
 
-La inclusión de una directiva en un plano técnico permite la creación del diseño o el patrón correcto durante la asignación del plano técnico. La inclusión de la directiva garantiza que solo se pueden realizar en el entorno cambios aprobados o esperados para proteger el cumplimiento continuo en el ámbito del plano técnico.
+La inclusión de una directiva en un plano técnico permite crear el patrón o diseño adecuado durante la asignación del plano. La inclusión de la directiva garantiza que solo se pueden realizar en el entorno cambios aprobados o esperados para proteger el cumplimiento continuo en el ámbito del plano técnico.
 
 Se puede incluir una directiva como uno de muchos _artefactos_ en una definición de plano técnico. Los planos técnicos también permiten usar parámetros con las directivas y las iniciativas.
 
@@ -47,9 +47,9 @@ Se puede incluir una directiva como uno de muchos _artefactos_ en una definició
 
 Un plano técnico se compone de _artefactos_. Azure Blueprints admite actualmente los siguientes recursos como artefactos:
 
-|Recurso  | Opciones de la jerarquía| Descripción  |
+|Resource  | Opciones de la jerarquía| Descripción  |
 |---------|---------|---------|
-|Grupos de recursos | Suscripción | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
+|Grupos de recursos | Subscription | Cree un nuevo grupo de recursos para que lo usen otros artefactos incluidos en el plano técnico.  Estos grupos de recursos de marcador de posición permiten organizar los recursos exactamente como desee que se estructuren y proporciona un limitador de ámbito para los artefactos de asignación de roles y directivas, así como plantillas de Resource Manager. |
 |Plantilla ARM | Suscripción, grupo de recursos | Las plantillas, incluidas las plantillas anidadas y vinculadas, se usan para crear entornos complejos. Ejemplo de entornos: una granja de servidores SharePoint, Azure Automation State Configuration o un área de trabajo de Log Analytics. |
 |Asignación de directiva | Suscripción, grupo de recursos | Permite la asignación de una directiva o iniciativa a la suscripción a la que está asignado el plano técnico. La directiva o iniciativa debe estar dentro del ámbito de la ubicación de la definición del plano técnico. Si la directiva o iniciativa tiene parámetros, estos se asignan en la creación del plano técnico o durante su asignación. |
 |Asignación de roles | Suscripción, grupo de recursos | Agregue un grupo o usuario existente a un rol integrado para asegurarse de que las personas adecuadas siempre tienen derechos de acceso a los recursos. Las asignaciones de roles se pueden definir para toda la suscripción o anidarse para un grupo de recursos específico incluido en el plano técnico. |
@@ -103,7 +103,7 @@ Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita 
 
 Están disponibles los siguientes roles integrados:
 
-|Rol de RBAC | Descripción |
+|Rol de Azure | Descripción |
 |-|-|
 |[Propietario](../../role-based-access-control/built-in-roles.md#owner) | Además de otros permisos, incluye todos los permisos relacionados con Azure Blueprints. |
 |[Colaborador](../../role-based-access-control/built-in-roles.md#contributor) | Además de otros permisos, puede crear y eliminar definiciones de planos técnicos, pero no tiene permisos para asignarlos. |

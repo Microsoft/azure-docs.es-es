@@ -3,16 +3,16 @@ title: 'Concepto: integración de una implementación de Azure VMware Solution (
 description: Obtenga información sobre las recomendaciones para la integración de una implementación de Azure VMware Solution (AVS) en una arquitectura radial existente o nueva en Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 82937e04fc0a5101c353702b92b6b068d027d7ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d95ed81c5188eab0dc508f5320549c4a402e151
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85375007"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87062934"
 ---
 # <a name="integrate-azure-vmware-solution-avs-in-a-hub-and-spoke-architecture"></a>Integración de Azure VMware Solution (AVS) en una arquitectura radial
 
-En este artículo, se ofrecen recomendaciones para la integración de una implementación de Azure VMware Solution (AVS) en una [arquitectura radial](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/shared-services) existente o nueva en Azure. 
+En este artículo, se ofrecen recomendaciones para la integración de una implementación de Azure VMware Solution (AVS) en una [arquitectura radial](/azure/architecture/reference-architectures/hybrid-networking/shared-services) existente o nueva en Azure. 
 
 El escenario radial presupone un entorno de nube híbrida con cargas de trabajo en:
 
@@ -24,7 +24,7 @@ El escenario radial presupone un entorno de nube híbrida con cargas de trabajo 
 
 El *Centro* es una red virtual de Azure que actúa como punto central de conectividad para el entorno local y la nube privada AVS. Los *radios* son redes virtuales emparejadas con el centro para permitir la comunicación entre redes virtuales.
 
-El tráfico entre el centro de datos local, la nube privada de AVS y el centro pasa a través de las conexiones ExpressRoute. Las redes virtuales de radios suelen contener cargas de trabajo basadas en IaaS, pero pueden tener servicios PaaS como [App Service Environment](../app-service/environment/intro.md), que tiene integración directa con Virtual Network u otros servicios PaaS con [Azure Private Link](https://docs.microsoft.com/azure/private-link/) habilitado. 
+El tráfico entre el centro de datos local, la nube privada de AVS y el centro pasa a través de las conexiones ExpressRoute. Las redes virtuales de radios suelen contener cargas de trabajo basadas en IaaS, pero pueden tener servicios PaaS como [App Service Environment](../app-service/environment/intro.md), que tiene integración directa con Virtual Network u otros servicios PaaS con [Azure Private Link](../private-link/index.yml) habilitado. 
 
 En el diagrama se muestra un ejemplo de una implementación radial en Azure conectada al entorno local y AVS a través de ExpressRoute.
 
@@ -50,7 +50,7 @@ La arquitectura consta de los siguientes componentes principales:
 
     -   **Radio de IaaS:** un radio de IaaS hospedará las cargas de trabajo basadas en Azure IaaS, incluidos los conjuntos de disponibilidad de máquina virtual y los conjuntos de escalado de máquinas virtuales, así como los componentes de red correspondientes.
 
-    -   **Radio de PaaS:** un radio de PaaS hospeda los servicios de Azure PaaS mediante el direccionamiento privado, gracias al [punto de conexión privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) y a [Private Link](https://docs.microsoft.com/azure/private-link/private-link-overview).
+    -   **Radio de PaaS:** un radio de PaaS hospeda los servicios de Azure PaaS mediante el direccionamiento privado, gracias al [punto de conexión privado](../private-link/private-endpoint-overview.md) y a [Private Link](../private-link/private-link-overview.md).
 
 -   **Azure Firewall:** actúa como la pieza central para segmentar el tráfico entre los radios, el entorno local y AVS.
 
@@ -58,7 +58,7 @@ La arquitectura consta de los siguientes componentes principales:
 
 ## <a name="network-and-security-considerations"></a>Consideraciones sobre red y seguridad
 
-Las conexiones ExpressRoute permiten que el tráfico fluya entre el entorno local, AVS y el tejido de red de Azure. AVS usa [Global Reach de ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) para implementar esta conectividad.
+Las conexiones ExpressRoute permiten que el tráfico fluya entre el entorno local, AVS y el tejido de red de Azure. AVS usa [Global Reach de ExpressRoute](../expressroute/expressroute-global-reach.md) para implementar esta conectividad.
 
 La conectividad local también puede usar Global Reach de ExpressRoute, pero no es obligatorio.
 
@@ -72,11 +72,11 @@ La conectividad local también puede usar Global Reach de ExpressRoute, pero no 
   :::image type="content" source="media/hub-spoke/avs-to-hub-vnet-traffic-flow.png" alt-text="Flujo de tráfico de AVS a la red virtual de centro":::
 
 
-Puede encontrar más detalles sobre los conceptos de interconectividad y redes de AVS en la [documentación del producto AVS](https://docs.microsoft.com/azure/azure-vmware/concepts-networking).
+Puede encontrar más detalles sobre los conceptos de interconectividad y redes de AVS en la [documentación del producto AVS](./concepts-networking.md).
 
 ### <a name="traffic-segmentation"></a>Segmentación de tráfico
 
-[Azure Firewall](https://docs.microsoft.com/azure/firewall/) es la pieza central de la topología radial implementada en la red virtual de centro. Use Azure Firewall u otra aplicación virtual de red compatible con Azure para establecer reglas de tráfico y segmentar la comunicación entre los distintos radios, entornos locales y cargas de trabajo de AVS.
+[Azure Firewall](../firewall/index.yml) es la pieza central de la topología radial implementada en la red virtual de centro. Use Azure Firewall u otra aplicación virtual de red compatible con Azure para establecer reglas de tráfico y segmentar la comunicación entre los distintos radios, entornos locales y cargas de trabajo de AVS.
 
 Cree tablas de rutas para dirigir el tráfico a Azure Firewall.  En el caso de las redes virtuales de radios, cree una ruta que establezca la ruta predeterminada a la interfaz interna de Azure Firewall, de esta manera cuando una carga de trabajo de la red virtual deba alcanzar el espacio de direcciones de AVS, el firewall puede evaluarla y aplicar la regla de tráfico correspondiente para permitirla o denegarla.  
 
@@ -104,7 +104,7 @@ Se ha probado Azure Application Gateway V1 y V2 con aplicaciones web que se ejec
 
 Acceda al entorno de AVS con Jumpbox, que es una máquina virtual de Windows 10 o Windows Server implementada en la subred de servicio compartida dentro de la red virtual de centro.
 
-Como práctica recomendada de seguridad, implemente el servicio [Microsoft Azure Bastion](https://docs.microsoft.com/azure/bastion/) dentro de la red virtual de centro. Azure Bastion proporciona el acceso RDP y SSH sin problemas a las máquinas virtuales implementadas en Azure sin necesidad de aprovisionar direcciones IP públicas a esos recursos. Una vez que aprovisione el servicio de Azure Bastion, puede acceder a la máquina virtual seleccionada desde Azure Portal. Después de establecer la conexión, se abre una nueva pestaña que muestra el escritorio de Jumpbox y, desde ese escritorio, puede acceder al plano de administración de la nube privada de AVS.
+Como práctica recomendada de seguridad, implemente el servicio [Microsoft Azure Bastion](../bastion/index.yml) dentro de la red virtual de centro. Azure Bastion proporciona el acceso RDP y SSH sin problemas a las máquinas virtuales implementadas en Azure sin necesidad de aprovisionar direcciones IP públicas a esos recursos. Una vez que aprovisione el servicio de Azure Bastion, puede acceder a la máquina virtual seleccionada desde Azure Portal. Después de establecer la conexión, se abre una nueva pestaña que muestra el escritorio de Jumpbox y, desde ese escritorio, puede acceder al plano de administración de la nube privada de AVS.
 
 > [!IMPORTANT]
 > No asigne una dirección IP pública a la máquina virtual Jumpbox ni exponga el puerto 3389/TCP a la red pública de Internet. 
@@ -137,21 +137,19 @@ Los servidores locales y AVS se pueden configurar con reenviadores condicionales
 
 ## <a name="identity-considerations"></a>Consideraciones de identidad
 
-En lo que respecta a la identidad, el mejor enfoque consiste en implementar al menos un controlador de dominio de AD en el centro, mediante la subred de servicio compartida, idealmente dos de ellos en el modo distribuido por zonas o en un conjunto de disponibilidad de máquina virtual. Consulte [Centro de arquitectura de Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/adds-extend-domain) para extender el dominio de AD local a Azure.
+En lo que respecta a la identidad, el mejor enfoque consiste en implementar al menos un controlador de dominio de AD en el centro, mediante la subred de servicio compartida, idealmente dos de ellos en el modo distribuido por zonas o en un conjunto de disponibilidad de máquina virtual. Consulte [Centro de arquitectura de Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain) para extender el dominio de AD local a Azure.
 
 Además, implemente otro controlador de dominio en el lado AVS para que actúe como identidad y origen DNS dentro del entorno de vSphere.
 
 En el caso de vCenter y SSO, establezca un origen de identidad en Azure Portal, en **Administrar \> Identidad \> Orígenes de identidad**.
 
-Como práctica recomendada, integre el [dominio de AD con Azure Active Directory](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/azure-ad).
+Como práctica recomendada, integre el [dominio de AD con Azure Active Directory](/azure/architecture/reference-architectures/identity/azure-ad).
 
 <!-- LINKS - external -->
-[Azure Architecture Center]: https://docs.microsoft.com/azure/architecture/
+[Azure Architecture Center]: /azure/architecture/
 
-[Hub & Spoke topology]: https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+[Hub & Spoke topology]: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
 
-[Azure networking documentation]: https://docs.microsoft.com/azure/networking/
+[Azure networking documentation]: ../networking/index.yml
 
 <!-- LINKS - internal -->
-
-

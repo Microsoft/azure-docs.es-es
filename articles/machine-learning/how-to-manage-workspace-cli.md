@@ -5,16 +5,17 @@ description: Aprenda a usar la CLI de Azure para crear una nueva área de trabaj
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: larryfr
 author: Blackmist
 ms.date: 06/25/2020
-ms.openlocfilehash: 64963bfc28921d195d9ed0f96b2673a9c9e4aa2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, devx-track-azurecli
+ms.openlocfilehash: 4910dc03cc4ef24b8515271a9197650c4b041f01
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392716"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489612"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creación de un área de trabajo para Azure Machine Learning con la CLI de Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +60,13 @@ az extension add -n azure-cli-ml
 El área de trabajo de Azure Machine Learning se basa en los siguientes servicios o entidades de Azure:
 
 > [!IMPORTANT]
-> Si no especifica un servicio de Azure existente, se creará uno automáticamente durante la creación del área de trabajo. Siempre debe especificar un grupo de recursos. Al conectar su propia cuenta de almacenamiento, asegúrese de que tiene habilitadas las funcionalidades Azure BLOB y Azure File, y que el espacio de nombres jerárquico (ADLS Gen 2) está deshabilitado. Siempre puede conectar su propia cuenta de almacenamiento más adelante, después de crear el área de trabajo como almacenes de datos.
+> Si no especifica un servicio de Azure existente, se creará uno automáticamente durante la creación del área de trabajo. Siempre debe especificar un grupo de recursos. Al adjuntar su propia cuenta de almacenamiento, asegúrese de que cumple los siguientes criterios:
+>
+> * La cuenta de almacenamiento _no_ es una cuenta prémium (Premium_LRS y Premium_GRS)
+> * Las funcionalidades Azure Blob y Azure File están habilitadas
+> * El espacio de nombres jerárquico (ADLS Gen 2) está deshabilitado
+>
+> Estos requisitos son solo para la cuenta de almacenamiento _predeterminada_ utilizada por el área de trabajo.
 
 | Servicio | Parámetro para especificar una instancia existente |
 | ---- | ---- |
@@ -147,6 +154,9 @@ Para crear un área de trabajo que use los recursos existentes, debe proporciona
     La respuesta de este comando es similar al siguiente texto y es el Id. de la cuenta de almacenamiento:
 
     `"/subscriptions/<service-GUID>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"`
+
+    > [!IMPORTANT]
+    > Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta prémium (Premium_LRS o Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (usado con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Puede usar Premium Storage o el espacio de nombres jerárquico con cuentas de almacenamiento _no predeterminadas_.
 
 + **Azure Application Insights**:
 

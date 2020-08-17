@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 0ba93db3e692a34de42849b469978cea4459c6fc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd8dcbe136558e997ca16a2d9754cbf1c4e7620b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498872"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326110"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -133,4 +133,5 @@ En la región de Virginia del US Gov, solo las direcciones de DOD están incorpo
 | Equipos de MS | gov.teams.microsoft.us | 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Buscar registros](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
+[Buscar registros](../log-query/log-query-overview.md) para ver datos detallados de rendimiento de red.
+

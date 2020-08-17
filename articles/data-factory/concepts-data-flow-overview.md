@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: e8efb43ac0711bac1324ac2c9e3b59373ce59419
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 850879675d4554329f24c86f2ac28660b303084c
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84635139"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475573"
 ---
 # <a name="what-are-mapping-data-flows"></a>¿Qué son los flujos de datos de asignación?
 
@@ -93,41 +93,9 @@ La primera pestaña del panel de configuración de cada transformación contiene
 
 #### <a name="optimize"></a>Optimización
 
-La pestaña **Optimizar** contiene valores opcionales para configurar los esquemas de partición.
+La pestaña **Optimizar** contiene valores opcionales para configurar los esquemas de partición. Para obtener más información sobre cómo optimizar los flujos de datos, consulte la [guía de rendimiento de flujos de datos de asignación](concepts-data-flow-performance.md).
 
-![Optimize](media/data-flow/optimize1.png "Optimización") (Optimizar)
-
-El ajuste predeterminado es **Use current partitioning** (Usar particiones actuales), que indica a Azure Data Factory que use el esquema de partición nativo para los flujos de datos que se ejecutan en Spark. En la mayoría de los escenarios, se recomienda esta opción.
-
-Hay casos en los que es posible que quiera ajustar la creación de particiones. Por ejemplo, si quiere que el resultado de las transformaciones se guarde en un único archivo del lago, elija **Partición única** en la transformación del receptor.
-
-Otro caso en el que es probable que desee controlar los esquemas de partición es para optimizar el rendimiento. Ajustar las particiones permite controlar la distribución de los datos entre los nodos de proceso y las optimizaciones de la localidad de los datos, lo que puede tener efectos tanto positivos como negativos en el rendimiento general de los flujos de datos. Para más información, consulte la [guía de rendimiento de Data Flow](concepts-data-flow-performance.md).
-
-Para cambiar las particiones de cualquier transformación, seleccione la pestaña **Optimizar** y elija el botón de radio **Set Partitioning** (Establecer particiones). Aparecen una serie de opciones relacionadas con la creación de particiones. El mejor método para crear particiones depende de los volúmenes de datos, las claves candidatas, los valores nulos y la cardinalidad. 
-
-El procedimiento recomendado consiste en comenzar con el proceso de creación de particiones predeterminado y probar después diferentes opciones. Puede realizar la prueba con las ejecuciones de depuración de canalizaciones y ver el tiempo que ejecución y el uso de las particiones de cada agrupación de transformaciones en la vista de supervisión. Para más información, consulte [Supervisión de flujos de datos](concepts-data-flow-monitoring.md).
-
-Están disponibles las siguientes opciones de partición.
-
-##### <a name="round-robin"></a>Round robin 
-
-Round robin es una partición simple que distribuye automáticamente los datos equitativamente entre las distintas particiones. Use round robin cuando los candidatos principales no sean lo suficientemente buenos como para implementar una estrategia de creación de particiones sólida e inteligente. Puede establecer el número de particiones físicas.
-
-##### <a name="hash"></a>Hash
-
-Azure Data Factory genera un valor hash de las columnas para generar particiones uniformes, por ejemplo, filas con valores similares en la misma partición. Si usa la opción Hash, pruebe si hay una posible distorsión de las particiones. Puede establecer el número de particiones físicas.
-
-##### <a name="dynamic-range"></a>Intervalo dinámico
-
-El intervalo dinámico usa los intervalos dinámicos de Spark en función de las columnas o expresiones que proporcione. Puede establecer el número de particiones físicas. 
-
-##### <a name="fixed-range"></a>Intervalo fijo
-
-Cree una expresión que proporcione un intervalo de valores fijo en las columnas de datos con particiones. Para evitar la distorsión de la partición, es preciso que conozca perfectamente los datos antes de usar esta opción. Los valores que especifique para la expresión se usan como parte de una función de partición. Puede establecer el número de particiones físicas.
-
-##### <a name="key"></a>Clave
-
-Si conoce bien la cardinalidad de los datos, la creación de particiones clave puede ser una buena estrategia. La creación de particiones clave crea particiones para cada valor único de la columna. No puede establecer el número de particiones porque dicho número depende de valores únicos de los datos.
+![Optimize](media/data-flow/optimize.png "Optimización") (Optimizar)
 
 #### <a name="inspect"></a>Inspeccionar
 

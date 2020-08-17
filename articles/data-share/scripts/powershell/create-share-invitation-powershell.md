@@ -9,14 +9,14 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/07/2019
 ms.author: joanpo
-ms.openlocfilehash: 9fd8d6428e94007002d524d9ade99f6b368b8201
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 220677df3bd0c221f61efd28a80b05cfd76e2734
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "70307240"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086649"
 ---
-# <a name="use-powershell-to-monitor-the-usage-of-a-sent-data-share"></a>Uso de PowerShell para supervisar el uso de un recurso compartido de datos enviado
+# <a name="use-a-powershell-script-to-monitor-the-usage-of-a-sent-data-share"></a>Uso de un script de PowerShell para supervisar el uso de un recurso compartido de datos enviado
 
 Este script de PowerShell crea una invitación de un recurso compartido de datos.
 

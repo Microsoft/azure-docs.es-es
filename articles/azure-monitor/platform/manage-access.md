@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 2fcf3b4c91e87453e2cf605eb717b75ed7d64d95
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 630364a95c4ee427b71aa5e8b763b4447a41c962
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85105932"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489459"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Administración del acceso a los datos de registro y las áreas de trabajo en Azure Monitor
 
@@ -20,7 +20,7 @@ Azure Monitor almacena datos de [registro](data-platform-logs.md) en un área de
 En este artículo se explica cómo administrar el acceso a los registros y cómo administrar las áreas de trabajo que los contienen, lo que incluye cómo conceder acceso a: 
 
 * El área de trabajo mediante los permisos del área de trabajo.
-* Los usuarios que necesitan acceder a los datos de registro de recursos concretos mediante el control de acceso basado en rol (RBAC) de Azure, también conocido como [contexto del recurso](design-logs-deployment.md#access-mode).
+* Los usuarios que necesitan acceder a los datos de registro de recursos concretos mediante el control de acceso basado en rol de Azure (Azure RBAC), también conocido como [contexto del recurso](design-logs-deployment.md#access-mode).
 * Los usuarios que necesitan acceder a los datos de registro de una tabla específica del área de trabajo mediante Azure RBAC.
 
 Para comprender los conceptos de registros relacionados con las estrategias de acceso y RBAC, consulte [Diseño de la implementación de registros de Azure Monitor](design-logs-deployment.md)
@@ -310,6 +310,6 @@ A veces, los registros personalizados proceden de orígenes que no están direct
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Consulte la [información general sobre el agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md) para recopilar datos de los equipos de su centro de datos u otro entorno de nube.
+* Consulte la [información general sobre el agente de Log Analytics](./log-analytics-agent.md) para recopilar datos de los equipos de su centro de datos u otro entorno de nube.
 
-* Consulte [Recopilación de datos de máquinas virtuales de Azure](../../azure-monitor/learn/quick-collect-azurevm.md) para configurar la recopilación de datos de máquinas virtuales de Azure.
+* Consulte [Recopilación de datos de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md) para configurar la recopilación de datos de máquinas virtuales de Azure.

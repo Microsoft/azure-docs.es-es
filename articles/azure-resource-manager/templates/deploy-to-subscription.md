@@ -2,43 +2,65 @@
 title: Implementación de recursos en una suscripción
 description: Se describe cómo crear un grupo de recursos en una plantilla de Azure Resource Manager. También se muestra cómo implementar recursos en el ámbito de la suscripción de Azure.
 ms.topic: conceptual
-ms.date: 07/01/2020
-ms.openlocfilehash: ab39fed11ee53849e7d588d16749de96172b234d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a4e21f29762a30baec8d5cf6e3914da2b5faadeb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832821"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321775"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creación de grupos de recursos y otros recursos en el nivel de suscripción
 
-Para simplificar la administración de recursos, puede implementar recursos en el nivel de la suscripción de Azure. Por ejemplo, puede implementar [directivas ](../../governance/policy/overview.md) y [controles de acceso basados en roles](../../role-based-access-control/overview.md) en su suscripción y esos recursos se aplicarán a toda la suscripción. También puede crear grupos de recursos e implementar recursos en ellos.
+Para simplificar la administración de recursos, puede usar una plantilla de Azure Resource Manager (plantilla de ARM) para implementar recursos en el nivel de la suscripción de Azure. Por ejemplo, puede implementar [directivas](../../governance/policy/overview.md) y [controles de acceso basados en roles](../../role-based-access-control/overview.md) en su suscripción, para que se apliquen en su suscripción. También puede crear grupos de recursos dentro de la suscripción e implementar recursos en grupos de recursos de la suscripción.
 
 > [!NOTE]
 > Puede implementar en 800 grupos de recursos distintos en una implementación de nivel de suscripción.
 
-Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, PowerShell o la API REST.
+Para implementar plantillas en el nivel de suscripción, use la CLI de Azure, PowerShell, la API de REST o el portal.
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
-Puede implementar los siguientes tipos de recursos en el nivel de suscripción:
+No todos los tipos de recursos se pueden implementar en el nivel de suscripción. En esta sección se enumeran los tipos de recursos que se admiten.
 
+Para Azure Blueprints, use:
+
+* [artifacts](/azure/templates/microsoft.blueprint/blueprints/artifacts)
 * [blueprints](/azure/templates/microsoft.blueprint/blueprints)
-* [budgets](/azure/templates/microsoft.consumption/budgets)
-* [implementaciones](/azure/templates/microsoft.resources/deployments): para plantillas anidadas que se implementan en grupos de recursos.
-* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
-* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
+* [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
+* [versions (Blueprints)](/azure/templates/microsoft.blueprint/blueprints/versions)
+
+Para las directivas de Azure, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
-* [remediations](/azure/templates/microsoft.policyinsights/2019-07-01/remediations)
-* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+* [remediations](/azure/templates/microsoft.policyinsights/remediations)
+
+Para el control de acceso basado en rol, use:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
-* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+
+Para plantillas anidadas que se implementan en grupos de recursos, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+Para crear grupos de recursos, use:
+
+* [resourceGroups](/azure/templates/microsoft.resources/resourcegroups)
+
+Para administrar su suscripción, use:
+
+* [budgets](/azure/templates/microsoft.consumption/budgets)
 * [supportPlanTypes](/azure/templates/microsoft.addons/supportproviders/supportplantypes)
 * [etiquetas](/azure/templates/microsoft.resources/tags)
-* [workspacesettings](/azure/templates/microsoft.security/workspacesettings)
+
+Otros tipos admitidos incluyen:
+
+* [scopeAssignments](/azure/templates/microsoft.managednetwork/scopeassignments)
+* [eventSubscriptions](/azure/templates/microsoft.eventgrid/eventsubscriptions)
+* [peerAsns](/azure/templates/microsoft.peering/2019-09-01-preview/peerasns)
 
 ### <a name="schema"></a>Schema
 
@@ -91,6 +113,47 @@ Puede proporcionar un nombre para la implementación o usar el nombre de impleme
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
 
+## <a name="deployment-scopes"></a>Ámbitos de implementación
+
+Al realizar la implementación en una suscripción, puede tener como destino la suscripción o cualquier grupo de recursos dentro de la suscripción. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+Los recursos definidos en la sección de recursos de la plantilla se aplican a la suscripción.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        subscription-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Para establecer como destino un grupo de recursos dentro de la suscripción, agregue una implementación anidada e incluya la propiedad `resourceGroup`. En el ejemplo siguiente, la implementación anidada tiene como destino un grupo de recursos denominado `rg2`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedDeployment",
+            "resourceGroup": "rg2",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
+
 ## <a name="use-template-functions"></a>Usar funciones de plantillas
 
 En las implementaciones de nivel de suscripción, hay algunas consideraciones importantes que deben tenerse en cuenta al usar las funciones de plantilla:
@@ -111,9 +174,11 @@ En las implementaciones de nivel de suscripción, hay algunas consideraciones im
   /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
   ```
 
-## <a name="create-resource-groups"></a>Crear grupos de recursos
+## <a name="resource-groups"></a>Grupos de recursos
 
-Para crear un grupo de recursos en una plantilla de Azure Resource Manager, defina un recurso [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) con un nombre y una ubicación para el grupo de recursos. También se puede crear un grupo de recursos e implementar recursos en él en la misma plantilla.
+### <a name="create-resource-groups"></a>Crear grupos de recursos
+
+Para crear un grupo de recursos en una plantilla de ARM, defina un recurso [Microsoft.Resources/resourceGroups](/azure/templates/microsoft.resources/allversions) con un nombre y una ubicación para el grupo de recursos.
 
 En la plantilla siguiente se crea un grupo de recursos vacío.
 
@@ -133,7 +198,7 @@ En la plantilla siguiente se crea un grupo de recursos vacío.
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
@@ -164,7 +229,7 @@ Use el [elemento copy](copy-resources.md) con grupos de recursos para crear más
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "location": "[parameters('rgLocation')]",
       "name": "[concat(parameters('rgNamePrefix'), copyIndex())]",
       "copy": {
@@ -180,7 +245,7 @@ Use el [elemento copy](copy-resources.md) con grupos de recursos para crear más
 
 Para más información sobre la iteración de recursos, consulte este artículo sobre la [implementación de varias instancias de un recurso en las plantillas de Azure Resource Manager](./copy-resources.md) y [Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager](./template-tutorial-create-multiple-instances.md).
 
-## <a name="resource-group-and-resources"></a>Grupo de recursos y recursos
+### <a name="create-resource-group-and-resources"></a>Creación del grupo de recursos y los recursos
 
 Para crear el grupo de recursos e implementar recursos en él, utilice una plantilla anidada. La plantilla anidada define los recursos que se van a implementar en el grupo de recursos. Establezca la plantilla anidada como dependiente del grupo de recursos para asegurarse de que el grupo de recursos existe antes de implementar los recursos. Puede implementar en hasta 800 grupos de recursos.
 
@@ -208,14 +273,14 @@ En el ejemplo siguiente se crea un grupo de recursos y se implementa una cuenta 
   "resources": [
     {
       "type": "Microsoft.Resources/resourceGroups",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "[parameters('rgName')]",
       "location": "[parameters('rgLocation')]",
       "properties": {}
     },
     {
       "type": "Microsoft.Resources/deployments",
-      "apiVersion": "2019-10-01",
+      "apiVersion": "2020-06-01",
       "name": "storageDeployment",
       "resourceGroup": "[parameters('rgName')]",
       "dependsOn": [
@@ -406,14 +471,16 @@ New-AzSubscriptionDeployment `
   -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/blueprints-new-blueprint/azuredeploy.json"
 ```
 
-## <a name="template-samples"></a>Ejemplos de plantillas
+## <a name="access-control"></a>Control de acceso
 
-* [Cree un grupo de recursos, bloquéelo y concédale permisos](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-rg-lock-role-assignment).
-* [Cree un grupo de recursos, una directiva y una asignación de directiva](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
+Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
+
+En el ejemplo siguiente, se crea un grupo de recursos, se le aplica un bloqueo y se asigna un rol a una entidad de seguridad.
+
+:::code language="json" source="~/quickstart-templates/subscription-deployments/create-rg-lock-role-assignment/azuredeploy.json":::
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para aprender sobre los roles de asignación, consulte [Administración del acceso a los recursos de Azure mediante RBAC y plantillas de Azure Resource Manager](../../role-based-access-control/role-assignments-template.md).
 * Para un ejemplo de implementación de la configuración del área de trabajo para Azure Security Center, consulte [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
 * Puede encontrar plantillas de ejemplo en [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments).
 * También puede implementar plantillas en el [nivel de grupo de administración](deploy-to-management-group.md) y en el [nivel de inquilino](deploy-to-tenant.md).

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/13/2020
 ms.author: raynew
-ms.openlocfilehash: 5d0808b93d0c9c7b49d1fd394d2b776c008bc594
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3cd64de05c44729f1aa714849e12fc8f69998334
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135865"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498623"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -34,7 +34,7 @@ En la tabla siguiente se resumen los componentes implicados en la recuperación 
 **Cuenta de almacenamiento en caché** | Necesita una cuenta de almacenamiento de caché en la red de origen. Durante la replicación, los cambios de la máquina virtual se almacenan en la memoria caché antes de enviarse al almacenamiento de destino.  Las cuentas de almacenamiento en caché deben ser estándar.<br/><br/> Esto garantiza que las aplicaciones de producción que se ejecutan en la máquina virtual resulten mínimamente afectadas.<br/><br/> [Más información](azure-to-azure-support-matrix.md#cache-storage) acerca de los requisitos de almacenamiento en caché. 
 **Recursos de destino** | Los recursos de destino se utilizan durante la replicación y al producirse una conmutación por error. Site Recovery puede configurar el recurso de destino de forma predeterminada o, si lo prefiere, puede crearlo usted o personalizarlo.<br/><br/> En la región de destino, compruebe que se pueden crear máquinas virtuales y que la suscripción tiene suficientes recursos para admitir los tamaños de máquina virtual necesarios en la región de destino. 
 
-![Origen y destino de la replicación](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
+![Diagrama que muestra la replicación de origen y destino.](./media/concepts-azure-to-azure-architecture/enable-replication-step-1-v2.png)
 
 ## <a name="target-resources"></a>Recursos de destino
 
@@ -116,7 +116,7 @@ Al habilitar la replicación para una máquina virtual de Azure, ocurre lo sigui
 4. Site Recovery procesa los datos en la caché y los envía a la cuenta de almacenamiento de destino o a los discos administrados de réplica.
 5. Una vez procesados los datos, se generan puntos de recuperación coherentes frente a bloqueos cada cinco minutos. Los puntos de recuperación coherentes con la aplicación se generan según la configuración especificada en la directiva de replicación.
 
-![Habilitación del proceso de replicación, paso 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
+![Diagrama que muestra el proceso de replicación, paso 2.](./media/concepts-azure-to-azure-architecture/enable-replication-step-2-v2.png)
 
 **Proceso de replicación**
 
@@ -128,19 +128,19 @@ Al habilitar la replicación para una máquina virtual de Azure, ocurre lo sigui
 
 Si se controla el acceso de salida para las máquinas virtuales con direcciones URL, debe permitir las siguientes.
 
-| **URL** | **Detalles** |
-| ------- | ----------- |
-| *.blob.core.windows.net | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
-| login.microsoftonline.com | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
-| *.hypervrecoverymanager.windowsazure.com | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
-| *.servicebus.windows.net | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
-| *.vault.azure.net | Permite el acceso para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal.
-| *.automation.ext.azure.com | Permite habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal.
+| **Nombre**                  | **Comercial**                               | **Gobierno**                                 | **Descripción** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`               | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
+| Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`     | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
+| Azure Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
+| Key Vault                 | `*.vault.azure.net`                        | `*.vault.usgovcloudapi.net`                  | Permite el acceso para habilitar la replicación de máquinas virtuales habilitadas para ADE a través del portal. |
+| Azure Automation          | `*.automation.ext.azure.com`               | `*.azure-automation.us`                      | Permite habilitar la actualización automática del agente de movilidad para un elemento replicado a través del portal. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 
 Para controlar la conectividad de salida para máquinas virtuales con direcciones IP, permita estas direcciones.
-Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se pueden encontrar en [las notas del producto de redes.](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
+Tenga en cuenta que los detalles sobre los requisitos de conectividad de red se pueden encontrar en las [notas del producto de redes.](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) 
 
 #### <a name="source-region-rules"></a>Reglas de la región de origen
 
@@ -191,7 +191,7 @@ Si habilita la coherencia entre varias máquinas virtuales, las máquinas del gr
 
 Cuando se inicia una conmutación por error, las máquinas virtuales se crean en el grupo de recursos de destino, la red virtual de destino, la subred de destino y el conjunto de disponibilidad de destino. Durante una conmutación por error, puede usar cualquier punto de recuperación.
 
-![Proceso de conmutación por error](./media/concepts-azure-to-azure-architecture/failover-v2.png)
+![Diagrama que muestra el proceso de conmutación por error con los entornos de origen y de destino.](./media/concepts-azure-to-azure-architecture/failover-v2.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.subservice: alerts
-ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6d5cbfc8d781e96a4d348f31f4a5d175ebd5a3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78206243"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321894"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Procedimientos para desencadenar acciones complejas con alertas de Azure Monitor
 
@@ -19,7 +19,7 @@ En este artículo se muestra cómo configurar y desencadenar una aplicación ló
 
 ## <a name="overview"></a>Información general
 
-Cuando se desencadena una alerta de Azure Monitor, llama a un [grupo de acciones](../../azure-monitor/platform/action-groups.md). Los grupos de acciones permiten desencadenar una o varias acciones para notificar sobre la alerta a otros usuarios y también a resolverla.
+Cuando se desencadena una alerta de Azure Monitor, llama a un [grupo de acciones](./action-groups.md). Los grupos de acciones permiten desencadenar una o varias acciones para notificar sobre la alerta a otros usuarios y también a resolverla.
 
 El proceso general es:
 
@@ -128,7 +128,7 @@ El proceso es similar si quiere que la aplicación lógica lleve a cabo otra acc
 
 14. En la parte superior del **diseñador de Logic Apps**, seleccione **Guardar** para guardar la aplicación lógica.
 
-15. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) para crear uno. No olvide guardar los cambios.
+15. Abra el grupo de acciones existente y agregue una acción para hacer referencia a la aplicación lógica. Si no existe un grupo de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](./action-groups.md) para crear uno. No olvide guardar los cambios.
 
     ![Actualización del grupo de acciones](media/action-groups-logic-app/update-action-group.png "Actualización del grupo de acciones")
 
@@ -294,7 +294,7 @@ El proceso de creación de una alerta de métrica es similar a la [creación de 
 Logic Apps tiene una serie de distintos conectores que permiten desencadenar acciones en una amplia gama de aplicaciones y bases de datos. Slack, SQL Server, Oracle, Salesforce, son solo algunos ejemplos. Para más información sobre los conectores, consulte [Conectores de Logic App](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Consulte la [introducción a las alertas del registro de actividad de Azure](../../azure-monitor/platform/alerts-overview.md) y aprenda cómo puede recibir alertas.  
-* Aprenda a [configurar alertas siempre que se publique una notificación de Azure Service Health](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).
-* Más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md).
+* Consulte la [introducción a las alertas del registro de actividad de Azure](./alerts-overview.md) y aprenda cómo puede recibir alertas.  
+* Aprenda a [configurar alertas siempre que se publique una notificación de Azure Service Health](../../service-health/alerts-activity-log-service-notifications-portal.md).
+* Más información sobre los [grupos de acciones](./action-groups.md).
 

@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: na
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47a2f8b69c8ef75be4f9190933969ed20404b5da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f6e44aa89c1e2815d70bb4ba2ae5f5680252ac
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253008"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541896"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Habilitación de Enterprise State Roaming en Azure Active Directory
 
@@ -31,7 +31,7 @@ Al habilitar Enterprise State Roaming, a su organización se le otorgará autom�
 ## <a name="to-enable-enterprise-state-roaming"></a>Para habilitar Enterprise State Roaming
 
 1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com/).
-1. Seleccione **Azure Active Directory** &gt; **Dispositivos** &gt; **Enterprise State Roaming**.
+1. Seleccione **Azure Active Directory** > **Dispositivos** > **Enterprise State Roaming**.
 1. Seleccione **Los usuarios pueden sincronizar la configuración y los datos de aplicación en distintos dispositivos**. Para más información, consulte la sección [Configuración de dispositivo](/azure/active-directory/device-management-azure-portal).
   
    ![imagen de configuración de dispositivo con la etiqueta Los usuarios pueden sincronizar la configuración y los datos de aplicaciones en distintos dispositivos](./media/enterprise-state-roaming-enable/device-settings.png)
@@ -56,7 +56,7 @@ El valor de país o región se establece como parte del proceso de creación del
 Siga estos pasos para ver un informe de estado de sincronización de dispositivos por usuario.
 
 1. Inicie sesión en el [centro de administración de Azure AD](https://aad.portal.azure.com/).
-1. Seleccione **Azure Active Directory** &gt; **Usuarios** &gt; **Todos los usuarios**.
+1. Seleccione **Azure Active Directory** > **Usuarios** > **Todos los usuarios**.
 1. Seleccione el usuario y, a continuación, seleccione **Dispositivos**.
 1. En **Mostrar**, seleccione **Dispositivos sincronizando configuración y datos de aplicación** para mostrar el estado de sincronización.
   

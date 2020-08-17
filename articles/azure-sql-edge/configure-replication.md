@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a33933e63cc7c15de7d60430521f810f8546988c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667886"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282779"
 ---
 # <a name="configure-replication-to-azure-sql-edge-preview"></a>Configuración de la replicación en Azure SQL Edge (versión preliminar) 
 
@@ -24,7 +24,7 @@ Una instancia de Azure SQL Edge puede configurarse como el suscriptor de inserci
   
 - La instancia de Azure SQL Edge debe ser un suscriptor de inserción para un publicador.
 - El publicador y el distribuidor pueden ser:
-   - Una instancia de SQL Server en ejecución en el entorno local o una instancia de SQL Server en ejecución en una máquina virtual de Azure. Para obtener más información, consulte [Introducción a SQL Server en máquinas virtuales de Azure](https://azure.microsoft.com/documentation/articles/virtual-machines-sql-server-infrastructure-services/). Las instancias de SQL Server deben usar una versión posterior a SQL Server 2016.
+   - Una instancia de SQL Server en ejecución en el entorno local o una instancia de SQL Server en ejecución en una máquina virtual de Azure. Para obtener más información, consulte [Introducción a SQL Server en máquinas virtuales de Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). Las instancias de SQL Server deben usar una versión posterior a SQL Server 2016.
    - Una instancia de Instancia administrada de Azure SQL. SQL Managed Instance puede hospedar bases de datos del publicador, distribuidor y suscriptor. Para más información, consulte [Replication with SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/) (Replicación con Instancia administrada de Azure SQL Database).
 
 - La base de datos de distribución y los agentes de replicación no pueden colocarse en una instancia de Azure SQL Edge.  

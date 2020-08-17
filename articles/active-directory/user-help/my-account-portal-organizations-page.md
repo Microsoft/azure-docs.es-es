@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 10/28/2019
+ms.date: 07/29/2020
 ms.author: curtand
-ms.openlocfilehash: 54e19d8680a5b5b7477c143a1857931b082fed98
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: bd8b8deed2afafc22e99ac15f2bcffdf65af83c4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742260"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422457"
 ---
 # <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Administración de las organizaciones conectadas desde la página Organizaciones
 
@@ -68,3 +68,5 @@ Después de ver las organizaciones, puede:
 - Ver la [actividad del inicio de sesión](my-account-portal-sign-ins-page.md).
 
 - Ver cómo se [usan los datos relacionados con la privacidad](my-account-portal-privacy-page.md) en la organización.
+
+- Cambiar la [configuración del portal Mi cuenta](my-account-portal-settings.md).

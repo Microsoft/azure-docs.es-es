@@ -15,17 +15,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 4bc7fe4e464b07c77d5a857fb793faa4262f97e4
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8ab8a3ce0718cac3135bfdac67088d36fcd4f184
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206837"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060606"
 ---
 # <a name="tutorial-use-drm-dynamic-encryption-and-license-delivery-service"></a>Tutorial: Uso del cifrado dinámico de DRM y el servicio de entrega de licencias
 
 > [!NOTE]
-> Aunque en este tutorial se usan los ejemplos del [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](https://docs.microsoft.com/rest/api/media/liveevents), la [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
+> Aunque en este tutorial se usan los ejemplos del [SDK de .NET](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), los pasos generales son los mismos para la [API REST](/rest/api/media/liveevents), la [CLI](/cli/azure/ams/live-event?view=azure-cli-latest) u otros [SDK](media-services-apis-overview.md#sdks) admitidos.
 
 Puede usar Azure Media Services para entregar sus transmisiones cifradas con licencias de Microsoft PlayReady, Google Widevine o Apple FairPlay. Para obtener una explicación detallada, consulte [Protección de contenido con cifrado dinámico](content-protection-overview.md).
 
@@ -55,8 +55,8 @@ Los siguientes elementos son necesarios para completar el tutorial:
 * Revise el artículo [Content protection overview](content-protection-overview.md) (Información general de la protección de contenido).
 * Consulte [Diseño del sistema de protección de contenidos con DRM múltiple con control de acceso](design-multi-drm-system-with-access-control.md).
 * Instalación de Visual Studio Code o Visual Studio.
-* Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](create-account-cli-quickstart.md).
-* Obtener las credenciales necesarias para usar las instancias de Media Services API siguiendo las instrucciones de [Acceso a API](access-api-cli-how-to.md).
+* Cree una cuenta de Azure Media Services tal como se describe en [este inicio rápido](./create-account-howto.md).
+* Obtener las credenciales necesarias para usar las instancias de Media Services API siguiendo las instrucciones de [Acceso a API](./access-api-howto.md).
 * Establezca los valores adecuados en el archivo de configuración de la aplicación (appsettings.json).
 
 ## <a name="download-code"></a>Descarga de código
@@ -144,7 +144,7 @@ Al crear un **localizador de streaming**, deberá especificar el objeto `Streami
 
 ## <a name="get-a-test-token"></a>Obtención de un token de prueba
 
-En este tutorial, se especifica que la directiva de clave de contenido tiene una restricción de token. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos de [JWT](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3), y es lo que se configura en este ejemplo.
+En este tutorial, se especifica que la directiva de clave de contenido tiene una restricción de token. La directiva con restricción de token debe ir acompañada de un token emitido por un servicio de token de seguridad (STS). Media Services admite tokens en los formatos de [JWT](/previous-versions/azure/azure-services/gg185950(v=azure.100)#BKMK_3), y es lo que se configura en este ejemplo.
 
 El objeto ContentKeyIdentifierClaim se usa en la directiva ContentKeyPolicy, lo que significa que el token que se presenta al servicio de entrega de claves debe contener el identificador de ContentKey. En el ejemplo, no se especifica una clave de contenido al crear el localizador de streaming, el sistema crea una aleatoria automáticamente. Para generar la prueba de token, se debe obtener el elemento ContentKeyId para colocarlo en la notificación ContentKeyIdentifierClaim.
 
@@ -152,7 +152,7 @@ El objeto ContentKeyIdentifierClaim se usa en la directiva ContentKeyPolicy, lo 
 
 ## <a name="build-a-streaming-url"></a>Creación de una dirección URL de streaming
 
-Ahora que se ha creado el elemento [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
+Ahora que se ha creado el elemento [StreamingLocator](/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming. Para crear una dirección URL, debe concatenar el nombre de host de [StreamingEndpoint](/rest/api/media/streamingendpoints) y la ruta de acceso del **Localizador de streaming**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithDRM/Program.cs#GetMPEGStreamingUrl)]
 

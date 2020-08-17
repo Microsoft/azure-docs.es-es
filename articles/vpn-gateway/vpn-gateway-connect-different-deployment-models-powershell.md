@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 843727c005fefdc2ca0484492a1feafe2a291b46
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2c9b8a769dec1a2aa461a34203c98a228cf71d16
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040763"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082059"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-powershell"></a>Conexión de redes virtuales a partir de diferentes modelos de implementación con PowerShell
 
@@ -37,7 +37,7 @@ Los siguientes pasos le guiarán a través de los valores necesarios para config
 
 * Se han creado ambas redes virtuales. Si tiene que crear una red virtual del administrador de recursos, consulte [Creación de un grupo de recursos y una red virtual](../virtual-network/quick-create-powershell.md#create-a-resource-group-and-a-virtual-network). Para crear una red virtual clásica, consulte [Create a classic VNet](https://docs.microsoft.com/azure/virtual-network/create-virtual-network-classic) (Creación de una red virtual clásica).
 * Los intervalos de direcciones de las redes virtuales no se superponen entre sí ni con alguno de los intervalos de otras conexiones con las que puedan estar conectadas las puertas de enlace.
-* Tiene instalados los últimos cmdlets de PowerShell. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/overview) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
+* Tiene instalados los últimos cmdlets de PowerShell. Para obtener más información, vea [Instalación y configuración de Azure PowerShell](/powershell/azure/) . Asegúrese de instalar los cmdlets tanto de Service Management (SM) como de Resource Manager (RM). 
 
 ### <a name="example-settings"></a><a name="exampleref"></a>Configuración de ejemplo
 

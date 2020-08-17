@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 06/24/2020
+ms.date: 08/04/2020
 ms.author: radeltch
-ms.openlocfilehash: ed754e3f69feaf6d5415db8f71cb5c1bb65632e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d61bd2c45cc1ba9cd9494750b793d7321288224
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368264"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797753"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -41,7 +41,7 @@ El agente de barrera de Azure no requiere que se implementen máquinas virtuales
 ![Información general de Pacemaker en SLES](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Cuando planifique e implemente nodos de clúster de Linux Pacemaker y dispositivos SBD, es esencial para la confiabilidad general de la configuración de clúster completa que el enrutamiento entre las máquinas virtuales involucradas y las máquinas virtuales que hospedan el dispositivo SBD no pasen a través de cualquier otro dispositivo como [NVA](https://azure.microsoft.com/solutions/network-appliances/). En caso contrario, los problemas y eventos de mantenimiento con el NVA pueden tener un impacto negativo en la estabilidad y confiabilidad de la configuración general del clúster. Para evitar estos obstáculos, no defina reglas de enrutamiento de NVA o [Reglas de enrutamiento definidas por el usuario](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) que enruten el tráfico entre nodos en clúster y los dispositivos SBD a través de NVA y dispositivos similares al planear e implementar nodos de clúster de Linux Pacemaker y dispositivos SBD. 
+> Cuando planifique e implemente nodos de clúster de Linux Pacemaker y dispositivos SBD, es esencial para la confiabilidad general de la configuración de clúster completa que el enrutamiento entre las máquinas virtuales involucradas y las máquinas virtuales que hospedan el dispositivo SBD no pasen a través de cualquier otro dispositivo como [NVA](https://azure.microsoft.com/solutions/network-appliances/). En caso contrario, los problemas y eventos de mantenimiento con el NVA pueden tener un impacto negativo en la estabilidad y confiabilidad de la configuración general del clúster. Para evitar estos obstáculos, no defina reglas de enrutamiento de NVA o [Reglas de enrutamiento definidas por el usuario](../../../virtual-network/virtual-networks-udr-overview.md) que enruten el tráfico entre nodos en clúster y los dispositivos SBD a través de NVA y dispositivos similares al planear e implementar nodos de clúster de Linux Pacemaker y dispositivos SBD. 
 >
 
 ## <a name="sbd-fencing"></a>Vallado de SBD
@@ -221,17 +221,17 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 
    <pre><code>sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.17:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.17:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.17:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    
    # If you want to use multiple SBD devices, also connect to the second iSCSI target server
    sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.18:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.18:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.18:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    
    # If you want to use multiple SBD devices, also connect to the third iSCSI target server
    sudo iscsiadm -m discovery --type=st --portal=<b>10.0.0.19:3260</b>   
    sudo iscsiadm -m node -T <b>iqn.2006-04.nfs.local:nfs</b> --login --portal=<b>10.0.0.19:3260</b>
-   sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> --op=update --name=node.startup --value=automatic
+   sudo iscsiadm -m node -p <b>10.0.0.19:3260</b> -T <b>iqn.2006-04.nfs.local:nfs</b> --op=update --name=node.startup --value=automatic
    </code></pre>
 
    Asegúrese de que los dispositivos iSCSI están disponibles y anote el nombre del dispositivo (en el ejemplo siguiente/dev/sde).
@@ -447,9 +447,14 @@ Los elementos siguientes tienen el prefijo **[A]** : aplicable a todos los nodos
 1. **[A]** Configure la resolución nombres de host
 
    Puede usar un servidor DNS o modificar /etc/hosts en todos los nodos. En este ejemplo se muestra cómo utilizar el archivo /etc/hosts.
-   Reemplace la dirección IP y el nombre de host en los siguientes comandos. La ventaja de usar /etc/hosts es que el clúster es independiente de DNS, lo que también podría representar un único punto de error.
+   Reemplace la dirección IP y el nombre de host en los siguientes comandos.
 
+   >[!IMPORTANT]
+   > Si usa nombres de host en la configuración del clúster, es fundamental tener una resolución de nombres de host confiable. Si los nombres no están disponibles, se producirá un error en la comunicación con el clúster y esto puede provocar retrasos en la conmutación por error del clúster.
+   > La ventaja de usar /etc/hosts es que el clúster es independiente de DNS, lo que también podría representar un único punto de error.  
+     
    <pre><code>sudo vi /etc/hosts
+
    </code></pre>
 
    Inserte las siguientes líneas en /etc/hosts. Cambie la dirección IP y el nombre de host para que coincida con su entorno   
@@ -583,7 +588,7 @@ El dispositivo STONITH usa una entidad de servicio para la autorización de Micr
 
 ### <a name="1-create-a-custom-role-for-the-fence-agent"></a>**[1]**  Creación de un rol personalizado para el agente de barrera
 
-La entidad de servicio no tiene permiso para acceder a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-powershell#create-a-custom-role) o la [CLI de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles-cli).
+La entidad de servicio no tiene permiso para acceder a los recursos de Azure de forma predeterminada. Debe concedérselos para iniciar y detener (desasignar) todas las máquinas virtuales del clúster. Si no ha creado aún el rol personalizado, puede crearlo mediante [PowerShell](../../../role-based-access-control/custom-roles-powershell.md#create-a-custom-role) o la [CLI de Azure](../../../role-based-access-control/custom-roles-cli.md).
 
 Utilice el siguiente contenido para el archivo de entrada. Debe adaptar el contenido a sus suscripciones; esto es, reemplace c276fc76-9cd4-44c9-99a7-4fd71546436e y e91d47c4-76f3-4271-a796-21b4ecfe3624 por los identificadores de su suscripción. Si solo tiene una suscripción, quite la segunda entrada en AssignableScopes.
 
@@ -647,11 +652,11 @@ sudo crm configure property stonith-timeout=900
 > Las operaciones de supervisión y barrera se deserializan. Como resultado, si hay una operación de supervisión más larga y un evento de barrera simultánea, no habrá ningún retraso en la conmutación por error del clúster debido a la operación de supervisión que ya se está ejecutando.
 
 > [!TIP]
->El agente de barrera de Azure requiere conectividad saliente a los punto de conexión públicos como se documenta, junto con las posibles soluciones, en [Conectividad del punto de conexión público para las máquinas virtuales que usan el ILB estándar](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections).  
+>El agente de barrera de Azure requiere conectividad saliente a los punto de conexión públicos como se documenta, junto con las posibles soluciones, en [Conectividad del punto de conexión público para las máquinas virtuales que usan el ILB estándar](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ## <a name="pacemaker-configuration-for-azure-scheduled-events"></a>Configuración de Pacemaker para los eventos programados de Azure
 
-Azure ofrece [eventos programados](https://docs.microsoft.com/azure/virtual-machines/linux/scheduled-events). Se proporcionan eventos programados a través del servicio de metadatos y permiten que la aplicación tenga tiempo para preparar eventos como el apagado de una máquina virtual, la reimplementación de VM, etc. El agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa los eventos programados de Azure. Si se detectan eventos, el agente intentará detener todos los recursos de la VM afectada y los moverá a otro nodo del clúster. Para ello, deben configurarse otros recursos de Pacemaker. 
+Azure ofrece [eventos programados](../../linux/scheduled-events.md). Se proporcionan eventos programados a través del servicio de metadatos y permiten que la aplicación tenga tiempo para preparar eventos como el apagado de una máquina virtual, la reimplementación de VM, etc. El agente de recursos **[azure-events](https://github.com/ClusterLabs/resource-agents/pull/1161)** supervisa los eventos programados de Azure. Si se detectan eventos, el agente intentará detener todos los recursos de la VM afectada y los moverá a otro nodo del clúster. Para ello, deben configurarse otros recursos de Pacemaker. 
 
 1. **[A]** Asegúrese de que el paquete del agente de **azure-events** ya está instalado y actualizado. 
 

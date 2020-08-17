@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 0e3d343c0a68dd527e4e8e8d23e5b3843a216a78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c0a8680dc5c06bd1527b2cca732b58f484101a96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705379"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286502"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
 
@@ -26,7 +26,7 @@ Las inscripciones de claves simétricas ofrecen también una excelente forma par
 
 ## <a name="symmetric-key-creation"></a>Creación de una clave simétrica
 
-De forma predeterminada, el servicio Device Provisioning crea nuevas claves simétricas con una longitud predeterminada de 32 bytes cuando se guardan nuevas inscripciones con la opción **Generar claves automáticamente** habilitada.
+De forma predeterminada, Device Provisioning Service crea nuevas claves simétricas con una longitud predeterminada de 64 bytes cuando se guardan nuevas inscripciones con la opción **Generar claves automáticamente** habilitada.
 
 ![Generación automática de claves simétricas](./media/concepts-symmetric-key-attestation/auto-generate-keys.png)
 

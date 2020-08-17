@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: has-adal-ref, tracking-python
+ms.custom: has-adal-ref, devx-track-python
 ms.date: 04/03/2020
-ms.openlocfilehash: 3050062a80e253d0e63f6d20a8c8de31e9866ea1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 57c2fb125547149a7fea6643a483e29f5fecb495
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082563"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167052"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>Interacción con clústeres de Apache Kafka en Azure HDInsight mediante un proxy de REST
 
@@ -104,6 +104,7 @@ Para obtener más información sobre cómo obtener tokens de OAuth en Python, co
 #pip3 install msal
 
 import msal
+import requests
 
 #--------------------------Configure these properties-------------------------------#
 # Tenant ID for your Azure Subscription
@@ -140,7 +141,7 @@ getstatus = "/v1/metadata/topics"
 request_url = kafkarest_endpoint + getstatus
 
 # sending get request and saving the response as response object
-response = requests.get(request_url, headers={'Authorization': accessToken})
+response = requests.get(request_url, headers={'Authorization': 'Bearer ' + 'accessToken})
 print(response.content)
 ```
 

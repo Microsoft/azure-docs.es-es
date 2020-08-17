@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 9ce807238e1e373701305f8b6bb03451e0202633
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078152"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modelo de precios de Azure Logic Apps
 
@@ -77,27 +77,27 @@ En el caso de las aplicaciones lógicas que crea y ejecuta dentro de un ISE, pag
 
 ## <a name="connectors"></a>Conectores
 
-Los conectores de Azure Logic Apps ayudan a la aplicación lógica a acceder a las aplicaciones, servicios y sistemas en la nube o locales, proporcionando para ello [desencadenadores](#triggers), [acciones](#actions) o ambos elementos. Los conectores se clasifican como estándar o empresariales. Para obtener información general sobre estos conectores, vea [Conectores para Azure Logic Apps](../connectors/apis-list.md). Si no hay conectores creados previamente disponibles para las API de REST que quiere usar en las aplicaciones lógicas, puede crear [conectores personalizados](https://docs.microsoft.com/connectors/custom-connectors), que son solo contenedores en torno a esas API de REST. Los conectores personalizados se facturan como conectores estándar. En las secciones siguientes se proporciona más información sobre la facturación de desencadenadores y acciones.
+Los conectores de Azure Logic Apps ayudan a la aplicación lógica a acceder a las aplicaciones, servicios y sistemas en la nube o locales, proporcionando para ello [desencadenadores](#triggers), [acciones](#actions) o ambos elementos. Los conectores se clasifican como estándar o empresariales. Para obtener información general sobre estos conectores, vea [Conectores para Azure Logic Apps](../connectors/apis-list.md). Si no hay conectores creados previamente disponibles para las API de REST que quiere usar en las aplicaciones lógicas, puede crear [conectores personalizados](/connectors/custom-connectors), que son solo contenedores en torno a esas API de REST. Los conectores personalizados se facturan como conectores estándar. En las secciones siguientes se proporciona más información sobre la facturación de desencadenadores y acciones.
 
 <a name="triggers"></a>
 
 ## <a name="triggers"></a>Desencadenadores
 
-Los desencadenadores son acciones especiales que crean una instancia de aplicación lógica cuando se produce un evento específico. Los desencadenadores actúan de formas distintas, que afectan al modo en que la aplicación lógica se mide. Estos son los distintos tipos de desencadenadores que hay en Azure Logic Apps:
+Un desencadenador es siempre el primer paso del flujo de trabajo de una aplicación lógica y es una acción especial que crea y ejecuta una instancia de aplicación lógica cuando se cumplen determinados criterios o cuando se produce un evento específico. Los desencadenadores actúan de formas distintas, que afectan al modo en que la aplicación lógica se mide. Estos son los distintos tipos de desencadenadores que hay en Azure Logic Apps:
 
-* **Desencadenador de sondeo**: sondea continuamente un punto de conexión en busca de mensajes que satisfacen los criterios para crear una instancia de una aplicación lógica e iniciar el flujo de trabajo. Logic Apps mide cada solicitud de sondeo como una ejecución, incluso cuando no se crea ninguna instancia de aplicación lógica. Para especificar el intervalo de sondeo, configure el desencadenador a través del Diseñador de aplicaciones lógicas.
+* **Desencadenador de periodicidad**: puede usar este desencadenador genérico, que no es específico de ningún servicio o sistema, para iniciar un flujo de trabajo de aplicación lógica y crear una instancia de aplicación lógica que se ejecute según el intervalo de periodicidad configurado en el desencadenador. Por ejemplo, puede establecer un desencadenador de periodicidad que se ejecute cada tres días o según una programación más compleja.
+
+* **Desencadenador de sondeo**: puede usar este desencadenador de periodicidad más especializado, que normalmente está asociado al conector administrado de un servicio o sistema específicos, para comprobar si hay eventos o mensajes que cumplan los criterios para crear y ejecutar una instancia de aplicación lógica según el intervalo de periodicidad configurado en el desencadenador. Incluso cuando no se crea ninguna instancia de aplicación lógica, por ejemplo, cuando se omiten los desencadenadores, el servicio Logic Apps mide cada solicitud de sondeo como una ejecución. Para especificar el intervalo de sondeo, configure el desencadenador a través del Diseñador de aplicaciones lógicas.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Desencadenador de webhook**: este desencadenador espera a que un cliente envíe una solicitud a un punto de conexión determinado. Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. Por ejemplo, el desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook.
-
-* **Desencadenador de periodicidad**: este desencadenador crea una instancia de la aplicación lógica según el intervalo de periodicidad configurado en el desencadenador. Por ejemplo, puede establecer un desencadenador de periodicidad que se ejecute cada tres días o según una programación más compleja.
+* **Desencadenador de webhook**: en lugar de usar un desencadenador de sondeo, puede usar un desencadenador de webhook para esperar a que el cliente envíe una solicitud a la aplicación lógica a una dirección URL de punto de conexión específica. Cada solicitud enviada al punto de conexión de webhook se considera una ejecución de acción. Por ejemplo, el desencadenador de solicitud y de webhook HTTP son ambos desencadenadores de webhook. Algunos conectores de servicios o sistemas también tienen desencadenadores de webhook.
 
 <a name="actions"></a>
 
 ## <a name="actions"></a>Acciones
 
-Azure Logic Apps mide las acciones "integradas" (como HTTP) como acciones nativas. Por ejemplo, las acciones integradas engloban las llamadas HTTP, llamadas desde Azure Functions o API Management y pasos del flujo de control como condiciones, bucles e instrucciones switch. Cada acción tiene su propio tipo de acción. Así, las acciones que llaman a [conectores](https://docs.microsoft.com/connectors) son de tipo "ApiConnection". Estos conectores se clasifican como estándar o empresarial, y se miden según sus [precios](https://azure.microsoft.com/pricing/details/logic-apps) respectivos. Los conectores empresariales en *versión preliminar* se cobran como conectores estándar.
+Azure Logic Apps mide las acciones "integradas" (como HTTP) como acciones nativas. Por ejemplo, las acciones integradas engloban las llamadas HTTP, llamadas desde Azure Functions o API Management y pasos del flujo de control como condiciones, bucles e instrucciones switch. Cada acción tiene su propio tipo de acción. Así, las acciones que llaman a [conectores](/connectors) son de tipo "ApiConnection". Estos conectores se clasifican como estándar o empresarial, y se miden según sus [precios](https://azure.microsoft.com/pricing/details/logic-apps) respectivos. Los conectores empresariales en *versión preliminar* se cobran como conectores estándar.
 
 Azure Logic Apps mide todas las acciones ejecutadas correcta e incorrectamente como ejecuciones, pero no mide estas acciones:
 
@@ -122,7 +122,7 @@ Si tiene un [*entorno de servicio de integración* (ISE)](../logic-apps/connect-
 
 Para elegir una cuenta de integración Gratis, Básica o Estándar, revise estas descripciones de casos de uso:
 
-* **Gratis**: adecuada si se quieren probar escenarios de exploración, no escenarios de producción. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
+* **Gratis**: adecuada si se quieren probar escenarios de exploración, no escenarios de producción. Este nivel solo está disponible para las regiones públicas en Azure, por ejemplo, Oeste de EE. UU. o Sudeste Asiático, pero no para [Azure China 21Vianet](/azure/china/overview-operations) o [Azure Government](../azure-government/documentation-government-welcome.md).
 
 * **Básico**: adecuada si se quiere utilizar solo el control de mensajes o actuar como un asociado de pequeña empresa que tenga una relación empresarial con una entidad empresarial mayor.
 

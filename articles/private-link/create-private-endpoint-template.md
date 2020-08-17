@@ -1,6 +1,6 @@
 ---
 title: Creación de un punto de conexión privado en Azure Private Link
-description: En este inicio rápido, usará una plantilla de Azure Resource Manager para crear un punto de conexión privado.
+description: En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear un punto de conexión privado.
 services: private-link
 author: mblanco77
 ms.service: private-link
@@ -8,32 +8,34 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/26/2020
 ms.author: allensu
-ms.openlocfilehash: a60edde222a6200a0378cd8c9c4f4774da9c2e50
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: 9fde76b86b290e1271f408cb7810e549dd9502a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84817965"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071489"
 ---
-# <a name="quickstart-create-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Inicio rápido: Creación de un punto de conexión privado mediante una plantilla de Azure Resource Manager
+# <a name="quickstart-create-a-private-endpoint-by-using-an-arm-template"></a>Inicio rápido: Creación de un punto de conexión privado mediante una plantilla de Resource Manager
 
-En este inicio rápido, usará una plantilla de Azure Resource Manager para crear un punto de conexión privado.
+En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear un punto de conexión privado.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
 También se puede completar este inicio rápido mediante [Azure Portal](create-private-endpoint-portal.md), [Azure PowerShell](create-private-endpoint-powershell.md) o la [CLI de Azure](create-private-endpoint-cli.md).
 
-## <a name="prerequisite"></a>Requisito previo
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-sql%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 Necesita una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-private-endpoint"></a>Creación de un punto de conexión privado
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea un punto de conexión privado para una instancia de Azure SQL Database.
 
-### <a name="review-the-template"></a>Revisión de la plantilla
-
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-private-endpoint-sql/).
 
 :::code language="json" source="~/quickstart-templates/101-private-endpoint-sql/azuredeploy.json" range="001-295" highlight="131-156":::
 
@@ -50,9 +52,9 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): la interfaz de red de la máquina virtual.
 - [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): la máquina virtual usada para probar la conexión privada con un punto de conexión privado a la instancia de SQL Database.
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
-A continuación, se muestra cómo implementar la plantilla de Azure Resource Manager en Azure:
+Aquí se muestra cómo implementar la plantilla de ARM en Azure:
 
 1. Seleccione **Implementar en Azure** para iniciar sesión en Azure y abrir la plantilla. La plantilla crea el punto de conexión privado, la instancia de SQL Database, la infraestructura de red y las máquinas virtuales que se van a validar.
 
@@ -66,7 +68,7 @@ A continuación, se muestra cómo implementar la plantilla de Azure Resource Man
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 
 > [!NOTE]
-> La plantilla de Azure Resource Manager genera un nombre único para el recurso de la máquina virtual myVm<b>{uniqueid}</b> y para el recurso sqlserver<b>{uniqueid}</b> de SQL Database. Sustituya el valor generado para **{uniqueid}** .
+> La plantilla de Resource Manager genera un nombre único para el recurso de la máquina virtual myVm<b>{uniqueid}</b> y para el recurso sqlserver<b>{uniqueid}</b> de SQL Database. Sustituya el valor generado para **{uniqueid}** .
 
 ### <a name="connect-to-a-vm-from-the-internet"></a>Conexión a una máquina virtual desde Internet
 

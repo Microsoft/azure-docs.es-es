@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d1de40944b4ab15268cda576f477c08fc179f1df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255906"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497331"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Base de referencia de seguridad de Azure para Azure Data Box
 
@@ -44,7 +44,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: Proteja las aplicaciones web críticas
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para las aplicaciones web que se ejecutan en Azure App Service o en recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -216,7 +216,7 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: mantenga un inventario de las cuentas de usuario que tienen acceso administrativo a las solicitudes de Azure Data Box. Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol (RBAC). Los roles se aplican a los usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede controlar quién puede acceder a su pedido la primera vez que se cree. Configure el control de acceso basado en rol (RBAC) en los distintos ámbitos para controlar el acceso al pedido de Data Box. Un rol de RBAC determina el tipo de acceso: lectura y escritura, solo lectura, o lectura y escritura para un subconjunto de operaciones.
+**Guía**: mantenga un inventario de las cuentas de usuario que tienen acceso administrativo a las solicitudes de Azure Data Box. Puede usar el panel Administración de identidad y acceso (IAM) de Azure Portal para la suscripción a fin de configurar el control de acceso basado en rol (RBAC). Los roles se aplican a los usuarios, grupos, entidades de servicio e identidades administradas en Active Directory. Puede controlar quién puede acceder a su pedido la primera vez que se cree. Configure los roles de Azure en los distintos ámbitos para controlar el acceso al pedido de Data Box. Un rol de Azure determina el tipo de acceso: lectura y escritura, solo lectura, o lectura y escritura para un subconjunto de operaciones.
 
 * [Descripción de los roles personalizados](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 

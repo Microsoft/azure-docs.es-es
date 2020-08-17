@@ -4,15 +4,15 @@ description: AzCopy es una utilidad de línea de comandos que puede usar para co
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/23/2019
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb18e2b0af6f04cee5b6be11afbb2d2aabdadb4b
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: b43b20023aa0d96dcaa3ce79b626d61ec6f6752d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143000"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423838"
 ---
 # <a name="get-started-with-azcopy"></a>Introducción a AzCopy
 
@@ -97,7 +97,7 @@ Estos roles pueden asignarse a la entidad de seguridad en cualquiera de estos á
 Para aprender a verificar y asignar roles, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
-> Tenga en cuenta que las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse.
+> Tenga en cuenta que las asignaciones de roles de Azure pueden tardar hasta cinco minutos en propagarse.
 
 No es necesario tener asignado uno de estos roles a su entidad de seguridad si esta se agrega a la lista de control de acceso (ACL) del directorio o contenedor de destino. En la ACL, la entidad de seguridad necesita permiso de escritura en el directorio de destino y permiso de ejecución en el contenedor y cada directorio primario.
 
@@ -111,7 +111,7 @@ Después de comprobar que se ha dado el nivel de autorización necesario a su id
 azcopy login
 ```
 
-Si pertenece a más de una organización, incluya el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento.
+Si recibe un error, intente incluir el identificador de inquilino de la organización a la que pertenece la cuenta de almacenamiento.
 
 ```azcopy
 azcopy login --tenant-id=<tenant-id>

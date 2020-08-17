@@ -2,14 +2,14 @@
 title: Matriz de compatibilidad para Azure Migrate
 description: Proporciona un resumen de limitaciones y configuraciones de compatibilidad para el servicio Azure Migrate.
 ms.topic: conceptual
-ms.date: 04/19/2020
+ms.date: 07/23/2020
 ms.author: raynew
-ms.openlocfilehash: 8350f557efd9224d92388835f55871cb861eda25
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: fae5af9c8717604d71ec2bf2628ea25125d5b2d5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108760"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87022725"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de compatibilidad para Azure Migrate
 
@@ -21,14 +21,16 @@ En la tabla se resumen los escenarios de detección, evaluación y migración ad
 
 **Implementación** | **Detalles** 
 --- | --- 
-**Detección específica de la aplicación** | Puede detectar aplicaciones, roles y características que se ejecutan en máquinas virtuales de VMware. Actualmente, esta característica solo se limita a la detección. La evaluación está actualmente en el nivel de máquina. Todavía no ofrecemos una evaluación específica de aplicaciones, roles o características. 
-**Evaluación local** | Evalúe las cargas de trabajo y los datos locales que se ejecutan en máquinas virtuales de VMware, de Hyper-V y en servidores físicos. Evalúe el uso de Azure Migrate Server Assessment y Microsoft Data Migration Assistant (DMA), así como otras herramientas y ofertas de ISV.
-**Migración del entorno local a Azure** | Migre las cargas de trabajo y los datos que se ejecutan en servidores físicos, máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y máquinas virtuales basadas en la nube a Azure. Utilice Azure Migrate Server Assessment y Microsoft Database Migration Service (DMS) para realizar la migración, así como otras herramientas y ofertas de ISV.
+**Detección** | Puede detectar metadatos de máquinas y datos de rendimiento dinámicos.
+**Detección de aplicaciones** | Puede detectar aplicaciones, roles y características que se ejecutan en máquinas virtuales de VMware. Actualmente, esta característica solo se limita a la detección. La evaluación está actualmente en el nivel de máquina. Todavía no se ofrecen valoraciones basadas en aplicaciones, roles ni características. 
+**Valoración** | Evalúe las cargas de trabajo y los datos locales que se ejecutan en máquinas virtuales de VMware, de Hyper-V y en servidores físicos. Evalúe el uso de Azure Migrate Server Assessment y Microsoft Data Migration Assistant (DMA), así como otras herramientas y ofertas de ISV.
+**Migración** | Migre las cargas de trabajo y los datos que se ejecutan en servidores físicos, máquinas virtuales de VMware, máquinas virtuales de Hyper-V, servidores físicos y máquinas virtuales basadas en la nube a Azure. Utilice Azure Migrate Server Assessment y Microsoft Database Migration Service (DMS) para realizar la migración, así como otras herramientas y ofertas de ISV.
 
 > [!NOTE]
 > Actualmente, las herramientas de ISV no pueden enviar datos a Azure Migrate en Azure Government. Puede usar las herramientas de Microsoft integradas, o bien usar herramientas de asociados de forma independiente.
 
 ## <a name="supported-tools"></a>Herramientas admitidas
+
 
 La compatibilidad con herramientas concretas se resume en la siguiente tabla.
 
@@ -73,7 +75,11 @@ Crear un almacén de claves para la migración sin agentes de VMware | Cuando se
 
 ## <a name="supported-geographies-public-cloud"></a>Ubicaciones geográficas admitidas (nube pública)
 
-Puede crear un proyecto de Azure Migrate en varias zonas geográficas de la nube pública. Aunque solo puede crear proyectos en estas zonas geográficas, puede evaluar o migrar las máquinas para otras ubicaciones de destino. La geografía del proyecto solo se usa para almacenar los metadatos detectados.
+Puede crear un proyecto de Azure Migrate en varias zonas geográficas de la nube pública.
+
+- Aunque solo puede crear proyectos en estas zonas geográficas, puede evaluar o migrar las máquinas para otras ubicaciones de destino.
+- La geografía del proyecto solo se usa para almacenar los metadatos detectados.
+- Cuando cree un proyecto, seleccione una geografía. El proyecto y los recursos relacionados se crean en una de las regiones de la geografía. El servicio Azure Migrate asigna la región.
 
 **Geografía** | **Ubicación de almacenamiento de metadatos**
 --- | ---

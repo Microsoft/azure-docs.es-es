@@ -8,13 +8,14 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/19/2019
+ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 3d52e83aa574dcd506270dc8e2f244a9f96add53
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: 295b87a8aca2a46da77e3ddc51ca54a09c0c04d9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073276"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87374644"
 ---
 <a name="HOLTop"></a>
 
@@ -210,7 +211,7 @@ Computer Vision puede leer texto visible de una imagen y convertirlo en un flujo
 
 ### <a name="call-the-recognize-api"></a>Llamada a Recognize API
 
-En primer lugar, use el siguiente código para llamar al método **recognizePrintedTextInStream** para la imagen especificada. Al agregar este código al proyecto, debe reemplazar el valor de `localTextImagePath` por la ruta de acceso a la imagen local. 
+En primer lugar, use el siguiente código para llamar al método **recognizePrintedTextInStream** para la imagen especificada. Al agregar este código al proyecto, debe reemplazar el valor de `localTextImagePath` por la ruta de acceso a la imagen local. Puede descargar una [imagen de ejemplo](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/articles/cognitive-services/Computer-vision/Images/readsample.jpg) para usarla.
 
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_read_call)]
 

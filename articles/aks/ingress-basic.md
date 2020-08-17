@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Aprenda a instalar y configurar un controlador de entrada NGINX básico en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
 ms.topic: article
-ms.date: 04/27/2020
-ms.openlocfilehash: bb7ac1d76e93a95fedc1dfdbfd67d2b057db60e3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/20/2020
+ms.openlocfilehash: 2c75d41d827ad1838898736ba8ff41aaef0b6f13
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86499824"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927060"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creación de un controlador de entrada en Azure Kubernetes Service (AKS)
 
@@ -163,10 +163,10 @@ Ambas aplicaciones ahora se ejecutan en el clúster de Kubernetes. Para enrutar 
 
 En el ejemplo siguiente, el tráfico a la dirección *EXTERNAL_IP* se enruta al servicio denominado `aks-helloworld-one`. El tráfico a la dirección *EXTERNAL_IP/hello-world-two* se enruta al servicio `aks-helloworld-two`. El tráfico a la dirección *EXTERNAL_IP/static* se enruta al servicio denominado `aks-helloworld-one` para los recursos estáticos.
 
-Cree un archivo denominado `hello-world-ingress.yaml` y cópielo en el ejemplo siguiente de YAML.
+Cree un archivo denominado *hello-world-ingress.yaml* y cópielo en el ejemplo siguiente de YAML.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress
@@ -182,13 +182,13 @@ spec:
       - backend:
           serviceName: aks-helloworld-one
           servicePort: 80
-        path: /(.*)
+        path: /hello-world-one(/|$)(.*)
       - backend:
           serviceName: aks-helloworld-two
           servicePort: 80
         path: /hello-world-two(/|$)(.*)
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   name: hello-world-ingress-static

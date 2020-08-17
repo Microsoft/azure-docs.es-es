@@ -7,22 +7,22 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 11/30/2018
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 465643d21d3059cd41948ff682d7464b00f749c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c9edaf3356ea4c1a521a89f2ec60a4b6ba1a5ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384012"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481502"
 ---
 # <a name="set-up-self-service-password-reset-for-your-customers"></a>Configuración del autoservicio de restablecimiento de contraseña para los consumidores
 
 Con la característica de autoservicio de restablecimiento de contraseña, los consumidores que se registraron para obtener cuentas locales pueden restablecer sus contraseñas ellos mismos. De esta manera, se reduce considerablemente la carga del personal de soporte técnico, especialmente si la aplicación tiene millones de consumidores que la usan de forma periódica. Actualmente, solo se admite como método de recuperación el uso de una dirección de correo electrónico verificada.
 
 > [!NOTE]
-> La información de este artículo se aplica al autoservicio de restablecimiento de contraseña usado en el contexto del flujo de usuario de **inicio de sesión** V1, que usa **Local Account SignIn** como proveedor de identidades. Si necesita invocar flujos de usuario de restablecimiento de contraseña totalmente personalizables desde su aplicación, consulte [este artículo](user-flow-overview.md).
+> Este artículo es aplicable al autoservicio de restablecimiento de contraseña en el contexto de un flujo de usuario de **inicio de sesión** estándar, en el que se utiliza **Inicio de sesión de la cuenta local** como proveedor de identidades. Si necesita invocar flujos de usuario de restablecimiento de contraseña totalmente personalizables desde su aplicación, consulte [este artículo](user-flow-overview.md).
 >
 >
 

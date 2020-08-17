@@ -9,12 +9,12 @@ ms.author: mlearned
 description: En este artículo se proporciona una introducción a Kubernetes habilitado para Azure Arc.
 keywords: Kubernetes, Arc, Azure, containers
 ms.custom: references_regions
-ms.openlocfilehash: 3960a0f0b6866a0a5d3476e841d29c6e5a89a238
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 4f07c0e5e01648984514701cd4838f85478d86af
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309941"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050062"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>¿Qué es la versión preliminar de Kubernetes habilitado para Azure Arc?
 
@@ -24,9 +24,8 @@ Para conectar un clúster de Kubernetes a Azure, es preciso que el administrador
 
 Kubernetes con Azure Arc habilitado admite SSL estándar del sector para proteger los datos en tránsito. Además, los datos se almacenan cifrados en reposo en una base de datos de Azure Cosmos DB para garantizar la confidencialidad de los datos.
  
- > [!NOTE]
-> Kubernetes habilitado para Azure Arc está en versión preliminar. No es aconsejable para cargas de trabajo de producción. 
-
+> [!NOTE]
+> Kubernetes habilitado para Azure Arc está en versión preliminar. No es aconsejable para cargas de trabajo de producción.
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos 
 
@@ -40,7 +39,6 @@ Kubernetes habilitado para Azure Arc admite estos escenarios:
 
 * Aplicación de directivas mediante Azure Policy para Kubernetes. 
 
- 
 ## <a name="supported-regions"></a>Regiones admitidas 
 
 Kubernetes habilitado para Azure Arc se admite actualmente en estas regiones: 

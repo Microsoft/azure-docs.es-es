@@ -6,14 +6,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 04/30/2020
+ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: dd7a8b94aefbf389afef30b327ffaa367a30dd51
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 2349c92fb74b546eaa929752f3d2343b9c97e6d1
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108517"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88011023"
 ---
 > [!NOTE]
 > Para detectar `PHI` (información de salud protegida), use el parámetro `domain=phi` y la versión del modelo `2020-04-01` o posterior.
@@ -28,20 +28,18 @@ Se devuelven las siguientes categorías de entidad al enviar solicitudes al punt
 | PersonType | N/D         | Tipos de trabajo o roles mantenido por una persona. | `2020-02-01` | |
 | PhoneNumber | N/D | Números de teléfono (solo números de teléfono de EE. UU y la UE). | `2019-10-01` | También se devuelve con `domain=phi`. |
 |Organización  | N/D | Empresas, grupos políticos, bandas musicales, clubs deportivos, organismos gubernamentales y organizaciones públicas.  | `2019-10-01` | Las nacionalidades y las religiones no se incluyen en este tipo de entidad.  |
-|Organización | Medicina | Empresas y grupos médicos. | `2020-04-01` | También se devuelve con `domain=phi`. |
-|Organización | Bolsa de valores | Grupos de bolsa de valores. | `2020-04-01` | También se devuelve con `domain=phi`. |
-| Organización | Deportes | Organizaciones relacionadas con los deportes. | `2020-04-01` | También se devuelve con `domain=phi`. |
+|Organización | Medicina | Empresas y grupos médicos. | `2020-04-01` |  |
+|Organización | Bolsa de valores | Grupos de bolsa de valores. | `2020-04-01` |  |
+| Organización | Deportes | Organizaciones relacionadas con los deportes. | `2020-04-01` |  |
 | Dirección | N/D | Dirección de correo postal completa.  | `2020-04-01` | También se devuelve con `domain=phi`. |
 | Coordenadas GPS de la UE | N/D | Coordenadas GPS de ubicaciones de la Unión Europea.  | `2019-10-01` |  |
 | Email | N/D | Direcciones de correo electrónico. | `2019-10-01` | También se devuelve con `domain=phi`.   |
 | URL | N/D | Direcciones URL de sitios web. | `2019-10-01` | También se devuelve con `domain=phi`. |
-| IP | N/D | Direcciones IP de red. | `2019-10-01` | |
+| IP | N/D | Direcciones IP de red. | `2019-10-01` | También se devuelve con `domain=phi`. |
 | DateTime | N/D | Fechas y horas del día. | `2019-10-01` |  | 
 | DateTime | Date | Fechas calendario. | `2019-10-01` | También se devuelve con `domain=phi`. |
 | Cantidad | N/D | Números y cantidades numéricas. | `2019-10-01` |  |
 | Cantidad | Age | Edades. | `2019-10-01` | | |
-| Clasificación internacional de enfermedades (ICD-9-CM) | N/D | Entidades relacionadas con la Clasificación Internacional de Enfermedades, novena revisión.   | `2020-04-01` | |
-| Clasificación Internacional de enfermedades (ICD-10-CM) | N/D | Entidades relacionadas con la Clasificación Internacional de Enfermedades, décima revisión.    | `2020-04-01` | |
 
 ## <a name="azure-information"></a>Información de Azure
 

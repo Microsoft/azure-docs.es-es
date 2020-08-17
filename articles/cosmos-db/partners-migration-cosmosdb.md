@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: ad5ed2b45a182c1f33f33ca1f6d4e3212c61b6a2
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 4507b3f3338dccbf51f7342081997549e62f13fe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791738"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290080"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Asociados de desarrollo de aplicaciones y migración NoSQL de Azure Cosmos DB
 
@@ -26,7 +26,6 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 |[Altoros Development LLC](https://www.altoros.com/)  |  IoT, comercio minorista de personalización (inventario), migración NoSQL de arquitecturas sin servidor, desarrollo de aplicaciones|   EE. UU. |
 |[Avanade](https://www.avanade.com/) | IoT, comercio minorista (inventario), arquitectura sin servidor, desarrollo de aplicaciones | Austria, Alemania, Suiza, Italia, Noruega, España, Reino Unido, Canadá |
 |[Accenture](https://www.accenture.com/) | IoT, comercio minorista (inventario), arquitectura sin servidor, desarrollo de aplicaciones |Global|
-|[Bluemetal](https://www.bluemetal.com/)     |  IoT, comercio minorista de personalización (inventario), análisis operativo para empresas y SMC, anotación de imágenes de IA, control de activos, migración NoSQL, desarrollo de aplicaciones     |    Norteamérica, Asia Pacífico     |
 |[Capax Global LLC](https://www.capaxglobal.com/) | IoT, personalización, comercio minorista (inventario), análisis operativo (Spark), arquitectura sin servidor, desarrollo de aplicaciones|    EE. UU.     |  
 | [Capgemini](https://www.capgemini.com/) | Comercio minorista (inventario), IoT, análisis operativo (Spark), desarrollo de aplicaciones | Estados Unidos, Francia, Reino Unido, Países Bajos, Finlandia  |
 | [Cognizant](https://www.cognizant.com/) | IoT, personalización, comercio minorista (inventario), análisis operativo (Spark), desarrollo de aplicaciones |Estados Unidos, Canadá, Reino Unido, Dinamarca, Países Bajos, Suiza, Australia, Japón |
@@ -51,13 +50,12 @@ Desde la migración NoSQL hasta el desarrollo de aplicaciones, puede elegir entr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre algunos de los demás asociados de Microsoft, vea el [sitio de asociados de Microsoft](https://partner.microsoft.com/en-US/).
+Para obtener más información sobre algunos de los demás asociados de Microsoft, vea el [sitio de asociados de Microsoft](https://partner.microsoft.com/).
 
 <!--Image references-->
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png
-[5]: ./media/partners-migration-cosmosdb/bluemetal_logo.png
 [6]: ./media/partners-migration-cosmosdb/capaxglobal_logo.png
 [7]: ./media/partners-migration-cosmosdb/coeo_logo.png
 [8]: ./media/partners-migration-cosmosdb/infosys_logo.png

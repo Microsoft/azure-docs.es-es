@@ -3,12 +3,12 @@ title: 'Script de PowerShell: recuperación de un recurso compartido de archivos
 description: Obtenga información sobre cómo usar un script de Azure PowerShell para recuperar un recurso compartido de archivos eliminado accidentalmente.
 ms.topic: sample
 ms.date: 02/02/2020
-ms.openlocfilehash: 199cb4720c2efe03d47fd06ea0cf41eae29d06fa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d3a3ad3c2904b98f7a3350d3672b51f3a1e9415e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513241"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87007639"
 ---
 # <a name="powershell-script-to-undelete-an-accidentally-deleted-file-share"></a>Script de PowerShell para recuperar un recurso compartido de archivos eliminado accidentalmente
 
@@ -154,7 +154,7 @@ Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-1. Instale los módulos más recientes de Az de Azure PowerShell en [este vínculo](//powershell/azure/install-az-ps) antes de ejecutar el script.
+1. Instale los módulos más recientes de Az de Azure PowerShell en [este vínculo](/powershell/azure/install-az-ps) antes de ejecutar el script.
 2. Tenga a mano los siguientes detalles, ya que debe pasarlos como valores para los distintos parámetros del script:
 
     * **-SubscriptionId**: identificador de la suscripción en la que está presente el recurso compartido de archivos.

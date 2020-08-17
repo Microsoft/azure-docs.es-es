@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: a61f7ff69e648262eb721eb61a98b09dbbee924c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 43942c20a353ff69383f3e721679e4c95ab9d230
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73961423"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495950"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configuración del direccionamiento IP para conectarse a un sitio secundario local tras la conmutación por error
 
@@ -63,11 +63,11 @@ En los gráficos siguientes se muestran las subredes antes y después de la conm
 
 **Antes de la conmutación por error**
 
-![Antes de la conmutación por error](./media/hyper-v-vmm-networking/network-design2.png)
+![Diagrama que muestra las subredes antes de la conmutación por error.](./media/hyper-v-vmm-networking/network-design2.png)
 
 **Después de la conmutación por error**
 
-![Después de la conmutación por error](./media/hyper-v-vmm-networking/network-design3.png)
+![Diagrama que muestra las subredes después de la conmutación por error.](./media/hyper-v-vmm-networking/network-design3.png)
 
 Después de la conmutación por error, Site Recovery asigna una dirección IP para cada interfaz de red de la máquina virtual. La dirección se asigna desde el grupo de direcciones IP estáticas de la red correspondiente para cada instancia de máquina virtual.
 
@@ -79,12 +79,12 @@ Después de la conmutación por error, Site Recovery asigna una dirección IP pa
 
 Después de habilitar la protección para una máquina virtual, puede usar el siguiente script de ejemplo para comprobar la dirección asignada a la máquina virtual. Esta dirección IP se establece como dirección IP de conmutación por error y se asigna a la máquina virtual en el momento de la conmutación por error:
 
-    ```
-    $vm = Get-SCVirtualMachine -Name <VM_NAME>
-    $na = $vm[0].VirtualNetworkAdapters>
-    $ip = Get-SCIPAddress -GrantToObjectID $na[0].id
-    $ip.address 
-    ```
+```powershell
+$vm = Get-SCVirtualMachine -Name <VM_NAME>
+$na = $vm[0].VirtualNetworkAdapters>
+$ip = Get-SCIPAddress -GrantToObjectID $na[0].id
+$ip.address
+```
 
 ## <a name="use-a-different-ip-address"></a>Uso de una dirección IP distinta
 
@@ -93,7 +93,7 @@ En este escenario, se cambian las direcciones IP de las máquinas virtuales que 
 - Utilice valores de TTL bajos para las aplicaciones de intranet.
 - Utilice el siguiente script en un plan de recuperación de Site Recovery para una actualización puntual del servidor DNS. No necesita el script si usa un registro de DNS dinámico.
 
-    ```
+    ```powershell
     param(
     string]$Zone,
     [string]$name,
@@ -118,11 +118,11 @@ En este ejemplo, tenemos diferentes direcciones IP en los sitios principal y sec
 
 **Antes de la conmutación por error**
 
-![Diferente dirección IP: antes de la conmutación por error](./media/hyper-v-vmm-networking/network-design10.png)
+![Diagrama que muestra distintas direcciones IP antes de la conmutación por error.](./media/hyper-v-vmm-networking/network-design10.png)
 
 **Después de la conmutación por error**
 
-![Diferente dirección IP: después de la conmutación por error](./media/hyper-v-vmm-networking/network-design11.png)
+![Diagrama que muestra distintas direcciones IP después de la conmutación por error.](./media/hyper-v-vmm-networking/network-design11.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

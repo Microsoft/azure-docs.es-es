@@ -3,17 +3,18 @@ title: Uso del módulo de mapas de Azure Maps Indoor
 description: Obtenga información sobre cómo usar el módulo de mapas de Microsoft Azure Maps Indoor para representar mapas mediante la inserción de las bibliotecas de JavaScript del módulo.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 05/18/2020
+ms.date: 07/20/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 6e7b6c7ddb33d42cca66698c87c82477f3e55621
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b9ec42620ee5ffaaf5fd79da5dabc944fc3bc422
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517474"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287088"
 ---
 # <a name="use-the-azure-maps-indoor-maps-module"></a>Uso del módulo de mapas de Azure Maps Indoor
 
@@ -44,14 +45,12 @@ Para usar la versión de Azure Content Delivery Network hospedada globalmente de
   
   1. Descargue el [paquete azure-maps-indoor](https://www.npmjs.com/package/azure-maps-indoor).
   
-  2. Instale el paquete de npm. Asegúrese de usar privilegios de administrador en la consola:
-
       ```powershell
       >npm install azure-maps-control
       >npm install azure-maps-indoor
       ```
 
-  3. Haga referencia a la hoja de estilos y JavaScript del módulo de *Azure Maps Indoor* en el elemento `<head>` del archivo HTML:
+  2. Haga referencia a la hoja de estilos y JavaScript del módulo de *Azure Maps Indoor* en el elemento `<head>` del archivo HTML:
 
       ```html
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css" />
@@ -71,7 +70,7 @@ const map = new atlas.Map("map-id", {
   //or, you can use bounds: [# west, # south, # east, # north] and replace # with your map's bounds
   style: "blank",
   view: 'Auto',
-  authOptions: { 
+  authOptions: {
       authType: 'subscriptionKey',
       subscriptionKey: subscriptionKey
   },

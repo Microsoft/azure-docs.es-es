@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/18/2016
 tags: connectors
-ms.openlocfilehash: edfbf090c3409d583cda6fd2c9957c37be5dfb7a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 9fe4988b5499943f4b11ec5d640209ceb68e84ec
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75378439"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040235"
 ---
 # <a name="access-and-manage-files-in-onedrive-connector-by-using-azure-logic-apps"></a>Acceda a archivos y adminístrelos en el conector de OneDrive mediante Azure Logic Apps
 
@@ -40,11 +40,11 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 1. En el Diseñador de aplicación lógica, escriba `onedrive` para obtener una lista de los desencadenadores:  
 
-   ![](./media/connectors-create-api-onedrive/onedrive-1.png)
+   ![Un cuadro de diálogo titulado "Mostrar las API administradas por Microsoft" tiene un cuadro que contiene "onedrive". A continuación se muestra una lista de los cuatro desencadenadores. El primero de ellos es "OneDrive: Cuando se crea un archivo". El segundo, "OneDrive: Cuando se modifica un archivo", se ha seleccionado.](./media/connectors-create-api-onedrive/onedrive-1.png)
 
 2. Seleccione **Cuando se modifica un archivo**. Si ya existe una conexión, seleccione el botón Mostrar Selector para seleccionar una carpeta.
 
-   ![](./media/connectors-create-api-onedrive/sample-folder.png)
+   ![El cuadro de diálogo titulado "Cuando se modifica un archivo" tiene el cuadro denominado "CARPETA" con un botón de búsqueda asociado.](./media/connectors-create-api-onedrive/sample-folder.png)
 
    Si se le solicita que inicie sesión, escriba los datos de inicio de sesión para crear la conexión. En la sección [Creación de la conexión](connectors-create-api-onedrive.md#create-the-connection) de este artículo se enumeran los pasos.
 
@@ -52,7 +52,7 @@ Un desencadenador es un evento que se puede utilizar para iniciar el flujo de tr
 
 3. Seleccione el botón **Editar** y defina los valores de **Frecuencia** e **Intervalo**. Por ejemplo, si desea que el desencadenador sondee cada 15 minutos, establezca el valor de **Frecuencia** en **Minuto** y el de **Intervalo** en **15**. 
 
-   ![](./media/connectors-create-api-onedrive/trigger-properties.png)
+   ![El cuadro de diálogo titulado "Cuando se modifica un archivo" muestra cinco cuadros con la etiqueta: "CARPETA", "FRECUENCIA", "INTERVALO", "ZONA HORARIA" y "HORA DE INICIO". Hay listas desplegables para los campos "FRECUENCIA" y "ZONA HORARIA".](./media/connectors-create-api-onedrive/trigger-properties.png)
 
 4. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
 
@@ -62,23 +62,23 @@ Una acción es una operación que se lleva a cabo mediante el flujo de trabajo d
 
 1. Seleccione el signo más. Aparecen varias opciones: **Agregar una acción**, **Agregar una condición** o una de las opciones de **Más**.
 
-   ![](./media/connectors-create-api-onedrive/add-action.png)
+   ![Captura de pantalla se muestran cuatro botones: + Nuevo paso", "Agregar una acción", "Agregar una condición" y "...Más".](./media/connectors-create-api-onedrive/add-action.png)
 
 2. Elija **Add an action**(Agregar una acción).
 
 3. En el cuadro de búsqueda, escriba `onedrive` para obtener una lista de todas las acciones disponibles.
 
-   ![](./media/connectors-create-api-onedrive/onedrive-actions.png) 
+   ![Un cuadro de diálogo titulado "Mostrar las API administradas por Microsoft" tiene un cuadro que contiene "onedrive". A continuación se muestra una lista de ocho acciones. El primero es "OneDrive: Crear archivo" y está seleccionado.](./media/connectors-create-api-onedrive/onedrive-actions.png) 
 
 4. En nuestro ejemplo, elija **OneDrive - Crear archivo**. Si ya existe una conexión, seleccione la **Ruta de la carpeta** en la que se incluirá el archivo, escriba el **Nombre de archivo** y elija el **Contenido de archivo** que desee:  
 
-   ![](./media/connectors-create-api-onedrive/sample-action.png)
+   ![El cuadro de diálogo "Crear archivo" muestra tres cuadros con la etiqueta "RUTA DE ACCESO DE LA CARPETA", "NOMBRE DE ARCHIVO" y "CONTENIDO DE LA CARPETA". Hay un botón de búsqueda de directorios junto al cuadro "RUTA DE ACCESO DE LA CARPETA".](./media/connectors-create-api-onedrive/sample-action.png)
 
    Si se le solicita la información de conexión, escriba los detalles para [crear la conexión como se describe](#create-the-connection) en este tema.
 
    En este ejemplo, creará un nuevo archivo en una carpeta de OneDrive. Puede utilizar la salida de otro desencadenador para crear el archivo de OneDrive. Por ejemplo, agregue el desencadenador *Cuando llega un nuevo correo electrónico* de Office 365 Outlook. A continuación, agregue la acción *Crear archivo* de OneDrive, que usa los campos Attachments y Content-Type de una instrucción ForEach para crear el nuevo archivo en OneDrive.
 
-   ![](./media/connectors-create-api-onedrive/foreach-action.png)
+   ![Un cuadro de diálogo titulado "Para cada uno" tiene un cuadro con la etiqueta "SELECCIONAR UNA SALIDA DE LOS PASOS ANTERIORES" que contiene "Datos adjuntos". Hay un cuadro de diálogo "Crear archivo" que cubre el resto del cuadro "Para cada uno", con cuadros con la etiqueta "RUTA DE ACCESO DE LA CARPETA", "NOMBRE DE ARCHIVO" y "CONTENIDO DEL ARCHIVO". ](./media/connectors-create-api-onedrive/foreach-action.png)
 
 5. **Guarde** los cambios (esquina superior izquierda de la barra de herramientas). La aplicación lógica se guarda y se puede habilitar automáticamente.
 

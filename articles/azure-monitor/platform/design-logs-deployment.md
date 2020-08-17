@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed525230315781eeca41956047a173f27b1447e1
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3a6afd42c12a523523b45861b38b323fa680ecab
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201295"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317291"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Diseño de la implementación de registros de Azure Monitor
 
@@ -25,7 +25,7 @@ Un área de trabajo de Log Analytics proporciona lo siguiente:
 
 * Una ubicación geográfica para el almacenamiento de datos.
 * Aislamiento de datos, ya que se conceden diferentes derechos de acceso a los usuarios en base a una de nuestras estrategias de diseño recomendadas.
-* Ámbito para la configuración de opciones, como el [plan de tarifa](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), la [retención](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) y el [límite de datos](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#manage-your-maximum-daily-data-volume).
+* Ámbito para la configuración de opciones, como el [plan de tarifa](./manage-cost-storage.md#changing-pricing-tier), la [retención](./manage-cost-storage.md#change-the-data-retention-period) y el [límite de datos](./manage-cost-storage.md#manage-your-maximum-daily-data-volume).
 
 En este artículo se proporciona información general detallada acerca de las consideraciones de diseño y migración, información general sobre el control de acceso y una descripción de las implementaciones de diseño que recomendamos para su organización de TI.
 
@@ -47,12 +47,12 @@ En la actualidad, las organizaciones de TI siguen modelos centralizados, descent
 
 Si se usan los agentes de Log Analytics para recopilar datos, es preciso conocer lo siguiente para planear la implementación de los agentes:
 
-* Para recopilar datos de los agentes de Windows, puede [configurar cada agente para que informe a una o varias áreas de trabajo](../../azure-monitor/platform/agent-windows.md), aun cuando informen a un grupo de administración de System Center Operations Manager. El agente de Windows puede notificar hasta cuatro áreas de trabajo.
+* Para recopilar datos de los agentes de Windows, puede [configurar cada agente para que informe a una o varias áreas de trabajo](./agent-windows.md), aun cuando informen a un grupo de administración de System Center Operations Manager. El agente de Windows puede notificar hasta cuatro áreas de trabajo.
 * El agente de Linux no admite el hospedaje múltiple y solo puede informar a un área de trabajo.
 
 Si usa System Center Operations Manager 2012 R2, o cualquier versión posterior:
 
-* Cada grupo de administración de Operations Manager se puede [conectar a una sola área de trabajo](../platform/om-agents.md). 
+* Cada grupo de administración de Operations Manager se puede [conectar a una sola área de trabajo](./om-agents.md). 
 * Los equipos Linux que informan a un grupo de administración deben estar configurados para informar directamente a un área de trabajo Log Analytics. Si los equipos Linux ya están notificando directamente a un área de trabajo y desea supervisarlos con Operations Manager, siga estos para [notificar a un grupo de administración de Operations Manager](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * El agente de Windows de Log Analytics se puede instalar en el equipo Windows y se le puede indicar que informe tanto a Operations Manager integrado con un área de trabajo como a otra área de trabajo.
 
@@ -166,3 +166,4 @@ Al planear la migración a este modelo, tenga en cuenta lo siguiente:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para implementar los permisos y controles de seguridad que se recomiendan en esta guía, consulte el artículo relativo a la [administración del acceso a los registros](manage-access.md).
+

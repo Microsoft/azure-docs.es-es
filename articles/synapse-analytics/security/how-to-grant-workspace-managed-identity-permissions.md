@@ -1,5 +1,5 @@
 ---
-title: Concesión de permisos a la identidad administrada en el área de trabajo de Azure Synapse
+title: Concesión de permisos para la identidad administrada en el área de trabajo de Synapse
 description: En este artículo se explica cómo configurar los permisos de la identidad administrada en el área de trabajo de Azure Synapse.
 author: RonyMSFT
 ms.service: synapse-analytics
@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8e33bd127fca9ddce7b15d144fd287ec4a6bf0e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c07943d517f893e67eed5103660a953b508cc87
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193471"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87535049"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concesión de permisos a una identidad administrada de área de trabajo (versión preliminar)
 
@@ -22,7 +22,7 @@ En este artículo se muestra cómo conceder permisos a la identidad administrada
 >[!NOTE]
 >En el resto de este documento, se hará referencia a la identidad administrada del área de trabajo como “identidad administrada”.
 
-## <a name="grant-the-managed-identity--permissions-to-the-sql-pool"></a>Concesión de permisos de identidad administrada al grupo de SQL
+## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Concesión de permisos de identidad administrada en el grupo de SQL
 
 La identidad administrada concede permisos a los grupos de SQL en el área de trabajo. Con los permisos concedidos, puede orquestar canalizaciones que realicen las actividades relacionadas con el grupo de SQL. Al crear un área de trabajo de Azure Synapse mediante Azure Portal, puede conceder los permisos de CONTROL de identidad administrada en los grupos de SQL.
 
@@ -84,11 +84,11 @@ Seleccione **+Agregar**.
 
 ![Adición de una asignación de roles](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-9.png)
 
-#### <a name="step-5-select-the-rbac-role"></a>Paso 5: Selección del rol de RBAC
+#### <a name="step-5-select-the-azure-role"></a>Paso 5: Seleccione el rol de Azure
 
 Seleccione el rol **Colaborador de datos de Storage Blob**.
 
-![Selección del rol de RBAC](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
+![Seleccione el rol de Azure](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-10.png)
 
 #### <a name="step-6-select-the-azure-ad-security-principal"></a>Paso 6: Selección de la entidad de seguridad de Azure AD
 

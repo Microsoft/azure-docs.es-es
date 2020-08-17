@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 137cbec270b40042503fc7687c9deb39b0df1aa4
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b4a3e8c71757417240af2719c317bbbd49cef9fc
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243297"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475777"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Suscripciones en Azure API Management
 
@@ -41,7 +41,7 @@ Las suscripciones se pueden asociar a diversos ámbitos: producto, todas las API
 
 ### <a name="subscriptions-for-a-product"></a>Suscripciones para un producto
 
-Tradicionalmente, las suscripciones en API Management se han asociado siempre a un solo ámbito del [producto de API](api-management-terminology.md). Los desarrolladores encontraron la lista de productos en el Portal para desarrolladores. A continuación, enviarían las solicitudes de suscripción para los productos que deseaban usar. Una vez aprobada una solicitud de suscripción, bien de forma automática o por parte de los publicadores de API, el desarrollador puede usar las claves de esta para acceder a todas las API del producto. Por el momento, el portal para desarrolladores solo muestra las suscripciones de ámbito de producto de la sección del perfil de usuario. 
+Tradicionalmente, las suscripciones en API Management se han asociado siempre a un solo ámbito del [producto de API](api-management-terminology.md). Los desarrolladores encontraron la lista de productos en el Portal para desarrolladores. A continuación, enviarían las solicitudes de suscripción para los productos que deseaban usar. Una vez aprobada una solicitud de suscripción (automáticamente o por parte de los publicadores de API), el desarrollador puede usar las claves de esta para acceder a todas las API del producto. En este momento, en la sección del perfil de usuario del portal para desarrolladores solo aparecen las suscripciones del ámbito del producto. 
 
 ![Suscripciones de producto](./media/api-management-subscriptions/product-subscription.png)
 

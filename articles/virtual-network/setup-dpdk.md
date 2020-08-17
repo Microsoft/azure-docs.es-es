@@ -1,6 +1,6 @@
 ---
 title: DPDK en una máquina virtual Linux de Azure | Microsoft Docs
-description: Aprenda a configurar DPDK en una máquina virtual Linux.
+description: Obtenga información sobre las ventajas del kit de desarrollo de plano de datos (DPDK) y cómo configurar DPDK en una máquina virtual Linux.
 services: virtual-network
 documentationcenter: na
 author: laxmanrb
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/12/2020
 ms.author: labattul
-ms.openlocfilehash: ec117172a367d014f634106b5d2405892b80ffa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 622b7e629a7f5fea77afc18ec5121fe3466716ed
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689272"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387564"
 ---
 # <a name="set-up-dpdk-in-a-linux-virtual-machine"></a>Configuración de DPDK en una máquina virtual Linux
 
@@ -44,7 +44,7 @@ Se admiten las siguientes distribuciones desde Azure Marketplace:
 |--------------|---------------------------   |
 | Ubuntu 16.04 | 4.15.0-1014-azure+           | 
 | Ubuntu 18.04 | 4.15.0-1014-azure+           |
-| SLES 15 SP1  | 4.12.14-8.27-azure+          | 
+| SLES 15 SP1  | 4.12.14-8.19-azure+          | 
 | RHEL 7.5     | 3.10.0-862.11.6.el7.x86_64+  | 
 | CentOS 7.5   | 3.10.0-862.11.6.el7.x86_64+  | 
 

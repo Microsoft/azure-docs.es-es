@@ -2,13 +2,13 @@
 title: Niveles premium y estándar de Azure Service Bus
 description: En este artículo se describen los niveles estándar y premium de Azure Service Bus. Compara estos niveles y proporciona diferencias técnicas.
 ms.topic: conceptual
-ms.date: 06/23/2020
-ms.openlocfilehash: eb2d3dda18eb08809a5c8f1020490acdb1e9a21c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/28/2020
+ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337407"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386357"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Niveles de mensajería Premium y Estándar de Service Bus
 
@@ -24,7 +24,7 @@ En la tabla siguiente, se resaltan algunas de las principales diferencias.
 | Rendimiento predecible |Latencia variable |
 | Precio fijo |Precios según la variante de pago por uso |
 | Posibilidad de escalar y de reducir verticalmente la carga de trabajo |N/D |
-| Tamaño de mensaje de hasta 1 MB |Tamaño de mensaje de hasta 256 KB |
+| Tamaño de mensaje de hasta 1 MB. Este límite se puede aumentar en el futuro. Para las actualizaciones importantes más recientes del servicio, consulte [Mensajería en el blog de Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Tamaño de mensaje de hasta 256 KB |
 
 La **mensajería Premium de Service Bus** proporciona aislamiento de recursos en el nivel de CPU y memoria para que cada carga de trabajo de cliente se ejecute de forma aislada. Este contenedor de recursos se llama *unidad de mensajería*. A cada espacio de nombres premium se le asigna al menos una unidad de mensajería. Puede comprar 1, 2, 4 u 8 unidades de mensajería para cada espacio de nombres Premium de Service Bus. Una sola carga de trabajo o entidad puede abarcar varias unidades de mensajería y el número de unidades de mensajería puede cambiarse a voluntad. El resultado es un rendimiento predecible y repetible para su solución basada en Service Bus.
 
@@ -36,11 +36,11 @@ En las secciones siguientes se describen algunas diferencias existentes entre lo
 
 ### <a name="partitioned-queues-and-topics"></a>Temas y colas con particiones
 
-Los temas y colas con particiones no se admiten en Mensajería premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
+Los temas y colas con particiones no se admiten en Mensajería Premium. Para más información sobre las particiones, consulte [Temas y colas con particiones](service-bus-partitioning.md).
 
 ### <a name="express-entities"></a>Entidades exprés
 
-Dado que la mensajería premium se ejecuta en un entorno de tiempo de ejecución completamente aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
+Dado que la Mensajería Premium se ejecuta en un entorno de tiempo de ejecución aislado, no se admiten entidades rápidas en los espacios de nombres Premium. Para más información sobre la característica exprés, consulte la propiedad [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Si tiene código en ejecución en mensajería estándar y desea migrarlo al nivel Premium, asegúrese de que la propiedad [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) esté establecida en **false** (valor predeterminado).
 
@@ -51,9 +51,9 @@ En general, cualquier operación en una entidad puede causar uso de CPU y memori
 - Operaciones en tiempo de ejecución (enviar y recibir mensajes).
 - Operaciones de supervisión y alertas.
 
-El uso adicional de CPU y memoria no tiene un costo adicional. Para el nivel de mensajería premium, hay un precio único por unidad de mensaje.
+El uso de memoria y CPU adicional no tiene un costo adicional. Para el nivel de Mensajería Premium, hay un precio único por unidad de mensaje.
 
-El uso de CPU y memoria se supervisa y se muestra por los siguientes motivos: 
+El uso de CPU y memoria se supervisa y se muestra por los motivos siguientes: 
 
 - Proporcionar transparencia en los aspectos internos del sistema.
 - Entender la capacidad de los recursos adquiridos.

@@ -10,12 +10,12 @@ metadata:
   ms.service: dms
   ms.topic: landing-page
   ms.custom: azure-migrate-seo
-  ms.openlocfilehash: 732870bef2311ac13afb9a6e2a1a329fdd3905e2
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: e2cee85efd6c4aea51f41d2cd8a7c41f4c881114
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86522319"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87090729"
 landingContent:
 - title: Acerca de Azure Database Migration Service
   linkLists:
@@ -91,6 +91,8 @@ landingContent:
       url: tutorial-postgresql-azure-postgresql-online.md
     - text: Migración de RDS PostgreSQL a Azure Database for PostgreSQL
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
+    - text: Migración entre instancias de Azure DB for PostgreSQL a través del portal
+      url: tutorial-azure-postgresql-to-azure-postgresql-online-portal.md
     - text: Migración a Azure Database for MySQL (en línea)
       url: tutorial-mysql-azure-mysql-online.md
     - text: Migración de RDS MySQL a Azure Database for MySQL en línea

@@ -4,31 +4,31 @@ description: Aprenda a configurar Servicios de notificaciones de inserción de W
 services: notification-hubs
 author: sethmanheim
 manager: femila
-editor: jwargo
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 08/04/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
-ms.openlocfilehash: 73304e191242725c80204efb132c26aede9ce7e9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 62d73a23fff3bd15d873a579d451b2f91509b7fe
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80127322"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87758737"
 ---
 # <a name="configure-windows-push-notification-service-settings-in-the-azure-portal"></a>Configuración de los valores de configuración del Servicio de notificaciones push de Windows en Azure Portal
 
 En este artículo podrá ver cómo establecer la configuración del Servicio de notificaciones de Windows (WNS) para un centro de notificaciones de Azure mediante Azure Portal.  
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Si aún no ha creado un centro de notificaciones, cree uno ahora. Para más información, consulte [Creación de un centro de notificaciones de Azure en Azure Portal](create-notification-hub-portal.md). 
+
+Si aún no ha creado un centro de notificaciones, cree uno ahora. Para más información, consulte [Creación de un centro de notificaciones de Azure en Azure Portal](create-notification-hub-portal.md).
 
 ## <a name="configure-windows-push-notification-service-wns"></a>Configuración de Servicios de notificaciones de inserción de Windows (WNS)
 
-El siguiente procedimiento le proporciona los pasos para establecer la configuración de Servicios de notificaciones de inserción de Windows (WNS) para un centro de notificaciones: 
+En el siguiente procedimiento se describen los pasos para establecer la configuración de Servicios de notificaciones de inserción de Windows (WNS) para un centro de notificaciones:
 
 1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Windows (WNS)** en el menú izquierdo.
 2. Especifique los valores de **SID de paquete** y **Clave de seguridad**.
@@ -37,6 +37,5 @@ El siguiente procedimiento le proporciona los pasos para establecer la configura
    ![Captura de pantalla que muestra los cuadros de SID del paquete y Clave de seguridad](./media/notification-hubs-windows-store-dotnet-get-started/notification-hub-configure-wns.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para ver un tutorial con instrucciones paso a paso sobre cómo insertar notificaciones en aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs y Servicios de notificaciones de inserción de Windows (WNS), consulte [Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
-
+Para ver un tutorial con instrucciones paso a paso sobre cómo enviar notificaciones de inserción en aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs y Servicios de notificaciones de inserción de Windows (WNS), consulte [Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).

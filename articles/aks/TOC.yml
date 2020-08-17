@@ -52,11 +52,15 @@
     - name: Acceso e identidad
       href: concepts-identity.md
     - name: Seguridad
-      href: concepts-security.md
-      items: null
+      items:
+        - name: Seguridad para aplicaciones y clústeres
+          href: concepts-security.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Redes
       href: concepts-network.md
-    - name: Almacenamiento
+    - name: Storage
       href: concepts-storage.md
     - name: Escala
       href: concepts-scale.md
@@ -166,6 +170,8 @@
         - name: Implementación de AKS con Terraform
           href: ../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md
           maintainContext: true
+        - name: Uso del visor de recursos de Kubernetes (versión preliminar)
+          href: kubernetes-portal.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md
     - name: Configuración de volúmenes de datos
@@ -286,8 +292,8 @@
           href: windows-container-powershell.md
         - name: Conexión remota
           href: rdp.md
-        - name: Restricciones conocidas
-          href: windows-node-limitations.md
+        - name: "Preguntas más frecuentes sobre los contenedores de Windows\_Server"
+          href: windows-faq.md
         - name: Uso del panel de Kubernetes
           href: kubernetes-dashboard.md
         - name: Creación de archivos Dockerfile para contenedores de Windows Server
@@ -297,7 +303,7 @@
     - name: Desarrollo y ejecución de aplicaciones
       items:
         - name: "Uso de Proceso local con Kubernetes con Visual\_Studio Code (versión preliminar)"
-          href: ../dev-spaces/how-to/local-process-kubernetes-vs-code.md
+          href: 'https://code.visualstudio.com/docs/containers/local-process-kubernetes'
         - name: Instalación de aplicaciones existentes con Helm
           href: kubernetes-helm.md
         - name: Uso de OpenFaaS

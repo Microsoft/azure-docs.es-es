@@ -11,13 +11,13 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a41a448a344325c2e3820a891017a078ae1532c5
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 79e5b5e0562c86668c276a94ab28835c13433eb8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85603424"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327249"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-api-and-java"></a>Inicio rápido: Búsqueda de imágenes con la API Bing Image Search y Java 
 

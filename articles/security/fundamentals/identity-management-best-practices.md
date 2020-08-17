@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: aa662dfbd98be5ec16a30e690f28196ca3868390
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 852a8c8eb7e6a87739c58967eefd6c18e996b225
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855900"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87367408"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedimientos recomendados para la administración de identidades y la seguridad del control de acceso en Azure
 
@@ -204,7 +204,7 @@ El equipo de seguridad necesita visibilidad en los recursos de Azure para evalua
 Puede usar [RBAC](/azure/role-based-access-control/overview) para asignar permisos a los usuarios, los grupos y las aplicaciones en un ámbito determinado. El ámbito de una asignación de roles puede ser una suscripción, un grupo de recursos o un único recurso.
 
 **Procedimiento recomendado**: repartir las tareas entre el equipo y conceder a los usuarios únicamente el nivel de acceso que necesitan para realizar su trabajo. En lugar de proporcionar a todos los empleados permisos no restringidos en los recursos o la suscripción de Azure, permita solo determinadas acciones en un ámbito concreto.
-**Detalles**: use [roles de RBAC integrados](/azure/role-based-access-control/built-in-roles) en Azure para asignar privilegios a los usuarios.
+**Detalles**: use [roles integrados de Azure](/azure/role-based-access-control/built-in-roles) en Azure para asignar privilegios a los usuarios.
 
 > [!Note]
 > Los permisos específicos conllevan una complejidad y una confusión innecesarias, y no hace más que alimentar una configuración "heredada" que es difícil de corregir sin riesgo repercutir negativamente en algo. Evite asignar permisos específicos de recursos. En su lugar, utilice grupos de administración para asignar permisos en toda la compañía y grupos de recursos para asignar permisos en las suscripciones. Evite asignar permisos específicos del usuario. En su lugar, asigne acceso a grupos en Azure AD.
@@ -216,7 +216,7 @@ Puede usar [RBAC](/azure/role-based-access-control/overview) para asignar permis
 * **Grupo de administración de segmento** para equipos con un ámbito limitado (normalmente, debido a límites organizativos legales o de otra índole).
 
 **Procedimiento recomendado**: conceder los permisos adecuados a los equipos de seguridad que tienen responsabilidades operativas directas.
-**Detalles**: revise los roles RBAC integrados para la asignación de rol adecuado. Si los roles integrados no cumplen las necesidades específicas de la organización, puede crear [roles personalizados para los recursos de Azure](/azure/role-based-access-control/custom-roles). Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso.
+**Detalles**: revise los roles RBAC integrados para la asignación de rol adecuado. Si los roles integrados no satisfacen las necesidades específicas de la organización, puede crear [roles personalizados de Azure](/azure/role-based-access-control/custom-roles). Igual que los roles integrados, puede asignar roles personalizados a usuarios, grupos y entidades de servicio en los ámbitos de suscripción, grupo de recursos y recurso.
 
 **Procedimientos recomendados**: conceder acceso de Azure Security Center a los roles de seguridad que lo necesiten. Security Center permite a los equipos de seguridad identificar y corregir riesgos con total rapidez.
 **Detalles**: asigne a los equipos de seguridad con estas necesidades de seguridad el rol RBAC [Administrador de seguridad](/azure/role-based-access-control/built-in-roles#security-admin) para ver directivas de seguridad, ver estados de seguridad, editar directivas de seguridad, ver alertas y recomendaciones y descartar alertas y recomendaciones. Para ello, puede usar el grupo de administración raíz o el grupo de administración de segmento, según el ámbito de responsabilidades.

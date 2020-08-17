@@ -1,23 +1,21 @@
 ---
 title: 'Opciones de almacenamiento para el contenedor de perfiles de FSLogix de Windows Virtual Desktop: Azure'
 description: Opciones para almacenar el perfil de FSLogix de Windows Virtual Desktop en Azure Storage.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3dfa5d6bc5707679bbe5dada9f28046202e7aae5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4702c68dcda0c794aef34d3c0675e2fd158e6d4f
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808534"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009416"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Opciones de almacenamiento para los contenedores de perfiles de FSLogix de Windows Virtual Desktop
 
-Azure ofrece varias soluciones de almacenamiento que puede usar para almacenar el contenedor de perfiles de FSLogix. En este artículo se comparan las soluciones de almacenamiento que Azure ofrece para los contenedores de perfiles de usuario de FSLogix de Windows Virtual Desktop. Se recomienda almacenar contenedores de perfil de FSLogix en Azure Files en el caso de la mayoría de nuestros clientes. 
+Azure ofrece varias soluciones de almacenamiento que puede usar para almacenar el contenedor de perfiles de FSLogix. En este artículo se comparan las soluciones de almacenamiento que Azure ofrece para los contenedores de perfiles de usuario de FSLogix de Windows Virtual Desktop. Se recomienda almacenar contenedores de perfil de FSLogix en Azure Files en el caso de la mayoría de nuestros clientes.
 
 Windows Virtual Desktop ofrece contenedores de perfiles de FSLogix como solución recomendada para los perfiles de usuario. FSLogix está diseñado para itinerar perfiles en entornos informáticos remotos, como Windows Virtual Desktop. Al iniciar sesión, este contenedor se adjunta dinámicamente al entorno informático mediante el disco duro virtual (VHD) compatible de forma nativa y el disco duro virtual de Hyper-V (VHDX). El perfil de usuario está disponible inmediatamente y aparece en el sistema exactamente como un perfil de usuario nativo.
 

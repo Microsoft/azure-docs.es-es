@@ -1,6 +1,6 @@
 ---
 title: 'Introducción: Microsoft Azure Threat Modeling Tool | Microsoft Docs'
-description: Se trata de una información general más amplia que se centra en el funcionamiento de Threat Modeling Tool.
+description: Obtenga información sobre cómo empezar a usar Threat Modeling Tool. Cree un diagrama, identifique amenazas, mitíguelas y valide cada mitigación.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 1454826095bcced9b20935405c0befd5a1ed1ddd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68728290"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539907"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introducción a Threat Modeling Tool
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9bc0d25e19ad3412e62eb3386b0faf3ae5d2a444
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 8d38aa513b0829c2626fcd4a92c40faabff1f83e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "68782589"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502399"
 ---
 # <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Conmutación por error y reprotección de máquinas virtuales de Azure entre regiones
 
@@ -38,7 +38,7 @@ En este tutorial se describe cómo conmutar por error una máquina virtual (VM) 
 
 1. En **Elementos replicados**, seleccione la máquina virtual que desea conmutar por error > **Conmutar por error**
 
-   ![Conmutación por error](./media/azure-to-azure-tutorial-failover-failback/failover.png)
+   ![Captura de pantalla que muestra las opciones de Conmutación por error de una máquina virtual.](./media/azure-to-azure-tutorial-failover-failback/failover.png)
 
 2. En **Conmutación por error**, seleccione un **Punto de recuperación** en el que realizar la conmutación por error. Puede seleccionar una de las siguientes opciones:
 
@@ -58,7 +58,7 @@ En este tutorial se describe cómo conmutar por error una máquina virtual (VM) 
 > [!NOTE]
 > Cuando se conmuta por error una máquina virtual a la que agrega un disco después de habilitar la replicación para la máquina virtual, los puntos de la replicación mostrarán los discos que están disponibles para la recuperación. Por ejemplo, si una máquina virtual tiene un único disco y agrega uno nuevo, los puntos de replicación que se crearon antes de agregar el disco mostrarán que el punto de replicación se compone de "1 de 2 discos".
 
-![Conmutación por error con un disco agregado](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
+![Captura de pantalla que muestra la conmutación por error con un disco agregado.](./media/azure-to-azure-tutorial-failover-failback/failover-added.png)
 
 ## <a name="reprotect-the-secondary-vm"></a>Volver a proteger la máquina virtual secundaria
 
@@ -67,7 +67,7 @@ Después de la conmutación por error de la máquina virtual, debe volver a prot
 1. Asegúrese de que la máquina virtual está en el estado **Conmutación por error confirmada** y compruebe que la región principal está disponible, y puede crear y tener acceso a los recursos nuevos en ella.
 2. En **Almacén** > **Elementos replicados**, haga clic con el botón derecho en la máquina virtual que ha sido objeto de la conmutación por error y seleccione **Volver a proteger**.
 
-   ![Haga clic con el botón derecho para volver a proteger](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
+   ![Captura de pantalla de la opción Reprotección de una máquina virtual.](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
 2. Compruebe que la dirección de la protección, de la región secundaria a la primaria, ya está seleccionada.
 3. Revise la información de **Grupo de recursos, red, almacenamiento y conjuntos de disponibilidad**. Los recursos marcados se crean como parte de la operación de reprotección.

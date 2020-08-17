@@ -16,7 +16,11 @@
       href: tutorial-access-private-cloud.md
     - name: 5 - Escalado de una nube privada
       href: tutorial-scale-private-cloud.md
-    - name: 6 - Creación de una biblioteca de contenido
+    - name: 6 - Creación de segmentos de red de NSX-T
+      href: tutorial-nsx-t-network-segment.md
+    - name: 7 - Emparejamiento de un entorno local con una nube privada
+      href: tutorial-expressroute-global-reach-private-cloud.md
+    - name: 8 - Implementación de una máquina virtual a través de la biblioteca de contenido
       href: tutorial-deploy-vm-content-library.md
 - name: Conceptos
   items:
@@ -34,24 +38,32 @@
       href: concepts-upgrades.md
 - name: Guías paso a paso
   items:
+    - name: Valoración de la migración de AVS
+      href: ../migrate/how-to-create-azure-vmware-solution-assessment.md?context=/azure/migrate/context/migrate-context.json
     - name: Configuración de HCX
       href: hybrid-cloud-extension-installation.md
     - name: Administración de DHCP
       href: manage-dhcp.md
     - name: Recuperación ante desastres
       href: disaster-recovery.md
-    - name: Azure Backup Server para AVS
-      items:
-        - name: Configuración de Azure Backup Server para AVS
-          href: set-up-mabs-for-avs.md
-        - name: Copia de seguridad de máquinas virtuales de AVS con Azure Backup Server
-          href: backup-avs-vms-with-mabs.md
     - name: Integración nativa de Azure
       items:
         - name: API Management
           href: concepts-api-management.md
         - name: En estrella tipo hub-and-spoke
           href: concepts-avs-hub-and-spoke-integration.md
+        - name: Azure Backup Server para AVS
+          items:
+            - name: Configuración de Backup Server para AVS
+              href: set-up-mabs-for-avs.md
+            - name: Copia de seguridad de máquinas virtuales de AVS con Backup Server
+              href: backup-avs-vms-with-mabs.md
+        - name: Application Gateway en Azure VMware Solution
+          href: protect-avs-web-apps-with-app-gateway.md
+    - name: Soluciones de VMware
+      items:
+        - name: Configuración de operaciones de vRealize para AVS
+          href: vrealize-operations-for-avs.md
 - name: Referencia
   items: null
 - name: Recursos

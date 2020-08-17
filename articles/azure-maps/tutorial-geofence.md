@@ -1,68 +1,62 @@
 ---
-title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa | Microsoft Azure Maps'
+title: 'Tutorial: Creación de una geovalla y seguimiento de dispositivos en un mapa de Microsoft Azure'
 description: Aprenderá a configurar una geovalla y a realizar un seguimiento de los dispositivos en relación con la geovalla mediante el servicio espacial de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 1/15/2020
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 7/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 126829f12d71e40511c26e781cb191988c1d031e
-ms.sourcegitcommit: 9ee0cbaf3a67f9c7442b79f5ae2e97a4dfc8227b
+ms.openlocfilehash: 775d98b992f2bca4441c868873ceaeb2389db81a
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "80333865"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517397"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Tutorial: Configuración de una geovalla con Azure Maps
 
-Este tutorial le guiará por los pasos básicos para configurar la geovalla con Azure Maps. Considere este escenario: un jefe de obra tiene que supervisar un equipo potencialmente peligroso. El jefe de obra debe asegurarse de que el equipo permanezca en el área de construcción general seleccionada. Este área de construcción general es un parámetro fijo. La normativa exige que el equipo permanezca dentro de los límites de este parámetro y cualquier infracción se comunicará al responsable de operaciones.  
+Este tutorial le guía por los aspectos básicos de la creación y el uso de los servicios de geovalla de Azure Maps en el contexto del siguiente escenario:
 
-Vamos a usar Data Upload API para almacenar una geovalla y Geofence API para comprobar la ubicación del equipo en relación con la geovalla. Tanto Data Upload API como Geofence API son de Azure Maps. También usaremos Azure Event Grid para transmitir los resultados de la geovalla y establecer una notificación basada en los resultados de la geovalla. Para más información sobre Event Grid, consulte [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview).
+*Un jefe de obras de una construcción debe realizar un seguimiento de las entradas y salidas del equipo en los perímetros de un área de construcción. Cada vez que una parte del equipo salga o entre en estos perímetros, se enviará una notificación por correo electrónico al responsable de operaciones.*
 
-En este tutorial se explica cómo:
+Azure Maps proporciona una serie de servicios que admiten el seguimiento de los equipos que entren y salgan del área de construcción del escenario anterior. En este tutorial se explica cómo:
 
 > [!div class="checklist"]
-> * Cargar el área de la geovalla en el servicio de datos de Azure Maps con Data Upload API.
-> *   Configurar una instancia de Event Grid para controlar los eventos de la geovalla.
-> *   Configurar el controlador de eventos de la geovalla.
-> *   Configurar alertas en respuesta a eventos de la geovalla con Logic Apps.
-> *   Usar las API del servicio de geovalla de Azure Maps para realizar un seguimiento de si un recurso de construcción está dentro del sitio de construcción o no.
+> * Cargue los [datos GeoJSON de geovalla](geofence-geojson.md) que definan las áreas del sitio de construcción que desee supervisar. Usaremos [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview) para cargar geovallas como coordenadas de polígonos en su cuenta de Azure Maps.
+> * Configure dos [aplicaciones lógicas](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que, cuando se desencadenen, envíen notificaciones de correo electrónico al administrador de operaciones del sitio de construcción, cuando el equipo entre y salga del área de geovalla.
+> * Use [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) para suscribirse a los eventos de entrada y salida de geovallas de Azure Maps. Instalaremos dos suscripciones de eventos de webhook que llamarán a los puntos de conexión HTTP definidos en las dos aplicaciones lógicas. A continuación, las aplicaciones lógicas enviarán las notificaciones de correo electrónico adecuadas sobre los equipos que salen o entran de la geovalla.
+> * Use [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para recibir notificaciones cuando una parte del equipo salga y entre de las áreas de la geovalla.
 
+## <a name="prerequisites"></a>Requisitos previos
 
-## <a name="prerequisites"></a>Prerrequisitos
+1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
+2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 
-### <a name="create-an-azure-maps-account"></a>Crear una cuenta de Azure Maps 
+En este tutorial se usa la aplicación [Postman](https://www.postman.com/), pero puede elegir un entorno de desarrollo de API diferente.
 
-Siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) para crear una suscripción de cuenta de Azure Maps en el plan de tarifa S1. Los pasos descritos en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) muestran cómo recuperar la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md).
+## <a name="upload-geofencing-geojson-data"></a>Carga de datos GeoJSON de geovalla
 
-## <a name="upload-geofences"></a>Carga de geovallas
+En este tutorial, se cargarán los datos GeoJSON de geovallas que contengan una colección `FeatureCollection`. La colección `FeatureCollection` contiene dos geovallas que definen áreas poligonales dentro del sitio de construcción. La primera geovalla no tiene ninguna restricción de tiempo ni datos de expiración. La segunda solo se puede consultar en horario comercial (9 a 5 p. m. PST) y dejará de ser válida después del 1 de enero de 2022. Para más información sobre el formato GeoJSON, consulte [Datos GeoJSON de geovallas](geofence-geojson.md).
 
-Se asume que la geovalla principal es subsitio1, que tiene un tiempo de expiración establecido. Se pueden crear más geovallas anidadas según sus requisitos. Estos conjuntos de vallas se pueden usar para realizar el seguimiento de diferentes áreas de construcción dentro del área de construcción general. Por ejemplo, en el subsitio 1 se podría realizar el trabajo durante las semanas 1 a 4 de la programación y en el subsitio 2 el trabajo se llevaría a cabo durante las semanas 5 a 7. Se pueden cargar todas estas vallas como un único conjunto de datos al principio del proyecto. Estas vallas se pueden utilizar para realizar un seguimiento de las reglas basadas en el tiempo y el espacio. 
+>[!TIP]
+>Puede actualizar los datos de geovallas en cualquier momento. Para más información sobre cómo actualizar los datos, consulte [Data Upload API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 
-Para cargar la geovalla en el sitio de construcción mediante Data Upload API, se va a usar la aplicación Postman. Instale la [aplicación Postman](https://www.getpostman.com/) y cree una cuenta gratuita. 
+1. Abra la aplicación Postman. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Collection** (Colección).  Asigne un nombre a la colección y seleccione el botón **Create** (Crear).
 
-Una vez instalada la aplicación Postman, siga estos pasos para cargar la geovalla del sitio de construcción mediante Data Upload API de Azure Maps.
+2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
 
-1. Abra la aplicación Postman, haga clic en New | Create new (Nuevo | Crear nuevo) y seleccione Request (Solicitud). Escriba un nombre de solicitud para la carga de datos de geovalla, seleccione una colección o carpeta donde guardarlo y haga clic en Save (Guardar).
-
-    ![Carga de geovallas con Postman](./media/tutorial-geofence/postman-new.png)
-
-2. Seleccione el método POST HTTP en la pestaña del generador e introduzca la siguiente URL para realizar una solicitud POST.
+3. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar los datos de geovallas en el servicio Azure Maps. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```HTTP
-    https://atlas.microsoft.com/mapData/upload?subscription-key={subscription-key}&api-version=1.0&dataFormat=geojson
+    https://atlas.microsoft.com/mapData/upload?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=1.0&dataFormat=geojson
     ```
-    
-    El parámetro GEOJSON en la ruta de acceso de la dirección URL representa el formato de datos de los datos que se cargan.
 
-3. Haga clic en **Params** (Parámetros) y escriba los siguientes pares de clave-valor que se usarán para la dirección URL de la solicitud POST. Reemplace {subscription-key} por la clave de suscripción de Azure Maps, también llamada clave principal.
-   
-    ![Parámetros de carga de datos (geovalla) en Postman](./media/tutorial-geofence/postman-key-vals.png)
+    El parámetro _geojson_ en la ruta de acceso de la dirección URL representa el formato de los datos que se cargan.
 
-4. Haga clic en **Body** (Cuerpo), seleccione el formato de entrada sin procesar y elija JSON como formato de entrada en la lista desplegable. Proporcione el siguiente código JSON como datos que se van a cargar:
+4. Haga clic en la pestaña **Cuerpo**. Seleccione **sin formato** y, a continuación, **JSON** como formato de entrada. Copie y pegue los siguientes datos de GeoJSON en el área de texto de **Cuerpo**:
 
    ```JSON
    {
@@ -133,11 +127,11 @@ Una vez instalada la aplicación Postman, siga estos pasos para cargar la geoval
           "properties": {
             "geometryId": "2",
             "validityTime": {
-              "expiredTime": "2019-01-15T00:00:00",
-              "validityPeriod": [
+            "expiredTime": "2022-01-01T00:00:00",
+            "validityPeriod": [
                 {
-                  "startTime": "2019-01-08T01:00:00",
-                  "endTime": "2019-01-08T17:00:00",
+                  "startTime": "2020-07-15T16:00:00",
+                  "endTime": "2020-07-15T24:00:00",
                   "recurrenceType": "Daily",
                   "recurrenceFrequency": 1,
                   "businessDayOnly": true
@@ -150,138 +144,338 @@ Una vez instalada la aplicación Postman, siga estos pasos para cargar la geoval
    }
    ```
 
-5. Haga clic en Send (Enviar) y revise el encabezado de la respuesta. Tras una solicitud correcta, el encabezado **Location** (Ubicación) contendrá el identificador URI de estado. El identificador URI de estado tendrá el siguiente formato. El valor de uploadStatusId no está entre { }. Es una práctica común usar { } para mostrar los valores que el usuario debe especificar o los valores que son diferentes para usuarios diferentes.
+5. Haga clic en el botón azul **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave **Location** (Ubicación), que es `status URL`.
+
+    ```http
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0
+    ```
+
+6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   https://atlas.microsoft.com/mapData/<operationId>/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. Copie el identificador URI de estado y anexe la clave de suscripción. El formato del identificador URI de estado debe ser como el siguiente. Tenga en cuenta que, en el formato siguiente, debería cambiar {subscription-key}, sin incluir las llaves { }, por su clave de suscripción.
+7. Cuando a solicitud HTTP **GET** se completa correctamente, devolverá una `resourceLocation`. El `resourceLocation` contiene el `udid` único para el contenido cargado. Tendrá que guardar este `udid` para consultar Get Geofence API en la última sección de este tutorial. Opcionalmente, puede usar la dirección URL del `resourceLocation` para recuperar los metadatos de este recurso en el siguiente paso.
 
-   ```HTTP
-   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
-   ```
+      ```json
+      {
+          "status": "Succeeded",
+          "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0"
+      }
+      ```
 
-7. Para obtener `udId`, abra una pestaña nueva en la aplicación Postman y seleccione el método GET HTTP en la pestaña del generador. Realice una solicitud GET en el identificador URI de estado del paso anterior. Si la carga de datos se realizó correctamente, recibirá un UDID en el cuerpo de la respuesta. Copie el UDID para su uso posterior.
+8. Para recuperar metadatos de contenido, cree una solicitud HTTP **GET** en la dirección URL `resourceLocation` que se recuperó en el paso 7. Asegúrese de anexar la clave de suscripción principal a la dirección URL para la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
 
-   ```JSON
-   {
-    "status": "Succeeded",
-    "resourceLocation": "https://atlas.microsoft.com/mapData/metadata/{udId}?api-version=1.0"
-   }
-   ```
+    ```http
+   https://atlas.microsoft.com/mapData/metadata/{udid}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    ```
 
-## <a name="set-up-an-event-handler"></a>Configuración de un controlador de eventos
+9. Cuando la solicitud HTTP **GET** se completa correctamente, el cuerpo de la respuesta contendrá el `udid` especificado en el `resourceLocation` del paso 7, la ubicación para obtener acceso o descargar el contenido en el futuro y otros metadatos sobre el contenido, como la fecha de creación o actualización, el tamaño, etc. Un ejemplo de la respuesta general es:
 
-En esta sección, crearemos un controlador de eventos que recibe notificaciones. Este controlador de eventos debe notificar al responsable de operaciones los eventos de entrada y salida de cualquier equipo.
+    ```json
+    {
+        "udid": "{udid}",
+        "location": "https://atlas.microsoft.com/mapData/{udid}?api-version=1.0",
+        "created": "7/15/2020 6:11:43 PM +00:00",
+        "updated": "7/15/2020 6:11:45 PM +00:00",
+        "sizeInBytes": 1962,
+        "uploadStatus": "Completed"
+    }
+    ```
 
-Se crearán dos servicios de [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) para controlar los eventos de entrada y salida. Cuando se desencadenen los eventos de Logic Apps, se desencadenarán más eventos en secuencia. La idea es enviar alertas, en este caso mensajes de correo electrónico, al responsable de operaciones. La siguiente ilustración muestra la creación de una aplicación lógica para el evento de entrada de la geovalla. De forma similar, puede crear otro para el evento de salida. Para más información, puede ver todos los [controladores de eventos admitidos](https://docs.microsoft.com/azure/event-grid/event-handlers).
+## <a name="create-logic-app-workflows"></a>Creación de flujos de trabajo de aplicación lógica
 
-1. Cree una aplicación lógica en Azure Portal, selecciónela en Azure Marketplace y, después, seleccione el botón **Crear**.
+En esta sección, crearemos dos puntos de conexión de [aplicación lógica](https://docs.microsoft.com/azure/event-grid/handler-webhooks#logic-apps) que desencadenarán una notificación por correo electrónico. Le mostraremos cómo crear el primer desencadenador que enviará notificaciones por correo electrónico cada vez que se llame a su punto de conexión.
 
-   ![Creación de aplicaciones lógicas de Azure para controlar eventos de geovalla](./media/tutorial-geofence/logic-app.png)
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
 
-2. En el menú de configuración del servicio de Logic Apps, vaya a **Diseñador de aplicación lógica**.
+2. En la esquina superior izquierda de [Azure Portal](https://portal.azure.com), haga clic en **Crear un recurso**.
 
-3. Agregue el desencadenador de solicitud HTTP y, a continuación, seleccione "Nuevo paso". En el conector de Outlook, seleccione "Enviar un correo electrónico" como una acción.
+3. En el campo *Buscar en el Marketplace*, escriba **Aplicación lógica**.
+
+4. En *Resultados*, seleccione **Aplicación lógica**. Haga clic en el botón **Crear**.
+
+5. En la página **Aplicación lógica**, escriba los valores siguientes:
+    * La *suscripción* que quiere usar para esta aplicación lógica.
+    * El nombre del *grupo de recursos* para esta aplicación lógica. Puede elegir *Crear nuevo* o *Usar existente* para el grupo de recursos.
+    * El *nombre de la aplicación lógica*. En este caso, usaremos `Equipment-Enter` como nombre.
+
+    Para los fines de este tutorial, mantenga la configuración predeterminada del resto de los valores.
+
+    :::image type="content" source="./media/tutorial-geofence/logic-app-create.png" alt-text="Creación de una aplicación lógica":::
+
+6. Haga clic en el botón **Revisar y Crear**. Revise la configuración y haga clic en **Crear** para enviar la implementación. Cuando la implementación se complete correctamente, haga clic en **Ir al recurso**. Se le dirigirá al **Diseñador de aplicación lógica**
+
+7. Ahora, seleccionaremos un tipo de desencadenador. Desplácese un poco hacia abajo hasta la sección *Empezar con un desencadenador común**. Haga clic en **Cuando se recibe una solicitud HTTP**.
+
+     :::image type="content" source="./media/tutorial-geofence/logic-app-trigger.png" alt-text="Creación de una aplicación lógica en un desencadenador HTTP":::
+
+8. Haga clic en **Guardar** en la esquina superior derecha del diseñador. La **dirección URL de HTTP POST** se generará automáticamente. Guarde la dirección URL, ya que la necesitará en la sección siguiente para crear un punto de conexión de evento.
+
+    :::image type="content" source="./media/tutorial-geofence/logic-app-httprequest.png" alt-text="Dirección URL de solicitud HTTP y JSON de la aplicación lógica":::
+
+9. Seleccione **+ Nuevo paso**. Ahora elegiremos una acción. Escriba `outlook.com email` en el cuadro de búsqueda. En la lista **Acciones**, desplácese hacia abajo y haga clic en **Enviar un correo electrónico (V2)** .
   
-   ![Esquema de Logic Apps](./media/tutorial-geofence/logic-app-schema.png)
+    :::image type="content" source="./media/tutorial-geofence/logic-app-designer.png" alt-text="Creación de un diseñador de aplicación lógica":::
 
-4. Rellene los campos para enviar un correo electrónico. Deje la dirección URL HTTP, que se generará automáticamente después de hacer clic en "Guardar".
+10. Inicie sesión en su cuenta de Outlook.com. Asegúrese de hacer clic en **Sí** para permitir que la aplicación lógica acceda a la cuenta. Rellene los campos para enviar un correo electrónico.
 
-   ![Generación de un punto de conexión de Logic Apps](./media/tutorial-geofence/logic-app-endpoint.png)
+    :::image type="content" source="./media/tutorial-geofence/logic-app-email.png" alt-text="Creación de un paso de envío de correo electrónico de la aplicación lógica":::
 
-5. Guarde la aplicación lógica para generar el punto de conexión de la dirección URL HTTP y copie dicha dirección.
+    >[!TIP]
+    > Puede recuperar los datos de respuesta de GeoJSON, como `geometryId` o `deviceId` en las notificaciones de correo electrónico mediante la configuración de la aplicación lógica para leer los datos enviados por Event Grid. Para más información sobre cómo configurar la aplicación lógica para usar y pasar datos de eventos en notificaciones por correo electrónico, consulte [Tutorial: Envío de notificaciones por correo electrónico sobre eventos de Azure IoT Hub mediante Event Grid y Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps).
 
-## <a name="create-an-azure-maps-events-subscription"></a>Creación de una suscripción a eventos de Azure Maps
+11. Haga clic en **Guardar** en la esquina superior izquierda del Diseñador de aplicaciones lógicas.
 
-Azure Maps admite tres tipos de eventos. Puede echar un vistazo a los tipos de eventos de Azure Maps admitidos [aquí](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps). Necesitamos dos suscripciones de eventos diferentes, una para el evento de entrada y otra para los eventos de salida.
+12. Repita los pasos del 3 al 11 para crear una segunda aplicación lógica que notifique al responsable cuando el equipo salga del sitio de construcción. Asigne a la aplicación lógica el nombre `Equipment-Exit`.
 
-Siga estos pasos para crear una suscripción de eventos para los eventos de entrada de la geovalla. Puede suscribirse a eventos de salida de la geovalla de forma similar.
+## <a name="create-azure-maps-events-subscriptions"></a>Creación de suscripciones a eventos de Azure Maps
 
-1. Vaya a su cuenta de Azure Maps. En el panel, seleccione Suscripciones. Haga clic en el nombre de la suscripción y seleccione **Eventos** en el menú de configuración.
+Azure Maps admite tres tipos de eventos. Puede echar un vistazo a los tipos de eventos de Azure Maps admitidos [aquí](https://docs.microsoft.com/azure/event-grid/event-schema-azure-maps).  Tendremos que crear dos suscripciones de eventos diferentes: una para los eventos de entrada de la geovalla y otra para los eventos de salida de la geovalla.
 
-   ![Events (Eventos) en la cuenta de Azure Maps](./media/tutorial-geofence/events-tab.png)
+Siga estos pasos para crear una suscripción de eventos para los eventos de entrada de la geovalla. Para suscribirse a los eventos de salida de la geovalla, puede repetir los pasos de la misma manera.
 
-2. Para crear una suscripción de eventos, seleccione la suscripción de eventos desde la página correspondiente.
+1. Vaya a su cuenta de Azure Maps. En el panel, seleccione **Suscripciones**. Haga clic en el nombre de la suscripción y seleccione **Eventos** en el menú de configuración.
 
-   ![Creación de una suscripción a eventos de Azure Maps](./media/tutorial-geofence/create-event-subscription.png)
+    :::image type="content" source="./media/tutorial-geofence/events-tab.png" alt-text="Vaya a Eventos de la cuenta de Azure Maps":::
 
-3. Asigne un nombre a la suscripción de eventos y suscríbase al tipo de evento de entrada. Ahora, seleccione Webhook como "Tipo de punto de conexión". Haga clic en "Seleccionar un punto de conexión" y copie el punto de conexión de la dirección URL HTTP de la aplicación lógica en "{Endpoint}".
+2. Para crear una suscripción de eventos, seleccione **+ Suscripción de eventos** desde la página correspondiente.
 
-   ![Detalles de la suscripción a Events (Eventos) de Azure Maps](./media/tutorial-geofence/events-subscription.png)
+    :::image type="content" source="./media/tutorial-geofence/create-event-subscription.png" alt-text="Creación de una suscripción a eventos de Azure Maps":::
 
+3. En la página **Crear suscripción de eventos**, escriba los siguientes valores:
+    * El *nombre* de la suscripción de eventos.
+    * El *esquema de eventos*  debe ser *Esquema de Event Grid*.
+    * El *nombre de tema del sistema* para esta suscripción de eventos. En este caso, usaremos `Contoso-Construction`.
+    * En el *filtro para tipos de evento*, elija `Geofence Entered` como tipo de evento.
+    * En *Tipo de punto de conexión*, elija `Web Hook`.
+    * En *Punto de conexión*, copie la dirección URL de HTTP POST para el punto de conexión de entrada de la aplicación lógica que creó en la sección anterior. Si olvidó guardarlo, simplemente puede volver al diseñador de aplicaciones lógicas y copiarlo desde el paso del desencadenador de HTTP.
 
-## <a name="use-geofence-api"></a>Uso de Geofence API
+    :::image type="content" source="./media/tutorial-geofence/events-subscription.png" alt-text="Detalles de la suscripción a eventos de Azure Maps":::
 
-Puede usar Geofence API para comprobar si un **dispositivo** (en este caso, un equipo) está dentro o fuera de una geovalla. Vamos a realizar una consulta a Geofence GET API en diferentes ubicaciones donde un equipo determinado se ha movido con el tiempo. En la figura siguiente se muestran cinco ubicaciones con cinco equipos de construcción. 
+4. Haga clic en **Crear**.
 
-> [!Note]
-> El escenario y el comportamiento se basan en el mismo **id. de dispositivo**, de modo que se reflejan las cinco ubicaciones diferentes como en la siguiente ilustración.
+5. Repita los pasos 1 a 4 para el punto de conexión de salida de la aplicación lógica que creó en la sección anterior. En el paso 3, asegúrese de elegir `Geofence Exited` como tipo de evento.
 
-"deviceId" es un identificador único que se proporciona para el dispositivo en la solicitud GET, al consultar su ubicación. Cuando realiza una solicitud asincrónica a la **geovalla de búsqueda - GET API**, "deviceId" ayuda a publicar eventos de geovalla para ese dispositivo, con respecto a la geovalla especificada. En este tutorial, hemos realizado solicitudes asincrónicas a la API con un "deviceId" único. Las solicitudes del tutorial se realizan en orden cronológico, como en el diagrama. La propiedad "isEventPublished" de la respuesta se publica siempre que un dispositivo entra o sale de la geovalla. No es necesario registrar un dispositivo para continuar con este tutorial.
+## <a name="use-search-geofence-get-api"></a>Uso de Search Geofence Get API
 
-Vuelva a examinar el diagrama. Cada una de estas cinco ubicaciones se utiliza para evaluar el cambio de estado de entrada y salida de la geovalla frente a la misma. Si se produce un cambio de estado, el servicio de geovalla desencadena un evento, que envía Event Grid a la aplicación lógica. Como resultado, el responsable de operaciones recibirá la correspondiente notificación de entrada o salida por correo electrónico.
+Ahora, usaremos [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) para enviar notificaciones por correo electrónico al responsable de operaciones cuando un miembro del equipo entre o salga de las geovallas.
+
+Cada equipo tiene un `deviceId`. En este tutorial, vamos a realizar un seguimiento de un solo equipo, cuyo identificador único es `device_1`.
+
+Para mayor claridad, en el siguiente diagrama se muestran las cinco ubicaciones del equipo a lo largo del tiempo, empezando por la ubicación de *inicio*, que se encuentra fuera de las geovallas. Para los fines de este tutorial, la ubicación de *inicio* no está definida, ya que no se consultará el dispositivo en esa ubicación.
+
+Cuando se realice una consulta a [Search Geofence Get API](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una ubicación de equipo que indica la entrada o salida de la geovalla inicial, Event Grid llamará al punto de conexión de la aplicación lógica adecuado para enviar una notificación por correo electrónico al responsable de operaciones.
+
+En cada una de las secciones siguientes se realizan solicitudes HTTP a GET Geofencing API con las cinco coordenadas de ubicación diferentes del equipo.
 
 ![Mapa de geovallas en Azure Maps](./media/tutorial-geofence/geofence.png)
 
-En la aplicación Postman, abra una nueva pestaña en la misma colección que ha creado anteriormente. Seleccione el método GET HTTP en la pestaña del generador:
+### <a name="equipment-location-1-47638237-122132483"></a>Ubicación del equipo 1 (47,638237,-122,132483)
 
-A continuación se presentan cinco solicitudes HTTP GET de Geofence API, con diferentes coordenadas de ubicación del equipo. Las coordenadas se observan en orden cronológico. Cada solicitud va seguida por el cuerpo de la respuesta.
- 
-1. Ubicación 1:
-    
+1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud).  Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Usaremos el nombre *Ubicación 1*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+
+2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data).
+
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-   ![Consulta de la geovalla 1](./media/tutorial-geofence/geofence-query1.png)
 
-   En la respuesta anterior, la distancia negativa desde la geovalla principal significa que el equipo está dentro de la geovalla. La distancia positiva desde la geovalla del subsitio significa que el equipo está fuera de la geovalla del subsitio. 
+3. Haga clic en el botón **Enviar**. El siguiente GeoJSON aparecerá en la ventana de respuesta.
 
-2. Ubicación 2: 
-   
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_1",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.638291,
+          "nearestLon": -122.132483
+        },
+        {
+          "deviceId": "device_1",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": 999.0,
+          "nearestLat": 47.638053,
+          "nearestLon": -122.13295
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ```
+
+4. En la respuesta anterior de GeoJSON, la distancia negativa desde la geovalla del sitio principal significa que el equipo está dentro de la geovalla. La distancia positiva desde la geovalla del subsitio significa que el equipo está fuera de la geovalla del subsitio. Como es la primera vez que este dispositivo se encuentra dentro de la geovalla del sitio principal, el parámetro `isEventPublished` se establece en `true` y el responsable de operaciones habrá recibido una notificación por correo electrónico que indica que el equipo ha entrado en la geovalla.
+
+### <a name="location-2-4763800-122132531"></a>Ubicación 2 (47,63800,-122,132531)
+
+1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud).  Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Usaremos el nombre *Ubicación 2*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+
+2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data).
+
    ```HTTP
    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
-    
-   ![Consulta de la geovalla 2](./media/tutorial-geofence/geofence-query2.png)
 
-   Si se observa cuidadosamente la respuesta anterior de JSON, el equipo está fuera del subsitio, pero dentro de la valla principal. No se desencadena ningún evento y no se envía ningún correo electrónico.
+3. Haga clic en el botón **Enviar**. El siguiente GeoJSON aparecerá en la ventana de respuesta:
 
-3. Ubicación 3: 
-  
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.637997,
+          "nearestLon": -122.132399
+        },
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": 999.0,
+          "nearestLat": 47.63789,
+          "nearestLon": -122.132809
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": false
+    }
+    ````
 
-   ![Consulta de la geovalla 3](./media/tutorial-geofence/geofence-query3.png)
+4. En la respuesta de GeoJSON anterior, el equipo permaneció en la geovalla del sitio principal y no entró en la geovalla del sitio secundario. Como resultado, el parámetro `isEventPublished` se establece en `false` y el responsable de operaciones no recibirá ninguna notificación por correo electrónico.
 
-   Se ha producido un cambio de estado y ahora el equipo se encuentra dentro de las geovallas principal y secundaria. Este cambio hace que se publique un evento y que se envíe un correo electrónico de notificación al responsable de operaciones.
+### <a name="location-3-4763810783315048-12213336020708084"></a>Ubicación 3 (47,63810783315048,-122,13336020708084)
 
-4. Ubicación 4: 
+1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud).  Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Usaremos el nombre *Ubicación 3*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
 
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
-  
-   ![Consulta de la geovalla 4](./media/tutorial-geofence/geofence-query4.png)
+2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data).
 
-   Al observar atentamente la respuesta correspondiente, se puede observar que aquí no se publica ningún evento a pesar de que el equipo haya salido de la geovalla del subsitio. Si se observa la hora especificada por el usuario en la solicitud GET, se puede ver que la geovalla del subsitio ha expirado en relación a esta hora. El equipo todavía sigue en la geovalla principal. También puede ver el identificador de geometría de la geovalla del subsitio en `expiredGeofenceGeometryId` en el cuerpo de respuesta.
+    ```HTTP
+      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+      ```
 
+3. Haga clic en el botón **Enviar**. El siguiente GeoJSON aparecerá en la ventana de respuesta:
 
-5. Ubicación 5:
-      
-   ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-   ```
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.638294,
+          "nearestLon": -122.133359
+        },
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "2",
+          "distance": -999.0,
+          "nearestLat": 47.638161,
+          "nearestLon": -122.133549
+        }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ````
 
-   ![Consulta de la geovalla 5](./media/tutorial-geofence/geofence-query5.png)
+4. En la respuesta de GeoJSON anterior, el equipo permaneció en la geovalla del sitio principal, pero ha entrado en la geovalla del sitio secundario. Como resultado, el parámetro `isEventPublished` se establece en `true` y el responsable de operaciones recibirá una notificación por correo electrónico que indica que el equipo ha entrado en una geovalla.
 
-   Puede ver que el equipo ha salido de la geovalla del sitio de construcción principal. Se publicará un evento y se enviará un correo electrónico de alerta al responsable de operaciones.
+    >[!NOTE]
+    >Si el equipo ha entrado en el sitio secundario después del horario laboral, no se publicará ningún evento y el responsable de operaciones no recibirá ninguna notificación.  
+
+### <a name="location-4-47637988-1221338344"></a>Ubicación 4 (47,637988,-122,1338344)
+
+1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud).  Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Usaremos el nombre *Ubicación 4*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+
+2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data).
+
+    ```HTTP
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
+
+3. Haga clic en el botón **Enviar**. El siguiente GeoJSON aparecerá en la ventana de respuesta:
+
+    ```json
+    {
+      "geometries": [
+        {
+          "deviceId": "device_01",
+          "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+          "geometryId": "1",
+          "distance": -999.0,
+          "nearestLat": 47.637985,
+          "nearestLon": -122.133907
+        }
+      ],
+      "expiredGeofenceGeometryId": [
+        "2"
+      ],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": false
+    }
+    ````
+
+4. En la respuesta de GeoJSON anterior, el equipo permaneció en la geovalla del sitio principal, pero ha salido de la geovalla del sitio secundario. Sin embargo, si observa, el valor `userTime` está después de `expiredTime`, tal y como se define en los datos de geovalla. Como resultado, el parámetro `isEventPublished` se establece en `false` y el responsable de operaciones no recibirá una notificación por correo electrónico.
+
+### <a name="location-547637988-1221338344"></a>Ubicación 5 (47,637988,-122,1338344)
+
+1. Cerca de la parte superior de la aplicación Postman, seleccione**New** (Nuevo). En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud).  Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Usaremos el nombre *Ubicación 4*. Seleccione la colección que creó en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data) y, después, seleccione **Save** (Guardar).
+
+2. Seleccione el método HTTP **GET** en la pestaña del generador y escriba la dirección URL siguiente. Asegúrese de reemplazar `{Azure-Maps-Primary-Subscription-key}` por la clave de suscripción principal y `{udid}` por el `udid` guardado en la [sección Carga de datos GeoJSON de geovalla](#upload-geofencing-geojson-data).
+
+    ```HTTP
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    ```
+
+3. Haga clic en el botón **Enviar**. El siguiente GeoJSON aparecerá en la ventana de respuesta:
+
+    ```json
+    {
+      "geometries": [
+      {
+        "deviceId": "device_01",
+        "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+        "geometryId": "1",
+        "distance": -999.0,
+        "nearestLat": 47.637985,
+        "nearestLon": -122.133907
+      },
+      {
+        "deviceId": "device_01",
+        "udId": "64f71aa5-bbee-942d-e351-651a6679a7da",
+        "geometryId": "2",
+        "distance": 999.0,
+        "nearestLat": 47.637945,
+        "nearestLon": -122.133683
+      }
+      ],
+      "expiredGeofenceGeometryId": [],
+      "invalidPeriodGeofenceGeometryId": [],
+      "isEventPublished": true
+    }
+    ````
+
+4. En la respuesta de GeoJSON anterior, el equipo ha salido de la geovalla del sitio principal. Como resultado, el parámetro `isEventPublished` se establece en `true` y el responsable de operaciones recibirá una notificación por correo electrónico que indica que el equipo ha salido de una geovalla.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido cómo configurar una geovalla al cargarla en Azure Maps y un servicio de datos mediante Data Upload API. También ha aprendido a usar Event Grid de Azure Maps para suscribirse y controlar los eventos de la geovalla. 
+> [!div class="nextstepaction"]
+> [Administración de tipos de contenido en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type)
 
-* Consulte [Control de tipos de contenido en Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-content-type), para obtener información sobre cómo usar Logic Apps para analizar JSON y crear una lógica más compleja.
-* Para más información acerca de los controladores de eventos de Event Grid, consulte [Controladores de eventos de Azure Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).
+> [!div class="nextstepaction"]
+> [Envío de notificaciones por correo electrónico mediante Event Grid y Logic Apps](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps)
+
+> [!div class="nextstepaction"]
+> [Controladores de eventos admitidos en Event Grid](https://docs.microsoft.com/azure/event-grid/event-handlers).

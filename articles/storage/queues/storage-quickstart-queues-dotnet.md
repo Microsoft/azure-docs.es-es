@@ -3,23 +3,20 @@ title: 'Inicio rápido: Biblioteca de Azure Queue Storage v12 para .NET'
 description: Aprenda a usar la biblioteca de Azure Queue v12 para .NET para crear una cola y agregar mensajes a la cola. A continuación, aprenderá a leer y eliminar los mensajes de la cola. También aprenderá a eliminar una cola.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 11/22/2019
+ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 5931311368a6389386adb689a505feeeed03b29c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78197494"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289189"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para .NET
 
 Comience a trabajar con la biblioteca cliente de Azure Queue Storage versión 12 para .NET. Azure Queue Storage es un servicio para almacenar grandes cantidades de mensajes para su posterior recuperación y procesamiento. Siga estos pasos para instalar el paquete y probar el código de ejemplo para realizar tareas básicas.
-
-> [!NOTE]
-> Para empezar a trabajar con la versión anterior del SDK, consulte [Inicio rápido: Use el SDK de Azure Storage v11 para .NET para administrar una cola](storage-quickstart-queues-dotnet-legacy.md).
 
 Use la biblioteca cliente de Azure Queue Storage v12 para .NET para realizar lo siguiente:
 
@@ -31,9 +28,14 @@ Use la biblioteca cliente de Azure Queue Storage v12 para .NET para realizar lo
 * Eliminación de mensajes de una cola
 * Eliminación de una cola
 
-[Documentación de referencia de la API](/dotnet/api/azure.storage.queues) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Recursos adicionales:
 
-## <a name="prerequisites"></a>Prerrequisitos
+* [Documentación de referencia de API](/dotnet/api/azure.storage.queues)
+* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues)
+* [Paquete (NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0)
+* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

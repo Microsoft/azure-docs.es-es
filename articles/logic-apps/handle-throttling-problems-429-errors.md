@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: fbfd52065bc0522668488492de2181f252f86a4e
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272685"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086447"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Solución de problemas de limitación (429 - "Demasiadas solicitudes") en Azure Logic Apps
 
@@ -77,7 +77,7 @@ Para controlar la limitación en este nivel, tiene estas opciones:
 
 ## <a name="connector-throttling"></a>Limitación de conectores
 
-Cada conector tiene sus propios límites de en cuanto a la limitación, que puede encontrar en la página de referencia técnica del conector. Por ejemplo, el [conector de Azure Service Bus](https://docs.microsoft.com/connectors/servicebus/) tiene un límite para la limitación que permite hasta 6000 llamadas por minuto, mientras que el conector de SQL Server tiene [límites para la limitación que varían en función del tipo de operación](https://docs.microsoft.com/connectors/sql/).
+Cada conector tiene sus propios límites de en cuanto a la limitación, que puede encontrar en la página de referencia técnica del conector. Por ejemplo, el [conector de Azure Service Bus](/connectors/servicebus/) tiene un límite para la limitación que permite hasta 6000 llamadas por minuto, mientras que el conector de SQL Server tiene [límites para la limitación que varían en función del tipo de operación](/connectors/sql/).
 
 Algunos desencadenadores y acciones, como HTTP, tienen una ["directiva de reintentos"](../logic-apps/logic-apps-exception-handling.md#retry-policies) que puede personalizar en función de los [límites de la directiva de reintentos ](../logic-apps/logic-apps-limits-and-config.md#retry-policy-limits) para implementar el control de excepciones. Esta directiva especifica si un desencadenador o una acción reintenta una solicitud cuando se produce un error en la solicitud original o se agota el tiempo de espera y se genera una respuesta 408, 429 o 5xx, y con qué frecuencia. Por lo tanto, cuando se inicia la limitación y se devuelve un error 429, Logic Apps sigue la directiva de reintentos si se admite.
 

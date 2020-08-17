@@ -11,16 +11,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: juliako
-ms.openlocfilehash: 9c80056fd62173ff1e5a6ed3979adba71b7706cc
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: 30164e1af1948f86c68e102f4d348674ea931e7b
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80582760"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87544020"
 ---
 # <a name="streaming-policies"></a>Directivas de streaming
 
-En Azure Media Services v3, las [directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Media Services v3 proporciona algunas directivas de streaming predefinidas para que se pueden usar directamente en la versión de prueba o en producción. 
+En Azure Media Services v3, las [directivas de streaming](/rest/api/media/streamingpolicies) permiten definir los protocolos de streaming y las opciones de cifrado de los [localizadores de streaming](streaming-locators-concept.md). Media Services v3 proporciona algunas directivas de streaming predefinidas para que se pueden usar directamente en la versión de prueba o en producción. 
 
 Las directivas de streaming predefinidas que están disponibles actualmente son:<br/>
 * 'Predefined_DownloadOnly'
@@ -40,15 +40,15 @@ El siguiente árbol de decisión le ayudará a elegir una directiva predefinida 
 
 Haga clic en la imagen para verla a tamaño completo.  
 
-<a href="./media/streaming-policy/large.png" target="_blank"><img src="./media/streaming-policy/large.png"></a> 
+[![Diagrama que muestra un árbol de decisión diseñado para ayudarle a elegir una directiva predefinida de streaming para su escenario.](./media/streaming-policy/large.png)](./media/streaming-policy/large.png#lightbox)
 
 Si cifra el contenido, deberá crear una [directiva de clave de contenido](content-key-policy-concept.md); la **directiva de clave de contenido** no es necesaria para la descarga o el streaming sin cifrar. 
 
-Si tiene requisitos especiales (por ejemplo, si desea especificar protocolos diferentes, tiene que usar un servicio de entrega de claves personalizadas o una pista de audio sin cifrar), puede [crear](https://docs.microsoft.com/rest/api/media/streamingpolicies/create) una directiva personalizada de streaming. 
+Si tiene requisitos especiales (por ejemplo, si desea especificar protocolos diferentes, tiene que usar un servicio de entrega de claves personalizadas o una pista de audio sin cifrar), puede [crear](/rest/api/media/streamingpolicies/create) una directiva personalizada de streaming. 
 
 ## <a name="get-a-streaming-policy-definition"></a>Obtención de la definición de una directiva de streaming  
 
-Si desea ver la definición de una directiva de streaming, utilice [Get](https://docs.microsoft.com/rest/api/media/streamingpolicies/get) y especifique el nombre de la directiva. Por ejemplo:
+Si desea ver la definición de una directiva de streaming, utilice [Get](/rest/api/media/streamingpolicies/get) y especifique el nombre de la directiva. Por ejemplo:
 
 ### <a name="rest"></a>REST
 

@@ -1,6 +1,6 @@
 ---
 title: 'Validación de entrada: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
-description: mitigaciones para amenazas expuestas en Threat Modeling Tool
+description: Más información sobre la validación de entradas en Threat Modeling Tool. Consulte la información de mitigación y los ejemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8e597fb9208430b8da447768608c48edef049d83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5782c8b96534722a1e03ce619504e513a1c5e048
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83653110"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87539805"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Marco de seguridad: Validación de entrada | Mitigaciones 
 | Producto o servicio | Artículo |

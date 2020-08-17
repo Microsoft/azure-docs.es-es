@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: c0008ab89f4599e2ada51b5637a9665a249bc1c4
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 360af0406a816a02540881962ed8794d69ce3bbb
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85340839"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87531819"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Inicio rápido: Creación y administración de un recurso compartido de archivos de Azure con Azure PowerShell 
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) con PowerShell. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -88,7 +88,7 @@ En la mayoría de los casos, usará el recurso compartido de archivos de Azure a
 - Se quieren aprovechar las ventajas de los recursos sin servidor, como [Azure Functions](../../azure-functions/functions-overview.md). 
 - Va a crear un servicio de valor agregado que interactuará con muchos recursos compartidos de archivos de Azure, como la realización de análisis antivirus o de copias de seguridad.
 
-En los ejemplos siguientes se muestra cómo usar el módulo de Azure PowerShell para manipular el recurso compartido de archivos de Azure con el protocolo REST de archivo. El parámetro `-Context` se usa para recuperar la clave de la cuenta de almacenamiento con el fin de realizar las acciones indicadas en el recurso compartido de archivos. Para recuperar la clave de la cuenta de almacenamiento, tiene que tener el rol de RBAC de `Owner` en la cuenta de almacenamiento.
+En los ejemplos siguientes se muestra cómo usar el módulo de Azure PowerShell para manipular el recurso compartido de archivos de Azure con el protocolo REST de archivo. El parámetro `-Context` se usa para recuperar la clave de la cuenta de almacenamiento con el fin de realizar las acciones indicadas en el recurso compartido de archivos. Para recuperar la clave de la cuenta de almacenamiento, es preciso tener el rol de Azure de `Owner` en la cuenta de almacenamiento.
 
 #### <a name="create-directory"></a>Creación del directorio
 Para crear un nuevo directorio denominado *myDirectory* en la raíz del recurso compartido de archivos de Azure, use el cmdlet [New-AzStorageDirectory](/powershell/module/az.storage/New-AzStorageDirectory).

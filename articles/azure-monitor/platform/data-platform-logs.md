@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 4e5d4af74ab54479a49963369cb99dbc19fca848
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 413616034dfe7d1f13612ba12ba86014af62c704
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505285"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325634"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -42,14 +42,14 @@ En la tabla siguiente se enumeran las distintas formas en que se pueden usar los
 |  | Descripción |
 |:---|:---|
 | **Análisis** | Use [Log Analytics](../log-query/get-started-portal.md) en Azure Portal para escribir [consultas de registros](../log-query/log-query-overview.md) y analizar los datos de registro de forma interactiva mediante el potente motor de análisis de Data Explorer.<br>Use la [consola de análisis de Application Insights](../log-query/log-query-overview.md) en Azure Portal para escribir consultas de registros y analizar de forma interactiva los datos de registro desde Application Insights. |
-| **Visualizar** | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](../platform/workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
+| **Visualizar** | Ancle los resultados representados como tablas o gráficos a un [panel de Azure](../../azure-portal/azure-portal-dashboards.md).<br>Cree un [libro](./workbooks-overview.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exporte los resultados de una consulta a [Grafana](grafana-plugin.md) para aprovechar sus paneles y combinar con otros orígenes de datos.|
 | **Alerta** | Configurar un [regla de alerta de registro](alerts-log.md) que envíe una notificación o realice [una acción automatizada](action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto.<br>Configure una [regla de alerta de métrica](alerts-metric-logs.md) en determinados registros de datos de registro extraídos como métricas. |
 | **Recuperar** | Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante la [CLI de Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Obtenga acceso a los resultados de la consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](/powershell/module/az.operationalinsights).<br>Obtenga acceso a los resultados de la consulta de registro de una aplicación personalizada con la [API REST](https://dev.loganalytics.io/). |
-| **Exportarar** | Cree un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](~/articles/logic-apps/index.yml). |
+| **Exportarar** | Cree un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](../../logic-apps/index.yml). |
 
 
 ## <a name="how-is-data-in-azure-monitor-logs-structured"></a>¿Cómo se estructuran los registros de Azure Monitor?
-Los datos recopilados por los registros de Azure Monitor se almacenan en un [área de trabajo de Log Analytics](../platform/design-logs-deployment.md). Cada área de trabajo contiene varias tablas que almacenan datos desde un origen determinado. Aunque todas las tablas comparten [algunas propiedades comunes](log-standard-properties.md), cada una tiene un único conjunto de propiedades que dependen del tipo de datos que almacena. Una nueva área de trabajo tendrá un conjunto estándar de tablas, y las diferentes soluciones de supervisión y otros servicios que escriben en el área de trabajo agregarán más tablas.
+Los datos recopilados por los registros de Azure Monitor se almacenan en un [área de trabajo de Log Analytics](./design-logs-deployment.md). Cada área de trabajo contiene varias tablas que almacenan datos desde un origen determinado. Aunque todas las tablas comparten [algunas propiedades comunes](log-standard-properties.md), cada una tiene un único conjunto de propiedades que dependen del tipo de datos que almacena. Una nueva área de trabajo tendrá un conjunto estándar de tablas, y las diferentes soluciones de supervisión y otros servicios que escriben en el área de trabajo agregarán más tablas.
 
 Los datos de registro de Application Insights utilizan el mismo motor de Log Analytics como áreas de trabajo, pero se almacenan por separado para cada aplicación supervisada. Cada aplicación tiene un conjunto estándar de tablas para almacenar datos, como solicitudes de aplicación, excepciones y vistas de página.
 
@@ -133,3 +133,4 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 - Más información sobre la [plataforma de datos de Azure Monitor](data-platform.md).
 - Obtenga más información acerca de las [métricas en Azure Monitor](data-platform-metrics.md).
 - Obtenga información sobre la [supervisión de datos disponible](data-sources.md) para diferentes recursos en Azure.
+

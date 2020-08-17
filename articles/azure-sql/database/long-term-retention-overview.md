@@ -12,16 +12,18 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 992ad40d343fcc85b6c7c8fe0ed8b083a5b08238
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4b2324c480ef81ef241f4d639c22c2ed4dd1545b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84344516"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808854"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retención a largo plazo: Azure SQL Database y Azure SQL Managed Instance
 
-Muchas aplicaciones tienen finalidades normativas, de cumplimiento u otras de carácter empresarial que requieren la conservación de las copias de seguridad de las bases de datos más allá del período de entre 7 y 35 días que ofrecen las [copias de seguridad automáticas](automated-backups-overview.md) de Azure SQL Database e Instancia administrada de Azure SQL. Con la característica Retención a largo plazo (LTR), puede almacenar copias de seguridad completas de SQL Database e Instancia administrada de SQL en Azure Blob Storage con almacenamiento con redundancia geográfica con acceso de lectura durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva. Para más información sobre la redundancia de Azure Storage, consulte [Redundancia de Azure Storage](../../storage/common/storage-redundancy.md). 
+Muchas aplicaciones tienen finalidades normativas, de cumplimiento u otras de carácter empresarial que requieren la conservación de las copias de seguridad de las bases de datos más allá del período de entre 7 y 35 días que ofrecen las [copias de seguridad automáticas](automated-backups-overview.md) de Azure SQL Database e Instancia administrada de Azure SQL. Con la característica Retención a largo plazo (LTR), puede almacenar copias de seguridad completas de SQL Database e Instancia administrada de SQL en Azure Blob Storage con almacenamiento con redundancia geográfica con acceso de lectura durante un máximo de 10 años. Así, podrá restaurar cualquier copia de seguridad como si fuera una base de datos nueva.
+
+Además, SQL Managed Instance presenta la [redundancia del almacenamiento de copia de seguridad configurable](automated-backups-overview.md#backup-storage-redundancy), que ofrece la flexibilidad de elegir entre [blobs de almacenamiento](../../storage/common/storage-redundancy.md) con redundancia local (LRS), con redundancia de zona (ZRS) o con redundancia geográfica (RA-GRS). Esta opción solo está disponible actualmente durante el proceso de creación de la instancia administrada y no se puede cambiar una vez que se ha aprovisionado el recurso.
 
 La retención a largo plazo se puede habilitar para Azure SQL Database y se encuentra en versión preliminar pública limitada para Instancia administrada de Azure SQL. En este artículo se proporciona información general conceptual de la retención a largo plazo. Para configurar la retención a largo plazo, consulte [Configuración de la retención a largo plazo en Azure SQL Database](long-term-backup-retention-configure.md) y [Configuración de retención a largo plazo en Instancia administrada de Azure SQL](../managed-instance/long-term-backup-retention-configure.md). 
 

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 8be8ffa1b569c365c8fa9b985d2b8319b7c0731b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: faef2721b48ffab12264c585d2dec55ab9334016
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86249842"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015296"
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Uso del control de acceso basado en rol en Azure API Management
 
-Azure API Management utiliza el control de acceso basado en rol (RBAC) de Azure para permitir que pueda hacerse una administración de acceso detallada en servicios y entidades de API Management (por ejemplo, API y directivas). En este artículo se proporciona información general de los roles integrados y personalizados en API Management. Para más información sobre la administración de acceso en Azure Portal, consulte la [introducción sobre la administración de acceso en Azure Portal](../role-based-access-control/overview.md).
+Azure API Management se basa en el control de acceso basado en rol (RBAC) de Azure para permitir una administración de acceso pormenorizada de servicios y entidades de API Management (por ejemplo, API y directivas). En este artículo se proporciona información general de los roles integrados y personalizados en API Management. Para más información sobre la administración de acceso en Azure Portal, consulte la [introducción sobre la administración de acceso en Azure Portal](../role-based-access-control/overview.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

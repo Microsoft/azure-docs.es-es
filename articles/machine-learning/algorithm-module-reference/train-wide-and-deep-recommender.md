@@ -1,5 +1,5 @@
 ---
-title: Puntuación del modelo de imagen
+title: Uso del módulo Train Wide & Deep Recommender
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar el módulo Train Wide & Deep Recommender.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: 2ac5e5874ebb34b68cbfe8be1986852c67b97c21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84739796"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420896"
 ---
 # <a name="train-wide--deep-recommender"></a>Train Wide & Deep Recommender
 En este artículo se describe cómo usar el módulo **Aprenda a usar el módulo Train Wide & Deep Recommender.** de Azure Machine Learning Designer (versión preliminar) para entrenar un modelo de recomendación. Este módulo se basa en el aprendizaje ancho y profundo que ofrece Google.
@@ -105,7 +105,7 @@ Por ejemplo, un conjunto típico de características del elemento puede tener el
 
     Este hiperparámetro determina el tamaño del paso en cada paso del entrenamiento mientras se desplaza hacia una función de pérdida mínima. Una tasa de aprendizaje demasiado grande puede provocar que el aprendizaje pase por alto los mínimos, mientras que una tasa de aprendizaje demasiado pequeña puede provocar un problema de convergencia.
 
-7.  **Dimensión de características cruzadas**: escriba la dimensión de la característica cruzada de los identificadores de usuario y de elemento. 
+7.  **Dimensión de características cruzadas**: Escriba la dimensión indicando los identificadores de usuario y las características de identificador de elemento deseados. 
 
     El recomendador Wide & Deep realiza de forma predeterminada una transformación entre productos con las características de identificador de usuario y de elemento. Al resultado cruzado se le aplicará el algoritmo hash según este número para garantizar la dimensión.
 

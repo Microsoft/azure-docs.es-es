@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 5c598807f36000a18211e32eba53220bfbeea2f7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 1a8ce0bc94c61a0cfe6cdad11375763ba954957d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108724"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88122309"
 ---
 ### <a name="verify-that-a-container-is-running"></a>Compruebe que haya un contenedor en ejecución
 
@@ -37,4 +37,4 @@ Hay varias direcciones URL que también puede usar para comprobar que el contene
 |`http://localhost:5000/swagger`|Mediante esta dirección URL, el contenedor cuenta con un completo conjunto de documentación sobre los puntos de conexión y con una característica `Try it now`. Esta característica le permite especificar la configuración en un formulario HTML basado en web y realizar la consulta sin necesidad de escribir código. Una vez que la consulta devuelve resultados, se proporciona un ejemplo del comando CURL para mostrar los encabezados HTTP y el formato de cuerpo requeridos. |
 |`http://localhost:5000/demo`| Solicitada mediante un explorador, esta característica proporciona una visualización interactiva de los resultados de las consultas de ejemplos de texto de entrada o uno que proporcione.  |
 
-Use esta dirección URL de solicitud (`http://localhost:5000/text/analytics/v3.0-preview.1/domains/health`) para enviar una consulta al contenedor.
+Use esta dirección URL de solicitud (`http://localhost:5000/text/analytics/v3.2-preview.1/entities/health`) para enviar una consulta al contenedor.

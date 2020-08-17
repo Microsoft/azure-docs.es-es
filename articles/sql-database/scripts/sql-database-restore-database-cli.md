@@ -4,19 +4,19 @@ description: Script de ejemplo de la CLI de Azure para restaurar una base de dat
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
-ms.custom: ''
+ms.custom: devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 03/27/2019
-ms.openlocfilehash: c33191097afc54189df1099a2d13f606e1516e54
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 363278e0b9969dad652dd00debe4ffc0138e9a97
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022631"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503793"
 ---
 # <a name="use-cli-to-restore-a-single-database-in-azure-sql-database-to-an-earlier-point-in-time"></a>Uso de la CLI para restaurar una base de datos única de Azure SQL Database a un momento anterior
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| | |
+| Get-Help | Descripción |
 |---|---|
 | [az sql db restore](/cli/azure/sql/db#az-sql-db-restore) | Comando de restauración de base de datos. |
 

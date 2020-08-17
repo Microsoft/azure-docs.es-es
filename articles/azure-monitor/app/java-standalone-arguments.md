@@ -3,12 +3,13 @@ title: 'Supervisión de aplicaciones Java en ejecución en cualquier entorno: Ap
 description: Supervisión de rendimiento de aplicaciones para aplicaciones Java que se ejecutan en cualquier entorno con el agente independiente de Java sin instrumentar la aplicación. Seguimiento distribuido y mapa de aplicación.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 527f1eaf04be7b5e8c89c12912a06d2f5d50321f
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.custom: devx-track-java
+ms.openlocfilehash: b1a23c01fdf8a0145c26b709f36709a7b710103f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82508044"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374310"
 ---
 # <a name="configuring-jvm-args-java-standalone-agent-for-azure-monitor-application-insights"></a>Configuración de los argumentos de JVM del agente independiente de Java para Application Insights de Azure Monitor
 
@@ -16,7 +17,7 @@ ms.locfileid: "82508044"
 
 ## <a name="azure-environments"></a>Entornos de Azure
 
-Configure [App Services](https://docs.microsoft.com/azure/app-service/configure-language-java#set-java-runtime-options).
+Configure [App Services](../../app-service/configure-language-java.md#set-java-runtime-options).
 
 ## <a name="spring-boot"></a>Spring Boot
 

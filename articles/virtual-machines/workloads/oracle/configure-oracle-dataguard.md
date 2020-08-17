@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2018
 ms.author: rogardle
-ms.openlocfilehash: 2b0b85792fe1266d2ec6478561193ef0c80ac98f
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c6b064df1fe8943f9202446fb2857d50bcb4e0e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224305"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083385"
 ---
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementación de Oracle Data Guard en una máquina virtual Linux en Azure 
 
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. En este artículo se describe cómo usar la CLI de Azure para implementar una base de datos de Oracle Database 12c desde una imagen de la imagen de Azure Marketplace. Por lo tanto, este artículo le muestra paso a paso cómo instalar y configurar Data Guard en una máquina virtual (VM) de Azure.
 
-Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para obtener más información, vea la [guía de instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Antes de comenzar, asegúrese de que esté instalada la CLI de Azure. Para obtener más información, vea la [guía de instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="prepare-the-environment"></a>Preparación del entorno
 ### <a name="assumptions"></a>Supuestos
@@ -57,7 +57,7 @@ az group create --name myResourceGroup --location westus
 
 ### <a name="create-an-availability-set"></a>Crear un conjunto de disponibilidad
 
-La creación de un conjunto de disponibilidad es opcional, pero es recomendable. Para más información, consulte las [directrices de conjuntos de disponibilidad de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines).
+La creación de un conjunto de disponibilidad es opcional, pero es recomendable. Para más información, consulte las [directrices de conjuntos de disponibilidad de Azure](../../windows/infrastructure-example.md).
 
 ```azurecli
 az vm availability-set create \

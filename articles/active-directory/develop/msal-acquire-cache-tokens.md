@@ -13,12 +13,12 @@ ms.date: 05/28/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bdf9c1ce36921076ab79b2ca501bf008eddfe375
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 47af4015fa5c6d9a73ee597146890a29b4b9ef9d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194049"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119902"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>Adquisición y almacenamiento en caché de tokens con la biblioteca de autenticación de Microsoft (MSAL)
 
@@ -30,7 +30,7 @@ También puede borrar la memoria caché de tokens, lo cual se consigue mediante 
 
 ## <a name="scopes-when-acquiring-tokens"></a>Ámbitos al adquirir tokens
 
-Los [ámbitos](v2-permissions-and-consent.md) son los permisos que una API web expone para que las aplicaciones cliente soliciten acceso a ellos. Las aplicaciones cliente solicitan el consentimiento del usuario para estos ámbitos al realizar solicitudes de autenticación para obtener los tokens de acceso a las API web. MSAL le permite obtener tokens para acceder a Azure AD para desarrolladores (v1.0) y a las API de la plataforma de identidad de Microsoft (v2.0). El protocolo de la versión v2.0 usa ámbitos en lugar de recursos en las solicitudes. Para más información, lea [la comparación entre las versiones 1.0 y 2.0](active-directory-v2-compare.md). Según la configuración de la API web de la versión de token que acepta, el punto de conexión v2.0 devolverá el token de acceso a MSAL.
+Los [ámbitos](v2-permissions-and-consent.md) son los permisos que una API web expone para que las aplicaciones cliente soliciten acceso a ellos. Las aplicaciones cliente solicitan el consentimiento del usuario para estos ámbitos al realizar solicitudes de autenticación para obtener los tokens de acceso a las API web. MSAL le permite obtener tokens para acceder a Azure AD para desarrolladores (v1.0) y a las API de la plataforma de identidad de Microsoft (v2.0). El protocolo de la versión v2.0 usa ámbitos en lugar de recursos en las solicitudes. Para más información, lea [la comparación entre las versiones 1.0 y 2.0](../azuread-dev/azure-ad-endpoint-comparison.md). Según la configuración de la API web de la versión de token que acepta, el punto de conexión v2.0 devolverá el token de acceso a MSAL.
 
 Algunos de los métodos de adquisición de tokens de MSAL requieren un parámetro `scopes`. El parámetro `scopes` consiste en una lista de cadenas que declaran los permisos deseados y los recursos solicitados. Algunos ejemplos de ámbitos bien conocidos son los [permisos de Microsoft Graph](/graph/permissions-reference).
 

@@ -5,18 +5,18 @@ description: Obtenga información sobre las cuotas de los recursos de Azure Mach
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: troubleshooting
 ms.reviewer: jmartens
 author: nishankgu
 ms.author: nigup
 ms.date: 05/08/2020
-ms.custom: contperfq4
-ms.openlocfilehash: df636ce1200d8c3744681a60532b22c409dd81dc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: troubleshooting,contperfq4
+ms.openlocfilehash: a75a5942ad0aac39f2fe6afb9c62a254c4645d0a
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84430470"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372950"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Administración y aumento de las cuotas de los recursos con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -72,7 +72,7 @@ Recursos disponibles:
 | Número máximo de nodos en un solo recurso de Proceso de Azure Machine Learning (AmlCompute) | 100 nodos |
 | Número máximo de procesos MPI de GPU por nodo | 1-4 |
 | Número máximo de trabajos de GPU por nodo | 1-4 |
-| Duración máxima del trabajo | 90 días<sup>1</sup> |
+| Duración máxima del trabajo | 21 días<sup>1</sup> |
 | Duración máxima de un trabajo en un nodo de prioridad baja | 7 días<sup>2</sup> |
 | Número máximo de servidores de parámetro por nodo | 1 |
 

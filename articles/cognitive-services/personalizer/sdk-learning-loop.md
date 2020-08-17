@@ -2,15 +2,15 @@
 title: 'Inicio rápido: Creación y uso de bucles de aprendizaje con el SDK: Personalizer'
 description: En este inicio rápido se muestra cómo crear y administrar la base de conocimiento mediante el SDK de cliente.
 ms.topic: quickstart
-ms.date: 04/27/2020
-ms.custom: tracking-python
+ms.date: 07/30/2020
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: d4706e93470134751ade5f16e46a4323fd690f94
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 480e860952c2659d053f8a5659e312feacff2d2b
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84608645"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874493"
 ---
 # <a name="quickstart-personalizer-client-library"></a>Inicio rápido: Biblioteca cliente de Personalizer
 

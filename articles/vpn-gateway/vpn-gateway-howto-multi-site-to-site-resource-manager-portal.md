@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 5a74f1ca8d1055885561a35dbd18899193d3924d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0561be00f50dad0fe89ca47428802f45ee44f50d
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84984136"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121432"
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Agregar una conexión de sitio a sitio a una red virtual con una conexión de VPN Gateway existente
 
@@ -43,7 +43,7 @@ Compruebe los siguientes aspectos:
 * La puerta de enlace de red virtual para su red virtual es RouteBased. Si tiene una VPN Gateway PolicyBased, necesita eliminar la puerta de enlace de red virtual y crear una VPN Gateway nueva como RouteBased.
 * Ninguno de los intervalos de direcciones se superpone con ninguna de las redes virtuales a la que se está conectando esta red virtual.
 * Tiene un dispositivo VPN compatible y alguien que pueda configurarlo. Consulte [Acerca de los dispositivos VPN para conexiones de red virtual de sitio a sitio](vpn-gateway-about-vpn-devices.md). Si no conoce la configuración de su dispositivo VPN o los intervalos de direcciones IP ubicados en la configuración de la red local, necesita trabajar con alguien que pueda proporcionarle estos detalles.
-* Tiene una dirección IP pública externa para el dispositivo VPN. Esta dirección IP no puede estar detrás de un NAT.
+* Tiene una dirección IP pública externa para el dispositivo VPN.
 
 ## <a name="part-1---configure-a-connection"></a><a name="part1"></a>Parte 1: Configuración de una conexión
 1. Desde un explorador, vaya [Azure Portal](https://portal.azure.com) y, si fuera necesario, inicie sesión con su cuenta de Azure.
@@ -71,8 +71,8 @@ Compruebe los siguientes aspectos:
 3. En la página **Crear puerta de enlace de red local**, rellene los campos siguientes:
    
    * **Nombre:** el nombre que quiere darle al recurso de puerta de enlace de red local.
-   * **Dirección IP**: la dirección IP pública del dispositivo VPN del sitio al que quiere conectarse.
-   * **Espacio de direcciones**: el espacio de direcciones al que quiere que se enrute el nuevo sitio de red local.
+   * **Dirección IP:** la dirección IP pública del dispositivo VPN del sitio al que quiere conectarse.
+   * **Espacio de direcciones:** el espacio de direcciones al que quiere que se enrute el nuevo sitio de red local.
 4. Haga clic en **Aceptar** en la página **Crear puerta de enlace de red local** para guardar los cambios.
 
 ## <a name="part-3---add-the-shared-key-and-create-the-connection"></a><a name="part3"></a>Parte 3: Agregar la clave compartida y crear la conexión

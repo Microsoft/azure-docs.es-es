@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 34d2d96e28f90249ad25788f6994dac63f83b1f6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 6a686f6915e332893f619e66944591999063a07c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261533"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288159"
 ---
 # <a name="add-a-bar-chart-layer"></a>Adición de una capa de gráfico de barras
 
-La **capa de gráfico de barras** resulta útil para llevar los datos a una dimensión superior al permitir la visualización de los datos de ubicación como barras 3D o cilindros en el mapa. De forma similar a la capa de burbujas, la capa de gráfico de barras permite visualizar fácilmente dos métricas a la vez utilizando el color y el alto relativo. Para que las barras tengan altura, es necesario agregar una medida al cubo **Tamaño** del panel **Campos**. Si no se proporciona una medida, las barras sin altura se mostrarán como cuadrados o círculos planos según la opción **Forma de la barra**.
+La **capa de gráfico de barras** resulta útil para llevar los datos a una dimensión superior al permitir la visualización de los datos de ubicación como barras 3D o cilindros en el mapa. De forma similar a la capa de burbujas, la capa de gráfico de barras permite visualizar fácilmente dos métricas a la vez utilizando el color y el alto relativo. Para que las barras tengan altura, es necesario agregar una medida al cubo **Tamaño** del panel **Campos**. Si no se proporciona una medida, las barras sin altura se muestran como cuadrados o círculos planos según la opción **Forma de la barra**.
 
 > [!div class="mx-imgBorder"]
 > ![Mapa que muestra datos de punto mediante la capa de gráfico de barras](media/power-bi-visual/bar-chart-layer-styled.png)

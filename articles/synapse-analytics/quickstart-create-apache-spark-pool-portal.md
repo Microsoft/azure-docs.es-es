@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) mediante Azure Portal'
+title: 'Inicio rápido: Creación de un grupo de Apache Spark mediante Azure Portal'
 description: Siga los pasos de esta guía para crear un grupo de Apache Spark mediante Azure Portal.
 services: synapse-analytics
 author: julieMSFT
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 959ad0413c83389aef6a7607c1239043e242b75b
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 0930b7cb7b98874e20f070763a7ec50a6b4f3ef0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86274363"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006082"
 ---
-# <a name="quickstart-create-a-new-apache-spark-pool-preview-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark (versión preliminar) mediante Azure Portal
+# <a name="quickstart-create-a-new-apache-spark-pool-using-the-azure-portal"></a>Inicio rápido: Creación de un grupo de Apache Spark mediante Azure Portal
 
 Azure Synapse Analytics ofrece varios motores de análisis que le ayudarán a ingerir, transformar, modelar, analizar y distribuir sus datos. Un grupo de Apache Spark proporciona funcionalidades de proceso de macrodatos de código abierto. Después de crear un grupo de Apache Spark en el área de trabajo de Synapse, los datos se pueden cargar, modelar, procesar y distribuir para tener información para los análisis más rápidamente.
 

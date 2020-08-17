@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: b06deadae15a8176a49bed88a53884df2b71e473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eea64520dd5440467c911b6de42d8c8c31fc1bde
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82189469"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543459"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Solución de problemas y limitaciones de Azure Cloud Shell
 
@@ -142,26 +142,6 @@ Tenga cuidado al editar .bashrc, ya que puede producir errores inesperados en Cl
 
 Actualmente, `AzureAD.Standard.Preview`, hay disponible una versión preliminar del módulo basado en .NET Standard. Este módulo proporciona la misma funcionalidad que `AzureAD`.
 
-### <a name="sqlserver-module-functionality"></a>Funcionalidad del módulo `SqlServer`
-
-El módulo `SqlServer` incluido en Cloud Shell solo es compatible con versiones preliminares de PowerShell Core. En concreto, `Invoke-SqlCmd` aún no está disponible.
-
-### <a name="default-file-location-when-created-from-azure-drive"></a>Ubicación del archivo predeterminada cuando se crea a partir de la unidad de Azure
-
-Con los cmdlets de PowerShell, los usuarios no pueden crear archivos en la unidad de Azure. Cuando los usuarios crean nuevos archivos con otras herramientas, como vim o nano, los archivos se guardan de forma predeterminada en `$HOME`.
-
-### <a name="tab-completion-can-throw-psreadline-exception"></a>La finalización con tabulación puede iniciar la excepción de PSReadline
-
-Si EditMode de PSReadline del usuario se establece en Emacs, el usuario intenta mostrar todas las posibilidades mediante la finalización con tabulación y el tamaño de la ventana es demasiado pequeño para mostrarlas todas, PSReadline iniciará una excepción no controlada.
-
-### <a name="large-gap-after-displaying-progress-bar"></a>Espacio grande después de mostrar la barra de progreso
-
-Si un comando o una acción del usuario muestra una barra de progreso, como una finalización con tabulación mientras está en la unidad `Azure:`, puede que el cursor no se establezca correctamente y que aparezca un espacio donde antes aparecía la barra de progreso.
-
-### <a name="random-characters-appear-inline"></a>Aparecen caracteres aleatorios insertados
-
-Los códigos de secuencia de posición del cursor como, por ejemplo `5;13R`, pueden aparecer en la entrada del usuario. Los caracteres se pueden quitar manualmente.
-
 ## <a name="personal-data-in-cloud-shell"></a>Datos personales en Cloud Shell
 
 Azure Cloud Shell se toma en serio sus datos, los datos capturados y almacenados por el servicio Azure Cloud Shell se usan para proporcionar los valores predeterminados de su experiencia, tales como el shell que ha utilizado más recientemente, el tamaño y el tipo de fuente que prefiere y los detalles de recursos compartidos de archivos que respaldan la unidad en la nube. En caso de que quiera exportar o eliminar estos datos, use las siguientes instrucciones.
@@ -171,7 +151,8 @@ Azure Cloud Shell se toma en serio sus datos, los datos capturados y almacenados
 ### <a name="export"></a>Exportación
 Para poder **exportar** la configuración de usuario, Cloud Shell guarda automáticamente datos tales como el shell, el tamaño y el tipo de fuente preferidos ejecutando los comandos siguientes.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Imagen que muestra un botón denominado Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Ejecute los siguientes comandos en Bash o PowerShell:
 
 Bash:
@@ -194,7 +175,8 @@ Para poder **eliminar** la configuración de usuario, Cloud Shell guarda automá
 >[!Note]
 > Si elimina la configuración de usuario, el recurso compartido real de Azure Files no se eliminará. Vaya a Azure Files para completar esa acción.
 
-1. [![](https://shell.azure.com/images/launchcloudshell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+1. [![Imagen que muestra un botón denominado Launch Azure Cloud Shell.](https://shell.azure.com/images/launchcloudshell.png)](https://shell.azure.com)
+
 2. Ejecute los siguientes comandos en Bash o PowerShell:
 
 Bash:

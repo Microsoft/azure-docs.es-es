@@ -10,12 +10,13 @@ ms.date: 05/28/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4309f1dc63ac7dd96e22f4564a32aae6ed59ad84
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 00f6085414e5a48647846830f93ba3fb98c382f2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84195801"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502518"
 ---
 # <a name="check-the-last-sync-time-property-for-a-storage-account"></a>Comprobación de la propiedad Hora de la última sincronización de una cuenta de almacenamiento
 

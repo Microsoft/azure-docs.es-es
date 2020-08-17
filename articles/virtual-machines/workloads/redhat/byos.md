@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/10/2020
 ms.author: alsin
-ms.openlocfilehash: af541faaf9529cec81c60cb1a879161d66e34a7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54d703b8a493610174f00844cd0736f65f3ee541
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694389"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052170"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Imágenes Gold de tipo "Bring-your-own-subscription" (BYOS) de Red Hat Enterprise Linux en Azure
 
@@ -69,7 +69,7 @@ El resto de este documento se centra en el método de la CLI para aprovisionar y
 
 ## <a name="use-the-red-hat-gold-images-from-the-azure-cli"></a>Uso de las imágenes de Red Hat Gold Image desde la CLI de Azure
 
-Las siguientes instrucciones le guiarán a través del proceso de implementación inicial de una máquina virtual con RHEL mediante la CLI de Azure. En estas instrucciones se da por supuesto que tiene [instalada la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Las siguientes instrucciones le guiarán a través del proceso de implementación inicial de una máquina virtual con RHEL mediante la CLI de Azure. En estas instrucciones se da por supuesto que tiene [instalada la CLI de Azure](/cli/azure/install-azure-cli).
 
 >[!IMPORTANT]
 >Asegúrese de usar todas las letras minúsculas en el publicador, la oferta, el plan y las referencias de imagen para los siguientes comandos.
@@ -200,7 +200,7 @@ Los pasos para aplicar Azure Disk Encryption están disponibles en [Escenarios d
 
     En este caso, póngase en contacto con Microsoft o con Red Hat para habilitar su suscripción.
 
-- Si modifica una instantánea a partir de una imagen BYOS de RHEL e intenta publicarla en [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries), debe proporcionar información del plan que coincida con el origen inicial de la instantánea. Por ejemplo, el comando podría tener el siguiente aspecto:
+- Si modifica una instantánea a partir de una imagen BYOS de RHEL e intenta publicarla en [Shared Image Gallery](../../linux/shared-image-galleries.md), debe proporcionar información del plan que coincida con el origen inicial de la instantánea. Por ejemplo, el comando podría tener el siguiente aspecto:
 
     ```azurecli
     az vm create –image \

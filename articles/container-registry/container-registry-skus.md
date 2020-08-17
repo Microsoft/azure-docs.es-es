@@ -3,12 +3,12 @@ title: Niveles y características del servicio de registro
 description: Obtenga información sobre las características y los límites de los niveles de servicio Básico, Estándar y Premium (SKU) de Azure Container Registry.
 ms.topic: article
 ms.date: 05/18/2020
-ms.openlocfilehash: 35f5d4ebd4a2b427aadc6e82e265a7da9b6409f8
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 66cb5d7c3cdca45f7a44f0f23bfa449d5ade6dbf
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83683430"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86512626"
 ---
 # <a name="azure-container-registry-service-tiers"></a>Niveles del servicio Azure Container Registry
 
@@ -24,7 +24,7 @@ Los niveles de servicio Básico, Estándar y Premium ofrecen las mismas funciona
 
 ## <a name="service-tier-features-and-limits"></a>Características y límites del nivel de servicio
 
-En la tabla siguiente se detallan las características y los límites de los niveles de servicio Básico, Estándar y Premium.
+En la tabla siguiente se detallan las características y los límites de registro de los niveles de servicio Básico, Estándar y Premium.
 
 [!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 

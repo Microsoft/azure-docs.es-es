@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: cf58b62001ce5d193e3a06973215d82138ad4b59
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 8170cfcbbf200c6ba5030aff5716f46b537d8c97
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855590"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080478"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -71,15 +71,15 @@ Sí. Para más información, consulte el [documento sobre las zonas de conjunto 
 
 ### <a name="what-are-best-practices-for-azure-autoscale"></a>¿Cuáles son los procedimientos recomendados para el escalado automático de Azure?
 
-Para procedimientos recomendados para el escalado automático, consulte [Procedimientos recomendados de escalado automático en elementos virtuales](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-best-practices).
+Para procedimientos recomendados para el escalado automático, consulte [Procedimientos recomendados de escalado automático en elementos virtuales](../azure-monitor/platform/autoscale-best-practices.md).
 
 ### <a name="where-do-i-find-metric-names-for-autoscaling-that-uses-host-based-metrics"></a>¿Dónde puedo encontrar los nombres de métricas para un escalado automático que use métricas basadas en host?
 
-Para nombres de métrica para un escalado automático que use métricas basadas en host, consulte [Métricas compatibles con Azure Monitor](https://azure.microsoft.com/documentation/articles/monitoring-supported-metrics/).
+Para nombres de métrica para un escalado automático que use métricas basadas en host, consulte [Métricas compatibles con Azure Monitor](../azure-monitor/platform/metrics-supported.md).
 
 ### <a name="are-there-any-examples-of-autoscaling-based-on-an-azure-service-bus-topic-and-queue-length"></a>¿Hay algún ejemplo de escalado automático basado en una longitud de cola y un tema de Azure Service Bus?
 
-Sí. Para ejemplos de escalado automático basados en un tema de Service Bus y una longitud de cola, consulte [Métricas comunes de escalado automático de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Sí. Para ejemplos de escalado automático basados en un tema de Service Bus y una longitud de cola, consulte [Métricas comunes de escalado automático de Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 Para una cola de Service Bus, use el siguiente JSON:
 
@@ -104,9 +104,9 @@ Reemplace los valores de ejemplo con los identificadores uniformes de recursos (
 
 Puede crear una configuración de escalado automático en una máquina virtual para usar las métricas de nivel de host, o usar las métricas basadas en SO invitado.
 
-Para obtener una lista de métricas admitidas, consulte [Métricas comunes de escalado automático de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-autoscale-common-metrics).
+Para obtener una lista de métricas admitidas, consulte [Métricas comunes de escalado automático de Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
-Para obtener un ejemplo completo para conjuntos de escalado de máquinas virtuales, consulte [Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales](https://docs.microsoft.com/azure/monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets).
+Para obtener un ejemplo completo para conjuntos de escalado de máquinas virtuales, consulte [Configuración avanzada de escalado automático con plantillas de Resource Manager para conjuntos de escalado de máquinas virtuales](../azure-monitor/platform/autoscale-virtual-machine-scale-sets.md).
 
 El ejemplo utiliza la métrica de CPU de nivel de host y una métrica de recuento de mensajes.
 
@@ -114,13 +114,13 @@ El ejemplo utiliza la métrica de CPU de nivel de host y una métrica de recuent
 
 ### <a name="how-do-i-set-alert-rules-on-a-virtual-machine-scale-set"></a>¿Cómo se configuran las reglas de alerta en un conjunto de escalado de máquinas virtuales?
 
-Puede crear alertas en las métricas de los conjuntos de escalado de máquinas virtuales a través de PowerShell o CLI de Azure. Para obtener más información, consulte [Ejemplos de inicio rápido de PowerShell de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-powershell-samples/#create-alert-rules) y [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-cli-samples/#work-with-alerts).
+Puede crear alertas en las métricas de los conjuntos de escalado de máquinas virtuales a través de PowerShell o CLI de Azure. Para obtener más información, consulte [Ejemplos de inicio rápido de PowerShell de Azure Monitor](../azure-monitor/samples/powershell-samples.md#create-metric-alerts) y [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../azure-monitor/samples/cli-samples.md#work-with-alerts).
 
 El elemento TargetResourceId del conjunto de escalado de máquinas virtuales tiene el siguiente aspecto:
 
 /subscriptions/yoursubscriptionid/resourceGroups/yourresourcegroup/providers/Microsoft.Compute/virtualMachineScaleSets/yourvmssname
 
-Puede elegir cualquier contador de rendimiento de máquina virtual como métrica sobre la que establecer la alerta. Para más información, consulte [Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-resource-manager-based-windows-vms) y [Métricas de SO invitado para máquinas virtuales Linux](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/#guest-os-metrics-linux-vms) en el artículo [Métricas comunes de escalado automático de Azure Monitor](https://azure.microsoft.com/documentation/articles/insights-autoscale-common-metrics/).
+Puede elegir cualquier contador de rendimiento de máquina virtual como métrica sobre la que establecer la alerta. Para más información, consulte [Métricas de SO invitado para máquinas virtuales Windows basadas en Resource Manager](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-for-resource-manager-based-windows-vms) y [Métricas de SO invitado para máquinas virtuales Linux](../azure-monitor/platform/autoscale-common-metrics.md#guest-os-metrics-linux-vms) en el artículo [Métricas comunes de escalado automático de Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
 ### <a name="how-do-i-set-up-autoscale-on-a-virtual-machine-scale-set-by-using-powershell"></a>¿Cómo se configura el escalado automático en un conjunto de escalado de máquinas virtuales utilizando PowerShell?
 
@@ -159,7 +159,7 @@ Use el siguiente JSON:
 
 El código admite Windows y Linux.
 
-Para más información, consulte el artículo sobre la [creación o actualización de un conjunto de escalado de máquinas virtuales](https://msdn.microsoft.com/library/mt589035.aspx).
+Para más información, consulte el artículo sobre la [creación o actualización de un conjunto de escalado de máquinas virtuales](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 
 ### <a name="how-do-i-use-self-signed-certificates-provisioned-for-azure-service-fabric-clusters"></a>¿Cómo uso certificados autofirmados aprovisionados para clústeres de Azure Service Fabric?
@@ -169,7 +169,7 @@ Para el último ejemplo, utilice la siguiente instrucción de la CLI de Azure en
 az sf cluster create -h
 ```
 
-Los certificados autofirmados no pueden utilizarse para la confianza distribuida proporcionada por una entidad de certificación y no deben utilizarse para ningún clúster de Service Fabric destinado a hospedar soluciones de producción empresarial; para obtener orientación adicional sobre la seguridad de Service Fabric, revise [Procedimientos recomendados de seguridad de Azure Service Fabric](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) y [Escenarios de seguridad de los clústeres de Service Fabric](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Los certificados autofirmados no pueden utilizarse para la confianza distribuida proporcionada por una entidad de certificación y no deben utilizarse para ningún clúster de Service Fabric destinado a hospedar soluciones de producción empresarial; para obtener orientación adicional sobre la seguridad de Service Fabric, revise [Procedimientos recomendados de seguridad de Azure Service Fabric](../security/fundamentals/service-fabric-best-practices.md) y [Escenarios de seguridad de los clústeres de Service Fabric](../service-fabric/service-fabric-cluster-security.md).
 
 ### <a name="can-i-specify-an-ssh-key-pair-to-use-for-ssh-authentication-with-a-linux-virtual-machine-scale-set-from-a-resource-manager-template"></a>¿Puedo especificar un par de claves SSH para usar en la autenticación de SSH con un conjunto de escalado de máquinas virtuales Linux desde una plantilla de Resource Manager?
 
@@ -197,7 +197,7 @@ Incluya **osProfile** en la plantilla:
 
 Este bloque JSON se usa en [esta plantilla de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
-Para más información, consulte el artículo sobre la [creación o actualización de un conjunto de escalado de máquinas virtuales](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
+Para más información, consulte el artículo sobre la [creación o actualización de un conjunto de escalado de máquinas virtuales](/rest/api/compute/virtualmachinescalesets/createorupdate#linuxconfiguration).
 
 ### <a name="how-do-i-remove-deprecated-certificates"></a>¿Cómo se quitan los certificados en desuso?
 
@@ -240,7 +240,7 @@ Esto puede ocurrir si se intenta volver a agregar el mismo almacén en lugar de 
 
 Para agregar más secretos desde el mismo almacén de claves, actualice la lista $vmss.properties.osProfile.secrets[0].vaultCertificates.
 
-Para la estructura de entrada esperada, consulte el articulo sobre [creación o actualización de un conjunto de escalado de máquinas virtuales](https://msdn.microsoft.com/library/azure/mt589035.aspx).
+Para la estructura de entrada esperada, consulte el articulo sobre [creación o actualización de un conjunto de escalado de máquinas virtuales](/rest/api/compute/virtualmachinescalesets/createorupdate).
 
 Busque el secreto en el objeto de conjunto de escalado de máquinas virtuales que se encuentra en el almacén de claves. Luego, agregue la referencia del certificado (la dirección URL junto con el nombre del secreto) a la lista asociada con el almacén.
 
@@ -268,7 +268,7 @@ Los certificados se agregan a todas las máquinas virtuales, incluso a las ya ex
 
 ### <a name="where-do-i-put-certificates-for-linux-vms"></a>¿Dónde se ponen los certificados para las máquinas virtuales Linux?
 
-Para información sobre cómo implementar certificados para las máquinas virtuales Linux, consulte [Deploy certificates to VMs from a customer-managed key vault](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) (Implementación de certificados en máquinas virtuales desde un almacén de claves administrado por el cliente).
+Para información sobre cómo implementar certificados para las máquinas virtuales Linux, consulte [Deploy certificates to VMs from a customer-managed key vault](/archive/blogs/kv/deploy-certificates-to-vms-from-customer-managed-key-vault) (Implementación de certificados en máquinas virtuales desde un almacén de claves administrado por el cliente).
 
 ### <a name="how-do-i-add-a-new-vault-certificate-to-a-new-certificate-object"></a>¿Cómo se agrega un nuevo certificado de almacén a un nuevo objeto de certificado?
 
@@ -304,7 +304,7 @@ Si crea una máquina virtual y luego actualiza el secreto en el almacén de clav
 
 Para implementar el conjunto de claves públicas .cer en un conjunto de escalado de máquinas virtuales, puede generar un archivo .pfx que contenga solo los archivos .cer. Para ello, use `X509ContentType = Pfx`. Por ejemplo, cargue el archivo .cer como un objeto x509Certificate2 en C# o PowerShell y, a continuación, llame al método.
 
-Para más información, consulte [Método X509Certificate.Export (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
+Para más información, consulte [Método X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>¿Cómo pasar certificados como cadenas base64?
 
@@ -334,7 +334,7 @@ Desde la perspectiva del cumplimiento, los conjuntos de escalado de máquinas vi
 
 Para más información, consulte el [Centro de confianza de Microsoft](https://www.microsoft.com/TrustCenter/Compliance/PCI).
 
-### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>¿Las [identidades administradas para los recursos de Azure](https://docs.microsoft.com/azure/active-directory/msi-overview) funcionan con los conjuntos de escalado de máquinas virtuales?
+### <a name="does-managed-identities-for-azure-resources-work-with-virtual-machine-scale-sets"></a>¿Las [identidades administradas para los recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md) funcionan con los conjuntos de escalado de máquinas virtuales?
 
 Sí. Puede ver algunas plantillas MSI de ejemplo en las plantillas de inicio rápido de Azure para  [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) y [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
@@ -436,7 +436,7 @@ Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet
 
 ### <a name="how-do-i-execute-a-custom-script-thats-hosted-in-a-private-storage-account"></a>¿Cómo ejecuto un script personalizado hospedado en una cuenta de almacenamiento privada?
 
-Para ejecutar un script personalizado que está hospedado en una cuenta de almacenamiento privado, establezca una configuración protegida con el nombre y la clave de la cuenta de almacenamiento. Para más información, consulte la sección sobre la [Extensión del script personalizado](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+Para ejecutar un script personalizado que está hospedado en una cuenta de almacenamiento privado, establezca una configuración protegida con el nombre y la clave de la cuenta de almacenamiento. Para más información, consulte la sección sobre la [Extensión del script personalizado](../virtual-machines/extensions/custom-script-windows.md?toc=/azure/virtual-machines/windows/toc.json#property-managedidentity).
 
 ## <a name="passwords"></a>Contraseñas
 
@@ -448,7 +448,7 @@ Hay dos formas principales de cambiar la contraseña de las máquinas virtuales 
 
     Actualizar las credenciales de administrador directamente en el modelo del conjunto de escalado (por ejemplo, mediante Azure Resource Explorer, PowerShell o CLI). Una vez que el conjunto de escalado está actualizado, todas las nuevas máquinas virtuales tienen nuevas credenciales. Las máquinas virtuales existentes solo tienen las nuevas credenciales si se restablece la imagen inicial.
 
-- Restablecer la contraseña mediante las extensiones de acceso de la máquina virtual. Asegúrese de seguir los requisitos de contraseña que se describen [aquí](https://docs.microsoft.com/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm).
+- Restablecer la contraseña mediante las extensiones de acceso de la máquina virtual. Asegúrese de seguir los requisitos de contraseña que se describen [aquí](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
     Utilice el siguiente ejemplo de PowerShell:
 
@@ -635,7 +635,7 @@ Sí, se pueden mover recursos del conjunto de escalado a una nueva suscripción 
 
 ### <a name="how-to-i-update-my-virtual-machine-scale-set-to-a-new-image-how-do-i-manage-patching"></a>¿Cómo actualizo mi conjunto de escalado de máquinas virtuales a una nueva imagen? ¿Cómo administro la aplicación de revisiones?
 
-Para actualizar su conjunto de escalado de máquinas virtuales con una nueva imagen y para administrar la aplicación de revisiones consulte [Actualización de un conjunto de escalado de máquinas virtuales](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-scale-set).
+Para actualizar su conjunto de escalado de máquinas virtuales con una nueva imagen y para administrar la aplicación de revisiones consulte [Actualización de un conjunto de escalado de máquinas virtuales](./virtual-machine-scale-sets-upgrade-scale-set.md).
 
 ### <a name="can-i-use-the-reimage-operation-to-reset-a-vm-without-changing-the-image-that-is-i-want-reset-a-vm-to-factory-settings-rather-than-to-a-new-image"></a>¿Puedo usar la operación de restablecimiento de la imagen inicial para restablecer una máquina virtual sin cambiar la imagen? (Es decir, quiero restablecer una máquina virtual a la configuración de fábrica en lugar de a una nueva imagen).
 

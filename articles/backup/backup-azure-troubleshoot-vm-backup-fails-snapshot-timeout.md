@@ -1,22 +1,71 @@
 ---
 title: Solucionar problemas del agente y la extensión
 description: Síntomas, causas y soluciones de errores de Azure Backup relacionados con el agente, la extensión y los discos.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 55af4bddb5a963a831c1438400a7a243cca20573
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 274435a958820c3fd08fef4a61643a1d656e31e3
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538826"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167936"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Solución de problemas de Azure Backup: Problemas con el agente o la extensión
 
 En este artículo se proporcionan los pasos de solución de problemas que pueden ayudar a resolver los errores de Azure Backup relacionados con la comunicación con el agente y la extensión de máquina virtual.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
+
+## <a name="step-by-step-guide-to-troubleshoot-backup-failures"></a>Guía paso a paso para solucionar errores de copia de seguridad
+
+Los errores de copia de seguridad más comunes se pueden resolver automáticamente siguiendo los pasos de la solución de problemas que se enumeran a continuación:
+
+### <a name="step-1-check-azure-vm-health"></a>Paso 1: Comprobación del estado de la máquina virtual de Azure
+
+- **Asegúrese de que el estado de aprovisionamiento de la máquina virtual de Azure sea "Ejecutando"** : Si el [estado de aprovisionamiento de la máquina virtual](../virtual-machines/states-lifecycle.md#provisioning-states) es **Detenido/Desasignado/Actualizando**, interferirá con la operación de copia de seguridad. Abra *Azure Portal > VM > Información general >* y compruebe el estado de la máquina virtual para asegurarse de que esté **en ejecución**; y vuelva a intentar la operación de copia de seguridad.
+- **Revise las actualizaciones o los reinicios del sistema operativo pendientes**: Asegúrese de que no haya ninguna actualización o reinicio pendiente del sistema operativo en la máquina virtual.
+
+### <a name="step-2-check-azure-vm-guest-agent-service-health"></a>Paso 2: Comprobación del estado del servicio de agente invitado de la máquina virtual de Azure
+
+- **Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se ha iniciado y actualizado**:
+  - En una máquina virtual de Windows:
+    - Vaya a **services.msc** y asegúrese de que el **servicio de agente invitado de la máquina virtual de Azure de Windows** esté en funcionamiento. Además, asegúrese de que esté instalada la [versión más reciente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Windows](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms).
+    - El agente de la máquina virtual de Azure se instala de forma predeterminada en cualquier máquina virtual de Windows a partir de la imagen de Azure Marketplace desde el portal, PowerShell, la interfaz de la línea de comandos o una plantilla de Azure Resource Manager. Es posible que sea necesaria una [instalación manual del agente](../virtual-machines/extensions/agent-windows.md#manual-installation) cuando crea una imagen de máquina virtual personalizada que se implementa en Azure.
+    - Revise la matriz de compatibilidad para comprobar si la máquina virtual se ejecuta en el [sistema operativo Windows compatible](backup-support-matrix-iaas.md#operating-system-support-windows).
+  - En una máquina virtual de Linux,
+    - Asegúrese de que el servicio de agente invitado de la máquina virtual de Azure se está ejecutando mediante el comando `ps-e`. Además, asegúrese de que esté instalada la [versión más reciente](../virtual-machines/extensions/update-linux-agent.md). Para más información, consulte el artículo sobre [problemas del agente invitado de la máquina virtual de Linux](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms).
+    - Asegúrese de que las [dependencias del agente de la máquina virtual de Linux en los paquetes del sistema](../virtual-machines/extensions/agent-linux.md#requirements) tengan la configuración admitida. Por ejemplo: La versión de Python compatible es 2.6 y posteriores.
+    - Revise la matriz de compatibilidad para comprobar si la máquina virtual se ejecuta en el [sistema operativo Linux compatible](backup-support-matrix-iaas.md#operating-system-support-linux).
+
+### <a name="step-3-check-azure-vm-extension-health"></a>Paso 3: Comprobación del estado de la extensión de la máquina virtual de Azure
+
+- **Asegúrese de que todas las extensiones de máquina virtual de Azure se encuentren en el estado "Aprovisionamiento realizado correctamente"** : Si alguna extensión está en un estado con errores, puede interferir con la copia de seguridad.
+- Abra *Azure Portal > VM > Configuración > Extensiones > Estado de extensión* y compruebe que el estado de todas las extensiones sea **Aprovisionamiento realizado correctamente**.
+- Asegúrese que se resuelven todos los [problemas de extensiones](../virtual-machines/extensions/overview.md#troubleshoot-extensions) y vuelva a intentar la operación de copia de seguridad.
+- **Asegúrese de que la aplicación del sistema COM+** esté en funcionamiento. Asimismo, compruebe que el **servicio Coordinador de transacciones distribuidas** se ejecute como una **cuenta de servicio de red**. Siga los pasos de este artículo para [solucionar problemas de COM+ y MSDTC](backup-azure-vms-troubleshoot.md#extensionsnapshotfailedcom--extensioninstallationfailedcom--extensioninstallationfailedmdtc---extension-installationoperation-failed-due-to-a-com-error).
+
+### <a name="step-4-check-azure-backup-vm-extension-health"></a>Paso 4: Comprobación del estado de la extensión de la máquina virtual de Azure Backup
+
+Azure Backup usa la Extensión de instantánea de máquina virtual para realizar una copia de seguridad coherente con la aplicación de la máquina virtual de Azure. Azure Backup instalará la extensión como parte de la primera copia de seguridad programada que se desencadene después de habilitar la copia de seguridad.
+
+- **Asegúrese de que la extensión VMSnapshot no se encuentre en un estado de error**: Siga los pasos indicados en esta [sección](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state) para comprobar y asegurarse de que la extensión de Azure Backup sea la correcta.
+
+- **Compruebe si el antivirus está bloqueando la extensión**: Puede haber software antivirus que impida la ejecución de extensiones.
+  
+  Cuando se produzca el error de copia de seguridad, compruebe si hay entradas de registro en los ***registros de aplicación del Visor de eventos*** con el ***nombre de la aplicación con error: IaaSBcdrExtension.exe***. Si ve entradas, es posible que el antivirus configurado en la máquina virtual restrinja la ejecución de la extensión de copia de seguridad. Pruebe a excluir los directorios siguientes en la configuración del antivirus y vuelva a intentar la operación de copia de seguridad.
+  - `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+  - `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
+
+- **Compruebe si es necesario tener acceso a la red**: Los paquetes de extensiones se descargan del repositorio de extensiones de Azure Storage y las cargas del estado de las extensiones se publican en Azure Storage. [Más información](../virtual-machines/extensions/features-windows.md#network-access).
+  - Si usa una versión no compatible del agente, deberá autorizar el acceso de salida a Azure Storage en esa región desde la máquina virtual.
+  - Si ha bloqueado el acceso a `168.63.129.16` con el firewall invitado o con un proxy, las extensiones generarán un error con independencia de lo mencionado anteriormente. Se requieren los puertos 80, 443 y 32526, [más información](../virtual-machines/extensions/features-windows.md#network-access).
+
+- **Asegúrese de que DHCP esté habilitado en la máquina virtual invitada**: Es necesario a fin de obtener la dirección de host o de tejido de DHCP para que funcione la copia de seguridad de la máquina virtual de IaaS. Si necesita una dirección IP privada estática, debe configurarla mediante Azure Portal o PowerShell y asegurarse de que esté habilitada la opción DHCP dentro de la máquina virtual, [más información](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken).
+
+- **Asegúrese de que el servicio de escritura de VSS esté en funcionamiento**: Siga estos pasos para [solucionar problemas de escritura de VSS](backup-azure-vms-troubleshoot.md#extensionfailedvsswriterinbadstate---snapshot-operation-failed-because-vss-writers-were-in-a-bad-state).
+- **Siga las directrices de los procedimientos recomendados de copia de seguridad**: Revise los [procedimientos recomendados para habilitar la copia de seguridad de las máquinas virtuales de Azure](backup-azure-vms-introduction.md#best-practices).
+- **Revise las directrices de los discos cifrados**: Si va a habilitar la copia de seguridad de las máquinas virtuales con un disco cifrado, asegúrese de haber proporcionado todos los permisos necesarios. Para más información, consulte el artículo sobre la [copia de seguridad y restauración de las máquinas virtuales cifradas de Azure](backup-azure-vms-encryption.md#encryption-support).
 
 ## <a name="usererrorguestagentstatusunavailable---vm-agent-unable-to-communicate-with-azure-backup"></a><a name="UserErrorGuestAgentStatusUnavailable-vm-agent-unable-to-communicate-with-azure-backup"></a>UserErrorGuestAgentStatusUnavailable: El agente de máquina virtual no se puede comunicar con Azure Backup
 
@@ -52,7 +101,7 @@ Después de registrar y programar una máquina virtual para el servicio de Azure
 **Código de error**: UserErrorVmProvisioningStateFailed<br>
 **Mensaje de error**: la máquina virtual está en un estado de aprovisionamiento con errores<br>
 
-Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/windows/states-lifecycle.md#provisioning-states).
+Este error se produce cuando uno de los errores de extensión deja a la máquina virtual en un estado de aprovisionamiento con errores.<br>Abra **Azure Portal > VM > Configuración > Extensiones > Estado de las extensiones** y compruebe que el estado de todas las extensiones es **Aprovisionamiento realizado correctamente**. Para más información, consulte [Estados de aprovisionamiento](../virtual-machines/states-lifecycle.md#provisioning-states).
 
 - Si la extensión VMSnapshot está en un estado con errores, haga clic con el botón derecho en la extensión con errores y elimínela. Desencadene una copia de seguridad a petición. Esta acción volverá a instalar las extensiones y ejecutará el trabajo de copia de seguridad.  <br>
 - Si cualquier otra extensión está en un estado con errores, puede interferir con la copia de seguridad. Asegúrese que se resuelven esos problemas de extensiones y vuelva a intentar la operación de copia de seguridad.

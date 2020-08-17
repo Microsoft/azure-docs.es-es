@@ -4,12 +4,12 @@ description: Las API de métricas y escalabilidad automática, también llamadas
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/19/2018
-ms.openlocfilehash: 65ce7a5c876c7a8e96f945d9d4db871c84f86a4e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 38a30f2adc0de7ccb9a9a3a4ba7ed53fd5fda3f7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505438"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317389"
 ---
 # <a name="azure-monitor-retirement-of-classic-deployment-model-apis-for-metrics-and-autoscale"></a>Retirada de Azure Monitor de las API del modelo de implementación clásica para métricas y escalabilidad automática
 
@@ -21,7 +21,7 @@ Se han admitido las mismas operaciones a través de un conjunto de API basadas e
 
 Si va a administrar la escalabilidad automática mediante Azure Portal, el [nuevo SDK de Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, la CLI o mediante plantillas de Resource Manager, no se requiere ninguna acción.  
 
-Si va a usar métricas a través de Azure Portal o a través de diversos [servicios de supervisión de asociados](../../azure-monitor/platform/partners.md), no se requiere ninguna acción. Microsoft está trabajando con asociados de supervisión para migrar a las nuevas API.
+Si va a usar métricas a través de Azure Portal o a través de diversos [servicios de supervisión de asociados](./partners.md), no se requiere ninguna acción. Microsoft está trabajando con asociados de supervisión para migrar a las nuevas API.
 
 ## <a name="who-is-affected"></a>A quién afecta
 
@@ -89,3 +89,4 @@ Si tiene alguna duda, póngase en contacto con nosotros en MonitorClassicAPIhelp
 
 - [Nuevas API REST de Azure Monitor](/rest/api/monitor/) 
 - [Nuevo SDK de Azure Monitor](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/)
+

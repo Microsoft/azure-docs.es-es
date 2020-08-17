@@ -12,13 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 249cdbef6214eb8c66da841d9eae817bcf794996
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: dce579596563855022f14bb2c07353b84d1e6127
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055399"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808378"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Inicio rápido: Visualización de la lista de aplicaciones que usan el inquilino de Azure Active Directory (Azure AD) para la administración de identidades
 
@@ -68,11 +67,17 @@ Para buscar una aplicación concreta:
 3. Pruebe a escribir las primeras letras del nombre de una aplicación. En este ejemplo se muestran todas las aplicaciones que empiezan por **Sales**.
     ![En el ejemplo se muestran todas las aplicaciones que empiezan por Sales](media/view-applications-portal/search-by-prefix.png).
 
+
+> [!TIP]
+> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+En este inicio rápido no se han creado recursos, por lo que no hay nada que limpiar.
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha aprendido a ver las aplicaciones de su inquilino de Azure AD. Ha aprendido a filtrar la lista de aplicaciones por tipo, estado y visibilidad de la aplicación. También ha aprendido cómo buscar una aplicación determinada.
-
-- [Adición de una aplicación](add-application-portal.md)
-- [Configuración de una aplicación](add-application-portal-configure.md)
-- [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)
-- [Eliminación de una aplicación](delete-application-portal.md)
+Pase al siguiente artículo, donde aprenderá a usar Azure AD como proveedor de identidades para una aplicación.
+> [!div class="nextstepaction"]
+> [Adición de una aplicación](add-application-portal.md)

@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: d37a9bd4cc29ee60f9833ffbcb5a2701a19bbaa7
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: bac673f5c8c8d6a4e2b368938a0c08c893518022
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81416822"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171274"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copia de datos con Oracle como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
@@ -76,6 +76,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado Oracle:
 
 >[!TIP]
 >Si recibe un error, "ORA-01025: parámetro UPI fuera del intervalo" y tiene la versión 8i de Oracle, agregue `WireProtocolMode=1` a la cadena de conexión. A continuación, inténtelo de nuevo.
+
+Si tiene varias instancias de Oracle para el escenario de conmutación por error, puede crear un servicio vinculado de Oracle y rellenar el host principal, el puerto, el nombre de usuario, la contraseña, entre otros, y agregar una nueva sección "**Propiedades de conexión adicionales**" con el nombre de propiedad `AlternateServers` y el valor `(HostName=<secondary host>:PortNumber=<secondary port>:ServiceName=<secondary service name>)`; no olvide los corchetes y ponga atención al uso de dos puntos (`:`) como separadores. Por ejemplo, el siguiente valor de servidores alternativos define dos servidores de bases de datos alternativos para la conmutación por error de conexiones: `(HostName=AccountingOracleServer:PortNumber=1521:SID=Accounting,HostName=255.201.11.24:PortNumber=1522:ServiceName=ABackup.NA.MyCompany)`.
 
 Puede establecer más propiedades de conexión en la cadena de conexión, según su caso:
 

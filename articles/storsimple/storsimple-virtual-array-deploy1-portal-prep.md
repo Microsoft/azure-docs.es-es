@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7f2c7a6f9c1146627f81dc20386c59a91724b245
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1a3d0b05f04ad8c182d428843479160666b96ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698961"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070327"
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implementación de la matriz virtual de StorSimple: preparación de Azure Portal
 
-![](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
+![Diagrama que muestra los pasos necesarios para implementar una matriz virtual. El primer paso se etiqueta como Get started y está resaltado.](./media/storsimple-virtual-array-deploy1-portal-prep/getstarted4.png)
 
 
 ## <a name="overview"></a>Información general
@@ -30,7 +30,7 @@ Para completar el proceso de instalación y configuración se necesitan privileg
 
 La información publicada en este artículo se aplica a la implementación de instancias de StorSimple Virtual Array en Azure Portal, así como en la nube de administración pública de Microsoft Azure.
 
-### <a name="get-started"></a>Introducción
+### <a name="get-started"></a>Primeros pasos
 El flujo de trabajo de implementación consta de preparar el portal, aprovisionar una matriz virtual en su entorno virtualizado y completar la instalación. Para comenzar con la implementación de StorSimple Virtual Array como servidor de archivos o servidor iSCSI, es preciso que haga referencia a los siguientes recursos tabulados.
 
 #### <a name="deployment-articles"></a>Artículos de implementación
@@ -52,7 +52,7 @@ La lista de comprobación de la configuración describe la información que se n
 * Descargue la [lista de comprobación de configuración del servidor de archivos de la matriz virtual de StorSimple](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
 * Descargue la [lista de comprobación de configuración del servidor iSCSI de la matriz virtual de StorSimple](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Requisitos previos
 
 Aquí encontrará los requisitos previos de configuración del servicio StorSimple Device Manager, StorSimple Virtual Array y la red del centro de datos.
 
@@ -87,7 +87,7 @@ Antes de comenzar, asegúrese de que:
 
 Utilice las siguientes instrucciones detalladas para preparar su portal para el servicio StorSimple Device Manager.
 
-## <a name="step-1-create-a-new-service"></a>Paso 1: Crear un nuevo servicio
+## <a name="step-1-create-a-new-service"></a>Paso 1: Creación de un nuevo servicio
 
 Una instancia individual del servicio StorSimple Device Manager puede administrar varias instancias de StorSimple Virtual Array. Siga estos pasos para crear una instancia del servicio StorSimple Device Manager. Si tiene un servicio StorSimple Device Manager existente para administrar sus matrices virtuales, omita este paso y vaya al [Paso 2: Obtener la clave de registro del servicio](#step-2-get-the-service-registration-key).
 
@@ -137,7 +137,7 @@ Siga estos pasos en [Azure Portal](https://portal.azure.com/).
    * VMDK para VMWare ESXi 5.0, 5.5, 6.0 o 6.5
 5. Descargue y descomprima el archivo en una unidad local y tome nota de dónde se encuentra el archivo sin comprimir.
 
-## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Paso opcional: Configurar una cuenta de almacenamiento nueva para el servicio
+## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Paso opcional: Configurar una nueva cuenta de almacenamiento para el servicio
 
 Este paso es opcional y solo se debe llevar a cabo si no habilitó la creación automática de una cuenta de almacenamiento con su servicio.
 

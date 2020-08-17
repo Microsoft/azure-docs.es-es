@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: 57db2253cbffa8e16313c7613de6d2ddb2f2b0a2
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 1bda235e5f3f867762457d0dc8214bbadc88059e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027246"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084830"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -236,9 +236,9 @@ Puede utilizar el nuevo DSN para conectar Azure Cosmos DB con cualquier herramie
 
 1. Para visualizar los datos en Power BI Desktop, active la casilla junto al nombre de tabla y luego haga clic en **Cargar**.
 
-1. En Power BI Desktop, en el extremo izquierdo, seleccione la pestaña Datos ![Pestaña Datos en Power BI Desktop](./media/odbc-driver/odbc-driver-data-tab.png) para confirmar que los datos se importaron.
+1. En Power BI Desktop, en el extremo izquierdo, seleccione la pestaña Datos :::image type="icon" source="./media/odbc-driver/odbc-driver-data-tab.png"::: para confirmar que los datos se importaron. 
 
-1. Ahora puede crear objetos visuales con Power BI haciendo clic en la pestaña Informe ![Pestaña Informe en Power BI Desktop](./media/odbc-driver/odbc-driver-report-tab.png), haciendo clic en **Nuevo objeto visual** y, por último, personalizando el icono. Para más información sobre cómo crear visualizaciones en Power BI Desktop, consulte [Tipos de visualización en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/).
+1. Ahora puede crear objetos visuales con Power BI haciendo clic en la pestaña Informe :::image type="icon" source="./media/odbc-driver/odbc-driver-report-tab.png":::, haciendo clic en **Nuevo objeto visual** y, por último, personalizando el icono. Para más información sobre cómo crear visualizaciones en Power BI Desktop, consulte [Tipos de visualización en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-visualization-types-for-reports-and-q-and-a/). 
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

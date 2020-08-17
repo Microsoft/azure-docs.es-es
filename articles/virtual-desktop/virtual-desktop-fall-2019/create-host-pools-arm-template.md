@@ -1,24 +1,22 @@
 ---
-title: 'Grupo de hosts de Windows Virtual Desktop mediante Azure Resource Manager: Azure'
-description: Cómo crear un grupo de hosts en Windows Virtual Desktop con una plantilla de Azure Resource Manager.
-services: virtual-desktop
+title: 'Grupo de hosts de Windows Virtual Desktop (clásico) mediante Azure Resource Manager: Azure'
+description: Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con una plantilla de Azure Resource Manager.
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 925d3ab7c01ef8dc4a2c5d590a56b4d558170472
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b9999ae92840d79bb19464216c0f28504011b3f3
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204768"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008328"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creación de un grupo host con una plantilla de Azure Resource Manager
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-an-azure-resource-manager-template"></a>Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con una plantilla de Azure Resource Manager
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager.
 
 Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 

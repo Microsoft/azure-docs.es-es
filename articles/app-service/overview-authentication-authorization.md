@@ -6,18 +6,14 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 9588777305ca42603623075b908eee5d76164c84
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8362cc3b8f8477f77d8ec672144e7c68d2e3434d
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206757"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080735"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticación y autorización en Azure App Service y Azure Functions
-
-> [!NOTE]
-> En la actualidad, ASP.NET Core no admite el rellenado del usuario actual con la característica de autenticación o autorización.
->
 
 Azure App Service incluye compatibilidad con autenticación y autorización para que pueda proporcionar inicio de sesión a los usuarios y acceder a los datos escribiendo una cantidad mínima de código o directamente sin código en la aplicación web, API RESTful y back-end móvil, así como [Azure Functions](../azure-functions/functions-overview.md). En este artículo se describe cómo App Service le ayuda a simplificar la autenticación y autorización para la aplicación.
 
@@ -26,12 +22,20 @@ Para proteger la autenticación y la autorización es necesario entender perfect
 > [!IMPORTANT]
 > No es necesario usar esta característica para la autenticación y autorización. Puede usar las características de seguridad agrupadas en el marco de trabajo web de su elección o puede escribir sus propias utilidades. Sin embargo, tenga en cuenta que [Chrome 80 realiza cambios importantes en su implementación de cookies de SameSite](https://www.chromestatus.com/feature/5088147346030592) (la fecha de lanzamiento es aproximadamente marzo de 2020) y la autenticación remota personalizada u otros escenarios que se basen en la publicación de cookies en todos los sitios se puede interrumpir cuando se actualizan los exploradores Chrome cliente. La solución alternativa es compleja porque necesita admitir distintos comportamientos de SameSite para exploradores diferentes. 
 >
-> Las versiones ASP.NET Core 2.1 y posteriores hospedadas por App Service ya se han revisado para este cambio importante y administran los exploradores Chrome 80 y anteriores adecuadamente. Además, la misma revisión para ASP.NET Framework 4.7.2 se está implementando en las instancias de App Service a lo largo de enero de 2020. Para más información, incluido cómo saber si la aplicación ha recibido la revisión, consulte [Actualización de cookies de Azure App Service SameSite](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
+> Las versiones ASP.NET Core 2.1 y posteriores hospedadas por App Service ya se han revisado para este cambio importante y administran los exploradores Chrome 80 y anteriores adecuadamente. Además, la misma revisión para ASP.NET Framework 4.7.2 se han implementado en las instancias de App Service en enero de 2020. Para obtener más información, consulte [Actualización de cookies de SameSite en Azure App Service](https://azure.microsoft.com/updates/app-service-samesite-cookie-update/).
 >
+
+> [!NOTE]
+> La característica de autenticación y autorización también se conoce a veces como "Easy Auth".
+
+> [!NOTE]
+> La habilitación de esta característica hará que **todas** las solicitudes HTTP no seguras a la aplicación se redirijan automáticamente a HTTPS, con independencia del valor de configuración de App Service para [aplicar HTTPS](configure-ssl-bindings.md#enforce-https). Si es necesario, puede deshabilitarlo mediante la opción `requireHttps` del [archivo de configuración de auth](app-service-authentication-how-to.md#configuration-file-reference), pero debe tener cuidado de asegurarse de que ningún token de seguridad se transmita a través de conexiones HTTP no seguras.
 
 Para información específica de aplicaciones móviles nativas, consulte [Autenticación y autorización en Azure Mobile Apps](../app-service-mobile/app-service-mobile-auth.md).
 
 ## <a name="how-it-works"></a>Funcionamiento
+
+### <a name="on-windows"></a>En Windows
 
 El módulo de autenticación y autorización se ejecuta en el mismo espacio aislado que el código de aplicación. Cuando está habilitado, cada solicitud HTTP entrante pasa a través de él antes de que el código de aplicación lo controle.
 
@@ -46,13 +50,21 @@ Este módulo controla varios aspectos de la aplicación:
 
 El módulo se ejecuta por separado del código de aplicación y se configura mediante los parámetros de la aplicación. No se necesitan SDK, idiomas específicos o cambios en el código de aplicación. 
 
+### <a name="on-containers"></a>En contenedores
+
+El módulo de autenticación y autorización se ejecuta en un contenedor independiente, aislado del código de la aplicación. Con lo que se conoce como [patrón de embajador](https://docs.microsoft.com/azure/architecture/patterns/ambassador), interactúa con el tráfico entrante para realizar una funcionalidad similar a la de Windows. Dado que no se ejecuta en proceso, no es posible la integración directa con marcos de lenguaje específicos. Sin embargo, la información pertinente que necesita su aplicación se pasa con encabezados de solicitud, como se explica a continuación.
+
 ### <a name="userapplication-claims"></a>Notificaciones de usuario o aplicación
 
-En todos los marcos de lenguaje, App Service hace que las notificaciones del token de entrada (tanto si proceden de un usuario final autenticado como de una aplicación cliente) estén disponibles para el código. Para ello, se insertan en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`. En el caso de las aplicaciones Java, se puede acceder a las notificaciones [desde el servlet Tomcat](containers/configure-language-java.md#authenticate-users-easy-auth).
+En todos los marcos de lenguaje, App Service hace que las notificaciones del token de entrada (tanto si proceden de un usuario final autenticado como de una aplicación cliente) estén disponibles para el código. Para ello, se insertan en los encabezados de solicitud. Para las aplicaciones de ASP.NET 4.6, App Service rellena [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) con las notificaciones del usuario autenticado, de forma que usted puede seguir el patrón de código de .NET estándar, incluido el atributo `[Authorize]`. De forma similar, para las aplicaciones PHP, App Service rellena la variable `_SERVER['REMOTE_USER']`. En el caso de las aplicaciones Java, se puede acceder a las notificaciones [desde el servlet Tomcat](configure-language-java.md#authenticate-users-easy-auth).
 
 Para [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` no está relleno para el código .NET, pero todavía puede encontrar las notificaciones de usuario en los encabezados de solicitudes, u obtener el objeto `ClaimsPrincipal` del contexto de la solicitud o incluso a través de un parámetro de enlace. Consulte [Uso de identidades de cliente](../azure-functions/functions-bindings-http-webhook-trigger.md#working-with-client-identities) para más información.
 
 Para más información, consulte [Access user claims](app-service-authentication-how-to.md#access-user-claims) (Acceso a las notificaciones de usuario).
+
+> [!NOTE]
+> En la actualidad, ASP.NET Core no admite el rellenado del usuario actual con la característica de autenticación o autorización. Sin embargo, existen [componentes de middleware de código abierto de terceros](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) que ayudan a enmendar las carencias.
+>
 
 ### <a name="token-store"></a>Almacén de tokens
 
@@ -135,13 +147,9 @@ Con esta opción, no es necesario escribir ningún código de autenticación en 
 > [!CAUTION]
 > Este método de restricción del acceso se aplica a todas las llamadas a la aplicación, lo que puede no ser deseable para las aplicaciones que necesitan una página de inicio disponible públicamente, como muchas aplicaciones de una sola página.
 
-> [!NOTE]
-> La característica Autenticación/Autorización se conocía anteriormente como Easy Auth.
->
-
 ## <a name="more-resources"></a>Más recursos
 
-[Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](app-service-web-tutorial-auth-aad.md)  
+[Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service (Windows)](tutorial-auth-aad.md)  
 [Tutorial: Autenticación y autorización de usuarios de un extremo a otro en Azure App Service para Linux](containers/tutorial-auth-aad.md)  
 [Personalización de la autenticación y autorización en App Service](app-service-authentication-how-to.md)
 [Integración de .NET Core de Azure AppService EasyAuth (terceros)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)

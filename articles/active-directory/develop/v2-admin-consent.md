@@ -12,12 +12,12 @@ ms.date: 12/3/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 537d609c1281929203d1891f37614b7627e1683a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb629b80958ed2897f76eb099f738c33b48c3696
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81868662"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119613"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Consentimiento del administrador en la Plataforma de identidad de Microsoft
 
@@ -88,5 +88,5 @@ Cuando se agregan a los parámetros que se ven en una respuesta correcta, los pa
 ## <a name="next-steps"></a>Pasos siguientes
 - Consulte [Conversión de una aplicación de inquilino único en una aplicación multiinquilino](howto-convert-app-to-be-multi-tenant.md)
 - Obtenga información sobre [cómo se admite el consentimiento en la capa del protocolo OAuth 2.0 durante el flujo de concesión del código de autorización](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
-- Aprenda [cómo una aplicación multiinquilino puede usar la plataforma de consentimiento ](active-directory-devhowto-multi-tenant-overview.md) para implementar el consentimiento de "usuario" y "administrador", que admite patrones de aplicación multinivel más avanzados.
+- Aprenda [cómo una aplicación multiinquilino puede usar la plataforma de consentimiento ](./howto-convert-app-to-be-multi-tenant.md) para implementar el consentimiento de "usuario" y "administrador", que admite patrones de aplicación multinivel más avanzados.
 - Descripción de las [experiencias de consentimiento de aplicaciones de Azure AD](application-consent-experience.md)

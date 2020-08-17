@@ -3,20 +3,20 @@ title: Protección de Azure Functions
 description: Obtenga información sobre cómo hacer que el código de función que se ejecuta en Azure sea más seguro frente a ataques comunes.
 ms.date: 4/13/2020
 ms.topic: conceptual
-ms.openlocfilehash: 692e8420bda1e7baa8521dd6caaf5eef183823fb
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: e0c5036681aace103ea69d1e9cc73e96dc30821f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84259429"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502688"
 ---
 # <a name="securing-azure-functions"></a>Protección de Azure Functions
 
-En muchos sentidos, la planeación del desarrollo, la implementación y el funcionamiento seguros de las funciones sin servidor es muy similar a la de cualquier aplicación hospedada en la nube o basada en web. [Azure App Service](/azure/app-service/) proporciona la infraestructura de hospedaje para las aplicaciones de funciones. En este artículo se proporcionan estrategias de seguridad para ejecutar el código de función y cómo App Service puede facilitar la protección de las funciones. 
+En muchos sentidos, la planeación del desarrollo, la implementación y el funcionamiento seguros de las funciones sin servidor es muy similar a la de cualquier aplicación hospedada en la nube o basada en web. [Azure App Service](../app-service/index.yml) proporciona la infraestructura de hospedaje para las aplicaciones de funciones. En este artículo se proporcionan estrategias de seguridad para ejecutar el código de función y cómo App Service puede facilitar la protección de las funciones. 
 
 [!INCLUDE [app-service-security-intro](../../includes/app-service-security-intro.md)]
 
-Para obtener un conjunto de recomendaciones de seguridad que siguen [Azure Security Benchmark](/azure/security/benchmarks/overview), vea [Base de referencia de seguridad de Azure para Azure Functions](security-baseline.md).
+Para obtener un conjunto de recomendaciones de seguridad que siguen [Azure Security Benchmark](../security/benchmarks/overview.md), vea [Base de referencia de seguridad de Azure para Azure Functions](security-baseline.md).
 
 ## <a name="secure-operation"></a>Operación segura 
 
@@ -83,7 +83,7 @@ Como sucede con cualquier aplicación o servicio, el objetivo es ejecutar la apl
 
 #### <a name="user-management-permissions"></a>Permisos de administración de usuarios
 
-Functions admite el [control de acceso basado en roles (RBAC) de Azure](../role-based-access-control/overview.md) integrado. Los roles RBAC que admite Functions son [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Lector](../role-based-access-control/built-in-roles.md#owner). 
+Functions admite el [control de acceso basado en rol de Azure (Azure RBAC)](../role-based-access-control/overview.md) integrado. Los roles de Azure que admite Functions son [Colaborador](../role-based-access-control/built-in-roles.md#contributor), [Propietario](../role-based-access-control/built-in-roles.md#owner) y [Lector](../role-based-access-control/built-in-roles.md#owner). 
 
 Los permisos son eficaces en el nivel de la aplicación de funciones. El rol Colaborador es necesario para realizar la mayoría de las tareas de nivel de la aplicación de funciones. Solo el rol Propietario puede eliminar una aplicación de funciones. 
 
@@ -207,4 +207,3 @@ Los servicios de puerta de enlace, como [Azure Application Gateway](../applicati
 
 + [Base de referencia de seguridad de Azure para Azure Functions](security-baseline.md)
 + [Diagnósticos de Azure Functions](functions-diagnostics.md)
-        

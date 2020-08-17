@@ -3,22 +3,22 @@ title: Cambio de un conjunto de disponibilidad de máquinas virtuales
 description: Aprenda a cambiar un conjunto de disponibilidad para su máquina virtual mediante Azure PowerShell.
 ms.service: virtual-machines
 author: cynthn
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: e014dbe440f1b7baf39c290b8b7ab8fcaea0bada
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: f774056a8faf40e3796b06718e90cd7da988241c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165862"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284632"
 ---
 # <a name="change-the-availability-set-for-a-vm"></a>Cambiar el conjunto de disponibilidad para una máquina virtual
 En los pasos siguientes se describe cómo cambiar el conjunto de disponibilidad de una máquina virtual con Azure PowerShell. Una máquina virtual solo puede agregarse a un conjunto de disponibilidad cuando se crea. Para cambiar el conjunto de disponibilidad, debe eliminar la máquina virtual y volver a crearla. 
 
 Este artículo se aplica a las máquinas virtuales Linux y Windows.
 
-Este artículo se probó por última vez el 12/02/2019 mediante [Azure Cloud Shell](https://shell.azure.com/powershell) y la versión 1.2.0 del [módulo de PowerShell de Az](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Este artículo se probó por última vez el 12/02/2019 mediante [Azure Cloud Shell](https://shell.azure.com/powershell) y la versión 1.2.0 del [módulo de PowerShell de Az](/powershell/azure/install-az-ps).
 
 En este ejemplo no se comprueba si la máquina virtual está conectada a un equilibrador de carga. Si la máquina virtual está conectada a un equilibrador de carga, tendrá que actualizar el script para controlar ese caso. 
 
@@ -107,4 +107,3 @@ El script siguiente proporciona un ejemplo de recopilación de la información n
 ## <a name="next-steps"></a>Pasos siguientes
 
 Agregue almacenamiento adicional a la máquina virtual mediante la adición de un [disco de datos](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)adicional.
-

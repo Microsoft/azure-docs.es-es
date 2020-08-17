@@ -3,16 +3,17 @@ title: Supervisión de servicios de Node.js con Azure Application Insights | Mic
 description: Supervise el rendimiento y diagnostique problemas en servicios de Node.js con Application Insights.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: bb6ef87c99cbeeed4e8f3e5f98b8c57ce8667a71
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.custom: devx-track-javascript
+ms.openlocfilehash: c6a1a030829f128c4369e99efcd56a416390afc6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309771"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371624"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Supervisión de servicios y aplicaciones de Node.js con Application Insights
 
-[Application Insights](../../azure-monitor/app/app-insights-overview.md) supervisa los componentes y los servicios back-end después de implementarlos para ayudarle a detectar y diagnosticar rápidamente problemas de rendimiento, entre otros. Puede usar Application Insights para los servicios de Node.js que se hospedan en el centro de datos, en máquinas virtuales de Azure y en aplicaciones web, e incluso en otras nubes públicas.
+[Application Insights](./app-insights-overview.md) supervisa los componentes y los servicios back-end después de implementarlos para ayudarle a detectar y diagnosticar rápidamente problemas de rendimiento, entre otros. Puede usar Application Insights para los servicios de Node.js que se hospedan en el centro de datos, en máquinas virtuales de Azure y en aplicaciones web, e incluso en otras nubes públicas.
 
 Para recibir, almacenar y explorar los datos de supervisión, incluya el SDK en su código y luego configure el recurso correspondiente de Application Insights en Azure. El SDK envía datos a ese recurso para realizar el análisis y la exploración posteriormente.
 
@@ -29,7 +30,7 @@ Realice las tareas siguientes para configurar la supervisión para una aplicaci�
 Antes de empezar, asegúrese de que tiene una suscripción de Azure o bien [obtenga una nueva de forma gratuita][azure-free-offer]. Si su organización ya tiene una suscripción de Azure, un administrador puede seguir [estas instrucciones][add-aad-user] y agregarle a ella.
 
 [azure-free-offer]: https://azure.microsoft.com/free/
-[add-aad-user]: https://docs.microsoft.com/azure/active-directory/active-directory-users-create-azure-portal
+[add-aad-user]: ../../active-directory/fundamentals/add-users-azure-active-directory.md
 
 ### <a name="set-up-an-application-insights-resource"></a><a name="resource"></a> Configuración de un recurso de Application Insights
 
@@ -80,8 +81,8 @@ Dado que el SDK crea lotes de datos para enviar, puede haber un retraso hasta qu
 
 * Seguir usando la aplicación. Realizar más acciones para generar más datos de telemetría.
 * Haga clic en **Actualizar** en la vista de recursos del portal. Los gráficos se actualizan periódicamente por sí mismos, pero si se actualizan de forma manual, se actualizan de inmediato.
-* Compruebe que los [puertos de salida necesarios](../../azure-monitor/app/ip-addresses.md) estén abiertos.
-* Use [Buscar](../../azure-monitor/app/diagnostic-search.md) para buscar eventos específicos.
+* Compruebe que los [puertos de salida necesarios](./ip-addresses.md) estén abiertos.
+* Use [Buscar](./diagnostic-search.md) para buscar eventos específicos.
 * Consulte las [preguntas más frecuentes][FAQ].
 
 ## <a name="basic-usage"></a>Uso básico
@@ -216,7 +217,7 @@ appInsights
 
 ## <a name="telemetryclient-api"></a>TelemetryClient API
 
-Para obtener una descripción completa de TelemetryClient API, consulte [API de Application Insights para eventos y métricas personalizados](../../azure-monitor/app/api-custom-events-metrics.md).
+Para obtener una descripción completa de TelemetryClient API, consulte [API de Application Insights para eventos y métricas personalizados](./api-custom-events-metrics.md).
 
 Puede realizar el seguimiento de cualquier solicitud, evento, métrica o excepción mediante el SDK de Node.js de Application Insights. El ejemplo de código siguiente muestra algunas de las API que puede usar:
 
@@ -414,10 +415,11 @@ Las siguientes propiedades son específicas del cliente, por lo que puede config
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Navegación y paneles en el portal de Application Insights](../../azure-monitor/app/overview-dashboard.md)
-* [Escritura de consultas de Analytics sobre los datos de telemetría](../../azure-monitor/log-query/get-started-portal.md)
+* [Navegación y paneles en el portal de Application Insights](./overview-dashboard.md)
+* [Escritura de consultas de Analytics sobre los datos de telemetría](../log-query/get-started-portal.md)
 
 <!--references-->
 
 [portal]: https://portal.azure.com/
-[FAQ]: ../../azure-monitor/app/troubleshoot-faq.md
+[FAQ]: ../faq.md
+

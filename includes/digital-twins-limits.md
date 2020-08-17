@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 76ccd6f42f2cfd83512a2e817e8c2ac9aa61a28b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3035bd71a91f7cad6fb951d74081b77d8445a81f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391504"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87133908"
 ---
 ### <a name="functional-limits"></a>Límites funcionales
 
@@ -45,6 +45,6 @@ Esta tabla refleja los límites de frecuencia de distintas API.
 
 ### <a name="other-limits"></a>Otros límites
 
-Los límites de los tipos de datos y los campos de los documentos de DTDL para los modelos de Azure Digital Twins se pueden encontrar en la documentación de la especificación en GitHub: [Lenguaje de definición de Digital Twins (DTDL): versión 2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
+Los límites de los tipos de datos y los campos de los documentos de DTDL para los modelos de Azure Digital Twins se pueden encontrar en la documentación de la especificación en GitHub: [*Lenguaje de definición de Digital Twins (DTDL): versión 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Los detalles de la latencia de consulta y otras instrucciones para escribir consultas en la versión preliminar se pueden encontrar en [Procedimiento: Consulta del grafo de gemelos](../articles/digital-twins/how-to-query-graph.md).
+Los detalles de la latencia de consulta y otras instrucciones para escribir consultas en la versión preliminar se pueden encontrar en [*Procedimiento: Consulta del grafo de gemelos*](../articles/digital-twins/how-to-query-graph.md).

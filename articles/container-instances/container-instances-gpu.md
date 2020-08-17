@@ -2,13 +2,13 @@
 title: Implementación de una instancia de contenedor habilitada para GPU
 description: Aprenda a implementar instancias de contenedor de Azure para ejecutar aplicaciones de contenedor de uso intensivo de proceso utilizando recursos de GPU.
 ms.topic: article
-ms.date: 07/02/2020
-ms.openlocfilehash: a25efc90573eb338b81f4a6532a632a140c7ab7d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/22/2020
+ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259589"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387103"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Implementación de instancias de contenedor que usan recursos de GPU
 
@@ -33,9 +33,6 @@ Con el tiempo se admitirán más regiones.
 
 ## <a name="about-gpu-resources"></a>Acerca de los recursos de GPU
 
-> [!IMPORTANT]
-> Los recursos de GPU solo están disponibles bajo solicitud. Para solicitar acceso a los recursos de GPU, envíe una [solicitud de soporte técnico de Azure][azure-support].
-
 ### <a name="count-and-sku"></a>Recuento y SKU
 
 Para usar GPU en una instancia de contenedor, especifique un *recurso de GPU* con la siguiente información:
@@ -53,6 +50,9 @@ Para usar GPU en una instancia de contenedor, especifique un *recurso de GPU* co
 
 Al implementar recursos de GPU, establezca los recursos de CPU y memoria apropiados para la carga de trabajo, hasta los valores máximos mostrados en la siguiente anterior. Estos valores actualmente son mayores que los recursos de CPU y memoria disponibles en los grupos de contenedores sin recursos de GPU.  
 
+> [!IMPORTANT]
+> Los [límites de suscripción](container-instances-quotas.md) (cuotas) predeterminados para los recursos de GPU difieren en la SKU. Los límites de CPU predeterminados para las SKU P100 y V100 se establecen inicialmente en 0. Para solicitar un aumento en una región disponible, envíe una [solicitud de soporte técnico de Azure][azure-support].
+
 ### <a name="things-to-know"></a>Cosas que debe saber
 
 * **Tiempo de implementación**: la creación de un grupo de contenedores que contienen recursos de GPU tarda hasta **8-10 minutos**. Esto se debe al tiempo adicional para aprovisionar y configurar una VM de GPU en Azure. 
@@ -63,7 +63,7 @@ Al implementar recursos de GPU, establezca los recursos de CPU y memoria apropia
 
 * **Controladores de CUDA**: las instancias de contenedor con los recursos de GPU se aprovisionan previamente con controladores de NVIDIA CUDA y tiempos de ejecución de contenedor, por lo que puede usar imágenes de contenedor desarrolladas para cargas de trabajo de CUDA.
 
-  Se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar las siguientes imágenes base para su archivo de Docker:
+  Solo se admite CUDA 9.0 en esta fase. Por ejemplo, puede usar las imágenes base siguientes para su archivo de Docker:
   * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
   * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
     

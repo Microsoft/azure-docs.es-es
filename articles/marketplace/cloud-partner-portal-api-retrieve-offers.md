@@ -4,26 +4,26 @@ description: La API para recuperar una lista resumida de ofertas de un espacio d
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: ab5f09d0d81d8a6aa526576faea0b11a6536381a
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 39d07751c708d5555799ecbb3b3bc66d3f44f43a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86113486"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87271967"
 ---
-<a name="retrieve-offers"></a>Recuperación de ofertas
-===============
+# <a name="retrieve-offers"></a>Recuperación de ofertas
 
 > [!NOTE]
-> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar las ofertas al Centro de partners. La integración presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de las API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
+> Las API de Cloud Partner Portal se integran en el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código siga funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 
  `GET https://cloudpartner.azure.com/api/publishers/<publisherId>/offers?api-version=2017-10-31`
 
-<a name="uri-parameters"></a>Parámetros del identificador URI
---------------
+## <a name="uri-parameters"></a>Parámetros del identificador URI
 
 | **Nombre**         |  **Descripción**                         |  **Tipo de datos** |
 | -------------    |  ------------------------------------    |  -----------   |
@@ -31,9 +31,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  api-version     | Última versión de la API.                    |    Date        |
 |  |  |
 
-
-<a name="header"></a>Encabezado
-------
+## <a name="header"></a>Encabezado
 
 |  **Nombre**        |         **Valor**       |
 |  --------------- |       ----------------  |
@@ -41,9 +39,7 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  Authorization   | `Bearer YOUR_TOKEN`     |
 |  |  |
 
-
-<a name="body-example"></a>Ejemplo de cuerpo
-------------
+## <a name="body-example"></a>Ejemplo de cuerpo
 
 ### <a name="response"></a>Response
 
@@ -77,7 +73,6 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  changedTime    | Hora UTC en la que se modificó por última vez la oferta                                                                              |
 |  |  |
 
-
 ### <a name="response-status-codes"></a>Códigos de estado de respuesta
 
 | **Código**  |  **Descripción**                                                                                                   |
@@ -87,7 +82,6 @@ Recupera una lista resumida de ofertas de un espacio de nombres del anunciante.
 |  403      | `Forbidden`: El cliente no tiene acceso al espacio de nombres especificado.                                          |
 |  404      | `Not found`: La entidad especificada no existe.                                                                 |
 |  |  |
-
 
 ### <a name="offer-status"></a>Estado de la oferta
 

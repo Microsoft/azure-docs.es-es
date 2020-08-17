@@ -1,29 +1,24 @@
 ---
 title: 'Conexión a Windows Virtual Desktop desde macOS: Azure'
 description: Cómo conectarse a Windows Virtual Desktop mediante el cliente macOS.
-services: virtual-desktop
-author: heidilohr
-ms.service: virtual-desktop
+author: Heidilohr
 ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f2b4696886c898eec5895c4ccb59347cf2a49f03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 649176a363b1a721fede68c5db2a736d5304f485
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85209001"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007619"
 ---
-# <a name="connect-with-the-macos-client"></a>Conexión con el cliente macOS
+# <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Conexión a Windows Virtual Desktop mediante el cliente macOS
 
 > Se aplica a: macOS 10.12, o cualquier versión posterior
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión Windows Virtual Desktop Fall 2019 sin objetos de Azure Resource Manager, vea [este artículo](./virtual-desktop-fall-2019/connect-macos-2019.md).
->
-> La actualización Spring 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas.
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/connect-macos-2019.md).
 
 Puede acceder a los recursos de Windows Virtual Desktop desde sus dispositivos macOS con nuestro cliente, que se puede descargar. En esta guía se le indicará cómo configurar el cliente.
 
@@ -44,9 +39,9 @@ Para suscribirse a una fuente:
 3. Seleccione **Agregar**.
 4. Inicie sesión con su cuenta de usuario cuando se le solicite.
 
-Una vez que haya iniciado sesión, debería ver una lista de recursos disponibles.
+Después de iniciar sesión, verás una lista de los recursos disponibles.
 
-Una vez que se haya suscrito a una fuente, el contenido de la misma se actualizará automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
+Una vez suscrito a una fuente, el contenido de la fuente se actualizará automáticamente de forma periódica. Pueden agregarse, cambiarse o quitarse recursos de acuerdo con los cambios hechos por el administrador.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,16 +4,16 @@ description: Modelo de datos de Application Insights para la telemetría de mét
 ms.topic: conceptual
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 44f0b070a7c0da416002d9bf7e509d643a96dc7a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f8e787b8a94987e7d68e12a0e4e69f4c63e21e19
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540016"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320585"
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetría de métricas: Modelo de datos de Application Insights
 
-Hay dos tipos de telemetría de métricas compatibles con [Application Insights](../../azure-monitor/app/app-insights-overview.md): la medida única y la métrica previamente agregada. La medida única es simplemente un nombre y un valor. La métrica previamente agregada especifica el valor mínimo y máximo de la métrica en el intervalo de agregación y la desviación estándar del mismo.
+Hay dos tipos de telemetría de métricas compatibles con [Application Insights](./app-insights-overview.md): la medida única y la métrica previamente agregada. La medida única es simplemente un nombre y un valor. La métrica previamente agregada especifica el valor mínimo y máximo de la métrica en el intervalo de agregación y la desviación estándar del mismo.
 
 La telemetría de métricas previamente agregadas da por supuesto que el período de agregación es de un minuto.
 
@@ -65,6 +65,7 @@ La métrica con la propiedad personalizada `CustomPerfCounter` establecida en `t
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo usar la [API de Application Insights para eventos y métricas personalizados](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric).
+- Obtenga información sobre cómo usar la [API de Application Insights para eventos y métricas personalizados](./api-custom-events-metrics.md#trackmetric).
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
-- Consulte las [plataformas](../../azure-monitor/app/platforms.md) compatibles con Application Insights.
+- Consulte las [plataformas](./platforms.md) compatibles con Application Insights.
+

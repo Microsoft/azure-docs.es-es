@@ -1,20 +1,20 @@
 ---
-title: Creación de una oferta de aplicación de Power BI en Marketplace comercial de Microsoft
+title: Creación de una oferta de aplicación de Power BI para Microsoft AppSource
 description: Obtenga información sobre cómo crear y publicar una oferta de aplicación de Power BI para Microsoft AppSource.
-author: anbene
-ms.author: mingshen
+author: navits09
+ms.author: navits
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: 8a4ff5c5bce7774f805130f68d7418a73cb751f8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 07/22/2020
+ms.openlocfilehash: 4705919f9c6c11678984c016716fe38cb6191557
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85980361"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88030777"
 ---
-# <a name="create-a-power-bi-app-for-microsoft-appsource"></a>Creación de una aplicación de Power BI para Microsoft AppSource
+# <a name="create-a-power-bi-app-offer"></a>Creación de una oferta de aplicación de Power BI
 
 En este artículo se describe cómo crear y publicar una oferta de aplicación de Power BI para Microsoft[AppSource](https://appsource.microsoft.com/).
 
@@ -202,6 +202,8 @@ Proporcione al menos uno y hasta tres documentos de marketing relacionados en fo
 
 Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágenes deben estar en formato PNG. Las imágenes borrosas se rechazarán.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio `https://upload.xboxlive.com` que usa el Centro de partners.
 
@@ -212,6 +214,8 @@ Proporcione los archivos PNG del logotipo de la oferta en dos tamaños de píxel
 - **Grande (216 x 216)**
 
 Los dos logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 

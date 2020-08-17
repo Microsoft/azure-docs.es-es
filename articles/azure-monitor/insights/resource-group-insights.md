@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 06bdedf1dac92a2010718ffd3eb5c6e43bb51e6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83798121"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045767"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Supervisar los grupos de recursos con Azure Monitor (versión preliminar)
 
@@ -46,10 +46,10 @@ La página de información del grupo de recursos proporciona otras herramientas 
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)      |  Ver, crear y administrar las alertas. |
-   | [**Métricas**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics) | Visualizar y explorar los datos en función de las métricas.    |
-   | [**Registros de actividad**](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) | Eventos de nivel de suscripción que se han producido en Azure.  |
-   | [**Mapa de aplicación**](https://docs.microsoft.com/azure/application-insights/app-insights-app-map) | Vaya a la topología de la aplicación distribuida para identificar los cuellos de botella en el rendimiento o las zonas activas de un error. |
+   | [**Alertas**](../platform/alerts-overview.md)      |  Ver, crear y administrar las alertas. |
+   | [**Métricas**](../platform/data-platform.md) | Visualizar y explorar los datos en función de las métricas.    |
+   | [**Registros de actividad**](../platform/platform-logs-overview.md) | Eventos de nivel de suscripción que se han producido en Azure.  |
+   | [**Mapa de aplicación**](../app/app-map.md) | Vaya a la topología de la aplicación distribuida para identificar los cuellos de botella en el rendimiento o las zonas activas de un error. |
 
 ## <a name="failures-and-performance"></a>Errores y rendimiento
 
@@ -117,6 +117,6 @@ Azure Monitor para grupos de recursos se basa en el sistema de administración d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Libros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
-- [Azure Resource Health](https://docs.microsoft.com/azure/service-health/resource-health-overview)
-- [Alertas de Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)
+- [Libros de Azure Monitor](../platform/workbooks-overview.md)
+- [Azure Resource Health](../../service-health/resource-health-overview.md)
+- [Alertas de Azure Monitor](../platform/alerts-overview.md)

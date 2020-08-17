@@ -1,6 +1,6 @@
 ---
 title: 'Emparejamiento de dos redes virtuales: ejemplo de script de Azure PowerShell'
-description: 'Ejemplo de script de Azure PowerShell: emparejar dos redes virtuales'
+description: Cree y conecte dos redes virtuales en la misma región. Use el script de Azure para dos redes virtuales del mismo nivel para conectar las redes a través de la red de Azure.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/20/2018
 ms.author: kumud
-ms.openlocfilehash: 4061997aa2efbae250b30fc58cef06b1249c2b8f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 7cbcae51228e5bf722f3ea802a322483aed6c225
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "74091296"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286128"
 ---
 # <a name="peer-two-virtual-networks-script-sample"></a>Ejemplo de script de emparejamiento de dos redes virtuales
 
@@ -54,6 +54,6 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una má
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/overview).
+Para más información sobre Azure PowerShell, consulte la [documentación de Azure PowerShell](/powershell/azure/).
 
 Puede encontrar más ejemplos de script de PowerShell de red virtual en [ejemplos de PowerShell de red virtual](../powershell-samples.md).

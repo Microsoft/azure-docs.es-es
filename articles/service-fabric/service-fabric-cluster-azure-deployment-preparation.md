@@ -3,12 +3,12 @@ title: Planeación de una implementación de clúster de Azure Service Fabric
 description: Obtenga información sobre la planificación y preparación de la implementación de un clúster de producción de Service Fabric.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 462548d7f32a015701ef12e9777e8d9b1b1350f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1064e59491b7144aafade24bd50131478fe025eb
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610598"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281334"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planeamiento y preparación de la implementación de un clúster
 
@@ -51,7 +51,7 @@ Los *discos del sistema operativo efímeros* son almacenamiento creado en la má
 
 Los discos del sistema operativo efímeros no son una característica específica de Service Fabric, sino una característica de los *conjuntos de escalado de máquinas virtuales* de Azure que se asignan a los tipos de nodo de Service Fabric. Para usarlos con Service Fabric necesita realizar lo siguiente en la plantilla de Azure Resource Manager de su clúster:
 
-1. Asegúrese de que los tipos de nodo tienen [tamaños de máquina virtual de Azure compatibles](../virtual-machines/windows/ephemeral-os-disks.md) con los discos del sistema operativo efímeros, y que el tamaño de la máquina virtual tiene un tamaño de caché adecuado para admitir el tamaño del disco del sistema operativo (consulte la *Nota* a continuación). Por ejemplo:
+1. Asegúrese de que los tipos de nodo tienen [tamaños de máquina virtual de Azure compatibles](../virtual-machines/ephemeral-os-disks.md) con los discos del sistema operativo efímeros, y que el tamaño de la máquina virtual tiene un tamaño de caché adecuado para admitir el tamaño del disco del sistema operativo (consulte la *Nota* a continuación). Por ejemplo:
 
     ```xml
     "vmNodeType1Size": {
@@ -97,7 +97,7 @@ Los discos del sistema operativo efímeros no son una característica específic
 > Para migrarlos, los usuarios tendrán que [agregar](./virtual-machine-scale-set-scale-node-type-scale-out.md) un nuevo nodeType con discos efímeros, trasladar las cargas de trabajo al nuevo nodeType y [quitar](./service-fabric-how-to-remove-node-type.md) el nodeType existente.
 >
 
-Para obtener más información y opciones de configuración adicionales, consulte [Discos de SO efímeros para máquinas virtuales de Azure](../virtual-machines/windows/ephemeral-os-disks.md). 
+Para obtener más información y opciones de configuración adicionales, consulte [Discos de SO efímeros para máquinas virtuales de Azure](../virtual-machines/ephemeral-os-disks.md). 
 
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>Selección de los niveles de durabilidad y confiabilidad para el clúster

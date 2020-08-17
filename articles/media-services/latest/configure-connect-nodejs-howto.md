@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0381a2e2b8fd2a8b60e7cb702e0336a5678df057
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 8e54fec584f8961dfc44a7c93f95772ea03e1259
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74896098"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424433"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conexión a la API de Media Services v3: Node.js
 
@@ -27,7 +28,7 @@ En este artículo se muestra cómo conectar con el SDK de node.js de Azure Medi
 ## <a name="prerequisites"></a>Prerrequisitos
 
 - [Instale Node.js](https://nodejs.org/en/download/).
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
+- [Cree una cuenta de Media Services](./create-account-howto.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services.
 
 > [!IMPORTANT]
 > Revise las [convenciones de nomenclatura](media-services-apis-overview.md#naming-conventions).
@@ -70,7 +71,7 @@ npm install azure-arm-mediaservices
 
 1. Cree un archivo .js con el editor que prefiera.
 1. Abra el archivo y pegue el siguiente código.
-1. Establezca los valores en la sección "endpoint config" en los valores que se obtuvo de [Acceso a la API](access-api-cli-how-to.md).
+1. Establezca los valores en la sección "endpoint config" en los valores que se obtuvo de [Acceso a la API](./access-api-howto.md).
 
 ```js
 'use strict';
@@ -131,4 +132,3 @@ node index.js
 ## <a name="next-steps"></a>Pasos siguientes
 
 Explore la documentación de [referencia de Node.js](/javascript/api/overview/azure/mediaservices/management) y los [ejemplos](https://github.com/Azure-Samples/media-services-v3-node-tutorials) que muestran cómo usar Media Services API con node.js.
-

@@ -5,17 +5,18 @@ description: Obtenga información sobre cómo cambiar las claves de acceso de la
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: 3a99bff20eb7135b384bfef5be4ece9c5fff0461
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c6b8f9d7f99d49f65a45d0e09623ef2f0e1217f2
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483319"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387071"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Regeneración de las claves de acceso de la cuenta de almacenamiento
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +26,7 @@ Obtenga información sobre cómo cambiar las claves de acceso de las cuentas de 
 Por motivos de seguridad, es posible que necesite cambiar las claves de acceso de una cuenta de Azure Storage. Cuando se regenera la clave de acceso, es necesario actualizar Azure Machine Learning para que use la nueva clave. Azure Machine Learning podría estar usando la cuenta de almacenamiento para el almacenamiento de modelos y como almacén de datos.
 
 > [!IMPORTANT]
-> Las credenciales que se registran en almacenes de almacenamiento se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](https://docs.microsoft.com/azure/key-vault/general/overview-soft-delete) para Key Vault, asegúrese de seguir este artículo para actualizar las credenciales. Se producirá un error si anula el registro del almacén de datos y vuelve a registrarlo con el mismo nombre.
+> Las credenciales que se registran en almacenes de almacenamiento se guardan en la instancia de Azure Key Vault asociada al área de trabajo. Si tiene habilitada la [eliminación temporal](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) para Key Vault, asegúrese de seguir este artículo para actualizar las credenciales. Se producirá un error si anula el registro del almacén de datos y vuelve a registrarlo con el mismo nombre.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

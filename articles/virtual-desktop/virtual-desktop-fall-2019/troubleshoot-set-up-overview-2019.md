@@ -1,24 +1,22 @@
 ---
-title: 'Introducción a la solución de problemas de Windows Virtual Desktop: Azure'
-description: Información general para solucionar problemas al configurar un entorno de inquilinos de Windows Virtual Desktop.
-services: virtual-desktop
+title: 'Información general sobre la solución de problemas de Windows Virtual Desktop (clásico): Azure'
+description: Información general para solucionar problemas al configurar un entorno de inquilinos de Windows Virtual Desktop (clásico).
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7fff21ec4fdb53483eea1a6c37ce9269081fe77e
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.openlocfilehash: 7b2220ffe92446338e1b9db9b329847d93830334
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82614277"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005438"
 ---
-# <a name="troubleshooting-overview-feedback-and-support"></a>Información general sobre solución de problemas, comentarios y soporte técnico
+#  <a name="windows-virtual-desktop-classic-troubleshooting-overview-feedback-and-support"></a>Información general, comentarios y soporte técnico para la solución de problemas de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../troubleshoot-set-up-overview.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../troubleshoot-set-up-overview.md).
 
 En este artículo se proporciona información general de los problemas que pueden surgir al configurar un entorno de inquilinos de Windows Virtual Desktop y proporciona distintas maneras de resolver los problemas.
 

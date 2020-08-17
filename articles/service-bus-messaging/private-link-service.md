@@ -5,14 +5,14 @@ author: spelluru
 ms.author: spelluru
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: 4516405472abf733c8ef06fb5ee5855f8e97d396
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef469eb74c3dd7d82dec908dba8c53136df206e4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340434"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423429"
 ---
-# <a name="integrate-azure-service-bus-with-azure-private-link"></a>Integración de Azure Service Bus con Azure Private Link
+# <a name="allow-access-to-azure-service-bus-namespaces-via-private-endpoints"></a>Permiso para acceder a los espacios de nombres de Azure Service Bus a través de puntos de conexión privados
 
 El servicio Azure Private Link le permite acceder a los servicios de Azure (por ejemplo, Azure Service Bus, Azure Storage y Azure Cosmos DB) y a los servicios de asociados o clientes hospedados por Azure mediante un **punto de conexión privado** de la red virtual.
 
@@ -40,13 +40,13 @@ Para más información, consulte [¿Qué es Azure Private Link?](../private-link
 
 ## <a name="add-a-private-endpoint-using-azure-portal"></a>Incorporación de un punto de conexión privado mediante Azure Portal
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para integrar un espacio de nombres de Service Bus con Azure Private Link, necesitará las siguientes entidades o permisos:
 
 - Un espacio de nombres de Service Bus.
 - Una red virtual de Azure.
-- Una subred en la red virtual.
+- Una subred en la red virtual. Puede usar la subred **predeterminada**. 
 - Permisos de propietario o colaborador para el espacio de nombres de Service Bus y la red virtual.
 
 El punto de conexión privado y la red virtual deben estar en la misma región. Al seleccionar una región para el punto de conexión privado mediante el portal, solo se filtran automáticamente las redes virtuales que se encuentran en dicha región. El espacio de nombres de Service Bus puede estar en una región diferente. Y el punto de conexión privado usa una dirección IP privada en la red virtual.
@@ -58,8 +58,19 @@ Si ya tiene un espacio de nombres existente, puede crear un punto de conexión p
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 2. En la barra de búsqueda, escriba **Service Bus**.
 3. En la lista, seleccione el **espacio de nombres** al que desea agregar un punto de conexión privado.
-4. Seleccione la pestaña **Redes** en **Configuración**.
-5. Seleccione la pestaña **Conexiones de puntos de conexión privado** en la parte superior de la página.
+2. En el menú de la izquierda, seleccione la opción **Redes** en **Configuración**. 
+
+    > [!NOTE]
+    > Puede ver la pestaña **Redes** solo para los espacios de nombres **premium**.  
+    
+    De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no agrega al menos una regla de firewall de IP o una red virtual en esta página, se podrá acceder al espacio de nombres desde la red pública de Internet (mediante la clave de acceso).
+
+    :::image type="content" source="./media/service-bus-ip-filtering/default-networking-page.png" alt-text="Página Redes: predeterminada" lightbox="./media/service-bus-ip-filtering/default-networking-page.png":::
+    
+    Si selecciona la opción **Todas las redes**, el espacio de nombres de Service Bus aceptará conexiones procedentes de cualquier dirección IP (mediante la clave de acceso). Esta configuración predeterminada es equivalente a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
+
+    ![Firewall: opción Todas las redes seleccionada](./media/service-bus-ip-filtering/firewall-all-networks-selected.png)
+5. Para permitir el acceso al espacio de nombres a través de puntos de conexión privados, seleccione la pestaña **Conexiones de puntos de conexión privado** en la parte superior de la página.
 6. Seleccione el botón **+ Punto de conexión privado** en la parte superior de la página.
 
     ![Incorporación del botón de un punto de conexión privado](./media/private-link-service/private-link-service-3.png)
@@ -240,7 +251,7 @@ Conéctese a la máquina virtual, abra la línea de comandos y ejecute el siguie
 nslookup <service-bus-namespace-name>.servicebus.windows.net
 ```
 
-Debe ver un resultado parecido a lo siguiente. 
+Debería ver un resultado con el siguiente aspecto. 
 
 ```console
 Non-authoritative answer:

@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center y Azure Container Registry
-description: Obtenga más información sobre la integración de Azure Security Center con Azure Container Registry
+description: Obtenga información sobre cómo examinar los registros de contenedor con Azure Security Center.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -10,26 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2020
+ms.date: 08/02/2020
 ms.author: memildin
-ms.openlocfilehash: f3ef633ff0271d74eea7320faadf17685976d3b6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b66969b26a801e6bd9aacf999c1c1ef9179ef1bd
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970474"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534675"
 ---
-# <a name="azure-container-registry-integration-with-security-center"></a>Integración de Azure Container Registry con Security Center
+# <a name="azure-container-registry-image-scanning-by-security-center"></a>Análisis de imágenes de Azure Container Registry por Security Center
 
 Azure Container Registry (ACR) es un servicio de registro de Docker privado y administrado que almacena y administra las imágenes de contenedor de las implementaciones de Azure en un registro central. Se basa en el registro 2.0 de Docker de código abierto.
 
 Si está en el nivel estándar de Azure Security Center, puede agregar el paquete Registros de contenedor. Esta característica opcional proporciona mayor visibilidad sobre las vulnerabilidades de las imágenes en los registros basados en Azure Resource Manager. Habilite o deshabilite el paquete en el nivel de suscripción para abarcar todos los registros de una suscripción. Esta característica se cobra por imagen, tal como se muestra en la [página de precios](security-center-pricing.md). Al habilitar el paquete Registros de contenedor se asegura de que Security Center esté listo para examinar las imágenes que se inserten en el registro. 
 
-
 ## <a name="availability"></a>Disponibilidad
 
 - Estado de la versión: **Disponibilidad general**
 - Roles necesarios: **Rol de lector de seguridad** y [de lector Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+- Registros e imágenes compatibles:
+    - ✔ Registros de ACR hospedados en Linux a los que se puede acceder desde la red pública de Internet y proporcionan acceso a shell.
+    - ✘ Registros de ACR hospedados en Windows.
+    - ✘ Registros "privados": Security Center requiere que se pueda acceder a los registros desde la red pública de Internet. En estos momentos, Security Center no puede conectarse a, ni examinar, registros con acceso limitado con un firewall, un punto de conexión de servicio o puntos de conexión privados, como Azure Private Link.
+    - ✘ Imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen una aplicación y sus dependencias en tiempo de ejecución sin un administrador de paquetes, shell o sistema operativo.
 - Nubes: 
     - ✔ Nubes comerciales
     - ✘ Nube de US Government
@@ -40,7 +44,7 @@ Si está en el nivel estándar de Azure Security Center, puede agregar el paquet
 
 Cada vez que se inserta una imagen en el registro, Security Center la examina de forma automática. Para desencadenar el examen de una imagen, insértela en el repositorio.
 
-Cuando finaliza el examen (al cabo de 10 minutos aproximadamente, aunque puede tardar hasta 40 minutos), los resultados están disponibles en recomendaciones de Security Center como esta:
+Cuando finaliza el examen (al cabo de 2 minutos aproximadamente, aunque puede tardar hasta 15 minutos), los resultados están disponibles en recomendaciones de Security Center como esta:
 
 [![Ejemplo de recomendación Azure Security Center sobre puntos vulnerables detectados en una imagen hospedada de Azure Container Registry (ACR)](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
@@ -57,25 +61,23 @@ Security Center identifica los registros de ACR basados en Azure Resource Manage
 
 
 
-## <a name="acr-with-security-center-faq"></a>Preguntas más frecuentes sobre ACR con Security Center
+## <a name="faq-for-azure-container-registry-image-scanning"></a>Preguntas más frecuentes sobre el análisis de imágenes de Azure Container Registry
 
-### <a name="what-types-of-images-can-azure-security-center-scan"></a>¿Qué tipos de imágenes puede examinar Azure Security Center?
-Security Center analiza imágenes basadas en el sistema operativo Linux que proporcionan acceso a shell. 
-
-El escáner de Qualys no admite imágenes excesivamente minimalistas, como las imágenes [base de Docker](https://hub.docker.com/_/scratch/) o imágenes "sin distribución" que solo contienen su aplicación y sus dependencias del runtime sin un administrador de paquetes, shell o sistema operativo.
-
-### <a name="how-does-azure-security-center-scan-an-image"></a>¿De qué forma analiza Azure Security Center las imágenes?
+### <a name="how-does-security-center-scan-an-image"></a>¿De qué forma analiza Security Center las imágenes?
 La imagen se extrae del registro. Luego, se ejecuta en un espacio aislado con el escáner de Qualys, que extrae una lista de puntos vulnerables conocidos.
 
 Security Center filtra y clasifica los resultados del análisis. Cuando una imagen es correcta, Security Center la marca como tal. Security Center solo genera recomendaciones de seguridad para las imágenes que tienen incidencias sin resolver. Al enviar notificaciones solo cuando hay problemas, Security Center reduce las alertas informativas no deseadas.
 
-### <a name="how-often-does-azure-security-center-scan-my-images"></a>¿Con qué frecuencia examina Azure Security Center mis imágenes?
+### <a name="how-often-does-security-center-scan-my-images"></a>¿Con qué frecuencia examina Security Center mis imágenes?
 Los exámenes de imágenes se desencadenan en todas las inserciones.
 
 ### <a name="can-i-get-the-scan-results-via-rest-api"></a>¿Se pueden obtener los resultados del examen mediante la API REST?
 Sí. Los resultados se encuentran en [API REST de valoración secundaria](/rest/api/securitycenter/subassessments/list/). Asimismo, puede usar Azure Resource Graph (ARG), la API similar a Kusto para todos los recursos: una consulta puede recuperar un análisis específico.
  
+### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>¿Qué tipos de registros se analizan? ¿Qué tipos se facturan?
+En la [sección de disponibilidad](#availability) se enumeran los tipos de registros de contenedor que admite el conjunto de registros de contenedor. 
 
+Si los registros que no se admiten están conectados a su suscripción de Azure, no se examinarán y no se facturarán.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

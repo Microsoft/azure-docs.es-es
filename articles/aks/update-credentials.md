@@ -5,12 +5,12 @@ description: Aprenda a actualizar o restablecer las credenciales de la entidad d
 services: container-service
 ms.topic: article
 ms.date: 03/11/2019
-ms.openlocfilehash: a9cc19184cc39975cce18d17a6047bedf5915555
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a824606bc0e77ba069b6b54725645ee3f348de27
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251033"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386935"
 ---
 # <a name="update-or-rotate-the-credentials-for-azure-kubernetes-service-aks"></a>Actualización o modificación de las credenciales de un clúster de Azure Kubernetes Service (AKS)
 
@@ -24,12 +24,14 @@ También puede usar una identidad administrada para los permisos en lugar de una
 
 Es preciso que esté instalada y configurada la versión 2.0.65 de la CLI de Azure, o cualquier otra posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte  [Install Azure CLI][install-azure-cli] (Instalación de la CLI de Azure).
 
-## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Actualización o creación de una nueva entidad de servicio para el clúster de AKS
+## <a name="update-or-create-a-new-service-principal-for-your-aks-cluster"></a>Actualización o creación de una entidad de servicio nueva para el clúster de AKS
 
-Cuando quiera actualizar las credenciales de un clúster de AKS, puede hacer lo siguiente:
+Cuando quiera actualizar las credenciales de un clúster de AKS, puede hacer alguna de las acciones siguientes:
 
-* actualizar las credenciales de la entidad de servicio existente que usa el clúster, o
-* crear a una entidad de servicio y actualizar el clúster para usar estas nuevas credenciales.
+* Actualizar las credenciales de la entidad de servicio existente.
+* Crear a una entidad de servicio y actualizar el clúster para usar estas nuevas credenciales. 
+
+> ![ADVERTENCIA] Si elige crear una entidad de servicio *nueva*, la actualización de un clúster de AKS de gran tamaño para usar estas credenciales puede tardar mucho en completarse.
 
 ### <a name="check-the-expiration-date-of-your-service-principal"></a>Comprobación de la fecha de expiración de la entidad de servicio
 
@@ -41,7 +43,7 @@ SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
 az ad sp credential list --id $SP_ID --query "[].endDate" -o tsv
 ```
 
-### <a name="reset-existing-service-principal-credential"></a>Restablecimiento de las credenciales de una entidad de servicio existente
+### <a name="reset-the-existing-service-principal-credential"></a>Restablecimiento de las credenciales de una entidad de servicio existente
 
 Para actualizar las credenciales de la entidad de servicio existente, obtenga el identificador de entidad de servicio del clúster mediante el comando [az aks show][az-aks-show]. En el ejemplo siguiente se obtiene el id. del clúster denominado *myAKSCluster* en el grupo de recursos *myResourceGroup*. El identificador de la entidad de servicio se establece como una variable denominada *SP_ID* para usarlo en un comando adicional. Estos comandos usan la sintaxis de Bash.
 
@@ -58,7 +60,7 @@ SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 
 Ahora, vaya a la sección [Actualización del clúster de AKS con nuevas credenciales de la entidad de servicio](#update-aks-cluster-with-new-service-principal-credentials). Este paso es necesario para que los cambios de la entidad de servicio se reflejen en el clúster de AKS.
 
-### <a name="create-a-new-service-principal"></a>Creación de una nueva entidad de servicio
+### <a name="create-a-new-service-principal"></a>Creación de una entidad de servicio
 
 Si decidió actualizar las credenciales de la entidad de servicio existente en la sección anterior, omita este paso. Vaya a la sección [Actualización del clúster de AKS con nuevas credenciales de la entidad de servicio](#update-aks-cluster-with-new-service-principal-credentials).
 
@@ -90,6 +92,9 @@ Ahora, vaya a la sección [Actualización del clúster de AKS con nuevas credenc
 
 ## <a name="update-aks-cluster-with-new-service-principal-credentials"></a>Actualización del clúster de AKS con nuevas credenciales de la entidad de servicio
 
+> [!IMPORTANT]
+> En el caso de los clústeres de gran tamaño, la actualización del clúster de AKS con una entidad de servicio nueva puede tardar mucho tiempo en completarse.
+
 Independientemente de si decide actualizar las credenciales de la entidad de servicio existente o de si crea una entidad de servicio, debe actualizar de nuevo el clúster de AKS con sus credenciales mediante el comando [az aks update-credentials][az-aks-update-credentials]. Las variables para los valores de *--service-principal* y *--client-secret* se usan de la siguiente manera:
 
 ```azurecli-interactive
@@ -101,11 +106,11 @@ az aks update-credentials \
     --client-secret "$SP_SECRET"
 ```
 
-Las credenciales de la entidad de servicio tardan unos minutos en actualizarse en AKS.
+Para pequeños y medianos clústeres, las credenciales de la entidad de servicio tardan unos minutos en actualizarse en AKS.
 
 ## <a name="update-aks-cluster-with-new-aad-application-credentials"></a>Actualización del clúster de AKS con nuevas credenciales de la aplicación AAD
 
-Puede crear una nueva aplicación cliente y una nueva aplicación de servidor de AAD siguiendo los [pasos para integrar AAD][create-aad-app]. También puede restablecer las aplicaciones de AAD existentes siguiendo el [mismo método que para restablecer la entidad de servicio](#reset-existing-service-principal-credential). Una vez hecho esto, solo tendrá que actualizar las credenciales de la aplicación AAD utilizando el mismo comando [az aks update-credentials][az-aks-update-credentials], pero con las variables *--reset-aad*.
+Puede crear una nueva aplicación cliente y una nueva aplicación de servidor de AAD siguiendo los [pasos para integrar AAD][create-aad-app]. También puede restablecer las aplicaciones de AAD existentes siguiendo el [mismo método que para restablecer la entidad de servicio](#reset-the-existing-service-principal-credential). Una vez hecho esto, solo tendrá que actualizar las credenciales de la aplicación AAD utilizando el mismo comando [az aks update-credentials][az-aks-update-credentials], pero con las variables *--reset-aad*.
 
 ```azurecli-interactive
 az aks update-credentials \

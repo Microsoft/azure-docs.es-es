@@ -3,12 +3,12 @@ title: 'Supervisión y registro: Azure'
 description: En este artículo se proporciona información general sobre la supervisión y el registro de Live Video Analytics on IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 807b0623159e0b50285b89da2835e9dd6cb037aa
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260578"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87060462"
 ---
 # <a name="monitoring-and-logging"></a>Supervisión y registro
 
@@ -98,7 +98,7 @@ Live Video Analytics on IoT Edge emite eventos o datos de telemetría según l
      }
    }
    ```
-Los eventos emitidos por el módulo se envían al [centro de IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub) y, desde allí, se pueden enrutar a otros destinos. 
+Los eventos emitidos por el módulo se envían al [centro de IoT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub) y, desde allí, se pueden enrutar a otros destinos. 
 
 ## <a name="controlling-events"></a>Control de eventos
 
@@ -110,7 +110,7 @@ Se pueden usar las siguientes propiedades de módulo gemelo (como se documenta e
    
 Los eventos de análisis los generan nodos como, por ejemplo, el procesador de detección de movimiento o el procesador de extensión HTTP, y el receptor de IoT Hub se usa para enviarlos al centro de IoT Edge. 
 
-Puede controlar el [enrutamiento de todos los eventos anteriores](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes) a través de una propiedad deseada del módulo gemelo $edgeHub (en el manifiesto de implementación):
+Puede controlar el [enrutamiento de todos los eventos anteriores](../../iot-edge/module-composition.md#declare-routes) a través de una propiedad deseada del módulo gemelo $edgeHub (en el manifiesto de implementación):
 
 ```
  "$edgeHub": {
@@ -126,14 +126,14 @@ Puede controlar el [enrutamiento de todos los eventos anteriores](https://docs.m
  }
 ```
 
-Arriba, lvaEdge es el nombre del módulo Live Video Analytics on IoT Edge, y la regla de enrutamiento sigue el esquema definido en [Declaración de rutas](https://docs.microsoft.com/azure/iot-edge/module-composition#declare-routes).
+Arriba, lvaEdge es el nombre del módulo Live Video Analytics on IoT Edge, y la regla de enrutamiento sigue el esquema definido en [Declaración de rutas](../../iot-edge/module-composition.md#declare-routes).
 
 > [!NOTE]
 > Para garantizar que los eventos de análisis llegan al centro de IoT Edge, debe haber un nodo receptor de IoT Hub en sentido descendente con respecto a cualquier nodo procesador de detección de movimiento y/o nodo procesador de extensión HTTP.
 
 ## <a name="event-schema"></a>Esquema del evento
 
-Los eventos se originan en el dispositivo Edge y se pueden consumir tanto en Edge como en la nube. Los eventos generados por Live Video Analytics on IoT Edge siguen el [patrón de mensajería de streaming](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct) establecido por Azure IoT Hub, con propiedades de sistema, propiedades de la aplicación y un cuerpo.
+Los eventos se originan en el dispositivo Edge y se pueden consumir tanto en Edge como en la nube. Los eventos generados por Live Video Analytics on IoT Edge siguen el [patrón de mensajería de streaming](../../iot-hub/iot-hub-devguide-messages-construct.md) establecido por Azure IoT Hub, con propiedades de sistema, propiedades de la aplicación y un cuerpo.
 
 ### <a name="summary"></a>Resumen
 
@@ -200,7 +200,7 @@ La hora del evento se describe en la cadena ISO8601 y es la hora a la que dicho
 
 ## <a name="logging"></a>Registro
 
-Al igual que sucede con otros módulos de IoT Edge, también se pueden [examinar los registros de contenedor](https://docs.microsoft.com/azure/iot-edge/troubleshoot#check-container-logs-for-issues) en el dispositivo Edge. La información que se escribe en estos registros se puede controlar por medio de las [siguientes propiedades de módulo gemelo](module-twin-configuration-schema.md):
+Al igual que sucede con otros módulos de IoT Edge, también se pueden [examinar los registros de contenedor](../../iot-edge/troubleshoot.md#check-container-logs-for-issues) en el dispositivo Edge. La información que se escribe en estos registros se puede controlar por medio de las [siguientes propiedades de módulo gemelo](module-twin-configuration-schema.md):
 
 * logLevel
 
@@ -222,7 +222,7 @@ Al igual que sucede con otros módulos de IoT Edge, también se pueden [examina
 
 Algunas veces, puede que tenga que generar registros más detallados que los descritos arriba para ayudar a Soporte técnico de Azure a resolver un problema. Para ello, es necesario realizar dos pasos.
 
-En primer lugar, [vincular el almacenamiento del módulo al almacenamiento del dispositivo](https://docs.microsoft.com/azure/iot-edge/how-to-access-host-storage-from-module#link-module-storage-to-device-storage) a través de createOptions. Si examina una [plantilla de manifiesto de implementación](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) de los inicios rápidos, verá lo siguiente:
+En primer lugar, [vincular el almacenamiento del módulo al almacenamiento del dispositivo](../../iot-edge/how-to-access-host-storage-from-module.md#link-module-storage-to-device-storage) a través de createOptions. Si examina una [plantilla de manifiesto de implementación](https://github.com/Azure-Samples/live-video-analytics-iot-edge-csharp/blob/master/src/edge/deployment.template.json) de los inicios rápidos, verá lo siguiente:
 
 ```
 "createOptions": {

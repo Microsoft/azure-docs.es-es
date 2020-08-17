@@ -1,6 +1,6 @@
 ---
 title: Creación, modificación o eliminación de una dirección IP pública de Azure | Microsoft Docs
-description: Obtenga información sobre cómo crear, cambiar o eliminar una dirección IP pública.
+description: Cree, modifique o elimine una dirección IP pública. Además, aprenda de qué forma una dirección IP pública es un recurso con sus propios valores de configuración.
 services: virtual-network
 documentationcenter: na
 author: asudbring
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 2f71a1d26543e7436dee039592d120b52d5c9fea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c0766dc063932c5fdd41a4e21ac11befd84a0e5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710973"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87265133"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>Creación, modificación o eliminación de una dirección IP pública
 
@@ -98,7 +98,7 @@ Si bien el portal proporciona la opción de crear dos recursos de direcciones IP
 
 Aprenda a asignar una dirección IP pública a los siguientes recursos:
 
-- Una máquina virtual [Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creación), o una [máquina virtual ya existente](virtual-network-network-interface-addresses.md#add-ip-addresses)
+- Una máquina virtual [Windows](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) o [Linux](../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (durante la creación), o una [máquina virtual ya existente](virtual-network-network-interface-addresses.md#add-ip-addresses)
 - [Equilibrador de carga accesible desde Internet](../load-balancer/load-balancer-get-started-internet-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Introducción a Puerta de enlace de aplicaciones](../application-gateway/application-gateway-create-gateway-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Conexión de sitio a sitio con Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 6da9490d5d9a876922fb9c2ba5d908db411adb1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7b7915e1b7779c4d0359b9ac190574c43a624cbe
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85512422"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87276404"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -50,7 +50,7 @@ Para más información sobre las cuentas de almacenamiento, vea [Información ge
 Puede utilizar cada trabajo para transferir datos desde o hacia una sola cuenta de almacenamiento. Dicho de otra forma, un trabajo de importación y exportación no puede abarcar varias cuentas de almacenamiento. Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-account-create.md).
 
 > [!IMPORTANT]
-> El servicio Azure Import/Export no admite cuentas de almacenamiento con la característica [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) habilitada. 
+> En el caso de las cuentas de almacenamiento donde se habilitó la característica [Puntos de conexión de servicio de red virtual](../../virtual-network/virtual-network-service-endpoints-overview.md) , use la opción **Permitir servicios de Microsoft de confianza…** para [habilitar el servicio Import/Export](/azure/storage/common/storage-network-security) para importar o exportar datos hacia y desde Azure.
 
 ## <a name="supported-storage-types"></a>Tipos de almacenamiento compatibles
 

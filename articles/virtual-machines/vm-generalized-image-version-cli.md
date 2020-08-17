@@ -8,16 +8,17 @@ ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
-ms.openlocfilehash: 5e59872a4da0136232652008a2980601428eeab6
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 090b041c605c2328add8b46a97b6f151bae268c6
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793900"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501089"
 ---
 # <a name="create-a-vm-from-a-generalized-image-version-using-the-cli"></a>Creación de una máquina virtual a partir de una versión de imagen generalizada mediante la CLI
 
-Cree una máquina virtual a partir de una versión de imagen generalizada almacenada en [Shared Image Gallery](https://docs.microsoft.com/azure/virtual-machines/linux/shared-image-galleries#generalized-and-specialized-images). Si desea crear una máquina virtual mediante una imagen especializada, consulte [Creación de una máquina virtual a partir de una imagen especializada](vm-specialized-image-version-powershell.md). 
+Cree una máquina virtual a partir de una versión de imagen generalizada almacenada en [Shared Image Gallery](./linux/shared-image-galleries.md#generalized-and-specialized-images). Si desea crear una máquina virtual mediante una imagen especializada, consulte [Creación de una máquina virtual a partir de una imagen especializada](vm-specialized-image-version-powershell.md). 
 
 
 ## <a name="get-the-image-id"></a>Obtención del identificador de la imagen

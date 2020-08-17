@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: c3c34ea9e32e100d5756a3930ce9d0147363e379
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 7ea1995b6d1232b3e4c6371313e5b3d45bdbb756
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027876"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075403"
 ---
 # <a name="use-creator-to-create-indoor-maps"></a>Uso de Creator para crear planos interiores
 
@@ -32,7 +32,7 @@ En este tutorial verá cómo crear planos interiores. En este tutorial, aprender
 
 Para crear planos interiores:
 
-1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. [Cree una cuenta de Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account).
 2. [Obtenga una clave de suscripción principal](quick-demo-map-app.md#get-the-primary-key-for-your-account), también conocida como clave principal o clave de suscripción.
 3. [Cree un recurso de Creator](how-to-manage-creator.md)
 4. Descargue el [paquete de dibujo de ejemplo](https://github.com/Azure-Samples/am-creator-indoor-data-examples).
@@ -52,7 +52,7 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
 2. Para crear la solicitud, seleccione **New** (Nuevo) otra vez. En la ventana **Create New** (Crear nuevo), seleccione **Request** (Solicitud). Escriba un valor de **Request name** (Nombre de solicitud) para la solicitud. Seleccione la colección que creó en el paso anterior y haga clic en **Save** (Guardar).
 
-3. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar el paquete de dibujo en el servicio Azure Maps. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `<Azure-Maps-Primary-Subscription-key>` por su clave de suscripción principal.
+3. Seleccione el método HTTP **POST** en la pestaña del generador y escriba la siguiente dirección URL para cargar el paquete de dibujo en el servicio Azure Maps. Para esta solicitud y otras solicitudes mencionadas en este artículo, reemplace `{Azure-Maps-Primary-Subscription-key}` por su clave de suscripción principal.
 
     ```http
     https://atlas.microsoft.com/mapData/upload?api-version=1.0&dataFormat=zip&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -64,10 +64,10 @@ Data Upload API es una transacción de larga duración que implementa el patrón
 
 5. Haga clic en el botón azul **Send** (Enviar) y espere a que se procese la solicitud. Una vez finalizada la solicitud, vaya a la pestaña **Headers** (Encabezados) de la respuesta. Copie el valor de la clave **Location** (Ubicación), que es `status URL`.
 
-6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe ser como la siguiente dirección URL:
+6. Para comprobar el estado de la llamada de API, cree una solicitud HTTP **GET** en el elemento `status URL`. Tendrá que anexar la clave de suscripción principal a la dirección URL para realizar la autenticación. La solicitud **GET** debe tener un aspecto similar a la siguiente dirección URL:
 
     ```http
-    https://atlas.microsoft.com/mapData/operations/{operationId}?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://atlas.microsoft.com/mapData/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 7. Cuando a solicitud HTTP **GET** se completa correctamente, devolverá una `resourceLocation`. El `resourceLocation` contiene el `udid` único para el contenido cargado. Opcionalmente, puede usar la dirección URL del `resourceLocation` para recuperar los metadatos de este recurso en el siguiente paso.
@@ -170,7 +170,7 @@ Un conjunto de datos es una colección de características de plano, como edific
 4. Realice una solicitud **GET** en `statusURL` para obtener el valor de `datasetId`. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
     ```http
-    https://atlas.microsoft.com/dataset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/dataset/operations/<operationId>?api-version=1.0&subscription-key={Azure-Maps-Primary-Subscription-key}
     ```
 
 5. Cuando la solicitud HTTP **GET** se completa correctamente, el encabezado de respuesta contendrá el valor `datasetId` del conjunto de datos creado. Copie el valor de `datasetId`. Deberá usar `datasetId` para crear un conjunto de mosaicos.
@@ -199,7 +199,7 @@ Un conjunto de mosaicos es un conjunto de mosaicos vectoriales que se representa
 3. Realice una solicitud **GET** en `statusURL` para obtener el conjunto de mosaicos. Anexe la clave de suscripción principal de Azure Maps para realizar la autenticación. La solicitud debe tener un aspecto similar a la siguiente dirección URL:
 
    ```http
-    https://atlas.microsoft.com/tileset/operations/{operationId}?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
+    https://atlas.microsoft.com/tileset/operations/<operationId>?api-version=1.0&subscription-key=<Azure-Maps-Primary-Subscription-key>
     ```
 
 4. Cuando la solicitud HTTP **GET** se complete correctamente, el encabezado de respuesta contendrá el valor `tilesetId` del conjunto de mosaicos creado. Copie el valor de `tilesetId`.

@@ -3,12 +3,12 @@ title: Panel de información general de Azure Application Insights | Microsoft D
 description: Supervise las aplicaciones con Azure Application Insights y la funcionalidad del panel de información general.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e5188972d9058b85a9765c7d33f6209b37245d7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669903"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322540"
 ---
 # <a name="application-insights-overview-dashboard"></a>Panel de información general de Application Insights
 
@@ -57,6 +57,7 @@ Si selecciona **Configurar las opciones del icono** y establece un intervalo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Embudos](../../azure-monitor/app/usage-funnels.md)
-- [Retención](../../azure-monitor/app/usage-retention.md)
-- [Flujos de usuario](../../azure-monitor/app/usage-flows.md)
+- [Embudos](./usage-funnels.md)
+- [Retención](./usage-retention.md)
+- [Flujos de usuario](./usage-flows.md)
+

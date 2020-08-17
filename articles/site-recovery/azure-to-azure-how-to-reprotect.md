@@ -2,18 +2,18 @@
 title: Volver a proteger las máquinas virtuales de Azure en una región primaria con Azure Site Recovery | Microsoft Docs
 description: Se describe cómo volver a proteger las máquinas virtuales de Azure después de la conmutación por error de una región secundaria a una primaria con Azure Site Recovery.
 services: site-recovery
-author: rajani-janaki-ram
-manager: gauravd
+author: Rajeswari-Mamilla
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
-ms.author: rajanaki
-ms.openlocfilehash: 9883065993f35054338079c8b9647a8420574414
-ms.sourcegitcommit: 291b2972c7f28667dc58f66bbe9d9f7d11434ec1
+ms.author: ramamill
+ms.openlocfilehash: da740909cedb8e2bb78f5f70e062481395a5c181
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82738072"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87422086"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal
 
@@ -95,10 +95,6 @@ Las siguientes condiciones determinan la cantidad de datos que se replican:
 |La región de origen tiene una máquina virtual con un disco Premium de 1 TB.<br/>Solo se usan 20 GB de datos y el resto del disco está vacío.<br/>El tipo de disco es Premium con un rendimiento de 200 MBps.<br/>Los datos iniciales del disco inmediatamente después de la conmutación por error eran 15 GB. Hubo un cambio de 5 GB de datos después de la conmutación por error. Por consiguiente, el total de datos rellenados es de 20 GB.| Tiempo aproximado: De 30 a 45 minutos.<br/>Dado que los datos rellenados en el disco son menos del 10 % del tamaño del disco, realizamos una replicación inicial completa.<br/>La velocidad de transferencia es aproximadamente un 16 % del rendimiento, es decir, 32 MBps. Por consiguiente, el tiempo de transferencia para aplicar los cambios es de 20 GB, es decir, 20 GB/32 MBps, aproximadamente 11 minutos.<br/>Se necesita algún tiempo de sobrecarga para que Site Recovery realice el escalado automático, aproximadamente entre 20 y 30 minutos |
 
 Cuando se vuelve a proteger la VM después de la conmutación por recuperación en la región primaria (es decir, si la VM se vuelve a proteger desde la región primaria a la región de DR), se eliminan la VM de destino y las NIC asociadas.
-
-Cuando la máquina virtual se vuelve a proteger desde la región de recuperación ante desastres a la región primaria, no se elimina la máquina virtual principal anterior ni las NIC asociadas.
-
-Cuando se vuelve a proteger la VM después de la conmutación por recuperación en la región primaria (es decir, si la VM se vuelve a proteger desde la región primaria a la región de DR), se eliminan la VM de destino y las NIC asociadas. 
 
 Cuando la máquina virtual se vuelve a proteger desde la región de recuperación ante desastres a la región primaria, no se elimina la máquina virtual principal anterior ni las NIC asociadas.
 

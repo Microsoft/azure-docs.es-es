@@ -2,13 +2,13 @@
 title: Plantillas de vínculo para la implementación
 description: Describe cómo usar plantillas vinculadas en una plantilla del Administrador de recursos de Azure para crear una solución de plantilla modular. Muestra cómo pasar valores de parámetros y especificar un archivo de parámetros y las direcciones URL creadas dinámicamente.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: 6b28268a522dde4fe16ccf9d0d01738c3b6a9b5d
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/21/2020
+ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170656"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086819"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso de plantillas vinculadas y anidadas al implementar recursos de Azure
 
@@ -315,6 +315,11 @@ Al hacer referencia a una plantilla vinculada, el valor de `uri` no debe ser un 
 > Puede hacer referencia a plantillas mediante parámetros que, en última instancia, se resuelven en algo que usa **http** o **https**, por ejemplo, usando el parámetro `_artifactsLocation` de esta manera: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Resource Manager debe tener acceso a la plantilla. Una opción es colocar la plantilla vinculada en una cuenta de almacenamiento y usar el URI para dicho elemento.
+
+Las [especificaciones de plantilla](./template-specs.md) (actualmente en versión preliminar privada) le permiten compartir plantillas de Resource Manager con otros usuarios de la organización. Las especificaciones de plantillas también se pueden usar para empaquetar una plantilla principal y sus plantillas vinculadas. Para más información, consulte:
+
+- [Tutorial: Creación de una especificación de plantilla con plantillas vinculadas](./template-specs-create-linked.md).
+- [Tutorial: Implementación de una especificación de plantilla como una plantilla vinculada](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parámetros de la plantilla vinculada
 

@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: 45f9c56fce0c843d9f1ed069abf7d1ed6e2fa604
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76eee4b0b029714a75b57e5d44e097a36de3181f
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565909"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371420"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Administración de los servicios de Azure Cognitive Search en Azure Portal
 
@@ -123,7 +123,7 @@ Aunque el rendimiento de las consultas aumente a medida que agrega réplicas, es
 
 Es más común agregar réplicas, pero cuando el almacenamiento está restringido, puede agregar particiones para obtener más capacidad. El nivel en el que aprovisionó el servicio determina si se pueden agregar particiones. El nivel Básico está bloqueado en una partición. El nivel Estándar y niveles superiores admiten particiones adicionales.
 
-Las particiones se agregan en múltiples de 12 (concretamente, 1, 2, 3, 4, 6 o 12). Se trata de un artefacto de particionamiento. Un índice se crea en 12 particiones de base de datos, que pueden almacenarse en su totalidad en una partición o dividirse equitativamente en 2, 3, 4, 6 o 12 particiones (una partición de base de datos por partición).
+Las particiones se agregan en divisores de 12 (concretamente, 1, 2, 3, 4, 6 o 12). Se trata de un artefacto de particionamiento. Un índice se crea en 12 particiones de base de datos, que pueden almacenarse en su totalidad en una partición o dividirse equitativamente en 2, 3, 4, 6 o 12 particiones (una partición de base de datos por partición).
 
 ### <a name="remove-replicas"></a>Eliminación de réplicas
 

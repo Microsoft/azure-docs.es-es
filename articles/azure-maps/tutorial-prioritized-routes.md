@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Búsqueda de varias rutas por forma de viajar | Microsoft Azure Maps'
 description: En este tutorial aprenderá a buscar rutas para distintas formas de viajar mediante Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: c7ed2421f468dfbb64c635683a7909b517105bc7
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: 0cb3c1eadae426cef59b7aad8821343c23e76d79
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80333805"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289535"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>Tutorial: Búsqueda de rutas para diferentes modos de desplazamiento mediante Azure Maps
 
@@ -27,7 +27,7 @@ En este tutorial se muestra cómo usar la cuenta y el servicio de rutas de Azure
 > * Mostrar varias rutas en el mapa
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y seleccione el plan de tarifa S1. Siga los pasos descritos en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
+Antes de continuar, siga las instrucciones de [Creación de una cuenta](quick-demo-map-app.md#create-an-azure-maps-account) y seleccione el plan de tarifa S1. Siga los pasos descritos en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account) para obtener la clave principal de la cuenta. Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](how-to-manage-authentication.md).
 
 ## <a name="create-a-new-map"></a>Creación de un nuevo mapa
 
@@ -206,7 +206,7 @@ Esta API de ruta también permite a los usuarios planear rutas futuras mediante 
 
 Todos los bloques de código siguientes se deben agregar **dentro del elemento eventListener de carga de mapas** para garantizar que se cargan después de que se cargue el mapa completamente.
 
-1. En la función GetMap, agregue lo siguiente al código JavaScript.
+1. En la función GetMap, agregue lo siguiente al código de JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key

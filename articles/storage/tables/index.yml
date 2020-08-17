@@ -50,7 +50,7 @@ landingContent:
     links:
     - text: Objetivos de escalabilidad de Table Storage
       url: scalability-targets.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

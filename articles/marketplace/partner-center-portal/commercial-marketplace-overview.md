@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/19/2020
-ms.openlocfilehash: 676a0471ad4321f37cf6dd854d6d98083723f5de
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 8f827d3e983a50589975eca59808bd1471fe4810
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116699"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047585"
 ---
 # <a name="overview-of-the-commercial-marketplace-portal-in-partner-center"></a>Introducción al portal de Marketplace comercial en el Centro de partners
 
@@ -28,9 +28,9 @@ El Centro de partners es el centro de la experiencia de un asociado de Microsoft
 
 ## <a name="migration-from-the-cloud-partner-portal"></a>Migración desde Cloud Partner Portal
 
-El Centro de partners está evolucionando para integrar mejor todos los aspectos de nuestra relación con los editores de software. Como parte de esta evolución, hemos migrado la administración de ofertas de marketplace comercial de [Cloud Partner Portal](https://cloudpartner.azure.com/) al Centro de partners.
+El Centro de partners está evolucionando para integrar mejor todos los aspectos de nuestra relación con los editores de software. Como parte de esta evolución, hemos migrado la administración de ofertas de marketplace comercial de Cloud Partner Portal (CPP) al Centro de partners.
 
-Los editores existentes que anteriormente usaban Cloud Partner Portal encontrarán una experiencia de usuario familiar, mejorada e intuitiva con el Centro de partners. Los usuarios serán fácilmente dirigidos a la ubicación apropiada. Esta actualización de la experiencia de los asociados no afectará a los clientes.
+Los editores existentes que antes usaban CPP se encontrarán con una experiencia de usuario conocida, pero mejorada e intuitiva, con el Centro de partners. Los usuarios serán fácilmente dirigidos a la ubicación apropiada. Esta actualización de la experiencia de los asociados no afectará a los clientes.
 
 ### <a name="improvements-on-publishing-and-offer-management-user-experience"></a>Mejoras en la experiencia del usuario en la publicación y la administración de ofertas
 

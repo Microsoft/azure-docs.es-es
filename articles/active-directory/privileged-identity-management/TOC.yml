@@ -8,7 +8,7 @@
   items:
     - name: Requisitos de licencia
       href: subscription-requirements.md
-    - name: Roles que no puede administrar
+    - name: Roles que no se pueden administrar con PIM
       href: pim-roles.md
     - name: Protección del acceso con privilegios
       href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -18,7 +18,7 @@
       href: pim-resource-roles-overview-dashboards.md
     - name: Notificaciones por correo electrónico
       href: pim-email-notifications.md
-    - name: Microsoft Graph API
+    - name: Microsoft Graph API y PIM
       href: pim-apis.md
 - name: Guías paso a paso
   expanded: true
@@ -33,7 +33,7 @@
           href: pim-security-wizard.md
         - name: Detección de recursos de Azure
           href: pim-resource-roles-discover-resources.md
-        - name: Concesión de acceso a otros usuarios para administrar PIM
+        - name: Delegación del acceso a PIM
           href: pim-how-to-give-access-to-pim.md
         - name: Elevación de los privilegios de acceso para administrar todas las suscripciones
           href: ../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
@@ -45,7 +45,7 @@
           href: pim-resource-roles-activate-your-roles.md
     - name: Administración de roles de Azure AD
       items:
-        - name: Actualización de características
+        - name: Introducción a las características
           href: azure-ad-roles-features.md
         - name: "PowerShell para roles de Azure\_AD"
           href: powershell-for-azure-ad-roles.md
@@ -87,6 +87,22 @@
           href: azure-pim-resource-rbac.md
         - name: Uso de roles personalizados
           href: pim-resource-roles-custom-role-policy.md
+    - name: Administración de grupos de acceso con privilegios (versión preliminar)
+      items:
+        - name: Introducción al acceso con privilegios
+          href: groups-features.md
+        - name: Administración de grupos
+          href: groups-discover-groups.md
+        - name: Asignación de un miembro o un propietario
+          href: groups-assign-member-owner.md
+        - name: Aprobar solicitudes
+          href: groups-approval-workflow.md
+        - name: Ampliación o renovación de asignaciones
+          href: groups-renew-extend.md
+        - name: Configuración de los roles
+          href: groups-role-settings.md
+        - name: Visualización del historial de auditoría
+          href: groups-audit.md
     - name: Solución de problemas de Privileged Identity Management
       href: pim-troubleshoot.md
     - name: Revisiones de acceso

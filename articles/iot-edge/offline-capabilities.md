@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ef6ed74149f106b801049da429dfe7b79b984a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e929463c33603c650bec2e9a49a13dde6965e39f
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83725251"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926661"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>Uso de funcionalidades sin conexión ampliadas en dispositivos, módulos y dispositivos secundarios IoT Edge
 
@@ -95,7 +95,7 @@ Puede modificar la [consulta](../iot-hub/iot-hub-devguide-query-language.md) par
 
 #### <a name="option-3-use-iot-hub-service-sdk"></a>Opción 3: Uso del SDK de servicio de IoT Hub
 
-Por último, puede administrar las relaciones principal-secundario mediante programación con el SDK de servicio de IoT Hub para C#, Java o Node.js. Este es un [ejemplo de asignación de un dispositivo secundario](https://aka.ms/set-child-iot-device-c-sharp) mediante el SDK de C#.
+Por último, puede administrar las relaciones principal-secundario mediante programación con el SDK de servicio de IoT Hub para C#, Java o Node.js. Este es un [ejemplo de asignación de un dispositivo secundario](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) mediante el SDK de C#.
 
 ### <a name="set-up-the-parent-device-as-a-gateway"></a>Configuración del dispositivo principal como puerta de enlace
 

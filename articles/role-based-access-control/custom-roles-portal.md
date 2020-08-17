@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/30/2020
+ms.date: 07/13/2020
 ms.author: rolyon
-ms.openlocfilehash: a7be51cfceee3bb445b085efd780463c8b6f49be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91d2605dddd6107d09e635969f5e5d98c2a02d60
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791204"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511728"
 ---
 # <a name="create-or-update-azure-custom-roles-using-the-azure-portal"></a>Creación o actualización de roles personalizados de Azure mediante Azure Portal
 
@@ -204,17 +204,7 @@ Siga los pasos que se indican a continuación para agregar o quitar permisos par
 
 ### <a name="add-wildcard-permissions"></a>Incorporación de permisos con caracteres comodín
 
-En función de cómo haya decidido comenzar, es posible que tenga permisos con caracteres comodín (\*) en la lista de permisos. Un carácter comodín (\*) amplía un permiso a todo aquello que coincida con la cadena indicada. Por ejemplo, supongamos que desea agregar todos los permisos relacionados con Azure Cost Management y las exportaciones. Podría agregar todos estos permisos:
-
-```
-Microsoft.CostManagement/exports/action
-Microsoft.CostManagement/exports/read
-Microsoft.CostManagement/exports/write
-Microsoft.CostManagement/exports/delete
-Microsoft.CostManagement/exports/run/action
-```
-
-En lugar de agregar todos estos permisos, podría agregar únicamente un permiso con caracteres comodín. Por ejemplo, el siguiente permiso con caracteres comodín es equivalente a los cinco permisos anteriores. De esta forma también se incluirían los futuros permisos de exportación que se pudieran agregar.
+En función de cómo haya decidido comenzar, es posible que tenga permisos con caracteres comodín (`*`) en la lista de permisos. Los carácteres comodín (`*`) amplían los permisos a todo aquello que coincida con la cadena de acción que se especifique. Por ejemplo, la siguiente cadena comodín agrega todos los permisos relacionados con Azure Cost Management y las exportaciones. De esta forma también se incluirían los futuros permisos de exportación que se pudieran agregar.
 
 ```
 Microsoft.CostManagement/exports/*
@@ -224,7 +214,7 @@ Si desea agregar un nuevo permiso con caracteres comodín, no puede hacerlo medi
 
 ### <a name="exclude-permissions"></a>Exclusión de permisos
 
-Si el rol tiene un permiso con caracteres comodín (\*) y desea excluir o restar permisos específicos de él, puede excluirlos. Por ejemplo, supongamos que tiene el siguiente permiso con caracteres comodín:
+Si el rol tiene un permiso con caracteres comodín (`*`) y desea excluir o restar permisos específicos de él, puede excluirlos. Por ejemplo, supongamos que tiene el siguiente permiso con caracteres comodín:
 
 ```
 Microsoft.CostManagement/exports/*
@@ -269,7 +259,7 @@ En la pestaña **Ámbitos asignables** se especifica dónde está disponible el 
 
 ## <a name="step-6-json"></a>Paso 6: JSON
 
-En la pestaña **JSON**, verá el rol personalizado con formato JSON. Si lo desea, puede editar directamente el archivo JSON. Si desea agregar un permiso con caracteres comodín (\*), debe usar esta pestaña.
+En la pestaña **JSON**, verá el rol personalizado con formato JSON. Si lo desea, puede editar directamente el archivo JSON. Si desea agregar un permiso con caracteres comodín (`*`), debe usar esta pestaña.
 
 1. Para editar el archivo JSON, haga clic en **Editar**.
 

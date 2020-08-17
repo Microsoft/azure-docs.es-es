@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e54b9add52e484a95cf5a8291dec90a6bb258b8
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 3024c79b6295762636518e3f77d506ad45f73682
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090763"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Preguntas más frecuentes
 
@@ -44,7 +44,9 @@ Una vez recibido el dispositivo, puede configurarlo rápidamente mediante la int
 A. Si quiere transferir entre 40 TB y 500 TB de datos hacia o desde Azure, Data Box le resultará útil. Si va transferir menos de 40 TB de datos, use Data Box Disk; si lo que quiere es transferir más de 500 TB de datos, regístrese en [Data Box Heavy](data-box-heavy-overview.md).
 
 ### <a name="q-what-is-the-price-of-data-box"></a>Q. ¿Cuánto cuesta Data Box?
-A. Data Box está disponible a un costo nominal de 10 días. Cuando selecciona el modelo de producto mientras crea un pedido en Azure Portal, se muestran los cargos del dispositivo. El envío es gratuito, pero se aplicarán los cargos derivados del almacenamiento de Azure. Para obtener más información, vaya a [Azure Data Box pricing](https://azure.microsoft.com/pricing/details/storage/databox/) (Precios de Azure Data Box). 
+A. Data Box está disponible a un costo nominal de 10 días. Cuando selecciona el modelo de producto mientras crea un pedido en Azure Portal, se muestran los cargos del dispositivo. También se aplican los cargos de envío estándar y los cargos de Azure Storage. Los pedidos de exportación siguen un modelo de precios similar al de los pedidos de importación, aunque se pueden aplicar cargos de salida adicionales. 
+
+Para obtener más información, vaya a [Precios de Azure Data Box](https://azure.microsoft.com/pricing/details/storage/databox/) y [Cargos de salida](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-in-one-instance"></a>Q. ¿Cuál es la cantidad máxima de datos que se pueden transferir con Data Box en una instancia?
 A. Data Box tiene una capacidad bruta de 100 TB y una capacidad utilizable de 80 TB. Puede transferir hasta 80 TB de datos con Data Box. Para transferir más datos, necesitará pedir más dispositivos.
@@ -250,7 +252,7 @@ A.  Los siguientes informes están disponibles para garantizar la cadena de cust
 A.  Los registros de seguimiento del transportista se obtienen en el historial de pedidos de Data Box. Podrá obtener acceso a este informe una vez que el dispositivo haya llegado al centro de datos de Azure, y se hayan borrado los datos de los discos del mismo. Si lo necesita de forma urgente, también puede ir directamente al sitio web del transportista con el número de seguimiento del pedido y obtener la información del seguimiento.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>¿Puedo transportar Data Box al centro de datos de Azure? 
-A.  No. Si ha elegido el envío administrado de Microsoft, no puede transportar la fecha. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS.
+A.  No. Si ha elegido el envío administrado de Microsoft, no puede transportar los datos. Actualmente, el centro de datos de Azure no acepta la entrega de Data Box de clientes o transportistas que no sean UPS.
 
 Si seleccionó el envío autoadministrado, puede recopilar o quitar Data Box del centro de datos de Azure.
 

@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 06/22/2020
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 6260a4b78197329e020bebaa3bc08db5ad792086
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f729176d3f79c2a1f6fabb5631d49747219db48f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559307"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760097"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Referencia del motor de reglas estándar de Azure CDN
 
@@ -59,15 +59,7 @@ Se usa un símbolo de porcentaje para indicar la codificación de direcciones UR
 
 ### <a name="wildcard-values"></a>Valores de carácter comodín
 
-El texto que se interpreta como un valor de carácter comodín asigna un significado adicional a los caracteres especiales. En la tabla siguiente se describe cómo se interpretan los caracteres especiales específicos en el motor de reglas estándar:
-
-Carácter | Descripción
-----------|------------
-\ | Se usa una barra diagonal inversa para el escape de cualquier carácter especificado en esta tabla. Debe especificarse una barra diagonal inversa directamente antes del carácter especial al que debe aplicarse el escape. Por ejemplo, la sintaxis siguiente aplica el escape a un asterisco: `\*`
-% | Se usa un símbolo de porcentaje para indicar la codificación de direcciones URL (p. ej., `%20`).
-\* | Un asterisco es un carácter comodín que representa uno o más caracteres.
-espacio | Un carácter de espacio indica que una condición de coincidencia debe cumplirse mediante uno de los patrones o valores especificados.
-comillas simples | Una comilla simple no tiene ningún significado especial. Sin embargo, un conjunto de comillas simples indica que un valor debe tratarse como un valor literal. Las comillas simples pueden usarse de las siguientes maneras:<ul><li>Para permitir que se cumpla una condición de coincidencia siempre que el valor especificado coincida con cualquier parte del valor de comparación.  Por ejemplo, `'ma'` coincidiría con cualquiera de las siguientes cadenas: <ul><li>/business/**ma**rathon/asset.htm</li><li>**ma**p.gif</li><li>/business/template.**ma**p</li></ul><li>Para permitir especificar un carácter especial como carácter literal. Por ejemplo, puede especificar un carácter de espacio literal enmarcando un carácter de espacio en un conjunto de comillas simples (`' '` o `'<sample value>'`).</li><li>Para permitir que se especifique un valor en blanco. Especifique un valor en blanco mediante la especificación de un conjunto de comillas simples ( **''** ).</li></ul>**Importante**:<br /><ul><li>Si el valor especificado no contiene un carácter comodín, el valor se considerará automáticamente un valor literal. No es necesario especificar un conjunto de comillas simples para un valor literal.</li><li>Si no se usa una barra diagonal inversa para aplicar el escape a otro carácter de esta tabla, se omite cuando se especifique dentro de un conjunto de comillas simples.</li><li>Otra manera de especificar un carácter especial como carácter literal es aplicar el escape con una barra diagonal inversa (`\`).</li></ul>
+Actualmente se admite el carácter comodín en la **condición de coincidencia UrlPath** en el motor de reglas estándar. El carácter \* es un asterisco que representa uno o más caracteres. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

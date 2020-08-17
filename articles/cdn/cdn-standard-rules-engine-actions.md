@@ -5,14 +5,14 @@ services: cdn
 author: asudbring
 ms.service: azure-cdn
 ms.topic: article
-ms.date: 11/01/2019
+ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: 29138b4fc6716ae5361cc4d7f97ceba41b90c2da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 051737a9f5e0d4092cda26a3f7ce3df1d7f535ef
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81259959"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760131"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Acciones en el motor de reglas estándar de Azure CDN
 
@@ -33,8 +33,8 @@ Use esta acción para sobrescribir el valor de período de vida (TTL) del punto 
 Comportamiento de la caché |  Descripción              
 ---------------|----------------
 Omitir caché | Cuando esta opción está seleccionada y la regla coincide, el contenido no se almacena en caché.
-Invalidar | Cuando esta opción está seleccionada y la regla coincide, el valor de TTL devuelto desde el origen se sobrescribe con el valor especificado en la acción.
-Establecer si falta | Cuando esta opción está seleccionada y la regla coincide, si no se ha devuelto ningún valor de TTL desde el origen, la regla establece el TTL en el valor especificado en la acción.
+Invalidar | Cuando esta opción está seleccionada y la regla coincide, el valor de TTL devuelto desde el origen se sobrescribe con el valor especificado en la acción. Este comportamiento solo se aplicará si la respuesta se puede almacenar en caché. Para el encabezado de respuesta Cache-Control con los valores "no-cache", "private", "no-store", la acción no será aplicable.
+Establecer si falta | Cuando esta opción está seleccionada y la regla coincide, si no se ha devuelto ningún valor de TTL desde el origen, la regla establece el TTL en el valor especificado en la acción. Este comportamiento solo se aplicará si la respuesta se puede almacenar en caché. Para el encabezado de respuesta Cache-Control con los valores "no-cache", "private", "no-store", la acción no será aplicable.
 
 #### <a name="additional-fields"></a>Campos adicionales
 
@@ -50,7 +50,7 @@ Use esta acción para modificar la clave de caché en función de las cadenas de
 
 Comportamiento | Descripción
 ---------|------------
-Include | Cuando esta opción está seleccionada y la regla coincide, las cadenas de consulta especificadas en los parámetros se incluyen al generar la clave de caché. 
+Incluir | Cuando esta opción está seleccionada y la regla coincide, las cadenas de consulta especificadas en los parámetros se incluyen al generar la clave de caché. 
 Almacenar en caché todas las URL únicas | Cuando esta opción está seleccionada y la regla coincide, cada dirección URL única tiene su propia clave de caché. 
 Exclude | Cuando esta opción está seleccionada y la regla coincide, las cadenas de consulta especificadas en los parámetros se excluyen al generar la clave de caché.
 Pasar por alto las cadenas de consulta | Cuando esta opción está seleccionada y la regla coincide, las cadenas de consulta no se tienen en cuenta al generar la clave de caché. 
@@ -79,7 +79,7 @@ Append | Cuando esta opción está seleccionada y la regla coincide, el encabeza
 Sobrescribir | Cuando esta opción está seleccionada y la regla coincide, el encabezado especificado en **Nombre del encabezado** se agrega a la respuesta con el **Valor** especificado. Si el encabezado ya está presente, el **Valor** sobrescribe el valor existente. | String
 Eliminar | Cuando esta opción está seleccionada, la regla coincide y el encabezado especificado en la regla está presente, el encabezado se elimina de la respuesta. | String
 
-### <a name="url-redirect"></a>Redirección de direcciones URL
+### <a name="url-redirect"></a>Redirección de URL
 
 Use esta acción para redirigir a los clientes a una nueva dirección URL. 
 

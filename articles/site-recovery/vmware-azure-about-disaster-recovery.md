@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: 6759b2c0f679a865d0bdcf8ea8cd39f258a9cf25
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: dfbdff01064b483085233ece47d1d3b635b68743
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86132113"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021467"
 ---
 # <a name="about-disaster-recovery-of-vmware-vms-to-azure"></a>Acerca de la recuperación ante desastres de máquinas virtuales de VMware en Azure
 
@@ -23,6 +23,9 @@ Una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) 
 
 - [Azure Backup](../backup/backup-overview.md) realiza una copia de seguridad de datos locales y de la máquina virtual de Azure. Puede realizar copias de seguridad de archivos y carpetas, cargas de trabajo específicas o toda una máquina virtual. 
 - [Azure Site Recovery](site-recovery-overview.md) proporciona resistencia y recuperación ante desastres para aplicaciones y cargas de trabajo que se ejecutan en máquinas locales o máquinas virtuales de IaaS de Azure. Site Recovery organiza la replicación y controla la conmutación por error en Azure cuando se producen interrupciones. También controla la recuperación desde Azure a su sitio primario. 
+
+> [!NOTE]
+> Site Recovery no mueve ni almacena los datos de los clientes fuera de la región de destino, en la que se ha configurado la recuperación ante desastres para las máquinas de origen. Los clientes pueden seleccionar un almacén de Recovery Services de otra región si así lo deciden. El almacén de Recovery Services contiene metadatos, pero ningún dato real de los clientes.
 
 ## <a name="how-does-site-recovery-do-disaster-recovery"></a>¿Cómo realiza la recuperación ante desastres Site Recovery?
 

@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/12/2019
 ms.author: cynthn
-ms.custom: mvc
-ms.openlocfilehash: d2a6568b0d62c880a688160cf981fb33083ae02e
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.custom: mvc, devx-track-javascript
+ms.openlocfilehash: f1d439569f15d7680d54b35e7ec1c52ca7843af7
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81461487"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87828972"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
 
@@ -57,7 +57,7 @@ Para ver cloud-init en acción, cree una máquina virtual que instale NGINX y ej
 
 En el símbolo del sistema de bash o en Cloud Shell, cree un archivo denominado *cloud-init.txt* y pegue la siguiente configuración. Por ejemplo, escriba `sensible-editor cloud-init.txt` para crear el archivo y ver una lista de editores disponibles. Asegúrese de que todo el archivo cloud-init se copia correctamente, especialmente la primera línea:
 
-```bash
+```yaml
 #cloud-config
 package_upgrade: true
 packages:
@@ -129,7 +129,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myAuto
 ```
 
 ## <a name="test-web-app"></a>Prueba de la aplicación web
-Ahora puede abrir un explorador web y escribir *http:\/\/\<Dirección_IP_Pública>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Su aplicación Node.js se muestra como en el ejemplo siguiente:
+Ahora puede abrir un explorador web y escribir *http:\/\/\<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Su aplicación Node.js se muestra como en el ejemplo siguiente:
 
 ![Ver sitio de NGINX en funcionamiento](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -260,7 +260,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Prueba de la aplicación web segura
-Ahora puede abrir un explorador web y escribir *http:\/\/\<Dirección_IP_Pública>* en la barra de direcciones. Proporcione su propia dirección IP pública, como se muestra en la salida del proceso anterior de creación de máquinas virtuales. Acepte la advertencia de seguridad si usó un certificado autofirmado:
+Ahora puede abrir un explorador web y escribir *https:\/\/\<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública, como se muestra en la salida del proceso anterior de creación de máquinas virtuales. Acepte la advertencia de seguridad si usó un certificado autofirmado:
 
 ![Aceptar la advertencia de seguridad del explorador web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

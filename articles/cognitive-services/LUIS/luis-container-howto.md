@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: 8c5e384e85861cdced3ed6dbe60733128b499407
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6a2208fac98d3cd8e4ddcea887d9b8cf30fb6482
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039014"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524512"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
 
@@ -53,7 +53,7 @@ API de creación de las aplicaciones empaquetadas:
 
 ### <a name="container-requirements-and-recommendations"></a>Recomendaciones y requisitos del contenedor
 
-Este contenedor admite los siguientes valores mínimos y recomendados:
+En la tabla siguiente se muestran los valores mínimos y los recomendados para el host de contenedor. Los requisitos pueden variar en función del volumen de tráfico.
 
 |Contenedor| Mínima | Recomendado | TPS<br>(mínimo, máximo)|
 |-----------|---------|-------------|--|

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 1f08d6b8a2ce2381c3bc85891a292ac05561cf34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be406744dc9752dd3c924c636e85f43e133c1cca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85832566"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87085085"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -40,13 +40,13 @@ Para configurar el entorno, cree una función y pruebe la aplicación. Los pasos
 3. [Cree una función de temporizador a partir de la plantilla](./functions-create-scheduled-function.md) y asígnele el nombre **MyTimerTrigger**.
 4. [Cree una aplicación de prueba en xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) en la solución y asígnele el nombre **Functions.Test**.
 5. Use NuGet para agregar referencias desde la aplicación de prueba a [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Haga referencia a la aplicación *Functions*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Tests*.
+6. [Haga referencia a la aplicación *Functions*](/visualstudio/ide/managing-references-in-a-project?view=vs-2017) desde la aplicación *Functions.Tests*.
 
 ### <a name="create-test-classes"></a>Crear clases de prueba
 
 Ahora que se han creado los proyectos, puede crear las clases usadas para ejecutar las pruebas automatizadas.
 
-Cada función toma una instancia de [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) para controlar el registro de mensajes. Algunas pruebas no registran los mensajes o no tiene que preocuparse por cómo se implementa el registro. Otras pruebas deben evaluar los mensajes registrados para determinar si están pasando una prueba.
+Cada función toma una instancia de [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger) para controlar el registro de mensajes. Algunas pruebas no registran los mensajes o no tiene que preocuparse por cómo se implementa el registro. Otras pruebas deben evaluar los mensajes registrados para determinar si están pasando una prueba.
 
 Creará una nueva clase denominada `ListLogger` que contiene una lista interna de los mensajes que se evaluarán durante las pruebas. Para implementar la interfaz de `ILogger` necesaria, la clase necesita un ámbito. La siguiente clase simula un ámbito para los casos de prueba que se van a pasar a la clase `ListLogger`.
 
@@ -192,7 +192,7 @@ namespace Functions.Tests
 
 La clase `TestFactory` implementa los siguientes miembros:
 
-- **Data**: Esta propiedad devuelve una colección [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) de datos de ejemplo. Los pares clave-valor representan los valores que se pasan en una cadena de consulta.
+- **Data**: Esta propiedad devuelve una colección [IEnumerable](/dotnet/api/system.collections.ienumerable) de datos de ejemplo. Los pares clave-valor representan los valores que se pasan en una cadena de consulta.
 
 - **CreateDictionary**: Este método acepta un par clave-valor como argumento y devuelve un `Dictionary` nuevo usado para crear `QueryCollection` para representar los valores de cadena de consulta.
 

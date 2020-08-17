@@ -8,17 +8,17 @@ manager: rkarlin
 editor: ''
 ms.service: key-vault
 ms.topic: tutorial
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 76b7a97a5be5e7952b0ac11d93bd68656ff8f1ec
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 02b15f88e05abc918100f5e6b1ad1cdd60954a9d
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79454319"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486993"
 ---
 # <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Tutorial: Implementación de HSM en una red virtual existente con la CLI
 
@@ -63,15 +63,7 @@ az feature show \
    --name AzureDedicatedHSM
 ```
 
-El comando siguiente comprueba las características de red necesarias para el servicio Dedicated HSM.
-
-```azurecli
-az feature show \
-   --namespace Microsoft.Network \
-   --name AllowBaremetalServers
-```
-
-Ambos comandos deben devolver un estado "Registrado" (como se indica a continuación). Si los comandos no devuelven un estado "Registrado", tendrá que registrarse para este servicio. Para ello, póngase en contacto con su representante de cuenta Microsoft.
+Los comandos deben devolver un estado "Registrado" (como se indica a continuación). Si los comandos no devuelven un estado "Registrado", tendrá que registrarse para este servicio. Para ello, póngase en contacto con su representante de cuenta de Microsoft.
 
 ![estado de la suscripción](media/tutorial-deploy-hsm-cli/subscription-status.png)
 

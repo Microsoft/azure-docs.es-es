@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: f34389785c0f4a43bfcab3e50f2dcd132b2cb629
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8abd9d7f33a07141418ad67cc2128af40ad0bd51
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86505812"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324767"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Transición desde la búsqueda de registros de Log Analytics a los registros de Azure Monitor
 La búsqueda de registros en Log Analytics se ha reemplazado recientemente por una nueva experiencia para analizar los registros de Azure Monitor. La página de búsqueda de registros sigue siendo accesible con el elemento de menú **Registros (clásicos)** de la página **Áreas de trabajo de Log Analytics** en Azure Portal, pero se retirará el 15 de febrero de 2019. En este artículo se describen las diferencias entre las dos experiencias para ayudar a realizar la transición desde la búsqueda de registros. 
@@ -44,7 +44,7 @@ Para guardar la consulta actual en los registros de Azure Monitor, seleccione **
 ![Guardado de la consulta de registros](media/log-search-transition/save-query-logs.png)
 
 ## <a name="saved-queries"></a>Consultas guardadas
-En la búsqueda de registros, las consultas guardadas están disponibles en el elemento de la barra de acciones **Búsquedas guardadas**. En los registros de Azure Monitor, las consultas guardadas están disponibles en el [Explorador de consultas](../log-query/get-started-portal.md#save-queries).
+En la búsqueda de registros, las consultas guardadas están disponibles en el elemento de la barra de acciones **Búsquedas guardadas**. En los registros de Azure Monitor, las consultas guardadas están disponibles en el [Explorador de consultas](./get-started-portal.md#save-queries).
 
 ![Explorador de consultas](media/log-search-transition/query-explorer.png)
 
@@ -69,3 +69,4 @@ En los registros de Azure Monitor, [cree una alerta para la consulta de registro
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre la nueva [experiencia de registros de Azure Monitor](get-started-portal.md).
+

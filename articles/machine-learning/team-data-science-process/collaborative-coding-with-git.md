@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 739be373992fcd994f085f8571675779e450bfee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76721904"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090219"
 ---
 # <a name="collaborative-coding-with-git"></a>Codificación colaborativa con GIT
 
@@ -29,7 +29,7 @@ Para conectar un elemento de trabajo a una nueva rama, seleccione el botón de p
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-En el cuadro de diálogo **Crear una rama**, proporcione el nombre de la nueva rama, el repositorio Git de Azure Repos de base y la rama. El repositorio de base debe estar en el mismo proyecto de Azure DevOps que el elemento de trabajo. La rama de base puede ser la rama principal o cualquier otra rama existente. Seleccione **Crear rama**. 
+En el cuadro de diálogo **Crear una rama**, proporcione el nombre de la nueva rama, el repositorio Git de Azure Repos de base y la rama. El repositorio de base debe estar en el mismo proyecto de Azure DevOps que el elemento de trabajo. La rama base puede ser cualquier rama existente. Seleccione **Crear rama**. 
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -51,7 +51,7 @@ Después de cambiar a la rama de trabajo, puede empezar a desarrollar código o 
 
 Un procedimiento recomendado es crear una rama de Git para cada elemento de trabajo del caso de usuario. A continuación, para cada elemento de trabajo de la tarea, puede crear una rama basada en la rama del caso de usuario. Organice las ramas en una jerarquía que se corresponda con la relación entre el caso de usuario y la tarea cuando tenga varias personas trabajando en casos de usuario diferentes para el mismo proyecto o en tareas diferentes para el mismo caso de usuario. Puede minimizar los conflictos si cada miembro del equipo trabaja en una rama diferente o en código u otros artefactos diferentes al compartir una rama. 
 
-En la siguiente imagen se muestra la estrategia de bifurcación recomendada para el proceso de ciencia de datos en equipo. Es posible que no necesite tantas ramas como se muestra aquí, especialmente cuando solo una o dos personas trabajan en un proyecto o cuando solo una persona trabaja en todas las tareas de un caso de usuario. No obstante, separar la rama de desarrollo de la rama principal siempre es una buena práctica y puede ayudar a evitar que las actividades de desarrollo interrumpan la rama de lanzamiento de versiones. Encontrará una descripción completa del modelo de ramas de Git en [Un modelo correcto de ramas de Git](https://nvie.com/posts/a-successful-git-branching-model/).
+En la siguiente imagen se muestra la estrategia de bifurcación recomendada para el proceso de ciencia de datos en equipo. Es posible que no necesite tantas ramas como se muestra aquí, especialmente cuando solo una o dos personas trabajan en un proyecto o cuando solo una persona trabaja en todas las tareas de un caso de usuario. No obstante, separar la rama de desarrollo de la rama principal siempre es una buena práctica y puede ayudar a evitar que las actividades de desarrollo interrumpan la rama de versión. Encontrará una descripción completa del modelo de ramas de Git en [Un modelo correcto de ramas de Git](https://nvie.com/posts/a-successful-git-branching-model/).
 
 ![3](./media/collaborative-coding-with-git/3-git-branches.png)
 

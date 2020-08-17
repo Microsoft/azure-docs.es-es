@@ -10,12 +10,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: ''
 manager: anandsub
-ms.openlocfilehash: 6a3b463196142691a59f625429953d1e82502f3d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6aaa02c2e14cfc31a11da260da38705ba064ba79
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255541"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523322"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-for-high-performance"></a>Configuración de Integration Runtime de SSIS de Azure para conseguir un alto rendimiento
 
@@ -104,11 +104,15 @@ Si no tiene que ejecutar muchos paquetes y quiere que la ejecución se realice r
 
 Estos datos representan la ejecución de un único paquete en un único nodo de trabajo. El paquete carga 3 millones de registros con las columnas de nombre y apellido de Azure Blob Storage, genera una columna de nombre completo y escribe los registros que tienen un nombre completo de más de 20 caracteres en Azure Blob Storage.
 
+El eje Y es el número de paquetes que completaron la ejecución en una hora. Tenga en cuenta que esto es solo un resultado de la prueba de un paquete que consume memoria. Si desea conocer el rendimiento del paquete, se le recomienda realizar la prueba por sí mismo.
+
 ![Velocidad de ejecución de paquetes de Integration Runtime de SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-execution-speedV2.png)
 
 ### <a name="configure-for-overall-throughput"></a>Configuración del rendimiento global
 
 Si tiene que ejecutar muchos paquetes y lo que más le preocupa es el rendimiento global, use la información del siguiente gráfico para elegir un tipo de máquina virtual adecuado para su escenario.
+
+El eje Y es el número de paquetes que completaron la ejecución en una hora. Tenga en cuenta que esto es solo un resultado de la prueba de un paquete que consume memoria. Si desea conocer el rendimiento del paquete, se le recomienda realizar la prueba por sí mismo.
 
 ![Rendimiento global máximo de Integration Runtime de SSIS](media/configure-azure-ssis-integration-runtime-performance/ssisir-overall-throughputV2.png)
 

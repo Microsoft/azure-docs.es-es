@@ -6,13 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 05/20/2020
+ms.custom: devx-track-java
 ms.author: anfeldma
-ms.openlocfilehash: 6e52cf9add10191554fb1bb5393773f316ded539
-ms.sourcegitcommit: eeba08c8eaa1d724635dcf3a5e931993c848c633
+ms.openlocfilehash: 4f61dcfa37547fe46a582a4a7ebb28ac68fe6c74
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/10/2020
-ms.locfileid: "84666866"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308685"
 ---
 # <a name="azure-cosmos-db-sql-api-java-sdk-v4-examples"></a>API de SQL de Azure Cosmos DB: Ejemplos de SDK para Java v4
 

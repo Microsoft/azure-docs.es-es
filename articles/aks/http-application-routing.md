@@ -4,14 +4,14 @@ description: Uso del complemento de enrutamiento de aplicación HTTP para accede
 services: container-service
 author: lachie83
 ms.topic: article
-ms.date: 08/06/2019
+ms.date: 07/20/2020
 ms.author: laevenso
-ms.openlocfilehash: 216705ef4ff7c235179c1f1be38a993ecd2fe782
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 08835bda959fb4fe261e86e4d519ab85bd2a4625
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244419"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495155"
 ---
 # <a name="http-application-routing"></a>Enrutamiento de aplicación HTTP
 
@@ -20,7 +20,7 @@ La solución de enrutamiento de aplicación HTTP facilita el acceso a las aplica
 Cuando se habilita el complemento, crea una zona DNS en su suscripción. Para más información sobre el costo de DNS, consulte los [precios de DNS][dns-pricing].
 
 > [!CAUTION]
-> El complemento de enrutamiento de aplicaciones HTTP está diseñado para permitirle crear rápidamente un controlador de entrada y acceder a sus aplicaciones. Este complemento no se recomienda para su uso en producción. Para información sobre las implementaciones de entrada listas para producción, consulte [Creación de un controlador de entrada HTTPS](./ingress-tls.md).
+> El complemento de enrutamiento de aplicaciones HTTP está diseñado para permitirle crear rápidamente un controlador de entrada y acceder a sus aplicaciones. Este complemento no está diseñado actualmente para su uso en un entorno de producción y no se recomienda usarlo en el mismo. Para información sobre las implementaciones de entrada listas para producción, consulte [Creación de un controlador de entrada HTTPS](./ingress-tls.md).
 
 ## <a name="http-routing-solution-overview"></a>Introducción a la solución de enrutamiento HTTP
 
@@ -46,7 +46,7 @@ También puede habilitar el enrutamiento de HTTP en un clúster de AKS existente
 az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing
 ```
 
-Después de implementar o actualizar el clúster, use el comando [az aks show][az-aks-show] para recuperar el nombre de la zona DNS. 
+Después de implementar o actualizar el clúster, use el comando [az aks show][az-aks-show] para recuperar el nombre de la zona DNS.
 
 ```azurecli
 az aks show --resource-group myResourceGroup --name myAKSCluster --query addonProfiles.httpApplicationRouting.config.HTTPApplicationRoutingZoneName -o table
@@ -96,57 +96,53 @@ annotations:
 Cree un archivo denominado **samples-http-application-routing.yaml** y cópielo en el siguiente código YAML. En la línea 43, actualice `<CLUSTER_SPECIFIC_DNS_ZONE>` con el nombre de la zona DNS que se recopiló en el paso anterior de este artículo.
 
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: party-clippy
+  name: aks-helloworld  
 spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aks-helloworld
   template:
     metadata:
       labels:
-        app: party-clippy
+        app: aks-helloworld
     spec:
       containers:
-      - image: r.j3ss.co/party-clippy
-        name: party-clippy
-        resources:
-          requests:
-            cpu: 100m
-            memory: 128Mi
-          limits:
-            cpu: 250m
-            memory: 256Mi
-        tty: true
-        command: ["party-clippy"]
+      - name: aks-helloworld
+        image: neilpeterson/aks-helloworld:v1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        env:
+        - name: TITLE
+          value: "Welcome to Azure Kubernetes Service (AKS)"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: party-clippy
+  name: aks-helloworld  
 spec:
+  type: ClusterIP
   ports:
   - port: 80
-    protocol: TCP
-    targetPort: 8080
   selector:
-    app: party-clippy
-  type: ClusterIP
+    app: aks-helloworld
 ---
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
-  name: party-clippy
+  name: aks-helloworld
   annotations:
     kubernetes.io/ingress.class: addon-http-application-routing
 spec:
   rules:
-  - host: party-clippy.<CLUSTER_SPECIFIC_DNS_ZONE>
+  - host: aks-helloworld.<CLUSTER_SPECIFIC_DNS_ZONE>
     http:
       paths:
       - backend:
-          serviceName: party-clippy
+          serviceName: aks-helloworld
           servicePort: 80
         path: /
 ```
@@ -162,33 +158,12 @@ En el siguiente ejemplo se muestran los recursos creados:
 ```bash
 $ kubectl apply -f samples-http-application-routing.yaml
 
-deployment "party-clippy" created
-service "party-clippy" created
-ingress "party-clippy" created
+deployment.apps/aks-helloworld created
+service/aks-helloworld created
+ingress.networking.k8s.io/aks-helloworld created
 ```
 
-Use cURL o un explorador para navegar al nombre de host especificado en la sección de host del archivo samples-http-application-routing.yaml. La aplicación puede tardar hasta un minuto antes de estar disponible a través de Internet.
-
-```bash
-$ curl party-clippy.471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io
-
- _________________________________
-/ It looks like you're building a \
-\ microservice.                   /
- ---------------------------------
- \
-  \
-     __
-    /  \
-    |  |
-    @  @
-    |  |
-    || |/
-    || ||
-    |\_/|
-    \___/
-
-```
+Abra un explorador web a *aks-helloworld.\<CLUSTER_SPECIFIC_DNS_ZONE\>* , por ejemplo *aks-helloworld.9f9c1fe7-21a1-416d-99cd-3543bb92e4c3.eastus.aksapp.io* y compruebe que ve la aplicación demo. La aplicación puede tardar unos minutos en aparecer.
 
 ## <a name="remove-http-routing"></a>Eliminación del enrutamiento HTTP
 
@@ -235,8 +210,8 @@ Use el comando [kubectl logs][kubectl-logs] para ver los registros de aplicació
 ```
 $ kubectl logs -f deploy/addon-http-application-routing-external-dns -n kube-system
 
-time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'party-clippy' to '52.242.28.189' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
-time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'party-clippy' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
+time="2018-04-26T20:36:19Z" level=info msg="Updating A record named 'aks-helloworld' to '52.242.28.189' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
+time="2018-04-26T20:36:21Z" level=info msg="Updating TXT record named 'aks-helloworld' to '"heritage=external-dns,external-dns/owner=default"' for Azure DNS zone '471756a6-e744-4aa0-aa01-89c4d162a7a7.canadaeast.aksapp.io'."
 ```
 
 Estos registros también se pueden ver en el recurso de zona DNS en Azure Portal.
@@ -275,11 +250,11 @@ I0426 20:30:13.649800       9 stat_collector.go:34] changing prometheus collecto
 I0426 20:30:13.662191       9 leaderelection.go:184] successfully acquired lease kube-system/ingress-controller-leader-addon-http-application-routing
 I0426 20:30:13.662292       9 status.go:196] new leader elected: addon-http-application-routing-nginx-ingress-controller-5cxntd6
 I0426 20:30:13.763362       9 controller.go:179] ingress backend successfully reloaded...
-I0426 21:51:55.249327       9 event.go:218] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"default", Name:"party-clippy", UID:"092c9599-499c-11e8-a5e1-0a58ac1f0ef2", APIVersion:"extensions", ResourceVersion:"7346", FieldPath:""}): type: 'Normal' reason: 'CREATE' Ingress default/party-clippy
-W0426 21:51:57.908771       9 controller.go:775] service default/party-clippy does not have any active endpoints
+I0426 21:51:55.249327       9 event.go:218] Event(v1.ObjectReference{Kind:"Ingress", Namespace:"default", Name:"aks-helloworld", UID:"092c9599-499c-11e8-a5e1-0a58ac1f0ef2", APIVersion:"extensions", ResourceVersion:"7346", FieldPath:""}): type: 'Normal' reason: 'CREATE' Ingress default/aks-helloworld
+W0426 21:51:57.908771       9 controller.go:775] service default/aks-helloworld does not have any active endpoints
 I0426 21:51:57.908951       9 controller.go:170] backend reload required
 I0426 21:51:58.042932       9 controller.go:179] ingress backend successfully reloaded...
-167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-party-clippy-80] 10.244.0.13:8080 234 0.004 200
+167.220.24.46 - [167.220.24.46] - - [26/Apr/2018:21:53:20 +0000] "GET / HTTP/1.1" 200 234 "" "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)" 197 0.001 [default-aks-helloworld-80] 10.244.0.13:8080 234 0.004 200
 ```
 
 ## <a name="clean-up"></a>Limpieza
@@ -295,9 +270,9 @@ En la salida del ejemplo se muestra que los objetos Kubernetes se han quitado.
 ```bash
 $ kubectl delete -f samples-http-application-routing.yaml
 
-deployment "party-clippy" deleted
-service "party-clippy" deleted
-ingress "party-clippy" deleted
+deployment "aks-helloworld" deleted
+service "aks-helloworld" deleted
+ingress "aks-helloworld" deleted
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -1,14 +1,14 @@
 ---
-title: 'Pruebas de DevOps: LUIS'
+title: Flujos de trabajo continuos para aplicaciones de LUIS
 description: Procedimiento para implementar flujos de trabajo de CI/CD de DevOps para Language Understanding (LUIS).
 ms.topic: conceptual
 ms.date: 06/5/2020
-ms.openlocfilehash: 87b922d176f3ef11f25e46c8e076c88d5f3854c3
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: 4cedf0cbe3f9ab675c191f8e4639688bb7916ee0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84783635"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072993"
 ---
 # <a name="continuous-integration-and-continuous-delivery-workflows-for-luis-devops"></a>Flujos de trabajo de integración continua y entrega continua de DevOps para LUIS
 

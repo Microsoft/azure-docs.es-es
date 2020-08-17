@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/11/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 6911f769b95967aac933dd9762263e7506aef4b5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 3db9811322d27ab287fa568eeeffcb5f4d57bdf7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77192504"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86530186"
 ---
 ## <a name="create-the-webapi-project"></a>Creación del proyecto de API web
 
@@ -30,7 +30,7 @@ Realice las siguientes acciones para crear el nuevo back-end de ASP.NET WebAPI:
 >
 >Para comprobarlo, inicie Visual Studio. En el menú **Herramientas**, seleccione **Extensiones y actualizaciones**. Busque el **Administrador de paquetes NuGet** correspondiente a su versión de Visual Studio y asegúrese de que tiene la versión más reciente. Si no es la más reciente, se debe desinstalar y volver a instalar el Administrador de paquetes NuGet.
 
-![][B4]
+![Captura de pantalla del cuadro de diálogo Extensiones y actualizaciones con el paquete NuGet de administración para Visual Studio resaltado.][B4]
 
 > [!NOTE]
 > Asegúrese de que ha instalado el [SDK de Azure](https://azure.microsoft.com/downloads/) para Visual Studio para la implementación de sitios web.
@@ -140,7 +140,7 @@ En esta sección se crea una clase de controlador de mensajes llamada **Authenti
     ```
 
     > [!NOTE]
-    > Nota de seguridad: la clase `AuthenticationTestHandler` no proporciona autenticación real. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.
+    > Nota de seguridad: la clase `AuthenticationTestHandler` no proporciona una autenticación verdadera. Se utiliza únicamente para simular una autenticación básica y no es segura. Debe implementar un mecanismo de autenticación seguro en las aplicaciones y servicios de producción.
 5. Para registrar el controlador de mensajes, agregue el siguiente código al final del método `Register` de la clase **App_Start/WebApiConfig.cs**:
 
     ```csharp

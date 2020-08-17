@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 04/07/2020
 ms.author: juliako
-ms.openlocfilehash: e54944c0c10fb773a4a3141c0d3fb6524f288ae2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 70499ad354e2fafaac99fe46c1838a0be2813943
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011692"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Preguntas más frecuentes sobre Media Services v3
 
@@ -46,7 +46,7 @@ Para más información, consulte [Escalado de procesamiento de elementos multime
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>¿Cuál es el método recomendado para procesar vídeos?
 
-Use [transformaciones](https://docs.microsoft.com/rest/api/media/transforms) para configurar tareas comunes para codificar o analizar vídeos. Cada Transformación describe una receta, o un flujo de trabajo simple de tareas para procesar los archivos de vídeo o audio. Un [trabajo](https://docs.microsoft.com/rest/api/media/jobs) es la solicitud real a Media Services de aplicar la transformación a un contenido de vídeo o audio de entrada. Después de crear la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
+Use [transformaciones](/rest/api/media/transforms) para configurar tareas comunes para codificar o analizar vídeos. Cada Transformación describe una receta, o un flujo de trabajo simple de tareas para procesar los archivos de vídeo o audio. Un [trabajo](/rest/api/media/jobs) es la solicitud real a Media Services de aplicar la transformación a un contenido de vídeo o audio de entrada. Después de crear la transformación, puede enviar trabajos mediante las API de Media Services o cualquiera de los SDK publicados. Para obtener más información, consulte [Transformaciones y trabajos](transforms-jobs-concept.md).
 
 ### <a name="i-uploaded-encoded-and-published-a-video-why-wont-the-video-play-when-i-try-to-stream-it"></a>He cargado, codificado y publicado un vídeo. ¿Por qué no se reproduce el vídeo cuando intento transmitirlo?
 
@@ -159,9 +159,9 @@ Actualmente, se puede usar [Azure Portal](https://portal.azure.com/) para:
 
 * Administrar los [eventos en directo](live-events-outputs-concept.md) de la versión 3 de Media Services. 
 * Ver (no administrar) los [recursos](assets-concept.md) de la versión 3. 
-* [Obtener información sobre el acceso a las API](access-api-portal.md). 
+* [Obtener información sobre el acceso a las API](./access-api-howto.md). 
 
-Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](https://docs.microsoft.com/rest/api/media/), la [CLI de Azure](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
+Para las restantes tareas de administración (por ejemplo, [Transformaciones y trabajos](transforms-jobs-concept.md) y [Protección de contenido](content-protection-overview.md)), use la [API REST](/rest/api/media/), la [CLI de Azure](https://aka.ms/ams-v3-cli-ref), o uno de los [SDK](media-services-apis-overview.md#sdks) compatibles.
 
 ### <a name="is-there-an-assetfile-concept-in-v3"></a>¿Existe el concepto de AssetFile en la versión v3?
 
@@ -171,7 +171,7 @@ Para más información, consulte [Migración a Media Services v3](media-services
 
 ### <a name="where-did-client-side-storage-encryption-go"></a>¿Qué hay del cifrado del almacenamiento del lado del cliente?
 
-Ahora se recomienda utilizar el cifrado de almacenamiento en el lado de servidor (que está activo de forma predeterminada). Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
+Ahora se recomienda utilizar el cifrado de almacenamiento en el lado de servidor (que está activo de forma predeterminada). Para más información, consulte [Cifrado del servicio Azure Storage para datos en reposo](../../storage/common/storage-service-encryption.md).
 
 ## <a name="offline-streaming"></a>Streaming sin conexión
 

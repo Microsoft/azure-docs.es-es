@@ -40,7 +40,7 @@
       items:
         - name: "Topologías y escenarios para el aprovisionamiento en la nube de Azure\_AD Connect"
           href: plan-cloud-provisioning-topologies.md
-    - name: Administrar
+    - name: Administración
       items:
         - name: Actualización automática del agente
           href: how-to-automatic-upgrade.md

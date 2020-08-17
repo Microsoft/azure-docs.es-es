@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 1f65feee8806b0c8dc85e14cdcd6e2687e040456
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.date: 07/14/2020
+ms.openlocfilehash: 93fb65fc7c7551635c49e33d0f626d72c2755a11
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84119217"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553978"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Selección de un plan de tarifa de Azure Cognitive Search
 
@@ -23,14 +23,17 @@ La mayoría de los clientes empiezan con el nivel Gratis para poder evaluar el s
 
 ## <a name="feature-availability-by-tier"></a>Disponibilidad de características por nivel
 
-Casi todas las características están disponibles en todos los niveles, incluido el nivel Gratis, pero es posible que una característica o un flujo de trabajo que use muchos recursos no funcione bien, a menos que se le proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento de inteligencia artificial](cognitive-search-concept-intro.md) tiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio gratuito, a menos que el conjunto de datos sea pequeño.
-
 En la tabla siguiente se describen las restricciones de características relacionadas con el nivel.
 
 | Característica | Limitaciones |
 |---------|-------------|
 | [Indizadores](search-indexer-overview.md) | Los indizadores no están disponibles en S3 HD. |
+| [Enriquecimiento con IA](search-security-manage-encryption-keys.md) | Se ejecuta en el nivel Gratis, pero no se recomienda. |
 | [Claves de cifrado administradas por el cliente](search-security-manage-encryption-keys.md) | No disponibles en el nivel Gratis. |
+| [Acceso al firewall de IP](service-configure-firewall.md) | No disponibles en el nivel Gratis. |
+| [Integración con Azure Private Link](service-create-private-endpoint.md) | No disponibles en el nivel Gratis. |
+
+La mayoría de las características están disponibles en todos los niveles, incluido el nivel Gratis, pero es posible que las características que usen muchos recursos no funcionen bien, a menos que se les proporcione capacidad suficiente. Por ejemplo, el [enriquecimiento con IA](cognitive-search-concept-intro.md) contiene funciones de ejecución prolongada que agotan el tiempo de espera en un servicio Gratis, a menos que el conjunto de datos sea pequeño.
 
 ## <a name="tiers-skus"></a>Niveles (SKU)
 
@@ -57,10 +60,19 @@ Encontrará más información sobre los distintos niveles en la [página de prec
 
 Una solución basada en Azure Cognitive Search puede incurrir en costos de las siguientes maneras:
 
-+ Costo fijo del servicio, que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica)
-+ Costo incremental al escalar (agregar réplicas o particiones)
-+ Cargos de ancho de banda (transferencia de datos salientes) 
-+ Búsqueda cognitiva (conectar Cognitive Services para enriquecimiento de inteligencia artificial, o usar Azure Storage para el almacén de conocimiento)
++ Costo del mismo servicio, que se ejecuta de forma ininterrumpida con una configuración mínima (una partición y una réplica)
+
++ Adición de capacidad (réplicas o particiones)
+
++ Cargos de ancho de banda (transferencia de datos salientes)
+
++ Servicios complementarios necesarios para funcionalidades o características específicas:
+
+  + Enriquecimiento con inteligencia artificial (requiere [Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/))
+  + almacén de conocimiento (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/))
+  + enriquecimiento incremental (requiere [Azure Storage](https://azure.microsoft.com/pricing/details/storage/), se aplica al enriquecimiento con inteligencia artificial)
+  + claves administradas por el cliente y cifrado doble (requiere [Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/))
+  + puntos de conexión privados para un modelo de acceso sin Internet (requiere [Azure Private Link](https://azure.microsoft.com/pricing/details/private-link/))
 
 ### <a name="service-costs"></a>Costos de servicio
 
@@ -72,7 +84,7 @@ Cuando esté calculando el costo de una solución de búsqueda, tenga en cuenta 
 
 ### <a name="bandwidth-charges"></a>Cargos de ancho de banda
 
-El uso de [indizadores de Azure Cognitive Search](search-indexer-overview.md) podría afectar a la facturación, según la ubicación de los servicios. Puede eliminar por completo los cargos de salida de datos si crea el servicio Azure Cognitive Search en la misma región que los datos. Para saber más, eche un vistazo a la [página de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
+El uso de [indexadores](search-indexer-overview.md) podría afectar a la facturación, según la ubicación de los servicios. Puede eliminar por completo los cargos de salida de datos si crea el servicio Azure Cognitive Search en la misma región que los datos. Para saber más, eche un vistazo a la [página de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/):
 
 + Microsoft no cobra por los datos de entrada a ningún servicio de Azure, ni por los datos de salida de Azure Cognitive Search.
 + En soluciones de varios servicios, no hay ningún cargo por los datos que atraviesan la conexión cuando todos los servicios están en la misma región.
@@ -108,7 +120,7 @@ La mayoría de los clientes solo ponen en línea una parte de la capacidad total
 
 ## <a name="how-to-manage-costs"></a>Cómo administrar costos
 
-Las siguientes sugerencias pueden ayudarle a reducir los costos al mínimo:
+Las siguientes sugerencias pueden ayudarle a reducir costos o administrar costos de forma más eficaz:
 
 + Cree todos los recursos en la misma región, o en el menor número de regiones posible, para minimizar o eliminar los cargos de ancho de banda.
 
@@ -141,7 +153,7 @@ La capacidad y los costos de ejecución del servicio están relacionados. Los ni
 
 Los requisitos empresariales suelen imponer el número de índices que se necesitará. Por ejemplo, podría necesitar un índice global para un repositorio de documentos de gran tamaño. O podría necesitar varios índices en función de la región, la aplicación o el nicho de negocio.
 
-Para determinar el tamaño de un índice, tendrá que [crear uno](search-create-index-portal.md). Su tamaño se basará en los datos importados y en la configuración del índice, por ejemplo, si habilita los proveedores de sugerencias, el filtrado y la ordenación. Para más información sobre el impacto de la configuración en el tamaño, vea [Creación de un índice básico en Azure Cognitive Search](search-what-is-an-index.md).
+Para determinar el tamaño de un índice, tendrá que [crear uno](search-what-is-an-index.md). Su tamaño se basará en los datos importados y en la configuración del índice, por ejemplo, si habilita los proveedores de sugerencias, el filtrado y la ordenación.
 
 Para la búsqueda de texto completo, la estructura de datos principal es una estructura de [índice invertido](https://en.wikipedia.org/wiki/Inverted_index), que tiene características diferentes de los datos de origen. Para un índice invertido, el tamaño y la complejidad vienen determinados por el contenido, y no necesariamente por la cantidad de datos que se incorporan. Un origen de datos de gran tamaño con mucha redundancia podría dar lugar a un índice más pequeño que un conjunto de datos más pequeño que incluya contenido muy variable. Así que es poco probable deducir el tamaño del índice en función del tamaño del conjunto de datos original.
 
@@ -155,7 +167,7 @@ Un enfoque para calcular la capacidad es empezar con el nivel Gratis. Recuerde q
 
 + [Cree un servicio gratuito](search-create-service-portal.md).
 + Prepare un conjunto de datos pequeño y representativo.
-+ [Genere un índice inicial en el portal](search-create-index-portal.md) y anote su tamaño. Las características y los atributos afectan al almacenamiento. Por ejemplo, al agregar proveedores de sugerencias (consultas al escribir), aumentan los requisitos de almacenamiento. Con el mismo conjunto de datos, puede intentar crear varias versiones de un índice, con atributos diferentes en cada campo, para ver cómo varían los requisitos de almacenamiento. Para obtener más información, vea ["Implicaciones de almacenamiento" en Creación de un índice básico](search-what-is-an-index.md#index-size).
++ [Genere un índice inicial en el portal](search-get-started-portal.md) y anote su tamaño. Las características y los atributos afectan al almacenamiento. Por ejemplo, al agregar proveedores de sugerencias (consultas al escribir), aumentan los requisitos de almacenamiento. Con el mismo conjunto de datos, puede intentar crear varias versiones de un índice, con atributos diferentes en cada campo, para ver cómo varían los requisitos de almacenamiento. Para obtener más información, vea ["Implicaciones de almacenamiento" en Creación de un índice básico](search-what-is-an-index.md#index-size).
 
 Con una estimación aproximada, podría doblar esa cantidad a fin de presupuestar dos índices (desarrollo y producción) y luego elegir el nivel en consecuencia.
 
@@ -171,7 +183,7 @@ Los recursos dedicados pueden adaptarse a mayores tiempos de muestreo y procesam
     + Empiece por arriba, con un nivel S2 o incluso S3, si sabe que va a tener cargas de consulta e indexación a gran escala.
     + Empiece con Almacenamiento optimizado, en L1 o L2, si va a indexar una gran cantidad de datos y la carga de consultas es relativamente baja, como con una aplicación empresarial interna.
 
-1. [Genere un índice inicial](search-create-index-portal.md) para determinar cómo se traducen los datos de origen a un índice. Esta es la única manera de calcular el tamaño del índice.
+1. [Genere un índice inicial](search-what-is-an-index.md) para determinar cómo se traducen los datos de origen a un índice. Esta es la única manera de calcular el tamaño del índice.
 
 1. [Supervise el almacenamiento, los límites del servicio, el volumen de consultas y la latencia](search-monitor-usage.md) en el portal. El portal muestra las consultas por segundo, las consultas limitadas y la latencia de búsqueda. Todos estos valores pueden ayudarle a decidir si ha seleccionado el nivel correcto. 
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0c8863615446f8b14043cd7bd13e529b7efa1e46
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 2fe6cbdbcb0cf5b5c28d34f2059a2b070b059566
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186204"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004756"
 ---
 # <a name="forward-azure-automation-job-data-to-azure-monitor-logs"></a>Reenvío de datos de un trabajo de Azure Automation a registros de Azure Monitor
 
@@ -28,7 +28,7 @@ Azure Automation puede enviar el estado de un trabajo del runbook y de flujos de
 
 Para empezar a enviar los registros de Automation a registros de Azure Monitor, necesita:
 
-* La versión más reciente de [Azure PowerShell](/powershell/azureps-cmdlets-docs/).
+* La versión más reciente de [Azure PowerShell](/powershell/azure/).
 * Un área de trabajo de Log Analytics. Para más información, consulte [Introducción a Azure Monitor](../azure-monitor/overview.md).
 * El identificador de recurso de su cuenta de Azure Automation.
 

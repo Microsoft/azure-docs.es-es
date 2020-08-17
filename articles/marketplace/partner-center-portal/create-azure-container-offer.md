@@ -4,15 +4,15 @@ description: Aprenda a crear y publicar una oferta de contenedor para Azure Mark
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
-ms.author: mingshen
+author: keferna
+ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: cea4a43724629793123098084098299e3915be7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff2745a636d25c429a1a40644757c00b28e2668c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109697"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799181"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creación de una oferta de contenedor de Azure en Azure Marketplace
 
@@ -195,14 +195,15 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="store-logos"></a>Logotipos de Store
 
- Proporcione archivos PNG del logotipo de la oferta en cada uno de los cuatro tamaños de píxel siguientes:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
 - **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande (216 x 216)**
-- **Ancho (255 x 115)**
+- **Grande** (entre 216 x 216 y 350 x 350)
 
-Los cuatro logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de pantalla (opcional)
 
@@ -250,13 +251,13 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ### <a name="plan-overview"></a>Información general del plan
 
-Esta pestaña le permite ofrecer diversas opciones de planes dentro de la misma oferta. Estos planes se llamaban previamente SKU o referencias de almacén. Los planes pueden diferir en cuanto a las nubes disponibles, como las nubes globales, las nubes gubernamentales y la imagen de referencia del plan. Para publicar la oferta en el marketplace comercial, debe configurar al menos un plan.
+Esta pestaña le permite ofrecer diversas opciones de planes dentro de la misma oferta. Los planes (anteriormente denominados SKU) pueden diferir en cuanto a las nubes disponibles, como las nubes globales, las nubes gubernamentales y la imagen de referencia del plan. Para publicar la oferta en el marketplace comercial, debe configurar al menos un plan.
 
 Después de crear sus planes, la pestaña **Información general del plan** muestra lo siguiente:
 
 - Nombres de los planes
 - Modelo de precios
-- Disponibilidad de la nube (global o gubernamental)
+- Regiones de Azure (globales o gubernamentales)
 - Estado de publicación actual
 - Acciones disponibles
 
@@ -284,16 +285,14 @@ Esta pestaña le permite elegir las nubes en las que está disponible el plan. S
 
 Todos los planes de las ofertas de Azure Container Service están disponibles automáticamente en **Azure Global**.  Los clientes pueden usar su plan en todas las regiones globales de Azure que usan el marketplace comercial. Para obtener más información, consulte [Disponibilidad geográfica y soporte técnico de moneda](../marketplace-geo-availability-currencies.md).
 
-Seleccione la opción [**Azure Government**](../../azure-government/documentation-government-welcome.md) para que la solución aparezca aquí. Se trata de una nube de comunidad gubernamental con acceso controlado para los clientes de agencias federales de EE. UU., s](../marketplace-geo-availability-currencies.md)em. Como publicador, es responsable de los controles de cumplimiento, las medidas de seguridad y los procedimientos recomendados para esta comunidad en la nube. Azure Government usa redes y centros de datos aislados físicamente (ubicados solo en Estados Unidos).
-
-Antes de la [publicación](../../azure-government/documentation-government-manage-marketplace-partners.md) en Azure Government, pruebe y valide la solución en esa área, ya que los resultados pueden ser diferentes. Para crear y probar la solución, solicite una cuenta de prueba desde [Prueba de Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/).
+Seleccione la opción [Azure Government](../../azure-government/documentation-government-welcome.md) para que la solución aparezca aquí. Es una nube de la comunidad gubernamental con acceso controlado para los clientes de agencias gubernamentales tribales, locales, estatales o federales de Estados Unidos, así como para los asociados aptos para abastecerlos. Como publicador, es responsable de los controles de cumplimiento, las medidas de seguridad y los procedimientos recomendados para esta comunidad en la nube. Azure Government usa redes y centros de datos aislados físicamente (ubicados solo en Estados Unidos). Antes de la [publicación](../../azure-government/documentation-government-manage-marketplace-partners.md) en Azure Government, pruebe y valide la solución en esa área, ya que los resultados pueden ser diferentes. Para crear y probar la solución, solicite una cuenta de prueba desde [Prueba de Microsoft Azure Government](https://azure.microsoft.com/global-infrastructure/government/request/).
 
 > [!NOTE]
 > Una vez que el plan esté publicado y disponible en una región específica, no se puede quitar esa región.
 
 #### <a name="azure-government-certifications"></a>Certificaciones de Azure Government
 
-Esta opción es visible únicamente si **Azure Government** está seleccionada en **Disponibilidad en la nube**.
+Esta opción es visible únicamente si **Azure Government** está seleccionada en **Regiones de Azure**.
 
 Los servicios de Azure Government controlan datos que están sujetos a determinados reglamentos y requisitos gubernamentales. Por ejemplo, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 y CJIS.
 

@@ -5,21 +5,21 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 01/21/2020
+ms.date: 06/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2812b535c7aef7987db7106bfa6b07e15a1b61c7
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 9fa47c81aede9de5d083f16f9e1705f687ad39a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81263393"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046442"
 ---
-# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights
+# <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights-gen1"></a>Supervisión y reducción de la limitación para reducir la latencia en Azure Time Series Insights Gen1
 
 Si la cantidad de datos de entrada supera la configuración del entorno, puede experimentar latencia o limitación en Azure Time Series Insights.
 
@@ -27,14 +27,14 @@ Para evitarlo, configure correctamente el entorno para la cantidad de datos que 
 
 Es más probable que experimente latencia y limitación si:
 
-- Agrega un origen del evento que contiene datos antiguos que pueden superar la tasa de entrada asignada (ya que Time Series Insights tendrá que leer todos los datos).
+- Agrega un origen del evento que contiene datos antiguos que pueden superar la tasa de entrada asignada (ya que Azure Time Series Insights tendrá que leer todos los datos).
 - Agrega más orígenes de eventos a un entorno, lo que produce un pico de eventos adicionales (que podría superar la capacidad del entorno).
-- Inserta grandes cantidades de eventos históricos en un origen del evento, lo cual resulta en un retraso (ya que Time Series Insights tendrá que leer todos los datos).
+- Inserta grandes cantidades de eventos históricos en un origen del evento, lo cual resulta en un retraso (ya que Azure Time Series Insights tendrá que leer todos los datos).
 - Une los datos de referencia con la telemetría, lo que da lugar a un evento de mayor tamaño. El tamaño de paquete máximo permitido es 32 KB. Los paquetes de datos con más de 32 KB se truncan.
 
 ## <a name="video"></a>Vídeo
 
-### <a name="learn-about-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Obtenga más información sobre la entrada de datos de Time Series Insights y cómo planearla.</br>
+### <a name="learn-about-azure-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>Obtenga más información sobre la entrada de datos de Azure Time Series Insights y cómo planearla.</br>
 
 > [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
@@ -42,9 +42,9 @@ Es más probable que experimente latencia y limitación si:
 
 Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia que se producen en su entorno.
 
-1. En Azure Portal, seleccione el entorno de Time Series Insights. A continuación, seleccione **Alertas**.
+1. En Azure Portal, seleccione el entorno de Azure Time Series Insights. A continuación, seleccione **Alertas**.
 
-   [![Incorporación de una alerta al entorno de Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
+   [![Incorporación de una alerta al entorno de Azure Time Series Insights](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. Seleccione **+ Nueva regla de alertas**. Aparecerá el panel **Crear regla**. Seleccione **Agregar** en **CONDICIÓN**.
 
@@ -74,7 +74,7 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia q
 
 ## <a name="throttling-and-ingress-management"></a>Limitación y administración de entrada
 
-* Si experimenta alguna limitación, se registrará un valor en *Ingress Received Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene el entorno de Time Series Insights respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  
+* Si experimenta alguna limitación, se registrará un valor en *Ingress Received Message Time Lag* (Tiempo de retardo de los mensajes de entrada recibidos) que indica cuántos segundos de retraso tiene el entorno de Azure Time Series Insights respecto al momento real en el que el mensaje llega al origen del evento (sin contar el tiempo de indexación, unos 30-60 segundos).  
 
   *Ingress Received Message Count Lag* (Retardo de recuento de los mensajes de entrada recibidos) también debe tener un valor para que pueda determinar los mensajes que tiene detrás.  La manera más fácil de mantenerse al día es aumentar la capacidad del entorno a un tamaño que le permita compensar la diferencia.  
 
@@ -84,7 +84,7 @@ Las alertas pueden ayudarle a diagnosticar y mitigar los problemas de latencia q
 
   Por ejemplo, si tiene tres unidades de nivel S1 aprovisionadas (o una capacidad de entrada de 2100 eventos por minuto), puede establecer una alerta de **eventos de entrada almacenados** >= 1900 eventos durante 2 horas. Si continuamente supera este umbral y, como consecuencia, se desencadena la alerta, es posible que necesite un mayor aprovisionamiento.  
 
-* Si sospecha que está experimentando alguna limitación, puede comparar los **mensajes de entrada recibidos** con los mensajes de origen del evento de salida.  Si la entrada en el centro de eventos es mayor que los **mensajes de entrada recibidos**, es probable que se esté limitando su instancia de Time Series Insights.
+* Si sospecha que está experimentando alguna limitación, puede comparar los **mensajes de entrada recibidos** con los mensajes de origen del evento de salida.  Si la entrada en el centro de eventos es mayor que los **mensajes de entrada recibidos**, es probable que se esté limitando su instancia de Azure Time Series Insights.
 
 ## <a name="improving-performance"></a>Mejora del rendimiento
 
@@ -94,6 +94,6 @@ Para evitarlo, configure correctamente el entorno para la cantidad de datos que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información en [Diagnóstico y solución de problemas de su entorno Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
+- Más información en [Diagnóstico y solución de problemas de su entorno Azure Time Series Insights](time-series-insights-diagnose-and-solve-problems.md).
 
-- Aprenda a [escalar el entorno de Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
+- Aprenda a [escalar el entorno de Azure Time Series Insights](time-series-insights-how-to-scale-your-environment.md).

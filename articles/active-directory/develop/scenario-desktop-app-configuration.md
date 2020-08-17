@@ -10,13 +10,13 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: f197dd5063f8584968277d8d55298c03d9d71ea6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 56d2e01d35f25ac469e808a805382463d2b23ceb
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558843"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121109"
 ---
 # <a name="desktop-app-that-calls-web-apis-code-configuration"></a>Aplicación de escritorio que llama a las API web: Configuración del código
 
@@ -107,8 +107,8 @@ app = PublicClientApplicationBuilder.Create(clientId)
 
 Para más información sobre cómo configurar una aplicación de escritorio de MSAL.NET:
 
-- Para obtener una lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia de [PublicClientApplicationBuilder](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
-- Para obtener la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions`, consulte [PublicClientApplicationOptions](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) en la documentación de referencia.
+- Para obtener una lista de todos los modificadores disponibles en `PublicClientApplicationBuilder`, consulte la documentación de referencia de [PublicClientApplicationBuilder](/dotnet/api/microsoft.identity.client.publicclientapplicationbuilder#methods).
+- Para obtener la descripción de todas las opciones que se muestran en `PublicClientApplicationOptions`, consulte [PublicClientApplicationOptions](/dotnet/api/microsoft.identity.client.publicclientapplicationoptions) en la documentación de referencia.
 
 ### <a name="complete-example-with-configuration-options"></a>Ejemplo completo con opciones de configuración
 

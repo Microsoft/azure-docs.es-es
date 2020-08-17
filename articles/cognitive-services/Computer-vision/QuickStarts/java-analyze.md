@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b307e39937378aa8228d4083f1a6f709069a59f7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: seodec18, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 5d65704b0d7b0345b4ff5d952a0f7f28fad0ea44
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512949"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835160"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-and-java"></a>Inicio rápido: Análisis de imágenes remotas mediante la Java y la API REST Computer Vision
 

@@ -3,19 +3,19 @@ title: 'Referencia de Speech to Text API (REST): servicio de voz'
 titleSuffix: Azure Cognitive Services
 description: Aprenda a usar speech-to-text API REST. En este artículo, obtendrá más información sobre las opciones de autorización y de consulta y sobre cómo estructurar una solicitud y recibir una respuesta.
 services: cognitive-services
-author: yinhew
+author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
-ms.author: yinhew
-ms.openlocfilehash: c4eb1419859d4a87e53371a266dcef52e632b6c8
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.author: trbye
+ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636094"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88056829"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-text REST API
 
@@ -223,10 +223,10 @@ El objeto de la lista `NBest` puede incluir:
 | `ITN` | El formato de normalización inversa de texto ("canónica") del texto reconocido, con números de teléfono, números, abreviaturas ("doctor smith" a "dr smith") y otras transformaciones aplicadas. |
 | `MaskedITN` | Formato ITN con enmascaramiento de palabras soeces aplicado, si se solicita. |
 | `Display` | Formato de presentación del texto reconocido, con adición de signos de puntuación y mayúsculas. Este parámetro es el mismo que `DisplayText` que se proporcionó cuando el formato se estableció en `simple`. |
-| `AccuracyScore` | Puntuación que indica la precisión de la pronunciación del fragmento hablado en cuestión. |
-| `FluencyScore` | Puntuación que indica la fluidez del fragmento hablado en cuestión. |
-| `CompletenessScore` | Puntuación que indica la integridad del fragmento hablado en cuestión mediante el cálculo de la proporción de palabras pronunciadas con respecto a la entrada completa. |
-| `PronScore` | Puntuación global que indica la calidad de la pronunciación del fragmento hablado en cuestión. Se calcula a partir de `AccuracyScore`, `FluencyScore` y `CompletenessScore` con ponderación. |
+| `AccuracyScore` | Precisión de pronunciación de la voz. La precisión indica el grado de coincidencia de los fonemas con la pronunciación de un hablante nativo. La puntuación de precisión del nivel de texto completo y de las palabras individuales se agrega a partir de la puntuación de precisión del nivel de fonema. |
+| `FluencyScore` | Fluidez del fragmento hablado en cuestión. La fluidez indica el grado de coincidencia de la voz con el uso que hace un hablante nativo de los silencios entre palabras. |
+| `CompletenessScore` | Integridad de la voz, se determina mediante el cálculo de la proporción de palabras pronunciadas para hacer referencia a la entrada de texto. |
+| `PronScore` | Puntuación global que indica la calidad de la pronunciación del fragmento hablado en cuestión. Se agrega a partir de `AccuracyScore`, `FluencyScore` y `CompletenessScore` con ponderación. |
 | `ErrorType` | Este valor indica si se ha omitido, se ha insertado o se ha pronunciado incorrectamente una palabra en comparación con `ReferenceText`. Los valores posibles son `None` (que significa que no hay ningún error en esta palabra), `Omission`, `Insertion` y `Mispronunciation`. |
 
 ## <a name="sample-responses"></a>Respuestas de ejemplo
@@ -302,6 +302,6 @@ La siguiente es una respuesta típica de reconocimiento con evaluación de pronu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtenga su suscripción de prueba a Voz](https://azure.microsoft.com/try/cognitive-services/)
+- [Creación de una cuenta de Azure gratuita](https://azure.microsoft.com/free/cognitive-services/)
 - [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalización de modelos de lenguaje](how-to-customize-language-model.md)

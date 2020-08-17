@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 75e3f7fc98072957f571937a1627247cdc4a9e7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ee138ac41557554ae4b8fde8c9178336fd8d5db
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85374449"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387785"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Planeación de una implementación de inicio de sesión único
 
@@ -55,7 +55,7 @@ Hay dos formas principales de permitir a los usuarios el inicio de sesión únic
 ### <a name="considerations-for-federation-based-sso"></a>Consideraciones para el inicio de sesión único basado en federación
 
 - **Uso de OpenID Connect y OAuth**: si la aplicación a la que se va a conectar lo admite, use el método OIDC/OAuth 2.0 para habilitar el inicio de sesión único en esa aplicación. Este método requiere menos configuración y permite una experiencia del usuario más completa. Para más información, vea [OAuth 2.0](../develop/v2-oauth2-auth-code-flow.md), [OpenID Connect 1.0](../develop/v2-protocols-oidc.md) y la [Guía para desarrolladores de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-- **Configuraciones de punto de conexión para el inicio de sesión único basado en SAML**: si usa SAML, los desarrolladores necesitarán información específica antes de configurar la aplicación. Para obtener más información, consulte [Edición de la configuración básica de SAML](configure-single-sign-on-non-gallery-applications.md).
+- **Configuraciones de punto de conexión para el inicio de sesión único basado en SAML**: si usa SAML, los desarrolladores necesitarán información específica antes de configurar la aplicación. Para más información, consulte [Configuración del inicio de sesión único basado en SAML](configure-saml-single-sign-on.md).
 - **Administración de certificados para el inicio de sesión único basado en SAML**: al habilitar el inicio de sesión único federado para la aplicación, Azure AD crea un certificado con una validez predeterminada de tres años. Si es necesario, puede personalizar la fecha de expiración de ese certificado. Asegúrese de que tiene procesos implantados para renovar los certificados antes de que caduquen. Para más información, vea [Certificados de administración de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-sso-certs).
 
 ### <a name="considerations-for-password-based-sso"></a>Consideraciones para el inicio de sesión único basado en contraseña

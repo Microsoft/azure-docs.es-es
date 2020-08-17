@@ -1,24 +1,22 @@
 ---
-title: 'Expansión del grupo de hosts existente con nuevos hosts de sesión: Azure'
-description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop.
-services: virtual-desktop
+title: Expansión de un grupo de hosts existente de Windows Virtual Desktop (clásico) con nuevos hosts de sesión - Azure
+description: Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 956934bd536d8eb5e692ed193cad1424929db24b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 61cf28b0f1ebee6a0312ec3f23f22b01c6c4919e
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260764"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009178"
 ---
-# <a name="expand-an-existing-host-pool-with-new-session-hosts"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión
+# <a name="expand-an-existing-host-pool-with-new-session-hosts-in-windows-virtual-desktop-classic"></a>Expansión de un grupo de hosts existente con nuevos hosts de sesión en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../expand-existing-host-pool.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../expand-existing-host-pool.md).
 
 A medida que aumenta el uso en el grupo de hosts, puede que necesite expandir el grupo de hosts existente con nuevos hosts de sesión para controlar la nueva carga.
 

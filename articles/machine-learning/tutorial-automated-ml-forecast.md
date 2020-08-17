@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: previsión de la demanda y aprendizaje automático automatizado'
+title: 'Tutorial: Previsión de la demanda y aprendizaje automático automatizado'
 titleSuffix: Azure Machine Learning
 description: Aprenda a entrenar e implementar un modelo de previsión de la demanda con aprendizaje automático automatizado en Azure Machine Learning Studio.
 services: machine-learning
@@ -9,18 +9,21 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 06/04/2020
-ms.openlocfilehash: 3786b7a2b8b8fc40b1cf393aa452c15d72c5b963
-ms.sourcegitcommit: b55d1d1e336c1bcd1c1a71695b2fd0ca62f9d625
+ms.date: 07/10/2020
+ms.openlocfilehash: a244372168cb34f190bd584634bf108f2b5215a5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/04/2020
-ms.locfileid: "84433702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092304"
 ---
 # <a name="tutorial-forecast-demand-with-automated-machine-learning"></a>Tutorial: Previsión de la demanda con aprendizaje automático automatizado
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 En este tutorial utilizará el aprendizaje automático automatizado, o ML automatizado, en Azure Machine Learning Studio para crear un modelo de previsión de la demanda de serie temporal de la demanda de alquiler para un servicio de uso compartido de bicicletas.
+
+>[!IMPORTANT]
+> La experiencia de aprendizaje automático automatizado de Azure Machine Learning Studio se encuentra en versión preliminar. Es posible que algunas características no se admitan o que tengan funcionalidades limitadas.
 
 Para obtener un ejemplo de modelo de clasificación, consulte [Tutorial: Creación de un modelo de clasificación con aprendizaje automático automatizado en Azure Machine Learning](tutorial-first-experiment-automated-ml.md).
 
@@ -41,7 +44,7 @@ En este tutorial, aprenderá las siguientes tareas:
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Introducción a Azure Machine Learning Studio
 
-Para este tutorial se crea el experimento de ML automatizado que se ejecuta en Azure Machine Learning Studio, una interfaz consolidada que incluye herramientas de aprendizaje automático para conformar escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Studio no se admite en los exploradores Internet Explorer.
+En este tutorial, se crea el experimento de aprendizaje automático automatizado que se ejecuta en Azure Machine Learning Studio, una interfaz web consolidada que incluye herramientas de aprendizaje automático para llevar a la práctica escenarios de ciencia de datos para los profesionales de ciencia de datos de todos los niveles de conocimiento. Studio no se admite en los exploradores Internet Explorer.
 
 1. Inicie sesión en [Azure Machine Learning Studio](https://ml.azure.com).
 
@@ -113,8 +116,11 @@ Una vez cargados y configurados los datos, configure el destino de proceso remot
         Campo | Descripción | Valor para el tutorial
         ----|---|---
         Nombre del proceso |Un nombre único que identifique el contexto del proceso.|bike-compute
+        Tipo de&nbsp;máquina&nbsp;virtual|Seleccione el tipo de máquina virtual del proceso.|CPU (Unidad central de procesamiento)
         Tamaño de la&nbsp;máquina&nbsp;virtual| Seleccione el tamaño de la máquina virtual para el proceso.|Standard_DS12_V2
-        Número máximo y mínimo de nodos (en Configuración avanzada)| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
+        Nodos mín./máx.| Para generar perfiles de datos, debe especificar uno o más nodos.|Número mínimo de nodos: 1<br>Número máximo de nodos: 6
+        Segundos de inactividad antes de la reducción vertical | Tiempo de inactividad antes de que el clúster se escale automáticamente hasta el número mínimo de nodos.|120 (valor predeterminado)
+        Configuración avanzada | Valores para configurar y autorizar una red virtual para el experimento.| None
   
         1. Seleccione **Create** (Crear) para obtener el destino de proceso. 
 
@@ -130,23 +136,23 @@ Complete la configuración del experimento de ML automatizado especificando el t
 
 1. En el formulario **Task type and settings** (Configuración y tipo de tarea), seleccione **Time series forecasting** (Previsión se series temporales) como tipo de tarea de aprendizaje automático.
 
-1. Seleccione **date** (fecha) como **Time column** (Columna de hora) y deje **Group by column(s)** (Agrupar por columnas) en blanco. 
+1. Seleccione **date** (fecha) como **Time column** (Columna de hora) y deje **Time series identifiers** (Identificadores de serie temporal) en blanco. 
 
-    1. Seleccione **View additional configuration settings** (Ver opciones de configuración adicionales) y rellene los campos como se indica a continuación. Esta configuración es para controlar mejor el trabajo de entrenamiento y especificar la configuración de la previsión. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento.
+1. El **horizonte de previsión** es la longitud de tiempo en el futuro que se quiere predecir.  Anule la selección de detección automática y escriba 14 en el campo. 
 
-  
-        Configuraciones&nbsp;adicionales|Descripción|Valor&nbsp;para&nbsp;tutorial
-        ------|---------|---
-        Métrica principal| Métrica de evaluación por la que se medirá el algoritmo de aprendizaje automático.|Error cuadrático medio normalizado
-        Características automáticas| Permite el procesamiento previo. Aquí se incluyen la limpieza, preparación y transformación automáticas de los datos para generar características sintéticas.| Habilitar
-        Explicación del mejor modelo (versión preliminar)| Muestra automáticamente la posible explicación relativa al mejor modelo creado mediante ML automatizado.| Habilitar
-        Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| Árboles aleatorios extremos
-        Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Horizonte de previsión**_: tiempo en el futuro que se desea predecir. <br> _**Retardos de destino para la previsión**_: hasta dónde desea construir los retardos en una variable de destino. <br> _**Periodos acumulados de destino**_: especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). |Horizonte de previsión: 14 <br> Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
-        Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 3 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
-        Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 5
-        Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 6
-        
-        Seleccione **Guardar**.
+1. Seleccione **View additional configuration settings** (Ver opciones de configuración adicionales) y rellene los campos como se indica a continuación. Esta configuración es para controlar mejor el trabajo de entrenamiento y especificar la configuración de la previsión. De lo contrario, los valores predeterminados se aplican en función de la selección y los datos del experimento.
+
+    Configuraciones&nbsp;adicionales|Descripción|Valor&nbsp;para&nbsp;tutorial
+    ------|---------|---
+    Métrica principal| Métrica de evaluación por la que se medirá el algoritmo de aprendizaje automático.|Error cuadrático medio normalizado
+    Explicación del mejor modelo| Muestra automáticamente la posible explicación relativa al mejor modelo creado mediante ML automatizado.| Habilitar
+    Algoritmos bloqueados | Algoritmos que desea excluir del trabajo de entrenamiento.| Árboles aleatorios extremos
+    Configuración adicional de la previsión| Esta configuración ayuda a mejorar la precisión del modelo. <br><br> _**Forecast target lags**_ (Retrasos de objetivo de previsión): cuánto quiere retroceder en el tiempo para construir los retrasos de la variable de destino. <br> _**Periodos acumulados de destino**_: especifica la duración de los periodos acumulados en la que se generarán características como *max, min* (máx., mín.) y *sum* (suma). | <br><br>Retardos de&nbsp;destino&nbsp;para la previsión: None <br> Periodos&nbsp;acumulados&nbsp;de destino&nbsp;: None
+    Criterios de exclusión| Si se cumplen los criterios, se detiene el trabajo de entrenamiento. |Tiempo del&nbsp;trabajo de&nbsp;entrenamiento (en horas): 3 <br> Umbral de&nbsp;puntuación&nbsp;de métrica: None
+    Validación | Elija un tipo de validación cruzada y un número de pruebas.|Tipo de validación:<br>validación cruzada de&nbsp;k iteraciones&nbsp; <br> <br> Número de validaciones: 5
+    Simultaneidad| Número máximo de iteraciones paralelas ejecutadas por iteración| Máximo de iteraciones&nbsp;simultáneas&nbsp;: 6
+    
+    Seleccione **Guardar**.
 
 ## <a name="run-experiment"></a>Ejecutar experimento
 
@@ -163,7 +169,7 @@ Vaya a la pestaña **Models** (Modelos) para ver los algoritmos (modelos) probad
 
 Mientras espera a que terminen todos los modelos del experimento, seleccione **Algorithm name** (Nombre de algoritmo) de un modelo completado para explorar los detalles de rendimiento. 
 
-En el siguiente ejemplo se le lleva a las pestañas **Model details** (Detalles del modelo) y **Visualizations** (Visualizaciones) para ver las propiedades, las métricas y los gráficos de rendimiento del modelo seleccionado. 
+El siguiente ejemplo le lleva por las pestañas **Details** (Detalles) y **Metrics** (Métricas) para ver las propiedades, las métricas y los gráficos de rendimiento del modelo seleccionado. 
 
 ![Detalles de la ejecución](./media/tutorial-automated-ml-forecast/explore-models-ui.gif)
 
@@ -173,11 +179,15 @@ El aprendizaje automático automatizado en Azure Machine Learning Studio permite
 
 Para este experimento, la implementación en un servicio web significa que la empresa de uso compartido de bicicletas ahora tiene una solución web iterativa y escalable para prever la demanda de alquiler de la cuota de bicicletas. 
 
-Una vez finalizada la ejecución, vuelva a la página **Run Details** (Detalles de ejecución) y seleccione la pestaña **Models** (Modelos).
+Una vez finalizada la ejecución, vuelva a la página de ejecución primaria seleccionando **Run 1** (Ejecución 1) en la parte superior de la pantalla.
 
-En el contexto de este experimento, **StackEnsemble** se considera el mejor modelo según la métrica **Error cuadrático medio normalizado**.  Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse. El proceso de implementación conlleva varios pasos, como el registro del modelo, la generación de recursos y su configuración para el servicio web.
+En la sección **Best model summary** (Mejor resumen del modelo), **StackEnsemble** se considera el mejor modelo en el contexto de este experimento, según la métrica **Normalized root mean squared error** (Error de desviación media cuadrática normalizada).  
 
-1. Seleccione el botón **Deploy Best Model** (Implementar el mejor modelo) en la esquina inferior izquierda.
+Se implementa este modelo, pero se recomienda que la implementación tarda unos 20 minutos en completarse. El proceso de implementación conlleva varios pasos, como el registro del modelo, la generación de recursos y su configuración para el servicio web.
+
+1. Seleccione **StackEnsemble** para abrir la página específica del modelo.
+
+1. Seleccione el botón **Deploy** (Implementar) situado en el área superior izquierda de la pantalla.
 
 1. Rellene el panel **Deploy Model** (Implementar modelo) como se indica a continuación:
 
@@ -193,8 +203,7 @@ En el contexto de este experimento, **StackEnsemble** se considera el mejor mode
 
 1. Seleccione **Implementar**.  
 
-    Aparecerá un mensaje en verde en la parte superior de la pantalla **Run** (Ejecutar) que indicará que la implementación se inició correctamente. El progreso se la implementación se puede consultar  
-    en el panel **Recommended model** (Modelo recomendado) en **Deploy status** (Estado de implementación).
+    Aparece un mensaje en verde en la parte superior de la pantalla **Run** (Ejecutar) que indica que la implementación se inició correctamente. El progreso de la implementación se puede encontrar en el panel **Model summary** (Resumen de modelo), en **Deploy status** (Estado de implementación).
     
 Una vez finalizada la implementación correctamente, tendrá un servicio web operativo para generar predicciones. 
 

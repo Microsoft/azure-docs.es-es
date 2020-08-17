@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/02/2018
-ms.openlocfilehash: 93d378e334d2f6443ac8a59c9022501d3023a2a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: e8f70563e54718c7714c21e27be2bacfe81a4439
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77666920"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318018"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Visualización de datos de análisis para métricas en todos los recursos de aplicaciones web de Azure
 
@@ -21,4 +21,5 @@ ms.locfileid: "77666920"
 > La solución Azure Web Apps Analytics ha cambiado al soporte técnico de la comunidad.  
 >- La solución ya no está disponible en Azure Marketplace, pero puede instalarse desde las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/101-webappazure-oms-monitoring/) donde puede recibir el soporte técnico de la comunidad.
 >- Los clientes que ya tengan instalada la solución pueden seguir utilizándola con algunos cambios.  
->- Microsoft recomienda que use [Application Insights](../../azure-monitor/app/app-insights-overview.md) para supervisar sus aplicaciones web.
+>- Microsoft recomienda que use [Application Insights](../app/app-insights-overview.md) para supervisar sus aplicaciones web.
+

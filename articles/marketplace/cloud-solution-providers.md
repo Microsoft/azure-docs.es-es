@@ -3,16 +3,16 @@ title: 'Proveedor de soluciones en la nube: Marketplace comercial de Microsoft'
 description: Obtenga información sobre cómo vender sus ofertas a través del canal de partners del programa Proveedor de soluciones en la nube (CSP) de Microsoft en el marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 04/16/2020
-ms.openlocfilehash: d6c3af312717627a1719c5f1029ae638e7d4f827
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/14/2020
+ms.openlocfilehash: 8ac69d7d611aa75584955ed6ed83ab79c70ed73a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104442"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082819"
 ---
 # <a name="cloud-solution-provider-program"></a>Programa Proveedor de soluciones en la nube
 
@@ -30,31 +30,31 @@ Las ofertas siguientes son aptas para ser vendidas por parte de los asociados de
 - Aplicaciones administradas
 
 > [!NOTE]
-> De manera predeterminada, las SKU de VM de Containers y Traiga su propia licencia (BYOL) son aptas para ser vendidas por parte de los asociados del programa CSP.
+> De manera predeterminada, los planes de VM de Contenedores y Traiga su propia licencia (BYOL) son aptas para ser vendidas por parte de los asociados del programa CSP.
 
-## <a name="how-to-configure-an-offering"></a>Cómo configurar una oferta
+## <a name="how-to-configure-an-offer"></a>Cómo configurar una oferta
 
-La opción de participar en el programa CSP se configura en la experiencia de creación de ofertas del Centro de partners o de Cloud Partner Portal. [Más información sobre los cambios en la experiencia del publicador](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
+Configure el valor de participación en el programa CSP al crear la oferta en el Centro de partners. [Más información sobre los cambios en la experiencia del publicador](https://www.microsoftpartnercommunity.com/t5/Azure-Marketplace-and-AppSource/Cloud-Marketplace-In-Partner-Center/m-p/9738#M293).
 
 ### <a name="partner-center-opt-in"></a>Participación en el Centro de partners
 
-En el Centro de partners, encontrará la experiencia de participación en el módulo Audiencia de revendedores de CSP.
+La experiencia de participación se encuentra en el módulo Audiencia de revendedores de CSP:
 
 ![Audiencia de revendedores de CSP](media/marketplace-publishers-guide/csp-reseller-audience.png)
 
-En el módulo Audiencia de revendedores de CSP, hay tres opciones para elegir:
+Elija una de las tres opciones:
 
-- Opción uno: cualquier asociado del programa CSP
-- Opción dos: asociados específicos del programa CSP que selecciono
-- Opción tres: ningún asociado del programa CSP
+1. Cualquier partner en el programa CSP.
+2. Partners específicos en el programa CSP que seleccione.
+3. No hay partners en el programa CSP.
 
-#### <a name="option-one-any-partner-in-the-csp-program"></a>Opción uno: cualquier asociado del programa CSP
+#### <a name="option-1-any-partner-in-the-csp-program"></a>Opción 1: cualquier asociado del programa CSP
 
 ![cualquier asociado del programa CSP](media/marketplace-publishers-guide/csp-reseller-option-one.png)
 
  Al elegir esta opción, todos los asociados del programa CSP pueden optar por revender su oferta a sus clientes.
 
-#### <a name="option-two-specific-partners-in-the-csp-program-i-select"></a>Opción dos: asociados específicos del programa CSP que selecciono
+#### <a name="option-2-specific-partners-in-the-csp-program-i-select"></a>Opción 2: asociados específicos del programa CSP que selecciono
 
 ![asociados específicos del programa CSP que selecciono](media/marketplace-publishers-guide/csp-reseller-option-two.png)
 
@@ -87,17 +87,11 @@ Si está actualizando la lista de CSP de una oferta ya publicada, agregue los as
 
 Si tiene una oferta que ya tiene una lista de asociados autorizados y quiere usar la misma lista para otra oferta, use **Import/Export**. Vaya a la oferta que tiene la lista de CSP y seleccione **Export CSPs** (Exportar CSP). La función desarrolla un archivo .csv que se puede importar a otra oferta.
 
-#### <a name="option-three-no-partners-in-the-csp-program"></a>Opción tres: ningún asociado del programa CSP
+#### <a name="option-3-no-partners-in-the-csp-program"></a>Opción 3: ningún asociado del programa CSP
 
 ![ningún asociado del programa CSP](media/marketplace-publishers-guide/csp-reseller-option-three.png)
 
 Si elige esta opción, excluye su oferta del programa CSP. Puede cambiar esta selección en cualquier momento.
-
-### <a name="cloud-partner-portal-opt-in"></a>Participación en Cloud Partner Portal
-
-En Cloud Partner Portal, la participación se establece en la pestaña Marketplace o Escaparate. La capacidad de elegir asociados específicos en el programa CSP solo está disponible en el Centro de partners.
-
-![Experiencia de participación en CSP en CPP](media/marketplace-publishers-guide/csp-opt-in.png)
 
 ## <a name="deauthorize-partners-in-the-csp-program"></a>Eliminación de la autorización de los asociados del programa CSP
 
@@ -115,9 +109,6 @@ Si hay un asociado del programa CSP que todavía no vende su producto a los clie
 4. En **Select a problem that best describes the issue** (Seleccionar un problema que mejor describa la incidencia), seleccione **Update existing offer** (Actualizar la oferta existente).
 5. Seleccione **Siguiente** para ir a la **página de detalles de la incidencia** para escribir más detalles sobre el problema.
 6. Use **Deauthorize CSP** (Quitar autorización de CSP) como el título de la incidencia y rellene el resto de las secciones obligatorias.
-
-
-
 
 ## <a name="navigate-between-options"></a>Navegación entre las opciones
 
@@ -175,19 +166,13 @@ Si la oferta es actualmente **Opción 3: ningún asociado del programa CSP**, pu
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Uso compartido de materiales de ventas y soporte técnico con asociados en el programa CSP
 
-Para ayudar a que los asociados del programa Proveedor de soluciones en la nube representen la oferta e interactúen con su organización de la forma más eficaz posible, debe enviar materiales de soporte técnico y ventas para que estén a disposición de los revendedores. Estos recursos no se expondrán a los clientes en los escaparates de Marketplace.
+Para ayudar a que los partners del programa Proveedor de soluciones en la nube representen la oferta e interactúen con su organización de la forma más eficaz posible, debe enviar materiales de soporte técnico y ventas para que estén a disposición de los revendedores. Estos recursos no se expondrán a los clientes en los escaparates de Marketplace.
 
 ### <a name="partner-center-csp-channel"></a>Canal de CSP del Centro de partners
 
 Si ha participado en el canal de CSP del Centro de partners, los publicadores deben escribir una dirección URL que hospede los materiales de marketing pertinentes y la información de contacto del canal en el canal de CSP en el módulo de lista de ofertas:
 
 ![Información sobre documentación y material adjunto de CSP del Centro de partners](media/marketplace-publishers-guide/pc-csp-channel.png)
-
-### <a name="cloud-partner-portal-csp-channel"></a>Canal de CSP de Cloud Partner Portal
-
-Si ha participando en el canal de CSP en Cloud Partner Portal, los publicadores deben especificar una dirección URL que hospeda los materiales de marketing pertinentes y la información de contacto de canal para el canal de CSP:
-
-![Información sobre documentación y material adjunto de CSP del Cloud Partner Portal](media/marketplace-publishers-guide/cpp-csp-information.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

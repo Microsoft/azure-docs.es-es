@@ -8,15 +8,15 @@ ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.date: 05/20/2020
-ms.custom: seodec18, tracking-python
-ms.openlocfilehash: 528696daf4bddd1f448266243b511e600351606a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 025d3b1e0ce2f46cc689d74fe659facf026dc215
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202596"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852504"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configuración de experimentos de ML automatizado en Python
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -212,26 +212,26 @@ Al configurar los experimentos en el objeto `AutoMLConfig`, puede habilitar o de
 La tarea `forecasting` de serie temporal requiere parámetros adicionales en el objeto de configuración:
 
 1. `time_column_name`: parámetro obligatorio que define el nombre de la columna de los datos de aprendizaje que contienen una serie temporal válida.
-1. `max_horizon`: define la duración del tiempo que desea predecir en función de la periodicidad de los datos de aprendizaje. Por ejemplo si tiene datos de entrenamiento con intervalos de agregación diaria, defina la distancia en días para la que desea que se entrene el modelo.
-1. `grain_column_names`: define el nombre de las columnas que contienen datos de serie temporal individuales en los datos de aprendizaje. Por ejemplo, si está previendo las ventas de una marca determinada por tienda, definiría las columnas de la tienda y de la marca como sus columnas de agregación. Se crearán series temporales y previsiones para cada detalle o agrupación. 
+1. `forecast_horizon`: Define el número de períodos futuros que le gustaría pronosticar. El horizonte de números enteros está en unidades de frecuencia de serie temporal. Por ejemplo, si tiene datos de entrenamiento con una frecuencia diaria, defina los días futuros que quiere que se entrene el modelo.
+1. `time_series_id_column_names`: define las columnas que identifican de forma única la serie temporal en los datos que tienen varias filas con la misma marca de tiempo. Por ejemplo, si prevé las ventas de una marca determinada por tienda, definiría las columnas de tienda y marca como identificadores de la serie temporal. Se crearán previsiones independientes para cada agrupación. Si no se definen los identificadores de serie temporal, se supone que el conjunto de datos es una serie temporal.
 
 Para ver ejemplos de la configuración usada a continuación, consulte el [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb).
 
 ```python
-# Setting Store and Brand as grains for training.
-grain_column_names = ['Store', 'Brand']
-nseries = data.groupby(grain_column_names).ngroups
+# Setting Store and Brand as time series identifiers for training.
+time_series_id_column_names = ['Store', 'Brand']
+nseries = data.groupby(time_series_id_column_names).ngroups
 
-# View the number of time series data with defined grains
+# View the number of time series data with defined time series identifiers
 print('Data contains {0} individual time-series.'.format(nseries))
 ```
 
 ```python
 time_series_settings = {
     'time_column_name': time_column_name,
-    'grain_column_names': grain_column_names,
+    'time_series_id_column_names': time_series_id_column_names,
     'drop_column_names': ['logQuantity'],
-    'max_horizon': n_test_periods
+    'forecast_horizon': n_test_periods
 }
 
 automl_config = AutoMLConfig(task = 'forecasting',
@@ -342,7 +342,7 @@ Hay unas cuantas opciones que puede definir para finalizar el experimento.
 
 ### <a name="explore-model-metrics"></a>Explorar las métricas del modelo
 
-Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Vea [Seguimiento y evaluación de modelos](how-to-track-experiments.md#view-run-details) para obtener más información.
+Puede ver los resultados del entrenamiento en un widget o en línea si se encuentra en un bloc de notas. Vea [Seguimiento y evaluación de modelos](how-to-monitor-view-training-logs.md#monitor-automated-machine-learning-runs) para obtener más información.
 
 Para más información sobre cómo descargar o registrar un modelo para la implementación en un servicio Web, consulte [cómo y dónde implementar un modelo](how-to-deploy-and-where.md).
 

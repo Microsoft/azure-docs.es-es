@@ -3,12 +3,12 @@ title: Restricción del acceso mediante puntos de conexión de servicio
 description: Restricción del acceso a un registro de contenedor de Azure mediante un punto de conexión de servicio en una red virtual de Azure. El acceso de punto de conexión de servicio es una característica del nivel de servicio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 0f320bb86549c801711cafdbce4500ff7737cb89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6a0702019cd11f26ea9fcdba8a74bf3e71df94b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84509294"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371437"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Restricción del acceso a un registro de contenedor mediante un punto de conexión de servicio en una red virtual de Azure
 
@@ -27,6 +27,7 @@ La configuración de un punto de conexión de servicio de registro está disponi
 * No se puede usar Azure Portal para configurar puntos de conexión de servicio en un registro.
 * Para acceder a un registro de contenedor en un punto de conexión de servicio, solo se pueden usar como host un clúster de [Azure Kubernetes Service](../aks/intro-kubernetes.md) o una [máquina virtual](../virtual-machines/linux/overview.md) de Azure. *No se admiten otros servicios de Azure, como Azure Container Instances.*
 * Cada registro admite un máximo de 100 reglas de acceso de red.
+* Los puntos de conexión de servicio para Azure Container Registry no se admiten en la nube de Azure US Government ni en la nube de Azure China.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

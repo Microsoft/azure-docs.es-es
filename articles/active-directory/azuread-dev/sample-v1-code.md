@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 822390200b7a94f2bbf8aac56d26812f36b5f12a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1efae6563b88f82318f9b8358d255b234c6cb7fd
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85387616"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88116213"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Ejemplos de código de Azure Active Directory (punto de conexión v1.0)
 
@@ -124,4 +124,4 @@ Para obtener ejemplos y tutoriales en los que se muestren los diferentes patrone
 
 - [Guía del desarrollador de Azure Active Directory](v1-overview.md)
 - [Bibliotecas de autenticación de Azure Active Directory](active-directory-authentication-libraries.md)
-- [Conceptos y referencia de Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)
+- [Conceptos y referencia de Microsoft Graph API](/graph/use-the-api)

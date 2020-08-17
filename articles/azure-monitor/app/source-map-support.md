@@ -5,12 +5,13 @@ ms.topic: conceptual
 author: markwolff
 ms.author: marwolff
 ms.date: 06/23/2020
-ms.openlocfilehash: 60653a43046276592878b3af91242e7e1b4ecd71
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-javascript
+ms.openlocfilehash: de475cbd7cbb0d8dbcda026109b0387da14bedff
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516709"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386799"
 ---
 # <a name="source-map-support-for-javascript-applications"></a>Compatibilidad con mapas de origen para aplicaciones JavaScript
 

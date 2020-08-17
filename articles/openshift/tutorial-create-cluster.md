@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: b78364cef6bfd6cf91e6edf81fd57fa5912125db
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: be04b690add70468335ac694e3be54fa55a94249
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260686"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475658"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Creación de un clúster de la versión 4 de Red Hat OpenShift en Azure
 
@@ -33,42 +33,12 @@ Para crear un clúster de Red Hat OpenShift en Azure, compruebe los siguientes p
 |**Administrador de acceso de usuario**|X|X| |
 |**Colaborador**|X|X|X|
 
-### <a name="install-the-az-aro-extension"></a>Instale la extensión `az aro`
-La extensión `az aro` permite crear, acceder y eliminar clústeres de Red Hat OpenShift en Azure directamente desde la línea de comandos mediante la CLI de Azure.
-
-Para instalar la extensión `az aro`, ejecute el siguiente comando.
-
-```azurecli-interactive
-az extension add -n aro --index https://az.aroapp.io/stable
-```
-
-Si ya tiene la extensión instalada, puede actualizarla ejecutando el siguiente comando.
-
-```azurecli-interactive
-az extension update -n aro --index https://az.aroapp.io/stable
-```
-
 ### <a name="register-the-resource-provider"></a>Registrar el proveedor de recursos
 
 A continuación, es preciso que registre el proveedor de recursos `Microsoft.RedHatOpenShift` en su suscripción.
 
 ```azurecli-interactive
 az provider register -n Microsoft.RedHatOpenShift --wait
-```
-
-Compruebe que la extensión está registrada.
-
-```azurecli-interactive
-az -v
-```
-
-  Obtendrá una salida similar a la siguiente.
-
-```output
-...
-Extensions:
-aro                                1.0.0
-...
 ```
 
 ### <a name="get-a-red-hat-pull-secret-optional"></a>Obtención de un secreto de extracción de Red Hat (opcional)

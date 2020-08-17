@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 10/30/2019
-ms.author: rohogue
-ms.openlocfilehash: 2a5fdc3b76c330619601e171c152d7a2e583ae90
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: v-erkel
+ms.openlocfilehash: f96a0fa264124f9d050e667b003d98579da63b77
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514482"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092344"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Ingesta de datos de Azure HPC Cache: método de copia manual
 

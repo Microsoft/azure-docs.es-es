@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 07/11/2019
-ms.openlocfilehash: 97359083698e92f39ca854972c864ef769bda730
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 164a0e295179bb0c1e8d7da6b43d8e07a4e9f4e9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109253"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304418"
 ---
 # <a name="common-questions-about-saas-fulfillment-apis"></a>Preguntas comunes sobre las API de cumplimiento de SaaS
 

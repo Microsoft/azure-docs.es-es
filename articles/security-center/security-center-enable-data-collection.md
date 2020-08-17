@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: memildin
-ms.openlocfilehash: be212de7a24b416ad4e5dc08998ba1147c6f3753
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: c6a779deef3ed1dc0a4d5e83c38f483776adf6fe
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85855952"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387377"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de las máquinas virtuales de Azure, los conjuntos de escalado de máquinas virtuales, los contenedores de IaaS y de los equipos que no son de Azure (incluidos los equipos locales) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con el agente de Log Analytics, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado.
@@ -150,7 +150,7 @@ La selección de un nivel de recopilación de datos en Azure Security Center sol
 
 
 > [!NOTE]
-> Estos conjuntos de eventos de seguridad solo están disponibles en nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
+> Estos conjuntos de eventos de seguridad solo están disponibles en el nivel Estándar de Security Center. Para obtener más información sobre los planes de tarifa de Security Center, vea [Precios](security-center-pricing.md).
 Estos conjuntos se han diseñado para abordar escenarios típicos. Asegúrese de evaluar cuál se ajusta a sus necesidades antes de implementarlo.
 >
 >
@@ -211,15 +211,17 @@ Security Center instalará la extensión del agente de Log Analytics en paralelo
     - Si tiene un entorno donde esté instalado el agente de Log Analytics en estaciones de trabajo de cliente y esté informando a un área de trabajo de Log Analytics existente, revise la lista de [sistemas operativos compatibles con Azure Security Center](security-center-os-coverage.md) para asegurarse de que el sistema operativo es compatible. Para más información, consulte [Clientes existentes de análisis de registros](./faq-azure-monitor-logs.md).
  
 ### <a name="turn-off-automatic-provisioning"></a>Desactivación del aprovisionamiento automático <a name="offprovisioning"></a>
-Puede desactivar en cualquier momento el aprovisionamiento automático de los recursos desactivando esta opción en la directiva de seguridad. 
+Para desactivar el aprovisionamiento automático del agente de Log Analytics:
 
+1. En el menú de Security Center del portal, seleccione **Precios y configuración**.
+2. Seleccione la suscripción correspondiente.
 
-1. Vuelva al menú principal de Security Center y seleccione la directiva de seguridad.
-2. Haga clic en **Editar configuración** en la fila de la suscripción en la que quiera deshabilitar el aprovisionamiento automático.
-3. En la página **Directiva de seguridad: recopilación de datos**, en **Aprovisionamiento automático**, seleccione **Desactivado**.
-4. Seleccione **Guardar**.
+   ![Seleccionar suscripción][7]
 
-   ![Deshabilitación del aprovisionamiento automático][6]
+3. Seleccione **Recopilación de datos**.
+4. En **Aprovisionamiento automático**, seleccione **Desactivado** para deshabilitarlo.
+5. Seleccione **Guardar**. 
+
 
 Cuando el aprovisionamiento automático está deshabilitado (desactivado), no se muestra la sección de configuración del área de trabajo predeterminada.
 

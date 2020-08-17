@@ -5,13 +5,13 @@ ms.assetid: 0e221db6-ee2d-4e16-9bf6-a456cd05b6e7
 ms.topic: sample
 ms.date: 07/03/2018
 ms.author: glenga
-ms.custom: mvc
-ms.openlocfilehash: 0fe4cb6e75a74f58b4c3b312f923935053ea4756
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: f94048014f18c584637b9863bb59982f9143661e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75922607"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498255"
 ---
 # <a name="create-a-function-app-for-serverless-code-execution"></a>Creación de una aplicación de función para la ejecución de código sin servidor 
 

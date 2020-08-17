@@ -3,19 +3,19 @@ title: Cifrado del origen de la aplicación en reposo
 description: Cifre los datos de la aplicación en Azure Storage e impleméntelos como un archivo de paquete.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 62179e900ace0d6d7b8b1f07e8f0ab685508f991
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1dd0d11baa16a325a22a501d40e22e5bad6adb21
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79408731"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282337"
 ---
-# <a name="encryption-at-rest-using-customer-managed-keys"></a>Cifrado en reposo con claves administradas por el cliente
+# <a name="encrypt-your-application-data-at-rest-using-customer-managed-keys"></a>Cifrado de los datos en reposo de la aplicación mediante claves administradas por el cliente
 
 Para el cifrado de datos en reposo de la aplicación de funciones se requiere una cuenta de Azure Storage y una instancia de Azure Key Vault. Estos servicios se usan al ejecutar la aplicación desde un paquete de implementación.
 
   - [Azure Storage proporciona cifrado en reposo](../storage/common/storage-service-encryption.md). Puede usar las claves proporcionadas por el sistema o sus propias claves administradas por el cliente. Aquí es donde se almacenan los datos de la aplicación cuando no se ejecutan en una aplicación de funciones en Azure.
-  - [Ejecución desde un paquete de implementación]((run-functions-from-deployment-package.md) es una característica de implementación de App Service. Permite implementar el contenido del sitio desde una cuenta de Azure Storage mediante una dirección URL de firma de acceso compartido (SAS).
+  - La [ejecución desde un paquete de implementación](run-functions-from-deployment-package.md) es una característica de implementación de App Service. Permite implementar el contenido del sitio desde una cuenta de Azure Storage mediante una dirección URL de Firma de acceso compartido (SAS).
   - Las [referencias Key Vault](../app-service/app-service-key-vault-references.md) son una característica de seguridad de App Service. Permite importar secretos en tiempo de ejecución como opciones de configuración de la aplicación. Úsela para cifrar la dirección URL de SAS de su cuenta de Azure Storage.
 
 ## <a name="set-up-encryption-at-rest"></a>Configuración del cifrado en reposo
@@ -37,7 +37,7 @@ Cuando haya cargado el archivo en Blob Storage y tenga una dirección URL de SAS
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_RUN_FROM_PACKAGE="<your-SAS-URL>"
 ```
 
-Si agrega esta configuración de la aplicación, se reiniciará la aplicación de funciones. Una vez reiniciada la aplicación, búsquela y asegúrese de que se inició correctamente con el paquete de implementación. Si la aplicación no se inició correctamente, consulte la [Guía de solución de problemas de ejecución desde paquete](run-functions-from-deployment-package.md#troubleshooting).
+Si agrega esta configuración de la aplicación, se reiniciará la aplicación de funciones. Una vez que reiniciada la aplicación, búsquela y asegúrese de que se inició correctamente con el paquete de implementación. Si la aplicación no se inició correctamente, consulte la [Guía de solución de problemas de ejecución desde paquete](run-functions-from-deployment-package.md#troubleshooting).
 
 ### <a name="encrypt-the-application-setting-using-key-vault-references"></a>Cifrado de la configuración de la aplicación mediante referencias de Key Vault
 
@@ -65,7 +65,7 @@ Ahora puede reemplazar el valor de la configuración de la aplicación `WEBSITE_
 
     `<secret-version>` estará en la salida del comando `az keyvault secret set` anterior.
 
-Al actualizar esta configuración de la aplicación, se reiniciará la aplicación de funciones. Una vez reiniciada la aplicación, búsquela y asegúrese de que se inició correctamente con la referencia de Key Vault.
+Al actualizar esta configuración de la aplicación, se reiniciará la aplicación de funciones. Una vez que reiniciada la aplicación, búsquela y asegúrese de que se inició correctamente con la referencia de Key Vault.
 
 ## <a name="how-to-rotate-the-access-token"></a>Cómo girar el token de acceso
 
@@ -91,7 +91,7 @@ Se recomienda girar periódicamente la clave de SAS de la cuenta de almacenamien
 
 Existen dos métodos para revocar el acceso de la aplicación de funciones a la cuenta de almacenamiento. 
 
-### <a name="rotate-the-sas-key-for-the-azure-storage-account"></a>Giro de la clave de SAS para la cuenta de Azure Storage
+### <a name="rotate-the-sas-key-for-the-azure-storage-account"></a>Rotación de la clave de SAS para la cuenta de almacenamiento de Azure
 
 Si se gira la clave de SAS de la cuenta de almacenamiento, la aplicación de funciones dejará de tener acceso a la cuenta de almacenamiento, pero continuará ejecutándose con la última versión descargada del archivo de paquete. Reinicie la aplicación de funciones para borrar la última versión descargada.
 
@@ -101,7 +101,7 @@ Para revocar el acceso de la aplicación de funciones a los datos del sitio, pue
 
 ## <a name="summary"></a>Resumen
 
-Los archivos de la aplicación ahora se cifran en reposo en la cuenta de almacenamiento. Cuando se inicia la aplicación de funciones, recupera la dirección URL de SAS de Key Vault. Por último, la aplicación de funciones carga los archivos de aplicación de la cuenta de almacenamiento. 
+Los archivos de aplicación ahora se cifran en reposo en la cuenta de almacenamiento. Cuando se inicia la aplicación de funciones, recupera la dirección URL de SAS de Key Vault. Por último, la aplicación de funciones carga los archivos de aplicación de la cuenta de almacenamiento. 
 
 Si necesita revocar el acceso de la aplicación de funciones a su cuenta de almacenamiento, puede revocar el acceso al almacén de claves o girar las claves de la cuenta de almacenamiento, lo que invalidará la dirección URL de SAS.
 
@@ -109,7 +109,7 @@ Si necesita revocar el acceso de la aplicación de funciones a su cuenta de alma
 
 ### <a name="is-there-any-additional-charge-for-running-my-function-app-from-the-deployment-package"></a>¿Se aplica algún cargo adicional por ejecutar la aplicación de funciones desde el paquete de implementación?
 
-Solo el costo asociado a la cuenta de Azure Storage y los cargos de salida aplicables.
+Solo el costo asociado a la cuenta de almacenamiento de Azure y los cargos de salida aplicables.
 
 ### <a name="how-does-running-from-the-deployment-package-affect-my-function-app"></a>¿Cómo afecta la ejecución del paquete de implementación a la aplicación de funciones?
 

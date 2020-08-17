@@ -3,12 +3,12 @@ title: 'Uso del portal para cargar, codificar y hacer streaming de contenido: Az
 description: En este inicio rápido se muestra cómo usar el portal para cargar, codificar y hacer streaming de contenido con Azure Media Services.
 ms.topic: quickstart
 ms.date: 06/08/2020
-ms.openlocfilehash: 374e8a22bf8fdcb14101bffc26f9d1b27480ce88
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: bab13b7b878f8992ac5523b9902054a42a3dc769
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232481"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053362"
 ---
 # <a name="quickstart-upload-encode-and-stream-content-with-portal"></a>Inicio rápido: Carga, codificación y streaming de contenido con el portal
 
@@ -35,7 +35,7 @@ En este inicio rápido se muestra cómo usar Azure Portal para cargar, codificar
 
         Actualmente, cuando usa Azure Portal, puede hacer lo siguiente: generar archivos de subtítulos TTML y WebVTT. Los archivos en estos formatos se pueden usar para crear archivos de audio y vídeo accesibles para personas con discapacidades auditivas. También puede extraer palabras clave del contenido.
 
-        Para disfrutar de una experiencia enriquecida que le permita extraer información de sus archivos de audio y vídeo, use los valores preestablecidos de Media Services v3 (como se describe en [Tutorial: Análisis de vídeos con Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Si desea información más detallada, use [Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) directamente.    
+        Para disfrutar de una experiencia enriquecida que le permita extraer información de sus archivos de audio y vídeo, use los valores preestablecidos de Media Services v3 (como se describe en [Tutorial: Análisis de vídeos con Media Services v3](analyze-videos-tutorial-with-api.md)). <br/>Si desea información más detallada, use [Video Indexer](../video-indexer/index.yml) directamente.    
 * Una vez procesado el contenido, puede proporcionar contenido multimedia a los reproductores cliente. Para que los vídeos del recurso de salida estén disponibles para los clientes para su reproducción, tiene que crear un **localizador de streaming**. Al crear el **localizador de streaming**, deberá especificar una **directiva de streaming**. Las **directivas de streaming** permiten definir los protocolos de streaming y las opciones de cifrado (si hubiera) de los **localizadores de streaming**.
     
     Revisión:

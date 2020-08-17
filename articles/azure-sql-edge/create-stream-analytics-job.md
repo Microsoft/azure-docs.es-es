@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 2e1f98cffd17d0a8823cc5849830667fcdad1212
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 07/27/2020
+ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515230"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321724"
 ---
 # <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Creación de un trabajo de Azure Stream Analytics en Azure SQL Edge (versión preliminar) 
 
@@ -43,7 +43,6 @@ Azure SQL Edge actualmente solo admite los siguientes orígenes de datos como en
 |------------------|-------|--------|------------------|
 | Centro de Azure IoT Edge | Y | Y | Origen de datos para leer y escribir datos de streaming en un centro de Azure IoT Edge. Para más información, consulte [Centro de IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
 | SQL Database | N | Y | Conexión de origen de datos para escribir datos de streaming en SQL Database. La base de datos puede ser una base de datos local de Azure SQL Edge, o una base de datos remota de SQL Server o Azure SQL Database.|
-| Azure Blob Storage | N | Y | Origen de datos para escribir datos en un blob en una cuenta de almacenamiento de Azure. |
 | Kafka | Y | N | Origen de datos para leer datos de streaming de un tema de Kafka. Este adaptador solo está disponible actualmente para las versiones de Intel o AMD de Azure SQL Edge. No está disponible para la versión ARM64 de Azure SQL Edge.|
 
 ### <a name="example-create-an-external-stream-inputoutput-object-for-azure-iot-edge-hub"></a>Ejemplo: Creación de un objeto de entrada o salida de transmisión externa para el centro de Azure IoT Edge
@@ -54,7 +53,8 @@ En el ejemplo siguiente se crea un objeto de transmisión externa para el centro
 
     ```sql
     Create External file format InputFileFormat
-    WITH (  
+    WITH 
+    (  
        format_type = JSON,
     )
     go
@@ -63,8 +63,10 @@ En el ejemplo siguiente se crea un objeto de transmisión externa para el centro
 2. Cree un origen de datos externo para el centro de Azure IoT Edge. El siguiente script de T-SQL crea una conexión de origen de datos a un centro de IoT Edge que se ejecuta en el mismo host de Docker que Azure SQL Edge.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE EdgeHubInput WITH (
-    LOCATION = 'edgehub://'
+    CREATE EXTERNAL DATA SOURCE EdgeHubInput 
+    WITH 
+    (
+        LOCATION = 'edgehub://'
     )
     go
     ```
@@ -72,13 +74,15 @@ En el ejemplo siguiente se crea un objeto de transmisión externa para el centro
 3. Cree el objeto de transmisión externa para el centro de Azure IoT Edge. El siguiente script de T-SQL crea un objeto de transmisión para el centro de IoT Edge. En el caso de un objeto de transmisión del centro de IoT Edge, el parámetro LOCATION es el nombre del tema o canal del centro de IoT Edge en el que se lee o se escribe.
 
     ```sql
-    CREATE EXTERNAL STREAM MyTempSensors WITH (
-    DATA_SOURCE = EdgeHubInput,
-    FILE_FORMAT = InputFileFormat,
-    LOCATION = N'TemperatureSensors',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
-    )
+    CREATE EXTERNAL STREAM MyTempSensors 
+    WITH 
+    (
+        DATA_SOURCE = EdgeHubInput,
+        FILE_FORMAT = InputFileFormat,
+        LOCATION = N'TemperatureSensors',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
     go
     ```
 
@@ -107,9 +111,11 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
     * Se usa la credencial creada antes.
 
     ```sql
-    CREATE EXTERNAL DATA SOURCE LocalSQLOutput WITH (
-    LOCATION = 'sqlserver://tcp:.,1433'
-    ,CREDENTIAL = SQLCredential
+    CREATE EXTERNAL DATA SOURCE LocalSQLOutput 
+    WITH 
+    (
+        LOCATION = 'sqlserver://tcp:.,1433',
+        CREDENTIAL = SQLCredential
     )
     go
     ```
@@ -117,12 +123,52 @@ En el ejemplo siguiente se crea un objeto de transmisión externa en la base de 
 4. Cree el objeto de transmisión externa. En el ejemplo siguiente se crea un objeto de transmisión externo que apunta a una tabla *dbo.TemperatureMeasurements* en la base de datos *MySQLDatabase*.
 
     ```sql
-    CREATE EXTERNAL STREAM TemperatureMeasurements WITH (
-    DATA_SOURCE = LocalSQLOutput,
-    LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
-    INPUT_OPTIONS = N'',
-    OUTPUT_OPTIONS = N''
+    CREATE EXTERNAL STREAM TemperatureMeasurements 
+    WITH 
+    (
+        DATA_SOURCE = LocalSQLOutput,
+        LOCATION = N'MySQLDatabase.dbo.TemperatureMeasurements',
+        INPUT_OPTIONS = N'',
+        OUTPUT_OPTIONS = N''
+    );
+    ```
+
+### <a name="example-create-an-external-stream-object-for-kafka"></a>Ejemplo: Creación de un objeto de transmisión externos para Kafka
+
+En el ejemplo siguiente se crea un objeto de transmisión externa en la base de datos local de Azure SQL Edge. En este ejemplo se da por supuesto que el servidor de Kafka está configurado para el acceso anónimo. 
+
+1. Cree un origen de datos externo con CREATE EXTERNAL DATA SOURCE. En el ejemplo siguiente:
+
+    ```sql
+    Create EXTERNAL DATA SOURCE [KafkaInput] 
+    With
+    (
+        LOCATION = N'kafka://<kafka_bootstrap_server_name_ip>:<port_number>'
     )
+    GO
+    ```
+2. Cree un formato de archivo externo para la entrada de Kafka. En el ejemplo siguiente se crea un formato de archivo JSON con compresión GZIP. 
+
+   ```sql
+   CREATE EXTERNAL FILE FORMAT JsonGzipped  
+    WITH 
+    (  
+        FORMAT_TYPE = JSON , 
+        DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' 
+    )
+   ```
+    
+3. Cree el objeto de transmisión externa. En el ejemplo siguiente se crea un objeto de transmisión externa que apunta al tema de Kafka `*TemperatureMeasurement*`.
+
+    ```sql
+    CREATE EXTERNAL STREAM TemperatureMeasurement 
+    WITH 
+    (  
+        DATA_SOURCE = KafkaInput, 
+        FILE_FORMAT = JsonGzipped,
+        LOCATION = 'TemperatureMeasurement',     
+        INPUT_OPTIONS = 'PARTITIONS: 10' 
+    ); 
     ```
 
 ## <a name="create-the-streaming-job-and-the-streaming-queries"></a>Creación del trabajo de streaming y las consultas de streaming

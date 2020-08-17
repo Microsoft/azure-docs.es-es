@@ -13,13 +13,13 @@ ms.workload: identity
 ms.date: 11/11/2019
 ms.author: rayluo
 ms.reviewer: rayluo, nacanuma, twhitney
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 0cf711f9a295abaf20cd284e819cf062c462c668
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 8dcd2b55d177c533336842293b2aedaef6b4222c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558684"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119919"
 ---
 # <a name="adal-to-msal-migration-guide-for-python"></a>Guía de migración de ADAL a MSAL para Python
 
@@ -38,19 +38,19 @@ Es compatible con:
   - OAuth v2.0
   - OpenID Connect (OIDC)
 
-Consulte [¿Qué es diferente del punto de conexión de la Plataforma de identidad de Microsoft (v2.0)?](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison) para más detalles.
+Consulte [¿Qué es diferente del punto de conexión de la Plataforma de identidad de Microsoft (v2.0)?](../azuread-dev/azure-ad-endpoint-comparison.md) para más detalles.
 
 ### <a name="scopes-not-resources"></a>Ámbitos, no recursos
 
-ADAL para Python adquiere tokens para los recursos, pero MSAL para Python adquiere tokens para los ámbitos. La superficie de API en MSAL para Python ya no tiene el parámetro de recurso. Tendría que proporcionar ámbitos como una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Para ver algunos ejemplo de ámbitos, consulte [Ámbitos de Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference).
+ADAL para Python adquiere tokens para los recursos, pero MSAL para Python adquiere tokens para los ámbitos. La superficie de API en MSAL para Python ya no tiene el parámetro de recurso. Tendría que proporcionar ámbitos como una lista de cadenas que declaran los permisos y recursos deseados que se solicitan. Para ver algunos ejemplo de ámbitos, consulte [Ámbitos de Microsoft Graph](/graph/permissions-reference).
 
 Puede agregar el sufijo del ámbito `/.default` al recurso para ayudar a migrar las aplicaciones del punto de conexión v1.0 (ADAL) al punto de conexión de la plataforma de identidad de Microsoft (MSAL). Por ejemplo, el valor de recurso de `https://graph.microsoft.com`, tiene como valor de ámbito equivalente `https://graph.microsoft.com/.default`.  Si el recurso no está en el formato de dirección URL, sino en el del identificador de recurso `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX`, todavía puede usar el valor de ámbito como `XXXXXXXX-XXXX-XXXX-XXXXXXXXXXXX/.default`.
 
-Para más información sobre los diferentes tipos de ámbitos, consulte los artículos [Permisos y consentimiento en la plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) y [Ámbitos para una API web que acepta tokens de la versión 1.0](https://docs.microsoft.com/azure/active-directory/develop/msal-v1-app-scopes).
+Para más información sobre los diferentes tipos de ámbitos, consulte los artículos [Permisos y consentimiento en la plataforma de identidad de Microsoft](./v2-permissions-and-consent.md) y [Ámbitos para una API web que acepta tokens de la versión 1.0](./msal-v1-app-scopes.md).
 
 ### <a name="error-handling"></a>Control de errores
 
-La Biblioteca de autenticación de Azure Active Directory (ADAL) para Python usa la excepción `AdalError` para indicar que ha habido un problema. MSAL para Python normalmente usa códigos de error en su lugar. Para más información, consulte [Control de errores de MSAL para Python](https://docs.microsoft.com/azure/active-directory/develop/msal-handling-exceptions?tabs=python).
+La Biblioteca de autenticación de Azure Active Directory (ADAL) para Python usa la excepción `AdalError` para indicar que ha habido un problema. MSAL para Python normalmente usa códigos de error en su lugar. Para más información, consulte [Control de errores de MSAL para Python](./msal-handling-exceptions.md?tabs=python).
 
 ### <a name="api-changes"></a>Cambios de API
 
@@ -122,4 +122,4 @@ print("Migration completed")
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte la [comparación entre la versión 1 y la versión 2](active-directory-v2-compare.md).
+Para más información, consulte la [comparación entre la versión 1 y la versión 2](../azuread-dev/azure-ad-endpoint-comparison.md).

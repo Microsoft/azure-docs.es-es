@@ -16,14 +16,14 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8d6f97870699cea7f55abe42290acdc82c385e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 563e5e811eec907ba286bdfb264fc51d32137e96
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764849"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282932"
 ---
-# <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
+# <a name="redirect-hard-coded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con Azure AD Application Proxy
 
 El Proxy de aplicación de Azure AD permite que las aplicaciones locales estén disponibles para los usuarios remotos o en sus propios dispositivos. Algunas aplicaciones, sin embargo, se desarrollaron con vínculos locales insertados en el código HTML. Estos vínculos no funcionan correctamente si la aplicación se usa de forma remota. Cuando tiene varias aplicaciones locales que se señalan entre sí, sus usuarios esperan que los vínculos sigan funcionando mientras no se encuentran en la oficina. 
 
@@ -35,11 +35,11 @@ Si no puede usar dominios personalizados en el inquilino, hay algunas otras opci
 > [!NOTE]
 > No se admite la traducción de vínculos para las direcciones URL internas codificadas de forma rígida y generadas a través de JavaScript.
 
-**Opción 1: usar Managed Browser o Microsoft Edge**. Esta solución solo es aplicable si tiene previsto recomendar o requerir que los usuarios tengan acceso a la aplicación a través de Intune Managed Browser o Microsoft Edge. Controlará todas las URL publicadas. 
+**Opción 1: usar Microsoft Edge**. Esta solución solo es aplicable si tiene previsto recomendar o requerir que los usuarios accedan a la aplicación a través del explorador Microsoft Edge. Controlará todas las URL publicadas. 
 
 **Opción 2: usar la extensión MyApps**. Esta solución requiere que los usuarios instalen una extensión de explorador del lado cliente, pero controlará todas las URL publicadas y funciona con los exploradores más populares. 
 
-**Opción 3: usar el valor de traducción de vínculos**. Se trata de un valor del lado administrador que es invisible para los usuarios. En cambio, solo controlará las URL en HTML y CSS.   
+**Opción 3: usar el valor de traducción de vínculos**. Se trata de un valor del lado administrador que es invisible para los usuarios. En cambio, administrará las URL solo en HTML y CSS.   
 
 Estas tres características mantendrán sus vínculos en funcionamiento independientemente de dónde estén los usuarios. Cuando tiene aplicaciones que apunta directamente a puertos o puntos de conexión internos, puede asignar estas direcciones URL internas a las direcciones URL del proxy de aplicación externas publicadas. 
 
@@ -50,11 +50,11 @@ Estas tres características mantendrán sus vínculos en funcionamiento independ
 > O, en caso de que la aplicación que necesita configurar con la traducción de vínculos sea SharePoint, consulte [Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) para otro enfoque para la asignación de vínculos. 
 
  
-### <a name="option-1-intune-managed-browser-and-microsoft-edge-integration"></a>Opción 1: Integración de Intune Managed Browser y Microsoft Edge 
+### <a name="option-1-microsoft-edge-integration"></a>Opción 1: Integración con Microsoft Edge 
 
-Puede usar Intune Managed Browser o Microsoft Edge para proteger aún más la aplicación y su contenido. Para usar esta solución, debe requerir o recomendar a los usuarios que accedan a la aplicación a través de Intune Managed Browser. Managed Browser reconocerá todas las URL internas publicadas con Application Proxy y se redirigirán a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario entra en el explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
+Puede usar Microsoft Edge para proteger aún más la aplicación y su contenido. Para usar esta solución, debe requerir o recomendar a los usuarios que accedan a la aplicación a través de Microsoft Edge. Microsoft Edge reconocerá todas las URL internas publicadas con Application Proxy y las redirigirá a la URL externa correspondiente. Esto garantiza que todas las URL internas codificadas de forma rígida funcionan y, si un usuario entra en el explorador y escribe directamente la URL interna, funciona incluso si el usuario es remoto.  
 
-Para obtener más información, incluido cómo configurar esta opción, vea la documentación de [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser).  
+Para obtener más información, incluido cómo configurar esta opción, consulte la documentación [Administración del acceso web mediante Microsoft Edge para iOS y Android con Microsoft Intune](https://docs.microsoft.com/mem/intune/apps/manage-microsoft-edge).  
 
 ### <a name="option-2-myapps-browser-extension"></a>Opción 2: Extensión de explorador de MyApps 
 
@@ -73,9 +73,9 @@ Si está habilitada la traducción de vínculos, el servicio Application Proxy b
 
 ## <a name="how-link-translation-works"></a>Funcionamiento de la traducción de vínculos
 
-Después de la autenticación, cuando el servidor proxy pasa los datos de aplicación al usuario, el Proxy de aplicación busca vínculos codificados de manera rígida en la aplicación y los reemplaza por sus direcciones URL externas publicadas correspondientes.
+Después de la autenticación, cuando el servidor proxy pasa los datos de aplicación al usuario, Application Proxy busca vínculos codificados de manera rígida en la aplicación y los reemplaza por sus direcciones URL externas publicadas correspondientes.
 
-El Proxy de aplicación da por supuesto que las aplicaciones están codificadas en UTF-8. Si no es el caso, especifique el tipo de codificación en un encabezado de respuesta HTTP, como `Content-Type:text/html;charset=utf-8`.
+El Proxy de aplicación da por supuesto que las aplicaciones están codificadas en UTF-8. Si no es así, especifique el tipo de codificación en un encabezado de respuesta HTTP, como `Content-Type:text/html;charset=utf-8`.
 
 ### <a name="which-links-are-affected"></a>¿Qué vínculos se ven afectados?
 
@@ -84,7 +84,7 @@ La característica de traducción de vínculos solo busca los vínculos que est�
 Hay dos tipos comunes de vínculos internos en aplicaciones locales:
 
 - **Vínculos internos relativos** que apuntan a un recurso compartido en una estructura de archivos local como `/claims/claims.html`. Estos vínculos funcionan automáticamente en aplicaciones que se publican mediante el Proxy de aplicación y siguen funcionando con o sin traducción de vínculos. 
-- **Vínculos internos codificados de manera rígida** a otras aplicaciones locales como `http://expenses` o archivos publicados como `http://expenses/logo.jpg`. La característica de traducción de vínculos funciona en vínculos internos codificados de manera rígida y los modifica para que apunten a las direcciones URL por las que deben pasar los usuarios remotos.
+- **Vínculos internos codificados de manera rígida** a otras aplicaciones locales como `http://expenses`, o archivos publicados como `http://expenses/logo.jpg`. La característica de traducción de vínculos funciona en vínculos internos codificados de manera rígida y los modifica para que apunten a las direcciones URL por las que deben pasar los usuarios remotos.
 
 La lista completa de etiquetas de código HTML para las que el proxy de aplicación admite la traducción de vínculos es la siguiente:
 * a

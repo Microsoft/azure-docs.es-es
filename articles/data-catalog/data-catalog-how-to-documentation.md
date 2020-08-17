@@ -4,14 +4,14 @@ description: En este artículo de procedimientos se resalta cómo documentar rec
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: e9e9013d354585d04f205feb93a84d94c0f05905
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3674c316e34b1e54ed8282ac7d2c228a2b774c06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "68950185"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081226"
 ---
 # <a name="how-to-document-data-sources-in-azure-data-catalog"></a>Documentación de orígenes de datos en Azure Data Catalog
 

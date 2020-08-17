@@ -42,6 +42,8 @@
       href: vpn-gateway-about-point-to-site-routing.md
     - name: Acerca de las puertas de enlace con redundancia de zona para Availability Zones
       href: about-zone-redundant-vnet-gateways.md
+    - name: Controles de seguridad integrados
+      href: vpn-gateway-security-controls.md
     - name: Interoperabilidad de conectividad de back-end
       items:
         - name: Preparación y configuración de la prueba
@@ -52,8 +54,6 @@
           href: ../networking/connectivty-interoperability-control-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
         - name: Análisis del plano de datos
           href: ../networking/connectivty-interoperability-data-plane.md?toc=%2fazure%2fvpn-gateway%2ftoc.json
-    - name: Controles de seguridad integrados
-      href: vpn-gateway-security-controls.md
 - name: Guías paso a paso
   items:
     - name: Creación y administración de una instancia de VPN Gateway
@@ -160,8 +160,8 @@
               href: vpn-gateway-howto-openvpn.md
             - name: Configuración de clientes de OpenVPN
               href: vpn-gateway-howto-openvpn-clients.md
-        - name: Traslado al protocolo OpenVPN o IKEv2 desde SSTP
-          href: ikev2-openvpn-from-sstp.md
+            - name: Traslado al protocolo OpenVPN o IKEv2 desde SSTP
+              href: ikev2-openvpn-from-sstp.md
         - name: Transición a un certificado de puerta de enlace de entidad de certificación pública para P2S
           href: vpn-gateway-point-to-site-gateway-public-ca.md
         - name: Configuración de un túnel de dispositivo VPN para los Grupos de disponibilidad AlwaysOn
@@ -170,12 +170,6 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Anuncio de rutas personalizadas para clientes de P2S
           href: vpn-gateway-p2s-advertise-custom-routes.md
-    - name: Creación de una puerta de enlace con redundancia de zona
-      href: create-zone-redundant-vnet-gateway.md
-    - name: Configuración de directivas de IPsec/IKE en las conexiones
-      href: vpn-gateway-ipsecikepolicy-rm-powershell.md
-    - name: Configuración de conexiones activas-activas
-      href: vpn-gateway-activeactive-rm-powershell.md
     - name: 'Enrutamiento, BGP y emparejamiento de VNET'
       items:
         - name: Configuración de BGP para una instancia de VPN Gateway
@@ -210,12 +204,26 @@
           href: vpn-gateway-3rdparty-device-config-cisco-asa.md
     - name: Supervisión y alertas
       items:
+        - name: Visualización de métricas VPN Gateway
+          href: vpn-gateway-howto-view-virtual-network-gateway-metrics.md
         - name: Configuración de alertas basadas en métricas
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
         - name: Configuración de alertas basadas en registros de recursos
           href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
     - name: Configuración de captura de paquetes
       href: packet-capture.md
+    - name: Puertas de enlace con redundancia de zona
+      items:
+        - name: Creación de una puerta de enlace con redundancia de zona
+          href: create-zone-redundant-vnet-gateway.md
+    - name: Configuración de directivas de IPsec/IKE en las conexiones
+      items:
+        - name: PowerShell
+          href: vpn-gateway-ipsecikepolicy-rm-powershell.md
+    - name: Configuración de conexiones activas-activas
+      items:
+        - name: PowerShell
+          href: vpn-gateway-activeactive-rm-powershell.md
     - name: Solución de problemas
       href: vpn-gateway-troubleshoot.md
       items:
@@ -260,9 +268,9 @@
 - name: Referencia
   items:
     - name: Azure PowerShell
-      href: '/powershell/module/az.network#vpn'
+      href: /powershell/module/az.network#vpn
     - name: Azure PowerShell (clásico)
-      href: '/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#azure'
+      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-4.0.0#azure
     - name: REST
       href: /rest/api/network/virtualnetworkgateways
     - name: REST (clásico)

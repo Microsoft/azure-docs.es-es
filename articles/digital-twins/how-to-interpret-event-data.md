@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 6/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6e2a3e6c7fd5ecd305d00278668ad0bfb9a66001
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 3bb4d70b4c4f3f9edc525ffe5973bca633ddd1be
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142446"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800422"
 ---
 # <a name="understand-event-data"></a>Descripción de los datos de eventos
 
@@ -300,7 +300,7 @@ La notificación correspondiente (si la ejecuta sincrónicamente el servicio, co
 ## <a name="next-steps"></a>Pasos siguientes
 
 Consulte cómo crear puntos de conexión y rutas para entregar eventos:
-* [Procedimiento: Administración de puntos de conexión y rutas](how-to-manage-routes.md)
+* [*Procedimiento: Administración de puntos de conexión y rutas*](how-to-manage-routes-apis-cli.md)
 
 O bien, obtenga más información sobre las opciones de SDK y las API de Azure Digital Twins:
-* [Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md)
+* [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md)

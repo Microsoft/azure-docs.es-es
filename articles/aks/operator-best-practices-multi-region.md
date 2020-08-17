@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e4e2a1fc08851e4e625bfc59419fc274ebbce1c8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 578560eccb13ff4b9169e11b0674859acc1fc901
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86251203"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285873"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para continuidad empresarial y recuperación ante desastres en Azure Kubernetes Service (AKS)
 
@@ -57,9 +57,9 @@ Traffic Manager realiza las búsquedas de DNS y devuelve el punto de conexión m
 
 Para información sobre cómo configurar estos puntos de conexión y el enrutamiento, consulte [Configuración del método de enrutamiento de tráfico geográfico con Traffic Manager](../traffic-manager/traffic-manager-configure-geographic-routing-method.md).
 
-### <a name="layer-7-application-routing-with-azure-front-door-service"></a>Enrutamiento de aplicaciones de nivel 7 con Azure Front Door Service
+### <a name="application-routing-with-azure-front-door-service"></a>Enrutamiento de aplicaciones con Azure Front Door Service
 
-Traffic Manager usa DNS (nivel 3) para dar forma al tráfico. [Azure Front Door Service](../frontdoor/front-door-overview.md) proporciona una opción de enrutamiento HTTP/HTTPS (nivel 7). Las características adicionales de Azure Front Door Service incluyen la terminación TLS, el dominio personalizado, el firewall de aplicaciones web, la reescritura de dirección URL y la afinidad de la sesión. Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
+Mediante el protocolo de difusión por proximidad basado en división TCP, [Azure Front Door Service](../frontdoor/front-door-overview.md) garantiza que los usuarios finales se conecten inmediatamente al punto de presencia (POP) de Front Door más cercano. Las características adicionales de Azure Front Door Service incluyen la terminación TLS, el dominio personalizado, el firewall de aplicaciones web, la reescritura de dirección URL y la afinidad de la sesión. Revise los requisitos del tráfico de su aplicación para saber qué solución es la más conveniente.
 
 ### <a name="interconnect-regions-with-global-virtual-network-peering"></a>Interconexión de regiones con el emparejamiento de redes virtuales globales
 

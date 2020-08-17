@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: c230e1e950bb924631032940642a6202acf4ade8
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 154e5b5d9639203810e9d16dec4e2907fe5ee80a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80382943"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504303"
 ---
 # <a name="monitor-media-services-metrics"></a>Supervisión de las métricas de Media Services
 
@@ -28,7 +29,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Creación de una cuenta de Media Services](create-account-cli-how-to.md)
+- [Creación de una cuenta de Media Services](./create-account-howto.md)
 - Consulte [Supervisar las métricas de Media Services y los registros de diagnóstico](media-services-metrics-diagnostic-logs.md)
 
 ## <a name="view-metrics-in-azure-portal"></a>Visualización de métricas en Azure Portal

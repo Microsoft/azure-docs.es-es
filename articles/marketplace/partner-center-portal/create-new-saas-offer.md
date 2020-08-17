@@ -1,20 +1,25 @@
 ---
-title: Creación de una nueva oferta de SaaS en el marketplace comercial de Microsoft
+title: Creación de una oferta de SaaS, Azure Marketplace y Microsoft AppSource
 description: Cómo crear una oferta de software como servicio (SaaS) para mostrarla o venderla en Azure Marketplace, Microsoft AppSource o bien mediante el programa Proveedor de soluciones en la nube (CSP) mediante el portal del marketplace comercial de Microsoft Partner Center.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 06/17/2020
-ms.openlocfilehash: a233f3594ace74a6bfeca90ffccfbcb233e5d890
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/22/2020
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: 2b12eb88f0297c44fabb62e40d315517f3d3b954
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121899"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800368"
 ---
-# <a name="create-a-new-saas-offer-in-the-commercial-marketplace"></a>Creación de una oferta de SaaS en marketplace comercial
+# <a name="create-a-saas-offer"></a>Creación de una oferta SaaS
 
 Para empezar a crear ofertas de software como servicio (SaaS) en marketplace comercial, asegúrese de primero [crear una cuenta del Centro de partners](./create-account.md) y después abrir el [panel Marketplace comercial](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), con la pestaña **Información general** seleccionada.
+
+> [!NOTE]
+> Si va a crear una oferta de SaaS comercializable, asegúrese de implementar la integración con la [API de suministro de SaaS](./pc-saas-fulfillment-apis.md).  La integración con las API es la única manera de que la transacción de Marketplace funcione correctamente. También debe asegurarse de que la aplicación usa la autenticación de Azure AD con el inicio de sesión único (SSO). Consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](../azure-ad-saas.md).
 
 ## <a name="create-a-new-offer"></a>Crear una nueva oferta
 
@@ -40,10 +45,6 @@ Escriba un **Alias de la oferta**. Este es el nombre que se usa para la oferta e
 - Este nombre no se usa en Marketplace y es diferente del nombre de la oferta y de otros valores que se muestran a los clientes.
 - El alias de la oferta no se puede cambiar después de seleccionar **Crear**.
 
-<!---
-![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
--->
-
 Seleccione **Crear** para generar la oferta y continuar.
 
 ## <a name="offer-overview"></a>Información general de la oferta
@@ -62,8 +63,8 @@ El menú **Información general de la oferta** contiene una lista de vínculos p
 En esta página se solicita la siguiente información.
 
 - **¿Desea vender a través de Microsoft?** (Sí/No)
-    - **Sí**, me gustaría vender a través de Microsoft y que Microsoft hospede transacciones en mi nombre
-    - **No**, preferiría solo mostrar mi oferta a través de los marketplaces y procesar las transacciones de forma independiente.
+  - **Sí**, me gustaría vender a través de Microsoft y que Microsoft hospede transacciones en mi nombre
+  - **No**, preferiría solo mostrar mi oferta a través de los marketplaces y procesar las transacciones de forma independiente.
 
 ### <a name="sell-through-microsoft"></a>Venta mediante Microsoft
 
@@ -96,13 +97,11 @@ Este es un desglose de ejemplo de los costos y pagos para demostrar el modelo de
 - En este ejemplo, Microsoft factura USD 100 al cliente por su licencia de software y paga USD 80 al editor.
 
 > [!NOTE]
-> **Precio reducido del servicio Marketplace**: para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como listas para realizar una venta conjunta por IP o clasificadas orden de prioridad para realizar una venta conjunta por IP. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural. El precio reducido del servicio Marketplace no se aplica a las VM, las aplicaciones administradas ni ningún otro producto que esté disponible a través de marketplace comercial.
+> **Precio reducido del servicio Marketplace**: para determinadas ofertas de SaaS que haya publicado en nuestro Marketplace comercial, Microsoft reducirá su precio del servicio Marketplace del 20 % (como se describe en el Acuerdo para anunciantes de Microsoft) al 10 %. Para que su oferta sea apta, Microsoft debe haber designado sus ofertas como incentivadas para realizar una venta conjunta por IP de Azure. Para recibir el precio reducido del servicio Marketplace durante el mes, se deben cumplir los criterios de idoneidad al menos cinco (5) días hábiles antes del final de cada mes natural. Los honorarios del servicio Marketplace reducidos también se aplican a máquinas virtuales y aplicaciones administradas con incentivos para realizar una venta conjunta por IP de Azure, así como a cualquier otra oferta de IaaS comercializable cualificada que esté disponible a través del marketplace comercial.
 
 ### <a name="list-through-microsoft"></a>Listas a través de Microsoft
 
 La creación de una lista en Marketplace promocionará su negocio. Si selecciona la opción de mostrar solo su oferta, no realizar transacciones a través de Microsoft significa que Microsoft no participa directamente en las transacciones de las licencias de software. No hay precio de transacción asociado y el anunciante conserva el 100 % del precio de las licencias de software abonado por el cliente. Sin embargo, el anunciante es el responsables de dar soporte a todos los aspectos de la transacción de la licencia de software, entre los que se incluyen, entre otros: la cumplimentación del pedido, la medición, la facturación, el pago y el cobro.
-
-<!-- - **How do you want potential customers to interact with this listing offer?** -->
 
 #### <a name="get-it-now-free"></a>Obténgalo ahora (de forma gratuita)
 
@@ -120,8 +119,6 @@ Para publicar la oferta para los clientes con un vínculo a una evaluación grat
 Recopile información de contacto de los clientes mediante la conexión de su sistema de Administración de relaciones con los clientes (CRM). El cliente le pedirá permiso para compartir su información. Estos datos del cliente, junto con el nombre e identificador de la oferta y el origen de Marketplace donde la ha encontrado, se envían al sistema CRM que se ha configurado. Para obtener más información acerca de cómo configurar el sistema CRM, vea [Clientes potenciales](#customer-leads).
 
 #### <a name="example-marketplace-offer-listing"></a>Descripción de la oferta de Marketplace de ejemplo
-
-<!-- ![Example marketplace offer listing with notes](./media/marketplace-offer.svg) -->
 
 Este es un ejemplo de cómo aparece la información de la oferta en Microsoft AppSource:
 
@@ -278,19 +275,23 @@ Este campo es obligatorio.
 
 - **Contactos**: En cada contacto de cliente incluya el **Nombre**, **Número de teléfono** y dirección de **Correo electrónico** de un empleado (estos *no* se mostrarán públicamente). Se requiere una **Dirección URL de soporte** para el grupo **Contacto de soporte técnico** (esta *sí* se mostrará públicamente).
 
-    - **Contacto de soporte técnico** (obligatorio): Para preguntas generales de soporte técnico.
-    - **Contacto de ingeniería** (obligatorio): Para preguntas técnicas.
-    - **Contacto del administrador de canales** (obligatorio): Para preguntas de revendedores relacionadas con el programa CSP.
+  - **Contacto de soporte técnico** (obligatorio): Para preguntas generales de soporte técnico.
+  - **Contacto de ingeniería** (obligatorio): Para preguntas técnicas.
+  - **Contacto del administrador de canales** (obligatorio): Para preguntas de revendedores relacionadas con el programa CSP.
 
 #### <a name="files-and-images"></a>Archivos e imágenes
 
 - **Documentos** (obligatorio): agregue a su oferta documentos de marketing relacionados en formato PDF. Incluya un mínimo de un (1) documento por oferta y un máximo de tres (3).
-- **Imágenes** (opcional): En todos los marketplaces, hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta, que requieren los siguientes tamaños en formato PNG:
+- **Imágenes** (obligatorio): en todos los catálogos,hay varios lugares en los que pueden aparecer imágenes del logotipo de su oferta. Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes. La adición de un logotipo **ancho** es opcional.
 
-    - **Pequeño** (48×48, obligatorio)
-    - **Mediano** (90×90, obligatorio)
-    - **Grande** (216×216, obligatorio)
-    - **Ancho (255 x 115)**
+    Se requieren tres tamaños de logotipo para su uso en distintos lugares de la lista; uno es opcional:
+
+    - **Pequeño (48 x 48)**
+    - **Medio (90 x 90)**
+    - **Grande** (entre 216 x 216 y 350 x 350)
+    - **Ancho** (255 x 115), *opcional*
+
+    [!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 - **Capturas de pantallas** (obligatorio): agregue un máximo de cinco capturas de pantallas que muestren la oferta, con un tamaño de 1280 x 720 píxeles. Todas las imágenes deben estar en formato .PNG.
 - **Vídeos** (opcional): Agregue vínculos a vídeos en que se muestre la oferta. Puede usar vínculos a vídeos de YouTube o Vimeo para que acompañen a la oferta para los clientes. También tendrá que incluir una imagen en miniatura del vídeo con un tamaño de 1280 x 720 píxeles y en formato PNG. Puede mostrar un máximo de cuatro vídeos por oferta.
@@ -322,10 +323,10 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="technical-configuration"></a>Configuración técnica
 
-En la pestaña **Configuración técnica** se definen los detalles técnicos usados en marketplace para comunicarse con el servicio SaaS. Esta conexión nos permite aprovisionar su oferta para el cliente final, en caso de que este elija adquirirla y administrarla. 
+En la pestaña **Configuración técnica** se definen los detalles técnicos usados en marketplace para comunicarse con el servicio SaaS. Esta conexión nos permite aprovisionar su oferta para el cliente final, en caso de que este elija adquirirla y administrarla.
 
->[!Note]
->Debe implementar la integración con las [API de cumplimiento de SaaS](./pc-saas-fulfillment-api-v2.md) antes de configurar estos detalles en los detalles de la oferta.
+>[!NOTE]
+>Debe implementar la integración con las [API de cumplimiento de SaaS](./pc-saas-fulfillment-api-v2.md) antes de configurar estos detalles en los detalles de la oferta. También debe crear una página de aterrizaje y la aplicación debe usar la autenticación de Azure AD con el inicio de sesión único (SSO). Para más información, consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](../azure-ad-saas.md).
 
 En la documentación de las [API](./pc-saas-fulfillment-api-v2.md) hay diagramas y explicaciones detalladas que describen el uso de los campos recopilados.
 
@@ -337,10 +338,10 @@ En la documentación de las [API](./pc-saas-fulfillment-api-v2.md) hay diagramas
 
 - **Id. de aplicación de Azure AD** (obligatorio): también necesita su [identificador de la aplicación](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in). Para obtener su valor, vaya a Azure Active Directory, seleccione **Registros de aplicaciones** y, después, busque el número de **Id. de la aplicación** que se muestra (por ejemplo, `50c464d3-4930-494c-963c-1e951d15360e`).
 
->[!Note]
+>[!NOTE]
 >El id. de la aplicación de Azure AD está asociado a su identificador de publicador de la cuenta del Centro de partners.  Asegúrese de que se usa el mismo id. de la aplicación en todas las ofertas.
 
->[!Note]
+>[!NOTE]
 >Si el publicador tiene dos o más cuentas diferentes en el Centro de partners, deben usarse dos o más id. de la aplicación de Azure AD diferentes, uno para cada cuenta. Cada cuenta de partner del Centro de partners debe usar un id. de la aplicación de Azure AD único para todas las ofertas de SaaS publicadas a través de esta cuenta.
 
 Seleccione **Guardar borrador** antes de continuar.
@@ -462,8 +463,6 @@ Seleccione **Guardar borrador** antes de continuar.
 1. Nombre del plan
 2. Description del plan
 
-<br>
-
 ## <a name="cloud-solution-provider-csp-reseller-audience"></a>Audiencia de revendedores de Proveedor de soluciones en la nube (CSP)
 
 Si elige esta opción, los proveedores de soluciones en la nube podrán vender su producto como parte de una solución agrupada a sus clientes. Para más información, consulte [Proveedor de soluciones en la nube](https://go.microsoft.com/fwlink/?linkid=2111109).
@@ -477,12 +476,12 @@ Una vez que haya completado todas las secciones necesarias de la oferta, selecci
 Si es la primera vez que publica esta oferta, puede:
 
 - Ver el estado de finalización de cada sección de la oferta.
-    - **No iniciada**: La sección no se ha modificado y se debe completar.
-    - **Incompleta**: La sección tiene errores que deben corregirse o se requiere más información. Tendrá que volver a la sección anterior y actualizarla.
-    - **Completa**: La sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
+  - **No iniciada**: La sección no se ha modificado y se debe completar.
+  - **Incompleta**: La sección tiene errores que deben corregirse o se requiere más información. Tendrá que volver a la sección anterior y actualizarla.
+  - **Completa**: La sección está completa, se han proporcionado todos los datos necesarios y no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
 - Envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccionar **Transmitir** para publicar la oferta para el público (o si es una oferta privada, al público privado).
 
-## <a name="next-step"></a>Paso siguiente
+## <a name="next-steps"></a>Pasos siguientes
 
 - [Actualización de una oferta existente en Marketplace comercial](./update-existing-offer.md)

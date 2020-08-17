@@ -3,12 +3,12 @@ title: 'Introducción a Live Video Analytics en IoT Edge: Azure'
 description: En este inicio rápido se muestran los primeros pasos con Live Video Analytics en IoT Edge. Aprenda a detectar movimiento en transmisiones de vídeo en directo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 98ab333a495c31889bee2a9cddab778a12876af5
-ms.sourcegitcommit: 1383842d1ea4044e1e90bd3ca8a7dc9f1b439a54
+ms.openlocfilehash: ccdbbffb3da240aab7897dd93a6c4ae85c550eba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/16/2020
-ms.locfileid: "84816907"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090083"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Inicio rápido: Introducción: Live Video Analytics on IoT Edge
 
@@ -34,7 +34,7 @@ Este tutorial requiere los siguientes recursos de Azure:
 * IoT Hub
 * Cuenta de almacenamiento
 * Cuenta de Azure Media Services
-* Una máquina virtual Linux en Azure, con el [runtime de IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) instalado
+* Una máquina virtual Linux en Azure, con el [runtime de IoT Edge](../../iot-edge/how-to-install-iot-edge-linux.md) instalado
 
 Para este inicio rápido, se recomienda usar el [script de configuración de recursos de Live Video Analytics](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implementar los recursos necesarios en su suscripción de Azure. Para hacerlo, siga estos pasos:
 
@@ -561,7 +561,7 @@ La ventana **SALIDA** muestra el siguiente mensaje:
 
 Observe esta información:
 
-* El mensaje contiene una sección `body` y una sección `applicationProperties`. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+* El mensaje contiene una sección `body` y una sección `applicationProperties`. Para más información, consulte [Creación y lectura de mensajes de IoT Hub](../../iot-hub/iot-hub-devguide-messages-construct.md).
 * En `applicationProperties`, `subject` hace referencia al nodo de `MediaGraph` desde el que se generó el mensaje. En este caso, el mensaje se origina en el procesador de detección del movimiento.
 * En `applicationProperties`, `eventType` indica que este es un evento de análisis.
 * El valor `eventTime` es la hora en que se produjo el evento.

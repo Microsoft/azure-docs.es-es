@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: how-to
-ms.openlocfilehash: 850f4e3754af790e6b9bab5c68c9bd10849bba37
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9fac5d3efabc5d9f796c91d688f35e01aeefdca3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965287"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092769"
 ---
 # <a name="rendering-using-azure"></a>Representación mediante Azure
 
@@ -79,7 +79,7 @@ Hay varias maneras de usar Azure Batch, que también se aplican a la representac
 * API:
   * Escriba código mediante [REST](/rest/api/batchservice), [.NET](/dotnet/api/overview/azure/batch), [Python](/python/api/overview/azure/batch), [Java](/java/api/overview/azure/batch) u otras API admitidas.  Los desarrolladores pueden integrar funcionalidades de Azure Batch en sus aplicaciones o su flujo de trabajo existentes, independientemente de que se encuentre en la nube o de forma local.  Por ejemplo, el [complemento Autodesk Maya](https://github.com/Azure/azure-batch-maya) utiliza la API de Python de Batch para invocar a Batch, crear y administrar grupos, enviar trabajos y tareas y supervisar el estado.
 * Herramientas de línea de comandos:
-  * La [línea de comandos de Azure](/cli/azure/) o [Azure PowerShell](/powershell/azure/overview) se puede usar para crear un script de uso de Batch.
+  * La [línea de comandos de Azure](/cli/azure/) o [Azure PowerShell](/powershell/azure/) se puede usar para crear un script de uso de Batch.
   * En concreto, la compatibilidad con plantillas de la CLI de Batch facilita la creación de grupos y el envío de trabajos.
 * Interfaces de usuario:
   * [Batch Explorer](https://github.com/Azure/BatchExplorer) es una herramienta de cliente multiplataforma que también permite administrar y supervisar las cuentas de Batch, pero proporciona algunas funcionalidades más versátiles en comparación con la interfaz de usuario de Azure Portal.  Se proporciona un conjunto de plantillas de grupo y trabajo adaptadas a cada aplicación admitida y se puede usar para crear fácilmente grupos y enviar trabajos.

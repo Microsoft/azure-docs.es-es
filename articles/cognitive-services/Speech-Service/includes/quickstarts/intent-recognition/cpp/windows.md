@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 770e037641ac8fbf75989dc94b66fd1df0689e50
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 9c0c2673acf12ddf80b77be57acc5af55e7f160c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422232"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298884"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -73,6 +73,8 @@ Inserte este código debajo de `IntentRecognizer`. Asegúrese de reemplazar `"Yo
 > Si necesita ayuda para encontrar este valor, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
+
+En este ejemplo se usa la función `AddIntent()` para agregar intenciones individualmente. Si desea agregar todas las intenciones de un modelo, use `AddAllIntents(model)` y pase el modelo.
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 

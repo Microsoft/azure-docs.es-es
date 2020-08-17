@@ -1,6 +1,6 @@
 ---
 title: 'Ejemplos de la CLI de Azure: Redes'
-description: Ejemplos de la CLI de Azure
+description: Información acerca de los ejemplos de la CLI de Azure para redes, incluidos ejemplos de conectividad entre recursos de Azure y ejemplos sobre equilibrio de carga y dirección del tráfico.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
@@ -14,12 +14,13 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: kumud
-ms.openlocfilehash: 397f2999821e97a1f12362e2aa2fa20b20e78596
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: c038f0d238646f43b93ba2a2c6a1120ab5feccee
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232413"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497297"
 ---
 # <a name="azure-cli-samples-for-networking"></a>Ejemplos de la CLI de Azure para redes
 

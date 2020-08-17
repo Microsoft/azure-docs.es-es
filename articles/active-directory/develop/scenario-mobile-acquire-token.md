@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 2be074c457eaadd1fb6467cbcfdd45a2e7745613
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfccc274ef920c59d39c160055ab27a6900c839c
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82098907"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88141285"
 ---
 # <a name="get-a-token-for-a-mobile-app-that-calls-web-apis"></a>Obtenga un token para una aplicación móvil que llama a las API web
 
@@ -209,7 +209,7 @@ catch(MsalUiRequiredException)
 
 `AcquireTokenInteractive` solo tiene un parámetro obligatorio: `scopes`. El parámetro `scopes` enumera las cadenas que definen los ámbitos para los que se requiere un token. Si el token es para Microsoft Graph, los ámbitos necesarios se pueden encontrar en la referencia de API de cada instancia de Microsoft Graph API. En la referencia, vaya a la sección "Permisos".
 
-Por ejemplo, para [enumerar los contactos del usuario](https://docs.microsoft.com/graph/api/user-list-contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/permissions_reference).
+Por ejemplo, para [enumerar los contactos del usuario](/graph/api/user-list-contacts), se debe usar el ámbito "User.Read", "Contacts.Read". Para más información, consulte [Referencia de permisos de Microsoft Graph](/graph/permissions-reference).
 
 En Android, puede especificar la actividad primaria al crear la aplicación mediante `PublicClientApplicationBuilder`. Si no especifica la actividad primaria en ese momento, puede especificarla más adelante mediante `.WithParentActivityOrWindow` como se indica en la sección siguiente. Si especifica la actividad primaria, el token vuelve a la actividad primaria después de la interacción. Si no se especifica, la llamada a `.ExecuteAsync()` inicia una excepción.
 
@@ -221,7 +221,7 @@ En las secciones siguientes se explican los parámetros opcionales de MSAL.NET.
 
 El parámetro `WithPrompt()` controla la interactividad con el usuario mediante la especificación de un mensaje.
 
-<img src="https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png" width="25%" />
+![Imagen que muestra los campos de la estructura del mensaje. Estos valores constantes controlan la interactividad con el usuario al definir el tipo de mensaje que muestra el parámetro WithPrompt().](https://user-images.githubusercontent.com/13203188/53438042-3fb85700-39ff-11e9-9a9e-1ff9874197b3.png)
 
 La clase define las constantes siguientes:
 
@@ -234,7 +234,7 @@ La clase define las constantes siguientes:
 - `ForceLogin` permite al servicio solicitar credenciales al usuario, aunque no sea necesario.
 
     Esta opción puede ser útil si se produce un error en la adquisición del token y desea permitir que el usuario vuelva a iniciar sesión. En este caso, MSAL envía `prompt=login` al proveedor de identidades. Puede utilizar esta opción en aplicaciones centradas en la seguridad donde la gobernanza de la organización exige que el usuario vuelva a iniciar sesión cada vez que accede a determinadas partes de una aplicación.
-- `Never` es solo para .NET 4.5 y Windows Runtime (WinRT). Esta constante no preguntará al usuario, pero intentará usar la cookie almacenada en la vista web incrustada oculta. Para más información, consulte [Uso de exploradores web con MSAL.NET](https://docs.microsoft.com/azure/active-directory/develop/msal-net-web-browsers).
+- `Never` es solo para .NET 4.5 y Windows Runtime (WinRT). Esta constante no preguntará al usuario, pero intentará usar la cookie almacenada en la vista web incrustada oculta. Para más información, consulte [Uso de exploradores web con MSAL.NET](./msal-net-web-browsers.md).
 
     Si esta opción genera un error, `AcquireTokenInteractive` inicia una excepción para notificar que se necesita una interacción de la interfaz de usuario. Entonces, debe usar otro parámetro `Prompt`.
 - `NoPrompt` no envía ningún mensaje al proveedor de identidades.

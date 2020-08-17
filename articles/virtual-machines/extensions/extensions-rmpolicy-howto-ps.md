@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure Policy para restringir la instalación de extensiones de máquina virtual
+title: Uso de Azure Policy para restringir la instalación de extensiones de VM (Windows)
 description: Use Azure Policy para restringir las implementaciones de extensiones.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 03/23/2018
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 96cd16c08421a4e365391c0db0b257f71a06551f
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: e4959c9dca909afde4bf6d351d79ecca1e4022a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85919800"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069753"
 ---
 # <a name="use-azure-policy-to-restrict-extensions-installation-on-windows-vms"></a>Uso de Azure Policy para restringir la instalación de extensiones en máquinas virtuales Linux
 
@@ -98,7 +98,7 @@ Cuando haya terminado, presione **Ctrl + O** y, a continuación, **Entrar** para
 
 ## <a name="create-the-policy"></a>Creación de la directiva
 
-Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree una definición de directiva mediante el cmdlet [New-AzPolicyDefinition](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicydefinition).
+Una definición de directiva es un objeto que se usa para almacenar la configuración que le gustaría utilizar. En esta definición se incluyen las reglas y los archivos de parámetros. Cree una definición de directiva mediante el cmdlet [New-AzPolicyDefinition](/powershell/module/az.resources/new-azpolicydefinition).
 
  Las reglas y los parámetros de la directiva son los archivos creados y almacenados como archivos .json en Cloud Shell.
 
@@ -117,9 +117,9 @@ $definition = New-AzPolicyDefinition `
 
 ## <a name="assign-the-policy"></a>Asignación de la directiva
 
-En este ejemplo se asigna la directiva a un grupo de recursos mediante [New-AzPolicyAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azpolicyassignment). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar las extensiones de agente de acceso de máquina virtual o de script personalizado. 
+En este ejemplo se asigna la directiva a un grupo de recursos mediante [New-AzPolicyAssignment](/powershell/module/az.resources/new-azpolicyassignment). Ninguna de las máquinas virtuales creadas en el grupo de recursos **myResourceGroup** podrá instalar las extensiones de agente de acceso de máquina virtual o de script personalizado. 
 
-Use el cmdlet [Get-AzSubscription | Format-Table](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription) para obtener el identificador de suscripción y usarlo para sustituir al del ejemplo.
+Use el cmdlet [Get-AzSubscription | Format-Table](/powershell/module/az.accounts/get-azsubscription) para obtener el identificador de suscripción y usarlo para sustituir al del ejemplo.
 
 ```azurepowershell-interactive
 $scope = "/subscriptions/<subscription id>/resourceGroups/myResourceGroup"

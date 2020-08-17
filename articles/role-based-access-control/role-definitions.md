@@ -15,12 +15,12 @@ ms.date: 05/08/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: 3dc2834af501d3ecc2ff44c2511916447f27cfae
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 7c6f9203385c47da9803fb05358889d00d77d3e5
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82996608"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511643"
 ---
 # <a name="understand-azure-role-definitions"></a>Descripción de las definiciones de roles de Azure
 
@@ -90,7 +90,7 @@ La parte `{action}` de una cadena de la operación especifica el tipo de operaci
 
 ### <a name="role-definition-example"></a>Ejemplo de definición de roles
 
-Esta es la definición del rol [Colaborador](built-in-roles.md#contributor) como se muestra en Azure PowerShell y la CLI de Azure. La operación de carácter comodín (`*`) en `Actions` indica que la entidad de seguridad asignada a este rol puede realizar todas las acciones o, en otras palabras, administrar todo el contenido. Esto incluye las acciones definidas en el futuro, a medida que Azure agregue nuevos tipos de recursos. Las operaciones en `NotActions` se restan de `Actions`. En el caso del rol [Colaborador](built-in-roles.md#contributor), `NotActions` le quita la capacidad para administrar y asignar el acceso a los recursos.
+Esta es la definición del rol [Colaborador](built-in-roles.md#contributor) como se muestra en Azure PowerShell y la CLI de Azure. La operación de carácter comodín (`*`) en `Actions` indica que la entidad de seguridad asignada a este rol puede realizar todas las acciones o, en otras palabras, administrar todo el contenido. Esto incluye las acciones definidas en el futuro, a medida que Azure agregue nuevos tipos de recursos. Las operaciones en `NotActions` se restan de `Actions`. En el caso del rol [Colaborador](built-in-roles.md#contributor), `NotActions` le quita la capacidad para administrar el acceso a los recursos, así como de administrar las asignaciones de Azure Blueprint.
 
 Rol Colaborador tal como se muestra en Azure PowerShell:
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c31053f62f768cc534e07a8ac8d692176cf52b1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83757626"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482590"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Configuración de tokens en Azure Active Directory B2C
 
@@ -97,7 +97,7 @@ Las siguientes propiedades se utilizan para [administrar la compatibilidad de lo
 
 ## <a name="pass-through"></a>Paso a través
 
-Cuando se inicia un recorrido del usuario, Azure AD B2C recibe un token de acceso de un proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. [Habilite una notificación en el flujo de usuario](idp-pass-through-user-flow.md) o [defina una notificación en la directiva personalizada](idp-pass-through-custom.md) para pasar el token a través de las aplicaciones que registre en Azure AD B2C. La aplicación debe usar un [flujo de usuario v2](user-flow-versions.md) para aprovechar las ventajas de pasar el token como una notificación.
+Cuando se inicia un recorrido del usuario, Azure AD B2C recibe un token de acceso de un proveedor de identidades. Azure AD B2C usa ese token para recuperar información sobre el usuario. [Habilite una notificación en el flujo de usuario](idp-pass-through-user-flow.md) o [defina una notificación en la directiva personalizada](idp-pass-through-custom.md) para pasar el token a través de las aplicaciones que registre en Azure AD B2C. La aplicación debe usar un [flujo de usuario recomendado](user-flow-versions.md) para aprovechar las ventajas de pasar el token como una notificación.
 
 Azure AD B2C actualmente solo admite pasar el token de acceso de proveedores de identidades de OAuth 2.0, incluidos Facebook y Google. Para todos los demás proveedores de identidades, la notificación se devuelve en blanco.
 

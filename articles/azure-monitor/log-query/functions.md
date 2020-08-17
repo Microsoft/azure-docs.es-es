@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2018
-ms.openlocfilehash: 5fb9e48a6d6a0b95b61478a7877e9b46dd8963e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/31/2020
+ms.openlocfilehash: 155f27b9f04db74955640aad8f582fdf05539368
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83649384"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511945"
 ---
 # <a name="using-functions-in-azure-monitor-log-queries"></a>Uso de funciones en consultas de registros de Azure Monitor
 
@@ -33,6 +33,9 @@ Para crear una función con Log Analytics en Azure Portal, haga clic en **Guar
 
 ## <a name="use-a-function"></a>Uso de una función
 Use una función al incluir su alias en otra consulta. Se puede usar como cualquier otra tabla.
+
+## <a name="function-parameters"></a>Parámetros de función 
+Puede agregar parámetros a una función para que pueda proporcionar valores de determinadas variables al llamarla. La única manera de crear una función con parámetros es usar una plantilla de Resource Manager. Consulte [Ejemplos de plantillas de Resource Manager para consultas de registros en Azure Monitor](../samples/resource-manager-log-queries.md#parameterized-function) para obtener un ejemplo.
 
 ## <a name="example"></a>Ejemplo
 La siguiente consulta de ejemplo devuelve todas las actualizaciones de seguridad faltantes que se notificaron en el último día. Guarde esta consulta como función con el alias _security_updates_last_day_. 

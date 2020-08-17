@@ -1,18 +1,18 @@
 ---
 title: Creación de una oferta de servicios de consultoría en marketplace comercial de Microsoft
 description: En este artículo se explica cómo publicar una oferta de servicios de consultoría en Microsoft AppSource o en Azure Marketplace mediante el Centro de partners.
-author: anbene
-ms.author: mingshen
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: a06f0838f25e771a90fb6dc6f4fcd3bd9bdeda87
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8dd0abb5c127d51a0feaf0c71188b7fc48e2fd69
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203802"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798229"
 ---
 # <a name="create-a-consulting-service-offer"></a>Creación de una oferta de servicios de consultoría
 
@@ -207,12 +207,14 @@ Proporcione logotipos e imágenes para usarlos con la oferta. Todas las imágene
 
 #### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione archivos PNG del logotipo de la oferta en cada uno de los siguientes tamaños de píxel:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles). Opcionalmente, puede reemplazarlo por una imagen diferente.
+
+Se requieren ambos tamaños de logotipo para su uso en distintos lugares de la lista:
 
 - **Pequeño (48 x 48)**
-- **Grande (216 x 216)**
+- **Grande** (entre 216 x 216 y 350 x 350)
 
-Todos los logotipos son necesarios y se usan en lugares diferentes de la lista de Marketplace.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots-optional"></a>Capturas de pantalla (opcional)
 

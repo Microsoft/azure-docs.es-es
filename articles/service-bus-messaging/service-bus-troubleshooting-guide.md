@@ -2,13 +2,13 @@
 title: Guía para la solución de problemas de Azure Service Bus | Microsoft Docs
 description: En este artículo se proporciona una lista de las excepciones de mensajería de Azure Service Bus y las acciones sugeridas para cuando se produce la excepción.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 3b2759916e1f9ef0cec660157f577ff54cd39928
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340459"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067059"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guía para la solución de problemas de Azure Service Bus
 En este artículo se proporcionan sugerencias y recomendaciones para la solución de algunos problemas que pueden aparecer al usar Azure Service Bus. 
@@ -16,7 +16,7 @@ En este artículo se proporcionan sugerencias y recomendaciones para la solució
 ## <a name="connectivity-certificate-or-timeout-issues"></a>Problemas de conectividad, certificados o tiempo de espera
 Los pasos siguientes pueden ayudarle a solucionar problemas de conectividad, certificados y tiempo de espera para todos los servicios de *.servicebus.windows.net. 
 
-- Desplácese a `https://<yournamespace>.servicebus.windows.net/` o use [wget](https://www.gnu.org/software/wget/) ir allí. Le ayudará a comprobar si tiene problemas de cadena de certificados (lo más común al usar el SDK de Java), filtrado IP o red virtual.
+- Desplácese a `https://<yournamespace>.servicebus.windows.net/` o use [wget](https://www.gnu.org/software/wget/) ir allí. Le permite comprobar si tiene problemas con la cadena de certificados, el filtrado IP o la red virtual, lo que suele ser común al usar el SDK de Java.
 
     Un ejemplo de mensaje correcto:
     
@@ -54,29 +54,51 @@ Los pasos siguientes pueden ayudarle a solucionar problemas de conectividad, cer
 - Realice un seguimiento de red si los pasos anteriores no ayudan y analícelo con herramientas como [Wireshark](https://www.wireshark.org/). Si lo necesita, póngase en contacto con el [soporte técnico de Microsoft](https://support.microsoft.com/). 
 
 ## <a name="issues-that-may-occur-with-service-upgradesrestarts"></a>Problemas que se pueden producir con las actualizaciones o reinicios de servicios
-Las actualizaciones y los reinicios de servicios back-end pueden tener el siguiente impacto en las aplicaciones:
 
+### <a name="symptoms"></a>Síntomas
 - Puede que las solicitudes se limiten momentáneamente.
 - Puede haber una caída en la llegada de mensajes o solicitudes entrantes.
 - El archivo de registro puede contener mensajes de error.
 - Puede que las aplicaciones se desconecten del servicio durante unos segundos.
 
-Si el código de aplicación usa SDK, la directiva de reintento ya está integrada y activa. La aplicación se volverá a conectar sin un impacto significativo en la aplicación o el flujo de trabajo.
+### <a name="cause"></a>Causa
+Las actualizaciones y los reinicios de servicios back-end pueden provocar estos problemas en las aplicaciones:
+
+### <a name="resolution"></a>Resolución
+Si el código de aplicación usa el SDK, la directiva de reintentos ya está integrada y activa. La aplicación se volverá a conectar sin un impacto significativo en la aplicación o el flujo de trabajo.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>Acceso no autorizado: las notificaciones de envío son necesarias
+
+### <a name="symptoms"></a>Síntomas 
 Es posible que vea este error al intentar obtener acceso a un tema de Service Bus desde Visual Studio en un equipo local mediante una identidad administrada asignada por el usuario con permisos de envío.
 
 ```bash
 Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perform this operation.
 ```
 
-Para resolverlo, instale la biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).  Par obtener más información, consulte [Autenticación de desarrollo local](..\key-vault\service-to-service-authentication.md#local-development-authentication). 
+### <a name="cause"></a>Causa
+La identidad no tiene permisos de acceso al tema de Service Bus. 
+
+### <a name="resolution"></a>Resolución
+Para resolverlo, instale la biblioteca [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/).  Par obtener más información, consulte [Autenticación de desarrollo local](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
 
 Para obtener información sobre cómo asignar permisos a los roles, consulte [Autenticación de una identidad administrada con Azure Active Directory para acceder a recursos de Azure Service Bus](service-bus-managed-service-identity.md).
+
+## <a name="service-bus-exception-put-token-failed"></a>Excepción de Service Bus: error al colocar el token
+
+### <a name="symptoms"></a>Síntomas
+Al intentar enviar más de 1000 mensajes con la misma conexión de Service Bus, recibirá el mensaje de error siguiente: 
+
+`Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
+
+### <a name="cause"></a>Causa
+Existe un límite en el número de tokens que se usan para enviar y recibir mensajes mediante una única conexión a un espacio de nombres de Service Bus. Este límite es 1000. 
+
+### <a name="resolution"></a>Resolución
+Abra una nueva conexión con el espacio de nombres de Service Bus para enviar más mensajes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes: 
 
 - [Excepciones de Azure Resource Manager](service-bus-resource-manager-exceptions.md) Se enumeran las excepciones generadas al interactuar con Azure Service Bus mediante Azure Resource Manager (a través de plantillas o de llamadas directas).
-- [Excepciones de mensajería](service-bus-messaging-exceptions.md) Proporciona una lista de excepciones generadas por .NET Framework para Azure Service Bus. 
-
+- [Excepciones de mensajería](service-bus-messaging-exceptions.md) Proporciona una lista de excepciones generadas por .NET Framework para Azure Service Bus.

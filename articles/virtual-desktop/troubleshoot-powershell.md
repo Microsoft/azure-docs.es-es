@@ -1,27 +1,22 @@
 ---
 title: 'PowerShell para Windows Virtual Desktop: Azure'
 description: Cómo solucionar problemas de PowerShell al configurar un entorno de Windows Virtual Desktop.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6e4459eea07f60d90dad692d6625dd45c5038093
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03b6da1d35247749d8ec2c6459c8ddee69bfccb6
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84456970"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002279"
 ---
 # <a name="windows-virtual-desktop-powershell"></a>PowerShell para Windows Virtual Desktop
 
 >[!IMPORTANT]
->Este contenido se aplica a la actualización Spring 2020 con objetos de Windows Virtual Desktop para Azure Resource Manager. Si usa la versión Fall 2019 de Windows Virtual Desktop sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
->
-> La actualización Spring 2020 de Windows Virtual Desktop se encuentra actualmente en versión preliminar pública. Esta versión preliminar se ofrece sin un Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. 
-> Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Este contenido se aplica a Windows Virtual Desktop con objetos de Windows Virtual Desktop de Azure Resource Manager. Si usa Windows Virtual Desktop (clásico) sin objetos de Azure Resource Manager, consulte [este artículo](./virtual-desktop-fall-2019/troubleshoot-powershell-2019.md).
 
 Use este artículo para resolver los problemas y errores al usar PowerShell con Windows Virtual Desktop. Para más información sobre PowerShell para Servicios de Escritorio remoto, consulte [PowerShell para Windows Virtual Desktop](/powershell/module/windowsvirtualdesktop/).
 
@@ -36,10 +31,10 @@ En esta sección se enumeran los comandos de PowerShell que se usan normalmente 
 ### <a name="error-new-azroleassignment-the-provided-information-does-not-map-to-an-ad-object-id"></a>Error: New-AzRoleAssignment: "The provided information does not map to an AD object ID" (New-AzRoleAssignment: la información proporcionada no está asignada a ningún id. de objeto de AD).
 
 ```powershell
-New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups' 
+New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Desktop Virtualization User" -ResourceName "0301HP-DAG" -ResourceGroupName 0301RG -ResourceType 'Microsoft.DesktopVirtualization/applicationGroups'
 ```
 
-**Causa:** el usuario especificado con el parámetro *-SignInName* no se encuentra en la instancia de Azure Active Directory vinculada al entorno de Windows Virtual Desktop. 
+**Causa:** el usuario especificado con el parámetro *-SignInName* no se encuentra en la instancia de Azure Active Directory vinculada al entorno de Windows Virtual Desktop.
 
 **Solución:** Realice las siguientes comprobaciones:
 
@@ -49,7 +44,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 
 ### <a name="error-new-azroleassignment-the-client-with-object-id-does-not-have-authorization-to-perform-action-over-scope-code-authorizationfailed"></a>Error: New-AzRoleAssignment: "El cliente con el id. de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)"
 
-**Causa 1:** la cuenta usada no tiene permisos de propietario en la suscripción. 
+**Causa 1:** la cuenta usada no tiene permisos de propietario en la suscripción.
 
 **Corrección 1:** un usuario con permisos de propietario debe ejecutar la asignación de roles. Como alternativa, el usuario debe tener asignado el rol de administrador de acceso de usuario para asignar un usuario a un grupo de aplicaciones.
 
@@ -60,7 +55,7 @@ New-AzRoleAssignment -SignInName "admins@contoso.com" -RoleDefinitionName "Deskt
 ### <a name="error-new-azwvdhostpool----the-location-is-not-available-for-resource-type"></a>Error: New-AzWvdHostPool: la ubicación no está disponible para el tipo de recurso
 
 ```powershell
-New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'. 
+New-AzWvdHostPool_CreateExpanded: The provided location 'southeastasia' is not available for resource type 'Microsoft.DesktopVirtualization/hostpools'. List of available regions for the resource type is 'eastus,eastus2,westus,westus2,northcentralus,southcentralus,westcentralus,centralus'.
 ```
 
 Causa: Windows Virtual Desktop permite seleccionar la ubicación de grupos de hosts, grupos de aplicaciones y áreas de trabajo para almacenar metadatos de servicio en determinadas ubicaciones. Las opciones están restringidas en función de dónde esté disponible la característica. Este error significa que la característica no está disponible en la ubicación que ha elegido.

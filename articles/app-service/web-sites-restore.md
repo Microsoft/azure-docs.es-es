@@ -5,12 +5,12 @@ ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c1b0ce62905424032c2100a1a032fa43ba97578f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74689242"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084864"
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar una aplicación en Azure
 En este artículo se muestra cómo restaurar una aplicación de [Azure App Service](../app-service/overview.md) de la que ha realizado previamente una copia de seguridad (consulte [Realizar una copia de seguridad de la aplicación en Azure](manage-backup.md)). Puede restaurar la aplicación con sus bases de datos vinculadas a petición a un estado anterior o crear una nueva aplicación basada en una copia de seguridad de la aplicación original. Azure App Service admite las siguientes bases de datos para copia de seguridad y restauración:
@@ -29,14 +29,14 @@ La restauración de las copias de seguridad está disponible para las aplicacion
     ![Elegir Restaurar ahora][ChooseRestoreNow]
 2. En la página **Restaurar**, seleccione primero el origen de la copia de seguridad.
    
-    ![](./media/web-sites-restore/021ChooseSource1.png)
+    ![Captura de pantalla que muestra dónde seleccionar el origen de copia de seguridad.](./media/web-sites-restore/021ChooseSource1.png)
    
     La opción **Copia de seguridad de aplicación** le muestra todas las copias de seguridad existentes de la aplicación actual y puede seleccionar una fácilmente.
     La opción **Almacenamiento** le permite seleccionar cualquier archivo ZIP de copia de seguridad de cualquier cuenta de Azure Storage y contenedor existente de su suscripción.
     Si está intentando restaurar una copia de seguridad de otra aplicación, use la opción **Almacenamiento** .
 3. A continuación, especifique el destino de la restauración de la aplicación en **Destino de restauración**.
    
-    ![](./media/web-sites-restore/022ChooseDestination1.png)
+    ![Captura de pantalla que muestra dónde especificar el destino para la restauración de la aplicación.](./media/web-sites-restore/022ChooseDestination1.png)
    
    > [!WARNING]
    > Si elige **Sobrescribir**, se borrarán y sobrescribirán todos los datos existentes de la aplicación actual. Antes de hacer clic en **Aceptar**, asegúrese de que es exactamente lo que desea.
@@ -77,7 +77,7 @@ La página de detalles muestra la información disponible relacionada con la ope
 
 ## <a name="automate-with-scripts"></a>Automatizar con scripts
 
-Puede automatizar la administración de copias de seguridad con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/overview).
+Puede automatizar la administración de copias de seguridad con scripts, mediante la [CLI de Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/).
 
 Para obtener ejemplos, vea:
 

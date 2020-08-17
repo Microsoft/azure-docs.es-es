@@ -2,14 +2,14 @@
 title: Selección de los tamaños de máquina virtual para grupos
 description: Cómo elegir uno de los tamaños de máquina virtual disponibles para los nodos de proceso en grupos de Azure Batch
 ms.topic: conceptual
-ms.date: 06/10/2020
+ms.date: 08/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e56632ce66cb25bf023813f2b98be6141f651465
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 9aef1fc21120401252d188b7373c6ce4139c71c4
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143527"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88005140"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Selección de un tamaño de máquina virtual para nodos de proceso en un grupo de Azure Batch
 
@@ -35,12 +35,12 @@ Los grupos de Batch en la configuración de máquina virtual son compatibles con
 | DC | None |
 | Dv2, DSv2 | Todos los tamaños |
 | Dv3, Dsv3 | Todos los tamaños |
-| Dav4<sup>1</sup> | Ninguno: no disponible todavía |
-| Dav4<sup>1</sup> | Todos los tamaños, excepto Standard_D48as_v4, Standard_D64as_v4 y Standard_D96as_v4 |
+| Dav4<sup>1</sup> | Todos los tamaños |
+| Dav4<sup>1</sup> | Todos los tamaños |
 | Ddv4, Ddsv4 |  Ninguno: no disponible todavía |
 | Ev3, Esv3 | Todos los tamaños, excepto E64is_v3 y E64i_v3 |
-| Eav4<sup>1</sup> | Todos los tamaños, excepto Standard_E48a_v4, Standard_E64a_v4 y Standard_E96a_v4 |
-| Easv4<sup>1</sup> | Todos los tamaños, excepto Standard_E48as_v4, Standard_E64as_v4 y Standard_E96as_v4 |
+| Eav4<sup>1</sup> | Todos los tamaños |
+| Easv4<sup>1</sup> | Todos los tamaños |
 | Edv4, Edsv4 |  Ninguno: no disponible todavía |
 | F, Fs | Todos los tamaños |
 | Fsv2 | Todos los tamaños |

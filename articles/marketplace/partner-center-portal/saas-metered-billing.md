@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 09d9ed5e008acd5354cc673e39365f59ab7f64e8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.openlocfilehash: d6c46575ed497c5067b3ffc5c745e79f814bc212
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86109185"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87304384"
 ---
 # <a name="metered-billing-using-the-marketplace-metering-service"></a>Facturación según uso con el servicio de medición de Marketplace
 

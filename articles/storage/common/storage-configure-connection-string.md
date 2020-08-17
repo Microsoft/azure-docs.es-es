@@ -6,22 +6,22 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 26faad0bb8aeb8dff693eea4cb9d47e0df1814b4
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 30e8bd7fda08795ecc1aa78b0d2507e7c915ad0d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027346"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087261"
 ---
 # <a name="configure-azure-storage-connection-strings"></a>Configuración de las cadenas de conexión de Azure Storage
 
 Una cadena de conexión incluye la información de autorización que requiere la aplicación para acceder a los datos de una cuenta de Azure Storage en tiempo de ejecución mediante autorización de clave compartida. Las cadenas de conexión se pueden configurar para:
 
-* Conectarse al emulador de Azure Storage.
+* Conectarse al emulador de almacenamiento Azurite.
 * Acceder a la cuenta de Azure Storage.
 * Acceder a recursos especificados en Azure a través de una firma de acceso compartido (SAS).
 
@@ -37,15 +37,15 @@ La aplicación necesita acceder a la cadena de conexión en tiempo de ejecución
 * Una aplicación que se ejecuta en el escritorio o en un dispositivo puede almacenar la cadena de conexión en un archivo **app.config** o **web.config**. Agregue la cadena de conexión a la sección **AppSettings** en estos archivos.
 * Una aplicación que se ejecuta en un servicio en la nube de Azure puede almacenar la cadena de conexión en el [archivo de esquema de configuración de servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/ee758710.aspx). Agregue la cadena de conexión a la sección **ConfigurationSettings** del archivo de configuración del servicio.
 
-El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el emulador de Storage y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
+El almacenamiento de la cadena de conexión en un archivo de configuración facilita la actualización de la cadena de conexión para que alterne entre el [emulador de almacenamiento Azurite](../common/storage-use-azurite.md) y una cuenta de Azure Storage en la nube. Solo necesitará editar la cadena de conexión para apuntar al entorno de destino.
 
 Puede usar el [Administrador de configuración de Microsoft Azure](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/) para acceder a la cadena de conexión en tiempo de ejecución independientemente de dónde se ejecute la aplicación.
 
-## <a name="configure-a-connection-string-for-the-storage-emulator"></a>Configuración de una cadena de conexión para el emulador de almacenamiento
+## <a name="configure-a-connection-string-for-azurite"></a>Configuración de una cadena de conexión para Azurite
 
 [!INCLUDE [storage-emulator-connection-string-include](../../../includes/storage-emulator-connection-string-include.md)]
 
-Para más información acerca del emulador de Storage, consulte [Uso del emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md).
+Para obtener más información sobre Azurite, consulte [Uso del emulador de Azurite para el desarrollo local de Azure Storage](../common/storage-use-azurite.md).
 
 ## <a name="configure-a-connection-string-for-an-azure-storage-account"></a>Configuración de una cadena de conexión para una cuenta de Azure Storage
 
@@ -140,6 +140,6 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Uso del emulador de Azure Storage para desarrollo y pruebas](storage-use-emulator.md)
+* [Uso del emulador Azurite para el desarrollo local de Azure Storage](../common/storage-use-azurite.md)
 * [Exploradores de Azure Storage](storage-explorers.md)
 * [Uso de firmas de acceso compartido (SAS)](storage-sas-overview.md)

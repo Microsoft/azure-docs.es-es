@@ -1,17 +1,17 @@
 ---
-title: Creación de una instancia de Azure Data Catalog
+title: 'Inicio rápido: Creación de una instancia de Azure Data Catalog'
 description: En este inicio rápido, se describe cómo crear una instancia de Azure Data Catalog mediante Azure Portal.
 author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: e37bd22e0bd0f750ef7b4ae9cc8465ed5292883e
-ms.sourcegitcommit: 95269d1eae0f95d42d9de410f86e8e7b4fbbb049
+ms.openlocfilehash: e08527ae530b7b5ed5e5293a3af9e2d8dd3f795a
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83860994"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88118797"
 ---
 # <a name="quickstart-create-an-azure-data-catalog"></a>Inicio rápido: Creación de una instancia de Azure Data Catalog
 

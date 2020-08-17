@@ -1,25 +1,32 @@
 ---
-title: Conversión de datos JSON con transformaciones Liquid
-description: Creación de transformaciones o asignaciones para transformaciones JSON avanzadas mediante Logic Apps y una plantilla Liquid
+title: Conversión de JSON y XML con plantillas de Liquid
+description: Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, logicappspm
+ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 04/01/2020
-ms.openlocfilehash: d2598dfe9d7972dcb764abf4a1239613a1e8417a
-ms.sourcegitcommit: 2d7910337e66bbf4bd8ad47390c625f13551510b
+ms.date: 07/31/2020
+ms.openlocfilehash: 5aa6b3717925146607f3785ad5ea5fb940e8c236
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80879180"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503412"
 ---
-# <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Realización de transformaciones JSON avanzadas con plantillas Liquid en Azure Logic Apps
+# <a name="transform-json-and-xml-using-liquid-templates-as-maps-in-azure-logic-apps"></a>Transformación de JSON y XML usando plantillas de Liquid como asignaciones en Azure Logic Apps
 
-Puede realizar transformaciones JSON básicas en las aplicaciones lógicas mediante acciones de operación de datos nativas como **Redactar** o **Análisis del archivo JSON**. Para llevar a cabo transformaciones JSON avanzadas, puede crear plantillas o asignaciones con [Liquid](https://shopify.github.io/liquid/), que es un lenguaje de plantilla de código abierto para aplicaciones web flexibles. Una plantilla de Liquid define cómo transformar la salida JSON y admite transformaciones JSON más complejas, como iteraciones, flujos de control, variables, etc.
+Cuando quiera realizar transformaciones JSON básicas en las aplicaciones lógicas, puede usar [operaciones de datos](../logic-apps/logic-apps-perform-data-operations.md) nativas, como **Compose** (Redactar) o **Parse JSON** (Analizar JSON). En las transformaciones de JSON a JSON avanzadas y complejas que tienen elementos, como iteraciones, flujos de control y variables, cree y use plantillas que describan estas transformaciones mediante [Liquid](https://shopify.github.io/liquid/), el lenguaje de plantilla de código abierto. También puede [realizar otras transformaciones](#other-transformations), por ejemplo, JSON a texto, XML a JSON y XML a texto.
 
-Por lo tanto, para realizar una transformación de Liquid en la aplicación lógica, primero debe definir la asignación de JSON a JSON con una plantilla de Liquid y almacenarla en la cuenta de integración. En este artículo se muestra cómo crear y usar esta plantilla o asignación de Liquid.
+Antes de poder realizar una transformación Liquid en la aplicación lógica, primero debe crear una plantilla de Liquid que defina la asignación que quiere. Luego, [cargue la plantilla como un asignación](../logic-apps/logic-apps-enterprise-integration-maps.md) en la [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md). Al agregar la acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) a la aplicación lógica, puede seleccionar la plantilla de Liquid como asignación de la acción que se va a usar.
+
+En este artículo se muestra cómo completar estas tareas:
+
+* Crear una plantilla de Liquid.
+* Agregar la plantilla a la cuenta de integración.
+* Agregar la acción de transformación Liquid a la aplicación lógica.
+* Seleccionar la plantilla como la asignación que se quiere usar.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -27,20 +34,22 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md) básica
+* Una [cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md).
 
 * Conocimientos básicos sobre el [lenguaje de plantilla de Liquid](https://shopify.github.io/liquid/)
 
-## <a name="create-liquid-template-or-map-for-your-integration-account"></a>Creación de una plantilla o asignación de Liquid para la cuenta de integración
+  > [!NOTE]
+  > La acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) sigue la [implementación DotLiquid para Liquid](https://github.com/dotliquid/dotliquid), que, en determinados casos, difiere de la [implementación Shopify para Liquid](https://shopify.github.io/liquid). Para más información, consulte [Consideraciones sobre las plantillas de Liquid](#template-considerations).
 
-1. Para este ejemplo, cree la plantilla de Liquid que aquí se describe. En la plantilla de Liquid, puede usar los [filtros de Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), que usan [DotLiquid](https://github.com/dotliquid/dotliquid) y las convenciones de nomenclatura de C#.
+## <a name="create-the-template"></a>Creación de la plantilla
 
-   > [!NOTE]
-   > Asegúrese de que los nombres de filtro usan *mayúscula al principio de la oración* en la plantilla. De lo contrario, los filtros no funcionarán. Además, las asignaciones tienen [límites de tamaño de archivo](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits).
+1. Cree la plantilla de Liquid que va a usar como asignación de la transformación JSON. Puede usar la herramienta de edición que prefiera.
+
+   En este ejemplo, cree la plantilla de Liquid de ejemplo que se describe en esta sección:
 
    ```json
    {%- assign deviceList = content.devices | Split: ', ' -%}
-   
+
    {
       "fullName": "{{content.firstName | Append: ' ' | Append: content.lastName}}",
       "firstNameUpperCase": "{{content.firstName | Upcase}}",
@@ -52,12 +61,18 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
             {%- else -%}
             "{{device}}",
             {%- endif -%}
-        {%- endfor -%}
-        ]
+         {%- endfor -%}
+      ]
    }
    ```
 
-1. En [Azure Portal](https://portal.azure.com), en el cuadro de búsqueda de Azure, escriba `integration accounts` y seleccione **Cuentas de integración**.
+1. Guarde la plantilla con la extensión `.liquid`. En este ejemplo se usa `SimpleJsonToJsonTemplate.liquid`.
+
+## <a name="upload-the-template"></a>Carga de la plantilla
+
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con sus credenciales de su cuenta de Azure.
+
+1. En el cuadro de búsqueda de Azure Portal, escriba `integration accounts` y seleccione **Cuentas de integración**.
 
    ![Buscar "cuentas de integración"](./media/logic-apps-enterprise-integration-liquid-transform/find-integration-accounts.png)
 
@@ -71,16 +86,16 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 
 1. En el panel **Asignaciones**, seleccione **Agregar** y proporcione estos detalles para la asignación:
 
-   | Propiedad | Value | Descripción | 
+   | Propiedad | Value | Descripción |
    |----------|-------|-------------|
-   | **Nombre** | `JsonToJsonTemplate` | Nombre de la asignación, que es "JsonToJsonTemplate" en este ejemplo | 
-   | **Tipo de asignación** | **liquid** | Tipo de la asignación. Para la transformación de JSON a JSON, debe seleccionar **liquid**. | 
+   | **Nombre** | `JsonToJsonTemplate` | Nombre de la asignación, que es "JsonToJsonTemplate" en este ejemplo |
+   | **Tipo de asignación** | **liquid** | Tipo de la asignación. Para la transformación de JSON a JSON, debe seleccionar **liquid**. |
    | **Map** | `SimpleJsonToJsonTemplate.liquid` | Archivo de asignación o plantilla de Liquid existente para su uso en la transformación, "SimpleJsonToJsonTemplate.liquid" en este ejemplo. Puede usar el selector de archivos para buscar el archivo. Para conocer los límites de tamaño de las asignaciones, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits). |
-   ||| 
+   |||
 
    ![Adición de la plantilla de Liquid](./media/logic-apps-enterprise-integration-liquid-transform/add-liquid-template.png)
-    
-## <a name="add-the-liquid-action-for-json-transformation"></a>Agregar la acción Liquid a la transformación JSON
+
+## <a name="add-the-liquid-transformation-action"></a>Adición de la acción de transformación de Liquid
 
 1. En Azure Portal, siga estos pasos para [crear una aplicación lógica en blanco](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -94,7 +109,7 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 
    ![Selección de asignación](./media/logic-apps-enterprise-integration-liquid-transform/select-map.png)
 
-   Si la lista de asignaciones está vacía, probablemente, la aplicación lógica no está vinculada a la cuenta de integración. 
+   Si la lista de asignaciones está vacía, es probable que la aplicación lógica no esté vinculada a la cuenta de integración. 
    Para vincular la aplicación lógica a la cuenta de integración que tiene la plantilla o asignación Liquid, siga estos pasos:
 
    1. En el menú de la aplicación lógica, seleccione **Configuración del flujo de trabajo**.
@@ -117,51 +132,119 @@ Por lo tanto, para realizar una transformación de Liquid en la aplicación lóg
 
 ## <a name="test-your-logic-app"></a>Comprobación de la aplicación lógica
 
-Publique la entrada JSON en la aplicación lógica desde [Postman](https://www.getpostman.com/postman) u otra herramienta similar. La salida JSON transformada de la aplicación lógica tiene este aspecto:
-  
+Publique la entrada JSON en la aplicación lógica mediante [Postman](https://www.getpostman.com/postman) o una herramienta parecida. La salida JSON transformada de la aplicación lógica tiene este aspecto:
+
 ![Salida de ejemplo](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontojson.png)
 
-## <a name="more-liquid-action-examples"></a>Más ejemplos de acciones Liquid
-Liquid no está limitado únicamente a transformaciones JSON. Estos son otras acciones de transformación disponibles que utilizan Liquid.
+<a name="template-considerations"></a>
 
-* Transformación de JSON en texto
-  
-  Esta es la plantilla Liquid utilizada en este ejemplo:
-   
-   ``` json
-   {{content.firstName | Append: ' ' | Append: content.lastName}}
-   ```
-   Estas son las salidas y entradas de ejemplo:
-  
-   ![Ejemplo de salida JSON a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+## <a name="liquid-template-considerations"></a>Consideraciones sobre las plantillas de Liquid
 
-* Transformación XML a JSON
-  
-  Esta es la plantilla Liquid utilizada en este ejemplo:
-   
-   ``` json
-   [{% JSONArrayFor item in content -%}
-        {{item}}
-    {% endJSONArrayFor -%}]
-   ```
-   Estas son las salidas y entradas de ejemplo:
+* Las plantillas de Liquid siguen los [límites de tamaño de archivo de las asignaciones](../logic-apps/logic-apps-limits-and-config.md#artifact-capacity-limits) de Azure Logic Apps.
 
-   ![Ejemplo de salida XML a JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+* La acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) sigue la [implementación DotLiquid para Liquid](https://github.com/dotliquid/dotliquid). Esta implementación es un puerto a .NET Framework desde la [implementación Shopify para Liquid](https://shopify.github.io/liquid/) y varía en [casos concretos](https://github.com/dotliquid/dotliquid/issues).
 
-* Transformación XML a texto
-  
-  Esta es la plantilla Liquid utilizada en este ejemplo:
+  Estas son las diferencias conocidas:
 
-   ``` json
-   {{content.firstName | Append: ' ' | Append: content.lastName}}
-   ```
+  * La acción **Transform JSON to JSON - Liquid** (Transformar de JSON a JSON: Liquid) genera de forma nativa una cadena, que puede incluir JSON, XML, HTML, etc. La acción de Liquid solo indica que la salida de texto esperada de la plantilla de Liquid es una cadena JSON. La acción indica a la aplicación lógica que analice la entrada como un objeto JSON y que aplique un contenedor para que Liquid pueda interpretar la estructura JSON. Después de la transformación, la acción indica a la aplicación lógica que analice la salida de texto de Liquid a JSON.
 
-   Estas son las salidas y entradas de ejemplo:
+    DotLiquid no comprende JSON de forma nativa, por lo que debe asegurarse de escapar el carácter de barra diagonal inversa (`\`) y cualquier otro carácter JSON reservado.
 
-   ![Ejemplo de salida XML a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
+  * Si la plantilla usa [filtros de Liquid](https://shopify.github.io/liquid/basics/introduction/#filters), asegúrese de seguir las [convenciones de nomenclatura de DotLiquid y C#](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers#filter-and-output-casing), que usan *mayúscula al principio de la oración*. En todas las transformaciones Liquid, asegúrese de que los nombres de los filtros de la plantilla también usen mayúscula al principio. De lo contrario, los filtros no funcionarán.
+
+    Por ejemplo, al usar el filtro `replace`, use `Replace`, no `replace`. La misma regla se aplica si se prueban ejemplos en [DotLiquid online](http://dotliquidmarkup.org/try-online). Para más información, consulte [Filtros de Liquid para Shopify](https://shopify.dev/docs/themes/liquid/reference/filters) y [Filtros de Liquid para DotLiquid](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Developers#create-your-own-filters). La especificación Shopify incluye ejemplos para cada filtro, por lo que, para realizar comparaciones, puede probar estos ejemplos en [Probar DotLiquid en línea](https://dotliquidmarkup.org/try-online).
+
+  * Actualmente, el filtro `json` de los filtros de extensión Shopify [no está implementado en DotLiquid](https://github.com/dotliquid/dotliquid/issues/384). Normalmente, este filtro se usaría para preparar la salida de texto para el análisis de cadenas JSON; en cambio, debe usar el filtro `Replace`.
+
+  * El filtro `Replace` estándar de la [implementación DotLiquid](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L425) usa la [coincidencia de expresiones regulares (RegEx)](/dotnet/standard/base-types/regular-expression-language-quick-reference), mientras que la [implementación Shopify](https://shopify.github.io/liquid/filters/replace/) usa la [coincidencia de cadenas simples](https://github.com/Shopify/liquid/issues/202). Ambas implementaciones parecen funcionar de la misma manera hasta que se usa un carácter reservado de RegEx o un carácter de escape en el parámetro match.
+
+    Por ejemplo, para escapar el carácter de escape reservado de barra diagonal inversa de RegEx (`\`), use `| Replace: '\\', '\\'` y no `| Replace: '\', '\\'`. En estos ejemplos se muestra que el filtro `Replace` se comporta de forma diferente cuando se intenta escapar el carácter de barra diagonal inversa. Aunque esta versión funciona correctamente:
+
+    `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\\', '\\' | Replace: '"', '\"'}}"}`
+
+    Con este resultado:
+
+    `{ "SampleText": "The quick brown fox \"jumped\" over the sleeping dog\\\\"}`
+
+    Esta versión no funciona bien:
+
+    `{ "SampleText": "{{ 'The quick brown fox "jumped" over the sleeping dog\\' | Replace: '\', '\\' | Replace: '"', '\"'}}"}`
+
+    Con este error:
+
+    `{ "SampleText": "Liquid error: parsing "\" - Illegal \ at end of pattern."}`
+
+    Para más información, consulte [El filtro estándar Replace usa la coincidencia de patrones de RegEx...](https://github.com/dotliquid/dotliquid/issues/385).
+
+  * El filtro `Sort` de la [implementación DotLiquid](https://github.com/dotliquid/dotliquid/blob/b6a7d992bf47e7d7dcec36fb402f2e0d70819388/src/DotLiquid/StandardFilters.cs#L326) ordena los elementos de una matriz o colección por propiedad, pero con estas diferencias:<p>
+
+    * Sigue el [comportamiento sort_natural de Shopify](https://shopify.github.io/liquid/filters/sort_natural/), no el [comportamiento de ordenación de Shopify](https://shopify.github.io/liquid/filters/sort/).
+
+    * Solo ordena en orden alfanumérico de cadena. Para más información, consulte [Ordenación numérica](https://github.com/Shopify/liquid/issues/980).
+
+    * Usa el orden *distinguir mayúsculas de minúsculas*, no el orden que no realiza esta distinción. Para más información, consulte [El filtro Sort no sigue el comportamiento de mayúsculas/minúsculas de la especificación de Shopify]( https://github.com/dotliquid/dotliquid/issues/393).
+
+<a name="other-transformations"></a>
+
+## <a name="other-transformations-using-liquid"></a>Otras transformaciones mediante Liquid
+
+Liquid no se limita únicamente a transformaciones JSON. También puede usar Liquid para realizar otras transformaciones, por ejemplo:
+
+* [JSON a texto](#json-text)
+* [XML a JSON](#xml-json)
+* [XML a texto](#xml-text)
+
+<a name="json-text"></a>
+
+### <a name="transform-json-to-text"></a>Transformación de JSON en texto
+
+Esta es la plantilla de Liquid utilizada en este ejemplo:
+
+```json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+Estas son las salidas y entradas de ejemplo:
+
+![Ejemplo de salida JSON a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-jsontotext.png)
+
+<a name="xml-json"></a>
+
+### <a name="transform-xml-to-json"></a>Transformación XML a JSON
+
+Esta es la plantilla de Liquid utilizada en este ejemplo:
+
+``` json
+[{% JSONArrayFor item in content -%}
+      {{item}}
+  {% endJSONArrayFor -%}]
+```
+
+El bucle `JSONArrayFor` es un mecanismo de bucle personalizado para la entrada XML, de forma que puede crear cargas JSON que eviten una coma final. Además, la condición `where` de este mecanismo de bucle personalizado utiliza el nombre del elemento XML para la comparación, en lugar del valor del elemento como sucede con otros filtros Liquid. Para más información, consulte [Profundización en la directiva set-body: colecciones de cosas](https://azure.microsoft.com/blog/deep-dive-on-set-body-policy).
+
+Estas son las salidas y entradas de ejemplo:
+
+![Ejemplo de salida XML a JSON](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltojson.png)
+
+<a name="xml-text"></a>
+
+### <a name="transform-xml-to-text"></a>Transformación XML a texto
+
+Esta es la plantilla de Liquid utilizada en este ejemplo:
+
+``` json
+{{content.firstName | Append: ' ' | Append: content.lastName}}
+```
+
+Estas son las salidas y entradas de ejemplo:
+
+![Ejemplo de salida XML a texto](./media/logic-apps-enterprise-integration-liquid-transform/example-output-xmltotext.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información acerca de Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Información sobre Enterprise Integration Pack")  
-* [Más información sobre las asignaciones](../logic-apps/logic-apps-enterprise-integration-maps.md "Información sobre las asignaciones de integración empresarial")  
-
+* [Lenguaje y ejemplos de Liquid para Shopify](https://shopify.github.io/liquid/basics/introduction/)
+* [DotLiquid](http://dotliquidmarkup.org/)
+* [Probar DotLiquid en línea](https://dotliquidmarkup.org/try-online)
+* [DotLiquid en GitHub](https://github.com/dotliquid/dotliquid)
+* [Problemas de DotLiquid en GitHub](https://github.com/dotliquid/dotliquid/issues/)
+* Más información sobre las [asignaciones](../logic-apps/logic-apps-enterprise-integration-maps.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
-ms.openlocfilehash: 5d0eee6b89ec3e0be944f17c361aafa598724069
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bc29a62f469b0b9d091fcdef2488afba764a09fe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042125"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080359"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Características y extensiones de las máquinas virtuales para Linux
 
@@ -32,7 +32,7 @@ Este artículo proporciona información general sobre las extensiones de máquin
 Varias extensiones de máquina virtual de Azure diferentes están disponibles, cada una con un caso de uso específico. Estos son algunos ejemplos:
 
 - Aplique configuraciones de estado deseado de PowerShell a una máquina virtual con la extensión DSC para Linux. Para obtener más información, consulte la sección sobre la [extensión de configuración de estado deseado de Azure](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
-- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para más información, consulte el artículo sobre la [supervisión de máquinas virtuales Linux](../linux/tutorial-monitoring.md).
+- Configure la supervisión de una máquina virtual con la extensión de máquina virtual de Microsoft Monitoring Agent. Para más información, consulte el artículo sobre la [supervisión de máquinas virtuales Linux](../linux/tutorial-monitor.md).
 - Configure la supervisión de su infraestructura de Azure con la extensión de Chef o Datadog. Para más información, consulte la [documentación de Chef](https://docs.chef.io/azure_portal.html) o el [blog de Datadog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 Además de las extensiones específicas de proceso, una extensión de script personalizado está disponible tanto para máquinas virtuales Windows como para máquinas virtuales Linux. La extensión de script personalizado para Linux permite que se ejecute cualquier script de Bash en una máquina virtual. Los scripts personalizados resultan útiles para diseñar implementaciones de Azure que requieren una configuración más allá de lo que las herramientas de Azure nativas pueden proporcionar. Para obtener más información, consulte la sección sobre la [extensión de script personalizado de máquina virtual Linux](custom-script-linux.md).
@@ -65,7 +65,7 @@ Los paquetes de extensiones se descargan del repositorio de extensiones de Azure
 > [!IMPORTANT]
 > Si bloqueó el acceso a *168.63.129.16* con el firewall invitado, las extensiones generarán un error con independencia de lo mencionado anteriormente.
 
-Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Los agentes solo se pueden usar para descargar los paquetes de extensiones e informar el estado. Por ejemplo, si la instalación de una extensión requiere descargar un script de GitHub (script personalizado) o necesita acceso a Azure Storage (Azure Backup), se deben abrir puertos adicionales del firewall o del grupo de seguridad de red. Distintas extensiones tienen distintos requisitos, porque son aplicaciones por sí mismas. En el caso de las extensiones que requieren acceso a Azure Storage, puede permitir el acceso mediante las etiquetas del servicio NSG de Azure para [Storage](../../virtual-network/security-overview.md#service-tags).
 
 Para redirigir las solicitudes de tráfico del agente, el agente Linux es compatible con el servidor proxy. Sin embargo, esta compatibilidad con el servidor proxy no se aplica a las extensiones. Debe configurar cada extensión individual para que funcione con un servidor proxy.
 
@@ -259,7 +259,7 @@ En la salida del ejemplo anterior, el proceso primario o la "versión implementa
 
 "Goal state agent" es la versión de actualización automática.
 
-Se recomienda que siempre tenga activada la actualización automática del agente, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Si no tiene habilitada esta opción, debe seguir actualizando de manera manual el agente y así no recibirá las correcciones de errores y de seguridad.
+Se recomienda que siempre tenga activada la actualización automática del agente, [AutoUpdate.Enabled=y](./update-linux-agent.md). Si no tiene habilitada esta opción, debe seguir actualizando de manera manual el agente y así no recibirá las correcciones de errores y de seguridad.
 
 #### <a name="extension-updates"></a>Actualizaciones de extensiones
 

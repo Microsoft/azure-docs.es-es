@@ -3,12 +3,12 @@ title: ¿Qué es Language Understanding (LUIS)?
 description: Language Understanding (LUIS) es un servicio de API basado en la nube que aplica inteligencia de aprendizaje automático personalizado a una conversación o un texto de lenguaje natural de un usuario para predecir el significado global y extraer información pertinente y detallada.
 ms.topic: overview
 ms.date: 05/05/2020
-ms.openlocfilehash: 26e1dfd5a610be9470d05080ca1559eec47196ab
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 231a6580a6776b82173865744e9e8757c2fa08f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83675979"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86538044"
 ---
 # <a name="what-is-language-understanding-luis"></a>¿Qué es Language Understanding (LUIS)?
 
@@ -61,7 +61,7 @@ El modelo de LUIS comienza con categorías de intenciones del usuario llamadas *
 
 ## <a name="query-prediction-endpoint"></a>Consulta de un punto de conexión de predicción
 
-Después de que la aplicación se ha entrenado y publicado en el punto de conexión, la aplicación cliente envía expresiones a la API del [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) de predicción. La API aplica la aplicación a la expresión para su análisis y responde con los resultados de predicción en formato JSON.
+Después de que la aplicación se ha entrenado y publicado en el punto de conexión, la aplicación cliente envía expresiones a la API del [punto de conexión](https://go.microsoft.com/fwlink/?linkid=2092356) de predicción. La API aplica el modelo a la expresión para su análisis y responde con los resultados de la predicción en formato JSON.
 
 La respuesta en formato JSON del punto de conexión contiene como mínimo la expresión de consulta y la intención con mayor puntuación. También puede extraer datos, como la siguiente entidad **Tipo de contacto** y la opinión general.
 

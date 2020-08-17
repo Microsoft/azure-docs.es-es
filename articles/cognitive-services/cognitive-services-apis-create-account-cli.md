@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 10/04/2019
+ms.date: 07/27/2020
 ms.author: aahi
-ms.openlocfilehash: 72b00d78d19ed0e963b4dad01b82033c659e1efd
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: b77d69248059a494d823afcd149382dd52b0e49d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84704716"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317134"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Creación de un recurso de Cognitive Services mediante la interfaz de la línea de comandos (CLI) de Azure
 
@@ -58,7 +58,7 @@ az account list-locations \
     --out table
 ```
 
-Una vez que tenga su ubicación de Azure, cree un nuevo grupo de recursos en la CLI de Azure mediante el comando [az group create](/cli/azure/group#az-group-create).
+Una vez que tenga su ubicación de Azure, cree un grupo de recursos en la CLI de Azure mediante el comando [az group create](/cli/azure/group#az-group-create).
 
 En el ejemplo que tiene a continuación, reemplace la ubicación de Azure `westus2` con una de las ubicaciones de Azure disponibles para su suscripción.
 
@@ -151,6 +151,8 @@ az cognitiveservices account create \
     --location westus2 \
     --yes
 ```
+
+[!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Obtención de las claves del recurso
 

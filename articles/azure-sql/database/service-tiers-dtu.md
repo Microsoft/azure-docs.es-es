@@ -4,19 +4,19 @@ description: Obtenga información acerca de los niveles de servicio en el modelo
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
-ms.custom: ''
+ms.custom: references_regions
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 11/26/2019
-ms.openlocfilehash: 7ca106e076bc789e8435b9e67d6bffa20af8a635
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fbf753436a259993f6869372ae3ba7272f2a181a
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539183"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541709"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Niveles de servicio en el modelo de compra basado en DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,15 +36,14 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 
 ||Básico|Estándar|Premium|
 | :-- | --: |--:| --:|
-|Carga de trabajo de destino|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción|
-|Acuerdo de Nivel de Servicio de tiempo de actividad|99,99%|99,99%|99,99%|
-|Retención de copia de seguridad máxima|7 días|35 días|35 días|
-|CPU|Bajo|Bajo, medio, alto|Medio, alto|
-|Rendimiento de E/S (aproximado) |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
-|Latencia de E/S (aproximada)|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
-|Índice de almacén de columnas |N/D|S3 y versiones posteriores|Compatible|
-|OLTP en memoria (optimización en memoria|N/D|N/D|Compatible|
-|||||
+|**Carga de trabajo de destino**|Desarrollo y producción|Desarrollo y producción|Desarrollo y producción|
+|**SLA de tiempo de actividad**|99,99%|99,99%|99,99%|
+|**Retención de copia de seguridad máxima**|7 días|35 días|35 días|
+|**CPU**|Bajo|Bajo, medio, alto|Medio, alto|
+|**Rendimiento de E/S (aproximado)** |1 a 5 IOPS por DTU| 1 a 5 IOPS por DTU | 25 IOPS por DTU|
+|**Latencia de E/S (aproximada)**|5 ms (lectura), 10 ms (escritura)|5 ms (lectura), 10 ms (escritura)|2 ms (lectura/escritura)|
+|**Índice de almacén de columnas** |N/D|S3 y versiones posteriores|Compatible|
+|**OLTP en memoria**|N/D|N/D|Compatible|
 
 > [!IMPORTANT]
 > Los niveles de servicio Básico, Estándar S0, S1 y S2 proporcionan menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
@@ -59,28 +58,26 @@ La selección de un nivel de servicio depende sobre todo de los requisitos de co
 
 Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para obtener más información sobre DTU y eDTU, consulte [Modelo de compra basado en DTU](purchasing-models.md#dtu-based-purchasing-model).
 
-|Básico|Estándar|Premium|
+||Básico|Estándar|Premium|
 | :-- | --: | --: | --: |
-| Tamaño máximo de almacenamiento | 2 GB | 1 TB | 4 TB  |
-| Cantidad máxima de DTU | 5 | 3000 | 4000 | 
-|||||
+| **Tamaño máximo de almacenamiento** | 2 GB | 1 TB | 4 TB  |
+| **Cantidad máxima de DTU** | 5 | 3000 | 4000 |
 
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para obtener más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>Límites de eDTU de grupo elástico, almacenamiento y base de datos agrupada
 
-| **Basic** | **Estándar** | **Premium** |
+|| **Basic** | **Estándar** | **Premium** |
 | :-- | --: | --: | --: |
-| Tamaño máximo de almacenamiento por base de datos  | 2 GB | 1 TB | 1 TB |
-| Tamaño máximo de almacenamiento por grupo | 156 GB | 4 TB | 4 TB |
-| Cantidad máxima de eDTU por base de datos | 5 | 3000 | 4000 |
-| Cantidad máxima de eDTU por grupo | 1600 | 3000 | 4000 |
-| Cantidad máxima de bases de datos por grupo | 500  | 500 | 100 |
-|||||
+| **Tamaño máximo de almacenamiento por base de datos**  | 2 GB | 1 TB | 1 TB |
+| **Tamaño máximo de almacenamiento por grupo** | 156 GB | 4 TB | 4 TB |
+| **Cantidad máxima de eDTU por base de datos** | 5 | 3000 | 4000 |
+| **Cantidad máxima de eDTU por grupo** | 1600 | 3000 | 4000 |
+| **Cantidad máxima de bases de datos por grupo** | 500  | 500 | 100 |
 
 > [!IMPORTANT]
-> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de US Gov En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania y Nordeste de Alemania. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
 > En algunas circunstancias, puede que deba reducir una base de datos para reclamar el espacio no utilizado. Para más información, consulte [Administración del espacio de archivo en Azure SQL Database](file-space-manage.md).
 

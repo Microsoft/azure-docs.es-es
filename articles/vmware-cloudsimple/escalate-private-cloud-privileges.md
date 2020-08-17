@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 63dc18c522a1e2e3b03bdf806945e0be67774b18
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 628824a3d303184e199452b0974c7f99d99a4933
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81870473"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998959"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>Escalar privilegios de nube privada en vCenter desde el portal de CloudSimple
 
 Para obtener acceso administrativo a vCenter de su nube privada, puede escalar temporalmente sus privilegios de CloudSimple.  Con privilegios elevados, puede instalar soluciones de VMware, agregar orígenes de identidad y administrar usuarios.
 
-Los nuevos usuarios se pueden crear en el dominio de inicio de sesión único (SSO) de vCenter, y puede concederles acceso a vCenter.  Al crear nuevos usuarios, agréguelos a los grupos integrados de CloudSimple para acceder a vCenter.  Para más información, consulte [CloudSimple Private Cloud permission model of VMware vCenter](https://docs.microsoft.com/azure/vmware-cloudsimple/learn-private-cloud-permissions/) (Modelo de permisos de la nube privada de VMware vCenter de CloudSimple).
+Los nuevos usuarios se pueden crear en el dominio de inicio de sesión único (SSO) de vCenter, y puede concederles acceso a vCenter.  Al crear nuevos usuarios, agréguelos a los grupos integrados de CloudSimple para acceder a vCenter.  Para más información, consulte [CloudSimple Private Cloud permission model of VMware vCenter](./learn-private-cloud-permissions.md) (Modelo de permisos de la nube privada de VMware vCenter de CloudSimple).
 
 > [!CAUTION]
 > No haga ningún cambio de configuración en los componentes de administración. Las acciones realizadas durante el estado con privilegios aumentados pueden afectar negativamente a su sistema, o pueden hacer que el sistema deje de estar disponible.
@@ -88,5 +88,5 @@ Después de completas las tareas administrativas, debe anular el escalado de pri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Set up vCenter identity sources to use Active Directory](https://docs.microsoft.com/azure/vmware-cloudsimple/set-vcenter-identity/) (Configurar orígenes de identidad de vCenter para usar Active Directory)
-* Instalar la solución de copia de seguridad para [copia de seguridad de máquinas virtuales de cargas de trabajo](https://docs.microsoft.com/azure/vmware-cloudsimple/backup-workloads-veeam/)
+* [Set up vCenter identity sources to use Active Directory](./set-vcenter-identity.md) (Configurar orígenes de identidad de vCenter para usar Active Directory)
+* Instalar la solución de copia de seguridad para [copia de seguridad de máquinas virtuales de cargas de trabajo](./backup-workloads-veeam.md)

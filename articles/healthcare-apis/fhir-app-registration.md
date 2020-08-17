@@ -5,16 +5,16 @@ services: healthcare-apis
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: overview
-ms.reviewer: mihansen
+ms.reviewer: dseven
 ms.author: matjazl
 author: matjazl
 ms.date: 10/13/2019
-ms.openlocfilehash: d46280c5009769a9a1962cc0bbb489872a815556
-ms.sourcegitcommit: 668b3480cb637c53534642adcee95d687578769a
+ms.openlocfilehash: 22f31cf3911b5ea24e8798fb226e389071fadd0b
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2020
-ms.locfileid: "84819958"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848985"
 ---
 # <a name="register-the-azure-active-directory-apps-for-azure-api-for-fhir"></a>Registro de aplicaciones de Azure Active Directory para Azure API for FHIR
 

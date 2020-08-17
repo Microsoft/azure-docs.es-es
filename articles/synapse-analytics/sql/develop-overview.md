@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba6ceec3064c5c876ca899ab58881e23913b9701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81426768"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070051"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisiones de diseño y técnicas de codificación para características de SQL de Synapse en Azure Synapse Analytics
 En este artículo, encontrará una lista de recursos para las funciones del grupo de SQL y SQL a petición (versión preliminar) de SQL de Synapse. Los artículos recomendados se dividen en dos secciones: Decisiones de diseño clave y técnicas de codificación y desarrollo.
@@ -25,8 +25,8 @@ El objetivo de estos artículos es ayudarle a desarrollar el enfoque técnico ó
 ## <a name="key-design-decisions"></a>Decisiones de diseño clave
 En los artículos siguientes se resaltan los conceptos y las decisiones de diseño para el desarrollo de SQL de Synapse:
 
-|                                                          |   Grupo de SQL   | SQL a petición |
-| -----------------------------------------------------    | ---- | ---- |
+| Artículo | Grupo de SQL | SQL a petición |
+| ------- | -------- | ------------- |
 | [Conexiones](connect-overview.md)                    | Sí | Sí |
 | [Clases de recursos y simultaneidad](../sql-data-warehouse/resource-classes-for-workload-management.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) | Sí    | No |
 | [Transactions](develop-transactions.md)              | Sí | No |
@@ -44,8 +44,8 @@ En los artículos siguientes se resaltan los conceptos y las decisiones de dise�
 
 A continuación encontrará artículos esenciales que resaltan las técnicas de codificación, las sugerencias y las recomendaciones específicas para el desarrollo:
 
-|                                            | Grupo de SQL | SQL a petición |
-| ------------------------------------------ | ------------------ | ----------------------- |
+| Artículo | Grupo de SQL | SQL a petición |
+| ------- | -------- | ------------- |
 | [procedimientos almacenados](develop-stored-procedures.md)  | Sí                | No                      |
 | [Etiquetas](develop-label.md)                           | Sí                | No                      |
 | [Vistas](develop-views.md)                             | Sí                | Sí                     |

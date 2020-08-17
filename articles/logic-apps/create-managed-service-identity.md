@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 190cc74bc2967cdee7f3154e0d6a6fedd8ee90dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9c5de4fb4e38d3f9ccb79c89be988fe0bbebc3c
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565042"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760301"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar el acceso a los recursos de Azure mediante identidades administradas en Azure Logic Apps
 
@@ -197,7 +197,7 @@ Para automatizar la creación e implementación de los recursos de Azure, tales 
 
 * Un objeto `identity` con la propiedad `type` establecida en `UserAssigned`.
 
-* Un objeto `userAssignedIdentities` secundario que especifique el identificador de recurso de la identidad, que sea otro objeto secundario con las propiedades `principalId` y `clientId`.
+* Objeto secundario `userAssignedIdentities` que especifica el nombre y el recurso asignados por el usuario.
 
 En este ejemplo se muestra una definición de recurso de aplicación lógica para una solicitud HTTP PUT y se incluye un objeto `identity` no parametrizado. La respuesta a la solicitud PUT y la operación GET subsiguiente también tienen este objeto `identity`:
 
@@ -215,10 +215,7 @@ En este ejemplo se muestra una definición de recurso de aplicación lógica par
          "identity": {
             "type": "UserAssigned",
             "userAssignedIdentities": {
-               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {
-                  "principalId": "<principal-ID>",
-                  "clientId": "<client-ID>"
-               }
+               "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource-group-name>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user-assigned-identity-name>": {}
             }
          },
          "properties": {
@@ -231,12 +228,6 @@ En este ejemplo se muestra una definición de recurso de aplicación lógica par
    "outputs": {}
 }
 ```
-
-| Propiedad (JSON) | Value | Descripción |
-|-----------------|-------|-------------|
-| `principalId` | <*principal-ID*> | Identificador único global (GUID) de la identidad administrada asignada por el usuario en el inquilino de Azure AD. |
-| `clientId` | <*client-ID*> | Identificador único global (GUID) de la nueva identidad de la aplicación lógica que se usa para las llamadas durante el tiempo de ejecución. |
-||||
 
 Si la plantilla también incluye la definición de recursos de la identidad administrada, puede parametrizar el objeto `identity`. En este ejemplo se muestra cómo el objeto secundario `userAssignedIdentities` hace referencia a una variable `userAssignedIdentity` que se define en la sección `variables` de la plantilla. Esta variable hace referencia al identificador de recurso de la identidad asignada por el usuario.
 
@@ -281,22 +272,11 @@ Si la plantilla también incluye la definición de recursos de la identidad admi
          "type": "Microsoft.ManagedIdentity/userAssignedIdentities",
          "name": "[parameters('Template_UserAssignedIdentityName')]",
          "location": "[resourceGroup().location]",
-         "properties": {
-            "tenantId": "<tenant-ID>",
-            "principalId": "<principal-ID>",
-            "clientId": "<client-ID>"
-         }
+         "properties": {}
       }
   ]
 }
 ```
-
-| Propiedad (JSON) | Value | Descripción |
-|-----------------|-------|-------------|
-| `tenantId` | <*Azure-AD-tenant-ID*> | Identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica hora es miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la identidad asignada por el usuario. |
-| `principalId` | <*principal-ID*> | Identificador único global (GUID) de la identidad administrada asignada por el usuario en el inquilino de Azure AD. |
-| `clientId` | <*client-ID*> | Identificador único global (GUID) de la nueva identidad de la aplicación lógica que se usa para las llamadas durante el tiempo de ejecución. |
-||||
 
 <a name="access-other-resources"></a>
 
@@ -306,8 +286,8 @@ Para poder usar la identidad administrada de la aplicación lógica para la aute
 
 * [Azure Portal](#azure-portal-assign-access)
 * [Plantilla de Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
-* Azure PowerShell ([New-AzRoleAssignment](https://docs.microsoft.com/powershell/module/az.resources/new-azroleassignment)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* CLI de Azure ([az role assignment create](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
+* Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
+* CLI de Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create)): para más información, vea [Incorporación o eliminación de asignaciones de roles con RBAC de Azure y la CLI de Azure](../role-based-access-control/role-assignments-cli.md).
 * [API de REST de Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>
@@ -325,7 +305,7 @@ Para poder usar la identidad administrada de la aplicación lógica para la aute
 
 1. En **Agregar asignación de roles**, seleccione un **Rol** que proporcione a su identidad el acceso necesario al recurso de destino.
 
-   En el ejemplo de este tema, la identidad necesita un [rol que pueda acceder al blob en un contenedor de Azure Storage](../storage/common/storage-auth-aad.md#assign-rbac-roles-for-access-rights).
+   En el ejemplo de este tema, la identidad necesita un [rol que pueda acceder al blob en un contenedor de Azure Storage](../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights).
 
    ![Seleccione rol "Colaborador de datos de blobs de almacenamiento"](./media/create-managed-service-identity/select-role-for-identity.png)
 
@@ -387,18 +367,18 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
    | **Autenticación** | Sí | El tipo de autenticación que se va a usar para autenticar el acceso al recurso o entidad de destino |
    ||||
 
-   Como ejemplo específico, supongamos que desea ejecutar la [Operación instantánea de blob](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob) en un BLOB de la cuenta Azure Storage en la que previamente configuró el acceso para su identidad. Sin embargo, el [conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblob/) no ofrece actualmente esta operación. En su lugar, puede ejecutar esta operación mediante la [acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) u otra [operación de la API REST de servicios blob](https://docs.microsoft.com/rest/api/storageservices/operations-on-blobs).
+   Como ejemplo específico, supongamos que desea ejecutar la [Operación instantánea de blob](/rest/api/storageservices/snapshot-blob) en un BLOB de la cuenta Azure Storage en la que previamente configuró el acceso para su identidad. Sin embargo, el [conector de Azure Blob Storage](/connectors/azureblob/) no ofrece actualmente esta operación. En su lugar, puede ejecutar esta operación mediante la [acción HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action) u otra [operación de la API REST de servicios blob](/rest/api/storageservices/operations-on-blobs).
 
    > [!IMPORTANT]
    > Para acceder a cuentas de Azure Storage detrás de firewalls mediante solicitudes HTTP e identidades administradas, asegúrese de que también configura la cuenta de almacenamiento con la [excepción que permite el acceso a los servicios de Microsoft de confianza](../connectors/connectors-create-api-azureblobstorage.md#access-trusted-service).
 
-   Para ejecutar la [operación blob de instantáneas](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob), la acción HTTP especifica estas propiedades:
+   Para ejecutar la [operación blob de instantáneas](/rest/api/storageservices/snapshot-blob), la acción HTTP especifica estas propiedades:
 
    | Propiedad | Obligatorio | Valor de ejemplo | Descripción |
    |----------|----------|---------------|-------------|
    | **Método** | Sí | `PUT`| El método HTTP que utiliza la operación blob de instantáneas |
    | **URI** | Sí | `https://{storage-account-name}.blob.core.windows.net/{blob-container-name}/{folder-name-if-any}/{blob-file-name-with-extension}` | El identificador de recurso de un archivo Azure Blob Storage en el entorno de Azure Global (público), que usa esta sintaxis |
-   | **Encabezados** | Sí, para Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Los valores de encabezado `x-ms-blob-type` y `x-ms-version` necesarios para las operaciones de Azure Storage. <p><p>**Importante**: En el desencadenador HTTP saliente y en las solicitudes de acción de Azure Storage, el encabezado requiere la propiedad `x-ms-version` y la versión de la API para la operación que se desea ejecutar. <p>Para más información, consulte los temas siguientes: <p><p>- [Encabezados de solicitud - Blob de instantáneas](https://docs.microsoft.com/rest/api/storageservices/snapshot-blob#request) <br>- [Control de versiones para servicios de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
+   | **Encabezados** | Sí, para Azure Storage | `x-ms-blob-type` = `BlockBlob` <p>`x-ms-version` = `2019-02-02` | Los valores de encabezado `x-ms-blob-type` y `x-ms-version` necesarios para las operaciones de Azure Storage. <p><p>**Importante**: En el desencadenador HTTP saliente y en las solicitudes de acción de Azure Storage, el encabezado requiere la propiedad `x-ms-version` y la versión de la API para la operación que se desea ejecutar. <p>Para más información, consulte los temas siguientes: <p><p>- [Encabezados de solicitud - Blob de instantáneas](/rest/api/storageservices/snapshot-blob#request) <br>- [Control de versiones para servicios de Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests) |
    | **Consultas** | Sí, para esta operación | `comp` = `snapshot` | El nombre y el valor del parámetro de consulta para la operación del blob de instantánea. |
    |||||
 
@@ -441,7 +421,7 @@ En estos pasos se muestra cómo usar la identidad administrada con un desencaden
    Para obtener más información sobre cómo autorizar el acceso con Azure AD para Azure Storage, consulte estos temas:
 
    * [Autorización del acceso a blobs y colas de Azure con Azure Active Directory](../storage/common/storage-auth-aad.md)
-   * [Autorización del acceso a Azure Storage con Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
+   * [Autorización del acceso a Azure Storage con Azure Active Directory](/rest/api/storageservices/authorize-with-azure-active-directory#use-oauth-access-tokens-for-authentication)
 
 1. Siga creando la aplicación lógica de la forma que desee.
 
@@ -508,7 +488,7 @@ La identidad administrada ahora está deshabilitada en la aplicación lógica.
 
 ### <a name="disable-managed-identity-in-azure-resource-manager-template"></a>Deshabilitar la identidad administrada con una plantilla de Azure Resource Manager
 
-Si ha creado la identidad administrada de la aplicación lógica mediante una plantilla de Azure Resource Manager, establezca la propiedad `type` del objeto `identity` en `None`. Para la identidad administrada por el sistema, esta acción también elimina el identificador de entidad de seguridad de Azure AD.
+Si ha creado la identidad administrada de la aplicación lógica mediante una plantilla de Azure Resource Manager, establezca la propiedad `type` del objeto `identity` en `None`.
 
 ```json
 "identity": {

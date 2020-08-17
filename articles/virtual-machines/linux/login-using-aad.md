@@ -1,18 +1,18 @@
 ---
 title: Inicio de sesión en una máquina virtual Linux con credenciales de Azure Active Directory
 description: Aprenda a crear y configurar una máquina virtual Linux para iniciar sesión con la autenticación de Azure Active Directory.
-author: iainfoulds
+author: SanDeo-MSFT
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: iainfou
-ms.openlocfilehash: c5275a979cbffe7fb6600978487454ac11cd2002
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.author: sandeo
+ms.openlocfilehash: 96fb914b5dafe5eb818f2b491bbe2d856763bd02
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510436"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534743"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Vista previa: Inicio de sesión en una máquina virtual Linux en Azure mediante la autenticación de Azure Active Directory
 
@@ -113,7 +113,7 @@ El estado *provisioningState* con valor *Succeeded* aparece una vez que la exten
 
 ## <a name="configure-role-assignments-for-the-vm"></a>Configuración de asignaciones de roles para la máquina virtual
 
-La directiva de control de acceso basado en rol (RBAC) de Azure determina quién puede iniciar sesión en la máquina virtual. Se usan dos roles de RBAC para autorizar el inicio de sesión de la máquina virtual:
+La directiva de control de acceso basado en rol (Azure RBAC) de Azure determina quién puede iniciar sesión en la VM. Para autorizar el inicio de sesión de una máquina virtual se usan dos roles de Azure:
 
 - **Inicio de sesión de administrador de Virtual Machine**: los usuarios que tienen asignado este rol pueden iniciar sesión en una máquina virtual de Azure con privilegios de usuario raíz de Linux o de administrador de Windows.
 - **Inicio de sesión de usuario de Virtual Machine**: los usuarios que tienen asignado este rol pueden iniciar sesión en una máquina virtual de Azure con privilegios de usuario habitual.
@@ -181,9 +181,9 @@ por esta otra:
 
 ## <a name="troubleshoot-sign-in-issues"></a>Solución de problemas con el inicio de sesión
 
-Algunos errores comunes cuando intenta establecer SSH con las credenciales de Azure AD incluyen no tener asignado ningún rol RBAC y solicitudes repetidas para iniciar sesión. Use las secciones siguientes para corregir estos problemas.
+Algunos errores comunes que se producen al intentar establecer SSH con las credenciales de Azure AD incluyen no tener asignado ningún rol de Azure y solicitudes repetidas para iniciar sesión. Use las secciones siguientes para corregir estos problemas.
 
-### <a name="access-denied-rbac-role-not-assigned"></a>Acceso denegado: no hay ningún rol RBAC asignado
+### <a name="access-denied-azure-role-not-assigned"></a>Acceso denegado: no hay ningún rol de Azure asignado
 
 Si ve el error siguiente en el aviso de SSH, compruebe que ha configurado directivas de RBAC configuradas para la máquina virtual que concede al usuario los roles de *Inicio de sesión de administrador de máquina virtual* o *Inicio de sesión de usuario de máquina virtual*:
 

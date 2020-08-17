@@ -67,7 +67,7 @@ landingContent:
     links:
     - text: 'Ejemplos: C# para Azure Stack Edge'
       url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
-- title: Administrar
+- title: Administración
   linkLists:
   - linkListType: how-to-guide
     links:

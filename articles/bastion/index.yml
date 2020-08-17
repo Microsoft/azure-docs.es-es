@@ -27,7 +27,7 @@ landingContent:
     links:
     - text: Preguntas más frecuentes sobre Azure Bastion
       url: bastion-faq.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: how-to-guide
     links:

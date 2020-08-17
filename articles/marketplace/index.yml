@@ -7,15 +7,15 @@ metadata:
   ms.service: marketplace
   ms.subservice: partnercenter-marketplace-publisher
   ms.topic: landing-page
-  author: marleva
-  ms.author: maevan
+  author: keferna
+  ms.author: keferna
   ms.date: 04/02/2020
-  ms.openlocfilehash: 89c1aba70d6a9cc5b3b7e262b1dda7d5401c4583
-  ms.sourcegitcommit: 374e47efb65f0ae510ad6c24a82e8abb5b57029e
+  ms.openlocfilehash: a79d3de89399e9ed89598c5f08efb756291246ca
+  ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/28/2020
-  ms.locfileid: "85513233"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87287852"
 landingContent:
 - title: Trabajo en Marketplace comercial
   linkLists:

@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/27/2020
+  ms.date: 07/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 451bbf8f82623fdc20be21b4ffa1699f6c5722cf
-  ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+  ms.openlocfilehash: 084dd49726dec837fc4135f272802b1023ba5aac
+  ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/20/2020
-  ms.locfileid: "86536888"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87324070"
 highlightedContent:
   items:
   - title: Guía de introducción para desarrolladores de Azure
@@ -53,6 +53,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/search.svg
     azureCategories:
     - ai-machine-learning
+    - mobile
     - web
     url: search/index.yml
   - title: Azure Cognitive Services
@@ -61,6 +62,7 @@ productDirectory:
     azureCategories:
     - featured
     - ai-machine-learning
+    - mobile
     url: cognitive-services/index.yml
   - title: Azure Databricks
     summary: Plataforma de análisis rápida, sencilla y colaborativa basada en Apache Spark
@@ -394,7 +396,6 @@ productDirectory:
     azureCategories:
     - compute
     - containers
-    - mobile
     - web
     url: app-service/index.yml
   - title: App Service
@@ -513,7 +514,6 @@ productDirectory:
     azureCategories:
     - compute
     - containers
-    - mobile
     - web
     url: app-service/index.yml
   - title: Windows Virtual Desktop
@@ -555,7 +555,6 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/web-apps-containers.svg
     azureCategories:
     - containers
-    - mobile
     - web
     url: app-service/containers/index.yml
   - title: API de Azure para FHIR
@@ -605,7 +604,7 @@ productDirectory:
     - hybrid
     - databases
     url: azure-sql/index.yml
-  - title: Azure SQL Database
+  - title: Azure SQL Database
     summary: SQL administrado e inteligente en la nube
     imageSrc: https://static.docs.com/ui/media/product/azure/sql-database.svg
     azureCategories:
@@ -951,7 +950,7 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
-  - title: Plantillas del Administrador de recursos de Azure
+  - title: Plantillas de ARM
     summary: Proporcione infraestructura como código para todos los recursos de Azure con Resource Manager
     imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
     azureCategories:
@@ -1059,6 +1058,7 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/spatial-anchor-accounts.svg
     azureCategories:
     - mixed-reality
+    - mobile
     url: spatial-anchors/index.yml
   - title: Remote Rendering (versión preliminar)
     summary: Represente de contenido 3D interactivo de alta calidad en la nube y transmítalo en secuencias a sus dispositivos en tiempo real

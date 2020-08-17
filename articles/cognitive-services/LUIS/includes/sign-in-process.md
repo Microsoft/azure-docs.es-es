@@ -4,18 +4,18 @@ description: archivo de inclusión
 services: cognitive-services
 author: diberry
 manager: nitinme
-ms.custom: include file
+ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.date: 05/05/2020
 ms.topic: include
 ms.author: diberry
-ms.openlocfilehash: ef7208596ead8f7d3903bb614ccb980df782e581
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: da9388a3bd5f4d46ec34ed226e3ee23a96b2f494
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837896"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375076"
 ---
 ## <a name="sign-in-to-luis-portal"></a>Inicio de sesión en el portal de LUIS
 

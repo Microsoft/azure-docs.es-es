@@ -10,12 +10,12 @@ ms.date: 12/26/2018
 ms.author: jopapa
 ms.custom: seodec18
 ms.reviewer: sngun
-ms.openlocfilehash: f9ce90a64ca038c99fe4ba63e66f7e5abbd196f6
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: a796ae32033dbc09b1f5b888ded9ea5e1f4c457e
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85119178"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86523492"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-nodejs-express-app"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Creación de una aplicación de Node.js Express
 
@@ -147,11 +147,11 @@ En este tutorial también se necesita:
 
 7. Guarde todos los archivos modificados. 
 
-8. En Visual Studio Code, haga clic en el botón **Depurar**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) y haga clic en el botón del engranaje ![Botón engranaje en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png). El nuevo archivo launch.json se abre en Visual Studio Code.
+8. En Visual Studio Code, haga clic en el botón **Depurar** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: y haga clic en el botón de engranaje :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/gear-button.png":::. El nuevo archivo launch.json se abre en Visual Studio Code. 
 
 8. En la línea 11 del archivo launch.json, cambie `"${workspaceFolder}\\server"` por `"program": "${workspaceRoot}/src/server/index.js"` y guarde el archivo.
 
-9. Haga clic en el botón **Iniciar depuración**![Icono de depuración en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png) para ejecutar la aplicación.
+9. Haga clic en el botón **Iniciar depuración** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/start-debugging-button.png"::: para ejecutar la aplicación.
 
     La aplicación se debe ejecutar sin errores.
 

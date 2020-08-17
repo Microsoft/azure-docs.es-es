@@ -3,12 +3,12 @@ title: Introducción a Azure Advisor
 description: Utilice Azure Advisor para optimizar las implementaciones de Azure.
 ms.topic: article
 ms.date: 02/01/2019
-ms.openlocfilehash: 0c6c79dd764f92475b3b0121ae46706c0dfc0bcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b68e220b7011dee2cc8fca440d58d980c28e6d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87057685"
 ---
 # <a name="introduction-to-azure-advisor"></a>Introducción a Azure Advisor
 
@@ -51,13 +51,13 @@ También puede ver las recomendaciones de Advisor a través de la interfaz de re
 
 ### <a name="what-permissions-do-i-need-to-access-advisor"></a>¿Qué permisos son necesarios para acceder a Advisor?
  
-Puede acceder a las recomendaciones de Advisor como *Propietario*, *Contribuidor* o *Lector* de una suscripción.
+Puede acceder a las recomendaciones de Advisor como *Propietario*, *Colaborador* o *Lector* de una suscripción, grupo de recursos o recurso.
 
 ### <a name="what-resources-does-advisor-provide-recommendations-for"></a>¿Para qué recursos Advisor ofrece recomendaciones?
 
 Advisor proporciona recomendaciones sobre Application Gateway, App Services, conjuntos de disponibilidad, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, direcciones IP públicas de Azure, SQL Data Warehouse, servidores SQL Server, cuentas de almacenamiento, perfiles de Traffic Manager y máquinas virtuales.
 
-Azure Advisor también incluye recomendaciones procedentes de [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-recommendations), que pueden abarcar recomendaciones de tipos de recursos adicionales.
+Azure Advisor también incluye recomendaciones procedentes de [Azure Security Center](../security-center/security-center-recommendations.md), que pueden abarcar recomendaciones de tipos de recursos adicionales.
 
 ### <a name="can-i-postpone-or-dismiss-a-recommendation"></a>¿Se puede posponer o descartar una recomendación?
 

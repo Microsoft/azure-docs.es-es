@@ -1,5 +1,5 @@
 ---
-title: Traslado de máquinas virtuales de Azure a otra región con Azure Site Recovery
+title: Traslado de máquinas virtuales de IaaS de Azure a otra región con Azure Site Recovery
 description: Use Azure Site Recovery para mover máquinas virtuales de IaaS de Azure de una región de Azure a otra.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 09a00d2c6a889f396e5c18da29530c94a624568b
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134434"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076098"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
@@ -82,8 +82,9 @@ En los pasos siguientes se muestra cómo preparar la máquina virtual para el mo
 
 ### <a name="create-the-vault-in-any-region-except-the-source-region"></a>Cree el almacén en cualquier región, excepto en la de origen
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-1. Seleccione **Crear un recurso** > **Herramientas de administración** > **Backup and Site Recovery**.
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. En Buscar, escriba Recovery Services y haga clic en Almacenes de Recovery Services.
+1. En el menú Almacenes de Recovery Services, haga clic en +Agregar.
 1. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
 1. Cree un grupo de recursos denominado **ContosoRG**.
 1. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).

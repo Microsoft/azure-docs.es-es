@@ -5,12 +5,14 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4a45239836779fc83aa2e3927c6e3ff752c87182
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: Microsoft-BradleyWright
+ms.author: brwrigh
+ms.openlocfilehash: 31bb6dd188786fda532bf85d071e119e69e5bccc
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103762"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797872"
 ---
 # <a name="consulting-service-offers"></a>Ofertas de servicio de consultoría
 
@@ -84,12 +86,12 @@ Los asociados integradores de sistemas pueden enviar ofertas de servicios de con
 Empiece por [registrar](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) la información de su empresa en Marketplace. Consulte [Conviértase en anunciante en los escaparates de Marketplace](become-publisher.md) para obtener una lista de comprobación completa de los requisitos de registro. 
 
 ## <a name="prepare-your-publishing-artifacts"></a>Preparación de los artefactos de publicación
-Antes del registro, puede empezar a recopilar y preparar el contenido que ayudará a que su anuncio exprese el valor de su servicio y solución para el cliente objetivo. 
+Antes del registro, puede empezar a recopilar y preparar el contenido que ayudará a que su anuncio exprese el valor de su servicio y solución para el cliente objetivo.
 
 |Configuración para nuevos anunciantes  |
 |---------|
 |Identificador de MPN     |
-|Logotipos de empresa (48 x 48, 216 x 216 píxeles)     |
+|Logotipos de compañía: 48 x 48 píxeles (opcional), 216 x 216 píxeles y 350 x 350 píxeles (obligatorio)  |
 |Destino de clientes potenciales     |
 ||
 

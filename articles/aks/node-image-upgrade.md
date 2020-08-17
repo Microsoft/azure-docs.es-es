@@ -5,13 +5,13 @@ author: laurenhughes
 ms.author: lahugh
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 06/08/2020
-ms.openlocfilehash: 20379f6a1e87c7553d6567be5b50f22bbadb8db7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/13/2020
+ms.openlocfilehash: 040f4378e01c3696b9a74bfcc27230503828f19a
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84514673"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562794"
 ---
 # <a name="preview---azure-kubernetes-service-aks-node-image-upgrades"></a>Versión preliminar: actualizaciones de imágenes de nodo de Azure Kubernetes Service (AKS)
 
@@ -37,7 +37,7 @@ El registro tardará varios minutos en completarse. Use el siguiente comando par
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/NodeImageUpgradePreview')].{Name:name,State:properties.state}"
 ```
 
-Durante la versión preliminar, necesita la extensión *aks-preview* de la CLI para usar la actualización de imágenes de nodo. Use el comando [az extension add][az-extension-add] y, a continuación, busque si hay actualizaciones disponibles con el comando [az extension update][az-extension-update]:
+Durante la versión preliminar, necesita la extensión *aks-preview* de la CLI para usar la actualización de imágenes de nodo. Use el comando [az extension add][az-extension-add] y, a continuación, busque las actualizaciones disponibles mediante el comando [az extension update][az-extension-update]:
 
 ```azurecli
 # Install the aks-preview extension
@@ -46,6 +46,12 @@ az extension add --name aks-preview
 # Update the extension to make sure you have the latest version installed
 az extension update --name aks-preview
 ```
+
+Cuando el estado se muestre como Registrado, actualice el registro del proveedor de recursos `Microsoft.ContainerService` mediante el comando [az provider register](/cli/azure/provider?view=azure-cli-latest#az-provider-register):
+
+```azurecli
+az provider register --namespace Microsoft.ContainerService
+```  
 
 ## <a name="upgrade-all-nodes-in-all-node-pools"></a>Actualización de todos los nodos de todos los grupos de nodos
 
@@ -146,3 +152,5 @@ az aks nodepool show \
 [security-update]: node-updates-kured.md
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [max-surge]: upgrade-cluster.md#customize-node-surge-upgrade-preview
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update

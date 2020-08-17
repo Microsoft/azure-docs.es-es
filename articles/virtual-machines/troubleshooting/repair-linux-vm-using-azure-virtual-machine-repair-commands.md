@@ -14,19 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
-ms.openlocfilehash: a7357ef3b0151096746e37bddd235f0db53baed7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7fbe46d378d45f49a8510f9fdd01a9cae665d0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444818"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074381"
 ---
 # <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparación de una máquina virtual Linux mediante los comandos de reparación de máquinas virtuales de Azure
 
 Si la máquina virtual Linux de Azure se encuentra un error de disco o de arranque, deberá realizar la mitigación en el propio disco. Un ejemplo habitual sería una actualización de aplicación con error que impide que la máquina virtual se pueda arrancar correctamente. En este artículo se detalla cómo utilizar los comandos de reparación de máquinas virtuales de Azure para conectar el disco a otra máquina virtual Linux para corregir los errores y, posteriormente, reconstruir la máquina virtual original.
 
 > [!IMPORTANT]
-> * Los scripts de este artículo solo se aplican a las máquinas virtuales que usan [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> * Los scripts de este artículo solo se aplican a las máquinas virtuales que usan [Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 > * La conectividad de salida de la máquina virtual (puerto 443) es necesaria para que se ejecute el script.
 > * Solo se puede ejecutar un script a la vez.
 > * Un script en ejecución no se puede cancelar.
@@ -45,7 +45,7 @@ Siga estos pasos para solucionar el problema de la máquina virtual:
 4. Realizar los pasos para la mitigación
 5. Ejecutar az vm repair restore
 
-Para documentación e instrucciones adicionales, consulte [az vm repair](https://docs.microsoft.com/cli/azure/ext/vm-repair/vm/repair).
+Para documentación e instrucciones adicionales, consulte [az vm repair](/cli/azure/ext/vm-repair/vm/repair).
 
 ## <a name="repair-process-example"></a>Ejemplo del proceso de reparación
 
@@ -57,9 +57,9 @@ Para documentación e instrucciones adicionales, consulte [az vm repair](https:/
 
    Seleccione **Copiar** para copiar los bloques de código, luego pegue el código en Cloud Shell y, por último, seleccione **Entrar** para ejecutarlo.
 
-   Si prefiere instalar y usar la CLI en un entorno local, para esta guía de inicio rápido se requiere la versión 2.0.30 de la CLI de Azure o una versión posterior. Ejecute ``az --version`` para encontrar la versión. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+   Si prefiere instalar y usar la CLI en un entorno local, para esta guía de inicio rápido se requiere la versión 2.0.30 de la CLI de Azure o una versión posterior. Ejecute ``az --version`` para encontrar la versión. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
    
-   Si tiene que iniciar sesión en Cloud Shell con una cuenta diferente a la que ha iniciado sesión actualmente en Azure Portal, puede usar ``az login`` [de la referencia de az login](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para cambiar entre suscripciones asociadas a su cuenta, puede usar ``az account set --subscription`` [de la referencia de az account set](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-set).
+   Si tiene que iniciar sesión en Cloud Shell con una cuenta diferente a la que ha iniciado sesión actualmente en Azure Portal, puede usar ``az login`` [de la referencia de az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).  Para cambiar entre suscripciones asociadas a su cuenta, puede usar ``az account set --subscription`` [de la referencia de az account set](/cli/azure/account?view=azure-cli-latest#az-account-set).
 
 2. Si es la primera vez que usa los comandos `az vm repair`, agregue la extensión de la CLI vm-repair.
 
@@ -99,6 +99,6 @@ az vm boot-diagnostics enable --name myVMDeployed --resource-group myResourceGro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-rdp-connection).
-* Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solución de problemas de conectividad de aplicaciones en una máquina virtual en Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-app-connection).
-* Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+* Si tiene problemas para conectarse a la máquina virtual, consulte [Solución de problemas de conexiones del Escritorio remoto a una máquina virtual de Azure](./troubleshoot-rdp-connection.md).
+* Para problemas con el acceso a aplicaciones que se ejecutan en su máquina virtual, consulte [Solución de problemas de conectividad de aplicaciones en una máquina virtual en Azure](./troubleshoot-app-connection.md).
+* Para más información sobre el uso de Resource Manager, consulte [Información general de Azure Resource Manager](../../azure-resource-manager/management/overview.md).

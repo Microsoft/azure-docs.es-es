@@ -1,26 +1,29 @@
 ---
-title: Cobertura de geocodificación | Microsoft Azure Maps
-description: El proceso de conversión de la dirección de ubicación en coordenadas de latitud y longitud se conoce como geocodificación. En este artículo, obtendrá información sobre regiones con cobertura de geocodificación para Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 12/31/2019
+title: Cobertura de geocodificación en el servicio Search de Microsoft Azure Maps
+description: En este artículo, obtendrá información sobre la cobertura de geocodificación de Microsoft Azure Maps en diferentes países o regiones.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/28/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: 9836bd35b16c4c308b7c9d096b104c0cec68a34c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+manager: philmea
+ms.openlocfilehash: 6014cb4dda18a68b9149206adf034536161eb08e
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335647"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386918"
 ---
 # <a name="azure-maps-geocoding-coverage"></a>Cobertura de geocodificación de Azure Maps
 
-Cuando busca una ubicación con Azure Maps, el servicio de búsqueda, por ejemplo [Obtener dirección de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress), toma los términos de la búsqueda y devuelve las coordenadas de latitud y longitud. Este proceso se denomina “geocodificación”. Pero Azure Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región. 
+El [servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps admite la geocodificación, lo que significa que la solicitud de API puede tener términos de búsqueda, como una dirección o el nombre de un lugar, y devuelve el resultado como coordenadas de latitud y longitud. Por ejemplo, [Get Search Address API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) de Azure Maps recibe consultas que contienen información de ubicación y devuelve los resultados como coordenadas de latitud y longitud.
 
-La capacidad de obtener las coordenadas geográficas en un país o una región depende de la cobertura de los datos de las carreteras y la precisión de la codificación geográfica del servicio de geocodificación. Las siguientes clasificaciones se usan para especificar el nivel de geocodificación en cada país o región.
-* **Puntos de dirección**: Los datos de direcciones se pueden resolver en una coordenada de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). Este nivel de precisión, a veces llamada de azotea, es el mayor disponible para las direcciones. 
+Pero el [servicio Search](https://docs.microsoft.com/rest/api/maps/search) de Azure Maps no tiene el mismo nivel de información y precisión en todas las regiones y países. Use este artículo para determinar qué tipo de ubicaciones puede buscar de forma confiable en cada región.
+
+La capacidad de obtener las coordenadas geográficas en un país o una región depende de la cobertura de los datos de las carreteras y la precisión del servicio de geocodificación. Las clasificaciones siguientes se usan para especificar el nivel de geocodificación en cada país o región.
+
+* **Puntos de dirección**: los datos de direcciones se pueden resolver en coordenadas de latitud y longitud dentro de la parcela de la dirección (límite de la propiedad). A menudo se hace referencia a los puntos de dirección como una precisión de "azotea", que es el nivel más alto de precisión disponible para las direcciones.
 * **Números de casa**: Las direcciones se interpolan a una coordenada de latitud y longitud de la calle.
 * **Nivel de calle**: Las direcciones se resuelven en la coordenada de latitud y longitud de la calle que contiene la dirección. No se puede procesar el número de casa.
 * **Nivel de ciudad**: Se admiten nombres de ciudad.
@@ -95,7 +98,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Bangladés                                          |                 |                |              |      ✓     |          ✓         |
 | Bután                                              |                 |                |              |      ✓     |          ✓         |
 | Territorio Británico del Océano Índico                      |                 |                |              |      ✓     |          ✓         |
-| Brunei                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
+| Brunéi                                              |        ✓        |                |       ✓      |      ✓     |          ✓         |
 | Camboya                                            |                 |                |              |      ✓     |          ✓         |
 | China                                               |                 |                |              |      ✓     |          ✓         |
 | Isla de Navidad                                    |        ✓        |                |       ✓      |      ✓     |          ✓         |
@@ -157,7 +160,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Bélgica                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia y Herzegovina                              |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belarús                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Bielorrusia                                             |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croacia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Chipre                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | República Checa                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -188,7 +191,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Luxemburgo                                          |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Macedonia del Norte                                     |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Malta                                               |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Moldova                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| Moldavia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Mónaco                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Montenegro                                          |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Países Bajos                                         |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -214,7 +217,6 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Uzbekistán                                          |                 |                |              |      ✓     |          ✓         |
 | Ciudad del Vaticano                                        |                 |                |       ✓      |      ✓     |          ✓         |
 
-
 ## <a name="middle-east-and-africa"></a>Oriente Medio y África
 
 | País/región                                      | Puntos de dirección |Números de casa | Nivel de calle | Nivel de ciudad | Puntos de interés |
@@ -233,7 +235,7 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | República Centroafricana                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Chad                                                |                 |                |       ✓      |      ✓     |          ✓         |
 | Congo (RDC)                                               |                 |                |       ✓      |      ✓     |          ✓         |
-| Côte d'Ivoire                                       |                 |                |       ✓      |      ✓     |          ✓         |
+| Costa de Marfil                                       |                 |                |       ✓      |      ✓     |          ✓         |
 | República Democrática del Congo                    |                 |                |       ✓      |      ✓     |          ✓         |
 | Yibuti                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Egipto                                               |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
@@ -295,11 +297,8 @@ La capacidad de obtener las coordenadas geográficas en un país o una región d
 | Zambia                                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Zimbabue                                            |                 |                |       ✓      |      ✓     |          ✓         |
 
-
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información acerca de la geocodificación de Azure Maps, consulte las páginas de referencia de [Búsqueda](https://docs.microsoft.com/rest/api/maps/search).
-
-Conozca más información acerca de las [áreas de cobertura del servicio de tráfico de Maps](traffic-coverage.md). 
-
+Más información sobre la geocodificación de Azure Maps:
+> [!div class="nextstepaction"]
+> [Servicio Search de Azure Maps](https://docs.microsoft.com/rest/api/maps/search)

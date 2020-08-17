@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: 1bed17084af39fa75fe01d68fbdd33c586d48e67
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 4c64502ac1fa4837d6052fd399fd2c44b6ab4a09
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114289"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423888"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---use-mongoose-to-connect-to-cosmos-db"></a>Creación de una aplicación de Angular con API de Azure Cosmos DB para MongoDB: uso de Mongoose para conectarse a Cosmos DB
 
@@ -230,7 +230,7 @@ Dediquemos un minuto a revisar y repasar el código anterior. En primer lugar, e
 
 Siga luego estos pasos para ejecutar la aplicación:
 
-1. En Visual Studio Code, guarde todos los cambios. En el lado izquierdo, haga clic en el botón **Depurar**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png) y luego en el botón **Iniciar depuración**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png).
+1. En Visual Studio Code, guarde todos los cambios. A la izquierda, seleccione el botón **Depurar** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/debug-button.png":::y **Iniciar depuración** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part5/start-debugging-button.png":::.
 
 1. Ahora cambie al explorador. Abra las **Herramientas de desarrollo** y la **pestaña Red**. Vaya a `http://localhost:3000` y verá la aplicación.
 

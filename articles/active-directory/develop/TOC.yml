@@ -13,10 +13,10 @@
       items:
         - name: Registrar una aplicación
           href: quickstart-register-app.md
-        - name: Configuración de una aplicación para acceder a las API web
-          href: quickstart-configure-app-access-web-apis.md
-        - name: Configuración de una aplicación para exponer las API web
+        - name: Configuración de una aplicación para exponer una API web
           href: quickstart-configure-app-expose-web-apis.md
+        - name: Configuración de una aplicación para acceder a una API web
+          href: quickstart-configure-app-access-web-apis.md
         - name: Modificación de las cuentas compatibles con una aplicación
           href: quickstart-modify-supported-accounts.md
         - name: Eliminación de una aplicación
@@ -298,6 +298,9 @@
               displayName: 'firstline worker, frontline worker, flw'
             - name: Aplicaciones cliente públicas de una o varias cuentas
               href: single-multi-account.md
+            - name: Control de errores y excepciones
+              href: msal-android-handling-exceptions.md
+              displayName: 'android, mobile'
             - name: Registro
               href: msal-logging.md?tabs=android
         - name: iOS y macOS
@@ -465,13 +468,13 @@
     - name: Aprovisionamiento automático de usuarios (SCIM)
       items:
         - name: ¿Qué es el aprovisionamiento automático de usuarios?
-          href: /azure/active-directory/app-provisioning/user-provisioning
+          href: ../app-provisioning/user-provisioning.md
         - name: Desarrollo e integración de un punto de conexión de SCIM
-          href: /azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups
+          href: ../app-provisioning/use-scim-to-provision-users-and-groups.md
         - name: Escenarios comunes de aprovisionamiento
-          href: /azure/active-directory/app-provisioning/scim-graph-scenarios
+          href: ../app-provisioning/scim-graph-scenarios.md
         - name: Automatización de la configuración mediante MS Graph
-          href: /azure/active-directory/app-provisioning/application-provisioning-configure-api
+          href: ../app-provisioning/application-provisioning-configure-api.md
     - name: Artículos de ayuda de Azure Portal
       items:
         - name: Los valores predeterminados de vigencia de los tokens en una aplicación personalizada
@@ -512,6 +515,8 @@
           href: active-directory-claims-mapping.md
         - name: Configuración de notificaciones opcionales
           href: active-directory-optional-claims.md
+        - name: Uso de atributos de extensión de esquema de directorio en notificaciones
+          href: active-directory-schema-extensions.md
         - name: Configuración de la vigencia de los tokens
           href: active-directory-configurable-token-lifetimes.md
         - name: Control de los cambios de cookies de SameSite en el explorador Chrome
@@ -618,6 +623,14 @@
           href: vs-active-directory-webapi-what-happened.md
         - name: Diagnóstico de errores durante la autenticación
           href: vs-active-directory-error.md
+    - name: Comercialización de una aplicación
+      items:
+        - name: Publicación en App Store
+          href: v2-howto-get-appsource-certified.md
+        - name: Publicación en la galería de aplicaciones de Azure AD
+          href: v2-howto-app-gallery-listing.md
+        - name: Publicación en el panel de vendedores de Office 365
+          href: /office/dev/store/use-the-seller-dashboard-to-submit-to-the-office-store
 - name: Referencia
   items:
     - name: Manifiesto de aplicación
@@ -629,7 +642,7 @@
       displayName: 'MSAL, auth library, SDK'
       href: reference-v2-libraries.md
     - name: API de identidad y acceso en Microsoft Graph
-      href: 'https://docs.microsoft.com/graph/api/resources/azure-ad-overview'
+      href: /graph/api/resources/azure-ad-overview
     - name: Códigos de error de autenticación y autorización
       displayName: AADSTS
       href: reference-aadsts-error-codes.md
@@ -650,7 +663,7 @@
     - name: Probar Iniciar sesión con Microsoft
       href: 'https://azure.microsoft.com/develop/identity/signin/'
     - name: Identidades administradas de recursos de Azure
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
+      href: ../managed-identities-azure-resources/overview.md
     - name: Ayuda
       displayName: 'support, help options'
       href: developer-support-help-options.md

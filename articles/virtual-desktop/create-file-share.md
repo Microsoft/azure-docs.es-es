@@ -1,19 +1,17 @@
 ---
 title: 'Creación de un recurso compartido de archivos de Azure Files con un controlador de dominio: Azure'
 description: Configure un contenedor de perfil de FSLogix en un recurso compartido de archivos de Azure, en un grupo host de escritorio virtual de Windows existente, con su dominio de Active Directory.
-services: virtual-desktop
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 06/05/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c6b37cd8c127bf3c7643b39d54bfcdb8093c58c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: e03d496881b0d563387ee5a5943b60f456530453
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027399"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88009229"
 ---
 # <a name="create-a-profile-container-with-azure-files-and-ad-ds"></a>Creación de un contenedor de perfiles con Azure Files y AD DS
 
@@ -189,8 +187,6 @@ Para configurar los permisos NTFS:
      icacls <mounted-drive-letter>: /remove "Authenticated Users"
      icacls <mounted-drive-letter>: /remove "Builtin\Users"
      ```
-
-5. Seleccione **Aplicar**.
 
 ## <a name="configure-fslogix-on-session-host-vms"></a>Configuración de FSLogix en máquinas virtuales de host de sesión
 

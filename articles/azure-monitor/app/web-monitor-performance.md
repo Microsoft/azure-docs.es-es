@@ -4,12 +4,12 @@ description: Introducción a Application Insights. Analice el uso, la disponibil
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 873fc41585c387246d83008a8f97d6c4d9a32c3b
-ms.sourcegitcommit: 7d8158fcdcc25107dfda98a355bf4ee6343c0f5c
+ms.openlocfilehash: d624286d214a86364fe85192bf5ede885d4b6a78
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "80985072"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323458"
 ---
 # <a name="monitor-performance-in-web-applications"></a>Supervisar el rendimiento de aplicaciones web
 
@@ -23,10 +23,10 @@ En el lado del cliente, Application Insights puede obtener datos de telemetría 
 ## <a name="set-up-performance-monitoring"></a><a name="setup"></a>Configuración de la supervisión de rendimiento
 Si todavía no ha agregado Application Insights a un proyecto (es decir, si no dispone de ApplicationInsights.config), puede comenzar con uno de estos procedimientos:
 
-* [Aplicaciones web ASP.NET](../../azure-monitor/app/asp-net.md)
-  * [Agregar supervisión de excepciones](../../azure-monitor/app/asp-net-exceptions.md)
-  * [Agregar supervisión de dependencias](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Aplicaciones web de Java EE](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent)
+* [Aplicaciones web ASP.NET](./asp-net.md)
+  * [Agregar supervisión de excepciones](./asp-net-exceptions.md)
+  * [Agregar supervisión de dependencias](./monitor-performance-live-website-now.md)
+* [Aplicaciones web de Java EE](./java-in-process-agent.md)
 
 ## <a name="exploring-performance-metrics"></a><a name="view"></a>Exploración de las métricas de rendimiento
 En el [Portal de Azure](https://portal.azure.com), busque el recurso de Application Insights que configuró para la aplicación. La hoja de información general muestra los datos de rendimiento básicos:
@@ -61,15 +61,15 @@ Busque picos poco habituales. Por lo general, el tiempo de respuesta aumenta cua
 
 Haga clic en el icono para obtener los tiempos de direcciones URL concretas.
 
-![](./media/web-monitor-performance/appinsights-42reqs.png)
+![Captura de pantalla del panel estado de la aplicación, que muestra los gráficos de líneas a lo largo del tiempo del promedio de transiciones de solicitudes y del tiempo de respuesta.](./media/web-monitor-performance/appinsights-42reqs.png)
 
 ### <a name="slowest-requests"></a>Solicitudes más lentas
-![](./media/web-monitor-performance/appinsights-44slowest.png)
+![Captura de pantalla de una lista de las solicitudes más lentas y los tiempos de respuesta.](./media/web-monitor-performance/appinsights-44slowest.png)
 
 Muestra las solicitudes que pueden precisar un ajuste de rendimiento.
 
 ### <a name="failed-requests"></a>Error en las solicitudes
-![](./media/web-monitor-performance/appinsights-46failed.png)
+![Captura de pantalla de un gráfico de líneas a lo largo del tiempo del número de solicitudes con error; es decir, las solicitudes que han producido excepciones no detectadas.](./media/web-monitor-performance/appinsights-46failed.png)
 
 Un recuento de las solicitudes que inician excepciones no detectadas.
 
@@ -87,7 +87,7 @@ Si selecciona una métrica, se deshabilitan las demás, por lo que no pueden apa
 ## <a name="set-alerts"></a>Establecer alertas
 Para recibir notificaciones por correo electrónico de los valores no habituales de cualquier métrica, agregue una alerta. Puede decidir si se debe enviar un mensaje de correo electrónico a los administradores de cuentas o a direcciones de correo electrónico específicas.
 
-![](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
+![Captura de pantalla del cuadro de diálogo Agregar una regla de alerta, junto con capturas de pantalla conectadas mediante flechas que muestran cómo acceder a dicho cuadro de diálogo desde el Explorador de métricas.](./media/web-monitor-performance/appinsights-413setMetricAlert.png)
 
 Establezca el recurso antes de las demás propiedades. No elija los recursos de la prueba web si desea establecer alertas en las métricas de rendimiento o de uso.
 
@@ -106,7 +106,7 @@ Para buscar y diagnosticar problemas de rendimiento, lea estas sugerencias:
 
 ## <a name="find-and-fix-performance-bottlenecks-with-performance-investigation-experience"></a>Búsqueda y corrección de cuellos de botella en el rendimiento con la experiencia de investigación interactiva del rendimiento
 
-Puede usar la experiencia de investigación del rendimiento para revisar las operaciones de ejecución lenta en su aplicación web. Puede seleccionar una operación específica lenta rápidamente y usar [Profiler](../../azure-monitor/app/profiler.md) para encontrar la causa del funcionamiento lento en el código. Use la distribución de la nueva duración que se muestra para la operación seleccionada para evaluar rápidamente cómo perciben la experiencia los clientes. Puede ver cuántas de sus interacciones de usuario se vieron afectadas por cada operación lenta. En el siguiente ejemplo, hemos decidido echar un vistazo más de cerca a la experiencia de la operación GET Customers/Details. En la distribución de duración podemos ver que hay tres picos. El pico del extremo izquierdo es de, aproximadamente, 400 ms y representa una experiencia con una gran capacidad de respuesta. El pico intermedio es de, aproximadamente, 1,2 s y representa una experiencia mediocre. Finalmente, en 3,6 s tenemos un pequeño aumento que representa la experiencia de percentil 99, lo que podría hacer que nuestros clientes se fueran insatisfechos. Esta experiencia es diez veces más lenta que la experiencia excelente de la misma operación. 
+Puede usar la experiencia de investigación del rendimiento para revisar las operaciones de ejecución lenta en su aplicación web. Puede seleccionar una operación específica lenta rápidamente y usar [Profiler](./profiler.md) para encontrar la causa del funcionamiento lento en el código. Use la distribución de la nueva duración que se muestra para la operación seleccionada para evaluar rápidamente cómo perciben la experiencia los clientes. Puede ver cuántas de sus interacciones de usuario se vieron afectadas por cada operación lenta. En el siguiente ejemplo, hemos decidido echar un vistazo más de cerca a la experiencia de la operación GET Customers/Details. En la distribución de duración podemos ver que hay tres picos. El pico del extremo izquierdo es de, aproximadamente, 400 ms y representa una experiencia con una gran capacidad de respuesta. El pico intermedio es de, aproximadamente, 1,2 s y representa una experiencia mediocre. Finalmente, en 3,6 s tenemos un pequeño aumento que representa la experiencia de percentil 99, lo que podría hacer que nuestros clientes se fueran insatisfechos. Esta experiencia es diez veces más lenta que la experiencia excelente de la misma operación. 
 
 ![Tres picos de duración de GET Customers/Details](./media/web-monitor-performance/PerformanceTriageViewZoomedDistribution.png)
 
@@ -142,15 +142,13 @@ La experiencia de investigación de rendimiento muestra conclusiones significati
 
 <!--Link references-->
 
-[availability]: ../../azure-monitor/app/monitor-web-app-availability.md
-[diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[greenbrown]: ../../azure-monitor/app/asp-net.md
-[qna]: ../../azure-monitor/app/troubleshoot-faq.md
-[redfield]: ../../azure-monitor/app/monitor-performance-live-website-now.md
-[start]: ../../azure-monitor/app/app-insights-overview.md
+[availability]: ./monitor-web-app-availability.md
+[diagnostic]: ./diagnostic-search.md
+[greenbrown]: ./asp-net.md
+[qna]: ../faq.md
+[redfield]: ./monitor-performance-live-website-now.md
+[start]: ./app-insights-overview.md
 [usage]: usage-overview.md
-[livestream]: ../../azure-monitor/app/live-stream.md
-[snapshot]: ../../azure-monitor/app/snapshot-debugger.md
-
-
+[livestream]: ./live-stream.md
+[snapshot]: ./snapshot-debugger.md
 

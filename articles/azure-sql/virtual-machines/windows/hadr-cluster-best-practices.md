@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: d20ac5964ef70618d4d7dc2d4a7fe7d7d01284ce
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965417"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285635"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedimientos recomendados para la configuración de clústeres (SQL Server en máquinas virtuales de Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -42,27 +42,26 @@ Técnicamente, un clúster de tres nodos puede sobrevivir a la pérdida de un so
 
 El recurso de quórum protege el clúster contra cualquiera de estos problemas. 
 
-Para configurar el recurso de quórum con SQL Server en máquinas virtuales de Azure, puede usar estos tipos de testigo: 
+En la tabla siguiente se enumeran las opciones de cuórum disponibles en el orden de recomendación para uso con una máquina virtual de Azure; el testigo de disco es la opción preferida: 
 
 
 ||[Testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testigo en la nube](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
 |**Sistema operativo admitido**| All |Windows Server 2016+| Windows Server 2012+|
-|**Versiones admitidas de SQL Server**|SQL Server 2019|SQL Server 2016+|SQL Server 2016+|
+
 
 
 
 ### <a name="disk-witness"></a>Testigo de disco
 
-Se trata de un pequeño disco agrupado en el grupo de almacenamiento disponible del clúster. Este disco presenta una alta disponibilidad y puede conmutar por error entre nodos. Contiene una copia de la base de datos del clúster, con un tamaño predeterminado que suele ser inferior a 1 GB. 
+Se trata de un pequeño disco agrupado en el grupo de almacenamiento disponible del clúster. Este disco presenta una alta disponibilidad y puede conmutar por error entre nodos. Contiene una copia de la base de datos del clúster, con un tamaño predeterminado que suele ser inferior a 1 GB. El testigo de disco es la opción de cuórum preferida para una máquina virtual de Azure, ya que puede resolver el problema de la partición en el tiempo, a diferencia del testigo de nube y el testigo de recurso compartido de archivos. 
 
 Configure un disco compartido de Azure como el testigo de disco. 
 
 Para empezar, consulte [Configuración de un testigo de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
-**Sistema operativo compatible**: All    
-**Versión de SQL compatible**: SQL Server 2019   
+**Sistema operativo compatible**: All   
 
 
 ### <a name="cloud-witness"></a>Testigo en la nube
@@ -73,21 +72,18 @@ Para empezar, consulte [Configuración de un testigo en la nube](/windows-server
 
 
 **Sistema operativo compatible**: Windows Server 2016 y posteriores   
-**Versión de SQL compatible**: SQL Server 2016 y posterior     
 
 
 ### <a name="file-share-witness"></a>Testigo de recurso compartido de archivos
 
 Se trata de un recurso compartido de archivos SMB que se suele configurar en un servidor de archivos que ejecuta Windows Server. Este testigo mantiene la información de la agrupación en clústeres en un archivo witness.log, pero no almacena una copia de la base de datos del clúster. En Azure, puede configurar un [recurso compartido de archivos de Azure](../../../storage/files/storage-how-to-create-file-share.md) para usarlo como testigo de recurso compartido de archivos o en una máquina virtual independiente.
 
-Si va a utilizar otro recurso compartido de archivos de Azure, puede montarlo con el mismo proceso que usó para el [recurso compartido de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
+Si va a usar un recurso compartido de archivos de Azure, puede montarlo con el mismo proceso que usó para el [recurso compartido de archivos Premium](failover-cluster-instance-premium-file-share-manually-configure.md#mount-premium-file-share). 
 
 Para empezar, consulte [Configuración de un testigo de recurso compartido de archivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum).
 
 
 **Sistema operativo compatible**: Windows Server 2012 y posteriores   
-**Versión de SQL compatible**: SQL Server 2016 y posterior   
-
 
 ## <a name="connectivity"></a>Conectividad
 

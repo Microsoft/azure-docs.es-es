@@ -4,6 +4,8 @@
   items:
     - name: Acerca de la API de Azure para FHIR
       href: overview.md
+    - name: Conector de Azure IoT para FHIR (versión preliminar)
+      href: overview.md#azure-iot-connector-for-fhir-preview
 - name: Guías de inicio rápido
   expanded: true
   items:
@@ -19,7 +21,7 @@
       href: fhir-oss-powershell-quickstart.md
     - name: 'Implementación del servidor de FHIR para Azure: CLI'
       href: fhir-oss-cli-quickstart.md
-    - name: 'Implementación del conector de IoT: portal'
+    - name: 'Implementación del conector de Azure IoT para FHIR (versión preliminar): Azure Portal'
       href: iot-fhir-portal-quickstart.md
 - name: Tutoriales
   expanded: false
@@ -86,7 +88,7 @@
       href: enable-diagnostic-logging.md
     - name: 'Obtención de un token de la API de Azure para FHIR: CLI'
       href: get-healthcare-apis-access-token-cli.md
-    - name: Solución de errores en el conector de IoT
+    - name: Solución de problemas en el conector de Azure IoT para FHIR (versión preliminar)
       href: iot-troubleshoot-guide.md
 - name: Conceptos
   expanded: false
@@ -97,12 +99,12 @@
       href: azure-ad-hcapi-token-validation.md
     - name: Uso de encabezados HTTP personalizados para agregar datos a los registros de auditoría
       href: use-custom-headers.md
-    - name: Funcionamiento del conector de IoT
+    - name: Funcionamiento del conector de Azure IoT para FHIR (versión preliminar)
       expanded: false
       items:
-        - name: Flujo de datos del conector de IoT
+        - name: Flujo de datos del conector de Azure IoT para FHIR (versión preliminar)
           href: iot-data-flow.md
-        - name: Plantillas de asignación del conector de IoT
+        - name: Plantillas de asignación del conector de Azure IoT para FHIR (versión preliminar)
           href: iot-mapping-templates.md
 - name: Recursos
   items:

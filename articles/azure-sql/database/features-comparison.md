@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
-ms.date: 06/25/2020
-ms.openlocfilehash: 4eb1afdd7a6e48d8701dafc6dff44ce6e6db4902
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/22/2020
+ms.openlocfilehash: e7f80c7db4af7c676881d92e8fe86d62a45e3310
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231631"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87049589"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparación de características: Azure SQL Database e Instancia administrada de Azure SQL
 
@@ -142,7 +142,7 @@ La plataforma de Azure proporciona una serie de funcionalidades de PaaS que se a
 | [SQL Data Sync](sql-data-sync-sql-server-configure.md) | Sí | No |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) es un servicio en la nube de Azure independiente. | No, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) es un servicio en la nube de Azure independiente. |
 | [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Sí, con un SSIS administrado en el entorno de Azure Data Factory (ADF), donde los paquetes se almacenan en una base de datos SSISDB que se hospeda en Azure SQL Database y se ejecuta en Azure-SSIS Integration Runtime; consulte [Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar las características de SSIS en SQL Database e Instancia administrada de SQL, consulte [Comparación entre SQL Database e Instancia administrada de SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). | Sí, con un SSIS administrado en el entorno de Azure Data Factory (ADF), donde los paquetes están almacenados en SSISDB hospedado en Instancia administrada de SQL y ejecutado en Azure-SSIS Integration Runtime (IR), consulte [Creación de una instancia de Azure-SSIS IR en ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Para comparar las características de SSIS en SQL Database e Instancia administrada de SQL, consulte [Comparación entre SQL Database e Instancia administrada de SQL](../../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-sql-database-and-sql-managed-instance). |
-| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) |
+| [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No; [consulte el artículo sobre Power BI](https://docs.microsoft.com/power-bi/) | No: use [informes paginados de Power BI](https://docs.microsoft.com/power-bi/paginated-reports/paginated-reports-report-builder-power-bi) en su lugar u hospede SSRS en una máquina virtual de Azure. Si bien SQL Managed Instance no puede ejecutar SSRS como servicio, sí puede hospedar las [bases de datos del catálogo de SSRS ](https://docs.microsoft.com/sql/reporting-services/install-windows/ssrs-report-server-create-a-report-server-database#database-server-version-requirements) para un servidor de informes instalado en una máquina virtual de Azure, mediante la autenticación de SQL Server. |
 | [Información de rendimiento de consultas (QPI)](query-performance-insight-use.md) | Sí | No. Usar informes integrados en SQL Server Management Studio y Azure Data Studio. |
 | [Red virtual](../../virtual-network/virtual-networks-overview.md) | Parcial; permite el acceso restringido mediante [puntos de conexión de red virtual](vnet-service-endpoint-rule-overview.md). | Sí, Instancia administrada de SQL se inserta en la red virtual del cliente. Consulte [subred](../managed-instance/transact-sql-tsql-differences-sql-server.md#subnet) y [red virtual](../managed-instance/transact-sql-tsql-differences-sql-server.md#vnet). |
 | Punto de conexión de servicio de VNet | [Sí](vnet-service-endpoint-rule-overview.md) | No |

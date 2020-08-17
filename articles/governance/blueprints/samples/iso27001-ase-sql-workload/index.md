@@ -3,12 +3,12 @@ title: Ejemplo de plano técnico para cargas de trabajo de ASE y SQL compatibles
 description: Introducción y arquitectura del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001.
 ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 71044ae1754cf4bdfc42be7b6585a1905dce426c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76177efcac8b32907c60cecac41404a3834d0fb8
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536840"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87926100"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001
 
@@ -28,7 +28,7 @@ El ejemplo de plano técnico para cargas de trabajo de App Service Environment y
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una infraestructura de cargas de trabajo segura, totalmente supervisada y preparada para la empresa, que se basa en los estándares de la norma ISO 27001. Este entorno se compone de:
 
-- Un rol de [control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC) que se llama DevOps que tiene permisos para implementar y administrar recursos en una instancia de [Azure App Service Environment](../../../../app-service/environment/intro.md) que implementa el ejemplo de plano técnico.
+- Un [rol de Azure](../../../../role-based-access-control/overview.md) llamado DevOps que tiene los derechos necesarios para implementar y administrar en una instancia de [Azure App Service Environment](../../../../app-service/environment/intro.md) que implementa el ejemplo de plano técnico
 - [Directivas de Azure](../../../policy/overview.md) para bloquear los servicios que se pueden implementar en el entorno y denegar la creación de cualquier recurso de dirección IP pública (PIP)
 - Una red virtual que contiene una única subred y que está emparejada a un entorno de [servicios compartidos](../iso27001-shared/index.md) que existe con anterioridad y que obliga a que todo el tráfico pase a través del firewall de los [servicios compartidos](../iso27001-shared/index.md). La red virtual hospeda los recursos siguientes:
   - Una instancia de [Azure App Service Environment](../../../../app-service/environment/intro.md) que se puede utilizar para hospedar una o varias aplicaciones web, API web o funciones.

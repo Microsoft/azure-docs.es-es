@@ -4,15 +4,15 @@ description: Preguntas más frecuentes sobre problemas comunes al crear un disco
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: guide
-author: emuench
-ms.author: mingshen
+author: iqshahmicrosoft
+ms.author: iqshah
 ms.date: 04/09/2020
-ms.openlocfilehash: 2b6ab5d36cd5a1f66badc79d1b2d42e464d028f4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 273e6560cd4a9efeac6704ca5d44772248c26050
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110749"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504320"
 ---
 # <a name="common-issues-during-vhd-creation"></a>Problemas comunes durante la creación de discos duros virtuales
 
@@ -34,8 +34,8 @@ No puede. Una vez creada la máquina virtual, los usuarios (incluidos los propie
 
 En estos artículos se explica cómo realizar el restablecimiento de RDS para máquinas virtuales basadas en Windows y Linux:
 
-* [Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una máquina virtual Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-reset-rdp/)
-* [Cómo restablecer una contraseña de máquina virtual Linux o clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco con la extensión VMAccess](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-classic-reset-access/)
+* [Restablecimiento del servicio Escritorio remoto o la contraseña de inicio de sesión en una máquina virtual Windows](/azure/virtual-machines/troubleshooting/reset-rdp)
+* [Cómo restablecer una contraseña de máquina virtual Linux o clave SSH, corregir la configuración de SSH y comprobar la coherencia de disco con la extensión VMAccess](/azure/virtual-machines/extensions/vmaccess)
 
 ## <a name="how-do-i-generate-new-ssh-certificates"></a>¿Cómo se generan certificados SSH nuevos?
 
@@ -59,7 +59,7 @@ Sí, si se hospedan en Azure. Azure asigna un identificador único, denominado [
 
 ## <a name="in-a-vm-how-do-i-manage-the-custom-script-extension-in-the-startup-task"></a>¿Cómo se puede administrar la extensión de script personalizada en la tarea de inicio en una máquina virtual?
 
-Para obtener información detallada sobre cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y también se detallan los pasos para solucionar problemas en los sistemas Windows, vea [Extensión de script personalizado para Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/).
+Para obtener información detallada sobre cómo usar la extensión de script personalizado mediante el módulo de Azure PowerShell y plantillas de Azure Resource Manager, y también se detallan los pasos para solucionar problemas en los sistemas Windows, vea [Extensión de script personalizado para Windows](/azure/virtual-machines/extensions/custom-script-windows).
 
 ## <a name="are-32-bit-applications-or-services-supported-in-azure-marketplace"></a>¿Se admiten en Azure Marketplace las aplicaciones o los servicios de 32 bits?
 

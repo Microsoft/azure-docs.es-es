@@ -4,12 +4,12 @@ description: En este artículo obtendrá información sobre cómo realizar el se
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8dbd6fd7add58f8458c21fc65381a52ff3306d2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85847770"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079322"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>Seguimiento de los trabajos de copia de seguridad y restauración mediante API REST
 
@@ -33,7 +33,7 @@ Una operación como desencadenar la copia de seguridad siempre devolverá un val
 }
 ```
 
-El trabajo de copia de seguridad de las máquinas virtuales de Azure se identifica mediante el campo "jobId" y se puede seguir como se mencionó [aquí](https://docs.microsoft.com/rest/api/backup/jobdetails/) mediante una simple solicitud *GET*.
+El trabajo de copia de seguridad de las máquinas virtuales de Azure se identifica mediante el campo "jobId" y se puede seguir como se mencionó [aquí](/rest/api/backup/jobdetails/) mediante una simple solicitud *GET*.
 
 ## <a name="tracking-the-job"></a>Seguimiento del trabajo
 
@@ -47,7 +47,7 @@ El `{jobName}` es el "jobId" mencionado anteriormente. La respuesta es siempre 2
 
 |Nombre  |Tipo  |Descripción  |
 |---------|---------|---------|
-|200 OK     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | Aceptar        |
+|200 OK     | [JobResource](/rest/api/backup/jobdetails/get#jobresource)        | Aceptar        |
 
 #### <a name="example-response"></a>Respuesta de ejemplo
 

@@ -7,14 +7,15 @@ author: mgblythe
 ms.author: mblythe
 ms.date: 01/08/2020
 ms.topic: how-to
+ms.custom: devx-track-javascript
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 338135561a462fec3b0bfc619a3518cb420908f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19809df7f79f1d1fa84a90d552dbe5bf2449ea5
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763999"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386901"
 ---
 # <a name="use-a-markdown-tile-on-azure-dashboards-to-show-custom-content"></a>Uso de un icono de Markdown en los paneles de Azure para mostrar contenido personalizado
 

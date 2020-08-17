@@ -3,12 +3,12 @@ title: Configuración de un clúster de Kubernetes habilitado para Azure Arc con
 description: En este artículo se describe cómo configurar la supervisión con Azure Monitor para contenedores en clústeres de Kubernetes habilitados para Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: b1adbd5c1f9f0710a814c91872d3f8a9f1afb50f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261059"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092888"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitación de la supervisión en el clúster de Kubernetes habilitado para Azure Arc
 
@@ -63,7 +63,7 @@ Antes de empezar, asegúrese de que dispone de lo siguiente:
     >[!IMPORTANT]
     >La versión de agente mínima admitida para la supervisión de clústeres de Kubernetes habilitados para Arc es ciprod04162020 o posterior.
 
-- [PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6) es necesario si habilita la supervisión con el método de script de PowerShell.
+- [PowerShell Core](/powershell/scripting/install/installing-powershell?view=powershell-6) es necesario si habilita la supervisión con el método de script de PowerShell.
 
 - [Bash versión 4](https://www.gnu.org/software/bash/) es necesario si habilita la supervisión con el método de script de Bash.
 

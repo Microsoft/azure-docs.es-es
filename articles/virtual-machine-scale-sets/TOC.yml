@@ -5,7 +5,6 @@
     - name: ¿Qué son los conjuntos de escalado de máquina virtual?
       href: overview.md
 - name: Guías de inicio rápido
-  expanded: true
   items:
     - name: Creación en Azure Portal
       href: quick-create-portal.md
@@ -21,6 +20,7 @@
         - name: Conjunto de escalado de Windows
           displayName: 'ARM, resource manager'
           href: quick-create-template-windows.md
+  expanded: true
 - name: Tutoriales
   items:
     - name: 1 - Creación y administración de un conjunto de escalado
@@ -102,65 +102,71 @@
       href: ../azure-resource-manager/management/overview.md
       maintainContext: true
     - name: Regions
-      href: ../virtual-machines/windows/regions.md
+      href: ../virtual-machines/regions.md
     - name: Disponibilidad y rendimiento
-      maintainContext: true
       items:
         - name: Disponibilidad
-          href: availability.md
+          href: ../virtual-machines/availability.md?toc=%2fazure%2fvirtual-machine-scale-sets%2ftoc.json
         - name: Colocalización
           href: co-location.md
         - name: Rendimiento de la red
           href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machine-scale-sets%2fwindows%2ftoc.json
         - name: Administración de dominios de error en conjuntos de escalado
           href: virtual-machine-scale-sets-manage-fault-domains.md
+      maintainContext: true
     - name: Imágenes
       href: shared-image-galleries.md
     - name: Tamaños y tipos de máquinas virtuales
-      href: ../virtual-machines/windows/sizes.md
-      maintainContext: true
+      href: ../virtual-machines/sizes.md
       items:
         - name: Uso general
-          href: ../virtual-machines/windows/sizes-general.md
+          href: ../virtual-machines/sizes-general.md
           maintainContext: true
           items:
             - name: Ampliables de la serie B
-              href: ../virtual-machines/windows/b-series-burstable.md
+              href: ../virtual-machines/sizes-b-series-burstable.md
               maintainContext: true
         - name: Proceso optimizado
-          href: ../virtual-machines/windows/sizes-compute.md
+          href: ../virtual-machines/sizes-compute.md
           maintainContext: true
         - name: Memoria optimizada
-          href: ../virtual-machines/windows/sizes-memory.md
+          href: ../virtual-machines/sizes-memory.md
           maintainContext: true
           items:
             - name: VCPU restringidas
               href: ../virtual-machines/windows/constrained-vcpu.md
               maintainContext: true
         - name: Almacenamiento optimizado
-          href: ../virtual-machines/windows/sizes-storage.md
+          href: ../virtual-machines/sizes-storage.md
           maintainContext: true
         - name: GPU optimizada
-          href: ../virtual-machines/windows/sizes-gpu.md
+          href: ../virtual-machines/sizes-gpu.md
           maintainContext: true
           items:
             - name: Configuración de controladores de GPU de NVIDIA
               href: ../virtual-machines/windows/n-series-driver-setup.md
               maintainContext: true
         - name: Informática de alto rendimiento
-          href: ../virtual-machines/windows/sizes-hpc.md
+          href: ../virtual-machines/sizes-hpc.md
+          maintainContext: true
+        - name: Máquinas virtuales de Azure sin disco temporal
+          href: ../virtual-machines/azure-vms-no-temp-disk.md
+          maintainContext: true
+        - name: Convenciones de nomenclatura de tamaños de máquina virtual de Azure
+          href: ../virtual-machines/vm-naming-conventions.md
           maintainContext: true
         - name: Unidades de proceso de Azure (ACU)
-          href: ../virtual-machines/windows/acu.md
+          href: ../virtual-machines/acu.md
           maintainContext: true
         - name: Puntuaciones de pruebas comparativas
           href: ../virtual-machines/windows/compute-benchmark-scores.md
           maintainContext: true
+      maintainContext: true
     - name: Distribuciones de Linux promocionadas
       href: ../virtual-machines/linux/endorsed-distros.md
       maintainContext: true
     - name: Mantenimiento y actualizaciones
-      href: ../virtual-machines/windows/maintenance-and-updates.md
+      href: ../virtual-machines/maintenance-and-updates.md?bc=/azure/virtual-machines/windows/breadcrumb/toc.json&toc=/azure/virtual-machines/windows/toc.json
       maintainContext: true
     - name: Modos de orquestación
       href: orchestration-modes.md
@@ -179,7 +185,7 @@
           href: ../virtual-machines/windows/premium-storage-performance.md
           maintainContext: true
         - name: Discos de sistema operativo efímero
-          href: ephemeral-os-disks.md
+          href: ../virtual-machines/ephemeral-os-disks.md
         - name: Objetivos de escalabilidad para discos
           href: ../virtual-machines/windows/disk-scalability-targets.md
           maintainContext: true
@@ -187,10 +193,10 @@
           href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
           maintainContext: true
     - name: Redes
-      href: ../virtual-machines/windows/network-overview.md
+      href: ../virtual-machines/network-overview.md
       maintainContext: true
     - name: Automatización de la infraestructura
-      href: ../virtual-machines/windows/infrastructure-automation.md
+      href: ../virtual-machines/infrastructure-automation.md
       maintainContext: true
     - name: Seguridad
       items:
@@ -198,11 +204,13 @@
           href: ../virtual-machines/windows/security-policy.md
         - name: Azure Disk Encryption
           href: disk-encryption-overview.md
+        - name: Línea de base de seguridad de Azure
+          href: security-baseline.md
         - name: Controles de seguridad integrados
           href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Supervisión
-      href: ../virtual-machines/windows/monitor.md
+      href: ../azure-monitor/insights/monitor-vm-azure.md
       maintainContext: true
     - name: Consideraciones de la implementación
       items:
@@ -370,20 +378,18 @@
     - name: Uso de Ansible
       items:
         - name: Creación y administración de conjuntos de escalado
-          href: /azure/ansible/ansible-create-configure-vmss
+          href: /azure/developer/ansible/vm-scale-set-configure
           maintainContext: true
         - name: Implementación de aplicaciones en conjuntos de escalado
-          href: /azure/ansible/ansible-deploy-app-vmss
+          href: /azure/developer/ansible/vm-scale-set-deploy-app
           maintainContext: true
         - name: Escalado automático de un conjunto de escalado
-          href: /azure/ansible/ansible-auto-scale-vmss
+          href: /azure/developer/ansible/vm-scale-set-auto-scale
           maintainContext: true
 - name: Referencia
   items:
     - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: Azure CLI
-      href: ../virtual-machines/azure-cli-arm-commands.md
+      href: /powershell/azure/
     - name: REST
       href: /rest/api/virtualmachinescalesets/
     - name: Plantillas de Azure

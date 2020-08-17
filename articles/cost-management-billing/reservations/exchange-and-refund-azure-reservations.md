@@ -1,28 +1,27 @@
 ---
 title: Autoservicio de cambios y reembolsos de reservas de Azure
-description: Obtenga información sobre cómo puede obtener cambios o reembolsos para las reservas de Azure.
+description: Obtenga información sobre cómo puede obtener cambios o reembolsos para las reservas de Azure. Para cambiar o recibir el reembolso de las reservas, debe tener acceso de propietario para el pedido de reserva.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 07/01/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4a25bb13bfa5b2e4f13ddf437bcd9577f9602aed
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: f1323d21ee59386220a35cc31b17cab3441f0e0d
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807696"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87457641"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Autoservicio de cambios y reembolsos de reservas de Azure
 
-Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante cambio. Puede cambiar una reserva por otra del mismo tipo, es decir, se puede intercambiar una reserva de máquina virtual se puede cambiar para adquirir la reserva de cualquier tamaño o región de máquina virtual. Del mismo modo, se puede cambiar una reserva de base de datos PaaS de SQL para adquirir cualquier reserva de cualquier tipo o región de base de datos PaaS de SQL. Las reservas también se pueden devolver, pero la suma total del compromiso de reserva cancelada no puede superar 50 000 USD en una ventana con desplazamiento de 12 meses. La capacidad reservada de Azure Databricks, la solución de VMware de Azure por reserva de CloudSimple, la reserva de Azure Red Hat Open Shift, los planes de Red Hat y los planes de SUSE Linux no son aptos para devoluciones.
+Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante cambio. Puede intercambiar una reserva por otra del mismo tipo. Por ejemplo, puede intercambiar una reserva de máquina virtual para adquirir otra reserva para cualquier otro tamaño de VM o región. Del mismo modo, se puede cambiar una reserva de base de datos PaaS de SQL para adquirir otra reserva de cualquier tipo o región de base de datos PaaS de SQL. También puede reembolsar las reservas, pero la suma total de todos los compromisos de reserva cancelados en el ámbito de facturación (por ejemplo, Contrato Enterprise, Contrato de cliente de Microsoft y Contrato de partner de Microsoft) no puede superar 50 000 USD en un período acumulado de 12 meses. La capacidad reservada de Azure Databricks, la solución de VMware de Azure por reserva de CloudSimple, la reserva de Azure Red Hat Open Shift, los planes de Red Hat y los planes de SUSE Linux no son aptos para devoluciones.
 
 El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Otros tipos de suscripción de US Government, como Pago por uso y Proveedor de soluciones en la nube, sí se admiten.
 
-Debe tener acceso de propietario en el pedido de reserva para realizar un cambio o reembolso en relación con una reserva existente. Puede [agregar o cambiar los usuarios que pueden administrar una reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
-
 > [!NOTE]
-> Actualmente, Microsoft no cobra ningún cargo por finalización prematura en las devoluciones de las reservas. En el futuro es posible que se cobre cuando se realicen devoluciones. En la actualidad, no hay una fecha establecida para habilitar este cargo.
+> - **Para cambiar o recibir el reembolso de una reserva existente, debe tener acceso de propietario en el pedido de reserva**. Puede [agregar o cambiar los usuarios que pueden administrar una reserva](https://docs.microsoft.com/azure/cost-management-billing/reservations/manage-reserved-vm-instance#add-or-change-users-who-can-manage-a-reservation).
+> - Actualmente, Microsoft no cobra ningún cargo por finalización prematura en las devoluciones de las reservas. En el futuro es posible que se cobre cuando se realicen devoluciones. En la actualidad, no hay una fecha establecida para habilitar este cargo.
 
 ## <a name="how-to-exchange-or-refund-an-existing-reservation"></a>Cambio o devolución de una reserva existente
 
@@ -76,7 +75,8 @@ Azure tiene estas directivas en caso de cancelaciones, intercambios y reembolsos
 **Directivas de reembolso**
 
 - Actualmente, no cobramos ningún cargo por finalización prematura, pero en el futuro podría haber una cargo del 12 % por este motivo en las cancelaciones.
-- El compromiso total cancelado no puede superar los 50 000 USD en una ventana con desplazamiento de 12 meses. Ejemplo: en el caso de una reserva trienal de 100 USD al mes que se ha devuelto el decimoctavo mes, el compromiso cancelado es de 1800 USD dólares estadounidenses. Después de la devolución, el nuevo límite disponible para reembolsos será 48 200 dólares. En 365 días a partir de esta devolución, el límite de 48 200 USD aumentará en 1800 USD, hasta 50 000 USD. Cualquier otra cancelación de reserva reducirá este importe y se aplicará la misma lógica de reposición.
+- El compromiso total cancelado no puede superar los 50 000 USD en un período acumulado de 12 meses para un perfil de facturación o una inscripción única. Por ejemplo, en el caso de una reserva trienal de 100 USD al mes que se ha devuelto el decimoctavo mes, el compromiso cancelado es de 1800 USD. Después de la devolución, el nuevo límite disponible para reembolsos será 48 200 dólares. En 365 días a partir de la devolución, el límite de 48 200 USD aumentará en 1800 USD, hasta 50 000 USD. Cualquier otra cancelación de reserva para el perfil de facturación o la inscripción de Contrato Enterprise reducirá este importe, y se aplicará la misma lógica de reposición.
+- Azure no procesará ningún reembolso que supere el límite de 50 000 USD en un período de 12 meses para un perfil de facturación o inscripción de Contrato Enterprise.
 - Los reembolsos se calculan según el precio más bajo de su precio de compra o en el precio actual de la reserva.
 - Solo los propietarios de un pedido de reserva pueden procesar un reembolso. [Obtenga información sobre cómo agregar o cambiar los usuarios que pueden administrar una reserva](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 5/28/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: cefd366e29fe1c6f68ec38816247f78bb53cd6e6
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84196239"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87001356"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Nubes y regiones donde existe Azure Media Services v3
 
@@ -53,7 +53,7 @@ Azure Media Services v3 está disponible a través del manifiesto de Azure Resou
 
 ### <a name="region-code-name"></a>Nombre de código de región
 
-Cuando tenga que proporcionar el parámetro **location**, deberá proporcionar el nombre de código de región como el valor **location**. Para obtener el nombre de código de la región en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)
+Cuando tenga que proporcionar el parámetro **location**, deberá proporcionar el nombre de código de región como el valor **location**. Para obtener el nombre de código de la región en la que está su cuenta y a la que se debe enrutar la llamada, puede ejecutar la siguiente línea en la [CLI de Azure](/cli/azure/?view=azure-cli-latest)
 
 ```azurecli-interactive
 az account list-locations
@@ -80,32 +80,32 @@ Es importante conocer los siguientes puntos de conexión al conectarse a cuentas
 
 ### <a name="global-azure"></a>Azure global
 
-|Puntos de conexión||
-| --- | --- |
+| Servicio | Punto de conexión |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
 | Authentication | `https://login.microsoftonline.com/` |
 | Público del token | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
 
-|Puntos de conexión||
-| --- | --- |
+| Servicio | Punto de conexión |
+| ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
 | Authentication | `https://login.microsoftonline.us/` |
 | Público del token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Alemania
 
-| Puntos de conexión ||
-| --- | --- |  
+| Servicio | Punto de conexión |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
 | Authentication | `https://login.microsoftonline.de/` |
 | Público del token | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure China 21Vianet
 
-|Puntos de conexión||
-| --- | --- |
+| Servicio | Punto de conexión |
+| ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
 | Authentication | `https://login.chinacloudapi.cn/` |
 | Público del token |  `https://management.core.chinacloudapi.cn/` |

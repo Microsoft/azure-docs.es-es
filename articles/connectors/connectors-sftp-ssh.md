@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 06/17/2020
+ms.date: 07/20/2020
 tags: connectors
-ms.openlocfilehash: c2f3af4b0e2fafdd95798b412f37ed20204cd42f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3de582ff69dbd57aa4692fd5c3901602569cf9e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286621"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Supervisión, creación y administración de archivos SFTP mediante SSH y Azure Logic Apps
 
@@ -23,6 +23,7 @@ Para automatizar las tareas que supervisan, crean, envían y reciben archivos en
 > El conector SFTP-SSH no es compatible actualmente con estos servidores SFTP:
 > 
 > * IBM DataPower
+> * MessageWay
 > * OpenText Secure MFT
 > * OpenText GXS
 
@@ -51,7 +52,7 @@ Para conocer las diferencias entre el conector SFTP-SSH y el conector SFTP, revi
 
   | Acción | Compatibilidad con la fragmentación | Invalidación de la compatibilidad con el tamaño de fragmento |
   |--------|------------------|-----------------------------|
-  | **Copiar archivo** | No | No aplicable |
+  | **Copiar archivo** | No | No es aplicable |
   | **Crear archivo** | Sí | Sí |
   | **Crear carpeta** | No aplicable | No aplicable |
   | **Eliminar archivo** | No aplicable | No aplicable |
@@ -254,7 +255,7 @@ Si no puede evitar o retrasar el traslado del archivo, puede omitir la lectura d
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/sftpwithssh/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](/connectors/sftpwithssh/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE necesita fragmentarse para usar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
@@ -262,3 +263,4 @@ Si necesita más detalles técnicos sobre este conector, como los desencadenador
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

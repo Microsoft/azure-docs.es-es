@@ -14,12 +14,12 @@ ms.author: blazem
 ms.reviewer: jroth
 manager: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 465338bb793ad7b4fc406e9d1c073b9dc0dc06c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d632d078db55696dad7bb05e72368b13610b5978
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74034010"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091426"
 ---
 # <a name="enable-transparent-data-encryption-tde-for-stretch-database-on-azure"></a>Habilitación del cifrado de datos transparente (TDE) para Stretch Database en Azure
 > [!div class="op_single_selector"]
@@ -37,9 +37,9 @@ Para habilitar TDE para una base de datos de Azure que almacena los datos migrad
 
 1. Abra la base de datos en el [Portal de Azure](https://portal.azure.com)
 2. En la hoja de la base de datos, haga clic en el botón **Configuración**
-3. Seleccione la opción **Cifrado de datos transparente** . ![][1]
-4. Seleccione la configuración **Activado** y, luego, **Guardar**
-   ![][2]
+3. Seleccione la opción **Cifrado de datos transparente** ![Captura de pantalla de Azure Portal, con la hoja Configuración visible. En la sección General, Cifrado de datos transparente está resaltado.][1]
+4. Seleccione la opción **Activado** y seleccione **Guardar**
+   ![Captura de pantalla de Azure Portal, con la hoja Cifrado de datos transparente visible. El cifrado de datos está activado y el botón Guardar está resaltado.][2]
 
 ## <a name="disabling-encryption"></a>Deshabilitar el cifrado
 Para deshabilitar TDE para una base de datos de Azure que almacena los datos migrados desde una base de datos SQL Server habilitada para Stretch, haga lo siguiente:

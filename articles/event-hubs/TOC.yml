@@ -75,7 +75,7 @@
     - name: Procesamiento de eventos de Apache Kafka para Event Hubs mediante Stream Analytics
       href: event-hubs-kafka-stream-analytics.md
     - name: Streaming de datos a Azure Databricks con Event Hubs
-      href: ../azure-databricks/databricks-stream-from-eventhubs.md
+      href: /azure/databricks/scenarios/databricks-stream-from-eventhubs
       maintainContext: true
 - name: Ejemplos
   items:
@@ -124,6 +124,9 @@
           href: network-security.md
         - name: Controles de seguridad integrados
           href: event-hubs-security-controls.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Guía del protocolo AMQP 1.0
@@ -185,6 +188,8 @@
           href: event-hubs-kafka-flink-tutorial.md
         - name: Integración de Apache Kafka Connect con un centro de eventos (versión preliminar)
           href: event-hubs-kafka-connect-tutorial.md
+        - name: Integración de Apache Kafka Connect (versión preliminar) con Debezium
+          href: event-hubs-kafka-connect-debezium.md
         - name: Conexión de Akka Streams a un centro de eventos
           href: event-hubs-kafka-akka-streams-tutorial.md
         - name: 'Preguntas frecuentes: Event Hubs para Kafka'
@@ -196,18 +201,18 @@
         - name: Configuración de registros de diagnósticos
           href: event-hubs-diagnostic-logs.md
         - name: Transmisión de datos de Diagnósticos de Azure mediante Event Hubs
-          href: event-hubs-streaming-azure-diags-data.md
+          href: ../azure-monitor/platform/diagnostics-extension-stream-event-hubs.md
         - name: Escalado automático de las unidades de rendimiento
           href: event-hubs-auto-inflate.md
         - name: Bibliotecas de administración de Event Hubs
           href: event-hubs-management-libraries.md
     - name: Seguridad
       items:
-        - name: Configuración de la dirección IP del firewall
+        - name: Permitir el acceso desde determinadas direcciones IP
           href: event-hubs-ip-filtering.md
-        - name: Configuración de puntos de conexión de servicio de red virtual
+        - name: Permitir el acceso desde determinadas redes virtuales
           href: event-hubs-service-endpoints.md
-        - name: Configuración de puntos de conexión privados
+        - name: Permitir el acceso a través de puntos de conexión privados
           href: private-link-service.md
         - name: Configuración de claves administradas por el cliente
           href: configure-customer-managed-key.md
@@ -289,6 +294,8 @@
       href: /azure/templates/microsoft.eventhub/allversions
     - name: Cuotas
       href: event-hubs-quotas.md
+    - name: Configuraciones de Apache Kafka
+      href: apache-kafka-configurations.md
 - name: Recursos
   items:
     - name: Desarrollo de aptitudes con Microsoft Learn

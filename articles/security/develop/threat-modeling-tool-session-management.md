@@ -1,6 +1,6 @@
 ---
 title: 'Administración de sesiones: Microsoft Threat Modeling Tool (Azure) | Microsoft Docs'
-description: mitigaciones para amenazas expuestas en Threat Modeling Tool
+description: Obtenga información sobre la mitigación de la administración de sesiones para las amenazas expuestas en Threat Modeling Tool. Consulte la información de mitigación y los ejemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref
-ms.openlocfilehash: 7ddc8c3016487ce56bc1a54d74aa94064cef24e4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: has-adal-ref, devx-track-javascript
+ms.openlocfilehash: 6a40d89db3e81721ec8a35973b79a558c17caee4
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83198877"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543697"
 ---
 # <a name="security-frame-session-management"></a>Marco de seguridad: Administración de sesiones
 | Producto o servicio | Artículo |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[Implemente el cierre de sesión correcto mediante métodos ADAL cuando use Azure AD](#logout-adal)</li></ul> |
-| Dispositivo IoT | <ul><li>[Use duraciones finitas para los tokens de SaS generados](#finite-tokens)</li></ul> |
+| **Dispositivo IoT** | <ul><li>[Use duraciones finitas para los tokens de SaS generados](#finite-tokens)</li></ul> |
 | **Azure Document DB** | <ul><li>[Use duraciones mínimas de token para los tokens de recursos generados](#resource-tokens)</li></ul> |
 | **ADFS** | <ul><li>[Implemente el cierre de sesión correcto mediante métodos WsFederation cuando use ADFS](#wsfederation-logout)</li></ul> |
 | **Identity Server** | <ul><li>[Implemente el cierre de sesión correcto cuando use Identity Server](#proper-logout)</li></ul> |

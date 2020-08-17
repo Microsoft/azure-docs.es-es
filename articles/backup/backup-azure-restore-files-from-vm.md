@@ -4,12 +4,12 @@ description: En este artículo, aprenderá a recuperar archivos y carpetas desde
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: a594b9636dcb4e584fd10a17bca6c48c2d1fb960
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e12669609b21d23b775af27f95528c4b42e95e81
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514091"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533564"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperación de archivos desde una copia de seguridad de máquina virtual de Azure
 
@@ -24,13 +24,13 @@ Azure Backup ofrece la funcionalidad de restauración de [discos y máquinas vir
 
 Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la máquina virtual y elija el punto de recuperación deseado.
 
-1. Inicie sesión en [Azure Portal](https://portal.Azure.com) y, en el panel izquierdo, haga clic en **Máquinas virtuales**. En la lista de máquinas virtuales, seleccione la que desee para abrir su panel.
+1. Inicie sesión en [Azure Portal](https://portal.Azure.com) y, en el panel izquierdo, seleccione **Máquinas virtuales**. En la lista de máquinas virtuales, seleccione la que desee para abrir su panel.
 
-2. En el menú de la máquina virtual, haga clic en **Backup** para abrir el panel de Backup.
+2. En el menú de la máquina virtual, seleccione **Backup** para abrir el panel de Backup.
 
     ![Apertura del elemento de copia de seguridad del almacén de Recovery Services](./media/backup-azure-restore-files-from-vm/open-vault-for-vm.png)
 
-3. En el menú del panel de Backup, haga clic en **Recuperación de archivos**.
+3. En el menú del panel de Backup, seleccione **Recuperación de archivos**.
 
     ![Botón Recuperación de archivos](./media/backup-azure-restore-files-from-vm/vm-backup-menu-file-recovery-button.png)
 
@@ -40,7 +40,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
 4. En el menú desplegable **Seleccionar punto de recuperación**, elija el punto de recuperación que contiene los archivos que desee. De forma predeterminada, el punto de recuperación más reciente ya está seleccionado.
 
-5. Si desea descargar el software para copiar archivos del punto de recuperación, haga clic en **Descargar ejecutable** (para máquinas virtuales Windows de Azure) o en **Descargar script** (para máquinas virtuales Linux de Azure). Se genera un script de Python.
+5. Si desea descargar el software para copiar archivos del punto de recuperación, seleccione **Descargar ejecutable** (para máquinas virtuales Windows de Azure) o en **Descargar script** (para máquinas virtuales Linux de Azure, se genera un script de Python).
 
     ![Contraseña generada](./media/backup-azure-restore-files-from-vm/download-executable.png)
 
@@ -50,7 +50,7 @@ Para restaurar archivos o carpetas desde el punto de recuperación, vaya a la m�
 
     Para ejecutar el archivo ejecutable o el script como administrador, se recomienda guardar el archivo descargado en el equipo.
 
-6. El archivo ejecutable o el script están protegido con contraseña y es obligatoria. En el menú **Recuperación de archivos**, haga clic en el botón de copia para cargar la contraseña en la memoria.
+6. El archivo ejecutable o el script están protegido con contraseña y es obligatoria. En el menú **Recuperación de archivos**, seleccione el botón de copia para cargar la contraseña en la memoria.
 
     ![Contraseña generada](./media/backup-azure-restore-files-from-vm/generated-pswd.png)
 
@@ -78,7 +78,7 @@ En Linux, los volúmenes del punto de recuperación se montan en la carpeta en q
 
 ## <a name="closing-the-connection"></a>Cierre de la conexión
 
-Después de identificar los archivos y copiarlos en una ubicación de almacenamiento local, quite (o desmonte) las unidades adicionales. Para desmontar las unidades, en el menú **Recuperación de archivos** de Azure Portal, haga clic en **Desmontar discos**.
+Después de identificar los archivos y copiarlos en una ubicación de almacenamiento local, quite (o desmonte) las unidades adicionales. Para desmontar las unidades, en el menú **Recuperación de archivos** de Azure Portal, seleccione **Desmontar discos**.
 
 ![Desmontar discos](./media/backup-azure-restore-files-from-vm/unmount-disks3.png)
 
@@ -132,28 +132,96 @@ Para poner en línea estas particiones, ejecute los comandos de las secciones si
 
 #### <a name="for-lvm-partitions"></a>Para particiones de LVM
 
-Para enumerar los nombres de grupo de volúmenes en un volumen físico:
+Una vez que se ejecuta el script, las particiones de LVM se montan en los discos o volúmenes físicos especificados en la salida del script. El proceso consiste en lo siguiente:
+
+1. Obtenga la lista única de nombres de grupos de volúmenes de los discos o volúmenes físicos.
+2. A continuación, enumere los volúmenes lógicos de esos grupos de volúmenes.
+3. A continuación, monte los volúmenes lógicos en una ruta de acceso deseada.
+
+##### <a name="listing-volume-group-names-from-physical-volumes"></a>Enumeración de los nombres de grupos de volúmenes de volúmenes físicos
+
+Para enumerar los nombres de grupos de volúmenes:
+
+```bash
+pvs -o +vguuid
+```
+
+Este comando enumerará todos los volúmenes físicos (incluidos los presentes antes de ejecutar el script), los nombres de los grupos de volúmenes correspondientes y los identificadores de usuario únicos (UUID) del grupo de volúmenes. A continuación se muestra un resultado de ejemplo del comando.
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdf   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+
+  /dev/sdd   datavg_db lvm2 a--   <1.50t <396.50g dhWL1i-lcZS-KPLI-o7qP-AN2n-y2f8-A1fWqN
+```
+
+La primera columna (PV) muestra el volumen físico, las columnas siguientes muestran el nombre del grupo de volúmenes, el formato, los atributos, el tamaño, el espacio libre y el identificador único del grupo de volúmenes correspondientes. La salida del comando muestra todos los volúmenes físicos. Consulte la salida del script e identifique los volúmenes relacionados con la copia de seguridad. En el ejemplo anterior, la salida del script habría mostrado/dev/sdf y /dev/sdd. Por lo tanto, el grupo de volúmenes *datavg_db* pertenece al script y el grupo de volúmenes *Appvg_new* pertenece a la máquina. La idea final es asegurarse de que un nombre de grupo de volúmenes único debe tener un identificador único.
+
+###### <a name="duplicate-volume-groups"></a>Duplicación de grupos de volúmenes
+
+Hay escenarios en los que los nombres de los grupos de volúmenes pueden tener dos UUID después de ejecutar el script. Esto significa que los nombres de los grupos de volúmenes de la máquina donde se ejecutó el script y de la máquina virtual de la que se ha realizado una copia de seguridad son los mismos. En tal caso, es necesario cambiar el nombre de los grupos de volúmenes de las máquinas virtuales de las que se ha realizado una copia de seguridad. Observe el ejemplo siguiente:
+
+```bash
+PV         VG        Fmt  Attr PSize   PFree    VG UUID
+
+  /dev/sda4  rootvg    lvm2 a--  138.71g  113.71g EtBn0y-RlXA-pK8g-de2S-mq9K-9syx-B29OL6
+
+  /dev/sdc   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sde   APPvg_new lvm2 a--  <75.00g   <7.50g njdUWm-6ytR-8oAm-8eN1-jiss-eQ3p-HRIhq5
+
+  /dev/sdg   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdh   APPvg_new lvm2 a--  <75.00g  508.00m lCAisz-wTeJ-eqdj-S4HY-108f-b8Xh-607IuC
+
+  /dev/sdm2  rootvg    lvm2 a--  194.57g  127.57g efohjX-KUGB-ETaH-4JKB-MieG-EGOc-XcfLCt
+```
+
+La salida del script habría sido /dev/sdg, /dev/sdh, /dev/sdm2 como se indica anteriormente. Por lo tanto, los nombres de VG correspondientes son Appvg_new y rootvg. Sin embargo, los mismos nombres también están presentes en la lista de VG de la máquina. Se puede observar que un nombre de VG tiene dos UUID.
+
+Ahora se deben cambiar los nombres de VG para los volúmenes basados en el script, por ejemplo /dev/sdg, /dev/sdh y /dev/sdm2. Para cambiar el nombre del grupo de volúmenes, use el comando siguiente:
+
+```bash
+vgimportclone -n rootvg_new /dev/sdm2
+vgimportclone -n APPVg_2 /dev/sdg /dev/sdh
+```
+
+Ahora todos los nombres de VG tienen identificadores únicos.
+
+###### <a name="active-volume-groups"></a>Grupos de volúmenes activos
+
+Asegúrese de que los grupos de volúmenes correspondientes a los volúmenes del script están activos. El comando siguiente se usa para mostrar los grupos de volúmenes activos. Compruebe si los grupos de volúmenes relacionados con el script están presentes en esta lista.
+
+```bash
+vgdisplay -a
+```  
+
+De lo contrario, active el grupo de volúmenes con el siguiente comando.
 
 ```bash
 #!/bin/bash
-pvs <volume name as shown above in the script output>
+vgchange –a y  <volume-group-name>
 ```
 
-Para enumerar todos los volúmenes lógicos, los nombres y sus rutas de acceso en un grupo de volúmenes:
+##### <a name="listing-logical-volumes-within-volume-groups"></a>Enumeración de volúmenes lógicos dentro de grupos de volúmenes
+
+Tras obtener la lista única de grupos de volúmenes activos relacionados con el script, se pueden enumerar los volúmenes lógicos presentes en esos grupos de volúmenes mediante el siguiente comando.
 
 ```bash
 #!/bin/bash
-lvdisplay <volume-group-name from the pvs commands results>
+lvdisplay <volume-group-name>
 ```
 
-El comando ```lvdisplay``` muestra también si los grupos de volúmenes están activos o no. Si el grupo de volúmenes está marcado como inactivo, debe activarse de nuevo para montarlo. Si el grupo de volúmenes se muestra como inactivo, use el siguiente comando para activarlo.
+Este comando muestra la ruta de acceso de cada volumen lógico como "LV Path".
 
-```bash
-#!/bin/bash
-vgchange –a y  <volume-group-name from the pvs commands results>
-```
-
-Cuando el nombre del grupo de volúmenes esté activo, ejecute el comando ```lvdisplay``` una vez más para ver todos los atributos pertinentes.
+##### <a name="mounting-logical-volumes"></a>Montaje de volúmenes lógicos
 
 Para montar los volúmenes lógicos en la ruta de acceso de su elección:
 
@@ -161,6 +229,9 @@ Para montar los volúmenes lógicos en la ruta de acceso de su elección:
 #!/bin/bash
 mount <LV path from the lvdisplay cmd results> </mountpath>
 ```
+
+> [!WARNING]
+> No utilice "mount-a". Este comando monta todos los dispositivos descritos en "/etc/fstab". Esto podría hacer que se montaran dispositivos duplicados. Los datos se pueden redirigir a dispositivos creados por el script, que no los conservan y, por tanto, podría producirse una pérdida de datos.
 
 #### <a name="for-raid-arrays"></a>Para matrices RAID
 
@@ -272,7 +343,7 @@ Dado que el proceso de recuperación de archivos asocia todos los discos de la c
     - node.conn[0].timeo.noop_out_timeout = 5 a node.conn[0].timeo.noop_out_timeout = 30
 - Tras realizar el cambio anterior, vuelva a ejecutar el script. Con estos cambios, es muy probable que la recuperación de archivos se realice correctamente.
 - Cada vez que el usuario descarga un script, Azure Backup inicia el proceso de preparación del punto de recuperación para su descarga. Con discos de gran tamaño, se tardará un tiempo considerable. Si hay ráfagas sucesivas de solicitudes, la preparación de destino pasará a un espiral de descarga. Por lo tanto, se recomienda descargar un script desde el portal, PowerShell o la CLI, esperar entre 20 y 30 minutos (valor heurístico) y luego ejecutarlo. En este momento, el destino debería estar listo para conectarse desde el script.
-- Después de la recuperación de archivos, asegúrese de volver al portal y haga clic en **Desmontar discos** en los puntos de recuperación en los que no se pudieron montar los volúmenes. En esencia, este paso limpiará cualquier proceso o sesión y aumentará la posibilidad de recuperación.
+- Después de la recuperación de archivos, asegúrese de volver al portal y seleccione **Desmontar discos** en los puntos de recuperación en los que no se pudieron montar los volúmenes. En esencia, este paso limpiará cualquier proceso o sesión y aumentará la posibilidad de recuperación.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -286,7 +357,7 @@ Si tiene problemas al tratar de recuperar archivos de las máquinas virtuales, c
 | En el equipo donde se ejecuta el archivo ejecutable: los nuevos volúmenes no se desmontan después de hacer clic en el botón Desmontar. | El iniciador iSCSI de la máquina no responde ni actualiza su conexión con el destino ni mantiene la caché. |  Espere unos minutos tras hacer clic **Desmontar**. Si los nuevos volúmenes no se han desmontado, examínelos todos. Al examinar todos los volúmenes se obliga al iniciador a actualizar la conexión y el volumen se desmonta con un mensaje de error que indica que el disco no está disponible.|
 | Salida del ejecutable: el script se ejecuta correctamente, pero no se muestra en la salida del script el mensaje que indica que se han conectado nuevos volúmenes. |    Se trata de un problema transitorio.    | Los volúmenes ya deberían estar conectados. Abra el Explorador para examinarlos. Si usa siempre la misma máquina para ejecutar scripts, considere la posibilidad de reiniciarla; debería mostrarse la lista en las ejecuciones posteriores del ejecutable. |
 | Específico de Linux: no se pueden ver los volúmenes deseados. | El sistema operativo de la máquina en que se ejecuta el script puede no reconocer el sistema de archivos subyacente de la máquina virtual protegida. | Compruebe si el punto de recuperación es coherente frente a bloqueos o coherente con archivo. En caso de coherencia con archivo, ejecute el script en otra máquina cuyo sistema operativo reconozca el sistema de archivos de la máquina virtual protegida. |
-| Específico de Windows: no se pueden ver los volúmenes deseados. | Es posible que los discos se hayan conectado, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si cualquiera de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, haciendo clic en **En línea**.|
+| Específico de Windows: no se pueden ver los volúmenes deseados. | Es posible que los discos se hayan conectado, pero no se han configurado los volúmenes | En la pantalla de administración de discos, identifique los discos adicionales relacionados con el punto de recuperación. Si cualquiera de estos discos está sin conexión, intente ponerlo en línea haciendo clic con el botón derecho en él y, luego, seleccionando **En línea**.|
 
 ## <a name="security"></a>Seguridad
 
@@ -312,7 +383,7 @@ El script generado se firma con el certificado oficial de Microsoft para el serv
 
 Solo un administrador puede ejecutar el script y debe hacerlo en modo elevado. El script solo ejecuta un conjunto de pasos generado previamente y no acepta la entrada desde ningún origen externo.
 
-Para ejecutar el script, se requiere una contraseña que solo puede ver el usuario autorizado en el momento de generarse el script en Azure Portal, o bien en PowerShell o la CLI. De esta forma, se garantiza que el usuario autorizado que descarga el script sea también responsable de la ejecución del mismo.
+Para ejecutar el script, se requiere una contraseña que solo puede ver el usuario autorizado en el momento de generarse el script en Azure Portal, o bien en PowerShell o la CLI. De esta forma, se garantiza que el usuario autorizado que descarga el script sea también responsable de su ejecución.
 
 #### <a name="browse-files-and-folders"></a>Examen de archivos y carpetas
 

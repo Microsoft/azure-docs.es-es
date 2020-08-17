@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f1eec76d92edc97f7e4058d3afe813f0bb2aae47
-ms.sourcegitcommit: b80aafd2c71d7366838811e92bd234ddbab507b6
+ms.openlocfilehash: 9cb1b4d33a538b48ca1519d66f6602d902033c3e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81427648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494832"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Diseño de tablas mediante SQL de Synapse
 
@@ -45,7 +45,7 @@ En la tabla siguiente se enumeran los temas que son pertinentes para el grupo de
 | [estadísticas](#statistics)                                    | Sí                | Sí                     |
 | [Clave principal y clave única](#primary-key-and-unique-key)    | Sí                | No                      |
 | [Comandos para la creación de tablas](#commands-for-creating-tables) | Sí                | No                      |
-| [Alineación de los datos de origen con el almacenamiento de datos](#aligning-source-data-with-the-data-warehouse) | Sí                | No                      |
+| [Alineación de los datos de origen con el almacenamiento de datos](#align-source-data-with-the-data-warehouse) | Sí                | No                      |
 | [Características no compatibles de las tablas](#unsupported-table-features)    | Sí                | No                      |
 | [Consultas de tamaño de tabla](#table-size-queries)                    | Sí                | No                      |
 
@@ -214,7 +214,7 @@ Puede crear una tabla como una nueva tabla vacía. También puede crear y rellen
 | [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Rellena una nueva tabla con los resultados de una instrucción SELECT. Las columnas de tabla y los tipos de datos se basan en los resultados de la instrucción SELECT. Para importar datos, puede seleccionar esta instrucción en una tabla externa. |
 | [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) | Crea una nueva tabla externa mediante la exportación de los resultados de una instrucción SELECT a una ubicación externa.  La ubicación es Azure Blob Storage o Azure Data Lake Storage. |
 
-## <a name="aligning-source-data-with-the-data-warehouse"></a>Alineación de los datos de origen con el almacenamiento de datos
+## <a name="align-source-data-with-the-data-warehouse"></a>Alineación de los datos de origen con el almacenamiento de datos
 
 Las tablas del almacenamiento de datos se rellenan cargando datos desde otro origen de datos. Para lograr una carga correcta, el número y los tipos de datos de las columnas de los datos de origen se deben alinear con la definición de tabla en el almacenamiento de datos.
 

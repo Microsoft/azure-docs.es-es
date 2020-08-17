@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2800119f1a88172ea7c329fc53359bf1565a0705
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4fe5cacfec6ee85a5d61204ffce38c856b0d1baf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84731280"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423344"
 ---
 # <a name="bulk-restore-deleted-users-in-azure-active-directory"></a>Restauración masiva de usuarios eliminados en Azure Active Directory
 
@@ -68,7 +68,7 @@ Si hay errores, puede descargar y ver el archivo de resultados en la página **R
 
 Puede ver el estado de todas las solicitudes masivas pendientes en la página **Resultados de la operación masiva**.
 
-[![](media/users-bulk-restore/bulk-center.png "Check status in the Bulk Operations Results page")](media/users-bulk-restore/bulk-center.png#lightbox)
+[![Compruebe el estado en la página Resultados de la operación masiva.](media/users-bulk-restore/bulk-center.png)](media/users-bulk-restore/bulk-center.png#lightbox)
 
 A continuación, puede comprobar si los usuarios restaurados existen en la organización de Azure AD en Azure Portal o mediante PowerShell.
 

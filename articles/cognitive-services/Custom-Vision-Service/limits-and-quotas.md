@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 089d5dbb1eece2904f104dfecb3de8adec052dfc
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 21b90f423a3ba3c7fa38334c79aec9dc65a250cd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391747"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079181"
 ---
 # <a name="limits-and-quotas"></a>Límites y cuotas
 
@@ -23,7 +23,7 @@ Hay dos niveles de claves para el servicio Custom Vision. Puede registrarse para
 
 Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto aumente con el tiempo en los proyectos S0.
 
-||**F0**|**S0**|
+|Factor|**F0**|**S0**|
 |-----|-----|-----|
 |Proyectos|2|100|
 |Imágenes de aprendizaje por proyecto |5\.000|100 000|
@@ -39,7 +39,7 @@ Se espera que el número de etiquetas y de imágenes de aprendizaje por proyecto
 |[Otras llamadas API](https://go.microsoft.com/fwlink/?linkid=865446) (transacciones por segundo)|10|10|
 |Tipos de imágenes aceptadas|JPG, PNG, BMP, GIF|JPG, PNG, BMP, GIF|
 |Alto y ancho mínimos de la imagen, en píxeles|256 (vea la nota)|256 (vea la nota)|
-|Alto y ancho máximos de la imagen, en píxeles|sin límite|sin límite|
+|Alto y ancho máximos de la imagen, en píxeles|sin límite|Sin límite|
 |Tamaño de imagen máximo (carga de la imagen de aprendizaje) |6 MB|6 MB|
 |Tamaño de imagen máximo (predicción)|4 MB|4 MB|
 |Núm. máximo de regiones por imagen de entrenamiento de detección de objetos|300|300|

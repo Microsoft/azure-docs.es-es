@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/13/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa25cffd84ee9255fed8bbaa0f2fb6adf762b47e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6f5cabace81d53edf36ac6be0a2eb8830e6cc5f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84483783"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035084"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Preguntas más frecuentes relacionadas con Azure Multi-Factor Authentication
 
@@ -56,6 +56,8 @@ Los campos opcionales pueden configurarse en Servidor Multi-Factor Authenticatio
 
 El resultado de la comprobación (aceptación o denegación) y el motivo de la denegación se almacenan con los datos de autenticación. Los datos están disponibles en los informes de autenticación y uso.
 
+Para obtener más información, consulte [Residencia de datos y datos de cliente en Azure Multi-Factor Authentication](concept-mfa-data-residency.md).
+
 ### <a name="what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users"></a>¿Qué códigos cortos de SMS se usan para enviar mensajes SMS a mis usuarios?
 
 En Estados Unidos, Microsoft utiliza los siguientes códigos cortos de SMS:
@@ -70,7 +72,9 @@ En Canadá, usamos los siguientes códigos cortos de SMS:
 * *759731*
 * *673801*
 
-No se garantiza la entrega rápida y coherente de Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, podemos agregar o quitar códigos cortos cuando lo estimemos oportuno en tanto realicemos ajustes de enrutamiento para mejorar la capacidad de entrega de SMS. No admitimos códigos cortos para países o regiones que no sean Estados Unidos y Canadá.
+No se garantiza la entrega rápida y coherente de Multi-Factor Authentication por SMS o llamada de voz en el mismo número. Por el interés de los usuarios, podemos agregar o quitar códigos cortos cuando lo estimemos oportuno en tanto realicemos ajustes de enrutamiento para mejorar la capacidad de entrega de SMS.
+
+No admitimos códigos cortos para países o regiones que no sean Estados Unidos y Canadá.
 
 ## <a name="billing"></a>Facturación
 

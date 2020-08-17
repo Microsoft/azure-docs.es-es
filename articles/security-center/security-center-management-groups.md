@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: memildin
-ms.openlocfilehash: 236153612f6056e90cb9b5af128f49ed550e3fe9
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 43a6c10c8c73e8fb5189b6f085a6969c0d776593
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080880"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534913"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 En este artículo se explica cómo administrar la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad a todas las suscripciones vinculadas al inquilino de Azure Active Directory.
@@ -26,7 +26,7 @@ En este artículo se explica cómo administrar la posición de seguridad de la o
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupos de administración
-Los grupos de administración de Azure permiten administrar de un modo eficaz el acceso, las directivas y los informes en grupos de suscripciones, además de administrar todas las inversiones en Azure mediante acciones en el grupo de administración raíz. Cada inquilino de Azure AD tiene un grupo de administración de nivel superior único llamado grupo de administración raíz. Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo permite que las directivas globales y las asignaciones de RBAC se apliquen en el nivel de directorio. 
+Los grupos de administración de Azure permiten administrar de un modo eficaz el acceso, las directivas y los informes en grupos de suscripciones, además de administrar todas las inversiones en Azure mediante acciones en el grupo de administración raíz. Cada inquilino de Azure AD tiene un grupo de administración de nivel superior único llamado grupo de administración raíz. Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo permite que las directivas globales y las asignaciones de roles de Azure se apliquen en el nivel de directorio. 
 
 El grupo de administración raíz se crea de manera automática cuando realiza cualquiera de las siguientes acciones: 
 1. Decide utilizar los grupos de administración de Azure en **Grupos de administración** en [Azure Portal](https://portal.azure.com).
@@ -60,10 +60,10 @@ Puede organizar las suscripciones en grupos de administración y aplicar las dir
 
 ## <a name="grant-tenant-level-visibility-and-the-ability-to-assign-policies"></a>Concesión de visibilidad en el nivel de inquilino y la capacidad de asignar directivas
 
-Para obtener visibilidad en la posición de seguridad de todas las suscripciones registradas en el inquilino de Azure AD, se necesita asignar un rol de RBAC con permisos de lectura suficientes en el grupo de administración raíz.
+Para obtener visibilidad en la posición de seguridad de todas las suscripciones registradas en el inquilino de Azure AD, se necesita asignar un rol de Azure con permisos de lectura suficientes en el grupo de administración raíz.
 
 ### <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Elevación de los privilegios de acceso de un administrador global en Azure Active Directory
-Un administrador de inquilino de Azure Active Directory no tiene acceso directo a las suscripciones de Azure. No obstante, como administrador de directorio, tienen el derecho de elevarse a sí mismos a un rol que tiene derechos de acceso. Un administrador de inquilino de Azure AD debe elevarse a sí mismo a administrador de acceso de usuarios en el nivel de grupo de administración raíz para poder asignar roles de RBAC. Para obtener instrucciones de PowerShell e información adicional, consulte [Elevación de los privilegios de acceso de un administrador global en Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
+Un administrador de inquilino de Azure Active Directory no tiene acceso directo a las suscripciones de Azure. No obstante, como administrador de directorio, tienen el derecho de elevarse a sí mismos a un rol que tiene derechos de acceso. Un administrador de inquilino de Azure AD debe elevarse a sí mismo a administrador de acceso de usuarios en el nivel de grupo de administración raíz para poder asignar roles de Azure. Para obtener instrucciones de PowerShell e información adicional, consulte [Elevación de los privilegios de acceso de un administrador global en Azure Active Directory](../role-based-access-control/elevate-access-global-admin.md). 
 
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com).
@@ -87,11 +87,11 @@ Un administrador de inquilino de Azure Active Directory no tiene acceso directo 
 5. Realice las tareas que debe realizar al tener privilegios elevados de acceso. Cuando haya terminado, establezca el conmutador de nuevo en **No**.
 
 
-### <a name="assign-rbac-roles-to-users"></a>Asignación de roles de RBAC a los usuarios
-Para ganar visibilidad en todas las suscripciones, los administradores de inquilinos deben asignar el rol de RBAC adecuado a los usuarios a los que desea conceder visibilidad en todo el inquilino, incluidos ellos mismos, en el nivel de grupo de administración raíz. Los roles recomendados que se deben asignar son **Administrador de seguridad** o **Lector de seguridad**. Por lo general, el rol de Administrador de seguridad es necesario para aplicar directivas en el nivel raíz, mientras que el de Lector de seguridad será suficiente para proporcionar visibilidad en el nivel de inquilino. Para más información acerca de los permisos concedidos por estos roles, consulte la [descripción del rol integrado de Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin) o la [descripción del rol integrado de Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader).
+### <a name="assign-azure-roles-to-users"></a>Asignación de roles de Azure a usuarios
+Para ganar visibilidad en todas las suscripciones, los administradores de inquilinos deben asignar el rol de Azure adecuado a los usuarios a los que desea conceder visibilidad en todo el inquilino, incluidos ellos mismos, en el nivel de grupo de administración raíz. Los roles recomendados que se deben asignar son **Administrador de seguridad** o **Lector de seguridad**. Por lo general, el rol de Administrador de seguridad es necesario para aplicar directivas en el nivel raíz, mientras que el de Lector de seguridad será suficiente para proporcionar visibilidad en el nivel de inquilino. Para más información acerca de los permisos concedidos por estos roles, consulte la [descripción del rol integrado de Administrador de seguridad](../role-based-access-control/built-in-roles.md#security-admin) o la [descripción del rol integrado de Lector de seguridad](../role-based-access-control/built-in-roles.md#security-reader).
 
 
-#### <a name="assign-rbac-roles-to-users-through-the-azure-portal"></a>Asigne roles de RBAC a usuarios mediante Azure Portal: 
+#### <a name="assign-azure-roles-to-users-through-the-azure-portal"></a>Asignación de roles de Azure a los usuarios mediante Azure Portal: 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). 
 1. Para ver los grupos de administración, seleccione **Todos los servicios** en el menú principal de Azure y, a continuación, seleccione **Grupo de administración**.
@@ -108,7 +108,7 @@ Para ganar visibilidad en todas las suscripciones, los administradores de inquil
    ![Captura de pantalla de incorporación del rol de Lector de seguridad](./media/security-center-management-groups/asc-security-reader.png)
 
 
-#### <a name="assign-rbac-roles-to-users-with-powershell"></a>Asignación de roles de RBAC a los usuarios con PowerShell: 
+#### <a name="assign-azure-roles-to-users-with-powershell"></a>Asignación de roles de Azure a los usuarios con PowerShell: 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -155,7 +155,7 @@ Cuando tenga privilegios de acceso elevados, abra o actualice Azure Security Cen
     ![Captura de pantalla de la lista de cobertura de suscripciones](./media/security-center-management-groups/security-center-coverage.png)
 
 ### <a name="remove-elevated-access"></a>Eliminación de privilegios de acceso elevados 
-Después de asignar los roles de RBAC a los usuarios, el administrador de inquilino debería eliminarse a sí mismo del rol de administrador de acceso de usuarios.
+Después de asignar los roles de Azure a los usuarios, el administrador de inquilino debería eliminarse a sí mismo del rol de administrador de acceso de usuarios.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com) o en el [Centro de administración de Azure Active Directory](https://aad.portal.azure.com).
 
@@ -183,7 +183,7 @@ Puede agregar suscripciones al grupo de administración que ha creado. Estos pas
 4. Repita los pasos 1 a 3 hasta que haya agregado todas las suscripciones del ámbito.
 
    > [!NOTE]
-   > Los grupos de administración pueden contener tanto suscripciones como grupos de administración secundarios. Cuando asigna un rol de RBAC a un usuario en el grupo de administración primario, las suscripciones del grupo de administración secundario heredan el acceso. Las directivas establecidas en el grupo de administración primario también son heredadas por los secundarios. 
+   > Los grupos de administración pueden contener tanto suscripciones como grupos de administración secundarios. Cuando asigna un rol de Azure a un usuario en el grupo de administración primario, las suscripciones del grupo de administración secundario heredan el acceso. Las directivas establecidas en el grupo de administración primario también son heredadas por los secundarios. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a obtener la visibilidad de todos los inquilinos en Azure Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
@@ -193,4 +193,3 @@ En este artículo, ha aprendido a obtener la visibilidad de todos los inquilinos
 
 > [!div class="nextstepaction"]
 > [Administración y respuesta a alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md)
-

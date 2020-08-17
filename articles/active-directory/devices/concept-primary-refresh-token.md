@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/29/2019
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ccd51bd69c982aeae25dbf52d1e5d076542cf35
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: 9971eb554825a968f8cfa72d6a0cf78d7c0bcb76
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771203"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87025887"
 ---
 # <a name="what-is-a-primary-refresh-token"></a>¿Qué es un token de actualización principal?
 
@@ -65,7 +65,7 @@ El PRT se emite durante la autenticación del usuario en un dispositivo Windows�
 En escenarios de dispositivos registrados de Azure AD, el complemento WAM de Azure AD es la autoridad principal del PRT puesto que no va a tener lugar un inicio de sesión de Windows con esta cuenta de Azure AD.
 
 > [!NOTE]
-> Los proveedores de identidades de terceros necesitan admitir el protocolo WS-Trust para permitir la emisión de PRT en dispositivos Windows 10. Sin WS-Trust, no se puede emitir un PRT para los usuarios de dispositivos unidos a Azure AD híbrido o unidos a Azure AD.
+> Los proveedores de identidades de terceros necesitan admitir el protocolo WS-Trust para permitir la emisión de PRT en dispositivos Windows 10. Sin WS-Trust, no se puede emitir un PRT para los usuarios de dispositivos unidos a Azure AD híbrido o unidos a Azure AD. En ADFS solo se requieren puntos de conexión usernamemixed. Tanto adfs/services/trust/2005/windowstransport como adfs/services/trust/13/windowstransport se deben habilitar como puntos de conexión accesibles desde la intranet y **NO deben exponerse** como accesible desde la extranet mediante el Proxy de aplicación web.
 
 ## <a name="what-is-the-lifetime-of-a-prt"></a>¿Cuál es la duración de un PRT?
 
@@ -167,6 +167,9 @@ Los siguientes diagramas ilustran los detalles subyacentes en la emisión, la re
 | E | El complemento CloudAP construye la solicitud de autenticación con las credenciales del usuario, el nonce y el PRT existente, firma la solicitud con la clave de sesión y la envía a Azure AD. En un entorno federado, el complemento CloudAP usa el token SAML devuelto por el proveedor de federación en lugar de las credenciales del usuario. |
 | F | Azure AD valida la firma de la clave de sesión, para lo cual la compara con la clave de sesión insertada en el PRT, valida el nonce y comprueba que el dispositivo sea válido en el inquilino y emite un nuevo PRT. Como se vio antes, el PRT viene acompañado de nuevo por la clave de sesión cifrada mediante la clave de transporte (tkpub). |
 | G | El complemento CloudAP pasa el PRT y la clave de sesión cifrados a CloudAP. CloudAP solicita al TPM que descifre la clave de sesión mediante la clave de transporte (tkpriv) y la vuelve a cifrar con la propia clave del TPM. CloudAP almacena la clave de sesión cifrada en su caché junto con el PRT. |
+
+> [!NOTE]
+> Un PRT se puede renovar externamente sin necesidad de una conexión VPN cuando los puntos de conexión usernamemixed están habilitados externamente.
 
 ### <a name="prt-usage-during-app-token-requests"></a>Uso del PRT durante las solicitudes de tokens de aplicación
 

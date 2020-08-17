@@ -1,14 +1,14 @@
 ---
 title: Diseño de flujos de trabajo de directiva como código
 description: Aprenda a diseñar flujos de trabajo para implementar sus definiciones de Azure Policy como código y validar automáticamente los recursos.
-ms.date: 05/20/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 17964459c6c06e6d7df09da4d3f0813350f209ec
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970950"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131504"
 ---
 # <a name="design-policy-as-code-workflows"></a>Diseño de flujos de trabajo de directiva como código
 
@@ -20,6 +20,24 @@ A medida que avanza en el recorrido con el gobierno en la nube, querrá cambiar 
 La directiva como código es la combinación de estas ideas. Básicamente, mantenga las definiciones de directivas en el control de código fuente y, cada vez que se realice un cambio, pruebe y valide ese cambio. Sin embargo, eso no debe ser el alcance de la implicación de las directivas con la infraestructura como código ni DevOps.
 
 El paso de validación también debe ser un componente de otros flujos de trabajo de integración continua o implementación continua. Entre los ejemplos se incluye la implementación de un entorno de aplicación o una infraestructura virtual. Al hacer que la validación de Azure Policy sea un componente temprano del proceso de compilación e implementación, los equipos de operaciones y de aplicaciones detectan si sus cambios cumplen o no, mucho antes de que sea demasiado tarde y estén intentando implementar en producción.
+
+## <a name="definitions-and-foundational-information"></a>Definiciones e información básica
+
+Antes de entrar en los detalles del flujo de trabajo de directiva como código, revise las siguientes definiciones y ejemplos:
+
+- [Definición de directiva](./definition-structure.md)
+- [Definición de iniciativa](./initiative-definition-structure.md)
+
+Los nombres de archivo se alinean con partes de la definición de directiva o de iniciativa:
+- `policy(set).json`: la definición completa
+- `policy(set).parameters.json`: la parte `properties.parameters` de la definición
+- `policy.rules.json`: la parte `properties.policyRule` de la definición
+- `policyset.definitions.json`: la parte `properties.policyDefinitions` de la definición
+
+Los ejemplos de estos formatos de archivo están disponibles en el [repositorio de GitHub de Azure Policy](https://github.com/Azure/azure-policy/):
+
+- Definición de directiva: [Agregar una etiqueta a los recursos](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
+- Definición de iniciativa: [Etiquetas de facturación](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
 
 ## <a name="workflow-overview"></a>Introducción al flujo de trabajo
 

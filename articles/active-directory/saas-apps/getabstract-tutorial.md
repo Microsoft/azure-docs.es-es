@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: ad338ce3758c9c8387cc74cc55f9a905b1e5cd73
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a7de0dfadd7af4f5baca30a037651b4201278cba
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "73155268"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getabstract"></a>Tutorial: Integración de Azure Active Directory con Getabstract
 
@@ -40,6 +40,9 @@ Para configurar la integración de Azure AD con Getabstract, necesita los siguie
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
 * Una suscripción habilitada para el inicio de sesión único en Getabstract
+
+> [!NOTE]
+> Esta integración también está disponible para usarse desde el entorno de la nube del gobierno de EE. UU de Azure AD. Puede encontrar esta aplicación en la galería de aplicaciones de la nube del gobierno de EE. UU. de Azure AD y configurarla de la misma manera que en la nube pública.
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
@@ -80,10 +83,10 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con Getabstract, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)** : para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de Getabstract](#configure-getabstract-single-sign-on)** : para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Getabstract](#configure-getabstract-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)** , para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)** , para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de Getabstract](#create-getabstract-test-user)** : para tener un homólogo de Britta Simon en Getabstract que esté vinculado a su representación en Azure AD.
+5. **[Creación de un usuario de prueba de Getabstract](#create-getabstract-test-user)**: para tener un homólogo de Britta Simon en Getabstract que esté vinculado a su representación en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)** : para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -108,7 +111,7 @@ Para configurar el inicio de sesión único de Azure AD con Getabstract, realice
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Getabstract](common/idp-intiated.png)
 
-    a. En el cuadro de texto **Identificador**, escriba una dirección URL:
+    a. En el cuadro de texto **Identificador**, escriba una dirección URL: 
 
     Para la fase de ensayos y preproducción: `https://int.getabstract.com`
 
@@ -124,7 +127,7 @@ Para configurar el inicio de sesión único de Azure AD con Getabstract, realice
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Getabstract](common/metadata-upload-additional-signon.png)
     
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: .
 
     Para la fase de ensayos y preproducción: `https://int.getabstract.com/portal/<org_username>`
     

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c98ae7c95ac3fc186786612dd3d8d8bd55fa816f
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82024887"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519361"
 ---
 # <a name="working-with-security-policies"></a>Uso de directivas de seguridad
 
@@ -33,7 +33,7 @@ Azure Security Center realiza sus recomendaciones de seguridad en función de la
 
 Security Center le ofrece las siguientes opciones para trabajar con directivas de seguridad:
 
-* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa integrada denominada "ASC default" se asigna automáticamente a todas las suscripciones registradas de Security Center (niveles gratis o estándar). Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para comprender las opciones disponibles.
+* **Ver y editar la directiva predeterminada integrada**: al habilitar Security Center, una iniciativa integrada denominada "ASC default" se asigna automáticamente a todas las suscripciones registradas de Security Center (planes de tarifa gratis o estándar). Para personalizar esta iniciativa, puede habilitar o deshabilitar las directivas individuales de la misma. Consulte la lista de [directivas de seguridad integradas](security-center-policy-definitions.md) para comprender las opciones disponibles.
 
 * **Agregue sus propias directivas personalizadas**: si quiere personalizar las iniciativas de seguridad que se aplican a su suscripción, puede hacerlo en Security Center. A continuación, recibirá recomendaciones si las máquinas no siguen las directivas que creó. Para obtener instrucciones sobre la creación y asignación de directivas personalizadas, consulte [Uso de las directivas de seguridad personalizadas](custom-security-policies.md).
 
@@ -86,14 +86,18 @@ Para ver las directivas de seguridad de Security Center:
 
 Puede editar directivas de seguridad mediante el portal de Azure Policy, la API REST o con Windows PowerShell.
 
-Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que se pueden asignar a usuarios, grupos y servicios en Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que tiene acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. Además de estos roles, existen dos roles específicos de Security Center:
+Security Center usa el control de acceso basado en rol (RBAC), que proporciona roles integrados que puede asignar a usuarios, grupos y servicios de Azure. Cuando un usuario abre Security Center, solo ve la información relacionada con los recursos a los que puede tener acceso. Esto significa que a los usuarios se les asigna el rol de *propietario*, *colaborador* o *lector* para la suscripción del recurso. También hay dos roles de Security Center específicos:
 
-- **Lector de seguridad**: el usuario tiene derecho a visualizar el contenido de Security Center (recomendaciones, alertas, directivas y estados) pero no puede realizar cambios.
-- **Administrador de seguridad**: tiene los mismos derechos que el *lector de seguridad*, pero también puede actualizar la directiva de seguridad o descartar recomendaciones y alertas.
+- **Lector de seguridad**: tiene derechos para ver elementos de Security Center como recomendaciones, alertas, directiva y estado. No se pueden realizar cambios.
+- **Administrador de seguridad**: tiene los mismos derechos de visualización que el *lector de seguridad*. También se puede actualizar la directiva de seguridad y descartar alertas.
 
 
-## <a name="disable-security-policies"></a>Deshabilitar las directivas de seguridad
-Si la directiva de seguridad predeterminada genera una recomendación que no es pertinente para su entorno, puede deshabilitar la definición de directiva que envía la recomendación para detenerla.
+## <a name="disable-security-policies-and-disable-recommendations"></a>Deshabilitar las directivas de seguridad y recomendaciones
+
+Si su iniciativa de seguridad desencadena una recomendación que no es relevante para su entorno, puede evitar que esa recomendación vuelva a aparecer. Para deshabilitar una recomendación, deshabilite la directiva específica que la genera.
+
+La recomendación que desea deshabilitar seguirá apareciendo si es necesaria para un cumplimiento normativo aplicado con las herramientas de cumplimiento normativo de Security Center. Incluso si ha deshabilitado una directiva en la iniciativa integrada, una directiva en la iniciativa del cumplimiento normativo seguirá desencadenando la recomendación si hace falta para el cumplimiento. No puede deshabilitar directivas de iniciativas de cumplimiento normativo.
+
 Para más información sobre las recomendaciones, consulte [Administración de las recomendaciones de seguridad](security-center-recommendations.md).
 
 1. En Security Center, en la sección **Directiva y cumplimiento**, seleccione **Directiva de seguridad**.
@@ -103,7 +107,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 2. Seleccione el grupo de administración o de suscripción para el que quiere deshabilitar la recomendación.
 
    > [!NOTE]
-   > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que usa la misma directiva, seguirá recibiendo las recomendaciones de directivas. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
+   > Recuerde que un grupo de administración aplica sus directivas a sus suscripciones. Por lo tanto, si deshabilita la directiva de una suscripción y la suscripción pertenece a un grupo de administración que todavía usa la misma directiva, seguirá recibiendo las recomendaciones de la directiva. La directiva se seguirá aplicando desde el nivel de administración y las recomendaciones se seguirán generando.
 
 1. Seleccione**Ver directiva efectiva**.
 
@@ -125,7 +129,7 @@ Para más información sobre las recomendaciones, consulte [Administración de l
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este artículo obtuvo información sobre las directivas de seguridad. Para obtener más información relacionada, consulte los siguientes artículos:
+En este artículo se explicaban las directivas de seguridad. Para obtener más información relacionada, consulte los siguientes artículos:
 
 * Para obtener instrucciones sobre cómo establecer directivas con PowerShell, consulte [Inicio rápido: creación de una asignación de directiva para identificar recursos no compatibles mediante el módulo de Azure PowerShell](../governance/policy/assign-policy-powershell.md).
 

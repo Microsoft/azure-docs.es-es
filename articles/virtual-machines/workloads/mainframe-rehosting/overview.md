@@ -10,12 +10,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
-ms.openlocfilehash: d1ab9834d4bf25c7c18171ecb271f18b213d15b0
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d754f27a1510d9db0837eabb96b3a7cf75f76fc1
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86507886"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835534"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehospedaje del sistema central en Azure Virtual Machines
 
@@ -90,7 +90,7 @@ Con IaaS de Azure como una VM, funciones del sistema específicas proporcionan c
 
 ### <a name="scalability"></a>Escalabilidad
 
-Los sistemas centrales suelen escalarse verticalmente, mientras que los entornos de nube se escalan horizontalmente. Azure ofrece una variedad de tamaños de [Linux](../../linux/sizes.md) y [Windows](../../windows/sizes.md) para satisfacer sus necesidades. La nube también se puede escalar o reducir verticalmente para ajustarse a las especificaciones exactas del usuario. La eficacia de proceso, el almacenamiento y los servicios se [escalan](/azure/architecture/best-practices/auto-scaling) a petición en un modelo de facturación basado en uso.
+Los sistemas centrales suelen escalarse verticalmente, mientras que los entornos de nube se escalan horizontalmente. Azure ofrece una variedad de tamaños de [Linux](../../sizes.md) y [Windows](../../sizes.md) para satisfacer sus necesidades. La nube también se puede escalar o reducir verticalmente para ajustarse a las especificaciones exactas del usuario. La eficacia de proceso, el almacenamiento y los servicios se [escalan](/azure/architecture/best-practices/auto-scaling) a petición en un modelo de facturación basado en uso.
 
 ### <a name="storage"></a>Storage
 

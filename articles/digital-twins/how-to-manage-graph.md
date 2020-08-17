@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6d51abab46cd8450dd3a09e5e5ef47e6267b990d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 7f7239e0c13478af712d8e8d9dad8fda23fe42c7
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258087"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125539"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Administración de un grafo de gemelos digitales con relaciones
 
 El corazón de Azure Digital Twins es el [grafo de gemelos](concepts-twins-graph.md) que representa todo el entorno. El grafo de gemelos se compone de gemelos digitales individuales conectados a través de **relaciones**.
 
-Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance.md) en funcionamiento y que haya configurado la [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](how-to-use-apis-sdks.md) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
+Una vez que tenga una [instancia de Azure Digital Twins](how-to-set-up-instance-scripted.md) en funcionamiento y que haya configurado el código de [autenticación](how-to-authenticate-client.md) para la aplicación cliente, puede usar las [**API DigitalTwins**](how-to-use-apis-sdks.md) para crear, modificar y eliminar gemelos digitales y sus relaciones en una instancia de Azure Digital Twins. También puede usar el [SDK de .NET ( C# )](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core) o la [CLI de Azure Digital Twins](how-to-use-cli.md).
 
-Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [Procedimiento: Administración de Digital Twins](how-to-manage-twin.md).
+Este artículo está centrado en la administración de las relaciones y el grafo en conjunto; para trabajar con gemelos digitales individuales, consulte [*Procedimiento: Administración de Digital Twins*](how-to-manage-twin.md).
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -62,7 +62,7 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Para obtener más información sobre la clase auxiliar `BasicRelationship`, vea [Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md).
+Para obtener más información sobre la clase auxiliar `BasicRelationship`, consulte [*Procedimiento: Uso de las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md).
 
 ## <a name="list-relationships"></a>Enumeración de las relaciones
 
@@ -108,7 +108,7 @@ Azure Digital Twins también dispone de una API para buscar todas las relaciones
 
 El ejemplo de código anterior se centró en buscar relaciones de salida. El ejemplo siguiente es similar, pero busca las relaciones de entrada en su lugar. También las elimina cuando se encuentran.
 
-Tenga en cuenta que las llamadas a IncomingRelationship no lo devuelven todo.
+Tenga en cuenta que las llamadas a `IncomingRelationship` no devuelven todo el cuerpo de la relación.
 
 ```csharp
 async Task<List<IncomingRelationship>> FindIncomingRelationshipsAsync(string dtId)
@@ -301,10 +301,10 @@ foreach (JsonElement row in data.RootElement.EnumerateArray())
 ```
 ## <a name="manage-relationships-with-cli"></a>Administrar relaciones con la CLI
 
-Los gemelos y sus relaciones también se pueden administrar mediante la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [Procedimiento: Uso de la CLI de Azure Digital Twins](how-to-use-cli.md).
+Los gemelos y sus relaciones también se pueden administrar mediante la CLI de Azure Digital Twins. Los comandos se pueden encontrar en [*Procedimiento: Uso de la CLI de Azure Digital Twins*](how-to-use-cli.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga información sobre cómo consultar un grafo de gemelos de Azure Digital Twins:
-* [Conceptos: Lenguaje de consulta](concepts-query-language.md)
-* [Procedimiento: Consulta del grafo de gemelos](how-to-query-graph.md)
+* [*Conceptos: Lenguaje de consulta*](concepts-query-language.md)
+* [*Procedimiento: Consulta del grafo gemelo*](how-to-query-graph.md)

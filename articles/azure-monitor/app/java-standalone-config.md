@@ -3,12 +3,13 @@ title: 'Supervisión de aplicaciones Java en cualquier lugar: Application Insigh
 description: Supervisión del rendimiento de aplicaciones sin código para aplicaciones Java que se ejecutan en cualquier entorno sin instrumentar la aplicación. Descubra la causa principal de los problemas mediante el seguimiento distribuido y el mapa de aplicación.
 ms.topic: conceptual
 ms.date: 04/16/2020
-ms.openlocfilehash: 0c66ad01f265dde7da2f48b17b3ad4438d59a0ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-java
+ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85319693"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374293"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opciones de configuración: agente independiente de Java para Application Insights de Azure Monitor
 
@@ -216,7 +217,7 @@ El siguiente es un ejemplo de cómo establecer el muestreo en **10 % de todas l
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
-Si su aplicación está protegida por un firewall y no puede conectarse directamente a Application Insights (consulte [Direcciones IP que emplea Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)), puede configurar Application Insights Java 3.0 Preview para que use un proxy HTTP:
+Si su aplicación está protegida por un firewall y no puede conectarse directamente a Application Insights (consulte [Direcciones IP que emplea Application Insights](./ip-addresses.md)), puede configurar Application Insights Java 3.0 Preview para que use un proxy HTTP:
 
 ```json
 {

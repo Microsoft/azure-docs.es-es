@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 522aed07d850dfdb2782ee8263f33bd3f42eb8c2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 73e23f24717616ef417460d2fdae6116cfdbdb3a
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258040"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810418"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Uso de las API y los SDK de Azure Digital Twins
 
@@ -43,7 +43,7 @@ Las API de plano de datos se usan para administrar los elementos de la instancia
 * **Query**: la categoría Query permite a los desarrolladores [buscar conjuntos de gemelos digitales en el grafo de gemelos](how-to-query-graph.md) entre las relaciones.
 * **EventRoutes**: la categoría EventRoutes contiene las API para [enrutar datos](concepts-route-events.md), a través del sistema y a los servicios de bajada.
 
-La versión más reciente de la API de plano de datos para la versión preliminar pública es _**2020-05-31-preview**_.
+La versión más reciente de la API de plano de datos para la versión preliminar pública es _**2020-05-31-preview**_. La versión de API _2020-03-01-preview_ para las operaciones del plano de datos están en desuso.
 
 Para usar las API de plano de datos:
 * Para llamar directamente a las API...
@@ -54,7 +54,7 @@ Para usar las API de plano de datos:
    - puede encontrar el código fuente del SDK, incluida una carpeta de ejemplos, en GitHub: [Biblioteca de cliente de Digital Twins de Azure IoT para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
    - puede ver la [documentación de referencia del SDK](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview).
    - puede ver información detallada y ejemplos de uso si continúa con la sección [SDK de .NET (C#) (plano de datos)](#net-c-sdk-data-plane) de este artículo.
-* Puede generar un SDK para otro lenguaje mediante el uso de REST. Siga las instrucciones de [ Creación de SDK personalizados para Azure Digital Twins con AutoRest](how-to-create-custom-sdks.md).
+* Puede generar un SDK para otro lenguaje mediante el uso de REST. Siga las instrucciones de [*Procedimiento: SDK personalizados para Azure Digital Twins con AutoRest*](how-to-create-custom-sdks.md).
 
 También puede probar las API de plano de fecha interactuando con Azure Digital Twins a través de la [CLI](how-to-use-cli.md).
 
@@ -71,11 +71,11 @@ Para usar el SDK, incluya el paquete NuGet **Azure.DigitalTwins.Core** con el pr
 * Con la herramienta de línea de comandos de .NET, puede ejecutar:
 
     ```cmd/sh
-    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.2
+    dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
     dotnet add package Azure.identity
     ```
 
-Para obtener un tutorial detallado sobre el uso de las API en la práctica, consulte [Tutorial: Programación de una aplicación cliente](tutorial-code.md). 
+Para obtener un tutorial detallado sobre el uso de las API en la práctica, consulte [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md). 
 
 ### <a name="net-sdk-usage-examples"></a>Ejemplos de uso del SDK de .NET
 
@@ -137,7 +137,7 @@ await foreach (string twin in result)
 }
 ```
 
-Consulte [Tutorial: Programación de una aplicación cliente](tutorial-code.md) para obtener un tutorial de este código de aplicación de ejemplo. 
+Consulte [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md) para obtener un tutorial de este código de aplicación de ejemplo. 
 
 También puede encontrar más ejemplos en el [repositorio de GitHub para el SDK de .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core/samples).
 
@@ -284,14 +284,14 @@ Las métricas de API, como las solicitudes, la latencia y la tasa de errores, se
 
 En la página principal del portal, busque la instancia de Azure Digital Twins para ver sus detalles. Seleccione la opción **Métricas** en el menú de la instancia de Azure Digital Twins para abrir la página *Métricas*.
 
-:::image type="content" source="media/how-to-use-apis-sdks/metrics.png" alt-text="Página de métricas de una instancia de Azure Digital Twins en Azure Portal":::
+:::image type="content" source="media/troubleshoot-metrics/azure-digital-twins-metrics.png" alt-text="Captura de pantalla que muestra la página de métricas de Azure Digital Twins":::
 
 Desde aquí, puede ver las métricas de la instancia y crear vistas personalizadas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Consulte cómo usar las API para crear una instancia de Azure Digital Twins:
-* [Procedimiento: Creación de una instancia de Azure Digital Twins](how-to-set-up-instance.md)
+Vea cómo usar las API para configurar una instancia de Azure Digital Twins y realizar la autenticación:
+* [*Procedimiento: Configuración de una instancia y autenticación*](how-to-set-up-instance-scripted.md)
 
 O bien, siga los pasos para crear una aplicación cliente como la que se usa en este tutorial:
-* [Tutorial: Programación de una aplicación cliente](tutorial-code.md)
+* [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)

@@ -3,18 +3,16 @@ title: Instalación de Herramientas de Azure Data Lake para Visual Studio
 description: En este artículo se describe cómo instalar Herramientas de Azure Data Lake para Visual Studio.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: saveenr
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: how-to
 ms.date: 08/30/2019
-ms.openlocfilehash: d153ba1d00c0e43a5809503e047fb66713b7fb7c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: df3bf715f8571659d0e622729562055428ab5c97
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104935"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87125945"
 ---
 # <a name="install-data-lake-tools-for-visual-studio"></a>Instalación de Data Lake Tools para Visual Studio
 

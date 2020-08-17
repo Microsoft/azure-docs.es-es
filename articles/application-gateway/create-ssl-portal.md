@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 04/22/2019
+ms.date: 07/24/2020
 ms.author: victorh
-ms.openlocfilehash: 62f5375a0d468f5b137c4628c89c802d83dee102
-ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+ms.openlocfilehash: baadd52a931a28e1502fe0da2286d541db9face4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "82024500"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290135"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-tls-termination-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación TLS mediante Azure Portal
 
@@ -158,7 +158,7 @@ En la pestaña **Configuración**, conecte el grupo de front-end y back-end que 
 
 5. Para la **Configuración de HTTP**, seleccione **Crear nueva** para crear una nueva configuración de HTTP. La configuración de HTTP determinará el comportamiento de la regla de enrutamiento. En la ventana **Agregar una configuración de HTTP** que se abre, escriba *myHTTPSetting* en el **Nombre de configuración de HTTP**. Acepte los valores predeterminados para las demás opciones de la ventana **Agregar una configuración de HTTP** y, a continuación, seleccione **Agregar** para volver a la ventana **Agregar una regla de enrutamiento**. 
 
-   ![Crear una nueva puerta de enlace de aplicaciones: Configuración de HTTP](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
+   :::image type="content" source="./media/create-ssl-portal/application-gateway-create-httpsetting.png" alt-text="Crear una nueva puerta de enlace de aplicaciones: Configuración de HTTP":::
 
 6. En la ventana **Agregar una regla de enrutamiento**, seleccione **Agregar** para guardar la regla de enrutamiento y volver a la pestaña **Configuración**.
 
@@ -250,7 +250,7 @@ En este ejemplo se instala IIS en las máquinas virtuales con el fin de comproba
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. En la barra de direcciones del explorador, escriba *https://\<la dirección IP de la puerta de enlace de aplicaciones\>* .
+2. En la barra de direcciones del explorador, escriba *https://\<your application gateway ip address\>* .
 
    Para aceptar la advertencia de seguridad si usó un certificado autofirmado, seleccione **Detalles** (o **Configuración avanzada** en Chrome) y, luego, continúe a la página web:
 

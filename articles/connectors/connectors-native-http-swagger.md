@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: a5c00dc64dd39ba2fdbb734f4e9749fbe42e246e
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: cf32938b534272a13af5891d6a31e64b8136a528
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83831932"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281470"
 ---
 # <a name="call-rest-endpoints-by-using-azure-logic-apps"></a>Llamada a puntos de conexión REST mediante Azure Logic Apps
 
@@ -28,11 +28,11 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector integ
 
   * El archivo de Swagger debe hospedarse en una URL HTTPS a la que se pueda acceder públicamente.
 
-  * El archivo de Swagger debe tener la opción [Uso compartido de recursos entre orígenes (CORS)](https://docs.microsoft.com/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitada.
+  * El archivo de Swagger debe tener la opción [Uso compartido de recursos entre orígenes (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) habilitada.
 
   Para hacer referencia a un archivo de Swagger que no está hospedado o que no cumple los requisitos de seguridad y entre orígenes, puede [cargar el archivo de Swagger en un contenedor de blobs de una cuenta de almacenamiento de Azure](#host-swagger) y habilitar CORS en esa cuenta de almacenamiento para poder hacer referencia al archivo.
 
-  En los ejemplos de este tema se usa [Cognitive Services Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview), que requiere una [clave de acceso y cuenta de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md).
+  En los ejemplos de este tema se usa [Cognitive Services Face API](../cognitive-services/face/overview.md), que requiere una [clave de acceso y cuenta de Cognitive Services](../cognitive-services/cognitive-services-apis-create-account.md).
 
 * Conocimientos básicos acerca de [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md). Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
@@ -118,7 +118,7 @@ Esta acción integrada crea una solicitud HTTP a la URL del archivo de Swagger q
 
 Puede hacer referencia a un archivo de Swagger que no está hospedado o que no cumple los requisitos de seguridad y entre orígenes; para ello, cargue el archivo en un contenedor de blobs de una cuenta de almacenamiento de Azure y habilite CORS en esa cuenta de almacenamiento. Para crear, configurar y almacenar archivos de Swagger en Azure Storage, siga estos pasos:
 
-1. [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-create-storage-account.md).
+1. [Creación de una cuenta de almacenamiento de Azure](../storage/common/storage-account-create.md).
 
 1. Habilite CORS para el blob. En el menú de la cuenta de almacenamiento, seleccione **CORS**. En la pestaña **Blob service**, especifique estos valores y después seleccione **Guardar**.
 
@@ -166,3 +166,4 @@ Aquí tiene más información sobre los resultados de una acción o un desencade
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

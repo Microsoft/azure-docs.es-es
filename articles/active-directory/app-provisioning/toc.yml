@@ -69,8 +69,6 @@
           href: application-provisioning-config-problem-wrong-users-provisioned.md
         - name: Falta atributo de origen
           href: user-provisioning-sync-attributes-for-mapping.md
-        - name: El trabajo de aprovisionamiento es lento
-          href: application-provisioning-when-will-provisioning-finish.md
         - name: Registros de aprovisionamiento
           href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context
     - name: Compilación de un punto de conexión de SCIM y configuración del aprovisionamiento
@@ -83,10 +81,10 @@
       href: application-provisioning-config-problem-scim-compatibility.md
     - name: Escenarios de SCIM y de Graph
       href: scim-graph-scenarios.md
-    - name: Elija un método de aprovisionamiento
-      href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: "Aprovisionamiento de RR.\_HH. en la nube"
       items:
+        - name: Integración de SuccessFactors
+          href: sap-successfactors-integration-reference.md
         - name: Referencia de atributos de SuccessFactors
           href: sap-successfactors-attribute-reference.md
         - name: Referencia de atributos de Workday

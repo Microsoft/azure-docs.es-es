@@ -4,19 +4,19 @@ description: Script de ejemplo de la CLI de Azure para importar un archivo BACPA
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
-ms.custom: load & move data
+ms.custom: load & move data, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 05/24/2019
-ms.openlocfilehash: 9e3638c9823ed0fbae61a0dc5a93dff2e211d3f3
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: a8c544f1d3b7d1255cf5a0e6d05975ea5f5ec203
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022648"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503810"
 ---
 # <a name="use-cli-to-import-a-bacpac-file-into-a-database-in-sql-database"></a>Uso de la CLI para importar un archivo BACPAC en una base de datos de SQL Database
 
@@ -46,7 +46,7 @@ az group delete --name $resource
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| | |
+| Get-Help | Descripción |
 |---|---|
 | [az sql server](/cli/azure/sql/server) | Comandos de servidor. |
 | [az sql db import](/cli/azure/sql/db#az-sql-db-import) | Comando de importación de la base de datos. |

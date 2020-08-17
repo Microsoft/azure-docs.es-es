@@ -3,19 +3,19 @@ title: Entrenamiento automático de un modelo de previsión de series temporales
 titleSuffix: Azure Machine Learning
 description: Aprenda a usar Azure Machine Learning para entrenar un modelo de regresión de previsión de series temporales mediante aprendizaje automático automatizado.
 services: machine-learning
-author: trevorbye
-ms.author: trbye
+author: nibaccam
+ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.reviewer: trbye
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 03/09/2020
-ms.openlocfilehash: 72b0a3074bfdfb6b6038f6c63eb01a7b33d45ea6
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 9b81dbce9f73c76ceea0f7842d731d00f905fb01
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85959133"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371522"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Entrenamiento automático de un modelo de previsión de series temporales
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -130,7 +130,7 @@ Para las tareas de previsión, el aprendizaje automático automatizado sigue uno
 
 * Detectar la frecuencia de muestreo de la serie temporal (por ejemplo, cada hora, cada día, cada semana, etc.) y crear nuevos registros para los momentos ausentes para que la serie sea continua.
 * Imputar los valores que faltan en las columnas de destino (copia de los valores nulos hacia adelante) y de característica (con la mediana de los valores de la columna).
-* Crear características basadas en los detalles para habilitar los efectos fijos en las diferentes series.
+* Crear características basadas en los identificadores de serie temporal para habilitar los efectos fijos en las diferentes series.
 * Crear características basadas en el tiempo para ayudar a aprender los patrones estacionales.
 * Codificar las variables categóricas en cantidades numéricas.
 
@@ -139,21 +139,21 @@ El objeto [`AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-a
 | Nombre del&nbsp;parámetro | Descripción | Obligatorio |
 |-------|-------|-------|
 |`time_column_name`|Se utiliza para especificar la columna de fecha y hora en los datos de entrada utilizada que se usa para compilar la serie temporal y se deduce su frecuencia.|✓|
-|`grain_column_names`|Nombres que definen los grupos de series individuales en los datos de entrada. Si no se define el nivel de detalle, el conjunto de datos se presupone una serie temporal.||
-|`max_horizon`|Define el horizonte de previsión máximo deseado en unidades de frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento (por ejemplo, semanales, mensuales) que debe predecir el pronosticador.|✓|
+|`time_series_id_column_names`|Nombres de columna que se usan para identificar de forma única la serie temporal en los datos que tienen varias filas con la misma marca de tiempo. Si no se definen los identificadores de serie temporal, el conjunto de datos se presupone una serie temporal.||
+|`forecast_horizon`|Define el número de períodos futuros que le gustaría pronosticar. El horizonte está en las unidades de la frecuencia de la serie temporal. Las unidades se basan en el intervalo de tiempo de los datos de entrenamiento (por ejemplo, semanales, mensuales) que debe predecir el pronosticador.|✓|
 |`target_lags`|Número de filas para retrasar los valores de destino en función de la frecuencia de los datos. El retraso se representa como una lista o un entero único. El retraso se debe usar cuando la relación entre las variables independientes y la variable dependiente no coincide o está en correlación de forma predeterminada. Por ejemplo, al intentar pronosticar la demanda de un producto, la demanda de cualquier mes puede depender del precio de determinados artículos 3 meses antes. En este ejemplo, es posible que desee retrasar el destino (demanda) negativamente en 3 meses para que el modelo esté entrenando en la relación correcta.||
 |`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores previstos, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el tamaño total del conjunto de entrenamiento. Especifique este parámetro si solo desea tener en cuenta una determinada cantidad de historial al entrenar el modelo.||
 |`enable_dnn`|Habilite las DNN de previsión.||
 
 Vea la [documentación de referencia](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) para más información.
 
-Cree la configuración de la serie temporal como objeto de diccionario. Establezca `time_column_name` en el campo `day_datetime` en el conjunto de datos. Defina el parámetro `grain_column_names` para asegurarse de que se crean **dos grupos de series temporales diferentes** para los datos; uno para el almacén A y otro para el B. Por último, establezca `max_horizon` en 50 para predecir el conjunto de prueba completo. Establezca un intervalo de previsión de diez períodos con `target_rolling_window_size` y especifique un retardo único en los valores de destino para dos períodos por delante con el parámetro `target_lags`. Se recomienda establecer `max_horizon`, `target_rolling_window_size` y `target_lags` en "auto" (automático), lo que le permitirá detectar automáticamente estos valores. En el ejemplo siguiente, se ha usado la configuración "auto" para estos parámetros. 
+Cree la configuración de la serie temporal como objeto de diccionario. Establezca `time_column_name` en el campo `day_datetime` en el conjunto de datos. Defina el parámetro `time_series_id_column_names` para asegurarse de que se crean **dos grupos de series temporales diferentes** para los datos; uno para el almacén A y otro para el B. Por último, establezca `forecast_horizon` en 50 para predecir el conjunto de prueba completo. Establezca un intervalo de previsión de diez períodos con `target_rolling_window_size` y especifique un retardo único en los valores de destino para dos períodos por delante con el parámetro `target_lags`. Se recomienda establecer `forecast_horizon`, `target_rolling_window_size` y `target_lags` en "auto" (automático), lo que le permitirá detectar automáticamente estos valores. En el ejemplo siguiente, se ha usado la configuración "auto" para estos parámetros. 
 
 ```python
 time_series_settings = {
     "time_column_name": "day_datetime",
-    "grain_column_names": ["store"],
-    "max_horizon": "auto",
+    "time_series_id_column_names": ["store"],
+    "forecast_horizon": "auto",
     "target_lags": "auto",
     "target_rolling_window_size": "auto",
     "preprocess": True,
@@ -163,7 +163,7 @@ time_series_settings = {
 > [!NOTE]
 > Los pasos previos al procesamiento del aprendizaje automático (normalización de características, control de los datos que faltan, conversión de valores de texto a numéricos, etc.) se convierten en parte del modelo subyacente. Cuando se utiliza el modelo para las predicciones, se aplican automáticamente a los datos de entrada los mismos pasos previos al procesamiento que se aplican durante el entrenamiento.
 
-Mediante la definición de `grain_column_names` en el fragmento de código anterior, AutoML creará dos grupos de series temporales independientes, también conocidas como series temporales múltiples. Si no se define el nivel de detalle, AutoML asumirá que el conjunto de datos es una sola serie temporal. Para más información sobre las series temporales únicas, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
+Mediante la definición de `time_series_id_column_names` en el fragmento de código anterior, AutoML creará dos grupos de series temporales independientes, también conocidas como series temporales múltiples. Si no se definen los identificadores de serie temporal, AutoML asumirá que el conjunto de datos es una sola serie temporal. Para más información sobre las series temporales únicas, consulte [energy_demand_notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand).
 
 Ahora cree un objeto `AutoMLConfig` estándar y especifique el tipo de tarea `forecasting`; a continuación, envíe el experimento. Una vez finalizado el modelo, recupere la iteración con la mejor ejecución.
 
@@ -221,6 +221,32 @@ Para más información sobre los tamaños de proceso y máquina virtual de AML q
 
 Consulte en el [cuaderno de previsión de producción de bebidas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) un ejemplo de código detallado que aprovecha las DNN.
 
+### <a name="customize-featurization"></a>Personalización de la caracterización
+Se pueden personalizar los valores de la caracterización para asegurarse de que los datos y las características que se usan a fin de entrenar el modelo de Machine Learning generen predicciones pertinentes. 
+
+Para personalizar las caracterizaciones, especifique`"featurization": FeaturizationConfig` en el objeto `AutoMLConfig`. Si usa Azure Machine Learning Studio para el experimento, vea el [artículo de procedimiento](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
+
+Las personalizaciones compatibles incluyen:
+
+|Personalización|Definición|
+|--|--|
+|**Actualización del propósito de la columna**|Invalida el tipo de característica detectado automáticamente para la columna especificada.|
+|**Actualización de parámetros del transformador** |Actualizar los parámetros para el transformador especificado. Actualmente admite *Imputer* (fill_value y median).|
+|**Quitar columnas** |Especifica las columnas que se van a eliminar de la caracterización.|
+
+Para crear el objeto `FeaturizationConfig`, defina las configuraciones de caracterización:
+```python
+featurization_config = FeaturizationConfig()
+# `logQuantity` is a leaky feature, so we remove it.
+featurization_config.drop_columns = ['logQuantitity']
+# Force the CPWVOL5 feature to be of numeric type.
+featurization_config.add_column_purpose('CPWVOL5', 'Numeric')
+# Fill missing values in the target column, Quantity, with zeroes.
+featurization_config.add_transformer_params('Imputer', ['Quantity'], {"strategy": "constant", "fill_value": 0})
+# Fill mising values in the `INCOME` column with median value.
+featurization_config.add_transformer_params('Imputer', ['INCOME'], {"strategy": "median"})
+```
+
 ### <a name="target-rolling-window-aggregation"></a>Agregación de ventanas con desplazamiento de objetivo
 A menudo, la mejor información que puede tener una previsión es el valor reciente del objetivo. La creación de estadísticas acumulativas del objetivo puede aumentar la precisión de las predicciones. Las agregaciones de ventanas con desplazamiento de objetivo permiten agregar una agregación gradual de valores de datos como características. Para habilitar las ventanas con desplazamiento de objetivo, establezca el valor de `target_rolling_window_size` en el valor entero de tamaño de la ventana que desee. 
 
@@ -271,7 +297,7 @@ rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 
-Ahora que se ha determinado la precisión del modelo global, el siguiente paso más realista es usar este para prever valores futuros desconocidos. Proporcione un conjunto de datos en el mismo formato que el de prueba (`test_data`) pero con fechas y horas futuras y el conjunto de predicción resultante son los valores previstos para cada paso de la serie temporal. Supongamos que los últimos registros de la serie temporal en el conjunto de datos fueron del 31/12/2018. Para prever la demanda para el día siguiente (o para los períodos que necesite previsión, <= `max_horizon`), cree un único registro de serie de tiempo para cada almacén para el 01/01/2019.
+Ahora que se ha determinado la precisión del modelo global, el siguiente paso más realista es usar este para prever valores futuros desconocidos. Proporcione un conjunto de datos en el mismo formato que el de prueba (`test_data`) pero con fechas y horas futuras y el conjunto de predicción resultante son los valores previstos para cada paso de la serie temporal. Supongamos que los últimos registros de la serie temporal en el conjunto de datos fueron del 31/12/2018. Para prever la demanda para el día siguiente (o para los períodos que necesite previsión, <= `forecast_horizon`), cree un único registro de serie de tiempo para cada almacén para el 01/01/2019.
 
 ```output
 day_datetime,store,week_of_year
@@ -282,7 +308,7 @@ day_datetime,store,week_of_year
 Repita los pasos necesarios para cargar estos datos futuros a una trama de datos y ejecute `best_run.predict(test_data)` para predecir los valores futuros.
 
 > [!NOTE]
-> No se pueden predecir valores para períodos que superen el valor de `max_horizon`. El modelo debe volver a entrenarse con un horizonte mayor para predecir valores futuros más allá del actual.
+> No se pueden predecir valores para períodos que superen el valor de `forecast_horizon`. El modelo debe volver a entrenarse con un horizonte mayor para predecir valores futuros más allá del actual.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

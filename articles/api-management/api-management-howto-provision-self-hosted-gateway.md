@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/31/2020
 ms.author: apimpm
-ms.openlocfilehash: 2870a654faad4e760a9d022488cb2c4c406cbeab
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: e79248e16ca21ae84022f8ac7f280d93f489c6a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203138"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050338"
 ---
 # <a name="provision-a-self-hosted-gateway-in-azure-api-management"></a>Aprovisionamiento de una puerta de enlace autohospedada en Azure API Management
 
@@ -31,7 +31,7 @@ Completar la guía de inicio rápido siguiente: [Creación de una instancia de A
 
 ## <a name="provision-a-self-hosted-gateway"></a>Aprovisionamiento de una puerta de enlace autohospedada
 
-1. Seleccione **Puertas de enlace** en **Configuración**.
+1. Seleccione las **Puertas de enlace** en **Implementación e infraestructura**.
 2. Haga clic en **+ Agregar**.
 3. Escribe el **Nombre** y la **Región** de la puerta de enlace.
 > [!TIP]

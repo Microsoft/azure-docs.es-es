@@ -10,12 +10,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 04/26/2020
 ms.author: apimpm
-ms.openlocfilehash: 7321331adcfc81e26b40e7a3c4869b8b1e50fc0e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 02962e9c5be2c4b73d121a53a7b595c573ad6cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015228"
 ---
 # <a name="deploy-to-azure-kubernetes-service"></a>Implementación en Azure Kubernetes Service
 
@@ -29,7 +29,7 @@ En este artículo se detallan los pasos para implementar un componente de puerta
 
 ## <a name="deploy-the-self-hosted-gateway-to-aks"></a>Implementación de la puerta de enlace autohospedada en AKS
 
-1. Seleccione **Puertas de enlace** en **Configuración**.
+1. Seleccione **Puertas de enlace** en **Deployment and infrastructure** (Implementación e infraestructura).
 2. Seleccione el recurso de puerta de enlace autohospedada que desea implementar.
 3. Seleccione **Implementación**.
 4. Tenga en cuenta que en el cuadro de texto **Token** se generará automáticamente un nuevo token con los valores predeterminados de **Expiración** y **Clave secreta**. Ajuste uno o ambos si lo desea y seleccione **Generar** para crear un nuevo token.

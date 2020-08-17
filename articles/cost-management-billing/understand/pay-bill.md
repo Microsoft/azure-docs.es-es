@@ -1,6 +1,6 @@
 ---
 title: Pago de la factura de Microsoft Azure | Microsoft Docs
-description: Describe cómo pagar una factura en Azure Portal
+description: Obtenga información sobre cómo pagar una factura en Azure Portal. Debe ser propietario, colaborador, lector o administrador de facturación para pagar facturas en el portal.
 keywords: facturación, vencido, saldo, pagar ahora,
 author: banders
 ms.reviewer: judupont
@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 8db50a25d98f5e4dc2ae96c708a5da49709f9ed5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: bb3c9686ca734bb800f090af44f56643e07c6833
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200153"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87459307"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Cómo pagar la factura de Microsoft Azure
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1de9c07c99666ed4011214bd9b426eac8f494991
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: acf60138aaecd914b30a020fdead292eb0ef1473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82978185"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87035985"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidad con varios identificadores de seguridad de instancia SAP ASCS/SCS para los clústeres de conmutación por error de Windows Server y los recursos compartidos de archivos en Azure
 
@@ -42,10 +42,10 @@ En este artículo nos centraremos en cómo pasar de una sola instalación ASCS/S
 >
 >El número máximo de instancias ASCS/SCS de SAP en un clúster de WSFC es igual al número máximo de IP de front-end privadas por equilibrador de carga interno de Azure.
 >
-> La configuración presentada en esta documentación no se admite aún para su uso en [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview).
+> La configuración presentada en esta documentación no se admite aún para su uso en [Azure Availability Zones](../../../availability-zones/az-overview.md).
 > 
 
-Para más información sobre los límites del equilibrador de carga, consulte la sección sobre la dirección IP privada de front-end por equilibrador de carga en [Límites de redes: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere también el uso de la [SKU de Azure Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) en lugar de la SKU básica de Azure Load Balancer.
+Para más información sobre los límites del equilibrador de carga, consulte la sección sobre la dirección IP privada de front-end por equilibrador de carga en [Límites de redes: Azure Resource Manager][networking-limits-azure-resource-manager]. Considere también el uso de la [SKU de Azure Standard Load Balancer](../../../load-balancer/load-balancer-standard-availability-zones.md) en lugar de la SKU básica de Azure Load Balancer.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

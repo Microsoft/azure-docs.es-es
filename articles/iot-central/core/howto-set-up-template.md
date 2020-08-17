@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5d8d3ddffc52bd351b21351b53e8a1be5a674fe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f5e1347850c038386d32b52378674ac20316e4c
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562858"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337218"
 ---
 # <a name="define-a-new-iot-device-type-in-your-azure-iot-central-application"></a>Definición de un nuevo tipo de dispositivo IoT en la aplicación de Azure IoT Central
 
@@ -36,9 +36,7 @@ A partir de esta plantilla de dispositivo, un operador puede crear y conectar di
 > [!NOTE]
 > Solo los generadores y administradores pueden crear, editar y eliminar plantillas de dispositivo. Cualquier usuario puede crear dispositivos en la página **Devices** (Dispositivos) a partir de las plantillas de dispositivo existentes.
 
-[IoT Plug and Play (versión preliminar)](../../iot-pnp/overview-iot-plug-and-play.md) permite a IoT Central integrar dispositivos sin necesidad de escribir ningún código de dispositivo integrado. En el centro de IoT Plug and Play (versión preliminar) se encuentra un esquema del modelo de funcionalidad del dispositivo que describe las funcionalidades del dispositivo. En una aplicación de IoT Central, las plantillas de dispositivo usan estos modelos de funcionalidad del dispositivo de IoT Plug and Play (versión preliminar).
-
-Como generador, tiene varias opciones para crear plantillas de dispositivo:
+En una aplicación de IoT Central, una plantilla de dispositivo usa un modelo de funcionalidad del dispositivo para describir las capacidades de un dispositivo. Como generador, tiene varias opciones para crear plantillas de dispositivo:
 
 - Diseñe la plantilla de dispositivo en IoT Central y, después, implemente el modelo de funcionalidad del dispositivo en el código del dispositivo.
 - Importe un modelo de funcionalidad del dispositivo desde el [catálogo de dispositivos Azure Certified for IoT](https://aka.ms/iotdevcat). Después, agregue las propiedades, las personalizaciones y los paneles en la nube que la aplicación de IoT Central necesita.

@@ -2,13 +2,13 @@
 title: Preguntas más frecuentes (FAQ) sobre Azure Service Bus | Microsoft Docs
 description: En este artículo se responden algunas de las preguntas más frecuentes (P+F) relativas a Azure Service Bus.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 35721d174ec4b840185727efe5fb384015040b80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/15/2020
+ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341465"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88080820"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Preguntas más frecuentes (FAQ) sobre Azure Service Bus
 
@@ -51,13 +51,13 @@ Consulte en la siguiente tabla los puertos de salida que se deben abrir para usa
 | SBMP | 9350 a 9354 | Consulte [Modo de conectividad](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
 | HTTP, HTTPS | 80, 443 | 
 
-### <a name="what-ip-addresses-do-i-need-to-whitelist"></a>¿Qué direcciones IP debo incluir en la lista de permitidas?
-Para buscar las direcciones IP correctas para incluirlas en la lista de direcciones permitidas para las conexiones, siga estos pasos:
+### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>¿Qué direcciones IP debo agregar a la lista de permitidas?
+Para buscar las direcciones IP correctas para agregar a la lista de permitidas para las conexiones, siga estos pasos:
 
 1. Ejecute el siguiente comando desde el símbolo del sistema: 
 
     ```
-    nslookup <YourNamespaceName>.cloudapp.net
+    nslookup <YourNamespaceName>.servicebus.windows.net
     ```
 2. Anote la dirección IP devuelta en `Non-authoritative answer`. Esta dirección IP es estática. El único momento en que cambiaría es si restaurara el espacio de nombres en un clúster distinto.
 
@@ -66,7 +66,7 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
 1. En primer lugar, ejecute nslookup en el espacio de nombres.
 
     ```
-    nslookup <yournamespace>.cloudapp.net
+    nslookup <yournamespace>.servicebus.windows.net
     ```
 2. Anote el nombre de la sección **respuesta no autoritativa**, que se encuentra en uno de los siguientes formatos: 
 
@@ -77,6 +77,10 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
     ```
 3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
+### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>¿Dónde puedo encontrar la dirección IP del cliente que envía o recibe mensajes hacia o desde un espacio de nombres? 
+No registramos las direcciones IP de clientes que envían o reciben mensajes hacia o desde su espacio de nombres. Vuelva a generar las claves para que todos los clientes existentes no puedan autenticarse y revise la configuración de control de acceso basado en roles ([RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)) para asegurarse de que solo los usuarios o las aplicaciones permitidos tienen acceso al espacio de nombres. 
+
+Si usa un espacio de nombres **Premium**, use el [filtrado de IP](service-bus-ip-filtering.md), [puntos de conexión de servicio de red virtual](service-bus-service-endpoints.md) y [puntos de conexión privados](private-link-service.md) para limitar el acceso al espacio de nombres. 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 ### <a name="what-are-some-azure-service-bus-best-practices"></a>¿Cuáles son algunos de los procedimientos recomendados de Azure Service Bus?
@@ -100,14 +104,14 @@ También puede consultar las [Preguntas más frecuentes de soporte técnico de M
 ### <a name="how-do-you-charge-for-service-bus"></a>¿Cómo se cobra Service Bus?
 Para obtener más información sobre los precios de Service Bus, consulte [Precios de Service Bus][Pricing overview]. Además de los precios indicados, se le cobrará por las transferencias de datos asociadas para salidas del centro de datos en el que se aprovisiona la aplicación.
 
-### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-is-not"></a>¿Qué uso de Service Bus está sujeto a la transferencia de datos? ¿Cuál no lo está?
+### <a name="what-usage-of-service-bus-is-subject-to-data-transfer-what-isnt"></a>¿Qué uso de Service Bus está sujeto a la transferencia de datos? ¿Cuál no lo está?
 Cualquier transferencia de datos dentro de una determinada región de Azure se proporciona sin cargo alguno, así como las transferencias de datos entrantes. La transferencia de datos fuera de una región está sujeta a cargos por concepto de salida; consulte [esta página](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ### <a name="does-service-bus-charge-for-storage"></a>¿Service Bus cobra por almacenamiento?
-No, Service Bus no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola/tema. Consulte la siguiente pregunta.
+No. Service Bus no cobra por almacenamiento. Sin embargo, hay una cuota que limita la cantidad máxima de datos que pueden persistir por cola o tema. Consulte la siguiente pregunta.
 
 ### <a name="i-have-a-service-bus-standard-namespace-why-do-i-see-charges-under-resource-group-system"></a>Tengo un espacio de nombres estándar de Service Bus. ¿Por qué veo cargos en el grupo de recursos "$system"?
-Azure Service Bus ha actualizado recientemente los componentes de facturación. Debido a esto, si tiene un espacio de nombres estándar de Service Bus, puede ver los elementos de línea del recurso "/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" del grupo de recursos "$system".
+Azure Service Bus ha actualizado recientemente los componentes de facturación. Debido a este cambio, si tiene un espacio de nombres estándar de Service Bus, puede ver los elementos de línea del recurso "/subscriptions/<azure_subscription_id>/resourceGroups/$system/providers/Microsoft.ServiceBus/namespaces/$system" del grupo de recursos "$system".
 
 Estos cargos representan el cargo base por suscripción de Azure que ha aprovisionado un espacio de nombres de Service Bus estándar. 
 
@@ -118,7 +122,7 @@ Es importante tener en cuenta que no se trata de cargos nuevos, es decir, que ya
 Para obtener una lista de las cuotas y los límites de Service Bus, consulte la [información general sobre cuotas de Service Bus][Quotas overview].
 
 ### <a name="how-to-handle-messages-of-size--1-mb"></a>Cómo administrar los mensajes con un tamaño superior a 1 MB
-Los servicios de mensajería de Service Bus (colas y temas o suscripciones) permiten que la aplicación envíe mensajes de un tamaño de hasta 256 KB (nivel estándar) o 1 MB (nivel prémium). Si trabaja con mensajes de tamaño superior a 1 MB, use el patrón de comprobación de notificaciones que se describe en [esta entrada de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
+Los servicios de mensajería de Service Bus (colas y temas o suscripciones) permiten que la aplicación envíe mensajes de un tamaño de hasta 256 KB (nivel estándar) o 1 MB (nivel prémium). Si trabaja con mensajes de tamaño superior a 1 MB, use el patrón de comprobación de notificaciones que se describe en [esta entrada de blog](https://www.serverless360.com/blog/deal-with-large-service-bus-messages-using-claim-check-pattern).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 ### <a name="why-am-i-not-able-to-create-a-namespace-after-deleting-it-from-another-subscription"></a>¿Por qué no puedo crear un espacio de nombres después de eliminarlo de otra suscripción? 

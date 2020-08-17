@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo evaluar la equidad de los modelos 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
 ms.date: 07/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 4f791ef9e18032ce6773f4262586431e693b43b2
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: ec0c39bad8a7c12822e5ebf5cd4a958aa8653050
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206735"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87844650"
 ---
 # <a name="use-azure-machine-learning-with-the-fairlearn-open-source-package-to-assess-the-fairness-of-ml-models-preview"></a>Uso de Azure Machine Learning con el paquete de código abierto Fairlearn para evaluar la equidad de los modelos de ML (versión preliminar)
 
@@ -142,7 +142,7 @@ En el siguiente ejemplo se muestra cómo usar el paquete de equidad para cargar 
         return registered_model.id
 
     # Call the register_model function 
-    lr_reg_id = register_model("fairness_linear_regression", unmitigated_predictor)
+    lr_reg_id = register_model("fairness_linear_regression", lr_predictor)
     ```
 
 3. Calcular previamente las métricas de equidad.
@@ -152,7 +152,7 @@ En el siguiente ejemplo se muestra cómo usar el paquete de equidad para cargar 
     ```python
     #  Create a dictionary of model(s) you want to assess for fairness 
     sf = { 'Race': A_test.Race, 'Sex': A_test.Sex}
-    ys_pred = unmitigated_predictor.predict(X_test)
+    ys_pred = { lr_reg_id:lr_predictor.predict(X_test) }
     from fairlearn.metrics._group_metric_set import _create_group_metric_set
 
     dash_dict = _create_group_metric_set(y_true=Y_test,
@@ -207,7 +207,7 @@ En el siguiente ejemplo se muestra cómo usar el paquete de equidad para cargar 
 
     Para más información sobre el panel de visualización y lo que contiene, consulte la [guía del usuario](https://fairlearn.github.io/user_guide/assessment.html#fairlearn-dashboard) de Fairlearn.
 
-s## Cargar información de equidad para varios modelos
+## <a name="upload-fairness-insights-for-multiple-models"></a>Cargar información de equidad para varios modelos
 
 Si está interesado en comparar varios modelos y ver cómo difieren sus evaluaciones de equidad, puede pasar más de un modelo al panel de visualización y navegar por sus ventajas e inconvenientes en el rendimiento.
 

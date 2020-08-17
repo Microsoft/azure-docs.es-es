@@ -7,16 +7,16 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw
-ms.date: 04/30/2019
+ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 60f2e3f949a4f627839a07137ebaf77518db87a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d19f59635920951b506e41884f4ab79be78e247d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213982"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080733"
 ---
 # <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso de IDENTITY para crear claves suplentes en el grupo de SQL de Synapse
 
@@ -24,7 +24,7 @@ En este artículo, encontrará recomendaciones y ejemplos de uso de la propiedad
 
 ## <a name="what-is-a-surrogate-key"></a>¿Qué es una clave suplente?
 
-Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas cuando diseñan modelos de almacenamiento de datos. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga.  
+Una clave suplente en una tabla es una columna con un identificador único para cada fila. La clave no se genera desde los datos de la tabla. A los modeladores de datos les gusta crear claves suplentes en las tablas cuando diseñan modelos de almacenamiento de datos. Puede usar la propiedad IDENTITY para lograr este objetivo de manera sencilla y eficaz sin afectar al rendimiento de carga. La propiedad IDENTITY tiene ciertas limitaciones, como se detalla en [CREATE TABLE (Transact-SQL) IDENTITY (propiedad)](/sql/t-sql/statements/create-table-transact-sql-identity-property?view=azure-sqldw-latest). Una de las limitaciones de IDENTITY es que no se garantiza que sea única. Si no se compensa IDENTITY INSERT y no se propaga el valor de identidad habrá más valores únicos, pero no puede garantizar la unicidad en todas las situaciones. Si no puede usar valores de identidad debido a las restricciones de IDENTITY, cree una tabla independiente que contenga un valor actual y administre tanto el acceso a la tabla como la asignación de números con su aplicación. 
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creación de una tabla con una columna IDENTITY
 
@@ -50,7 +50,7 @@ En el resto de esta sección se resaltan los matices de la implementación para 
 
 ### <a name="allocation-of-values"></a>Asignación de valores
 
-La propiedad IDENTITY no garantiza el orden en que se asignan las claves suplentes, lo que refleja el comportamiento de SQL Server y Azure SQL Database. Pero, en el grupo de SQL de Synapse, la ausencia de garantías es más marcada.
+La propiedad IDENTITY no garantiza el orden en que se asignan los valores suplentes debido a la arquitectura distribuida del almacenamiento de datos. La propiedad IDENTITY está diseñada para escalar horizontalmente en todas las distribuciones en el grupo de SQL de Synapse sin afectar al rendimiento de carga. 
 
 El ejemplo siguiente sirve de muestra:
 

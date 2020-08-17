@@ -4,87 +4,77 @@
   items:
     - name: ¿Qué es IoT Plug and Play?
       href: overview-iot-plug-and-play.md
+    - name: Vista previa de actualizaciones
+      href: overview-iot-plug-and-play-preview-updates.md
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Crear un dispositivo
-      items:
-        - name: C Linux
-          href: quickstart-create-pnp-device-linux.md
-        - name: C Windows
-          href: quickstart-create-pnp-device-windows.md
     - name: Conexión de un dispositivo a IoT Hub
       items:
-        - name: C Linux
-          href: quickstart-connect-pnp-device-c-linux.md
-        - name: C Windows
-          href: quickstart-connect-pnp-device-c-windows.md
-        - name: C#
-          href: quickstart-connect-pnp-device-csharp.md
-        - name: Java
-          href: quickstart-connect-pnp-device-java.md
+        - name: C
+          href: quickstart-connect-device-c.md
         - name: Node.js
-          href: quickstart-connect-pnp-device-node.md
-    - name: Conexión de un dispositivo a IoT Central
-      href: ../iot-central/core/tutorial-connect-pnp-device.md
-    - name: Conexión a un dispositivo en la solución
+          href: quickstart-connect-device-node.md
+        - name: Python
+          href: quickstart-connect-device-python.md
+        - name: C#
+          href: quickstart-connect-device-csharp.md
+        - name: Java
+          href: quickstart-connect-device-java.md
+    - name: Interacción con un dispositivo desde su solución
       items:
-        - name: C#
-          href: quickstart-connect-pnp-device-solution-csharp.md
-        - name: Java
-          href: quickstart-connect-pnp-device-solution-java.md
         - name: Node.js
-          href: quickstart-connect-pnp-device-solution-node.md
+          href: quickstart-service-node.md
+        - name: Python
+          href: quickstart-service-python.md
 - name: Tutoriales
   items:
-    - name: Creación de un dispositivo mediante VS Code
-      href: tutorial-pnp-visual-studio-code.md
-    - name: Creación de un dispositivo listo para la certificación
-      href: tutorial-build-device-certification.md
-    - name: Certificación del dispositivo
-      href: tutorial-certification-test.md
+    - name: Conexión de un dispositivo de conexión múltiple (C#)
+      href: tutorial-multiple-components-csharp.md
+    - name: Conexión de un dispositivo de conexión múltiple (Java)
+      href: tutorial-multiple-components-java.md
+    - name: Conexión de un dispositivo de conexión múltiple (Node.js)
+      href: tutorial-multiple-components-node.md
+    - name: Conexión de un dispositivo de conexión múltiple (Python)
+      href: tutorial-multiple-components-python.md
+    - name: Uso de MQTT para conectar un dispositivo
+      href: tutorial-use-mqtt.md
 - name: Conceptos
   items:
-    - name: Glosario
-      href: iot-plug-and-play-glossary.md
+    - name: Architecture
+      href: concepts-architecture.md
     - name: Guía del desarrollador
       href: concepts-developer-guide.md
-    - name: Interfaces comunes
-      href: concepts-common-interfaces.md
-    - name: Detección de modelo
+    - name: Componentes
+      href: concepts-components.md
+    - name: Convenciones de IoT Plug and Play
+      href: concepts-convention.md
+    - name: Gemelos digitales
+      href: concepts-digital-twin.md
+    - name: Repositorio de modelos
+      href: concepts-model-repository.md
+    - name: Uso de modelos en una solución
       href: concepts-model-discovery.md
+    - name: Analizador de modelos
+      href: concepts-model-parser.md
     - name: Límites y cuotas
       href: concepts-limits-quotas.md
+    - name: Glosario
+      href: iot-plug-and-play-glossary.md
 - name: Guías paso a paso
   items:
-    - name: Desarrollo con Visual Studio y Visual Studio Code
-      href: howto-develop-with-vs-vscode.md
-    - name: Instalación del explorador de IoT
-      href: howto-install-iot-explorer.md
-    - name: Instalación de la extensión de la CLI de Azure
-      href: howto-install-pnp-cli.md
-    - name: Incorporación al portal de IoT
-      href: howto-onboard-portal.md
-    - name: Administración de modelos
-      href: howto-manage-models.md
-    - name: Conexión e interacción con un dispositivo
-      href: howto-develop-solution.md
+    - name: Instalación y uso de IoT Explorer
+      href: howto-use-iot-explorer.md
+    - name: Instalación y uso de la extensión CLI de Azure IoT
+      href: howto-use-iot-pnp-cli.md
+    - name: Administración de Digital Twins
+      href: howto-manage-digital-twin.md
 - name: Referencia
   items:
     - name: Bibliotecas y SDK
       href: libraries-sdks.md
-    - name: API DE REST
-      items:
-        - name: Gemelo digital
-          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/digitaltwin'
-        - name: Servicio Digital Twins
-          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodel/service'
-        - name: Repositorio de modelo de Digital Twins
-          href: 'https://docs.microsoft.com/rest/api/iothub/digitaltwinmodelrepositoryservice/createorupdatemodel'
-        - name: Generación de un token de seguridad REST
-          href: howto-generate-sas-token.md
-- name: Referencia
-  items:
+    - name: API REST de Digital Twins
+      href: 'https://aka.ms/iot-pnp-preview-rest'
     - name: Azure CLI
       href: /cli/azure/azure-cli-reference-for-IoT
 - name: Recursos

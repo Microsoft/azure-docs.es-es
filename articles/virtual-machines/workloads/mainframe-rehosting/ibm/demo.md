@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 83f7f16d8406744a10451e8d488b7719845c525d
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: b2509539551b3991690e6d0313e069ae015eb892
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135938"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052397"
 ---
 # <a name="set-up-an-application-developers-controlled-distribution-adcd-in-ibm-zdt-v1"></a>Configuración de una instancia de Application Developers Controlled Distribution (ADCD) en IBM zD&T v1
 
@@ -27,7 +27,7 @@ En este artículo se muestra cómo configurar una instancia de ADCD en un entorn
 
 Al igual que zD&T, los ADCD solo están disponibles para los socios y clientes de IBM, y son exclusivamente para fines de desarrollo y prueba. No deben usarse para entornos de producción. Hay disponibles varios paquetes de instalación de IBM para su descarga a través de [Passport Advantage](https://www.ibm.com/support/knowledgecenter/en/SSTQBD_12.0.0/com.ibm.zsys.rdt.guide.adcd.doc/topics/installation_ps.html) o [IBM PartnerWorld](https://www.ibm.com/partnerworld/public).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 - Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -72,7 +72,7 @@ Ahora que tiene los paquetes, debe cargarlos en la VM en Azure.
 
 2. Seleccione la pestaña **SSH** y copie el comando ssh en el Portapapeles.
 
-3. Inicie sesión en la VM con las credenciales y el [cliente ssh ](/azure/virtual-machines/linux/use-remote-desktop) de su elección. En esta demostración se usan las extensiones de Linux para Windows 10, lo que agrega un shell de bash en el símbolo del sistema de Windows. PuTTY funciona igual de bien.
+3. Inicie sesión en la VM con las credenciales y el [cliente ssh ](../../../linux/use-remote-desktop.md) de su elección. En esta demostración se usan las extensiones de Linux para Windows 10, lo que agrega un shell de bash en el símbolo del sistema de Windows. PuTTY funciona igual de bien.
 
 4. Cuando haya iniciado sesión, cree un directorio para cargar los paquetes de IBM. Tenga en cuenta Linux distingue mayúsculas de minúsculas. Por ejemplo, en esta demostración se supone que los paquetes se han cargado en:
 
@@ -188,9 +188,9 @@ Felicidades. Ahora está ejecutando un entorno de sistema central de IBM en Azur
 
 ## <a name="learn-more"></a>Más información
 
-- [Mitos y verdades del sistema central](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
-- [IBM DB2 pureScale en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ibm-db2-purescale-azure)
-- [Solución de problemas](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/)
+- [Mitos y verdades del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/myths-and-facts)
+- [IBM DB2 pureScale en Azure](../../../linux/ibm-db2-purescale-azure.md)
+- [Solución de problemas](../../../troubleshooting/index.yml)
 - [Demystifying mainframe to Azure migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/) (Desmitificación de la migración del sistema central a Azure)
 
 <!-- INTERNAL LINKS -->

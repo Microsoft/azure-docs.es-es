@@ -1,6 +1,5 @@
 ---
-title: Implementación de un servicio web
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): implementación de un servicio web de Azure'
 description: Aprenda a convertir un experimento de entrenamiento en un experimento predictivo, a prepararlo para su implementación y a implementarlo como servicio web de Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 3fcf4e180233c6ceaa552b3505462639569ed974
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8195d310de708e48b27b5a2d81023d02792be1d3
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696395"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429462"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Implementación de un servicio web de Azure Machine Learning Studio (clásico)
+
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 Azure Machine Learning Studio (clásico) permite compilar y probar una solución de análisis predictivo. Luego, puede implementar la solución como un servicio web.
 
@@ -32,9 +34,9 @@ La entrada de BES es similar a la entrada de datos que se emplea en RRS. La dife
 
 Desde un punto de vista general, implementará el modelo en tres pasos:
 
-* **[Crear un experimento de entrenamiento]** : en Studio (clásico), puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
-* **[Convertirlo en un experimento predictivo]** : una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
-* **Implementarlo** como un **[Servicio web nuevo]** o un **[servicio web clásico]** : al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
+* **[Crear un experimento de entrenamiento]**: en Studio (clásico), puede entrenar y probar un modelo de análisis predictivo con datos de entrenamiento que suministre, mediante un gran conjunto de algoritmos de aprendizaje automático integrados.
+* **[Convertirlo en un experimento predictivo]**: una vez que se ha entrenado el modelo con datos existentes y está listo para usarse con el objetivo de puntuar nuevos datos, debe prepararlo y simplificarlo para realizar predicciones.
+* **Implementarlo** como un **[nuevo servicio web]** o un **[servicio web clásico]**: al implementar el experimento predictivo como un servicio web de Azure, los usuarios pueden enviar datos al modelo y recibir las predicciones de este.
 
 ## <a name="create-a-training-experiment"></a>Crear un experimento de entrenamiento
 

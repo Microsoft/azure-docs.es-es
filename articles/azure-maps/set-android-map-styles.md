@@ -1,19 +1,19 @@
 ---
 title: Establecimiento de un estilo de mapa mediante Android SDK de Azure Maps | Microsoft Azure Maps
 description: En este artículo, se aprenderán las funcionalidades relacionadas con el estilo de Microsoft Azure Maps para Android SDK.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a4d761abf54682ed0263922d0a118debc9eccf0a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 81f89a4b5aa758d506ecdb9cf7b4f510e333ef25
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334366"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87131266"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Establecimiento del estilo de mapa mediante Android SDK de Azure Maps
 

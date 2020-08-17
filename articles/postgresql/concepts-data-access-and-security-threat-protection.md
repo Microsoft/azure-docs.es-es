@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 3d86c76472580567c95d285924761e1714465d6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 390f44ffebb6531fde2f819fad0d4e9399cba218
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768748"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287522"
 ---
 # <a name="advanced-threat-protection-in-azure-database-for-postgresql---single-server"></a>Advanced Threat Protection en Azure Database for PostgreSQL con un único servidor
 
@@ -20,7 +20,7 @@ Advanced Threat Protection para Azure Database for PostgreSQL detecta actividade
 > [!NOTE]
 > Advanced Threat Protection está en versión preliminar pública.
 
-Threat Protection forma parte de la oferta Advanced Threat Protection (ATP), que es un paquete unificado para funcionalidades avanzadas de seguridad. Se puede obtener acceso a Advanced Threat Protection y administrarlo por medio de [Azure Portal](https://portal.azure.com) y la [API REST](/rest/api/postgresql/serversecurityalertpolicies). La característica está disponible para los servidores de uso general y para los optimizados para memoria.
+Threat Protection forma parte de la oferta Advanced Threat Protection (ATP), que es un paquete unificado para funcionalidades avanzadas de seguridad. Se puede obtener acceso a Advanced Threat Protection y administrarlo por medio de [Azure Portal](https://portal.azure.com) y la [API REST](/rest/api/postgresql). La característica está disponible para los servidores de uso general y para los optimizados para memoria.
 
 > [!NOTE]
 > La característica Advanced Threat Protection **no** está disponible en las siguientes regiones de nube soberana y Azure Government: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (este), US DoD (centro), Centro de Alemania, Norte de Alemania, Este de China y Este de China 2. Visite [productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/) para obtener información de disponibilidad general del producto.

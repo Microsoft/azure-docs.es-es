@@ -12,12 +12,12 @@ ms.date: 04/14/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 361e8c63dc036443e527d1027fe3fd0cca784d9a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 864225238c10ab2fda96e95448790201cc8a16ae
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83747202"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423004"
 ---
 # <a name="use-your-phone-number-as-a-user-name-preview"></a>Uso del número de teléfono como nombre de usuario (versión preliminar)
 
@@ -52,11 +52,11 @@ Si ya usa un número de teléfono con una organización y pasa a estar disponibl
 
 1. Cuando el inicio de sesión mediante SMS está disponible, se muestra un banner en el que se le pregunta si desea habilitar el número de teléfono para el inicio de sesión mediante SMS:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-banner.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
+    [![Banner para habilitar el inicio de sesión mediante SMS en un número de teléfono.](media/sms-sign-in-explainer/sms-sign-in-banner.png)](media/sms-sign-in-explainer/sms-sign-in-banner.png#lightbox)
 
 1. Además, aparece un botón **Habilitar** si selecciona el símbolo en el icono del método de teléfono:
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-phone-method.png "Banner to enable SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
+    [![Banner para habilitar el inicio de sesión mediante SMS en un número de teléfono.](media/sms-sign-in-explainer/sms-sign-in-phone-method.png)](media/sms-sign-in-explainer/sms-sign-in-phone-method.png#lightbox)
 
 1. Para habilitar el método, seleccione **Habilitar**. Se le pedirá que confirme la acción:
 
@@ -68,7 +68,7 @@ Si ya usa un número de teléfono con una organización y pasa a estar disponibl
 
 1. Para eliminar el número de teléfono, seleccione el botón de eliminación en el icono del método de teléfono de inicio de sesión mediante SMS.
 
-    [![](media/sms-sign-in-explainer/sms-sign-in-delete-method.png "Banner to delete SMS sign-in for a phone number")](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
+    [![Banner para eliminar el inicio de sesión mediante SMS en un número de teléfono.](media/sms-sign-in-explainer/sms-sign-in-delete-method.png)](media/sms-sign-in-explainer/sms-sign-in-delete-method.png#lightbox)
 
 2. Cuando se le pida que confirme la acción, seleccione **Aceptar**.
 

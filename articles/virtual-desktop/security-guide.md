@@ -1,19 +1,17 @@
 ---
 title: 'Procedimientos recomendados de seguridad para Windows Virtual Desktop: Azure'
 description: Procedimientos recomendados para proteger su entorno de Windows Virtual Desktop.
-services: virtual-desktop
 author: heidilohr
-ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 95f1027f4f5ace6963a38edf0dc028ddca351b7e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a194074b75a404e5a28e86015b0d0bcea2619fc2
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84736679"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002294"
 ---
 # <a name="security-best-practices"></a>Recomendaciones de seguridad
 
@@ -103,7 +101,7 @@ Los hosts de sesión son máquinas virtuales que se ejecutan dentro de una suscr
 
 ### <a name="enable-endpoint-protection"></a>Habilitación de Endpoint Protection
 
-Para proteger la implementación frente a software malintencionado conocido, se recomienda habilitar Endpoint Protection en todos los hosts de la sesión. Puede usar el Antivirus de Windows Defender o un programa de terceros. Para obtener más información, consulte la [Guía de implementación para el Antivirus de Windows Defender en un entorno de VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus). 
+Para proteger la implementación frente a software malintencionado conocido, se recomienda habilitar Endpoint Protection en todos los hosts de la sesión. Puede usar el Antivirus de Windows Defender o un programa de terceros. Para obtener más información, consulte la [Guía de implementación para el Antivirus de Windows Defender en un entorno de VDI](/windows/security/threat-protection/windows-defender-antivirus/deployment-vdi-windows-defender-antivirus).
 
 En el caso de las soluciones de perfil, como FSLogix u otras soluciones que montan archivos VHD, se recomienda excluir las extensiones de archivo VHD.
 

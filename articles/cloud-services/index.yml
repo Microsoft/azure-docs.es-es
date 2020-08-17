@@ -27,7 +27,7 @@ landingContent:
     links:
     - text: Biblioteca de vídeos de Cloud Services
       url: https://azure.microsoft.com/documentation/videos/index/?services=cloud-services
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: how-to-guide
     links:

@@ -6,16 +6,16 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 5af6aec2267384c37f664522d075bf26c632e7e9
-ms.sourcegitcommit: ea006cd8e62888271b2601d5ed4ec78fb40e8427
+ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81382882"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320653"
 ---
 # <a name="availability-alerts"></a>Alertas de disponibilidad
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Puede enviar una alerta si la aplicación no responde o si responde de manera demasiada lenta.
+[Azure Application Insights](./app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Puede enviar una alerta si la aplicación no responde o si responde de manera demasiada lenta.
 
 ## <a name="enable-alerts"></a>Habilitación de alertas
 
@@ -24,7 +24,7 @@ Las alertas ahora se habilitan automáticamente de forma predeterminada, pero pa
 ![Experiencia de creación](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  Con las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)**se tienen que** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal.
+>  Con las [nuevas alertas unificadas](../platform/alerts-overview.md), la gravedad de la regla de alertas y las preferencias de notificación con [grupos de acciones](../platform/action-groups.md)**se tienen que** configurar en la experiencia de alertas. Sin los pasos siguientes, solo recibirá las notificaciones del portal.
 
 1. Después de guardar la prueba de disponibilidad, en la pestaña de detalles, haga clic en el signo de puntos suspensivos junto a la prueba que acaba de realizar. Haga clic en “Editar alerta”.
 
@@ -39,7 +39,7 @@ Las alertas ahora se habilitan automáticamente de forma predeterminada, pero pa
 
 ### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Alertas para X de las Y ubicaciones que notifican errores
 
-La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada en la [nueva experiencia de alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) cuando se crea una prueba de disponibilidad. Puede cancelar esta acción si selecciona la opción "clásica" o si deshabilita la regla de alertas.
+La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada en la [nueva experiencia de alertas unificadas](../platform/alerts-overview.md) cuando se crea una prueba de disponibilidad. Puede cancelar esta acción si selecciona la opción "clásica" o si deshabilita la regla de alertas.
 
 > [!NOTE]
 > Siga los pasos anteriores para configurar los grupos de acción para recibir notificaciones cuando se desencadene la alerta. Sin este paso, solo recibirá las notificaciones en el portal cuando se desencadene la regla.
@@ -47,7 +47,7 @@ La regla de alertas X de las Y ubicaciones se habilita de forma predeterminada e
 
 ### <a name="alert-on-availability-metrics"></a>Alertas sobre las métricas de disponibilidad
 
-Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), también puede generar alertas sobre la disponibilidad total segmentada y las métricas de duración de la prueba:
+Mediante las [nuevas alertas unificadas](../platform/alerts-overview.md), también puede generar alertas sobre la disponibilidad total segmentada y las métricas de duración de la prueba:
 
 1. Seleccione un recurso de Application Insights en la experiencia de métricas y seleccione una métrica de disponibilidad:
 
@@ -57,7 +57,7 @@ Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monito
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alertas sobre las consultas de análisis personalizadas
 
-Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), puede generar alertas sobre las [consultas de registro personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Esta opción también la puede usar si envía resultados personalizados de disponibilidad mediante el SDK de TrackAvailability.
+Mediante las [nuevas alertas unificadas](../platform/alerts-overview.md), puede generar alertas sobre las [consultas de registro personalizadas](../platform/alerts-unified-log.md). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Esta opción también la puede usar si envía resultados personalizados de disponibilidad mediante el SDK de TrackAvailability.
 
 > [!Tip]
 > Las métricas sobre datos de disponibilidad incluyen los resultados personalizados de disponibilidad que puede enviar mediante una llamada a nuestro SDK de TrackAvailability. Puede usar la compatibilidad con las alertas sobre métricas para generar alertas sobre resultados personalizados de disponibilidad.
@@ -65,7 +65,7 @@ Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monito
 
 ## <a name="automate-alerts"></a>Automatización de alertas
 
-Para automatizar este proceso con plantillas de Azure Resource Manager, consulte la documentación relativa a la [creación de una alerta de métrica con una plantilla de Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
+Para automatizar este proceso con plantillas de Azure Resource Manager, consulte la documentación relativa a la [creación de una alerta de métrica con una plantilla de Resource Manager](../platform/alerts-metric-create-templates.md#template-for-an-availability-test-along-with-a-metric-alert).
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
@@ -75,3 +75,4 @@ Para automatizar este proceso con plantillas de Azure Resource Manager, consulte
 
 * [Pruebas web de varios pasos](availability-multistep.md)
 * [Pruebas web de ping de URL](monitor-web-app-availability.md)
+

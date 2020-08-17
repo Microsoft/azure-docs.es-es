@@ -7,14 +7,14 @@
 - name: Guías de inicio rápido
   expanded: true
   items:
-    - name: Monitor de conexión (versión preliminar)
-      href: connection-monitor-preview.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: Azure Portal'
       href: diagnose-vm-network-traffic-filtering-problem.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: PowerShell'
       href: diagnose-vm-network-traffic-filtering-problem-powershell.md
     - name: 'Diagnóstico de problemas de filtro de tráfico de máquinas virtuales: CLI de Azure'
       href: diagnose-vm-network-traffic-filtering-problem-cli.md
+    - name: Configuración de los registros de NSG mediante la plantilla de Azure Resource Manager
+      href: quickstart-configure-network-security-group-flow-logs-from-arm-template.md
 - name: Tutoriales
   items:
     - name: Diagnóstico de problemas de enrutamiento de máquina virtual
@@ -27,6 +27,8 @@
       href: network-watcher-nsg-flow-logging-portal.md
 - name: Conceptos
   items:
+    - name: Monitor de conexión (versión preliminar)
+      href: connection-monitor-preview.md
     - name: Diagnóstico de problemas de filtro de tráfico de red de máquinas virtuales
       href: network-watcher-ip-flow-verify-overview.md
     - name: Diagnóstico de problemas de enrutamiento de máquina virtual
@@ -47,10 +49,18 @@
       items:
         - name: Línea de base de seguridad
           href: security-baseline.md
+    - name: Residencia de datos
+      href: data-residency.md
 - name: Guías paso a paso
   items:
     - name: Configuración de Network Watcher
       href: network-watcher-create.md
+    - name: Creación de una instancia de Connection Monitor (versión preliminar)
+      items:
+        - name: Uso de Azure Portal
+          href: connection-monitor-preview-create-using-portal.md
+        - name: Uso de ARMClient
+          href: connection-monitor-preview-create-using-arm-client.md
     - name: Diagnóstico de problemas de red de máquinas virtuales
       items:
         - name: Instalación de la extensión de máquina virtual
@@ -162,6 +172,10 @@
       href: view-relative-latencies.md
     - name: Supervisión del rendimiento de la red
       href: ../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json
+    - name: Traslado de recursos
+      items:
+        - name: Traslado de recursos de Network Watcher
+          href: resource-move.md
 - name: Referencia
   items:
     - name: Azure CLI

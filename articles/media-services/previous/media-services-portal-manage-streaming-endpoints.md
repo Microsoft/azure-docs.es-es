@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 57ec22cb02512577f8737718cae9175403fb5603
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 627eca1f9a775f12fc9d504629c2a3abbcc919a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74900883"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084507"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Administración de puntos de conexión de streaming con el Portal de Azure 
 
@@ -67,7 +67,7 @@ Punto de conexión de streaming le permite configurar las siguientes propiedades
 * Control de caché
 * Directivas de acceso en varios sitios
 
-Para obtener información detallada acerca de estas propiedades, consulte [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/operations/streamingendpoint).
+Para obtener información detallada acerca de estas propiedades, consulte [StreamingEndpoint](/rest/api/media/operations/streamingendpoint).
 
 >[!NOTE]
 >Cuando CDN esté habilitado, no se podrá tener acceso IP. El acceso IP solo es aplicable cuando no tiene CDN.
@@ -122,4 +122,3 @@ Consulte las rutas de aprendizaje de Media Services.
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

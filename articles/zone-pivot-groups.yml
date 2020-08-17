@@ -25,7 +25,7 @@ groups:
   - id: programming-language-csharp
     title: C#
   - id: programming-language-go
-    title: Go
+    title: Ir
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -55,7 +55,7 @@ groups:
   - id: programming-language-cpp
     title: C++
   - id: programming-language-go
-    title: Go
+    title: Ir
   - id: programming-language-java
     title: Java
   - id: programming-language-python
@@ -468,10 +468,82 @@ groups:
     title: Kotlin (Android)
   - id: programming-language-swift
     title: Swift (iOS)
+- id: programming-languages-set-twenty-one
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+- id: programming-languages-set-twenty-two
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: app-service-platform-windows-linux
+  title: Plataforma App Service
+  prompt: Elección de una plataforma de hospedaje
+  pivots:
+  - id: platform-linux
+    title: Linux
+  - id: platform-windows
+    title: Windows
+- id: app-service-containers-windows-linux
+  title: App Service con contenedores personalizados
+  prompt: Elección de una plataforma de contenedor personalizada
+  pivots:
+  - id: container-linux
+    title: Contenedor Linux
+  - id: container-windows
+    title: Contenedor Windows
+- id: aml-control-methods
+  title: Plano de control de Azure Machine Learning
+  prompt: Elección de una interfaz de plano de control de Azure Machine Learning
+  pivots:
+  - id: py-sdk
+    title: SDK de Python
+  - id: cli
+    title: Azure CLI
+- id: speech-full-stack
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-spx
+    title: CLI
+- id: programming-languages-voice-assistants
+  title: Lenguajes de programación
+  prompt: Selección de un lenguaje de programación
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-go
+    title: Ir
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-more
+    title: Más idiomas...
 metadata:
-  ms.openlocfilehash: 1b217a4cece304da740c5402c8ae1665404a7d91
-  ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+  ms.openlocfilehash: a51aa5fcc88269e718375ed08f0238867da7079b
+  ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/07/2020
-  ms.locfileid: "86040544"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88225638"

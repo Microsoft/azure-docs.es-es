@@ -8,12 +8,13 @@ ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: a4d15b8ea9b6881add23875e201d7c6be39bb24b
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 17be6dee1d5077a45dd14f403ed6e2c13b1e19b1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83774211"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494866"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creación de un almacén de Azure App Configuration
 

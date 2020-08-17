@@ -1,18 +1,18 @@
 ---
 title: Visualización de las cuentas de facturación en Azure Portal
-description: Aprenda como ver las cuentas de facturación en Azure Portal
+description: Obtenga información sobre cómo ver las cuentas de facturación en Azure Portal. Consulte la información de ámbito de los contratos Enterprise, los contratos de clientes de Microsoft y Microsoft Partner Agreement.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: banders
-ms.openlocfilehash: 75529d03435e92dfff26dac81f4f7e59585b6fe9
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 7763340831f1ffbc5ae33b5cc7bff5696d7a9b96
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255252"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461704"
 ---
 # <a name="billing-accounts-and-scopes-in-the-azure-portal"></a>Cuentas de facturación y ámbitos en Azure Portal
 

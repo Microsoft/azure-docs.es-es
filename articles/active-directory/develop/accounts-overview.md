@@ -11,14 +11,14 @@ ms.workload: identity
 ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, devx-track-java
 ms.reviewer: shoatman
-ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 404ffbc09a69b623a421bd0c01550d72e5c03158
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77611892"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115992"
 ---
 # <a name="accounts--tenant-profiles-android"></a>Cuentas y perfiles de inquilinos (Android)
 
@@ -69,7 +69,7 @@ En el diagrama anterior:
   - Existe un perfil de inquilino para `tom@live.com` en cada uno de estos inquilinos.
 - La información sobre Tom y Bob en otros inquilinos puede diferir de la del sistema de registro. Pueden diferir en atributos como puesto de trabajo, ubicación de la oficina, etc. Pueden ser miembros de grupos o roles dentro de cada organización (inquilino de Azure Active Directory). Nos referimos a esta información como perfil de inquilino bob@contoso.com.
 
-En el diagrama, bob@contoso.com y tom@live.com tienen acceso a los recursos en distintos inquilinos de Azure Active Directory. Para más información, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/add-users-administrator).
+En el diagrama, bob@contoso.com y tom@live.com tienen acceso a los recursos en distintos inquilinos de Azure Active Directory. Para más información, consulte [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](../external-identities/add-users-administrator.md).
 
 ## <a name="accounts-and-single-sign-on-sso"></a>Cuentas e inicio de sesión único (SSO)
 
@@ -118,10 +118,10 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 ```
 
 > [!TIP]
-> Para ver una lista de las notificaciones disponibles en el objeto de cuenta, consulte [Notificaciones de un id_token](https://docs.microsoft.com/azure/active-directory/develop/id-tokens#claims-in-an-id_token)
+> Para ver una lista de las notificaciones disponibles en el objeto de cuenta, consulte [Notificaciones de un id_token](./id-tokens.md#claims-in-an-id_token)
 
 > [!TIP]
-> Para incluir notificaciones adicionales en el id_token, consulte la documentación sobre notificaciones opcionales en [Procedimientos para: Proporcionar notificaciones opcionales a la aplicación de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims)
+> Para incluir notificaciones adicionales en el id_token, consulte la documentación sobre notificaciones opcionales en [Procedimientos para: Proporcionar notificaciones opcionales a la aplicación de Azure AD](./active-directory-optional-claims.md)
 
 ### <a name="access-tenant-profile-claims"></a>Acceso a las notificaciones de perfil de inquilino
 

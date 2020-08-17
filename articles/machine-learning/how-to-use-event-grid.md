@@ -5,21 +5,22 @@ description: Configure aplicaciones basadas en eventos, procesos o flujos de tra
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 5c4eae49b849b7dc5dbf7c27d50e241b2a4f36e4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 3b6f115e27b5cf956a524bd1a610797c689b5d6c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135962"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319497"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Desencadenar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning (versión preliminar)
 
-En este artículo, aprenderá a configurar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning, como correos electrónicos de notificación de errores o ejecuciones de canalización de ML, cuando se detecten determinadas condiciones en [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/). 
+En este artículo, aprenderá a configurar aplicaciones, procesos o flujos de trabajo de CI/CD basados en eventos de Azure Machine Learning, como correos electrónicos de notificación de errores o ejecuciones de canalización de ML, cuando se detecten determinadas condiciones en [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
 
 Azure Machine Learning administra todo el ciclo de vida del proceso de aprendizaje automático, incluido el entrenamiento del modelo, la implementación de modelo y la supervisión. Puede usar Event Grid para reaccionar a eventos de Azure Machine Learning, como la finalización de las ejecuciones de entrenamiento, el registro y la implementación de modelos, y la detección de desfases de datos mediante arquitecturas modernas sin servidor. Después, puede suscribirse y consumir eventos como el cambio en el estado de ejecución, la finalización de la ejecución, el registro de modelos, la implementación de modelos y la detección de desfase de datos dentro de un área de trabajo.
 

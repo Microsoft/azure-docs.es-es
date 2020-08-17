@@ -5,23 +5,28 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/11/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 253eb23be03c1cc0f2abf4ad1fed734426dc287d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 5aa84faea43846a2f930373529769e62f76e5bbf
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77154683"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419553"
 ---
 # <a name="tutorial-secure-user-sign-in-events-with-azure-multi-factor-authentication"></a>Tutorial: Protección de eventos de inicio de sesión de usuario con Azure Multi-Factor Authentication
 
 La autenticación multifactor (MFA) es un proceso por el que, durante un evento de inicio de sesión, se solicitan a un usuario otras formas de identificación. En esta solicitud se puede pedir la introducción de un código en el teléfono móvil o el escaneado de la huella digital. Al exigir una segunda forma de autenticación, aumenta la seguridad, ya que este factor adicional no es algo que resulte fácil de obtener o duplicar para un atacante.
 
 Azure Multi-Factor Authentication y las directivas de acceso condicional proporcionan la flexibilidad necesaria para habilitar la autenticación multifactor en los usuarios durante eventos de inicio de sesión específicos.
+
+> [!IMPORTANT]
+> Este tutorial muestra al administrador cómo habilitar Azure Multi-Factor Authentication.
+>
+> Si el equipo de TI no ha habilitado la función para usar Azure Multi-Factor Authentication o si tiene problemas para iniciar sesión, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
 En este tutorial, aprenderá a:
 
@@ -30,17 +35,17 @@ En este tutorial, aprenderá a:
 > * Configurar las condiciones de la directiva que solicitan la autenticación multifactor
 > * Probar el proceso de autenticación multifactor como usuario
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con Azure AD Premium o una licencia de prueba habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *administrador global*.
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Utilizará esta cuenta para probar la experiencia de Azure Multi-Factor Authentication por parte del usuario final en este tutorial.
-    * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
+    * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
 * Un grupo del que sea miembro el usuario que no es administrador, como *Grupo-Prueba-MFA*. En este tutorial, habilitará Azure Multi-Factor Authentication para este grupo.
-    * Si necesita crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../active-directory-groups-create-azure-portal.md).
+    * Si necesita crear un grupo, consulte [Creación de un grupo y adición de miembros en Azure Active Directory](../fundamentals/active-directory-groups-create-azure-portal.md).
 
 ## <a name="create-a-conditional-access-policy"></a>Creación de una directiva de acceso condicional
 
@@ -60,7 +65,7 @@ En primer lugar, cree una directiva de acceso condicional y asigne el grupo de u
 1. Active la casilla de **Usuarios y grupos**, y elija la opción **Seleccionar** para examinar los usuarios y grupos de Azure AD disponibles.
 1. Busque y seleccione el grupo de Azure AD, como *Grupo-Prueba-MFA* y, a continuación, elija **Seleccionar**.
 
-    [![](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png "Select your Azure AD group to use with the Conditional Access policy")](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
+    [ ![Selección del grupo de Azure AD que se usará con la directiva de acceso condicional](media/tutorial-enable-azure-mfa/select-group-for-conditional-access-cropped.png) ](media/tutorial-enable-azure-mfa/select-group-for-conditional-access.png#lightbox)
 
 1. Para aplicar la directiva de acceso condicional para el grupo, seleccione **Listo**.
 

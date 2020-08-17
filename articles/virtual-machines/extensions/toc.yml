@@ -12,7 +12,7 @@
   expanded: true
   items:
     - name: Uso de la extensión de script personalizado
-      href: /azure/virtual-machines/windows/tutorial-automate-vm-deployment
+      href: ../windows/tutorial-automate-vm-deployment.md
       maintainContext: true
 - name: Conceptos
   items:
@@ -58,6 +58,12 @@
           href: network-watcher-linux.md
         - name: Windows
           href: network-watcher-windows.md
+    - name: Controladores InfiniBand
+      items:
+        - name: Linux
+          href: hpc-compute-infiniband-linux.md
+        - name: Windows
+          href: hpc-compute-infiniband-windows.md
     - name: Controladores GPU NVIDIA
       items:
         - name: Linux

@@ -5,22 +5,22 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 04/15/2020
+ms.date: 07/20/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7997359fb29afc876b184b811e0409cfdbeb265a
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: 2eff16e0d1aa242ed4ca8b427c7af8e8defa7804
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83826475"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87051293"
 ---
-# <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
+# <a name="self-service-password-reset-frequently-asked-questions"></a>Preguntas frecuentes sobre el autoservicio de restablecimiento de contraseña
 
-A continuación se indican algunas de las preguntas más frecuentes sobre todos los aspectos relacionados con el restablecimiento de contraseñas.
+Estas son algunas preguntas frecuentes sobre todos los aspectos relacionados con el autoservicio de restablecimiento de contraseña.
 
 Si tiene alguna pregunta general sobre Azure Active Directory (Azure AD) y el autoservicio de restablecimiento de contraseña (SSPR) y no encuentra ninguna respuesta aquí, puede pedir ayuda a la comunidad en la[Página de preguntas y respuestas de Microsoft sobre Azure Active Directory](https://docs.microsoft.com/answers/topics/azure-active-directory.html). La comunidad está formada por ingenieros, jefes de producto, MVP y profesionales de TI.
 
@@ -38,7 +38,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
 
   > **R:** Sí. Siempre que el restablecimiento de contraseña esté habilitado y los usuarios cuenten con licencia, pueden ir al portal de registro de restablecimiento de contraseña (https://aka.ms/ssprsetup) para registrar su información de autenticación. Los usuarios también pueden registrarse a través del Panel de acceso (https://myapps.microsoft.com). Para ello, deben seleccionar su imagen de perfil y, después, **Perfil** y la opción  **Registrarme para restablecer la contraseña**.
   >
-  >
+  > Si habilita el [registro combinado](concept-registration-mfa-sspr-combined.md), los usuarios pueden registrarse tanto en SSPR como en Azure Multi-Factor Authentication al mismo tiempo.
 * **P:  Si habilito el restablecimiento de contraseña de un grupo y decido habilitarla para todo el mundo, ¿deben volver a registrarse mis usuarios?**
 
   > **R:** No. No es necesario que los usuarios cuyos datos de autenticación estén rellenados vuelvan a registrarse.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: fa97935c10b2a5df70c9babf031a889a9c1e9f34
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: d05386f1dfbab28d5fe42d02b8e9be0f257afafd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83837943"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86527222"
 ---
 ## <a name="what-is-the-time-required-for-migration"></a>¿Cuál es el tiempo necesario para la migración?
 
@@ -29,7 +29,7 @@ Aquel cliente con máquinas virtuales IaaS (clásicas) activas, o detenidas pero
 
 ## <a name="why-am-i-getting-an-error-stating-newclassicvmcreationnotallowedforsubscription"></a>¿Por qué me aparece un error que indica "NewClassicVMCreationNotAllowedForSubscription"?
 
-Como parte del proceso de retirada, las máquinas virtuales IaaS (clásicas) ya no están disponibles para nuevos clientes. Se le ha identificado como nuevo cliente y, por lo tanto, su operación no se ha autorizado. Se recomienda encarecidamente usar [Azure Virtual Machines con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Si no puede usar máquinas virtuales de Azure con ARM, póngase en contacto con soporte técnico para la inclusión en la lista blanca de suscripciones.
+Como parte del proceso de retirada, las máquinas virtuales IaaS (clásicas) ya no están disponibles para nuevos clientes. Se le ha identificado como nuevo cliente y, por lo tanto, su operación no se ha autorizado. Se recomienda encarecidamente usar [Azure Virtual Machines con ARM](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell). Si no puede usar máquinas virtuales de Azure con ARM, póngase en contacto con soporte técnico para agregar su suscripción a la lista de permitidos.
 
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>¿Afecta este plan de migración a alguno de los servicios o las aplicaciones existentes que se ejecutan en máquinas virtuales de Azure? 
 

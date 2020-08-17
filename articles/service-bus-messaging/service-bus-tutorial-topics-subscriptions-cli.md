@@ -5,12 +5,13 @@ ms.date: 06/23/2020
 ms.topic: tutorial
 author: spelluru
 ms.author: spelluru
-ms.openlocfilehash: 5340ec8d3d7a479fb349ce5ed1d32f917668d0d8
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2526559a8b88309c098e59e8cc6d0ffd2793984f
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341005"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067620"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante la CLI y temas o suscripciones
 
@@ -35,7 +36,7 @@ Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes 
 Para desarrollar una aplicación de Service Bus con Java, debe tener instalado lo siguiente:
 
 - [Kit de desarrollo de Java](https://aka.ms/azure-jdks), la versión más reciente.
-- [CLI de Azure](https://docs.microsoft.com/cli/azure)
+- [CLI de Azure](/cli/azure)
 - [Apache Maven](https://maven.apache.org), versión 3.0 o posterior.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

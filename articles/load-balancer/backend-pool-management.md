@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: overview
 ms.date: 07/07/2020
 ms.author: allensu
-ms.openlocfilehash: f1718de6bc9a86f85cadf4531386e663d5a420d3
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 1ab0fd2ff4a2105cdfc4a19b7307cd9817878156
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273768"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421797"
 ---
 # <a name="backend-pool-management"></a>Administración de grupos de back-end
 El grupo de back-end es un componente esencial del equilibrador de carga. Define el grupo de recursos que atenderán el tráfico de una regla de equilibrio de carga determinada.
@@ -255,10 +255,12 @@ Toda la administración del grupo de back-end se realiza directamente en el obje
 
   >[!IMPORTANT] 
   >Esta característica se encuentra actualmente en versión preliminar y tiene las siguientes limitaciones:
-  >* Se puede agregar un máximo de 100 direcciones IP.
+  >* Solo se puede utilizar con el equilibrador de carga estándar.
+  >* Límite de 100 direcciones IP en el grupo de back-end
   >* Los recursos de back-end deben estar en la misma red virtual que el equilibrador de carga.
   >* Esta característica no se admite actualmente en Azure Portal.
-  >* Solo se puede utilizar con el equilibrador de carga estándar.
+  >* Los contenedores ACI no admiten esta característica actualmente
+  >* Los equilibradores de carga o los servicios precedidos por equilibradores de carga no se pueden colocar en el grupo de back-end del equilibrador de carga
   
 ### <a name="powershell"></a>PowerShell
 Cree un nuevo grupo de back-end:
@@ -271,8 +273,7 @@ $vnetName = "myVnet"
 $location = "eastus"
 $nicName = "myNic"
 
-$backendPool = 
-New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName  
+$backendPool = New-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName  
 ```
 
 Actualice el grupo de back-end con una nueva dirección IP de la red virtual existente:
@@ -281,18 +282,17 @@ Actualice el grupo de back-end con una nueva dirección IP de la red virtual ex
 $virtualNetwork = 
 Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup 
  
-$ip1 = 
-New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
+$ip1 = New-AzLoadBalancerBackendAddressConfig -IpAddress "10.0.0.5" -Name "TestVNetRef" -VirtualNetwork $virtualNetwork  
  
 $backendPool.LoadBalancerBackendAddresses.Add($ip1) 
 
-Set-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup  -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Set-AzLoadBalancerBackendAddressPool -InputObject $backendPool
 ```
 
 Recupere la información del grupo de back-end del equilibrador de carga para confirmar que las direcciones de back-end se agregan al grupo de back-end:
 
 ```azurepowershell-interactive
-Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -BackendAddressPoolName $backendPoolName -BackendAddressPool $backendPool  
+Get-AzLoadBalancerBackendAddressPool -ResourceGroupName $resourceGroup -LoadBalancerName $loadBalancerName -Name $backendPoolName 
 ```
 Cree una interfaz de red y agréguela al grupo de back-end. Establezca la dirección IP en una de las direcciones de back-end:
 

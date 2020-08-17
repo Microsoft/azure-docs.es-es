@@ -1,24 +1,22 @@
 ---
-title: Personalización de fuente para usuarios de Windows Virtual Desktop - Azure
-description: Personalización de la fuente para los usuarios de Windows Virtual Desktop con cmdlets de PowerShell.
-services: virtual-desktop
+title: Personalización de fuente para usuarios de Windows Virtual Desktop (clásico) - Azure
+description: Personalización de la fuente para los usuarios de Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 248156c403e7e74665ec1c856588d8a2ca76e208
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 3a8c1a5da4f4d46d98e01eeb0bf210567af19a95
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86244572"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88007240"
 ---
-# <a name="customize-feed-for-windows-virtual-desktop-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop
+# <a name="customize-feed-for-windows-virtual-desktop-classic-users"></a>Personalización de fuente para usuarios de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión de otoño de 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager incorporados en la actualización de primavera de 2020, consulte [este artículo](../customize-feed-for-virtual-desktop-users.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../customize-feed-for-virtual-desktop-users.md).
 
 Puede personalizar la fuente para que RemoteApp y los recursos de escritorio remoto se muestren de manera reconocible para los usuarios.
 

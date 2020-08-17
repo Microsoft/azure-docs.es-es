@@ -1,24 +1,22 @@
 ---
-title: 'Análisis de registros de diagnóstico de Windows Virtual Desktop: Azure'
-description: Cómo usar el análisis de registros con la característica de diagnóstico de Windows Virtual Desktop.
-services: virtual-desktop
+title: 'Análisis de registros de diagnóstico de Windows Virtual Desktop (clásico): Azure'
+description: Uso del análisis de registros con la característica de diagnóstico de Windows Virtual Desktop (clásico).
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: beb48b90afd54b044eb6d0ceaff32b53ebfcdc34
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8a7a7a6681be78c2777130ca540319eb829d8f9d
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85205975"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88002353"
 ---
-# <a name="use-log-analytics-for-the-diagnostics-feature"></a>Uso de Log Analytics para la característica de diagnóstico
+# <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Uso de Log Analytics para la característica de diagnóstico en Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../diagnostics-log-analytics.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../diagnostics-log-analytics.md).
 
 Windows Virtual Desktop ofrece una característica de diagnóstico que permite al administrador detectar problemas a través de una única interfaz. Esta característica registra información de diagnóstico cada vez que alguien que tiene asignado el rol de Windows Virtual Desktop usa el servicio. Cada registro contiene información sobre el rol de Windows Virtual Desktop implicado en la actividad, los mensajes de error que se muestran durante la sesión, la información del inquilino y la información del usuario. La característica de diagnóstico crea registros de actividad para las acciones de usuario y administrativas. Cada registro de actividad se divide en tres categorías principales:
 

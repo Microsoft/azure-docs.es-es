@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 65ced5021305dce15236ded59cf79a6578e7372a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c33e9105be1eb080025922ff9e612771a4f021cd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516794"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318086"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Supervisión de Active Directory Replication Status con Azure Monitor
 
@@ -34,13 +34,13 @@ Utilice la siguiente información para instalar y configurar la solución.
 
 
 ### <a name="install-agents-on-domain-controllers"></a>Instalación de agentes en controladores de dominio
-Debe instalar los agentes en controladores del dominio que se vaya a evaluar. Como alternativa, instale los agentes en servidores miembros y configure los agentes para que envíen datos de replicación de AD a Azure Monitor. Para conocer el proceso de conexión de equipos Windows a Azure Monitor, consulte [Conexión de equipos Windows a Azure Monitor](../../azure-monitor/platform/agent-windows.md). Si el controlador de dominio ya forma parte de un entorno de System Center Operations Manager que le gustaría conectar a Azure Monitor, consulte [Conexión de Operations Manager con Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Debe instalar los agentes en controladores del dominio que se vaya a evaluar. Como alternativa, instale los agentes en servidores miembros y configure los agentes para que envíen datos de replicación de AD a Azure Monitor. Para conocer el proceso de conexión de equipos Windows a Azure Monitor, consulte [Conexión de equipos Windows a Azure Monitor](../platform/agent-windows.md). Si el controlador de dominio ya forma parte de un entorno de System Center Operations Manager que le gustaría conectar a Azure Monitor, consulte [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
 
 ### <a name="enable-non-domain-controller"></a>Habilitación de controladores que no son de dominio
 Si no desea conectar ninguno de los controladores de dominio directamente a Azure Monitor, puede usar cualquier otro equipo en el dominio conectado a Azure Monitor para recopilar datos para el paquete de solución de AD Replication Status y hacer que este envíe los datos.
 
 1. Compruebe que el equipo es miembro del dominio que desea supervisar mediante la solución de Estado de replicación de AD.
-2. [Conecte el equipo Windows a Azure Monitor](../../azure-monitor/platform/om-agents.md) o [conéctelo con su entorno existente de Operations Manager a Azure Monitor](../../azure-monitor/platform/om-agents.md), si no está conectado aún.
+2. [Conecte el equipo Windows a Azure Monitor](../platform/om-agents.md) o [conéctelo con su entorno existente de Operations Manager a Azure Monitor](../platform/om-agents.md), si no está conectado aún.
 3. En el equipo, configure la siguiente clave del Registro:<br>Clave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**<br>Valor: **IsTarget**<br>Datos del valor: **true**
 
    > [!NOTE]
@@ -110,7 +110,7 @@ Al hacer clic en cualquier elemento de las listas con una consulta de registros 
 
 ![Errores de AD Replication Status en los resultados de la consulta](./media/ad-replication-status/oms-ad-replication-search-details.png)
 
-Desde aquí, puede filtrar aún más, modificar la consulta de registros, etc. Para más información sobre el uso de las consultas de registros en Azure Monitor, consulte [Análisis de datos de registro en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+Desde aquí, puede filtrar aún más, modificar la consulta de registros, etc. Para más información sobre el uso de las consultas de registros en Azure Monitor, consulte [Análisis de datos de registro en Azure Monitor](../log-query/log-query-overview.md).
 
 El campo **HelpLink** muestra la dirección URL de una página de TechNet con detalles adicionales acerca de ese error específico. Puede copiar y pegar este vínculo en la ventana del explorador para ver información sobre la solución de problemas y corregir el error.
 
@@ -150,9 +150,10 @@ A. Los permisos de usuario normal para Active Directory son suficientes.
 ## <a name="troubleshoot-data-collection-problems"></a>Solución de problemas de recopilación de datos
 A fin de recopilar datos, el paquete de solución Active Directory Replication Status requiere que haya al menos un controlador de dominio conectado a su área de trabajo de Log Analytics. Hasta que se conecte a un controlador de dominio, aparece un mensaje que indica que **todavía se están recopilando datos**.
 
-Si necesita ayuda para conectarse a uno de los controladores de dominio, puede ver la documentación en [Conexión de equipos Windows a Azure Monitor](../../azure-monitor/platform/om-agents.md). Como alternativa, si el controlador de dominio ya está conectado a un entorno existente de System Center Operations Manager, puede ver documentación en [Conexión de Operations Manager con Azure Monitor](../../azure-monitor/platform/om-agents.md).
+Si necesita ayuda para conectarse a uno de los controladores de dominio, puede ver la documentación en [Conexión de equipos Windows a Azure Monitor](../platform/om-agents.md). Como alternativa, si el controlador de dominio ya está conectado a un entorno existente de System Center Operations Manager, puede ver documentación en [Conexión de Operations Manager con Azure Monitor](../platform/om-agents.md).
 
 Si no desea conectar ninguno de los controladores de dominio directamente a Azure Monitor o a System Center Operations Manager, consulte [Habilitación de controladores que no son de dominio](#enable-non-domain-controller).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Utilice [Consultas de registros en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de Active Directory Replication Status.
+* Utilice [Consultas de registros en Azure Monitor](../log-query/log-query-overview.md) para ver datos detallados de Active Directory Replication Status.
+

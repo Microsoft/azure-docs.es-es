@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
-ms.openlocfilehash: 50d6bebd1e38149096b865ad3654a9604d685f5d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-javascript
+ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86141956"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543442"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integración de Azure Stream Analytics con Azure Machine Learning (versión preliminar)
 
@@ -24,7 +25,7 @@ Siga los pasos que se indican a continuación antes de agregar un modelo de Mach
 
 1. Use Azure Machine Learning para [implementar el modelo como servicio web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
 
-2. El script de puntuación debe tener [entradas y salidas de ejemplo](../machine-learning/how-to-deploy-and-where.md#example-entry-script) que Azure Machine Learning usará para generar especificaciones de esquema. Stream Analytics usa el esquema para comprender la signatura de función del servicio web. Puede usar este [ejemplo de definición de Swagger](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) como referencia para asegurarse de que la ha configurado correctamente.
+2. El script de puntuación debe tener [entradas y salidas de ejemplo](../machine-learning/how-to-deploy-and-where.md) que Azure Machine Learning usará para generar especificaciones de esquema. Stream Analytics usa el esquema para comprender la signatura de función del servicio web. Puede usar este [ejemplo de definición de Swagger](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) como referencia para asegurarse de que la ha configurado correctamente.
 
 3. Asegúrese de que el servicio web acepta y devuelve datos serializados de JSON.
 
@@ -146,7 +147,7 @@ El siguiente código JSON es una solicitud de ejemplo de la consulta anterior:
 
 ## <a name="optimize-the-performance-for-azure-machine-learning-udfs"></a>Optimización del rendimiento de las funciones definidas por el usuario de Azure Machine Learning
 
-Al implementar el modelo en Azure Kubernetes Service, puede [generar un perfil de modelo para determinar el uso de los recursos](../machine-learning/how-to-deploy-and-where.md#profilemodel). También puede [habilitar App Insights para sus implementaciones](../machine-learning/how-to-enable-app-insights.md). De este modo, aprenderá sobre las tasas de solicitudes, los tiempos de respuesta y las tasas de error.
+Al implementar el modelo en Azure Kubernetes Service, puede [generar un perfil de modelo para determinar el uso de los recursos](../machine-learning/how-to-deploy-profile-model.md). También puede [habilitar App Insights para sus implementaciones](../machine-learning/how-to-enable-app-insights.md). De este modo, aprenderá sobre las tasas de solicitudes, los tiempos de respuesta y las tasas de error.
 
 Si tiene un escenario con un alto procesamiento de eventos, quizá necesite cambiar los siguientes parámetros en Stream Analytics para lograr un rendimiento óptimo con latencias bajas de un extremo a otro:
 

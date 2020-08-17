@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/06/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97bda09870949846e333cc2845286512fd5d6386
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063229"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809908"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors en Azure AD (versión preliminar)
-El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar los datos de trabajadores de SuccessFactors Employee Central en Azure Active Directory, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. Esta integración está en versión preliminar pública y admite la recuperación de más de [70 atributos de usuario](../app-provisioning/sap-successfactors-attribute-reference.md) de SuccessFactors Employee Central. 
+# <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors en Azure AD
+El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar los datos de trabajadores de SuccessFactors Employee Central en Azure Active Directory, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. 
 
 >[!NOTE]
 >Use este tutorial si los usuarios que quiere aprovisionar desde SuccessFactors son usuarios que solo están en la nube y no necesitan una cuenta de AD local. Si los usuarios necesitan solo una cuenta de AD local o bien una cuenta de AD y de Azure AD, consulte el tutorial sobre [configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory](sap-successfactors-inbound-provisioning-tutorial.md#overview). 
@@ -79,7 +79,7 @@ La configuración del aprovisionamiento de usuarios controlado por RR. HH. en l
 * Transformación de atributos 
 * Filtros de ámbito
 
-Consulte el [plan de implementación de RR. HH. en la nube](../app-provisioning/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. 
+Consulte el [plan de implementación de RR. HH. en la nube](../app-provisioning/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. Consulte [Referencia de integración de SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) para obtener información sobre las entidades admitidas, los detalles de procesamiento y cómo personalizar la integración para distintos escenarios de recursos humanos. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuración de SuccessFactors para la integración
 
@@ -175,7 +175,7 @@ En esta sección se proporcionan los pasos para el aprovisionamiento de cuentas 
 
    * **URL de inquilino:** escriba el nombre del punto de conexión de servicios de la API OData de SuccessFactors. Especifique solo el nombre de host del servidor sin http o https. Este valor debería ser similar al siguiente: **nombre-servidor-api.successfactors.com**.
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
+   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
     > [!NOTE]
     > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 

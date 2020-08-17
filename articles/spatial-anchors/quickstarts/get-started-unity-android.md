@@ -5,15 +5,15 @@ author: craigktreasure
 manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
-ms.date: 02/24/2019
+ms.date: 07/31/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7acff7f0249cdedcebd367fc315be92cafb9ab78
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 608b488a04eafd01e6702850445801705f6dac81
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77615438"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810367"
 ---
 # <a name="quickstart-create-a-unity-android-app-with-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación para Unity Android con Azure Spatial Anchors
 
@@ -34,11 +34,11 @@ Aprenderá a:
 
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
-- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.1 o 2019.2</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools.
+- Una máquina con Windows o macOS con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2019.4 (LTS)</a>, incluidos los módulos Android Build Support y Android SDK & NDK Tools.
   - Si se ejecuta en Windows, también necesitará <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a> y <a href="https://git-lfs.github.com/">Git LFS</a>.
   - Si se ejecuta en macOS, instale Git a través de HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git` y `brew install git-lfs`.
 - Un dispositivo Android <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">habilitado para el desarrollo</a> y <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">preparado para ARCore</a>.
-  - Puede que se necesiten controladores de dispositivo adicionales para que el equipo se comunique con el dispositivo Android. Para obtener más información e instrucciones, visite [este vínculo](https://developer.android.com/studio/run/device.html).
+  - Puede que se necesiten controladores de dispositivo adicionales para que el equipo se comunique con el dispositivo Android. [Aquí](https://developer.android.com/studio/run/device.html) encontrará más información e instrucciones.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -50,19 +50,13 @@ Para completar esta guía de inicio rápido, asegúrese de que dispone de lo sig
 
 [!INCLUDE [Android Unity Build Settings](../../../includes/spatial-anchors-unity-android-build-settings.md)]
 
-## <a name="configure-account-identifier-and-key"></a>Configuración del identificador y la clave de la cuenta
-
-En el panel **Project** (Proyecto), vaya a `Assets/AzureSpatialAnchors.Examples/Scenes` y abra el archivo de escena `AzureSpatialAnchorsBasicDemo.unity`.
-
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
-
-Para guardar la escena, seleccione **File** -> **Save** (Archivo > Guardar).
 
 ## <a name="export-the-android-studio-project"></a>Exportación del proyecto de Android Studio
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Seleccione el dispositivo en **Run Device** (Dispositivo de ejecución) y haga clic en **Build And Run** (Compilar y ejecutar). Se le pedirá que guarde un archivo `.apk` para el que puede elegir cualquier nombre.
+Seleccione el dispositivo en **Run Device** (Dispositivo de ejecución) y, después, seleccione **Build And Run** (Compilar y ejecutar). Se le pedirá que guarde un archivo `.apk` para el que puede elegir cualquier nombre.
 
 Siga las instrucciones de la aplicación para colocar y recuperar un delimitador.
 
@@ -70,11 +64,7 @@ Siga las instrucciones de la aplicación para colocar y recuperar un delimitador
 
 ### <a name="rendering-issues"></a>Problemas de representación
 
-Cuando se ejecuta la aplicación, si no ve la cámara como fondo (en cambio ve, por ejemplo, una textura negra, azul o de otro tipo), es probable que deba volver a importar los recursos en Unity. Detenga la aplicación. En el menú superior de Unity, elija **Assets -> Reimport all** (Recursos -> Volver a importar todo). Luego, vuelva a ejecutar la aplicación.
-
-### <a name="unity-20193"></a>Unity 2019.3
-
-Debido a cambios importantes, Unity 2019.3 no se admite actualmente. Use Unity 2019.1 o 2019.2.
+Al ejecutar la aplicación, si no ve la cámara como fondo (en cambio ve, por ejemplo, una textura blanca, azul o de otro tipo), es probable que deba volver a importar los recursos en Unity. Detenga la aplicación. En el menú superior de Unity, elija **Assets -> Reimport all** (Recursos -> Volver a importar todo). Luego, vuelva a ejecutar la aplicación.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 
@@ -82,3 +72,6 @@ Debido a cambios importantes, Unity 2019.3 no se admite actualmente. Use Unity�
 
 > [!div class="nextstepaction"]
 > [Tutorial: Uso compartido de Spatial Anchors entre dispositivos](../tutorials/tutorial-share-anchors-across-devices.md)
+
+> [!div class="nextstepaction"]
+> [Cómo: Configuración de Azure Spatial Anchors en un proyecto de Unity](../how-tos/setup-unity-project.md)

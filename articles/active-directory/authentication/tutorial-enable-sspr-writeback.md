@@ -5,24 +5,29 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 04/24/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: a25fe090c88d2540bdf63cd6479d25b879090a38
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: f4687a98bfb58db8ed5e8a853fa0db2207f435e8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202554"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419655"
 ---
 # <a name="tutorial-enable-azure-active-directory-self-service-password-reset-writeback-to-an-on-premises-environment"></a>Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña de Azure Active Directory en un entorno local
 
 Con el autoservicio de restablecimiento de contraseña de Azure Active Directory (Azure AD), los usuarios pueden actualizar sus contraseñas o desbloquear la cuenta mediante un explorador web. En un entorno híbrido en el que se conecta Azure AD a un entorno local de Active Directory Domain Services (AD DS), este escenario puede hacer que las contraseñas sean diferentes entre los dos directorios.
 
 La escritura diferida de contraseñas se puede utilizar para sincronizar los cambios de contraseñas en Azure AD de vuelta al entorno local de AD DS. Azure AD Connect proporciona un mecanismo seguro para enviar los cambios de contraseñas de vuelta a un directorio local existente desde Azure AD.
+
+> [!IMPORTANT]
+> En este tutorial se muestra a un administrador cómo habilitar el restablecimiento de contraseña de autoservicio en un entorno local. Los usuarios finales registrados para el restablecimiento de contraseña de autoservicio que necesiten volver a su cuenta deben ir a https://aka.ms/sspr.
+>
+> Si el equipo de TI no ha habilitado la capacidad para restablecer su propia contraseña, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
 En este tutorial, aprenderá a:
 
@@ -35,7 +40,7 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de prueba de Azure AD Premium P1 o P2 habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
     * Para más información, consulte [Requisitos de concesión de licencias del autoservicio de restablecimiento de contraseña de Azure AD](concept-sspr-licensing.md).
 * Una cuenta con privilegios de *administrador global*.
@@ -54,11 +59,9 @@ Para trabajar correctamente con la escritura diferida del autoservicio de restab
 * **Restablecimiento de contraseñas**
 * **Permisos de escritura** en `lockoutTime`
 * **Permisos de escritura** en `pwdLastSet`
-* **Derechos extendidos** para "contraseña no expirada" en:
-   * El objeto raíz de *cada dominio* de ese bosque.
-   * Las unidades organizativas (OU) de usuario que quiera que estén en el ámbito de SSPR.
+* **Derechos extendidos** para "Contraseña no expirada" en el objeto raíz de *cada* dominio de ese bosque, si aún no se ha establecido.
 
-Si no asigna estos permisos, la escritura diferida parece estar configurada correctamente, pero los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube. Para que aparezca "contraseña sin expiración", los permisos deben aplicarse a **Este objeto y todos los descendientes**.  
+Si no asigna estos permisos, la escritura diferida puede parecer estar configurada correctamente, pero los usuarios encuentran errores al intentar administrar sus contraseñas locales desde la nube. Para que aparezca "contraseña sin expiración", los permisos deben aplicarse a **Este objeto y todos los descendientes**.  
 
 > [!TIP]
 >
@@ -74,11 +77,11 @@ Para configurar los permisos adecuados para que se realice la escritura diferida
 1. En la lista desplegable **Se aplica a**, seleccione **Descendent User objects** (Objetos del usuario descendientes).
 1. En *Permisos*, active la casilla para la siguiente opción:
     * **Restablecimiento de contraseñas**
-1. En *Propiedades*, active las casillas de las siguientes opciones: Debe desplazarse por la lista para encontrar estas opciones, que ya se pueden establecer de forma predeterminada:
+1. En *Propiedades*, active las casillas de las siguientes opciones: Desplácese por la lista para encontrar estas opciones, que ya se pueden establecer de forma predeterminada:
     * **Escribir lockoutTime**
     * **Escribir pwdLastSet**
 
-    [![](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png "Set the appropriate permissions in Active Users and Computers for the account that is used by Azure AD Connect")](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
+    [ ![Establecimiento de los permisos adecuados en usuarios y equipos activos para la cuenta usada por Azure AD Connect](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions-cropped.png) ](media/tutorial-enable-sspr-writeback/set-ad-ds-permissions.png#lightbox)
 
 1. Cuando esté preparado, haga clic en **Aplicar o Aceptar** para aplicar los cambios y salir de los cuadros de diálogo abiertos.
 
@@ -89,13 +92,13 @@ Las directivas de contraseñas en el entorno de AD DS local pueden impedir que 
 Si actualiza la directiva de grupo, espere a que la directiva actualizada se replique o use el comando `gpupdate /force`.
 
 > [!Note]
-> Para que las contraseñas se cambien inmediatamente, la escritura diferida de contraseñas debe establecerse en 0. Sin embargo, si los usuarios se adhieren a las directivas locales y el campo *Vigencia mínima de la contraseña* se establece en un valor mayor que cero, la escritura diferida de contraseñas seguirá funcionando después de que se evalúen las directivas locales. 
+> Para que las contraseñas se cambien inmediatamente, la escritura diferida de contraseñas debe establecerse en 0. Sin embargo, si los usuarios se adhieren a las directivas locales y el campo *Vigencia mínima de la contraseña* se establece en un valor mayor que cero, la escritura diferida de contraseñas sigue funcionando después de que se evalúen las directivas locales.
 
 ## <a name="enable-password-writeback-in-azure-ad-connect"></a>Habilitación de la Escritura diferida de contraseñas en Azure AD Connect
 
 Una de las opciones de configuración de Azure AD Connect es para la escritura diferida de contraseñas. Cuando esta opción está habilitada, los eventos de cambio de contraseña hacen que Azure AD Connect vuelva a sincronizar las credenciales actualizadas con el entorno de AD DS local.
 
-Para habilitar la escritura diferida de autoservicio de restablecimiento de contraseña, primero debe habilitar la opción de escritura diferida en Azure AD Connect. Desde el servidor de Azure AD Connect, realice los siguientes pasos:
+Para habilitar la reescritura de SSPR, habilite primero la opción de reescritura en Azure AD Connect. Desde el servidor de Azure AD Connect, realice los siguientes pasos:
 
 1. Inicie sesión en el servidor de Azure AD Connect e inicie el asistente de configuración de **Azure AD Connect**.
 1. En la página **principal**, seleccione **Configurar**.

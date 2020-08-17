@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 7622ac319929548dd50a3af763b1b65ea8a36d2b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d33ec829e490ae45d38d33f5784126a71ae2d0aa
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85250237"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506560"
 ---
 # <a name="how-an-application-gateway-works"></a>Funcionamiento de una puerta de enlace de aplicaciones
 
@@ -62,7 +62,7 @@ Una puerta de enlace de aplicaciones inserta cuatro encabezados adicionales en t
 
 Los valores válidos para x-forwarded-proto son HTTP o HTTPS. X-forwarded-port especifica el puerto al que llegó la solicitud en la puerta de enlace de aplicaciones. El encabezado x-original-host contiene el encabezado de host original con el que llegó la solicitud. Este encabezado es útil en la integración de Azure Website, donde el encabezado de host entrante se modifica antes de que el tráfico se enrute al back-end. Si la opción de afinidad de sesión está habilitada, se agrega una cookie de afinidad administrada por la puerta de enlace.
 
-Puede configurar la puerta de enlace de aplicaciones para que modifique los encabezados mediante la [rescritura de encabezados HTTP](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) o para que modifiquen la ruta de acceso URI mediante una configuración de invalidación de la ruta de acceso. Sin embargo, a menos que realice la configuración, todas las solicitudes entrantes se procesan con proxy hacia el back-end.
+Puede configurar la puerta de enlace de aplicaciones para que modifique los encabezados y URL de solicitud y respuesta mediante la [rescritura de encabezados HTTP y URL](rewrite-http-headers-url.md) o para que modifique la ruta de acceso URI mediante una configuración de invalidación de la ruta de acceso. Sin embargo, a menos que realice la configuración, todas las solicitudes entrantes se procesan con proxy hacia el back-end.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

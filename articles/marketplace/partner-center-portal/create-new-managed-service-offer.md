@@ -4,15 +4,15 @@ description: Cómo crear una oferta de servicio administrado para la lista de Az
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: JnHs
-ms.author: jenhayes
+author: Microsoft-BradleyWright
+ms.author: brwrigh
 ms.date: 07/07/2020
-ms.openlocfilehash: 70f0dbff2530b11e92bd0b0cc55ad92a8679ebe9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ae079fce02f58d6c6457d7fe6401526f4002662f
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121799"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87798195"
 ---
 # <a name="create-a-managed-service-offer"></a>Creación de una oferta de servicio administrado
 
@@ -133,23 +133,17 @@ En esta sección, puede proporcionar logotipos e imágenes que se usarán al mos
 >[!NOTE]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
-#### <a name="marketplace-logos"></a>Logotipos de Marketplace
+#### <a name="store-logos"></a>Logotipos de Store
 
-Proporcione el logotipo de la oferta en cuatro tamaños de píxel:
+Proporcione un archivo PNG para el logotipo de tamaño **grande** (entre 216 x 216 y 350 x 350 píxeles). El Centro de partners lo utilizará para crear un logotipo de tamaño **pequeño** (48 x 48 píxeles) y un logotipo de tamaño **medio** (90 x 90 píxeles). Opcionalmente, puede reemplazarlos por imágenes diferentes.
+
+Se requieren los tres tamaños de logotipo para su uso en distintos lugares de la lista:
 
 - **Pequeño (48 x 48)**
 - **Medio (90 x 90)**
-- **Grande (216 x 216)**
-- **Ancho (255 x 115)**
+- **Grande** (entre 216 x 216 y 350 x 350)
 
-Siga estas instrucciones para los logotipos:
-
-- El diseño de Azure tiene una paleta de colores simple. Utilice pocos colores primarios y secundarios en el logotipo.
-- Los colores del tema del portal son el blanco y el negro. No use estos colores como fondo de los logotipos. Use un color que haga que su logotipo destaque en el portal. Nosotros recomendamos usar colores primarios simples.
-- Si usa un fondo transparente, asegúrese de que el logotipo y el texto no son blancos, negros ni azules.
-- La apariencia del logotipo debe ser homogénea y evitar degradados. No utilice un fondo degradado en el logotipo.
-- No coloque texto en el logotipo, ni siquiera el nombre de su empresa o de la marca.
-- Asegúrese de que el logotipo no quede estirado.
+[!INCLUDE [Logo suggestions](./includes/graphics-suggestions.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -177,7 +171,7 @@ Seleccione **Guardar borrador** antes de continuar.
 
 ## <a name="plan-overview"></a>Información general del plan
 
-Cada oferta debe tener uno o varios planes (a veces denominados SKU). Puede agregar varios planes para admitir diferentes conjuntos de características a precios diferentes o para personalizar un plan específico para un público limitado de clientes específicos. Los clientes pueden ver los planes disponibles para ellos en la oferta principal.
+Cada oferta tiene que tener uno o más planes (anteriormente denominados SKU). Puede agregar varios planes para admitir diferentes conjuntos de características a precios diferentes o para personalizar un plan específico para un público limitado de clientes específicos. Los clientes pueden ver los planes disponibles para ellos en la oferta principal.
 
 En la página **Información general del plan**, seleccione **+ Crear nuevo plan**. A continuación, escriba un **Id. de plan** y un **nombre de plan**. Ambos valores solo puede contener caracteres alfanuméricos en minúsculas, guiones y guiones bajos, con un máximo de 50 caracteres. Estos valores pueden ser visibles para los clientes y no se pueden cambiar después de publicar la oferta.
 
@@ -194,6 +188,9 @@ A continuación, escriba una **descripción** que proporcione una explicación m
 Actualmente, solo hay un modelo de precios que se puede usar para la oferta de servicio administrado: **Traiga su propia licencia (BYOL)** . Esto significa que facturará a sus clientes directamente por los costos relacionados con esta oferta y Microsoft no le aplicará ningún cargo.
 
 La sección **Visibilidad del plan** le permite indicar si este plan debe ser [privado](../../marketplace/private-offers.md). Si deja el cuadro **Este plan es privado** desactivado, el plan no se restringirá a clientes específicos (o a un número determinado de clientes).
+
+> [!NOTE]
+> Los planes privados no son compatibles con las suscripciones que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP).
 
 Para que este plan esté disponible solo para clientes específicos, seleccione **Sí**. Al hacerlo, tendrá que identificar a los clientes proporcionando sus identificadores de suscripción. Se pueden especificar de uno en uno (hasta 10 suscripciones) o mediante la carga de un archivo. csv (hasta 10.000 suscripciones en todos los planes). Asegúrese de incluir sus propias suscripciones aquí para poder probar y validar la oferta.
 

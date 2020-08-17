@@ -8,14 +8,14 @@ ms.date: 05/05/2020
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
-ms.openlocfilehash: 9822044de53f5f74df302e05e0e6c5cd06f3eb92
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 31da6a6b5375571f53cd7b478e957cc350ef591c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737162"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86522353"
 ---
-# <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
+# <a name="azure-digital-twins-customer-data-request-features"></a>Características de las solicitudes de datos de clientes para Azure Digital Twins
 
 Azure Digital Twins es una plataforma de desarrollo para la creación de representaciones digitales seguras de un entorno empresarial. Las representaciones están controladas por datos de estado activos de orígenes de datos seleccionados por los usuarios.
 

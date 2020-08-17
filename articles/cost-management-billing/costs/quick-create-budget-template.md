@@ -6,14 +6,14 @@ ms.author: banders
 tags: azure-resource-manager
 ms.service: cost-management-billing
 ms.topic: quickstart
-ms.date: 06/10/2020
+ms.date: 07/28/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 5bff8e6057475701a2e78835fb5a950dcb8c8fcb
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 70408a3ed6638ec76af113c24cc3c8190a44f55c
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252460"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445987"
 ---
 # <a name="quickstart-create-a-budget-with-an-arm-template"></a>Inicio rápido: Creación de un presupuesto con una plantilla de Resource Manager
 
@@ -29,13 +29,31 @@ Si su entorno cumple los requisitos previos y está familiarizado con el uso de 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-La plantilla de Resource Manager solo admite suscripciones de Azure para Contratos Enterprise (EA). La plantilla no admite otros tipos de suscripción.
-
-Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no puede crear presupuestos para las cuentas de facturación de EA. En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos.
-
-Una vez creado el presupuesto, se necesita al menos acceso de lectura en la cuenta de Azure para verlo.
-
 Si tiene una suscripción nueva, no puede crear un presupuesto ni usar las características de Cost Management de inmediato. Para poder hacerlo deberán transcurrir un máximo de 48 horas.
+
+Se admiten los presupuestos para los siguientes tipos de cuentas y ámbitos de Azure:
+
+- Ámbitos del control de acceso basado en roles de Azure (RBAC de Azure)
+    - Grupos de administración
+    - Subscription
+- Ámbitos del Contrato Enterprise
+    - Cuenta de facturación
+    - department
+    - Cuenta de inscripción
+- Acuerdos individuales
+    - Cuenta de facturación
+- Ámbitos de contrato de cliente de Microsoft
+    - Cuenta de facturación
+    - Perfil de facturación
+    - Sección de factura
+    - Customer
+- Ámbitos de AWS
+    - Cuenta externa
+    - Suscripción externa
+
+Para ver los presupuestos, se necesita al menos acceso de lectura en la cuenta de Azure.
+
+En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador.
 
 Se admiten los siguientes permisos o ámbitos de Azure por suscripción para los presupuestos por usuario y grupo. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
@@ -49,7 +67,7 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/create-budget).
 
-:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" range="1-146" highlight="110-139":::
+:::code language="json" source="~/quickstart-templates/create-budget/azuredeploy.json" :::
 
 En la plantilla, se define un recurso de Azure:
 
@@ -63,27 +81,29 @@ En la plantilla, se define un recurso de Azure:
 
 2. Seleccione o escriba los siguientes valores.
 
-   [![Plantilla de Resource Manager, creación de presupuesto, implementación del portal](./media/quick-create-budget-template/create-budget-using-template-portal.png)](./media/quick-create-budget-template/create-budget-using-template-portal.png#lightbox)
-
+   :::image type="content" source="./media/quick-create-budget-template/create-budget-using-template-portal.png" alt-text="Plantilla de Resource Manager, creación de presupuesto, implementación del portal" lightbox="./media/quick-create-budget-template/create-budget-using-template-portal.png" :::
+   
     * **Suscripción**: seleccione una suscripción de Azure.
-    * **Resource group** (Grupo de recursos): seleccione **Create new** (Crear nuevo) y escriba un nombre único para el grupo de recursos; a continuación, haga clic en **OK** (Aceptar) o seleccione un grupo de recursos existente.
-    * **Ubicación**: seleccione una ubicación. Por ejemplo, **Centro de EE. UU**.
+    * **Grupo de recursos**: si es necesario, seleccione un grupo de recursos existente o cree uno con la opción **Crear nuevo**.
+    * **Región**: seleccione una región de Azure. Por ejemplo, **Centro de EE. UU**.
     * **Budget Name** (Nombre del presupuesto): escriba un nombre para el presupuesto. Debe ser único dentro de un grupo de recursos. Solo se permiten caracteres alfanuméricos, guiones bajos y guiones.
-    * **Amount** (Importe): especifique la cantidad total de costo o uso que se va a seguir con el presupuesto.
-    * **Budget Category** (Categoría de presupuesto): seleccione la categoría del presupuesto, si el presupuesto realiza el seguimiento del **costo** o del **uso**.
+    * **Importe**: especifique la cantidad total de costo que se va a seguir con el presupuesto.
     * **Time Grain** (Intervalo de agregación): especifique el tiempo que se incluye en un presupuesto. Los valores permitidos son Monthly (Mensual), Quarterly (Trimestral) o Annually (Anualmente). El presupuesto se restablece al final del intervalo de agregación.
     * **Start date** (Fecha de inicio): especifique la fecha de inicio con el primer día del mes en formato AAAA-MM-DD. La fecha de inicio futura no puede ser superior a de tres meses a partir de hoy. Puede especificar una fecha de inicio en el pasado con el período del intervalo de agregación.
-    * **End Date** (Fecha de finalización): especifique la fecha de finalización del presupuesto en formato AAAA-MM-DD. Si no se proporciona, el valor predeterminado se establece en 10 años a partir de la fecha de inicio.
-    * **Operator** (Operador): seleccione un operador de comparación. Los valores posibles son EqualTo, GreaterThan o GreaterThanOrEqualTo.
-    * **Threshold** (Umbral): escriba un valor de umbral para la notificación. Se envía una notificación cuando el costo supera el umbral. Es siempre un porcentaje y debe estar entre 0 y 1000.
-    * **Contact Emails** (Correos electrónicos de contacto): escriba una lista de direcciones de correo electrónico a las que enviar la notificación de presupuesto cuando se supere el umbral. El formato esperado es `["user1@domain.com","user2@domain.com"]`.
+    * **End Date** (Fecha de finalización): especifique la fecha de finalización del presupuesto en formato AAAA-MM-DD. 
+    * **First Threshold** (Primer umbral): escriba un valor de umbral para la primera notificación. Se envía una notificación cuando el costo supera el umbral. Es siempre un porcentaje y debe estar entre 0 y 1000.
+    * **Second Threshold** (Segundo umbral): escriba un valor de umbral para la segunda notificación. Se envía una notificación cuando el costo supera el umbral. Es siempre un porcentaje y debe estar entre 0 y 1000.
     * **Contact Roles** (Roles de contacto): escriba la lista de roles de contacto a los que se enviará la notificación de presupuesto cuando se supere el umbral. Los valores predeterminados son Owner (Propietario), Contributor (Colaborador) y Reader (Lector). El formato esperado es `["Owner","Contributor","Reader"]`.
+    * **Correos electrónicos de contacto**: escriba una lista de direcciones de correo electrónico a las que enviar la notificación de presupuesto cuando se supere el umbral. El formato esperado es `["user1@domain.com","user2@domain.com"]`.
     * **Contact Groups** (Grupos de contactos): escriba una lista de identificadores de recursos de los grupos de acciones, en forma de identificador URI completo de los recursos, a los que enviar la notificación del presupuesto cuando se supere el umbral. Acepta una matriz de cadenas. El formato esperado es `["action group resource ID1","action group resource ID2"]`. Si no desea usar grupos de acciones, escriba `[]`.
-    * **Resources Filter** (Filtro de recursos): escriba una lista de filtros para los recursos. El formato esperado es `["Resource Filter Name1","Resource Filter Name2"]`. Si no desea aplicar un filtro, escriba `[]`. Si escribe un filtro de recursos, también debe escribir los valores de los **filtros de medidores**.
-    * **Meters Filter** (Filtro de medidores): escriba una lista de filtros en los medidores, obligatorios para los presupuestos con la categoría de presupuesto **Usage** (Uso). El formato esperado es `["Meter Filter Name1","Meter Filter Name2"]`. Si no ha especificado un **filtro de recursos**, escriba `[]`.
-    * **Acepto los términos y condiciones anteriores**: Seleccionar.
+    * **Resource Group Filter Values** (Valores de filtro de grupo de recursos): introduzca una lista de nombres de grupo de recursos para filtrar. El formato esperado es `["Resource Group Name1","Resource Group Name2"]`. Si no desea aplicar un filtro, escriba `[]`. 
+    * **Meter Category Filter Values** (Valores de filtro de categoría de medidor): introduzca una lista de categorías de medidor de servicios de Azure. El formato esperado es `["Meter Category1","Meter Category2"]`. Si no quiere aplicar un filtro, escriba `[]`.
+   
+3. En función del tipo de suscripción de Azure, realice una de las siguientes acciones:
+   - Seleccione **Revisar + crear**.
+   - Lea los términos y condiciones, seleccione **Acepto los términos y condiciones indicados anteriormente** y, a continuación, seleccione **Comprar**.
 
-3. Seleccione **Comprar**. Cuando haya implementado correctamente el presupuesto, recibirá una notificación:
+4. Si seleccionó **Revisar y crear**, se validará la plantilla. Seleccione **Crear**.  
 
    ![Plantilla de Resource Manager, presupuesto, notificación de implementación del portal](./media/quick-create-budget-template/resource-manager-template-portal-deployment-notification.png)
 

@@ -3,20 +3,20 @@ title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
 description: Supervise las llamadas de dependencia de su aplicación web o local de Microsoft Azure con Application Insights.
 ms.topic: conceptual
 ms.date: 06/26/2020
-ms.openlocfilehash: 472d7d26c8a478f521159a44959d7e0a5d749e0d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081356"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321384"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Seguimiento de dependencias en Azure Application Insights 
 
-Una *dependencia* es un componente al que la aplicación llama. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mide la duración de las llamadas de dependencia, independientemente de si devuelven un error o no, junto con información adicional como el nombre de la dependencia y más. Puede investigar llamadas de dependencia específicas y relacionarlas a solicitudes y excepciones.
+Una *dependencia* es un componente al que la aplicación llama. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](./app-insights-overview.md) mide la duración de las llamadas de dependencia, independientemente de si devuelven un error o no, junto con información adicional como el nombre de la dependencia y más. Puede investigar llamadas de dependencia específicas y relacionarlas a solicitudes y excepciones.
 
 ## <a name="automatically-tracked-dependencies"></a>Dependencias con seguimiento automático
 
-Los SDK de Application Insights para .NET y .NET Core se incluyen con `DependencyTrackingTelemetryModule`, un módulo de telemetría que recopila las dependencias automáticamente. Esta recolección de dependencias se habilita automáticamente para las aplicaciones de [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) y [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) cuando se configuran según la documentación oficial vinculada. `DependencyTrackingTelemetryModule` se distribuye como [este](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) paquete NuGet y se incluye automáticamente cuando usa cualquiera de los paquetes NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore`.
+Los SDK de Application Insights para .NET y .NET Core se incluyen con `DependencyTrackingTelemetryModule`, un módulo de telemetría que recopila las dependencias automáticamente. Esta recolección de dependencias se habilita automáticamente para las aplicaciones de [ASP.NET](./asp-net.md) y [ASP.NET Core](./asp-net-core.md) cuando se configuran según la documentación oficial vinculada. `DependencyTrackingTelemetryModule` se distribuye como [este](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) paquete NuGet y se incluye automáticamente cuando usa cualquiera de los paquetes NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore`.
 
  `DependencyTrackingTelemetryModule` actualmente realiza un seguimiento automático de las siguientes dependencias:
 
@@ -30,7 +30,7 @@ Los SDK de Application Insights para .NET y .NET Core se incluyen con `Dependenc
 |[SDK de cliente de Service Bus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)| Versión 3.0.0 y posteriores. |
 |Azure Cosmos DB | Se realiza un seguimiento automático solo si se usa HTTP/HTTPS. Application Insights no capturará el modo TCP. |
 
-Si falta una dependencia o está usando un SDK diferente, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Si la dependencia no se recopila automáticamente, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+Si falta una dependencia o está usando un SDK diferente, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](./auto-collect-dependencies.md). Si la dependencia no se recopila automáticamente, todavía puede realizar un seguimiento manual con una [llamada a TrackDependency ](./api-custom-events-metrics.md#trackdependency).
 
 ## <a name="setup-automatic-dependency-tracking-in-console-apps"></a>Configuración de seguimiento automático de dependencias en aplicaciones de consola
 
@@ -41,7 +41,7 @@ Para realizar un seguimiento automático de las dependencias de aplicaciones de 
     depModule.Initialize(TelemetryConfiguration.Active);
 ```
 
-En el caso de las aplicaciones de consola de .NET Core TelemetryConfiguration.Active está obsoleto. Consulte las instrucciones de la [documentación del servicio de trabajo](https://docs.microsoft.com/azure/azure-monitor/app/worker-service) y la [documentación de supervisión de ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core)
+En el caso de las aplicaciones de consola de .NET Core TelemetryConfiguration.Active está obsoleto. Consulte las instrucciones de la [documentación del servicio de trabajo](./worker-service.md) y la [documentación de supervisión de ASP.NET Core](./asp-net-core.md)
 
 ### <a name="how-automatic-dependency-monitoring-works"></a>Funcionamiento de la supervisión automática de dependencias
 
@@ -101,7 +101,7 @@ En el caso de las aplicaciones de ASP.NET, se recopila texto de la consulta SQL 
 | --- | --- |
 | Aplicación web de Azure |En el panel de control de la aplicación web [abra la hoja de Application Insights](../../azure-monitor/app/azure-web-apps.md) y habilite los comandos SQL de .NET |
 | Servidor IIS (máquina virtual de Azure, del entorno local, entre otras). | Use el paquete de NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient) o use el módulo Monitor de estado de PowerShell para [instalar el motor de instrumentación](../../azure-monitor/app/status-monitor-v2-api-reference.md) y reiniciar IIS. |
-| Servicio en la nube de Azure | Agregue una [tarea de inicio para instalar StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional). <br> La aplicación se debe incorporar al SDK de ApplicationInsights en tiempo de compilación mediante la instalación de paquetes de NuGet para las aplicaciones de [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) o [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core). |
+| Servicio en la nube de Azure | Agregue una [tarea de inicio para instalar StatusMonitor](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional). <br> La aplicación se debe incorporar al SDK de ApplicationInsights en tiempo de compilación mediante la instalación de paquetes de NuGet para las aplicaciones de [ASP.NET](./asp-net.md) o [ASP.NET Core](./asp-net-core.md). |
 | IIS Express | Use el paquete NuGet [Microsoft.Data.SqlClient](https://www.nuget.org/packages/Microsoft.Data.SqlClient).
 
 Además de los pasos específicos de la plataforma anteriores, también **debe optar explícitamente por habilitar la colección de comandos SQL** al modificar el archivo applicationInsights.config con lo siguiente:
@@ -202,6 +202,7 @@ Como todos los SDK de Application Insights, el módulo de recolección de depend
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Excepciones](../../azure-monitor/app/asp-net-exceptions.md)
-* [Datos de página y usuario](../../azure-monitor/app/javascript.md)
-* [Disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md)
+* [Excepciones](./asp-net-exceptions.md)
+* [Datos de página y usuario](./javascript.md)
+* [Disponibilidad](./monitor-web-app-availability.md)
+

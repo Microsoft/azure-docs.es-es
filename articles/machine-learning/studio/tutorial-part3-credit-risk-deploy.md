@@ -1,25 +1,25 @@
 ---
-title: 'Tutorial 3: Implementación del modelo de riesgo crediticio'
-titleSuffix: Azure Machine Learning Studio (classic)
+title: 'Tutorial 3 de ML Studio (clásico): Implementación de los modelos de riesgo crediticio: Azure'
 description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico). Se trata de la tercera parte de un tutorial de tres. Muestra cómo se implementa un modelo como servicio web.
 keywords: credit risk, predictive analytics solution,risk assessment, deploy, web service
-author: sdgilley
-ms.author: sgilley
+author: likebupt
+ms.author: keli19
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
-ms.date: 02/11/2019
-ms.openlocfilehash: 9fb0b59374edf322e5e2221b90e912ee2c665bac
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: 116d939368626cadab7be8b5295b1c74f446ac27
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79204160"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431729"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio-classic"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Azure Machine Learning Studio (clásico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **tercera parte de un tutorial de tres**.
 
@@ -42,7 +42,7 @@ En esta parte del tutorial, se va a ver lo siguiente:
 > * Administración del servicio web
 > * Acceso al servicio web
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Completar la [parte dos del tutorial](tutorial-part2-credit-risk-train.md).
 
@@ -227,7 +227,10 @@ En el paso anterior de este tutorial hemos implementado un servicio web que usa 
 El servicio web es un servicio web de Azure que puede recibir y devolver datos con las API de REST de una de estas dos maneras:  
 
 * **Solicitud/respuesta** : el usuario envía una o varias filas de datos de crédito al servicio mediante un protocolo HTTP, y el servicio responde con uno o más conjuntos de resultados.
-* **Ejecución de lotes** : el usuario almacena una o varias filas de datos de crédito en un blob de Azure y luego envía la ubicación del blob al servicio. El servicio puntúa todas las filas de datos en el blob de entrada, almacena los resultados en otro blog y devuelve la dirección URL del contenedor.  
+* **Ejecución de lotes** : el usuario almacena una o varias filas de datos de crédito en un blob de Azure y luego envía la ubicación del blob al servicio. El servicio puntúa todas las filas de datos en el blob de entrada, almacena los resultados en otro blog y devuelve la dirección URL del contenedor. 
+
+> [!NOTE]
+> Los nombres de las columnas de características en Studio (clásico) **distinguen mayúsculas de minúsculas**. Asegúrese de que los datos de entrada para invocar el servicio web tengan los mismos nombres de columna que en el conjunto de datos de entrenamiento.
 
 Para más información acerca el acceso y consumo del servicio web, consulte [Consumo de un servicio web de Azure Machine Learning con una plantilla de aplicación web](/azure/machine-learning/studio/consume-web-services).
 

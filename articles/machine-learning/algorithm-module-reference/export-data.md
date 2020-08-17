@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 02/22/2020
-ms.openlocfilehash: 807771fd4018c9666f059c965370ebc36d0105df
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/28/2020
+ms.openlocfilehash: d0fd11ce5b25b8796b07176a4ba83091a8f7cc0b
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79456308"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461024"
 ---
 # <a name="export-data-module"></a>Módulo Exportación de datos
 
@@ -26,8 +26,9 @@ Este módulo admite la exportación de los datos a los siguientes servicios de d
 
 - Azure Blob Container
 - Recurso compartido de archivos de Azure
-- Azure Data Lake
-- Azure Data Lake Gen2
+- Azure Data Lake Storage Gen1
+- Azure Data Lake Storage Gen2
+- Azure SQL Database
 
 Antes de exportar los datos, debe registrar un almacén de datos en el área de trabajo de Azure Machine Learning. Para más información, consulte [Acceso a los datos en los servicios de almacenamiento de Azure](../how-to-access-data.md).
 
@@ -40,6 +41,9 @@ Antes de exportar los datos, debe registrar un almacén de datos en el área de 
 1. Seleccione **Exportación de datos** para abrir el panel **Propiedades**.
 
 1. En **Almacén de datos**, seleccione un almacén de datos existente en la lista desplegable. También puede crear un nuevo almacén de datos. Para ver cómo, consulte [Acceso a los datos en los servicios de almacenamiento de Azure](../how-to-access-data.md).
+
+    > [!NOTE]
+    > No se admite la exportación de datos de un tipo determinado a una columna de SQL Database especificada como otro tipo de datos. No es necesario que la tabla de destino exista primero.
 
 1. La casilla **Regenerate output** (Regenerar salida), decide si se debe ejecutar el módulo para regenerar la salida en tiempo de ejecución. 
 

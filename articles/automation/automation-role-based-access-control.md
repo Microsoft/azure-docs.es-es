@@ -4,14 +4,14 @@ description: En este artículo se describe el uso del control de acceso basado e
 keywords: automatización de rbac, control de acceso basado en roles, rbac de azure
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/17/2018
+ms.date: 07/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e997f80ceee54a1454128c1308032fefa603f5d
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 21742d2db6a7fde69568e5fd1e5eda98542faa47
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186153"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528675"
 ---
 # <a name="manage-role-permissions-and-security"></a>Administración de seguridad y permisos de roles
 
@@ -19,7 +19,7 @@ El control de acceso basado en rol (RBAC) permite la administración del acceso 
 
 ## <a name="roles-in-automation-accounts"></a>Roles en cuentas de Automation
 
-En Azure Automation, el acceso se concede mediante la asignación de rol de RBAC adecuado a los usuarios, grupos y aplicaciones en el ámbito de las cuentas de Automation. Estos son los roles integrados compatibles que admiten las cuentas de Automation:
+En Azure Automation, el acceso se concede mediante la asignación del rol de Azure adecuado a los usuarios, grupos y aplicaciones en el ámbito de las cuentas de Automation. Estos son los roles integrados compatibles que admiten las cuentas de Automation:
 
 | **Rol** | **Descripción** |
 |:--- |:--- |
@@ -69,7 +69,12 @@ Un lector puede ver todos los recursos de una cuenta de Automation, pero no real
 
 ### <a name="automation-operator"></a>Operador de Automation
 
-El rol de Operador de Automation permite crear y administrar trabajos, y leer las propiedades y el nombre del runbook de todos los runbooks de una cuenta de Automation.  Nota: Si quiere controlar el acceso de los operadores a runbooks específicos, no establezca este rol. En su lugar, combine los roles "Operador de trabajo de Automation" y "Operador de runbooks de Automation". La siguiente tabla muestra los permisos concedidos para el rol:
+El rol de Operador de Automation permite crear y administrar trabajos, y leer las propiedades y el nombre del runbook de todos los runbooks de una cuenta de Automation.
+
+>[!NOTE]
+>Si desea controlar el acceso de operador a runbooks individuales, no establezca este rol. En su lugar, use los roles **operador de trabajo de Automation** y el **operador de runbook de Automation** en combinación.
+
+La siguiente tabla muestra los permisos concedidos para el rol:
 
 |**Acciones**  |**Descripción**  |
 |---------|---------|
@@ -96,7 +101,9 @@ El rol de Operador de Automation permite crear y administrar trabajos, y leer la
 
 ### <a name="automation-job-operator"></a>Operador de trabajos de Automation
 
-El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuenta de Automation. Esto permite a los roles con permiso de Operador crear y administrar trabajos para todos los runbooks de la cuenta. La siguiente tabla muestra los permisos concedidos para el rol:
+El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuenta de Automation. Esto permite a los roles con permiso de Operador crear y administrar trabajos para todos los runbooks de la cuenta. Si a la función de operador de trabajo se le conceden permisos de lectura en el grupo de recursos que contiene la cuenta de Automation, los miembros del rol tendrán la capacidad de iniciar runbooks. Sin embargo, no tienen la capacidad de crearlos, modificarlos ni eliminarlos.
+
+La siguiente tabla muestra los permisos concedidos para el rol:
 
 |**Acciones**  |**Descripción**  |
 |---------|---------|
@@ -114,7 +121,7 @@ El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuent
 
 ### <a name="automation-runbook-operator"></a>Operador de runbooks de Automation
 
-El rol de operador de runbooks de Automation se concede en el ámbito del runbook. Un Operador de runbooks de Automation puede ver las propiedades y el nombre del runbook.  Este rol, combinado con el de Operador de trabajos de Automation, permite también al operador crear y administrar trabajos para el runbook. La siguiente tabla muestra los permisos concedidos para el rol:
+El rol de operador de runbooks de Automation se concede en el ámbito del runbook. Un Operador de runbooks de Automation puede ver las propiedades y el nombre del runbook. Este rol, combinado con el de **operador de trabajos de Automation**, permite también al operador crear y administrar trabajos para el runbook. La siguiente tabla muestra los permisos concedidos para el rol:
 
 |**Acciones**  |**Descripción**  |
 |---------|---------|
@@ -213,7 +220,7 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |**Acción**  |**Permiso**  |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Escribir nueva implementación      | Microsoft.Resources/deployments/*          |Subscription          |
-|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
+|Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Suscripción          |
 |Crear nueva área de trabajo predeterminada      | Microsoft.OperationalInsights/workspaces/write         | Resource group         |
 |Crear nueva cuenta      |  Microsoft.Automation/automationAccounts/write        |Resource group         |
 |Vincular área de trabajo y cuenta      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Área de trabajo</br>Cuenta de Automation
@@ -235,7 +242,7 @@ En las secciones siguientes se describen los permisos mínimos necesarios para h
 |**Acción**  |**Permiso** |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Crear una nueva implementación     | Microsoft.Resources/deployments/*        | Subscription         |
-|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
+|Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Suscripción        |
 |Hoja AutomationOnboarding: crear nueva área de trabajo     |Microsoft.OperationalInsights/workspaces/write           | Resource group        |
 |Hoja AutomationOnboarding: leer área de trabajo vinculada     | Microsoft.Automation/automationAccounts/read        | Cuenta de Automation       |
 |Hoja AutomationOnboarding: leer solución     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Solución        |
@@ -290,6 +297,7 @@ En la sección siguiente se muestra cómo configurar RBAC en la cuenta de Automa
    ![Enumerar usuarios](media/automation-role-based-access-control/automation-05-list-users.png)
 
    También se puede asignar un rol al usuario desde la página Roles.
+
 4. Haga clic en **Roles** en la página Control de acceso (IAM) para abrir la página Roles. Puede ver el nombre del rol y el número de usuarios y grupos asignados a dicho rol.
 
     ![Asignar rol en la página de usuarios](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
@@ -311,7 +319,7 @@ Puede quitar el permiso de usuario de cualquier usuario que no administre la cue
 
 El acceso basado en rol también se puede configurar en una cuenta de Automation mediante los siguientes [cmdlets de Azure PowerShell](../role-based-access-control/role-assignments-powershell.md):
 
-[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) enumera todos los roles de RBAC disponibles en Azure Active Directory. Puede usar este cmdlet con el parámetro `Name` para enumerar todas las acciones que puede realizar un rol específico.
+[Get-AzRoleDefinition](/powershell/module/Az.Resources/Get-AzRoleDefinition?view=azps-3.7.0) enumera todos los roles de Azure disponibles en Azure Active Directory. Puede usar este cmdlet con el parámetro `Name` para enumerar todas las acciones que puede realizar un rol específico.
 
 ```azurepowershell-interactive
 Get-AzRoleDefinition -Name 'Automation Operator'
@@ -330,7 +338,7 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) enumera las asignaciones de roles de RBAC de Azure AD en el ámbito especificado. Sin parámetros, este cmdlet devuelve todas las asignaciones de roles realizadas en la suscripción. Use el parámetro `ExpandPrincipalGroups` para enumerar las asignaciones de acceso del usuario especificado, así como los grupos a los que pertenezca.
+[Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment?view=azps-3.7.0) enumera las asignaciones de roles de Azure en el ámbito especificado. Sin parámetros, este cmdlet devuelve todas las asignaciones de roles realizadas en la suscripción. Use el parámetro `ExpandPrincipalGroups` para enumerar las asignaciones de acceso del usuario especificado, así como los grupos a los que pertenezca.
 
 **Ejemplo**: use el siguiente cmdlet para enumerar todos los usuarios de una cuenta de Automation y sus roles.
 
@@ -353,7 +361,7 @@ ObjectType         : User
 ```
 
 Use [New-AzRoleAssignment](/powershell/module/Az.Resources/New-AzRoleAssignment?view=azps-3.7.0) para asignar acceso a usuarios, grupos y aplicaciones en un ámbito determinado.
-    
+
 **Ejemplo**: use el siguiente comando para asignar el rol "Operador de Automation" para un usuario en el ámbito de la cuenta de Automation.
 
 ```azurepowershell-interactive

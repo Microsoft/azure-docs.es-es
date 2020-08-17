@@ -1,19 +1,20 @@
 ---
 title: Adición de una capa de datos simple | Microsoft Azure Maps
 description: Obtenga información sobre cómo agregar una capa de datos simple mediante el módulo de E/S espacial, proporcionado por el SDK web de Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 61272bee350fc7c7dd7d0e17adc55c436f4706ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 704cb43a31ff1dfcaf287f9af467f7d6e7d6c50d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885961"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282813"
 ---
 # <a name="add-a-simple-data-layer"></a>Adición de una capa de datos simple
 

@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ac62b1706749c4708d804dd2102ad3f2a7132a16
-ms.sourcegitcommit: 3988965cc52a30fc5fed0794a89db15212ab23d7
+ms.openlocfilehash: ecca67cab486c8f3524c8c8d4c221d52689cf62a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/22/2020
-ms.locfileid: "85193658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070105"
 ---
 # <a name="synapse-managed-private-endpoints-preview"></a>Puntos de conexión privados administrados de Synapse (versión preliminar)
 
@@ -21,13 +21,13 @@ En este artículo se explican los puntos de conexión privados administrados en 
 
 ## <a name="managed-private-endpoints"></a>Puntos de conexión privados administrados
 
-Los puntos de conexión privados administrados son puntos de conexión privados creados en la red virtual de área de trabajo administrada que establecen un vínculo privado a los recursos de Azure. Azure Synapse administra estos puntos de conexión privados en su nombre.
+Los puntos de conexión privados se crean en Microsoft Azure Virtual Network del área de trabajo administrada y establecen un vínculo privado a los recursos de Azure. Azure Synapse administra estos puntos de conexión privados en su nombre.
 
-Azure Synapse admite vínculos privados. Private Link permite acceder de forma segura a servicios de Azure (por ejemplo, Azure Storage, Azure Cosmos DB y Azure SQL Data Warehouse) y a servicios de asociados o clientes hospedados por Azure desde la red virtual de Azure.
+Azure Synapse admite vínculos privados. Los vínculos privados permiten acceder de forma segura a los servicios de Azure (por ejemplo, Azure Storage, Azure Cosmos DB y Azure SQL Data Warehouse) y a los servicios de asociados o clientes hospedados por Azure desde la red virtual de Azure.
 
-Cuando se usa un vínculo privado, el tráfico entre su red virtual y el área de trabajo atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
+Cuando se usa un vínculo privado, el tráfico entre la red virtual y el área de trabajo atraviesa completamente la red troncal de Microsoft. Private Link protege frente a los riesgos de la filtración de datos. El vínculo privado a un recurso se establece mediante la creación de un punto de conexión privado.
 
-El punto de conexión privado usa una dirección IP privada de la red virtual para llevar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. Más información sobre [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
+El punto de conexión privado usa una dirección IP privada desde la red virtual para incorporar el servicio de manera eficaz a la red virtual. Los puntos de conexión privados se asignan a un recurso específico de Azure, no a todo el servicio. Los clientes pueden limitar la conectividad a un recurso específico aprobado por su organización. Más información sobre [vínculos privados y puntos de conexión privados](https://docs.microsoft.com/azure/private-link/).
 
 >[!IMPORTANT]
 >Los puntos de conexión privados administrados solo se admiten en áreas de trabajo de Azure Synapse con una red virtual de área de trabajo administrada.
@@ -43,7 +43,7 @@ Solo un punto de conexión privado administrado en un estado aprobado puede envi
 
 ## <a name="managed-private-endpoints-for-sql-pool-and-sql-on-demand"></a>Puntos de conexión privados administrados para el grupo de SQL y SQL a petición
 
-El grupo de SQL y SQL a petición son funcionalidades de análisis del área de trabajo de Azure Synapse. Estas funcionalidades usan la infraestructura de varios inquilinos que no está implementada en la [red virtual de área de trabajo administrada](./synapse-workspace-managed-vnet.md).
+El grupo de SQL y SQL a petición son funcionalidades de análisis del área de trabajo de Azure Synapse. Estas funcionalidades usan una infraestructura de varios inquilinos que no está implementada en la [red virtual de área de trabajo administrada](./synapse-workspace-managed-vnet.md).
 
 Cuando se crea un área de trabajo, Azure Synapse crea en ella dos puntos de conexión privados administrados para el grupo de SQL y SQL a petición. 
 

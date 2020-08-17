@@ -117,7 +117,7 @@
           items:
             - name: C#
               href: Quickstarts/create-new-kb-csharp.md
-            - name: Go
+            - name: Ir
               href: Quickstarts/create-new-kb-go.md
             - name: Java
               href: Quickstarts/create-new-kb-java.md
@@ -127,7 +127,7 @@
           items:
             - name: C#
               href: Quickstarts/publish-kb-csharp.md
-            - name: Go
+            - name: Ir
               href: Quickstarts/publish-kb-go.md
             - name: Java
               href: Quickstarts/publish-kb-java.md
@@ -139,7 +139,7 @@
           items:
             - name: C#
               href: Quickstarts/get-answer-from-knowledge-base-csharp.md
-            - name: Go
+            - name: Ir
               href: Quickstarts/get-answer-from-knowledge-base-go.md
             - name: Java
               href: Quickstarts/get-answer-from-knowledge-base-java.md

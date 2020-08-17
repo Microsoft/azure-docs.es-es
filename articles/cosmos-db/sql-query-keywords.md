@@ -4,14 +4,14 @@ description: Obtenga información sobre las palabras clave de SQL para Azure Cos
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/10/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 069548b9b69ef6f7f6bde85ede830d97f3d312db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f00e757f9b51da850c49924f6ae49bf00c9c53d1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261574"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87496688"
 ---
 # <a name="keywords-in-azure-cosmos-db"></a>Palabras clave en Azure Cosmos DB
 
@@ -35,9 +35,6 @@ También puede usar la palabra clave `BETWEEN` en la cláusula `SELECT`, como en
 ```
 
 En la API de SQL, a diferencia de SQL ANSI, puede expresar consultas en intervalos en propiedades de tipos combinados. Por ejemplo, `grade` podría ser un número, como `5`, en algunos elementos y una cadena, como `grade4`, en otros. En estos casos, al igual que en JavaScript, una comparación entre los dos tipos distintos da como resultado `Undefined`, por lo que el elemento se omite.
-
-> [!TIP]
-> Para que la consulta se ejecute de forma más rápida, cree una directiva de indexación que use un tipo de índice de intervalo en cualquier ruta o propiedad numérica que filtre la cláusula `BETWEEN`.
 
 ## <a name="distinct"></a>DISTINCT
 
@@ -76,7 +73,7 @@ Los resultados son:
 ]
 ```
 
-También se puede usar DISTINCT en la proyección dentro de una subconsulta:
+`DISTINCT` también se puede usar en la proyección dentro de una subconsulta:
 
 ```sql
 SELECT f.id, ARRAY(SELECT DISTINCT VALUE c.givenName FROM c IN f.children) as ChildNames

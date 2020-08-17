@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: e683d17422321b780a1c01b3011292f2e2c631cb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 30bbd06e36ed1e03caa391165a8abc275f1899a7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "67186362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87102986"
 ---
 Para eliminar un contenedor de volúmenes, debe
  - eliminar volúmenes del contenedor de volúmenes. Si el contenedor de volúmenes tiene volúmenes asociados, desconecte primero estos volúmenes. Siga los pasos de [Desconexión de un volumen](../articles/storsimple/storsimple-8000-manage-volumes-u2.md#take-a-volume-offline). Una vez que los volúmenes estén desconectados, puede eliminarlos. 
@@ -36,6 +36,6 @@ Si el contenedor de volúmenes no tiene volúmenes asociados, directivas de copi
 
 La lista de contenedores de volúmenes se actualiza para reflejar el contenedor eliminado.
 
-![](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
+![Captura de pantalla de la página Contenedor de volúmenes. La lista tabular de contenedores de volúmenes ya no contiene el contenedor eliminado.](./media/storsimple-8000-delete-volume-container/deletevolumecontainer5.png)
 
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77562146"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081872"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Restricciones de código de las funciones de orquestador
 
@@ -18,7 +18,7 @@ Durable Functions es una extensión de [Azure Functions](../functions-overview.
 
 ## <a name="orchestrator-code-constraints"></a>Restricciones de código del orquestador
 
-Las funciones de orquestador usan [el suministro de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing) para garantizar la ejecución confiable y mantener el estado de la variable local. El [comportamiento de reproducción](durable-functions-orchestrations.md#reliability) del código de orquestador crea restricciones sobre el tipo de código que puede escribir en una función de orquestador. Por ejemplo, las funciones de orquestador deben ser *deterministas*: una función de orquestador se reproducirá varias veces y debe producir el mismo resultado cada vez.
+Las funciones de orquestador usan [el suministro de eventos](/azure/architecture/patterns/event-sourcing) para garantizar la ejecución confiable y mantener el estado de la variable local. El [comportamiento de reproducción](durable-functions-orchestrations.md#reliability) del código de orquestador crea restricciones sobre el tipo de código que puede escribir en una función de orquestador. Por ejemplo, las funciones de orquestador deben ser *deterministas*: una función de orquestador se reproducirá varias veces y debe producir el mismo resultado cada vez.
 
 ### <a name="using-deterministic-apis"></a>Uso de API deterministas
 

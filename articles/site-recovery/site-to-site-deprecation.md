@@ -2,18 +2,18 @@
 title: Desuso de la recuperación ante desastres entre sitios administrados por el cliente (con VMM) mediante Azure Site Recovery | Microsoft Docs
 description: Detalles sobre el próximo desuso de la recuperación ante desastres entre los sitios propiedad del cliente con Hyper-V y entre sitios administrados por SCVMM en Azure y opciones alternativas
 services: site-recovery
-author: rajani-janaki-ram
-manager: rochakm
+author: Sharmistha-Rai
+manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
-ms.author: rajanaki
-ms.openlocfilehash: 501cf161a22aaa1ec37abda2b750106b6eaf3dc4
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.author: sharrai
+ms.openlocfilehash: 9ffe7a3158b1de6828350947dcf81ef41d08708d
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135209"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421848"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Desuso de la recuperación ante desastres entre sitios administrados por el cliente (con VMM) mediante Azure Site Recovery
 

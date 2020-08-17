@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 94251dfa2d9fa732912ed20d825e64f542d79188
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80055410"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326059"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Optimización del entorno con la solución System Center Operations Manager Health Check (versión preliminar)
 
@@ -64,7 +64,7 @@ Los datos se recopilan en el servidor de administración y se reenvían a Log An
 
 ## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Cuentas de ejecución de Operations Manager para Log Analytics
 
-Log Analytics se basa en paquetes de administración de cargas de trabajo para proporcionar servicios de valor añadido. Cada carga de trabajo requiere privilegios específicos de la carga de trabajo para ejecutar paquetes de administración en un contexto de seguridad diferente, como una cuenta de usuario de dominio. Configure una cuenta de ejecución de Operations Manager con credenciales con privilegios. Para obtener más información, consulte [Cómo crear una Cuenta de ejecución](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) en la documentación de Operations Manager.
+Log Analytics se basa en paquetes de administración de cargas de trabajo para proporcionar servicios de valor añadido. Cada carga de trabajo requiere privilegios específicos de la carga de trabajo para ejecutar paquetes de administración en un contexto de seguridad diferente, como una cuenta de usuario de dominio. Configure una cuenta de ejecución de Operations Manager con credenciales con privilegios. Para obtener más información, consulte [Cómo crear una Cuenta de ejecución](/previous-versions/system-center/system-center-2012-R2/hh321655(v=sc.12)) en la documentación de Operations Manager.
 
 Use la siguiente información para establecer la cuenta de ejecución de Operations Manager para System Center Operations Manager Health Check.
 
@@ -203,7 +203,7 @@ Cada recomendación incluye pautas que indican por qué es importante. Use estas
 
 ## <a name="use-health-check-focus-area-recommendations"></a>Uso de las recomendaciones del área centradas en la comprobación de estado
 
-Para poder usar una solución de comprobación de estado en Log Analytics, debe tenerla instalada. Para obtener más información sobre cómo instalar soluciones, consulte [Install a management solution](../../azure-monitor/insights/solutions.md) (Instalar una solución de administración). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de System Center Operations Manager Health Check en la página **Información general** del área de trabajo en Azure Portal.
+Para poder usar una solución de comprobación de estado en Log Analytics, debe tenerla instalada. Para obtener más información sobre cómo instalar soluciones, consulte [Install a management solution](./solutions.md) (Instalar una solución de administración). Una vez instalada, puede ver el resumen de las recomendaciones mediante el icono de System Center Operations Manager Health Check en la página **Información general** del área de trabajo en Azure Portal.
 
 Consulte un resumen de las evaluaciones de cumplimiento para su infraestructura y, a continuación, profundice las recomendaciones.
 
@@ -229,7 +229,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
     ```
 
     >[!NOTE]
-    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../../azure-monitor/log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
+    > Si el área de trabajo se ha actualizado al [nuevo lenguaje de consulta de Log Analytics](../log-query/log-query-overview.md), la consulta anterior cambiaría como sigue.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,4 +295,5 @@ Si desea omitir ciertas recomendaciones, puede crear un archivo de texto que Log
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.
+- [Búsquedas de registros](../log-query/log-query-overview.md) para obtener más información sobre cómo analizar recomendaciones y datos de System Center Operations Manager Health Check.
+

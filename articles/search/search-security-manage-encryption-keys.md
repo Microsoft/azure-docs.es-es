@@ -7,55 +7,85 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/08/2020
-ms.openlocfilehash: f6bda61960efd9a5e176f8792601e315ba96bcca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/01/2020
+ms.custom: references_regions
+ms.openlocfilehash: ed5d1f5b35bc9b6dee234678fa82af95e1d53bc7
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553294"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554010"
 ---
-# <a name="encryption-at-rest-of-content-in-azure-cognitive-search-using-customer-managed-keys-in-azure-key-vault"></a>Cifrado en reposo de contenido de Azure Cognitive Search mediante claves administradas por el cliente en Azure Key Vault
+# <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configuración de claves administradas por el cliente para el cifrado de datos en Azure Cognitive Search
 
-De forma predeterminada, Azure Cognitive Search cifra el contenido indexado en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía a través de los pasos.
+Azure Cognitive Search cifra automáticamente el contenido indexado en reposo con [claves administradas por el servicio](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest#data-encryption-models). Si se necesita más protección, puede complementar el cifrado predeterminado con un nivel de cifrado adicional con las claves que se crean y administran en Azure Key Vault. Este artículo le guía por los pasos necesarios para configurar el cifrado de CMK.
 
-Se admite el cifrado de lado servidor mediante la integración con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves. 
+El cifrado de CMK depende de [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview). Puede crear sus propias claves de cifrado y almacenarlas en un almacén de claves, o puede usar las API de Azure Key Vault para generar las claves de cifrado. Con Azure Key Vault, también puede auditar el uso de claves si [habilita el registro](../key-vault/general/logging.md).  
 
-El cifrado con claves administradas por el cliente se configura a nivel de índice o de mapa de sinónimos cuando se crean esos objetos, y no a nivel de servicio de búsqueda. No se puede cifrar el contenido que ya existe. 
+El cifrado con claves administradas por el cliente se aplica a los índices individuales o mapas de sinónimos cuando se crean esos objetos y no se especifica en el nivel del servicio de búsqueda. Solo se pueden cifrar los objetos nuevos. No se puede cifrar el contenido que ya existe.
 
-No es necesario que las claves estén en el mismo Key Vault. Un solo servicio de búsqueda puede hospedar varios índices o mapas de sinónimos cifrados cada uno con sus propias claves de cifrado administradas por el cliente almacenadas en almacenes de claves diferentes.  También puede tener índices y mapas de sinónimos en el mismo servicio que no estén cifrados mediante claves administradas por el cliente. 
+No es necesario que todas las claves estén en el mismo almacén de claves. Un solo servicio de búsqueda puede hospedar varios índices o asignaciones de sinónimos cifrados, cada uno con sus propias claves de cifrado administradas por el cliente, almacenadas en almacenes de claves diferentes. También puede tener índices y mapas de sinónimos en el mismo servicio que no estén cifrados mediante claves administradas por el cliente. 
 
-> [!IMPORTANT] 
-> Esta característica está disponible en la [API REST](https://docs.microsoft.com/rest/api/searchservice/) y el [SDK de .NET, versión 8.0-preview](search-dotnet-sdk-migration-version-9.md). Actualmente no se admite la configuración de claves de cifrado administradas por el cliente en Azure Portal. El servicio de búsqueda debe crearse después de enero de 2019 y no puede ser un servicio gratuito (compartido).
+## <a name="double-encryption"></a>Doble cifrado
+
+En el caso de los servicios creados después del 1 de agosto de 2020 y en regiones específicas, el ámbito del cifrado de CMK incluye discos temporales y se consigue un [doble cifrado completo](search-security-overview.md#double-encryption), disponible actualmente en estas regiones: 
+
++ Oeste de EE. UU. 2
++ Este de EE. UU.
++ Centro-sur de EE. UU.
++ US Gov - Virginia
++ US Gov: Arizona
+
+Si usa una región diferente o un servicio creado antes del 1 de agosto, el cifrado de CMK se limita solo al disco de datos y se excluyen los discos temporales que usa el servicio.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este ejemplo se usan los servicios siguientes. 
 
-+ [Cree un servicio Azure Cognitive Search](search-create-service-portal.md) o [busque uno existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. 
++ [Cree un servicio de Azure Cognitive Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
 
-+ [Cree un recurso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o busque un almacén existente en su suscripción.
++ [Cree un recurso de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal#create-a-vault) o busque un almacén existente en la misma suscripción que Azure Cognitive Search. Esta característica tiene un requisito de misma suscripción.
 
-+ Se usan [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para las tareas de configuración.
++ Se usan [Azure PowerShell](https://docs.microsoft.com/powershell/azure/) o la [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) para las tareas de configuración.
 
-+ Se utilizan [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) y la [versión preliminar del SDK de .NET](https://aka.ms/search-sdk-preview) para llamar a la API REST. No hay compatibilidad con el portal para el cifrado administrado por el cliente en este momento.
++ [Postman](search-get-started-postman.md), [Azure PowerShell](search-create-index-rest-api.md) y la versión preliminar del [SDK de .NET](https://aka.ms/search-sdk-preview) se pueden usar para llamar a la API REST que crea índices y asignaciones de sinónimos que incluyen un parámetro de claves de cifrado. En este momento, no se admite en el portal la adición de una clave a índices o mapas de sinónimos.
 
 >[!Note]
-> Debido a la naturaleza del cifrado con la característica de claves administradas por el cliente, Azure Cognitive Search no podrá recuperar los datos si se elimina la clave de Azure Key Vault. Para evitar la pérdida de datos causada por las eliminaciones accidentales de claves de Key Vault, **debe** habilitar las opciones de eliminación temporal y de protección de purgas en Key Vault antes de poder usarlo. Para más información, consulte el artículo sobre la [eliminación temporal de Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).   
+> Debido a la naturaleza del cifrado con claves administradas por el cliente, Azure Cognitive Search no podrá recuperar los datos si se elimina la clave de Azure Key Vault. Para evitar la pérdida de datos causada por las eliminaciones accidentales de claves de Key Vault, debe habilitar las opciones de eliminación temporal y de protección de purgas en el almacén de claves. La eliminación temporal está habilitada de forma predeterminada, por lo que solo tendrá problemas si la deshabilitó intencionadamente. La protección de purga no está habilitada de forma predeterminada, pero es necesaria para el cifrado de CMK de Azure Cognitive Search. Para obtener más información, consulte las introducciones a la [eliminación temporal](../key-vault/key-vault-ovw-soft-delete.md) y la [protección de purga](../key-vault/general/soft-delete-overview.md#purge-protection).
 
 ## <a name="1---enable-key-recovery"></a>1\. Habilitación de la recuperación de claves
 
-Después de crear el recurso de Azure Key Vault, habilite **Soft Delete** (Eliminación temporal) y **Purge Protection** (Protección de purgas) en el almacén de claves seleccionado mediante la ejecución de los siguientes comandos de PowerShell o de la CLI de Azure:   
+El almacén de claves debe tener la **eliminación temporal** y la **protección contra purgas** habilitada. Puede establecer estas características mediante el portal o los siguientes comandos de PowerShell o la CLI de Azure.
 
-```powershell
-$resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
+### <a name="using-powershell"></a>Usar PowerShell
 
-$resource.Properties | Add-Member -MemberType NoteProperty -Name "enableSoftDelete" -Value 'true'
+1. Ejecute `Connect-AzAccount` para configurar las credenciales de Azure.
 
-$resource.Properties | Add-Member -MemberType NoteProperty -Name "enablePurgeProtection" -Value 'true'
+1. Ejecute el siguiente comando para conectarse al almacén de claves. Para hacerlo, reemplace `<vault_name>` por un nombre válido:
 
-Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
-```
+   ```powershell
+   $resource = Get-AzResource -ResourceId (Get-AzKeyVault -VaultName "<vault_name>").ResourceId
+   ```
+
+1. Azure Key Vault se crea con la eliminación temporal habilitada. Si está deshabilitada en el almacén, ejecute el siguiente comando:
+
+   ```powershell
+   $resource.Properties | Add-Member -MemberType NoteProperty -Name "enableSoftDelete" -Value 'true'
+   ```
+
+1. Habilitación de la protección de purga:
+
+   ```powershell
+   $resource.Properties | Add-Member -MemberType NoteProperty -Name "enablePurgeProtection" -Value 'true'
+   ```
+
+1. Guarde las actualizaciones:
+
+   ```powershell
+   Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
+   ```
+
+### <a name="using-azure-cli"></a>Uso de la CLI de Azure
 
 ```azurecli-interactive
 az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --enable-purge-protection
@@ -65,7 +95,7 @@ az keyvault update -n <vault_name> -g <resource_group> --enable-soft-delete --en
 
 Si usa una clave existente para cifrar el contenido de Azure Cognitive Search, omita este paso.
 
-1. [Inicie sesión en Azure Portal](https://portal.azure.com) y vaya al panel del almacén de claves.
+1. [Inicie sesión en Azure Portal](https://portal.azure.com) y abra la página de información general del almacén de claves.
 
 1. Seleccione la configuración de las **claves** de panel de navegación izquierdo y haga clic en **+ Generate/Import** (+Generar/importar).
 
@@ -89,7 +119,7 @@ Si es posible, utilice una identidad administrada. Es la forma más sencilla de 
 
  En general, una identidad administrada permite que el servicio de búsqueda se autentique en Azure Key Vault sin almacenar las credenciales en código. El ciclo de vida de este tipo de identidad administrada está ligado al ciclo de vida del servicio de búsqueda, que solo puede tener una identidad administrada. [Más información sobre identidades administradas](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
 
-1. Para crear una identidad administrada, [inicie sesión en Azure Portal](https://portal.azure.com) y abra el panel del servicio de búsqueda. 
+1. [Inicie sesión en Azure Portal](https://portal.azure.com) y abra la página de información general del servicio de búsqueda. 
 
 1. Haga clic en **Identidad** en el panel de navegación izquierdo, cambie su estado a **Activado** y haga clic en **Guardar**.
 
@@ -103,7 +133,7 @@ Los permisos de acceso se pueden revocar en cualquier momento. Una vez revocados
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com) y abra la página de información general del almacén de claves. 
 
-1. Seleccione la opción **Directivas de acceso** en panel de navegación izquierdo y haga clic en **+ Agregar nuevo**.
+1. Seleccione la opción **Directivas de acceso** en el panel de navegación izquierdo y haga clic en **+ Agregar nuevo**.
 
    ![Agregar una nueva directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/add-new-key-vault-access-policy.png "Agregar una nueva directiva de acceso del almacén de claves")
 
@@ -121,6 +151,10 @@ Los permisos de acceso se pueden revocar en cualquier momento. Una vez revocados
 
    ![Seleccionar los permisos de claves de la directiva de acceso del almacén de claves](./media/search-manage-encryption-keys/select-key-vault-access-policy-key-permissions.png "Seleccionar los permisos de claves de la directiva de acceso del almacén de claves")
 
+1. En **Permisos de secretos**, seleccione *Obtener*.
+
+1. En **Permisos de certificado**, seleccione *Obtener*.
+
 1. Haga clic en **Aceptar** y **guarde** los cambios de directiva de acceso.
 
 > [!Important]
@@ -128,11 +162,9 @@ Los permisos de acceso se pueden revocar en cualquier momento. Una vez revocados
 
 ## <a name="5---encrypt-content"></a>5\. Cifrado del contenido
 
-La creación de un índice o mapa de sinónimos cifrado con una clave administrada por el cliente todavía no es posible mediante Azure Portal. Use la API REST de Azure Cognitive Search para crear este tipo de índice o mapa de sinónimos.
+Para agregar una clave administrada por el cliente en un índice o asignación de sinónimos, debe usar la [API REST de búsqueda](https://docs.microsoft.com/rest/api/searchservice/) o un SDK. El portal no expone las asignaciones de sinónimos ni las propiedades de cifrado. Cuando se usa una API válida, los índices y los mapas de sinónimos admiten una propiedad **encryptionKey** de nivel superior. 
 
-Tanto el índice como el mapa de sinónimos admiten una nueva propiedad **encryptionKey** de nivel superior utilizada para especificar la clave. 
-
-Con el **URI del almacén de claves**, el **nombre de la clave** y la  **versión de clave** de la clave del almacén de claves, podemos crear una definición de **encryptionKey**:
+Con el **URI del almacén de claves**, el **nombre de la clave** y la  **versión de clave** de la clave del almacén de claves, cree una definición de **encryptionKey** como se indica a continuación:
 
 ```json
 {
@@ -229,7 +261,20 @@ Para crear una aplicación AAD en el portal:
 >[!Important]
 > Cuando se decide usar una aplicación de autenticación de AAD en lugar de una identidad administrada, hay que tener en cuenta el hecho de que Azure Cognitive Search no está autorizado para administrar la aplicación de AAD en nombre del usuario, y que es el usuario quien debe administrar la aplicación de AAD, como la rotación periódica de la clave de autenticación de la aplicación.
 > Al cambiar una aplicación de AAD o su clave de autenticación, el índice o el mapa de sinónimos de Azure Cognitive Search que usen esa aplicación deben actualizarse primero para utilizar la nueva clave o identificador de aplicación **antes** de eliminar la aplicación anterior o su clave de autorización, y antes de revocar el acceso del almacén de claves a esta.
-> Si no lo hace, el índice o el mapa de sinónimos quedarán inutilizables, ya que no podrá descifrar el contenido una vez que se pierda el acceso a la clave.   
+> Si no lo hace, el índice o el mapa de sinónimos quedarán inutilizables, ya que no podrá descifrar el contenido una vez que se pierda el acceso a la clave.
+
+## <a name="work-with-encrypted-content"></a>Trabajo con contenido cifrado
+
+Con el cifrado de CMK, observará una latencia para la indexación y las consultas debido al trabajo de cifrado o descifrado adicional. Azure Cognitive Search no registra la actividad de cifrado, pero puede supervisar el acceso a la clave mediante el registro del almacén de claves. Se recomienda [habilitar el registro](../key-vault/general/logging.md) como parte de la configuración del almacén de claves.
+
+Se espera que se produzca una rotación de claves con el tiempo. Cuando se realice la rotación de claves, es importante seguir esta secuencia:
+
+1. [Determine la clave que usa un índice o asignación de sinónimos](search-security-get-encryption-keys.md).
+1. [Cree una nueva clave en el almacén de claves](../key-vault/keys/quick-create-portal.md), pero deje la clave original disponible.
+1. [Actualice las propiedades de encryptionKey](https://docs.microsoft.com/rest/api/searchservice/update-index) en una asignación de sinónimo o índice para usar los nuevos valores. Solo se pueden actualizar los objetos que se crearon originalmente con esta propiedad para usar un valor diferente.
+1. Deshabilite o elimine la clave anterior en el almacén de claves. Supervise el acceso a la clave para comprobar que se está usando la nueva clave.
+
+Por motivos de rendimiento, el servicio de búsqueda almacena la clave en la memoria caché durante varias horas. Si deshabilita o elimina la clave sin proporcionar una nueva, las consultas seguirán funcionando de manera temporal hasta que expire la memoria caché. Sin embargo, una vez que el servicio de búsqueda no pueda descifrar el contenido, recibirá este mensaje: “Acceso prohibido. Puede que la clave de consulta se haya revocado. Vuelva a intentarlo.” 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

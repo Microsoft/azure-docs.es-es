@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6d86c90828c081a542fa5574493a46e8a2e44640
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 7310c037511fdf1a7d6f3763fd61d292078ea83e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82187484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998906"
 ---
 # <a name="cloudsimple-security-overview"></a>Introducción a la seguridad de CloudSimple
 
@@ -29,7 +29,7 @@ Las consideraciones de seguridad de la infraestructura de Azure incluyen la ubic
 
 ### <a name="datacenter-security"></a>Seguridad del centro de datos
 
-Microsoft cuenta con una división completa dedicada al diseño, creación y funcionamiento de las instalaciones físicas que dan soporte a Azure. Este equipo se dedica a mantener una seguridad física de última generación. Para más información sobre la seguridad física, consulte [Instalaciones de Azure, entornos locales y seguridad física](../security/azure-physical-security.md).
+Microsoft cuenta con una división completa dedicada al diseño, creación y funcionamiento de las instalaciones físicas que dan soporte a Azure. Este equipo se dedica a mantener una seguridad física de última generación. Para más información sobre la seguridad física, consulte [Instalaciones de Azure, entornos locales y seguridad física](../security/fundamentals/physical-security.md).
 
 ### <a name="equipment-location"></a>Ubicación del equipo
 

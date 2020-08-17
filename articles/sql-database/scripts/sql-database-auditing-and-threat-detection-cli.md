@@ -11,12 +11,12 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab, vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 34cbba15f5798286be63171da0173f6214fe7822
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: ac945b14091ae01cfad66c3776c84406583e491f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84022733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037124"
 ---
 # <a name="use-cli-to-configure-sql-database-auditing-and-advanced-threat-protection"></a>Uso de la CLI para configurar la auditoría y Advanced Threat Protection en SQL Database
 
@@ -52,7 +52,7 @@ az group delete --name $resource
 
 Este script usa los siguientes comandos. Cada comando de la tabla crea un vínculo a documentación específica del comando.
 
-| | |
+| Get-Help | Descripción |
 |---|---|
 | [az sql db audit-policy](/cli/azure/sql/db/audit-policy) | Establece la directiva de auditoría para una base de datos. |
 | [az sql db threat-policy](/cli/azure/sql/db/threat-policy) | Establece una directiva de Advanced Threat Protection en una base de datos. |

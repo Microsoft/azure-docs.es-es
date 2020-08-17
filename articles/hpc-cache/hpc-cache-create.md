@@ -4,18 +4,18 @@ description: Creación de una instancia de Azure HPC Cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/01/2020
+ms.date: 07/10/2020
 ms.author: v-erkel
-ms.openlocfilehash: 894595ee3660532bf046a39e994fa669f7c6b002
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84434105"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092497"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creación de una instancia de Azure HPC Cache
 
-Uso de Azure Portal para crear una memoria caché.
+Use Azure Portal o la CLI de Azure para crear la memoria caché.
 
 ![captura de pantalla de información general de caché en Azure Portal, con el botón crear en la parte inferior](media/hpc-cache-home-page.png)
 
@@ -23,11 +23,13 @@ Haga clic en la imagen siguiente para ver una [demostración en vídeo](https://
 
 [![Miniatura de vídeo: Azure HPC Cache: Instalación (haga clic para visitar la página del vídeo)](media/video-4-setup.png)](https://azure.microsoft.com/resources/videos/set-up-hpc-cache/)
 
+## <a name="portal"></a>[Portal](#tab/azure-portal)
+
 ## <a name="define-basic-details"></a>Definición de los detalles básicos
 
 ![captura de pantalla de la página de detalles del proyecto en Azure Portal](media/hpc-cache-create-basics.png)
 
-En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché. Asegúrese de que la suscripción se encuentre en la lista de [acceso](hpc-cache-prereqs.md#azure-subscription).
+En **Detalles del proyecto**, seleccione la suscripción y el grupo de recursos que hospedará la caché. Asegúrese de que la suscripción se encuentre en la lista de [acceso](hpc-cache-prerequisites.md#azure-subscription).
 
 En **Detalles del servicio**, establezca el nombre de la memoria caché y estos otros atributos:
 
@@ -57,9 +59,9 @@ Azure HPC Cache administra qué archivos se almacenan en caché y se cargan prev
 
 ## <a name="enable-azure-key-vault-encryption-optional"></a>Habilitación del cifrado de Azure Key Vault (opcional)
 
-Si su memoria caché se encuentra en una región que admite claves de cifrado administradas por el cliente, aparece la página **Claves de cifrado de disco** entre las pestañas **Caché** y **Etiquetas**. En el momento de la publicación, esta opción se admite en Este de EE. UU., Centro y Sur de EE. UU. y Oeste de EE. UU. 2.
+Si su memoria caché se encuentra en una región que admite claves de cifrado administradas por el cliente, aparece la página **Claves de cifrado de disco** entre las pestañas **Caché** y **Etiquetas**. Lea [Disponibilidad regional](hpc-cache-overview.md#region-availability) para obtener más información sobre la compatibilidad con regiones.
 
-Si desea administrar las claves de cifrado usadas con el almacenamiento en caché, proporcione la información de Azure Key Vault en la página **Claves de cifrado de disco**. El almacén de claves debe estar en la misma región y en la misma suscripción que la memoria caché.
+Si desea administrar las claves de cifrado usadas para el almacenamiento en caché, proporcione la información de Azure Key Vault en la página **Claves de cifrado de disco**. El almacén de claves debe estar en la misma región y en la misma suscripción que la memoria caché.
 
 Puede omitir esta sección si no necesita claves administradas por el cliente. De manera predeterminada, Azure cifra los datos con claves administradas por Microsoft. Para obtener más información, lea [Cifrado de Azure Storage](../storage/common/storage-service-encryption.md).
 
@@ -95,6 +97,99 @@ Cuando finaliza la creación, aparece una notificación con un vínculo a la nue
 
 > [!NOTE]
 > Si la memoria caché usa claves de cifrado administradas por el cliente, la memoria caché podría aparecer en la lista de recursos antes de que el estado de implementación cambie a Completo. Tan pronto como el estado de la memoria caché sea **Waiting for key** (Esperando la clave), puede [autorizarla](customer-keys.md#3-authorize-azure-key-vault-encryption-from-the-cache) para usar el almacén de claves.
+
+## <a name="azure-cli"></a>[CLI de Azure](#tab/azure-cli)
+
+## <a name="create-the-cache-with-azure-cli"></a>Creación de la memoria caché con la CLI de Azure
+
+[!INCLUDE [cli-reminder.md](includes/cli-reminder.md)]
+
+> [!NOTE]
+> Actualmente, la CLI de Azure no admite la creación de una caché con claves de cifrado administradas por el cliente. Use Azure Portal.
+
+Use el comando [az hpc-cache create](/cli/azure/ext/hpc-cache/hpc-cache#ext-hpc-cache-az-hpc-cache-create) para crear una nueva instancia de Azure HPC Cache.
+
+Especifique estos valores:
+
+* Nombre del grupo de recursos de la caché
+* Nombre de la caché
+* Región de Azure
+* Subred de la caché, con este formato:
+
+  ``--subnet "/subscriptions/<subscription_id>/resourceGroups/<cache_resource_group>/providers/Microsoft.Network/virtualNetworks/<virtual_network_name>/sub
+nets/<cache_subnet_name>"``
+
+  La subred de la caché necesita al menos 64 direcciones IP (/24) y no puede hospedar ningún otro recurso.
+
+* Capacidad de la caché. Dos valores establecen el rendimiento máximo de Azure HPC Cache:
+
+  * El tamaño de la caché (en GB)
+  * La SKU de las máquinas virtuales que se usan en la infraestructura de caché
+
+  [az hpc-cache skus list](/cli/azure/ext/hpc-cache/hpc-cache/skus) muestra las SKU disponibles y las opciones de tamaño de caché válidas para cada una. Las opciones de tamaño de caché van de 3 TB a 48 TB, pero solo se admiten algunos valores.
+
+  En este gráfico se muestra qué combinaciones de tamaño de caché y SKU son válidas en el momento en que se ha preparado este documento (julio de 2020).
+
+  | Tamaño de memoria caché | Standard_2G | Standard_4G | Standard_8G |
+  |------------|-------------|-------------|-------------|
+  | 3072 GB    | sí         | No          | No          |
+  | 6144 GB    | sí         | sí         | No          |
+  | 12288 GB   | sí         | sí         | sí         |
+  | 24576 GB   | No          | sí         | sí         |
+  | 49152 GB   | No          | No          | sí         |
+
+  Lea la sección **Establecimiento de la capacidad de la memoria caché** en la pestaña de instrucciones del portal para obtener información importante sobre los precios, el rendimiento y la definición del tamaño adecuado de la caché para su flujo de trabajo.
+
+Ejemplo de creación de una caché:
+
+```azurecli
+az hpc-cache create --resource-group doc-demo-rg --name my-cache-0619 \
+    --location "eastus" --cache-size-gb "3072" \
+    --subnet "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default" \
+    --sku-name "Standard_2G"
+```
+
+El proceso de creación tarda varios minutos. Si se ejecuta correctamente, el comando create devuelve una salida similar a la siguiente:
+
+```azurecli
+{
+  "cacheSizeGb": 3072,
+  "health": {
+    "state": "Healthy",
+    "statusDescription": "The cache is in Running state"
+  },
+  "id": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.StorageCache/caches/my-cache-0619",
+  "location": "eastus",
+  "mountAddresses": [
+    "10.3.0.17",
+    "10.3.0.18",
+    "10.3.0.19"
+  ],
+  "name": "my-cache-0619",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "doc-demo-rg",
+  "sku": {
+    "name": "Standard_2G"
+  },
+  "subnet": "/subscriptions/<subscription-ID>/resourceGroups/doc-demo-rg/providers/Microsoft.Network/virtualNetworks/vnet-doc0619/subnets/default",
+  "tags": null,
+  "type": "Microsoft.StorageCache/caches",
+  "upgradeStatus": {
+    "currentFirmwareVersion": "5.3.42",
+    "firmwareUpdateDeadline": "0001-01-01T00:00:00+00:00",
+    "firmwareUpdateStatus": "unavailable",
+    "lastFirmwareUpdate": "2020-04-01T15:19:54.068299+00:00",
+    "pendingFirmwareVersion": null
+  }
+}
+```
+
+El mensaje incluye alguna información útil, incluidos estos elementos:
+
+* Direcciones de montaje del cliente: Use estas direcciones IP cuando esté listo para conectar clientes a la memoria caché. Para obtener más información, lea [Montaje de la instancia de Azure HPC Cache](hpc-cache-mount.md).
+* Estado de actualización: Cuando se publique una actualización de software, este mensaje cambiará. Puede [actualizar el software de la caché](hpc-cache-manage.md#upgrade-cache-software) manualmente en un momento conveniente, o bien se aplicará automáticamente después de varios días.
+
+---
 
 ## <a name="next-steps"></a>Pasos siguientes
 

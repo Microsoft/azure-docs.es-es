@@ -1,7 +1,7 @@
 ---
 title: Seguridad de la comunicación para Microsoft Threat Modeling Tool
 titleSuffix: Azure
-description: mitigaciones para amenazas expuestas en Threat Modeling Tool
+description: Más información sobre la mitigación de las amenazas a la seguridad de las comunicaciones expuestas en Threat Modeling Tool. Consulte la información de mitigación y los ejemplos de código.
 services: security
 documentationcenter: na
 author: jegeib
@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 8cb74a020590fc55dcd1f046ba667be3d6640b3e
-ms.sourcegitcommit: 67bddb15f90fb7e845ca739d16ad568cbc368c06
+ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82203750"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543952"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Marco de seguridad: seguridad en las comunicaciones | Mitigaciones 
 | Producto o servicio | Artículo |
@@ -148,7 +148,7 @@ Esta regla funciona devolviendo un código de estado HTTP de 301 (redirección p
 | **Tecnologías aplicables** | Genérico |
 | **Atributos**              | N/D  |
 | **Referencias**              | [Hoja de referencia rápida de seguridad de transporte estricto HTTP del Proyecto de seguridad de aplicación web abierta](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html) |
-| **Pasos** | <p>La seguridad de transporto estricta HTTP (HSTS) es una mejora de seguridad opcional que se especifica con una aplicación web mediante el uso de un encabezado de respuesta especial. Una vez que un explorador compatible recibe este encabezado, ese explorador impedirá que se envíen comunicaciones a través de HTTP al dominio especificado y, en su lugar, enviará todas las comunicaciones a través de HTTPS. También evita que aparezcan en los exploradores elementos click-through HTTPS.</p><p>Para implementar HSTS, se debe configurar el siguiente encabezado de respuesta para un sitio web a nivel global, ya sea en el código o en la configuración. Strict-Transport-Security: max-age=300; includeSubDomains. HSTS resuelve las amenazas siguientes:</p><ul><li>Marcadores de usuario o manuales tipos `https://example.com` y están sujetos a un atacante de tipo "Man in the middle": HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino</li><li>Una aplicación web diseñada para ser exclusivamente HTTPS contiene accidentalmente vínculos HTTP o sirve contenido a través de HTTP: HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino</li><li>Un ataque de tipo "Man in the middle" intenta interceptar el tráfico de un usuario mediante un certificado no válido y espera que este usuario acepte dicho certificado: HSTS no permite que un usuario omita el mensaje de certificado no válido.</li></ul>|
+| **Pasos** | <p>La seguridad de transporto estricta HTTP (HSTS) es una mejora de seguridad opcional que se especifica con una aplicación web mediante el uso de un encabezado de respuesta especial. Una vez que un explorador compatible recibe este encabezado, ese explorador impedirá que se envíen comunicaciones a través de HTTP al dominio especificado y, en su lugar, enviará todas las comunicaciones a través de HTTPS. También evita que aparezcan en los exploradores elementos click-through HTTPS.</p><p>Para implementar HSTS, se debe configurar el siguiente encabezado de respuesta para un sitio web a nivel global, ya sea en el código o en la configuración. Strict-Transport-Security: max-age=300; includeSubDomains. HSTS resuelve las amenazas siguientes:</p><ul><li>Un usuario guarda en sus marcadores la dirección `https://example.com` o la introduce manualmente y sufre un ataque de tipo "Man in the middle": HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino.</li><li>Una aplicación web diseñada para ser exclusivamente HTTPS contiene accidentalmente vínculos HTTP o sirve contenido a través de HTTP: HSTS redirige automáticamente las solicitudes HTTP a HTTPS para el dominio de destino.</li><li>Un ataque de tipo "Man in the middle" intenta interceptar el tráfico de un usuario mediante un certificado no válido y espera que este usuario acepte dicho certificado: HSTS no permite que un usuario omita el mensaje de certificado no válido.</li></ul>|
 
 ## <a name="ensure-sql-server-connection-encryption-and-certificate-validation"></a><a id="sqlserver-validation"></a>Comprobación de cifrado de la conexión de SQL Server y validación de certificados
 

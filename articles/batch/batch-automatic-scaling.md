@@ -2,37 +2,33 @@
 title: Escalar automáticamente los nodos de proceso en un grupo de Azure Batch
 description: Habilite el escalado automático en un grupo en la nube para ajustar de forma dinámica el número de nodos de ejecución del grupo.
 ms.topic: how-to
-ms.date: 10/24/2019
+ms.date: 07/27/2020
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: cb40ea72dad2313618fb3c38bf73bf822f4b4433
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 0309a5665cf9338340a21f4c8d0eb5bc3c848a04
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960850"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387479"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Creación de una fórmula automática para escalar nodos de ejecución en un grupo de Batch
 
-Azure Batch puede escalar grupos automáticamente en función de los parámetros que defina. Con el escalado automático, Batch agrega nodos dinámicamente a un grupo a medida que aumenta la demanda de tareas y quita nodos de ejecución a medida que disminuye. El ajuste automático del número de nodos de ejecución que usa la aplicación Batch puede suponer un ahorro de tiempo y dinero.
+Azure Batch puede escalar grupos automáticamente en función de los parámetros que defina, lo que le permite ahorrar tiempo y dinero. Con el escalado automático, Batch agrega nodos dinámicamente a un grupo a medida que aumenta la demanda de tareas y quita nodos de ejecución a medida que disminuye.
 
-Habilite el escalado automático en un grupo de nodos de ejecución asociándolo a una *fórmula de escalado automático* que se puede definir. El servicio Batch usa esta fórmula para determinar el número de nodos de ejecución que se necesitan para ejecutar la carga de trabajo. Los nodos de ejecución pueden ser nodos dedicados o [nodos de prioridad baja](batch-low-pri-vms.md). Batch responde a los datos de métricas de servicio que se recolectan periódicamente. Con estos datos de métricas, Batch ajusta el número de nodos de ejecución del grupo en función de la fórmula y en un intervalo configurable.
+Para habilitar el escalado automático en un grupo de nodos de ejecución, asocie el grupo con una *fórmula de escalabilidad automática* que defina. El servicio Batch usa la fórmula de escalabilidad automática para determinar cuántos nodos se necesitan para ejecutar la carga de trabajo. Estos nodos pueden ser nodos dedicados o [nodos de prioridad baja](batch-low-pri-vms.md). Batch revisará periódicamente los datos de las métricas de servicio y los usará para ajustar el número de nodos del grupo en función de la fórmula y en un intervalo definido por el usuario.
 
-Puede habilitar el escalado automático al crear un grupo o bien en un grupo existente. También puede cambiar una fórmula existente en un grupo configurado para el escalado automático. Batch le permite evaluar las fórmulas antes de asignarlas a grupos y supervisar el estado de las ejecuciones de escalado automático.
-
-En este artículo se describen las distintas entidades que conforman las fórmulas de escalado automático, por ejemplo, variables, operadores, operaciones y funciones. Trataremos cómo obtener distintas métricas de recursos y tareas de proceso en Batch. Puede usar estas métricas para ajustar el número de nodos del grupo en función del estado de las tareas y del uso de recursos. También explicaremos cómo construir una fórmula y habilitar el escalado automático en un grupo mediante API de .NET y API de REST de Batch. Por último, terminaremos con algunas fórmulas de ejemplo.
+Puede habilitar el escalado automático al crear un grupo o aplicarlo a un grupo existente. Batch le permite evaluar las fórmulas antes de asignarlas a grupos y supervisar el estado de las ejecuciones de escalado automático. Una vez que configure un grupo con el escalado automático, más adelante puede hacer cambios en la fórmula.
 
 > [!IMPORTANT]
-> Al crear una cuenta de Batch puede especificar la [configuración de la cuenta](accounts.md), que determina si se asignan grupos en una suscripción de servicio de Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio de Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
+> Al crear una cuenta de Batch puede especificar el [modo de asignación de grupos](accounts.md), lo que determina si se asignan grupos en una suscripción de servicio Batch (opción predeterminada) o en su suscripción de usuario. Si ha creado su cuenta de Batch con la configuración predeterminada del servicio Batch, la cuenta estará limitada a un máximo de núcleos que se pueden usar para el procesamiento. El servicio de Batch escala nodos de ejecución solo hasta ese límite de núcleos. Por este motivo, puede que el servicio de Batch no alcance el número de nodos de ejecución que se especifiquen con una fórmula de escalado automático. Consulte [Cuotas y límites del servicio Azure Batch](batch-quota-limit.md) para más información sobre la visualización y aumento de las cuotas de la cuenta.
 >
->Si ha creado su cuenta con la configuración de suscripción de usuario, su cuenta comparte la cuota de núcleos de la suscripción. Para más información, consulte [Límites de Virtual Machines](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
->
->
+>Si ha creado su cuenta con el modo de suscripción de usuario, su cuenta comparte la cuota de núcleos de la suscripción. Para más información, consulte [Límites de Virtual Machines](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits) en [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-## <a name="automatic-scaling-formulas"></a>Fórmulas de escalado automático
+## <a name="autoscale-formulas"></a>Fórmulas de escalabilidad automática
 
-Una fórmula de escalado automático es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula][rest_autoscaleformula] de un grupo (Batch REST) o a una propiedad [CloudPool.AutoScaleFormula][net_cloudpool_autoscaleformula] (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
+Una fórmula de escalabilidad automática es un valor de cadena que el usuario define y contiene una o varias instrucciones. La fórmula de escalado automático se asigna a un elemento [autoScaleFormula](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) de un grupo (Batch REST) o a una propiedad [CloudPool.AutoScaleFormula](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula) (Batch .NET). El servicio Batch usa la fórmula para determinar el número de nodos de ejecución del grupo durante el intervalo de procesamiento siguiente. La cadena de fórmula no puede superar los 8 KB y puede incluir hasta 100 instrucciones separadas por punto y coma, así como saltos de línea y comentarios.
 
-Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (variables definidas por el servicio Batch) y variables definidas por el usuario (variables que usted define). Pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
+Puede imaginarse que las fórmulas de escalado automático son un "lenguaje" de escalado automático de Batch. Las instrucciones de fórmula son expresiones de forma libre que pueden incluir variables definidas por el servicio (definidas por el servicio Batch) y variables definidas por el usuario. Las fórmulas pueden realizar diversas operaciones en estos valores mediante funciones, operadores y tipos integrados. Por ejemplo, una instrucción podría tener la forma siguiente:
 
 ```
 $myNewVariable = function($ServiceDefinedVariable, $myCustomVariable);
@@ -45,15 +41,19 @@ $variable1 = function1($ServiceDefinedVariable);
 $variable2 = function2($OtherServiceDefinedVariable, $variable1);
 ```
 
-Incluya estas instrucciones en la fórmula de escalado automático para llegar a un determinado número de nodos de ejecución. Los nodos dedicados y los nodos de prioridad baja tienen sus propios valores de destino, por lo que puede definir un destino para cada tipo de nodo. Una fórmula de escalado automático puede incluir un valor de destino para los nodos dedicados, un valor de destino para los nodos de prioridad baja o ambos.
+Incluya estas instrucciones en la fórmula de escalado automático para llegar a un determinado número de nodos de ejecución. Los nodos dedicados y los nodos de prioridad baja tienen su propia configuración de destino. Una fórmula de escalado automático puede incluir un valor de destino para los nodos dedicados, un valor de destino para los nodos de prioridad baja o ambos.
 
-El número objetivo de nodos puede ser mayor, menor o igual que el número actual de nodos de ese tipo que hay en el grupo. Batch evalúa la fórmula de escalado automático del grupo según un intervalo específico (consulte [Intervalo de escalado automático](#automatic-scaling-interval)). Batch ajusta el número de destino de cada tipo de nodo del grupo al número que especifica la fórmula de escalado automático en el momento de la evaluación.
+El número objetivo de nodos puede ser mayor, menor o igual que el número actual de nodos de ese tipo que hay en el grupo. Batch evalúa la fórmula de escalabilidad automática de un grupo según un [intervalo de escalado automático](#automatic-scaling-interval) específico. Batch ajusta el número de destino de cada tipo de nodo del grupo al número que especifica la fórmula de escalado automático en el momento de la evaluación.
 
 ### <a name="sample-autoscale-formulas"></a>Fórmulas de escalado automático de ejemplo
 
 A continuación, se presentan ejemplos de dos fórmulas de escalabilidad automática, que se pueden ajustar para trabajar en la mayoría de los escenarios. Las variables `startingNumberOfVMs` y `maxNumberofVMs` de las fórmulas de ejemplo se pueden ajustar a sus necesidades.
 
 #### <a name="pending-tasks"></a>Tareas pendientes
+
+Con esta fórmula de escalado automático, el grupo se crea inicialmente con una sola máquina virtual. La métrica `$PendingTasks` define el número de tareas que están en ejecución o en cola. La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece la variable `$TargetDedicatedNodes` en consecuencia. La fórmula garantiza que el número de destino de nodos dedicados nunca supere la cantidad de 25 máquinas virtuales. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres y la fórmula de escalabilidad automática reduce el grupo.
+
+Esta fórmula escala los nodos dedicados, pero se puede modificar para escalar también los nodos de prioridad baja.
 
 ```
 startingNumberOfVMs = 1;
@@ -64,11 +64,9 @@ $TargetDedicatedNodes=min(maxNumberofVMs, pendingTaskSamples);
 $NodeDeallocationOption = taskcompletion;
 ```
 
-Con esta fórmula de escalado automático, el grupo se crea inicialmente con una sola máquina virtual. La métrica `$PendingTasks` define el número de tareas que están en ejecución o en cola. La fórmula busca el número promedio de tareas pendientes en los últimos 180 segundos y establece la variable `$TargetDedicatedNodes` en consecuencia. La fórmula garantiza que el número de destino de nodos dedicados nunca supere la cantidad de 25 máquinas virtuales. El grupo crece automáticamente a medida que se envían nuevas tareas. Cuando las tareas finalizan, las máquinas virtuales quedan libres una a una y la fórmula de escalado automático reduce el grupo.
+#### <a name="preempted-nodes"></a>Nodos con prioridad
 
-Esta fórmula escala los nodos dedicados, pero se puede modificar para escalar también los nodos de prioridad baja.
-
-#### <a name="preempted-nodes"></a>Nodos con prioridad 
+En este ejemplo se crea un grupo que empieza por 25 nodos de prioridad baja. Cada vez que se adelanta un nodo de prioridad baja, se reemplaza por un nodo dedicado. Como en el primer ejemplo, la variable `maxNumberofVMs` impide que el grupo supere 25 máquinas virtuales. Este ejemplo es útil para sacar provecho de las máquinas virtuales de prioridad baja y, al mismo tiempo, garantizar que solo se produzca un número fijo de retrasos en la duración del grupo.
 
 ```
 maxNumberofVMs = 25;
@@ -77,35 +75,42 @@ $TargetLowPriorityNodes = min(maxNumberofVMs , maxNumberofVMs - $TargetDedicated
 $NodeDeallocationOption = taskcompletion;
 ```
 
-En este ejemplo se crea un grupo que empieza por 25 nodos de prioridad baja. Cada vez que se adelanta un nodo de prioridad baja, se reemplaza por un nodo dedicado. Como en el primer ejemplo, la variable `maxNumberofVMs` impide que el grupo supere 25 máquinas virtuales. Este ejemplo es útil para sacar provecho de las máquinas virtuales de prioridad baja y, al mismo tiempo, garantizar que solo se produzca un número fijo de retrasos en la duración del grupo.
+Aprenderá más sobre [cómo crear fórmulas de escalabilidad automática](#write-an-autoscale-formula) y verá otras [fórmulas de escalabilidad automática de ejemplo](#example-autoscale-formulas) más adelante en este tema.
 
 ## <a name="variables"></a>variables
 
-En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**. Las variables definidas por el servicio están integradas en el servicio de Batch. Algunas variables definidas por el servicio son de lectura y escritura, mientras que otras son de solo lectura. Las variables definidas por el usuario son las que usted define. En la fórmula de ejemplo que se muestra en la sección anterior, `$TargetDedicatedNodes` y `$PendingTasks` son variables definidas por el servicio. Las variables `startingNumberOfVMs` y `maxNumberofVMs` son variables definidas por el usuario.
+En las fórmulas de escalado automático puede usar tanto variables **definidas por el servicio** como variables **definidas por el usuario**.
+
+Las variables definidas por el servicio están integradas en el servicio de Batch. Algunas variables definidas por el servicio son de lectura y escritura, mientras que otras son de solo lectura.
+
+Las variables definidas por el usuario son las que usted define. En la fórmula de ejemplo mostrada anteriormente, `$TargetDedicatedNodes` y `$PendingTasks` son variables definidas por el servicio, mientras que `startingNumberOfVMs` y `maxNumberofVMs` son variables definidas por el usuario.
 
 > [!NOTE]
 > Las variables definidas por el servicio van siempre precedidas de un símbolo de dólar ($). En el caso de las variables definidas por el usuario, el símbolo de dólar es opcional.
->
->
 
-En las siguientes tablas se muestran las variables de lectura y escritura y de solo lectura definidas por el servicio de Batch.
+En las tablas siguientes se muestran las variables de lectura y escritura y de solo lectura definidas por el servicio Batch.
 
-Puede obtener y establecer los valores de estas variables definidas por el servicio para administrar el número de nodos de ejecución de un grupo:
+### <a name="read-write-service-defined-variables"></a>Variables definidas por el servicio de solo escritura
 
-| Variables definidas por el servicio de solo escritura | Descripción |
+Puede obtener y establecer los valores de estas variables definidas por el servicio para administrar el número de nodos de ejecución de un grupo.
+
+| Variable | Descripción |
 | --- | --- |
-| $TargetDedicatedNodes |Número objetivo de nodos de ejecución dedicados para el grupo. El número de nodos dedicados se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos dedicados se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. <br /><br /> Podría pasar que un grupo de una cuenta creada con la configuración del servicio de Batch no alcanzara su valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. Podría pasar que un grupo de una cuenta creada con la configuración de suscripción de usuario no alcanzara su valor de destino si el destino supera la cuota de núcleos compartidos de la suscripción.|
-| $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. El número de nodos de prioridad baja se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch](batch-low-pri-vms.md). |
-| $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: el valor predeterminado. Finaliza las tareas de inmediato y las vuelve a colocar en la cola de trabajos para que se vuelvan a programar. Esta acción garantiza que el número de nodos de destino se alcanza lo antes posible, pero es posible que sea menos eficaz, ya que cualquier tarea en ejecución se interrumpirá y tendrá que reiniciarse, con lo que el trabajo que se haya hecho hasta ese momento no sirve para nada. <li>**terminate**: finaliza las tareas de inmediato y las quitar de la cola de trabajos.<li>**taskcompletion**: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo. Esta opción se usa para evitar que las tareas se interrumpan y se vuelvan a poner en la cola, lo que hace que cualquier trabajo que haya realizado hasta ese momento sea baldío. <li>**retaineddata**: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
+| $TargetDedicatedNodes |Número objetivo de nodos de ejecución dedicados para el grupo. Esto se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos dedicados se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. <br /><br /> Podría pasar que un grupo de una cuenta creada en el modo del servicio Batch no alcanzara su valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. Podría pasar que un grupo de una cuenta creada en el modo de suscripción de usuario no alcanzara su valor de destino si el destino supera la cuota de núcleos compartidos de la suscripción.|
+| $TargetLowPriorityNodes |Número objetivo de nodos de ejecución de prioridad baja para el grupo. Esto se especifica como destino porque un grupo podría no lograr siempre el número de nodos deseado. Por ejemplo, podría pasar que el grupo no alcanzara el número de destino si el número de nodos de prioridad baja se modifica con una evaluación de escalado automático antes de que el grupo haya alcanzado el valor de destino inicial. Además, también podría pasar que un grupo no alcanzara el valor de destino si el destino supera una cuota de núcleos o de nodos de la cuenta de Batch. <br /><br /> Para obtener más información sobre los nodos de ejecución de prioridad baja, consulte [Uso de máquinas virtuales de prioridad baja con Batch](batch-low-pri-vms.md). |
+| $NodeDeallocationOption |La acción que se produce cuando se quitan los nodos de ejecución de un grupo. Los valores posibles son:<ul><li>**requeue**: El valor predeterminado. Finaliza las tareas de inmediato y las vuelve a colocar en la cola de trabajos para que se vuelvan a programar. Esta acción garantiza que se alcance el número de nodos de destino lo más rápido posible. Sin embargo, puede ser menos eficaz, ya que cualquier tarea en ejecución se interrumpirá y, a continuación, deberá reiniciarse completamente. <li>**terminate**: finaliza las tareas de inmediato y las quita de la cola de trabajos.<li>**taskcompletion**: espera a que finalicen las tareas actualmente en ejecución y, a continuación, quita el nodo del grupo. Esta opción se usa para evitar que las tareas se interrumpan y se vuelvan a poner en la cola, lo que hace que cualquier trabajo que haya realizado hasta ese momento sea baldío.<li>**retaineddata**: espera a que todos los datos que se conservan en la tarea local en el nodo se limpien antes de quitar el nodo del grupo.</ul> |
 
 > [!NOTE]
 > También se puede especificar la variable `$TargetDedicatedNodes` mediante el alias `$TargetDedicated`. También se puede especificar la variable `$TargetLowPriorityNodes` mediante el alias `$TargetLowPriority`. Si la fórmula establece tanto la variable con nombre completo como su alias, el valor asignado a la variable tendrá prioridad.
->
->
 
-Puede obtener el valor de estas variables definidas por el servicio para efectuar ajustes basados en las métricas del servicio de Batch:
+### <a name="read-only-service-defined-variables"></a>Variables definidas por el servicio de solo lectura
 
-| Variables definidas por el servicio de solo lectura | Descripción |
+Puede obtener el valor de estas variables definidas por el servicio para efectuar ajustes basados en las métricas del servicio Batch.
+
+> [!IMPORTANT]
+> Las tareas de liberación del trabajo no se incluyen actualmente en las variables que proporcionan recuentos de tareas, como $ActiveTasks y $PendingTasks. En función de la fórmula de escalabilidad automática, esto puede dar lugar a que se quiten los nodos y no haya ninguno disponible para ejecutar las tareas de liberación del trabajo.
+
+| Variable | Descripción |
 | --- | --- |
 | $CPUPercent |El porcentaje medio de uso de CPU. |
 | $WallClockSeconds |El número de segundos consumidos. |
@@ -118,7 +123,7 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 | $NetworkInBytes |El número de bytes entrantes. |
 | $NetworkOutBytes |El número de bytes salientes. |
 | $SampleNodeCount |El número de nodos de ejecución. |
-| $ActiveTasks |Número de tareas que están listas para su ejecución pero que aún no se están ejecutando. El recuento de $ActiveTasks incluye todas las tareas que tienen un estado activo y cuyas dependencias se han cumplido. Todas las tareas que tengan un estado activo pero cuyas dependencias no se hayan cumplido se excluirán del recuento de $ActiveTasks. En una tarea de varias instancias, $ActiveTasks incluirá el número de instancias establecido en la tarea.|
+| $ActiveTasks |Número de tareas que están listas para su ejecución pero que aún no se están ejecutando. Esto incluye todas las tareas que tienen un estado activo y cuyas dependencias se han cumplido. Todas las tareas que tengan un estado activo pero cuyas dependencias no se hayan cumplido se excluirán del recuento de $ActiveTasks. En una tarea de varias instancias, $ActiveTasks incluirá el número de instancias establecido en la tarea.|
 | $RunningTasks |El número de tareas en un estado de ejecución. |
 | $PendingTasks |La suma de $ActiveTasks y $RunningTasks. |
 | $SucceededTasks |El número de tareas que finalizó correctamente. |
@@ -127,43 +132,36 @@ Puede obtener el valor de estas variables definidas por el servicio para efectua
 | $CurrentLowPriorityNodes |Número actual de nodos de ejecución de prioridad baja, incluidos todos los nodos con prioridad. |
 | $PreemptedNodeCount | El número de nodos en el grupo que se encuentran en estado reemplazado. |
 
-> [!IMPORTANT]
-> Las tareas de liberación del trabajo no se incluyen actualmente en las variables anteriores que proporcionan recuentos de tareas, como $ActiveTasks y $PendingTasks. En función de la fórmula de escalado automático, esto puede dar lugar a que se quiten los nodos y no haya ninguno disponible para ejecutar las tareas de liberación del trabajo.
-
 > [!TIP]
-> Las variables de solo lectura definidas por el servicio que se muestran en la tabla anterior son *objetos* que proporcionan distintos métodos para obtener acceso a los datos asociados a cada uno de ellos. Para obtener más información, consulte la sección [Obtención de datos de ejemplo](#getsampledata), descrita más adelante en este artículo.
->
->
+> Estas variables de solo lectura definidas por el servicio son *objetos* que proporcionan varios métodos para acceder a los datos asociados a cada uno de ellos. Para obtener más información, consulte la sección [Obtención de datos de ejemplo](#obtain-sample-data), descrita más adelante en este artículo.
 
 ## <a name="types"></a>Tipos
 
-Estos son los tipos que se admiten en las fórmulas:
+Las fórmulas de escalabilidad automática admiten los tipos siguientes:
 
-* double
-* doubleVec
-* doubleVecList
-* string
-* timestamp: timestamp es una estructura compuesta que contiene los siguientes miembros:
-
-  * year
-  * mes (1-12)
-  * día (1-31)
-  * día de la semana (en formato de número; por ejemplo, 1 para lunes)
-  * hora (en formato de número de 24 horas; por ejemplo, 13 significa 1 p.m.)
-  * minuto (00-59)
-  * segundo (00-59)
-* timeinterval
-
-  * TimeInterval_Zero
-  * TimeInterval_100ns
-  * TimeInterval_Microsecond
-  * TimeInterval_Millisecond
-  * TimeInterval_Second
-  * TimeInterval_Minute
-  * TimeInterval_Hour
-  * TimeInterval_Day
-  * TimeInterval_Week
-  * TimeInterval_Year
+- double
+- doubleVec
+- doubleVecList
+- string
+- timestamp: una estructura compuesta que contiene los miembros siguientes:
+  - year
+  - mes (1-12)
+  - día (1-31)
+  - día de la semana (en formato de número; por ejemplo, 1 para lunes)
+  - hora (en formato de número de 24 horas; por ejemplo, 13 significa 1 p.m.)
+  - minuto (00-59)
+  - segundo (00-59)
+- timeinterval
+  - TimeInterval_Zero
+  - TimeInterval_100ns
+  - TimeInterval_Microsecond
+  - TimeInterval_Millisecond
+  - TimeInterval_Second
+  - TimeInterval_Minute
+  - TimeInterval_Hour
+  - TimeInterval_Day
+  - TimeInterval_Week
+  - TimeInterval_Year
 
 ## <a name="operations"></a>Operaciones
 
@@ -180,8 +178,8 @@ Estas operaciones se permiten en los tipos que constan en la sección anterior.
 | timeinterval *operador* timestamp |+ |timestamp |
 | timestamp *operador* timeinterval |+ |timestamp |
 | timestamp *operador* timestamp |- |timeinterval |
-| *operador*double |-, ! |double |
-| *operador*timeinterval |- |timeinterval |
+| *operador* double |-, ! |double |
+| *operador* timeinterval |- |timeinterval |
 | double *operador* double |<, <=, ==, >=, >, != |double |
 | string *operador* string |<, <=, ==, >=, >, != |double |
 | timestamp *operador* timestamp |<, <=, ==, >=, >, != |double |
@@ -191,7 +189,8 @@ Estas operaciones se permiten en los tipos que constan en la sección anterior.
 Cuando se prueba un valor double con un operador ternario (`double ? statement1 : statement2`), el valor distinto de cero es **true** y cero es **false**.
 
 ## <a name="functions"></a>Functions
-Estas **funciones** predefinidas están disponibles para que las use al definir fórmulas de escalado automático.
+
+Puede usar estas **funciones** predefinidas al definir una fórmula de escalabilidad automática.
 
 | Función | Tipo de valor devuelto | Descripción |
 | --- | --- | --- |
@@ -221,69 +220,9 @@ Algunas de las funciones descritas en la tabla anterior pueden aceptar una lista
 
 El valor *doubleVecList* se convierte en un *doubleVec* individual antes de la evaluación. Por ejemplo, si `v = [1,2,3]`, entonces, llamar a `avg(v)` es equivalente a llamar a `avg(1,2,3)`. Llamar a `avg(v, 7)` es equivalente a llamar a `avg(1,2,3,7)`.
 
-## <a name="obtain-sample-data"></a><a name="getsampledata"></a>Obtención de datos de ejemplo
-
-Las fórmulas de escalado automático actúan en datos de métricas (muestras) proporcionados por el servicio Batch. Una fórmula aumenta o reduce el tamaño del grupo según los valores que obtiene del servicio. Las variables definidas por el servicio descritas anteriormente son objetos que proporcionan varios métodos para obtener acceso a los datos que están asociados a ese objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
-
-```
-$CPUPercent.GetSample(TimeInterval_Minute * 5)
-```
-
-| Método | Descripción |
-| --- | --- |
-| GetSample() |El método `GetSample()` devuelve un vector de muestras de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, puede que no todos los ejemplos durante un período de tiempo determinado estén disponibles para la evaluación a través de una fórmula.<ul><li>`doubleVec GetSample(double count)`<br/>Especifica el número de muestras que se obtienen a partir de las muestras recogidas más recientes.<br/><br/>`GetSample(1)` devuelve la última muestra disponible. Para métricas como `$CPUPercent`, sin embargo, esto no debe usarse porque es imposible saber *cuándo* se recopiló la muestra. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. En estos casos es mejor usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`<br/>Especifica un período de tiempo para recopilar datos de muestra. Opcionalmente, también especifica el porcentaje de muestras que deben estar disponibles en el marco de tiempo solicitado.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10)` debería devolver 20 muestras si todas las muestras de los últimos 10 minutos están presentes en el historial de CPUPercent. Si el último minuto del historial no estaba disponible, solo se devolverán, no obstante, 18 muestras. En este caso:<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` daría error porque solo el 90 por ciento de las muestras están disponibles.<br/><br/>`$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` se realizaría correctamente.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`<br/>Especifica un período de tiempo para recopilar datos, con una hora de inicio y una hora de finalización.<br/><br/>Como se mencionó anteriormente, hay un retraso entre cuando se recopila un ejemplo y cuando está disponible para una fórmula. Tenga en cuenta este retraso a la hora de usar el método `GetSample`. Consulte `GetSamplePercent` a continuación. |
-| GetSamplePeriod() |Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
-| Count() |Devuelve el número total de ejemplos en el historial de métrica. |
-| HistoryBeginTime() |Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica. |
-| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo:<br/><br/>`doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`<br/><br/>Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático. |
-
-### <a name="samples-sample-percentage-and-the-getsample-method"></a>Ejemplos, porcentaje de ejemplo y el método *GetSample()*
-La operación principal de una fórmula de escalado automático es la obtención de datos de métricas de tareas y recursos y el ajuste posterior del tamaño de grupo según esos datos. Por lo tanto, es importante tener una idea clara de cómo interactúan las fórmulas de escalado automático con los datos de métricas (muestras).
-
-**Muestras**
-
-El servicio de Batch toma periódicamente ejemplos de métricas de tareas y recursos y los pone a disposición de las fórmulas de escalado automático. El servicio Batch graba estas muestras cada 30 segundos. Pero suele producirse un retraso entre el momento en el que se grabaron esas muestras y el momento en el que se ponen a disposición de las fórmulas de escalado automático y estas pueden leer aquellas. Además, debido a diversos factores como problemas con la red o de infraestructura, es posible que las muestras no se hayan grabado para un intervalo en concreto.
-
-**Porcentaje de muestras**
-
-Al pasar `samplePercent` al método `GetSample()` o al llamar al método `GetSamplePercent()`, _porcentaje_ hace referencia a una comparación entre el número posible total de ejemplos que graba el servicio de Batch y el número de muestras que están disponibles para la fórmula de escalado automático.
-
-Echemos un vistazo a un intervalo de tiempo de 10 minutos como ejemplo. Dado que las muestras se graban cada 30 segundos, el número total máximo de muestras que Batch graba en un intervalo de tiempo de 10 minutos habría sido de 20 muestras (2 por minuto). Pero, debido a la latencia inherente del mecanismo de informes y a otros problemas existentes en Azure, podría haber solo 15 muestras disponibles para leer la fórmula de escalado automático. Así, por ejemplo, durante ese período de 10 minutos, solo el 75 % del número total de ejemplos que se graban podría estar disponible para la fórmula.
-
-**GetSample() e intervalos de muestra**
-
-Las fórmulas de escalado automático van a aumentar y reducir los grupos (al agregar o quitar nodos). Dado que los nodos cuestan dinero, desea asegurarse de que las fórmulas utilizan un método de análisis inteligente que se basa en un número de datos suficiente. Por lo tanto, recomendamos que use un análisis de tipo tendencias en las fórmulas. Este tipo aumenta y reduce los grupos basándose en un intervalo de ejemplos recopilados.
-
-Para ello, use `GetSample(interval look-back start, interval look-back end)` para devolver un vector de ejemplos:
-
-```
-$runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
-```
-
-Cuando Batch evalúe la línea anterior, devolverá un intervalo de muestras como vector de valores. Por ejemplo:
-
-```
-$runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
-```
-
-Una vez recopilado el vector de ejemplos, puede usar funciones como `min()`, `max()` y `avg()` para derivar valores significativos del intervalo recopilado.
-
-Para mayor seguridad, puede forzar el error en una evaluación de fórmula si menos de un determinado porcentaje de ejemplos está disponible para un período de tiempo determinado. Al forzar el error en una evaluación de fórmula, indica a Batch que deje de evaluar la fórmula si el porcentaje de muestras especificado no está disponible. En este caso, no se efectúa ningún cambio en el tamaño del grupo. Para especificar un porcentaje necesario de ejemplos para que la evaluación se realice correctamente, especifíquelo como el tercer parámetro de `GetSample()`. En este caso, se especifica un requisito del 75 por ciento de muestras:
-
-```
-$runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
-```
-
-Dado que puede haber un retraso en la disponibilidad de muestras, es importante especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Las muestras tardan aproximadamente un minuto en propagarse por el sistema, por lo que puede que las muestras del rango `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no estén disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
-
-> [!IMPORTANT]
-> Es **muy recomendable** que **evite confiar *solo* en**  en las fórmulas de escalado automático`GetSample(1)`. Esto se debe a que `GetSample(1)` dice básicamente al servicio Batch "dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
->
->
-
 ## <a name="metrics"></a>Métricas
 
-Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Consulte la sección [Variables](#variables) más arriba para más información sobre cada métrica.
+Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El número de nodos dedicados de destino se ajusta en el grupo basándose en los datos de métricas que obtenga y evalúe. Para más información sobre cada métrica, consulte la sección [Variables](#variables) más arriba.
 
 <table>
   <tr>
@@ -328,18 +267,79 @@ Puede usar tanto métricas de recurso como de tarea al definir una fórmula. El 
   </tr>
 </table>
 
+## <a name="obtain-sample-data"></a>Obtención de datos de muestra
+
+La operación principal de una fórmula de escalabilidad automática es la obtención de datos de métricas de tareas y recursos (muestras) y el ajuste posterior del tamaño de grupo según esos datos. Por lo tanto, es importante tener una idea clara de cómo interactúan las fórmulas de escalabilidad automática con las muestras.
+
+### <a name="methods"></a>Métodos
+
+Las fórmulas de escalabilidad automática actúan en muestras de datos de métricas proporcionados por el servicio Batch. Una fórmula aumentará o reducirá el tamaño del grupo en función de los valores que obtenga. Las variables definidas por el servicio son objetos que proporcionan métodos para acceder a los datos asociados a ese objeto. Por ejemplo, la siguiente expresión muestra una solicitud para obtener los últimos cinco minutos de uso de CPU:
+
+```
+$CPUPercent.GetSample(TimeInterval_Minute * 5)
+```
+
+Los métodos siguientes se pueden usar para obtener datos de muestra sobre las variables definidas por el servicio.
+
+| Método | Descripción |
+| --- | --- |
+| GetSample() |El método `GetSample()` devuelve un vector de muestras de datos.<br/><br/>Un ejemplo tiene un valor de 30 segundos de datos de métrica. En otras palabras, las muestras se obtienen cada 30 segundos. No obstante, tal como se mencionó anteriormente, hay un retraso entre cuándo se recopila una muestra y cuándo está disponible para una fórmula. Por lo tanto, puede que no todos los ejemplos durante un período de tiempo determinado estén disponibles para la evaluación a través de una fórmula.<ul><li>`doubleVec GetSample(double count)`: Especifica el número de muestras que se obtienen a partir de las muestras recogidas más recientes. `GetSample(1)` devuelve la última muestra disponible. Sin embargo, para métricas como `$CPUPercent`, `GetSample(1)` no debe usarse, porque es imposible saber *cuándo* se recopiló la muestra. Puede ser reciente o, debido a problemas del sistema, puede ser mucho más antiguo. En estos casos, es mejor usar un intervalo de tiempo como se muestra a continuación.<li>`doubleVec GetSample((timestamp or timeinterval) startTime [, double samplePercent])`: Especifica un período de tiempo para recopilar datos de muestra. Opcionalmente, también especifica el porcentaje de muestras que deben estar disponibles en el marco de tiempo solicitado. Por ejemplo, `$CPUPercent.GetSample(TimeInterval_Minute * 10)` debería devolver 20 muestras si todas las muestras de los últimos 10 minutos están presentes en el historial de `CPUPercent`. Si el último minuto del historial no estaba disponible, solo se devolverán 18 muestras. En este caso, `$CPUPercent.GetSample(TimeInterval_Minute * 10, 95)` generaría un error porque solo está disponible el 90 por ciento de las muestras, pero `$CPUPercent.GetSample(TimeInterval_Minute * 10, 80)` se realizaría correctamente.<li>`doubleVec GetSample((timestamp or timeinterval) startTime, (timestamp or timeinterval) endTime [, double samplePercent])`: Especifica un período de tiempo para recopilar datos, con una hora de inicio y una hora de finalización. Como se mencionó anteriormente, hay un retraso entre cuando se colecta una muestra y cuando está disponible para una fórmula. Tenga en cuenta este retraso a la hora de usar el método `GetSample`. Consulte `GetSamplePercent` a continuación. |
+| GetSamplePeriod() |Devuelve el período de las muestras tomadas en un conjunto de datos de muestras históricos. |
+| Count() |Devuelve el número total de ejemplos en el historial de métrica. |
+| HistoryBeginTime() |Devuelve la marca de tiempo de la muestra de datos disponible más antigua para la métrica. |
+| GetSamplePercent() |Devuelve el porcentaje de muestras que están disponibles para un intervalo de tiempo dado. Por ejemplo, `doubleVec GetSamplePercent( (timestamp or timeinterval) startTime [, (timestamp or timeinterval) endTime] )`. Debido a que se produce un error en el método `GetSample` si el porcentaje de muestras devueltas es inferior al valor de `samplePercent` especificado, puede utilizar el método `GetSamplePercent` para comprobarlo primero. A continuación, puede realizar una acción alternativa si no hay suficientes muestras presentes, sin detener la evaluación de escalado automático. |
+
+### <a name="samples"></a>Ejemplos
+
+El servicio de Batch toma periódicamente ejemplos de métricas de tareas y recursos y los pone a disposición de las fórmulas de escalado automático. El servicio Batch graba estas muestras cada 30 segundos. Pero suele producirse un retraso entre el momento en el que se grabaron esas muestras y el momento en el que se ponen a disposición de las fórmulas de escalado automático y estas pueden leer aquellas. Además, es posible que las muestras no se hayan grabado para un intervalo en concreto debido a factores como problemas con la red o de infraestructura.
+
+### <a name="sample-percentage"></a>Porcentaje de muestras
+
+Al pasar `samplePercent` al método `GetSample()` o al llamar al método `GetSamplePercent()`, _porcentaje_ hace referencia a una comparación entre el número posible total de ejemplos que graba el servicio de Batch y el número de muestras que están disponibles para la fórmula de escalado automático.
+
+Echemos un vistazo a un intervalo de tiempo de 10 minutos como ejemplo. Dado que las muestras se graban cada 30 segundos, el número total máximo de muestras que Batch graba en ese intervalo de tiempo de 10 minutos habría sido de 20 muestras (2 por minuto). Pero, debido a la latencia inherente del mecanismo de informes y a otros problemas existentes en Azure, podría haber solo 15 muestras disponibles para leer la fórmula de escalado automático. Así, por ejemplo, durante ese período de 10 minutos, solo el 75 % del número total de ejemplos que se graban podría estar disponible para la fórmula.
+
+### <a name="getsample-and-sample-ranges"></a>GetSample() e intervalos de muestra
+
+Las fórmulas de escalabilidad automática aumentarán y reducirán el tamaño de los grupos al agregar o quitar nodos. Dado que los nodos cuestan dinero, asegúrese de que las fórmulas usan un método de análisis inteligente que se basa en un número de datos suficiente. Se recomienda usar un análisis de tipo tendencias en las fórmulas. Este tipo aumenta y reduce los grupos basándose en un intervalo de ejemplos recopilados.
+
+Para ello, use `GetSample(interval look-back start, interval look-back end)` para devolver un vector de ejemplos:
+
+```
+$runningTasksSample = $RunningTasks.GetSample(1 * TimeInterval_Minute, 6 * TimeInterval_Minute);
+```
+
+Cuando Batch evalúe la línea anterior, devolverá un intervalo de muestras como vector de valores. Por ejemplo:
+
+```
+$runningTasksSample=[1,1,1,1,1,1,1,1,1,1];
+```
+
+Una vez recopilado el vector de ejemplos, puede usar funciones como `min()`, `max()` y `avg()` para derivar valores significativos del intervalo recopilado.
+
+Para mayor seguridad, puede forzar el error en una evaluación de fórmula si menos de un determinado porcentaje de ejemplos está disponible para un período de tiempo determinado. Al forzar el error en una evaluación de fórmula, indica a Batch que deje de evaluar la fórmula si el porcentaje de muestras especificado no está disponible. En este caso, no se efectúa ningún cambio en el tamaño del grupo. Para especificar un porcentaje necesario de ejemplos para que la evaluación se realice correctamente, especifíquelo como el tercer parámetro de `GetSample()`. En este caso, se especifica un requisito del 75 por ciento de muestras:
+
+```
+$runningTasksSample = $RunningTasks.GetSample(60 * TimeInterval_Second, 120 * TimeInterval_Second, 75);
+```
+
+Dado que puede haber un retraso en la disponibilidad de muestras, siempre debe especificar siempre un intervalo de tiempo con una hora de inicio retrospectiva cuya anterioridad sea superior a un minuto. Las muestras tardan aproximadamente un minuto en propagarse por el sistema, por lo que puede que las muestras del rango `(0 * TimeInterval_Second, 60 * TimeInterval_Second)` no estén disponibles. De nuevo, puede utilizar el parámetro de porcentaje de `GetSample()` para forzar un requisito de porcentaje de ejemplos concreto.
+
+> [!IMPORTANT]
+> Es muy recomendable que **evite confiar *solo* en `GetSample(1)` en las fórmulas de escalabilidad automática**. Esto se debe a que `GetSample(1)` dice básicamente al servicio Batch "dame la muestra más reciente que tengas, independientemente de cuánto tiempo hace que la tienes". Puesto que es solo una muestra única, y puede ser una muestra más antigua, no puede ser representativa de la imagen más grande del estado reciente de la tarea o el recurso. Si usa `GetSample(1)`, asegúrese de que forma parte de una instrucción más grande y no solo el punto de datos en el que se basa la fórmula.
+
 ## <a name="write-an-autoscale-formula"></a>Escritura de una fórmula de escalado automático
 
-Para construir una fórmula de escalado automático, es preciso formar instrucciones que usen los componentes anteriores y luego combinar esas instrucciones en una fórmula completa. En esta sección vamos a crear una fórmula de escalado automático de ejemplo que puede tomar algunas decisiones reales de escalado.
+Para construir una fórmula de escalado automático, es preciso formar instrucciones que usen los componentes anteriores y luego combinar esas instrucciones en una fórmula completa. En esta sección vamos a crear una fórmula de escalabilidad automática de ejemplo que puede tomar decisiones reales de escalado y hacer ajustes.
 
 En primer lugar, vamos a definir los requisitos de nuestra nueva fórmula de escalado automático. La fórmula debe:
 
-1. Aumentar el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es alto.
-1. Reducir el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es bajo.
-1. Restringir siempre el número máximo de nodos dedicados a 400.
-1. Al reducir el número de nodos, no quite los nodos que ejecuten tareas; si fuera necesario, espere a que las tareas finalicen para quitar nodos.
+- Aumentar el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es alto.
+- Reducir el número objetivo de nodos de ejecución dedicados en un grupo si el uso de la CPU es bajo.
+- Restringir siempre el número máximo de nodos dedicados a 400.
+- Al reducir el número de nodos, no quite los nodos que ejecuten tareas; si fuera necesario, espere a que las tareas finalicen para quitar nodos.
 
-Para aumentar el número de nodos durante un uso elevado de la CPU, definimos la instrucción que rellena una variable definida por el usuario (`$totalDedicatedNodes`) con un valor que representa un 110 por ciento del número de nodos dedicados del destino actual, pero solo si el uso medio mínimo de la CPU en los 10 últimos minutos era superior al 70 por ciento. En caso contrario, use el valor del número actual de nodos dedicados.
+La primera instrucción de la fórmula aumentará el número de nodos durante un uso elevado de la CPU. Definiremos una instrucción que rellena una variable definida por el usuario (`$totalDedicatedNodes`) con un valor que representa un 110 por ciento del número de nodos dedicados del destino actual, pero solo si el uso medio mínimo de la CPU en los 10 últimos minutos era superior al 70 por ciento. En caso contrario, usa el valor del número actual de nodos dedicados.
 
 ```
 $totalDedicatedNodes =
@@ -347,7 +347,7 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 1.1) : $CurrentDedicatedNodes;
 ```
 
-Para *reducir* el número de nodos dedicados durante un uso bajo de la CPU, la siguiente instrucción de nuestra fórmula establece la misma variable `$totalDedicatedNodes` en el 90 por ciento del número objetivo actual de nodos dedicados si el uso medio de la CPU en los últimos 60 minutos estaba por debajo del 20 por ciento. De lo contrario, use el valor actual de `$totalDedicatedNodes` que se rellenamos en la instrucción anterior.
+Para reducir el número de nodos dedicados durante un uso bajo de la CPU, la siguiente instrucción de nuestra fórmula establece la misma variable `$totalDedicatedNodes` en el 90 por ciento del número objetivo actual de nodos dedicados si el uso medio de la CPU en los últimos 60 minutos estaba por debajo del 20 por ciento. De lo contrario, usa el valor actual de `$totalDedicatedNodes` que se rellenamos en la instrucción anterior.
 
 ```
 $totalDedicatedNodes =
@@ -355,10 +355,16 @@ $totalDedicatedNodes =
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 ```
 
-Ahora limite el número objetivo de nodos de ejecución dedicados a un máximo de 400:
+Ahora limitaremos el número objetivo de nodos de ejecución dedicados a un máximo de 400.
 
 ```
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
+```
+
+Por último, nos aseguraremos de que los nodos no se quiten hasta que finalicen sus tareas.
+
+```
+$NodeDeallocationOption = taskcompletion;
 ```
 
 Esta es la fórmula completa:
@@ -371,7 +377,23 @@ $totalDedicatedNodes =
     (avg($CPUPercent.GetSample(TimeInterval_Minute * 60)) < 0.2) ?
     ($CurrentDedicatedNodes * 0.9) : $totalDedicatedNodes;
 $TargetDedicatedNodes = min(400, $totalDedicatedNodes)
+$NodeDeallocationOption = taskcompletion;
 ```
+
+> [!NOTE]
+> Si elige hacerlo, puede incluir comentarios y saltos de línea en las cadenas de fórmulas.
+
+## <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
+
+De forma predeterminada, el servicio de Batch ajusta el tamaño de un grupo según su fórmula de escalado automático cada 15 minutos. Este intervalo se puede configurar con las siguientes propiedades de grupo:
+
+- [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (Batch .NET)
+- [autoScaleEvaluationInterval](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (API de REST)
+
+Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente. Si se especifica un intervalo que se sitúa fuera de este margen, el servicio de Batch devolverá un error de solicitud incorrecta (400).
+
+> [!NOTE]
+> Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
 
 ## <a name="create-an-autoscale-enabled-pool-with-batch-sdks"></a>Creación de un grupo habilitado para el escalado automático con SDK de Batch
 
@@ -387,13 +409,13 @@ Para crear un grupo con el escalado automático habilitado en. NET, siga estos p
 1. (Opcional) Establecer la propiedad [CloudPool.AutoScaleEvaluationInterval](/dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval) (el valor predeterminado es 15 minutos).
 1. Confirmar el grupo con [CloudPool.Commit](/dotnet/api/microsoft.azure.batch.cloudpool.commit) o [CommitAsync](/dotnet/api/microsoft.azure.batch.cloudpool.commitasync).
 
-El fragmento de código siguiente crea un grupo habilitado para el escalado automático en .NET. La fórmula de escalado automático del grupo establece el número objetivo de nodos dedicados en 5 los lunes y en 1 los demás días de la semana. El [intervalo de escalado automático](#automatic-scaling-interval) está establecido en 30 minutos. En este y en otros fragmentos de código de C# de este artículo, `myBatchClient` es una instancia inicializada correctamente de la clase [BatchClient][net_batchclient].
+En el ejemplo siguiente se crea un grupo habilitado para la escalabilidad automática en .NET. La fórmula de escalabilidad automática del grupo establece el número objetivo de nodos dedicados en 5 los lunes y en 1 los demás días de la semana. El [intervalo de escalado automático](#automatic-scaling-interval) está establecido en 30 minutos. En este y en otros fragmentos de código de C# de este artículo, `myBatchClient` es una instancia inicializada correctamente de la clase [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient).
 
 ```csharp
 CloudPool pool = myBatchClient.PoolOperations.CreatePool(
                     poolId: "mypool",
                     virtualMachineSize: "standard_d1_v2",
-                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));    
+                    cloudServiceConfiguration: new CloudServiceConfiguration(osFamily: "5"));
 pool.AutoScaleEnabled = true;
 pool.AutoScaleFormula = "$TargetDedicatedNodes = (time().weekday == 1 ? 5:1);";
 pool.AutoScaleEvaluationInterval = TimeSpan.FromMinutes(30);
@@ -401,31 +423,19 @@ await pool.CommitAsync();
 ```
 
 > [!IMPORTANT]
-> Al crear un grupo habilitado para el escalado automático, no especifique el parámetro _targetDedicatedNodes_ ni el parámetro _targetLowPriorityNodes_ en la llamada a **CreatePool**. En su lugar, especifique las propiedades **AutoScaleEnabled** y **AutoScaleFormula** en el grupo. Los valores de estas propiedades determinan el número de destino de cada tipo de nodo. Además, para cambiar manualmente el tamaño de un grupo habilitado para el escalado automático (por ejemplo, con [BatchClient.PoolOperations.ResizePoolAsync][net_poolops_resizepoolasync]), primero debe **deshabilitar** el escalado automático en el grupo y, después, cambiar su tamaño.
+> Al crear un grupo habilitado para la escalabilidad automática, no especifique el parámetro _targetDedicatedNodes_ ni el parámetro _targetLowPriorityNodes_ en la llamada a **CreatePool**. En su lugar, especifique las propiedades **AutoScaleEnabled** y **AutoScaleFormula** en el grupo. Los valores de estas propiedades determinan el número de destino de cada tipo de nodo.
 >
->
-
-#### <a name="automatic-scaling-interval"></a>Intervalo de escalado automático
-
-De forma predeterminada, el servicio de Batch ajusta el tamaño de un grupo según su fórmula de escalado automático cada 15 minutos. Este intervalo se puede configurar con las siguientes propiedades de grupo:
-
-* [CloudPool.AutoScaleEvaluationInterval][net_cloudpool_autoscaleevalinterval] (Batch .NET)
-* [autoScaleEvaluationInterval][rest_autoscaleinterval] (API de REST)
-
-Los intervalos mínimo y máximo son cinco minutos y 168 horas, respectivamente. Si se especifica un intervalo que se sitúa fuera de este margen, el servicio de Batch devolverá un error de solicitud incorrecta (400).
-
-> [!NOTE]
-> Actualmente, el escalado automático no está pensado como respuesta inmediata a los cambios, sino para ajustar el tamaño del grupo gradualmente mientras ejecuta una carga de trabajo.
->
->
+> Para cambiar manualmente el tamaño de un grupo habilitado para la escalabilidad automática (por ejemplo, con [BatchClient.PoolOperations.ResizePoolAsync](/dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync)), primero debe deshabilitar el escalado automático en el grupo y, después, cambiar su tamaño.
 
 ### <a name="python"></a>Python
 
-Del mismo modo, puede crear un grupo habilitado para el escalado automático con el SDK de Python:
+Para crear un grupo habilitado para la escalabilidad automática con el SDK de Python:
 
 1. Cree un grupo y especifique su configuración.
 1. Agregue el grupo al cliente del servicio.
 1. Habilite el escalado automático en el grupo con una fórmula que escriba.
+
+En el ejemplo siguiente se ilustran estos pasos.
 
 ```python
 # Create a pool; specify configuration
@@ -446,44 +456,39 @@ new_pool = batch.models.PoolAddParameter(
 batch_service_client.pool.add(new_pool) # Add the pool to the service client
 
 formula = """$curTime = time();
-             $workHours = $curTime.hour >= 8 && $curTime.hour < 18; 
-             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5; 
-             $isWorkingWeekdayHour = $workHours && $isWeekday; 
+             $workHours = $curTime.hour >= 8 && $curTime.hour < 18;
+             $isWeekday = $curTime.weekday >= 1 && $curTime.weekday <= 5;
+             $isWorkingWeekdayHour = $workHours && $isWeekday;
              $TargetDedicated = $isWorkingWeekdayHour ? 20:10;""";
 
 # Enable autoscale; specify the formula
 response = batch_service_client.pool.enable_auto_scale(pool_id, auto_scale_formula=formula,
-                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10), 
-                                            pool_enable_auto_scale_options=None, 
+                                            auto_scale_evaluation_interval=datetime.timedelta(minutes=10),
+                                            pool_enable_auto_scale_options=None,
                                             custom_headers=None, raw=False)
 ```
 
 > [!TIP]
 > Puede encontrar más ejemplos del uso del SDK de Python en el [repositorio de inicio rápido de Python Batch](https://github.com/Azure-Samples/batch-python-quickstart) en GitHub.
->
->
 
 ## <a name="enable-autoscaling-on-an-existing-pool"></a>Habilitación del escalado automático en un grupo existente
 
 Cada SDK de Batch proporciona un método para habilitar el escalado automático. Por ejemplo:
 
-* [BatchClient.PoolOperations.EnableAutoScaleAsync][net_enableautoscaleasync] (Batch .NET)
-* [Activar la escala automática en un grupo de servidores][rest_enableautoscale] (API de REST)
+- [BatchClient.PoolOperations.EnableAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync) (Batch .NET)
+- [Activar la escala automática en un grupo de servidores](/rest/api/batchservice/enable-automatic-scaling-on-a-pool) (API de REST)
 
-Al habilitar el escalado automático en un grupo existente, tenga en cuenta las siguientes cuestiones:
+Al habilitar el escalado automático en un grupo existente, tenga en cuenta lo siguiente:
 
-* Si el escalado automático está deshabilitado en el grupo a la hora de emitir la solicitud para habilitar el escalado automático, debe especificar una fórmula de escalado automático válida al emitir la solicitud. También puede especificar un intervalo de evaluación de escalado automático. Si no especifica un intervalo, se usa el valor predeterminado de 15 minutos.
-* Si el escalado automático está habilitado en el grupo, puede especificar una fórmula de escalado automático, un intervalo de evaluación o ambas cosas. Debe especificar al menos una de estas propiedades.
-
-  * Si especifica un nuevo intervalo de evaluación de escalado automático, la programación de evaluación existente se detiene y se inicia una nueva. La hora de inicio de la nueva programación es la hora a la que se emitió la solicitud para habilitar el escalado automático.
-  * Si se omite la fórmula de escalado automático o el intervalo de evaluación, el servicio Batch sigue usando el valor actual de dicha configuración.
+- Si actualmente el escalado automático está deshabilitado en el grupo, debe especificar una fórmula de escalabilidad automática válida al emitir la solicitud. De manera opcional, puede especificar un intervalo de escalado automático. Si no especifica un intervalo, se usa el valor predeterminado de 15 minutos.
+- Si actualmente el escalado automático está habilitado en el grupo, puede especificar una fórmula nueva, un intervalo nuevo o ambos. Debe especificar al menos una de estas propiedades.
+  - Si especifica un intervalo de escalado automático nuevo, la programación existente se detiene y se inicia una nueva. La hora de inicio de la nueva programación es la hora a la que se emitió la solicitud para habilitar el escalado automático.
+  - Si se omite la fórmula o el intervalo de escalabilidad automática, el servicio Batch sigue usando el valor actual de dicha configuración.
 
 > [!NOTE]
-> Si especificó valores para los parámetros *targetDedicatedNodes* o *targetLowPriorityNodes* del método **CreatePool** al crear el grupo en .NET, o bien para los parámetros comparables en otro lenguaje, dichos valores se omitirán cuando se evalúe la fórmula de escalado automático.
->
->
+> Si especificó valores para los parámetros *targetDedicatedNodes* o *targetLowPriorityNodes* del método **CreatePool** al crear el grupo en .NET, o bien para los parámetros comparables en otro lenguaje, dichos valores se omitirán cuando se evalúe la fórmula de escalabilidad automática.
 
-Este fragmento de código de C# usa la biblioteca [Batch .NET][net_api] para habilitar el escalado automático en un grupo existente:
+Este ejemplo de C# usa la biblioteca [.NET de Batch](/dotnet/api/microsoft.azure.batch) para habilitar el escalado automático en un grupo existente.
 
 ```csharp
 // Define the autoscaling formula. This formula sets the target number of nodes
@@ -518,26 +523,26 @@ await myBatchClient.PoolOperations.EnableAutoScaleAsync(
 
 ## <a name="evaluate-an-autoscale-formula"></a>Evaluación de una fórmula de escalado automático
 
-Puede evaluar una fórmula antes de aplicarla a un grupo. De esta manera puede probar la fórmula para ver cómo se evalúan sus instrucciones antes de usarla en producción.
+Puede evaluar una fórmula antes de aplicarla a un grupo. Esto le permite probar los resultados de la fórmula antes de ponerla en producción.
 
-Para evaluar una fórmula de escalado automático, primero debe habilitar el escalado automático en el grupo con una fórmula válida. Para probar una fórmula en un grupo que aún no tiene habilitado el escalado automático, use la fórmula de una línea `$TargetDedicatedNodes = 0` la primera vez que habilite el escalado automático. A continuación, use uno de los siguientes métodos para evaluar la fórmula que quiere probar:
+Para poder evaluar una fórmula de escalabilidad automática, primero debe habilitar el escalado automático en el grupo con una fórmula válida, como la fórmula de una línea `$TargetDedicatedNodes = 0`. A continuación, use uno de los siguientes métodos para evaluar la fórmula que quiere probar:
 
-* [BatchClient.PoolOperations.EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) o [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
+- [BatchClient.PoolOperations.EvaluateAutoScale](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscale) o [EvaluateAutoScaleAsync](/dotnet/api/microsoft.azure.batch.pooloperations.evaluateautoscaleasync)
 
     Estos métodos .NET de Batch requieren el identificador de un grupo existente y una cadena que contenga la fórmula de escalado automático que se evaluará.
 
-* [Evaluación de una fórmula de escalado automático](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
+- [Evaluación de una fórmula de escalado automático](/rest/api/batchservice/evaluate-an-automatic-scaling-formula)
 
     En esta solicitud de API de REST, especifique el identificador del grupo en el URI y la fórmula de escalado automático en el elemento *autoScaleFormula* del cuerpo de la solicitud. La respuesta de la operación contiene cualquier información de error que pueda relacionarse con la fórmula.
 
-En este fragmento de código de [Batch .NET][net_api] se evalúa una fórmula de escalabilidad automática. Si el grupo no tiene habilitado el escalado automático, lo habilitaremos primero.
+Este ejemplo de [.NET de Batch](/dotnet/api/microsoft.azure.batch) evalúa una fórmula de escalabilidad automática. Si el grupo aún no usa el escalado automático, primero se habilita.
 
 ```csharp
 // First obtain a reference to an existing pool
 CloudPool pool = await batchClient.PoolOperations.GetPoolAsync("myExistingPool");
 
 // If autoscaling isn't already enabled on the pool, enable it.
-// You can't evaluate an autoscale formula on non-autoscale-enabled pool.
+// You can't evaluate an autoscale formula on a non-autoscale-enabled pool.
 if (pool.AutoScaleEnabled == false)
 {
     // We need a valid autoscale formula to enable autoscaling on the
@@ -610,17 +615,17 @@ AutoScaleRun.Results:
 
 ## <a name="get-information-about-autoscale-runs"></a>Obtención de información sobre la ejecución del escalado automático
 
-Para asegurarse de que la fórmula se ejecuta según lo esperado, le recomendamos que compruebe periódicamente los resultados de las ejecuciones de escalado automático que lleva a cabo Batch en su grupo. Para ello, obtenga (o actualice) una referencia al grupo y examine las propiedades de su última ejecución de escalado automático.
+Para asegurarse de que la fórmula se ejecuta según lo esperado, le recomendamos que compruebe periódicamente los resultados de las ejecuciones de escalado automático que lleva a cabo Batch en su grupo. Para ello, obtenga (o actualice) una referencia al grupo y examine las propiedades de su última ejecución de escalabilidad automática.
 
 En Batch .NET, la propiedad [CloudPool.AutoScaleRun](/dotnet/api/microsoft.azure.batch.cloudpool.autoscalerun) tiene varias propiedades que proporcionan información sobre la última ejecución de escalado automático efectuada en el grupo:
 
-* [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
-* [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
-* [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
+- [AutoScaleRun.Timestamp](/dotnet/api/microsoft.azure.batch.autoscalerun.timestamp)
+- [AutoScaleRun.Results](/dotnet/api/microsoft.azure.batch.autoscalerun.results)
+- [AutoScaleRun.Error](/dotnet/api/microsoft.azure.batch.autoscalerun.error)
 
 En la API de REST, la solicitud para [obtener información sobre un grupo](/rest/api/batchservice/get-information-about-a-pool) devuelve información sobre el grupo (por ejemplo, información sobre la última ejecución de escalado automático en la propiedad [autoScaleRun](/rest/api/batchservice/get-information-about-a-pool)).
 
-El siguiente fragmento de código de C# usa la biblioteca Batch .NET para imprimir información sobre la última ejecución de escalado automático en el grupo _myPool_:
+El ejemplo de C# siguiente usa la biblioteca Batch .NET para imprimir información sobre la última ejecución de escalado automático en el grupo _myPool_.
 
 ```csharp
 await Cloud pool = myBatchClient.PoolOperations.GetPoolAsync("myPool");
@@ -629,7 +634,7 @@ Console.WriteLine("Result:" + pool.AutoScaleRun.Results.Replace("$", "\n  $"));
 Console.WriteLine("Error: " + pool.AutoScaleRun.Error);
 ```
 
-Salida de ejemplo del fragmento de código anterior:
+Resultado de la muestra del ejemplo anterior:
 
 ```
 Last execution: 10/14/2016 18:36:43
@@ -661,11 +666,12 @@ $isWorkingWeekdayHour = $workHours && $isWeekday;
 $TargetDedicatedNodes = $isWorkingWeekdayHour ? 20:10;
 $NodeDeallocationOption = taskcompletion;
 ```
+
 `$curTime` se puede ajustar para reflejar la zona horaria local mediante la adición de `time()` al producto de `TimeZoneInterval_Hour` y la diferencia horaria con UTC. Por ejemplo, utilice `$curTime = time() + (-6 * TimeInterval_Hour);` para Hora de verano de las Montañas (MDT). Tenga en cuenta que la diferencia horaria debe ajustarse al principio y al final del horario de verano (si procede).
 
 ### <a name="example-2-task-based-adjustment"></a>Ejemplo 2: Ajuste basado en tareas
 
-En este ejemplo, el tamaño del grupo se ajusta en función del número de tareas en la cola. Las cadenas de la fórmula aceptan tanto comentarios como saltos de línea.
+En este ejemplo de C#, el tamaño del grupo se ajusta en función del número de tareas en la cola. Incluimos tanto comentarios como saltos de línea en las cadenas de la fórmula.
 
 ```csharp
 // Get pending tasks for the past 15 minutes.
@@ -685,16 +691,16 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-3-accounting-for-parallel-tasks"></a>Ejemplo 3: Contabilidad para tareas paralelas
 
-Este ejemplo ajusta el tamaño del grupo en función del número de tareas. Esta fórmula también tiene en cuenta el valor de [MaxTasksPerComputeNode][net_maxtasks] que se ha establecido para el grupo. Este enfoque es útil en aquellas situaciones en las que la [ejecución de tareas paralelas](batch-parallel-node-tasks.md) se ha habilitado en el grupo.
+Este ejemplo de C# ajusta el tamaño del grupo en función del número de tareas. Esta fórmula también tiene en cuenta el valor de [MaxTasksPerComputeNode](/dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode) que se ha establecido para el grupo. Este enfoque es útil en aquellas situaciones en las que la [ejecución de tareas paralelas](batch-parallel-node-tasks.md) se ha habilitado en el grupo.
 
 ```csharp
 // Determine whether 70 percent of the samples have been recorded in the past
 // 15 minutes; if not, use last sample
 $samples = $ActiveTasks.GetSamplePercent(TimeInterval_Minute * 15);
 $tasks = $samples < 70 ? max(0,$ActiveTasks.GetSample(1)) : max( $ActiveTasks.GetSample(1),avg($ActiveTasks.GetSample(TimeInterval_Minute * 15)));
-// Set the number of nodes to add to one-fourth the number of active tasks (the
-// MaxTasksPerComputeNode property on this pool is set to 4, adjust this number
-// for your use case)
+// Set the number of nodes to add to one-fourth the number of active tasks
+// (theMaxTasksPerComputeNode property on this pool is set to 4, adjust
+// this number for your use case)
 $cores = $TargetDedicatedNodes * 4;
 $extraVMs = (($tasks - $cores) + 3) / 4;
 $targetVMs = ($TargetDedicatedNodes + $extraVMs);
@@ -707,15 +713,15 @@ $NodeDeallocationOption = taskcompletion;
 
 ### <a name="example-4-setting-an-initial-pool-size"></a>Ejemplo 4: Configuración de un tamaño de grupo inicial
 
-En este ejemplo se muestra un fragmento de código de C# con una fórmula de escalado automático que establece el tamaño del grupo en un número de nodos específico durante un período de tiempo inicial. A continuación, se ajusta el tamaño del grupo según el número de tareas activas y en ejecución una vez transcurrido el período de tiempo inicial.
+En este ejemplo se muestra un ejemplo de C# con una fórmula de escalabilidad automática que establece el tamaño del grupo en un número de nodos específico durante un período de tiempo inicial. Después, ajusta el tamaño del grupo en función del número de tareas activas y en ejecución.
 
-La fórmula en el siguiente fragmento de código:
+En concreto, esta fórmula realiza lo siguiente:
 
-* Establece el tamaño inicial del grupo en cuatro nodos.
-* No ajusta el tamaño del grupo en los 10 primeros minutos del ciclo de vida del mismo.
-* Después de 10 minutos, obtiene el valor máximo del número de tareas activas y en ejecución en los últimos 60 minutos.
-  * Si ambos valores son 0 (lo que indica que no hay tareas activas o en ejecución en los últimos 60 minutos) el tamaño del grupo se establece en 0.
-  * Si cualquier valor es mayor que cero, no hay cambios.
+- Establece el tamaño inicial del grupo en cuatro nodos.
+- No ajusta el tamaño del grupo en los 10 primeros minutos del ciclo de vida del mismo.
+- Después de 10 minutos, obtiene el valor máximo del número de tareas activas y en ejecución en los últimos 60 minutos.
+  - Si ambos valores son 0 (lo que indica que no hay tareas activas o en ejecución en los últimos 60 minutos) el tamaño del grupo se establece en 0.
+  - Si cualquier valor es mayor que cero, no hay cambios.
 
 ```csharp
 string now = DateTime.UtcNow.ToString("r");
@@ -732,18 +738,5 @@ string formula = string.Format(@"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Maximizar el uso de recursos de proceso de Azure Batch con tareas simultáneas de nodo](batch-parallel-node-tasks.md) contiene detalles acerca de cómo se pueden ejecutar varias tareas simultáneamente en los nodos de proceso en el grupo. Además del escalado automático, esta característica puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
-* Para otro ajuste de la eficacia, asegúrese de que la aplicación Batch consulta el servicio Batch de la manera más óptima. Consulte [Creación de consultas para enumerar los recursos de Batch con eficacia](batch-efficient-list-queries.md) para aprender a limitar la cantidad de datos que atraviesan la conexión al consultar el estado de posiblemente miles de nodos de ejecución o tareas.
-
-[net_api]: /dotnet/api/microsoft.azure.batch
-[net_batchclient]: /dotnet/api/microsoft.azure.batch.batchclient
-[net_cloudpool_autoscaleformula]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleformula
-[net_cloudpool_autoscaleevalinterval]: /dotnet/api/microsoft.azure.batch.cloudpool.autoscaleevaluationinterval
-[net_enableautoscaleasync]: /dotnet/api/microsoft.azure.batch.pooloperations.enableautoscaleasync
-[net_maxtasks]: /dotnet/api/microsoft.azure.batch.cloudpool.maxtaskspercomputenode
-[net_poolops_resizepoolasync]: /dotnet/api/microsoft.azure.batch.pooloperations.resizepoolasync
-
-[rest_api]: /rest/api/batchservice/
-[rest_autoscaleformula]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_autoscaleinterval]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
-[rest_enableautoscale]: /rest/api/batchservice/enable-automatic-scaling-on-a-pool
+- Obtenga información sobre cómo [ejecutar varias tareas de manera simultánea en los nodos de ejecución del grupo](batch-parallel-node-tasks.md). Junto con el escalado automático, esto puede ayudar a reducir la duración del trabajo para algunas cargas de trabajo, lo que permite ahorrar dinero.
+- Obtenga información sobre cómo [consultar de manera eficaz el servicio Azure Batch](batch-efficient-list-queries.md) para obtener una mayor eficacia.

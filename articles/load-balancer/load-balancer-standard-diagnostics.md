@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: allensu
-ms.openlocfilehash: 9003d35ce2eea18aa912a866802b026bb923aa08
-ms.sourcegitcommit: 530e2d56fc3b91c520d3714a7fe4e8e0b75480c8
+ms.openlocfilehash: 034a49793d3a3e416f307741e49446979eb33bb3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81272702"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090457"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico de Standard Load Balancer con métricas, alertas y estado de los recursos
 
@@ -46,6 +46,9 @@ Las distintas configuraciones de Load Balancer Estándar proporcionan las siguie
 | Contadores de bytes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los datos procesados por front-end. Es posible que observe que los bytes no se distribuyen equitativamente entre las instancias de back-end. Se espera que el algoritmo de Azure Load Balancer se base en flujos. | Average |
 | Contadores de paquetes |  Equilibrador de carga interno y público | Load Balancer Estándar informa de los paquetes procesados por front-end.| Average |
 
+  >[!NOTE]
+  >Cuando se usa la distribución del tráfico de un equilibrador de carga interno a través de una NVA o un paquete SYN de firewall, las métricas del contador de bytes y del contador de paquetes no están disponibles y se mostrarán como cero. 
+  
 ### <a name="view-your-load-balancer-metrics-in-the-azure-portal"></a>Visualización de las métricas del equilibrador de carga en Azure Portal
 
 Azure Portal expone las métricas del equilibrador de carga en la página Métricas, que está disponible en la página de recursos del equilibrador de carga de un recurso específico y también en la página de Azure Monitor. 

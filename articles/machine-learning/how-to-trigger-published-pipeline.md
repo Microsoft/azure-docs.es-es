@@ -8,15 +8,15 @@ ms.author: nilsp
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
-ms.topic: how-to
 ms.date: 02/07/2020
-ms.custom: contperfq4
-ms.openlocfilehash: 7d6222b4ea0e30997b3b55adb887c839fef6e624
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.topic: conceptual
+ms.custom: how-to, contperfq4
+ms.openlocfilehash: 6d54945ce026f91b27ce31ba82ada1b0cc49a260
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207420"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324257"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Desencadenamiento de una ejecución de una canalización de Machine Learning desde una aplicación lógica
 

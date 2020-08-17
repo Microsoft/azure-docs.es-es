@@ -8,14 +8,14 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jopapa
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-javascript
 ms.reviewer: sngun
-ms.openlocfilehash: 64085c55376ec85e20244abb452c2e365aa0aeec
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: e9cb30ca64fe697f9b8304f55381709083b8fbd2
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85114391"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87424246"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---build-the-ui-with-angular"></a>Creación de una aplicación de Angular con la API de Azure Cosmos DB para MongoDB: Compilación de la interfaz de usuario con Angular
 
@@ -41,7 +41,7 @@ Antes de iniciar esta parte del tutorial, asegúrese de que ha completado los pa
 
 ## <a name="build-the-ui"></a>Creación de la interfaz de usuario
 
-1. En Visual Studio Code, haga clic en el botón Detener ![Botón Detener en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png) para detener la aplicación de Node.
+1. En Visual Studio Code, haga clic en el botón Detener :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/stop-button.png"::: para detener la aplicación Node. 
 
 2. En la ventana del símbolo del sistema de Windows o Terminal de Mac, escriba el siguiente comando para generar un componente Heroes. En este código, g = generar, c = componente, heroes = nombre del componente, y se usa una estructura de archivo plano (--flat) por lo que no se crea una subcarpeta.
 
@@ -486,7 +486,7 @@ Ahora que tenemos el componente, ¿cómo se consigue que se muestre en la pantal
 
     Ahora vamos a ejecutar la aplicación.
 
-2. En Visual Studio Code, haga clic en el botón **Depurar**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png) en el lado izquierdo y haga clic en el botón **Iniciar depuración**![Icono Depurar en Visual Studio Code](./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png).
+2. En Visual Studio Code, haga clic en el botón **Depurar** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part2/debug-button.png"::: de la izquierda y en **Iniciar depuración** :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part3/start-debugging-button.png":::.
 
 3. Ahora, abra un explorador de Internet y vaya a **localhost:3000** para ver la aplicación que se ejecuta localmente.
 

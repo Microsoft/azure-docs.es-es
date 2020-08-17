@@ -1,30 +1,34 @@
 ---
 title: Creación de una instancia de Database Migration Service (plantilla de Azure Resource Manager)
-description: Aprenda a crear una instancia de Database Migration Service mediante una plantilla de Azure Resource Manager.
+description: Aprenda a crear una instancia de Database Migration Service mediante una plantilla de Azure Resource Manager (plantilla de ARM).
 author: MashaMSFT
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mathoma
 ms.date: 06/29/2020
 ms.service: dms
-ms.openlocfilehash: 9e0d537a948e960c90737cc3f367940a0ffca74c
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: dbc09c3fa1dc1878d4feea5c5e7fd8b68e0c11f1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85852483"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537452"
 ---
-# <a name="create-instance-of-azure-database-migration-service-azure-resource-manager-template"></a>Creación de una instancia de Azure Database Migration Service (plantilla de Azure Resource Manager)
+# <a name="quickstart-create-instance-of-azure-database-migration-service-using-arm-template"></a>Inicio rápido: Creación de una instancia de Azure Database Migration Service con una plantilla de ARM
 
-Use esta plantilla de Azure Resource Manager para implementar una instancia de Azure Database Migration Service. 
+Use esta plantilla de Azure Resource Manager (plantilla de ARM) para implementar una instancia de Azure Database Migration Service. 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-database-migration-simple-deploy%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 La plantilla de Resource Manager de Azure Database Migration Service requiere: 
 
-- La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7). 
+- La versión más reciente de la [CLI de Azure](/cli/azure/install-azure-cli) o [PowerShell](/powershell/scripting/install/installing-powershell). 
 - Suscripción a Azure. Si no tiene una, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
@@ -39,7 +43,7 @@ En la plantilla se definen tres recursos de Azure:
 - [Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets): Crea la subred. 
 - [Microsoft.DataMigration/services](/azure/templates/microsoft.datamigration/services): implementa una instancia de Azure Database Migration Service. 
 
-Encontrará más plantillas de Azure Database Migration Service en la [galería de plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration).
+Encontrará más plantillas de Azure Database Migration Service en la [galería de plantillas de inicio rápido](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Datamigration&pageNumber=1&sort=Popular).
 
 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
@@ -105,7 +109,7 @@ Write-Host "Press [ENTER] to continue..."
 Para obtener un tutorial paso a paso que le guíe en el proceso de creación de una plantilla, consulte:
 
 > [!div class="nextstepaction"]
-> [ Tutorial: Creación e implementación de la primera plantilla de Azure Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
+> [ Tutorial: Creación e implementación de su primera plantilla de Resource Manager](/azure/azure-resource-manager/templates/template-tutorial-create-first-template)
 
 Para conocer otras formas de implementar Azure Database Migration Service, consulte: 
 - [Azure Portal](quickstart-create-data-migration-service-portal.md)

@@ -3,16 +3,16 @@ title: 'Tutorial: Stream Analytics en el área perimetral con Azure IoT Edge'
 description: En este tutorial, va a implementar Azure Stream Analytics como un módulo en un dispositivo de Iot Edge.
 author: kgremban
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 62ee95db0e3b35c996cb4ee68d772a21c00778fb
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: c259e913a8ee5181bc58aea651af62324cf01fcb
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220285"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439414"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Tutorial: Implementación de Azure Stream Analytics como un módulo de IoT Edge
 
@@ -134,7 +134,7 @@ Mediante los tres elementos de entrada, salida y consulta, esta sección crea un
     HAVING Avg(machine.temperature) > 70
     ```
 
-1. Seleccione **Guardar**.
+1. Seleccione **Guardar consulta**.
 
 ### <a name="configure-iot-edge-settings"></a>Configuración de los valores de IoT Edge
 
@@ -189,7 +189,7 @@ En este tutorial se implementan dos módulos. La primera opción es **SimulatedT
 
 1. Seleccione **Update** (Actualizar) o **Cancel** (Cancelar).
 
-1. Anote el nombre de su módulo de Stream Analytics, ya que lo necesitará en el paso siguiente. Luego, seleccione **Siguiente: Rutas** para continuar.
+1. Anote el nombre del módulo de Stream Analytics, ya que lo necesitará en el paso siguiente. Después, seleccione **Next (Siguiente): Rutas** para continuar.
 
 1. En la pestaña **Rutas**, se define cómo se pasan los mensajes entre los módulos de IoT Hub. Los mensajes se construyen mediante pares de nombre-valor. Reemplace el par de nombre-valor `route` y `upstream` predeterminado por los que se muestran en la siguiente tabla (los siguientes pares de nombre-valor) y reemplace las instancias de _{moduleName}_ por el nombre de su módulo de Azure Stream Analytics.
 

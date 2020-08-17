@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: 5f4b48dfbef7362a0b49e53a17b080e127701c94
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8d94acabb434d0e722e352de46197a86e994e145
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86199874"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290035"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>¿Qué es el aprendizaje automático automatizado (AutoML)?
 
@@ -136,7 +136,7 @@ Para habilitar esta configuración, realice lo siguiente:
 
 + Azure Machine Learning Studio: Habilite **Automatic featurization** (Características automáticas) en la sección **View additional configuration** (Ver configuración adicional) siguiendo [estos pasos](how-to-use-automated-ml-for-ml-models.md#customize-featurization).
 
-+ SDK de Python: Especifique `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` en el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). Obtenga más información sobre cómo [habilitar la caracterización](how-to-configure-auto-features.md). 
++ SDK de Python: Especifique `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'` en el objeto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig). Más información sobre cómo [habilitar la ingeniería de características](how-to-configure-auto-features.md). 
 
 ## <a name="ensemble-models"></a><a name="ensemble"></a> Modelos de conjunto
 
@@ -289,7 +289,7 @@ Los artículos de procedimientos proporcionan información adicional sobre la fu
 
 ### <a name="jupyter-notebook-samples"></a>Muestras de cuaderno de Jupyter 
 
-Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de Github para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
+Revise los ejemplos de código y los casos de uso detallados en el repositorio del [cuaderno de GitHub para obtener muestras de aprendizaje automático automatizado](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/).
 
 ### <a name="python-sdk-reference"></a>Referencia de SDK de Python 
 

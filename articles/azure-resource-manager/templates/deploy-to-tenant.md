@@ -2,13 +2,13 @@
 title: Implementación de recursos en el inquilino
 description: Se describe cómo implementar recursos en el ámbito de un inquilino en una plantilla de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 05/08/2020
-ms.openlocfilehash: 45541bcbea5a80e55dbc9f80e1eae8e17189bf6e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: a6523ff70dc7307713bb6aecf90e2ea9f8e2bfdd
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84945450"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321758"
 ---
 # <a name="create-resources-at-the-tenant-level"></a>Creación de recursos en el nivel de inquilino
 
@@ -16,15 +16,32 @@ A medida que crece la organización, es posible que necesite definir y asignar [
 
 ## <a name="supported-resources"></a>Recursos compatibles
 
-Puede implementar los siguientes tipos de recursos en el nivel de inquilino:
+No todos los tipos de recursos se pueden implementar a nivel de inquilino. En esta sección se enumeran los tipos de recursos que se admiten.
 
-* [deployments](/azure/templates/microsoft.resources/deployments): para plantillas anidadas que se implementan en grupos de administración o suscripciones.
-* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+Para las directivas de Azure, use:
+
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
 * [policySetDefinitions](/azure/templates/microsoft.authorization/policysetdefinitions)
+
+Para el control de acceso basado en rol, use:
+
 * [roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
 * [roleDefinitions](/azure/templates/microsoft.authorization/roledefinitions)
+
+Para plantillas anidadas que se implementan en grupos de administración, suscripciones o grupos de recursos, use:
+
+* [deployments](/azure/templates/microsoft.resources/deployments)
+
+Para crear grupos de administración, use:
+
+* [managementGroups](/azure/templates/microsoft.management/managementgroups)
+
+Para la administración de costos, use:
+
+* [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
+* [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
 
 ### <a name="schema"></a>Schema
 
@@ -93,6 +110,56 @@ En el caso de las implementaciones de nivel de inquilino, debe proporcionar una 
 Puede proporcionar un nombre para la implementación o usar el nombre de implementación predeterminado. El nombre predeterminado es el nombre del archivo de plantilla. Por ejemplo, al implementar una plantilla llamada **azuredeploy.json**, se crea un nombre de predeterminado **azuredeploy**.
 
 Para cada nombre de implementación, la ubicación es inmutable. No se puede crear una implementación en una ubicación si ya existe una implementación con el mismo nombre en otra ubicación. Si recibe el código de error `InvalidDeploymentLocation`, use un nombre diferente o utilice la ubicación de la implementación anterior que tenía ese mismo nombre.
+
+## <a name="deployment-scopes"></a>Ámbitos de implementación
+
+Durante la implementación en un inquilino, puede tener como destino el inquilino o grupos de administración, suscripciones y grupos de recursos del inquilino. El usuario que implementa la plantilla debe tener acceso al ámbito especificado.
+
+Los recursos definidos en la sección de recursos de la plantilla se aplican al inquilino.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "resources": [
+        tenant-level-resources
+    ],
+    "outputs": {}
+}
+```
+
+Para establecer como destino un grupo de administración dentro del inquilino, agregue una implementación anidada y especifique la propiedad `scope`.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-08-01/tenantDeploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "mgName": {
+            "type": "string"
+        }
+    },
+    "variables": {
+        "mgId": "[concat('Microsoft.Management/managementGroups/', parameters('mgName'))]"
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Resources/deployments",
+            "apiVersion": "2020-06-01",
+            "name": "nestedMG",
+            "scope": "[variables('mgId')]",
+            "location": "eastus",
+            "properties": {
+                "mode": "Incremental",
+                "template": {
+                    nested-template
+                }
+            }
+        }
+    ],
+    "outputs": {}
+}
+```
 
 ## <a name="use-template-functions"></a>Usar funciones de plantillas
 

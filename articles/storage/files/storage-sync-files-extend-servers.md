@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: eb00234fb7522c763dbaa910bee99cf327bebaf1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 80fcebec76788ca9ec754b35c57f9965f38c2c0e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77597905"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037106"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
@@ -259,9 +259,8 @@ Tras la instalación del agente de Azure File Sync, la interfaz de usuario de Re
 
    ![Captura de pantalla de la interfaz de usuario Registro del servidor](media/storage-sync-files-extend-servers/signin.png)
 
-   | | |
-   | ----- | ----- |
    | Value | Descripción |
+   | ----- | ----- |
    | **Suscripción de Azure** | La suscripción que contiene el servicio de sincronización de almacenamiento de este tutorial. |
    | **Grupo de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento. Use _afsresgroup101918_ para este tutorial. |
    | **Servicio de sincronización de almacenamiento** | El nombre del servicio de sincronización de almacenamiento. Use _afssyncservice02_ para este tutorial. |
@@ -301,9 +300,8 @@ Un punto de conexión del servidor representa una ubicación concreta en un serv
 
 1. En el panel **Agregar punto de conexión del servidor**, escriba la siguiente información para crear un punto de conexión del servidor:
 
-   | | |
-   | ----- | ----- |
    | Value | Descripción |
+   | ----- | ----- |
    | **Servidor registrado** | El nombre del servidor que ha creado. Use *afsvm101918* para este tutorial. |
    | **Path** | La ruta de acceso del servidor de Windows Server a la unidad que ha creado. Use *f:\filestosync* en este tutorial. |
    | **Nube por niveles** | Déjelo deshabilitado para este tutorial. |

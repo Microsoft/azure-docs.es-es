@@ -12,13 +12,13 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-- tracking-python
-ms.openlocfilehash: 1b3a97a11c8d5782b8b7577d6afccbbdaadea0e7
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+- devx-track-python
+ms.openlocfilehash: 7014e39492033b241d05cb670083d5b6277fac6e
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85116577"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87872946"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Inicio rápido: Compilación de una aplicación de Python mediante una cuenta de SQL API de Azure Cosmos DB
 

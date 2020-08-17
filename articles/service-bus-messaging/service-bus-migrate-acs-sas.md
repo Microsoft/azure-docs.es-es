@@ -3,16 +3,16 @@ title: 'Azure Service Bus: Migración a la autorización de firma de acceso comp
 description: Aprenda a migrar desde Azure Active Directory Access Control Service a la autorización de firma de acceso compartido.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 9ef6eda205af150a20236da68e1b6b1dbf91059e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8cd12ac97020417f9958beded1fd198dd485fff
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340116"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88064628"
 ---
 # <a name="service-bus---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Service Bus: Migración desde Azure Active Directory Access Control Service a la autorización de firma de acceso compartido
 
-Las aplicaciones de Service Bus tenían la posibilidad anteriormente de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](service-bus-sas.md), proporcionado directamente por Service Bus, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio del servicio de recopilación de auditorías (ACS) de [Azure Active Directory](/azure/active-directory/), y los tokens obtenidos de ACS se pasaban a Service Bus para autorizar el acceso a las funciones que se querían.
+Las aplicaciones de Service Bus tenían la posibilidad anteriormente de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](service-bus-sas.md), proporcionado directamente por Service Bus, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio del servicio de recopilación de auditorías (ACS) de [Azure Active Directory](../active-directory/index.yml), y los tokens obtenidos de ACS se pasaban a Service Bus para autorizar el acceso a las funciones que se querían.
 
 Hace tiempo que el modelo de autorización ACS se sustituyó por la [autorización de SAS](service-bus-authentication-and-authorization.md) como modelo preferido y en toda la documentación, instrucciones y ejemplos de hoy día se usa SAS única y exclusivamente. Es más, ya no se pueden crear espacios de nombres de Service Bus que se emparejen con ACS.
 
@@ -56,4 +56,3 @@ Para más información sobre la autenticación de Service Bus, vea los siguiente
 
 * [Autenticación y autorización de Service Bus](service-bus-authentication-and-authorization.md)
 * [Autenticación en Service Bus con Firmas de acceso compartido](service-bus-sas.md)
-

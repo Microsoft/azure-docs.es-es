@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 3adb94709d089e2f1d106680acc00c08d2203a4d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 766fb9fbe50f8a138eae020082680204872a653a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340876"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87315452"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Registros de Azure Monitor para proveedores de servicios
 
@@ -19,9 +19,9 @@ Las áreas de trabajo de Log Analytics de Azure Monitor pueden ayudar a proveedo
 
 Las grandes empresas comparten muchas similitudes con los proveedores de servicios, especialmente cuando hay un equipo de TI centralizado que es responsable de la administración de TI de muchas unidades de negocio diferentes. Por motivos de simplicidad, este documento utiliza el término "*proveedor de servicios*", pero la misma funcionalidad también está disponible para empresas y otros clientes.
 
-Para los asociados y proveedores de servicios que forman parte del programa [Proveedor de soluciones en la nube (CSP)](https://partner.microsoft.com/en-US/membership/cloud-solution-provider), Log Analytics de Azure Monitor es uno de los servicios de Azure disponibles en las suscripciones de CSP de Azure.
+Para los asociados y proveedores de servicios que forman parte del programa [Proveedor de soluciones en la nube (CSP)](https://partner.microsoft.com/membership/cloud-solution-provider), Log Analytics de Azure Monitor es uno de los servicios de Azure disponibles en las suscripciones de CSP de Azure.
 
-Los proveedores de servicios que administran recursos de clientes a través de la funcionalidad de administración de recursos delegados de Azure en [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) también pueden usar Log Analytics de Azure Monitor.
+Los proveedores de servicios que administran recursos de clientes a través de la funcionalidad de administración de recursos delegados de Azure en [Azure Lighthouse](../../lighthouse/overview.md) también pueden usar Log Analytics de Azure Monitor.
 
 ## <a name="architectures-for-service-providers"></a>Arquitecturas de proveedores de servicios
 
@@ -35,12 +35,12 @@ En esta arquitectura, el área de trabajo se implementa en el inquilino del clie
 
 Los administradores de proveedores de servicios disponen de dos métodos para obtener acceso a un área de trabajo de Log Analytics en un inquilino del cliente:
 
-- Un cliente puede agregar usuarios individuales desde el proveedor de servicios como [usuarios invitados de Azure Active Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). Los administradores del proveedor de servicios tendrán que iniciar sesión en el directorio de cada cliente en Azure Portal para poder acceder a estas áreas de trabajo. Esto también requiere que los clientes administren el acceso individual de cada administrador del proveedor de servicios.
-- Para mejorar la escalabilidad y la flexibilidad, los proveedores de servicios pueden usar la funcionalidad de [administración de recursos delegados de Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management) de [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) para acceder al inquilino del cliente. Con este método, los administradores de proveedores de servicios se incluyen en un grupo de usuarios de Azure AD en el inquilino del proveedor de servicios. Se concede acceso a este grupo durante el proceso de incorporación de cada cliente. Posteriormente, estos administradores pueden acceder a las áreas de trabajo de cada cliente desde su propio inquilino del proveedor de servicios, en lugar de tener que iniciar sesión en el inquilino de cada cliente individualmente. Esta forma de acceder a los recursos de las áreas de trabajo de Log Analytics de los clientes reduce el trabajo que debe llevar a cabo el cliente y puede facilitar la recopilación y el análisis de los datos entre varios clientes administrados por el mismo proveedor de servicios a través de herramientas como [Workbooks de Azure Monitor](https://docs.microsoft.com/azure//azure-monitor/platform/workbooks-overview). Para obtener más información, consulte [Supervisión de los recursos del cliente a escala](https://docs.microsoft.com/azure/lighthouse/how-to/monitor-at-scale).
+- Un cliente puede agregar usuarios individuales desde el proveedor de servicios como [usuarios invitados de Azure Active Directory (B2B)](../../active-directory/b2b/what-is-b2b.md). Los administradores del proveedor de servicios tendrán que iniciar sesión en el directorio de cada cliente en Azure Portal para poder acceder a estas áreas de trabajo. Esto también requiere que los clientes administren el acceso individual de cada administrador del proveedor de servicios.
+- Para mejorar la escalabilidad y la flexibilidad, los proveedores de servicios pueden usar la funcionalidad de [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md) de [Azure Lighthouse](../../lighthouse/overview.md) para acceder al inquilino del cliente. Con este método, los administradores de proveedores de servicios se incluyen en un grupo de usuarios de Azure AD en el inquilino del proveedor de servicios. Se concede acceso a este grupo durante el proceso de incorporación de cada cliente. Posteriormente, estos administradores pueden acceder a las áreas de trabajo de cada cliente desde su propio inquilino del proveedor de servicios, en lugar de tener que iniciar sesión en el inquilino de cada cliente individualmente. Esta forma de acceder a los recursos de las áreas de trabajo de Log Analytics de los clientes reduce el trabajo que debe llevar a cabo el cliente y puede facilitar la recopilación y el análisis de los datos entre varios clientes administrados por el mismo proveedor de servicios a través de herramientas como [Workbooks de Azure Monitor](./workbooks-overview.md). Para obtener más información, consulte [Supervisión de los recursos del cliente a escala](../../lighthouse/how-to/monitor-at-scale.md).
 
 Las ventajas de la arquitectura distribuida son las siguientes:
 
-* El cliente puede confirmar niveles específicos de permisos a través de la [administración de recursos delegados de Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management), o bien administrar el acceso a los registros mediante su propio [acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/overview).
+* El cliente puede confirmar niveles específicos de permisos a través de la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md), o bien administrar el acceso a los registros mediante su propio [acceso basado en roles](../../role-based-access-control/overview.md).
 * Los registros se pueden recopilar en todos los tipos de recursos, no solo en datos de VM basados en agente. Por ejemplo, registros de auditoría de Azure.
 * Cada cliente puede tener diferentes valores para su área de trabajo, como la retención y límite de datos.
 * El aislamiento entre los clientes con respecto a las disposiciones legales y el cumplimiento.
@@ -75,18 +75,19 @@ La tercera arquitectura es una mezcla de las dos opciones. Se basa en la primera
 
 Hay dos opciones para implementar registros en una ubicación central:
 
-1. Área de trabajo central: el proveedor de servicios puede crear un área de trabajo en su inquilino y usar un script que use [Query API](https://dev.loganalytics.io/) con [Data Collection API](../../azure-monitor/platform/data-collector-api.md) para traer los datos de las diversas áreas de trabajo a esta ubicación central. Otra opción diferente del script es usar [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
+1. Área de trabajo central: el proveedor de servicios puede crear un área de trabajo en su inquilino y usar un script que use [Query API](https://dev.loganalytics.io/) con [Data Collection API](./data-collector-api.md) para traer los datos de las diversas áreas de trabajo a esta ubicación central. Otra opción diferente del script es usar [Azure Logic Apps](../../logic-apps/logic-apps-overview.md).
 
-2. Power BI como ubicación central: Power BI puede funcionar como ubicación central cuando las diversas áreas de trabajo exportan datos a él mediante la integración entre el área de trabajo de Log Analytics y [Power BI](../../azure-monitor/platform/powerbi.md).
+2. Power BI como ubicación central: Power BI puede funcionar como ubicación central cuando las diversas áreas de trabajo exportan datos a él mediante la integración entre el área de trabajo de Log Analytics y [Power BI](./powerbi.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Automatice la creación y configuración de áreas de trabajo con [plantillas de Resource Manager](template-workspace-configuration.md).
 
-* Automatice la creación de áreas de trabajo con [PowerShell](../../azure-monitor/platform/powershell-workspace-configuration.md).
+* Automatice la creación de áreas de trabajo con [PowerShell](./powershell-workspace-configuration.md).
 
-* Use [alertas](../../azure-monitor/platform/alerts-overview.md) para integrarse con sistemas existentes.
+* Use [alertas](./alerts-overview.md) para integrarse con sistemas existentes.
 
-* Genere informes de resumen con [Power BI](../../azure-monitor/platform/powerbi.md).
+* Genere informes de resumen con [Power BI](./powerbi.md).
 
-* Incorpore clientes a la [administración de recursos delegados de Azure](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management).
+* Incorpore clientes a la [administración de recursos delegados de Azure](../../lighthouse/concepts/azure-delegated-resource-management.md).
+

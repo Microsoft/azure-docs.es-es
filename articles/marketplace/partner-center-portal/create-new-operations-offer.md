@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: 621d657f527e5307ed3a0b583e4c9171005d4f8c
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 553fd4e49d274fcf4c25356764182d54b91149e4
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121863"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88036647"
 ---
 # <a name="create-a-dynamics-365-for-operations-offer"></a>Creación de una oferta de Dynamics 365 for Operations
 
@@ -186,6 +186,8 @@ Proporcione al menos un documento de marketing relacionado (y un máximo de tres
 
 En esta sección, puede proporcionar logotipos e imágenes que se usarán al mostrar la oferta al cliente. Todas las imágenes deben estar en formato .PNG.
 
+[!INCLUDE [logotips](../includes/graphics-suggestions.md)]
+
 >[!Note]
 >Si tiene un problema al cargar archivos, asegúrese de que la red local no bloquee el servicio https://upload.xboxlive.com que usa el Centro de partners.
 
@@ -196,6 +198,7 @@ Proporcione el logotipo de la oferta en dos tamaños de píxel:
 - **Pequeño (48 x 48)**
 - **Grande (216 x 216)**
 
+[!INCLUDE [logos-appsource-only](../includes/logos-appsource-only.md)]
 
 #### <a name="screenshots"></a>Capturas de pantalla
 
@@ -295,7 +298,7 @@ Si es la primera vez que publica esta oferta, puede:
     - **No iniciada**: Significa que la sección no se ha modificado y se debe completar.
     - **Incompleta**: Significa que la sección tiene errores que deben corregirse o que requiere más información. Vuelva a las secciones y actualícelas.
     - **Completa**: Significa que la sección está completa, que se han proporcionado todos los datos necesarios y que no hay ningún error. Para poder enviar la oferta, todas sus secciones deben estar en estado Completa.
-- En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación.
+- En la sección **Notas para la certificación**, envíe instrucciones para la realización de pruebas al equipo de certificación para asegurarse de que la aplicación se prueba correctamente, además de todas las notas adicionales que pueden resultar útiles para conocer la aplicación. Para obtener más información sobre las instrucciones de prueba y la finalización de una primera publicación, vea [Validación funcional de Dynamics 365 Finance and Operations de AppSource](https://docs.microsoft.com/azure/marketplace/dynamics-365-finance-operations-functional-validation).
 - Enviar la oferta para su publicación, para lo que debe seleccionar **Enviar**. Le enviaremos un correo electrónico que le avise cuando haya una versión preliminar de la oferta disponible para su revisión y aprobación. Vuelva al Centro de partners y seleccione **Publicar** para ofrecer la oferta al público.
 
 ## <a name="next-step"></a>Paso siguiente

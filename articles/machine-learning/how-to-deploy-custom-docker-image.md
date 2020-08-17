@@ -5,18 +5,18 @@ description: Aprenda a usar una imagen base de Docker personalizada al implement
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 8ad3ec9f257289abab1c2d881a798a43a2c1d8ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 76eed22052b8c9fe2cc849e68dd926ef2c85208a
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84976768"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843222"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Implementación de un modelo con una imagen base de Docker personalizada
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -49,7 +49,7 @@ Este documento se divide en dos secciones:
 * La[CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * La [extensión de la CLI para Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Una instancia de [Azure Container Registry](/azure/container-registry) u otro registro de Docker accesible en Internet.
-* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para obtener más información, consulte la sección sobre la preparación de la implementación de [Dónde implementar y cómo](how-to-deploy-and-where.md#prepare-to-deploy).
+* En este documento, se da por hecho que está familiarizado con la creación y el uso de un objeto de __configuración de inferencia__ como parte de la implementación de modelos. Para más información, consulte [Dónde y cómo implementar](how-to-deploy-and-where.md).
 
 ## <a name="create-a-custom-base-image"></a>Creación de una imagen base personalizada
 
@@ -76,7 +76,7 @@ Para la información de esta sección, se da por supuesto que usa Azure Containe
 
     * Ubuntu 16.04 o posterior.
     * Conda 4.5.# o posterior.
-    * Python 3.5.# o 3.6.#.
+    * Python 3.5.#, 3.6.# o 3.7.#.
 
 <a id="getname"></a>
 

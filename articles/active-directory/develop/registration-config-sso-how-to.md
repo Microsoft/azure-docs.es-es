@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.openlocfilehash: 9b6451d29a3a874e09d74cbe664662a395b647f9
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: 465adbb71abaa45160399ecba2ebfb692a8307c2
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82890466"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120684"
 ---
 # <a name="how-to-configure-single-sign-on-for-an-application"></a>Para configurar el inicio de sesión único para una aplicación
 
@@ -26,20 +26,20 @@ El inicio de sesión único federado (SSO) de la aplicación se habilita automá
 
 * Si está creando una aplicación móvil, tendrá que configurar otras opciones para habilitar el SSO con y sin intermediación.
 
-En el caso de Android, consulte [Habilitación de SSO entre aplicaciones en Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android).<br>
+En el caso de Android, consulte [Habilitación de SSO entre aplicaciones en Android](../azuread-dev/howto-v1-enable-sso-android.md).<br>
 
-En el caso de iOS, consulte [Habilitación del inicio de sesión único entre aplicaciones en iOS ](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios).
+En el caso de iOS, consulte [Habilitación del inicio de sesión único entre aplicaciones en iOS ](../azuread-dev/howto-v1-enable-sso-ios.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[SSO en Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)<br>
+[SSO en Azure AD](../manage-apps/what-is-single-sign-on.md)<br>
 
-[Habilitación de SSO entre aplicaciones en Android](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-android)<br>
+[Habilitación de SSO entre aplicaciones en Android](../azuread-dev/howto-v1-enable-sso-android.md)<br>
 
-[Habilitación del inicio de sesión único entre aplicaciones en iOS](https://docs.microsoft.com/azure/active-directory/develop/active-directory-sso-ios)<br>
+[Habilitación del inicio de sesión único entre aplicaciones en iOS](../azuread-dev/howto-v1-enable-sso-ios.md)<br>
 
-[Integración de aplicaciones con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)<br>
+[Integración de aplicaciones con Azure Active Directory](./quickstart-register-app.md)<br>
 
-[Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes)<br>
+[Permisos y consentimiento en el punto de conexión de la Plataforma de identidad de Microsoft](./v2-permissions-and-consent.md)<br>
 
 [Azure AD en StackOverflow](https://stackoverflow.com/questions/tagged/azure-active-directory)

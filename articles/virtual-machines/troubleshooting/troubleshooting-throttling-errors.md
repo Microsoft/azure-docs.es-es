@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: changov
 ms.reviewer: vashan, rajraj
-ms.openlocfilehash: f5fbd80fc9a8e519cf8f49ab16d7e747c6a8171b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b1cc8a43423ecd33218948aaa001fc34877eac60
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76045362"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074285"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solución de problemas de errores de limitación de API 
 
@@ -26,7 +26,7 @@ Las solicitudes de Azure Compute pueden limitarse en una suscripción y en una r
 
 ## <a name="throttling-by-azure-resource-manager-vs-resource-providers"></a>Limitaciones efectuadas por Azure Resource Manager frente a limitaciones efectuadas por proveedores de recursos  
 
-Al actuar como puerta de entrada de Azure, Azure Resource Manager se encarga de la autenticación, la validación de primer orden y la limitación de todas las solicitudes de API. Los límites de frecuencia de llamada de Azure Resource Manager y los encabezados HTTP de respuesta de diagnóstico relacionados se describen [aquí](https://docs.microsoft.com/azure/azure-resource-manager/management/request-limits-and-throttling).
+Al actuar como puerta de entrada de Azure, Azure Resource Manager se encarga de la autenticación, la validación de primer orden y la limitación de todas las solicitudes de API. Los límites de frecuencia de llamada de Azure Resource Manager y los encabezados HTTP de respuesta de diagnóstico relacionados se describen [aquí](../../azure-resource-manager/management/request-limits-and-throttling.md).
  
 Cuando se produce un error de limitación en un cliente de API de Azure, el estado HTTP es "429 Demasiadas solicitudes". Para comprender si la limitación de solicitudes se está realizando mediante Azure Resource Manager o un proveedor de recursos subyacente, como CRP, inspeccione las solicitudes GET de `x-ms-ratelimit-remaining-subscription-reads` y las solicitudes que no son GET de `x-ms-ratelimit-remaining-subscription-writes`. Si el número de llamadas restante está próximo a 0, significa que se ha alcanzado el límite general de llamadas de la suscripción definido por Azure Resource Manager. Las actividades de todos los clientes de la suscripción se cuentan de forma conjunta. De lo contrario, la limitación procede del proveedor de recursos de destino (el especificado por el segmento `/providers/<RP>` de la dirección URL de la solicitud). 
 
@@ -79,8 +79,8 @@ Tal y como se ilustra arriba, todos los errores de limitación contienen el enca
 
 ## <a name="api-call-rate-and-throttling-error-analyzer"></a>Frecuencia de llamadas API y analizador de errores de limitación
 Hay una versión preliminar de una característica de solución de problemas disponible para la API del proveedor de recursos de Compute. Estos cmdlets de PowerShell proporcionan estadísticas sobre la frecuencia de solicitudes de la API por intervalo de tiempo en función de la operación, así como infracciones de limitación según el grupo de operación (directiva):
--   [Export-AzLogAnalyticRequestRateByInterval](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
--   [Export-AzLogAnalyticThrottledRequest](https://docs.microsoft.com/powershell/module/az.compute/export-azloganalyticthrottledrequest)
+-   [Export-AzLogAnalyticRequestRateByInterval](/powershell/module/az.compute/export-azloganalyticrequestratebyinterval)
+-   [Export-AzLogAnalyticThrottledRequest](/powershell/module/az.compute/export-azloganalyticthrottledrequest)
 
 Las estadísticas de la llamada API pueden proporcionar conclusiones valiosas sobre el comportamiento de los clientes de la suscripción y permiten identificar fácilmente los patrones de llamada que provocan una limitación.
 
@@ -100,4 +100,4 @@ Los cmdlets de PowerShell usan una API REST de servicio, a la que los clientes p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información sobre la guía de reintentos de otros servicios de Azure, consulte [Guía de reintentos para servicios específicos](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+Para más información sobre la guía de reintentos de otros servicios de Azure, consulte [Guía de reintentos para servicios específicos](/azure/architecture/best-practices/retry-service-specific).

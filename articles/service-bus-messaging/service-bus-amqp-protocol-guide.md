@@ -3,12 +3,12 @@ title: Guía del protocolo AMQP 1.0 en Azure Service Bus y Event Hubs | Microsof
 description: Guía del protocolo para expresiones y la descripción de AMQP 1.0 en Azure Service Bus y Event Hubs
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 79132ef7105de8de2261c35258006af3f0a665a5
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 5957e2d36b57be7db1af279736e8859d1a69b66b
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186918"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86511320"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guía del protocolo AMQP 1.0 Azure Service Bus y Event Hubs
 
@@ -48,7 +48,7 @@ La fuente con mayor autoridad para aprender cómo funciona AMQP es la especifica
 
 AMQP llama a los programas de comunicación *contenedores*, que contienen *nodos*, unas entidades que se comunican dentro de estos contenedores. Una cola puede ser uno de esos nodos. AMQP permite la multiplexación, por lo que se puede usar una sola conexión para muchas rutas de comunicación entre los nodos; por ejemplo, un cliente de aplicación puede recibir al mismo tiempo desde una cola y enviar a otra cola a través de la misma conexión de red.
 
-![][1]
+![Diagrama que muestra las sesiones y conexiones entre los conectores.][1]
 
 Por lo tanto, la conexión de red está anclada en el contenedor. El contenedor la inicia en el rol de cliente, realizando una conexión de socket TCP saliente a un contenedor en el rol de receptor, que escucha y acepta las conexiones TCP entrantes. El protocolo de enlace de conexión incluye negociar la versión del protocolo, declarar o negociar el uso de la seguridad de nivel de transporte (TLS/SSL) y un protocolo de enlace de autenticación y autorización en el ámbito de la conexión que se basa en SASL.
 
@@ -84,7 +84,7 @@ Un cliente de .NET producirá un error SocketException ("Intento de obtener acce
 
 AMQP transfiere los mensajes a través de vínculos. Un vínculo es una ruta de comunicación creada en una sesión que permite transferir mensajes en un sentido; la negociación de estado de la transferencia es a través del vínculo y bidireccional entre las partes conectadas.
 
-![][2]
+![Captura de pantalla que muestra una sesión que ha establecido una conexión de vínculo entre dos contenedores.][2]
 
 Cualquier contenedor pueden crear vínculos en cualquier momento en una sesión existente, lo que hace que AMQP sea diferente de muchos otros protocolos, incluidos HTTP y MQTT, donde la iniciación de las transferencias y la ruta de la transferencia es un privilegio exclusivo de la parte que se crea la conexión de socket.
 
@@ -100,7 +100,7 @@ El cliente que se conecta también debe usar un nombre de nodo local para crear 
 
 Una vez establecido un vínculo, los mensajes se pueden transferir a través de ese vínculo. En AMQP, se realiza una transferencia con un gesto de protocolo explícito (el performativo *transfer*) que mueve un mensaje del remitente al receptor a través de un vínculo. Una transferencia está completa cuando que se "determina", lo que significa que ambas partes han establecido una conocimiento compartido del resultado de esa transferencia.
 
-![][3]
+![Diagrama que muestra la transferencia de un mensaje entre el remitente y el receptor y la disposición resultante.][3]
 
 En el caso más simple, el remitente puede enviar mensajes "previamente determinados", lo que significa que el cliente no está interesado en el resultado y el receptor no proporciona ningún comentario sobre el resultado de la operación. Este modo es compatible con Service Bus en el nivel del protocolo AMQP, pero no se expone en ninguna de las API de cliente.
 
@@ -120,7 +120,7 @@ Para compensar posibles envíos duplicados, Service Bus admite la detección de 
 
 Además del modelo de control de flujo en el nivel de sesión que se ha tratado anteriormente, cada vínculo tiene su propio modelo de control de flujo. El control de flujo en el nivel de sesión protege el contenedor para que no tenga que controlar muchas tramas de una vez; el control de flujo de nivel de vínculo pone la aplicación a cargo de cuántos mensajes desea controlar desde un vínculo y cuándo.
 
-![][4]
+![Captura de pantalla de un registro que muestra los campos origen, destino, puerto de origen, puerto de destino y nombre del protocolo. En la primera fila, el puerto de destino 10401 (0x28 A 1) está marcado en negro.][4]
 
 En un vínculo, las transferencias solo se pueden producir si el remitente tiene suficiente *crédito del vínculo*. El crédito del vínculo es un contador establecido por el receptor con el performativo *flow*, que tiene un ámbito en un vínculo. Cuando el remitente tiene crédito del vínculo asignado, intenta utilizar ese crédito con la entrega de mensajes. Cada entrega de mensajes reduce en uno el crédito del vínculo restante. Cuando se agota el crédito del vínculo, las entregas se detienen.
 

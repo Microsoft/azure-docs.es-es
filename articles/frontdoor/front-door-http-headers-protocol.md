@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: bb1de5d51afd01cf0aa519f12aa3665bee804efd
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: a1060cbf1b2204c3feba413b8c8ce0cba58941c6
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79471683"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799130"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door"></a>Admisión de protocolos para encabezados HTTP en Azure Front Door
 Este artículo describe el protocolo que admite el servicio Front Door con partes de la ruta de acceso de llamada (consulte la imagen). Las secciones siguientes proporcionan más información acerca de los encabezados HTTP admitidos por el servicio Front Door.
@@ -44,6 +44,7 @@ Front Door incluye encabezados de una solicitud entrante a menos que se quite d
 | X-Forwarded-Host | X-Forwarded-Host: contoso.azurefd.net </br> El campo de encabezado HTTP X-Forwarded-Host es un método común utilizado para identificar el host original solicitado por el cliente en el encabezado de solicitud HTTP del host. Esto es porque el nombre de host de Front Door puede diferir del servidor back-end que controla la solicitud. |
 | X-Forwarded-Proto | X-Forwarded-Proto: http </br> El campo de encabezado HTTP X-Forwarded-Proto a menudo se usa para identificar el protocolo de origen de una solicitud HTTP porque Front Door, según la configuración, podría comunicarse con el back-end a través de HTTPS. Esto es cierto incluso si la solicitud para el proxy inverso es HTTP. |
 | X-FD-HealthProbe | El campo de encabezado HTTP X-FD-HealthProbe se usa para identificar el sondeo de estado de Front Door. Si este encabezado se establece en 1, la solicitud es el sondeo de estado. Puede usarse cuando desee establecer un acceso estricto desde una instancia determinada de Front Door con el campo de encabezado X-Forwarded-Host. |
+|X-Azure-FDID | Encabezado X-Azure-FDID: 437c82cd-360a-4a54-94c3-5ff707647783 </br> Este campo contiene frontdoorID, que se puede usar para identificar la instancia de Front Door de la que procede la solicitud entrante. Este campo lo rellena el servicio de Front Door. | 
 
 ## <a name="front-door-to-client"></a>Front Door al cliente
 
@@ -55,7 +56,7 @@ Los encabezados enviados a Front Door desde el back-end se pasan también al cl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Cree una instancia de Front Door](quickstart-create-front-door.md)
+- [Creación de una instancia de Front Door](quickstart-create-front-door.md)
 - Información acerca de cómo [funciona Front Door](front-door-routing-architecture.md)
 
 <!--Image references-->

@@ -1,6 +1,6 @@
 ---
 title: Creación de canalizaciones de datos predictivos
-description: 'Obtenga información sobre cómo crear una canalización predictiva mediante el uso de Azure Machine Learning: actividad de ejecución de Batch en Azure Data Factory.'
+description: 'Obtenga información sobre cómo crear una canalización predictiva mediante el uso de Azure Machine Learning Studio (clásico): actividad de ejecución de lotes en Azure Data Factory.'
 author: nabhishek
 ms.author: abnarain
 manager: shwang
@@ -9,29 +9,30 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/20/2019
-ms.openlocfilehash: 26ba4c3da0bcfa36874e7b31241839c138809cec
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 07/16/2020
+ms.openlocfilehash: dabb7b8cd8023fe88a8c8d6dc507a09623bd11dd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84019901"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537687"
 ---
-# <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning y Azure Data Factory
+# <a name="create-a-predictive-pipeline-using-azure-machine-learning-studio-classic-and-azure-data-factory"></a>Creación de canalizaciones predictivas con Azure Machine Learning Studio (clásico) y Azure Data Factory
+
 > [!div class="op_single_selector" title1="Seleccione la versión del servicio Data Factory que usa:"]
 > * [Versión 1](v1/data-factory-azure-ml-batch-execution-activity.md)
 > * [Versión actual](transform-data-using-machine-learning.md)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
+[Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, probar e implementar soluciones de análisis predictivo. Desde una perspectiva general, esto se realiza en tres pasos:
 
 1. **Crear un experimento de entrenamiento**. Este paso se lleva a cabo utilizando Azure Machine Learning Studio (clásico). Azure Machine Learning Studio (clásico) es un entorno de desarrollo visual de colaboración que se emplea para entrenar y probar un modelo de análisis predictivo con datos de entrenamiento.
 2. **Convertirlo en un experimento predictivo**. Una vez que el modelo se ha entrenado con datos existentes y está listo para usarlo para puntuar nuevos datos, debe preparar y simplificar el experimento para la puntuación.
 3. **Implementarlo como un servicio web**. Puede publicar el experimento de puntuación como un servicio web de Azure. Los usuarios pueden enviar datos al modelo a través de este punto de conexión de servicio web y recibir las predicciones de resultado para el modelo.
 
-### <a name="data-factory-and-machine-learning-together"></a>Data Factory y Machine Learning juntos
-Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning) publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio (clásico) para realizar predicciones sobre los datos en el lote.
+### <a name="data-factory-and-azure-machine-learning-studio-classic-together"></a>Data Factory y Azure Machine Learning Studio (clásico) juntos
+Azure Data Factory permite crear fácilmente canalizaciones que usan un servicio web de [Azure Machine Learning Studio (clásico)](https://azure.microsoft.com/documentation/services/machine-learning) publicado para realizar análisis predictivos. Con la **actividad de ejecución de lotes** en una canalización de Azure Data Factory, puede invocar un servicio web de Azure Machine Learning Studio (clásico) para realizar predicciones sobre los datos en el lote.
 
 Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación de Azure Machine Learning Studio (clásico) tienen que volver a entrenarse con nuevos conjuntos de datos de entrada. Puede volver a entrenar un modelo de una canalización de Data Factory realizando los pasos siguientes:
 
@@ -40,9 +41,9 @@ Pasado algún tiempo, los modelos predictivos en los experimentos de puntuación
 
 Cuando haya terminado el reentrenamiento, actualice el servicio web de puntuación (experimento predictivo expuesto como servicio web) con el modelo recién entrenado utilizando la **actividad de actualización de recurso de Azure Machine Learning Studio (clásico)** . Para obtener más información, consulte el artículo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Actualización de modelos mediante la actividad de recursos de actualización).
 
-## <a name="azure-machine-learning-linked-service"></a>Servicio vinculado de Azure Machine Learning
+## <a name="azure-machine-learning-studio-classic-linked-service"></a>Servicio vinculado de Azure Machine Learning Studio (clásico)
 
-Un servicio vinculado de **Azure Machine Learning** se crea para vincular un servicio web de Azure Machine Learning a Azure Data Factory. El servicio vinculado lo usan la actividad de ejecución de Batch de Azure Machine Learning y la [actividad de actualización de recurso](update-machine-learning-models.md).
+Un servicio vinculado de **Azure Machine Learning Studio (clásico)** se crea para vincular un servicio web de Azure Machine Learning Studio (clásico) a Azure Data Factory. El servicio vinculado lo usan la actividad de ejecución de Batch de Azure Machine Learning Studio (clásico) y la [actividad de actualización de recurso](update-machine-learning-models.md).
 
 ```JSON
 {
@@ -67,13 +68,13 @@ Un servicio vinculado de **Azure Machine Learning** se crea para vincular un ser
 
 Vea en el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de proceso) una descripción de las propiedades en la definición de JSON.
 
-Azure Machine Learning admite los servicios web clásicos y los nuevos servicios web para el experimento predictivo. Puede elegir el servicio más adecuado desde Data Factory. Para obtener la información necesaria para crear el servicio vinculado de Azure Machine Learning, vaya a https://services.azureml.net, donde se indican todos los servicios web (nuevos) y los servicios web clásicos. Seleccione el servicio web al que le gustaría tener acceso y haga clic en la página **Consumir**. Copie **Clave principal** en la propiedad **apiKey** y **Batch Requests** (Solicitudes por lotes) en la propiedad **mlEndpoint**.
+Azure Machine Learning Studio (clásico) admite los servicios web clásicos y los nuevos servicios web para el experimento predictivo. Puede elegir el servicio más adecuado desde Data Factory. Para obtener la información necesaria para crear el servicio vinculado de Azure Machine Learning Studio (clásico), vaya a https://services.azureml.net, donde se indican todos los servicios web (nuevos) y los servicios web clásicos. Seleccione el servicio web al que le gustaría tener acceso y haga clic en la página **Consumir**. Copie **Clave principal** en la propiedad **apiKey** y **Batch Requests** (Solicitudes por lotes) en la propiedad **mlEndpoint**.
 
-![Servicios web de Azure Machine Learning](./media/transform-data-using-machine-learning/web-services.png)
+![Servicios web de Azure Machine Learning Studio (clásico)](./media/transform-data-using-machine-learning/web-services.png)
 
-## <a name="azure-machine-learning-batch-execution-activity"></a>Actividad de ejecución de Batch de Azure Machine Learning
+## <a name="azure-machine-learning-studio-classic-batch-execution-activity"></a>Actividad de ejecución de lotes de Azure Machine Learning Studio (clásico)
 
-El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure Machine Learning. La definición de actividad tiene una referencia al servicio vinculado de Azure Machine Learning que ha creado anteriormente.
+El siguiente fragmento JSON define una actividad de ejecución de lotes de Azure Machine Learning Studio (clásico). La definición de actividad tiene una referencia al servicio vinculado de Azure Machine Learning Studio (clásico) que ha creado anteriormente.
 
 ```JSON
 {
@@ -130,19 +131,18 @@ El siguiente fragmento JSON define una actividad de ejecución de Batch de Azure
 | name              | Nombre de la actividad en la canalización     | Sí      |
 | description       | Texto que describe para qué se usa la actividad.  | No       |
 | type              | Para la actividad de U-SQL de Data Lake Analytics, el tipo de actividad es **AzureMLBatchExecution**. | Sí      |
-| linkedServiceName | Servicios vinculados al servicio vinculado de Azure Machine Learning. Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
-| webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | No       |
-| webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning. La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning. El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | No       |
+| linkedServiceName | Servicios vinculados al servicio vinculado de Azure Machine Learning Studio (clásico). Para obtener más información sobre este servicio vinculado, vea el artículo [Compute linked services](compute-linked-services.md) (Servicios vinculados de procesos). | Sí      |
+| webServiceInputs  | Pares clave-valor que asignan los nombres de entradas del servicio web de Azure Machine Learning Studio (clásico). La clave debe coincidir con los parámetros de entrada definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de entrada. | No       |
+| webServiceOutputs | Pares clave-valor que asignan los nombres de salidas del servicio web de Azure Machine Learning Studio (clásico). La clave debe coincidir con los parámetros de salida definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). El valor es un par de propiedades FilePath y servicios vinculados de Azure Storage que especifica las ubicaciones del blob de salida. | No       |
 | globalParameters  | Pares clave-valor que se pasan al punto de conexión del servicio de ejecución por lotes de Azure Machine Learning Studio (clásico). Las claves tienen que coincidir con los nombres de los parámetros del servicio web definidos en el servicio web publicado de Azure Machine Learning Studio (clásico). Los valores se pasan en la propiedad GlobalParameters de la solicitud de ejecución por lotes de Azure Machine Learning Studio (clásico) | No       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>Escenario 1: experimentos mediante entradas y salidas de servicios web que hacen referencia a datos de Azure Blob Storage
 
-En este escenario, el servicio web de Azure Machine Learning realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. Se hace referencia a los datos de entrada y salida en Azure Blob Storage mediante un par LinkedName y FilePath. En el servicio vinculado de ejemplo las entradas y salidas son diferentes, puede usar servicios vinculados diferentes para cada una de las entradas o salidas, de modo que Data Factory pueda seleccionar los archivos correctos y enviarlos al servicio web de Azure Machine Learning Studio (clásico).
+En este escenario, el servicio web de Azure Machine Learning Studio (clásico) realiza predicciones mediante datos de un archivo de un almacenamiento de blobs de Azure y almacena los resultados de predicción en el almacenamiento de blobs. El siguiente JSON define una canalización de Data Factory con una actividad AzureMLBatchExecution. Se hace referencia a los datos de entrada y salida en Azure Blob Storage mediante un par LinkedName y FilePath. En el servicio vinculado de ejemplo las entradas y salidas son diferentes, puede usar servicios vinculados diferentes para cada una de las entradas o salidas, de modo que Data Factory pueda seleccionar los archivos correctos y enviarlos al servicio web de Azure Machine Learning Studio (clásico).
 
 > [!IMPORTANT]
 > En el experimento de Azure Machine Learning Studio (clásico), los puertos de entrada y salida del servicio web y los parámetros globales tienen nombres predeterminados ("input1", "input2") que se pueden personalizar. Los nombres que se utilizan para la configuración de globalParameters, webServiceOutputs y webServiceInputs deben coincidir exactamente con los de los experimentos. Puede ver la carga útil de la solicitud de ejemplo en la página de ayuda de ejecución por lotes del punto de conexión de Azure Machine Learning Studio (clásico) para comprobar la asignación esperada.
->
->
+
 
 ```JSON
 {
@@ -196,10 +196,8 @@ Al usar los módulos Importar datos y Exportar datos, es recomendable emplear un
 
 > [!NOTE]
 > Las entradas y salidas de servicio web son diferentes de los parámetros de servicio web. En el primer escenario, ha visto cómo pueden especificarse una entrada y una salida para un servicio web de Azure Machine Learning Studio (clásico). En este escenario, se pasan parámetros para un servicio web que corresponden a las propiedades de los módulos Importar datos y Exportar datos.
->
->
 
-Echemos un vistazo a un escenario de uso de parámetros de servicio web. Tiene un servicio web de Azure Machine Learning implementado que usa un módulo lector para leer datos de uno de los orígenes de datos compatibles con Azure Machine Learning (por ejemplo: Azure SQL Database). Después de realizar la ejecución de lotes, los resultados se escriben con un módulo escritor (Azure SQL Database).  No hay entradas ni salidas de servicio web definidas en los experimentos. En este caso, se recomienda que configure los parámetros de servicio web pertinentes para los módulos lector y escritor. De esta forma, se podrán configurar los módulos lector y escritor cuando se use la actividad AzureMLBatchExecution. Los parámetros de servicio web se especifican en la sección **globalParameters** de la actividad JSON como se indica a continuación.
+Echemos un vistazo a un escenario de uso de parámetros de servicio web. Tiene un servicio web de Azure Machine Learning Studio (clásico) implementado que usa un módulo lector para leer datos de uno de los orígenes de datos compatibles con Azure Machine Learning Studio (clásico) (por ejemplo: Azure SQL Database). Después de realizar la ejecución de lotes, los resultados se escriben con un módulo escritor (Azure SQL Database).  No hay entradas ni salidas de servicio web definidas en los experimentos. En este caso, se recomienda que configure los parámetros de servicio web pertinentes para los módulos lector y escritor. De esta forma, se podrán configurar los módulos lector y escritor cuando se use la actividad AzureMLBatchExecution. Los parámetros de servicio web se especifican en la sección **globalParameters** de la actividad JSON como se indica a continuación.
 
 ```JSON
 "typeProperties": {
@@ -214,7 +212,6 @@ Echemos un vistazo a un escenario de uso de parámetros de servicio web. Tiene u
 
 > [!NOTE]
 > Los parámetros de servicio web distinguen entre mayúsculas y minúsculas para garantizar que los nombres que especifica en JSON de actividad coinciden con los que muestra el servicio web.
->
 
 Cuando haya terminado el reentrenamiento, actualice el servicio web de puntuación (experimento predictivo expuesto como servicio web) con el modelo recién entrenado utilizando la **actividad de actualización de recurso de Azure Machine Learning Studio (clásico)** . Para obtener más información, consulte el artículo [Updating models using Update Resource Activity](update-machine-learning-models.md) (Actualización de modelos mediante la actividad de recursos de actualización).
 

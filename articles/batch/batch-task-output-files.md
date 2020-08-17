@@ -2,14 +2,14 @@
 title: Almacenamiento de datos de salida en Azure Storage con la API del servicio Batch
 description: Aprenda a usar la API del servicio Batch para guardar datos de salida de trabajos y tareas de Batch en Azure Storage.
 ms.topic: how-to
-ms.date: 03/05/2019
+ms.date: 07/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 24e9f242b3c71965984534ac986031757bbc8420
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 964ffea2ed1536dc1851aefc03c735cb08ba7ed7
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143508"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475624"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Almacenamiento de datos de tareas en Azure Storage con la API del servicio Batch
 
@@ -19,6 +19,9 @@ La API del servicio Batch permite almacenar datos de salida en Azure Storage par
 
 Una ventaja de utilizar la API del servicio Batch para guardar la salida de las tareas es que no es necesario modificar la aplicación que la tarea ejecuta. En su lugar, con unas modificaciones en la aplicación cliente, puede almacenar la salida de las tareas desde dentro del mismo código que crea la tarea.
 
+> [!IMPORTANT]
+> Conservar los datos de tareas en Azure Storage con la API del servicio Batch no funciona con los grupos creados antes del [1 de febrero de 2018](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md#1204).
+
 ## <a name="when-do-i-use-the-batch-service-api-to-persist-task-output"></a>¿Cuándo debo usar la API del servicio Batch para almacenar la salida de tarea?
 
 Azure Batch proporciona más de una manera de guardar las salidas de tareas. El uso de la API de servicio de Batch es el método más adecuado para estos escenarios:
@@ -26,9 +29,9 @@ Azure Batch proporciona más de una manera de guardar las salidas de tareas. El 
 - Desea escribir código para guardar la salida de las tareas desde dentro de la aplicación cliente, sin modificar la aplicación que la tarea ejecuta.
 - Quiere guardar las salidas de las tareas y trabajos del administrador de Batch en grupos creados con la configuración de máquina virtual.
 - Quiere guardar salidas en un contenedor de Azure Storage con un nombre arbitrario.
-- Quiere almacenar salidas en un contenedor de Azure Storage denominado según el [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files). 
+- Quiere almacenar salidas en un contenedor de Azure Storage denominado según el [estándar de convenciones de archivo de Batch](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files).
 
-Si su escenario es diferente de los mencionados anteriormente, considere la adopción de un enfoque diferente. Por ejemplo, la API del servicio Batch no admite actualmente la transmisión de la salida a Azure Storage mientras se ejecuta la tarea. Para transmitir salidas, considere el uso de la biblioteca de convenciones de archivo de Batch, disponible para. NET. Para otros lenguajes, debe implementar su propia solución. Para más información sobre otras opciones para guardar la salida de tareas, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md).
+Si su escenario es diferente de los mencionados anteriormente, considere la adopción de un enfoque diferente. Por ejemplo, la API del servicio Batch no admite actualmente la transmisión de la salida a Azure Storage mientras se ejecuta la tarea. Para transmitir salidas, considere el uso de la biblioteca de convenciones de archivo de Batch, disponible para. NET. Para otros lenguajes, debe implementar su propia solución. Para obtener información sobre otras opciones para guardar la salida de tareas, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md).
 
 ## <a name="create-a-container-in-azure-storage"></a>Creación de un contenedor en Azure Storage
 
@@ -89,6 +92,9 @@ new CloudTask(taskId, "cmd /v:ON /c \"echo off && set && (FOR /L %i IN (1,1,1000
 }
 ```
 
+> [!NOTE]
+> Si usa este ejemplo con Linux, asegúrese de cambiar las barras diagonales inversas por barras diagonales.
+
 ### <a name="specify-a-file-pattern-for-matching"></a>Especifique un patrón de archivos para buscar coincidencias
 
 Cuando especifica un archivo de salida, puede usar la propiedad [OutputFile.FilePattern](/dotnet/api/microsoft.azure.batch.outputfile.filepattern#Microsoft_Azure_Batch_OutputFile_FilePattern) para especificar un patrón de archivos para buscar coincidencias. El patrón de archivos puede no coincidir con ningún archivo, coincidir con un solo archivo o con un conjunto de archivos creados por la tarea.
@@ -147,7 +153,7 @@ Code: FileUploadContainerNotFound
 Message: One of the specified Azure container(s) was not found while attempting to upload an output file
 ```
 
-En cada carga de archivos, Batch escribe dos archivos de registro en el nodo de proceso, `fileuploadout.txt` y `fileuploaderr.txt`. Puede examinar estos archivos de registro para obtener más información sobre un error específico. En aquellos casos en los que la carga de archivos nunca llegó a comenzar, por ejemplo, porque no se pudo ejecutar la tarea propiamente dicha, estos archivos de registro no existen.
+En cada carga de archivos, Batch escribe dos archivos de registro en el nodo de proceso, `fileuploadout.txt` y `fileuploaderr.txt`. Puede examinar estos archivos de registro para obtener más información sobre un error específico. En aquellos casos en los que la carga de archivos nunca se intentó, por ejemplo, porque no se pudo ejecutar la tarea propiamente dicha, estos archivos de registro no existen.
 
 ## <a name="diagnose-file-upload-performance"></a>Diagnóstico del rendimiento de la carga de archivos
 
@@ -169,7 +175,7 @@ Si va a desarrollar con un lenguaje distinto de C#, tendrá que implementar el e
 
 ## <a name="code-sample"></a>Código de ejemplo
 
-El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los [ejemplos de código de Azure Batch][github_samples] de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de cliente para .NET de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
+El proyecto de ejemplo [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs) es uno de los [ejemplos de código de Azure Batch](https://github.com/Azure/azure-batch-samples) de GitHub. Esta solución de Visual Studio muestra cómo utilizar la biblioteca de cliente para .NET de Azure Batch para guardar la salida de las tareas en un almacenamiento duradero. Para ejecutar el ejemplo, siga estos pasos:
 
 1. Abra el proyecto en **Visual Studio 2019**.
 2. Agregue las **credenciales de cuenta** de Batch y Storage a **AccountSettings.settings** al proyecto Microsoft.Azure.Batch.Samples.Common.
@@ -181,8 +187,5 @@ El proyecto de ejemplo [PersistOutputs][github_persistoutputs] es uno de los [ej
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre el almacenamiento de salidas de tareas con la biblioteca File Conventions para .NET, consulte [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md) (Almacenamiento de datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo de Batch para .NET).
+- Para más información sobre el almacenamiento de salidas de tareas con la biblioteca File Conventions para .NET, consulte [Guardar datos de trabajos y tareas en Azure Storage con la biblioteca de convenciones de archivo para .NET](batch-task-output-file-conventions.md).
 - Para más información sobre otros métodos para guardar la salida de tareas en Azure Batch, consulte [Guardar salidas de trabajos y tareas en Azure Storage](batch-task-output.md).
-
-[github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
-[github_samples]: https://github.com/Azure/azure-batch-samples

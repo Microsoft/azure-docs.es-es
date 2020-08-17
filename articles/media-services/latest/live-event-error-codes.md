@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/4/2020
 ms.author: inhenkel
-ms.openlocfilehash: e039a240465478e86ce816890219e5dfaa07dfbf
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791058"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000958"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de error de eventos en directo de Media Services
 
@@ -26,7 +26,7 @@ En las tablas de esta sección se enumeran los códigos de error de [eventos en 
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Al suscribirse a los eventos de [Event Grid](https://docs.microsoft.com/azure/event-grid/) para un evento en directo, es posible que vea uno de los siguientes errores del evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected).
+Al suscribirse a los eventos de [Event Grid](../../event-grid/index.yml) para un evento en directo, es posible que vea uno de los siguientes errores del evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected).
 
 | Código de resultado | Descripción |
 | ----------- | ----------- |

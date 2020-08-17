@@ -5,12 +5,12 @@ author: emaher
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
-ms.openlocfilehash: a3601010eae614049b4af5aa2ddbcdc6acda21cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9fc0a965869207ba8d1b4eb6f45e878ae4b93c3a
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444886"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079029"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configuración de un laboratorio para administración y desarrollo con SQL Server
 
@@ -86,7 +86,7 @@ La imagen elegida anteriormente incluye [Visual Studio 2019 Community](https:/
 
 Visual Studio contiene el conjunto de herramientas **Almacenamiento y procesamiento de datos**, que incluye SQL Server Data Tools (SSDT).  Para más información sobre las funcionalidades de SSDT, consulte [Información general sobre SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/sql-server-data-tools?view=sql-server-ver15).  Para comprobar que la conexión de la clase a la instancia de SQL Server compartida se realizará sin problemas, consulte [cómo conectar con una base de datos y examinar objetos existentes](https://docs.microsoft.com/sql/ssdt/how-to-connect-to-a-database-and-browse-existing-objects?view=sql-server-ver15). Si se le solicita, agregue la dirección IP de la máquina de la plantilla a la [lista de equipos permitidos](https://docs.microsoft.com/azure/azure-sql/database/firewall-configure) que pueden conectarse a la instancia de SQL Server.
 
-Visual Studio admite varias cargas de trabajo, entre ellas **Web y nube** y **Dispositivos móviles y de escritorio**.  Estas dos cargas de trabajo son compatibles con SQL Server como origen de datos. Para más información sobre el uso de ASP.NET Core para SQL Server, consulte el tutorial [Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnetcore-sqldb).  Use la biblioteca [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) para conectarse a una base de datos de SQL Database desde una aplicación de [Xamarin](https://docs.microsoft.com/xamarin).
+Visual Studio admite varias cargas de trabajo, entre ellas **Web y nube** y **Dispositivos móviles y de escritorio**.  Estas dos cargas de trabajo son compatibles con SQL Server como origen de datos. Para más información sobre el uso de ASP.NET Core para SQL Server, consulte el tutorial [Compilación de una aplicación ASP.NET Core y SQL Database en Azure App Service](https://docs.microsoft.com/azure/app-service/tutorial-dotnetcore-sqldb-app).  Use la biblioteca [System.Data.SqlClient](https://docs.microsoft.com/dotnet/api/system.data.sqlclient) para conectarse a una base de datos de SQL Database desde una aplicación de [Xamarin](https://docs.microsoft.com/xamarin).
 
 ## <a name="install-azure-data-studio"></a>Instalación de Azure Data Studio
 

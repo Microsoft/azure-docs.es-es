@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 01/21/2020
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 7e4f1141a9d4bd58451782e8412063a22565556d
-ms.sourcegitcommit: 3c318f6c2a46e0d062a725d88cc8eb2d3fa2f96a
+ms.openlocfilehash: a9f9463cd1cac49e36ea52cafaf4d07f4e709ca7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2020
-ms.locfileid: "80584529"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053250"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
@@ -158,34 +158,34 @@ En la tabla siguiente se muestra cómo pueden aplicarse las opciones de filtrado
 
 |Nombre de entidad|Nombre de propiedad|Filter|Pedido de|
 |---|---|---|---|
-|[Recursos](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` y `desc`|
+|[Recursos](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` y `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` y `desc`|
-|[Directivas de claves de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
+|[Directivas de claves de contenido](/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[Trabajos](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` y `desc`|
+|[Trabajos](/rest/api/media/jobs)| name  | `eq`            | `asc` y `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` y `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` y `desc`| 
-|[Localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
+|[Localizadores de streaming](/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
-|[Directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
+|[Directivas de streaming](/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` y `desc`|
-|[Transformaciones](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` y `desc`|
+|[Transformaciones](/rest/api/media/transforms)| name | `eq`            | `asc` y `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` y `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` y `desc`|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Enumeración de recursos](https://docs.microsoft.com/rest/api/media/assets/list)
-* [Enumeración de directivas de claves de contenido](https://docs.microsoft.com/rest/api/media/contentkeypolicies/list)
-* [Enumeración de trabajos](https://docs.microsoft.com/rest/api/media/jobs/list)
-* [Enumeración de directivas de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
-* [Enumeración de localizadores de streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
+* [Enumeración de recursos](/rest/api/media/assets/list)
+* [Enumeración de directivas de claves de contenido](/rest/api/media/contentkeypolicies/list)
+* [Enumeración de trabajos](/rest/api/media/jobs/list)
+* [Enumeración de directivas de streaming](/rest/api/media/streamingpolicies/list)
+* [Enumeración de localizadores de streaming](/rest/api/media/streaminglocators/list)
 * [Streaming de un archivo](stream-files-dotnet-quickstart.md)
 * [Cuotas y límites](limits-quotas-constraints.md)

@@ -143,6 +143,9 @@
           href: cluster-security-certificates.md
         - name: Administración de certificados en Service Fabric
           href: cluster-security-certificate-management.md
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad para Azure Security Benchmark
           href: security-baseline.md
     - name: Terminología
@@ -632,7 +635,7 @@
             - name: Configuración de integración continua con Azure Pipelines
               href: ./service-fabric-tutorial-deploy-app-with-cicd-vsts.md
             - name: Implementación de aplicaciones Linux con Jenkins
-              href: service-fabric-cicd-your-linux-applications-with-jenkins.md
+              href: /azure/developer/jenkins/deploy-to-service-fabric-cluster
     - name: Instalación y configuración de proxy inverso
       items:
         - name: Instalación y configuración de proxy inverso
@@ -668,7 +671,7 @@
                 - name: Escalado horizontal mediante programación
                   href: service-fabric-cluster-programmatic-scaling.md
                 - name: Escalado vertical del tipo de nodo principal
-                  href: service-fabric-scale-up-node-type.md
+                  href: service-fabric-scale-up-primary-node-type.md
                 - name: Adición de un tipo de nodo
                   href: virtual-machine-scale-set-scale-node-type-scale-out.md
                 - name: Eliminación de un tipo de nodo

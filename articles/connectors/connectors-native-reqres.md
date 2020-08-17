@@ -7,12 +7,12 @@ ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
 tags: connectors
-ms.openlocfilehash: 25aafee59c7f5f7ae59aa2fd7871de8926907f68
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261375"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289443"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Recepción y respuesta de solicitudes HTTPS entrantes en Azure Logic Apps
 
@@ -24,7 +24,7 @@ Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el desencadenador
 
 * Reciba una llamada HTTPS de otra aplicación lógica, y responda e ella.
 
-El desencadenador de solicitud admite [Azure Active Directory Open Authentication](/azure/active-directory/develop/) (Azure AD OAuth) para autorizar llamadas entrantes a la aplicación lógica. Para obtener más información sobre la habilitación de esta autenticación, vea [Proteger el acceso y los datos en Azure Logic Apps - Habilitación de la autenticación Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+El desencadenador de solicitud admite [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) para autorizar llamadas entrantes a la aplicación lógica. Para obtener más información sobre la habilitación de esta autenticación, vea [Proteger el acceso y los datos en Azure Logic Apps - Habilitación de la autenticación Azure AD OAuth](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -36,7 +36,7 @@ El desencadenador de solicitud admite [Azure Active Directory Open Authenticatio
 
 ## <a name="transport-layer-security-tls"></a>Seguridad de la capa de transporte (TLS)
 
-* Las llamadas de entrada *solo* admiten Seguridad de la capa de transporte (TLS) 1.2. Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. Para más información, consulte [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem). Las llamadas de salida admiten TLS 1.0, 1.1 y 1.2, en función de la capacidad del punto de conexión de destino.
+* Las llamadas de entrada *solo* admiten Seguridad de la capa de transporte (TLS) 1.2. Si obtiene errores de protocolo de enlace TLS, asegúrese de usar TLS 1.2. Para más información, consulte [Solución del problema de TLS 1.0](/security/solving-tls1-problem). Las llamadas de salida admiten TLS 1.0, 1.1 y 1.2, en función de la capacidad del punto de conexión de destino.
 
 * Las llamadas de entrada admiten estos conjuntos de cifrado:
 
@@ -287,3 +287,4 @@ La aplicación lógica solo mantiene abierta la solicitud entrante durante un [t
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Conectores de Logic Apps](../connectors/apis-list.md)
+

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: d2a14a501ebcf0913804ce39019a3fa4018ca141
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 0ed237debc2395ed307658b2d57a541574f9478a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362380"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284156"
 ---
 # <a name="add-parameters-to-commands"></a>Adición de parámetros a comandos
 
@@ -47,7 +47,7 @@ Edite el comando **TurnOn** existente para encender y apagar varios dispositivos
        > [!div class="mx-imgBorder"]
        > ![Crear respuesta de parámetro requerida](media/custom-commands/add-required-on-off-parameter-response.png)
    
-   1. Ahora, se configurarán las propiedades de los parámetros. Para obtener una explicación de todas las propiedades de configuración de un comando, vaya a [referencias](./custom-commands-references.md). Configure el resto de las propiedades del parámetro de la manera siguiente:
+   1. Ahora, se configurarán las propiedades de los parámetros. Para obtener una explicación de todas las propiedades de configuración de un comando, vaya a [referencias](./custom-commands-references.md). Configure las propiedades del parámetro como se indica a continuación:
       
 
        | Configuración      | Valor sugerido     | Descripción                                                      |
@@ -61,9 +61,11 @@ Edite el comando **TurnOn** existente para encender y apagar varios dispositivos
        | Valores de entrada predefinidos     | `on`, `off`           | Conjunto de valores posibles y sus alias         |
        
         
-   1. Para agregar valores de entrada predefinidos, seleccione **Agregar una entrada predefinida** y, en la ventana **Nuevo elemento**, escriba **Nombre** como se indica en la tabla anterior. En este caso, no usamos alias, por lo que puede dejarlo en blanco. 
-    > [!div class="mx-imgBorder"]
-        > ![Crear parámetro](media/custom-commands/create-on-off-parameter.png)
+   1. Para agregar valores de entrada predefinidos, seleccione **Agregar una entrada predefinida** y, en la ventana **Nuevo elemento**, escriba **Nombre** como se indica en la tabla anterior. En este caso, no usamos alias, por lo que puede dejarlo en blanco.
+   
+      > [!div class="mx-imgBorder"]
+      > ![Crear parámetro](media/custom-commands/create-on-off-parameter.png)
+
    1. Seleccione **Guardar** para guardar todas las configuraciones del parámetro.
  
  ### <a name="add-subjectdevice-parameter"></a>Adición del parámetro SubjectDevice 
@@ -115,6 +117,7 @@ Modifique la regla de finalización existente **ConfirmationResponse**.
 
 1. En la sección **Conditions** (Condiciones), seleccione **Add a condition** (Agregar una condición).
 1. En la ventana **New Condition** (Nueva condición), en la lista **Type** (Tipo), seleccione **Required parameters** (Parámetros requeridos). En la lista de comprobación siguiente, marque las opciones **OnOff** y **SubjectDevice**.
+1. Deje **IsGlobal** sin activar.
 1. Seleccione **Crear**.
 1. En la sección **Actions** (Acciones), edite la acción de **envío de respuesta de voz** existente. Para ello, mantenga el puntero sobre la acción y seleccione el botón de edición. Esta vez, haga uso de los parámetros **OnOff** y **SubjectDevice** que se acaban de crear.
 
@@ -124,7 +127,7 @@ Modifique la regla de finalización existente **ConfirmationResponse**.
 1. Seleccione **Guardar**.
 
 ### <a name="try-it-out"></a>Prueba
-1. Seleccione el icono **Entrenar** presente en la parte superior del panel derecho.
+1. Seleccione el icono **Entrenar** que se encuentra en la parte superior del panel derecho.
 
 1. Cuando se haya completado el entrenamiento, seleccione **Probar**. Aparecerá una nueva ventana **Test your application** (Prueba de la aplicación).
  Pruebe algunas interacciones.

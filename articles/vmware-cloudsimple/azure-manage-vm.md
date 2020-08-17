@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 44a0b8fe56477620c0ac47d5c5de8830dac46214
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 82aa1ba6ec20e8242568a2725899ddc515a4dc0f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77015004"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082076"
 ---
 # <a name="manage-your-cloudsimple-private-cloud-virtual-machines-in-azure"></a>Administración de las máquinas virtuales de la nube privada de CloudSimple en Azure
 
@@ -29,7 +29,7 @@ Los siguientes controles están disponibles en la página **Overview** (Informac
 | Start | Inicia la máquina virtual especificada.  |
 | Reinicio | Apaga y enciende la máquina virtual especificada.  |
 | Stop | Apaga la máquina virtual específica.  |
-| Capturar | Captura una imagen de la máquina virtual especificada para que se pueda usar para crear otras máquinas virtuales. Consulte [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/classic/capture-image.md).   |
+| Capturar | Captura una imagen de la máquina virtual especificada para que se pueda usar para crear otras máquinas virtuales. Consulte [Creación de una imagen administrada de una máquina virtual generalizada en Azure](../virtual-machines/windows/capture-image-resource.md).   |
 | Move | Mueve a la máquina virtual especificada.  |
 | Eliminar | Quita la máquina virtual especificada.  |
 | Actualizar | Actualiza los datos de la pantalla.  |

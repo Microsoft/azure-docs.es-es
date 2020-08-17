@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 09d2fb709e21b7c1251c2caf224f4d5c3ce6aea1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: fd195fee513b2eed9049c7841f791d73a41b876b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026583"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366840"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Línea de base de seguridad de Azure para Azure Database for MariaDB
 
 La línea de base de seguridad de Azure para Azure Database for MariaDB contiene recomendaciones que le ayudarán a mejorar la posición de seguridad de la implementación.
 
-La línea de base para este servicio se extrae de la [Prueba comparativa de seguridad de Azure versión 1.0](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
+La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
 Para obtener más información, consulte [Introducción a las líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
 
@@ -246,7 +246,7 @@ Realización de consultas personalizadas en Azure Monitor: https://docs.microsof
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: Habilitación de alertas para actividades anómalas
 
-**Instrucciones**: Habilite Advanced Threat Protection para MariaDB. Advanced Threat Protection para Azure Database for MariaDB detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
+**Guía**: Habilite Advanced Threat Protection para MariaDB. Advanced Threat Protection para Azure Database for MariaDB detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 
 Además, puede habilitar los registros de servidor y la configuración de diagnóstico para MariaDB y enviar registros a un área de trabajo de Log Analytics. Incorpore el área de trabajo de Log Analytics a Azure Sentinel, ya que proporciona una solución de respuesta automatizada de orquestación de seguridad (SOAR). Esto permite crear cuadernos de estrategias (soluciones automatizadas) y usarlos para corregir problemas de seguridad.
 
@@ -296,7 +296,7 @@ Incorporación de Azure Sentinel: https://docs.microsoft.com/azure/sentinel/qui
 
 Descripción de la administración de acceso para MariaDB: https://docs.microsoft.com/azure/mariadb/concepts-security#access-management
 
-Descripción de los roles de RBAC integrados para las suscripciones a Azure: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
+Información sobre los roles integrados de Azure para las suscripciones de Azure: https://docs.microsoft.com/azure/role-based-access-control/built-in-roles
 
 
 **Supervisión de Azure Security Center**: Sí
@@ -596,7 +596,7 @@ Creación de alertas para eventos de registro de actividad de Azure: https://doc
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: Compare los exámenes de vulnerabilidades opuestos
 
-**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 
 **Supervisión de Azure Security Center**: No aplicable
@@ -710,7 +710,7 @@ Creación de consultas con Azure Graph: https://docs.microsoft.com/azure/governa
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: Uso exclusivo de servicios de Azure aprobados
 
-**Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
+**Instrucciones**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas:
 
 - Tipos de recursos no permitidos
 
@@ -868,7 +868,7 @@ Cómo configurar y administrar Azure Policy: https://docs.microsoft.com/azure/go
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: Implemente la supervisión de configuración automatizada para sistemas operativos
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -920,7 +920,7 @@ Cómo configurar el escáner de credenciales: https://secdevtools.azurewebsites.
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
-**Instrucciones**: No aplicable; esta recomendación está pensada para los recursos de proceso.
+**Guía**: No aplicable; esta recomendación está pensada para los recursos de proceso.
 
 Microsoft Antimalware está habilitado en el host subyacente que admite los servicios de Azure (por ejemplo, Azure App Service), pero no se ejecuta en el contenido del cliente.
 

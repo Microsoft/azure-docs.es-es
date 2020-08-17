@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 03/31/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 76348a0aee48cc6d768e8233e376f266eca31917
-ms.sourcegitcommit: ac4a365a6c6ffa6b6a5fbca1b8f17fde87b4c05e
+ms.openlocfilehash: f91e68ec2bd4b0b5400ee3e8e380d91ea6f31f36
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/10/2020
-ms.locfileid: "83006003"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291330"
 ---
 # <a name="troubleshoot-the-remote-desktop-client"></a>Solución de problemas del cliente de Escritorio remoto
 
@@ -64,7 +64,7 @@ Si el explorador comienza a dar problemas o deja de funcionar mientras usa el cl
 
 Primero compruebe la cuenta de Azure Active Directory que está usando. Si ya ha iniciado sesión con una cuenta de Azure Active Directory diferente a la que quiere usar para Windows Virtual Desktop, debe cerrar la sesión o usar una ventana privada del explorador.
 
-Si usa la versión Fall 2019 de Windows Virtual Desktop, use el vínculo del cliente web en [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md) para conectarse a los recursos.
+Si usa Windows Virtual Desktop (clásico), use el vínculo del cliente web de [este artículo](./virtual-desktop-fall-2019/connect-web-2019.md) para conectarse a los recursos.
 
 ## <a name="web-client-stops-responding-or-disconnects"></a>El cliente web deja de responder o se desconecta
 

@@ -12,16 +12,16 @@ ms.date: 5/4/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 55adff17445639ee5685613b418054075c704449
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0c5abf345fda9db4cc5123360245e42ea0ef40e1
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477250"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115040"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación
 
->Reciba notificaciones de las actualizaciones a esta página. Basta con agregar [esta dirección URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us) al lector de fuentes RSS.
+> Para recibir notificaciones de las actualizaciones de esta página, pegue esta dirección URL en el lector de fuentes RSS:<br/>`https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20for%20authentication%22&locale=en-us`
 
 El sistema de autenticación altera y agrega características constantemente para aumentar la seguridad y mejorar el cumplimiento de normas. Para mantenerse al día con los avances más recientes, este artículo proporciona información acerca de los detalles siguientes:
 
@@ -49,7 +49,7 @@ No hay ninguno programado en este momento.  Consulte a continuación los cambios
 
 El 1 de junio de 2018, la autoridad oficial de Azure Active Directory (AAD) para Azure Government cambió de `https://login-us.microsoftonline.com` a `https://login.microsoftonline.us`. Este cambio también se aplica a Microsoft 365 GCC High y DoD, a los que también presta servicio Azure Government AAD. Si es propietario de una aplicación en un inquilino de la Administración Pública de EE. UU., debe actualizar la aplicación para que la sesión de los usuarios se inicie en el punto de conexión `.us`.  
 
-A partir del 5 de mayo, Azure AD comenzará a aplicar el cambio del punto de conexión, lo que impide que los usuarios gubernamentales inicien sesión en aplicaciones hospedadas en inquilinos de la Administración Pública de EE. UU. mediante el punto de conexión público (`microsoftonline.com`).  Las aplicaciones afectadas comenzarán a experimentar un error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. Este error indica que la aplicación está intentando iniciar la sesión de un usuario de la Administración Pública de EE. UU. en el punto de conexión de nube pública. Si su aplicación se encuentra en un inquilino en la nube pública y tiene previsto prestar servicio a usuarios de la Administración Pública de EE. UU., deberá [actualizar la aplicación para que los admita de forma explícita](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud). Esto puede requerir la creación de un nuevo registro de aplicaciones en la nube de la Administración Pública de EE. UU. 
+A partir del 5 de mayo, Azure AD comenzará a aplicar el cambio del punto de conexión, lo que impide que los usuarios gubernamentales inicien sesión en aplicaciones hospedadas en inquilinos de la Administración Pública de EE. UU. mediante el punto de conexión público (`microsoftonline.com`).  Las aplicaciones afectadas comenzarán a experimentar un error `AADSTS900439` - `USGClientNotSupportedOnPublicEndpoint`. Este error indica que la aplicación está intentando iniciar la sesión de un usuario de la Administración Pública de EE. UU. en el punto de conexión de nube pública. Si su aplicación se encuentra en un inquilino en la nube pública y tiene previsto prestar servicio a usuarios de la Administración Pública de EE. UU., deberá [actualizar la aplicación para que los admita de forma explícita](./authentication-national-cloud.md). Esto puede requerir la creación de un nuevo registro de aplicaciones en la nube de la Administración Pública de EE. UU. 
 
 La aplicación de este cambio se realizará mediante un lanzamiento gradual basado en la frecuencia con que los usuarios de la nube de la Administración Pública de EE. UU. inician sesión en la aplicación: se aplicará antes a las aplicaciones que inician sesión de usuarios de la Administración Pública de EE. UU. con poca frecuencia, mientras que las aplicaciones que los usuarios de la Administración Pública de EE. UU. usan con frecuencia serán las últimas a las que se aplicará. Esperamos que el cambio se haya completado en todas las aplicaciones en junio de 2020. 
 
@@ -98,7 +98,7 @@ Cuando se envía una respuesta de autenticación desde login.microsoftonline.com
 
 **Puntos de conexión afectados**: v1.0 y v2.0
 
-**Protocolo afectado**: Se usa POST en cualquier lugar([credenciales de cliente](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow), [canje de código de autorización](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow), [ROPC](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth-ropc), [OBO](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow) y [canje de token de actualización](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-auth-code-flow#refresh-the-access-token)).
+**Protocolo afectado**: Se usa POST en cualquier lugar([credenciales de cliente](./v2-oauth2-client-creds-grant-flow.md), [canje de código de autorización](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md) y [canje de token de actualización](./v2-oauth2-auth-code-flow.md#refresh-the-access-token)).
 
 A partir de la semana 9/2, las solicitudes de autenticación que usan el método POST se validarán con estándares HTTP más estrictos.  Concretamente, los espacios y las comillas dobles (") ya no se quitarán de los valores del formulario de solicitud. No se espera que estos cambios interrumpan ningún cliente existente y se asegurará de que las solicitudes enviadas a Azure AD se controlan de forma confiable cada vez. En el futuro (consulte más arriba), tenemos previsto rechazar además los parámetros duplicados y omitir la marca BOM dentro de las solicitudes.
 
@@ -113,9 +113,9 @@ En la actualidad, `?e=    "f"&g=h` se analiza exactamente igual que `?e=f&g=h`, 
 
 **Fecha efectiva**: 26 de julio de 2019
 
-**Puntos de conexión afectados**: [v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) y [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow)
+**Puntos de conexión afectados**: [v1.0](../azuread-dev/v1-oauth2-client-creds-grant-flow.md) y [v2.0](./v2-oauth2-client-creds-grant-flow.md)
 
-**Protocolo afectado**: [credenciales de cliente (tokens de solo aplicación)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
+**Protocolo afectado**: [credenciales de cliente (tokens de solo aplicación)](../azuread-dev/v1-oauth2-client-creds-grant-flow.md)
 
 El 26 de julio se aplicó un cambio de seguridad que modifica la manera en la que se emiten los tokens de solo aplicación (a través de la concesión de credenciales de cliente). Anteriormente, las aplicaciones podían obtener tokens para llamar a cualquier otra aplicación, sin tener en cuenta su presencia en el inquilino o los roles con consentimiento para esa aplicación.  Este comportamiento se ha actualizado de modo que, en el caso de los recursos (a veces denominados API web) configurados para ser inquilino único (el valor predeterminado), la aplicación cliente debe existir en el inquilino de recursos.  Tenga en cuenta que aún no se requiere que exista consentimiento entre el cliente y la API, y que las aplicaciones todavía deben realizar sus propias comprobaciones de autorización para asegurarse de que existe una notificación `roles` y de que contiene el valor esperado para la API.
 

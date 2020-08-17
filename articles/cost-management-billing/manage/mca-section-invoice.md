@@ -1,18 +1,18 @@
 ---
 title: 'Organice su factura en función de sus necesidades: Azure'
-description: Obtenga información acerca de cómo organizar el costo en su factura.
+description: Obtenga información acerca de cómo organizar los costos en su factura. Puede personalizar su cuenta de facturación al crear perfiles de facturación y secciones de factura.
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 553263ebac3c64e27a7711b4407a7d4ba573998c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200751"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460038"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>Organización de costos mediante la personalización de la cuenta de facturación
 

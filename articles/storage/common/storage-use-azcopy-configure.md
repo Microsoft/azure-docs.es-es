@@ -4,16 +4,16 @@ description: Configure, optimice y solucione problemas de AzCopy.
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: acfe868f26d7509d1dd06554482b4fb3b29a5b22
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7e79f186688f3b6531ac24df4e3ae4201cf1903c
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85504362"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282439"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configuración, optimización y solución de problemas de AzCopy
 
@@ -63,7 +63,7 @@ Esta sección le ayuda a realizar estas tareas de optimización:
 
 ### <a name="run-benchmark-tests"></a>Ejecución de pruebas del banco de pruebas
 
-Puede ejecutar una prueba del banco de pruebas de rendimiento en contenedores de blobs o recursos compartidos de archivos específicos para ver las estadísticas generales de rendimiento y para identificar los cuellos de botella de rendimiento. 
+Puede ejecutar una prueba del banco de pruebas de rendimiento en contenedores de blobs o recursos compartidos de archivos específicos para ver las estadísticas generales de rendimiento y para identificar los cuellos de botella de rendimiento. Puede ejecutar la prueba al cargar o descargar los datos de prueba generados. 
 
 Utilice el siguiente comando para ejecutar un banco de pruebas de rendimiento.
 
@@ -77,9 +77,7 @@ Utilice el siguiente comando para ejecutar un banco de pruebas de rendimiento.
 
 Este comando ejecuta un banco de pruebas de rendimiento mediante la carga los datos de prueba en un destino especificado. Los datos de prueba se generan en la memoria, se cargan en el destino y, a continuación, se eliminan del destino una vez completada la prueba. Puede especificar el número de archivos que se van a generar y el tamaño que desea que se utilicen mediante parámetros de comando opcionales.
 
-Para ver documentos de referencia detallados, consulte [azcopy benchmark](storage-ref-azcopy-bench.md).
-
-Para ver una guía de ayuda detallada para este comando, escriba `azcopy benchmark -h` y, después, presione la tecla ENTRAR.
+Si prefiere descargar datos para ejecutar esta prueba, establezca el parámetro `mode` en `download`. Para ver documentos de referencia detallados, consulte [azcopy benchmark](storage-ref-azcopy-bench.md). 
 
 ### <a name="optimize-throughput"></a>Optimización del rendimiento
 

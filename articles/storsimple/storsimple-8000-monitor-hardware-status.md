@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
 ms.author: alkohli
-ms.openlocfilehash: 6eb983eb5e36c5f3ac6b6eca049239d12bc01a0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8faf4ca8e27b280a60750d5f349ab0282ed593bf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85514619"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999503"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar el servicio StorSimple Device Manager para supervisar componentes y estados de hardware
 
@@ -49,11 +49,11 @@ Realice los pasos siguientes para ver el estado de hardware de un componente del
 
 1. Vaya a **Dispositivos**y seleccione un dispositivo de StorSimple concreto. Vaya a **Supervisar > Mantenimiento de hardware**.
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
+    ![Captura de pantalla de la hoja Configuración del servicio Administrador de dispositivos. En Monitor, está seleccionado Mantenimiento de hardware.](./media/storsimple-8000-monitor-hardware-status/hw-health1.png)
 
 2. Busque la sección **Componentes de hardware** y elija entre los componentes disponibles. Simplemente haga clic en la etiqueta del componente para expandir la lista y ver el estado de los distintos componentes del dispositivo. Consulte la [lista detallada de componentes del gabinete principal](#component-list-for-primary-enclosure-of-storsimple-device) y la [lista detallada de componentes del receptáculo EBOD](#component-list-for-ebod-enclosure-of-storsimple-device).
 
-    ![](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
+    ![Captura de pantalla que muestra un componente seleccionado en la sección de componentes de hardware. Una hoja adyacente muestra el nombre y el estado de los elementos del componente.](./media/storsimple-8000-monitor-hardware-status/hw-health2.png)
 
 3. Use el siguiente código de colores para interpretar el estado de los componentes:
    
@@ -64,15 +64,15 @@ Realice los pasos siguientes para ver el estado de hardware de un componente del
    
    La captura de pantalla siguiente muestra un dispositivo que tiene componentes en estados **OK**, **Advertencia** y **Error**.
        
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
+   ![Captura de pantalla que muestra tres componentes en la sección de componentes de hardware: uno en estado correcto, otro en estado de error y el tercero en estado de advertencia.](./media/storsimple-8000-monitor-hardware-status/hw-health3.png)
 
    Al expandir la **lista de componentes compartidos**, podemos ver que la NVRAM y el clúster están degradados.
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
+   ![Captura de pantalla que muestra el elemento Componentes compartidos seleccionado. En la hoja adyacente, la NVRAM y el clúster se encuentran en un estado de advertencia.](./media/storsimple-8000-monitor-hardware-status/hw-health5.png)
 
    Al expandir la lista de **componentes del controlador 1**, podemos ver que el nodo de clúster generó un error.  
 
-   ![](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
+   ![Captura de pantalla que muestra el elemento Componentes de controlador 1 seleccionado. En la hoja adyacente, el nodo de clúster está en estado de error.](./media/storsimple-8000-monitor-hardware-status/hw-health4.png)  
 
 4. Si se encuentra un componente que no está en estado **Correcto** , póngase en contacto con el soporte técnico de Microsoft. Si las alertas están habilitadas en el dispositivo, recibirá una alerta por correo electrónico. Si necesita reemplazar un componente de hardware con errores, consulte la [Reemplazo de los componentes de hardware de StorSimple](storsimple-hardware-component-replacement.md).
 

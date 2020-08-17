@@ -5,12 +5,13 @@ ms.date: 12/03/2019
 ms.topic: conceptual
 description: Aprenda a usar secretos de Kubernetes en tiempo de ejecución o de compilación al desarrollar aplicaciones con Azure Dev Spaces
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, contenedores
-ms.openlocfilehash: d9dd0de348612bbb3baf5fb351c1c9af1c228c1f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 25d67d9ace6870eed283302256e3fa85661a0672
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75438459"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421576"
 ---
 # <a name="how-to-manage-secrets-when-working-with-an-azure-dev-space"></a>Administración de secretos cuando se trabaja con un espacio de Azure Dev Spaces
 

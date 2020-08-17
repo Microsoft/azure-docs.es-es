@@ -3,12 +3,12 @@ title: Recuperación ante desastres en temas personalizados de Azure Event Grid
 description: Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región.
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 1ee9c9566a70ba104f6c12866a631061672cb0c0
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dc893973fe1f6367cd9b95de2014d92c045056f4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115088"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461687"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creación de una recuperación ante desastres propia para temas personalizados en Event Grid
 La recuperación ante desastres se ocupa de recuperarse tras una pérdida grave de funcionalidad de la aplicación. Este tutorial le guía por los pasos para configurar la arquitectura de eventos para recuperación en caso de que el servicio Event Grid deje de funcionar correctamente en una región determinada.
@@ -26,7 +26,7 @@ Para simplificar la prueba, implemente una [aplicación web pregenerada](https:/
 
 1. Seleccione **Deploy to Azure** (Implementar en Azure) para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png" alt="Button to Deploy to Aquent." /></a>
 
 1. La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 Asegúrese de anotar esta dirección URL, ya que la necesitará más adelante.
@@ -207,4 +207,4 @@ Igualmente, puede que quiera implementar la lógica de conmutación por recupera
 
 - Más información sobre cómo [recibir eventos en un punto de conexión HTTP](./receive-events.md).
 - Descubra cómo [enrutar eventos a Conexiones híbridas](./custom-event-to-hybrid-connection.md).
-- Aprenda sobre la [recuperación ante desastres mediante Azure DNS y Traffic Manager](https://docs.microsoft.com/azure/networking/disaster-recovery-dns-traffic-manager).
+- Aprenda sobre la [recuperación ante desastres mediante Azure DNS y Traffic Manager](../networking/disaster-recovery-dns-traffic-manager.md).

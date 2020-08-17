@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 7/27/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: e25af1f629ea6fa7db14ce89dfffaa340486a989
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e5fe8e751077bc04850879d27827c197767a81c2
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82689781"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87759077"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-client-credentials-flow"></a>La Plataforma de identidad de Microsoft y el flujo de credenciales de cliente de OAuth 2.0
 
@@ -27,7 +27,7 @@ En este artículo se describe cómo programar directamente con el protocolo de l
 
 El flujo de concesión de credenciales de cliente de OAuth 2.0 permite que un servicio web (cliente confidencial) use sus propias credenciales para autenticarse al llamar a otro servicio web, en lugar de suplantar a un usuario. En este escenario, el cliente es normalmente un servicio web de nivel intermedio, un servicio demonio o un sitio web. Para conseguir un mayor nivel de control, la plataforma de identidad de Microsoft también permite que el servicio que realiza la llamada use un certificado (en lugar de un secreto compartido) como credencial.
 
-En el escenario más típico de *OAuth de tres vías*, una aplicación cliente tiene permiso para obtener acceso a un recurso en nombre de un usuario específico. El permiso se delega desde el usuario a la aplicación, habitualmente durante el proceso de [consentimiento](v2-permissions-and-consent.md). Sin embargo, en el flujo de credenciales de cliente (*OAuth con dos patas*), los permisos se conceden directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que sea la propia aplicación la que tenga autorización para realizar una acción, no el usuario.
+En el flujo de credenciales de cliente, un administrador concede los permisos directamente en la propia aplicación. Cuando la aplicación presenta un token a un recurso, este exige que la propia aplicación tenga autorización para realizar una acción, ya que no hay ningún usuario implicado en la autorización.  En este artículo se describen los pasos necesarios para [autorizar a una aplicación para que llame a una API](#application-permissions), además de [cómo obtener los tokens necesarios para llamar a esa API](#get-a-token).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -52,6 +52,9 @@ Un caso de uso común es utilizar una ACL para ejecutar pruebas para una aplicac
 
 Este tipo de autorización es común para las cuentas de servicio y los demonios que necesitan tener acceso a datos que pertenecen a los usuarios consumidores con cuentas personales de Microsoft. En el caso de los datos que pertenecen a organizaciones, se recomienda obtener la autorización necesaria a través de los permisos de aplicación.
 
+> [!NOTE]
+> Para habilitar este patrón de autorización basado en ACL, Azure AD no requiere que las aplicaciones estén autorizadas para obtener tokens para otra aplicación, por lo que los tokens de solo aplicación se pueden emitir sin una solicitud de `roles`. Las aplicaciones que exponen las API deben implementar comprobaciones de permisos para aceptar tokens.
+
 ### <a name="application-permissions"></a>Permisos de aplicación
 
 En lugar de usar las ACL, puede usar las API para exponer un conjunto de **permisos de aplicación**. El administrador de una organización concede un permiso de aplicación a una aplicación, el que solo se puede usar para obtener acceso a los datos que pertenecen a esa organización y sus empleados. Por ejemplo, Microsoft Graph expone varios permisos de aplicación para hacer lo siguiente:
@@ -61,21 +64,11 @@ En lugar de usar las ACL, puede usar las API para exponer un conjunto de **permi
 * Enviar correo como cualquier usuario
 * Leer datos de directorio
 
-Para más información sobre los permisos de aplicación, vaya a [Microsoft Graph](https://developer.microsoft.com/graph).
+Para usar permisos de aplicación con su propia API (en lugar de Microsoft Graph), primero debe [exponer la API](quickstart-configure-app-expose-web-apis.md) mediante la definición de ámbitos en el registro de la aplicación de la API en Azure Portal. A continuación, para [configurar el acceso a la API](quickstart-configure-app-access-web-apis.md), seleccione esos permisos en el registro de aplicaciones de la aplicación cliente. Si no ha expuesto ningún ámbito en el registro de la aplicación de la API, no podrá especificar permisos de aplicación para esa API en el registro de aplicaciones de la aplicación cliente en Azure Portal.
 
-Para usar permisos de aplicación en la aplicación, siga los pasos que se describen en las secciones siguientes.
+Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar *permisos delegados* (ámbitos concedidos por un usuario). Debe usar permisos de aplicación, también conocidos como roles, que un administrador (o la API web mediante autorización previa) concede para la aplicación.
 
-
-> [!NOTE]
-> Al realizar la autenticación como una aplicación, en lugar de hacerlo con un usuario, no se pueden usar "permisos delegados" (ámbitos concedidos por un usuario).  Debe usar "permisos de aplicación", también conocidos como "roles", que un administrador (o la API web mediante autorización previa) concede para la aplicación.
-
-
-#### <a name="request-the-permissions-in-the-app-registration-portal"></a>Solicitud de los permisos en el portal de registro de aplicaciones
-
-1. Registre y cree una aplicación desde la nueva [experiencia Registros de aplicaciones (versión preliminar)](quickstart-register-app.md).
-2. Vaya a su aplicación en la experiencia Registros de aplicaciones (versión preliminar). Acceda a la sección **Certificados y secretos** y agregue un **nuevo secreto de cliente**, ya que necesitará al menos uno para solicitar un token.
-3. Busque la sección de **permisos de API** y agregue los **permisos de aplicación**  que esta requiere.
-4. **Guarde** el registro de aplicaciones.
+Para obtener más información acerca de los permisos de aplicación, consulte los [Permisos y consentimiento](v2-permissions-and-consent.md#permission-types).
 
 #### <a name="recommended-sign-the-user-into-your-app"></a>Se recomienda: Iniciar la sesión del usuario en la aplicación
 

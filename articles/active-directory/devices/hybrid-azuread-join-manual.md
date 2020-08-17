@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4bfe55c4ebe722e98f0816078b64c0131a30d03
-ms.sourcegitcommit: a9784a3fd208f19c8814fe22da9e70fcf1da9c93
+ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/22/2020
-ms.locfileid: "83778737"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428383"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: Configuración manual de dispositivos unidos a Azure Active Directory híbrido
 
@@ -59,6 +59,9 @@ Asegúrese de que las direcciones URL siguientes son accesibles desde equipos de
 * `https://login.microsoftonline.com`
 * `https://device.login.microsoftonline.com`
 * El STS de su organización (para dominios federados), el cual se debe incluir en la configuración de la intranet local del usuario.
+
+> [!WARNING]
+> Si su organización usa servidores proxy que interceptan el tráfico SSL en escenarios como la prevención de pérdida de datos o las restricciones de inquilino de Azure AD, asegúrese de que el tráfico a "https://device.login.microsoftonline.com" se excluya de la interrupción e inspección de TLS. Si no excluye "https://device.login.microsoftonline.com", pueden surgir interferencias con la autenticación de certificados de cliente, lo que causaría problemas con el registro de dispositivos y el acceso condicional basado en dispositivos.
 
 Si su organización tiene previsto utilizar el inicio de sesión único de conexión directa, la siguiente dirección URL debe ser accesible desde los equipos de la organización. También se debe agregar a la zona de la intranet local del usuario.
 
@@ -533,7 +536,7 @@ En AD FS, debe agregar una regla de transformación de emisión que atraviesa el
 
    `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);`
 
-1. En el servidor de federación, escriba el siguiente comando de PowerShell. Reemplace **\<RPObjectName\>** por el nombre del objeto de usuario de confianza para su objeto de confianza de usuario de confianza de Azure AD. Normalmente, este objeto se llama **Plataforma de identidad de Microsoft Office 365**.
+1. En el servidor de federación, escriba el siguiente comando de PowerShell. Reemplace **\<RPObjectName\>** por el nombre de objeto de su usuario de confianza de Azure AD. Normalmente, este objeto se llama **Plataforma de identidad de Microsoft Office 365**.
 
    `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -567,7 +570,7 @@ A continuación se muestran tres maneras de buscar y comprobar el estado del dis
 
 ### <a name="using-powershell"></a>Usar PowerShell
 
-Compruebe el estado de registro del dispositivo en el inquilino de Azure mediante **[Get-MsolDevice](/powershell/msonline/v1/get-msoldevice)** . Este cmdlet se encuentra en el [módulo de PowerShell de Azure Active Directory](/powershell/azure/install-msonlinev1?view=azureadps-2.0).
+Compruebe el estado de registro del dispositivo en el inquilino de Azure mediante **[Get-MsolDevice](/powershell/module/msonline/get-msoldevice)** . Este cmdlet se encuentra en el [módulo de PowerShell de Azure Active Directory](/powershell/azure/active-directory/install-msonlinev1?view=azureadps-2.0).
 
 Cuando utiliza el cmdlet **Get-MSolDevice** para comprobar los detalles de servicio:
 

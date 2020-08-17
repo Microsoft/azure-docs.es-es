@@ -5,20 +5,20 @@ ms.topic: conceptual
 author: MS-jgol
 ms.author: jgol
 ms.date: 06/26/2020
-ms.openlocfilehash: 093448ad0280ada039f1d4e5abd0e83e4be19b03
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d790a6f02fdc07609e374639c6e452b9088262e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482112"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024578"
 ---
 # <a name="monitoring-azure-functions-with-azure-monitor-application-insights"></a>Supervisión de Azure Functions con Application Insights de Azure Monitor
 
-[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) ofrece integración incorporada en Azure Application Insights para supervisar las funciones. 
+[Azure Functions](../../azure-functions/functions-overview.md) ofrece integración incorporada en Azure Application Insights para supervisar las funciones. 
 
 Application Insights recopila datos de registros, de rendimiento y de errores, y detecta automáticamente las anomalías en el rendimiento. Application Insights incluye herramientas de análisis eficaces que ayudan a diagnosticar problemas y comprender cómo se usan las funciones. Cuando tenga la visibilidad de los datos de su aplicación, puede mejorar continuamente el rendimiento y la facilidad de uso. Incluso puede usar Application Insights durante el desarrollo local de proyectos de aplicación de función. 
 
-La instrumentación de Application Insights necesaria está integrada en Azure Functions. Lo único que necesita es una clave de instrumentación válida para conectar la aplicación de funciones a un recurso de Application Insights. La clave de instrumentación debe agregarse a la configuración de la aplicación cuando se cree el recurso de la aplicación de funciones en Azure. Si la aplicación de funciones aún no tiene esta clave, puede establecerla de forma manual. Para obtener más información, lea sobre la [supervisión de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring?tabs=cmd).
+La instrumentación de Application Insights necesaria está integrada en Azure Functions. Lo único que necesita es una clave de instrumentación válida para conectar la aplicación de funciones a un recurso de Application Insights. La clave de instrumentación debe agregarse a la configuración de la aplicación cuando se cree el recurso de la aplicación de funciones en Azure. Si la aplicación de funciones aún no tiene esta clave, puede establecerla de forma manual. Para obtener más información, lea sobre la [supervisión de Azure Functions](../../azure-functions/functions-monitoring.md?tabs=cmd).
 
 ## <a name="distributed-tracing-for-java-applications-on-windows-public-preview"></a>Seguimiento distribuido para aplicaciones Java en Windows (versión preliminar pública)
 
@@ -40,8 +40,8 @@ ApplicationInsightsAgent_EXTENSION_VERSION -> ~2
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Lea más instrucciones e información sobre la [supervisión de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring).
-* Obtenga información general sobre el [seguimiento distribuido](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing).
-* Vea qué [mapa de aplicación](https://docs.microsoft.com/azure/azure-monitor/app/app-map?tabs=net) puede servir a su empresa.
-* Lea sobre las [solicitudes y dependencias para aplicaciones de Java](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
-* Obtenga más información sobre [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) y [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview).
+* Lea más instrucciones e información sobre la [supervisión de Azure Functions](../../azure-functions/functions-monitoring.md).
+* Obtenga información general sobre el [seguimiento distribuido](./distributed-tracing.md).
+* Vea qué [mapa de aplicación](./app-map.md?tabs=net) puede servir a su empresa.
+* Lea sobre las [solicitudes y dependencias para aplicaciones de Java](./java-in-process-agent.md).
+* Obtenga más información sobre [Azure Monitor](../overview.md) y [Application Insights](./app-insights-overview.md).

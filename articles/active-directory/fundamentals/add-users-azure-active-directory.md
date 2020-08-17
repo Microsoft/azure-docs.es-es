@@ -2,7 +2,7 @@
 title: 'Incorporación o eliminación de usuarios: Azure Active Directory | Microsoft Docs'
 description: Instrucciones sobre cómo agregar usuarios nuevos o eliminar usuarios existentes con Azure Active Directory.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c30730f685945d129ababb27040f34bf8ab2f790
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603866"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797107"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Incorporación o eliminación de usuarios mediante Azure Active Directory
 

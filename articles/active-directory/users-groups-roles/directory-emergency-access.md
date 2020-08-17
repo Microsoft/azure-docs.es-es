@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0339d9d47752c194eeda96cd2df4859d6b97518b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e9d4f293f3835e26def97aa2f52dd0c42d9137c7
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338284"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421729"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Administración de cuentas de acceso de emergencia en Azure AD
 
@@ -56,7 +56,7 @@ Sin embargo, al menos una de sus cuentas de acceso de emergencia no debe tener e
 
 ### <a name="exclude-at-least-one-account-from-conditional-access-policies"></a>Exclusión de al menos una cuenta de las directivas de acceso condicional
 
-Durante una emergencia, no quiere que una directiva pueda bloquear el acceso para corregir un problema. Por eso, debe excluirse por lo menos una cuenta de acceso de emergencia de todas las directivas de acceso condicional. Si ha habilitado un [directiva de línea base](../conditional-access/baseline-protection.md), debe excluir las cuentas de acceso de emergencia.
+Durante una emergencia, no quiere que una directiva pueda bloquear el acceso para corregir un problema. Por eso, debe excluirse por lo menos una cuenta de acceso de emergencia de todas las directivas de acceso condicional.
 
 ## <a name="federation-guidance"></a>Guía de federación
 
@@ -72,7 +72,7 @@ Si usa contraseñas, asegúrese de que las cuentas tengan contraseñas seguras y
 
 Las organizaciones deben supervisar la actividad de registro de auditoría e inicio de sesión de las cuentas de emergencia y desencadenar el envío de notificaciones a otros administradores. Al supervisar la actividad en las cuentas de emergencia, puede comprobar que estas cuentas solo se usen para pruebas o emergencias reales. Puede usar Azure Log Analytics para supervisar los registros de inicio de sesión y desencadenar alertas por SMS y correo electrónico a los administradores cuando las cuentas de emergencia inicien sesión.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 1. [Envíe registros de inicio de sesión de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics) a Azure Monitor.
 

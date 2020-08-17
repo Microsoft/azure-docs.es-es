@@ -3,15 +3,15 @@ title: Contracargo de costos de Reserva de Azure
 description: Aprenda a ver los costos de Reserva de Azure para el contracargo.
 author: yashesvi
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/14/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 22e2ee897236a2e079f0ce6e230502d5242a02e8
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 04e4e8dfce8549494eb9d2984d6307c18b88dc73
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714360"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287337"
 ---
 # <a name="charge-back-azure-reservation-costs"></a>Contracargo de costos de Reserva de Azure
 

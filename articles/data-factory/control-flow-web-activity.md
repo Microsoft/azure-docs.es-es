@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 150ee15adb042841f74ffbf3b75338b2dd569333
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.openlocfilehash: 95cbb509beba82a14b9f8f8a11c603a6d7b8689d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84017671"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87280807"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Actividad web en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "84017671"
 La actividad Web puede usarse para llamar a un punto de conexión REST personalizado desde una canalización de Data Factory. Puede pasar conjuntos de datos y servicios vinculados que la actividad consumirá y a los que tendrá acceso.
 
 > [!NOTE]
-> Actividad web solo puede llamar a direcciones URL expuestas públicamente. No se admite para direcciones URL que se hospedan en una red virtual privada.
+> Se admite la actividad web para invocar direcciones URL que se hospedan en una red virtual privada y mediante el uso de un entorno de ejecución de integración autohospedado. El entorno de ejecución de integración debe tener una línea de visión al punto de conexión de la dirección URL. 
 
 ## <a name="syntax"></a>Sintaxis
 
@@ -36,6 +36,10 @@ La actividad Web puede usarse para llamar a un punto de conexión REST personali
    "typeProperties":{
       "method":"Post",
       "url":"<URLEndpoint>",
+      "connectVia": {
+          "referenceName": "<integrationRuntimeName>",
+          "type": "IntegrationRuntimeReference"
+      }
       "headers":{
          "Content-Type":"application/json"
       },
@@ -77,6 +81,7 @@ body | Representa la carga útil que se envía al punto de conexión.  | Cadena 
 autenticación | Método de autenticación usado para llamar al punto de conexión. Los tipos admitidos son "Basic" y "ClientCertificate". Para más información, vea la sección [Autenticación](#authentication). Si la autenticación no es necesaria, excluya esta propiedad. | Cadena (o expresión con un valor resultType de cadena) | No
 conjuntos de datos | Lista de conjuntos de datos que se pasan al punto de conexión. | Matriz de referencias de conjunto de datos. Puede ser una matriz vacía. | Sí
 linkedServices | Lista de servicios vinculados que se pasan al punto de conexión. | Matriz de referencias de servicios vinculados. Puede ser una matriz vacía. | Sí
+connectVia | El [entorno de ejecución de integración](https://docs.microsoft.com/azure/data-factory/concepts-integration-runtime) que se usará para conectarse al almacén de datos. Se puede usar Azure Integration Runtime o un entorno de ejecución de integración autohospedado (si el almacén de datos está en una red privada). Si no se especifica esta propiedad, el servicio usa el valor predeterminado de Azure Integration Runtime. | La referencia al entorno de ejecución de integración. | No 
 
 > [!NOTE]
 > Los puntos de conexión REST que invoca la actividad web deben devolver una respuesta de tipo JSON. La actividad dará un error por tiempo de espera después de 1 minuto si no recibe una respuesta desde el punto de conexión.
@@ -85,7 +90,7 @@ En la tabla siguiente se enumeran los requisitos del contenido JSON:
 
 | Tipo de valor | Cuerpo de la solicitud | Response body |
 |---|---|---|
-|Objeto JSON | Compatible | Compatible |
+|Objeto JSON | Compatible. | Compatible. |
 |Matriz JSON | Compatible <br/>(En la actualidad, las matrices JSON no funcionan como resultado un error. La corrección está en curso). | No compatible |
 | Valor JSON | Compatible | No compatible |
 | Tipo distinto de JSON | No compatible | No compatible |

@@ -14,18 +14,18 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 05/07/2020
 ms.author: juliako
-ms.openlocfilehash: 231aeb210a7b97e8c0cfd0e21c48053c660b6128
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8c5afe45ce864ba76d5d637df3534d426d39167a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82995820"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000999"
 ---
 # <a name="use-time-shifting-and-live-outputs-to-create-on-demand-video-playback"></a>Uso de cambio de tiempo y salidas activas para crear la reproducción de vídeo a petición
 
-En Azure Media Services, un objeto [Live Output](https://docs.microsoft.com/rest/api/media/liveoutputs) es como una grabadora de vídeo digital que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado se conserva en el contenedor definido por el recurso [Asset](https://docs.microsoft.com/rest/api/media/assets) (el contenedor está en la cuenta de Azure Storage asociada a su cuenta). La salida activa también le permite controlar algunas propiedades del streaming en vivo saliente, como la cantidad de la transmisión que se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) o cuándo los espectadores pueden empezar a ver el streaming en vivo. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de la salida activa. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. El valor archiveWindowLength representa una duración de intervalo de tiempo de ISO-8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR. Este valor se puede establecer en 1 minuto como mínimo y 25 horas como máximo.
+En Azure Media Services, un objeto [Live Output](/rest/api/media/liveoutputs) es como una grabadora de vídeo digital que capta y graba el streaming en vivo en un recurso de su cuenta de Media Services. El contenido grabado se conserva en el contenedor definido por el recurso [Asset](/rest/api/media/assets) (el contenedor está en la cuenta de Azure Storage asociada a su cuenta). La salida activa también le permite controlar algunas propiedades del streaming en vivo saliente, como la cantidad de la transmisión que se conserva en la grabación del archivo (por ejemplo, la capacidad de la DVR en la nube) o cuándo los espectadores pueden empezar a ver el streaming en vivo. El archivo en disco es una "ventana" circular de archivo que solo incluye la cantidad de contenido que se especifica en la propiedad **archiveWindowLength** de la salida activa. El contenido que está fuera de esta ventana se descarta automáticamente del contenedor de almacenamiento y no se puede recuperar. El valor archiveWindowLength representa una duración de intervalo de tiempo de ISO-8601 (por ejemplo, PTHH:MM:SS), que especifica la capacidad de la DVR. Este valor se puede establecer en 1 minuto como mínimo y 25 horas como máximo.
 
-La relación entre un evento en directo y sus salidas activas es similar a la retransmisión de televisión tradicional, en la que un canal (evento en directo) representa una transmisión constante de vídeo y una grabación (salida activa) está limitada a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Una vez que la transmisión fluye en el evento en directo, puede comenzar el evento de streaming mediante la creación de un recurso, salida activa, y un localizador de streaming. El objeto LiveOutput archivará la secuencia y la pondrá a disposición de los usuarios a través del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints). Puede crear varios objetos LiveOutput (hasta un máximo de tres) en un objeto LiveEvent con diferentes longitudes y configuraciones de archivo. Para obtener información sobre el flujo de trabajo del streaming en vivo, consulte la sección de [pasos generales](live-streaming-overview.md#general-steps).
+La relación entre un evento en directo y sus salidas activas es similar a la retransmisión de televisión tradicional, en la que un canal (evento en directo) representa una transmisión constante de vídeo y una grabación (salida activa) está limitada a un segmento de tiempo específico (por ejemplo, las noticias de la tarde, que se emiten de 18:30 a 19:00). Una vez que la transmisión fluye en el evento en directo, puede comenzar el evento de streaming mediante la creación de un recurso, salida activa, y un localizador de streaming. El objeto LiveOutput archivará la secuencia y la pondrá a disposición de los usuarios a través del [punto de conexión de streaming](/rest/api/media/streamingendpoints). Puede crear varios objetos LiveOutput (hasta un máximo de tres) en un objeto LiveEvent con diferentes longitudes y configuraciones de archivo. Para obtener información sobre el flujo de trabajo del streaming en vivo, consulte la sección de [pasos generales](live-streaming-overview.md#general-steps).
 
 ## <a name="using-a-dvr-during-an-event"></a>Uso de una DVR durante un evento
 
@@ -39,7 +39,7 @@ Un evento en directo admite la ejecución simultánea de hasta tres salidas acti
 
 ## <a name="creating-an-archive-for-on-demand-playback"></a>Creación de un archivo para la reproducción a petición
 
-El recurso en el que se archiva la salida activa se convierte automáticamente en un recurso a petición cuando se elimina dicha salida. Debe eliminar todas las salidas activas para que un evento en directo pueda detenerse. Puede usar una marca opcional [removeOutputsOnStop](https://docs.microsoft.com/rest/api/media/liveevents/stop#request-body) para quitar automáticamente las salidas activas cuando se detengan.
+El recurso en el que se archiva la salida activa se convierte automáticamente en un recurso a petición cuando se elimina dicha salida. Debe eliminar todas las salidas activas para que un evento en directo pueda detenerse. Puede usar una marca opcional [removeOutputsOnStop](/rest/api/media/liveevents/stop#request-body) para quitar automáticamente las salidas activas cuando se detengan.
 
 Incluso después de detener y eliminar el evento, los usuarios pueden transmitir el contenido archivado como un vídeo a petición, siempre que no se elimine el recurso. No se puede eliminar un recurso si lo está usando un evento. Primero se debe eliminar el evento.
 

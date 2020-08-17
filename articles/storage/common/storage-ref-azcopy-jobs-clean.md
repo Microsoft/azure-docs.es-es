@@ -4,16 +4,16 @@ description: En este artículo se proporciona información de referencia sobre e
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 10/16/2019
+ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: a06e428908777c526602166f127a28304b595ba0
-ms.sourcegitcommit: 12f23307f8fedc02cd6f736121a2a9cea72e9454
+ms.openlocfilehash: f3e9d70ced0d2974a66717436c28c5b6914f6745
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/30/2020
-ms.locfileid: "84220082"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287150"
 ---
 # <a name="azcopy-jobs-clean"></a>azcopy jobs clean
 
@@ -38,13 +38,13 @@ azcopy jobs clean [flags]
 
 ## <a name="options"></a>Opciones
 
-**-h, --help**                Ayuda de clean.
+**--help**                Ayuda de clean.
 
-**--with-status** string   Solo quita los trabajos con este estado. Valores disponibles: Canceled, Completed, Failed, InProgress, All (el valor predeterminado es "All")
+**--with-status** string   Solo quita los trabajos con este estado. Los valores disponibles son : `Canceled`, `Completed`, `Failed`, `InProgress`, `All` (el valor predeterminado es `All`)
 
 ## <a name="options-inherited-from-parent-commands"></a>Opciones heredadas de comandos primarios
 
-**--cap-mbps uint32**      Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.
+**--cap-mbps float**      Limita la velocidad de transferencia, en megabits por segundo. El rendimiento en un momento dado puede variar ligeramente del límite. Si esta opción se establece en cero o se omite, el rendimiento no se limita.
 
 **--output-type** string   Formato de la salida del comando. Las opciones incluyen: text, json. El valor predeterminado es "text". (Valor predeterminado: "text").
 

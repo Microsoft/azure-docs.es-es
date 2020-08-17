@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 3abd93e1699a701140e8b3558dcdf0161110ff6f
-ms.sourcegitcommit: 0690ef3bee0b97d4e2d6f237833e6373127707a7
+ms.openlocfilehash: d02800d39e918478243429971c0d48c4d0c59148
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83758136"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020121"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Seleccione el método de autenticación adecuado para su solución de identidad híbrida de Azure Active Directory
 
@@ -30,7 +30,7 @@ La elección del método de autenticación correcto es la primera preocupación 
 La identidad es el nuevo plano de control de la seguridad de TI, de modo que la autenticación se convierte en el guardián de acceso de una organización al nuevo mundo de la nube. Las organizaciones necesitan un plano de control de identidad que fortalezca su seguridad y mantenga las aplicaciones en la nube a salvo de intrusos.
 
 > [!NOTE]
-> Cambiar el método de autenticación requiere planeación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) es una excelente forma de probar y migrar gradualmente de la federación a la autenticación en la nube.
+> Cambiar el método de autenticación requiere planeación, pruebas y un posible tiempo de inactividad. El [lanzamiento preconfigurado](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-staged-rollout) es una excelente forma de probar la migración de usuarios desde la federación hasta la autenticación en la nube.
 
 ### <a name="out-of-scope"></a>Fuera de ámbito
 Las organizaciones que no tienen una superficie de directorio local existente no entran en el ámbito de este artículo. Por lo general, esas empresas crean identidades solo en la nube, lo que no requiere una solución de identidad híbrida. Las identidades que solo se usan en la nube existen únicamente en la nube y no están asociadas a sus identidades locales correspondientes.

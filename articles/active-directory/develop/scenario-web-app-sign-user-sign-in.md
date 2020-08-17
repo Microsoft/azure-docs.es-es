@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/30/2019
+ms.date: 07/14/2020
 ms.author: jmprieur
-ms.custom: aaddev, tracking-python
-ms.openlocfilehash: 41124e7237c2c16034fe8cce1fa89fa0132d09b7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: aaddev, devx-track-python
+ms.openlocfilehash: 28bbe1432777e9e15ae625fb9788f9182495bd66
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84558936"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845092"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>Aplicación web que inicia sesión de usuarios: Inicio y cierre de sesión
 
@@ -335,7 +335,7 @@ En las versiones anteriores de las plantillas de ASP.NET Core, el controlador `A
 - Llama a `Signout()`, que permite que el middleware de OpenID Connect se ponga en contacto con el punto de conexión `logout` de la Plataforma de identidad de Microsoft. A continuación, el punto de conexión:
 
   - Borra la cookie de sesión del explorador.
-  - Vuelve a llamar a la dirección URL de cierre de sesión. De forma predeterminada, la dirección URL de cierre de sesión muestra la página de vista que ha cerrado la sesión [SignedOut. html](https://github.com/aspnet/AspNetCore/blob/master/src/Azure/AzureAD/Authentication.AzureAD.UI/src/Areas/AzureAD/Pages/Account/SignedOut.cshtml). Esta página también se proporciona como parte de Microsoft.Identity.Web.
+  - Vuelve a llamar a la dirección URL de cierre de sesión. De forma predeterminada, la dirección URL de cierre de sesión muestra la página de vista que ha cerrado la sesión [SignedOut.cshtml.cs](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web.UI/Areas/MicrosoftIdentity/Pages/Account/SignedOut.cshtml.cs). Esta página también se proporciona como parte de Microsoft.Identity.Web.
 
 # <a name="aspnet"></a>[ASP.NET](#tab/aspnet)
 

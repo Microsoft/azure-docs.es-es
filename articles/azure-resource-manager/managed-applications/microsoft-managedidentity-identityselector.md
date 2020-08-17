@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tomfitz
-ms.openlocfilehash: cb66a2684e0b83f4f0cc01a07cc724f6beab4d68
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 91e3cd0b99825fd72eb342ce7a8555b046455538
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77088956"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87063407"
 ---
 # <a name="microsoftmanagedidentityidentityselector-ui-element"></a>Elemento de la interfaz de usuario Microsoft.ManagedIdentity.IdentitySelector
 
@@ -20,15 +20,15 @@ Control para asignar [identidades administradas](../../active-directory/managed-
 
 El control está formado por los siguientes elementos:
 
-![Primer paso de Microsoft.ManagedIdentity.IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector1.png)
+![Primer paso de Microsoft.ManagedIdentity.IdentitySelector](./media/managed-application-elements/microsoft-managedidentity-identityselector-1.png)
 
 Cuando el usuario selecciona **Agregar**, se abre el formulario siguiente. El usuario puede seleccionar una o varias identidades asignadas por el usuario para el recurso.
 
-![Segundo paso de Microsoft.ManagedIdentity.IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector2.png)
+![Segundo paso de Microsoft.ManagedIdentity.IdentitySelector](./media/managed-application-elements/microsoft-managedidentity-identityselector-2.png)
 
 Las identidades seleccionadas se muestran en la tabla. El usuario puede agregar o eliminar elementos de esta tabla.
 
-![Tercer paso de Microsoft.ManagedIdentity.IdentitySelector](./media/managed-application-elements/microsoft.managedidentity.identityselector3.png)
+![Tercer paso de Microsoft.ManagedIdentity.IdentitySelector](./media/managed-application-elements/microsoft-managedidentity-identityselector-3.png)
 
 ## <a name="schema"></a>Schema
 

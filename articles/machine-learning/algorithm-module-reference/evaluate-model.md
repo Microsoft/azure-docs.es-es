@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 07/08/2020
-ms.openlocfilehash: fe0d3819701e062fa2253bc6dd0c3a28eaeaadfb
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.date: 07/27/2020
+ms.openlocfilehash: 7f37a598c31f340e66437a6478512fad1f79121f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171129"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285958"
 ---
 # <a name="evaluate-model-module"></a>Módulo Evaluate Model
 
@@ -80,9 +80,9 @@ Las siguientes métricas se notifican al evaluar los modelos de clasificación b
   
 -   **Precisión** (Accuracy) mide la calidad de un modelo de clasificación como la proporción de resultados verdaderos en el total de casos.  
   
--   **Precisión** es la proporción de resultados verdaderos de todos los resultados positivos.  
+-   **Precisión** es la proporción de resultados verdaderos de todos los resultados positivos. Precisión = TP/(TP+FP)  
   
--   **Recuperación** es una fracción de todos los resultados correctos devueltos por el modelo.  
+-   **Recuperación** es la fracción de la cantidad total de instancias pertinentes que se recuperaron en realidad. Recuperación = TP/(TP+FN)  
   
 -   **Puntuación F1** se calcula como el promedio ponderado de precisión y recuperación entre 0 y 1, donde el valor ideal de puntuación F1 es 1.  
   

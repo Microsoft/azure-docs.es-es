@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: 1137a51ab7feb5a6d18c7d137d957d8e779d170e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7af711ebe21c46663ecd8e803b0f636c34c362ee
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513391"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87076056"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Supervisión, diagnóstico y solución de problemas de Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -23,10 +23,6 @@ ms.locfileid: "85513391"
 Diagnosticar y solucionar problemas en una aplicación distribuida que está hospedada en un entorno de nube puede ser más complicado que en los entornos tradicionales. Las aplicaciones se pueden implementar en una infraestructura de PaaS o IaaS, en una ubicación local, en un dispositivo móvil o en varios de estos entornos combinados. Normalmente, el tráfico de red de la aplicación puede atravesar redes públicas y privadas, y la aplicación puede usar varias tecnologías de almacenamiento, como tablas, blobs, colas o archivos de Microsoft Azure Storage, además de otros almacenes de datos como, por ejemplo, bases de datos relacionales y de documentos.
 
 Para administrar correctamente esas aplicaciones, debe supervisarlas de forma proactiva y comprender cómo diagnosticar y solucionar problemas relacionados con todos sus aspectos y con las tecnologías de las que dependen. Como usuario de los servicios de Azure Storage, debe supervisar continuamente los servicios de Almacenamiento que utiliza la aplicación para observar si se produce algún cambio inesperado en el comportamiento (por ejemplo, tiempos de respuesta más lentos de lo habitual), y usar el registro para recopilar datos más detallados y poder analizar los problemas en profundidad. Con la información de diagnóstico que obtenga de la supervisión y el registro, le será más fácil averiguar la causa raíz del problema que apareció en la aplicación. Entonces, podrá solucionar el problema y determinar los pasos más adecuados que puede tomar para remediarlo. Azure Storage es uno de los servicios principales de Azure y constituye una parte importante de la mayoría de las soluciones que implementan los clientes en la infraestructura de Azure. Azure Storage incluye funcionalidades que permiten simplificar la supervisión, el diagnóstico y la solución de problemas de almacenamiento de las aplicaciones basadas en la nube.
-
-> [!NOTE]
-> Azure Files no admite el registro en este momento.
->
 
 Para obtener una guía práctica para la solución de problemas integral en aplicaciones de almacenamiento de Azure, consulte [End-to-End Troubleshooting using Azure Storage Metrics and Logging, AzCopy, and Message Analyzer](../storage-e2e-troubleshooting.md)(Solución de problemas integral con el analizador de mensajes, AzCopy y las métricas y el registro del almacenamiento de Azure).
 
@@ -79,7 +75,7 @@ Para obtener una guía práctica para la solución de problemas integral en apli
 ## <a name="introduction"></a><a name="introduction"></a>Introducción
 En esta guía se explica cómo usar algunas características, como el análisis de Azure Storage, el registro del lado cliente de la biblioteca de cliente de Azure Storage y otras herramientas de terceros para identificar, diagnosticar y solucionar problemas relacionados con Azure Storage.
 
-![][1]
+![Diagrama que muestra el flujo de información entre las aplicaciones cliente y los servicios de Azure Storage.][1]
 
 Esta guía está dirigida, principalmente, a los desarrolladores de servicios en línea que usan los servicios de Azure Storage y a los profesionales de TI responsables de administrar esos servicios en línea. Los objetivos de esta guía son:
 
@@ -118,7 +114,7 @@ Debe supervisar continuamente las aplicaciones de Azure para asegurarse de que e
 
 Los gráficos de la siguiente imagen ilustran cómo el promedio resultante de las métricas horarias puede ocultar picos de actividad. Las métricas horarias parecen mostrar una tasa de solicitudes regular, mientras que las métricas por minuto revelan las fluctuaciones que se están produciendo en realidad.
 
-![][3]
+![Gráficos muestran la forma en que el promedio resultante de las métricas horarias puede ocultar picos de actividad.][3]
 
 En el resto de esta sección, se explica qué métricas debe supervisar y por qué.
 
@@ -348,7 +344,7 @@ Con esta sección, le resultará más fácil encargarse del diagnóstico y la so
 ### <a name="metrics-show-high-averagee2elatency-and-low-averageserverlatency"></a><a name="metrics-show-high-AverageE2ELatency-and-low-AverageServerLatency"></a>Las métricas muestran una AverageE2ELatency alta y una AverageServerLatency baja
 La siguiente ilustración de la herramienta de supervisión de [Azure Portal](https://portal.azure.com) muestra un ejemplo en el que el valor de **AverageE2ELatency** es significativamente más alto que el valor de **AverageServerLatency**.
 
-![][4]
+![Ilustración de Azure Portal que muestra un ejemplo en el que el valor de AverageE2ELatency es considerablemente mayor que el de AverageServerLatency.][4]
 
 El servicio de almacenamiento solamente calcula la métrica **AverageE2ELatency** de las solicitudes que se llevan a cabo correctamente y, a diferencia de **AverageServerLatency**, incluye el tiempo que tarda el cliente en enviar los datos y recibir la confirmación del servicio de almacenamiento. Por lo tanto, una diferencia entre **AverageE2ELatency** y **AverageServerLatency** podría deberse a que la aplicación cliente responde con lentitud o al estado de la red.
 
@@ -455,7 +451,7 @@ Las métricas muestran un aumento de **PercentTimeoutError** en uno de los servi
 >
 >
 
-La métrica **PercentTimeoutError** es la suma de las siguientes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** y **SASServerTimeoutError**.
+La métrica **PercentTimeoutError** es una agregación de las siguientes métricas: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** y **SASServerTimeoutError**.
 
 Los errores de tiempo de espera del servidor son errores del servidor. Los errores de tiempo de espera del cliente suceden porque una operación que se lleva a cabo en el servidor superó el tiempo de espera especificado por el cliente. Por ejemplo, un cliente que utiliza la biblioteca de cliente de Almacenamiento puede establecer un tiempo de espera de una operación con la propiedad **ServerTimeout** de la clase **QueueRequestOptions**.
 
@@ -471,14 +467,14 @@ Si la aplicación cliente inicia errores HTTP 403 (prohibido), uno de los motivo
 
 | Source | Nivel de detalle | Nivel de detalle | Id. de solicitud de cliente | Texto de operación |
 | --- | --- | --- | --- | --- |
-| Microsoft.Azure.Storage |Information |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Esperando respuesta. |
+| Microsoft.Azure.Storage |Información |3 |85d077ab-… |Iniciando operación con ubicación Primary según modo de ubicación PrimaryOnly. |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Iniciando solicitud sincrónica a <https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&sr=c&si=mypolicy&sig=OFnd4Rd7z01fIvh%2BmcR6zbudIH2F5Ikm%2FyhNYZEmJNQ%3D&api-version=2014-02-14>. |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Esperando respuesta. |
 | Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción que se produce mientras se espera una respuesta: Error en el servidor remoto: 403 Prohibido. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Respuesta recibida. Código de estado = 403, Id. de solicitud = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, Content-MD5 = , ETag = . |
 | Microsoft.Azure.Storage |Advertencia |2 |85d077ab -… |Excepción producida durante la operación: Error en el servidor remoto: 403 Prohibido. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: 403 Prohibido. |
-| Microsoft.Azure.Storage |Information |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |Comprobando si se debe reintentar la operación. Número de reintentos = 0, Código de estado HTTP = 403, Excepción = El servidor remoto devolvió un error: 403 Prohibido. |
+| Microsoft.Azure.Storage |Información |3 |85d077ab -… |La siguiente ubicación se estableció como Primary, de acuerdo con el modo de ubicación. |
 | Microsoft.Azure.Storage |Error |1 |85d077ab -… |La directiva de reintentos no permitió un reintento. Error: El servidor remoto devolvió un error: 403 Prohibido. |
 
 En este escenario, debe investigar el motivo por el que el token de SAS expira antes de que el cliente envíe el token al servidor:
@@ -626,7 +622,7 @@ El motivo más probable de este escenario es que el cliente envió una solicitud
 Si este problema se produce a menudo, debe investigar por qué el cliente no recibe correctamente las confirmaciones del servicio Tabla. Si el problema es intermitente, debe interceptar el error “HTTP (404) No encontrado” y registrarlo en el cliente, pero permitir que el cliente continúe.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>El cliente recibe mensajes HTTP 409 (conflicto)
-En la tabla siguiente se muestra un extracto del registro del servidor de dos operaciones de cliente: **DeleteIfExists** seguido inmediatamente por **CreateIfNotExists** con el mismo nombre de contenedor de blobs. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
+En la tabla siguiente se muestra un extracto del registro del servidor de dos operaciones de cliente: **DeleteIfExists** seguido inmediatamente de **CreateIfNotExists** con el mismo nombre de contenedor de blobs. Cada operación de cliente hace que se envíen dos solicitudes al servidor: primero, una solicitud **GetContainerProperties** para comprobar si existe el contenedor y, luego, la solicitud **DeleteContainer** o **CreateContainer**.
 
 | Timestamp | Operación | Resultado | Nombre del contenedor | Id. de solicitud de cliente |
 | --- | --- | --- | --- | --- |
@@ -727,7 +723,7 @@ Una vez iniciado Fiddler, empezará a capturar el tráfico HTTP y HTTPS de la m�
 
 Para limitar la cantidad de tráfico que captura Fiddler, puede utilizar filtros, que se configuran en la pestaña **Filters** (Filtros). En la siguiente captura de pantalla, se muestra un filtro que captura solamente el tráfico enviado al extremo de almacenamiento **contosoemaildist.table.core.windows.net** :
 
-![][5]
+![Captura de pantalla que muestra un filtro que captura solamente el tráfico enviado al punto de conexión de almacenamiento contosoemaildist.table.core.windows.net.][5]
 
 ### <a name="appendix-2-using-wireshark-to-capture-network-traffic"></a><a name="appendix-2"></a>Apéndice 2: Uso de Wireshark para capturar tráfico de red
 [Wireshark](https://www.wireshark.org/) es un analizador de protocolos de red que le permite ver información detallada sobre los paquetes de una gran variedad de protocolos de red.
@@ -739,18 +735,18 @@ En el siguiente procedimiento, se muestra cómo capturar información detallada 
 3. Haga clic en **Capture Options**(Opciones de captura).
 4. Agregue un filtro al cuadro de texto **Capture Filter** (Filtro de captura). Por ejemplo, **host contosoemaildist.table.core.windows.net** configurará Wireshark para que capture solamente los paquetes enviados al punto de conexión del servicio Tabla de la cuenta de almacenamiento **contosoemaildist** o desde dicho punto de conexión. Consulte la [lista completa de filtros de captura](https://wiki.wireshark.org/CaptureFilters).
 
-   ![][6]
+   ![Captura de pantalla que muestra cómo agregar un filtro al cuadro de texto Capture Filter (Filtro de captura).][6]
 5. Haga clic en **Iniciar**. Ahora, Wireshark capturará todos los paquetes que se envíen al extremo del servicio Tabla o desde él mientras utiliza la aplicación cliente en la máquina local.
 6. Cuando termine, en el menú principal, haga clic en **Capture** (Captura) y, luego, en **Stop** (Detener).
 7. Para guardar los datos capturados en un archivo de captura de Wireshark, en el menú principal, haga clic en **File** (Archivo) y, luego, en **Save** (Guardar).
 
 WireShark resaltará todos los errores que haya en la ventana **packetlist** (lista de paquetes). También puede usar la ventana **Expert Info** (Información para expertos) (haga clic en **Analyze** (Analizar) y, después, en **Expert Info** (Información para expertos)) para ver un resumen de los errores y las advertencias.
 
-![][7]
+![Captura de pantalla que muestra la ventana Expert Info (Información experta), donde se puede ver un resumen de los errores y advertencias.][7]
 
 Aparte de esto, puede optar por ver los datos de TCP como los ve el nivel de aplicación: para ello, haga clic con el botón derecho en los datos de TCP y elija **Follow TCP Stream**(Seguir secuencia TCP). Resulta útil si capturó el volcado sin un filtro de captura. Para más información, consulte [Following TCP Streams](https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowTCPSection.html)(Siguientes secuencias TCP).
 
-![][8]
+![Captura de pantalla que muestra cómo ver los datos del TCP a medida que los ve la capa de aplicación.][8]
 
 > [!NOTE]
 > Para más información sobre el uso de Wireshark, consulte la [Guía del usuario de Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
@@ -783,11 +779,11 @@ Además de usar el seguimiento de **Proxy web** del Analizador de mensajes de Mi
 
 A continuación se muestra un ejemplo de seguimiento del **Nivel de vínculo local** con algunos mensajes de **Información** en la columna **DiagnosisTypes**. Al hacer clic en un icono de la columna **DiagnosisTypes** , se muestran los detalles del mensaje. En este ejemplo, el servidor retransmitió el mensaje número 305 porque no recibió una confirmación del cliente:
 
-![][9]
+![Captura de pantalla que muestra un ejemplo de seguimiento del Nivel de vínculo local con algunos mensajes informativos en la columna DiagnosisTypes][9]
 
 Al crear la sesión de seguimiento en el Analizador de mensajes de Microsoft, puede especificar filtros para reducir la cantidad de ruido del seguimiento. En la página **Captura/seguimiento** donde define el seguimiento, haga clic en el vínculo **Configurar** situado junto a **Microsoft-Windows-NDIS-PacketCapture**. En la siguiente captura de pantalla, se muestra una configuración que filtra el tráfico TCP de las direcciones IP de tres servicios de almacenamiento:
 
-![][10]
+![Captura de pantalla que muestra una configuración que filtra el tráfico TCP de las direcciones IP de tres servicios de almacenamiento.][10]
 
 Para más información sobre el seguimiento del Nivel de vínculo local del Analizador de mensajes de Microsoft, consulte [Microsoft-PEF-NDIS-PacketCapture Provider](https://technet.microsoft.com/library/jj659264.aspx)(Proveedor de Microsoft-PEF-NDIS-PacketCapture).
 

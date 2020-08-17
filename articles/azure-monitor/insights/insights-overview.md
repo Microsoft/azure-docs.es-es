@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/22/2019
-ms.openlocfilehash: ecd66500fdf968a773d3bc4f3d93363bfe86c763
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e3eefb97c85b3865abbf116b9912dc45f6db8ce8
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836046"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326875"
 ---
 # <a name="overview-of-insights-in-azure-monitor"></a>Introducción a Insights en Azure Monitor
 Insights proporciona una experiencia de supervisión personalizada para determinadas aplicaciones y servicios. Almacena datos en la [plataforma de datos de Azure Monitor](../platform/data-platform.md) y aprovecha otras características de Azure Monitor para el análisis y la creación de alertas, pero puede recopilar datos adicionales y proporcionar una experiencia de usuario única en Azure Portal. Obtener acceso a información a partir de la sección **Insights** del menú de Azure Monitor en Azure Portal.
@@ -29,14 +29,14 @@ Vea [¿Qué es Application Insights?](../app/app-insights-overview.md).
 ## <a name="azure-monitor-for-containers"></a>Azure Monitor para contenedores
 Azure Monitor para contenedores supervisa el rendimiento de las cargas de trabajo de contenedor implementadas en Azure Container Instances o en clústeres de Kubernetes administrados hospedados en Azure Kubernetes Service (AKS). La supervisión de los contenedores es fundamental, sobre todo cuando se ejecuta un clúster de producción, a escala, con varias aplicaciones.
 
-Vea [Introducción a Azure Monitor para contenedores](../insights/container-insights-overview.md).
+Vea [Introducción a Azure Monitor para contenedores](./container-insights-overview.md).
 
 ![Azure Monitor para contenedores](media/insights-overview/container-insights.png)
 
 ## <a name="azure-monitor-for-resource-groups-preview"></a>Azure Monitor para grupos de recursos (versión preliminar)
 Azure Monitor para grupo de recursos ayuda a clasificar y diagnosticar cualquier problema que encuentren sus recursos individuales, a la vez que se ofrece un contexto en cuanto al estado y el rendimiento del grupo de recursos como un todo.
 
-Vea [Supervisar los grupos de recursos con Azure Monitor (versión preliminar)](../insights/resource-group-insights.md).
+Vea [Supervisar los grupos de recursos con Azure Monitor (versión preliminar)](./resource-group-insights.md).
 
 ![Azure Monitor para grupos de recursos](media/insights-overview/resource-group-insights.png)
 
@@ -55,3 +55,4 @@ Vea [¿Qué es Azure Monitor para máquinas virtuales?](vminsights-overview.md)
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información sobre la [plataforma de datos de Azure Monitor](../platform/data-platform.md) y la información que proporciona.
 * Obtenga información sobre los diferentes [orígenes de datos usados por Azure Monitor](../platform/data-sources.md) y los diferentes tipos de datos recopilados por cada una de las opciones de información.
+

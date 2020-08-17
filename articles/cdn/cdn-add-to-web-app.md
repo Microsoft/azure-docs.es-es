@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 18054e47a987a7e79e9083b6f7a2f20b059c7f28
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81254621"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88079916"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Tutorial: Adición de Azure CDN a una aplicación web de Azure App Service
 
@@ -49,7 +49,7 @@ Para completar este tutorial:
 
 ## <a name="create-the-web-app"></a>Creación de la aplicación web
 
-Para crear la aplicación web con la que va a trabajar, siga el [tutorial de inicio rápido de HTML estático](../app-service/app-service-web-get-started-html.md) mediante el paso de **búsqueda de la aplicación**.
+Para crear la aplicación web con la que va a trabajar, siga el [tutorial de inicio rápido de HTML estático](../app-service/quickstart-html.md) mediante el paso de **búsqueda de la aplicación**.
 
 ## <a name="log-in-to-the-azure-portal"></a>Iniciar sesión en Azure Portal
 
@@ -60,7 +60,7 @@ Si desea optimizar el punto de conexión de CDN para la aceleración de sitios d
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Creación de un perfil y un punto de conexión de CDN
 
-En el panel de navegación izquierdo, seleccione **App Services** y, a continuación, seleccione la aplicación que creó en el tutorial [Creación de una aplicación web HTML estática en Azure en cinco minutos](../app-service/app-service-web-get-started-html.md).
+En el panel de navegación izquierdo, seleccione **App Services** y, a continuación, seleccione la aplicación que creó en el tutorial [Creación de una aplicación web HTML estática en Azure en cinco minutos](../app-service/quickstart-html.md).
 
 ![Selección de la aplicación de App Service en el portal](media/cdn-add-to-web-app/portal-select-app-services.png)
 

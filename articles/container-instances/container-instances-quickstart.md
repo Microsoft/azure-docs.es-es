@@ -7,12 +7,14 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: e5cad7d9141963e5062423545f7e5b94f0575152
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+- devx-track-javascript
+- devx-track-azurecli
+ms.openlocfilehash: 31e7e7d6785e8fd52f4c76171f6ca9d7f5c8383c
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "78252186"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501328"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante la CLI de Azure
 

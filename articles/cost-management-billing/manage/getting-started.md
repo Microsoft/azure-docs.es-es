@@ -5,15 +5,15 @@ author: bandersmsft
 ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 04/10/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: b1986a4cb59e0f276ba59eb99acfb459b48615d8
-ms.sourcegitcommit: 8dc84e8b04390f39a3c11e9b0eaf3264861fcafc
+ms.openlocfilehash: 1b63b0316b8314e4c5107ddd3f1d22c1d59cbb08
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2020
-ms.locfileid: "81262112"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281810"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Prevención de cargos inesperados con la administración de costos y facturación de Azure
 
@@ -196,7 +196,7 @@ Cuando haya identificado el recurso en cuestión, puede usar el análisis de cos
 
 ### <a name="review-invoiced-charges-in-cost-analysis"></a>Revisión de los cargos facturados en Análisis de costos
 
-Para ver los detalles de la factura en Azure Portal, vaya a Análisis de costos para el ámbito asociado a la factura que está analizando. Seleccione la vista **Detalles de la factura**. Los detalles de la factura muestran los cargos según se muestran en la factura.
+Para ver los detalles de la factura en Azure Portal, vaya a Análisis de costos para el ámbito asociado a la factura que está analizando. Cambie a la vista **Detalles de la factura**. Los detalles de la factura muestran los cargos según se muestran en la factura.
 
 [![Ejemplo que muestra los detalles de la factura](./media/getting-started/invoice-details.png)](./media/getting-started/invoice-details.png#lightbox)
 
@@ -219,11 +219,11 @@ Un único recurso puede acumular cargos en varios productos y servicios de Azure
 - Horas de dirección IP
 - Transferencia de datos de entrada
 - Transferencia de datos de salida
-- Disco administrado estándar
+- Disco administrado Estándar
 - Operaciones de disco administrado estándar
-- E/S estándar: Disco
-- E/S estándar: Lectura de blob en bloques
-- E/S estándar: Escritura de blob en bloques
+- E/S estándar: disco
+- E/S estándar: lectura de blobs en bloques
+- E/S estándar: escritura de blobs en bloques
 - E/S estándar: Eliminación de blob en bloques
 
 Cuando se crea la máquina virtual, cada medidor comienza a emitir registros de uso. El uso y el precio del medidor se registran en el sistema de medición de Azure. Puede ver los medidores que se usaron para calcular la factura en el archivo CSV de uso.

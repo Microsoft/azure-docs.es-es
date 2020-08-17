@@ -4,12 +4,12 @@ description: Obtenga información sobre los asociados de Azure Monitor y sobre c
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: be309bf6caeb716fee86e4542363f5554b4568fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 994dfe0d7e252fd2aea489c363e76f0956715048
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84248978"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318341"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integraciones de asociados de Azure Monitor
 
@@ -268,10 +268,10 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Obtener más información sobre Azure Monitor](../../azure-monitor/overview.md)
+- [Obtener más información sobre Azure Monitor](../overview.md)
 - [Acceder a métricas mediante la API de REST](rest-api-walkthrough.md)
-- [Transmitir el registro de actividad a un servicio que no es de Microsoft](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
-- [Transmisión de los registros de recursos a un servicio que no es de Microsoft](../../azure-monitor/platform/resource-logs-stream-event-hubs.md)
+- [Transmitir el registro de actividad a un servicio que no es de Microsoft](./activity-log.md#legacy-collection-methods)
+- [Transmisión de los registros de recursos a un servicio que no es de Microsoft](./resource-logs.md#send-to-azure-event-hubs)
 
 
 
@@ -281,13 +281,13 @@ Turbonomic ofrece automatización de cargas de trabajo en nubes híbridas, ya qu
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Introducción a Botmetric."
 [circonus-doc]: https://docs.circonus.com/circonus/agents/cloud-agent/azure/ 
-[cloudhealth-doc]: https://www.cloudhealthtech.com/azure
+[cloudhealth-doc]: https://www.cloudhealthtech.com/products/azure-management
 [cloudmonix-doc]: https://cloudmonix.com/features/azure-management/ "Introducción de CloudMonix."
 [datadog-doc]: https://docs.datadoghq.com/integrations/azure/ "Documentación de Datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentación de Dynatrace."
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentación de Elastic."
 [grafana-doc]: ./grafana-plugin.md "Integración de Grafana y Azure Monitor."
-[influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Integración de Telegraf InfluxData de Azure Monitor."
+[influxdata-doc]: ./collect-custom-metrics-linux-telegraf.md "Integración de Telegraf InfluxData de Azure Monitor."
 [logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Documentación de Logic Monitor."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Documentación de Moogsoft."
 [newrelic-doc]: https://newrelic.com/azure "Documentación de NewRelic."

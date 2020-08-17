@@ -3,12 +3,12 @@ title: Respuestas a preguntas comunes
 description: 'Respuestas a preguntas comunes sobre las características de Azure Backup, incluidos los almacenes de Recovery Services, las copias de seguridad que puede realizar, cómo funciona, el cifrado y los límites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 96733ffaae101bb2cf716fda7500a8269ce8e357
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 95d515e65e31304dd4839f851736be6926a5a29f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970491"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553094"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 
@@ -111,7 +111,7 @@ Windows 8 o posterior | 54 400 GB
 Windows 7 |1700 GB
 Windows Server 2012 o superior | 54 400 GB
 Windows Server 2008, Windows Server 2008 R2 | 1700 GB
-Azure VM | Consulte la [matriz de compatibilidad para la copia de seguridad de Azure VM](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-storage-support).
+Azure VM | Consulte la [matriz de compatibilidad para la copia de seguridad de Azure VM](./backup-support-matrix-iaas.md#vm-storage-support).
 
 ### <a name="how-is-the-data-source-size-determined"></a>¿Cómo se determina el tamaño del origen de datos?
 
@@ -127,7 +127,7 @@ Estado del sistema y BMR |Cada copia individual del estado del sistema o BMR del
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>¿Hay un límite en la cantidad de datos de los que se realiza una copia de seguridad con el uso de un almacén de Recovery Services?
 
-No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services. Los orígenes de datos individuales (distintos de las máquinas virtuales de Azure) pueden tener un tamaño máximo de 54.400 GB. Para más información sobre los límites, consulte la sección sobre los [límites del almacén en la matriz de compatibilidad](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support).
+No hay ningún límite en la cantidad de datos de los que se puede hacer una copia de seguridad con el uso de un almacén de Recovery Services. Los orígenes de datos individuales (distintos de las máquinas virtuales de Azure) pueden tener un tamaño máximo de 54.400 GB. Para más información sobre los límites, consulte la sección sobre los [límites del almacén en la matriz de compatibilidad](./backup-support-matrix.md#vault-support).
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>¿Por qué el tamaño de los datos transferidos al almacén de Recovery Services es más pequeño que los datos seleccionados para la copia de seguridad?
 
@@ -197,6 +197,10 @@ Cuando se aplica una nueva directiva, se sigue la programación y retención de 
 - Si se amplía la retención, los puntos de recuperación existentes se marcan para conservarlos de acuerdo con la nueva directiva.
 - Si se reduce la retención, se marcan para eliminarse y, posteriormente, se eliminan en el siguiente trabajo de limpieza.
 
+### <a name="how-long-is-data-retained-when-stopping-backups-but-selecting-the-option-to-retain-backup-data"></a>¿Cuánto tiempo se conservan los datos al detener las copias de seguridad con la opción de conservar datos de copia de seguridad seleccionada?
+
+Cuando se detienen las copias de seguridad y se conservan los datos, dejan de aplicarse las reglas de directiva existentes para la eliminación de datos y los datos se conservan indefinidamente hasta que el administrador las inicia para eliminarlos.
+
 ## <a name="encryption"></a>Cifrado
 
 ### <a name="is-the-data-sent-to-azure-encrypted"></a>¿Se cifran los datos que se envían a Azure?
@@ -214,7 +218,7 @@ Microsoft no descifra los datos de copia de seguridad en ningún momento.
 
 ### <a name="what-is-the-minimum-length-of-the-encryption-key-used-to-encrypt-backup-data"></a>¿Cuál es la longitud mínima de la clave de cifrado usada para cifrar los datos de copia de seguridad?
 
-La clave de cifrado debe tener al menos 16 caracteres cuando se usa Azure Backup Agent. Para máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault.
+La clave de cifrado usada por el agente de Microsoft Azure Recovery Services (MARS) se deriva de una frase de contraseña que debe tener 16 caracteres como mínimo. Para máquinas virtuales de Azure, no hay ningún límite de longitud para las claves usadas por Azure KeyVault.
 
 ### <a name="what-happens-if-i-misplace-the-encryption-key-can-i-recover-the-data-can-microsoft-recover-the-data"></a>¿Qué sucede si pierdo la clave de cifrado? ¿Puedo recuperar los datos? ¿Microsoft puede recuperar los datos?
 

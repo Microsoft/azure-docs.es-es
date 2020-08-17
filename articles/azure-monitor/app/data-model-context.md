@@ -4,12 +4,12 @@ description: Modelo de datos de contexto de telemetría de Application Insights
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 8a2e3296643b13a54c4fceb11f044a2808cf2877
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 25ff7d92da5ea0a6aba84aad1cfc98e5295e151e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77671870"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322676"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>Contexto de telemetría: Modelo de datos de Application Insights
 
@@ -39,14 +39,14 @@ Longitud máxima: 64
 
 ## <a name="operation-id"></a>Identificador de operación
 
-Es un identificador único de la operación de raíz. Este identificador permite agrupar telemetría de varios componentes. Consulte [Correlación de telemetría](../../azure-monitor/app/correlation.md) para obtener más información. El identificador de la operación se crea, bien mediante una solicitud, bien mediante una vista de página. El resto de telemetría establece este campo en el valor de la solicitud o la vista de página que la contienen. 
+Es un identificador único de la operación de raíz. Este identificador permite agrupar telemetría de varios componentes. Consulte [Correlación de telemetría](./correlation.md) para obtener más información. El identificador de la operación se crea, bien mediante una solicitud, bien mediante una vista de página. El resto de telemetría establece este campo en el valor de la solicitud o la vista de página que la contienen. 
 
 Longitud máxima: 128
 
 
 ## <a name="parent-operation-id"></a>Identificador de la operación principal
 
-Es el identificador único del primario inmediato del elemento de telemetría. Consulte [Correlación de telemetría](../../azure-monitor/app/correlation.md) para obtener más información.
+Es el identificador único del primario inmediato del elemento de telemetría. Consulte [Correlación de telemetría](./correlation.md) para obtener más información.
 
 Longitud máxima: 128
 
@@ -76,7 +76,7 @@ Longitud máxima: 64
 
 Este es el identificador del usuario anónimo. Representa al usuario final de la aplicación. Al enviar telemetría desde un servicio, el contexto del usuario trata sobre el usuario que inició la operación en el servicio.
 
-El [muestreo](../../azure-monitor/app/sampling.md) es una de las técnicas mediante las cuales se reduce al mínimo la cantidad de telemetría recopilada. El algoritmo de muestreo intenta muestrear toda la telemetría correlacionada para aceptarla o rechazarla. El identificador del usuario anónimo se usa para muestrear la generación de puntuaciones. Por ello, el identificador del usuario anónimo debería ser un valor suficiente aleatorio. 
+El [muestreo](./sampling.md) es una de las técnicas mediante las cuales se reduce al mínimo la cantidad de telemetría recopilada. El algoritmo de muestreo intenta muestrear toda la telemetría correlacionada para aceptarla o rechazarla. El identificador del usuario anónimo se usa para muestrear la generación de puntuaciones. Por ello, el identificador del usuario anónimo debería ser un valor suficiente aleatorio. 
 
 Usar el identificador del usuario anónimo para almacenar el nombre de usuario es usar el campo de forma incorrecta. Use el identificador del usuario autenticado.
 
@@ -127,6 +127,7 @@ Longitud máxima: 256
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo [ampliar y filtrar la telemetría](../../azure-monitor/app/api-filtering-sampling.md).
+- Obtenga información sobre cómo [ampliar y filtrar la telemetría](./api-filtering-sampling.md).
 - Consulte [modelo de datos](data-model.md) para los tipos y el modelo de datos de Application Insights.
-- Compruebe la [configuración](../../azure-monitor/app/configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la recopilación de propiedades estándar de contexto.
+- Compruebe la [configuración](./configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) de la recopilación de propiedades estándar de contexto.
+

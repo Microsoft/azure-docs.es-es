@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: d394f0bb72f353e65c48a564fa7187364eae8121
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970814"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089709"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Protección contra amenazas avanzada de Microsoft Defender con Azure Security Center
 
@@ -44,7 +44,7 @@ Mediante la integración de ATP de Defender con Azure Security Center, también 
 
 ## <a name="platform-support"></a>Compatibilidad con plataformas
 
-ATP de Microsoft Defender en Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1. En el caso de las VM de Azure, necesita una suscripción de nivel Estándar y, para las VM que no son de Azure, necesita el nivel Estándar solo en el nivel de área de trabajo.
+ATP de Microsoft Defender en Security Center admite la detección en los sistemas operativos Windows Server 2016, 2012 R2 y 2008 R2 SP1. En el caso de las máquinas virtuales de Azure, necesita una suscripción de nivel Estándar y, en el de las máquinas virtuales que no son de Azure, necesita el nivel Estándar solo en el nivel de área de trabajo.
 
 La supervisión del punto de conexión del servidor que usa esta integración se ha deshabilitado para los clientes de Office 365 GCC.
 
@@ -59,8 +59,9 @@ Una vez configurada, la ubicación donde se almacenan los datos no se puede camb
 
 Para incorporar servidores a Security Center, haga clic en **Ir a Azure Security Center para incorporar los servidores** desde la incorporación del servidor de ATP de Microsoft Defender.
 
-1. En el área de **incorporación**, seleccione o cree el área de trabajo en la que se almacenarán los datos. <br>
-2. Si no puede ver todas las áreas de trabajo, puede deberse a una falta de permisos. Asegúrese de que el área de trabajo se establece en el nivel Estándar de Azure Security. Para obtener más información, consulte [Actualización al nivel Estándar de Security Center para mejorar la seguridad](security-center-pricing.md).
+1. En el área de **incorporación**, seleccione o cree el área de trabajo en la que se almacenarán los datos.
+
+2. Si no puede ver todas las áreas de trabajo, puede deberse a una falta de permisos. Asegúrese de que el área de trabajo está establecida en el plan de tarifa Estándar de Azure Security. Para obtener más información, vea [Actualización al nivel Estándar de Security Center para mejorar la seguridad](security-center-pricing.md).
     
 3. Seleccione **Agregar servidores** para ver instrucciones sobre cómo instalar el agente de Log Analytics. 
 

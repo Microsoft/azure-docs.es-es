@@ -15,12 +15,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: daberry
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78db1ba0eaff0dce83ed13e9f20c3c5a5b96bf9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b2f21cab4740013eb2de1d69f558c95461c493e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83120970"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87028403"
 ---
 # <a name="troubleshoot-deployment-issues-when-creating-a-new-windows-vm-in-azure"></a>Solución de problemas de implementación al crear una nueva máquina virtual Windows en Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
@@ -37,7 +37,7 @@ Para iniciar la solución de problemas, recopile los registros de actividad para
 
 [Ver operaciones de implementación](../../azure-resource-manager/templates/deployment-history.md)
 
-[Ver registros de actividad para administrar recursos de Azure](../../resource-group-audit.md)
+[Ver registros de actividad para administrar recursos de Azure](../../azure-resource-manager/management/view-activity-logs.md)
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-issue1](../../../includes/virtual-machines-troubleshoot-deployment-new-vm-issue1-include.md)]
 
@@ -53,7 +53,7 @@ Para iniciar la solución de problemas, recopile los registros de actividad para
 
 **Resolución**
 
-Para resolver estos errores, use [Add-AzVhd para cargar el disco duro virtual original](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), disponible en el entorno local, con la misma configuración que para el sistema operativo (generalizado o especializado). Para cargar como generalizado, no olvide ejecutar sysprep antes.
+Para resolver estos errores, use [Add-AzVhd para cargar el disco duro virtual original](/powershell/module/az.compute/add-azvhd), disponible en el entorno local, con la misma configuración que para el sistema operativo (generalizado o especializado). Para cargar como generalizado, no olvide ejecutar sysprep antes.
 
 **Errores de captura:**
 
@@ -90,5 +90,3 @@ Este error se produce en situaciones en las que la nueva solicitud de máquina v
 
 ## <a name="next-steps"></a>Pasos siguientes
 Si tiene problemas al iniciar una máquina virtual Windows detenida o al cambiar el tamaño de una máquina virtual Windows existente en Azure, consulte [Solución de problemas de la implementación de Resource Manager con el reinicio o el cambio de tamaño de una máquina virtual de Windows existente en Azure](restart-resize-error-troubleshooting.md).
-
-

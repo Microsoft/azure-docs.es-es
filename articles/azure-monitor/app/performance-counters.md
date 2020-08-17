@@ -3,16 +3,16 @@ title: Contadores de rendimiento en Application Insights | Microsoft Docs
 description: Supervise los contadores de rendimiento de .NET, tanto del sistema como personalizados, en Application Insights.
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.openlocfilehash: 274e02c484c091cbb13ac2cf69bf99672f579f33
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eb5e20403cc826619eb1f67de2fc4179e17b5aa4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83701466"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322523"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de rendimiento de sistema en Application Insights
 
-Windows proporciona una amplia variedad de [contadores de rendimiento](https://docs.microsoft.com/windows/desktop/PerfCtrs/about-performance-counters), como la ocupación de la CPU, memoria, disco y uso de la red. También puede definir sus propios contadores de rendimiento. La colección de contadores de rendimiento es compatible siempre que se aplicación se ejecute en IIS en un host local o en una máquina virtual para la que tenga acceso administrativo. Aunque las aplicaciones que se ejecutan como Azure Web Apps no tienen acceso directo a los contadores de rendimiento, Application Insights recopila un subconjunto de contadores disponibles.
+Windows proporciona una amplia variedad de [contadores de rendimiento](/windows/desktop/perfctrs/about-performance-counters), como la ocupación de la CPU, memoria, disco y uso de la red. También puede definir sus propios contadores de rendimiento. La colección de contadores de rendimiento es compatible siempre que se aplicación se ejecute en IIS en un host local o en una máquina virtual para la que tenga acceso administrativo. Aunque las aplicaciones que se ejecutan como Azure Web Apps no tienen acceso directo a los contadores de rendimiento, Application Insights recopila un subconjunto de contadores disponibles.
 
 ## <a name="view-counters"></a>Visualización de contadores
 
@@ -40,7 +40,7 @@ Si el contador de rendimiento que quiere no está incluido en la lista de métri
 
     `Get-Counter -ListSet *`
 
-    (Consulte [`Get-Counter`](https://technet.microsoft.com/library/hh849685.aspx)).
+    (Consulte [`Get-Counter`](/powershell/module/microsoft.powershell.diagnostics/get-counter?view=powershell-5.1)).
 2. Abra ApplicationInsights.config.
 
    * Si agrega Application Insights a la aplicación durante el desarrollo, edite ApplicationInsights.config en el proyecto y vuelva a implementarlo en los servidores.
@@ -109,7 +109,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 ```
 
 ## <a name="performance-counters-in-analytics"></a>Contadores de rendimiento en Analytics
-Puede buscar y mostrar informes de contador de rendimiento en [Analytics](../../azure-monitor/app/analytics.md).
+Puede buscar y mostrar informes de contador de rendimiento en [Analytics](../log-query/log-query-overview.md).
 
 El esquema **performanceCounters** expone `category`, el nombre de `counter` y el nombre de `instance` de cada contador de rendimiento.  En la telemetría de cada aplicación, solo se ven los contadores de dicha aplicación. Por ejemplo, para ver qué contadores están disponibles: 
 
@@ -131,7 +131,7 @@ Al igual que otros datos de telemetría, **performanceCounters** también tiene 
 
 * *tasa de excepciones* es un contador de rendimiento del sistema. El CLR cuenta todas las excepciones controladas y no controladas que se producen, y divide el total de un intervalo de muestreo entre la duración del intervalo. El SDK de Application Insights recopila este resultado y lo envía al portal.
 
-* *Excepciones* es un recuento de los informes de TrackException recibidos a través del portal en el intervalo de muestreo del gráfico. Solo incluye las excepciones controladas para las que ha escrito llamadas a TrackException en el código y no incluye todas las [excepciones no controladas](../../azure-monitor/app/asp-net-exceptions.md). 
+* *Excepciones* es un recuento de los informes de TrackException recibidos a través del portal en el intervalo de muestreo del gráfico. Solo incluye las excepciones controladas para las que ha escrito llamadas a TrackException en el código y no incluye todas las [excepciones no controladas](./asp-net-exceptions.md). 
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Contadores de rendimiento para aplicaciones que se ejecutan en Azure Web Apps
 
@@ -147,10 +147,10 @@ La compatibilidad con los contadores de rendimiento en ASP.Net Core es limitada:
 * Las versiones 2.8.0 y posteriores del SDK admiten el contador de CPU/memoria de Linux. No se admite ningún otro contador en Linux. La manera recomendada de obtener contadores del sistema en Linux (y otros entornos que no son Windows) es mediante [EventCounters](eventcounters.md).
 
 ## <a name="alerts"></a>Alertas
-Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/platform/alerts-log.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
+Al igual que otras métricas, puede [establecer una alerta](../platform/alerts-log.md) para advertirle si un contador de rendimiento queda fuera de un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
-* [Seguimiento de dependencias](../../azure-monitor/app/asp-net-dependencies.md)
-* [Seguimiento de excepciones](../../azure-monitor/app/asp-net-exceptions.md)
+* [Seguimiento de dependencias](./asp-net-dependencies.md)
+* [Seguimiento de excepciones](./asp-net-exceptions.md)
 

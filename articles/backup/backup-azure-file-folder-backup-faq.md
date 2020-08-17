@@ -1,18 +1,18 @@
 ---
-title: 'Copias de seguridad de archivos y carpetas: preguntas comunes'
+title: 'Agente de Microsoft Azure Recovery Services (MARS): Preguntas frecuentes'
 description: Responde las preguntas habituales acerca de la realización de copias de seguridad de archivos y carpetas con Azure Backup.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 0ecff00fdfaf9b0ca494cd1c78d0a5e16b198995
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: fb6290124aa9ee0335083c5a505c005a387c0cd7
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056181"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514074"
 ---
-# <a name="common-questions-about-backing-up-files-and-folders"></a>Preguntas comunes acerca de la realización de copias de seguridad de archivos y carpetas
+# <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Preguntas más frecuentes: agente de Microsoft Azure Recovery Services (MARS)
 
-Este artículo da respuesta a preguntas habituales sobre la copia de seguridad de archivos y carpetas con el agente de Microsoft Azure Recovery Services (MARS) del servicio [Azure Backup](backup-overview.md).
+En este artículo se da respuesta a preguntas habituales sobre la copia de seguridad de datos con el agente de Microsoft Azure Recovery Services (MARS) del servicio [Azure Backup](backup-overview.md).
 
 ## <a name="configure-backups"></a>Configuración de copias de seguridad
 
@@ -74,11 +74,11 @@ Al cambiar el nombre de un equipo Windows, se detienen todas las copias de segur
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>¿Cuál es la longitud máxima de la ruta de acceso de un archivo del que se va a realizar una copia de seguridad?
 
-El agente de MARS usa NTFS y utiliza la especificación de longitud de la ruta de acceso a los archivos limitada por la [API de Windows](/windows/desktop/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Si el tamaño de los archivos que desea proteger supera el valor permitido, realice una copia de seguridad de la carpeta primaria o de la unidad de disco.  
+El agente de MARS usa NTFS y utiliza la especificación de longitud de la ruta de acceso a los archivos limitada por la [API de Windows](/windows/win32/FileIO/naming-a-file#fully-qualified-vs-relative-paths). Si el tamaño de los archivos que desea proteger supera el valor permitido, realice una copia de seguridad de la carpeta primaria o de la unidad de disco.  
 
 ### <a name="what-characters-are-allowed-in-file-paths"></a>¿Qué caracteres se permiten en las rutas de acceso de archivo?
 
-El agente de MARS usa NTFS y permite los [caracteres compatibles](/windows/desktop/FileIO/naming-a-file#naming-conventions) en los nombres de archivo o las rutas de acceso.
+El agente de MARS usa NTFS y permite los [caracteres compatibles](/windows/win32/FileIO/naming-a-file#naming-conventions) en los nombres de archivo o las rutas de acceso.
 
 ### <a name="the-warning-azure-backups-have-not-been-configured-for-this-server-appears"></a>Aparece la advertencia "Azure Backups have not been configured for this server" (No se han configurado instancias de Azure Backup para este servidor).
 
@@ -95,7 +95,7 @@ El tamaño de la carpeta de caché determina la cantidad de datos de los que se 
 
 * Los volúmenes de la carpeta de caché deben tener un espacio libre equivalente, al menos, al 5-10 % del tamaño total de datos de copia de seguridad.
 * Si el volumen tiene menos del 5 % de espacio libre, aumente el tamaño del volumen o mueva la carpeta de la memoria caché a un volumen que tenga suficiente espacio libre siguiendo [estos pasos](#how-do-i-change-the-cache-location-for-the-mars-agent).
-* Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan 30-35 GB adicionales de espacio libre en el volumen que contiene la carpeta de la caché.
+* Si se realiza una copia de seguridad del estado del sistema Windows, se necesitan de 30 a 35 GB adicionales de espacio libre en el volumen que contiene la carpeta de la caché.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>¿Cómo se puede comprobar si la carpeta temporal es válida y accesible?
 
@@ -141,7 +141,7 @@ No se recomiendan las siguientes ubicaciones para la carpeta de caché:
 
 ### <a name="are-there-any-attributes-of-the-cache-folder-that-arent-supported"></a>¿Hay algún atributo de la carpeta de caché que no se admita?
 
-No se admiten los siguientes atributos ni sus combinaciones para la carpeta de caché:
+No se admiten los atributos siguientes ni sus combinaciones para la carpeta de caché:
 
 * Cifrados
 * Desduplicados
@@ -165,17 +165,17 @@ El agente de Azure Backup requiere una frase de contraseña (que proporcionó du
 
 | Máquina original <br> *(máquina de origen donde se realizaron las copias de seguridad)* | Passphrase | Opciones disponibles |
 | --- | --- | --- |
-| Disponible |Perdida |Si la máquina original (donde se realizaron las copias de seguridad) está disponible y aún está registrada en el mismo almacén de Recovery Services, puede volver a generar la frase de contraseña siguiendo estos [pasos](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase).  |
-| Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
+| Disponible |Perdida |Si la máquina original (donde se realizaron las copias de seguridad) está disponible y aún está registrada en el mismo almacén de Recovery Services, puede volver a generar la frase de contraseña siguiendo estos [pasos](./backup-azure-manage-mars.md#re-generate-passphrase).  |
+| Perdida |Perdida |No es posible recuperar los datos o estos no están disponibles. |
 
 Tenga en cuenta las siguientes condiciones:
 
-* Si desinstala y vuelve a registrar el agente en la misma máquina original con
-  * *la misma frase de contraseña*, podrá restaurar los datos de copia de seguridad.
-  * *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
-* Si instala el agente en una *máquina diferente* con
-  * *la misma frase de contraseña* (usada en la máquina original), podrá restaurar los datos de copia de seguridad.
-  * *una frase de contraseña diferente*, no podrá restaurar los datos de copia de seguridad.
+* Si desinstala y vuelve a registrar el agente en la misma máquina original con:
+  * *La misma frase de contraseña*, podrá restaurar los datos de copia de seguridad.
+  * *Una frase de contraseña distinta*, no podrá restaurar los datos de copia de seguridad.
+* Si instala el agente en una *máquina diferente* con:
+  * *La misma frase de contraseña* (usada en la máquina original), podrá restaurar los datos de copia de seguridad.
+  * *Una frase de contraseña distinta*, no podrá restaurar los datos de copia de seguridad.
 * Si la máquina original está dañada (lo que impide volver a generar la frase de contraseña a través de la consola de MARS), pero puede restaurar o acceder a la carpeta temporal original utilizada por el agente de MARS, es posible que pueda realizar una restauración (si olvidó la contraseña). Para obtener más ayuda, póngase en contacto con el servicio de soporte al cliente.
 
 #### <a name="how-do-i-recover-if-i-lost-my-original-machine-where-backups-were-taken"></a>¿Cómo recupero las copias de seguridad si perdí mi máquina original (donde se realizaban las copias de seguridad)?
@@ -184,8 +184,8 @@ Si tiene la misma frase de contraseña (que proporcionó durante el registro) de
 
 | Máquina original | Passphrase | Opciones disponibles |
 | --- | --- | --- |
-| Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine).
-| Perdida |Perdida |No es posible recuperar los datos o los datos no están disponibles |
+| Perdida |Disponible |Puede instalar y registrar el agente de MARS en otro equipo con la misma frase de contraseña que proporcionó durante el registro de la máquina original. Elija **Opción de recuperación** > **Otra ubicación** para realizar la restauración. Para más información, consulte este [artículo](./backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+| Perdida |Perdida |No es posible recuperar los datos o estos no están disponibles. |
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>Se produjo un error en los trabajos de copia de seguridad o no se están ejecutando durante mucho tiempo. Ya pasé el período de retención. ¿Todavía puedo restaurarlo?
 

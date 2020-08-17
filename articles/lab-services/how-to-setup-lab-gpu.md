@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: 63b7a8c58bb6d277233268ed4fc0bc870fdd337f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f41ad80e0e39d66020d039d6229a4b0fc62627f1
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85443407"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286009"
 ---
 # <a name="set-up-a-lab-with-gpu-virtual-machines"></a>Configuración de un laboratorio con máquinas virtuales de GPU
 
@@ -32,7 +32,7 @@ Tal como se describe en la tabla siguiente, el tamaño de GPU de *proceso* está
 | ---- | ----- | --- | ----------- | 
 | GPU pequeña (proceso) | -&nbsp;6&nbsp;núcleos<br>-&nbsp;56&nbsp;GB&nbsp;de RAM  | [Standard_NC6](https://docs.microsoft.com/azure/virtual-machines/nc-series) |Este tamaño es más adecuado para aplicaciones de proceso intensivo, como la inteligencia artificial (IA) y el aprendizaje profundo. |
 
-Los tamaños de GPU de *visualización* están diseñados para aplicaciones con uso intensivo de gráficos.  Por ejemplo, el [tipo de clase Ingeniería de SolidWorks](./class-type-solidworks.md) muestra cómo usar el tamaño **GPU pequeña (visualización)** .  La GPU de visualización es adecuada para este tipo de clase, ya que los alumnos interactúan con el entorno de diseño asistido por PC (CAD) de SolidWorks 3D para el modelado y la visualización de objetos sólidos.
+Los tamaños de GPU de *visualización* están diseñados para aplicaciones con uso intensivo de gráficos.  Por ejemplo, el [tipo de clase Ingeniería de SOLIDWORKS](./class-type-solidworks.md) muestra cómo usar el tamaño **GPU pequeña (visualización)** .  La GPU de visualización es adecuada para este tipo de clase, ya que los alumnos interactúan con el entorno de diseño asistido por PC (CAD) de SOLIDWORKS 3D para el modelado y la visualización de objetos sólidos.
 
 | Size | Núcleos | RAM | Descripción | 
 | ---- | ----- | --- | ----------- | 
@@ -45,7 +45,7 @@ Para aprovechar las funcionalidades de GPU de las máquinas virtuales de laborat
 ![Captura de pantalla del panel "New lab" (Nuevo laboratorio) que muestra la opción "Install GPU drivers" (Instalar controladores de GPU)](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 Como se muestra en la imagen anterior, está opción está habilitada de manera predeterminada, lo que garantiza que los controladores *más recientes* estén instalados para el tipo de GPU e imagen que seleccionó.
-- Al seleccionar un tipo de GPU de *proceso*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  En este caso, se instalan los controladores más recientes de [Compute Unified Device Architecture (CUDA)](https://www.nvidia.com/object/io_69526.html), lo que permite una informática de alto rendimiento.
+- Al seleccionar un tipo de GPU de *proceso*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf).  En este caso, se instalan los controladores más recientes de [Compute Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf), lo que permite una informática de alto rendimiento.
 - Al seleccionar un tamaño de GPU de *visualización*, las máquinas virtuales de laboratorio cuentan con tecnología de la GPU [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) y la [tecnología GRID](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  En este caso, se instalan los controladores de GRID más recientes, lo que permite el uso de aplicaciones con uso intensivo de gráficos.
 
 ### <a name="install-the-drivers-manually"></a>Instalación manual de los controladores
@@ -113,7 +113,7 @@ Siga las instrucciones que aparecen en la sección de comprobación de la instal
 Vea los artículos siguientes:
 
 - [Creación y administración de laboratorios educativos](how-to-manage-classroom-labs.md)
-- [Tipo de clase Diseño asistido por PC (CAD) de SolidWorks](class-type-solidworks.md)
+- [Tipo de clase Diseño asistido por PC (CAD) de SOLIDWORKS](class-type-solidworks.md)
 - [Tipo de clase MATLAB (laboratorio de matrices)](class-type-matlab.md)
 
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f996ffa864fb4178ddedecde7c5511d5d9cf39a1
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: f2a1a5f3eaf79a345b0d33f43d260fe6aa15236b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985813"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439247"
 ---
 # <a name="troubleshoot-an-rdp-general-error-in-azure-vm"></a>Solución de problemas de un error general de RDP en una máquina virtual Windows en Azure
 
@@ -81,7 +81,7 @@ Antes de seguir estos pasos, tome una instantánea del disco del sistema operati
 1. Compruebe si el RDP está deshabilitado mediante directivas de grupo.
 
     ```
-    REM Get the group policy 
+    REM Get the group policy setting
     reg query "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fDenyTSConnections
     ```
     Si la directiva de grupo indica que RDP está deshabilitado (el valor de fDenyTSConnections es 0x1), ejecute el comando siguiente para habilitar el servicio TermService. Si no se encuentra la clave del Registro, no hay ninguna directiva de grupo configurada para deshabilitar el RDP. Puede continuar al paso siguiente.
@@ -183,7 +183,7 @@ Para obtener más información, consulte [Escritorio remoto se desconecta con fr
 
 #### <a name="step-1-turn-on-remote-desktop"></a>Paso 1: Activación del Escritorio remoto
 
-1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](../windows/troubleshoot-recovery-disks-portal.md).
+1. [Conecte el disco del sistema operativo a una máquina virtual de recuperación](./troubleshoot-recovery-disks-portal-windows.md).
 2. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.
 3. Asegúrese de que el disco aparece marcado como **En línea** en la consola de Administración de discos. Anote la letra de unidad que se asigna al disco del sistema operativo conectado.
 4. Inicie una conexión mediante el Escritorio remoto a la máquina virtual de recuperación.

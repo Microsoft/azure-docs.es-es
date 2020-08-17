@@ -2,7 +2,7 @@
 title: 'Asignación o eliminación de licencias: Azure Active Directory | Microsoft Docs'
 description: Instrucciones sobre cómo asignar o quitar licencias de Azure Active Directory de sus usuarios o grupos.
 services: active-directory
-author: msaburnley
+author: ajburnle
 manager: daveba
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c695a63705cce90bb0bf6b3cf787d9e6481b888
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9909b92e58d73c9578d3d17a7bbf24fe2924fae2
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85603900"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87797090"
 ---
 # <a name="assign-or-remove-licenses-in-the-azure-active-directory-portal"></a>Asignación o eliminación de licencias en el portal de Azure Active Directory
 
@@ -35,7 +35,7 @@ Hay varios planes de licencia disponibles para el servicio de Azure AD, entre l
 
 - Azure AD Premium P2
 
-Para obtener información específica acerca de cada plan de licencia y los detalles de licencias asociados, consulte [¿Qué licencia necesito?](https://azure.microsoft.com/pricing/details/active-directory/)
+Para obtener información específica acerca de cada plan de licencia y los detalles de licencias asociados, consulte [¿Qué licencia necesito?](https://azure.microsoft.com/pricing/details/active-directory/) Para registrarse en planes de licencias Premium de Azure AD, consulte la información que se indica [aquí](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
 
 No todos los servicios de Microsoft están disponibles en todas las ubicaciones. Antes de poder asignar una licencia a un grupo, tiene que especificar la **Ubicación de uso** para todos los miembros. Puede establecer este valor en el área **Azure Active Directory &gt; Usuarios &gt; Perfil &gt; Configuración** en Azure AD. Cualquier usuario cuya ubicación de uso no se especifique hereda la ubicación de la organización de Azure AD.
 

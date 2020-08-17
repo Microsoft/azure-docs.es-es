@@ -14,7 +14,7 @@
           href: ./quickstarts/client-libraries.md
     - name: API DE REST
       items:
-        - name: 'Con C#'
+        - name: Con C#
           href: quickstarts/detect-data-anomalies-csharp.md
         - name: Usar Java
           href: quickstarts/detect-data-anomalies-java.md

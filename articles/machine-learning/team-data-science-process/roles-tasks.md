@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4bcbbd9378b6ea861c926eed16d2ceed8131b913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76720017"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082756"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Roles y tareas del proceso de ciencia de datos en equipo
 
@@ -117,7 +117,7 @@ Los pasos del flujo de trabajo se pueden agrupar en tres actividades:
 
 - Los responsables de proyecto realizan el planeamiento de sprints.
 - Los científicos de datos desarrollan artefactos en ramas de `git` para tratar los elementos de trabajo.
-- Los responsables de proyecto u otros miembros del equipo realizan revisiones de código y combinan ramas de trabajo en la rama principal.
+- Los responsables de proyecto u otros miembros del equipo realizan revisiones de código y combinan ramas de trabajo en la rama primaria.
 
 Para obtener instrucciones detalladas del flujo de trabajo de ejecución del proyecto, consulte [Desarrollo de Agile de proyectos de ciencia de datos](agile-development.md).
 

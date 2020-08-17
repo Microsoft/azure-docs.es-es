@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: ceaff4575713d4bf40bea621cbb08313aad11611
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 12d91e43576647b2ffbc1e78d2e059871dbe8a3a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84267484"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033180"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-connect-and-query-articles"></a>Artículos acerca de la consulta y la conexión a Azure SQL Database e Instancia administrada de Azure SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,7 +26,7 @@ En el documento siguiente se incluyen vínculos a ejemplos de Azure que muestran
 
 ## <a name="quickstarts"></a>Guías de inicio rápido
 
-| |  |
+| Guía de inicio rápido | Descripción |
 |---|---|
 |[SQL Server Management Studio](connect-query-ssms.md)|Este inicio rápido muestra cómo usar SSMS para conectarse a una base de datos y, posteriormente, usar instrucciones Transact-SQL para consultar, insertar, actualizar y eliminar datos en la base de datos.|
 |[Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)|Este inicio rápido muestra cómo usar Azure Data Studio para conectarse a una base de datos y luego usar instrucciones Transact-SQL (T-SQL) para crear el elemento TutorialDB empleado en los tutoriales de Azure Data Studio.|

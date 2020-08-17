@@ -4,12 +4,12 @@ description: Enrute los datos de Azure Monitor y Application Insights para que p
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 11/06/2017
-ms.openlocfilehash: 142e3e19c13710963d239a75bc237b63713c29cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 23bba091628eee767fbf292a8a8d772ffab674cb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77672215"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073471"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Supervisar los servicios de Azure en Grafana
 Ahora, los servicios y las aplicaciones de Azure se pueden supervisar desde [Grafana](https://grafana.com/) gracias al [complemento de origen de datos de Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). El complemento recopila datos de rendimiento de aplicación recabados por Azure Monitor, incluidos varios registros y métricas. De este modo, podrá ver estos datos en el panel de Grafana.
@@ -59,9 +59,9 @@ Tras haber iniciado sesión correctamente, deberá ver que el complemento de ori
 2. Elija un nombre para el origen de datos y seleccione **Azure Monitor** como tipo en la lista desplegable.
 
 3. Cree una entidad de servicio: Grafana usa una entidad de servicio de Azure Active Directory para conectarse a las API de Azure Monitor y recopilar datos. Debe crear una entidad de servicio, o usar una existente, para administrar el acceso a los recursos de Azure.
-    * Vea [estas instrucciones](../../azure-resource-manager/resource-group-create-service-principal-portal.md) para crear una entidad de servicio. Copie y guarde el identificador de inquilino (id. de directorio), el identificador de cliente (id. de aplicación) y el secreto de cliente (valor de clave de aplicación).
-    * Consulte [Asignación de la aplicación a un rol](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) para asignar el rol Lector a la aplicación de Azure Active Directory en la suscripción, el grupo de recursos o el recurso que quiere supervisar. 
-    La API de Log Analytics requiere el [rol Lector de Log Analytics](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), que incluye los permisos del rol Lector y se agrega a él.
+    * Vea [estas instrucciones](../../active-directory/develop/howto-create-service-principal-portal.md) para crear una entidad de servicio. Copie y guarde el identificador de inquilino (id. de directorio), el identificador de cliente (id. de aplicación) y el secreto de cliente (valor de clave de aplicación).
+    * Consulte [Asignación de la aplicación a un rol](../../active-directory/develop/howto-create-service-principal-portal.md) para asignar el rol Lector a la aplicación de Azure Active Directory en la suscripción, el grupo de recursos o el recurso que quiere supervisar. 
+    La API de Log Analytics requiere el [rol Lector de Log Analytics](../../role-based-access-control/built-in-roles.md#log-analytics-reader), que incluye los permisos del rol Lector y se agrega a él.
 
 4. Proporcione los detalles de conexión a las API que le gustaría usar. Puede conectarse a todas o a algunas de ellas. 
     * Si se conecta tanto a las métricas como a los registros de Azure Monitor, puede volver a usar las mismas credenciales; para ello, seleccione **Same details as Azure Monitor API** (Mismos detalles que la API de Azure Monitor).
@@ -159,4 +159,3 @@ Si ha configurado un entorno de Grafana en Azure, se le cobrará cuando se ejecu
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Información general sobre las métricas en Microsoft Azure](data-platform.md)
-

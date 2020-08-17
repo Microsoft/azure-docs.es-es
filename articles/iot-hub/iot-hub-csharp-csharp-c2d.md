@@ -12,12 +12,14 @@ ms.author: robinsh
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 13665e8738ef1fb5dd6e0e0ff24e1bd196c7d9a7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+ms.openlocfilehash: 0b4fbe4ab7accec18f48e6319e16d10f083a8709
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120331"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327453"
 ---
 # <a name="send-messages-from-the-cloud-to-your-device-with-iot-hub-net"></a>Envío de mensajes desde la nube al dispositivo con IoT Hub (.NET)
 

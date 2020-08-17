@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 04/14/2020
+ms.date: 08/05/2020
 ms.author: pafarley
-ms.custom: seodec18
-ms.openlocfilehash: 6d1f47561842fa3759621d8cf372ad3ebc2d5193
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.custom: seodec18, devx-track-java
+ms.openlocfilehash: 4d299c97064e2c6e5054e5303d85d47ca60f9566
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84987276"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835143"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-java"></a>Inicio rápido: Extracción de texto impreso (OCR) mediante la API REST Computer Vision y Java
 

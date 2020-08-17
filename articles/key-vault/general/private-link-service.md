@@ -7,12 +7,13 @@ ms.date: 03/08/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: quickstart
-ms.openlocfilehash: c832634a4b9154ec800da8c8ff25c6d81c620e9f
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 70a0620369792c1aaf2c11867fd468f42d6bb9ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84610158"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87494696"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integración de Key Vault con Azure Private Link
 
@@ -126,6 +127,17 @@ az network private-dns zone create --resource-group {RG} --name privatelink.vaul
 ```console
 az network private-dns link vnet create --resource-group {RG} --virtual-network {vNet NAME} --zone-name privatelink.vaultcore.azure.net --name {dnsZoneLinkName} --registration-enabled true
 ```
+### <a name="add-private-dns-records"></a>Adición de registros DNS privados
+```console
+# https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli#create-an-additional-dns-record
+az network private-dns zone list -g $rg_name
+az network private-dns record-set a add-record -g $rg_name -z "privatelink.vaultcore.azure.net" -n $vault_name -a $kv_network_interface_private_ip
+az network private-dns record-set list -g $rg_name -z "privatelink.vaultcore.azure.net"
+
+# From home/public network, you wil get a public IP. If inside a vnet with private zone, nslookup will resolve to the private ip.
+nslookup $vault_name.vault.azure.net
+nslookup $vault_name.privatelink.vaultcore.azure.net
+```
 ### <a name="create-a-private-endpoint-automatically-approve"></a>Creación de un punto de conexión privado (aprobación automática) 
 ```console
 az network private-endpoint create --resource-group {RG} --vnet-name {vNet NAME} --subnet {subnet NAME} --name {Private Endpoint Name}  --private-connection-resource-id "/subscriptions/{AZURE SUBSCRIPTION ID}/resourceGroups/{RG}/providers/Microsoft.KeyVault/vaults/ {KEY VAULT NAME}" --group-ids vault --connection-name {Private Link Connection Name} --location {AZURE REGION}
@@ -222,6 +234,38 @@ Address:  10.1.0.5 (private IP address)
 Aliases:  <your-key-vault-name>.vault.azure.net
           <your-key-vault-name>.privatelink.vaultcore.azure.net
 ```
+
+## <a name="troubleshooting-guide"></a>Guía de solución de problemas
+
+* Asegúrese de que el punto de conexión privado esté en estado aprobado. 
+    1. Puede comprobarlo y corregirlo en Azure Portal. Abra el recurso Key Vault y haga clic en la opción Redes. 
+    2. Luego, seleccione la pestaña Conexiones de punto de conexión privado. 
+    3. Asegúrese de que el estado de la conexión sea Aprobado y de que el estado de aprovisionamiento sea Correcto. 
+    4. También puede ir al recurso de punto de conexión privado y comprobar que las propiedades son las mismas: También debe comprobar que la red virtual es la que está usando.
+
+* Asegúrese de que tiene un recurso Zona DNS privada. 
+    1. Debe tener un recurso Zona DNS privada cuyo nombre sea exactamente privatelink.vaultcore.azure.net. 
+    2. Para aprender a configurarlo, consulte el siguiente vínculo. [Zonas DNS privadas](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    
+* Asegúrese de que la zona DNS privada no está vinculada a la red virtual. Si se devuelve la dirección IP pública, es posible que el problema sea este. 
+    1. Si la zona DNS privada no está vinculada a la red virtual, la consulta de DNS cuyo origen era la red virtual devolverá la dirección IP pública del almacén de claves. 
+    2. Vaya al recurso Zona DNS privada de Azure Portal y haga clic en la opción de los vínculos de la red virtual. 
+    4. La red virtual que realizará las llamadas al almacén de claves debe aparecer en la lista. 
+    5. Si no está, agréguela. 
+    6. Para ver los pasos detallados, consulte el siguiente documento [Vínculo de una red virtual a una zona DNS privada](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network)
+
+* Asegúrese de que en la zona DNS privada no falta un registro d para el almacén de claves. 
+    1. Vaya a la página Zona DNS privada. 
+    2. Haga clic en Información general y compruebe si hay un registro D con el nombre simple de su almacén de claves (es decir, fabrikam). No especifique ningún sufijo.
+    3. Asegúrese de revisar la ortografía y de crear o reparar el registro D. Puede usar un TTL de 3600 (1 hora). 
+    4. Asegúrese de especificar la dirección IP privada correcta. 
+    
+* Asegúrese de que el registro D tiene la dirección IP correcta. 
+    1. Para confirmar la dirección IP, abra el recurso Punto de conexión privado en Azure Portal 
+    2. Vaya al recurso Microsoft.Network/privateEndpoints en Azure Portal (no en el recurso Key Vault)
+    3. En la página de información general, busque Interfaz de red y haga clic en ese vínculo. 
+    4. El vínculo mostrará la información general del recurso NIC, que contiene la dirección IP privada de la propiedad. 
+    5. Compruebe que se trata de la dirección IP correcta que se especifica en el registro D.
 
 ## <a name="limitations-and-design-considerations"></a>Limitaciones y consideraciones de diseño
 

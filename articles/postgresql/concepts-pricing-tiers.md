@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: caa5c0178cda563650928be40d02716868255fb1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 77ce6c8112e8c694b4ccb6a657b24649437d2f07
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121629"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279243"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Limitaciones de Azure Database for PostgreSQL: servidor único
 
@@ -85,9 +85,9 @@ Por ejemplo, si ha aprovisionado 1000 GB de almacenamiento y el uso real supera
 
 Recuerde que el almacenamiento solo se puede escalar verticalmente, no reducir.
 
-## <a name="backup"></a>Copia de seguridad
+## <a name="backup-storage"></a>Almacenamiento de copia de seguridad
 
-El servicio realiza automáticamente copias de seguridad del servidor. Puede seleccionar un período de retención de entre 7 y 35 días. Los servidores de uso general y optimizados para memoria pueden tener almacenamiento con redundancia geográfica para copias de seguridad. Obtenga más información sobre las copias de seguridad en el [artículo de conceptos](concepts-backup.md).
+Azure Database for PostgreSQL proporciona hasta un 100 % del almacenamiento del servidor aprovisionado como almacenamiento de copia de seguridad, sin costos adicionales. El almacenamiento de copia de seguridad que use que supere esta cantidad se cobrará en GB por mes. Por ejemplo, si aprovisiona un servidor con 250 GB de almacenamiento, tiene 250 GB de almacenamiento adicional disponible para las copias de seguridad del servidor sin ningún cargo. El almacenamiento de copias de seguridad que supere los 250 GB se cobra según el [modelo de precios](https://azure.microsoft.com/pricing/details/postgresql/). Para comprender los factores que influyen en el uso del almacenamiento de copia de seguridad, la supervisión y el control del costo del almacenamiento de copia de seguridad, puede consultar la [documentación de copia de seguridad](concepts-backup.md).
 
 ## <a name="scale-resources"></a>Escalado de recursos
 

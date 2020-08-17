@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa83e295460cc847647e83c7e4e8a9d7ee91f6f4
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 9e3b0b8ab4a432254835e43bff4893aaee81b04e
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165777"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541879"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Planeación de la implementación de dispositivos de Azure Active Directory
 
@@ -226,10 +226,6 @@ Una vez que haya registrado o unido sus dispositivos a Azure AD, use [Azure Por
 
 * [Configuración de las opciones del dispositivo](device-management-azure-portal.md#configure-device-settings)
 * Debe ser administrador local para administrar dispositivos Windows. [Azure AD actualiza esta pertenencia para los dispositivos unidos a Azure AD](assign-local-admin.md) y agrega automáticamente a los usuarios que tengan el rol de administrador de dispositivos como administradores a todos los dispositivos unidos.
-
-* [Búsqueda de dispositivos](device-management-azure-portal.md#locate-devices)
-
-* [Tareas de administración de identidades de dispositivos](device-management-azure-portal.md#device-identity-management-tasks)
 
 Para mantener el entorno limpio, no olvide [administrar los dispositivos obsoletos](manage-stale-devices.md) y centre sus recursos en la administración de los dispositivos actuales.
 

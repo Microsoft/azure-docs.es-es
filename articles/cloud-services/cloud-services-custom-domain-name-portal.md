@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: tagore
-ms.openlocfilehash: e764e6a474b9843d43f9e8af9cf3b6a8ddf37189
-ms.sourcegitcommit: 98e79b359c4c6df2d8f9a47e0dbe93f3158be629
+ms.openlocfilehash: 37189df6b1c9bf3f9fca185226f2ee3eeb3ddd7d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80811650"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092735"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como `http://contoso.cloudapp.net`. Azure también asigna una dirección IP virtual.
@@ -63,7 +63,7 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
 
        **OR**
-   * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azure/)y, luego, use el siguiente comando:
 
        ```powershell
        Get-AzureDeployment -ServiceName yourservicename | Select Url
@@ -96,7 +96,7 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
        ![sección de vista rápida que muestra la IP virtual][vip]
 
        **OR**
-   * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
+   * Instale y configure [Azure Powershell](/powershell/azure/)y, luego, use el siguiente comando:
 
        ```powershell
        get-azurevm -servicename yourservicename | get-azureendpoint -VM {$_.VM} | select Vip

@@ -5,18 +5,18 @@ description: En este artículo se enseña a usar Azure Machine Learning para imp
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: vaidyas
 author: csteegz
 ms.reviewer: larryfr
 ms.date: 06/17/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 344112e19adbfaa1b06eebab309f31ed4e070c7d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: 6bb6b373482a937819984cea7d1dc264d4f08a74
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86077004"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87846843"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Implementación de un modelo de aprendizaje profundo para la inferencia con GPU
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

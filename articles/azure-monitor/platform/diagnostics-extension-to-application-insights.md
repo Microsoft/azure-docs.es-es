@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5af0eb20f9766369caa7351719b63b213c394e5d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672334"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87305812"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envío de datos de diagnóstico de Cloud Services, Virtual Machines o Service Fabric a Application Insights
 Cloud Services, Virtual Machines, los conjuntos de escalado de máquinas virtuales y Service Fabric usan la extensión Azure Diagnostics para recopilar datos.  Esta extensión envía los datos a las tablas de Azure Storage.  Sin embargo, también puede canalizar todos los datos o un subconjunto de ellos a otras ubicaciones mediante la versión 1.5 o una posterior de la extensión Azure Diagnostics.
@@ -59,8 +59,8 @@ Ejemplo de configuración de un receptor para Application Insights:
 - El atributo *name* del **receptor** es un valor de cadena que identifica de forma única el receptor.
 
 - El elemento **ApplicationInsights** especifica la clave de instrumentación del recurso de Application Insights donde se enviarán los datos de Azure Diagnostics.
-    - Si no tiene un recurso existente de Application Insights, consulte [Creación de recursos en Application Insights](../../azure-monitor/app/create-new-resource.md ) para más información sobre cómo crear un recurso y obtener la clave de instrumentación.
-    - Si está desarrollando un servicio en la nube con Azure SDK 2.8 y versiones posteriores, se rellena automáticamente esta clave de instrumentación. El valor se basa en la configuración de servicio **APPINSIGHTS_INSTRUMENTATIONKEY** al empaquetar el proyecto de Cloud Services. Consulte [Usar Application Insights con Cloud Services](../../azure-monitor/app/cloudservices.md).
+    - Si no tiene un recurso existente de Application Insights, consulte [Creación de recursos en Application Insights](../app/create-new-resource.md) para más información sobre cómo crear un recurso y obtener la clave de instrumentación.
+    - Si está desarrollando un servicio en la nube con Azure SDK 2.8 y versiones posteriores, se rellena automáticamente esta clave de instrumentación. El valor se basa en la configuración de servicio **APPINSIGHTS_INSTRUMENTATIONKEY** al empaquetar el proyecto de Cloud Services. Consulte [Usar Application Insights con Cloud Services](../app/cloudservices.md).
 
 - El elemento **Channels** contiene uno o varios elementos **Channel**.
     - El atributo *name* identifica de forma única el atributo a ese canal.
@@ -213,7 +213,7 @@ En la configuración anterior, las líneas siguientes tienen estos significados:
 - **No puede enviar datos de blob recopilados mediante la extensión Azure Diagnostics a Application Insights.** Por ejemplo, nada de lo especificado en el nodo *Directories*. En el caso de volcados de memoria, el volcado real se sigue enviando al almacenamiento de blobs y solo se transmitirá a Application Insights una notificación de que el volcado de memoria se ha generado.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Obtenga información sobre cómo [ver información de Azure Diagnostics](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices) en Application Insights.
+* Obtenga información sobre cómo [ver información de Azure Diagnostics](../app/cloudservices.md) en Application Insights.
 * Use [PowerShell](../../cloud-services/cloud-services-diagnostics-powershell.md) para habilitar la extensión de diagnósticos de Azure en su aplicación.
 * Use [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) para habilitar la extensión de Diagnósticos de Azure en su aplicación
 

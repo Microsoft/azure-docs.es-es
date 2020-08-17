@@ -14,14 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/21/2020
 ms.author: yelevin
-ms.openlocfilehash: 121c9258353505b6147aa059d327bc711e9fede4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cf8da1d88529a823ff4399fb955c8a5e0abbd20e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85368419"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038246"
 ---
 # <a name="connect-your-alcide-kaudit-to-azure-sentinel"></a>Conexión de Alcide kAudit a Azure Sentinel
+
+> [!IMPORTANT]
+> El conector de datos de Alcide kAudit en Azure Sentinel se encuentra actualmente en versión preliminar pública.
+> Esta característica se ofrece sin contrato de nivel de servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Alcide kAudit](https://www.alcide.io/kaudit-K8s-forensics/) le ayuda a identificar los comportamientos anómalos de Kubernetes y a centrarse en las infracciones e incidentes de Kubernetes a la vez que reduce el tiempo de detección. En este artículo se explica cómo conectar la solución de Alcide kAudit a Azure Sentinel. El conector de datos de Alcide kAudit permite incorporar fácilmente los datos de registro de kAudit a Azure Sentinel, de modo que pueda verlos en los libros, usarlos para crear alertas personalizadas e incorporarlos para mejorar la investigación. La integración entre Alcide kAudit y Azure Sentinel usa la API de REST.
 

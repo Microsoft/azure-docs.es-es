@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: a2eda11682ccd3329d1a9447aca3741ddd264da7
-  ms.sourcegitcommit: 75089113827229663afed75b8364ab5212d67323
+  ms.openlocfilehash: 08c2a3d81b8e7ed051ea9b9d2d3b75c7f1257b01
+  ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/22/2020
-  ms.locfileid: "82024870"
+  ms.lasthandoff: 07/28/2020
+  ms.locfileid: "87335586"
 landingContent:
 - title: Creación de soluciones para el sector sanitario
   linkLists:
@@ -34,13 +34,9 @@ landingContent:
     - text: Configuración de una plantilla de dispositivo
       url: ../core/howto-set-up-template.md
     - text: Conexión de un dispositivo
-      url: ../core/tutorial-connect-device-nodejs.md
-    - text: Conexión de un dispositivo IoT Plug and Play (versión preliminar)
-      url: ../core/tutorial-connect-pnp-device.md
+      url: ../core/tutorial-connect-device.md
   - linkListType: how-to-guide
     links:
-    - text: Preparación y conexión de una instancia de MXChip IoT DevKit
-      url: ../core/howto-connect-devkit.md
     - text: Conexión a otras nubes de IoT
       url: ../core/howto-build-iotc-device-bridge.md
 - title: Mantenimiento de la conexión

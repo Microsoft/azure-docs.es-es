@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: e0fd3a6bc62feeb3728fa88b4aad56c8713bce11
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: af387b063a3c07d8b6b6c544814565e2a5ebdd46
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134927"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495733"
 ---
 # <a name="hyper-v-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Hyper-V en Azure
 
@@ -36,7 +36,7 @@ La tabla y el gráfico siguientes proporcionan una visión general de los compon
 
 **Arquitectura de Hyper-V a Azure (sin VMM)**
 
-![Architecture](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
+![Diagrama que muestra el sitio de Hyper-V local en la arquitectura de Azure sin VMM.](./media/hyper-v-azure-architecture/arch-onprem-azure-hypervsite.png)
 
 
 ## <a name="architectural-components---hyper-v-with-vmm"></a>Componentes de la arquitectura: Hyper-V con VMM
@@ -53,13 +53,30 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 
 **Arquitectura de Hyper-V a Azure (con VMM)**
 
-![Componentes](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
+![Diagrama que muestra el sitio de Hyper-V local en la arquitectura de Azure con VMM.](./media/hyper-v-azure-architecture/arch-onprem-onprem-azure-vmm.png)
 
+## <a name="set-up-outbound-network-connectivity"></a>Configuración de la conectividad de red saliente
+
+Para que Site Recovery funcione de la forma esperada, debe modificar la conectividad de red saliente para permitir la replicación de su entorno.
+
+> [!NOTE]
+> Site Recovery no admite el uso de un proxy de autenticación para controlar la conectividad de la red.
+
+### <a name="outbound-connectivity-for-urls"></a>Conectividad de salida para las direcciones URL
+
+Si usa un proxy de firewall basado en direcciones URL para controlar la conectividad de salida, debe permitir el acceso a ellas:
+
+| **Nombre**                  | **Comercial**                               | **Gobierno**                                 | **Descripción** |
+| ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
+| Storage                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Permite que los datos se puedan escribir desde la máquina virtual a la cuenta de almacenamiento de caché en la región de origen. |
+| Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Proporciona autorización y autenticación de las direcciones URL del servicio Site Recovery. |
+| Replicación               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Permite que la máquina virtual se comunique con el servicio Site Recovery. |
+| Azure Service Bus               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Permite que la máquina virtual escriba los datos de diagnóstico y supervisión de Site Recovery. |
 
 
 ## <a name="replication-process"></a>Proceso de replicación
 
-![Replicación de Hyper-V en Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
+![Diagrama que muestra el proceso de replicación de Hyper-V en Azure](./media/hyper-v-azure-architecture/arch-hyperv-azure-workflow.png)
 
 **Proceso de replicación y recuperación**
 
@@ -69,7 +86,7 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 1. Después de habilitar la protección de una máquina virtual de Hyper-V, en el Azure Portal o de forma local, la opción **Habilitar la protección** se inicia.
 2. El trabajo comprueba que la máquina cumpla los requisitos previos e invoca [CreateReplicationRelationship](/windows/win32/hyperv_v2/createreplicationrelationship-msvm-replicationservice) para que configure la replicación con su configuración.
 3. El trabajo comienza la replicación inicial con la invocación del método [StartReplication](/windows/win32/hyperv_v2/startreplication-msvm-replicationservice) para inicializar una replicación completa de la máquina virtual y enviar los discos virtuales de la máquina virtual a Azure.
-4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Lista de trabajos](media/hyper-v-azure-architecture/image1.png) ![Detalles de Habilitar protección](media/hyper-v-azure-architecture/image2.png)
+4. Puede supervisar el trabajo en la pestaña **Trabajos**.      ![Captura de pantalla de la lista de trabajos en la pestaña Trabajos.](media/hyper-v-azure-architecture/image1.png) ![Captura de pantalla de la pantalla Habilitar protección con más detalles.](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Replicación inicial de datos
@@ -106,7 +123,7 @@ La tabla y gráfico siguientes proporcionan una visión general de los component
 2. Una vez finalizada la resincronización, se debe reanudar la replicación diferencial normal.
 3. Si no desea esperar para volver a sincronizar fuera del horario de forma predeterminada, puede volver a sincronizar una máquina virtual manualmente. Por ejemplo, si se produce una interrupción. Para ello, en Azure Portal, seleccione la máquina virtual > **Volver a sincronizar**.
 
-    ![Resincronización manual](./media/hyper-v-azure-architecture/image4-site.png)
+    ![Captura de pantalla que muestra la opción Volver a sincronizar.](./media/hyper-v-azure-architecture/image4-site.png)
 
 
 ### <a name="retry-process"></a>Reintento del proceso

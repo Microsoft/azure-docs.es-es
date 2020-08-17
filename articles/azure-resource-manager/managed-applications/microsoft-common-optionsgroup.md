@@ -3,22 +3,25 @@ title: Elemento de la interfaz de usuario OptionsGroup
 description: Describe el elemento de la interfaz de usuario Microsoft.Common.OptionsGroup para Azure Portal. Permite a los usuarios seleccionar entre las opciones disponibles al implementar una aplicación administrada.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 07/09/2020
 ms.author: tomfitz
-ms.openlocfilehash: c1da0b0082bfe046adf9596a10397e9063c888be
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: aa73b4cbded98291a14792a7151df9fdfb885b53
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75649780"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004204"
 ---
 # <a name="microsoftcommonoptionsgroup-ui-element"></a>Elemento de interfaz de usuario Microsoft.Common.OptionsGroup
 
-Control de selección con una fila de opciones disponibles.
+El control OptionsGroup permite a los usuarios seleccionar una opción de dos o más opciones. Un usuario solo puede seleccionar una opción.
+
+> [!NOTE]
+> En el pasado, este control representaba las opciones en horizontal. Ahora, el control presenta las opciones en vertical como botones de radio.
 
 ## <a name="ui-sample"></a>Ejemplo de interfaz de usuario
 
-![Microsoft.Common.OptionsGroup](./media/managed-application-elements/microsoft.common.optionsgroup.png)
+:::image type="content" source="./media/managed-application-elements/microsoft-common-optionsgroup-2.png" alt-text="Microsoft.Common.OptionsGroup":::
 
 ## <a name="schema"></a>Schema
 

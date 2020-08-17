@@ -4,12 +4,12 @@ description: Tutorial sobre la creación de una aplicación de cadena de bloques
 ms.date: 10/14/2019
 ms.topic: tutorial
 ms.reviewer: brendal
-ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7be79757f506ea9fb854a248e77f0ff4f1b74f47
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74324807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073105"
 ---
 # <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>Tutorial: Creación de una aplicación de cadena de bloques para Azure Blockchain Workbench
 
@@ -329,7 +329,7 @@ Para agregar una aplicación de cadena de bloques a Blockchain Workbench, cargue
 La implementación de la aplicación de cadena de bloques puede tardar unos minutos. Cuando haya finalizado la implementación, la nueva aplicación aparecerá en **Aplicaciones**. 
 
 > [!NOTE]
-> También puede crear aplicaciones de cadena de bloques mediante la [API REST de Azure Blockchain Workbench](https://docs.microsoft.com/rest/api/azure-blockchain-workbench).
+> También puede crear aplicaciones de cadena de bloques mediante la [API REST de Azure Blockchain Workbench](/rest/api/azure-blockchain-workbench).
 
 ## <a name="add-blockchain-application-members"></a>Incorporación de miembros a una aplicación de cadena de bloques
 

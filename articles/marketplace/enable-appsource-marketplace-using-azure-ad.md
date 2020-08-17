@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: eab7b556dc45d03bf440a3bc63aa6bf2d799face
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/24/2020
+ms.openlocfilehash: 4c700a61de80968b17585faf92e268fef8d86f0e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103630"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323271"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integre su listado de marketplace comercial con Azure Active Directory
 
@@ -40,10 +40,11 @@ Las distintas [opciones de listado y tipos de ofertas](determine-your-listing-ty
 | Contenedores  | N/D | N/D | N/D | No |
 | Servicios de consultoría  | No | N/D | N/D | N/D |
 
-Para obtener más información acerca de los requisitos técnicos de SaaS, consulte la [Guía de publicación de ofertas de aplicaciones de SaaS](marketplace-saas-applications-technical-publishing-guide.md).
+Para más información sobre los requisitos técnicos de SaaS, consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](./azure-ad-saas.md).
 
 ## <a name="azure-ad-integration"></a>Integración de Azure AD
 
+- Para obtener más información sobre cómo integrar Azure AD para las ofertas de software como servicio (SaaS) comercializables, consulte [Azure AD y ofertas de SaaS comercializable en el marketplace comercial](./azure-ad-saas.md).
 - Para obtener información sobre cómo habilitar el inicio de sesión único mediante la integración de Azure AD en su descripción, consulte [Azure Active Directory para desarrolladores](../active-directory/develop/index.yml).
 - Para conocer más detalles sobre el inicio de sesión único de Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../active-directory/manage-apps/what-is-single-sign-on.md).
 

@@ -1,235 +1,423 @@
 ---
 title: 'Guía para desarrolladores: IoT Plug and Play (versión preliminar) | Microsoft Docs'
-description: Descripción del modelado0 de dispositivos para desarrolladores de IoT Plug and Play
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/26/2019
+description: Descripción de IoT Plug and Play para desarrolladores
+author: rido-min
+ms.author: rmpablos
+ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ef221ea068f2786a4a84f20a29e80dd7176f06c6
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77605225"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337422"
 ---
-# <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>Guía para desarrolladores de modelado de IoT Plug and Play (versión preliminar)
+# <a name="iot-plug-and-play-preview-developer-guide"></a>Guía para desarrolladores de IoT Plug and Play (versión preliminar)
 
-IoT Plug and Play (versión preliminar) permite crear dispositivos que anuncian sus funcionalidades en aplicaciones de Azure IoT. Los dispositivos IoT Plug and Play no requieren configuración manual cuando un cliente los conecta a aplicaciones habilitadas para IoT Plug and Play. IoT Central es un ejemplo de aplicación habilitada para IoT Plug and Play.
+IoT Plug and Play (versión preliminar) permite crear dispositivos inteligentes que anuncian sus funcionalidades en aplicaciones de Azure IoT. Los dispositivos IoT Plug and Play no requieren configuración manual cuando un cliente los conecta a aplicaciones habilitadas para IoT Plug and Play.
 
-Para compilar un dispositivo IoT Plug and Play, es preciso crear una descripción del dispositivo. La descripción se realiza con un lenguaje de definición simple denominado lenguaje de definición de gemelos digitales (DTDL).
+En esta guía se describen los pasos básicos necesarios para crear un dispositivo que siga las [convenciones de IoT Plug and Play](concepts-convention.md) y las API de REST disponibles que puede usar para interactuar con el dispositivo.
 
-## <a name="device-capability-model"></a>Modelo de funcionalidad del dispositivo
+Para crear un dispositivo IoT Plug and Play, siga estos pasos:
 
-Con DTDL, se crea un _modelo de funcionalidad del dispositivo_ para describir las partes del dispositivo. Habitualmente, los dispositivos IoT constan de:
+1. Asegúrese de que el dispositivo usa el protocolo MQTT o MQTT sobre WebSockets para conectarse a Azure IoT Hub.
+1. Cree un modelo de [Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl) para describir el dispositivo. Para más información, consulte [Descripción de los componentes de los modelos de IoT Plug and Play](concepts-components.md).
+1. Actualice el dispositivo para anunciar el elemento `model-id` como parte de la conexión del dispositivo.
+1. Implemente telemetría, propiedades y comandos mediante las [convenciones de IoT Plug and Play](concepts-convention.md).
 
-- Elementos personalizados, que son las cosas que hacen que el dispositivo sea único.
-- Elementos estándar, que son cosas comunes a todos los dispositivos.
+Una vez que la implementación del dispositivo esté lista, use [Azure IoT Explorer](howto-use-iot-explorer.md) para validar que el dispositivo sigue las convenciones de IoT Plug and Play.
 
-Estos elementos se denominan _interfaces_ en un modelo de funcionalidad del dispositivo. Las interfaces definen los detalles de cada uno de los elementos que implementa el dispositivo.
+> [!Tip]
+> Todos los fragmentos de código de este artículo usan C#, pero los conceptos se aplican a cualquiera de los SDK disponibles para C, Python, Node y Java.
 
-En el ejemplo siguiente se muestra el modelo de funcionalidad del dispositivo de un dispositivo termostato:
+## <a name="model-id-announcement"></a>Anuncio del id. de modelo
 
-```json
-{
-  "@id": "urn:example:Thermostat_T_1000:1",
-  "@type": "CapabilityModel",
-  "implements": [
-    {
-      "name": "thermostat",
-      "schema": "urn:example:Thermostat:1"
-    },
-    {
-      "name": "urn_azureiot_deviceManagement_DeviceInformation",
-      "schema": "urn:azureiot:deviceManagement:DeviceInformation:1"
-    }
-  ],
-  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
-}
+Para anunciar el id. de modelo, el dispositivo debe incluirlo en la información de conexión:
+
+```csharp
+DeviceClient.CreateFromConnectionString(
+  connectionString,
+  TransportType.Mqtt,
+  new ClientOptions() { ModelId = modelId })
 ```
 
-Un modelo de funcionalidad tiene varios campos obligatorios:
+La nueva sobrecarga `ClientOptions` está disponible en todos los métodos de `DeviceClient` usados para inicializar una conexión.
 
-- `@id`: un identificador único en forma de nombre de recursos uniforme simple.
-- `@type`: declara que este objeto es un modelo de funcionalidad.
-- `@context`: especifica la versión de DTDL que se usa para el modelo de funcionalidad.
-- `implements`: enumera las interfaces que implementa el dispositivo.
+El anuncio del id. de modelo se ha agregado a las siguientes versiones de los SDK
 
-Todas las entradas de la lista de interfaces de la sección de implementaciones tienen:
+|SDK|Versión|
+|---|-------|
+|C-SDK|1.3.9|
+|.NET|1.27.0|
+|Java|1.14.0|
+|Nodo|1.17.0|
+|Python|2.1.4|
 
-- `name`: el nombre de programación de la interfaz.
-- `schema`: la interfaz que implementa el modelo de funcionalidad.
+## <a name="implement-telemetry-properties-and-commands"></a>Implementación de telemetría, propiedades y comandos
 
-Hay campos opcionales adicionales que puede usar para agregar más detalles al modelo de funcionalidad, como el de nombre para mostrar y el de descripción. Las interfaces que se declaran dentro de un modelo de funcionalidad se pueden considerar componentes del dispositivo. En el caso de la versión preliminar pública, la lista de interfaces puede tener solo una entrada por esquema.
-
-## <a name="interface"></a>Interfaz
-
-Con DTDL se describen las funcionalidades del dispositivo mediante interfaces. Las interfaces describen las _propiedades_, la _telemetría_  y los _comandos_ que implementa un elemento del dispositivo:
-
-- `Properties`. Las propiedades son campos de datos que representan el estado de un dispositivo. Se usan para representar el estado duradero del dispositivo, como el estado de encendido-apagado de una bomba de líquido refrigerante. Las propiedades también pueden representar propiedades básicas del dispositivo, como la versión del firmware del dispositivo. Las propiedades se pueden declarar como de solo lectura o de escritura.
-- `Telemetry`. Los campos de telemetría representan las medidas de los sensores. Cada vez que un dispositivo toma una medida de un sensor, debe enviar un evento de telemetría que contenga los datos del sensor.
-- `Commands`. Los comandos representan métodos que los usuarios del dispositivo pueden ejecutar en el dispositivo. Por ejemplo, un comando de restablecimiento o un comando para encender o apagar un ventilador.
-
-En el ejemplo siguiente se muestra la interfaz de un dispositivo termostato:
-
-```json
-{
-  "@id": "urn:example:Thermostat:1",
-  "@type": "Interface",
-  "contents": [
-    {
-      "@type": "Telemetry",
-      "name": "temperature",
-      "schema": "double"
-    }
-  ],
-  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
-}
-```
-
-Una interfaz tiene varios campos obligatorios:
-
-- `@id`: un identificador único en forma de nombre de recursos uniforme simple.
-- `@type`: declara que este objeto es una interfaz.
-- `@context`: especifica la versión de DTDL que se usa para la interfaz.
-- `contents`: enumera las propiedades, la telemetría y los comandos que componen el dispositivo.
-
-En este sencillo ejemplo, hay solo un campo de telemetría. Una descripción de campo mínima tiene:
-
-- `@type`: especifica el tipo de funcionalidad: `Telemetry`, `Property`o `Command`.
-- `name`: proporciona el nombre del valor de telemetría.
-- `schema`: especifica el tipo de datos de la telemetría. Este valor puede ser un tipo primitivo, como doble, entero, booleano o cadena. También se admiten tipos de objetos complejos, matrices y mapas.
-
-Otros campos opcionales, como nombre para mostrar y descripción, permiten agregar más detalles a la interfaz y a las funcionalidades.
-
-### <a name="properties"></a>Propiedades
-
-De forma predeterminada, las propiedades son de solo lectura. Las propiedades de solo lectura significan que el dispositivo informa de las actualizaciones de valores de propiedad a su centro de IoT. Su centro de IoT Hub no puede establecer el valor de una propiedad de solo lectura.
-
-Una propiedad también se puede marcar como editable en una interfaz. Un dispositivo puede recibir una actualización de una propiedad editable desde su centro de IoT, así como notificar las actualizaciones de los valores de propiedad al centro.
-
-No es preciso que los dispositivos estén conectados para establecer los valores de propiedad. Los valores actualizados se transfieren la siguiente vez que el dispositivo se conecta al centro. Este comportamiento se aplica a tanto a las propiedades de solo lectura como a las de escritura.
-
-No use las propiedades para enviar datos de telemetría desde un dispositivo. Por ejemplo, una propiedad de solo lectura como m`temperatureSetting=80` debe significar que la temperatura del dispositivo se ha establecido en 80 y que el dispositivo está intentando llegar a esta temperatura o quedarse en ella.
-
-En el caso de las propiedades de escritura, la aplicación de dispositivo devuelve un código de estado deseado, una versión y una descripción para indicar si ha recibido y aplicado el valor de propiedad.
+Como se describe en [Descripción de componentes de los modelos de IoT Plug and Play](concepts-components.md), los creadores de dispositivos deben decidir si quieren usar componentes para describir sus dispositivos. Cuando se usan componentes, los dispositivos deben seguir las reglas descritas en esta sección.
 
 ### <a name="telemetry"></a>Telemetría
 
-De manera predeterminada, IoT Hub enruta todos los mensajes de telemetría desde los dispositivos a su [punto de conexión orientado al servicio integrado (**messages/events**)](../iot-hub/iot-hub-devguide-messages-read-builtin.md) que es compatible con [Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/).
+Los modelos sin componentes no requieren ninguna propiedad especial.
 
-Puede usar las [reglas de enrutamiento y los puntos de conexión personalizados de IoT Hub](../iot-hub/iot-hub-devguide-messages-d2c.md) para enviar datos de telemetría a otros destinos, como el almacenamiento de blobs u otros centros de eventos. Las reglas de enrutamiento usan las propiedades de los mensajes para seleccionar mensajes.
+Cuando se usan componentes, los dispositivos deben establecer una propiedad de mensaje con el nombre de componente:
+
+```c#
+public async Task SendComponentTelemetryValueAsync(string componentName, string serializedTelemetry)
+{
+  var message = new Message(Encoding.UTF8.GetBytes(serializedTelemetry));
+  message.Properties.Add("$.sub", componentName);
+  message.ContentType = "application/json";
+  message.ContentEncoding = "utf-8";
+  await deviceClient.SendEventAsync(message);
+}
+```
+
+### <a name="read-only-properties"></a>Propiedades de solo lectura
+
+Los modelos sin componentes no requieren ninguna construcción especial:
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+reportedProperties["maxTemperature"] = 38.7;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
+
+```json
+{
+  "reported": {
+      "maxTemperature" : 38.7
+  }
+}
+```
+
+Al usar los componentes, se deben crear propiedades dentro del nombre de componente:
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+TwinCollection component = new TwinCollection();
+component["maxTemperature"] = 38.7;
+component["__t"] = "c"; // marker to identify a component
+reportedProperties["thermostat1"] = component;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
+
+```json
+{
+  "reported": {
+    "thermostat1" : {  
+      "__t" : "c",  
+      "maxTemperature" : 38.7
+     } 
+  }
+}
+```
+
+### <a name="writable-properties"></a>Propiedades editables
+
+Estas propiedades pueden establecerse por el dispositivo o actualizarse por la solución. Si la solución actualiza una propiedad, el cliente recibe una notificación como una devolución de llamada en `DeviceClient`. Para seguir las convenciones de IoT Plug and Play, el dispositivo debe informar al servicio de que la propiedad se ha recibido correctamente.
+
+#### <a name="report-a-writable-property"></a>Notificación de una propiedad editable
+
+Cuando un dispositivo notifica una propiedad editable, debe incluir los valores `ack` definidos en las convenciones.
+
+Para notificar una propiedad editable sin componentes:
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+TwinCollection ackProps = new TwinCollection();
+ackProps["value"] = 23.2;
+ackProps["ac"] = 200; // using HTTP status codes
+ackProps["av"] = 0; // not readed from a desired property
+ackProps["ad"] = "reported default value";
+reportedProperties["targetTemperature"] = ackProps;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
+
+```json
+{
+  "reported": {
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+  }
+}
+```
+
+Para notificar una propiedad editable de un componente, el gemelo debe incluir un marcador:
+
+```csharp
+TwinCollection reportedProperties = new TwinCollection();
+TwinCollection component = new TwinCollection();
+TwinCollection ackProps = new TwinCollection();
+component["__t"] = "c"; // marker to identify a component
+ackProps["value"] = 23.2;
+ackProps["ac"] = 200; // using HTTP status codes
+ackProps["av"] = 0; // not read from a desired property
+ackProps["ad"] = "reported default value";
+component["targetTemperature"] = ackProps;
+reportedProperties["thermostat1"] = component;
+await client.UpdateReportedPropertiesAsync(reportedProperties);
+```
+
+El dispositivo gemelo se actualiza con la siguiente propiedad notificada:
+
+```json
+{
+  "reported": {
+    "thermostat1": {
+      "__t" : "c",
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+    }
+  }
+}
+```
+
+#### <a name="subscribe-to-desired-property-updates"></a>Suscripción a las actualizaciones de propiedades deseadas
+
+Los servicios pueden actualizar las propiedades deseadas que desencadenan una notificación en los dispositivos conectados. Esta notificación incluye las propiedades deseadas actualizadas, incluido el número de versión que identifica la actualización. Los dispositivos deben responder con el mismo mensaje `ack` que las propiedades notificadas.
+
+Los modelos sin componentes ven la propiedad única y crean el `ack` notificado con la versión recibida:
+
+```csharp
+await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) => 
+{
+  JValue targetTempJson = desired["targetTemperature"];
+  double targetTemperature = targetTempJson.Value<double>();
+
+  TwinCollection reportedProperties = new TwinCollection();
+  TwinCollection ackProps = new TwinCollection();
+  ackProps["value"] = targetTemperature;
+  ackProps["ac"] = 200;
+  ackProps["av"] = desired.Version; 
+  ackProps["ad"] = "desired property received";
+  reportedProperties["targetTemperature"] = ackProps;
+
+  await client.UpdateReportedPropertiesAsync(reportedProperties);
+}, null);
+```
+
+El dispositivo gemelo muestra la propiedad en las secciones desired y reported:
+
+```json
+{
+  "desired" : {
+    "targetTemperature": 23.2,
+    "$version" : 3
+  },
+  "reported": {
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+  }
+}
+```
+
+Los modelos con componentes reciben las propiedades deseadas encapsuladas con el nombre de componente y deben notificar la propiedad notificada `ack`:
+
+```csharp
+await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
+{
+  JObject thermostatComponent = desired["thermostat1"];
+  JToken targetTempProp = thermostatComponent["targetTemperature"];
+  double targetTemperature = targetTempProp.Value<double>();
+
+  TwinCollection reportedProperties = new TwinCollection();
+  TwinCollection component = new TwinCollection();
+  TwinCollection ackProps = new TwinCollection();
+  component["__t"] = "c"; // marker to identify a component
+  ackProps["value"] = targetTemperature;
+  ackProps["ac"] = 200; // using HTTP status codes
+  ackProps["av"] = desired.Version; // not readed from a desired property
+  ackProps["ad"] = "desired property received";
+  component["targetTemperature"] = ackProps;
+  reportedProperties["thermostat1"] = component;
+
+  await client.UpdateReportedPropertiesAsync(reportedProperties);
+}, null);
+```
+
+En el dispositivo gemelo de los componentes se muestran las secciones desired y reported de la siguiente manera:
+
+```json
+{
+  "desired" : {
+    "thermostat1" : {
+        "__t" : "c",
+        "targetTemperature": 23.2,
+    }
+    "$version" : 3
+  },
+  "reported": {
+    "thermostat1" : {
+        "__t" : "c",
+      "targetTemperature": {
+          "value": 23.2,
+          "ac": 200,
+          "av": 3,
+          "ad": "complete"
+      }
+    }
+  }
+}
+```
 
 ### <a name="commands"></a>Comandos:
 
-Los comandos son sincrónicos o asincrónicos. Un comando sincrónico debe ejecutarse en un plazo máximo de 30 segundos de forma predeterminada y el dispositivo debe estar conectado cuando llegue el comando. Si el dispositivo no responde a tiempo o no está conectado, se produce un error en el comando.
+Los modelos sin componentes reciben el nombre del comando, ya que el servicio lo invocó.
 
-Use comandos asincrónicos para las operaciones de ejecución prolongada. El dispositivo envía la información del progreso mediante mensajes de telemetría. Estos mensajes tienen las siguientes propiedades del encabezado:
+Los modelos con componentes recibirán el nombre del comando con el prefijo del componente y el separador `*`.
 
-- `iothub-command-name`: el nombre del comando, por ejemplo `UpdateFirmware`.
-- `iothub-command-request-id`: el identificador de solicitud generado en el servidor y enviado al dispositivo en la llamada inicial.
-- `iothub-interface-id`:  el identificador de la interfaz en la que está definido este comando, por ejemplo `urn:example:AssetTracker:1`.
- `iothub-interface-name`: el nombre de instancia de esta interfaz, por ejemplo `myAssetTracker`.
-- `iothub-command-statuscode`: el código de estado que devuelve el dispositivo, por ejemplo `202`.
-
-## <a name="register-a-device"></a>Registrar un dispositivo
-
-IoT Plug and Play facilita la publicidad de las funcionalidades de cualquier dispositivo. Con IoT Plug and Play, después de que el dispositivo se conecte a IoT Hub, debe registrar el modelo de funcionalidad del dispositivo. El registro permite a los clientes usar las funcionalidades de IoT Plug and Play del dispositivo.
-
-En esta guía se muestra cómo registrar un dispositivo mediante el SDK de dispositivo IoT de Azure para C.
-
-Para cada interfaz que implemente el dispositivo, es preciso crear una interfaz y conectarla a su implementación.
-
-En el caso de la interfaz del termostato que se ha mostrado anteriormente, mediante el SDK de C, creará y conectará la interfaz del termostato a su implementación:
-
-```c
-DIGITALTWIN_INTERFACE_HANDLE thermostatInterfaceHandle;
-
-DIGITALTWIN_CLIENT_RESULT result = DigitalTwin_InterfaceClient_Create(
-    "thermostat",
-    "urn:example:Thermostat:1",
-    null, null,
-    &thermostatInterfaceHandle);
-
-result = DigitalTwin_Interface_SetCommandsCallbacks(
-    thermostatInterfaceHandle,
-    commandsCallbackTable);
-
-result = DigitalTwin_Interface_SetPropertiesUpdatedCallbacks(
-    thermostatInterfaceHandle,
-    propertiesCallbackTable);
-
+```csharp
+await client.SetMethodHandlerAsync("themostat*reboot", (MethodRequest req, object ctx) =>
+{
+  Console.WriteLine("REBOOT");
+  return Task.FromResult(new MethodResponse(200));
+},
+null);
 ```
 
-Repita este código en cada interfaz que implemente el dispositivo.
+#### <a name="request-and-response-payloads"></a>Cargas de solicitud y respuesta
 
-Después de crear una interfaz, registre el modelo de funcionalidad del dispositivo y las interfaces en su centro de IoT:
+Los comandos usan tipos para definir sus cargas de solicitud y respuesta. Un dispositivo debe deserializar el parámetro de entrada y serializar la respuesta. En el ejemplo siguiente se muestra cómo implementar un comando con tipos complejos definidos en las cargas:
 
-```c
-DIGITALTWIN_INTERFACE_CLIENT_HANDLE interfaces[2];
-interfaces[0] = thermostatInterfaceHandle;
-interfaces[1] = deviceInfoInterfaceHandle;
-
-result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
-    digitalTwinClientHandle, // The handle for the connection to Azure IoT
-    "urn:example:Thermostat_T_1000:1",
-    interfaces, 2,
-    null, null);
+```json
+{
+  "@type": "Command",
+  "name": "start",
+  "request": {
+    "name": "startRequest",
+    "schema": {
+      "@type": "Object",
+      "fields": [
+        {
+          "name": "startPriority",
+          "schema": "integer"
+        },
+        {
+          "name": "startMessage",
+          "schema" : "string"
+        }
+      ]
+    }
+  },
+  "response": {
+    "name": "startReponse",
+    "schema": {
+      "@type": "Object",
+      "fields": [
+        {
+            "name": "startupTime",
+            "schema": "integer" 
+        },
+        {
+          "name": "startupMessage",
+          "schema": "string"
+        }
+      ]
+    }
+  }
+}
 ```
 
-## <a name="use-a-device"></a>Uso de un dispositivo
+Los fragmentos de código siguientes muestran cómo un dispositivo implementa esta definición de comando, incluidos los tipos que se usan para habilitar la serialización y deserialización:
 
-IoT Plug and Play le permite usar dispositivos que han registrado sus funcionalidades en su centro de IoT. Por ejemplo, puede acceder directamente a las propiedades y los comandos de un dispositivo.
+```csharp
+class startRequest
+{
+  public int startPriority { get; set; }
+  public string startMessage { get; set; }
+}
 
-Para usar un dispositivo IoT Plug and Play que esté conectado a su centro de IoT, use la API REST de IoT Hub o uno de los SDK de lenguaje de IoT. En los ejemplos siguientes se usa la API REST de IoT Hub. La versión actual de la API es `2019-07-01-preview`. Anexe `?api-version=2019-07-01-preview` a las llamadas a la API REST.
+class startResponse
+{
+  public int startupTime { get; set; }
+  public string startupMessage { get; set; }
+}
 
-Para obtener el valor de una propiedad de dispositivo, como la versión del firmware (`fwVersion`) en la `DeviceInformation` interfaz del termostato, se usa la API REST de gemelos digitales.
+// ... 
+
+await client.SetMethodHandlerAsync("start", (MethodRequest req, object ctx) =>
+{
+  var startRequest = JsonConvert.DeserializeObject<startRequest>(req.DataAsJson);
+  Console.WriteLine($"Received start command with priority ${startRequest.startPriority} and ${startRequest.startMessage}");
+
+  var startResponse = new startResponse
+  {
+    startupTime = 123,
+    startupMessage = "device started with message " + startRequest.startMessage
+  };
+
+  string responsePayload = JsonConvert.SerializeObject(startResponse);
+  MethodResponse response = new MethodResponse(Encoding.UTF8.GetBytes(responsePayload), 200);
+  return Task.FromResult(response);
+},null);
+```
+
+> [!Tip]
+> Los nombres de solicitud y respuesta no están presentes en las cargas serializadas transmitidas a través de la conexión.
+
+## <a name="interact-with-the-device"></a>Interacción con el dispositivo 
+
+IoT Plug and Play le permite usar dispositivos que han anunciado su id. de modelo en su centro de IoT. Por ejemplo, puede acceder directamente a las propiedades y los comandos de un dispositivo.
+
+Para usar un dispositivo IoT Plug and Play que esté conectado a su centro de IoT, use la API REST de IoT Hub o uno de los SDK de lenguaje de IoT. En los ejemplos siguientes se usa la API REST de IoT Hub. La versión actual de la API es `2020-05-31-preview`. Anexe `?api-version=2020-05-31` a las llamadas a la API REST.
 
 Si se llama al dispositivo termostato `t-123`, logrará que su dispositivo implemente todas las propiedades con una llamada GET de la API REST:
 
 ```REST
-GET /digitalTwins/t-123/interfaces
+GET /digitalTwins/t-123
 ```
 
-En general, con esta plantilla de API REST en la que `{device-id}` es el identificador del dispositivo se accede a todas las propiedades de todas las interfaces:
+Esta llamada incluirá la propiedad JSON `$metadata.$model` con el id. de modelo anunciado por el dispositivo.
+
+Con la plantilla de API de REST `GET /DigitalTwin/{device-id}`, en la que `{device-id}` es el identificador del dispositivo, se accede a todas las propiedades de todas las interfaces:
 
 ```REST
-GET /digitalTwins/{device-id}/interfaces
+GET /digitalTwins/{device-id}
 ```
 
-Si conoce el nombre de la interfaz, como `deviceInformation`, y desea obtener las propiedades de esa interfaz en concreto, asigne el ámbito de la solicitud a una interfaz específica por el nombre:
+Puede llamar directamente a los comandos de dispositivo IoT Plug and Play. Si el componente `Thermostat` del dispositivo `t-123` tiene un comando `restart`, puede usar una llamada POST de la API de REST para llamarlo:
 
 ```REST
-GET /digitalTwins/t-123/interfaces/deviceInformation
-```
-
-En general, se puede acceder a las propiedades de una interfaz específica a través de esta plantilla de API REST, donde `device-id` es el identificador del dispositivo y `{interface-name}` es el nombre de la interfaz:
-
-```REST
-GET /digitalTwins/{device-id}/interfaces/{interface-name}
-```
-
-Puede llamar directamente a los comandos de dispositivo IoT Plug and Play. Si la interfaz `Thermostat` del `t-123` dispositivo tiene un comando `restart` en el que se puede usar una llamada POST de API REST para llamarlo:
-
-```REST
-POST /digitalTwins/t-123/interfaces/thermostat/commands/restart
+POST /digitalTwins/t-123/components/Thermostat/commands/restart
 ```
 
 En general, se puede llamar a los comandos mediante esta plantilla de API REST:
 
 - `device-id`: el identificador del dispositivo.
-- `interface-name`: el nombre de la interfaz de la sección de implementaciones del modelo de funcionalidad del dispositivo.
+- `component-name`: el nombre de la interfaz de la sección de implementaciones del modelo de funcionalidad del dispositivo.
 - `command-name`: el nombre del comando.
 
 ```REST
-/digitalTwins/{device-id}/interfaces/{interface-name}/commands/{command-name}
+/digitalTwins/{device-id}/components/{component-name}/commands/{command-name}
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ahora que ha aprendido acerca del modelado de dispositivos, estos son algunos recursos adicionales:
 
-- [Lenguaje de definición de gemelos digitales (DTDL)](https://aka.ms/DTDL)
+- [Lenguaje de definición de Digital Twins (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl)
 - [SDK para dispositivos C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 - [API REST de IoT](https://docs.microsoft.com/rest/api/iothub/device)
+- [Componentes del modelo](./concepts-components.md)

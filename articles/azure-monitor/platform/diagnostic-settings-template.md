@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 73f2b3ea90cc94fa3411552c7b812fe53eb4dbbb
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87008105"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>Creación de la configuración de diagnóstico en Azure con una plantilla de Resource Manager
 [Configuración de diagnóstico](diagnostic-settings.md) en Azure Monitor especifica dónde se envían los [Registros de plataforma](platform-logs-overview.md) recopilados por los recursos de Azure y la plataforma de Azure de los que dependen. En este artículo se proporcionan detalles y ejemplos sobre el uso de una [plantilla de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) a fin de crear y definir la configuración de diagnóstico para recopilar los registros de plataforma en distintos destinos.
@@ -30,7 +30,7 @@ Consulte [Implementación de recursos con las plantillas de Resource Manager y A
 
 
 ## <a name="resource-logs"></a>Registros del recurso
-En el caso de los registros de recursos, agregue un recurso de tipo `<resource namespace>/providers/diagnosticSettings` a la plantilla. La sección de propiedades tiene el formato que se describe en [Configuración de diagnóstico: creación o actualización](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings/createorupdate). Proporcione un valor de `category` en la sección `logs` a cada una de las categorías válidas para el recurso que desea recopilar. Agregue la propiedad `metrics` para recopilar métricas de recurso en los mismos destinos si el [recurso admite métricas](metrics-supported.md).
+En el caso de los registros de recursos, agregue un recurso de tipo `<resource namespace>/providers/diagnosticSettings` a la plantilla. La sección de propiedades tiene el formato que se describe en [Configuración de diagnóstico: creación o actualización](/rest/api/monitor/diagnosticsettings/createorupdate). Proporcione un valor de `category` en la sección `logs` a cada una de las categorías válidas para el recurso que desea recopilar. Agregue la propiedad `metrics` para recopilar métricas de recurso en los mismos destinos si el [recurso admite métricas](metrics-supported.md).
 
 A continuación, se encuentra una plantilla que recopila una categoría de registro de recursos para un recurso determinado en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos.
 
@@ -144,7 +144,7 @@ A continuación, se ofrece un ejemplo que crea una configuración de diagnóstic
 ```
 
 ## <a name="activity-log"></a>Registro de actividades
-Para el registro de actividad de Azure, agregue un recurso de tipo `Microsoft.Insights/diagnosticSettings`. Las categorías disponibles se enumeran en [Categorías del registro de actividad](activity-log-view.md#categories-in-the-activity-log). A continuación, se muestra una plantilla que recopila todas las categorías de registro de actividades en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos.
+Para el registro de actividad de Azure, agregue un recurso de tipo `Microsoft.Insights/diagnosticSettings`. Las categorías disponibles se enumeran en [Categorías del registro de actividad](./activity-log.md#view-the-activity-log). A continuación, se muestra una plantilla que recopila todas las categorías de registro de actividades en un área de trabajo de Log Analytics, una cuenta de almacenamiento y un centro de eventos.
 
 
 ```json

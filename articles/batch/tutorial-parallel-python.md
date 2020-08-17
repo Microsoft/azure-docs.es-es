@@ -1,16 +1,16 @@
 ---
-title: Ejecución de una carga de trabajo paralela
+title: Ejecución de una carga de trabajo en paralelo mediante la API para Python
 description: 'Tutorial: Procesamiento de archivos multimedia en paralelo con ffmpeg en Azure Batch con la biblioteca cliente de Python de Batch'
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 63515012d10739bb018de34e040465fbe337aa02
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 34cea5e0b60c0a7ee8c3d31dd02a6f7e975de738
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561273"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853337"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-python-api"></a>Tutorial: Ejecución de una carga de trabajo paralela con Azure Batch mediante Python API
 

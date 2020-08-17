@@ -5,19 +5,19 @@ author: cynthn
 ms.service: virtual-machines-linux
 ms.topic: quickstart
 ms.workload: infrastructure
-ms.date: 10/17/2018
+ms.date: 07/31/2020
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e18f66beb8f318e993bd9367f5e50740d76db73f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e3d400726bfb65b2548bc773ffb460fe1ad426a0
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510334"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87513458"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-azure-with-powershell"></a>Inicio rápido: Creación de una máquina virtual Linux en Azure con PowerShell
 
-El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se muestra cómo usar el módulo de Azure PowerShell para implementar una máquina virtual Linux en Azure. En esta guía de inicio rápido se usa la imagen de Marketplace de Ubuntu 16.04 LTS de Canonical. Para ver la máquina virtual en acción, conéctese a ella mediante SSH e instale el servidor web NGINX.
+El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure desde la línea de comandos de PowerShell o en scripts. En esta guía de inicio rápido se muestra cómo usar el módulo de Azure PowerShell para implementar una máquina virtual Linux en Azure. En este inicio rápido se usa la imagen de Marketplace de Ubuntu 18.04 LTS de Canonical. Para ver la máquina virtual en acción, conéctese a ella mediante SSH e instale el servidor web NGINX.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -29,17 +29,18 @@ Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha 
 
 ## <a name="create-ssh-key-pair"></a>Creación del par de claves SSH
 
-Necesita un par de claves SSH para completar esta guía de inicio rápido. Si ya tiene un par de claves SSH, puede omitir este paso.
+Use [ssh-keygen](https://www.ssh.com/ssh/keygen/) para crear un par de claves SSH. Si ya tiene un par de claves SSH, puede omitir este paso.
 
-Abra un shell de Bash y utilice [ssh-keygen](https://www.ssh.com/ssh/keygen/) para crear un par de claves SSH. Si no tiene un shell de Bash en la máquina local, puede usar [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```azurepowershell-interactive
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
-Para más información sobre cómo crear pares de claves SSH, incluido el uso de PuTTy, consulte [Uso de claves SSH con Windows](ssh-from-windows.md).
+Se le pedirá que proporcione un especifique un nombre de archivo para el par de claves, o bien puede presionar **Entrar** para usar la ubicación predeterminada de `/home/<username>/.ssh/id_rsa`. También podrá crear una contraseña para las claves, en caso de que lo desee.
 
-Si crea el par de claves SSH mediante Cloud Shell, este se almacenará en una imagen de contenedor de una [cuenta de almacenamiento que Cloud Shell crea automáticamente](../../cloud-shell/persisting-shell-storage.md). No elimine la cuenta de almacenamiento ni el recurso compartido de archivos que contiene hasta que haya recuperado las claves o perderá el acceso a la máquina virtual. 
+Para más información sobre cómo crear pares de claves SSH, consulte [Uso de claves SSH con Windows](ssh-from-windows.md).
+
+Si crea el par de claves SSH mediante Cloud Shell, este se almacenará en una [cuenta de almacenamiento que Cloud Shell crea automáticamente](../../cloud-shell/persisting-shell-storage.md). No elimine la cuenta de almacenamiento ni el recurso compartido de archivos que hay en ella contiene hasta que haya recuperado las claves o perderá el acceso a la máquina virtual. 
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -147,7 +148,7 @@ Set-AzVMOperatingSystem `
 Set-AzVMSourceImage `
   -PublisherName "Canonical" `
   -Offer "UbuntuServer" `
-  -Skus "16.04-LTS" `
+  -Skus "18.04-LTS" `
   -Version "latest" | `
 Add-AzVMNetworkInterface `
   -Id $nic.Id
@@ -178,7 +179,7 @@ Cree una conexión SSH con la máquina virtual mediante la dirección IP públic
 Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | Select "IpAddress"
 ```
 
-Con el mismo shell de Bash que usó para crear el par de claves SSH (como [Azure Cloud Shell](https://shell.azure.com/bash) o el shell de Bash local) pegue el comando de conexión de SSH en el shell para crear una sesión de SSH.
+Utilice el mismo shell que utilizó para crear su par de claves SSH, pegue el siguiente comando en la shell para crear una sesión de SSH. Reemplace *10.111.12.123* por la dirección IP de su máquina virtual.
 
 ```bash
 ssh azureuser@10.111.12.123

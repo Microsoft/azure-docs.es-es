@@ -10,12 +10,12 @@ metadata:
   ms.author: jushiman
   ms.reviewer: mimckitt
   ms.date: 03/16/2020
-  ms.openlocfilehash: 96719159e3dd360554c795c5cd1f6436d05fbeeb
-  ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+  ms.openlocfilehash: 6fd995fbedafaf91ef98389e556286be218227a8
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/07/2020
-  ms.locfileid: "86027263"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87088978"
 landingContent:
 - title: Acerca de los conjuntos de escalado de máquinas virtuales
   linkLists:
@@ -74,6 +74,6 @@ landingContent:
   - linkListType: learn
     links:
     - text: Creación de aplicaciones escalables con conjuntos de escalado de máquinas virtuales
-      url: https://docs.microsoft.com/learn/modules/build-app-with-scale-sets/
+      url: /learn/modules/build-app-with-scale-sets/
     - text: " Creación de una máquina virtual Windows en Azure"
-      url: https://docs.microsoft.com/learn/modules/create-windows-virtual-machine-in-azure/
+      url: /learn/modules/create-windows-virtual-machine-in-azure/

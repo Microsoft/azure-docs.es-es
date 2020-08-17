@@ -4,20 +4,20 @@ description: Aprenda a transmitir registros de Azure Diagnostics a un área de t
 author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 492aae69895d62c784d15cd77405d0c52ec13e3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccf470abadb28919e4fca3c4862b71946a5bb204
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84947007"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87800507"
 ---
 # <a name="azure-resource-logs"></a>Registros de recursos de Azure
 Los registros de recursos de Azure son [registros de plataforma](platform-logs-overview.md) que proporcionan información sobre las operaciones que se realizaron en un recurso de Azure. El contenido de estos registros de recurso varía según el servicio de Azure y el tipo de recurso. Los registros de recurso no se recopilan de forma predeterminada. Debe crear una configuración de diagnóstico para cada recurso de Azure con el fin de enviar sus registros de recursos a un área de trabajo Log Analytics que se usará con [registros de Azure Monitor](data-platform-logs.md), Azure Event Hubs para reenviar fuera de Azure o Azure Storage para el archivado.
 
-Consulte [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](diagnostic-settings.md) para obtener más información sobre cómo crear una configuración de diagnóstico, así como [Implementación de Azure Monitor a escala mediante Azure Policy](deploy-scale.md) para obtener más información sobre el uso de Azure Policy para crear automáticamente una configuración de diagnóstico para cada recurso de Azure que cree.
+Consulte [Creación de una configuración de diagnóstico para enviar registros de plataforma y métricas a diferentes destinos](diagnostic-settings.md) para obtener más información sobre cómo crear una configuración de diagnóstico, así como [Implementación de Azure Monitor a escala mediante Azure Policy](../deploy-scale.md) para obtener más información sobre el uso de Azure Policy para crear automáticamente una configuración de diagnóstico para cada recurso de Azure que cree.
 
 ## <a name="send-to-log-analytics-workspace"></a>Envío al área de trabajo de Log Analytics
  Envíe los registros de recursos a un área de trabajo de Log Analytics para habilitar las características de los [registros de Azure Monitor](data-platform-logs.md), entre lo que se incluye lo siguiente:
@@ -85,17 +85,15 @@ En el ejemplo anterior, esto daría lugar a la creación de tres tablas:
 
 
 ### <a name="select-the-collection-mode"></a>Selección del modo de recopilación
-La mayoría de los recursos de Azure escribirán los datos en el área de trabajo en modo **Azure Diagnostics** o **específico del recurso** sin que usted pueda elegir. Consulte la [documentación para cada servicio](diagnostic-logs-schema.md) para más información sobre el modo que usa. Todos los servicios de Azure usarán finalmente el modo específico del recurso. Como parte de esta transición, algunos recursos permitirán seleccionar un modo en la configuración de diagnóstico. Especifique el modo específico del recurso para las configuraciones de diagnóstico nuevas, ya que esto facilita la administración de los datos y puede ayudar a evitar migraciones complejas posteriores.
+La mayoría de los recursos de Azure escribirán los datos en el área de trabajo en modo **Azure Diagnostics** o **específico del recurso** sin que usted pueda elegir. Consulte la [documentación para cada servicio](./resource-logs-schema.md) para más información sobre el modo que usa. Todos los servicios de Azure usarán finalmente el modo específico del recurso. Como parte de esta transición, algunos recursos permitirán seleccionar un modo en la configuración de diagnóstico. Especifique el modo específico del recurso para las configuraciones de diagnóstico nuevas, ya que esto facilita la administración de los datos y puede ayudar a evitar migraciones complejas posteriores.
   
    ![Selector del modo de configuración de diagnósticos](media/resource-logs-collect-workspace/diagnostic-settings-mode-selector.png)
 
-
-
-
 > [!NOTE]
-> Actualmente solo se puede seleccionar el modo **Azure Diagnostics** o **específico del recurso** al realizar la configuración de diagnóstico en Azure Portal. Si realizar la configuración mediante la CLI, PowerShell o API REST, de forma predeterminada será **Azure Diagnostics**.
+> Para ver un ejemplo de configuración del modo de recopilación mediante una plantilla de Resource Manager, consulte [Ejemplos de plantillas de Resource Manager para la configuración de diagnóstico en Azure Monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
-En el modo específico del recurso se puede modificar una configuración de diagnóstico existente. En este caso, los datos que ya se han recopilado permanecerán en la tabla _AzureDiagnostics_ hasta que se eliminen de acuerdo con la configuración de retención del área de trabajo. Los nuevos datos se recopilarán en la tabla dedicada. Use el operador [union](https://docs.microsoft.com/azure/kusto/query/unionoperator) para consultar datos en ambas tablas.
+
+En el modo específico del recurso se puede modificar una configuración de diagnóstico existente. En este caso, los datos que ya se han recopilado permanecerán en la tabla _AzureDiagnostics_ hasta que se eliminen de acuerdo con la configuración de retención del área de trabajo. Los nuevos datos se recopilarán en la tabla dedicada. Use el operador [union](/azure/kusto/query/unionoperator) para consultar datos en ambas tablas.
 
 Puede continuar por el blog [Actualizaciones de Azure](https://azure.microsoft.com/updates/) para ver noticias sobre los servicios de Azure que admiten el modo específico del recurso.
 
@@ -191,7 +189,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Cada blob PT1H.json contiene un blob JSON de eventos que se produjeron en la hora especificada en la dirección URL del blob (por ejemplo h=12). Durante la hora en cuestión, los eventos se anexan al archivo PT1H.json a medida que se producen. El valor en minutos (m = 00) siempre es 00, ya que los eventos del registro de recurso se dividen en blobs individuales por hora.
 
-En el archivo PT1H.json, los eventos se almacenan con este formato; con un esquema general común, pero único para cada uno de los servicios de Azure, tal y como se describe en [Esquema de los registros de recurso](diagnostic-logs-schema.md).
+En el archivo PT1H.json, los eventos se almacenan con este formato; con un esquema general común, pero único para cada uno de los servicios de Azure, tal y como se describe en [Esquema de los registros de recurso](./resource-logs-schema.md).
 
 ``` JSON
 {"time": "2016-07-01T00:00:37.2040000Z","systemId": "46cdbb41-cb9c-4f3d-a5b4-1d458d827ff1","category": "NetworkSecurityGroupRuleCounter","resourceId": "/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/TESTNSG","operationName": "NetworkSecurityGroupCounters","properties": {"vnetResourceGuid": "{12345678-9012-3456-7890-123456789012}","subnetPrefix": "10.3.0.0/24","macAddress": "000123456789","ruleName": "/subscriptions/ s1id1234-5679-0123-4567-890123456789/resourceGroups/testresourcegroup/providers/Microsoft.Network/networkSecurityGroups/testnsg/securityRules/default-allow-rdp","direction": "In","type": "allow","matchedConnections": 1988}}

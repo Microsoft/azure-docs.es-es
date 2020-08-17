@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d819eaa5c90e304a642efd3a6f2458cab4eefe7f
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 7572e5c5621b514c375e44ca44ddfc4102f5d714
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422303"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298888"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -68,6 +68,8 @@ Inserte este código debajo de `IntentRecognizer`. Asegúrese de reemplazar `"Yo
 > Si necesita ayuda para encontrar este valor, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=19-27)]
+
+En este ejemplo se usa la función `add_intents()` para agregar una lista de intenciones definidas explícitamente. Si desea agregar todas las intenciones de un modelo, use `add_all_intents(model)` y pase el modelo.
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 

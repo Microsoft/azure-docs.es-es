@@ -1,6 +1,6 @@
 ---
 title: Implementación de redes de contenedor de Azure Virtual Network| Microsoft Docs
-description: Aprenda a implementar el complemento de interfaz de red de contenedor (CNI) de Azure Virtual Network para clústeres de Kubernetes que implemente usted mismo o implementados con ACS-Engine, y para contenedores de Docker.
+description: Obtenga información sobre cómo implementar el complemento de interfaz de red de contenedores (CNI) de Azure Virtual Network para clústeres de Kubernetes.
 services: virtual-network
 documentationcenter: na
 author: aanandr
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 7cae4b579a933c03ec3a08a00ef032c57d15093f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09a0574666441138c143932e843080e8745f1b40
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710021"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289584"
 ---
 # <a name="deploy-the-azure-virtual-network-container-network-interface-plug-in"></a>Implementación del complemento de interfaz de red de contenedor de Azure Virtual Network
 

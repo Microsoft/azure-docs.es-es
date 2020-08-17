@@ -6,13 +6,13 @@ ms.topic: article
 ms.date: 05/27/2020
 ms.author: mahender
 ms.reviewer: yevbronsh
-ms.custom: tracking-python
-ms.openlocfilehash: 87e4d67086ea9f260becb2d63765e807e2b73546
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.custom: devx-track-python
+ms.openlocfilehash: a33a739014b33303389b4f880da3687db852633e
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985759"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87850277"
 ---
 # <a name="how-to-use-managed-identities-for-app-service-and-azure-functions"></a>Cómo usar identidades administradas para App Service y Azure Functions
 
@@ -84,7 +84,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 
 #### <a name="using-azure-powershell-for-a-web-app"></a>Uso de Azure PowerShell para una aplicación web
 
-1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/overview) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
+1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 2. Cree una aplicación web mediante Azure PowerShell. Para ver más ejemplos de cómo utilizar Azure PowerShell con App Service, consulte los [ejemplos de PowerShell de App Service](../app-service/samples-powershell.md):
 
@@ -107,7 +107,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 
 #### <a name="using-azure-powershell-for-a-function-app"></a>Uso de Azure PowerShell para una aplicación de funciones
 
-1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/overview) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
+1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions):
 
@@ -177,6 +177,15 @@ Cuando se crea el sitio, tiene las siguientes propiedades adicionales:
 
 La propiedad tenantId identifica a qué inquilino de Azure AD pertenece la identidad. El valor principalId es un identificador único para la nueva identidad de la aplicación. En Azure AD, la entidad de servicio tiene el mismo nombre que asignó a la instancia de App Service o Azure Functions.
 
+Si posteriormente tiene que hacer referencia a estas propiedades en la plantilla, puede hacerlo mediante la [función de plantilla `reference()`](../azure-resource-manager/templates/template-functions-resource.md#reference) con la marca `'Full'`, tal y como se muestra en este ejemplo:
+
+```json
+{
+    "tenantId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.tenantId]",
+    "objectId": "[reference(resourceId('Microsoft.Web/sites', variables('appName')), '2018-02-01', 'Full').identity.principalId]",
+}
+```
+
 ## <a name="add-a-user-assigned-identity"></a>Adición de una identidad asignada por el usuario
 
 La creación de una aplicación con una identidad asignada por el usuario requiere que se cree la identidad y luego se agregue su identificador de recurso a la configuración de la aplicación.
@@ -208,7 +217,7 @@ Los siguientes pasos le guiarán por la creación de una aplicación y la asigna
 > [!NOTE]
 > La versión actual de los commandlets de Azure PowerShell para Azure App Service no admite identidades asignadas por el usuario. Las instrucciones siguientes son para Azure Functions.
 
-1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/overview) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
+1. Si es necesario, instale Azure PowerShell con las instrucciones que se encuentra en la [guía de Azure PowerShell](/powershell/azure/) y luego ejecute `Login-AzAccount` para crear una conexión con Azure.
 
 2. Cree una aplicación de funciones con Azure PowerShell. Para obtener más ejemplos de cómo usar Azure PowerShell con Azure Functions, vea la [referencia de Az.Functions](https://docs.microsoft.com/powershell/module/az.functions/?view=azps-4.1.0#functions). El siguiente script también utiliza `New-AzUserAssignedIdentity`, que se debe instalar por separado según el procedimiento de [Crear, enumerar y eliminar una identidad administrada que haya asignado el usuario mediante Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
 
@@ -305,6 +314,9 @@ Hay un protocolo de REST sencillo para obtener un token en App Service y Azure F
 
 ### <a name="using-the-rest-protocol"></a>Uso del protocolo de REST
 
+> [!NOTE]
+> Una versión anterior de este protocolo, con la versión de API "2017-09-01", utilizó el encabezado `secret` en lugar de `X-IDENTITY-HEADER` y solo aceptó la propiedad `clientid` para el valor asignado por el usuario. También devuelve el valor `expires_on` en un formato de marca de tiempo. Se puede usar MSI_ENDPOINT como alias para IDENTITY_ENDPOINT y MSI_SECRET como alias para IDENTITY_HEADER. Esta versión del protocolo es necesaria actualmente en los planes de hospedaje de Consumo para Linux.
+
 Una aplicación con una identidad administrada tiene dos variables de entorno definidas:
 
 - IDENTITY_ENDPOINT: dirección URL del servicio de token local.
@@ -315,7 +327,7 @@ La variable **IDENTITY_ENDPOINT** es una dirección URL local desde la que la ap
 > | Nombre de parámetro    | En     | Descripción                                                                                                                                                                                                                                                                                                                                |
 > |-------------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > | resource          | Consultar  | El URI del recurso de Azure AD del recurso para el que se debe obtener un token. Este podría ser uno de los [servicios de Azure que admiten la autenticación de Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) o cualquier otro URI de recurso.    |
-> | api-version       | Consultar  | La versión de la API de token que se usará. Utilice "2019-08-01" o una versión posterior.                                                                                                                                                                                                                                                                 |
+> | api-version       | Consultar  | La versión de la API de token que se usará. Utilice la versión "2019-08-01" u otra posterior, a menos que use Consumo para Linux, que en la actualidad solo ofrece la versión "2017-09-01" (ver nota anterior).                                                                                                                                                                                                                                                                 |
 > | X-IDENTITY-HEADER | Encabezado | El valor de la variable de entorno IDENTITY_HEADER. Este encabezado se utiliza para ayudar a mitigar los ataques de falsificación de solicitudes del servidor (SSRF).                                                                                                                                                                                                    |
 > | client_id         | Consultar  | (Opcional) El identificador del cliente de la identidad asignada por el usuario que se va a usar. No se puede usar en una solicitud que incluya `principal_id`, `mi_res_id` o `object_id`. Si se omiten todos los parámetros de identificador (`client_id`, `principal_id`, `object_id` y `mi_res_id`), se usa la identidad asignada por el sistema.                                             |
 > | principal_id      | Consultar  | (Opcional) El identificador de la entidad de seguridad de la identidad asignada por el usuario que se va a usar. `object_id` es un alias que se puede utilizar en su lugar. No se puede usar en una solicitud que incluya client_id, mi_res_id u object_id. Si se omiten todos los parámetros de identificador (`client_id`, `principal_id`, `object_id` y `mi_res_id`), se usa la identidad asignada por el sistema. |
@@ -336,9 +348,6 @@ Una respuesta 200 OK incluye un cuerpo JSON con las siguientes propiedades:
 > | token_type    | Indica el valor de tipo de token. El único tipo que admite Azure AD es FBearer. Para más información sobre los tokens de portador, consulte [The OAuth2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 
 Esta respuesta es la misma que la [respuesta para la solicitud de token de acceso de servicio a servicio de Azure AD](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#service-to-service-access-token-response).
-
-> [!NOTE]
-> Una versión anterior de este protocolo, con la versión de API "2017-09-01", utilizó el encabezado `secret` en lugar de `X-IDENTITY-HEADER` y solo aceptó la propiedad `clientid` para el valor asignado por el usuario. También devuelve el valor `expires_on` en un formato de marca de tiempo. Se puede usar MSI_ENDPOINT como alias para IDENTITY_ENDPOINT y MSI_SECRET como alias para IDENTITY_HEADER.
 
 ### <a name="rest-protocol-examples"></a>Ejemplos de protocolo de REST
 
@@ -431,7 +440,7 @@ $accessToken = $tokenResponse.access_token
 
 ### <a name="using-the-microsoftazureservicesappauthentication-library-for-net"></a><a name="asal"></a>Uso de la biblioteca Microsoft.Azure.Services.AppAuthentication para .NET
 
-En el caso de aplicaciones y funciones de .NET, la manera más sencilla de trabajar con una identidad administrada es usar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](/cli/azure) o la autenticación integrada de Active Directory. Para obtener más información sobre las opciones de desarrollo local con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
+En el caso de aplicaciones y funciones de .NET, la manera más sencilla de trabajar con una identidad administrada es usar el paquete Microsoft.Azure.Services.AppAuthentication. Esta biblioteca también le permite probar el código localmente en la máquina de desarrollo, con su cuenta de usuario de Visual Studio, la [CLI de Azure](/cli/azure) o la autenticación integrada de Active Directory. Cuando se hospeda en la nube, de forma predeterminada, se utilizará una identidad asignada por el sistema. Sin embargo, este comportamiento puede personalizarse utilizando una variable de entorno de cadena de conexión que haga referencia al identificador de cliente de una identidad asignada por el usuario. Para más información sobre las opciones de desarrollo con esta biblioteca, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication]. En esta sección se muestra cómo empezar a usar la biblioteca en su código.
 
 1. Agregue referencias a los paquetes de NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) y a otros paquetes necesarios para la aplicación. El ejemplo siguiente también usa [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault).
 
@@ -447,7 +456,17 @@ En el caso de aplicaciones y funciones de .NET, la manera más sencilla de traba
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
 
-Para obtener más información sobre Microsoft.Azure.Services.AppAuthentication y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication] y el [ejemplo de .NET sobre App Service y KeyVault con MSI](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Si desea utilizar una identidad administrada asignada por el usuario, puede establecer la opción `AzureServicesAuthConnectionString` de la aplicación en `RunAs=App;AppId=<clientId-guid>`. Sustituya `<clientId-guid>` por el identificador de cliente de la identidad que desee usar. Puede definir varias cadenas de conexión de este tipo utilizando valores personalizados en la configuración de la aplicación y pasando estos valores al constructor AzureServiceTokenProvider.
+
+```csharp
+    var identityConnectionString1 = Environment.GetEnvironmentVariable("UA1_ConnectionString");
+    var azureServiceTokenProvider1 = new AzureServiceTokenProvider(identityConnectionString1);
+    
+    var identityConnectionString2 = Environment.GetEnvironmentVariable("UA2_ConnectionString");
+    var azureServiceTokenProvider2 = new AzureServiceTokenProvider(identityConnectionString2);
+```
+
+Para más información sobre la configuración de AzureServiceTokenProvider y las operaciones que expone, consulte la [referencia de Microsoft.Azure.Services.AppAuthentication] y el [ejemplo de App Service y KeyVault con MSI .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ### <a name="using-the-azure-sdk-for-java"></a>Uso del SDK de Azure para Java
 

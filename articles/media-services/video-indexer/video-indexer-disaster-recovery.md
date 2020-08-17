@@ -14,18 +14,18 @@ ms.topic: article
 ms.custom: ''
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: 17c21900448fcb6d0a40fe5407f3b8bd62f9e3e4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: eab376c44065979de86e5c70b796be952fccffaa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79499608"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065403"
 ---
 # <a name="video-indexer-failover-and-disaster-recovery"></a>Conmutación por error y recuperación ante desastres de Video Indexer
 
 Video Indexer de Azure Media Services no proporciona una conmutación por error instantánea del servicio si se produce una interrupción o un error en un centro de centros regional. En este artículo se explica cómo configurar el entorno para una conmutación por error con el fin de garantizar la disponibilidad óptima de las aplicaciones y el tiempo de recuperación mínimo en caso de que se produzca un desastre.
 
-Se recomienda que configure la continuidad empresarial y recuperación ante desastres (BCDR) entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para más información, consulte [Regiones emparejadas de Azure](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Se recomienda que configure la continuidad empresarial y recuperación ante desastres (BCDR) entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para más información, consulte [Regiones emparejadas de Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -39,7 +39,7 @@ Para implementar BCDR, debe tener dos cuentas de Video Indexer para controlar la
 1. Si se produce un error en la región primaria, cambie a la indexación mediante la cuenta secundaria.
 
 > [!TIP]
-> Puede automatizar los procesos de BCDR mediante la configuración de alertas de registro de actividad para las notificaciones de mantenimiento del servicio, según se explica en [Creación de alertas del registro de actividad en notificaciones del servicio](../../service-health/alerts-activity-log-service-notifications.md).
+> Puede automatizar los procesos de BCDR mediante la configuración de alertas de registro de actividad para las notificaciones de mantenimiento del servicio, según se explica en [Creación de alertas del registro de actividad en notificaciones del servicio](../../service-health/alerts-activity-log-service-notifications-portal.md).
 
 Para información sobre el uso de varios inquilinos, consulte [Administración de varios inquilinos](manage-multiple-tenants.md). Para implementar BCDR, elija una de estas dos opciones: [una cuenta de Video Indexer por cada inquilino](manage-multiple-tenants.md#video-indexer-account-per-tenant) o [una suscripción de Azure por cada inquilino](manage-multiple-tenants.md#azure-subscription-per-tenant).
 

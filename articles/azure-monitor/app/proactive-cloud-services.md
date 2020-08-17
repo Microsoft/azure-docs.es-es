@@ -4,12 +4,12 @@ description: Monitor de problemas como errores de inicio, bloqueos y bucles de r
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 1cdfc6dc3ac74997743512ee07f9293699e3ad10
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77669750"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87309297"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Alerta sobre problemas en Azure Cloud Services mediante la integración de Azure Diagnostics con Azure Application Insights
 
@@ -111,7 +111,7 @@ Una vez que haya definido el grupo de acciones, confirme los cambios y haga clic
 
 Más información sobre la detección automática:
 
-[Anomalías de error](../../azure-monitor/app/proactive-failure-diagnostics.md)
-[Fugas de memoria](../../azure-monitor/app/proactive-potential-memory-leak.md)
-[Anomalías de rendimiento](../../azure-monitor/app/proactive-performance-diagnostics.md)
+[Anomalías de error](./proactive-failure-diagnostics.md)
+[Fugas de memoria](./proactive-potential-memory-leak.md)
+[Anomalías de rendimiento](./proactive-performance-diagnostics.md)
 

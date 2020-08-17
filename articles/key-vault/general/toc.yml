@@ -1,20 +1,30 @@
 - name: General
   href: index.yml
 - name: Información general
-  expanded: true
   items:
     - name: "Acerca de Azure\_Key\_Vault"
       href: overview.md
     - name: 'Información acerca de claves, secretos y certificados'
       href: about-keys-secrets-certificates.md
+    - name: Novedades
+      href: whats-new.md
+- name: Guías de inicio rápido
+  expanded: true
+  items:
+    - name: CLI
+      href: quick-create-cli.md
+    - name: PowerShell
+      href: quick-create-powershell.md
+    - name: Portal
+      href: quick-create-portal.md
 - name: Tutoriales
   items:
     - name: Máquina virtual de Azure
       items:
-        - name: Uso de Azure Key Vault con una máquina virtual Windows en .NET
-          href: tutorial-net-windows-virtual-machine.md
-        - name: Uso de Azure Key Vault con una máquina virtual Windows en Python
-          href: tutorial-python-windows-virtual-machine.md
+        - name: Uso de Azure Key Vault con una máquina virtual en .NET
+          href: tutorial-net-virtual-machine.md
+        - name: Uso de Azure Key Vault con una máquina virtual en Python
+          href: tutorial-python-virtual-machine.md
     - name: Azure Kubernetes Service
       items:
         - name: Integración de Azure Key Vault con Kubernetes
@@ -59,7 +69,9 @@
     - name: Eliminación temporal
       items:
         - name: Eliminación temporal de Azure Key Vault
-          href: overview-soft-delete.md
+          href: soft-delete-overview.md
+        - name: Eliminación temporal activa de manera predeterminada
+          href: soft-delete-change.md
     - name: 'Autenticación, solicitudes y respuestas'
       href: authentication-requests-and-responses.md
     - name: Guía de las limitaciones de Azure Key Vault
@@ -78,6 +90,8 @@
           href: managed-identity.md
         - name: Uso de una directiva de control de acceso
           href: group-permissions-for-apps.md
+        - name: Solución de problemas de acceso
+          href: troubleshooting-access-issues.md
     - name: Desarrollar
       items:
         - name: Guía del desarrollador de Azure Key Vault
@@ -117,15 +131,11 @@
     - name: Traslado de Key Vault
       items:
         - name: Traslado de Key Vault a otro grupo de recursos
-          href: keyvault-moveresourcegroup.md
+          href: move-resourcegroup.md
         - name: Traslado de Key Vault a otra suscripción
-          href: keyvault-move-subscription.md
+          href: move-subscription.md
         - name: Traslado de Key Vault a otra región
-          href: keyvault-moveregion.md
-    - name: Solución de problemas
-      items:
-        - name: Cambio del identificador del inquilino de Key Vault después de mover una suscripción
-          href: subscription-move-fix.md
+          href: move-region.md
 - name: Referencia
   items:
     - name: 'Códigos de error de la API de REST: Azure Key Vault'

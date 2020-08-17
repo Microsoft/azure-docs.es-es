@@ -3,16 +3,16 @@ title: 'Preparación para la producción y procedimientos recomendados: Azure'
 description: En este artículo se ofrecen instrucciones sobre cómo configurar e implementar el módulo Live Video Analytics on IoT Edge en entornos de producción.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: a5a2ff78d456d4423facdf5f3533ee94bc25bfc4
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: c34e05e184cfa6f0933701a76177fae3eed70c0a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260378"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071931"
 ---
 # <a name="production-readiness-and-best-practices"></a>Preparación para la producción y procedimientos recomendados
 
-En este artículo se ofrecen instrucciones sobre cómo configurar e implementar el módulo Live Video Analytics on IoT Edge en entornos de producción. También recomendamos que lea el artículo [Preparación para implementar la solución IoT Edge en producción](https://docs.microsoft.com/azure/iot-edge/production-checklist) sobre la preparación de la solución IoT Edge. 
+En este artículo se ofrecen instrucciones sobre cómo configurar e implementar el módulo Live Video Analytics on IoT Edge en entornos de producción. También recomendamos que lea el artículo [Preparación para implementar la solución IoT Edge en producción](../../iot-edge/production-checklist.md) sobre la preparación de la solución IoT Edge. 
 
 > [!NOTE]
 > Debe consultar a los departamentos de TI de las organizaciones sobre los aspectos relacionados con la seguridad.

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 04/27/2020
-ms.openlocfilehash: 71e1a43728cf923207d209848b26627aeb7bd680
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/27/2020
+ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751756"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337847"
 ---
 # <a name="execute-r-script-module"></a>Módulo Execute R Script
 
@@ -119,6 +119,22 @@ Una vez que termina la ejecución de la canalización, se puede obtener una vist
 > [!div class="mx-imgBorder"]
 > ![Vista previa de la imagen cargada](media/module/upload-image-in-r-script.png)
 
+## <a name="access-to-registered-dataset"></a>Acceso al conjunto de datos registrado
+
+Puede consultar el siguiente código de ejemplo para [acceder a los conjuntos de datos registrados](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) en el área de trabajo:
+
+```R
+        azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
+  run = get_current_run()
+  ws = run$experiment$workspace
+  dataset = azureml$core$dataset$Dataset$get_by_name(ws, "YOUR DATASET NAME")
+  dataframe2 <- dataset$to_pandas_dataframe()
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
 ## <a name="how-to-configure-execute-r-script"></a>Procedimiento para configurar Ejecutar script R
 
 El módulo Execute R Script (Ejecutar script R) contiene código de ejemplo que puede usar como punto de partida. Para configurar el módulo Execute R Script (Ejecutar script R), proporcione un conjunto de entradas y código para ejecutarlo.
@@ -177,6 +193,25 @@ Los conjuntos de datos almacenados en el diseñador se convierten automáticamen
  
     > [!NOTE]
     > Puede que el código R existente necesite pequeños cambios para ejecutarse en una canalización de diseñador. Por ejemplo, los datos de entrada que se proporcionan en formato CSV deben convertirse explícitamente en un conjunto de datos para que pueda usarlos en su código. Los tipos de datos y columnas que se usan en el lenguaje R también difieren en algunos aspectos de los tipos de columnas y datos que se usan en el diseñador.
+
+    Si el script tiene más de 16 KB, use el puerto **Conjunto de scripts** para evitar errores parecidos a *CommandLine supera el límite de 16597 caracteres*. 
+    
+    Agrupe el script y otros recursos personalizados en un archivo zip, y cargue el archivo zip como un **conjunto de datos de archivo** en el estudio. Luego puede arrastrar el módulo del conjunto de datos de la lista *My datasets* (Mis conjuntos de datos) en el panel de módulos de la izquierda a la página de creación del diseñador. Conecte el módulo de conjunto de datos al puerto **Conjunto de scripts** del módulo **Ejecutar script R**.
+    
+    A continuación, se muestra el código de ejemplo para consumir el script en el conjunto de scripts:
+
+    ```R
+    azureml_main <- function(dataframe1, dataframe2){
+    # Source the custom R script: my_script.R
+    source("./Script Bundle/my_script.R")
+
+    # Use the function that defined in my_script.R
+    dataframe1 <- my_func(dataframe1)
+
+    sample <- readLines("./Script Bundle/my_sample.txt")
+    return (list(dataset1=dataframe1, dataset2=data.frame("Sample"=sample)))
+    }
+    ```
 
 1.  Para **Random Seed** (Valor de inicialización aleatorio) escriba un valor para usarlo en el entorno de R como valor de inicialización aleatorio. Este parámetro equivale a llamar a `set.seed(value)` en el código de R.  
 
@@ -320,9 +355,8 @@ Puede pasar objetos R entre instancias del módulo Execute R Script (Ejecutar
 
 Los siguientes paquetes preinstalados de R están disponibles actualmente:
 
-|              |            | 
-|--------------|------------| 
 | Paquete      | Versión    | 
+|--------------|------------| 
 | askpass      | 1.1        | 
 | assertthat   | 0.2.1      | 
 | backports    | 1.1.4      | 

@@ -3,12 +3,12 @@ title: Preguntas más frecuentes sobre Análisis de vídeos en vivo en IoT Edge 
 description: En este tema se proporcionan respuestas a las preguntas más frecuentes sobre Análisis de vídeos en directo en IoT Edge.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 0a6c1c0f26116227454fa0968264644ea7a43178
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 705c74b1ba6d3a28911185b82a558099e87dc18d
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260738"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011522"
 ---
 # <a name="frequently-asked-questions-faqs"></a>Preguntas más frecuentes (P+F)
 
@@ -20,14 +20,14 @@ En este tema se proporcionan respuestas a las preguntas más frecuentes sobre An
 
 |Variable   |Descripción|
 |---|---|
-|[System.DateTime](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Representa un instante de tiempo, normalmente expresado en forma de fecha y hora del día.|
+|[System.DateTime](/dotnet/framework/data/adonet/sql/linq/system-datetime-methods)|Representa un instante de tiempo, normalmente expresado en forma de fecha y hora del día.|
 |System.GraphTopologyName   |Representa una topología de grafos multimedia y contiene el plano técnico de un grafo.|
 |System.GraphInstanceName|  Representa una instancia de grafo multimedia, contiene los valores de parámetro y hace referencia a la topología.|
 
 ## <a name="configuration-and-deployment"></a>Configuración e implementación
 
 ¿Se puede implementar el módulo multimedia de Edge en un dispositivo Windows 10?
-    * Sí. Consulte el artículo sobre los [contenedores Linux en Windows 10](https://docs.microsoft.com/virtualization/windowscontainers/deploy-containers/linux-containers).
+    * Sí. Consulte el artículo sobre los [contenedores Linux en Windows 10](/virtualization/windowscontainers/deploy-containers/linux-containers).
 
 ## <a name="capture-from-ip-camera-and-rtsp-settings"></a>Captura con una cámara IP y configuración de RTSP
 

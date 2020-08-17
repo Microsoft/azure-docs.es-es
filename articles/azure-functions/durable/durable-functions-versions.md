@@ -6,11 +6,11 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 1dc58bc7c758330c0333a5359622c4e54bb95026
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86540356"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87024731"
 ---
 # <a name="durable-functions-versions-overview"></a>Información general sobre las versiones de Durable Functions
 

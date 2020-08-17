@@ -2,15 +2,15 @@
 title: puntos de conexión de servicio de red virtual - Azure Event Hubs | Microsoft Docs
 description: En este artículo se proporciona información sobre cómo agregar el punto de conexión de servicio de Microsoft.EventHub a una red virtual.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: cf8b956a38f0b22581da3608cd64219aba484988
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/29/2020
+ms.openlocfilehash: 8c798efc21f5b846965f2247d7e76249177ef946
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85315434"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554080"
 ---
-# <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Usar puntos de conexión de servicio de red virtual con Azure Event Hubs
+# <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir el acceso al espacio de nombres de Event Hubs desde redes virtuales específicas 
 
 La integración de Event Hubs con los [puntos de conexión de servicio de red virtual (VNet)][vnet-sep] permite el acceso seguro a las funcionalidades de mensajería desde cargas de trabajo tales como máquinas virtuales que están enlazadas a redes virtuales, con una ruta de acceso del tráfico de red que está protegida en ambos extremos.
 
@@ -24,15 +24,14 @@ El resultado es una relación privada y aislada entre las cargas de trabajo enla
 > Los servicios de confianza de Microsoft no se admiten cuando se implementan instancias de Virtual Network.
 >
 > Estos son los escenarios comunes de Azure que no funcionan con instancias de Virtual Network (tenga en cuenta que la lista **NO** está completa).
-> - Azure Monitor (configuración de diagnósticos)
 > - Azure Stream Analytics
-> - Integración con Azure Event Grid
 > - Enrutamientos de Azure IoT Hub
 > - Azure IoT Device Explorer
 >
 > Los siguientes servicios de Microsoft deben estar en una red virtual
 > - Azure Web Apps
 > - Azure Functions
+> - Azure Monitor (configuración de diagnósticos)
 
 
 > [!IMPORTANT]
@@ -58,10 +57,19 @@ La regla de red virtual es una asociación del espacio de nombres de Event Hubs 
 En esta sección se muestra cómo usar Azure Portal para agregar un punto de conexión de servicio de red virtual. Para limitar el acceso, debe integrar el punto de conexión de servicio de red virtual para este espacio de nombres de Event Hubs.
 
 1. Vaya a su **espacio de nombres de Event Hubs** en [Azure Portal](https://portal.azure.com).
-2. En el menú de la izquierda, seleccione la opción **Redes**. Si selecciona la opción **Todas las redes**, el centro de eventos aceptará conexiones procedentes de cualquier dirección IP. Esta configuración equivale a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
+4. Seleccione **Redes** en **Configuración** en el menú de la izquierda. 
+
+    > [!NOTE]
+    > La pestaña **Redes** solo se muestra para espacios de nombres **estándar** o **dedicados**. 
+
+    De forma predeterminada, está seleccionada la opción **Redes seleccionadas**. Si no especifica una regla de firewall de IP ni agrega una red virtual en esta página, se podrá acceder al espacio de nombres desde todas las redes, incluida la red pública de Internet (mediante la clave de acceso). 
+
+    :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Pestaña Redes: opción de redes seleccionadas" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
+
+    Si selecciona la opción **Todas las redes**, el centro de eventos aceptará conexiones procedentes de cualquier dirección IP (mediante la tecla de acceso). Esta configuración equivale a una regla que acepta el intervalo de direcciones IP 0.0.0.0/0. 
 
     ![Firewall: opción Todas las redes seleccionada](./media/event-hubs-firewall/firewall-all-networks-selected.png)
-1. Para restringir el acceso a redes específicas, seleccione la opción **Redes seleccionadas** en la parte superior de la página.
+1. Para restringir el acceso a redes específicas, seleccione la opción **Selected Networks** (Redes seleccionadas) en la parte superior de la página si aún no está seleccionada.
 2. En la sección **Red virtual** de la página, seleccione **+Agregar red virtual existente** *. Seleccione **+ Crear una red virtual nueva** si quiere crear una nueva red virtual. 
 
     ![adición de una red virtual existente](./media/event-hubs-tutorial-vnet-and-firewalls/add-vnet-menu.png)
@@ -79,6 +87,8 @@ En esta sección se muestra cómo usar Azure Portal para agregar un punto de con
 
     ![Guardar red](./media/event-hubs-tutorial-vnet-and-firewalls/save-vnet.png)
 
+    > [!NOTE]
+    > Para restringir el acceso a intervalos o direcciones concretos, consulte [Permitir el acceso desde intervalos o direcciones IP específicos](event-hubs-ip-filtering.md).
 
 ## <a name="use-resource-manager-template"></a>Uso de plantillas de Resource Manager
 
@@ -86,9 +96,9 @@ La siguiente plantilla de Resource Manager permite agregar una regla de red virt
 
 Parámetros de plantilla:
 
-* **namespaceName**: espacio de nombres de Event Hubs.
-* **vnetRuleName**: nombre de la regla de red virtual que se va a crear.
-* **virtualNetworkingSubnetId**: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
+* `namespaceName`: espacio de nombres de Event Hubs.
+* `vnetRuleName`: nombre de la regla de red virtual que se va a crear.
+* `virtualNetworkingSubnetId`: ruta de acceso completa de Resource Manager para la subred de la red virtual; por ejemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para la subred predeterminada de una red virtual.
 
 > [!NOTE]
 > Si bien no hay reglas de denegación posibles, la plantilla de Azure Resource Manager tiene la acción predeterminada establecida en **"Permitir"** , que no restringe las conexiones.

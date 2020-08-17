@@ -3,21 +3,21 @@ title: Comandos comunes de la CLI de Azure
 description: Aprenda los comandos básicos de la CLI de Azure para empezar a administrar las máquinas virtuales en el modo de Azure Resource Manager
 author: RicksterCDN
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2017
 ms.author: rclaus
-ms.openlocfilehash: 253f2ab1b192d22f43e4082766adf4ec4f86fe71
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5a9dd8aaeed0642461e4244a72a3dab5c96a77b6
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78969251"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372253"
 ---
 # <a name="common-azure-cli-commands-for-managing-azure-resources"></a>Comandos de CLI de Azure comunes para administrar recursos de Azure
 
 La CLI de Azure le permite crear y administrar los recursos de Azure en Mac OS, Linux y Windows. En este artículo se detallan algunos de los comandos más comunes para crear y administrar máquinas virtuales (VM).
 
-En este artículo se requiere la CLI de Azure versión 2.0.4 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). También puede usar [Cloud Shell](/azure/cloud-shell/quickstart) desde el explorador.
+En este artículo se requiere la CLI de Azure versión 2.0.4 o versiones posteriores. Ejecute `az --version` para encontrar la versión. Si debe actualizarla, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli). También puede usar [Cloud Shell](../../cloud-shell/quickstart.md) desde el explorador.
 
 ## <a name="basic-azure-resource-manager-commands-in-azure-cli"></a>Comandos básicos de Azure Resource Manager en la CLI de Azure
 Para obtener información más detallada acerca de las opciones y los modificadores de línea de comandos específicos, puede utilizar las opciones y la ayuda en línea de comandos, para lo que debe escribir `az <command> <subcommand> --help`.
@@ -60,6 +60,3 @@ Para obtener información más detallada acerca de las opciones y los modificado
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener ejemplos adicionales de los comandos de la CLI, consulte el tutorial [Creación y administración de máquinas virtuales Linux con la CLI de Azure](tutorial-manage-vm.md).
-
-
-

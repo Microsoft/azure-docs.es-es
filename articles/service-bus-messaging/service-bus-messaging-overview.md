@@ -3,12 +3,12 @@ title: Información general sobre la mensajería de Azure Service Bus | Microsof
 description: En este artículo se proporciona información general de alto nivel sobre Azure Service Bus, un agente de mensajería de integración empresarial totalmente administrado.
 ms.topic: overview
 ms.date: 06/23/2020
-ms.openlocfilehash: 8583996cde23b056261662a0640aa310e63d45a9
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 478dd0debb5117e76cf8d0ab6599dcf363c12ab3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85341666"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501481"
 ---
 # <a name="what-is-azure-service-bus"></a>Qué es Azure Service Bus
 
@@ -92,7 +92,7 @@ Un error puede hacer que el cliente tenga dudas sobre el resultado de una operac
 ### <a name="security-protocols"></a>Protocolos de seguridad
 <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>
 
-Service Bus admite protocolos de seguridad como las [firmas de acceso compartido](service-bus-sas.md) (SAS), el [Control de acceso basado en rol](authenticate-application.md) (RBAC) y [Entidades administradas para recursos de Azure](service-bus-managed-service-identity.md).
+Service Bus admite protocolos de seguridad como [Firmas de acceso compartido](service-bus-sas.md) (SAS), [control de acceso basado en roles de Azure (Azure RBAC)](authenticate-application.md) e [identidades administradas para recursos de Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Recuperación ante desastres geográfica
 

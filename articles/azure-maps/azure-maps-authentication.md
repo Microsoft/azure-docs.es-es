@@ -1,28 +1,28 @@
 ---
-title: Métodos de autenticación
+title: Autenticación con Microsoft Azure Maps
 titleSuffix: Azure Maps
-description: En este artículo, obtendrá información sobre Azure Active Directory y la autenticación de clave compartida. Ambos métodos se usan para los servicios de Microsoft Azure Maps. Obtenga información sobre cómo obtener una clave de suscripción de Azure Maps.
-author: philmea
-ms.author: philmea
-ms.date: 06/12/2020
+description: En este artículo, obtendrá información sobre Azure Active Directory y la autenticación de clave compartida.
+author: anastasia-ms
+ms.author: v-stharr
+ms.date: 07/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fe79b630291959ce4dc8b4743127986088a876ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: af3f9b4595be5af2477fdbef4e5f0a15224e8a93
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84987550"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285839"
 ---
 # <a name="authentication-with-azure-maps"></a>Autenticación con Azure Maps
 
-Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de clave compartida y autenticación de [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). En este artículo se explican estos métodos de autenticación para guiar su implementación de los servicios de Azure Maps.
+Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de clave compartida y autenticación de [Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). En este artículo se explican ambos métodos de autenticación como guía para implementar los servicios de Azure Maps.
 
 > [!NOTE]
-> Para mejorar la comunicación segura con Azure Maps, ahora admitimos Seguridad de la capa de transporte (TLS) 1.2 y retiramos la compatibilidad con TLS 1.0 y 1.1. Para evitar cualquier interrupción del servicio, **actualice sus servidores y aplicaciones para usar TLS 1.2 antes del 2 de abril de 2020**.  Si actualmente usa TLS 1.x, evalúe su preparación de TLS 1.2 y desarrolle un plan de migración con las pruebas descritas en [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
+> Para mejorar la comunicación segura con Azure Maps, ahora admitimos Seguridad de la capa de transporte (TLS) 1.2 y retiramos la compatibilidad con TLS 1.0 y 1.1. Si actualmente usa TLS 1.x, evalúe su preparación de TLS 1.2 y desarrolle un plan de migración con las pruebas descritas en [Solución del problema de TLS 1.0](https://docs.microsoft.com/security/solving-tls1-problem).
 
 ## <a name="shared-key-authentication"></a>Autenticación de clave compartida
 
@@ -30,8 +30,8 @@ Azure Maps admite dos formas de autenticar las solicitudes: Autenticación de cl
 
 Para obtener información sobre cómo ver sus claves en Azure Portal, consulte [Administración de la autenticación](https://aka.ms/amauthdetails).
 
-> [!Tip]
-> Se recomienda regenerar las claves periódicamente. Dado que se le proporcionan dos claves, puede mantener las conexiones con una mientras se regenera la otra. Cuando regenere las claves, debe actualizar con las nuevas claves todas las aplicaciones que acceden a la cuenta.
+> [!TIP]
+> Por motivos de seguridad, se recomienda que rote las claves principal y secundaria. Para rotar las claves, actualice la aplicación para que use la clave secundaria, impleméntela y, luego, presione el botón de ciclo/actualización situado junto a la clave principal para generar una nueva clave principal. La clave principal anterior se deshabilitará. Para más información sobre la rotación de claves, consulte [Configuración de Azure Key Vault con la auditoría y la rotación de claves](https://docs.microsoft.com/azure/key-vault/secrets/key-rotation-log-monitoring).
 
 ## <a name="azure-ad-authentication"></a>Autenticación de Azure AD
 
@@ -64,7 +64,7 @@ Después de que la aplicación recibe un token de acceso, el SDK o la aplicació
 | x-ms-client-id | 30d7cc….9f55        |
 | Authorization  | Bearer eyJ0e….HNIVN |
 
-> [!Note]
+> [!NOTE]
 > `x-ms-client-id` es el GUID basado en la cuenta de Azure Maps que aparece en la página de autenticación de Azure Maps.
 
 A continuación se muestra un ejemplo de una solicitud de ruta de Azure Maps que usa un token de portador de OAuth de Azure AD:
@@ -108,7 +108,7 @@ Para información sobre cómo ver la configuración de RBAC, consulte [Configura
 
 #### <a name="custom-role-definitions"></a>Definiciones de roles personalizados
 
-Uno de los aspectos de la seguridad de la aplicación es aplicar el principio de privilegios mínimos. El principio implica que a la entidad de seguridad solo se le debe permitir el acceso que es necesario y ningún acceso adicional. La creación de definiciones de roles personalizados puede admitir casos de uso que requieren mayor granularidad para el control de acceso. Para crear una definición de roles personalizados, puede seleccionar acciones de datos específicas para incluir o excluir de la definición. 
+Uno de los aspectos de la seguridad de la aplicación es aplicar el principio de privilegios mínimos. Este principio implica que la entidad de seguridad solo debe permitir el acceso necesario y no debe tener acceso adicional. La creación de definiciones de roles personalizados puede admitir casos de uso que requieren mayor granularidad para el control de acceso. Para crear una definición de roles personalizados, puede seleccionar acciones de datos específicas para incluir o excluir de la definición.
 
 La definición de roles personalizados se puede usar en una asignación de roles para cualquier entidad de seguridad. Para más información sobre las definiciones de roles personalizados de Azure, consulte [Roles personalizados de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
@@ -126,13 +126,19 @@ Estos son algunos escenarios de ejemplo en los que los roles personalizados pued
 Al crear una asignación de roles, esta se define dentro de la jerarquía de recursos de Azure. En la parte superior de la jerarquía hay un [grupo de administración](https://docs.microsoft.com/azure/governance/management-groups/overview) y en la inferior hay un recurso de Azure, como una cuenta de Azure Maps.
 Asignar una asignación de roles a un grupo de recursos puede permitir el acceso a varias cuentas de Azure Maps o a los recursos del grupo.
 
-> [!Tip]
-> La recomendación general de Microsoft es la asignación de acceso al ámbito de la cuenta de Azure Maps porque impide **el acceso no deseado a otras cuentas de Azure Maps** existentes en la misma suscripción de Azure.
+> [!TIP]
+> La recomendación general de Microsoft consiste en asignar acceso al ámbito de la cuenta de Azure Maps porque impide **el acceso no deseado a otras cuentas de Azure Maps** existentes en la misma suscripción de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre RBAC, consulte [¿Qué es el control de acceso basado en rol de Azure (RBAC)?](https://docs.microsoft.com/azure/role-based-access-control/overview)
+Para obtener más información sobre RBAC, consulte
+> [!div class="nextstepaction"]
+> [Control de acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/overview)
 
-* Para más información sobre la autenticación de una aplicación con Azure AD y Azure Maps, consulte [Administración de la autenticación en Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+Para más información sobre la autenticación de una aplicación con Azure AD y Azure Maps, consulte
+> [!div class="nextstepaction"]
+> [Administración de la autenticación en Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)
 
-* Para más información sobre la autenticación del Control mapa de Azure Maps y Azure AD, consulte [Uso del Control de mapa de Azure Maps](https://aka.ms/amaadmc).
+Para más información sobre la autenticación del Control de mapa de Azure Maps con Azure AD, consulte
+> [!div class="nextstepaction"]
+> [Uso del Control de mapa de Azure Maps](https://aka.ms/amaadmc)

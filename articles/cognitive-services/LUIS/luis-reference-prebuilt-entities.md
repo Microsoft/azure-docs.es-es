@@ -9,18 +9,26 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 10/03/2019
+ms.date: 07/20/2020
 ms.author: diberry
-ms.openlocfilehash: a49452653f8ac4bcc62758d801a235be0929d314
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 7ec9cd8aade1edb7d2df2bab5cec8de445af7e44
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84686637"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337983"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
-Language Understanding (LUIS) proporciona entidades precompiladas. Cuando una entidad precompilada se incluye en la aplicación, LUIS incluye la predicción de entidad correspondiente en la respuesta del punto de conexión. Todas las expresiones de ejemplo también se etiquetan con la entidad. El comportamiento de las entidades predeterminadas **no puede** modificarse. A menos que se indique lo contrario, las entidades precompiladas están disponibles en todas las configuraciones locales de aplicación LUIS (referencias culturales). En la siguiente tabla se muestran las entidades precompiladas que se admiten para cada referencia cultural.
+Language Understanding (LUIS) proporciona entidades precompiladas.
+
+## <a name="entity-resolution"></a>Resolución de entidades
+Cuando una entidad precompilada se incluye en la aplicación, LUIS incluye la resolución de la entidad correspondiente en la respuesta del punto de conexión. Todas las expresiones de ejemplo también se etiquetan con la entidad.
+
+No se puede modificar el comportamiento de las entidades creadas previamente, pero puede mejorar la resolución si [agrega la entidad precompilada como una característica a una entidad de aprendizaje automático o subentidad](luis-concept-entity-types.md#effective-prebuilt-entities).
+
+## <a name="availability"></a>Disponibilidad
+A menos que se indique lo contrario, las entidades precompiladas están disponibles en todas las configuraciones locales de aplicación LUIS (referencias culturales). En la siguiente tabla se muestran las entidades precompiladas que se admiten para cada referencia cultural.
 
 |Referencia cultural|Referencias culturales secundarias|Notas|
 |--|--|--|
@@ -44,8 +52,8 @@ La disponibilidad de una entidad precompilada en un lenguaje específico viene d
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```zh-CN``` |
-------|:------:|
+| Entidad creada previamente | zh-CN |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -66,8 +74,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```nl-NL``` |
-------|:------:|
+| Entidad creada previamente | nl-NL |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -88,8 +96,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```en-US``` |
-------|:------:|
+| Entidad creada previamente | es-ES |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -110,8 +118,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```fr-FR``` |
-------|:------:|
+| Entidad creada previamente | fr-FR |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -132,8 +140,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```fr-CA``` |
-------|:------:|
+| Entidad creada previamente | fr-CA |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -154,8 +162,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```de-DE``` |
-------|:------:|
+|Entidad creada previamente | de-DE |
+| -------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -178,8 +186,8 @@ En italiano, la _resolución_ de la entidad precompilada de edad, moneda, dimens
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```it-IT``` |
-------|:------:|
+| Entidad creada previamente | it-IT |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -200,8 +208,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```ja-JP``` |
-------|:------:|
+|Entidad creada previamente | ja-JP |
+| -------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -222,8 +230,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```ko-KR``` |
-------|:------:|
+| Entidad creada previamente | ko-KR |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
 [Datetime](luis-reference-prebuilt-deprecated.md)   |    -   |
@@ -244,8 +252,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```pt-BR``` |
-------|:------:|
+| Entidad creada previamente | pt-BR |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -266,8 +274,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```es-ES``` |
-------|:------:|
+| Entidad creada previamente | es-ES |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    V2, V3   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    V2, V3   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    V2, V3   |
@@ -288,8 +296,8 @@ Se admiten las siguientes entidades:
 
 Se admiten las siguientes entidades:
 
-|Entidad creada previamente|```es-MX``` |
-------|:------:|
+| Entidad creada previamente | es-MX |
+| --------------- | :---: |
 [Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>intervalo de tiempo   |    -   |
@@ -316,8 +324,8 @@ KeyPhrase no está disponible en todas las referencias culturales secundarias de
 
 <!--
 
-|Prebuilt entity|```tr-tr``` |
-------|:------:|
+| Prebuilt entity | tr-tr |
+| --------------- | :---: |
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   |

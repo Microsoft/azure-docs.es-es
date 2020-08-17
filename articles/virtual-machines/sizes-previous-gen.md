@@ -4,16 +4,16 @@ description: Se enumeran las generaciones anteriores de tamaños disponibles par
 services: virtual-machines
 ms.subservice: sizes
 author: mimckitt
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jushiman
-ms.openlocfilehash: 6ebd13317940d131facfb36987fb37358260ec05
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c7d5610daa703e910fb485b5e9d945a6cdc940
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85119229"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87831301"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
@@ -80,7 +80,7 @@ Cada GPU de las instancias de NVv2 viene con una licencia de GRID. Esta licencia
 
 ## <a name="older-generations-of-virtual-machine-sizes"></a>Generaciones anteriores de tamaños de máquina virtual
 
-En esta sección se proporciona información sobre las generaciones anteriores de tamaños de máquina virtual. Estos tamaños todavía se admiten, pero no recibirán capacidad adicional. Hay tamaños alternativos o versiones más recientes que están disponibles con carácter general. Consulte [Tamaños de las máquinas virtuales Linux en Azure](linux/sizes.md) para elegir los tamaños de máquina virtual que mejor se ajusten a sus necesidades.  
+En esta sección se proporciona información sobre las generaciones anteriores de tamaños de máquina virtual. Estos tamaños todavía se admiten, pero no recibirán capacidad adicional. Hay tamaños alternativos o versiones más recientes que están disponibles con carácter general. Consulte [Tamaños de las máquinas virtuales Linux en Azure](./sizes.md) para elegir los tamaños de máquina virtual que mejor se ajusten a sus necesidades.  
 
 Para más información sobre cómo cambiar el tamaño de una máquina virtual Linux, consulte [Cambio de tamaño de una máquina virtual Linux](linux/change-vm-size.md).  
 

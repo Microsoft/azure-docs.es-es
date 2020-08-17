@@ -5,18 +5,18 @@ author: haroldwongms
 manager: mdotson
 ms.service: virtual-machines-linux
 ms.subservice: workloads
-ms.topic: article
+ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.custom: devx-track-ansible
-ms.openlocfilehash: ca08115d18f986ee51658c713686ff3a16abcc2c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9595627e9d7ca2de577aa83ebba3dd58d69e6750
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510351"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373562"
 ---
 # <a name="troubleshoot-openshift-container-platform-311-deployment-in-azure"></a>Solución de problemas de implementación de OpenShift Container Platform 3.11
 

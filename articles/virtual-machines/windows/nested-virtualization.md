@@ -7,12 +7,12 @@ ms.date: 10/09/2017
 ms.topic: how-to
 ms.service: virtual-machines-windows
 ms.workload: infrastructure
-ms.openlocfilehash: f448174842ffd3b7ba14104c30319933c680127d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 03df7db13ebd3ebec407bb046cc735c835e01068
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232328"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074252"
 ---
 # <a name="how-to-enable-nested-virtualization-in-an-azure-vm"></a>Habilitación de la virtualización anidada en una máquina virtual de Azure
 
@@ -22,7 +22,7 @@ En este artículo se analiza la habilitación de Hyper-V en una máquina virtual
 
 ## <a name="create-a-nesting-capable-azure-vm"></a>Creación de una máquina virtual de Azure compatible con el anidamiento
 
-Cree una nueva máquina virtual de Azure con Windows Server 2016. Para una lista completa de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure (ACU)](acu.md).
+Cree una nueva máquina virtual de Azure con Windows Server 2016. Para una lista completa de los tamaños de máquina virtual que admiten anidamiento, visite el artículo [Unidad de proceso de Azure (ACU)](../acu.md).
 
 Recuerde elegir un tamaño de máquina virtual lo suficientemente grande para admitir las exigencias de una invitada. En este ejemplo, se usa una máquina virtual con tamaño D3_v3. 
 
@@ -30,7 +30,7 @@ Puede ver la disponibilidad regional de las máquinas virtuales de las series Dv
 
 >[!NOTE]
 >
->Para instrucciones detalladas sobre cómo crear una máquina virtual nueva, consulte [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-manage-vm)
+>Para instrucciones detalladas sobre cómo crear una máquina virtual nueva, consulte [Creación y administración de máquinas virtuales Windows con el módulo de Azure PowerShell](./tutorial-manage-vm.md)
     
 ## <a name="connect-to-your-azure-vm"></a>Conexión a una máquina virtual de Azure
 
@@ -181,4 +181,4 @@ En este ejemplo usará una dirección dentro del intervalo 192.168.0.0/24.
 En la máquina virtual invitada, abra el explorador y navegue a una página web.
     ![GuestVM](./media/virtual-machines-nested-virtualization/guest-virtual-machine.png)
 
-Para obtener instrucciones sobre cómo habilitar la conectividad transparente entre las máquinas virtuales invitadas y las máquinas virtuales de Azure, consulte [este documento](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).
+Para obtener instrucciones sobre cómo habilitar la conectividad transparente entre las máquinas virtuales invitadas y las máquinas virtuales de Azure, consulte [este documento](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization).

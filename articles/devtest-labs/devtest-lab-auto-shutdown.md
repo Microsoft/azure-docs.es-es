@@ -3,12 +3,12 @@ title: Administración de directivas de apagado automático en Azure DevTest Lab
 description: Aprenda a establecer una directiva de apagado automático para un laboratorio, y que así que las máquinas virtuales se apaguen automáticamente cuando no se estén usando.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: a865d178bd4bcf9715cefc7c5a01b31a6d6a9435
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a30070470f9a75ec5c56d448cd09ca82dd0cbce7
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482741"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287546"
 ---
 # <a name="configure-autoshutdown-for-lab-and-compute-virtual-machines-in-azure-devtest-labs"></a>Configuración del apagado automático de máquinas virtuales de laboratorio y proceso en Azure DevTest Labs
 
@@ -71,7 +71,7 @@ Una vez que el propietario del laboratorio haya configurado el apagado automáti
 - Omitir el apagado automático de ese momento
 - Posponer el apagado automático durante una o dos horas, para que puedan seguir trabajando en la VM.
 
-La notificación se envía a través del punto de conexión del webhook configurado o mediante una dirección de correo electrónico que especificaron los propietarios del laboratorio en la configuración del apagado automático. Los webhooks le permiten crear o configurar integraciones que se suscriben a ciertos eventos. Cuando se activa uno de esos eventos, DevTest Labs enviará una carga HTTP POST a la dirección URL configurada del webhook. Para obtener más información sobre los webhooks, consulte [Creación de un webhook o una función de API de Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+La notificación se envía a través del punto de conexión del webhook configurado o mediante una dirección de correo electrónico que especificaron los propietarios del laboratorio en la configuración del apagado automático. Los webhooks le permiten crear o configurar integraciones que se suscriben a ciertos eventos. Cuando se activa uno de esos eventos, DevTest Labs enviará una carga HTTP POST a la dirección URL configurada del webhook. Para obtener más información sobre los webhooks, consulte [Creación de un webhook o una función de API de Azure](../azure-functions/functions-bindings-http-webhook.md). 
 
 Le recomendamos que use webhooks porque son ampliamente compatibles con varias aplicaciones (por ejemplo, Slack, Azure Logic Apps, etc.) y le permiten implementar su propio método para enviar notificaciones. A modo de ejemplo, este artículo le indicará cómo obtener notificaciones de apagado automático de los correos electrónicos, mediante Azure Logic Apps. Primero, veamos rápidamente los pasos básicos para habilitar la notificación de apagado automático en su laboratorio.   
 
@@ -211,4 +211,3 @@ Al actualizar la configuración del apagado automático, verá la actividad regi
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para saber cómo configurar todas las directivas, consulte [Administración de las directivas de un laboratorio de Azure DevTest Labs](devtest-lab-set-lab-policy.md).
-

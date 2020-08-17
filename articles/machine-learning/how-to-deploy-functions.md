@@ -5,18 +5,18 @@ description: Obtenga información sobre cómo usar Azure Machine Learning para 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 03/06/2020
-ms.custom: tracking-python
-ms.openlocfilehash: 3afe5d0993f7e647cbae1281cb9e7387df6e2f50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: conceptual
+ms.custom: how-to, racking-python
+ms.openlocfilehash: 8d1ea9b0989a71268b98f0b2fd1d95d5671f996b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84560410"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325804"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Implementación de un modelo de Machine Learning en Azure Functions (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -56,6 +56,7 @@ Antes de realizar la implementación, debe definir qué necesita para ejecutar e
     >
     > Cuando se empaqueta para Functions, la entrada se trata de forma predeterminada como texto. Si está interesado en consumir los bytes sin formato de la entrada (por ejemplo, con desencadenadores de blobs), conviene usar [AMLRequest para aceptar datos sin procesar](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#binary-data).
 
+Para más información sobre el script de entrada, consulte [Definición del código de puntuación](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#script).
 
 * **Dependencias**, como scripts de asistente o paquetes de Python/Conda, necesarias para ejecutar el modelo o el script de entrada.
 

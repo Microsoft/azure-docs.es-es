@@ -1,5 +1,5 @@
 ---
-title: Escalabilidad automática de instancias de Apache Spark de Azure Synapse
+title: Escalabilidad automática de instancias de Apache Spark
 description: Uso de la característica de escalabilidad automática de Azure Synapse para escalar automáticamente instancias de Apache Spark
 author: euangMS
 ms.author: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: 86e9b7425c8c75495a17b66af710d2c55e6e59ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194287"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500358"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Escalabilidad automática de grupos de Apache Spark de Azure Synapse Analytics
 
@@ -67,7 +67,7 @@ El número inicial de nodos será el mínimo. Este valor define el tamaño inici
 
 Una operación de escalabilidad puede tardar entre 1 y 5 minutos en completarse.
 
-### <a name="preparation-for-scaling-down"></a>Preparación para la reducción vertical
+### <a name="prepare-for-scaling-down"></a>Preparación para la reducción vertical
 
 Durante el proceso de reducción vertical de instancias, la escalabilidad automática pondrá los nodos en estado de retirada para que no se puedan iniciar nuevos ejecutores en ese nodo.
 

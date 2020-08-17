@@ -1,20 +1,20 @@
 ---
 title: 'Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python) | Microsoft Azure Maps'
 description: En este tutorial se muestra cómo combinar datos de sensores con datos de previsión meteorológica del servicio meteorológico de Microsoft Azure Maps mediante Azure Notebooks (Python).
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: 41d52eff2dc2d9fc1e4c956c893a2f14c91d9f92
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 4ec51bc84041008c0b843a8549e299747c3134a3
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84560372"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87851652"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Tutorial: Combinación de datos de sensores con datos de previsión meteorológica mediante Azure Notebooks (Python)
 
@@ -35,7 +35,7 @@ En este tutorial, aprenderá lo siguiente:
 
 Para completar este tutorial, primero debe:
 
-1. Crear una suscripción de cuenta de Azure Maps en el plan de tarifa S0; para ello, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps).
+1. Crear una suscripción de cuenta de Azure Maps en el plan de tarifa S0; para ello, siga las instrucciones de [Crear una cuenta](quick-demo-map-app.md#create-an-azure-maps-account).
 2. Obtener la clave de suscripción principal de la cuenta; para ello, siga las instrucciones que se indican en [Obtención de la clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 

@@ -3,18 +3,18 @@ title: Creación de una aplicación de Azure IoT Central | Microsoft Docs
 description: Cree una nueva aplicación de Azure IoT Central. Cree la aplicación mediante el plan de precios gratuito o uno de los planes de precios estándar.
 author: viv-liu
 ms.author: viviali
-ms.date: 02/12/2020
+ms.date: 07/30/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: b670776804c9758774bf216052254148f063e7da
-ms.sourcegitcommit: 31e9f369e5ff4dd4dda6cf05edf71046b33164d3
+ms.openlocfilehash: 4b939505f807385f235def2606d0f29564f5d08f
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81758149"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552584"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Creación de una aplicación de Azure IoT Central
 
@@ -43,8 +43,11 @@ Para crear una aplicación de Azure IoT Central a partir de la plantilla **Aplic
     ![Información acerca de la facturación de Azure IoT Central](media/quick-deploy-iot-central/iotcentralcreate-billinginfo.png)
 
     > [!NOTE]
-    > Si seleccionó **Aplicación personalizada** en la página anterior, verá el elemento desplegable**Plantilla de aplicación**. Desde ahí puede cambiar entre plantillas personalizadas y heredadas. También puede ver otras plantillas que se han puesto a disposición de la organización.
+    > Si ha eligió **Aplicación personalizada** en la página anterior, verá la lista desplegable **Plantilla de aplicación**. Es posible que la muestre otras plantillas que la organización ha puesto a su disposición. 
 
+    >[!IMPORTANT]
+    >La plantilla **Aplicación personalizada (heredada)** (V2) se ha retirado, ya que todas las funcionalidades disponibles previamente en la plantilla de aplicación heredada ya están disponibles en la plantilla **Aplicación personalizada** (V3), que es más reciente. 
+    
 1. Elija si desea crear esta aplicación mediante el plan de precios de evaluación gratuita durante siete días o uno de los planes de precios Estándar:
 
     - Las aplicaciones que se crean mediante el plan *gratuito* no tienen costo durante siete días y admiten un máximo de cinco dispositivos. En cualquier momento antes de que expiren puede convertirlas para que usen un plan de precios estándar.

@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/10/2020
+ms.date: 07/14/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 2589c2abf13edc19b930d597a4d75a2be823f45d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: cafde6ed66e5b636be60533abafcd6f221fe33a1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277722"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86502525"
 ---
-Los discos compartidos de Azure (versión preliminar) son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
+Los discos compartidos de Azure son una nueva característica de Azure Managed Disks que permite adjuntar un disco administrado en varias máquinas virtuales (VM) al mismo tiempo. Si adjunta un disco administrado en varias VM, podrá implementar nuevas aplicaciones en clúster o migrar las existentes a Azure.
 
 ## <a name="how-it-works"></a>Funcionamiento
 
@@ -29,6 +29,10 @@ Los discos administrados compartidos no ofrecen de forma nativa un sistema de ar
 
 [!INCLUDE [virtual-machines-disks-shared-limitations](virtual-machines-disks-shared-limitations.md)]
 
+### <a name="operating-system-requirements"></a>Requisitos de sistema operativo
+
+Los discos compartidos admiten varios sistemas operativos. Consulte las secciones [Windows](#windows) o [Linux](#linux) en los sistemas operativos compatibles.
+
 ## <a name="disk-sizes"></a>Tamaños de disco
 
 [!INCLUDE [virtual-machines-disks-shared-sizes](virtual-machines-disks-shared-sizes.md)]
@@ -37,23 +41,25 @@ Los discos administrados compartidos no ofrecen de forma nativa un sistema de ar
 
 ### <a name="windows"></a>Windows
 
-La mayoría de los clústeres basados en Windows se compilan en WSFC, que controla toda la infraestructura central de la comunicación del nodo de clúster, lo que permite que las aplicaciones aprovechen los patrones de acceso en paralelo. WSFC habilita tanto las opciones basadas en CSV como las que no están basadas en CSV en función de la versión de Windows Server. Para obtener más información, consulte [Creación de un clúster de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
+Los discos compartidos de Azure se admiten en Windows Server 2008 y versiones más recientes. La mayoría de los clústeres basados en Windows se compilan en WSFC, que controla toda la infraestructura central de la comunicación del nodo de clúster, lo que permite que las aplicaciones aprovechen los patrones de acceso en paralelo. WSFC habilita tanto las opciones basadas en CSV como las que no están basadas en CSV en función de la versión de Windows Server. Para obtener más información, consulte [Creación de un clúster de conmutación por error](https://docs.microsoft.com/windows-server/failover-clustering/create-failover-cluster).
 
 Entre las aplicaciones populares que se ejecutan en WSFC se incluyen:
 
 - [Creación de una FCI con discos compartidos de Azure (SQL Server en VM de Azure)](../articles/azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
-- Servidor de archivos de escalabilidad horizontal (SoFS)
+- Servidor de archivos de escalabilidad horizontal (SoFS) [plantilla] (https://aka.ms/azure-shared-disk-sofs-template)
+- ASCS/SCS de SAP [plantilla] (https://aka.ms/azure-shared-disk-sapacs-template)
 - Servidor de archivos para uso general (carga de trabajo IW)
 - Disco de perfil de usuario del servidor de Escritorio remoto (RDS UPD)
-- ASCS/SCS de SAP
 
 ### <a name="linux"></a>Linux
 
-Los clústeres de Linux pueden aprovechar administradores de clústeres como [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker se basa en [Corosync](http://corosync.github.io/corosync/), lo que permite las comunicaciones de clúster para las aplicaciones implementadas en entornos de alta disponibilidad. Algunos sistemas de archivos en clúster comunes incluyen [ocfs2](https://oss.oracle.com/projects/ocfs2/) y [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Puede manipular las reservas y los registros mediante utilidades como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) y [sg_persist](https://linux.die.net/man/8/sg_persist).
+Los discos compartidos de Azure se admiten en:
+- [SUSE SLE para SAP y SUSE SLE HA 15 SP1 y versiones posteriores](https://documentation.suse.com/sle-ha/15-SP1/single-html/SLE-HA-guide/index.html)
+- [Ubuntu 18.04 y versiones posteriores](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874)
+- [RHEL Developer Preview en cualquier versión 8 de RHEL](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/configuring_and_managing_high_availability_clusters/index)
+- [Oracle Enterprise Linux] (https://docs.oracle.com/en/operating-systems/oracle-linux/8/availability/hacluster-1.html)
 
-#### <a name="ubuntu"></a>Ubuntu
-
-Para obtener información sobre cómo configurar la alta disponibilidad de Ubuntu con Corosync y Pacemaker en discos compartidos de Azure, consulte [Discurso de la comunidad de Ubuntu](https://discourse.ubuntu.com/t/ubuntu-high-availability-corosync-pacemaker-shared-disk-environments/14874).
+Los clústeres de Linux pueden aprovechar administradores de clústeres como [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker). Pacemaker se basa en [Corosync](http://corosync.github.io/corosync/), lo que permite las comunicaciones de clúster para las aplicaciones implementadas en entornos de alta disponibilidad. Algunos sistemas de archivos en clúster comunes incluyen [ocfs2](https://oss.oracle.com/projects/ocfs2/) y [gfs2](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/global_file_system_2/ch-overview-gfs2). Puede usar modelos de agrupación en clústeres basados en la reserva persistente SCSI (SCSI PR) o un dispositivo de bloque STONITH (SBD) para arbitrar el acceso al disco. Al usar SCSI PR, puede manipular las reservas y los registros mediante utilidades como [fence_scsi](http://manpages.ubuntu.com/manpages/eoan/man8/fence_scsi.8.html) y [sg_persist](https://linux.die.net/man/8/sg_persist).
 
 ## <a name="persistent-reservation-flow"></a>Flujo de reserva persistente
 
@@ -85,11 +91,12 @@ El flujo es el siguiente:
 
 Ultra Disks ofrece una limitación adicional, para un total de dos limitaciones. Debido a esto, el flujo de reserva de Ultra Disks puede funcionar tal y como se describe en la sección anterior, o puede limitar y distribuir el rendimiento de manera más pormenorizada.
 
-:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Imagen de una tabla que muestra el acceso ReadOnly (de solo lectura) o Read/Write (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
+:::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-reservation-table.png" alt-text="Imagen de una tabla que muestra el acceso `ReadOnly` (de solo lectura) o `Read/Write` (de lectura y escritura) para el Reservation Holder (titular de reserva), el Registered (registrado) y Others (otros).":::
 
 ## <a name="performance-throttles"></a>Limitaciones de rendimiento
 
 ### <a name="premium-ssd-performance-throttles"></a>Limitaciones de rendimiento de SSD Premium
+
 Con SSD Premium, la IOPS y el rendimiento del disco son fijos, por ejemplo, la IOPS de un P30 es 5000. Este valor permanece si el disco se comparte entre 2 máquinas virtuales o 5 máquinas virtuales. Los límites de disco se pueden alcanzar desde una sola máquina virtual o dividirse entre dos o más máquinas virtuales. 
 
 ### <a name="ultra-disk-performance-throttles"></a>Limitaciones de rendimiento de Ultra Disks
@@ -101,8 +108,8 @@ Ultra Disks tiene la capacidad única de permitirle establecer el rendimiento me
 |---------|---------|
 |DiskIOPSReadWrite     |El número total de IOPS permitido en todas las máquinas virtuales que montan el disco compartido con acceso de escritura.         |
 |DiskMBpsReadWrite     |El rendimiento total (MB/s) permitido en todas las máquinas virtuales que montan el disco compartido con acceso de escritura.         |
-|DiskIOPSReadOnly*     |El número total de IOPS permitido en todas las máquinas virtuales que montan el disco compartido con acceso de solo lectura.         |
-|DiskMBpsReadOnly*     |El rendimiento total (MB/s) permitido en todas las máquinas virtuales que montan el disco compartido con acceso de solo lectura.         |
+|DiskIOPSReadOnly*     |El número total de IOPS permitido en todas las máquinas virtuales que montan el disco compartido como `ReadOnly`.         |
+|DiskMBpsReadOnly*     |El rendimiento total (MB/s) permitido en todas las máquinas virtuales que montan el disco compartido como `ReadOnly`.         |
 
 \* Solo se aplica a instancias compartidas de Ultra Disks.
 
@@ -122,18 +129,22 @@ En los siguientes ejemplos se muestran algunos escenarios en los que se muestra 
 
 ##### <a name="two-nodes-cluster-using-cluster-shared-volumes"></a>Clúster de dos nodos con volúmenes compartidos en clúster
 
-A continuación, se presenta un ejemplo de un WSFC de dos nodos mediante volúmenes compartidos en clúster. Con esta configuración, ambas máquinas virtuales tienen acceso de escritura simultáneo al disco, lo que da lugar a que se divida la limitación de lectura y escritura entre las dos máquinas virtuales y a que no se use la limitación de solo lectura.
+A continuación, se presenta un ejemplo de un WSFC de dos nodos mediante volúmenes compartidos en clúster. Con esta configuración, ambas máquinas virtuales tienen acceso de escritura simultáneo al disco, lo que da lugar a que se divida la limitación `ReadWrite` entre las dos máquinas virtuales y a que no se use la limitación `ReadOnly`.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-example.png" alt-text="Ejemplo de disco Ultra de dos nodos en CSV":::
 
 ##### <a name="two-node-cluster-without-cluster-share-volumes"></a>Clúster de dos nodos sin volúmenes compartidos en clúster
 
-A continuación, se presenta un ejemplo de un WSFC de dos nodos que no usa volúmenes compartidos en clúster. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que solo la secundaria use la limitación de solo lectura.
+A continuación, se presenta un ejemplo de un WSFC de dos nodos que no usa volúmenes compartidos en clúster. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación `ReadWrite` se use exclusivamente para la máquina virtual principal y que solo la secundaria use la limitación `ReadOnly`.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-two-node-no-csv.png" alt-text="Ejemplo de disco Ultra no CSV de dos nodos en CSV":::
 
 ##### <a name="four-node-linux-cluster"></a>Clúster Linux de cuatro nodos
 
-A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos con un solo escritor y tres lectores de escalabilidad horizontal. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación de lectura y escritura se use exclusivamente para la máquina virtual principal y que la limitación de solo lectura se divida entre las máquinas virtuales secundarias.
+A continuación, se proporciona un ejemplo de un clúster Linux de cuatro nodos con un solo escritor y tres lectores de escalabilidad horizontal. Con esta configuración, solo una máquina virtual tiene acceso de escritura al disco. Esto da como resultado que la limitación `ReadWrite` se use exclusivamente para la máquina virtual principal y que la limitación `ReadOnly` se divida entre las máquinas virtuales secundarias.
 
 :::image type="content" source="media/virtual-machines-disks-shared-disks/ultra-four-node-example.png" alt-text="Ejemplo de limitación en disco Ultra de cuatro nodos":::
+
+#### <a name="ultra-pricing"></a>Precios de Ultra
+
+Los discos compartidos Ultra tienen un precio basado en la capacidad aprovisionada, IOPS aprovisionadas totales (diskIOPSReadWrite + diskIOPSReadOnly) y el rendimiento (MBps) aprovisionado total (diskMBpsReadWrite + diskMBpsReadOnly). No hay ningún cargo adicional por cada montaje de máquina virtual adicional. Por ejemplo, un disco compartido Ultra con la siguiente configuración (diskSizeGB: 1024, DiskIOPSReadWrite: 10 000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) se cobra con 1024 GiB, 10 100 IOPS y 601 MBps independientemente de si se monta en dos o cinco máquinas virtuales.

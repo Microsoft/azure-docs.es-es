@@ -2,13 +2,13 @@
 title: 'Configuración de un servicio QnA Maker: QnA Maker'
 description: Antes de crear alguna base de conocimiento de QnA Maker, primero debe configurar un servicio QnA Maker en Azure. Cualquiera que tenga autorización para crear recursos en una suscripción puede configurar un servicio QnA Maker.
 ms.topic: conceptual
-ms.date: 05/28/2020
-ms.openlocfilehash: 0a1b79c91e4e1bd9a57d6dcbb38432125573b9e6
-ms.sourcegitcommit: 6fd28c1e5cf6872fb28691c7dd307a5e4bc71228
+ms.date: 07/13/2020
+ms.openlocfilehash: 7ba8134f58a4f0e4e26a3246a44574df295e3c20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85214135"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040377"
 ---
 # <a name="manage-qna-maker-resources"></a>Administración de recursos de QnA Maker
 
@@ -62,7 +62,7 @@ En este procedimiento se crean los recursos de Azure necesarios para administrar
 
 ## <a name="find-authoring-keys-in-the-azure-portal"></a>Búsqueda de claves de creación en Azure Portal
 
-Puede ver y restablecer las claves de creación desde Azure Portal, donde creó el recurso de QnA Maker. Es posible que estas claves se mencionen como claves de suscripción. 
+Puede ver y restablecer las claves de creación desde Azure Portal, donde creó el recurso de QnA Maker. Es posible que estas claves se mencionen como claves de suscripción.
 
 1. Vaya al recurso de QnA Maker en Azure Portal y seleccione el recurso que tiene el tipo _Cognitive Services_:
 
@@ -90,7 +90,11 @@ Las claves de punto de conexión se pueden administrar desde el [portal de QnA M
     >[!NOTE]
     >Actualice las claves si cree que han estado en peligro. Esto puede requerir realizar los cambios correspondientes en el código del bot o de la aplicación cliente.
 
-## <a name="upgrade-qna-maker-sku"></a>Actualización de la SKU de QnA Maker
+### <a name="update-the-resources"></a>Actualización de los recursos
+
+Aprenda a actualizar los recursos utilizados por la base de conocimiento.
+
+### <a name="upgrade-qna-maker-sku"></a>Actualización de la SKU de QnA Maker
 
 Cuando desee tener más preguntas y respuestas en su base de conocimiento, más allá de su plan actual, actualice el plan de tarifa del servicio de QnA Maker.
 
@@ -104,7 +108,7 @@ Para actualizar la SKU de administración de QnA Maker:
 
     ![Precios de QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-## <a name="upgrade-app-service"></a>Actualización de App Service
+### <a name="upgrade-app-service"></a>Actualización de App Service
 
  Cuando la base de conocimiento necesite atender más solicitudes de la aplicación cliente, actualice el plan de tarifa de App Service.
 
@@ -114,7 +118,7 @@ Vaya al recurso App Service en Azure Portal y seleccione la opción **Escalar ve
 
 ![Escalado de App Service en QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-## <a name="upgrade-the-azure-cognitive-search-service"></a>Actualización del servicio Azure Cognitive Search
+### <a name="upgrade-the-azure-cognitive-search-service"></a>Actualización del servicio Azure Cognitive Search
 
 Si planea tener muchas bases de conocimiento, actualice el plan de tarifa del servicio Azure Cognitive Search.
 
@@ -163,7 +167,11 @@ Puede consultar su versión actual en https://www.qnamaker.ai/UserSettings. Si s
 
     ![Reinicie la instancia de App Service en QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configuración de QnA Maker para usar distintos recursos de Cognitive Search
+## <a name="cognitive-search-consideration"></a>Consideraciones sobre Cognitive Search
+
+Cognitive Search, como recurso independiente, tiene algunas configuraciones diferentes que es necesario conocer.
+
+### <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>Configuración de QnA Maker para usar distintos recursos de Cognitive Search
 
 Si crea un servicio QnA y sus dependencias (como, Search) en el portal, se creará el servicio Search de inmediato y se vinculará al servicio QnA Maker. Después de crear estos recursos puede actualizar el valor de App Service para usar un servicio Search existente y eliminar el que acaba de crear.
 
@@ -192,9 +200,37 @@ Si crea un servicio QnA mediante plantillas de Azure Resource Manager, puede cre
 
 Aprenda más sobre cómo realizar la [configuración de la aplicación](../../../app-service/configure-common.md#configure-app-settings) de App Service.
 
+### <a name="configuring-cognitive-search-as-a-private-endpoint-inside-a-vnet"></a>Configuración de Cognitive Search como punto de conexión privado dentro de una red virtual
+
+Cuando se crea una instancia de búsqueda durante la creación de un recurso de QnA Maker, puede obligar a Cognitive Search a admitir una configuración de punto de conexión privado creada completamente dentro de la red virtual de un cliente.
+
+Para usar un punto de conexión privado, todos los recursos deben crearse en la misma región.
+
+* Recurso QnA Maker
+* Nuevo recurso de Cognitive Search
+* Nuevo recurso de Virtual Network
+
+Realice los pasos siguientes en [Azure Portal](https://portal.azure.com):
+
+1. Cree un [recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
+1. Cree un recurso de Cognitive Search con la conectividad de punto de conexión (datos) establecida en _Privada_. Cree el recurso en la misma región que el recurso de QnA Maker creado en el paso 1. Para más información, consulte [cómo crear un recurso de Cognitive Search](../../../search/search-create-service-portal.md) y, después, use este vínculo para ir directamente a la [página de creación del recurso](https://ms.portal.azure.com/#create/Microsoft.Search).
+1. Cree un [recurso de Virtual Network](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
+1. Configure la red virtual en el recurso de App Service creado en el paso 1 de este procedimiento.
+    1. Cree una entrada DNS en la red virtual para el recurso de Cognitive Search creado en el paso 2 para la dirección IP de Cognitive Search.
+1. [Asocie el servicio de aplicaciones al nuevo recurso de Cognitive Search](#configure-qna-maker-to-use-different-cognitive-search-resource) creado en el paso 2. Después, puede eliminar el recurso de Cognitive Search original creado en el paso 1.
+
+En el [portal de QnA Maker](https://www.qnamaker.ai/), cree su primera base de conocimiento.
+
+
+### <a name="inactivity-policy-for-free-search-resources"></a>Directiva de inactividad para recursos de búsqueda gratuitos
+
+Si no va a usar un recurso de QnA Maker, debe quitar todos los recursos. Si no quita los recursos no utilizados, la base de conocimiento dejará de funcionar si ha creado un recurso de búsqueda gratuito.
+
+Los recursos de búsqueda gratuitos se eliminan al cabo de 90 días sin recibir una llamada API.
+
 ## <a name="configure-app-service-idle-setting-to-avoid-timeout"></a>Configuración del valor de inactividad de App Service para evitar el tiempo de espera
 
-App Service, que proporciona el entorno de ejecución de predicción de QnA Maker para una base de conocimiento publicada, tiene una configuración de tiempo de espera de inactividad que acepta automáticamente como predeterminado el tiempo de espera si el servicio está inactivo. En QnA Maker, esto significa que la API generateAnswer del entorno de ejecución de predicción agota a veces el tiempo de espera después de períodos sin tráfico.
+El servicio de aplicaciones, que proporciona el entorno de ejecución de predicción de QnA Maker para una base de conocimiento publicada, tiene una configuración de tiempo de espera de inactividad que acepta automáticamente como predeterminado el tiempo de espera si el servicio está inactivo. En QnA Maker, esto significa que la API generateAnswer del entorno de ejecución de predicción agota a veces el tiempo de espera después de períodos sin tráfico.
 
 Para mantener cargada la aplicación del punto de conexión de predicción incluso cuando no hay tráfico, establezca el tiempo de inactividad en siempre activo.
 
@@ -210,11 +246,21 @@ Para mantener cargada la aplicación del punto de conexión de predicción inclu
 1. Se le preguntará si desea reiniciar la aplicación para usar la nueva configuración. Seleccione **Continuar**.
 
 Aprenda más sobre cómo realizar la [configuración general](../../../app-service/configure-common.md#configure-general-settings) de App Service.
-## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configuración de App Service Environment para hospedar un servicio de aplicaciones de QnA Maker
+
+## <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configuración de App Service Environment para hospedar una instancia de App Service de QnA Maker
 App Service Environment se puede usar para hospedar un servicio de aplicaciones de QnA Maker. Si App Service Environment es interno, debe seguir estos pasos:
 1. Cree un servicio de aplicaciones y un servicio de búsqueda de Azure.
-2. Exponga el servicio de aplicaciones en un DNS público e incluya en la lista blanca la etiqueta de servicio de QnA Maker: CognitiveServicesManagement o manténgala como accesible desde Internet.
-3. Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en App Service Environment. 
+2. Exponga el servicio de aplicaciones y permita la disponibilidad de QnA Maker como:
+    * Disponible públicamente (predeterminado)
+    * Etiqueta de servicio DNS:
+        * `CognitiveServicesManagement`
+    * Las direcciones IP asociadas con QnA Maker son:
+        * 13.91.138.229
+        * 40.88.22.25
+        * 13.86.184.142
+        * 20.185.105.28
+        * 13.86.178.10
+1. Cree una instancia de Cognitive Services de QnA Maker (Microsoft.CognitiveServices/accounts) mediante Azure Resource Manager, donde el punto de conexión de QnA Maker debe establecerse en App Service Environment.
 
 ## <a name="business-continuity-with-traffic-manager"></a>Continuidad del negocio con Traffic Manager
 

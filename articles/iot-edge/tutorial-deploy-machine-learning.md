@@ -4,17 +4,17 @@ description: En este tutorial se crea un modelo de Azure Machine Learning y se i
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/29/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5bfbf4a432f720b683ded4c85530135d86b24eba
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: ae76fab6359675a87ad252a08ebb199bf724f129
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772998"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439369"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Tutorial: Implementación de Azure Machine Learning como un módulo de IoT Edge (versión preliminar)
 
@@ -30,10 +30,10 @@ En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 >
-> * Creación de un módulo de Azure Machine Learning
-> * Insertar un contenedor de módulo en Azure Container Registry
-> * Implementar un modelo de Azure Machine Learning en un dispositivo de IoT Edge
-> * Visualización de datos generados
+> * Crear un módulo de Azure Machine Learning.
+> * Insertar un contenedor de módulos en Azure Container Registry.
+> * Implementar un módulo de Azure Machine Learning en un dispositivo IoT Edge.
+> * Ver datos generados.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -94,13 +94,13 @@ Compruebe que la imagen de contenedor se creó y almacenó correctamente en la i
 
 2. En la sección **Información general** se enumeran los detalles del área de trabajo y los recursos asociados. Seleccione el valor de **Registro**, que debe ser el nombre del área de trabajo seguido de números aleatorios.
 
-3. En el registro de contenedor, seleccione **Repositorios**. Debería ver un repositorio denominado **tempanomalydetection** que se creó mediante el cuaderno que se ejecutó en la sección anterior.
+3. En el registro de contenedor, en **Servicios**, seleccione **Repositorios**. Debería ver un repositorio denominado **tempanomalydetection** que se creó mediante el cuaderno que se ejecutó en la sección anterior.
 
 4. Seleccione **tempanomalydetection**. Debería ver que el repositorio tiene una etiqueta: **1**.
 
-   Ahora que sabe el nombre del registro, el nombre del repositorio y la etiqueta, conoce la ruta de acceso completa de la imagen del contenedor. Las rutas de acceso de imagen tienen este aspecto: **\<nombre_del_registro\>.azurecr.io/tempanomalydetection:1**. Puede usar la ruta de acceso de la imagen para implementar este contenedor en dispositivos IoT Edge.
+   Ahora que sabe el nombre del registro, el nombre del repositorio y la etiqueta, conoce la ruta de acceso completa de la imagen del contenedor. Las rutas de acceso de la imagen es similar a esta: **\<registry_name\>.azurecr.io/tempanomalydetection:1**. Puede usar la ruta de acceso de la imagen para implementar este contenedor en dispositivos IoT Edge.
 
-5. En el registro del contenedor, seleccione **Claves de acceso**. Debería ver un número de credenciales de acceso, incluidos el **Servidor de inicio de sesión**, y el **Nombre de usuario** y la **Contraseña** de un usuario administrador.
+5. En el registro del contenedor, en **Configuración**, seleccione **Claves de acceso**. Debería ver un número de credenciales de acceso, incluidos el **Servidor de inicio de sesión**, y el **Nombre de usuario** y la **Contraseña** de un usuario administrador.
 
    Estas credenciales se pueden incluir en el manifiesto de implementación para proporcionar acceso a los dispositivos IoT Edge para extraer imágenes de contenedor del registro.
 
@@ -134,17 +134,11 @@ Puede ver los mensajes del dispositivo a la nube que el centro de IoT recibe con
 
 Los siguientes pasos le muestran cómo configurar Visual Studio Code para supervisar los mensajes del dispositivo a la nube que llegan al centro de IoT.
 
-1. En Visual Studio Code, seleccione **IoT Hub Devices** (Dispositivos de IoT Hub).
+1. En el explorador de Visual Studio Code, en la sección **Azure IoT Hub**, expanda **Dispositivos** para ver la lista de dispositivos IoT.
 
-2. Seleccione **...**  y, después, seleccione **Set IoT Hub Connection String** (Establecer cadena de conexión de IoT Hub) en el menú.
+2. Haga clic con el botón derecho en el nombre del dispositivo IoT Edge y seleccione **Iniciar la supervisión del punto de conexión de eventos integrado**.
 
-   ![Establecimiento de la cadena de conexión de IoT Hub](./media/tutorial-deploy-machine-learning/set-connection.png)
-
-3. En el cuadro de texto que aparece en la parte superior de la página, escriba la cadena de conexión iothubowner para IoT Hub. El dispositivo IoT Edge debe aparecer en la lista de dispositivos de IoT Hub.
-
-4. Seleccione **...** de nuevo y luego **Start Monitoring Built-in Event Endpoint** (Iniciar supervisión del punto de conexión del evento integrado).
-
-5. Observe los mensajes procedentes de tempSensor cada cinco segundos. El cuerpo del mensaje contiene una propiedad denominada **anomaly** que el módulo de aprendizaje automático proporciona con un valor true o false. La propiedad **AzureMLResponse** contiene el valor "OK" si el modelo se ejecutó correctamente.
+3. Observe los mensajes procedentes de tempSensor cada cinco segundos. El cuerpo del mensaje contiene una propiedad llamada **anomaly**, que machinelearningmodule proporciona con un valor true o false. La propiedad **AzureMLResponse** contiene el valor "OK" si el modelo se ha ejecutado correctamente.
 
    ![Respuesta de Azure Machine Learning en el cuerpo del mensaje](./media/tutorial-deploy-machine-learning/ml-output.png)
 

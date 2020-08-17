@@ -8,12 +8,12 @@ ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 971ab39ddf4b383f92f0cd81e5258ad357e76e99
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: cf2437443350cf9b21b6abc0d0dd1dbd5d22e41f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083198"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Desarrollo e implementación de WebJobs mediante Visual Studio - Azure App Service
 
@@ -225,7 +225,7 @@ Si [crea un trabajo web en Azure Portal](webjobs-create.md), el archivo settings
 
 ### <a name="cron-expressions"></a>Expresiones CRON
 
-WebJobs usa las mismas expresiones CRON para realizar la programación que el desencadenador de temporizador de Azure Functions. Para más información sobre la compatibilidad de CRON, consulte el [artículo de referencia del desencadenador de temporizador](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
+WebJobs usa las mismas expresiones CRON para realizar la programación que el desencadenador de temporizador de Azure Functions. Para obtener más información sobre la compatibilidad con CRON, consulte [Desencadenador de temporizador para Azure Functions](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 [!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 

@@ -5,15 +5,15 @@ services: azure-monitor
 author: rboucher
 tags: azure-service-management
 ms.topic: include
-ms.date: 02/07/2019
+ms.date: 08/11/2020
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 61bc3933c699f747da10ac6d1b38ad64c76ab681
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 332841d4ee4791cb8da1620aa292b05bbde74955
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84793655"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88162705"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -22,5 +22,8 @@ ms.locfileid: "84793655"
 | Alertas de registros de actividad | 100 reglas de alertas activas por suscripción. | Igual que el predeterminado. |
 | Alertas de registro | 512 reglas de alertas activas por suscripción. 200 reglas de alertas activas por recurso. | Llame al soporte técnico. |
 | Grupos de acciones |2000 grupos de acciones por suscripción. | Llame al soporte técnico. |
+| Longitud de la descripción de las reglas de alertas y las reglas de acción| Alertas de búsqueda de registros: 4096 caracteres<br/>Todas las demás, 2048 caracteres | Igual que el predeterminado. |
 | Opciones de escala automática |100 por región y suscripción. | Igual que el predeterminado. |
 | Perfiles de escalado automático |20 perfiles por configuración de escalado automático. | Igual que el predeterminado. |
+
+

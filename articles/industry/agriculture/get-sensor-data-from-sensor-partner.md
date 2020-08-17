@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 113ab07af8ada16c0779da510c5f5b1f1f5a290b
-ms.sourcegitcommit: 632e7ed5449f85ca502ad216be8ec5dd7cd093cb
+ms.openlocfilehash: 707b432a4cb3918aa2dfbe460fc3cdcd53761bf1
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/30/2020
-ms.locfileid: "80398229"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497087"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>Obtención de datos de sensor de los asociados de sensor
 
@@ -66,7 +66,13 @@ Siga los pasos que se indican a continuación para generar la información anter
     cd  
     ```
 
-6. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
+6. Ejecute el siguiente comando: Se conecta una cuenta autenticada para su uso en solicitudes de Azure AD
+
+    ```azurepowershell-interactive 
+    Connect-AzureAD
+    ```
+    
+7. Ejecute el siguiente comando: Se descargará un script en el directorio principal.
 
     ```azurepowershell-interactive 
 
@@ -74,7 +80,7 @@ Siga los pasos que se indican a continuación para generar la información anter
 
     ```
 
-7. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
+8. Ejecute el siguiente script. El script solicita el id. de inquilino, que se puede obtener en la página **Azure Active Directory** > **Información general**.
 
     ```azurepowershell-interactive 
 
@@ -82,7 +88,7 @@ Siga los pasos que se indican a continuación para generar la información anter
 
     ```
 
-8. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
+9. Siga las instrucciones en pantalla para capturar los valores del **punto de conexión de API**, el **identificador de inquilino**, el **identificador de cliente**, el **secreto de cliente** y la **cadena de conexión de EventHub**.
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>Integración de los datos de los dispositivos con las credenciales generadas
 

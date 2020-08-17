@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f98df33b3efc697e349ddeae31439dd2fb701d91
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7023a2301b6b6137f7a0485523c68f21d72d67a9
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202025"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385745"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Uso de la eliminación temporal de Key Vault con la CLI
 
@@ -245,6 +245,6 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 
 ## <a name="other-resources"></a>Otros recursos
 
-- Para ver una introducción a la característica de eliminación temporal de Key Vault, consulte [Introducción a la eliminación temporal de Azure Key Vault](overview-soft-delete.md).
+- Para ver una introducción a la característica de eliminación temporal de Key Vault, consulte [Introducción a la eliminación temporal de Azure Key Vault](soft-delete-overview.md).
 - Para ver una introducción al uso de Azure Key Vault, consulte [¿Qué es Azure Key Vault?](overview.md).
 

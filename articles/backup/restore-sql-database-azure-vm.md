@@ -3,12 +3,12 @@ title: Restauración de bases de datos de SQL Server en una máquina virtual de
 description: En este artículo se describe cómo restaurar bases de datos SQL Server que se ejecutan en una máquina virtual de Azure y cuyas copias de seguridad se realizan con Azure Backup.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 642476c98ca223da01bda5c6eb79ee9b53732468
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c3b81c4d0bc4c7548fec8ec131fea66684a7aa8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687436"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054587"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Restauración de bases de datos SQL Server en máquinas virtuales de Azure
 
@@ -29,7 +29,7 @@ Antes de restaurar una base de datos, tenga en cuenta lo siguiente:
 
 - Puede restaurar la base de datos en una instancia de SQL Server en la misma región de Azure.
 - El servidor de destino debe estar registrado como origen en el mismo almacén.
-- Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](https://docs.microsoft.com/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server?view=sql-server-2017).
+- Para restaurar una base de datos cifrada TDE en otra de SQL Server, primero debe [restaurar el certificado en el servidor de destino](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server).
 - Antes de realizar una restauración de la base de datos "maestra", inicie la instancia de SQL Server en modo de usuario único con la opción de inicio **-m AzureWorkloadBackup**.
   - El valor de **-m** es el nombre del cliente.
   - Solo el nombre de cliente especificado puede abrir la conexión.
@@ -72,23 +72,32 @@ Realice la restauración como sigue:
    - **Ubicación alternativa**: restaura la base de datos en una ubicación alternativa y mantiene la base de datos de origen original.
    - **Sobrescribir la base de datos**: restaura los datos en la misma instancia de SQL Server que el origen. Esta opción sobrescribe la base de datos original.
 
-    > [!IMPORTANT]
-    > Si la base de datos seleccionada pertenece a un grupo de disponibilidad AlwaysOn, SQL no permite sobrescribir la base de datos. Solo está disponible **Ubicación alternativa**.
-    >
+        > [!IMPORTANT]
+        > Si la base de datos seleccionada pertenece a un grupo de disponibilidad AlwaysOn, SQL no permite sobrescribir la base de datos. Solo está disponible **Ubicación alternativa**.
+        >
    - **Restaurar como archivos**: En lugar de restaurar como una base de datos, restaure los archivos de copia de seguridad que se pueden recuperar como base de datos más tarde en cualquier máquina en la que los archivos están presentes mediante SQL Server Management Studio.
      ![Menú Restaurar configuración](./media/backup-azure-sql-database/restore-configuration.png)
 
 ### <a name="restore-to-an-alternate-location"></a>Restauración a una ubicación alternativa
 
 1. En el menú **Restaurar configuración**, en **Where to Restore** (Ubicación de restauración), seleccione **Ubicación alternativa**.
-2. Seleccione el nombre de SQL Server y la instancia en la que desea restaurar la base de datos.
-3. En el cuadro de diálogo **Nombre de la base de datos restaurada**, escriba el nombre de la base de datos de destino.
-4. Si procede, seleccione **Overwrite if the DB with the same name already exists on selected SQL instance** (Sobrescribir si ya existe una base de datos con el mismo nombre en la instancia de SQL seleccionada).
-5. Seleccione **Aceptar**.
+1. Seleccione el nombre de SQL Server y la instancia en la que desea restaurar la base de datos.
+1. En el cuadro de diálogo **Nombre de la base de datos restaurada**, escriba el nombre de la base de datos de destino.
+1. Si procede, seleccione **Overwrite if the DB with the same name already exists on selected SQL instance** (Sobrescribir si ya existe una base de datos con el mismo nombre en la instancia de SQL seleccionada).
+1. Seleccione **Punto de restauración** y seleccione si [restaurar a un momento dado](#restore-to-a-specific-point-in-time) o [restaurar a un punto de recuperación específico](#restore-to-a-specific-restore-point).
 
-    ![Proporcionar valores para el menú Restaurar configuración](./media/backup-azure-sql-database/restore-configuration.png)
+    ![Selección de Punto de restauración](./media/backup-azure-sql-database/select-restore-point.png)
 
-6. En **Seleccionar punto de restauración**, seleccione si desea [restaurar a un momento dado](#restore-to-a-specific-point-in-time) o restaurar a un [punto de recuperación específico](#restore-to-a-specific-restore-point).
+    ![Restauración a un momento dado](./media/backup-azure-sql-database/restore-to-point-in-time.png)
+
+1. En el menú **Configuración avanzada**:
+
+    - Si desea mantener la base de datos no operativa después de la restauración, habilite **Restaurar con NORECOVERY**.
+    - Si desea cambiar la ubicación de restauración en el servidor de destino, escriba nuevas rutas de acceso de destino.
+
+        ![Escribir rutas de acceso de destino](./media/backup-azure-sql-database/target-paths.png)
+
+1. Haga clic en **Aceptar** para desencadenar la restauración. Realice un seguimiento del progreso de la restauración en el área **Notificaciones** o en la visualización **Trabajos de copia de seguridad** del almacén.
 
     > [!NOTE]
     > La restauración a un momento dado solo está disponible para copias de seguridad de registros de bases de datos con un modelo de recuperación optimizado para cargas masivas y completas de registros.
@@ -106,11 +115,11 @@ Realice la restauración como sigue:
 
 ### <a name="restore-as-files"></a>Restaurar como archivos
 
-Para restaurar datos de copia de seguridad como archivos .bak en lugar de una base de datos, seleccione **Restaurar como archivos**. Cuando los archivos se vuelcan a una ruta de acceso especificada, puede llevar estos archivos a cualquier máquina en la que quiera restaurarlos como base de datos. En virtud de la capacidad de mover estos archivos a cualquier máquina, ahora puede restaurar los datos entre suscripciones y regiones.
+Para restaurar datos de copia de seguridad como archivos .bak en lugar de una base de datos, seleccione **Restaurar como archivos**. Cuando los archivos se vuelcan a una ruta de acceso especificada, puede llevar estos archivos a cualquier máquina en la que quiera restaurarlos como base de datos. Dado que puede mover estos archivos a cualquier máquina, ahora puede restaurar los datos entre suscripciones y regiones.
 
-1. En el menú **Restaurar configuración**, en **Where to Restore** (Ubicación de restauración), seleccione **Restaurar como archivos**.
-2. Seleccione el nombre de SQL Server en el que quiere restaurar los archivos de copia de seguridad.
-3. En **Destination path on the server** (Ruta de acceso de destino en el servidor), especifique la ruta de acceso de carpetas en el servidor seleccionado en el paso 2. Se trata de la ubicación en la que el servicio volcará todos los archivos de copia de seguridad necesarios. Típicamente, una ruta de acceso a un recurso compartido de red o una ruta de acceso de un recurso compartido de archivos de Azure montado cuando se especifica como una ruta de acceso de destino facilita el acceso a estos archivos de parte de otras máquinas en la red o en el mismo recurso compartido de archivos de Azure montado en ellas.<BR>
+1. En **¿Dónde y cómo se realiza la restauración?** , seleccione **Restaurar como archivos**.
+1. Seleccione el nombre de SQL Server en el que quiere restaurar los archivos de copia de seguridad.
+1. En **Destination path on the server** (Ruta de acceso de destino en el servidor), especifique la ruta de acceso de carpetas en el servidor seleccionado en el paso 2. Se trata de la ubicación en la que el servicio volcará todos los archivos de copia de seguridad necesarios. Típicamente, una ruta de acceso a un recurso compartido de red o una ruta de acceso de un recurso compartido de archivos de Azure montado cuando se especifica como una ruta de acceso de destino facilita el acceso a estos archivos de parte de otras máquinas en la red o en el mismo recurso compartido de archivos de Azure montado en ellas.<BR>
 
     >Para restaurar los archivos de copia de seguridad de base de datos de un recurso compartido de archivos de Azure montado en la máquina virtual registrada de destino, asegúrese de que NT AUTHORITY\SYSTEM tenga acceso al recurso compartido de archivos. Puede realizar los pasos que se indican a continuación para conceder los permisos de lectura y escritura al AFS montado en la máquina virtual:
     >
@@ -118,17 +127,15 @@ Para restaurar datos de copia de seguridad como archivos .bak en lugar de una ba
     >   - Ejecute `cmdkey /add:<storageacct>.file.core.windows.net /user:AZURE\<storageacct> /pass:<storagekey>`
     >   - Comprobar el acceso con `dir \\<storageacct>.file.core.windows.net\<filesharename>`
     >- Iniciar una restauración como archivos desde el almacén de copia de seguridad en `\\<storageacct>.file.core.windows.net\<filesharename>` como ruta de acceso.<BR>
-    Puede descargar Psexec mediante <https://docs.microsoft.com/sysinternals/downloads/psexec>.
+    Puede descargar PsExec de la página [Sysinternals](/sysinternals/downloads/psexec).
 
-4. Seleccione **Aceptar**.
+1. Seleccione **Aceptar**.
 
     ![Seleccionar Restaurar como archivos](./media/backup-azure-sql-database/restore-as-files.png)
 
-5. Seleccione el **Punto de restauración** correspondiente en el que se restaurarán todos los archivos .bak disponibles.
+1. Seleccione **Punto de restauración** y seleccione si [restaurar a un momento dado](#restore-to-a-specific-point-in-time) o [restaurar a un punto de recuperación específico](#restore-to-a-specific-restore-point).
 
-    ![Seleccionar un punto de restauración](./media/backup-azure-sql-database/restore-point.png)
-
-6. Todos los archivos de copia de seguridad asociados con el punto de recuperación seleccionado se vuelcan en la ruta de acceso de destino. Puede restaurar los archivos como una base de datos en cualquier máquina en la que estén presentes mediante SQL Server Management Studio.
+1. Todos los archivos de copia de seguridad asociados con el punto de recuperación seleccionado se vuelcan en la ruta de acceso de destino. Puede restaurar los archivos como una base de datos en cualquier máquina en la que estén presentes mediante SQL Server Management Studio.
 
     ![Archivos de copia de seguridad restaurados en la ruta de acceso de destino](./media/backup-azure-sql-database/sql-backup-files.png)
 
@@ -144,40 +151,16 @@ Si ha seleccionado **Registros (punto en el tiempo)** como el tipo de restauraci
 1. Una vez seleccionada una fecha, el gráfico de escala de tiempo muestra los puntos de recuperación disponibles en un rango continuo.
 1. Especifique una hora para la recuperación en el gráfico de escala de tiempo o seleccione una hora. Después, seleccione **Aceptar**.
 
-    ![Seleccione una hora de restauración.](./media/backup-azure-sql-database/recovery-point-logs-graph.png)
-
-1. En el menú **Configuración avanzada**, si desea mantener la base de datos no operativa después de la restauración, habilite **Restaurar con NORECOVERY**.
-1. Si desea cambiar la ubicación de restauración en el servidor de destino, escriba una nueva ruta de acceso de destino.
-1. Seleccione **Aceptar**.
-
-    ![Menú de configuración avanzada](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
-
-1. En el menú **Restaurar**, seleccione **Restaurar** para iniciar el trabajo de restauración.
-1. Realice un seguimiento del progreso de la restauración en el área de **notificaciones** o seleccione **Trabajos de restauración** en el menú de la base de datos.
-
-    ![Progreso del trabajo de restauración](./media/backup-azure-sql-database/restore-job-notification.png)
-
 ### <a name="restore-to-a-specific-restore-point"></a>Restauración a un punto de restauración específico
 
 Si ha seleccionado **Completo y diferencial** como el tipo de restauración, haga lo siguiente:
 
 1. Seleccione un punto de recuperación de la lista y seleccione **Aceptar** para completar el procedimiento de punto de restauración.
 
-    ![Elegir un punto de recuperación completo](./media/backup-azure-sql-database/choose-fd-recovery-point.png)
+    ![Elegir un punto de recuperación completo](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
     > De forma predeterminada, se muestran los puntos de recuperación de los 30 últimos días. Para mostrar los puntos de recuperación anteriores a 30 días, haga clic en **Filtrar** y seleccione un intervalo personalizado.
-
-1. En el menú **Configuración avanzada**, si desea mantener la base de datos no operativa después de la restauración, habilite **Restaurar con NORECOVERY**.
-1. Si desea cambiar la ubicación de restauración en el servidor de destino, escriba una nueva ruta de acceso de destino.
-1. Seleccione **Aceptar**.
-
-    ![Menú de configuración avanzada](./media/backup-azure-sql-database/restore-point-advanced-configuration.png)
-
-1. En el menú **Restaurar**, seleccione **Restaurar** para iniciar el trabajo de restauración.
-1. Realice un seguimiento del progreso de la restauración en el área de **notificaciones** o seleccione **Trabajos de restauración** en el menú de la base de datos.
-
-    ![Progreso del trabajo de restauración](./media/backup-azure-sql-database/restore-job-notification.png)
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Restauración de bases de datos con un gran número de archivos
 

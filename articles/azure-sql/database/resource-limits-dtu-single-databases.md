@@ -4,19 +4,19 @@ description: En esta página se describen algunos límites de recursos de DTU co
 services: sql-database
 ms.service: sql-database
 ms.subservice: single-database
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: references_regions, seo-lt-2019, sqldbrb=1
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 099094338deba63f678337b7ea13dd9ce9800084
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fa15a5f95c2163309ecfd9cc0130d1860eb3b634
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517695"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542694"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model---azure-sql-database"></a>Límites de recursos de bases de datos únicas que usan el modelo de compra de DTU: Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -38,14 +38,14 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 | :--- | --: |
 | DTU máx. | 5 |
 | Almacenamiento incluido (GB) | 2 |
-| Opciones de almacenamiento máximo (GB) | 2 |
+| Almacenamiento máximo (GB) | 2 |
 | Almacenamiento máximo de OLTP en memoria (GB) |N/D |
 | Cantidad máxima de trabajos (solicitudes) simultáneos | 30 |
 | N.º máximo de sesiones simultáneas | 300 |
 |||
 
 > [!IMPORTANT]
-> El nivel de servicio Básico proporciona menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
+> El nivel de servicio Básico proporciona menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior.
 >
 >En lo que respecta al almacenamiento de datos, el nivel de servicio Básico se coloca en blobs en páginas estándar. Los blobs en páginas estándar usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
 >
@@ -55,15 +55,17 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 | **Tamaño de proceso** | **S0** | **S1** | **S2** | **S3** |
 | :--- |---:| ---:|---:|---:|
 | DTU máx. | 10 | 20 | 50 | 100 |
-| Almacenamiento incluido (GB) | 250 | 250 | 250 | 250 |
-| Opciones de almacenamiento máximo (GB) | 250 | 250 | 250 | 250, 500, 750, 1024 |
+| Almacenamiento incluido (GB) <sup>1</sup> | 250 | 250 | 250 | 250 |
+| Almacenamiento máximo (GB) | 250 | 250 | 250 | 1024 |
 | Almacenamiento máximo de OLTP en memoria (GB) | N/D | N/D | N/D | N/D |
 | Cantidad máxima de trabajos (solicitudes) simultáneos| 60 | 90 | 120 | 200 |
 | N.º máximo de sesiones simultáneas |600 | 900 | 1200 | 2400 |
 ||||||
 
+<sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
+
 > [!IMPORTANT]
-> Los niveles de servicio Estándar S0, S1 y S2 proporcionan menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior. 
+> Los niveles de servicio Estándar S0, S1 y S2 proporcionan menos de una núcleo virtual (CPU).  En el caso de las cargas de trabajo con un uso intensivo de CPU, se recomienda un nivel de servicio S3 o superior.
 >
 >En lo que respecta al almacenamiento de datos, los niveles de servicio Estándar S0 y S1 se colocan en blobs en páginas estándar. Los blobs en páginas estándar usan medios de almacenamiento basados en discos duros (HDD) y son más adecuados para el desarrollo, las pruebas y otras cargas de trabajo de acceso poco frecuente que no dan tanta importancia a la variabilidad del rendimiento.
 >
@@ -73,29 +75,33 @@ Las siguientes tablas muestran los recursos disponibles para una base de datos �
 | **Tamaño de proceso** | **S4** | **S6** | **S7** | **S9** | **S12** |
 | :--- |---:| ---:|---:|---:|---:|
 | DTU máx. | 200 | 400 | 800 | 1600 | 3000 |
-| Almacenamiento incluido (GB) | 250 | 250 | 250 | 250 | 250 |
-| Opciones de almacenamiento máximo (GB) | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 | 250, 500, 750, 1024 |
+| Almacenamiento incluido (GB) <sup>1</sup> | 250 | 250 | 250 | 250 | 250 |
+| Almacenamiento máximo (GB) | 1024 | 1024 | 1024 | 1024 | 1024 |
 | Almacenamiento máximo de OLTP en memoria (GB) | N/D | N/D | N/D | N/D |N/D |
 | Cantidad máxima de trabajos (solicitudes) simultáneos| 400 | 800 | 1600 | 3200 |6000 |
 | N.º máximo de sesiones simultáneas |4800 | 9600 | 19200 | 30000 |30000 |
 |||||||
+
+<sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
 
 ### <a name="premium-service-tier"></a>Nivel de servicio Premium
 
 | **Tamaño de proceso** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | DTU máx. | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Almacenamiento incluido (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
-| Opciones de almacenamiento máximo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
+| Almacenamiento incluido (GB) <sup>1</sup> | 500 | 500 | 500 | 500 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
+| Almacenamiento máximo (GB) | 1024 | 1024 | 1024 | 1024 | 4096 <sup>2</sup> | 4096 <sup>2</sup> |
 | Almacenamiento máximo de OLTP en memoria (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Cantidad máxima de trabajos (solicitudes) simultáneos| 200 | 400 | 800 | 1600 | 2800 | 6400 |
 | N.º máximo de sesiones simultáneas | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
 
-\* Desde 1024 GB hasta 4096 GB en incrementos de 256 GB
+<sup>1</sup> Consulte [Precios de Azure SQL Database](https://azure.microsoft.com/pricing/details/sql-database/single/) para más información sobre los costos extra que se generan al aprovisionar almacenamiento adicional.
+
+<sup>2</sup> Desde 1024 GB hasta 4096 GB en incrementos de 256 GB.
 
 > [!IMPORTANT]
-> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania, Nordeste de Alemania, Centro-oeste de EE. UU., US regiones de US DoD y Centro de US Gov En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
+> Existe más de 1 TB de almacenamiento en el nivel Premium actualmente disponible en todas las regiones excepto: Este de China, Norte de China, Centro de Alemania y Nordeste de Alemania. En estas regiones, el almacenamiento máximo en el nivel Prémium está limitado a 1 TB.  Para más información, consulte las [limitaciones actuales de P11 y P15](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 > [!NOTE]
 > Para obtener información sobre los límites de `tempdb`, consulte los [límites de tempdb](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
 

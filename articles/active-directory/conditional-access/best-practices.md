@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d63cb1d7e2b0086a3d9ef6e3917ebefa11c7ccba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253382"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87275435"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -35,7 +35,7 @@ Cuando crea una directiva nueva, no hay usuarios, grupos, aplicaciones ni contro
 
 Para realizar un trabajo de directiva, debe configurar:
 
-| Qué           | Cómo                                  | Porqué |
+| Qué           | Cómo                                  | Por qué |
 | :--            | :--                                  | :-- |
 | **Aplicaciones en la nube** |Seleccione una o varias aplicaciones.  | El objetivo de una directiva de acceso condicional es permitirle controlar cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
 | **Usuarios y grupos** | Seleccione al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
@@ -49,14 +49,21 @@ Al acceder a una aplicación en la nube se puede aplicar más de una directiva d
 
 Todas las directivas se aplican en dos fases:
 
-- Fase 1: 
-   - Recopilación de detalles: recopile detalles para identificar las directivas que ya se han cumplido.
-   - Durante esta fase, es posible que se solicite un certificado a los usuarios si el cumplimiento del dispositivo forma parte de las directivas de acceso condicional. Esta solicitud puede producirse en aplicaciones de explorador cuando el sistema operativo del dispositivo no es Windows 10.
-   - La fase 1 de la evaluación de directivas se produce para todas las directivas habilitadas, así como para las directivas en [modo de solo informe](concept-conditional-access-report-only.md).
-- Fase 2:
-   - Cumplimiento: teniendo en cuenta los detalles recopilados en la fase 1, solicite al usuario que cumpla con los requisitos adicionales que aún no se hayan cumplido.
-   - Aplicación de los resultados a la sesión. 
-   - La fase 2 de la evaluación de directivas se realiza para todas las directivas habilitadas.
+- Fase 1: Recopilación de detalles de la sesión 
+   - Recopile los detalles de la sesión, como la ubicación del usuario y la identidad del dispositivo, que serán necesarios para la evaluación de la directiva. 
+   - Durante esta fase, es posible que se solicite un certificado a los usuarios si el cumplimiento del dispositivo forma parte de las directivas de acceso condicional. Esta solicitud puede producirse en aplicaciones de explorador cuando el sistema operativo del dispositivo no es Windows 10. 
+   - La fase 1 de la evaluación de la directiva se produce para todas las directivas habilitadas, así como para las directivas en [modo de solo informe](concept-conditional-access-report-only.md).
+- Fase 2: Cumplimiento 
+   - Use los detalles de la sesión recopilados en la fase 1 para identificar los requisitos que no se han cumplido. 
+   - Si hay una directiva que está configurada para bloquear el acceso, con el control de concesión de bloqueo, la aplicación se detendrá aquí y se bloqueará al usuario. 
+   - Luego, se le pedirá al usuario que complete los requisitos de control de concesión adicionales que no se han satisfecho durante la fase 1 en el orden siguiente, hasta que se satisfaga la directiva:  
+      - Multi-Factor Authentication 
+      - Directiva de protección de aplicaciones/aplicaciones cliente aprobada 
+      - Dispositivo administrado (combinación de Azure AD compatible o híbrido) 
+      - Términos de uso 
+      - Controles personalizados  
+      - Una vez que se han satisfecho los controles de concesión, aplique controles de sesión (aplicación forzada, Microsoft Cloud App Security y duración del token). 
+   - La fase 2 de la evaluación de directivas se realiza para todas las directivas habilitadas. 
 
 ### <a name="how-are-assignments-evaluated"></a>¿Cómo se evalúan las asignaciones?
 

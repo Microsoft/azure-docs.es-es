@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 561ec6d59349fca585beda8b1bd60073d2603077
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f09e84d20b1a3c568eea015d92b93a99b8cf024e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036801"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 
@@ -360,7 +360,7 @@ También se puede usar Data Box para migrar datos a una implementación de Azure
 Un error común que cometen los clientes al migrar datos a su nueva implementación de Azure File Sync es copiar los datos directamente en el recurso compartido de archivos de Azure, en lugar de en sus servidores de archivos de Windows. Aunque Azure File Sync identificará todos los archivos nuevos del recurso compartido de archivos de Azure y los sincronizará con sus recursos compartidos de archivos de Windows, por lo general la operación es más lenta que la carga de datos mediante el servidor de archivos de Windows. Al usar las herramientas de copia de Azure, como AzCopy, es importante usar la versión más reciente. Eche un vistazo a la [tabla de herramientas de copia de archivos](storage-files-migration-overview.md#file-copy-tools) para obtener información general sobre las herramientas de copia de Azure, lo que le permitirá asegurarse de que puede copiar todos los metadatos importantes de un archivo, como marcas de tiempo y listas de control de acceso.
 
 ## <a name="antivirus"></a>Antivirus
-Dado que un antivirus funciona examinando los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos con niveles. En las versiones 4.0 y posteriores del agente de Azure File Sync, los archivos en niveles tienen establecido el atributo seguro de Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Se recomienda consultar con el proveedor de software cómo configurar su solución para omitir la lectura de archivos que tengan establecido este atributo (muchas realizan la omisión automáticamente). 
+Dado que lo que hace un antivirus es examinar los archivos en busca de código malintencionado conocido, puede provocar la recuperación de archivos por niveles, lo que da lugar a cargos elevados de salida. En las versiones 4.0 y posteriores del agente de Azure File Sync, los archivos en niveles tienen establecido el atributo seguro de Windows FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS. Se recomienda consultar con el proveedor de software cómo configurar su solución para omitir la lectura de archivos que tengan establecido este atributo (muchas realizan la omisión automáticamente). 
 
 Las soluciones de antivirus internas de Microsoft, Windows Defender y System Center Endpoint Protection (SCEP), omiten de forma automática la lectura de archivos que tienen establecido dicho atributo. Hemos probado ambas soluciones e identificamos un problema menor: al agregar un servidor a un grupo de sincronización existente, se recuperan (descargan) los archivos de menos de 800 bytes en el nuevo servidor. Estos archivos permanecerán en el nuevo servidor y no se organizarán en niveles ya que no cumplen con el requisito de tamaño de niveles (>64 kb).
 
@@ -368,9 +368,9 @@ Las soluciones de antivirus internas de Microsoft, Windows Defender y System Cen
 > Los proveedores de software antivirus pueden comprobar la compatibilidad entre sus productos y Azure File Sync con [Azure File Sync Antivirus Compatibility Test Suite](https://www.microsoft.com/download/details.aspx?id=58322), que está disponible para su descarga en el Centro de descarga de Microsoft.
 
 ## <a name="backup"></a>Copia de seguridad 
-Al igual que sucede con las soluciones antivirus, las soluciones de backup pueden provocar la recuperación de archivos con niveles. Se recomienda usar una solución de backup en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure en lugar de usar un producto de backup local.
+Si está habilitada la nube por niveles, no se deben usar soluciones que realicen copias de seguridad directamente del punto de conexión de servidor o de una máquina virtual en la que se encuentre este. La nube por niveles hace que solo un subconjunto de los datos se almacene en el punto de conexión de servidor, y que el conjunto de datos completo resida en el recurso compartido de archivos de Azure. En función de la solución de copia de seguridad usada, los archivos por niveles se omitirán y no se realizará una copia de seguridad de ellos (porque tienen el conjunto de atributos FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS), o se recuperarán en el disco, lo que provocará cargos elevados de salida. Se recomienda usar una solución de copia de seguridad en la nube para realizar la copia de seguridad del recurso compartido de archivos de Azure directamente. Para más información, consulte [Acerca de la copia de seguridad de recursos compartidos de archivos de Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview?toc=/azure/storage/files/toc.json) o póngase en contacto con el proveedor de copias de seguridad para ver si admite la copia de seguridad de recursos compartidos de Azure.
 
-Si está utilizando una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga los niveles en la nube deshabilitados. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
+Si prefiere usar una solución de copia de seguridad local, las copias de seguridad deben realizarse en un servidor del grupo de sincronización que tenga deshabilitada la nube por niveles. Al realizar una restauración, use las opciones de restauración de nivel de volumen o de archivo. Los archivos restaurados con la opción de restauración a nivel de archivo se sincronizarán con todos los puntos de conexión del grupo de sincronización y los archivos existentes se reemplazarán con la versión restaurada desde la copia de seguridad.  Las restauraciones a nivel de volumen no reemplazarán las versiones de archivo más recientes en el recurso compartido de archivos de Azure u otros puntos de conexión del servidor.
 
 > [!Note]  
 > La reconstrucción completa (BMR) puede causar resultados inesperados y actualmente no se admite.

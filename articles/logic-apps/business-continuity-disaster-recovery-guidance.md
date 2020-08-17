@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: 7bf71ce7c44229ccf19022e9cfb0162f9d77cd97
-ms.sourcegitcommit: ced98c83ed25ad2062cc95bab3a666b99b92db58
+ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/31/2020
-ms.locfileid: "80437715"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87066533"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuidad empresarial y recuperación ante desastres para Azure Logic Apps
 
@@ -157,7 +157,7 @@ Cuando se desencadena la aplicación lógica y comienza a ejecutarse, su estado 
 
 Para minimizar el número de instancias de flujo de trabajo en curso abandonadas, puede elegir entre varios patrones de mensaje para implementar, por ejemplo:
 
-* [Patrón de lista de distribución fija](https://docs.microsoft.com/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
+* [Patrón de lista de distribución fija](/biztalk/esb-toolkit/message-routing-patterns#routing-slip)
 
   Este patrón de mensajes empresariales divide un proceso empresarial en fases más pequeñas. En cada fase, se configura una aplicación lógica que controla la carga de trabajo de esa fase. Para comunicarse entre sí, las aplicaciones lógicas usan un protocolo de mensajería asincrónico como colas o temas de Azure Service Bus. Al dividir un proceso en fases más pequeñas, se reduce el número de procesos empresariales que podrían quedarse bloqueados en una instancia de aplicación lógica con errores. Para obtener más información general sobre este patrón, vea [Patrones de integración empresarial: lista de distribución](https://www.enterpriseintegrationpatterns.com/patterns/messaging/RoutingTable.html).
 
@@ -165,7 +165,7 @@ Para minimizar el número de instancias de flujo de trabajo en curso abandonadas
 
   ![División de un proceso empresarial en fases representadas por aplicaciones lógicas, que se comunican entre sí mediante colas de Azure Service Bus](./media/business-continuity-disaster-recovery-guidance/fixed-routing-slip-pattern.png)
 
-  Si las instancias principal y secundaria de la aplicación lógica siguen el mismo patrón de lista de distribución en sus ubicaciones, puede implementar el [patrón de consumidores simultáneos](https://docs.microsoft.com/azure/architecture/patterns/competing-consumers) si configura [roles activos-activos](#roles) para esas instancias.
+  Si las instancias principal y secundaria de la aplicación lógica siguen el mismo patrón de lista de distribución en sus ubicaciones, puede implementar el [patrón de consumidores simultáneos](/azure/architecture/patterns/competing-consumers) si configura [roles activos-activos](#roles) para esas instancias.
 
 * [Patrón de administrador de procesos (agente)](https://www.enterpriseintegrationpatterns.com/patterns/messaging/ProcessManager.html)
 
@@ -249,7 +249,7 @@ Desde la perspectiva de la recuperación ante desastres, al configurar las insta
   Por ejemplo, la lectura desde una cola de mensajes, como una cola de Azure Service Bus, usa el estado del lado servidor, ya que el servicio de puesta en cola mantiene bloqueos en los mensajes para evitar que otros clientes lean los mismos mensajes.
 
   > [!NOTE]
-  > Si la aplicación lógica tiene que leer los mensajes en un orden concreto, por ejemplo, desde una cola de Service Bus, puede usar el patrón de consumidor simultáneo, pero solo cuando lo combina con sesiones de Service Bus, lo que también se conoce como [patrón de *convoy* secuencial](https://docs.microsoft.com/azure/architecture/patterns/sequential-convoy). De lo contrario, tendrá que configurar las instancias de la aplicación lógica con los roles activos-pasivos.
+  > Si la aplicación lógica tiene que leer los mensajes en un orden concreto, por ejemplo, desde una cola de Service Bus, puede usar el patrón de consumidor simultáneo, pero solo cuando lo combina con sesiones de Service Bus, lo que también se conoce como [patrón de *convoy* secuencial](/azure/architecture/patterns/sequential-convoy). De lo contrario, tendrá que configurar las instancias de la aplicación lógica con los roles activos-pasivos.
 
 <a name="request-trigger"></a>
 
@@ -271,7 +271,7 @@ Desde una perspectiva de recuperación ante desastres, el desencadenador de soli
 
 * [Activo-pasivo](#roles): solo la instancia principal está activa y controla todo el trabajo, mientras que la instancia secundaria espera hasta que se produce una interrupción o un error en la principal. El autor de la llamada o el enrutador determina cuándo se debe llamar a la instancia secundaria.
 
-Como arquitectura recomendada, puede utilizar Azure API Management como proxy para las aplicaciones lógicas que usan desencadenadores de solicitud. API Management proporciona [resistencia entre regiones integrada y la capacidad de enrutar el tráfico a través de varios puntos de conexión](https://docs.microsoft.com/azure/api-management/api-management-howto-deploy-multi-region).
+Como arquitectura recomendada, puede utilizar Azure API Management como proxy para las aplicaciones lógicas que usan desencadenadores de solicitud. API Management proporciona [resistencia entre regiones integrada y la capacidad de enrutar el tráfico a través de varios puntos de conexión](../api-management/api-management-howto-deploy-multi-region.md).
 
 <a name="webhook-trigger"></a>
 
@@ -331,7 +331,7 @@ Para esta tarea, cree una aplicación lógica guardián en la ubicación secunda
 
 ### <a name="activate-your-secondary-instance"></a>Activación de la instancia secundaria
 
-Para activar de forma automática la instancia secundaria, puede crear una aplicación lógica que llame a la API de administración, como el [conector de Azure Resource Manager](https://docs.microsoft.com/connectors/arm/) para activar las aplicaciones lógicas adecuadas en la ubicación secundaria. Puede expandir la aplicación guardián para llamar a esta aplicación lógica de activación después de que se produzca un número específico de errores.
+Para activar de forma automática la instancia secundaria, puede crear una aplicación lógica que llame a la API de administración, como el [conector de Azure Resource Manager](/connectors/arm/) para activar las aplicaciones lógicas adecuadas en la ubicación secundaria. Puede expandir la aplicación guardián para llamar a esta aplicación lógica de activación después de que se produzca un número específico de errores.
 
 <a name="collect-diagnostic-data"></a>
 
@@ -348,9 +348,9 @@ Puede configurar el registro de las ejecuciones de la aplicación lógica y envi
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Introducción a la resistencia para Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview)
-* [Lista de comprobación de resistencia para servicios de Azure específicos](https://docs.microsoft.com/azure/architecture/checklist/resiliency-per-service)
-* [Administración de datos para lograr la resistencia en Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/data-management)
-* [Copia de seguridad y recuperación ante desastres para aplicaciones de Azure](https://docs.microsoft.com/azure/architecture/framework/resiliency/backup-and-recovery)
-* [Recuperación después de una interrupción del servicio en toda la región](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region)
+* [Introducción a la resistencia para Azure](/azure/architecture/framework/resiliency/overview)
+* [Lista de comprobación de resistencia para servicios de Azure específicos](/azure/architecture/checklist/resiliency-per-service)
+* [Administración de datos para lograr la resistencia en Azure](/azure/architecture/framework/resiliency/data-management)
+* [Copia de seguridad y recuperación ante desastres para aplicaciones de Azure](/azure/architecture/framework/resiliency/backup-and-recovery)
+* [Recuperación después de una interrupción del servicio en toda la región](/azure/architecture/resiliency/recovery-loss-azure-region)
 * [Contratos de nivel de servicio (SLA) de Microsoft para servicios de Azure](https://azure.microsoft.com/support/legal/sla/)

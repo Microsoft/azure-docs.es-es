@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28765d3a4a0812f6f3631427432105fdc4650808
-ms.sourcegitcommit: 398fecceba133d90aa8f6f1f2af58899f613d1e3
+ms.openlocfilehash: 8369c507ee7a9e11969c17bbaac7c6e31892e196
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/21/2020
-ms.locfileid: "85126236"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406272"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>Autenticación en Key Vault con una directiva de control de acceso
 
@@ -39,7 +39,7 @@ Para la información completa sobre el control de acceso a Key Vault, consulte [
    - [Creación de un almacén de claves con la CLI de Azure](../secrets/quick-create-cli.md)
    - [Creación de un almacén de claves con Azure PowerShell](../secrets/quick-create-powershell.md)
    - [Creación de un almacén de claves con Azure Portal](../secrets/quick-create-portal.md)
-- La [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/overview) Como alternativa, puede usar [Azure Portal](https://portal.azure.com).
+- La [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest) o [Azure PowerShell](/powershell/azure/) Como alternativa, puede usar [Azure Portal](https://portal.azure.com).
 
 ## <a name="grant-access-to-your-key-vault"></a>Concesión de acceso al almacén de claves
 
@@ -155,7 +155,7 @@ az keyvault set-policy -n <your-unique-keyvault-name> --spn <ApplicationID-of-yo
 Con Azure PowerShell, esto se hace al pasar el valor de objectId al cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
-Set-AzKeyVaultAccessPolicy –VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <Id>
+Set-AzKeyVaultAccessPolicy -VaultName <your-key-vault-name> -PermissionsToKeys create,decrypt,delete,encrypt,get,list,unwrapKey,wrapKey -PermissionsToSecrets get,list,set,delete -ObjectId <Id>
 
 ```
 

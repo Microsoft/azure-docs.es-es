@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2020
-ms.openlocfilehash: 18cd74ac9298b7dd058de2b224f677ec0d8f2d64
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 736daa8a09a8f08721c7b7d9c20f012f274b384a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79480290"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87045526"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Ejemplos de consultas de registro de Azure Monitor
 En este artículo se incluyen varios ejemplos de [consultas](log-query-overview.md) que usan el [lenguaje de consulta de Kusto](/azure/kusto/query/) para recuperar distintos tipos de datos de registro de Azure Monitor. Se utilizan métodos diferentes para consolidar y analizar los datos, por lo que puede usar estos ejemplos para identificar las diferentes estrategias que puede utilizar para sus propios requisitos.  
 
-Consulte la [referencia del lenguaje Kusto](https://docs.microsoft.com/azure/kusto/query/) para más información sobre las diferentes palabras clave usadas en estos ejemplos. Puede consultar una [lección sobre cómo crear consultas](get-started-queries.md) si no está familiarizado con Azure Monitor.
+Consulte la [referencia del lenguaje Kusto](/azure/kusto/query/) para más información sobre las diferentes palabras clave usadas en estos ejemplos. Puede consultar una [lección sobre cómo crear consultas](get-started-queries.md) si no está familiarizado con Azure Monitor.
 
 ## <a name="events"></a>Eventos
 
@@ -375,7 +375,7 @@ suspicious_users_that_later_logged_in
 
 ## <a name="usage"></a>Uso
 
-El tipo de datos `Usage` se puede usar para realizar un seguimiento del volumen de datos ingerido por solución o tipo de datos. Hay otras técnicas para estudiar los volúmenes de datos ingeridos por [equipo](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-computer) o por [suscripción, grupo de recursos o recurso de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#data-volume-by-azure-resource-resource-group-or-subscription).
+El tipo de datos `Usage` se puede usar para realizar un seguimiento del volumen de datos ingerido por solución o tipo de datos. Hay otras técnicas para estudiar los volúmenes de datos ingeridos por [equipo](../platform/manage-cost-storage.md#data-volume-by-computer) o por [suscripción, grupo de recursos o recurso de Azure](../platform/manage-cost-storage.md#data-volume-by-azure-resource-resource-group-or-subscription).
 
 #### <a name="data-volume-by-solution"></a>Data volume by solution (Volumen de datos por solución)
 

@@ -13,12 +13,12 @@ ms.date: 04/28/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 774822eae5ab327f57da3eca4499ca14d3e0c7a1
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 5aca96a9c3bc4e8f1061f677e316565b10014ac9
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82584168"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88117488"
 ---
 # <a name="application-model"></a>Modelo de aplicación
 
@@ -86,4 +86,4 @@ Para más información sobre el modelo de aplicación:
 
 * Consulte [Cómo y por qué se agregan aplicaciones a Azure AD](active-directory-how-applications-are-added.md) para más información sobre los objetos de aplicación y las entidades de servicio en la Plataforma de identidad de Microsoft.
 * Consulte [Inquilinos en Azure Active Directory](single-and-multi-tenant-apps.md) para más información sobre las aplicaciones de un solo inquilino y las aplicaciones de varios inquilinos.
-* Consulte la [documentación de Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c) para más información sobre cómo Azure AD también proporciona Azure Active Directory B2C para que las organizaciones puedan iniciar sesión de los usuarios, normalmente clientes, con identidades sociales como una cuenta de Google.
+* Consulte la [documentación de Azure Active Directory B2C](../../active-directory-b2c/index.yml) para más información sobre cómo Azure AD también proporciona Azure Active Directory B2C para que las organizaciones puedan iniciar sesión de los usuarios, normalmente clientes, con identidades sociales como una cuenta de Google.

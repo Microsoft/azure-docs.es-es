@@ -13,12 +13,12 @@ ms.date: 06/05/2020
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: f43711652bb205c75870fdb969c44298087a2b07
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: 13b478e85278827258ea2fc25a0ee4298039fb1c
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84308592"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119798"
 ---
 # <a name="use-microsoft-authentication-library-for-javascript-to-work-with-azure-ad-b2c"></a>Uso de la biblioteca de autenticación de Microsoft para JavaScript a fin de trabajar con Azure AD B2C
 
@@ -44,7 +44,7 @@ MSAL.js para Node está actualmente en desarrollo. Para obtener más informació
 
 ### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 
-Para proteger la API web con Azure AD B2C, primero debe registrarla. Consulte [Registrar la aplicación](../../active-directory-b2c/add-web-application.md) para obtener instrucciones detalladas.
+Para proteger la API web con Azure AD B2C, primero debe registrarla. Consulte [Registrar la aplicación](../../active-directory-b2c/add-web-api-application.md) para obtener instrucciones detalladas.
 
 ### <a name="step-2-download-the-sample-application"></a>Paso 2: Descarga de la aplicación de ejemplo
 

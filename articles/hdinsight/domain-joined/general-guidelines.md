@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 142fdf27fde100385140baacdeba9249b2e7989b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d97886232eecc369746e33df484cbfb9d40da72
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887890"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530272"
 ---
 # <a name="enterprise-security-general-information-and-guidelines-in-azure-hdinsight"></a>Directrices generales e información de seguridad de la empresa en Azure HDInsight
 
@@ -62,7 +62,7 @@ Al implementar un clúster de HDInsight seguro, hay algunos procedimientos recom
 Cuando el espacio de nombres jerárquico no se ha habilitado:
 
 * No hay permisos heredados.
-* El único permiso del sistema de archivos que funciona es el rol RBAC **Storage Data XXXX**, que se va a asignar al usuario directamente en Azure Portal.
+* El único permiso del sistema de archivos que funciona es el rol de Azure **Storage Data XXXX**, que se va a asignar al usuario directamente en Azure Portal.
 
 ### <a name="default-hdfs-permissions"></a>Permisos de HDFS predeterminados
 

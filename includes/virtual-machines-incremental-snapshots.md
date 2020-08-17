@@ -8,15 +8,15 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f30518c3bfc9876cbddaf8295ff9e8b667a70200
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f0832672cc848495f3d95d308071e0a8359ae4f1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "74014545"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87375410"
 ---
 ## <a name="overview"></a>Información general
-Azure Storage permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describe un escenario para mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales.
+Azure Storage permite realizar instantáneas de blobs. Dichas instantáneas capturan el estado del blob en el preciso momento en el que se realicen. En este artículo, se describe un escenario para mantener copias de seguridad de discos de máquinas virtuales por medio de instantáneas. Podrá utilizar esta metodología cuando opte por no usar el servicio de recuperación y copia de seguridad de Azure y quiera crear una estrategia de copias de seguridad personalizada para los discos de sus máquinas virtuales. En el caso de las máquinas virtuales que ejecutan cargas de trabajo críticas o empresariales, se recomienda usar [Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-vms-introduction) como parte de la estrategia de copia de seguridad.  
 
 Los discos de las máquinas virtuales de Azure se almacenan como blobs en páginas en Azure Storage. Como en este artículo se describe una estrategia de copias de seguridad para discos de máquinas virtuales, cuando hablemos de instantáneas, lo haremos en el contexto de blobs en páginas. Para obtener más información sobre las instantáneas, consulte [Creación de una instantánea a partir de un blob](https://docs.microsoft.com/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
@@ -57,7 +57,8 @@ Siempre que se cumplan las condiciones siguientes:
 * El blob se creó a partir del 1 de enero de 2016.
 * El blob no se sobrescribió con [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) o [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) entre dos instantáneas.
 
-**Nota**: Esta característica está disponible para los blobs en páginas de Azure premium y estándar.
+>[!NOTE]
+>Esta característica está disponible para blobs en páginas de Azure Premium y Standard.
 
 Cuando se emplea una estrategia de copia de seguridad personalizada en la que se utilicen instantáneas, la copia de estas últimas de una cuenta de almacenamiento a otra puede ser lenta y consumir mucho espacio. En lugar de copiar toda la instantánea en una cuenta de almacenamiento de copia de seguridad, puede escribir la diferencia entre instantáneas consecutivas en un blob en páginas de copia de seguridad. De este modo, se reduce considerablemente el tiempo de copia y espacio necesario para almacenar las copias de seguridad.
 

@@ -10,13 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.author: trbye
+ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 37b5b8f5c4fef37450a3b83c75a067982143a518
-ms.sourcegitcommit: b56226271541e1393a4b85d23c07fd495a4f644d
+ms.openlocfilehash: 7d1131821220d062606baccfc3b4fd799c3bcba5
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85391339"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87404348"
 ---
 # <a name="quickstart-translate-speech-to-speech"></a>Inicio rápido: Traducción de voz a voz
 

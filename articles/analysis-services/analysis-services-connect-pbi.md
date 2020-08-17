@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e75329444c2ddb9401f32bccea400d90b633294
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f79ff9af1272ca908c7a5ba35fbaa1e8bb87fc50
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85361530"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86506719"
 ---
 # <a name="connect-with-power-bi"></a>Conexión con Power BI
 
@@ -36,6 +36,9 @@ Una vez que se ha creado un servidor en Azure y se ha implementado un modelo tab
     Se admiten las opciones **Conectar en directo** e **Importar**. Sin embargo, se recomienda usar conexiones en directo porque el modo de importación tiene algunas limitaciones. En particular, durante la importación se puede afectar el rendimiento del servidor. Además, si el modelo se actualizará en el servicio Power BI, la configuración **Allow access from Power BI** (Permitir el acceso desde Power BI) solo se aplica cuando se elige **Conectar en directo**.
 
 5. Escriba sus credenciales de inicio de sesión, si se le solicitan. 
+
+   > [!NOTE]
+   > No se admiten las cuentas de código de acceso de un solo uso (OTP). 
 
 6. En **Navegador**, expanda el servidor, seleccione el modelo o la perspectiva a la que desea conectarse y haga clic en **Conectar**. Haga clic en un modelo o una perspectiva para mostrar todos los objetos de esa vista.
 

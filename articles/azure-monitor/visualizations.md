@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 0176454b38dfa88480e63fedfae175a63192eaee
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498600"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325532"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizar datos de Azure Monitor
 En este artículo se proporciona un resumen de los métodos disponibles para visualizar los datos de métricas y de registro almacenados en Azure Monitor.
@@ -19,7 +19,7 @@ En este artículo se proporciona un resumen de los métodos disponibles para vis
 Visualizaciones como gráficos y diagramas pueden ayudarlo a analizar los datos de supervisión para explorar en profundidad los problemas e identificar patrones. Según la herramienta que utilice, es posible que también tenga la opción de compartir visualizaciones con otros usuarios dentro y fuera de su organización.
 
 ## <a name="workbooks"></a>Workbooks
-Los [libros](../azure-monitor/platform/workbooks-overview.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
+Los [libros](./platform/workbooks-overview.md) son documentos interactivos que proporcionan información detallada sobre los datos, la investigación y colaboración en el equipo. Algunos ejemplos de libros útiles son las guías de resolución de problemas y los análisis posteriores a incidentes.
 
 ![Libro](media/visualizations/workbook.png)
 
@@ -40,6 +40,8 @@ Los [libros](../azure-monitor/platform/workbooks-overview.md) son documentos int
 Los [paneles de Azure](../azure-portal/azure-portal-dashboards.md) son la tecnología de panel principal de Azure. Son especialmente útiles para proporcionar una hoja de cristal sobre su infraestructura de Azure y servicios, lo que permite identificar rápidamente problemas importantes.
 
 ![Panel](media/visualizations/dashboard.png)
+
+Este es un tutorial en vídeo sobre la creación de paneles.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4AslH]
 
@@ -139,7 +141,7 @@ Las [vistas de Azure Monitor](platform/view-designer.md) le permiten crear visua
 - Obtenga información sobre los [datos que Azure Monitor recopila](platform/data-platform.md).
 - Obtenga información sobre los [paneles de Azure](../azure-portal/azure-portal-dashboards.md).
 - Obtenga información sobre las [vistas de Azure Monitor](platform/view-designer.md).
-- Obtenga información sobre [Workbooks](../azure-monitor/platform/workbooks-overview.md).
-- Obtenga información sobre cómo [importar datos de registro en Power BI](../azure-monitor/platform/powerbi.md).
-- Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](../azure-monitor/platform/grafana-plugin.md).
+- Obtenga información sobre [Workbooks](./platform/workbooks-overview.md).
+- Obtenga información sobre cómo [importar datos de registro en Power BI](./platform/powerbi.md).
+- Obtenga información sobre el [complemento de origen de datos de Azure Monitor en Grafana](./platform/grafana-plugin.md).
 

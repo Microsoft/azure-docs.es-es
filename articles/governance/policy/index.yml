@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 06/29/2020
-  ms.openlocfilehash: c066c3a7cc5b8208a61962ce4f51f7eef4be192b
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.date: 08/10/2020
+  ms.openlocfilehash: 66095427637b52d9bc220cba911c3099fd8f397c
+  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85549942"
+  ms.lasthandoff: 08/12/2020
+  ms.locfileid: "88135953"
 landingContent:
 - title: Acerca de Azure Policy
   linkLists:
@@ -43,6 +43,10 @@ landingContent:
       url: ./assign-policy-azurecli.md
     - text: Asignación de una directiva (Azure PowerShell)
       url: ./assign-policy-powershell.md
+    - text: Asignación de una directiva (Python)
+      url: ./assign-policy-python.md
+    - text: Asignación de una directiva (REST)
+      url: ./assign-policy-rest-api.md
     - text: Asignación de una directiva (plantilla de Resource Manager)
       url: ./assign-policy-template.md
   - linkListType: tutorial

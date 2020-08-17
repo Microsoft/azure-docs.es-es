@@ -3,12 +3,12 @@ title: Escalado de cuotas y límites en su laboratorio en Azure DevTest Labs | M
 description: En este artículo se describe cómo se puede escalar el laboratorio en Azure DevTest Labs. Vea las cuotas y los límites de uso y solicite un aumento.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9c999760a649d4df4b34221633491b8ece784f52
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2166eaab073e2abc24ca24494ae13eb876db1fcf
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477098"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533961"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Escalado de cuotas y límites en DevTest Labs
 Mientras trabaja en DevTest Labs, puede que observe que hay ciertos límites predeterminados para algunos recursos de Azure, lo que puede afectar al servicio DevTest Labs. Estos límites se conocen como **cuotas**.
@@ -20,7 +20,7 @@ Puede usar cada recurso de Azure hasta que alcance su cuota. Cada suscripción t
 
 Por ejemplo, cada suscripción tiene una cuota predeterminada de 20 núcleos. Por lo tanto, si va a crear en el laboratorio máquinas virtuales con cuatro núcleos, solo puede crear cinco.
 
-En [Límites de suscripción y de servicios de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits), se enumeran algunas de las cuotas más frecuentes para recursos de Azure. Entre los recursos que más se usan en un laboratorio y para los que puede encontrar cuotas, están los núcleos de máquina virtual, las direcciones IP públicas, la interfaz de red, los discos administrados, la asignación de roles RBAC y los circuitos ExpressRoute.
+En [Límites de suscripción y de servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md), se enumeran algunas de las cuotas más frecuentes para recursos de Azure. Entre los recursos que más se usan en un laboratorio y para los que puede encontrar cuotas, están los núcleos de VM, las direcciones IP públicas, la interfaz de red, los discos administrados, la asignación de roles de Azure y los circuitos ExpressRoute.
 
 ## <a name="view-your-usage-and-quotas"></a>Visualización del uso y las cuotas
 Estos pasos muestran cómo ver las cuotas actuales en su suscripción para recursos específicos de Azure y comprobar qué porcentaje de cada cuota ha usado.
@@ -37,7 +37,7 @@ Estos pasos muestran cómo ver las cuotas actuales en su suscripción para recur
    ![Cuotas y uso](./media/devtest-lab-scale-lab/devtestlab-view-quotas-new.png)
 
 ## <a name="requesting-more-resources-in-your-subscription"></a>Solicitud de más recursos en la suscripción
-Si alcanza un límite de cuota, se puede aumentar el límite predeterminado de un recurso en una suscripción hasta un máximo, como se describe en [Límites de suscripción y de servicios de Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits).
+Si alcanza un límite de cuota, se puede aumentar el límite predeterminado de un recurso en una suscripción hasta un máximo, como se describe en [Límites de suscripción y de servicios de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 Estos pasos le muestran cómo solicitar un aumento de la cuota a través de [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 

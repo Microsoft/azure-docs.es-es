@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53f644203b494e5baf087241e2a4fe669b7db07b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 512aed93906968b14f7c6a13e08f74bbeb2f5f31
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077899"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431076"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -121,6 +121,11 @@ Luego, asegúrese de que la dirección URL de redireccionamiento está estableci
 1. Seleccione la aplicación.
 1. Seleccione el vínculo junto a **URI de redirección**, que muestra el número de URI de redirección configurados para clientes públicos y de web. Se muestra la página **\<application name>Autenticación**.
 1. Compruebe si la dirección URL externa que asignó a la aplicación anteriormente está incluida en la lista **URI de redirección**. Si no lo está, agregue la dirección URL externa ahora (con el tipo de URI de redirección **Web**) y seleccione **Guardar**.
+
+Además de la dirección URL externa, se debe agregar a la lista de identificadores URI de redirección un punto de conexión de autorización de Azure Active Directory en la dirección URL externa.
+
+`https://*.msappproxy.net/pa/oidc/cb`
+`https://*.msappproxy.net/`
 
 Por último, configure la aplicación local para que los usuarios tengan acceso de lectura y otras aplicaciones tengan acceso de lectura/escritura:
 

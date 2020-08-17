@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: victorh
-ms.openlocfilehash: 6829efa007e9e67866bdc0efbca4d095155c35e2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f752604b86634948954dd670d0b7f4edb5b3e2be
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82889702"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86517882"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Mantenimiento del back-end y registros de diagnóstico para Application Gateway
 
@@ -156,7 +156,9 @@ Azure genera el registro de actividad de forma predeterminada. Los registros se 
 
 ### <a name="access-log"></a>Registro de acceso
 
-El registro de acceso solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal y como se muestra en el ejemplo siguiente para v1:
+El registro de acceso solo se genera si lo habilitó para cada instancia de Application Gateway, tal y como se indicó en los pasos anteriores. Los datos se almacenan en la cuenta de almacenamiento que especificó cuando habilitó el registro. Cada acceso de Application Gateway se registra en formato JSON, tal y como se muestra a continuación. 
+
+#### <a name="for-application-gateway-standard-and-waf-sku-v1"></a>Para la SKU Estándar de Application Gateway y de WAF (v1)
 
 |Value  |Descripción  |
 |---------|---------|
@@ -200,7 +202,7 @@ El registro de acceso solo se genera si lo habilitó para cada instancia de Appl
     }
 }
 ```
-En el caso de Application Gateway y WAF v2, los registros muestran un poco más información:
+#### <a name="for-application-gateway-and-waf-v2-sku"></a>Para la SKU de Application Gateway y WAF v2
 
 |Value  |Descripción  |
 |---------|---------|
@@ -221,7 +223,10 @@ En el caso de Application Gateway y WAF v2, los registros muestran un poco más 
 |serverRouted| Servidor back-end al que Application Gateway redirige la solicitud.|
 |serverStatus| Código de estado HTTP del servidor back-end.|
 |serverResponseLatency| Latencia de la respuesta del servidor back-end.|
-|host| Dirección que aparece en el encabezado de host de la solicitud.|
+|host| Dirección que aparece en el encabezado de host de la solicitud. Si se reescribe, este campo contiene el nombre de host actualizado|
+|originalRequestUriWithArgs| Este campo contiene la dirección URL de la solicitud original |
+|requestUri| Este campo contiene la dirección URL posterior a la operación de reescritura en Application Gateway |
+|originalHost| Este campo contiene el nombre de host de la solicitud original
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",

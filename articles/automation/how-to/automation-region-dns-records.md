@@ -3,14 +3,14 @@ title: Registros DNS del centro de datos de Azure utilizados por Azure Automatio
 description: En este artículo se proporcionan los registros DNS requeridos por las características de Azure Automation al restringir la comunicación a una región específica de Azure que hospeda esa cuenta de Automation.
 services: automation
 ms.subservice: process-automation
-ms.date: 06/22/2020
+ms.date: 07/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 44d70db195850b3f87806c69755095b521078b2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17d0857a8979cfcc632ab8951fb255f97229a665
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85298317"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87117186"
 ---
 # <a name="dns-records-for-azure-regions-used-by-azure-automation"></a>Registros DNS para regiones de Azure utilizados por Azure Automation
 
@@ -83,6 +83,12 @@ Para admitir el [vínculo privado](../../private-link/private-link-overview.md) 
 | US Gov - Virginia |`https://<accountId>.webhook.usge.azure-automation.us`<br>`https://<accountId>.agentsvc.usge.azure-automation.us`<br>`https://<accountId>.jrds.usge.azure-automation.us` |
 | US Gov Texas |`https://<accountId>.webhook.ussc.azure-automation.us`<br>`https://<accountId>.agentsvc.ussc.azure-automation.us`<br>`https://<accountId>.jrds.ussc.azure-automation.us` |
 | US Gov: Arizona |`https://<accountId>.webhook.phx.azure-automation.us`<br>`https://<accountId>.agentsvc.phx.azure-automation.us`<br>`https://<accountId>.jrds.phx.azure-automation.us` |
+
+Reemplace `<accountId>` en el registro DNS por el GUID que representa el id. de la cuenta de Automation de la **dirección URL** del valor. Puede obtener el id. necesario de la sección **Claves** en **Configuración de la cuenta** de Azure Portal.
+
+![Página de clave principal de la cuenta de Automation](./media/automation-region-dns-records/automation-account-keys.png)
+
+Copie el valor después de *accounts/* desde el campo **URL**: `https://<GUID>.agentsvc.<region>.azure-automation.net/accounts/<GUID>`
 
 Se recomienda utilizar las direcciones mostradas al definir [excepciones](../automation-runbook-execution.md#exceptions). Para obtener una lista de direcciones IP de regiones en lugar de nombres de regiones, descargue el archivo JSON desde el Centro de descarga de Microsoft para los siguientes entornos de nube:
 

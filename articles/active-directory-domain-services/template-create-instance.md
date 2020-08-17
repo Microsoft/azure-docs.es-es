@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: sample
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 9a9518eb4c8635275b9cbf0467f3091eca10f647
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 880ccf9a69d5898da98aeabcfd89d05ff94e3b43
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223013"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489816"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Creación de un dominio administrado de Azure Active Directory Domain Services mediante una plantilla de Resource Manager
 
@@ -126,7 +126,7 @@ Como parte de la definición de recursos de Resource Manager, son necesarios los
 | domainName              | Nombre de dominio DNS para el dominio administrado, teniendo en cuenta los puntos anteriores sobre los conflictos y los prefijos de nomenclatura. |
 | filteredSync            | Azure AD DS permite sincronizar *todos* los usuarios y grupos disponibles en Azure AD, o bien realizar una sincronización *con ámbito* solo de grupos específicos.<br /><br /> Para más información sobre la sincronización con ámbito, consulte [Sincronización con ámbito de Azure AD Domain Services][scoped-sync].|
 | notificationSettings    | Si se generan alertas en el dominio administrado, se pueden enviar notificaciones por correo electrónico. <br /><br />Los *administradores globales* del inquilino de Azure y los miembros del grupo de *administradores de AAD DC* pueden estar *habilitados* para estas notificaciones.<br /><br /> Si lo prefiere, puede agregar destinatarios adicionales de las notificaciones cuando haya alertas que requieran atención.|
-| domainConfigurationType | De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. No es necesario especificar un valor de *domainConfiguration* para crear un bosque de usuarios.<br /><br /> Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Los bosques de recursos están actualmente en versión preliminar. Establezca el valor en *ResourceTrusting* para crear un bosque de recursos.<br /><br />Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].|
+| domainConfigurationType | De forma predeterminada, un dominio administrado se crea como un bosque de *usuarios*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. No es necesario especificar un valor de *domainConfiguration* para crear un bosque de usuarios.<br /><br /> Un bosque de *Recursos* solo sincroniza los usuarios y grupos creados directamente en Azure AD. Establezca el valor en *ResourceTrusting* para crear un bosque de recursos.<br /><br />Para más información sobre los bosques de *Recursos*, incluido el motivo por el que puede usar uno y cómo crear confianzas de bosque con dominios de AD DS locales, consulte [Introducción a los bosques de recursos de Azure AD DS][resource-forests].|
 
 La siguiente definición de parámetros comprimidos muestra cómo se declaran estos valores. Se crea un bosque de usuarios denominado *aaddscontoso.com* con todos los usuarios de Azure AD sincronizados con el dominio administrado:
 

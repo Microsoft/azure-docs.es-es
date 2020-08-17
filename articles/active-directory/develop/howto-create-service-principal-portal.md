@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 12389484f63d35eb31b38d5067061dc99b7284f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 479222cc9b67775d359182740dc78865da8cee38
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85505994"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115917"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedimientos: Uso del portal para crear una aplicación de Azure AD y una entidad de servicio con acceso a los recursos
 
@@ -29,7 +29,7 @@ En este artículo se muestra cómo usar el portal para crear la entidad de servi
 > En lugar de crear una entidad de servicio, considere el uso de identidades administradas para recursos de Azure para la identidad de la aplicación. Si el código se ejecuta en un servicio que admite identidades administradas y tiene acceso a recursos que admiten la autenticación de Azure AD, las identidades administradas son la opción ideal para usted. Para obtener más información sobre las identidades administradas para recursos de Azure, incluidos los servicios que actualmente lo admiten, consulte [¿Qué es Managed Identities for Azure Resources?](../managed-identities-azure-resources/overview.md).
 
 ## <a name="app-registration-app-objects-and-service-principals"></a>Registro de aplicaciones, objetos de aplicación y entidades de servicio
-No hay una manera directa de crear una entidad de servicio con Azure Portal.  Al registrar una aplicación mediante Azure Portal, se crean automáticamente un objeto de aplicación y una entidad de servicio en el directorio principal o inquilino.  Para obtener más información sobre la relación entre el registro de aplicaciones, los objetos de aplicación y las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).
+No hay una manera directa de crear una entidad de servicio con Azure Portal.  Cuando registre una aplicación mediante Azure Portal, se crearán automáticamente un objeto de aplicación y una entidad de servicio en el inquilino o directorio principal.  Para obtener más información sobre la relación entre el registro de aplicaciones, los objetos de aplicación y las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio de Azure Active Directory](app-objects-and-service-principals.md).
 
 ## <a name="permissions-required-for-registering-an-app"></a>Permisos necesarios para registrar una aplicación
 
@@ -178,7 +178,7 @@ Si decide no usar un certificado, puede crear un secreto de aplicación nuevo.
    ![Copie el valor del secreto porque no podrá recuperarlo más adelante](./media/howto-create-service-principal-portal/copy-secret.png)
 
 ## <a name="configure-access-policies-on-resources"></a>Configuración de directivas de acceso sobre los recursos
-Tenga en cuenta que es posible que deba configurar permisos adicionales sobre los recursos a los que la aplicación necesita acceso. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.  
+Puede que tenga que configurar permisos adicionales para los recursos a los que la aplicación tiene que acceder. Por ejemplo, también debe [actualizar las directivas de acceso de un almacén de claves](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) para proporcionar a la aplicación acceso a las claves, los secretos o los certificados.  
 
 1. En [Azure Portal](https://portal.azure.com), vaya al almacén de claves y seleccione **Directivas de acceso**.  
 1. Seleccione **Agregar directiva de acceso** y, luego, seleccione la clave, el secreto y los permisos de certificado que quiere conceder a la aplicación.  Seleccione la entidad de servicio que creó anteriormente.

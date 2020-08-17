@@ -7,12 +7,13 @@ ms.service: static-web-apps
 ms.topic: how-to
 ms.date: 05/08/2020
 ms.author: buhollan
-ms.openlocfilehash: 66ad9c27ca69df230d9ce1d2282e734420fa14f3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 33a40e7a0e7e3be4433b3cbd4ba7a8e09a84e689
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373679"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428055"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Configuración de las opciones de la aplicación para la versión preliminar de Azure Static Web Apps
 
@@ -33,7 +34,7 @@ A las opciones de configuración de la aplicación también se les conoce a vece
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Una aplicación de Azure Static Web Apps
-- [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ## <a name="types-of-application-settings"></a>Tipos de configuraciones de la aplicación
 

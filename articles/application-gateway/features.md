@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: f021eed959ef88a1ef3671e1d0ace8080710c92a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80810234"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067978"
 ---
 # <a name="azure-application-gateway-features"></a>Características de Azure Application Gateway
 
@@ -35,7 +35,7 @@ Application Gateway incluye las siguientes características:
 - [Tráfico de Websocket y HTTP/2](#websocket-and-http2-traffic)
 - [Purga de la conexión](#connection-draining)
 - [Páginas de error personalizadas](#custom-error-pages)
-- [Reescritura de encabezados HTTP](#rewrite-http-headers)
+- [Reescritura de encabezados HTTP y URL](#rewrite-http-headers-and-url)
 - [Ajuste de tamaño](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminación de la Capa de sockets seguros (SSL)
@@ -83,13 +83,13 @@ Para más información, consulte [Información general del enrutamiento basado e
 
 ## <a name="multiple-site-hosting"></a>Hospedaje de varios sitios
 
-El hospedaje de varios sitios permite configurar más de un sitio web en la misma instancia de la puerta de enlace de aplicaciones. Esta característica permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una sola instancia de Application Gateway (para un rendimiento óptimo). Cada sitio web se puede dirigir a su propio grupo. Por ejemplo, la puerta de enlace de aplicaciones puede atender el tráfico para `contoso.com` y `fabrikam.com` desde dos grupos de servidores denominados ContosoServerPool y FabrikamServerPool.
+Con Application Gateway, puede configurar el enrutamiento basado en el nombre de host o el nombre de dominio de más de una aplicación web en la misma puerta de enlace de aplicación. Permite configurar una topología más eficaz para las implementaciones al agregar hasta 100 sitios web a una puerta de enlace de aplicaciones. Cada sitio web se puede dirigir a su propio grupo de back-end. Por ejemplo, tres dominios, contoso.com, fabrikam.com y adatum.com, señalan a la dirección IP de la puerta de enlace de aplicaciones. Crearía tres clientes de escucha multisitio y configuraría cada uno con la configuración respectiva de protocolo y puerto. 
 
-Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool y para `http://fabrikam.com` se enrutan a FabrikamServerPool.
+Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool, y para `http://fabrikam.com` se enrutan a FabrikamServerPool, y así sucesivamente.
 
-De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de la puerta de enlace de aplicaciones. Ejemplos del uso de subdominios podrían incluir `http://blog.contoso.com` y `http://app.contoso.com` hospedados en una única implementación de la puerta de enlace de aplicaciones.
+De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de la puerta de enlace de aplicaciones. Ejemplos del uso de subdominios podrían incluir `http://blog.contoso.com` y `http://app.contoso.com` hospedados en una única implementación de la puerta de enlace de aplicaciones. Para más información, consulte [Hospedaje de varios sitios de Application Gateway](multiple-site-overview.md).
 
-Para más información, consulte [Hospedaje de varios sitios de Application Gateway](multiple-site-overview.md).
+También puede definir nombres de host con el carácter comodín en un cliente de escucha de varios sitios y hasta cinco nombres de host por cliente de escucha. Para obtener más información, consulte los [nombres de host comodín en el cliente de escucha (versión preliminar)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Redireccionamiento
 
@@ -132,7 +132,7 @@ Application Gateway permite crear páginas de error personalizadas, en lugar de 
 
 Para obtener más información, consulte [Errores personalizados](custom-error.md).
 
-## <a name="rewrite-http-headers"></a>Reescritura de encabezados HTTP
+## <a name="rewrite-http-headers-and-url"></a>Reescritura de encabezados HTTP y URL
 
 Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. Volver a escribir estos encabezados HTTP le permitirá lograr varios escenarios importantes, como:
 
@@ -140,9 +140,11 @@ Los encabezados HTTP permiten que el cliente y el servidor pasen información ad
 - Quitar campos de encabezado de respuesta que pueden revelar información confidencial.
 - Eliminar información del puerto desde los encabezados X-Forwarded-For.
 
-Application Gateway admite la funcionalidad para agregar, quitar o actualizar los encabezados HTTP de solicitud y respuesta, mientras los paquetes de solicitud y respuesta se mueven entre los grupos de back-end y de cliente. También proporciona la funcionalidad para agregar condiciones a fin de asegurarse de que los encabezados especificados se vuelven a escribir solo cuando se cumplen ciertas condiciones.
+Application Gateway y la SKU de WAF v2 admiten la posibilidad de agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP, mientras los paquetes de solicitud y respuesta se mueven entre los grupos de servidores backend y clientes. También se pueden reescribir las direcciones URL, los parámetros de cadena de consulta y el nombre de host. Con el enrutamiento basado en la ruta de acceso a las direcciones URL y la reescritura de direcciones URL, puede elegir entre enrutar las solicitudes a uno de los grupos de back-end en función de la ruta de acceso original, o bien la ruta de acceso reescrita, mediante la opción de evaluación repetida de la asignación de la ruta de acceso. 
 
-Para más información, consulte el artículo sobre la [Reescritura de encabezados HTTP](rewrite-http-headers.md).
+También se ofrece la posibilidad de agregar condiciones a fin de garantizar que los encabezados o las direcciones URL especificados se reescriben solo cuando se cumplen ciertas condiciones. Estas condiciones se basan en la información de solicitud y respuesta.
+
+Para más información, consulte el artículo sobre la [Reescritura de encabezados HTTP y direcciones URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Ajuste de tamaño
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación de una puerta de enlace NAT - plantilla de Resource Manager'
+title: Creación de una puerta de enlace NAT - plantilla de Resource Manager
 titleSuffix: Azure Virtual Network NAT
 description: En este inicio rápido se muestra cómo crear una puerta de enlace NAT mediante la plantilla de Azure Resource Manager.
 services: load-balancer
@@ -10,20 +10,20 @@ Customer intent: I want to create a NAT gateway by using an Azure Resource Manag
 ms.service: virtual-network
 ms.subservice: nat
 ms.devlang: na
-ms.topic: tutorial
+ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/09/2020
 ms.author: allensu
 ms.custom: subject-armqs
-ms.openlocfilehash: fbc8b48f4ff6a6df687d45a53008a159c5322084
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: fc4804070e0fa4ca6e9e54dcf6e04aafcc17f91a
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84703577"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88053905"
 ---
-# <a name="tutorial-create-a-nat-gateway---resource-manager-template"></a>Tutorial: Creación de una puerta de enlace NAT - plantilla de Resource Manager
+# <a name="create-a-nat-gateway---resource-manager-template"></a>Creación de una puerta de enlace NAT - plantilla de Resource Manager
 
 Introducción a Virtual Network NAT mediante una plantilla de Azure Resource Manager.  Esta plantilla implementa una red virtual, un recurso de puerta de enlace NAT y una máquina virtual con Ubuntu. La máquina virtual con Ubuntu se implementa en una subred que está asociada al recurso de puerta de enlace NAT.
 

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/17/2017
 ms.reviewer: mbullwin
-ms.openlocfilehash: 09c1899004bd93d0f2365c3bbc000c37459e8d89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a81c4f32385cf06238f36ca0162923f93d682807
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83797825"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323730"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Descubra cómo los clientes usan la aplicación con los embudos de Application Insights.
 
@@ -37,7 +37,7 @@ En la siguiente captura de pantalla se muestra un ejemplo de tipo de datos que l
 ### <a name="funnels-features"></a>Características de Embudos
 La captura de pantalla anterior incluye cinco áreas resaltadas. Se trata de características de Embudos. En la lista siguiente se ofrecen más detalles sobre cada área correspondiente de la captura de pantalla:
 1. Si la aplicación está muestreada, se mostrará un banner de muestreo. Al seleccionar el banner, se abre un panel contextual, en el que se explica cómo desactivar el muestreo. 
-2. Puede exportar el embudo a [Power BI](../../azure-monitor/app/export-power-bi.md ).
+2. Puede exportar el embudo a [Power BI](./export-power-bi.md).
 3. Seleccione un paso para ver más detalles a la derecha. 
 4. En el gráfico del historial de conversiones se muestran tasas de conversión de los últimos 90 días. 
 5. Acceda a la herramienta de los usuarios para comprenderlos mejor. Puede usar filtros en cada paso. 
@@ -46,7 +46,7 @@ La captura de pantalla anterior incluye cinco áreas resaltadas. Se trata de car
   * [Información general del uso](usage-overview.md)
   * [Usuarios, sesiones y eventos](usage-segmentation.md)
   * [Retención](usage-retention.md)
-  * [Libros](../../azure-monitor/platform/workbooks-overview.md)
+  * [Libros](../platform/workbooks-overview.md)
   * [Adición de contexto de usuario](usage-send-user-context.md)
-  * [Exportación a Power BI](../../azure-monitor/app/export-power-bi.md )
+  * [Exportación a Power BI](./export-power-bi.md)
 

@@ -5,13 +5,13 @@ author: jeffhollan
 ms.topic: how-to
 ms.date: 07/01/2018
 ms.author: jehollan
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7ced455e8124abed75dc7b2bbf7f92eb13613347
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-java
+ms.openlocfilehash: 38ccc99de72af8f989cca0fefae2f962fb178f0e
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85556766"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373375"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creación de la primera función de Azure con Java e IntelliJ
 
@@ -44,7 +44,7 @@ Para desarrollar una función con Java e IntelliJ, instale el software siguiente
 2. Para iniciar sesión en la cuenta de Azure, abra **Azure Explorer** y, a continuación, haga clic en el icono **Inicio de sesión de Azure** en la barra de la parte superior (o en el menú IDEA **Herramientas/Azure/Inicio de sesión de Azure**).
     ![El comando de inicio de sesión en Azure IntelliJ][intellij-azure-login]
 
-3. En la ventana **Inicio de sesión de Azure**, seleccione **Inicio de sesión de dispositivo** y, a continuación, haga clic en **Iniciar sesión** ([otras opciones de inicio de sesión](https://docs.microsoft.com/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
+3. En la ventana **Inicio de sesión de Azure**, seleccione **Inicio de sesión de dispositivo** y, a continuación, haga clic en **Iniciar sesión** ([otras opciones de inicio de sesión](/azure/developer/java/toolkit-for-intellij/sign-in-instructions)).
 
    ![Ventana Inicio de sesión de Azure con el inicio de sesión de dispositivo seleccionado][intellij-azure-popup]
 
@@ -156,7 +156,7 @@ En esta sección se usa Azure Toolkit for IntelliJ para crear un proyecto local 
 Ha creado un proyecto de funciones de Java con una función desencadenada por HTTP, lo ha ejecutado en la máquina local y lo ha implementado en Azure. Ahora, amplíe la función como sigue...
 
 > [!div class="nextstepaction"]
-> [Adición de un enlace de salida de la cola de Azure Storage](/azure/azure-functions/functions-add-output-binding-storage-queue-java)
+> [Adición de un enlace de salida de la cola de Azure Storage](./functions-add-output-binding-storage-queue-java.md)
 
 
 [marketplace]:./media/functions-create-first-java-intellij/marketplace.png

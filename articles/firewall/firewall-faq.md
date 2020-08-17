@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 07/30/2020
 ms.author: victorh
-ms.openlocfilehash: b984bb581df54cba79a551dc870786ed228eaa43
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 3f2b844163abce0946dc5df29c3121691e83035b
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536976"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439220"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -168,7 +168,9 @@ La capacidad de rendimiento inicial de Azure Firewall es de 2,5 a 3 Gbps, y se 
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>¿Cuánto tiempo tarda Azure Firewall en escalar horizontalmente?
 
-Azure Firewall se escala gradualmente cuando el rendimiento medio o el consumo de CPU es del 60 %. El escalado horizontal tarda entre cinco y siete minutos. Cuando realice pruebas de rendimiento, asegúrese de que lleva a cabo una prueba de 10 a 15 minutos como mínimo e inicie nuevas conexiones para aprovechar los nodos de Firewall recién creados.
+Azure Firewall se escala gradualmente cuando el rendimiento medio o el consumo de CPU es del 60 %. Un rendimiento máximo de implementación predeterminado es aproximadamente 2,5-3 Gbps y comienza a escalar horizontalmente cuando alcanza el 60 % de esa cifra. El escalado horizontal tarda entre cinco y siete minutos. 
+
+Cuando realice pruebas de rendimiento, asegúrese de que lleva a cabo una prueba de 10 a 15 minutos como mínimo e inicie nuevas conexiones para aprovechar los nodos de Firewall recién creados.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>¿Permite Azure Firewall el acceso a Active Directory de forma predeterminada?
 
@@ -189,9 +191,10 @@ $fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
 
 ## Or Update FQDNs and IpAddresses separately
 
-$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
-$fw.ThreatIntelWhitelist.FQDNs = @("fqdn1", "fqdn2", …)
-$fw.ThreatIntelWhitelist.IpAddress = @("ip1", "ip2", …)
+$fw = Get-AzFirewall -Name $firewallname -ResourceGroupName $RG
+$fw.ThreatIntelWhitelist.IpAddresses = @($fw.ThreatIntelWhitelist.IpAddresses + $ipaddresses )
+$fw.ThreatIntelWhitelist.fqdns = @($fw.ThreatIntelWhitelist.fqdns + $fqdns)
+
 
 Set-AzFirewall -AzureFirewall $fw
 ```

@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 07/30/2020
 ms.author: apimpm
-ms.openlocfilehash: 43dc0020f64a80e10f179fd194c4878f2fec41ad
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: e7f2fb966aa323063220bc798706c8401745ba20
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243212"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461007"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
 
@@ -49,8 +49,6 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
 1. Recibir una solicitud de la forma siguiente:
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation=SignIn&returnUrl={URL de la página de origen}&salt={string}&amp;sig={string}*
-   > 
-   > 
    
     Parámetros de consulta en el caso de inicio de sesión o suscripción:
    
@@ -84,6 +82,7 @@ Además de la operación **SignIn**, también puede realizar la administración 
 * **ChangePassword**
 * **ChangeProfile**
 * **CloseAccount**
+* **SignOut**
 
 Debe pasar los siguientes parámetros de consulta para las operaciones de administración de cuenta.
 
@@ -93,6 +92,7 @@ Debe pasar los siguientes parámetros de consulta para las operaciones de admini
 * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delegación de suscripciones a productos
+
 La delegación de una suscripción a productos funciona de forma similar a la delegación de inicio de sesión y suscripción de usuario. El flujo de trabajo final sería el siguiente:
 
 1. El desarrollador selecciona un producto en el portal para desarrolladores de API Management y hace clic en el botón Suscribir.
@@ -105,7 +105,7 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
 
 1. Recibir una solicitud de la forma siguiente:
    
-   > *http:\//www.yourwebsite.com/apimdelegation?operation={operación}&productId={producto al que se suscribe}&userId={usuario que realiza la solicitud}&salt={cadena}&amp;amp;sig={cadena}*
+   > *http:\//www.yourwebsite.com/apimdelegation?operation={operación}&amp;productId={producto al que se suscribe}&amp;userId={usuario que realiza la solicitud}&amp;salt={cadena}&amp;sig={cadena}*
    >
    
     Parámetros de consulta en el caso de suscripción a producto:
@@ -114,9 +114,9 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
      * "Subscribe": una solicitud para suscribir al usuario a un producto determinado con el id. especificado (consulte más información a continuación).
      * "Unsubscribe": una solicitud para cancelar la suscripción de un usuario a un producto.
      * "Renew": una solicitud para renovar una suscripción (por ejemplo, que esté a punto de expirar).
-   * **productId**: el id. del producto al que el usuario solicitó suscribirse.
+   * **productId**: en *Suscribirse*, el id. del producto al que el usuario solicitó suscribirse.
    * **subscriptionId**: en *Cancelar suscripción* y *Renovar*, el identificador de la suscripción del producto.
-   * **userId**: el id. del usuario para el que se realiza la solicitud.
+   * **userId**: en *Suscribirse*, el id. del usuario para el que se realiza la solicitud.
    * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
    * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 

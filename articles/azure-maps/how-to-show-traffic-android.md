@@ -1,19 +1,19 @@
 ---
 title: Visualización de los datos de tráfico en un mapa de Android | Microsoft Azure Maps
 description: En este artículo aprenderá cómo mostrar los datos de tráfico en un mapa mediante el Android SDK de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/27/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e5611eeb08ac370e12cf452d57a87e449fbd80da
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 8b07b520dec4e9149c6748777a119b68e56c65e9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80335373"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87126404"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Visualización de los datos de tráfico en el mapa mediante el Android SDK de Azure Maps
 
@@ -21,9 +21,9 @@ Los datos de flujo y los datos de incidentes son los dos tipos de datos de tráf
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Antes de poder mostrar el tráfico en el mapa, debe [crear una cuenta de Azure](quick-demo-map-app.md#create-an-account-with-azure-maps) y [obtener una clave de suscripción](quick-demo-map-app.md#get-the-primary-key-for-your-account). A continuación, debe instalar el [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) y cargar un mapa.
+Antes de poder mostrar el tráfico en el mapa, debe [crear una cuenta de Azure](quick-demo-map-app.md#create-an-azure-maps-account) y [obtener una clave de suscripción](quick-demo-map-app.md#get-the-primary-key-for-your-account). A continuación, debe instalar el [Android SDK de Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) y cargar un mapa.
 
-## <a name="incidents-traffic-data"></a>Datos de tráfico de incidentes 
+## <a name="incidents-traffic-data"></a>Datos de tráfico de incidentes
 
 Deberá importar las siguientes bibliotecas para llamar a `setTraffic` y `incidents`:
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Use el fragmento de código siguiente para establecer los datos de flujo de tráfico. De forma similar al código de la sección anterior, pasamos el valor devuelto del método `flow` al método `setTraffic`. Hay cuatro valores que se pueden pasar a `flow`, y cada valor desencadenaría `flow` para devolver el valor correspondiente. El valor devuelto de `flow` se pasará entonces como argumento a `setTraffic`. Consulte la tabla siguiente para estos cuatro valores:
 
-| | |
+|Valor de flujo | Descripción|
 | :-- | :-- |
 | TrafficFlow.NONE | No muestra los datos de tráfico en el mapa. |
 | TrafficFlow.RELATIVE | Muestra los datos de tráfico relativos a la velocidad de flujo libre de la carretera. |

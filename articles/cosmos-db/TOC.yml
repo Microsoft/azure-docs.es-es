@@ -1,4 +1,4 @@
-- name: Documentación sobre Azure Cosmos DB
+- name: "Documentación sobre Azure Cosmos\_DB"
   href: index.yml
 - name: Información general
   items:
@@ -78,7 +78,7 @@
     - name: Ejemplos de Python
       href: sql-api-python-samples.md
     - name: PowerShell
-      href: powershell-samples-sql.md
+      href: powershell-samples.md
     - name: Azure CLI
       href: cli-samples.md
     - name: Azure Resource Manager
@@ -461,9 +461,6 @@
         - name: LINQ a SQL
           displayName: 'linq, .NET'
           href: sql-query-linq-to-sql.md
-        - name: Ejecución de consultas SQL
-          displayName: 'query performance, query execution'
-          href: sql-query-execution.md
     - name: Uso de la cuenta de Azure Cosmos
       href: account-overview.md
     - name: Contenedores y elementos
@@ -574,6 +571,9 @@
           href: role-based-access-control.md
         - href: cosmos-db-advanced-threat-protection.md
           name: Protección contra amenazas avanzada
+        - name: Controles de seguridad de Azure Policy
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Línea de base de seguridad
           href: security-baseline.md
     - name: Adecuado para empresas
@@ -586,6 +586,8 @@
           href: policy.md
     - name: Cuotas de servicio
       href: concepts-limits.md
+    - name: Recomendaciones automáticas
+      href: automated-recommendations.md
 - name: 'Cassandra, MongoDB y otras API'
   expanded: true
   items:
@@ -666,9 +668,9 @@
               href: manage-cassandra-with-resource-manager.md
               displayName: ARM
             - name: Administración mediante PowerShell
-              href: powershell-samples-cassandra.md
+              href: powershell-samples.md
             - name: Administración mediante la CLI de Azure
-              href: cli-samples-cassandra.md
+              href: cli-samples.md
     - name: MongoDB API
       items:
         - name: Información general
@@ -760,9 +762,9 @@
               href: manage-mongodb-with-resource-manager.md
               displayName: ARM
             - name: Administración mediante PowerShell
-              href: powershell-samples-mongodb.md
+              href: powershell-samples.md
             - name: Administración mediante la CLI de Azure
-              href: cli-samples-mongodb.md
+              href: cli-samples.md
             - name: Solución de problemas comunes
               href: mongodb-troubleshoot.md
     - name: API de Gremlin
@@ -820,9 +822,9 @@
               href: manage-gremlin-with-resource-manager.md
               displayName: ARM
             - name: Administración mediante PowerShell
-              href: powershell-samples-gremlin.md
+              href: powershell-samples.md
             - name: Administración mediante la CLI de Azure
-              href: cli-samples-gremlin.md
+              href: cli-samples.md
         - name: Referencia
           items:
             - name: Encabezados de respuesta
@@ -891,9 +893,9 @@
               href: manage-table-with-resource-manager.md
               displayName: ARM
             - name: Administración mediante PowerShell
-              href: powershell-samples-table.md
+              href: powershell-samples.md
             - name: Administración mediante la CLI de Azure
-              href: cli-samples-table.md
+              href: cli-samples.md
         - name: Referencia
           items:
             - name: .NET
@@ -988,7 +990,7 @@
           href: how-to-manage-indexing-policy.md
         - name: Definición de claves únicas
           href: how-to-define-unique-keys.md
-    - name: Rendimiento y solución de problemas
+    - name: Rendimiento
       items:
         - name: Consultar
           items:
@@ -996,28 +998,20 @@
               href: profile-sql-api-query.md
             - name: Ajustar rendimiento de consulta
               href: sql-api-query-metrics.md
-            - name: Solución de problemas del rendimiento de las consultas
-              href: troubleshoot-query-performance.md
         - name: .NET
           items:
             - name: "Sugerencias para mejorar el rendimiento del SDK de .NET, versión\_3"
               href: performance-tips-dotnet-sdk-v3-sql.md
             - name: "Sugerencias para mejorar el rendimiento del SDK de .NET, versión\_2"
               href: performance-tips.md
-            - name: Solución de problemas del SDK de .NET
-              href: troubleshoot-dot-net-sdk.md
         - name: Java
           items:
             - name: "Sugerencias de rendimiento para SDK de Java, versión\_4"
               href: performance-tips-java-sdk-v4-sql.md
-            - name: "Solución de problemas de la versión 4\_ del SDK de Java"
-              href: troubleshoot-java-sdk-v4-sql.md
             - name: "Versión\_2 del SDK de Java asincrónico"
               href: performance-tips-async-java.md
             - name: "Versión\_2 del SDK de Java sincrónico"
               href: performance-tips-java.md
-            - name: 'Solución de problemas: versión 2 del SDK de Java sincrónico'
-              href: troubleshoot-java-async-sdk.md
         - name: Prueba de rendimiento - aplicación de ejemplo
           href: performance-testing.md
         - name: Escrituras y lecturas rentables
@@ -1026,6 +1020,36 @@
       items:
         - name: Migración al SDK de Java V4
           href: migrate-java-v4-sdk.md
+    - name: Solución de problemas
+      items:
+        - name: Errores comunes
+          items:
+            - name: Solución de problemas del rendimiento de las consultas
+              href: troubleshoot-query-performance.md
+            - name: Solución del problema de tiempo de expiración de solicitud de servicio
+              href: troubleshoot-request-timeout.md
+            - name: Solución del problema de que la frecuencia de solicitudes es demasiado grande
+              href: troubleshoot-request-rate-too-large.md
+            - name: Solución del problema de no encontrado
+              href: troubleshoot-not-found.md
+            - name: Solucionar del problema de no autorizado
+              href: troubleshoot-unauthorized.md
+        - name: .NET
+          items:
+            - name: Solución general de problemas del SDK de .NET
+              href: troubleshoot-dot-net-sdk.md
+            - name: Solución del problema de que el encabezado de la solicitud es demasiado grande
+              href: troubleshoot-dot-net-sdk-request-header-too-large.md
+            - name: Solución del problema de tiempo de expiración de solicitud
+              href: troubleshoot-dot-net-sdk-request-timeout.md
+            - name: Solución del problema de que el servicio no está disponible
+              href: troubleshoot-service-unavailable.md
+        - name: .Java
+          items:
+            - name: "Solución de problemas de la versión 4\_ del SDK de Java"
+              href: troubleshoot-java-sdk-v4-sql.md
+            - name: 'Solución de problemas: versión 2 del SDK de Java sincrónico'
+              href: troubleshoot-java-async-sdk.md
     - name: Fuente de cambios
       items:
         - name: "Registros de desencadenador de Azure\_Cosmos\_DB"
@@ -1104,6 +1128,8 @@
       items:
         - name: Restauración de datos a partir de una copia de seguridad
           href: how-to-backup-and-restore.md
+        - name: Solicitud de un aumento de cuota
+          href: create-support-request-quota-increase.md
     - name: Supervisión
       items:
         - name: "Supervisión de Cosmos\_DB"
@@ -1112,6 +1138,8 @@
           items:
             - name: Azure Monitor para Cosmos (versión preliminar)
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+            - name: Escenarios que supervisar
+              href: use-metrics.md
             - name: Supervisión de latencia del lado servidor
               href: monitor-server-side-latency.md
             - name: Supervisión del uso de la unidad de solicitud
@@ -1124,8 +1152,8 @@
               href: cosmosdb-monitor-resource-logs.md
             - name: Auditoría de registros del plano de control
               href: audit-control-plane-logs.md
-        - name: Visualización de métricas desde la cuenta de Cosmos DB
-          href: use-metrics.md
+        - name: Configurar alertas
+          href: create-alerts.md
         - name: Referencia de datos de supervisión
           href: monitor-cosmos-db-reference.md
         - name: Registro de aplicaciones con Logic Apps
@@ -1220,7 +1248,7 @@
           href: sql-api-sdk-dotnet-changefeed.md
         - name: "Biblioteca Bulk Executor para .NET, versión\_2"
           href: sql-api-sdk-bulk-executor-dot-net.md
-    - name: SDK de Java
+    - name: SDK y conectores de Java
       items:
         - name: "SDK de Java, versión\_4"
           href: sql-api-sdk-java-v4.md
@@ -1228,6 +1256,10 @@
           href: sql-api-sdk-async-java.md
         - name: "Versión\_2 del SDK de Java sincrónico"
           href: sql-api-sdk-java.md
+        - name: Conector de Spring Data para SQL API
+          href: sql-api-sdk-java-spring.md
+        - name: Conector de Spark para SQL API
+          href: sql-api-sdk-java-spark.md
         - name: "Biblioteca Bulk Executor para Java, versión\_2"
           href: sql-api-sdk-bulk-executor-java.md
     - name: Node.js

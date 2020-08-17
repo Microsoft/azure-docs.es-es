@@ -3,29 +3,29 @@ title: Recepción de alertas del registro de actividad en las notificaciones del
 description: Reciba notificaciones por SMS, correo electrónico o webhook cuando se produzcan eventos en el servicio de Azure.
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: a8723698cddfb519687525820475517b93219a4a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b90940c4532370e7742f736708625ddec283aab1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85568076"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499305"
 ---
 # <a name="create-activity-log-alerts-on-service-notifications-using-the-azure-portal"></a>Creación de alertas del registro de actividad en notificaciones del servicio mediante Azure Portal
 ## <a name="overview"></a>Información general
 
 En este artículo se explica cómo usar Azure Portal para configurar las alertas del registro de actividad para las notificaciones de mantenimiento de un servicio mediante Azure Portal.  
 
-Las notificaciones de mantenimiento del servicio se almacenan en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Debido al volumen posiblemente grande de la información almacenada en el registro de actividad, hay una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de estado del servicio. 
+Las notificaciones de mantenimiento del servicio se almacenan en el [registro de actividad de Azure](../azure-monitor/platform/platform-logs-overview.md). Debido al gran volumen de información almacenada en el registro de actividad, existe una interfaz de usuario independiente que facilita la visualización y la configuración de alertas en las notificaciones de mantenimiento del servicio. 
 
 Puede recibir una alerta cuando Azure envía notificaciones de estado del servicio a la suscripción de Azure. Puede configurar la alerta en función de:
 
-- La clase de notificación de estado del servicio (problemas de servicio, mantenimiento planificado y avisos de estado).
+- La clase de notificación de estado del servicio (problemas de servicio, mantenimiento planificado, avisos de estado y avisos de seguridad).
 - La suscripción afectada.
 - Los servicios afectados.
 - Las regiones afectadas.
 
 > [!NOTE]
-> Las notificaciones de estado del servicio no envían una alerta relativa a los eventos de estado de recursos.
+> Las notificaciones de estado del servicio no envían alertas para los eventos de estado de los recursos.
 
 También puede configurar a quién se debe enviar la alerta:
 
@@ -40,7 +40,7 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OaXt]
 
-## <a name="alert-and-new-action-group-using-azure-portal"></a>Alerta y nuevo grupo de acciones mediante Azure Portal
+## <a name="create-service-health-alert-using-azure-portal"></a>Creación de alertas de Service Health mediante Azure Portal
 1. En el [portal](https://portal.azure.com), seleccione **Estado del servicio**.
 
     ![El servicio "Estado del servicio"](media/alerts-activity-log-service-notifications/home-servicehealth.png)
@@ -49,54 +49,31 @@ Para obtener información sobre cómo configurar las alertas de notificación de
 
     ![La pestaña "Alertas de estado"](media/alerts-activity-log-service-notifications/alerts-blades-sh.png)
 
-1. Seleccione **Crear alerta de estado de servicio** y rellene los campos.
+1. Seleccione **Agregar alerta de Service Health** y rellene los campos.
 
     ![El comando "Crear alerta de estado de servicio"](media/alerts-activity-log-service-notifications/service-health-alert.png)
 
-1. Seleccione la **suscripción**, los **servicios** y las **regiones** para los que desea recibir alertas.
+1. Seleccione la **suscripción**, los **servicios** y las **regiones** para los cuales quiere recibir alertas.
 
-    ![Cuadro de diálogo "Agregar alerta de registro de actividad"](media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)
+    [![Cuadro de diálogo "Agregar alerta de registro de actividad"](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png)](./media/alerts-activity-log-service-notifications/activity-log-alert-new-ux.png#lightbox)
 
-    > [!NOTE]
-    > Esta suscripción se usa para guardar la alerta del registro de actividad. El recurso de la alerta se implementa en esta suscripción y supervisa los eventos en el registro de actividad para dicho recurso.
+> [!NOTE]
+>Esta suscripción se usa para guardar la alerta del registro de actividad. El recurso de la alerta se implementa en esta suscripción y supervisa los eventos en el registro de actividad para dicho recurso.
 
-1. Elija los **Tipos de evento** para los que quiere recibir alertas: *Problema de servicio*, *Mantenimiento planeado* y *Avisos de estado* 
+5. Elija los **Tipos de evento** para los que quiere recibir alertas: *Problemas de servicio*, *Mantenimiento planeado*, *Avisos de estado* y *Avisos de seguridad*.
 
-1. Para definir los detalles de la alerta, escriba un **nombre de regla de alertas** y una **descripción**.
+6. Haga clic en **Seleccionar grupo de acciones** para elegir un grupo de acciones existente o para crear un nuevo grupo de acciones. Para obtener más información sobre los grupos de acciones, consulte [Creación y administración de grupos de acciones en Azure Portal](../azure-monitor/platform/action-groups.md).
 
-1. Seleccione el **grupo de recursos** donde quiere guardar la alerta.
 
-1. Para crear un nuevo grupo de acciones, seleccione **Nuevo grupo de acciones**. Escriba un nombre en el cuadro de texto **Nombre del grupo de acciones** y especifique un nombre en el cuadro de texto **Nombre corto**. Se hace referencia al nombre corto en las notificaciones que se envían cuando se desencadena esta alerta.
+7. Para definir los detalles de la alerta, escriba un **nombre de regla de alertas** y una **descripción**.
 
-    ![Creación de un nuevo grupo de acciones](media/alerts-activity-log-service-notifications/action-group-creation.png)
+8. Seleccione el **grupo de recursos** donde quiere guardar la alerta.
 
-1. A continuación, defina una lista de destinatarios proporcionando:
 
-    a. **Name**: escriba el nombre, alias o identificador del destinatario.
-
-    b. **Tipo de acción**: seleccione SMS, correo electrónico, webhook, aplicación de Azure, etc.
-
-    c. **Detalles**: según el tipo de acción elegido, proporcione un número de teléfono, una dirección de correo electrónico, un identificador URI de webhook, etc.
-
-1. Seleccione **Aceptar** para crear el grupo de acciones y luego en **Crear regla de alertas** para completar la alerta.
 
 En unos minutos, la alerta está activa y comienza a desencadenarse en función de las condiciones especificadas durante la creación.
 
 Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md). Para obtener información sobre el esquema de webhook para las alertas del registro de actividad, consulte [Webhooks para alertas del registro de actividad de Azure](../azure-monitor/platform/activity-log-alerts-webhook.md).
-
->[!NOTE]
->El grupo de acciones definido en estos pasos es reutilizable, como grupo de acciones existente, en todas las futuras definiciones de alertas.
->
-
-## <a name="alert-with-existing-action-group-using-azure-portal"></a>Alerta con un grupo de acciones existente mediante Azure Portal
-
-1. Siga los pasos del 1 al 6 de la sección anterior para crear la notificación de mantenimiento del servicio. 
-
-1. En **Definir grupo de acciones**, haga clic en el botón **Seleccionar grupo de acciones**. Seleccione el grupo adecuado.
-
-1. Seleccione **Agregar** para agregar el grupo de acciones y luego **Crear regla de alertas** para completar la alerta.
-
-En unos minutos, la alerta está activa y comienza a desencadenarse en función de las condiciones especificadas durante la creación.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 1ad6e52c421d9cfec4640d3a330b5507d6ed3e9b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72436050"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082399"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalación TmaxSoft OpenFrame en Azure
 
@@ -1476,6 +1476,6 @@ Con esto finaliza la instalación de los componentes de OpenFrame.
 
 Si se está planteando migrar un sistema central, nuestro ecosistema de asociados en expansión está disponible para ayudarle. Para más información sobre cómo elegir una solución de asociados, consulte [Platform Modernization Alliance](https://datamigration.microsoft.com/).
 
--   [Comience a usar Azure](https://docs.microsoft.com/azure/)
--   [Documentación de Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
--   [Azure Virtual Data Center Lift and Shift Guide](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/) (Centro de datos virtual de Azure: guía para una migración lift-and-shift)
+-   [Comience a usar Azure](../../../../index.yml)
+-   [Documentación de Host Integration Server (HIS)](/host-integration-server/)
+-   [Azure Virtual Data Center Lift and Shift Guide](/archive/blogs/azurecat/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide) (Centro de datos virtual de Azure: guía para una migración lift-and-shift)

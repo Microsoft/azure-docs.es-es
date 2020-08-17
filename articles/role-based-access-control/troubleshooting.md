@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/01/2020
+ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: ac5c19866a164bbc927d23495e9d6ec9a1ef6bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 839662e496a61ff9a90a6250b417688b91ccaed1
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790711"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87382583"
 ---
 # <a name="troubleshoot-azure-rbac"></a>Solución de problemas de Azure RBAC
 
@@ -52,6 +52,22 @@ $ras.Count
 ## <a name="problems-with-azure-role-assignments"></a>Problemas con las asignaciones de roles de Azure
 
 - Si no puede agregar una asignación de roles en Azure Portal, en **Control de acceso (IAM)** porque la opción **Agregar** > **Agregar asignación de roles** está deshabilitada o porque recibe el error de permisos "El cliente con el identificador de objeto no está autorizado para realizar la acción", compruebe que ha iniciado sesión con un usuario que tenga asignado un rol con el permiso `Microsoft.Authorization/roleAssignments/write`, como [Propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator), en el ámbito en el que intenta asignar el rol.
+- Si usa una entidad de servicio para asignar roles, puede obtener el error "No tiene privilegios suficientes para completar la operación". Por ejemplo, supongamos que tiene una entidad de servicio a la que se le ha asignado el rol de propietario e intenta crear la siguiente asignación de roles como entidad de servicio mediante la CLI de Azure:
+
+    ```azurecli
+    az login --service-principal --username "SPNid" --password "password" --tenant "tenantid"
+    az role assignment create --assignee "userupn" --role "Contributor"  --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
+
+    Si obtiene el error "No tiene privilegios suficientes para completar la operación", es probable que se deba a que la CLI de Azure está intentando buscar la identidad de asignación en Azure AD y la entidad de servicio no puede leer Azure AD de manera predeterminada.
+
+    Hay dos maneras de resolver este error. La primera consiste en asignar el rol [lectores de directorio](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) a la entidad de servicio para que pueda leer los datos en el directorio.
+
+    La segunda manera de resolver este error es crear la asignación de roles mediante el parámetro `--assignee-object-id` en lugar de `--assignee`. Mediante el uso de `--assignee-object-id`, la CLI de Azure omitirá la búsqueda de Azure AD. Debe obtener el identificador de objeto del usuario, del grupo o de la aplicación a los que quiere asignar el rol. Para más información, consulte [Incorporación o eliminación de asignaciones de roles de Azure mediante la CLI de Azure](role-assignments-cli.md#new-service-principal).
+
+    ```azurecli
+    az role assignment create --assignee-object-id 11111111-1111-1111-1111-111111111111  --role "Contributor" --scope "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}"
+    ```
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 
@@ -66,7 +82,7 @@ $ras.Count
 - Solo puede definir un grupo de administración en `AssignableScopes` de un rol personalizado. La adición de un grupo de administración a `AssignableScopes` está actualmente en versión preliminar.
 - No se pueden asignar roles personalizados con `DataActions` en el ámbito del grupo de administración.
 - Azure Resource Manager no valida la existencia del grupo de administración en el ámbito asignable de la definición de roles.
-- Para obtener más información sobre los roles personalizados y los grupos de administración, consulte el artículo [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md#custom-rbac-role-definition-and-assignment).
+- Para obtener más información sobre los roles personalizados y los grupos de administración, consulte el artículo [Organización de los recursos con grupos de administración de Azure](../governance/management-groups/overview.md#azure-custom-role-definition-and-assignment).
 
 ## <a name="transferring-a-subscription-to-a-different-directory"></a>Transferencia de una suscripción a un directorio diferente
 

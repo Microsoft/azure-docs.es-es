@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/14/2020
+ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: 80e2ba8df9c81d2a34f63b2f1bc943ee5d731bae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c687cdfe3e014617b5a8773136dfb6513178ed
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85549588"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88135817"
 ---
 # <a name="what-is-virtual-network-nat"></a>¿Qué es NAT de Virtual Network?
 
@@ -32,7 +32,7 @@ La NAT (traducción de direcciones de red) de Virtual Network simplifica la cone
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/flow-map.svg" width="256" title="Virtual Network NAT">
+  <img src="./media/nat-overview/flow-map.svg" alt="Figure depicts a NAT receiving traffic from internal subnets and directing it to a public IP and an IP prefix." width="256" title="Virtual Network NAT">
 </p>
 
 
@@ -74,7 +74,7 @@ Tanto NAT como las características compatibles de la SKU estándar conocen la d
 ![Virtual Network NAT flow direction](./media/nat-overview/flow-direction4.svg)
 -->
 <p align="center">
-  <img src="./media/nat-overview/flow-direction4.svg" width="512" title="Dirección del flujo de Virtual Network NAT">
+  <img src="./media/nat-overview/flow-direction4.svg" alt="Figure depicts a NAT gateway that supports outbound traffic to the internet from a virtual network and inbound traffic with an instance-level public IP and a public load balancer." width="512" title="Dirección del flujo de Virtual Network NAT">
 </p>
 
 *Ilustración: Dirección del flujo de Virtual Network NAT*
@@ -103,7 +103,7 @@ De manera predeterminada, NAT tiene un ámbito regional. Al crear escenarios de 
 -->
 
 <p align="center">
-  <img src="./media/nat-overview/az-directions.svg" width="512" title="Virtual Network NAT con zonas de disponibilidad">
+  <img src="./media/nat-overview/az-directions.svg" alt="Figure depicts three zonal stacks, each of which contains a NAT gateway and a subnet." width="512" title="Virtual Network NAT con zonas de disponibilidad">
 </p>
 
 *Ilustración: Virtual Network NAT con zonas de disponibilidad*
@@ -153,7 +153,6 @@ Queremos saber cómo podemos mejorar el servicio. Proponga lo que debemos crear 
 
 * NAT es compatible con la dirección IP pública de la SKU estándar, el prefijo de IP pública y los recursos del equilibrador de carga. Ni los recursos básicos (por ejemplo, el equilibrador de carga básico) ni los productos derivados de ellos son compatibles con NAT.  Los recursos básicos se deben colocar en una subred que no esté configurada con NAT.
 * Se admite la familia de direcciones IPv4.  NAT no interactúa con la familia de direcciones IPv6.  NAT no se puede implementar en una subred con un prefijo IPv6.
-* El registro de flujos de grupos de seguridad de red no se admite cuando se usa NAT.
 * NAT no puede abarcar varias redes virtuales.
 
 ## <a name="next-steps"></a>Pasos siguientes

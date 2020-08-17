@@ -6,21 +6,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2020
+ms.date: 08/02/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f4263d372b82779fe68a6a15cc7db61a31359e14
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 6f2e7403d85f9132c9a5a0b76cf057834e7cc499
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209136"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534964"
 ---
 # <a name="access-public-containers-and-blobs-anonymously-with-net"></a>Acceso anónimo a contenedores y blobs públicos con .NET
 
-Azure Storage admite el acceso de lectura público anónimo a contenedores y blobs. Los clientes pueden acceder de forma anónima a contenedores y blobs públicos mediante el uso de las bibliotecas cliente de Azure Storage, así como de otras herramientas y utilidades que admiten el acceso a datos en Azure Storage.
+Azure Storage admite el acceso de lectura público opcional a contenedores y blobs. Los clientes pueden acceder de forma anónima a contenedores y blobs públicos mediante el uso de las bibliotecas cliente de Azure Storage, así como de otras herramientas y utilidades que admiten el acceso a datos en Azure Storage.
 
-En este artículo se muestra cómo obtener acceso a un contenedor público o a un blob desde .NET. Para obtener información sobre cómo configurar el acceso de lectura anónimo en un contenedor, consulte . Para obtener información sobre cómo impedir todo el acceso anónimo a una cuenta de almacenamiento, consulte .
+En este artículo se muestra cómo obtener acceso a un contenedor público o a un blob desde .NET. Para obtener información sobre cómo configurar el acceso de lectura anónimo en un contenedor, vea [Configuración de acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-configure.md). Para obtener información sobre cómo impedir el acceso anónimo a una cuenta de almacenamiento, vea [Impedir el acceso de lectura público anónimo a contenedores y blobs](anonymous-read-access-prevent.md).
 
 Un cliente que tiene acceso a contenedores y blobs de forma anónima puede utilizar constructores que no requieren credenciales. En los ejemplos siguientes se muestran varias maneras diferentes de hacer referencia a contenedores y blobs de forma anónima.
 

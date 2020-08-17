@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1300ef64b6081135c400baa10aa73b8139aec170
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 965118345a003aface0373bda7496243bcab8429
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86025597"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87290171"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Cifrado de datos del servidor único de Azure Database for PostgreSQL con clave administrada por el cliente
 
@@ -22,7 +22,7 @@ El cifrado de datos con claves administradas por el cliente del servidor único 
 Key Vault es un sistema de administración de claves externas basado en la nube. Tiene una gran disponibilidad y ofrece almacenamiento seguro escalable para claves criptográficas RSA respaldado opcionalmente por módulos de seguridad de hardware (HSM) con certificación FIPS 140-2 nivel 2. No permite acceso directo a una clave almacenada, pero proporciona servicios de cifrado y descifrado a entidades autorizadas. Key Vault puede generar la clave, importarla o [hacer que se transfiera desde un dispositivo HSM local](../key-vault/key-Vault-hsm-protected-keys.md).
 
 > [!NOTE]
-> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admita los planes de tarifa de uso general y optimizados para memoria.
+> Esta característica está disponible en todas las regiones de Azure donde Azure Database for PostgreSQL: servidor único admita los planes de tarifa de uso general y optimizados para memoria. Para otras limitaciones, consulte la sección [Limitaciones](concepts-data-encryption-postgresql.md#limitations).
 
 ## <a name="benefits"></a>Ventajas
 
@@ -51,7 +51,7 @@ Para que un servidor de PostgreSQL pueda usar claves administradas por el client
 * **wrapKey**: para poder cifrar la DEK.
 * **unwrapKey**: para poder descifrar la DEK.
 
-El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/azure-key-vault.md), de forma que se puedan auditar más adelante.
+El administrador del almacén de claves también puede [habilitar el registro de eventos de auditoría de Key Vault](../azure-monitor/insights/key-vault-insights-overview.md), de forma que se puedan auditar más adelante.
 
 Cuando el servidor está configurado para usar la clave administrada por el cliente que se almacena en el almacén de claves, el servidor envía a este la DEK para que la cifre. Key Vault devuelve las DEK cifradas, que se almacenan en la base de datos del usuario. De igual modo, cuando es necesario, el servidor envía la DEK protegida al almacén de claves para que la descifre. Los auditores pueden usar Azure Monitor para revisar los registros de eventos de auditoría de Key Vault, si está habilitado el registro.
 

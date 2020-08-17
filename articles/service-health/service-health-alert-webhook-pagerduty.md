@@ -3,12 +3,12 @@ title: Envío de alertas de estado del servicio de Azure con PagerDuty
 description: Obtenga notificaciones personalizadas sobre los eventos del estado de servicio en la instancia de PagerDuty.
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: bb449a5279f3cea55e6aec2f72edfd11fb26227a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5c70af2ad2ded919cda0b174705d1d3245eac627
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77654076"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091545"
 ---
 # <a name="send-azure-service-health-alerts-with-pagerduty-using-webhooks"></a>Envío de alertas de Azure Service Health con PageDuty mediante webhooks
 
@@ -39,7 +39,7 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 
 ## <a name="create-an-alert-using-pagerduty-in-the-azure-portal"></a>Creación de una alerta con PagerDuty en Azure Portal
 ### <a name="for-a-new-action-group"></a>Para un nuevo grupo de acciones:
-1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](../azure-monitor/platform/alerts-activity-log-service-notifications.md).
+1. Siga los pasos del 1 al 8 en [Creación de una alerta basada en una notificación de mantenimiento del servicio para un nuevo grupo de acciones con Azure Portal](./alerts-activity-log-service-notifications-portal.md).
 
 1. Defina la lista de **acciones**:
 
@@ -87,5 +87,5 @@ Este artículo muestra cómo configurar las notificaciones de estado del servici
 ## <a name="next-steps"></a>Pasos siguientes
 - Obtenga información acerca de cómo [configurar notificaciones de webhook para los sistemas de administración de problemas existentes](service-health-alert-webhook-guide.md).
 - Revise el [Esquema de webhook de alertas del registro de actividad](../azure-monitor/platform/activity-log-alerts-webhook.md). 
-- Más información acerca de las [Notificaciones del estado del servicio](../azure-monitor/platform/service-notifications.md).
+- Más información acerca de las [Notificaciones del estado del servicio](./service-notifications.md).
 - Más información sobre los [grupos de acciones](../azure-monitor/platform/action-groups.md).

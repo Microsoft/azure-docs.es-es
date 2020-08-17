@@ -1,19 +1,20 @@
 ---
 title: Cómo usar el módulo de E/E espacial de Azure Maps | Microsoft Azure Maps
 description: Obtenga información sobre cómo usar el módulo de E/S espacial proporcionado por el SDK web de Azure Maps. Este módulo proporciona características sólidas para facilitar a los desarrolladores la integración de datos espaciales con el SDK web de Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 02/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 1de9dd9721700418b1aa9ba661fc070db1dbedcc
-ms.sourcegitcommit: 6397c1774a1358c79138976071989287f4a81a83
+ms.custom: devx-track-javascript
+ms.openlocfilehash: f848274f67b5ebf5349cbef24a769aaae39b9955
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/07/2020
-ms.locfileid: "80804646"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287036"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Cómo usar el módulo de E/S espacial Azure Maps
 
@@ -39,7 +40,7 @@ En este vídeo se proporciona información general del módulo de E/S espacial e
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para poder usar el módulo de E/S espacial, deberá [crear una cuenta Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-with-azure-maps) y [obtener la clave de suscripción principal de la cuenta](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Para poder usar el módulo de E/S espacial, deberá [crear una cuenta Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) y [obtener la clave de suscripción principal de la cuenta](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Instalación del módulo de E/S espacial
 

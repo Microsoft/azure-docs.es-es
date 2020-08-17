@@ -3,14 +3,14 @@ title: Creación de una función en Azure que responda a solicitudes HTTP
 description: Aprenda a crear una función desde la línea de comandos y, luego, a publicar el proyecto local en el hospedaje sin servidor en Azure Functions.
 ms.date: 03/30/2020
 ms.topic: quickstart
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 86be7ec73d8e19597062f3fa3777f3aa422082c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ba068ef00bcf1f671341ab00cabfe3c9bbb493ad
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506356"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847693"
 ---
 # <a name="quickstart-create-a-function-in-azure-that-responds-to-http-requests"></a>Inicio rápido: Creación de una función en Azure que responda a solicitudes HTTP
 
@@ -111,6 +111,9 @@ Indique los siguientes valores cuando se le solicite:
 Escriba `Y` o presione Entrar para confirmar.
 
 Maven crea los archivos del proyecto en una carpeta nueva llamada _artifactId_ que, en este ejemplo, es `fabrikam-functions`. 
+
+Para ejecutarlo en Java 11 en Azure, debe modificar los valores del archivo pom.xml. Para obtener más información, consulte las [versiones de Java](functions-reference-java.md#java-versions). 
+
 ::: zone-end  
 Vaya a la carpeta del proyecto:
 
@@ -139,7 +142,7 @@ Si lo desea, puede ir a [Ejecución local de la función](#run-the-function-loca
 
 :::code language="csharp" source="~/functions-docs-csharp/http-trigger-template/HttpExample.cs":::
 
-El objeto de devolución es un objeto [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) que devuelve un mensaje de respuesta como [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) o [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](./functions-bindings-http-webhook.md?tabs=csharp).
+El objeto de devolución es un objeto [ActionResult](/dotnet/api/microsoft.aspnetcore.mvc.actionresult) que devuelve un mensaje de respuesta [OkObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.okobjectresult) (200) o [BadRequestObjectResult](/dotnet/api/microsoft.aspnetcore.mvc.badrequestobjectresult) (400). Para más información, vea [Enlaces y desencadenadores HTTP de Azure Functions](./functions-bindings-http-webhook.md?tabs=csharp).
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -157,6 +160,8 @@ La configuración de los recursos de Azure creados para hospedar la aplicación 
 :::code language="java" source="~/azure-functions-samples-java/pom.xml" range="62-102":::
 
 Puede cambiar esta configuración para controlar cómo se crean los recursos en Azure, por ejemplo, cambiando `runtime.os` de `windows` a `linux` antes de la implementación inicial. Para obtener una lista completa de los valores de configuración admitidos por el complemento Maven, consulte los [detalles de configuración](https://github.com/microsoft/azure-maven-plugins/wiki/Azure-Functions:-Configuration-Details).
+
+Si quiere ejecutar la aplicación de funciones en Java 11 en lugar de Java 8, debe actualizar manualmente el archivo pom.xml con valores de Java 11. Para obtener más información, consulte las [versiones de Java](functions-reference-java.md#java-versions). Cuando se ejecute en Java 11, asegúrese de que  
 
 #### <a name="functiontestjava"></a>FunctionTest.java
 
@@ -367,7 +372,7 @@ Esta operación crea los siguientes recursos en Azure:
 + Un grupo de recursos Se nombra como _java-functions-group_.
 + Una cuenta de almacenamiento Necesaria con Functions. El nombre se genera aleatoriamente según los requisitos de nombre de la cuenta de almacenamiento.
 + Plan de hospedaje. El hospedaje sin servidor de la aplicación de función en la región _westus_. El nombre es _java-functions-app-service-plan_.
-+ Aplicación de funciones. Una aplicación de funciones es la unidad de implementación y ejecución de las funciones. El nombre se genera de forma aleatoria según el valor de _artifactId_, anexado con un número generado de forma aleatoria. 
++ Aplicación de funciones. Una aplicación de funciones es la unidad de implementación y ejecución de las funciones. El nombre se genera de forma aleatoria según el valor _artifactId_, anexado con un número generado de forma aleatoria. 
 
 La implementación empaqueta los archivos de proyecto y los implementa en la nueva aplicación de función mediante la [implementación de archivos ZIP](functions-deployment-technologies.md#zip-deploy). El código se ejecuta desde el paquete de implementación en Azure.
 ::: zone-end

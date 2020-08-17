@@ -1,6 +1,5 @@
 ---
-title: Reentrenamiento de un servicio web clásico
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): reentrenamiento de servicios web clásicos (Azure)'
 description: Aprenda a entrenar de nuevo un modelo y a actualizar el servicio web clásico para que utilice este modelo en Azure Machine Learning Studio (clásico).
 services: machine-learning
 ms.service: machine-learning
@@ -10,18 +9,21 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: c1dd91a800c8e807d527f24a381262bde97d792c
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: aa11d17aaba28819c4c5ecfb259eea2d8d12ce7d
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080319"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87431875"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Repetición del entrenamiento e implementación de un servicio web de Studio (clásico)
 
+**SE APLICA A:**  ![sí](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico) ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
+
 Una forma de garantizar que los modelos de Machine Learning siguen siendo precisos y se basan en los datos más adecuados disponibles, es volver a entrenarlos. En este artículo se muestra cómo volver a entrenar un servicio web de Studio clásico. Para más información acerca de cómo volver a entrenar un nuevo servicio web de Studio (clásico), [consulte este artículo de procedimientos](retrain-machine-learning-model.md).
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se asume que tiene un experimento de reciclaje y un experimento de predicción. Estos pasos se explican en [Reciclaje de un modelo de Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model). Sin embargo, en lugar de implementar el modelo de Machine Learning como un servicio web nuevo, implementará el experimento de predicción como un servicio web clásico.
      

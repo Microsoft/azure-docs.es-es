@@ -1,7 +1,7 @@
 ---
 title: Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob o de cola
 titleSuffix: Azure Storage
-description: PowerShell admite el inicio de sesión con credenciales de Azure AD para ejecutar comandos en los datos de blob y de cola de Azure Storage. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen del rol RBAC asignado a la entidad de seguridad de Azure AD.
+description: PowerShell admite el inicio de sesión con credenciales de Azure AD para ejecutar comandos en los datos de blob y de cola de Azure Storage. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen del rol de Azure asignado a la entidad de seguridad de Azure AD.
 services: storage
 author: tamram
 ms.service: storage
@@ -10,18 +10,18 @@ ms.date: 12/30/2019
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 80ca5b63a91da31a5b226a589e15fb202eabd4ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a99b2841441e43ac02688494b1324fa5d630dcd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805773"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534930"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Ejecución de comandos de PowerShell con credenciales de Azure AD para acceder a datos de blob o de cola
 
 Azure Storage proporciona extensiones para PowerShell que le permiten iniciar sesión y ejecutar comandos de scripting con credenciales de Azure Active Directory (Azure AD). Al iniciar sesión en PowerShell con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. PowerShell usa automáticamente ese token para autorizar las operaciones de datos posteriores en Blob Storage o Queue Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
-Puede asignar permisos en los datos de blob y de cola a una entidad de seguridad de Azure AD a través del control de acceso basado en rol (RBAC). Para más información sobre los roles RBAC en Azure Storage, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](storage-auth-aad-rbac.md).
+Puede asignar permisos en los datos de blob y de cola a una entidad de seguridad de Azure AD a través del control de acceso basado en rol (RBAC). Para más información sobre los roles de Azure en Azure Storage, vea [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Operaciones compatibles
 
@@ -68,10 +68,10 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles RBAC, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac.md).
+1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para más información sobre la asignación de roles de Azure, vea [Conceder acceso a los datos de blobs y colas de Azure con RBAC en Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > La propagación de las asignaciones de roles RBAC pueden tardar unos minutos.
+    > La propagación de las asignaciones de roles de Azure puede tardar unos minutos.
 
 1. Cree un contenedor mediante una llamada a [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Dado que esta llamada usa el contexto creado en los pasos anteriores, el contenedor se crea con sus credenciales de Azure AD.
 
@@ -82,5 +82,5 @@ En el ejemplo siguiente se muestra cómo crear un contenedor en una nueva cuenta
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de PowerShell para asignar un rol de RBAC para el acceso a datos de blobs y colas](storage-auth-aad-rbac-powershell.md)
+- [Uso de PowerShell para asignar un rol de Azure para el acceso a datos de blobs y colas](storage-auth-aad-rbac-powershell.md)
 - [Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)

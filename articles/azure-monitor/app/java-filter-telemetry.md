@@ -3,12 +3,13 @@ title: Filtrado de la telemetría de Azure Application Insights en la aplicació
 description: Reduzca el tráfico de telemetría mediante el filtrado de los eventos que no necesita supervisar.
 ms.topic: conceptual
 ms.date: 3/14/2019
-ms.openlocfilehash: 020e54132e0ca0a9f9ccf0236f94515877015637
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-java
+ms.openlocfilehash: 825c807d9af542e8776e3b6361b8f6b6dd08f164
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77659924"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372185"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filtrado de telemetría en la aplicación web de Java
 
@@ -23,7 +24,7 @@ Los filtros de serie incluyen:
 
 > [!NOTE]
 > Los filtros sesgan las métricas de la aplicación. Por ejemplo, puede decidir que, para diagnosticar respuestas lentas, hay que establecer un filtro para descartar los tiempos de respuesta rápidos. Pero debe tener en cuenta que los tiempos de respuesta promedio notificados por Application Insights serán más lentos que la velocidad real y que el recuento de las solicitudes será menor que el recuento real.
-> Si puede resultar un problema, use el [muestreo](../../azure-monitor/app/sampling.md) en su lugar.
+> Si puede resultar un problema, use el [muestreo](./sampling.md) en su lugar.
 
 ## <a name="setting-filters"></a>Establecimiento de filtros
 
@@ -152,7 +153,7 @@ Filtre la telemetría para orígenes sintéticos específicos:
 
 ### <a name="telemetry-event-filter"></a>Filtro de eventos de telemetría
 
-Filtra los eventos personalizados (registrados mediante [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)).
+Filtra los eventos personalizados (registrados mediante [TrackEvent()](./api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -168,7 +169,7 @@ Filtra los eventos personalizados (registrados mediante [TrackEvent()](../../azu
 
 ### <a name="trace-telemetry-filter"></a>Filtro de telemetría de seguimiento
 
-Filtra los seguimientos de registros (registrados mediante [TrackTrace()](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) o un [recopilador de plataforma de registro](java-trace-logs.md)).
+Filtra los seguimientos de registros (registrados mediante [TrackTrace()](./api-custom-events-metrics.md#tracktrace) o un [recopilador de plataforma de registro](java-trace-logs.md)).
 
 ```XML
 
@@ -268,4 +269,5 @@ Deberá crear sus propios parámetros de filtro en `application.properties` y ap
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Muestreo](../../azure-monitor/app/sampling.md): considere la posibilidad del muestreo como una alternativa que no sesga las métricas.
+* [Muestreo](./sampling.md): considere la posibilidad del muestreo como una alternativa que no sesga las métricas.
+

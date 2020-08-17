@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9f44cbd9b735839640702970a65de239b36b3f30
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a8f5aaa7b2a054aa31198779414387cebf0f0fbd
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86209108"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537044"
 ---
 # <a name="about-upgrading-expressroute-circuit-bandwidth"></a>Acerca de la actualización del ancho de banda del circuito ExpressRoute
 
@@ -34,7 +34,7 @@ Si la capacidad está disponible, puede actualizar el circuito mediante los mét
 
 Si el asociado de ExpressRoute no tiene suficiente capacidad, debe crear un circuito, configurado con el ancho de banda deseado. Para mantener la conectividad, no elimine el circuito anterior hasta que se haya aprovisionado el circuito recién creado, se haya configurado el emparejamiento y, en relación con el emparejamiento privado, se haya aprovisionado el objeto de conexión a la puerta de enlace de red virtual de ExpressRoute.
 
-Si el asociado de ExpressRoute no tiene suficiente capacidad disponible, debe solicitar capacidad adicional en la ubicación de emparejamiento deseada. Una vez aprovisionada la nueva capacidad, puede usar los pasos que se incluyen en los artículos de la sección [Actualización del ancho de banda del circuito](#upgrade) para crear un circuito, configurar la conectividad y eliminar el circuito anterior:
+Si el asociado de ExpressRoute no tiene suficiente capacidad disponible, debe solicitar capacidad adicional en la ubicación de emparejamiento deseada. Una vez aprovisionada la nueva capacidad, puede usar los pasos que se incluyen en los artículos de la sección [Actualización del ancho de banda del circuito](#upgrade) para crear un circuito, configurar la conectividad y eliminar el circuito anterior.
 
 
 ### <a name="insufficient-expressroute-direct-bandwidth"></a><a name="bandwidth"></a>Ancho de banda insuficiente de ExpressRoute Direct

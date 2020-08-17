@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 04/15/2020
-ms.openlocfilehash: 2d615e81891d68327b3225138495262d4eab9aa3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: dac67c6dae801d11866f7c4978a050a0cb2fa1dd
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116733"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065641"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guía de publicación para ofertas de máquinas virtuales
 
@@ -47,7 +47,7 @@ Use el tipo de oferta de *máquina virtual* cuando implemente un dispositivo vir
 > En este momento, los compromisos monetarios asociados con un Contrato Enterprise se pueden aplicar al uso que Azure hace de su VM, pero no a las tarifas de licencias de software.  
 > 
 > [!NOTE]
-> Puede restringir la detección y la implementación de su VM para un conjunto de clientes específico. Para ello, publique la imagen y los precios como una oferta privada. Las ofertas privadas le ofrecen la posibilidad de crear ofertas exclusivas para sus clientes más próximos y proporcionan software y términos personalizados. Los términos personalizados le permiten resaltar una gran variedad de escenarios, incluidas las ofertas sobre el terreno con precios y términos especializados, así como acceso anticipado a software de versión limitada. Las ofertas privadas permiten ofrecer precios o productos específicos a un conjunto limitado de clientes mediante la creación de una nueva SKU con esos detalles.  
+> Puede restringir la detección y la implementación de su VM para un conjunto de clientes específico. Para ello, publique la imagen y los precios como una oferta privada. Las ofertas privadas le ofrecen la posibilidad de crear ofertas exclusivas para sus clientes más próximos y proporcionan software y términos personalizados. Los términos personalizados le permiten resaltar una gran variedad de escenarios, incluidas las ofertas sobre el terreno con precios y términos especializados, así como acceso anticipado a software de versión limitada. Las ofertas privadas permiten ofrecer precios o productos específicos a un conjunto limitado de clientes mediante la creación de un nuevo plan con esos detalles.  
 >
 > Para más información, consulte [Ofertas privadas en Azure Marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 

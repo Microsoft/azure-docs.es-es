@@ -1,19 +1,19 @@
 ---
 title: Procedimientos recomendados para el servicio Route de Azure Maps | Microsoft Azure Maps
 description: Conozca cómo enrutar vehículos mediante el servicio Route de Microsoft Azure Maps.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/11/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 24fa4c48f6ca03e4049483a9acfff067d5a6a736
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 79e9096030aada9fa368bb2e78af323139c0586c
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266702"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132218"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedimientos recomendados para el servicio Route de Azure Maps
 
@@ -31,7 +31,7 @@ Las API Route Directions y Route Matrix del [servicio Route](https://docs.micros
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para realizar llamadas a las API de Azure Maps, necesita una cuenta y una clave de Azure Maps. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-account-with-azure-maps) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). La clave principal también se conoce como clave de suscripción principal o clave de suscripción.
+Para realizar llamadas a las API de Azure Maps, necesita una cuenta y una clave de Azure Maps. Para más información, consulte [Creación de una cuenta](quick-demo-map-app.md#create-an-azure-maps-account) y [Obtención de una clave principal](quick-demo-map-app.md#get-the-primary-key-for-your-account). La clave principal también se conoce como clave de suscripción principal o clave de suscripción.
 
 Para más información sobre la autenticación en Azure Maps, consulte [Administración de la autenticación en Azure Maps](./how-to-manage-authentication.md). Y para obtener más información sobre la cobertura del servicio Route, vea [Cobertura de enrutamiento](routing-coverage.md).
 

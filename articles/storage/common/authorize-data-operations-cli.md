@@ -10,12 +10,13 @@ ms.date: 02/26/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: b4af9c23e2599ad666908763720a5f01303b8d50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: a656ccc56d198943c8631077466115eb6411a64a
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84805480"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534896"
 ---
 # <a name="authorize-access-to-blob-or-queue-data-with-azure-cli"></a>Autorización del acceso a los datos de blobs o colas con la CLI de Azure
 
@@ -42,7 +43,7 @@ Para usar el parámetro `--auth-mode`, asegúrese de que ha instalado la CLI de 
 
 Al iniciar sesión en la CLI de Azure con credenciales de Azure AD, se devuelve un token de acceso OAuth 2.0. La CLI de Azure usa automáticamente ese token para autorizar las operaciones de datos posteriores en Blob Storage o Queue Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
-Puede asignar permisos en los datos de blob y de cola a una entidad de seguridad de Azure AD a través del control de acceso basado en rol (RBAC). Para más información sobre los roles RBAC en Azure Storage, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](storage-auth-aad-rbac.md).
+Puede asignar permisos en los datos de blob y de cola a una entidad de seguridad de Azure AD a través del control de acceso basado en rol (RBAC). Para obtener más información sobre los roles de Azure en Azure Storage, consulte [Administración de los derechos de acceso a los datos de Azure Storage con RBAC](storage-auth-aad-rbac.md).
 
 ### <a name="permissions-for-calling-data-operations"></a>Permisos para llamar a operaciones de datos
 
@@ -54,10 +55,10 @@ Para más información sobre los permisos requeridos para cada operación de Azu
 
 En el ejemplo siguiente se muestra cómo crear un contenedor a partir de la CLI de Azure con las credenciales de Azure AD. Para crear el contenedor, debe iniciar sesión en la CLI de Azure. Necesitará un grupo de recursos y una cuenta de almacenamiento. Para obtener información sobre cómo crear esos recursos, consulte [Inicio rápido: Creación, descarga y enumeración de blobs mediante la CLI de Azure](../blobs/storage-quickstart-blobs-cli.md).
 
-1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles RBAC, consulte [Conceder acceso a datos blob y cola de Azure con RBAC en Azure Portal](storage-auth-aad-rbac.md).
+1. Antes de crear el contenedor, asígnese a sí mismo el rol [Colaborador de datos de Storage Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor). Aunque sea el propietario de la cuenta, necesita permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles de Azure, consulte [Conceder acceso a los datos de blobs y colas de Azure con RBAC en Azure Portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > La propagación de las asignaciones de roles RBAC pueden tardar unos minutos.
+    > La propagación de las asignaciones de roles de Azure pueden tardar unos minutos.
 
 1. Llame al comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) con el parámetro `--auth-mode` establecido en `login` para crear el contenedor con sus credenciales de Azure AD. No olvide reemplazar los valores del marcador de posición entre corchetes angulares por sus propios valores:
 
@@ -107,5 +108,5 @@ Puede especificar parámetros de autorización en variables de entorno para evit
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Uso de la CLI de Azure para asignar un rol de RBAC para el acceso a datos de blobs y colas](storage-auth-aad-rbac-cli.md)
+- [Uso de la CLI de Azure para asignar un rol de Azure para obtener acceso a datos de blobs y colas](storage-auth-aad-rbac-cli.md)
 - [Autorización del acceso a datos de blobs y colas con identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)

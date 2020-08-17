@@ -4,15 +4,15 @@ description: Obtenga información sobre cómo administrar directivas de indexaci
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 04/28/2020
+ms.date: 08/04/2020
 ms.author: tisande
-ms.custom: tracking-python
-ms.openlocfilehash: 8b41a92f16fe7d71c17b6460289db76bf02c62ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-python, devx-track-javascript, devx-track-azurecli
+ms.openlocfilehash: de9cdaf1dcc398c5db55de78643a19179f6bfdbc
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261518"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876485"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Administración de directivas de indexación en Azure Cosmos DB
 
@@ -344,7 +344,7 @@ En Azure Cosmos DB, la directiva de indexación se puede actualizar mediante cua
 Las [actualizaciones de las directivas de indexación](index-policy.md#modifying-the-indexing-policy) desencadenan transformaciones de índices. También se puede realizar un seguimiento del progreso de esta transformación desde los SDK.
 
 > [!NOTE]
-> Al actualizar la directiva de indexación, las escrituras en Azure Cosmos DB no se interrumpirán. Durante la reindexación, puede que las consultas devuelvan resultados parciales a medida que se actualiza el índice.
+> Al actualizar la directiva de indexación, las escrituras en Azure Cosmos DB no se interrumpirán. Obtenga más información sobre las [transformaciones de indexación](indexing-policy.md#modifying-the-indexing-policy).
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 

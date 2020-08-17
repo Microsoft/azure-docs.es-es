@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: d41a71ff5f97449968d82812119cfdfd4bc2ef44
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 09c56646ffa9bcadcec821bcd83411077d6a55ae
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261178"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87824603"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Escalado y planeamiento de capacidad de Azure Service Fabric
 
@@ -19,7 +19,7 @@ Es importante planear la capacidad antes de crear cualquier clúster de Azure Se
 Además de tener en cuenta las características de clúster y el tipo de nodo, debería esperar que las operaciones de escalado tarden más de una hora en completarse en un entorno de producción. Esta consideración es cierta independientemente del número de máquinas virtuales que se vayan a agregar.
 
 ## <a name="autoscaling"></a>Escalado automático
-Debe realizar las operaciones de escalado con plantillas de Azure Resource Manager, porque es el procedimiento recomendado para tratar [configuraciones de recursos como código]( https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code). 
+Debe realizar las operaciones de escalado con plantillas de Azure Resource Manager, porque es el procedimiento recomendado para tratar [configuraciones de recursos como código](./service-fabric-best-practices-infrastructure-as-code.md). 
 
 El uso del escalado automático a través de conjuntos de escalado de máquinas virtuales hará que la plantilla de Resource Manager con control de versiones defina sus recuentos de instancias para conjuntos de escalado de máquinas virtuales de manera imprecisa. Una definición imprecisa aumenta el riesgo de que las futuras implementaciones provoquen operaciones de escalado no intencionadas. En general, debe usar el escalado automático si:
 

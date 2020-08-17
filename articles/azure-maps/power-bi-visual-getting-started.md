@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: e840517934e77c96f1c19c3243ad2884d7ccce66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9f7f44e053cfb26cbf7d897b8a1df1ad2861fd07
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261520"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552006"
 ---
 # <a name="getting-started-with-the-azure-maps-power-bi-visual"></a>Introducción al objeto visual de Azure Maps en Power BI
 
@@ -35,6 +35,9 @@ El objeto visual de Azure Maps se conecta al servicio en la nube hospedado en Az
 
 -   Los detalles sobre el área en la que se enfoca el mapa se envían a Azure para recuperar las imágenes necesarias para representar el lienzo del mapa (también conocido como mosaicos de mapa). 
 -   Los datos de los cubos Ubicación, Latitud y Longitud se pueden enviar a Azure para recuperar las coordenadas del mapa (proceso denominado geocodificación). 
+-   Se pueden recopilar datos de telemetría sobre el mantenimiento del elemento visual (p. ej., informes de bloqueo) si la opción de telemetría de Power BI está habilitada.
+
+Aparte de los escenarios descritos anteriormente, no se envía ningún otro dato superpuesto en el mapa a los servidores de Azure Maps. Toda la representación de los datos se produce localmente en el cliente.
 
 Usted o su administrador pueden tener que actualizar el firewall para permitir el acceso a la plataforma de Azure Maps que usa la siguiente dirección URL.
 
@@ -127,7 +130,7 @@ El objeto visual de Azure Maps está disponible en los siguientes servicios y ap
 
 | Servicio/aplicación                              | Disponibilidad |
 |------------------------------------------|--------------|
-| Power BI Desktop                         | Sí          |
+| Power BI Desktop                         | Sí          |
 | Servicio Power BI (app.powerbi.com)       | Sí          |
 | Aplicaciones móviles de Power BI             | Sí          |
 | Publicar en la web desde Power BI                  | No           |
@@ -170,7 +173,7 @@ Obtenga más información sobre el objeto visual de Azure Maps en Power BI:
 Personalización del objeto visual:
 
 > [!div class="nextstepaction"]
-> [Trucos y sugerencias para el formato de color en Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
+> [Sugerencias y trucos para el formato de color en Power BI](https://docs.microsoft.com/power-bi/visuals/service-tips-and-tricks-for-color-formatting)
 
 > [!div class="nextstepaction"]
 > [Personalización de los títulos, los fondos y las leyendas de las visualizaciones](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-customize-title-background-and-legend)

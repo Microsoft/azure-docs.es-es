@@ -9,22 +9,22 @@ ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b08b5db5639d498aa6a6a47b7f7121cad565fe02
+ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77598840"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87986375"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Mejore la protección frente a amenazas mediante la integración de las operaciones de seguridad con Microsoft Graph Security y Azure Logic Apps.
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Microsoft Graph Security](https://docs.microsoft.com/graph/security-concept-overview), puede mejorar cómo la aplicación detecta, protege y responde frente a las amenazas mediante la creación de flujos de trabajo automatizados para la integración de productos, servicios y asociados de seguridad de Microsoft. Por ejemplo, puede crear [cuadernos de estrategias de Azure Security Center](../security-center/security-center-playbooks.md) que supervisen y administren las entidades de seguridad de Microsoft Graph, como las alertas. Estos son algunos de los escenarios admitidos por el conector Microsoft Graph Security:
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el conector [Microsoft Graph Security](/graph/security-concept-overview), puede mejorar cómo la aplicación detecta, protege y responde frente a las amenazas mediante la creación de flujos de trabajo automatizados para la integración de productos, servicios y asociados de seguridad de Microsoft. Por ejemplo, puede crear [cuadernos de estrategias de Azure Security Center](../security-center/workflow-automation.md) que supervisen y administren las entidades de seguridad de Microsoft Graph, como las alertas. Estos son algunos de los escenarios admitidos por el conector Microsoft Graph Security:
 
 * Obtención de alertas basadas en consultas o por identificador de alerta. Por ejemplo, puede obtener una lista que incluya alertas de gravedad alta.
 
 * Actualización de alertas. Por ejemplo, puede actualizar asignaciones de alertas, agregar comentarios a alertas o etiquetar alertas.
 
-* Supervisión de cuándo se crean las alertas o se cambian mediante la creación de [suscripciones de alertas (webhooks)](https://docs.microsoft.com/graph/api/resources/webhooks).
+* Supervisión de cuándo se crean las alertas o se cambian mediante la creación de [suscripciones de alertas (webhooks)](/graph/api/resources/webhooks).
 
 * Administración de las suscripciones de alertas. Por ejemplo, puede obtener las suscripciones activas, ampliar el tiempo de expiración de una suscripción o eliminar suscripciones.
 
@@ -109,52 +109,52 @@ Estos son detalles más específicos sobre el uso de las distintas acciones disp
 
 ### <a name="manage-alerts"></a>Administrar alertas
 
-Para filtrar, ordenar, u obtener los resultados más recientes, *solo* proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *No especifique* la dirección URL base completa o la acción HTTP, por ejemplo, `https://graph.microsoft.com/v1.0/security/alerts`, ni la operación `GET` o `PATCH`. Este es un ejemplo específico que muestra los parámetros para una acción **Obtener alertas** cuando quiere una lista con alertas de gravedad alta:
+Para filtrar, ordenar, u obtener los resultados más recientes, *solo* proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](/graph/query-parameters). *No especifique* la dirección URL base completa o la acción HTTP, por ejemplo, `https://graph.microsoft.com/v1.0/security/alerts`, ni la operación `GET` o `PATCH`. Este es un ejemplo específico que muestra los parámetros para una acción **Obtener alertas** cuando quiere una lista con alertas de gravedad alta:
 
 `Filter alerts value as Severity eq 'high'`
 
-Para más información sobre las consultas que puede usar con este conector, consulte la [documentación de referencia de alertas de Microsoft Graph Security](https://docs.microsoft.com/graph/api/alert-list). Para crear experiencias mejoradas con este conector, aprenda más sobre las [alertas de propiedades de esquema](https://docs.microsoft.com/graph/api/resources/alert) que admite el conector.
+Para más información sobre las consultas que puede usar con este conector, consulte la [documentación de referencia de alertas de Microsoft Graph Security](/graph/api/alert-list). Para crear experiencias mejoradas con este conector, aprenda más sobre las [alertas de propiedades de esquema](/graph/api/resources/alert) que admite el conector.
 
 | Acción | Descripción |
 |--------|-------------|
-| **Obtener alertas** | Obtenga alertas filtrada por una o varias [propiedades de alerta](https://docs.microsoft.com/graph/api/resources/alert), por ejemplo, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
+| **Obtener alertas** | Obtenga alertas filtrada por una o varias [propiedades de alerta](/graph/api/resources/alert), por ejemplo, `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`. | 
 | **Obtener alerta por identificador** | Obtenga una alerta específica según el identificador de alerta. | 
-| **Actualizar alerta** | Actualice una alerta específica según el identificador de alerta. Para asegurarse de que pasa las propiedades obligatorias y modificables en la solicitud, consulte las [propiedades editables para alertas](https://docs.microsoft.com/graph/api/alert-update). Por ejemplo, para asignar una alerta a un analista de seguridad para que puede investigarla, puede actualizar la propiedad **Assigned to** (Asignado a) de la alerta. |
+| **Actualizar alerta** | Actualice una alerta específica según el identificador de alerta. Para asegurarse de que pasa las propiedades obligatorias y modificables en la solicitud, consulte las [propiedades editables para alertas](/graph/api/alert-update). Por ejemplo, para asignar una alerta a un analista de seguridad para que puede investigarla, puede actualizar la propiedad **Assigned to** (Asignado a) de la alerta. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>Administración de suscripciones de alertas
 
-Microsoft Graph admite [*suscripciones*](https://docs.microsoft.com/graph/api/resources/subscription) o [*webhooks*](https://docs.microsoft.com/graph/api/resources/webhooks). Para obtener, actualizar, o eliminar suscripciones, proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](https://docs.microsoft.com/graph/query-parameters) a la construcción de entidad de Microsoft Graph e incluya `security/alerts` seguido de la consulta de ODATA. *No incluya* la URL base, por ejemplo, `https://graph.microsoft.com/v1.0`. En cambio, use el formato de este ejemplo:
+Microsoft Graph admite [*suscripciones*](/graph/api/resources/subscription) o [*webhooks*](/graph/api/resources/webhooks). Para obtener, actualizar, o eliminar suscripciones, proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](/graph/query-parameters) a la construcción de entidad de Microsoft Graph e incluya `security/alerts` seguido de la consulta de ODATA. *No incluya* la URL base, por ejemplo, `https://graph.microsoft.com/v1.0`. En cambio, use el formato de este ejemplo:
 
-`security/alerts?$filter=status eq 'New'`
+`security/alerts?$filter=status eq 'NewAlert'`
 
 | Acción | Descripción |
 |--------|-------------|
-| **Creación de suscripciones** | [Crea una suscripción](https://docs.microsoft.com/graph/api/subscription-post-subscriptions) que le informe sobre cualquier cambio. Puede filtrar esta suscripción por los tipos de alerta específicos que desee. Por ejemplo, puede crear una suscripción que le informe sobre las alertas de gravedad alta. |
-| **Obtener suscripciones activas** | [Obtiene las suscripciones no expiradas](https://docs.microsoft.com/graph/api/subscription-list). | 
-| **Actualizar suscripción** | [Actualiza una suscripción](https://docs.microsoft.com/graph/api/subscription-update) cuando se proporciona el identificador de suscripción. Por ejemplo, para ampliar su suscripción, puede actualizar la propiedad `expirationDateTime` de la suscripción. | 
-| **Eliminar suscripción** | [Elimina una suscripción](https://docs.microsoft.com/graph/api/subscription-delete) cuando se proporciona el identificador de la suscripción. | 
+| **Creación de suscripciones** | [Crea una suscripción](/graph/api/subscription-post-subscriptions) que le informe sobre cualquier cambio. Puede filtrar esta suscripción por los tipos de alerta específicos que desee. Por ejemplo, puede crear una suscripción que le informe sobre las alertas de gravedad alta. |
+| **Obtener suscripciones activas** | [Obtiene las suscripciones no expiradas](/graph/api/subscription-list). | 
+| **Actualizar suscripción** | [Actualiza una suscripción](/graph/api/subscription-update) cuando se proporciona el identificador de suscripción. Por ejemplo, para ampliar su suscripción, puede actualizar la propiedad `expirationDateTime` de la suscripción. | 
+| **Eliminar suscripción** | [Elimina una suscripción](/graph/api/subscription-delete) cuando se proporciona el identificador de la suscripción. | 
 ||| 
 
 ### <a name="manage-threat-intelligence-indicators"></a>Administración de indicadores de inteligencia sobre amenazas
 
-Para filtrar, ordenar, u obtener los resultados más recientes, *solo* proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](https://docs.microsoft.com/graph/query-parameters). *No especifique* la dirección URL base completa o la acción HTTP, por ejemplo, `https://graph.microsoft.com/beta/security/tiIndicators`, ni la operación `GET` o `PATCH`. Este es un ejemplo específico que muestra los parámetros de una acción **Obtener indicadores de inteligencia sobre amenazas** cuando se quiere una lista que tenga el tipo de amenaza `DDoS`:
+Para filtrar, ordenar, u obtener los resultados más recientes, *solo* proporcione los [parámetros de consulta de ODATA admitidos por Microsoft Graph](/graph/query-parameters). *No especifique* la dirección URL base completa o la acción HTTP, por ejemplo, `https://graph.microsoft.com/beta/security/tiIndicators`, ni la operación `GET` o `PATCH`. Este es un ejemplo específico que muestra los parámetros de una acción **Obtener indicadores de inteligencia sobre amenazas** cuando se quiere una lista que tenga el tipo de amenaza `DDoS`:
 
 `Filter threat intelligence indicator value as threatType eq 'DDoS'`
 
-Para obtener más información sobre las consultas que puede usar con este conector, vea ["Parámetros de consulta opcionales" en la documentación de referencia del indicador de inteligencia sobre amenazas de seguridad de Microsoft Graph](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http). Para crear experiencias mejoradas con este conector, obtenga más información sobre el [indicador de inteligencia sobre amenazas de propiedades de esquema](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) que admite el conector.
+Para obtener más información sobre las consultas que puede usar con este conector, vea ["Parámetros de consulta opcionales" en la documentación de referencia del indicador de inteligencia sobre amenazas de seguridad de Microsoft Graph](/graph/api/tiindicators-list?tabs=http&view=graph-rest-beta). Para crear experiencias mejoradas con este conector, obtenga más información sobre el [indicador de inteligencia sobre amenazas de propiedades de esquema](/graph/api/resources/tiindicator?view=graph-rest-beta) que admite el conector.
 
 | Acción | Descripción |
 |--------|-------------|
-| **Obtener indicadores de inteligencia sobre amenazas** | Obtenga indicadores de inteligencia sobre amenazas filtrados por una o varias [propiedades de indicadores de inteligencia sobre amenazas](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta), por ejemplo, `threatType eq 'MaliciousUrl' or 'DDoS'`. |
+| **Obtener indicadores de inteligencia sobre amenazas** | Obtenga indicadores de inteligencia sobre amenazas filtrados por una o varias [propiedades de indicadores de inteligencia sobre amenazas](/graph/api/resources/tiindicator?view=graph-rest-beta), por ejemplo, `threatType eq 'MaliciousUrl' or 'DDoS'`. |
 | **Obtener indicadores de inteligencia sobre amenazas por identificador** | Obtenga un indicador de inteligencia sobre amenazas específico en función del identificador. | 
-| **Crear un indicador de inteligencia sobre amenazas** | Cree un nuevo indicador de inteligencia sobre amenazas mediante su publicación en la colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para crear un indicador de inteligencia sobre amenazas](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http). |
-| **Enviar varios indicadores de inteligencia sobre amenazas** | Cree varios indicadores de inteligencia sobre amenazas mediante la publicación de una colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para enviar varios indicadores de inteligencia sobre amenazas](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http). |
-| **Actualizar un indicador de inteligencia sobre amenazas** | Actualice un indicador de inteligencia sobre amenazas específico en función del identificador. Para asegurarse de pasar las propiedades necesarias y editables en la solicitud, vea las [propiedades editables para indicadores de inteligencia sobre amenazas](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http). Por ejemplo, para actualizar la acción que se va a aplicar si el indicador se combina desde la herramienta de seguridad targetProduct, puede actualizar la propiedad **action** del indicador de inteligencia sobre amenazas. |
-| **Actualizar varios indicadores de inteligencia sobre amenazas** | Actualice varios indicadores de inteligencia sobre amenazas. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para actualizar varios indicadores de inteligencia sobre amenazas](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http). |
+| **Crear un indicador de inteligencia sobre amenazas** | Cree un nuevo indicador de inteligencia sobre amenazas mediante su publicación en la colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para crear un indicador de inteligencia sobre amenazas](/graph/api/tiindicators-post?tabs=http&view=graph-rest-beta). |
+| **Enviar varios indicadores de inteligencia sobre amenazas** | Cree varios indicadores de inteligencia sobre amenazas mediante la publicación de una colección. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para enviar varios indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-submittiindicators?tabs=http&view=graph-rest-beta). |
+| **Actualizar un indicador de inteligencia sobre amenazas** | Actualice un indicador de inteligencia sobre amenazas específico en función del identificador. Para asegurarse de pasar las propiedades necesarias y editables en la solicitud, vea las [propiedades editables para indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-update?tabs=http&view=graph-rest-beta). Por ejemplo, para actualizar la acción que se va a aplicar si el indicador se combina desde la herramienta de seguridad targetProduct, puede actualizar la propiedad **action** del indicador de inteligencia sobre amenazas. |
+| **Actualizar varios indicadores de inteligencia sobre amenazas** | Actualice varios indicadores de inteligencia sobre amenazas. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para actualizar varios indicadores de inteligencia sobre amenazas](/graph/api/tiindicator-updatetiindicators?tabs=http&view=graph-rest-beta). |
 | **Eliminar indicadores de inteligencia sobre amenazas por identificador** | Elimine un indicador de inteligencia sobre amenazas específico en función del identificador. |
-| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador** | Elimine varios indicadores de inteligencia sobre amenazas por sus identificadores. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http). |
-| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador externo** | Elimine varios indicadores de inteligencia sobre amenazas por los identificadores externos. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador externo](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http). |
+| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador** | Elimine varios indicadores de inteligencia sobre amenazas por sus identificadores. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador](/graph/api/tiindicator-deletetiindicators?tabs=http&view=graph-rest-beta). |
+| **Eliminar varios indicadores de inteligencia sobre amenazas por identificador externo** | Elimine varios indicadores de inteligencia sobre amenazas por los identificadores externos. Para asegurarse de pasar las propiedades necesarias en la solicitud, vea las [propiedades necesarias para eliminar varios indicadores de inteligencia sobre amenazas por identificador externo](/graph/api/tiindicator-deletetiindicatorsbyexternalid?tabs=http&view=graph-rest-beta). |
 |||
 
 ## <a name="connector-reference"></a>Referencia de conectores
@@ -164,3 +164,4 @@ Para obtener detalles técnicos acerca de desencadenadores, acciones y límites,
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: d3fab2515bb15cce35070de9326cd6afcc034b20
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9f5fcbda93e4a31b4d328bffe4689a47a4eb89ff
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86517760"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281572"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para desarrolladores de aplicaciones para administrar recursos en Azure Kubernetes Services (AKS)
 
@@ -35,7 +35,7 @@ Una manera principal de administrar los recursos de proceso dentro de un clúste
     * Cuando el programador de Kubernetes intenta colocar un pod en un nodo, las solicitudes de pods se usan para determinar qué nodo tiene suficientes recursos disponibles para la programación.
     * Si no configura una solicitud de pod, el valor predeterminado será el límite definido.
     * Es muy importante supervisar el rendimiento de su aplicación para ajustar estas solicitudes. Si se realizan solicitudes insuficientes, su aplicación puede recibir un rendimiento degradado debido a la programación excesiva de un nodo. Si se sobreestiman las solicitudes, su aplicación puede tener mayores dificultades para ser programada.
-* Los **límites de CPU/memoria del pod** equivalen a la cantidad máxima de CPU y memoria que puede usar un pod. Estos límites ayudan a definir qué pods deben eliminarse en caso de inestabilidad de nodos debido a recursos insuficientes. Sin los límites adecuados, los pods establecidos se terminarán hasta que se levante la presión de los recursos.
+* Los **límites de CPU/memoria del pod** equivalen a la cantidad máxima de CPU y memoria que puede usar un pod. Los límites de memoria ayudan a definir qué pods deben eliminarse en caso de inestabilidad de nodos debido a recursos insuficientes. Sin los límites adecuados, los pods establecidos se terminarán hasta que se levante la presión de los recursos. Un pod puede o no superar el límite de CPU durante un período de tiempo, pero el pod no se terminará cuando se supere el límite de CPU. 
     * Los límites de pod ayudan a definir cuándo ha perdido un pod el control del consumo de recursos. Cuando se supera un límite, el pod tiene prioridad de terminar para mantener el estado del nodo y minimizar el impacto en los pods que comparten el nodo.
     * Al no establecer un límite de pod, el valor predeterminado es el valor más alto disponible en un nodo determinado.
     * No establezca un límite de pods superior al que los nodos pueden admitir. Cada nodo de AKS reserva una cierta cantidad de CPU y memoria para los componentes básicos de Kubernetes. La aplicación puede intentar consumir demasiados recursos en el nodo para que otros pods se ejecuten correctamente.

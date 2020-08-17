@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: reference
 ms.date: 10/03/2019
 ms.author: brendm
-ms.openlocfilehash: 957931407987e116924677341df4effe5347590e
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.custom: devx-track-java
+ms.openlocfilehash: 07e7b8db3bf7e1131ec8892a69223eaf4505e8de
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187649"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87037753"
 ---
 # <a name="az-spring-cloud"></a>az spring-cloud
 

@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 10/25/2019
-ms.openlocfilehash: 479c5165c206ced9f387d7b4a475945173da8a16
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6d720eee668edf2de968f0ce6955a5a586a92419
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086235"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87087686"
 ---
 # <a name="custom-roles-for-sql-server-to-azure-sql-managed-instance-online-migrations"></a>Roles personalizados para migraciones en línea de SQL Server a una instancia administrada de Azure SQL
 
@@ -83,7 +83,7 @@ Actualmente se recomienda crear un mínimo de dos roles personalizados para el i
 
 El código JSON anterior debe almacenarse en tres archivos de texto y puede usar los cmdlets AzureRM y AZ PowerShell o la CLI de Azure para crear los roles mediante **New-AzureRmRoleDefinition (AzureRM)** o **New-AzRoleDefinition (AZ)** .
 
-Para más información, consulte el artículo [Roles personalizados en los recursos de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
+Para más información, consulte el artículo [Roles personalizados de Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).
 
 Después de crear estos roles personalizados, debe agregar las asignaciones de roles a los usuarios y los id. de aplicación a los recursos o grupos de recursos adecuados:
 

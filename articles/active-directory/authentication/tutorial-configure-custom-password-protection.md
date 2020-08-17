@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 02/27/2020
+ms.date: 07/13/2020
 ms.author: iainfou
 author: iainfoulds
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4abb15462689470c87e9cf5ba8d5be8af2e45bfd
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: a5b2f3a61e2167067bd6e61ee2a36bb1d22950d8
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78253125"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419672"
 ---
 # <a name="tutorial-configure-custom-banned-passwords-for-azure-active-directory-password-protection"></a>Tutorial: Configuración de contraseñas prohibidas personalizadas para la protección con contraseña de Azure Active Directory
 
@@ -32,16 +32,16 @@ En este tutorial, aprenderá a:
 
 Para completar este tutorial, necesitará los siguientes recursos y privilegios:
 
-* Un inquilino de Azure AD activo con al menos una licencia de prueba habilitada.
+* Un inquilino de Azure AD activo con al menos una licencia de Azure AD Premium P1 o de prueba habilitada.
     * Si es preciso, [cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Una cuenta con privilegios de *administrador global*.
 * Un usuario que no sea administrador con una contraseña que conozca, como *usuarioDePrueba*. Para probar un evento de cambio de contraseña, use esta cuenta en este tutorial.
-    * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../add-users-azure-active-directory.md).
+    * Si necesita crear un usuario, consulte [Inicio rápido: Incorporación de nuevos usuarios a Azure Active Directory](../fundamentals/add-users-azure-active-directory.md).
     * Para probar una operación de cambio de contraseña con una contraseña prohibida, el inquilino de Azure AD debe estar [configurado para el autoservicio de restablecimiento de contraseña](tutorial-enable-sspr.md).
 
 ## <a name="what-are-banned-password-lists"></a>¿Qué son las listas de contraseñas prohibidas?
 
-Azure AD incluye una lista global de contraseñas prohibidas. El contenido de la lista global de contraseñas prohibidas no se basa en ningún origen de datos externo, sino que se basa en los resultados continuos de la telemetría y el análisis de seguridad de Azure AD. Cuando un usuario o administrador intenta cambiar o restablecer sus credenciales, se comprueba la contraseña deseada en la lista de contraseñas prohibidas. Se produce un error en la solicitud de cambio de contraseña si hay una coincidencia en la lista global de contraseñas prohibidas.
+Azure AD incluye una lista global de contraseñas prohibidas. El contenido de la lista global de contraseñas prohibidas no se basa en ningún origen de datos externo, sino que se basa en los resultados continuos de la telemetría y el análisis de seguridad de Azure AD. Cuando un usuario o administrador intenta cambiar o restablecer sus credenciales, se comprueba la contraseña deseada en la lista de contraseñas prohibidas. Se produce un error en la solicitud de cambio de contraseña si hay una coincidencia en la lista global de contraseñas prohibidas. No se puede editar esta lista global de contraseñas prohibidas predeterminada.
 
 Para que tenga flexibilidad en cuanto a las contraseñas que se permiten, también puede definir una lista personalizada de contraseñas prohibidas. La lista personalizada de contraseñas prohibidas funciona junto con la lista global de contraseñas prohibidas para aplicar contraseñas seguras en su organización. Se pueden agregar términos específicos de la organización a la lista personalizada de contraseñas prohibidas, como los ejemplos siguientes:
 
@@ -77,7 +77,7 @@ Para habilitar la lista personalizada de contraseñas prohibidas y agregar entra
 
     Especifique sus propias contraseñas personalizadas para prohibirlas, tal como se muestra en el ejemplo siguiente.
 
-    [![](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png "Modify the custom banned password list under Authentication Methods in the Azure portal")](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
+    [ ![Modifique la lista personalizada de contraseñas prohibidas en Métodos de autenticación de Azure Portal](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords-cropped.png) ](media/tutorial-configure-custom-password-protection/enable-configure-custom-banned-passwords.png#lightbox)
 
 1. En **Habilitar protección con contraseña en Windows Server Active Directory**, establezca la opción en *No*.
 1. Para habilitar las contraseñas prohibidas personalizadas y las entradas, seleccione **Guardar**.
@@ -91,7 +91,7 @@ Para un entorno híbrido, también puede [implementar la protección con contras
 Para ver la lista personalizada de contraseñas prohibidas en acción, intente cambiar la contraseña por una variación de una que haya agregado en la sección anterior. Cuando Azure AD intenta procesar el cambio de contraseña, la contraseña se compara con una entrada de la lista personalizada de contraseñas prohibidas. A continuación, se muestra un error al usuario.
 
 > [!NOTE]
-> Para que un usuario pueda restablecer su contraseña en el portal basado en web, el inquilino de Azure AD debe estar [configurado para el autoservicio de restablecimiento de contraseña](tutorial-enable-sspr.md).
+> Para que un usuario pueda restablecer su contraseña en el portal basado en web, el inquilino de Azure AD debe estar [configurado para el autoservicio de restablecimiento de contraseña](tutorial-enable-sspr.md). Si es necesario, el usuario puede entonces [registrarse para SSPR en https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
 
 1. Vaya a la página **Mis aplicaciones** en [https://myapps.microsoft.com](https://myapps.microsoft.com).
 1. En la esquina superior derecha, seleccione su nombre y, a continuación, elija **Perfil** en el menú desplegable.

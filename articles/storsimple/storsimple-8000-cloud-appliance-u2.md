@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 01ce952ea774ba852c83d0d6aa3fe38d5dfd677e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 219e2b77a0f6f30307c43f006fcdd3828d3c8fbf
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711857"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87021382"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Implementación y administración de una instancia de StorSimple Cloud Appliance en Azure (Update 3 y versiones posteriores)
 
@@ -84,7 +84,7 @@ Antes de aprovisionar el dispositivo de nube, debe realizar los siguientes prepa
 * Para el dispositivo de nube, [configure una red virtual en Azure](../virtual-network/manage-virtual-network.md#create-a-virtual-network). Si usa Premium Storage, tiene que crear una red virtual en una región de Azure que admita dicho almacenamiento. Las regiones Premium Storage son las que corresponden a la fila de almacenamiento en disco de la [lista de servicios de Azure por región](https://azure.microsoft.com/regions/services/).
 * Se recomienda usar el servidor DNS predeterminado proporcionado por Azure en lugar de especificar su propio nombre de servidor DNS. Si el nombre del servidor DNS no es válido o si el servidor DNS no es capaz de resolver direcciones IP correctamente, la creación del dispositivo de nube dará error.
 * Punto a sitio y sitio a sitio son opcionales, pero no obligatorios. Si lo desea, puede configurar estas opciones para escenarios más avanzados.
-* Puede crear [Azure Virtual Machines](../virtual-machines/virtual-machines-windows-quick-create-portal.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo de nube. Estos servidores deben cumplir los siguientes requisitos:
+* Puede crear [Azure Virtual Machines](../virtual-machines/windows/quick-create-portal.md) (servidores host) en la red virtual que pueden usar los volúmenes expuestos por el dispositivo de nube. Estos servidores deben cumplir los siguientes requisitos:
 
   * Estar en máquinas virtuales de Windows o Linux con el software iSCSI Initiator instalado.
   * Estar ejecutándose en la misma red virtual que el dispositivo de nube.

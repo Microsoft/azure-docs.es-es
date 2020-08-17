@@ -2,19 +2,22 @@
 title: 'Mensajes fallidos y directivas de reintento: Azure Event Grid'
 description: Describe la personalización de las opciones de entrega de eventos para Event Grid. Defina un destino de mensajes fallidos y especifique el tiempo para reintentar la entrega.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 88e782eb7dafc10956120bdae870aa2eb58778a5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/20/2020
+ms.openlocfilehash: 2ff1d05899fb74583489649154ffa062e857cb95
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86105513"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074884"
 ---
 # <a name="dead-letter-and-retry-policies"></a>Mensajes fallidos y directivas de reintento
 
 Cuando crea una suscripción a eventos, puede personalizar la configuración de entrega de estos. Este artículo muestra cómo configurar una ubicación de la cola de mensajes fallidos y personalizar la configuración de reintentos. Para obtener información acerca de estas características, consulte [Entrega y reintento de entrega de mensajes de Event Grid](delivery-and-retry.md).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+> [!NOTE]
+> Para obtener información sobre la entrega de mensajes, los reintentos y la cola de mensajes fallidos, consulte el artículo conceptual: [Entrega y reintento de entrega de mensajes de Event Grid]()
 
 ## <a name="set-dead-letter-location"></a>Establecimiento de una ubicación para los eventos fallidos
 
@@ -95,7 +98,8 @@ az eventgrid event-subscription create \
   --max-delivery-attempts 18
 ```
 
-Si establece `event-ttl` y `max-deliver-attempts`, Event Grid usa la primera opción más próxima a la expiración para determinar cuándo se debe detener la entrega de eventos.
+> [!NOTE]
+> Si establece `event-ttl` y `max-deliver-attempts`, Event Grid usa la primera opción más próxima a la expiración para determinar cuándo se debe detener la entrega de eventos. Por ejemplo, si establece 30 minutos como período de vida (TTL) y 10 intentos de entrega máximos. Cuando un evento no se entrega después de 30 minutos (o) no se entrega después de 10 intentos, lo que ocurra primero, el evento se pone en la cola de mensajes fallidos.  
 
 ### <a name="powershell"></a>PowerShell
 
@@ -123,7 +127,8 @@ New-AzEventGridSubscription `
   -MaxDeliveryAttempt 18
 ```
 
-Si establece `EventTtl` y `MaxDeliveryAttempt`, Event Grid usa la primera opción más próxima a la expiración para determinar cuándo se debe detener la entrega de eventos.
+> [!NOTE]
+> Si establece `event-ttl` y `max-deliver-attempts`, Event Grid usa la primera opción más próxima a la expiración para determinar cuándo se debe detener la entrega de eventos. Por ejemplo, si establece 30 minutos como período de vida (TTL) y 10 intentos de entrega máximos. Cuando un evento no se entrega después de 30 minutos (o) no se entrega después de 10 intentos, lo que ocurra primero, el evento se pone en la cola de mensajes fallidos.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

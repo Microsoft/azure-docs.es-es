@@ -2,15 +2,15 @@
 title: Colocación de máquinas virtuales Linux
 description: Obtenga información sobre cómo la colocación de recursos de máquina virtual de Azure puede mejorar la latencia.
 ms.service: virtual-machines
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: zivr
-ms.openlocfilehash: 0a28b238701eeb0572149fb55e1633cdd40ec0a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 000c8c8955314060ae9bdedb96b086a509fb3e96
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511031"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87368649"
 ---
 # <a name="co-locate-resources-for-improved-latency"></a>Colocación de recursos para mejorar la latencia
 

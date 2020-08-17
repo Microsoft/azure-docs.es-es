@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 06/08/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bc0bcd4a978912dccc9f08802acbf2ec1151b3a1
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: a0d5b369e1c143b3df4157329bcf7d3a3f7142d7
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170112"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489476"
 ---
 # <a name="integrating-trusona-with-azure-active-directory-b2c"></a>Integración de Trusona con Azure Active Directory B2C
 
@@ -125,25 +125,26 @@ En este escenario, Trusona actúa como proveedor de identidades para Azure AD B2
 
 ### <a name="create-a-user-flow-policy"></a>Creación de una directiva de flujo de usuario
 
-1. Ahora debería ver Trusona como un **nuevo proveedor de identidades de OpenID Connect** enumerado en los proveedores de identidades de B2C.
+Ahora debería ver Trusona como un **nuevo proveedor de identidades de OpenID Connect** enumerado en los proveedores de identidades de B2C.
 
-2. Seleccione **Flujos de usuario (directivas)** en el panel de navegación izquierdo.
+1. En el inquilino de Azure AD B2C, en **Directivas**, seleccione **Flujos de usuario**.
 
-3. Seleccione **Agregar** > **Nuevo flujo de usuario** > **Registrarse e iniciar sesión**.
+1. Seleccione **Nuevo flujo de usuario**.
 
-### <a name="configure-the-policy"></a>Configuración de la directiva
+1. Seleccione **Registrarse e iniciar sesión**, seleccione una versión y, a continuación, seleccione **Crear**.
 
-1. Escriba un nombre para la directiva.
+1. Escriba un **nombre** para la directiva.
 
-2. Seleccione el **proveedor de identidades de Trusona** recién creado.
+1. En la sección **Proveedores de identidades** seleccione el **proveedor de identidades de Trusona** recién creado.
 
-3. Dado que Trusona es intrínsecamente multifactor, es mejor dejar la autenticación multifactor deshabilitada.
+   > [!NOTE]
+   > Dado que Trusona es intrínsecamente multifactor, es mejor dejar la autenticación multifactor deshabilitada.
 
-4. Seleccione **Crear**.
+1. Seleccione **Crear**.
 
-5. En **Atributos y notificaciones de usuario**, haga clic en **Mostrar más**. En el formulario, seleccione al menos un atributo que haya especificado durante la instalación del proveedor de identidades en la sección anterior.
+1. En **Atributos y notificaciones de usuario**, haga clic en **Mostrar más**. En el formulario, seleccione al menos un atributo que haya especificado durante la instalación del proveedor de identidades en la sección anterior.
 
-6. Seleccione **Aceptar**.  
+1. Seleccione **Aceptar**.  
 
 ### <a name="test-the-policy"></a>Prueba de la directiva
 

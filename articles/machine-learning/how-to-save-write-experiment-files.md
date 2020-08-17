@@ -9,15 +9,15 @@ manager: danielsc
 ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
-ms.workload: data-services
-ms.topic: how-to
+ms.topic: conceptual
+ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 3db7a1489b877544cd36627f3962b6b4e1b8c462
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146439"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319582"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dónde guardar y escribir los archivos para los experimentos de Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]

@@ -13,7 +13,7 @@
   items:
     - name: API DE REST
       items:
-        - name: 'Con C#'
+        - name: Con C#
           href: quickstarts/csharp.md
         - name: Usar Java
           href: quickstarts/java.md
@@ -73,7 +73,7 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/videosearch?view=azure-python'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-videosearch/?view=azure-node-latest'
-        - name: Go
+        - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/videosearch'
     - name: Requisitos de uso y visualización
       href: ../Bing-Web-Search/use-display-requirements.md
@@ -93,7 +93,7 @@
     - name: Knowledge Base
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
     - name: Obtener clave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-video-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: ¡Pruébelo!
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f3ccf5ff8098cef3809/operations/58113fe5e31dac0a1ce6b0a8'
     - name: Análisis para Bing Video Search API

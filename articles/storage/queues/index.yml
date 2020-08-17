@@ -25,7 +25,7 @@ landingContent:
     links:
     - text: ¿Qué son las colas de Azure?
       url: storage-queues-introduction.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

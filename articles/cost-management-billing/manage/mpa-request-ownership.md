@@ -4,15 +4,15 @@ description: Aprenda a solicitar la propiedad de la facturación de las suscripc
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 06/11/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: cd6e075448c68b6d2c65832d128e14c016c69c7c
-ms.sourcegitcommit: 32592ba24c93aa9249f9bd1193ff157235f66d7e
+ms.openlocfilehash: a0643b42a7d306a9e41a80cb8529926eff42c00a
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85601418"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289006"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>Obtención de la propiedad de la facturación de las suscripciones a Azure para la cuenta de MPA
 
@@ -155,6 +155,12 @@ Algunas de las solicitudes de transición del cliente pueden requerir un proceso
 El directorio de las suscripciones a Azure que se transfieren debe coincidir con el directorio del cliente que se seleccionó al establecer la relación de CSP.
 
 Si estos dos directorios no coinciden, no se pueden transferir las suscripciones. Debe establecer una nueva relación de revendedor de CSP con el cliente seleccionando el directorio de las suscripciones a Azure o cambiándolo para que coincida con el directorio de la relación de CSP con el cliente. Para más información, consulte [Asociación de una suscripción existente al directorio de Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory#to-associate-an-existing-subscription-to-your-azure-ad-directory).
+
+### <a name="ea-subscription-in-the-non-orgnization-directory"></a>Suscripción a EA en un directorio que no es de la organización
+
+Las suscripciones EA de directorios que no son de la organización se pueden transferir siempre que el directorio tenga una relación de revendedor con el CSP. Si el directorio no tiene una relación de revendedor, debe asegurarse de tener un usuario de la organización en el directorio como *administrador global* que pueda aceptar la relación de asociado. La parte del nombre de dominio del nombre de usuario debe ser el nombre de dominio predeterminado inicial "[nombre de dominio]. onmicrosoft.com" o un nombre de dominio personalizado no federado comprobado, como"contoso.com".  
+
+Para agregar un nuevo usuario al directorio, consulte [Inicio rápido: Adición de nuevos usuarios a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/add-users-azure-active-directory) para agregar el nuevo usuario al directorio de AAD.
 
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Comprobación del acceso a un contrato Microsoft Partner Agreement
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 022e6eb517987207755d31fdb1820e35197d8dc6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9b9a7a5b3d92833a0f24f6bc646b19110dcfd66a
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202128"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386085"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Uso de la eliminación temporal de Key Vault con PowerShell
 
@@ -27,7 +27,7 @@ La característica de eliminación temporal de Azure Key Vault permite recuperar
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-- Azure PowerShell 1.0.0 o posterior: si aún no lo tiene instalado, instale Azure PowerShell y asócielo con la suscripción de Azure. Para ello, consulte [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) (Instalación y configuración de Azure PowerShell). 
+- Azure PowerShell 1.0.0 o posterior: si aún no lo tiene instalado, instale Azure PowerShell y asócielo con la suscripción de Azure. Para ello, consulte [How to install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/) (Instalación y configuración de Azure PowerShell). 
 
 >[!NOTE]
 > Hay una versión no actualizada del archivo de formato de salida de PowerShell de Key Vault que se **podría** cargar en el entorno en lugar de la versión correcta. Se espera una versión actualizada de PowerShell que contenga la corrección necesaria para el formato de salida y este tema se actualizará en ese momento. La solución actual, si se encuentra con este problema de formato, es:
@@ -206,7 +206,7 @@ Al igual que las claves, los secretos se administran con sus propios comandos:
 
 Puede administrar certificados mediante los siguientes comandos:
 
-- Eliminar un certificado llamado SQLPassword: 
+- Eliminar un certificado: 
   ```powershell
   Remove-AzKeyVaultCertificate -VaultName ContosoVault -Name 'MyCert'
   ```
@@ -285,5 +285,5 @@ Set-AzResource -resourceid $resource.ResourceId -Properties $resource.Properties
 
 ## <a name="other-resources"></a>Otros recursos
 
-- Para ver una introducción a la característica de eliminación temporal de Key Vault, consulte [Introducción a la eliminación temporal de Azure Key Vault](overview-soft-delete.md).
+- Para ver una introducción a la característica de eliminación temporal de Key Vault, consulte [Introducción a la eliminación temporal de Azure Key Vault](soft-delete-overview.md).
 - Para ver una introducción al uso de Azure Key Vault, consulte [¿Qué es Azure Key Vault?](overview.md).

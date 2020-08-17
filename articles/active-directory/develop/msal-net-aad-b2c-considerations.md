@@ -12,13 +12,13 @@ ms.workload: identity
 ms.date: 05/07/2020
 ms.author: jeferrie
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 3aac63369dffa5b8ba0b9e55b5063ad8136c95cf
-ms.sourcegitcommit: d815163a1359f0df6ebfbfe985566d4951e38135
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: ed3e9da628ab779ab47673fa2ce728c5c25539be
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82883233"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166440"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>Use MSAL.NET para que los usuarios inicien sesión con identidades de redes sociales
 
@@ -134,7 +134,7 @@ Al usar un nombre de usuario y contraseña en un flujo de ROPC, sacrifica varias
 
 ### <a name="configure-the-ropc-flow-in-azure-ad-b2c"></a>Configuración del flujo ROPC en Azure AD B2C
 
-En el inquilino de Azure AD B2C, cree un nuevo flujo de usuario y seleccione **Iniciar sesión mediante ROPC** para habilitar ROPC para el flujo de usuario. Para obtener más información, consulte [Configuración del flujo de credenciales de contraseña de propietario del recurso](/azure/active-directory-b2c/configure-ropc).
+En el inquilino de Azure AD B2C, cree un nuevo flujo de usuario y seleccione **Iniciar sesión mediante ROPC** para habilitar ROPC para el flujo de usuario. Para obtener más información, consulte [Configuración del flujo de credenciales de contraseña de propietario del recurso](../../active-directory-b2c/configure-ropc.md).
 
 `IPublicClientApplication` contiene el método `AcquireTokenByUsernamePassword`:
 
@@ -182,7 +182,7 @@ Un síntoma de este escenario es que MSAL.NET devuelve `Missing from the token r
 
 La solución recomendada es usar la [directiva de caché](#acquire-a-token-to-apply-a-policy) descrita anteriormente.
 
-Como alternativa, puede usar la notificación `tid` si usa [directivas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) en Azure AD B2C. Las directivas personalizadas pueden devolver notificaciones adicionales a la aplicación mediante la [transformación de notificaciones](/azure/active-directory-b2c/claims-transformation-technical-profile).
+Como alternativa, puede usar la notificación `tid` si usa [directivas personalizadas](../../active-directory-b2c/custom-policy-get-started.md) en Azure AD B2C. Las directivas personalizadas pueden devolver notificaciones adicionales a la aplicación mediante la [transformación de notificaciones](../../active-directory-b2c/claims-transformation-technical-profile.md).
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>Mitigación de "Missing from token response" (Falta en la respuesta del token)
 

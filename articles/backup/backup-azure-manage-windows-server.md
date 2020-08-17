@@ -3,16 +3,16 @@ title: Administración de almacenes y servidores de Azure Recovery Services
 description: En este artículo se explica cómo usar el panel de información general del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 598e9198ee7e153d8008389f97c0be399a0186ba
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 1b3cc317b8a26b16bbeda9793f87d089f2fbc59f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234604"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87054904"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Supervisión y administración de almacenes de Recovery Services
 
-En este artículo se explica cómo usar el panel de **información general** del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services. Al abrir un almacén de Recovery Services de la lista, se abre el panel de **información general** del mismo. El panel proporciona diversos detalles acerca del almacén. Hay *iconos* que muestran el estado de las alertas críticas y de advertencia, los trabajos de copia de seguridad en curso y con errores, y la cantidad usada de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS). Si realiza copias de seguridad de máquinas virtuales de Azure en el almacén, el icono [**Estado de la comprobación previa a la copia de seguridad** muestra todos los elementos críticos o de advertencia](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status). La imagen siguiente es el panel de **información general** de **Contoso-vault**. El icono **Elementos de copia de seguridad** muestra que hay nueve elementos registrados en el almacén.
+En este artículo se explica cómo usar el panel de **información general** del almacén de Recovery Services para supervisar y administrar los almacenes de Recovery Services. Al abrir un almacén de Recovery Services de la lista, se abre el panel de **información general** del mismo. El panel proporciona diversos detalles acerca del almacén. Hay *iconos* que muestran el estado de las alertas críticas y de advertencia, los trabajos de copia de seguridad en curso y con errores, y la cantidad usada de almacenamiento con redundancia local (LRS) y almacenamiento con redundancia geográfica (GRS). Si realiza copias de seguridad de máquinas virtuales de Azure en el almacén, el icono [**Estado de la comprobación previa a la copia de seguridad** muestra todos los elementos críticos o de advertencia](#backup-pre-check-status). La imagen siguiente es el panel de **información general** de **Contoso-vault**. El icono **Elementos de copia de seguridad** muestra que hay nueve elementos registrados en el almacén.
 
 ![panel del almacén de Servicios de recuperación](./media/backup-azure-manage-windows-server/rs-vault-blade.png)
 
@@ -178,7 +178,7 @@ Para explorar un tipo concreto de instancia protegida, haga clic en el elemento 
 
 ![Lista de tipo de copia de seguridad](./media/backup-azure-manage-windows-server/list-of-protected-virtual-machines.png)
 
-La lista de máquinas virtuales tiene datos útiles: el grupo de recursos asociados, [Comprobación previa a la copia de seguridad](https://docs.microsoft.com/azure/backup/backup-azure-manage-windows-server#backup-pre-check-status) anterior, Estado de la última copia de seguridad y la fecha del punto de restauración más reciente. El botón de puntos suspensivos, en la última columna, abre el menú para desencadenar tareas comunes. Los datos útiles que se proporcionan en las columnas son diferentes para cada tipo de copia de seguridad.
+La lista de máquinas virtuales tiene datos útiles: el grupo de recursos asociados, [Comprobación previa a la copia de seguridad](#backup-pre-check-status) anterior, Estado de la última copia de seguridad y la fecha del punto de restauración más reciente. El botón de puntos suspensivos, en la última columna, abre el menú para desencadenar tareas comunes. Los datos útiles que se proporcionan en las columnas son diferentes para cada tipo de copia de seguridad.
 
 ![Lista de tipo de copia de seguridad](./media/backup-azure-manage-windows-server/ellipsis-menu.png)
 
@@ -287,4 +287,4 @@ El icono Almacenamiento de copia de seguridad del panel muestra el almacenamient
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Restauración de Windows Server o el cliente de Windows desde Azure](backup-azure-restore-windows-server.md)
-* Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](backup-introduction-to-azure-backup.md)
+* Para obtener más información sobre Azure Backup, consulte [Información general de Azure Backup](./backup-overview.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 65e1fa07d2af15e9ccb5f85ce4645e3e6c287952
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 44f10bd49a768004fc63a3287799e6b79dd5bae1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960374"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87071900"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
 
@@ -53,7 +53,7 @@ En esta lección, creará una aplicación de Tienda Windows con un control Media
 
 ![Ejemplo de aplicación de Tienda Windows de Smooth Streaming][PlayerApplication]
 
-Para obtener más información acerca del desarrollo de la aplicación de la Tienda Windows, consulte [Desarrollo de magníficas aplicaciones para Windows 8](https://msdn.microsoft.com/windows/apps/br229512.aspx). Esta lección contiene los procedimientos siguientes:
+Para obtener más información acerca del desarrollo de la aplicación de la Tienda Windows, consulte [Desarrollo de magníficas aplicaciones para Windows 8](https://developer.microsoft.com/en-us/windows/). Esta lección contiene los procedimientos siguientes:
 
 1. Creación de un proyecto de Tienda Windows
 2. Diseño de la interfaz de usuario (XAML)
@@ -1045,4 +1045,3 @@ Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para
 
 [PlayerApplication]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-1.png
 [CodeViewPic]: ./media/media-services-build-smooth-streaming-apps/SSClientWin8-2.png
-

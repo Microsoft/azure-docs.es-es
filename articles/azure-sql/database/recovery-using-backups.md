@@ -12,17 +12,17 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: e12d5d7e9cfc6cfa80de1032e3d4d5659c44c0a7
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6b07b6c3e54f4aebcda6c2e84047ecd1a27b3d5b
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075916"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809500"
 ---
 # <a name="recover-using-automated-database-backups---azure-sql-database--sql-managed-instance"></a>Recuperación de una base de datos de Azure SQL Database o Instancia administrada de Azure SQL mediante copias de seguridad automatizadas
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-De forma predeterminada, las copias de seguridad de Azure SQL Database e Instancia administrada de Azure SQL se almacenan en un almacenamiento de blobs de replicación geográfica (tipo de almacenamiento RA-GRS). Las opciones a continuación están disponibles para la recuperación de bases de datos mediante las [copias de seguridad de base de datos automatizadas](automated-backups-overview.md). Puede:
+Las opciones a continuación están disponibles para la recuperación de bases de datos mediante las [copias de seguridad de base de datos automatizadas](automated-backups-overview.md). Puede:
 
 - Crear una nueva base de datos en el mismo servidor, recuperada en un punto especificado en el tiempo durante el período de retención.
 - Crear una base de datos en el mismo servidor, recuperada a la hora de eliminación de una base de datos eliminada.
@@ -33,6 +33,11 @@ Si ha configurado la [retención de copia de seguridad a largo plazo](long-term-
 
 > [!IMPORTANT]
 > Durante la restauración no se puede sobrescribir ninguna base de datos existente.
+
+De forma predeterminada, las copias de seguridad de Azure SQL Database e Instancia administrada de Azure SQL se almacenan en un almacenamiento de blobs de replicación geográfica (tipo de almacenamiento RA-GRS). Además, SQL Managed Instance también admite el almacenamiento de copia de seguridad con redundancia local (LRS) y con redundancia de zona (ZRS). La redundancia garantiza que los datos estén protegidos frente a eventos previstos e imprevistos, como errores transitorios del hardware, interrupciones del suministro eléctrico o de la red y desastres naturales masivos. El almacenamiento con redundancia de zona (ZRS) solo está disponible en [determinadas regiones](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+
+> [!IMPORTANT]
+> La configuración de la redundancia de almacenamiento para las copias de seguridad solo está disponible para la instancia administrada y se permite durante el proceso de creación. Una vez que se ha aprovisionado el recurso, no se puede cambiar la opción de redundancia del almacenamiento de copia de seguridad.
 
 Cuando se usan los niveles de servicio Estándar o Premium, la restauración de la base de datos puede suponer un costo de almacenamiento adicional. El costo adicional se genera cuando el tamaño máximo de la base de datos restaurada es mayor que la cantidad de almacenamiento incluida en el nivel de rendimiento y el nivel de servicio de la base de datos de destino. Para más información sobre los precios del almacenamiento adicional, consulte la [página de precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/). Cuando la cantidad de espacio real usado es menor que la cantidad de almacenamiento incluido, se puede evitar este costo adicional con el establecimiento del tamaño máximo de la base de datos en la cantidad incluida.
 
@@ -51,7 +56,7 @@ En bases de datos grandes o muy activas, la restauración puede tardar varias ho
 
 Para una única suscripción, existen limitaciones en el número de solicitudes simultáneas de restauración. Estas limitaciones se aplican a cualquier combinación de restauraciones a un momento dado, restauraciones geográficas y restauraciones a partir de copias de seguridad de retención a largo plazo.
 
-|| **Número máximo de solicitudes simultáneas que se van a procesar** | **Número máximo de solicitudes simultáneas que se van a enviar** |
+| **Opción de implementación** | **Número máximo de solicitudes simultáneas que se van a procesar** | **Número máximo de solicitudes simultáneas que se van a enviar** |
 | :--- | --: | --: |
 |**Base de datos única (por suscripción)**|10|60|
 |**Grupo elástico (por grupo)**|4|200|
@@ -136,6 +141,9 @@ Para ver un script de PowerShell de ejemplo que muestre cómo restaurar una base
 > Para restaurar una base de datos eliminada mediante programación, consulte [Recuperación mediante programación con copias de seguridad automatizadas](recovery-using-backups.md).
 
 ## <a name="geo-restore"></a>Geo-restore
+
+> [!IMPORTANT]
+> La restauración geográfica solo está disponible para las instancias administradas configuradas con el tipo de almacenamiento de copia de seguridad con redundancia geográfica (RA-GRS). Las instancias administradas configuradas con tipos de almacenamiento de copia de seguridad con redundancia local o con redundancia de zona no admiten la restauración geográfica.
 
 Puede restaurar una base de datos en cualquier servidor de SQL Database o en una base de datos de instancia en cualquier Instancia administrada de cualquier región de Azure a partir de las copias de seguridad con replicación geográfica más recientes. La restauración geográfica usa una copia de seguridad con replicación geográfica como su origen. Puede solicitar una restauración geográfica, aunque la base de datos o el centro de datos sea inaccesible debido a una interrupción.
 

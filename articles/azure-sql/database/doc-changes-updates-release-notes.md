@@ -9,14 +9,14 @@ ms.subservice: service
 ms.custom: sqldbrb=2
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 05/13/2020
+ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: ed6f164adb9e0a6daf24342021087b2cede3289d
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: af19b72846c78ef80ba170b6d6e0cec97fa2b96e
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981383"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533366"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novedades de Azure SQL Database e Instancia administrada de SQL
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -50,7 +50,6 @@ En esta tabla se proporciona una comparación rápida del cambio en la terminolo
 
 | Característica | Detalles |
 | ---| --- |
-| Nuevas generaciones de hardware de las series Fsv2 y M| Para obtener más información, vea [Hardware generations](service-tiers-vcore.md#hardware-generations) (Generaciones de hardware).|
 | Recuperación de base de datos acelerada con bases de datos únicas y grupos elásticos | Para más información, consulte [Recuperación de base de datos acelerada](../accelerated-database-recovery.md).|
 | Clasificación y detección de datos  |Para obtener información, vea [Detección y clasificación de datos de Azure SQL Database y Azure Synapse Analytics](data-discovery-and-classification-overview.md).|
 | Trabajos de base de datos elástica | Para más información, consulte [Creación, configuración y administración de trabajos elásticos](elastic-jobs-overview.md). |
@@ -98,8 +97,8 @@ Las características siguientes están habilitadas en el modelo de implementaci�
 
 |Incidencia  |Fecha de detección  |Estado  |Fecha de resolución  |
 |---------|---------|---------|---------|
-|[La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error](#restoring-manual-backup-without-checksum-might-fail)|Mayo de 2020|Tiene solución alternativa| |
-|[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Mitigado automáticamente| |
+|[La restauración de la copia de seguridad manual sin CHECKSUM puede devolver un error](#restoring-manual-backup-without-checksum-might-fail)|Mayo de 2020|Resuelto|Junio de 2020|
+|[El agente deja de responder al modificar, deshabilitar o habilitar los trabajos existentes](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Mayo de 2020|Resuelto|Junio de 2020|
 |[Permisos en el grupo de recursos no aplicados a Instancia administrada de SQL](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febrero de 2020|Tiene solución alternativa||
 |[Limitación de la conmutación por error manual a través del portal para grupos de conmutación por error](#limitation-of-manual-failover-via-portal-for-failover-groups)|Enero de 2020|Tiene solución alternativa||
 |[Los roles del Agente SQL necesitan permisos de ejecución (EXECUTE) explícitos para los inicios de sesión que no sean sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Diciembre de 2019|Tiene solución alternativa||
@@ -138,7 +137,7 @@ En determinadas circunstancias, la modificación, deshabilitación o habilitaci�
 
 ### <a name="permissions-on-resource-group-not-applied-to-sql-managed-instance"></a>Permisos en el grupo de recursos no aplicados a la Instancia administrada de SQL
 
-Cuando el rol de RBAC del colaborador de SQL Managed Instance se aplica a un grupo de recursos (RG), no se aplica a SQL Managed Instance y no tiene ningún efecto.
+Cuando el rol de Azure del colaborador de SQL Managed Instance se aplica a un grupo de recursos (RG), no se aplica a SQL Managed Instance y no tiene ningún efecto.
 
 **Solución alternativa**: configure un rol de colaborador de SQL Managed Instance para los usuarios en el nivel de suscripción.
 

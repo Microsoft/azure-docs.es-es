@@ -369,10 +369,16 @@
           href: partner-gallery.md
         - name: Arkose Labs
           href: partner-arkose-labs.md
+        - name: Experian
+          href: partner-experian.md
         - name: IDology
           href: partner-idology.md
         - name: itsme
           href: partner-itsme.md
+        - name: LexisNexis
+          href: partner-lexisnexis.md
+        - name: Onfido
+          href: partner-onfido.md
         - name: Trusona
           href: partner-trusona.md
         - name: Twilio
@@ -448,6 +454,8 @@
       displayName: security
     - name: Versiones del flujo de usuario
       href: user-flow-versions.md
+    - name: Versiones del flujo de usuario heredadas
+      href: user-flow-versions-legacy.md
 - name: Recursos
   items:
     - name: Azure Roadmap

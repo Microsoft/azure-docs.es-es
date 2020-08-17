@@ -4,15 +4,15 @@ description: Detalles relativos a las políticas de pago, incluidas las programa
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: mingshen
+author: mingshen-ms
 ms.author: mingshen
 ms.date: 04/24/2020
-ms.openlocfilehash: f26e006998b0818ba84fa23ee1941a1033ef205b
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 801d3ca383ebde75d6590558638df6820e538249
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118297"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87529950"
 ---
 # <a name="payout-policy-details"></a>Detalles de la política de pago
 
@@ -20,7 +20,7 @@ En este artículo se describe el proceso de pago de Microsoft, la programación 
 
 ## <a name="where-to-find-upcoming-payouts"></a>Dónde encontrar los pagos futuros
 
-En el Centro de partners, seleccione **Pago** en la parte superior derecha del portal:
+En el Centro de partners, seleccione la opción de **pago** en la esquina superior derecha de la pantalla:
 
 ![Se muestra el icono de Pago en la parte superior derecha del portal del Centro de partners.](./media/payout-overview.png)
 
@@ -40,24 +40,24 @@ A partir del 1 de mayo de 2020, vamos a actualizar nuestra política de pago rel
 > [!NOTE]
 > Consulte a continuación [Proceso para impagos de los clientes](#process-for-customer-non-payment) para conocer qué acciones emprender si un cliente no paga, pero a usted ya se la ha emitido un pago.
 
-| Evento  | Date  | Visibilidad de los asociados: Informe de pago del Centro de partners  |  Visibilidad de los asociados: Análisis del Centro de partners\* |
+| Evento  | Fecha (UTC) | Visibilidad de los asociados: Informe de pago del Centro de partners  |  Visibilidad de los asociados: Análisis del Centro de partners\* |
 | --- | --- | --- | --- |
 | Transacción o mes de uso | 1/8/2020 – 31/8/2020 | N/D | **Informe de uso**: se muestra el nuevo consumo (actualizado cada cuatro horas).<br>**Informe de pedidos**: N/D |
 | Final del período (mes) | 31/8/2020 | N/D | **Informe de uso**: se muestra el consumo de fin de mes.<br>**Informe de pedidos**: N/D |
 | Pedido generado | 3/9/2020 – 7/9/2020 | N/D | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Cálculo de la ganancia de pago | 4/9/2020 – 10/9/2020 | Se marca como **No procesado** en el historial de transacciones del panel de pago | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Pago mensual | 5/10/2020 | Se marca como **Próximo** en el historial de transacciones del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
-| Fecha de pago | 15/10/2020 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
+| Fecha de pago\** | 15/10/2020 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Factura de cliente cobrada | 1/12/2020 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos.  |
 |  |  |  |  |
 
-\* Se puede acceder a los informes de uso y de pedidos en la sección Analizar del Centro de partners.
+\* Se puede acceder a los informes de uso y de pedidos en la sección Analizar del Centro de partners.</br>\** La fecha de pago está en la hora estándar del Pacífico (PST).
 
 ### <a name="customers-who-pay-using-credit-card-or-invoice"></a>Clientes que pagan mediante tarjeta de crédito o factura
 
 Todas las compras con una tarjeta de crédito o una factura mensual tienen un período de retención de 30 días para garantizar que los fondos se borran y no hay contracargos ni fraudes sospechosos.
 
-| Evento  | Date  | Visibilidad de los asociados: Informe de pago del Centro de partners  |  Visibilidad de los asociados: Análisis del Centro de partners\*  |
+| Evento  | Fecha (UTC) | Visibilidad de los asociados: Informe de pago del Centro de partners  |  Visibilidad de los asociados: Análisis del Centro de partners\*  |
 | --- | --- | --- | --- |
 | Transacción o mes de uso | 1/8/2019 - 31/8/2019 | N/D | **Informe de uso**: se muestra el nuevo consumo (actualizado cada cuatro horas).<br>**Informe de pedidos**: N/D |
 | Final del período (mes) | 31/8/2019 | N/D | **Informe de uso**: se muestra el consumo de fin de mes.<br>**Informe de pedidos**: N/D |
@@ -65,16 +65,16 @@ Todas las compras con una tarjeta de crédito o una factura mensual tienen un pe
 | Factura de cliente cobrada | 7/9/2019 – 10/9/2019 | N/D | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Cálculo del pago | 8/9/2019 –12/9/2019 | Se marca como **No procesado** en el historial de transacciones del panel de pago | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Pago mensual | 5/11/2019\* | Se marca como **Próximo** en el historial de transacciones del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
-| Fecha de pago | 15/11/2019 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
+| Fecha de pago\** | 15/11/2019 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 |  |  |  |  |
 
-\* Se puede acceder a los informes de uso y de pedidos en la sección Analizar del Centro de partners.
+\* Se puede acceder a los informes de uso y de pedidos en la sección Analizar del Centro de partners.</br>\** La fecha de pago está en la hora estándar del Pacífico (PST).
 
 ### <a name="enterprise-agreement-transactions-prior-to-may-1-2020"></a>Transacciones del Contrato Enterprise anteriores al 1 de mayo de 2020
 
 Todas las compras realizadas antes de esta fecha se procesan y pagan según la programación siguiente después de que Microsoft haya cobrado el pago a los clientes y procesado la cuota de Marketplace.
 
-| Evento  | Date  | Visibilidad de los asociados: Informe de pago del Centro de partners  |  Visibilidad de los asociados: Análisis del Centro de partners\*  |
+| Evento  | Fecha (UTC)  | Visibilidad de los asociados: Informe de pago del Centro de partners  |  Visibilidad de los asociados: Análisis del Centro de partners\*  |
 | --- | --- | --- | --- |
 | Transacción o mes de uso | 1/8/2019 – 31/8/2019 | N/D | **Informe de uso**: se muestra el nuevo consumo (actualizado cada cuatro horas).<br>**Informe de pedidos**: N/D |
 | Final del período (mes) | 31/8/2019 | N/D | **Informe de uso**: se muestra el consumo de fin de mes.<br>**Informe de pedidos**: N/D |
@@ -82,10 +82,10 @@ Todas las compras realizadas antes de esta fecha se procesan y pagan según la p
 | Factura de cliente cobrada | 1/12/2019 | N/D | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Cálculo del pago | 5/12/2019 –7/12/2019 | Se marca como **No procesado** en el historial de transacciones del panel de pago | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 | Pago mensual | 5/1/2019 | Se marca como **Próximo** en el historial de transacciones del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
-| Fecha de pago | 15/1/2019 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
+| Fecha de pago\** | 15/1/2019 | Se marca como **Enviado** en el historial de transacciones y en la sección de pagos del panel de pago. | **Informe de uso**: se muestra el consumo con OrderID/OrderLineItemID.<br>**Informe de pedidos**: los pedidos de cliente se muestran como activos. |
 |  |  |  |  |
 
-\* Se puede acceder a los informes de uso y de pedidos en la sección Analizar del Centro de partners.
+\* Se puede acceder a los informes de uso y de pedidos en la sección Analizar del Centro de partners.</br>\** La fecha de pago está en la hora estándar del Pacífico (PST).
 
 ## <a name="process-for-customer-non-payment"></a>Proceso en caso de impago de los clientes
 
@@ -109,6 +109,19 @@ A continuación, se muestra una programación de ejemplo:
 | El pago se deduce. | 01/03/2021 | El anunciante verá una transacción negativa en la declaración de pago del Centro de partners. |
 | El pago se retiene. | 15/03/2021 | Los pagos futuros se mostrarán en la declaración de pago del Centro de partners. El anunciante no recibirá ningún pago hasta que el saldo deje de ser negativo.  |
 |||
+
+## <a name="number-of-days-for-payments-to-reach-a-payout-account"></a>Número de días para que los pagos lleguen a la cuenta de pago
+
+Normalmente enviamos todos los pagos con vencimiento en un mes determinado a día 15 de ese mes, aunque el pago tardará más tiempo en llegar a su cuenta. La cantidad de días variará según el método de pago que usemos para su cuenta, tal como se describe a continuación.
+
+> [!NOTE]
+> Los días que se muestran a continuación son aproximados; cualquier pago puede tardar una cantidad de tiempo mayor o menor para llegar a su cuenta.
+
+| Método de pago     | Número de días para que lleguen a la cuenta de pago     |
+|--------------------|--------------------------------------------|
+| PayPal             | 1 día laborable                             |
+| ACH/SEPA           | 2 a 3 días laborables                          |
+| Transferencia bancaria      | 7 a 10 días laborables                         |
 
 ## <a name="next-step"></a>siguiente paso
 

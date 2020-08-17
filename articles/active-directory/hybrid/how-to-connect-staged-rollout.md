@@ -10,16 +10,16 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52684520aed8712aed40318f32a83194f7f86683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d582db4bd7ef99d86602f49bc9046aadb8c3e8f0
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357858"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460616"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migración a la autenticación en la nube mediante un lanzamiento preconfigurado (versión preliminar)
 
-Si usa un enfoque de implementación por fases, puede evitar una migración total del dominio completo.  Esto le permite probar de forma selectiva grupos de usuarios con funcionalidades de autenticación en la nube, como Azure Multi-Factor Authentication (MFA), Acceso condicional, Identity Protection para credenciales filtradas, Identity Governance, etc.  En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
+El lanzamiento preconfigurado le permite probar de forma selectiva grupos de usuarios con funcionalidades de autenticación en la nube, como Azure Multi-Factor Authentication (MFA), Acceso condicional, Identity Protection para credenciales filtradas, Identity Governance y otros, antes de utilizar sus propios dominios.  En este artículo se describe cómo realizar el cambio. Sin embargo, antes de comenzar el lanzamiento preconfigurado, debe tener en cuenta las consecuencias en caso de que se cumplan las condiciones siguientes:
     
 -  Usa actualmente un servidor de Multi-Factor Authentication local. 
 -  Usa tarjetas inteligentes para la autenticación. 
@@ -33,7 +33,7 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Prerrequisitos
 
 -   Tiene un inquilino de Azure Active Directory (Azure AD) con dominios federados.
 
@@ -45,11 +45,13 @@ Para información general sobre la característica, vea este vídeo "Azure Acti
 
 -   Ha configurado todas las directivas adecuadas de acceso condicional y personalización de marca del inquilino que necesita para los usuarios que se van a migrar a la autenticación en la nube.
 
--   Si tiene previsto usar Azure Multi-Factor Authentication, le recomendamos que use el [registro convergente para el autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) para que los usuarios registren sus métodos de autenticación una sola vez.
+-   Si tiene previsto usar Azure Multi-Factor Authentication, le recomendamos que use el [registro combinado para el autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication](../authentication/concept-registration-mfa-sspr-combined.md) para que los usuarios registren sus métodos de autenticación una sola vez.
 
 -   Para usar la característica de lanzamiento preconfigurado, debe ser administrador global en el inquilino.
 
 -   Para habilitar el *inicio de sesión único de conexión directa* en un bosque específico de Active Directory, debe ser administrador de dominio.
+
+-  Si va a implementar Azure AD híbrido o la unión a Azure AD, debe cambiar a la actualización 1903 de Windows 10.
 
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
@@ -81,6 +83,8 @@ Los siguientes escenarios no se admiten en el lanzamiento preconfigurado:
 
 
 - La primera vez que se agrega un grupo de seguridad para el lanzamiento preconfigurado, está limitado a 200 usuarios para evitar que se agote el tiempo de espera de la experiencia de usuario. Después de agregar el grupo, puede agregarle más usuarios directamente, según sea necesario.
+
+- Mientras los usuarios están en el lanzamiento preconfigurado, la directiva de expiración de contraseñas se establece en 90 días sin opción de personalizarla. 
 
 
 ## <a name="get-started-with-staged-rollout"></a>Introducción al lanzamiento preconfigurado
@@ -173,6 +177,7 @@ Haga lo siguiente:
 
    >[!NOTE]
    >Los miembros de un grupo se habilitan automáticamente para el lanzamiento preconfigurado. No se admiten grupos anidados y dinámicos en el lanzamiento preconfigurado.
+   >Al agregar un nuevo grupo, los usuarios del grupo (hasta 200 usuarios para un grupo nuevo) se actualizarán para usar la autenticación administrada de forma inmediata. Al editar un grupo (agregar o eliminar usuarios), los cambios pueden tardar hasta 24 horas en surtir efecto.
 
 ## <a name="auditing"></a>Auditoría
 

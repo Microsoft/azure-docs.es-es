@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 92957bd078c04a9bb7ac35f9d30f042a44e10764
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: e5ecb99c7f64d81d57c5d6d2cb25967913a752b4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82100641"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074138"
 ---
 # <a name="create-a-snapshot"></a>Crear una instantánea
 
@@ -37,7 +37,7 @@ Para crear una instantánea, complete los siguientes pasos:
 
 ## <a name="use-powershell"></a>Uso de PowerShell
 
-En los pasos siguientes se muestra cómo copiar el disco duro virtual y crear la configuración de la instantánea. Después, puede tomar una instantánea del disco mediante el cmdlet [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot). 
+En los pasos siguientes se muestra cómo copiar el disco duro virtual y crear la configuración de la instantánea. Después, puede tomar una instantánea del disco mediante el cmdlet [New-AzSnapshot](/powershell/module/az.compute/new-azsnapshot). 
 
  
 
@@ -53,18 +53,18 @@ En los pasos siguientes se muestra cómo copiar el disco duro virtual y crear la
 2. Obtenga la máquina virtual:
 
    ```azurepowershell-interactive
-   $vm = get-azvm `
-   -ResourceGroupName $resourceGroupName 
-   -Name $vmName
+   $vm = Get-AzVM `
+       -ResourceGroupName $resourceGroupName `
+       -Name $vmName
    ```
 
 3. Cree la configuración de la instantánea. En este ejemplo, es la instantánea del disco del sistema operativo:
 
    ```azurepowershell-interactive
-   $snapshot =  New-AzSnapshotConfig 
-   -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id 
-   -Location $location 
-   -CreateOption copy
+   $snapshot =  New-AzSnapshotConfig `
+       -SourceUri $vm.StorageProfile.OsDisk.ManagedDisk.Id `
+       -Location $location `
+       -CreateOption copy
    ```
    
    > [!NOTE]
@@ -73,10 +73,10 @@ En los pasos siguientes se muestra cómo copiar el disco duro virtual y crear la
 4. Tome la instantánea:
 
    ```azurepowershell-interactive
-   New-AzSnapshot 
-   -Snapshot $snapshot 
-   -SnapshotName $snapshotName 
-   -ResourceGroupName $resourceGroupName 
+   New-AzSnapshot `
+       -Snapshot $snapshot `
+       -SnapshotName $snapshotName `
+       -ResourceGroupName $resourceGroupName 
    ```
 
 

@@ -1,17 +1,17 @@
 ---
 title: ¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
 description: Obtenga información sobre el almacén transaccional (basado en filas) y analítico (basado en columnas) de Azure Cosmos DB. Ventajas del almacén analítico, el impacto en el rendimiento de las cargas de trabajo a gran escala y la sincronización automática de datos desde el almacén transaccional al almacén analítico
-author: SriChintala
+author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.author: srchi
-ms.openlocfilehash: a6f486f15fb5967dfb14508115e2340e4953be81
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: rosouz
+ms.openlocfilehash: 3b210ea558f857d017504d07e571e94e34c0d4f6
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85116033"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88037106"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>¿Qué es el almacén analítico de Azure Cosmos DB (versión preliminar)?
 

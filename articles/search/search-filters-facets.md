@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 082575a67ea43d62f322e177cff087e5bd572c27
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 852d8f8f85536dc62dd792e5727dd7ec0571ba29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72792893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084218"
 ---
 # <a name="how-to-build-a-facet-filter-in-azure-cognitive-search"></a>Creación de un filtro de faceta en Azure Cognitive Search 
 
@@ -28,7 +28,7 @@ La navegación por facetas se usa para aplicar filtros autodirigidos en resultad
 
 Las facetas son dinámicas y se devuelven en una consulta. Las respuestas de búsqueda incluyen las categorías de faceta que se usan para navegar por los resultados. Si no está familiarizado con las facetas, el ejemplo siguiente es una ilustración de una estructura de navegación por facetas.
 
-  ![](./media/search-filters-facets/facet-nav.png)
+  ![Imagen que muestra un cuadro de diálogo de búsqueda con resultados de búsqueda filtrados agrupados por título de negocio. Una flecha indica que los resultados son facetas que se muestran en una estructura de navegación por facetas.](./media/search-filters-facets/facet-nav.png)
 
 ¿No conoce la navegación por facetas y quiere más detalles? Consulte [Procedimiento para implementar la navegación por facetas en Azure Cognitive Search](search-faceted-navigation.md).
 

@@ -2,19 +2,17 @@
 title: Procedimientos para solucionar los errores de runtime de U-SQL de Azure Data Lake Analytics
 description: Obtenga información sobre cómo solucionar los errores de runtime de U-SQL.
 services: data-lake-analytics
-author: guyhay
-ms.author: guyhay
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.workload: big-data
 ms.date: 10/10/2019
-ms.openlocfilehash: 1e3fb218e6cda5619bfa1a0936e07d6731a9cc93
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 39b4a3bc5e5f70a5699f4fd84ec86dc61cf21483
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "73648173"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475267"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Información sobre cómo solucionar errores de runtime de U-SQL debido a cambios en el runtime
 
@@ -48,11 +46,6 @@ release_YYYYMMDD_adl_buildno[_modifier]
 
 Por ejemplo, release_20190318_adl_3394512_2 se refiere a la segunda versión de la compilación 3394512 de la versión de runtime del 18 de marzo de 2019 y release_20190318_adl_3394512_private se refiere a una compilación privada de la misma versión. Nota: La fecha se relaciona con el momento en que se ha realizado la última inserción en el repositorio para esa versión y no necesariamente en la fecha de lanzamiento oficial.
 
-A continuación se muestran las versiones de runtime actualmente disponibles.
-
-- release_20190318_adl_3394512
-- release_20190318_adl_5832669, el valor predeterminado actual
-- release_20190703_adl_4713356
 
 ## <a name="troubleshooting-u-sql-runtime-version-issues"></a>Solución de incidencias de versión de runtime de U-SQL
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/13/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 30f852f1bf4994f525ccb65c3827af8f8ae02f96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e64e6b6abc921b1db6614ed36ba2e9c04fc86b1f
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85838742"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87451060"
 ---
 En este artículo se incluyen recomendaciones de seguridad para Azure Virtual Machines. Estas recomendaciones le ayudarán a cumplir las obligaciones de seguridad descritas en nuestro modelo de responsabilidad compartida. También le ayudarán a mejorar la seguridad general de las soluciones de aplicaciones web. Para más información acerca de lo que hace Microsoft para cumplir sus responsabilidades como proveedor de servicios, consulte [Responsabilidades compartidas de la informática en la nube](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91).
 
@@ -26,7 +26,7 @@ Para más información sobre Azure Security Center, consulte [¿Qué es Azure Se
 | Recomendación | Comentarios | Security Center |
 |-|----|--|
 | Al crear imágenes de máquina virtual personalizadas, aplique las actualizaciones más recientes. | Antes de crear las imágenes, instale las actualizaciones más recientes tanto del sistema operativo como todas las aplicaciones que formarán parte de la imagen.  | - |
-| Mantener actualizadas las máquinas virtuales. | Puede usar la solución [Update Management](../articles/automation/automation-update-management.md) de Azure Automation para administrar las actualizaciones del sistema operativo de los equipos Windows y Linux en Azure. | [Sí](../articles/security-center/security-center-apply-system-updates.md) |
+| Mantener actualizadas las máquinas virtuales. | Puede usar la solución [Update Management](../articles/automation/update-management/update-mgmt-overview.md) de Azure Automation para administrar las actualizaciones del sistema operativo de los equipos Windows y Linux en Azure. | [Sí](../articles/security-center/security-center-apply-system-updates.md) |
 | Realice una copia de seguridad de las máquinas virtuales. | [Azure Backup](../articles/backup/backup-overview.md) ayuda a proteger los datos de las aplicaciones y tiene unos costos operativos mínimos. Los errores de una aplicación pueden dañar los datos, y los errores humanos pueden crear errores en las aplicaciones. Azure Backup protege las máquinas virtuales que ejecutan Windows y Linux. | - |
 | Use varias máquinas virtuales para aumentar la resistencia y la disponibilidad. | Si la máquina virtual ejecuta aplicaciones que deben tener alta disponibilidad, usar varias máquinas virtuales o [conjuntos de disponibilidad](../articles/virtual-machines/windows/manage-availability.md). | - |
 | Adopte una estrategia de continuidad empresarial y recuperación ante desastres (BCDR). | Azure Site Recovery le permite elegir entre diferentes opciones diseñadas para dar soporte a la continuidad empresarial. Admite diferentes escenarios de replicación y de conmutación por error. Para más información, consulte [Acerca de Site Recovery](../articles/site-recovery/site-recovery-overview.md). | - |

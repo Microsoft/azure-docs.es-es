@@ -132,7 +132,7 @@
     - name: Calculadora de precios
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Límites de servicio
-      href: '../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits'
+      href: ../azure-resource-manager/management/azure-subscription-service-limits.md#traffic-manager-limits
     - name: Actualizaciones del servicio
       href: 'https://azure.microsoft.com/updates/?product=traffic-manager'
     - name: Contrato de nivel de servicio

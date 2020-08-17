@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: iainfou
-ms.openlocfilehash: 879138d882913b8ab43c5689ff72a40e6987c104
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 7d1cd032f6042f57a096c5c8e7624f66a4b01355
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223047"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87419604"
 ---
 # <a name="review-security-audit-events-in-azure-active-directory-domain-services-using-azure-monitor-workbooks"></a>Revisión de los eventos de auditoría de seguridad en Azure Active Directory Domain Services mediante libros de Azure Monitor
 
@@ -75,7 +75,7 @@ Para acceder a la plantilla de libro del informe general sobre seguridad, comple
 
 1. En la parte inferior del informe, debajo del gráfico, se desglosa el tipo de actividad seleccionado. En la parte derecha puede filtrar por los nombres de usuario implicados, como se muestra en el siguiente informe de ejemplo:
 
-    [![](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png "Details of account lockouts in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
+    [![Detalles de los bloqueos de cuenta en Workbooks de Azure Monitor](./media/use-azure-monitor-workbooks/account-lockout-details-cropped.png)](./media/use-azure-monitor-workbooks/account-lockout-details.png#lightbox)
 
 ## <a name="use-the-account-activity-report-workbook"></a>Uso del libro de Informe de actividades de la cuenta
 
@@ -93,7 +93,7 @@ Para acceder a la plantilla de libro del informe de actividades de la cuenta, co
 
     Puede filtrar por **Nombre de usuario de la cuenta**, por ejemplo *felix*, como se muestra en el siguiente informe de ejemplo:
 
-    [![](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png "Account activity report in Azure Monitor Workbooks")](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
+    [![Informe de actividades de la cuenta en Workbooks de Azure Monitor](./media/use-azure-monitor-workbooks/account-activity-report-cropped.png)](./media/use-azure-monitor-workbooks/account-activity-report.png#lightbox)
 
     En el área situada debajo del gráfico se muestran los eventos de inicio de sesión individuales junto con información como el resultado de la actividad y la estación de trabajo de origen. Esta información puede ayudar a determinar los orígenes repetidos de eventos de inicio de sesión que pueden provocar bloqueos de la cuenta o indicar un posible ataque.
 

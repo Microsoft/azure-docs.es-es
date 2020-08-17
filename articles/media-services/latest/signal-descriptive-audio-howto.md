@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: ''
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 0d8f88e6c2fe273efa969278146de67ba18eaecf
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 99e0a78ea1aed0ecf08618c919e7949c5645de5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "72391927"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072079"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Señalización de pistas descriptivas de audio
 
@@ -27,14 +27,14 @@ En este artículo se muestra cómo codificar un vídeo, cargar un archivo MP4 de
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md).
-- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](access-api-cli-how-to.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
+- [Cree una cuenta de Media Services](./create-account-howto.md).
+- Siga los pasos de [Acceso a la API de Azure Media Services con la CLI de Azure](./access-api-howto.md) y guarde las credenciales. Deberá usarlas para acceder a la API.
 - Consulte [Empaquetado dinámico](dynamic-packaging-overview.md).
 - Consulte el tutorial [Carga, codificación y transmisión de vídeos con REST](stream-files-tutorial-with-api.md).
 
 ## <a name="create-an-input-asset-and-upload-a-local-file-into-it"></a>Creación de un recurso de entrada y carga de un archivo local en él 
 
-La función **CreateInputAsset** crea un nuevo [recurso](https://docs.microsoft.com/rest/api/media/assets) de entrada y carga en él el archivo de vídeo local especificado. Este **recurso** se utiliza como entrada para el trabajo de codificación. En Media Services v3, la entrada a un **trabajo** puede ser tanto un **recurso** como contenido que se pone a disposición de la cuenta de Media Services a través de direcciones URL HTTPS. 
+La función **CreateInputAsset** crea un nuevo [recurso](/rest/api/media/assets) de entrada y carga en él el archivo de vídeo local especificado. Este **recurso** se utiliza como entrada para el trabajo de codificación. En Media Services v3, la entrada a un **trabajo** puede ser tanto un **recurso** como contenido que se pone a disposición de la cuenta de Media Services a través de direcciones URL HTTPS. 
 
 Para más información sobre cómo codificar desde una dirección URL HTTPS, consulte [este artículo](job-input-from-http-how-to.md).  
 
@@ -43,7 +43,7 @@ En Media Services v3, se utilizan las API de Azure Storage para cargar archivos.
 La función siguiente realiza estas acciones:
 
 * Crea un **recurso** 
-* Obtiene una [dirección URL de SAS](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) que se puede escribir para el [contenedor de almacenamiento](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet#upload-blobs-to-a-container) del recurso.
+* Obtiene una [dirección URL de SAS](../../storage/common/storage-sas-overview.md) que se puede escribir para el [contenedor de almacenamiento](../../storage/blobs/storage-quickstart-blobs-dotnet.md#upload-blobs-to-a-container) del recurso.
 * Carga el archivo en el contenedor de almacenamiento mediante la dirección URL de SAS
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateInputAsset)]
@@ -52,7 +52,7 @@ Si necesita pasar el nombre del recurso de entrada creado a otros métodos, aseg
 
 ## <a name="create-an-output-asset-to-store-the-result-of-the-encoding-job"></a>Creación de un recurso de salida para almacenar el resultado del trabajo de codificación
 
-El [recurso](https://docs.microsoft.com/rest/api/media/assets) de salida almacena el resultado del trabajo de codificación. La siguiente función muestra cómo crear un recurso de salida.
+El [recurso](/rest/api/media/assets) de salida almacena el resultado del trabajo de codificación. La siguiente función muestra cómo crear un recurso de salida.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#CreateOutputAsset)]
 
@@ -62,7 +62,7 @@ En el caso de este artículo, pase el valor `outputAsset.Name` a las funciones `
 
 ## <a name="create-a-transform-and-a-job-that-encodes-the-uploaded-file"></a>Creación de una transformación y de un trabajo que codifican el archivo cargado
 
-Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](transform-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
+Cuando se codifica o procesa contenido en Media Services, es un patrón común configurar los ajustes de codificación como una receta. Después, podría enviar un **trabajo** para aplicar esa receta a un vídeo. Al enviar nuevos trabajos en cada nuevo vídeo, está aplicando dicha receta a todos los vídeos de la biblioteca. Una receta en Media Services se llama **transformación**. Para obtener más información, consulte [Transformaciones y trabajos](./transforms-jobs-concept.md). El ejemplo descrito en este tutorial define una receta que codifica el vídeo para transmitirlo a varios dispositivos iOS y Android. 
 
 En el ejemplo siguiente se crea una transformación (si no existe ninguna).
 
@@ -202,14 +202,14 @@ Cuando haya finalizado el trabajo de codificación, el recurso de salida contend
 
 ## <a name="get-a-streaming-locator"></a>Obtención de un localizador de streaming
 
-Una vez finalizada la codificación, el siguiente paso es poner el vídeo del recurso de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: en primer lugar, cree un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators) y, después, cree las direcciones URL de streaming que pueden usar los clientes. 
+Una vez finalizada la codificación, el siguiente paso es poner el vídeo del recurso de salida a disposición de los clientes para su reproducción. Puede hacerlo en dos pasos: en primer lugar, cree un objeto [StreamingLocator](/rest/api/media/streaminglocators) y, después, cree las direcciones URL de streaming que pueden usar los clientes. 
 
 El proceso de creación de un objeto **StreamingLocator** se denomina publicación. De forma predeterminada, el objeto **StreamingLocator** es válido inmediatamente después de realizar las llamadas a la API y dura hasta que se elimina, salvo que configure las horas de inicio y de finalización opcionales. 
 
-Al crear un objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, estará transmitiendo contenido no cifrado, de modo que se utiliza la directiva de streaming sin cifrar predefinida (**PredefinedStreamingPolicy.ClearStreamingOnly**).
+Al crear un objeto [StreamingLocator](/rest/api/media/streaminglocators), debe especificar el objeto **StreamingPolicyName** deseado. En este ejemplo, estará transmitiendo contenido no cifrado, de modo que se utiliza la directiva de streaming sin cifrar predefinida (**PredefinedStreamingPolicy.ClearStreamingOnly**).
 
 > [!IMPORTANT]
-> Al utilizar un objeto [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de Streaming Policy. No debe crear una nueva directiva de streaming para cada localizador de streaming.
+> Al utilizar un objeto [StreamingPolicy](/rest/api/media/streamingpolicies) personalizado, debe diseñar un conjunto limitado de dichas directivas para su cuenta de Media Service y reutilizarlas para sus localizadores de streaming siempre que se necesiten las mismas opciones y protocolos de cifrado. La cuenta de Media Service tiene una cuota para el número de entradas de Streaming Policy. No debe crear una nueva directiva de streaming para cada localizador de streaming.
 
 El código siguiente da por supuesto que está llamando a la función con un único objeto locatorName.
 
@@ -219,7 +219,7 @@ Aunque el ejemplo de este tema trata del streaming, puede utilizar la misma llam
 
 ### <a name="get-streaming-urls"></a>Obtención de direcciones URL de streaming
 
-Ahora que se ha creado el objeto [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming, como se muestra en **GetStreamingURLs**. Para crear una dirección URL, debe concatenar el nombre de host del [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) y la ruta de acceso del objeto **StreamingLocator**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
+Ahora que se ha creado el objeto [StreamingLocator](/rest/api/media/streaminglocators), puede obtener las direcciones URL de streaming, como se muestra en **GetStreamingURLs**. Para crear una dirección URL, debe concatenar el nombre de host del [punto de conexión de streaming](/rest/api/media/streamingendpoints) y la ruta de acceso del objeto **StreamingLocator**. En este ejemplo, se usa el *punto de conexión de* **streaming predeterminado**. Cuando cree su primera cuenta de Media Services, este *punto de conexión de streaming* **predeterminado** estará en un estado detenido, por lo que deberá llamar a **Iniciar**.
 
 > [!NOTE]
 > En este método, se necesita el objeto locatorName que se utilizó al crear el objeto **StreamingLocator** del recurso de salida.

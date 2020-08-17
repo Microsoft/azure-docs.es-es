@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/06/2020
-ms.openlocfilehash: 9f41cb11960dbe9487231f14b005376261075a83
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 5a09a30bafa5bc9ef052b14cad29e000bbd09a48
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231512"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287383"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Cambios en la documentación de SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,17 +29,15 @@ Azure permite implementar una máquina virtual (VM) con una imagen de SQL Serve
 | Cambios | Detalles |
 | --- | --- |
 | **Migración del registro a un disco Ultra** | Obtenga información acerca de cómo puede [migrar el archivo de registro a un disco Ultra](storage-migrate-to-ultradisk.md) para aprovechar el alto rendimiento y la baja latencia. | 
-
-
+| **Creación de AG mediante PowerShell** | Ahora es posible simplificar la creación de un grupo de disponibilidad mediante [PowerShell](availability-group-az-commandline-configure.md), así como la CLI de Azure. | 
 
 
 ## <a name="june-2020"></a>Junio de 2020
 
-
 | Cambios | Detalles |
 | --- | --- |
 | **Nombre de red distribuida (DNN)** | Ahora, SQL Server 2019 en Windows Server 2016+ ofrece en versión preliminar compatibilidad con el enrutamiento del tráfico a la instancia de clúster de conmutación por error (FCI) mediante el uso de un [nombre de red distribuida](hadr-distributed-network-name-dnn-configure.md) en lugar de con Azure Load Balancer. Esta compatibilidad simplifica y agiliza la conexión a la solución de alta disponibilidad en Azure. | 
-| **FCI con discos compartidos de Azure** | Ahora es posible implementar la [instancia de clúster de conmutación por error (FCI)](failover-cluster-instance-overview.md) mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md) con SQL Server 2019 en una máquina virtual de Windows Server 2016+. |
+| **FCI con discos compartidos de Azure** | Ahora es posible implementar la [instancia de clúster de conmutación por error (FCI)](failover-cluster-instance-overview.md) mediante [discos compartidos de Azure](failover-cluster-instance-azure-shared-disks-manually-configure.md). |
 | **Documentos de FCI reorganizados** | La documentación sobre las [instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines](failover-cluster-instance-overview.md) se ha vuelto a redactar y reorganizar para mayor claridad. Hemos separado parte del contenido de configuración, como los [procedimientos recomendados de configuración de clústeres](hadr-cluster-best-practices.md), cómo preparar una [máquina virtual para una FCI de SQL Server](failover-cluster-instance-prepare-vm.md) y cómo configurar [Azure Load Balancer](hadr-vnn-azure-load-balancer-configure.md). | 
 | &nbsp; | &nbsp; |
 

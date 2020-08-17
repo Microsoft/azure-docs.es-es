@@ -1,3 +1,5 @@
+- name: Documentación de Azure HDInsight
+  href: index.yml
 - name: Servicio HDInsight
   expanded: true
   items:
@@ -74,7 +76,7 @@
               href: overview-data-lake-storage-gen1.md
             - name: Introducción a Azure Data Lake Storage Gen2
               href: overview-data-lake-storage-gen2.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Creación de clústeres
           items:
@@ -342,7 +344,7 @@
               href: ./spark/optimize-cluster-configuration.md
         - name: "Migración a Spark\_2.3 o\_2.4"
           href: ./spark/migrate-versions.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Uso de herramientas
           items:
@@ -471,7 +473,7 @@
           href: ./hdinsight-hadoop-create-linux-clusters-adf.md
         - name: Envío de trabajos de Apache Hadoop
           href: ./hadoop/submit-apache-hadoop-jobs-programmatically.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Uso de herramientas
           items:
@@ -616,7 +618,7 @@
           href: ./kafka/apache-kafka-performance-tuning.md
         - name: Preguntas más frecuentes sobre Kafka
           href: ./kafka/kafka-faq.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Desarrollar
           items:
@@ -667,7 +669,7 @@
       items:
         - name: Uso de Apache HBase en HDInsight
           href: ./hbase/apache-hbase-tutorial-get-started-linux.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Desarrollar
           items:
@@ -746,7 +748,7 @@
           href: ./interactive-query/gateway-best-practices.md
         - name: Directrices de ajuste de tamaño
           href: ./interactive-query/sizing-guidelines.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Desarrollar
           items:
@@ -843,7 +845,7 @@
           href: ./r-server/ml-services-tutorial-spark-compute.md
         - name: Uso de herramientas de R para Visual Studio
           href: ./r-server/r-server-submit-jobs-r-tools-vs.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Desarrollar
           items:
@@ -875,7 +877,7 @@
           href: ./storm/apache-storm-write-data-lake-store.md
         - name: Apache Kafka y Apache Storm (Java)
           href: ./hdinsight-apache-storm-with-kafka.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Migración de Storm a Spark
           href: ./storm/migrate-storm-to-spark.md
@@ -939,13 +941,11 @@
           href: ./control-network-traffic.md
         - name: Direcciones IP necesarias para grupos de seguridad de red y rutas definidas por el usuario
           href: ./hdinsight-management-ip-addresses.md
-        - name: Etiquetas de servicio de Azure Firewall
-          href: ./hdinsight-service-tags.md
         - name: Cifrado de disco mediante claves administradas por el cliente
           href: ./disk-encryption.md
         - name: Sincronización de LDAP en Ranger y Apache Ambari
           href: ./domain-joined/ldap-sync.md
-    - name: Procedimientos
+    - name: Guías paso a paso
       items:
         - name: Uso del agente de identidad para la administración de credenciales
           href: ./domain-joined/identity-broker.md
@@ -967,8 +967,12 @@
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: Uso del firewall para restringir el tráfico de salida
           href: ./hdinsight-restrict-outbound-traffic.md
+        - name: Creación de directivas de punto de conexión de servicio
+          href: ./service-endpoint-policies.md
         - name: Configuración de una aplicación virtual de red
           href: ./network-virtual-appliance.md
+        - name: Etiquetas de servicio de Azure Firewall
+          href: ./hdinsight-service-tags.md
         - name: Solución de problemas
           items:
             - name: Problemas de autenticación de ESP

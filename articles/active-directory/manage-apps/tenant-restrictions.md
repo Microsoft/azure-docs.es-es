@@ -2,25 +2,22 @@
 title: 'Uso de restricciones de inquilino para administrar el acceso a las aplicaciones SaaS: Azure AD'
 description: Cómo usar restricciones de inquilino para administrar los usuarios que pueden tener acceso a las aplicaciones según su inquilino de Azure AD.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: kenwith
-ms.reviewer: richagi
+ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd302791aa783f1a95d48f666366aa845fcaadbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763030"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87285907"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso de restricciones de inquilino para administrar el acceso a aplicaciones en la nube SaaS
 
@@ -72,6 +69,11 @@ Se necesita la configuración siguiente para habilitar restricciones de inquilin
 
 Para cada solicitud entrante de login.microsoftonline.com, login.microsoft.com y login.windows.net, inserte dos encabezados HTTP: *Restrict-Access-To-Tenants* y *Restrict-Access-Context*.
 
+> [!NOTE]
+> Al configurar la inyección de encabezado y la interceptación de SSL, asegúrese de que se excluya el tráfico a https://device.login.microsoftonline.com. Esta dirección URL se usa para la autenticación de dispositivos, y la realización de operaciones de interrupción e inspección de TLS puede interferir con la autenticación de certificados de cliente, lo que puede causar problemas con el registro de dispositivos y el acceso condicional basado en dispositivos.
+
+
+
 Los encabezados deben incluir los siguientes elementos:
 
 - Para *Restrict-Access-To-Tenants* (Restringir acceso a inquilinos), use un valor de \<permitted tenant list\>, que es una lista separada por comas de los inquilinos a los que quiere que los usuarios puedan tener acceso. Se puede utilizar cualquier dominio que esté registrado con un inquilino para identificar al inquilino en esta lista. Por ejemplo, para permitir el acceso a los inquilinos Contoso y Fabrikam, el par nombre-valor puede ser algo así como: `Restrict-Access-To-Tenants: contoso.onmicrosoft.com,fabrikam.onmicrosoft.com`
@@ -84,6 +86,9 @@ Los encabezados deben incluir los siguientes elementos:
 Para evitar que los usuarios inserten su propio encabezado HTTP con inquilinos no aprobados, el proxy debe reemplazar el encabezado *Restrict-Access-To-Tenants* (Restringir acceso para inquilinos) si ya está presente en la solicitud entrante.
 
 Se debe exigir a los clientes que usen el proxy para todas las solicitudes para login.microsoftonline.com, login.microsoft.com y login.windows.net. Por ejemplo, si los archivos PAC se emplean para indicar a los clientes que usen el proxy, los usuarios finales no deben poder editar ni deshabilitar los archivos PAC.
+
+> [!NOTE]
+> No incluya subdominios en *.login.microsoftonline.com en la configuración del proxy. Si lo hace, incluirá device.login.microsoftonline.com y puede interferir con la autenticación de certificados de cliente, que se usa en los escenarios de registro de dispositivos y acceso condicional basado en dispositivos. Configure el servidor proxy para que excluya device.login.microsoftonline.com de la inyección de encabezados y la interrupción e inspección de TLS.
 
 ## <a name="the-user-experience"></a>La experiencia del usuario final
 
@@ -101,7 +106,7 @@ Mientras la configuración de restricciones de inquilino se realice en la infrae
 
 2. En el panel izquierdo, seleccione **Azure Active Directory**. Se mostrará la página de introducción de Azure Active Directory.
 
-3. En el encabezado **Otras funcionalidades**, seleccione **Restricciones de inquilino**.
+3. En la página Información general, seleccione **Restricciones de inquilino**.
 
 El administrador del inquilino especificado como inquilino Restricted-Access-Context puede usar este informe para ver todos los inicios de sesión bloqueados debido a la directiva de restricciones de inquilino, incluida la identidad que se usa y el identificador de directorio de destino. Los inicios de sesión se incluyen si el inquilino que establece la restricción es el inquilino del usuario o el inquilino del recurso para el inicio de sesión.
 

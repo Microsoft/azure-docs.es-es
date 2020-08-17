@@ -3,12 +3,12 @@ title: Copia de seguridad de SQL Server con Azure Backup Server
 description: En este artículo aprenderá la configuración de la copia de seguridad de bases de datos de SQL Server mediante Microsoft Azure Backup Server (MABS).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 2bb172ca36f3f932fdaaf5b71e8fa183c04d1510
-ms.sourcegitcommit: 1f48ad3c83467a6ffac4e23093ef288fea592eb5
+ms.openlocfilehash: d682e63424ca247161e9784a8a05b91186da54b7
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84194182"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87003651"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Copia de seguridad de SQL Server en Azure con Azure Backup Server
 
@@ -19,6 +19,34 @@ Para realizar una copia de seguridad de una base de datos de SQL Server y recup
 1. Cree una directiva de copia de seguridad para proteger las bases de datos de SQL Server en Azure.
 1. Cree copias de seguridad a petición en Azure.
 1. Recupere la base de datos en Azure.
+
+## <a name="prerequisites-and-limitations"></a>Requisitos previos y limitaciones
+
+* Si tiene una base de datos con archivos en un recurso compartido de archivos remoto, la protección no se realizará correctamente y generará el identificador de error 104. MABS no admite la protección de datos de SQL Server ubicados en un recurso compartido de archivos remoto.
+* MABS no puede proteger las bases de datos almacenadas en recursos compartidos de SMB remotos.
+* Asegúrese de que las [réplicas del grupo de disponibilidad están configuradas como de solo lectura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Deberá agregar explícitamente la cuenta del sistema **NTAuthority\System** al grupo Sysadmin en SQL Server.
+* Al realizar una recuperación desde una ubicación alternativa de una base de datos parcialmente independiente, debe asegurarse de que la instancia SQL de destino tenga habilitada la característica [Bases de datos independientes](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable).
+* Al realizar una recuperación desde una ubicación alternativa de una base de datos de flujo de archivos, debe asegurarse de que la instancia de SQL de destino tenga habilitada la característica de [base de datos de flujo de archivos](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15).
+* Protección para SQL Server AlwaysOn:
+  * MABS detecta los grupos de disponibilidad cuando se ejecuta una consulta en la creación del grupo de protección.
+  * MABS detecta una conmutación por error y continúa la protección de la base de datos.
+  * MABS admite configuraciones de clúster de varios sitios en una instancia de SQL Server.
+* Al proteger las bases de datos que utilizan la característica AlwaysOn, MABS tiene las siguientes limitaciones:
+  * MABS respetará la directiva de copia de seguridad de grupos de disponibilidad establecida en SQL Server según las preferencias de copia de seguridad, como se indica a continuación:
+    * Preferir secundaria: las copias de seguridad se deben realizar en una réplica secundaria, excepto cuando la réplica principal sea la única réplica en línea. Si hay varias réplicas secundarias disponibles, se seleccionará el nodo con la mayor prioridad de copia de seguridad para realizar la copia de seguridad. En el caso de que solo esté disponible la réplica principal, la copia de seguridad se deberá realizar en ella.
+    * Solo secundaria: la copia de seguridad no se debe realizar en la réplica principal. Si la réplica principal es la única en línea, no se deberá realizar la copia de seguridad.
+    * Principal: las copias de seguridad se deben realizar siempre en la réplica principal.
+    * Cualquier réplica: las copias de seguridad se pueden realizar en cualquier réplica disponible en el grupo de disponibilidad. El nodo desde el que se va a realizar la copia de seguridad se basará en las prioridades de copia de seguridad de cada uno de los nodos.
+  * Tenga en cuenta lo siguiente:
+    * Las copias de seguridad se pueden realizar desde cualquier réplica legible, es decir, principal, secundaria sincrónica o secundaria asincrónica.
+    * Si se excluye alguna réplica de la copia de seguridad, por ejemplo, si se ha habilitado **Excluir de la réplica** o está marcada como no legible, entonces esa réplica no se seleccionará para la copia de seguridad en ninguna de las opciones.
+    * Si hay varias réplicas disponibles y legibles, se seleccionará el nodo con la mayor prioridad de copia de seguridad para realizar la copia de seguridad.
+    * Si se produce un error de la copia de seguridad en el nodo seleccionado, la operación de copia de seguridad no se realizará.
+    * No se admite la recuperación en la ubicación original.
+* Problemas de copia de seguridad de SQL Server 2014 o superior:
+  * SQL Server 2014 agregó una nueva característica para crear una [base de datos de SQL Server local en el almacenamiento de blobs de Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). No se puede usar MABS para proteger esta configuración.
+  * Hay algunos problemas conocidos con la preferencia de copia de seguridad "Preferir secundaria" de la opción SQL AlwaysOn. MABS siempre hace una copia de seguridad de la secundaria. Si no se puede encontrar una secundaria, la copia de seguridad no se realiza.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 

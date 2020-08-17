@@ -2,13 +2,14 @@
 title: Actualización de Azure Monitor para contenedores para habilitar métricas | Microsoft Docs
 description: En este artículo se describe cómo actualizar Azure Monitor para contenedores para habilitar la característica de métricas personalizadas, que permite explorar métricas y recibir alertas de métricas agregadas.
 ms.topic: conceptual
-ms.date: 06/01/2020
-ms.openlocfilehash: d299fc5e6b0c41188fac1fa19bb66387263c12e9
-ms.sourcegitcommit: d118ad4fb2b66c759b70d4d8a18e6368760da3ad
+ms.date: 07/17/2020
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: d56a280bdef2058c28d596f6c259eb319d80b08e
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/02/2020
-ms.locfileid: "84298268"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87499966"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Actualización de Azure Monitor para contenedores para habilitar métricas
 
@@ -22,21 +23,23 @@ Las siguientes métricas están habilitadas como parte de esta característica:
 
 | Espacio de nombres de métricas | Métrica | Descripción |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | Son métricas de *nodo* e incluyen *host* como una dimensión. También incluyen el<br> nombre del nodo como valor de la dimensión *host*. |
-| insights.container/pods | podCount | Son métricas de *pod*, e incluyen las siguientes dimensiones: ControllerName, espacio de nombres de Kubernetes, nombre y fase. |
+| Insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount, diskUsedPercentage, | Como métricas de *nodo* incluyen *host* como dimensión. También incluyen el<br> nombre del nodo como valor de la dimensión *host*. |
+| Insights.container/pods | podCount, completedJobsCount, restartingContainerCount, oomKilledContainerCount, podReadyPercentage | Como métricas de *pod*, incluyen las siguientes dimensiones: ControllerName, espacio de nombres de Kubernetes, nombre y fase. |
+| Insights.container/containers | cpuExceededPercentage, memoryRssExceededPercentage, memoryWorkingSetExceededPercentage | |
 
-La actualización del clúster para admitir estas nuevas capacidades se puede realizar desde Azure Portal o Azure PowerShell, o con la CLI de Azure. Con Azure PowerShell y la CLI, esto se puede llevar a cabo en cada clúster o en todos los clústeres de la suscripción. Las nuevas implementaciones de AKS incluirán este cambio de configuración y estas capacidades de forma automática.
+Para admitir estas nuevas funcionalidades, la versión incluye un nuevo agente en contenedor versión **microsoft/oms:ciprod02212019**. Las nuevas implementaciones de AKS incluyen este cambio de configuración y estas funcionalidades de forma automática. La actualización del clúster para admitir esta funcionalidad se puede realizar desde Azure Portal o Azure PowerShell, o con la CLI de Azure. Con Azure PowerShell y la CLI. Se puede habilitar en cada clúster o en todos los clústeres de la suscripción.
 
-Cada proceso asigna el rol **Publicador de métricas de supervisión** al MSI asignado del usuario o entidad de servicio del clúster para el complemento de supervisión de modo que los datos recopilados por el agente se puedan publicar en el recurso de los clústeres. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para obtener más información sobre este rol, vea [Rol Publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
+Cada proceso asigna el rol **Publicador de métricas de supervisión** al MSI asignado del usuario o entidad de servicio del clúster para el complemento de supervisión de modo que los datos recopilados por el agente se puedan publicar en el recurso de los clústeres. El rol Publicador de métricas de supervisión tiene permiso únicamente para insertar métricas en el recurso; no puede modificar ningún estado, actualizar el recurso ni leer datos. Para más información sobre este rol, vea el [rol del publicador de métricas de supervisión](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de empezar, confirme lo siguiente:
+Antes de actualizar el clúster, confirme lo siguiente:
 
 * Las métricas personalizadas solo están disponibles en un subconjunto de regiones de Azure. [Aquí](../platform/metrics-custom-overview.md#supported-regions) se documenta una lista de regiones admitidas.
-* Es miembro del rol **[Propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS para habilitar la recopilación de métricas de rendimiento personalizadas de nodos y pods. 
 
-Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+* Es miembro del rol **[Propietario](../../role-based-access-control/built-in-roles.md#owner)** en el recurso de clúster de AKS para habilitar la recopilación de métricas de rendimiento personalizadas de nodos y pods.
+
+Si decide usar la CLI de Azure, primero debe instalar y usar la CLI localmente. Debe ejecutar la versión 2.0.59 de la CLI de Azure, o cualquier versión posterior. Para identificar la versión, ejecute `az --version`. Si necesita instalar o actualizar la CLI de Azure, consulte [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Actualizar un clúster desde Azure Portal
 
@@ -122,4 +125,4 @@ Haga lo siguiente para actualizar un clúster concreto con mediante Azure PowerS
 
 ## <a name="verify-update"></a>Comprobar la actualización
 
-Después de iniciar la actualización a través de uno de los métodos descritos anteriormente, puede usar el Explorador de métricas de Azure Monitor y comprobar en el **Espacio de nombres de métrica** si aparece **insights**. Si es así, esto indica que puede continuar y empezar a configurar [alertas de métricas](../platform/alerts-metric.md) o a anclar gráficos a [paneles](../../azure-portal/azure-portal-dashboards.md).  
+Después de iniciar la actualización a través de uno de los métodos descritos anteriormente, puede usar el Explorador de métricas de Azure Monitor y comprobar en el **Espacio de nombres de métrica** si aparece **insights**. Si es así, puede continuar y empezar a configurar [alertas de métricas](../platform/alerts-metric.md) o a anclar gráficos a [paneles](../../azure-portal/azure-portal-dashboards.md).  

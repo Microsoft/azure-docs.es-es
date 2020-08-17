@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/22/2020
 ms.author: v-mibufo
-ms.openlocfilehash: daefaca45adb061295928c64b6a0e328a12d8a3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 186b1c46303be59e191a1754361e07a2003b997a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85268843"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87036189"
 ---
 # <a name="os-start-up--computer-restarted-unexpectedly-or-encountered-an-unexpected-error"></a>Arranque del sistema operativo. El equipo se reinició de manera inesperada o se produjo un error inesperado.
 
@@ -27,7 +27,7 @@ En este artículo se indican los pasos que hay que seguir para resolver problema
 
 ## <a name="symptom"></a>Síntoma
 
-Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la VM, verá que esta captura muestra una instalación de Windows que falla con el error siguiente:
+Si usa [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que esta captura muestra una instalación de Windows que falla con el error siguiente:
 
 **El equipo se reinició de manera inesperada o se produjo un error inesperado. No se puede continuar con la instalación de Windows. Para instalar Windows, haga clic en "Aceptar" para reiniciar el equipo y, después, reinicie la instalación.**
 
@@ -37,7 +37,7 @@ Si usa [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-mach
 
 ## <a name="cause"></a>Causa
 
-El equipo está intentando realizar un arranque inicial de una [imagen generalizada](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), pero tiene problemas debido a un archivo de respuesta personalizado (unattend.xml) que se está procesando. Los archivos de respuesta personalizados no se admiten en Azure. 
+El equipo está intentando realizar un arranque inicial de una [imagen generalizada](/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation), pero tiene problemas debido a un archivo de respuesta personalizado (unattend.xml) que se está procesando. Los archivos de respuesta personalizados no se admiten en Azure. 
 
 El archivo de respuesta es un archivo XML especial que contiene definiciones y valores para las opciones de configuración que quiere automatizar durante una instalación del sistema operativo Windows Server. Las opciones de configuración incluyen instrucciones sobre cómo crear discos de partición, dónde encontrar la imagen de Windows que se va a instalar, las claves de producto que se aplicarán y otros comandos que quiere ejecutar.
 
@@ -57,7 +57,7 @@ Esta situación se produce cuando una imagen se ha preparado para usarse en Azur
 
 - En el comando anterior, reemplace `<NameOfYourAnswerFile.XML>` por el nombre del archivo.
 
-Para corregir este problema, siga las [instrucciones de Azure para preparar o capturar una imagen](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed) y prepare una nueva imagen generalizada. Durante sysprep, no utilice la marca `/unattend:<answerfile>`, sino solamente las marcas siguientes:
+Para corregir este problema, siga las [instrucciones de Azure para preparar o capturar una imagen](../windows/upload-generalized-managed.md) y prepare una nueva imagen generalizada. Durante sysprep, no utilice la marca `/unattend:<answerfile>`, sino solamente las marcas siguientes:
 
 `sysprep /oobe /generalize /shutdown`
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 86314fd5bfe103cef8332ee3113f46fb0e39dafc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d92cbc25411f5cc2d528ccf6ecec4539494d380
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83836386"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533281"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Roles, permisos y seguridad en Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de DevOps) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
+Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de DevOps) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol de Azure de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
 
 ## <a name="built-in-monitoring-roles"></a>Roles de supervisión integrados
 Los roles integrados en Azure Monitor están diseñados para ayudar a limitar el acceso a recursos de una suscripción, sin impedir que los responsables de la infraestructura de supervisión obtengan y configuren los datos que necesitan. Azure Monitor proporciona dos roles de fábrica: un lector de supervisión y un colaborador de supervisión.
@@ -28,10 +28,10 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 
 * Ver paneles de supervisión en el portal y crear sus propios paneles de supervisión privados.
 * Ver las reglas de alerta definidas en [Alertas de Azure](alerts-overview.md)
-* Consultar métricas con la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), los [cmdlets de PowerShell](powershell-quickstart-samples.md) o la [CLI multiplataforma](../samples/cli-samples.md).
+* Consultar métricas con la [API de REST de Azure Monitor](/rest/api/monitor/metrics), los [cmdlets de PowerShell](../samples/powershell-samples.md) o la [CLI multiplataforma](../samples/cli-samples.md).
 * Consultar el registro de actividades a través del portal, la API de REST de Azure Monitor, los cmdlets de PowerShell o la CLI multiplataforma.
 * Ver la [configuración de diagnóstico](diagnostic-settings.md) de un recurso.
-* Ver el [perfil de registro](activity-log-export.md) de una suscripción.
+* Ver el [perfil de registro](./activity-log.md#legacy-collection-methods) de una suscripción.
 * Consultar la configuración de escalado automático.
 * Consultar la configuración y actividad de alertas.
 * Acceder a datos de Application Insights y ver los datos en AI Analytics.
@@ -52,7 +52,7 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 
 * Publicar paneles de supervisión como un panel compartido.
 * Determinar la [configuración de diagnóstico](diagnostic-settings.md) de un recurso.\*
-* Establecer el [perfil de registro](activity-log-export.md) de una suscripción.\*
+* Establecer el [perfil de registro](./activity-log.md#legacy-collection-methods) de una suscripción.\*
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](alerts-overview.md).
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics.
@@ -67,8 +67,8 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 > 
 > 
 
-## <a name="monitoring-permissions-and-custom-rbac-roles"></a>Roles RBAC personalizados y permisos de supervisión
-Si los roles integrados anteriores no satisfacen las necesidades exactas de su equipo, puede [crear un rol RBAC personalizado](../../role-based-access-control/custom-roles.md) con permisos más granulares. A continuación se muestran las operaciones comunes de RBAC de Azure Monitor con sus descripciones.
+## <a name="monitoring-permissions-and-azure-custom-roles"></a>Permisos de supervisión y roles de Azure personalizados
+Si los roles integrados anteriores no satisfacen las necesidades exactas de su equipo, puede [crear un rol de Azure personalizado](../../role-based-access-control/custom-roles.md) con permisos más granulares. A continuación se muestran las operaciones comunes de RBAC de Azure Monitor con sus descripciones.
 
 | Operación | Descripción |
 | --- | --- |
@@ -97,7 +97,7 @@ Si los roles integrados anteriores no satisfacen las necesidades exactas de su e
 > 
 > 
 
-Por ejemplo, mediante la tabla anterior se podría crear un rol RBAC personalizado para un "lector de registro de actividades" similar al siguiente:
+Por ejemplo, mediante la tabla anterior se podría crear un rol de Azure personalizado para un "lector de registro de actividades" similar al siguiente:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -126,7 +126,7 @@ Estos tres tipos de datos pueden almacenarse en una cuenta de almacenamiento o t
 * No conceder nunca el permiso ListKeys para las cuentas de almacenamiento o los centros de eventos en el ámbito de la suscripción cuando un usuario solo necesita acceso a los datos de supervisión. En su lugar, conceder estos permisos al usuario en un ámbito de recurso o grupo de recursos (si tiene un grupo de recursos de supervisión dedicado).
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>Restricción del acceso a cuentas de almacenamiento relacionadas con la supervisión
-Cuando un usuario o aplicación necesita acceso a datos de supervisión en una cuenta de almacenamiento, debe [generar una SAS de la cuenta](https://msdn.microsoft.com/library/azure/mt584140.aspx) en la cuenta de almacenamiento que contenga los datos de supervisión con acceso de solo lectura de nivel de servicio a Blob Storage. En PowerShell, podría quedar de manera similar a:
+Cuando un usuario o aplicación necesita acceso a datos de supervisión en una cuenta de almacenamiento, debe [generar una SAS de la cuenta](/rest/api/storageservices/create-account-sas) en la cuenta de almacenamiento que contenga los datos de supervisión con acceso de solo lectura de nivel de servicio a Blob Storage. En PowerShell, podría quedar de manera similar a:
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
@@ -135,7 +135,7 @@ $token = New-AzStorageAccountSASToken -ResourceType Service -Service Blob -Permi
 
 Puede proporcionar el token a la entidad que necesita leer desde la cuenta de almacenamiento, y esta puede enumerar y leer desde todos los blobs de dicha cuenta de almacenamiento.
 
-O bien, si necesita controlar este permiso con RBAC, puede conceder a dicha entidad el permiso Microsoft.Storage/storageAccounts/listkeys/action para esa cuenta de almacenamiento determinada. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro a fin de archivar en una cuenta de almacenamiento. Por ejemplo, podría crear el siguiente rol RBAC personalizado para un usuario o una aplicación que solo necesita leer desde una cuenta de almacenamiento:
+O bien, si necesita controlar este permiso con RBAC, puede conceder a dicha entidad el permiso Microsoft.Storage/storageAccounts/listkeys/action para esa cuenta de almacenamiento determinada. Esto es necesario para los usuarios que necesitan tener la capacidad de definir una configuración de diagnóstico o un perfil de registro a fin de archivar en una cuenta de almacenamiento. Por ejemplo, podría crear el siguiente rol de Azure personalizado para un usuario o una aplicación que solo necesita leer desde una cuenta de almacenamiento:
 
 ```powershell
 $role = Get-AzRoleDefinition "Reader"
@@ -188,6 +188,5 @@ Para obtener más información, consulte [Seguridad de red y Azure Storage](../.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Consulte información sobre RBAC y permisos en Resource Manager](../../role-based-access-control/overview.md)
-* [Lea la información general sobre supervisión en Azure](../../azure-monitor/overview.md)
-
+* [Lea la información general sobre supervisión en Azure](../overview.md)
 

@@ -1,25 +1,26 @@
 ---
-author: baanders
-ms.author: baanders
+author: dominicbetts
+ms.author: dominicbetts
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/15/2019
-ms.openlocfilehash: d88d166e001e71cabdabc3a3d344adc4da19aa8c
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 6cd983b6421fc821853aa22d4dc2c297f672d292
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75453689"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336909"
 ---
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si planea leer artículos de IoT Plug and Play adicionales, puede conservar los recursos que usó en este inicio rápido y reutilizarlos. De lo contrario, puede eliminar los recursos que creó para este inicio rápido para evitar cargos adicionales.
+Si planea leer artículos de IoT Plug and Play adicionales, puede conservar los recursos que usó en este artículo y reutilizarlos. De lo contrario, puede eliminar los recursos que creó para este artículo a fin de evitar cargos adicionales.
 
-Puede eliminar el centro y el dispositivo registrado a la vez si elimina todo el grupo de recursos con el siguiente comando de la CLI de Azure. (No obstante, no lo use si estos recursos comparten un grupo de recursos con otros recursos que tenga para otros fines).
+Puede eliminar el centro y el dispositivo registrado a la vez si elimina todo el grupo de recursos con el siguiente comando de la CLI de Azure. No use este comando si estos recursos comparten un grupo de recursos con otros recursos que desee conservar.
 
 ```azurecli-interactive
 az group delete --name <YourResourceGroupName>
 ```
+
 Para eliminar solo la instancia de IoT Hub, ejecute el siguiente comando con la CLI de Azure:
 
 ```azurecli-interactive

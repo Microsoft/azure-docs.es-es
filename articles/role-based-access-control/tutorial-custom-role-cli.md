@@ -13,12 +13,13 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 3efe9670d03a754cc90689c4b66d0843de4e275f
-ms.sourcegitcommit: 4499035f03e7a8fb40f5cff616eb01753b986278
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 319bca74c8e781e5dc5022e9fb901b2edca24a80
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/03/2020
-ms.locfileid: "82735511"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87485650"
 ---
 # <a name="tutorial-create-an-azure-custom-role-using-azure-cli"></a>Tutorial: Creación de un rol personalizado de Azure con la CLI de Azure
 

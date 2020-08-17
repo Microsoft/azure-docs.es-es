@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: c3d4a2120f86a03508b91d4b2dea52e629dc0f79
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1fdfe57c2995628855ea8e068c4f8eb2f2ac466a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130186"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500441"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-physical-servers"></a>Configurar la recuperación ante desastres para servidores físicos locales en Azure
 
@@ -111,7 +111,7 @@ Configure el servidor de configuración, regístrelo en el almacén y detecte m�
 4. Descargue el archivo de instalación unificada de Site Recovery.
 5. Descargue la clave de registro del almacén. Se le solicitará cuando ejecute la instalación unificada. La clave será válida durante cinco días a partir del momento en que se genera.
 
-   ![Configurar origen](./media/physical-azure-disaster-recovery/source-environment.png)
+   ![Captura de pantalla que muestra las opciones para descargar el archivo de instalación y la clave de registro.](./media/physical-azure-disaster-recovery/source-environment.png)
 
 
 ### <a name="register-the-configuration-server-in-the-vault"></a>Registro del servidor de configuración en el almacén
@@ -136,7 +136,6 @@ Ejecute la instalación unificada como administrador Local para instalar el serv
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-Una vez terminado el registro, el servidor de configuración se muestra en la página **Configuración** > **Servidores** del almacén.
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
 
@@ -146,7 +145,7 @@ Seleccione y compruebe los recursos de destino.
 2. Especifique el modelo de implementación de destino.
 3. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles.
 
-   ![Destino](./media/physical-azure-disaster-recovery/network-storage.png)
+   ![Captura de pantalla de las opciones para configurar el entorno de destino.](./media/physical-azure-disaster-recovery/network-storage.png)
 
 
 ## <a name="create-a-replication-policy"></a>Creación de una directiva de replicación
@@ -157,7 +156,7 @@ Seleccione y compruebe los recursos de destino.
 4. En **Retención de punto de recuperación**, especifique la duración (en horas) del período de retención de cada punto de recuperación. Las máquinas virtuales replicadas se pueden recuperar a cualquier momento de un período. Se admite una retención de hasta 24 horas para máquinas replicadas en Premium Storage y 72 horas para almacenamiento estándar.
 5. En **Frecuencia de instantánea coherente con la aplicación**especifique la frecuencia (en minutos) con la que se crearán puntos de recuperación que contengan las instantáneas coherentes con la aplicación. Haga clic en **Aceptar** para crear la directiva.
 
-    ![Directiva de replicación](./media/physical-azure-disaster-recovery/replication-policy.png)
+    ![Captura de pantalla de las opciones para crear una directiva de replicación.](./media/physical-azure-disaster-recovery/replication-policy.png)
 
 
 La directiva se asocia automáticamente al servidor de configuración. De forma predeterminada, se crea automáticamente una directiva correspondiente para la conmutación por recuperación. Por ejemplo, si la directiva de replicación es **rep-policy**, se crea una directiva de conmutación por recuperación **rep-policy-failback**. Esta directiva no se usa hasta que se inicie una conmutación por recuperación desde Azure.

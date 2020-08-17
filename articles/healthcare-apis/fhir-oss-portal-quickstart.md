@@ -2,18 +2,18 @@
 title: 'Azure Portal: Implementación del servidor de FHIR de código abierto para Azure: Azure API for FHIR'
 description: En este inicio rápido se explica cómo implementar el servidor de FHIR de código abierto de Microsoft mediante Azure Portal.
 services: healthcare-apis
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 02/07/2019
-ms.author: mihansen
-ms.openlocfilehash: 5109c9a7c6432e42c6841b89cc28bde3e92c74aa
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: matjazl
+ms.openlocfilehash: 7fa119db0c974c93aff667060d153b21b8de16bb
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "84819903"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87843494"
 ---
 # <a name="quickstart-deploy-open-source-fhir-server-using-azure-portal"></a>Inicio rápido: Implementación del servidor de FHIR de código abierto mediante Azure Portal
 

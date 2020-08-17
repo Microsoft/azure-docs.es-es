@@ -12,12 +12,12 @@ ms.date: 06/29/2020
 tags: ''
 keywords: ''
 ms.service: multiple
-ms.openlocfilehash: 3cc561a7f7f6f58c439a70315eba857e63def09d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d266dbd0ee908c41a7d29ddbb6d9c73fcfdc7c9e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561274"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87083470"
 ---
 # <a name="run-micro-focus-enterprise-server-50-in-a-docker-container-on-azure"></a>Ejecución de Micro Focus Enterprise Server 5.0 en un contenedor de Docker en Azure
 
@@ -171,6 +171,6 @@ Eso es todo. Ahora se está ejecutando y administración de una aplicación CICS
 
 ## <a name="next-steps"></a>Pasos siguientes
 
--   [Instalación de Micro Focus Enterprise Server 5.0 y Enterprise Developer 5.0 en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/mainframe-rehosting/microfocus/set-up-micro-focus-azure)
+-   [Instalación de Micro Focus Enterprise Server 5.0 y Enterprise Developer 5.0 en Azure](./set-up-micro-focus-azure.md)
 
--   [Migrar la aplicación del sistema central](https://docs.microsoft.com/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+-   [Migrar la aplicación del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Configuración del aprovisionamiento de entrada de SuccessFactors en Azure Active Directory | Microsoft Docs'
+title: 'Tutorial: Configuración del aprovisionamiento de entrada de SuccessFactors en AD y Azure AD | Microsoft Docs'
 description: Aprenda a configurar el aprovisionamiento de entrada de SuccessFactors
 services: active-directory
 author: cmmdesai
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2019
+ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: d9317a68c8967fbe0728e8c47e59dd33367c6163
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 95c46550570d579af7ab8107686ad20838a3a62e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84702182"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87809959"
 ---
-# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory (versión preliminar)
-El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar usuarios de SuccessFactors Employee Central a Active Directory (AD) y Azure AD, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. Esta integración está en versión preliminar pública y admite la recuperación de más de [70 atributos de usuario](../app-provisioning/sap-successfactors-attribute-reference.md) de SuccessFactors Employee Central.
+# <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Tutorial: Configuración del aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory 
+El objetivo de este tutorial es mostrar los pasos que debe realizar para aprovisionar usuarios de SuccessFactors Employee Central a Active Directory (AD) y Azure AD, con escritura diferida opcional de la dirección de correo electrónico en SuccessFactors. 
 
 >[!NOTE]
 >Use este tutorial si los usuarios que quiere aprovisionar de SuccessFactors necesitan una cuenta de AD local y, opcionalmente, una cuenta de Azure AD. Si los usuarios de SuccessFactors solo necesitan una cuenta de Azure AD (usuarios de solo nube), consulte el tutorial sobre cómo [configurar SAP SuccessFactors para el aprovisionamiento de usuarios de Azure AD](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md). 
@@ -82,7 +82,7 @@ La configuración del aprovisionamiento de usuarios controlado por RR. HH. en l
 * El número de aplicaciones de aprovisionamiento de usuarios de SuccessFactors a AD que se van a implementar.
 * Identificador de coincidencia, asignación de atributos y filtros de transformación y ámbito
 
-Consulte el [plan de implementación de RR. HH. en la nube](../app-provisioning/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. 
+Consulte el [plan de implementación de RR. HH. en la nube](../app-provisioning/plan-cloud-hr-provision.md) para instrucciones detalladas sobre estos temas. Consulte [Referencia de integración de SAP SuccessFactors](../app-provisioning/sap-successfactors-integration-reference.md) para obtener información sobre las entidades admitidas, los detalles de procesamiento y cómo personalizar la integración para distintos escenarios de recursos humanos. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configuración de SuccessFactors para la integración
 
@@ -260,7 +260,7 @@ En este paso, se establece la conectividad con SuccessFactors y Active Director
         > [!NOTE]
         > Esta configuración solo entra en juego para creaciones de cuentas de usuario si el atributo *parentDistinguishedName* no está configurado en las asignaciones de atributos. Esta configuración no se usa para la búsqueda de usuarios o las operaciones de actualización. El subárbol de todo el dominio se encuentra en el ámbito de la operación de búsqueda.
 
-   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Enviar una notificación por correo electrónico cuando se produzca un error".
+   * **Correo electrónico de notificación**: escriba su dirección de correo electrónico y marque la casilla "Send email if failure occurs" (Enviar una notificación por correo electrónico cuando se produzca un error).
     > [!NOTE]
     > El servicio de aprovisionamiento de Azure AD envía la notificación por correo electrónico si el trabajo de aprovisionamiento entra en un estado de[cuarentena](/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 

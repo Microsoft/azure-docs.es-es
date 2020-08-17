@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 4889d9b0f142206bf26a69f275cb60598fba577f
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 520cbeab2e6edc707299119ca4073668245a57c0
+ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035510"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87406218"
 ---
 ## <a name="start-with-some-boilerplate-code"></a>Inicio con código reutilizable
 

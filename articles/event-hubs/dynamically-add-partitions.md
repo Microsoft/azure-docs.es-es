@@ -3,12 +3,12 @@ title: Adición de particiones de forma dinámica a un centro de eventos en Azur
 description: En este artículo se muestra cómo agregar particiones de forma dinámica a un centro de eventos en Azure Event Hubs.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: ea0477dcc695c7a2fb936daadc3679c94bfac12f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a729147eaa11497c66f82a9764dfee9492786b9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317949"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002546"
 ---
 # <a name="dynamically-add-partitions-to-an-event-hub-apache-kafka-topic-in-azure-event-hubs"></a>Agregar particiones de forma dinámica a un centro de eventos (tema Apache Kafka) en Azure Event Hubs
 Event Hubs proporciona streaming de mensajes mediante un patrón de consumidor con particiones en el que cada consumidor lee solo un subconjunto específico o una partición del flujo de mensajes. Este patrón permite un escalado horizontal para el procesamiento de eventos y ofrece otras características centradas en los flujos que no están disponibles en las colas y los temas. Una partición es una secuencia ordenada de eventos que se mantiene en un centro de eventos. A medida que llegan eventos más recientes, se agregan al final de esta secuencia. Para más información sobre las particiones en general, consulte [Particiones](event-hubs-scalability.md#partitions).
@@ -33,7 +33,7 @@ Set-AzureRmEventHub -ResourceGroupName MyResourceGroupName -Namespace MyNamespac
 ```
 
 ### <a name="cli"></a>CLI
-Use el comando [az eventhubs eventhub update](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) de la CLI para actualizar particiones en un centro de eventos. 
+Use el comando [`az eventhubs eventhub update`](/cli/azure/eventhubs/eventhub?view=azure-cli-latest#az-eventhubs-eventhub-update) de la CLI para actualizar particiones en un centro de eventos. 
 
 ```azurecli-interactive
 az eventhubs eventhub update --resource-group MyResourceGroupName --namespace-name MyNamespaceName --name MyEventHubName --partition-count 12
@@ -64,7 +64,7 @@ Use la API de `AlterTopics` (por ejemplo, a través de la herramienta de **temas
 ## <a name="event-hubs-clients"></a>Clientes de Event Hubs
 Echemos un vistazo al comportamiento de los clientes de Event Hubs cuando se actualiza el recuento de particiones en un centro de eventos. 
 
-Cuando se agrega una partición a un centro de eventos existente, el cliente del centro de eventos recibe "MessagingException" del servicio que informa a los clientes de que los metadatos de la entidad (la entidad es el centro de eventos y los metadatos son la información de la partición) se han modificado. Los clientes volverán a abrir automáticamente los vínculos de AMQP, que luego recopilarán la información de metadatos modificada. Los clientes seguirán funcionando con normalidad.
+Cuando se agrega una partición a un centro de eventos existente, el cliente del centro de eventos recibe `MessagingException` del servicio que informa a los clientes de que los metadatos de la entidad (la entidad es el centro de eventos y los metadatos son la información de la partición) se han modificado. Los clientes volverán a abrir automáticamente los vínculos de AMQP, que luego recopilarán la información de metadatos modificada. Los clientes seguirán funcionando con normalidad.
 
 ### <a name="senderproducer-clients"></a>Clientes de remitente/productor
 Event Hubs proporciona tres opciones de remitente:
@@ -84,7 +84,7 @@ Event Hubs proporciona receptores directos y una biblioteca de consumidor sencil
 ## <a name="apache-kafka-clients"></a>Clientes de Apache Kafka
 En esta sección se describe el comportamiento de los clientes de Apache Kafka que usan el punto de conexión de Kafka de Azure Event Hubs cuando se actualiza el recuento de particiones de un centro de eventos. 
 
-Los clientes de Kafka que usan Event Hubs con el protocolo de Apache Kafka se comportan de manera diferente a los clientes del centro de eventos que usan el protocolo AMQP. Los clientes de Kafka actualizan sus metadatos una vez cada `metadata.max.age.ms` milisegundos. Este valor se especifica en las configuraciones de cliente. Las bibliotecas de `librdkafka` también usan la misma configuración. Las actualizaciones de metadatos informan a los clientes de los cambios en el servicio, incluidos los aumentos del número de particiones. Para obtener una lista de configuraciones, consulte [Configuraciones de Apache Kafka para Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md).
+Los clientes de Kafka que usan Event Hubs con el protocolo de Apache Kafka se comportan de manera diferente a los clientes del centro de eventos que usan el protocolo AMQP. Los clientes de Kafka actualizan sus metadatos una vez cada `metadata.max.age.ms` milisegundos. Este valor se especifica en las configuraciones de cliente. Las bibliotecas de `librdkafka` también usan la misma configuración. Las actualizaciones de metadatos informan a los clientes de los cambios en el servicio, incluidos los aumentos del número de particiones. Para obtener una lista de configuraciones, consulte [Configuraciones de Apache Kafka para Event Hubs](apache-kafka-configurations.md).
 
 ### <a name="senderproducer-clients"></a>Clientes de remitente/productor
 Los productores siempre dictan que las solicitudes de envío contienen el destino de la partición de cada conjunto de registros producidos. Por lo tanto, la creación de particiones se realiza en el lado cliente con la vista de metadatos del agente del productor. Una vez que las nuevas particiones se agreguen a la vista de metadatos del productor, estarán disponibles para las solicitudes del productor.
@@ -100,7 +100,7 @@ Cuando un miembro del grupo de consumidores realiza una actualización de metada
     > Aunque los datos existentes conservan el orden, el hash de partición se interrumpirá para los mensajes con hash aplicados cuando el número de particiones cambie debido a la adición de particiones.
 - Se recomienda agregar una partición a un tema existente o a una instancia del centro de eventos en los siguientes casos:
     - Cuando se usa el método round robin (predeterminado) para enviar eventos.
-     - Con estrategias de creación de particiones predeterminadas de Kafka, como StickyAssignor.
+     - Con estrategias de creación de particiones predeterminadas de Kafka, como Sticky Assignor.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

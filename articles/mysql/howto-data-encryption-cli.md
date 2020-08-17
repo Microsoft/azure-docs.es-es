@@ -6,12 +6,13 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
-ms.openlocfilehash: e6cb3e5db1c7fae3b0542557d2dae8239e0624f5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
+ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114625"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87799826"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Cifrado de datos para Azure Database for MySQL mediante la CLI de Azure
 
@@ -34,13 +35,13 @@ Aprenda a usar la CLI de Azure para configurar y administrar el cifrado de datos
 
 * Para usar un almacén de claves existente, este debe tener las siguientes propiedades para usarse como una clave administrada por el cliente:
 
-  * [Eliminación temporal](../key-vault/general/overview-soft-delete.md)
+  * [Eliminación temporal](../key-vault/general/soft-delete-overview.md)
 
     ```azurecli-interactive
     az resource update --id $(az keyvault show --name \ <key_vault_name> -o tsv | awk '{print $1}') --set \ properties.enableSoftDelete=true
     ```
 
-  * [Protegido contra purgas](../key-vault/general/overview-soft-delete.md#purge-protection)
+  * [Protegido contra purgas](../key-vault/general/soft-delete-overview.md#purge-protection)
 
     ```azurecli-interactive
     az keyvault update --name <key_vault_name> --resource-group <resource_group_name>  --enable-purge-protection true
@@ -93,6 +94,25 @@ Después de cifrar Azure Database for MySQL con la clave administrada de un clie
 * [Creación de un servidor de réplica de lectura](howto-read-replicas-cli.md) 
 
 ### <a name="once-the-server-is-restored-revalidate-data-encryption-the-restored-server"></a>Una vez restaurado el servidor, vuelva a validar el cifrado de datos del servidor restaurado.
+
+*   Asignación de identidades para el servidor Réplica
+```azurecli-interactive
+az mysql server update --name  <server name>  -g <resoure_group> --assign-identity
+```
+
+*   Obtenga la clave existente que se debe usar para el servidor restaurado o el servidor Réplica.
+
+```azurecli-interactive
+az mysql server key list --name  '<server_name>'  -g '<resource_group_name>'
+```
+
+*   Establezca la directiva de la nueva identidad del servidor restaurado o el servidor Réplica.
+  
+```azurecli-interactive
+az keyvault set-policy --name <keyvault> -g <resoure_group> --key-permissions get unwrapKey wrapKey --object-id <principl id of the server returned by the step 1>
+```
+
+* Vuelva a validar el servidor restaurado o el servidor Réplica con la clave de cifrado
 
 ```azurecli-interactive
 az mysql server key create –name  <server name> -g <resource_group> --kid <key url>

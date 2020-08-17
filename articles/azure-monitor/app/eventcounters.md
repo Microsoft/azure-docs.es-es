@@ -3,12 +3,12 @@ title: Contadores de eventos en Application Insights | Microsoft Docs
 description: Supervise los contadores de eventos de .NET/.NET Core personalizados y del sistema en Application Insights.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 06bf15bf60b1ee5e2c301935a30b3981d5233a08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 42140f68a5f383a2a60fe8327f5023754366e6b7
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539948"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324410"
 ---
 # <a name="eventcounters-introduction"></a>Introducción a los contadores de eventos
 
@@ -124,7 +124,7 @@ customMetrics
 Al igual que otros datos de telemetría, **customMetrics** también tiene una columna `cloud_RoleInstance` que indica la identidad de la instancia del servidor host en el que se ejecuta la aplicación. La consulta anterior muestra el valor del contador por instancia y se puede usar para comparar el rendimiento de las distintas instancias del servidor.
 
 ## <a name="alerts"></a>Alertas
-Al igual que otras métricas, puede [establecer una alerta](../../azure-monitor/platform/alerts-log.md) para advertirle si un contador de eventos supera un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
+Al igual que otras métricas, puede [establecer una alerta](../platform/alerts-log.md) para advertirle si un contador de eventos supera un límite especificado. Abra el panel de alertas y haga clic en Agregar alerta.
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
@@ -148,4 +148,5 @@ EventCounter no requiere ningún permiso especial y se admite en todas las plata
 
 ## <a name="next-steps"></a><a name="next"></a>Pasos siguientes
 
-* [Seguimiento de dependencias](../../azure-monitor/app/asp-net-dependencies.md)
+* [Seguimiento de dependencias](./asp-net-dependencies.md)
+

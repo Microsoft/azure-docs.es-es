@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 03/06/2020
 ms.topic: how-to
-ms.openlocfilehash: e3be1f9ec900655f4dae45abd402ff8e6a56e283
-ms.sourcegitcommit: 2721b8d1ffe203226829958bee5c52699e1d2116
+ms.openlocfilehash: 9ddf4641cfba2fb9704c2354e01299df368eb2ac
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84147957"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432026"
 ---
 # <a name="configure-the-model-conversion"></a>Configuración de la conversión de modelos
 
@@ -18,7 +18,8 @@ En este capítulo se documentan las opciones para la conversión de modelos.
 
 ## <a name="settings-file"></a>Archivo de configuración
 
-Si se encuentra un archivo denominado `ConversionSettings.json` en el contenedor de entrada junto al modelo de entrada, se usará para proporcionar una configuración adicional para el proceso de conversión de modelos.
+Si se encuentra un archivo denominado `<modelName>.ConversionSettings.json` en el contenedor de entrada junto al modelo de entrada `<modelName>.<ext>`, se usará para proporcionar una configuración adicional para el proceso de conversión de modelos.
+Por ejemplo, `box.ConversionSettings.json` se utilizaría al convertir `box.gltf`.
 
 El contenido del archivo debe cumplir el esquema JSON siguiente:
 
@@ -54,7 +55,7 @@ El contenido del archivo debe cumplir el esquema JSON siguiente:
 }
 ```
 
-Un archivo `ConversionSettings.json` de ejemplo podría ser:
+Un archivo `box.ConversionSettings.json` de ejemplo podría ser:
 
 ```json
 {
@@ -66,15 +67,18 @@ Un archivo `ConversionSettings.json` de ejemplo podría ser:
 
 ### <a name="geometry-parameters"></a>Parámetros de geometría
 
-* `scaling`: este parámetro escala uniformemente un modelo. El escalado se puede usar para aumentar o reducir un modelo, por ejemplo, para mostrar un modelo de compilación en la parte superior de una tabla. Dado que el motor de representación espera que las longitudes se especifiquen en metros, surge otro uso importante de este parámetro cuando un modelo se define en unidades distintas. Por ejemplo, si un modelo se define en centímetros, la aplicación de una escala de 0,01 debe representar el modelo con el tamaño correcto.
+* `scaling`: este parámetro escala uniformemente un modelo. El escalado se puede usar para aumentar o reducir un modelo, por ejemplo, para mostrar un modelo de compilación en la parte superior de una tabla.
+El escalado también es importante cuando un modelo se define en unidades distintas a los medidores, ya que el motor de representación espera medidores.
+Por ejemplo, si un modelo se define en centímetros, la aplicación de una escala de 0,01 debe representar el modelo con el tamaño correcto.
 Algunos formatos de datos de origen (por ejemplo, .fbx) proporcionan una sugerencia de escalado de unidades, en cuyo caso la conversión escala implícitamente el modelo a unidades de medidor. El escalado implícito proporcionado por el formato de origen se aplicará en la parte superior del parámetro de escalado.
 El factor de escalado final se aplica a los vértices de geometría y las transformaciones locales de los nodos de gráfico de escena. El escalado para la transformación de la entidad raíz permanece sin modificar.
 
 * `recenterToOrigin`: indica que un modelo debe convertirse para que su rectángulo de selección se centre en el origen.
-Centrar es importante si el modelo de origen se desplaza lejos del origen, ya que, en ese caso, las incidencias de precisión del número de punto flotante pueden dar lugar a artefactos de representación.
+Si el modelo de origen se desplaza lejos del origen, las incidencias de precisión del número de punto flotante pueden dar lugar a artefactos de representación.
+Centrar el modelo puede ayudar en esta situación.
 
 * `opaqueMaterialDefaultSidedness`: el motor de representación da por sentado que los materiales opacos son de doble cara.
-Si no es el comportamiento previsto, este parámetro debe establecerse en "SingleSided". Para más información, consulte [:::no-loc text="single sided":::Representación en una sola cara](../../overview/features/single-sided-rendering.md).
+Si esa suposición no es verdadera para un modelo determinado, este parámetro debe establecerse en "SingleSided". Para más información, consulte [:::no-loc text="single sided":::Representación en una sola cara](../../overview/features/single-sided-rendering.md).
 
 ### <a name="material-overrides"></a>Invalidaciones de materiales
 
@@ -102,7 +106,7 @@ Si un modelo se define mediante el espacio gamma, estas opciones deben establece
   * `static`: todos los objetos se exponen en la API, pero no se pueden transformar de manera independiente.
   * `none`: el gráfico de escena se contrae en un objeto.
 
-Cada modo tiene un rendimiento en tiempo de ejecución diferente. En el modo `dynamic`, el costo de rendimiento se escala linealmente con el número de [entidades](../../concepts/entities.md) del gráfico, incluso cuando no se mueve ninguna parte. Solo se debe usar cuando es necesario mover partes individualmente para la aplicación, por ejemplo, para una animación de "vista de explosión".
+Cada modo tiene un rendimiento en tiempo de ejecución diferente. En el modo `dynamic`, el costo de rendimiento se escala linealmente con el número de [entidades](../../concepts/entities.md) del gráfico, incluso cuando no se mueve ninguna parte. Utilice el modo `dynamic` solo cuando sea necesario trasladar partes individualmente, por ejemplo, para una animación de "vista explosionada".
 
 El modo de `static` exporta el gráfico de escena completo, pero las partes que contiene este gráfico tienen una transformación constante relativa a su parte raíz. El nodo raíz del objeto, sin embargo, puede seguir moviéndose, girándose o escalándose sin ningún costo de rendimiento importante. Además, las [consultas espaciales](../../overview/features/spatial-queries.md) devolverán partes individuales, pudiendo modificarse cada una a través de [invalidaciones de estado](../../overview/features/override-hierarchical-state.md). Con este modo, la sobrecarga en tiempo de ejecución por objeto es insignificante. Es ideal para escenas grandes en las que aún es necesaria una inspección por objeto, pero no cambia ninguna transformación por objeto.
 
@@ -278,6 +282,11 @@ En estos casos de uso, los modelos suelen ser muy detallados en un volumen peque
 * Las partes individuales deben poder seleccionarse y moverse, por lo que el `sceneGraphMode` debe dejarse en `dynamic`.
 * Las conversiones de rayo suelen ser una parte integral de la aplicación, por lo que se deben generar mallas de colisión.
 * Los planos de corte se ven mejor con la marca `opaqueMaterialDefaultSidedness` habilitada.
+
+## <a name="deprecated-features"></a>Características en desuso
+
+Se sigue admitiendo la configuración mediante el nombre de archivo `conversionSettings.json` no específico del modelo, pero en desuso.
+En su lugar, use el nombre de archivo `<modelName>.ConversionSettings.json` específico del modelo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

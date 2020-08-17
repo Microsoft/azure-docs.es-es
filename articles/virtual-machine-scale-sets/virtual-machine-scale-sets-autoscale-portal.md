@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 05/29/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: cfbd5af7063a4764820b5ce892a9a2b8a305b1b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ac42fe3265163a5a967524fe11063803c9ca91d3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494945"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080597"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales en Azure Portal
 Al crear un conjunto de escalado, puede definir el número de instancias de máquina virtual que quiere ejecutar. A medida que cambia la demanda de las aplicaciones, puede aumentar o reducir automáticamente el número de estas instancias. La posibilidad de realizar el escalado automático le permite satisfacer la demanda del cliente o responder a los cambios de rendimiento de la aplicación a lo largo del ciclo de vida de esta.
@@ -48,8 +48,8 @@ Si aumenta la demanda de la aplicación, la carga de las instancias de máquina 
     | *Estadísticas de intervalo de agregación* | Define cómo se deben agregar las métricas recopiladas en cada intervalo de agregación para el análisis.                             | Average        |
     | *Operador*             | El operador que se utiliza para comparar los datos de las métricas con los umbrales.                                                     | Mayor que   |
     | *Umbral*            | El porcentaje que hace que la regla de escalado automático desencadene una acción.                                                 | 70             |
-    | *Duration*             | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales.                                   | 10 minutos     |
-    | *operación*            | Define si el conjunto de escalado debe escalarse o reducirse verticalmente cuando se aplica la regla y en qué incremento debe hacerse                        | Aumentar porcentaje en |
+    | *Duration*             | El periodo durante el que se realiza la supervisión antes de que se comparen los valores de métricas y umbrales. No incluye el período de enfriamiento.                                   | 10 minutos     |
+    | *operación*            | Define si el conjunto de escalado debe escalarse o reducirse verticalmente cuando se aplica la regla y en qué incremento debe hacerse.                        | Aumentar porcentaje en |
     | *Recuento de instancias*       | El porcentaje de instancias de máquina virtual se debe cambiar al desencadenarse la regla.                                            | 20             |
     | *Tiempo de finalización (minutos)*  | El periodo que hay que esperar hasta que la regla se vuelva a aplicar, para que las acciones de escalado automático tengan tiempo de surtir efecto. | 5 minutos      |
 

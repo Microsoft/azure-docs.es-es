@@ -7,13 +7,13 @@ ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 04/09/2020
-ms.openlocfilehash: 90ef75c704459ca726480e6950ba748162c66b8e
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.date: 07/27/2020
+ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147016"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87307206"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Etiquetado de imágenes en un proyecto de etiquetado 
 
@@ -37,11 +37,9 @@ Después de que el administrador del proyecto [cree un proyecto de etiquetado](h
 
 1. Seleccione **Data labeling** (Etiquetado de datos) en el lazo izquierdo para buscar el proyecto.  
 
-1. Seleccione el nombre del proyecto de la lista.
-
 ## <a name="understand-the-labeling-task"></a>Descripción de la tarea de etiquetado
 
-Cuando haya seleccionado el proyecto, en la parte superior de la página, seleccione **Label data** (Etiquetar datos).
+En la tabla de proyectos de etiquetado de datos, seleccione **Label link** (Vínculo de etiqueta) para el proyecto.
 
 Verá instrucciones que son específicas del proyecto. Explican el tipo de datos a los que se enfrenta, cómo debe tomar sus decisiones y otra información pertinente. Tras leer esta información, seleccione **Tareas** en la parte superior de la página.  O bien, seleccione **Start labeling** (Iniciar etiquetado) en la parte inferior de la página.
 
@@ -65,6 +63,10 @@ Azure habilita el botón **Enviar** una vez etiquetadas todas las imágenes de l
 Una vez que haya enviado etiquetas para los datos con los que está trabajando, Azure actualizará la página con un nuevo conjunto de imágenes de la cola de trabajo.
 
 ### <a name="assisted-machine-learning-preview"></a>Aprendizaje automático automatizado (versión preliminar) 
+
+> [!IMPORTANT]
+> El aprendizaje automático asistido se encuentra actualmente en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Se pueden desencadenar algoritmos de aprendizaje automático. Si estos algoritmos se han habilitado en su proyecto, puede ver lo siguiente:
 

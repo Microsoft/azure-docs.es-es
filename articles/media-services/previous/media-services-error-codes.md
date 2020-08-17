@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6911b16c3fdf5bb94d42a40198943c3b1baa00da
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74887095"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042837"
 ---
 # <a name="azure-media-services-error-codes"></a>Códigos de error de Azure Media Services
 Al utilizar Microsoft Azure Media Services, puede recibir los códigos de error HTTP desde el servicio dependiendo de los problemas como los tokens de autenticación que expiran en acciones que no son compatibles en Media Services. La siguiente es una lista de **códigos de error HTTP** que pueden devolver Media Services y las posibles causas de ellos.  
@@ -28,19 +28,19 @@ Al utilizar Microsoft Azure Media Services, puede recibir los códigos de error 
 La solicitud contiene información no válida y se rechazará debido a uno de los siguientes motivos:
 
 * Se especifica una versión de API no compatible. Para obtener la versión más actualizada, consulte [Configuración del desarrollo de la API de REST de Media Services](media-services-rest-how-to-use.md).
-* No se especifica la versión de la API de Media Services. Para más información sobre cómo especificar la versión de la API, vea [Media Services Operations REST API Reference (Referencia de la API de REST de operaciones de Media Services)](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+* No se especifica la versión de la API de Media Services. Para más información sobre cómo especificar la versión de la API, vea [Media Services Operations REST API Reference (Referencia de la API de REST de operaciones de Media Services)](/rest/api/media/operations/azure-media-services-rest-api-reference).
   
   > [!NOTE]
   > Si usa SDK de Java o .NET para conectarse a Media Services, la versión de la API se especificará automáticamente cada vez que intente realizar alguna acción con Media Services.
   > 
   > 
-* Se ha especificado una propiedad no definida. El nombre de la propiedad se encuentra en el mensaje de error. Se pueden especificar solo las propiedades miembro de una entidad determinada. Consulte [Referencia de la API de REST de Azure Media Services](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference) para obtener una lista de entidades y sus propiedades.
+* Se ha especificado una propiedad no definida. El nombre de la propiedad se encuentra en el mensaje de error. Se pueden especificar solo las propiedades miembro de una entidad determinada. Consulte [Referencia de la API de REST de Azure Media Services](/rest/api/media/operations/azure-media-services-rest-api-reference) para obtener una lista de entidades y sus propiedades.
 * Se ha especificado un valor de propiedad no válido. El nombre de la propiedad se encuentra en el mensaje de error. Vea el vínculo anterior para tipos de propiedad válidos y sus valores.
 * Falta un valor de propiedad y es obligatorio.
 * Parte de la dirección URL especificada contiene un valor incorrecto.
 * Se intentó actualizar una propiedad WriteOnce.
 * Se ha intentado crear un trabajo que tiene un recurso de entrada con un AssetFile principal que no se especificó o no se pudo determinar.
-* Se realizó un intento de actualizar un localizador SAS. Solo se pueden crear o eliminar localizadores SAS. Los localizadores en streaming pueden actualizarse. Para obtener más información, consulte [Localizadores](https://docs.microsoft.com/rest/api/media/operations/locator).
+* Se realizó un intento de actualizar un localizador SAS. Solo se pueden crear o eliminar localizadores SAS. Los localizadores en streaming pueden actualizarse. Para obtener más información, consulte [Localizadores](/rest/api/media/operations/locator).
 * Se ha enviado una operación no compatible o una consulta.
 
 ## <a name="401-unauthorized"></a>401 No autorizado
@@ -109,7 +109,7 @@ Los estados posibles son:
 * "El servidor está ocupado. Se pueden limitar más de {0} solicitudes por segundo".
 * "El servidor está ocupado. Se pueden limitar más de {0} solicitudes en {1} segundos".
 
-Para controlar este error, se recomienda usar la lógica de reintento de retroceso exponencial. Eso significa usar progresivamente esperas más largas entre reintentos para respuestas de error consecutivas.  Para más información, consulte [Bloque de aplicación de control de errores transitorios](https://msdn.microsoft.com/library/hh680905.aspx).
+Para controlar este error, se recomienda usar la lógica de reintento de retroceso exponencial. Eso significa usar progresivamente esperas más largas entre reintentos para respuestas de error consecutivas.  Para más información, consulte [Bloque de aplicación de control de errores transitorios](/previous-versions/msp-n-p/hh680905(v=pandp.50)).
 
 > [!NOTE]
 > Si está utilizando [Azure Media Services SDK para .Net](https://github.com/Azure/azure-sdk-for-media-services/tree/master), la lógica de reintento para el error 503 se ha implementado por el SDK.  
@@ -117,11 +117,10 @@ Para controlar este error, se recomienda usar la lógica de reintento de retroce
 > 
 
 ## <a name="see-also"></a>Consulte también
-[Códigos de error de administración de Media Services](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
+[Códigos de error de administración de Media Services](/rest/api/media/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

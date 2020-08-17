@@ -1,26 +1,19 @@
 ---
 title: Introducción al agente Linux Virtual Machines de Azure
 description: Aprenda a instalar y configurar el Agente de Linux (waagent) para administrar la interacción de la máquina virtual con el controlador de tejido de Azure.
-services: virtual-machines-linux
-documentationcenter: ''
 author: axayjo
-manager: gwallace
-editor: ''
-tags: azure-service-management,azure-resource-manager
-ms.assetid: e41de979-6d56-40b0-8916-895bf215ded6
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4143e049f0a89d1218d9442eaebc1c5ebaf4cc77
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186833"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87269128"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Información y uso del agente de Linux de Azure
 
@@ -72,7 +65,7 @@ El flujo de información desde la plataforma hasta el agente se produce a travé
 Los siguientes sistemas se han probado y se sabe que funcionan con el agente Linux de Azure:
 
 > [!NOTE]
-> Esta lista puede diferir de la lista oficial de sistemas admitidos en la plataforma Microsoft Azure, como se describe aquí: [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> Esta lista puede ser distinta de la lista oficial de [distribuciones compatibles](../linux/endorsed-distros.md).
 > 
 > 
 
@@ -344,5 +337,4 @@ Las imágenes de tipo Ubuntu Cloud Images usan [cloud-init](https://launchpad.ne
 * Para más información, vea los recursos siguientes para configurar el punto de montaje del disco de recursos e intercambiar espacio en Ubuntu Cloud Images durante el aprovisionamiento:
   
   * [Ubuntu Wiki: Configure Swap Partitions](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409) (Configuración de particiones de intercambio)
-  * [Inyección de datos personalizados en una máquina virtual de Azure](../windows/classic/inject-custom-data.md)
-
+  * [Inyección de datos personalizados en una máquina virtual de Azure](../windows/tutorial-automate-vm-deployment.md)

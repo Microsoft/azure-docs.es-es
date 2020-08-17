@@ -7,16 +7,16 @@ ms.reviewer: jdaly, logicappspm
 ms.topic: conceptual
 ms.date: 05/08/2020
 tags: connectors
-ms.openlocfilehash: 98da7e959e4b59ad2d0f3f3f79364391b4ceddbd
-ms.sourcegitcommit: 309a9d26f94ab775673fd4c9a0ffc6caa571f598
+ms.openlocfilehash: 8cce90a8a65a7f070459e220e6d92ef0be57e909
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/09/2020
-ms.locfileid: "82997825"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284122"
 ---
 # <a name="create-and-manage-records-in-common-data-service-by-using-azure-logic-apps"></a>Creación y administración de registros de Common Data Service mediante Azure Logic Apps
 
-Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Common Data Service](https://docs.microsoft.com/connectors/commondataservice/), puede crear flujos de trabajo automatizados que administren registros en la base de datos de [Common Data Service](https://docs.microsoft.com/powerapps/maker/common-data-service/data-platform-intro). Estos flujos de trabajo pueden crear registros, actualizar registros y realizar otras operaciones. También puede obtener información de la base de datos de Common Data Service y hacer que la salida esté disponible para que otras acciones las usen en la aplicación lógica. Por ejemplo, cuando se actualiza un registro en la base de datos de Common Data Service, puede enviar un correo electrónico mediante el conector de Office 365 Outlook.
+Con [Azure Logic Apps](../logic-apps/logic-apps-overview.md) y el [conector de Common Data Service](/connectors/commondataservice/), puede crear flujos de trabajo automatizados que administren registros en la base de datos de [Common Data Service](/powerapps/maker/common-data-service/data-platform-intro). Estos flujos de trabajo pueden crear registros, actualizar registros y realizar otras operaciones. También puede obtener información de la base de datos de Common Data Service y hacer que la salida esté disponible para que otras acciones las usen en la aplicación lógica. Por ejemplo, cuando se actualiza un registro en la base de datos de Common Data Service, puede enviar un correo electrónico mediante el conector de Office 365 Outlook.
 
 En este artículo se explica cómo compilar una aplicación lógica que cree un registro de tarea cada vez que se cree un nuevo registro de cliente potencial.
 
@@ -24,10 +24,10 @@ En este artículo se explica cómo compilar una aplicación lógica que cree un 
 
 * Suscripción a Azure. Si no tiene una suscripción de Azure, [regístrese para obtener una cuenta gratuita de Azure](https://azure.microsoft.com/free/).
 
-* Un [entorno de Common Data Service](https://docs.microsoft.com/power-platform/admin/environments-overview), que es un espacio donde la organización almacena, administra y comparte datos empresariales y una base de datos de Common Data Service. Para obtener más información, vea estos recursos:<p>
+* Un [entorno de Common Data Service](/power-platform/admin/environments-overview), que es un espacio donde la organización almacena, administra y comparte datos empresariales y una base de datos de Common Data Service. Para obtener más información, vea estos recursos:<p>
 
-  * [Learn: Introducción a Common Data Service](https://docs.microsoft.com/learn/modules/get-started-with-powerapps-common-data-service/)
-  * [Power Platform: Información general de entornos](https://docs.microsoft.com/power-platform/admin/environments-overview)
+  * [Learn: Introducción a Common Data Service](/learn/modules/get-started-with-powerapps-common-data-service/)
+  * [Power Platform: Información general de entornos](/power-platform/admin/environments-overview)
 
 * Información básica sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md) y la aplicación lógica desde donde desea acceder a los registros de la base de datos de Common Data Service. Para iniciar la aplicación lógica con un desencadenador de Common Data Service, necesita una aplicación lógica en blanco. Si es la primera vez que usa Azure Logic Apps, revise [Inicio rápido: Creación del primer flujo de trabajo mediante Azure Logic Apps](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -51,7 +51,7 @@ En este ejemplo, agregue el desencadenador de Common Data Service, que se activa
 
    | Propiedad | Obligatorio | Descripción |
    |----------|----------|-------------|
-   | **Entorno** | Sí | El entorno que se va a supervisar, por ejemplo, "Fabrikam Sales Production". Para obtener más información, consulte [Power Platform: Información general sobre los entornos](https://docs.microsoft.com/power-platform/admin/environments-overview). |
+   | **Entorno** | Sí | El entorno que se va a supervisar, por ejemplo, "Fabrikam Sales Production". Para obtener más información, consulte [Power Platform: Información general sobre los entornos](/power-platform/admin/environments-overview). |
    | **Nombre de entidad** | Sí | La entidad que se va a supervisar; por ejemplo, "Clientes potenciales". |
    | **Ámbito** | Sí | El origen que creó el nuevo registro; por ejemplo, un usuario de la unidad de negocio o cualquier usuario de la organización. En este ejemplo se usa "Unidad de negocio". |
    ||||
@@ -126,7 +126,7 @@ Para las acciones que devuelven registros, como la acción **Enumerar registros*
 
    ![Escribir consulta de filtro de ODATA para filtrar registros](./media/connect-common-data-service/list-records-action-filter-query-value.png)
 
-Para obtener más información sobre las opciones de consulta del sistema `$filter`, consulte [Common Data Service: Filtrar resultados](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
+Para obtener más información sobre las opciones de consulta del sistema `$filter`, consulte [Common Data Service: Filtrar resultados](/powerapps/developer/common-data-service/webapi/query-data-web-api#filter-results).
 
 ## <a name="list-records-based-on-an-order"></a>Enumerar registros según un orden
 
@@ -140,7 +140,7 @@ En el caso de las acciones que devuelven registros, como la acción **Enumerar r
 
    ![Especificar consulta de filtro de ODATA para ordenar registros](./media/connect-common-data-service/list-records-action-order-by-value.png)
 
-Para obtener más información sobre las opciones de consulta del sistema `$orderby`, consulte [Common Data Service: Ordenar resultados](https://docs.microsoft.com/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
+Para obtener más información sobre las opciones de consulta del sistema `$orderby`, consulte [Common Data Service: Ordenar resultados](/powerapps/developer/common-data-service/webapi/query-data-web-api#order-results).
 
 ## <a name="field-data-types"></a>Tipos de datos de campo
 
@@ -166,7 +166,7 @@ En este ejemplo se muestra cómo la acción **Crear un nuevo registro** crea un 
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener datos técnicos basados en la descripción de Swagger del conector, como desencadenadores, acciones, límites y otros detalles, consulte la [página de referencia del conector](https://docs.microsoft.com/connectors/commondataservice/).
+Para obtener datos técnicos basados en la descripción de Swagger del conector, como desencadenadores, acciones, límites y otros detalles, consulte la [página de referencia del conector](/connectors/commondataservice/).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

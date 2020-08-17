@@ -5,12 +5,12 @@ author: sunasing
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: sunasing
-ms.openlocfilehash: d4ceb25b9b81c831ed1b285a875742ebfaa6d24f
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: a2677b5343b2d65a39e7c9f6d5006db599c1ac73
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232651"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497002"
 ---
 # <a name="weather-partner-integration"></a>Integración de asociados de datos meteorológicos
 
@@ -36,10 +36,10 @@ Con la información de Docker anterior, el cliente registrará un asociado meteo
 
 Las API de FarmBeats contienen documentación técnica de Swagger. Para obtener información sobre las API y sus solicitudes o respuestas correspondientes, vea la instancia de [Swagger de FarmBeats](https://aka.ms/farmbeatsswagger). 
 
-Si ha instalado FarmBeats, puede acceder a su instancia de Swagger de FarmBeats en [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger).
+Si ha instalado FarmBeats, puede acceder a su instancia de Swagger de FarmBeats en `https://yourfarmbeatswebsitename-api.azurewebsites.net/swagger`.
 
 Tenga en cuenta que se anexa "-api" al nombre del sitio web de FarmBeats.
-El punto de conexión de la API será: [https://yourfarmbeatswebsitename-api.azurewebsites.net](https://yourfarmbeatswebsitename-api.azurewebsites.net)
+El punto de conexión de la API será: `https://yourfarmbeatswebsitename-api.azurewebsites.net`
 
 ### <a name="datahub-lib"></a>Biblioteca del centro de datos
 
@@ -134,7 +134,7 @@ Este componente se invocará cada vez que un usuario de FarmBeats ejecute un tra
 
 ### <a name="details-of-the-objects"></a>Detalles de los objetos
 
-  **WeatherDataModel** |  |
+  WeatherDataModel | Descripción |
   --- | ---
   Nombre  | Nombre del modelo de datos meteorológicos |
   Descripción  | Proporciona una descripción significativa del modelo. |
@@ -147,7 +147,7 @@ Este componente se invocará cada vez que un usuario de FarmBeats ejecute un tra
   weatherMeasures > AggregationType  | Puede ser None, Average, Maximum, Minimum, StandardDeviation, Sum, Total.
   weatherMeasures > Depth  | La profundidad del sensor en centímetros. Por ejemplo, la medida de la humedad 10 cm bajo el suelo.
   weatherMeasures > Description  | Proporciona una descripción significativa de la medida. |
-  **JobType** |  |
+  **JobType** | **Descripción** |
   Nombre  | Nombre del trabajo, por ejemplo Get_Daily_Forecast; el trabajo que el cliente ejecutará para obtener los datos meteorológicos.|
   pipelineDetails > parameters > name  | Nombre del parámetro. |
   pipelineDetails > parameters > type | String, Int, Float, Bool, Array |
@@ -156,7 +156,7 @@ Este componente se invocará cada vez que un usuario de FarmBeats ejecute un tra
   pipelineDetails > parameters > description | Descripción del parámetro |
   Propiedades  | Propiedades adicionales del fabricante.
   Properties > **programRunCommand** | Comando de ejecución de Docker: este comando se ejecutará cuando el cliente ejecute el trabajo meteorológico. |
-  **WeatherDataLocation** |  |
+  **WeatherDataLocation** | **Descripción** |
   weatherDataModelId  | Identificador del modelo WeatherDataModel correspondiente que se creó durante el arranque.|
   ubicación  | Representa la latitud, la longitud y la elevación. |
   Nombre | Nombre del objeto. |

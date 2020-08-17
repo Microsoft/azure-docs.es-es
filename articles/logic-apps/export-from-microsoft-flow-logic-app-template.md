@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: b8bf409d759b74e6a5ef0d840aebbe807a04448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b2a45218118282f4f1cadb29c9022fc05b30f907
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324867"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078732"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportación de flujos desde Power Automate y su implementación en Azure Logic Apps
 
@@ -20,9 +20,9 @@ Para ampliar y expandir las funcionalidades de un flujo, puede migrarlo desde [P
 > [!NOTE]
 > No todos los conectores de Power Automate están disponibles en Azure Logic Apps. Solo se pueden migrar flujos de Power Automate que tengan conectores equivalentes en Azure Logic Apps. Por ejemplo, el desencadenador Button, el conector Approvals y el conector Notification son específicos de Power Automate. En la actualidad, los flujos basados en OpenAPI de Power Automate no se admiten para la exportación e implementación como plantillas de aplicación lógica.
 >
-> * Para saber qué conectores de Power Automate carecen de equivalente en Logic Apps, vea [Conectores de Power Automate](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para saber qué conectores de Power Automate carecen de equivalente en Logic Apps, vea [Conectores de Power Automate](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 >
-> * Para saber qué conectores de Logic Apps carecen de equivalente en Power Automate, vea [Conectores de Logic Apps](https://docs.microsoft.com/connectors/connector-reference/connector-reference-powerautomate-connectors).
+> * Para saber qué conectores de Logic Apps carecen de equivalente en Power Automate, vea [Conectores de Logic Apps](/connectors/connector-reference/connector-reference-powerautomate-connectors).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

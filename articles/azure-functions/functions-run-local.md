@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 8a68c793d9aaf94ad28f2e478254e42ede4800de
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: ae83d8f68b78a3b13f9ebafe3c7cedd18a29de53
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170367"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87449136"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -33,49 +33,35 @@ Para desarrollar funciones en el equipo local y publicarlas en Azure utilizando 
 
 Hay tres versiones de Azure Functions Core Tools. La versión que use depende del entorno de desarrollo local, la [elección del lenguaje](supported-languages.md) y el nivel de compatibilidad necesario:
 
++ [**Versión 3.x o 2.x**](#v2): es compatible con la [versión 3.x o 2.x del entorno de ejecución de Azure Functions](functions-versions.md). Estas versiones son compatibles con [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2). Además, usan administradores de paquetes o específicos de la plataforma o npm para la instalación.
+
 + **Versión 1.x**: es compatible con la versión 1.x del entorno en tiempo de ejecución de Azure Functions. Esta versión de las herramientas solo se admite en equipos con Windows y se instala desde un [paquete npm](https://www.npmjs.com/package/azure-functions-core-tools).
 
-+ [**Versión 3.x o 2.x**](#v2): es compatible con la [versión 3.x o 2.x del entorno de ejecución de Azure Functions](functions-versions.md). Estas versiones son compatibles con [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) y [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). Además, usan administradores de paquetes o específicos de la plataforma o npm para la instalación.
-
 A menos que se indique lo contrario, los ejemplos de este artículo son para la versión 3.x.
+
+## <a name="prerequisites"></a>Requisitos previos
+
+Azure Functions Core Tools actualmente depende de la CLI de Azure para la autenticación con su cuenta de Azure. Esto significa que debe [instalar la CLI de Azure localmente](/cli/azure/install-azure-cli) para poder [realizar la publicación en Azure](#publish) desde Azure Functions Core Tools. 
 
 ## <a name="install-the-azure-functions-core-tools"></a>Instalación de Azure Functions Core Tools
 
 [Azure Functions Core Tools] incluye una versión del mismo tiempo de ejecución de Azure Functions que puede ejecutar en el equipo de desarrollo local. También proporciona comandos para crear funciones, conectarse a Azure e implementar proyectos de funciones.
 
->[!IMPORTANT]
->Debe tener la [CLI de Azure](/cli/azure/install-azure-cli) instalada localmente para poder realizar la publicación en Azure desde Azure Functions Core Tools.  
-
 ### <a name="version-3x-and-2x"></a><a name="v2"></a>Versión 3.x y 2.x
 
-La versión 3.x o 2.x de las herramientas usa el entorno de ejecución de Azure Functions que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core, incluidas [Windows](/azure/azure-functions/functions-run-local?tabs=windows#v2), [macOS](/azure/azure-functions/functions-run-local?tabs=macos#v2) y [Linux](/azure/azure-functions/functions-run-local?tabs=linux#v2). 
+La versión 3.x o 2.x de las herramientas usa el entorno de ejecución de Azure Functions que se basa en .NET Core. Esta versión se admite en todas las plataformas que admiten .NET Core, incluidas [Windows](?tabs=windows#v2), [macOS](?tabs=macos#v2) y [Linux](?tabs=linux#v2). 
 
 > [!IMPORTANT]
 > Puede omitir el requisito de instalar el SDK de .NET Core con los [conjuntos de extensiones].
 
 # <a name="windows"></a>[Windows](#tab/windows)
 
-Los pasos siguientes utilizan npm para instalar Core Tools en Windows. También puede usar [Chocolatey](https://chocolatey.org/). Para más información, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
+En los pasos siguientes se utiliza Windows Installer (MSI) para instalar Core Tools v3.x. Para obtener más información sobre otros instaladores basados en paquetes, que son necesarios para instalar Core Tools V2. x, consulte el [archivo Léame de Core Tools](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows).
 
-1. Instale [Node.js], que incluye npm.
-    - Para la versión 3.x de las herramientas, solo se admite Node.js 10 y versiones posteriores.
-    - Para la versión 2.x de las herramientas, solo se admite Node.js 8.5 y versiones posteriores.
+1. Descargue y ejecute el instalador de Core Tools según su versión de Windows:
 
-1. Instale el paquete de Core Tools:
-
-    ##### <a name="v3x-recommended"></a>v3.x (recomendado)
-
-    ```cmd
-    npm install -g azure-functions-core-tools@3
-    ```
-
-    ##### <a name="v2x"></a>Versión 2.x
-
-    ```cmd
-    npm install -g azure-functions-core-tools@2
-    ```
-
-   NPM puede tardar unos minutos en descargar e instalar el paquete de Core Tools.
+    - [v3.x: Windows de 64 bits](https://go.microsoft.com/fwlink/?linkid=2135274) (recomendado. [La depuración de Visual Studio Code](functions-develop-vs-code.md#debugging-functions-locally) requiere 64 bits).
+    - [v3.x: Windows de 32 bits](https://go.microsoft.com/fwlink/?linkid=2135275)
 
 1. Si no planea usar los [conjuntos de extensión](functions-bindings-register.md#extension-bundles), instale el [SDK de .NET Core 3.x para Windows](https://dotnet.microsoft.com/download).
 
@@ -240,7 +226,7 @@ Cuando no se establece ninguna cadena de conexión de almacenamiento válida par
 
 ### <a name="get-your-storage-connection-strings"></a>Obtención de las cadenas de conexión de almacenamiento
 
-Incluso cuando se usa el Emulador de Microsoft Azure Storage para tareas de desarrollo, recomendamos probar con una conexión de almacenamiento real. Suponiendo que ya [creó una cuenta de almacenamiento](../storage/common/storage-create-storage-account.md), puede obtener una cadena de conexión de almacenamiento válida de una de las maneras siguientes:
+Incluso cuando se usa el Emulador de Microsoft Azure Storage para tareas de desarrollo, recomendamos probar con una conexión de almacenamiento real. Suponiendo que ya [creó una cuenta de almacenamiento](../storage/common/storage-account-create.md), puede obtener una cadena de conexión de almacenamiento válida de una de las maneras siguientes:
 
 - En [Azure Portal], busque y seleccione **Cuentas de almacenamiento**. 
   ![Selección de cuentas de almacenamiento desde Azure Portal](./media/functions-run-local/select-storage-accounts.png)
@@ -306,8 +292,8 @@ También puede especificar estas opciones en el comando con los argumentos sigui
 | Argumento     | Descripción                            |
 | ------------------------------------------ | -------------------------------------- |
 | **`--csx`** | (Versión 2.x y posteriores). Genera las mismas plantillas de script de C# (.csx) que se usan en la versión 1.x y en el portal. |
-| **`--language`** , **`-l`**| Lenguaje de programación de la plantilla, como C#, F# o JavaScript. Esta opción es obligatoria en la versión 1.x. En la versión 2.x y las posteriores, no utilice esta opción o elija un lenguaje que coincida con el entorno de ejecución del trabajo. |
-| **`--name`** , **`-n`** | Nombre de función. |
+| **`--language`**, **`-l`**| Lenguaje de programación de la plantilla, como C#, F# o JavaScript. Esta opción es obligatoria en la versión 1.x. En la versión 2.x y las posteriores, no utilice esta opción o elija un lenguaje que coincida con el entorno de ejecución del trabajo. |
+| **`--name`**, **`-n`** | Nombre de función. |
 | **`--template`** , **`-t`** | Use el comando `func templates list` para ver la lista completa de plantillas disponibles para cada lenguaje compatible.   |
 
 
@@ -343,7 +329,7 @@ func start
 ```
 func start
 ```
-Este comando debe [ejecutarse en un entorno virtual](/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-python#create-venv).
+Este comando debe [ejecutarse en un entorno virtual](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-python#create-venv).
 
 # <a name="typescript"></a>[TypeScript](#tab/ts)
 
@@ -371,10 +357,10 @@ npm start
 | **`--language-worker`** | Argumentos para configurar el trabajo del lenguaje. Por ejemplo, puede habilitar la depuración para el trabajo de lenguaje proporcionando el [puerto de depuración y otros argumentos necesarios](https://github.com/Azure/azure-functions-core-tools/wiki/Enable-Debugging-for-language-workers). No se admite para la versión 1.x. |
 | **`--cert`** | La ruta de acceso a un archivo .pfx que contiene una clave privada. Solo se usa con `--useHttps`. No se admite para la versión 1.x. |
 | **`--password`** | La contraseña o un archivo que contenga la contraseña de un archivo. pfx. Solo se usa con `--cert`. No se admite para la versión 1.x. |
-| **`--port`** , **`-p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
+| **`--port`**, **`-p`** | Puerto local en el que se escucha. Valor predeterminado: 7071. |
 | **`--pause-on-error`** | Se pone en pausa en espera de entrada adicional antes de salir del proceso. Se utiliza solo cuando se inicia Core Tools desde un entorno de desarrollo integrado (IDE).|
-| **`--script-root`** , **`--prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
-| **`--timeout`** , **`-t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
+| **`--script-root`**, **`--prefix`** | Se usa para especificar la ruta de acceso a la raíz de la aplicación de función que se va a ejecutar o implementar. Esto se usa para los proyectos compilados que generan archivos de proyecto en una subcarpeta. Por ejemplo, cuando se compila un proyecto de biblioteca de clases de C#, los archivos host.json, local.settings.json y function.json se generan en una subcarpeta *raíz* con una ruta de acceso similar a `MyProject/bin/Debug/netstandard2.0`. En este caso, establezca el prefijo como `--script-root MyProject/bin/Debug/netstandard2.0`. Esta es la raíz de la aplicación de función cuando se ejecuta en Azure. |
+| **`--timeout`**, **`-t`** | Tiempo de espera en segundos para que se inicie el host de Functions. Valor predeterminado: 20 segundos.|
 | **`--useHttps`** | Enlace con `https://localhost:{port}` en lugar de con `http://localhost:{port}`. De forma predeterminada, esta opción crea un certificado de confianza en el equipo.|
 
 Cuando se inicia el host de Functions, devuelve la dirección URL de las funciones desencadenadas por HTTP:
@@ -474,7 +460,7 @@ En la versión 1.x, también puede invocar una función directamente con `func r
 
 | Opción     | Descripción                            |
 | ------------ | -------------------------------------- |
-| **`--content`** , **`-c`** | Contenido alineado. |
+| **`--content`**, **`-c`** | Contenido alineado. |
 | **`--debug`** , **`-d`** | Se asocia un depurador al proceso de host antes de ejecutar la función.|
 | **`--timeout`** , **`-t`** | Tiempo de espera (en segundos) hasta que el host local de Functions está listo.|
 | **`--file`** , **`-f`** | Nombre del archivo que se usa como contenido.|
@@ -520,12 +506,12 @@ Las siguientes opciones de publicación solo se admiten en la versión 2.x y la
 
 | Opción     | Descripción                            |
 | ------------ | -------------------------------------- |
-| **`--publish-settings-only`** , **`-o`** |  Solo se publica la configuración y se omite el contenido. El valor predeterminado es Preguntar. |
+| **`--publish-settings-only`**, **`-o`** |  Solo se publica la configuración y se omite el contenido. El valor predeterminado es Preguntar. |
 |**`--list-ignored-files`** | Muestra una lista de archivos que se omiten durante la publicación, según el archivo .funcignore. |
 | **`--list-included-files`** | Muestra una lista de archivos que se publican, según el archivo .funcignore. |
 | **`--nozip`** | Desactiva el modo `Run-From-Package` predeterminado. |
 | **`--build-native-deps`** | Omite la generación de la carpeta .wheels al publicar aplicaciones de función de Python. |
-| **`--build`** , **`-b`** | Realiza la acción de compilación cuando se implementa en una aplicación de función de Linux. Acepta `remote` y `local`. |
+| **`--build`**, **`-b`** | Realiza la acción de compilación cuando se implementa en una aplicación de función de Linux. Acepta `remote` y `local`. |
 | **`--additional-packages`** | Lista de paquetes para instalar al crear dependencias nativas. Por ejemplo: `python3-dev libevent-dev`. |
 | **`--force`** | Omite la comprobación previa a la publicación en determinados escenarios. |
 | **`--csx`** | Publica un proyecto de script de C# (.csx). |
@@ -574,7 +560,7 @@ Este tipo de registros de streaming requiere que se habilite la integración de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a desarrollar, probar y publicar funciones de Azure Functions mediante el [módulo de aprendizaje de Microsoft](https://docs.microsoft.com/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) de Azure Functions Core Tools. Azure Functions Core Tools es de [código abierto y se hospeda en GitHub](https://github.com/azure/azure-functions-cli).  
+Aprenda a desarrollar, probar y publicar funciones de Azure Functions mediante el [módulo de aprendizaje de Microsoft](/learn/modules/develop-test-deploy-azure-functions-with-core-tools/) de Azure Functions Core Tools. Azure Functions Core Tools es de [código abierto y se hospeda en GitHub](https://github.com/azure/azure-functions-cli).  
 Para notificar un error o realizar una solicitud de característica, [abra un problema de GitHub](https://github.com/azure/azure-functions-cli/issues).
 
 <!-- LINKS -->

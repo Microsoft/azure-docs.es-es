@@ -1,18 +1,18 @@
 ---
-title: Configuración de Control de acceso basado en rol (RBAC) local para Azure API for FHIR
+title: Configuración del control de acceso basado en roles (RBAC) local para Azure API for FHIR
 description: En este artículo se explica cómo configurar Azure API for FHIR para usar un inquilino de Azure AD externo para el plano de datos
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
-ms.author: mihansen
-ms.openlocfilehash: a8c1b36d6a439297dfb0bbcb34efe059349fc5a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.openlocfilehash: c62593251cb0e19c91d1c4877d1b33fe407ebd06
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871165"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87847013"
 ---
 # <a name="configure-local-rbac-for-fhir"></a>Configuración de RBAC local para FHIR 
 
@@ -69,4 +69,3 @@ En este artículo ha aprendido a asignar acceso al plano de datos de FHIR median
  
 >[!div class="nextstepaction"]
 >[Configuración adicional de Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
-

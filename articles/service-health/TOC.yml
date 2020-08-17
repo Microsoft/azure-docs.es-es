@@ -24,7 +24,7 @@
 - name: Procedimientos
   items:
     - name: Configuración de alertas para eventos de Service Health
-      href: alerts-activity-log-service-notifications.md
+      href: ./alerts-activity-log-service-notifications-portal.md
     - name: Visualización de las notificaciones de mantenimiento del servicio mediante Azure Portal
       href: service-notifications.md
     - name: Envío de alertas a sistemas externos a través de webhook

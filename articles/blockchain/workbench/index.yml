@@ -31,7 +31,7 @@ landingContent:
     links:
     - text: Introducción a Azure Blockchain Workbench
       url: https://channel9.msdn.com/Shows/Blocktalk/Introduction-to-Azure-Blockchain-Workbench
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: deploy
     links:
@@ -63,7 +63,7 @@ landingContent:
       url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/asset-transfer
     - text: Marketplace avanzado con varios flujos de trabajo
       url: https://github.com/Azure-Samples/blockchain/tree/master/blockchain-workbench/application-and-smart-contract-samples/bazaar-item-listing
-- title: Administrar
+- title: Administración
   linkLists:
   - linkListType: how-to-guide
     links:

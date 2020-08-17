@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: tutorial
 ms.date: 06/22/2020
 ms.author: jalichwa
-ms.openlocfilehash: ba9ff0ead1131b091aa1a5ece2ecf94d2319a968
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 0d2ee8fbcb71d8703702f2c72e0bf629563667b9
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85800704"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542202"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-with-two-sets-of-authentication-credentials"></a>Automatización de la rotación de un secreto para recursos con dos conjuntos de credenciales de autenticación
 
@@ -41,9 +41,8 @@ En la solución anterior, Azure Key Vault almacena las claves de acceso individu
 * Dos cuentas de Azure Storage
 
 Si no tiene una cuenta de almacenamiento y un almacén de claves existentes, puede usar el vínculo de implementación siguiente:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+
+[![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. En **Grupo de recursos**, seleccione **Crear nuevo**. Asigne al grupo el nombre **akvrotation** y haga clic en **Aceptar**.
 1. Seleccione **Revisar y crear**.
@@ -79,10 +78,9 @@ Las aplicación de funciones para la rotación requiere estos componentes y conf
 - Funciones de rotación de las claves de la cuenta de almacenamiento con desencadenador de eventos y desencadenador HTTP (rotación a petición)
 - Suscripción a eventos de EventGrid para el evento **SecretNearExpiry**
 
-1. Seleccione el vínculo de implementación de la plantilla de Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FFunction%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Seleccione el vínculo de implementación de la plantilla de Azure: 
+
+   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FInitial-Setup%2Fazuredeploy.json)
 
 1. En la lista **Grupo de recursos**, seleccione **akvrotation**.
 1. En **Nombre de la cuenta de almacenamiento**, escriba el nombre de la cuenta de almacenamiento con las claves de acceso para rotar.
@@ -154,10 +152,9 @@ La adición de claves de cuenta de almacenamiento adicionales para su rotación 
 - Asignación del rol de operador del servicio de claves de la cuenta de almacenamiento a la aplicación de funciones para acceder a las claves de acceso de la cuenta de almacenamiento
 - Suscripción a eventos de EventGrid para el evento **SecretNearExpiry**
 
-1. Seleccione el vínculo de implementación de la plantilla de Azure:
-<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json" target="_blank">
-    <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
-</a>
+1. Seleccione el vínculo de implementación de la plantilla de Azure: 
+
+   [![Imagen que muestra un botón con la etiqueta "Implementar en Azure".](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjlichwa%2FKeyVault-Rotation-StorageAccountKey-PowerShell%2Fmaster%2Farm-templates%2FAdd-Event-Subscription%2Fazuredeploy.json)
 
 1. En la lista **Grupo de recursos**, seleccione **akvrotation**.
 1. En **Nombre de la cuenta de almacenamiento**, escriba el nombre de la cuenta de almacenamiento con las claves de acceso para rotar.

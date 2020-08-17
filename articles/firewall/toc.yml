@@ -58,6 +58,8 @@
       href: remote-work-support.md
     - name: Nombre de dominio completo en las reglas de red
       href: fqdn-filtering-network-rules.md
+    - name: Línea de base de seguridad
+      href: security-baseline.md
 - name: Guías paso a paso
   items:
     - name: Implementación mediante Azure PowerShell

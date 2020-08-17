@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.date: 06/11/2019
 ms.topic: quickstart
 ms.service: stream-analytics
-ms.openlocfilehash: 5e654fe5d31a225a855da8477e073ceeb1a68634
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: aff9bf83795043e0176d7a3f155844c8dbe0281a
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81767238"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87337487"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-by-using-visual-studio"></a>Inicio rápido: Creación de un trabajo de Azure Stream Analytics con Visual Studio
 
@@ -42,9 +42,9 @@ Antes de definir el trabajo de Stream Analytics, debe preparar los datos, que se
    
    |**Configuración**  |**Valor sugerido**  |**Descripción**  |
    |---------|---------|---------|
-   |Subscription  | \<Su suscripción\> |  Seleccione la suscripción de Azure que quiera usar. |
+   |Subscription  | \<Your subscription\> |  Seleccione la suscripción de Azure que quiera usar. |
    |Resource group   |   asaquickstart-resourcegroup  |   Seleccione **Crear nuevo** y escriba un nuevo nombre de grupo de recursos para la cuenta. |
-   |Region  |  \<Seleccione la región más cercana a los usuarios\> | Seleccione la ubicación geográfica donde puede hospedar la instancia de IoT Hub. Use la ubicación más cercana a los usuarios. |
+   |Region  |  \<Select the region that is closest to your users\> | Seleccione la ubicación geográfica donde puede hospedar la instancia de IoT Hub. Use la ubicación más cercana a los usuarios. |
    |Nombre de la instancia de IoT Hub  | MyASAIoTHub  |   Seleccione un nombre para la instancia de IoT Hub.   |
 
    ![Creación de un IoT Hub](./media/stream-analytics-quick-create-vs/create-iot-hub.png)
@@ -115,8 +115,8 @@ Observe los elementos que se incluyen en un proyecto de Azure Stream Analytics.
    |Alias de entrada  |  Entrada   |  Escriba un nombre para identificar la entrada del trabajo.   |
    |Tipo de origen   |  Flujo de datos |  Elija el origen de entrada correspondiente: flujo de datos o datos de referencia.   |
    |Source  |  IoT Hub |  Elija el origen de entrada correspondiente.   |
-   |Resource  | Selección del origen de datos desde la cuenta actual | Elija escribir los datos manualmente o seleccione una cuenta existente.   |
-   |Subscription  |  \<Su suscripción\>   | Seleccione la suscripción de Azure que tenga el centro de IoT Hub que ha creado.   |
+   |Recurso  | Selección del origen de datos desde la cuenta actual | Elija escribir los datos manualmente o seleccione una cuenta existente.   |
+   |Subscription  |  \<Your subscription\>   | Seleccione la suscripción de Azure que tenga el centro de IoT Hub que ha creado.   |
    |IoT Hub  |  MyASAIoTHub   |  Elija o escriba el nombre de su instancia de IoT Hub. Los nombres de IoT Hub se detectan automáticamente si se crean en la misma suscripción.   |
    
 3. Deje el resto de opciones con los valores predeterminados y seleccione **Guardar** para guardar la configuración.  
@@ -134,7 +134,7 @@ Observe los elementos que se incluyen en un proyecto de Azure Stream Analytics.
    |Alias de salida  |  Output   |  Escriba un nombre para identificar la salida del trabajo.   |
    |Receptor   |  Blob Storage |  Elija el receptor adecuado.    |
    |Resource  |  Provisión de la configuración del origen de datos manualmente |  Elija escribir los datos manualmente o seleccione una cuenta existente.   |
-   |Subscription  |  \<Su suscripción\>   | Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción.   |
+   |Suscripción  |  \<Your subscription\>   | Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción.   |
    |Cuenta de almacenamiento  |  asaquickstartstorage   |  Elija o escriba el nombre de la cuenta de almacenamiento. Los nombres de cuenta de almacenamiento se detectan automáticamente si se crean en la misma suscripción.   |
    |Contenedor  |  Contenedor1   |  Seleccione el contenedor existente que creó en la cuenta de almacenamiento.   |
    |Patrón de la ruta de acceso  |  output   |  Escriba el nombre de una ruta de acceso de archivo que debe crearse en el contenedor.   |
@@ -151,8 +151,8 @@ Observe los elementos que se incluyen en un proyecto de Azure Stream Analytics.
 
    ```sql
    SELECT *
-   INTO BlobOutput
-   FROM IoTHubInput
+   INTO Output
+   FROM Input
    HAVING Temperature > 27
    ```
 

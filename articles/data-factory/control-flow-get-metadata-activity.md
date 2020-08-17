@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 07/24/2020
 ms.author: jingwang
-ms.openlocfilehash: a59d9291d1eaa4aa87d40914679e39c9cbf29cee
-ms.sourcegitcommit: 6a9f01bbef4b442d474747773b2ae6ce7c428c1f
+ms.openlocfilehash: a5d203664520aebadefd16c19813d7957dd37fc4
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84112637"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171246"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Actividad de obtención de metadatos en Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -60,6 +60,7 @@ La actividad de obtención de metadatos toma un conjunto de datos como entrada y
 - En el caso de Azure Blob Storage, `lastModified` se aplica al contenedor y al blob, pero no a la carpeta virtual.
 - El filtro `lastModified` se aplica actualmente para filtrar elementos secundarios, pero no el propio archivo o carpeta especificados.
 - No se admite el filtro de carácter comodín en carpetas o archivos para la actividad de obtención de metadatos.
+- `structure` y `columnCount` no se admiten cuando se obtienen metadatos de archivos binarios, JSON o XML.
 
 **Base de datos relacional**
 

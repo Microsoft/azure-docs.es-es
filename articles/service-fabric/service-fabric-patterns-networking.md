@@ -3,12 +3,12 @@ title: Patrones de redes para Azure Service Fabric
 description: En este artículo se describen los patrones de redes comunes de Service Fabric y cómo crear un clúster con las características de red de Azure.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 0c3664d1890fd318aa1bff508a51cb227bdcc01d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 20bd5e931307725016c3e2ad69dae91214b2caab
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258532"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421474"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -99,6 +99,8 @@ En los ejemplos de este artículo, usamos el archivo template.json de Service Fa
                 "defaultValue": "10.0.0.0/24"
             },*/
     ```
+
+   También puede comentar el parámetro con el nombre "virtualNetworkName" para que no le solicite escribir el nombre de la red virtual dos veces en la hoja de implementación del clúster en Azure Portal.
 
 2. Marque como comentario el atributo `nicPrefixOverride` de `Microsoft.Compute/virtualMachineScaleSets`, ya que está usando la subred existente y se ha deshabilitado esta variable en el paso 1.
 

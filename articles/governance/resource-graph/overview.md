@@ -1,14 +1,14 @@
 ---
 title: Información general de Azure Resource Graph
 description: Conozca la forma en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala en suscripciones e inquilinos.
-ms.date: 06/29/2020
+ms.date: 07/25/2020
 ms.topic: overview
-ms.openlocfilehash: 9c15ff12f21c1d3d168828eae67de51069cdcada
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 5a2be5e65ecd5590d992e1883f432c173660e78d
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970610"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87541794"
 ---
 # <a name="what-is-azure-resource-graph"></a>¿Qué es Azure Resource Graph?
 
@@ -62,6 +62,10 @@ Para usar Resource Graph, debe tener los derechos adecuados en el [Control de ac
 > Resource Graph usa las suscripciones disponibles de una entidad de seguridad durante el inicio de sesión. Para ver los recursos de una nueva suscripción que se agregan durante una sesión activa, la entidad de seguridad debe actualizar el contexto. Esta acción se produce automáticamente al cerrar sesión y volver a iniciarla posteriormente.
 
 La CLI de Azure y Azure PowerShell usan suscripciones a las que el usuario tiene acceso. Si se usa la API REST directamente, el usuario es quien proporciona la lista de suscripciones. Si el usuario tiene acceso a cualquiera de las suscripciones de la lista, los resultados de la consulta se devuelven a las suscripciones a las que el usuario tiene acceso. Este comportamiento es el mismo que cuando se llama a [Grupo de recursos: Lista](/rest/api/resources/resourcegroups/list) \-, se obtienen grupos de recursos a los que se tiene acceso sin indicar que el resultado puede ser parcial. Si no hay suscripciones en la lista de suscripciones para las que el usuario tiene los derechos adecuados, la respuesta es _403_ (prohibido).
+
+> [!NOTE]
+> En la **versión preliminar** de la API REST, versión `2020-04-01-preview`, es posible que la lista de suscripciones se haya omitido.
+> Si las propiedades `subscriptions` y `managementGroupId` no se definen en la solicitud, el _ámbito_ se establece en el inquilino. Para más información, consulte [Ámbito de la consulta](./concepts/query-language.md#query-scope).
 
 ## <a name="throttling"></a>Limitaciones
 

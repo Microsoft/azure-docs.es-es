@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b247b64d563bc2b12c5bffff6a460d77cb96207
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f6bd09a24202b599c1f008e7b046ea5f93ff0323
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84485488"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489799"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Habilitación y uso de Azure Multi-Factor Authentication con aplicaciones heredadas mediante contraseñas de aplicación
 
@@ -88,6 +88,12 @@ De forma predeterminada, los usuarios no pueden crear contraseñas de aplicació
 5. En la página **Configuración del servicio**, seleccione la opción **Permitir a los usuarios crear contraseñas de aplicación para iniciar sesión en aplicaciones sin explorador**.
 
     ![Captura de pantalla de Azure Portal que muestra la configuración del servicio para Multi-Factor Authentication para permitir el uso de contraseñas de aplicación](media/concept-authentication-methods/app-password-authentication-method.png)
+    
+> [!NOTE]
+>
+> Al deshabilitar la capacidad de los usuarios para crear contraseñas de aplicación, las contraseñas de aplicación existentes siguen funcionando. Sin embargo, los usuarios no podrán administrar ni eliminar esas contraseñas de aplicación existentes una vez que deshabilite esta capacidad.
+>
+> Al deshabilitar la capacidad para crear contraseñas de aplicación, también se recomienda [crear una directiva de acceso condicional para deshabilitar el uso de la autenticación heredada](../conditional-access/block-legacy-authentication.md). Este enfoque evita que funcionen las contraseñas de aplicación existentes y fuerza el uso de los métodos de autenticación modernos.
 
 ## <a name="create-an-app-password"></a>Crear una contraseña de aplicación
 

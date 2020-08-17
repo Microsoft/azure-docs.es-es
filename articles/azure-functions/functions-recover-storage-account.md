@@ -1,16 +1,14 @@
 ---
 title: 'Solución del error: No se puede acceder a Azure Functions Runtime'
 description: Aprenda a solucionar los problemas con una cuenta de almacenamiento no válida.
-author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: alkarche
-ms.openlocfilehash: 8fcd0661e2c7cab505121cf0d4d7b4c1d29017f8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c46ca214ab6c0798fdc39ead575fb2873b8c51c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77063788"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385864"
 ---
 # <a name="troubleshoot-error-azure-functions-runtime-is-unreachable"></a>Solución del error: "No se puede acceder a Azure Functions Runtime"
 
@@ -18,7 +16,7 @@ Este artículo ayuda a solucionar la cadena de error siguiente que aparece en Az
 
 > "Error: No se puede acceder a Azure Functions Runtime. Haga clic aquí para obtener detalles sobre la configuración de almacenamiento".
 
-Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común de este error es que la aplicación de funciones haya perdido el acceso a su cuenta de almacenamiento. Para más información, consulte [Requisitos de la cuenta de almacenamiento](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements).
+Este problema se produce cuando no se puede iniciar Azure Functions Runtime. La razón más común de este error es que la aplicación de funciones haya perdido el acceso a su cuenta de almacenamiento. Para más información, consulte [Requisitos de la cuenta de almacenamiento](./functions-create-function-app-portal.md#storage-account-requirements).
 
 Las demás secciones de este artículo le ayudarán a solucionar las siguientes causas del error, así como a identificar y a resolver cada caso.
 
@@ -26,7 +24,7 @@ Las demás secciones de este artículo le ayudarán a solucionar las siguientes 
 
 Cada aplicación de función requiere una cuenta de almacenamiento para funcionar. Si se elimina la cuenta, la función no funcionará.
 
-Empiece por buscar el nombre de la cuenta de almacenamiento en la configuración de la aplicación. `AzureWebJobsStorage` o `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contienen el nombre de la cuenta de almacenamiento incluida en una cadena de conexión. Para más información, consulte [Referencia de configuración de aplicación para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage).
+Empiece por buscar el nombre de la cuenta de almacenamiento en la configuración de la aplicación. `AzureWebJobsStorage` o `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` contienen el nombre de la cuenta de almacenamiento incluida en una cadena de conexión. Para más información, consulte [Referencia de configuración de aplicación para Azure Functions](./functions-app-settings.md#azurewebjobsstorage).
 
 Busque la cuenta de almacenamiento en Azure Portal para ver si sigue existiendo. Si se ha eliminado, vuelva a crear la cuenta de almacenamiento y reemplace las cadenas de conexión de almacenamiento. El código de función se pierde y debe volver a implementarlo.
 
@@ -37,12 +35,12 @@ En el paso anterior, si no encontraba una cadena de conexión de la cuenta de al
 ### <a name="required-application-settings"></a>Configuración de aplicación necesaria
 
 * Requerido:
-    * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
+    * [`AzureWebJobsStorage`](./functions-app-settings.md#azurewebjobsstorage)
 * Obligatorio para las funciones del plan de consumo:
-    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
-    * [`WEBSITE_CONTENTSHARE`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
+    * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](./functions-app-settings.md)
+    * [`WEBSITE_CONTENTSHARE`](./functions-app-settings.md)
 
-Para más información, consulte [Referencia de configuración de aplicación para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-app-settings).
+Para más información, consulte [Referencia de configuración de aplicación para Azure Functions](./functions-app-settings.md).
 
 ### <a name="guidance"></a>Guía
 
@@ -52,7 +50,7 @@ Para más información, consulte [Referencia de configuración de aplicación pa
 
 ## <a name="storage-account-credentials-are-invalid"></a>Las credenciales de la cuenta de almacenamiento no son válidas
 
-Al volver a generar las claves de almacenamiento deben actualizarse las cadenas de conexión de la cuenta de almacenamiento que se han comentado anteriormente. Para más información sobre la administración de las claves de almacenamiento, consulte [Creación de una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account).
+Al volver a generar las claves de almacenamiento deben actualizarse las cadenas de conexión de la cuenta de almacenamiento que se han comentado anteriormente. Para más información sobre la administración de las claves de almacenamiento, consulte [Creación de una cuenta de Azure Storage](../storage/common/storage-account-create.md).
 
 ## <a name="storage-account-is-inaccessible"></a>No se puede acceder a la cuenta de almacenamiento
 
@@ -60,7 +58,7 @@ Es necesario que la aplicación de funciones pueda acceder a la cuenta de almace
 
 * La aplicación de funciones está implementada en App Service Environment sin las reglas de red adecuadas para permitir el tráfico de entrada y salida de la cuenta de almacenamiento.
 
-* El firewall de la cuenta de almacenamiento está habilitado, pero no está configurado para permitir el tráfico de entrada y salida de Functions. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+* El firewall de la cuenta de almacenamiento está habilitado, pero no está configurado para permitir el tráfico de entrada y salida de Functions. Para más información, vea [Configuración de Firewalls y redes virtuales de Azure Storage](../storage/common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 ## <a name="daily-execution-quota-is-full"></a>Se ha alcanzado la cuota de ejecución diaria
 
@@ -88,7 +86,7 @@ Para comprobar la configuración de App Service Environment:
    
 También puede usar el portal desde un equipo conectado a la red virtual que ejecuta la aplicación o una máquina virtual que se ejecuta en la red virtual. 
 
-Para más información acerca de la configuración de reglas de entrada, consulte la sección "Grupos de seguridad de red" de [Consideraciones de red para una instancia de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups).
+Para más información acerca de la configuración de reglas de entrada, consulte la sección "Grupos de seguridad de red" de [Consideraciones de red para una instancia de App Service Environment](../app-service/environment/network-info.md#network-security-groups).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

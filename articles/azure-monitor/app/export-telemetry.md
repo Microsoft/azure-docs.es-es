@@ -3,38 +3,38 @@ title: Exportación de telemetría desde Application Insights | Microsoft Docs
 description: Exporte datos de diagnóstico y uso al almacenamiento en Microsoft Azure y descárguelos desde allí.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: 8ca2dc30b6e0681b5ee10fa3c77fab15ffb18b1d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: f67a5c555c438298cee701ca065aaf8c01c6406e
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86110222"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324342"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportación de telemetría desde Application Insights
 ¿Desea mantener la telemetría durante más tiempo que el período de retención estándar? ¿O quiere procesarla de algún modo especializado? La exportación continua es lo más conveniente para ello. Los eventos que se ven en el portal de Application Insights pueden exportarse a almacenamiento en Microsoft Azure en formato JSON. Desde allí puede descargar los datos y escribir el código necesario para procesarlos.  
 
 > [!NOTE]
-> La exportación continua solo se admite para los recursos clásicos de Application Insights. Los [recursos de Application Insights basados en áreas de trabajo](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource) deben usar la [configuración de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/app/create-workspace-resource#export-telemetry).
+> La exportación continua solo se admite para los recursos clásicos de Application Insights. Los [recursos de Application Insights basados en áreas de trabajo](./create-workspace-resource.md) deben usar la [configuración de diagnóstico](./create-workspace-resource.md#export-telemetry).
 >
 
 Antes de configurar la exportación continua, hay algunas alternativas que conviene tener en cuenta:
 
 * El botón Exportar de la parte superior de una pestaña de búsqueda o métricas permite transferir tablas y gráficos a una hoja de cálculo de Excel.
 
-* [Analytics](../../azure-monitor/app/analytics.md) proporciona un lenguaje de consulta eficaz para telemetría. También puede exportar los resultados.
-* Si lo que le interesa es [explorar los datos en Power BI](../../azure-monitor/app/export-power-bi.md ), puede hacerlo sin usar la exportación continua.
+* [Analytics](../log-query/log-query-overview.md) proporciona un lenguaje de consulta eficaz para telemetría. También puede exportar los resultados.
+* Si lo que le interesa es [explorar los datos en Power BI](./export-power-bi.md), puede hacerlo sin usar la exportación continua.
 * La [API de REST de acceso a datos](https://dev.applicationinsights.io/) le permite acceder a datos de telemetría con programación.
-* También puede acceder a la configuración de la [exportación continua a través de PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
+* También puede acceder a la configuración de la [exportación continua a través de PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
-Cuando la exportación continua copie sus datos en el almacenamiento (donde pueden permanecer tanto tiempo como quiera), seguirán estando disponibles en Application Insights durante el [período de retención](../../azure-monitor/app/data-retention-privacy.md) habitual.
+Cuando la exportación continua copie sus datos en el almacenamiento (donde pueden permanecer tanto tiempo como quiera), seguirán estando disponibles en Application Insights durante el [período de retención](./data-retention-privacy.md) habitual.
 
 ## <a name="continuous-export-advanced-storage-configuration"></a>Configuración avanzada del almacenamiento de exportación continua
 
 La exportación continua **no admite** las siguientes características o configuraciones del almacenamiento de Azure:
 
-* El uso de [los firewalls de VNET o Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-network-security) junto con Azure Blob Storage.
+* El uso de [los firewalls de VNET o Azure Storage](../../storage/common/storage-network-security.md) junto con Azure Blob Storage.
 
-* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+* [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md).
 
 ## <a name="create-a-continuous-export"></a><a name="setup"></a>Creación de una exportación continua.
 
@@ -60,13 +60,13 @@ Una vez completada la primera exportación, encontrará una estructura similar a
 
 |Nombre | Descripción |
 |:----|:------|
-| [Disponibilidad](export-data-model.md#availability) | Notifica sobre [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md).  |
-| [Evento](export-data-model.md#events) | Eventos personalizados generados por [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent). 
-| [Excepciones](export-data-model.md#exceptions) |Notifica sobre [excepciones](../../azure-monitor/app/asp-net-exceptions.md) en el servidor y en el explorador.
-| [Mensajes](export-data-model.md#trace-messages) | Enviados por [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) y por los [adaptadores de registro](../../azure-monitor/app/asp-net-trace-logs.md).
+| [Disponibilidad](export-data-model.md#availability) | Notifica sobre [pruebas web de disponibilidad](./monitor-web-app-availability.md).  |
+| [Evento](export-data-model.md#events) | Eventos personalizados generados por [TrackEvent()](./api-custom-events-metrics.md#trackevent). 
+| [Excepciones](export-data-model.md#exceptions) |Notifica sobre [excepciones](./asp-net-exceptions.md) en el servidor y en el explorador.
+| [Mensajes](export-data-model.md#trace-messages) | Enviados por [TrackTrace](./api-custom-events-metrics.md#tracktrace) y por los [adaptadores de registro](./asp-net-trace-logs.md).
 | [Métricas](export-data-model.md#metrics) | Generado por llamadas de la API de métricas.
 | [PerformanceCounters](export-data-model.md) | Contadores de rendimiento recopilados por Application Insights.
-| [Solicitudes](export-data-model.md#requests)| Enviado por [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.| 
+| [Solicitudes](export-data-model.md#requests)| Enviado por [TrackRequest](./api-custom-events-metrics.md#trackrequest). Los módulos estándar usan esto para informar sobre el tiempo de respuesta del servidor, medido en el propio servidor.| 
 
 ### <a name="to-edit-continuous-export"></a>Para editar la exportación continua
 
@@ -84,14 +84,14 @@ Para detener la exportación de forma permanente, elimínela. Al realizar esta a
 ## <a name="what-events-do-you-get"></a><a name="analyze"></a> ¿Qué eventos obtiene?
 Los datos exportados son la telemetría sin procesar que recibimos de la aplicación, aunque también agregamos los datos de ubicación que calculamos a partir de la dirección IP del cliente.
 
-Los datos que se han descartado por [muestreo](../../azure-monitor/app/sampling.md) no se incluyen en los datos exportados.
+Los datos que se han descartado por [muestreo](./sampling.md) no se incluyen en los datos exportados.
 
 No se incluyen otras métricas calculadas. Por ejemplo, no exportamos el uso medio de la CPU, pero sí la telemetría sin procesar a partir de la que se calcula la media.
 
-Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) que haya configurado.
+Los datos también incluyen los resultados de cualquier [prueba web de disponibilidad](./monitor-web-app-availability.md) que haya configurado.
 
 > [!NOTE]
-> **Muestreo.** Si la aplicación envía muchos datos, la característica de muestreo puede operar y enviar solamente una fracción de la telemetría generada. [Aprenda más sobre el muestreo.](../../azure-monitor/app/sampling.md)
+> **Muestreo.** Si la aplicación envía muchos datos, la característica de muestreo puede operar y enviar solamente una fracción de la telemetría generada. [Aprenda más sobre el muestreo.](./sampling.md)
 >
 >
 
@@ -210,5 +210,6 @@ En escalas más grandes, considere la posibilidad de clústeres de Hadoop en [HD
 
 <!--Link references-->
 
-[exportasa]: ../../azure-monitor/app/code-sample-export-sql-stream-analytics.md
-[roles]: ../../azure-monitor/app/resources-roles-access-control.md
+[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[roles]: ./resources-roles-access-control.md
+

@@ -4,15 +4,15 @@ description: Para comprar una reserva de Azure, es importante que conozca alguno
 author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.topic: conceptual
-ms.date: 05/04/2020
+ms.topic: how-to
+ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 609ca56419ed14f3cf4e449e9b906a75a4ff20ab
-ms.sourcegitcommit: 374d1533ea2f2d9d3f8b6e6a8e65c6a5cd4aea47
+ms.openlocfilehash: 68bcf725a6043b8ab19717845fa8005de2f88e35
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85807788"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287639"
 ---
 # <a name="buy-a-reservation"></a>Adquisición de una reserva
 
@@ -34,9 +34,12 @@ Puede limitar el ámbito de una reserva a una suscripción o a grupos de recurso
 
 Tiene tres opciones para limitar el ámbito de una reserva, según sus necesidades:
 
-- **Single resource group scope** (Ámbito de grupo de recursos único): el descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.
-- **Single subscription scope** (Ámbito de suscripción única): el descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.
-- **Shared scope** (Ámbito compartido): el descuento por reserva se aplica a los recursos coincidentes en suscripciones válidas que están en el contexto de facturación. Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. En el caso de los clientes con contrato Microsoft Customer Agreement, el ámbito de facturación es el perfil de facturación. En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
+- **Single resource group scope** (Ámbito de grupo de recursos único): El descuento por reserva se aplica a los recursos coincidentes solo del grupo de recursos seleccionado.
+- **Single subscription scope** (Ámbito de suscripción única): El descuento por reserva se aplica a los recursos coincidentes de la suscripción seleccionada.
+- **Ámbito compartido**: aplica el descuento por reserva a los recursos coincidentes en suscripciones aptas que están en el contexto de facturación.
+    - Para los clientes con Contrato Enterprise, el contexto de facturación es la inscripción. El ámbito compartido de la reserva incluiría varios inquilinos de Active Directory en una inscripción.
+    - En el caso de los clientes con contrato Microsoft Customer Agreement, el ámbito de facturación es el perfil de facturación.
+    - En el caso de suscripciones individuales con tarifas de pago por uso, el ámbito de facturación son todas las suscripciones aptas creadas por el administrador de la cuenta.
 
 Al aplicar los descuentos por reserva sobre su uso, Azure procesa la reserva en el orden siguiente:
 

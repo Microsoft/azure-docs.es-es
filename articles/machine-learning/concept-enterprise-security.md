@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 5afa6b9127317fcd1a683651be86cdfe078cfcd6
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259444"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87366934"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Seguridad de empresa para Azure Machine Learning
 
@@ -34,7 +34,7 @@ Si Azure Active Directory (Azure AD) se ha configurado para usar la autentica
 1. El cliente presenta el token a Azure Resource Manager y a todas las instancias de Azure Machine Learning.
 1. Machine Learning Service proporciona un token al destino de proceso de usuario (por ejemplo, Proceso de Machine Learning). El destino de proceso de usuario usa este token para volver a llamar a Machine Learning Service una vez completada la ejecución. El ámbito se limita al área de trabajo.
 
-[![Autenticación en Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
+[![Autenticación en Azure Machine Learning](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication.png#lightbox)
 
 Para más información, vea el artículo [Configuración de la autenticación para recursos y flujos de trabajo de Azure Machine Learning](how-to-setup-authentication.md). En este artículo se proporcionan información y ejemplos de autenticación, como el uso de entidades de servicio y flujos de trabajo automatizados.
 
@@ -75,7 +75,7 @@ En la tabla siguiente se muestran algunas de las principales operaciones de Azur
 | Ver modelos/imágenes | ✓ | ✓ | ✓ |
 | Llamar a un servicio web | ✓ | ✓ | ✓ |
 
-Si los roles integrados no satisfacen sus necesidades, puede crear roles personalizados. Solo se admiten roles personalizados para operaciones en el área de trabajo y en Proceso de Machine Learning. Los roles personalizados pueden tener permisos de lectura, escritura o eliminación en el área de trabajo y en el recurso de proceso de ese área de trabajo. Puede hacer que el rol esté disponible en un nivel de área de trabajo específico, un nivel de grupo de recursos específico o un nivel de suscripción específico. Para más información, consulte [Administración de usuarios y roles en un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
+Si los roles integrados no satisfacen sus necesidades, puede crear roles personalizados. Los roles personalizados se admiten para controlar todas las operaciones dentro de un área de trabajo, como la creación de un proceso, el envío de una ejecución, el registro de un almacén de datos o la implementación de un modelo. Los roles personalizados pueden tener permisos de lectura, escritura o eliminación en los distintos recursos de un área de trabajo, como clústeres, almacenes de datos, modelos y puntos de conexión. Puede hacer que el rol esté disponible en un nivel de área de trabajo específico, un nivel de grupo de recursos específico o un nivel de suscripción específico. Para más información, consulte [Administración de usuarios y roles en un área de trabajo de Azure Machine Learning](how-to-assign-roles.md).
 
 > [!WARNING]
 > Azure Machine Learning es compatible con la colaboración de negocio a negocio de Azure Active Directory, pero no es compatible actualmente con la colaboración de negocio a consumidor de Azure Active Directory.
@@ -128,6 +128,8 @@ La marca `hbi_workspace` controla la cantidad de datos que Microsoft recopila pa
 * Pasa de forma segura las credenciales de la cuenta de almacenamiento, el registro de contenedor y la cuenta SSH desde la capa de ejecución a los clústeres de proceso mediante el almacén de claves.
 * Habilita el filtrado de IP para asegurarse de que los servicios externos que no sean AzureMachineLearningService no puedan llamar a los grupos de lotes subyacentes.
 
+> [!WARNING]
+> La marca `hbi_workspace` solo se puede establecer cuando se crea un área de trabajo. No se puede cambiar en un área de trabajo existente.
 
 Para más información sobre cómo funciona el cifrado en reposo en Azure, consulte [Cifrado en reposo de datos de Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
@@ -152,10 +154,6 @@ Si quiere usar sus propias claves (administradas por el cliente) para cifrar su 
 Para habilitar el aprovisionamiento de una instancia de Cosmos DB en su suscripción con claves administradas por el cliente, realice estas acciones:
 
 * Si aún no lo ha hecho, registre los proveedores de recursos de Microsoft.MachineLearning y Microsoft.DocumentDB en su suscripción.
-
-* Autorice la aplicación Machine Learning (en Administración de identidades y acceso) con permisos de colaborador en su suscripción.
-
-    ![Autorización de la aplicación Azure Machine Learning en Administración de identidades y acceso en el portal](./media/concept-enterprise-security/authorize-azure-machine-learning.png)
 
 * Use los parámetros que se indican más abajo al crear el área de trabajo de Azure Machine Learning. Ambos parámetros son obligatorios y se admiten en SDK, CLI, API REST y plantillas de Resource Manager.
 
@@ -317,7 +315,7 @@ Durante la creación del área de trabajo, se crean recursos adicionales en la s
 
 El usuario también puede aprovisionar otros destinos de proceso que estén asociados a un área de trabajo (como Azure Kubernetes Service o máquinas virtuales) según sea necesario.
 
-[![Creación del flujo de trabajo del área de trabajo](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace-expanded.png#lightbox)
+[![Creación del flujo de trabajo del área de trabajo](media/concept-enterprise-security/create-workspace.png)](media/concept-enterprise-security/create-workspace.png#lightbox)
 
 ### <a name="save-source-code-training-scripts"></a>Almacenamiento del código fuente (scripts de entrenamiento)
 
@@ -325,7 +323,7 @@ En el siguiente diagrama se muestra el flujo de trabajo de la instantánea de c�
 
 Existen directorios asociados con un área de trabajo de Azure Machine Learning (experimentos), que contienen el código fuente (scripts de entrenamiento). Estos scripts se almacenan en la máquina local y en la nube (en el almacenamiento de blobs de Azure de su suscripción). Las instantáneas de código se utilizan para la ejecución o inspección de auditorías históricas.
 
-[![Flujo de trabajo de instantánea de código](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
+[![Flujo de trabajo de instantánea de código](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot.png#lightbox)
 
 ### <a name="training"></a>Cursos
 
@@ -352,7 +350,7 @@ Dado que Proceso de Machine Learning es un destino de proceso administrado (es d
 
 En el diagrama de flujo siguiente, este paso se produce cuando el destino de proceso de entrenamiento escribe las métricas de ejecución de nuevo en Azure Machine Learning desde el almacenamiento de la base de datos de Cosmos DB. Los clientes pueden llamar a Azure Machine Learning. Machine Learning, a su vez, extrae las métricas de la base de datos de Cosmos DB y las devuelve al cliente.
 
-[![Flujo de trabajo de entrenamiento](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics-expanded.png#lightbox)
+[![Flujo de trabajo de entrenamiento](media/concept-enterprise-security/training-and-metrics.png)](media/concept-enterprise-security/training-and-metrics.png#lightbox)
 
 ### <a name="creating-web-services"></a>Creación de servicios web
 
@@ -367,7 +365,7 @@ Estos son los detalles:
 * Los detalles de la solicitud de puntuación se almacenan en Application Insights, que se incluye en la suscripción del usuario.
 * También se insertan datos de telemetría en la suscripción de Microsoft o Azure.
 
-[![Flujo de trabajo de inferencia](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing-expanded.png#lightbox)
+[![Flujo de trabajo de inferencia](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

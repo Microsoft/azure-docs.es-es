@@ -1,22 +1,23 @@
 ---
-title: Configuración de Control de acceso basado en rol (RBAC) de Azure para Azure API for FHIR
+title: Configuración del Control de acceso basado en roles (Azure RBAC) de Azure para Azure API for FHIR
 description: En este artículo se explica cómo configurar RBAC de Azure para el plano de datos de Azure API for FHIR
-author: hansenms
+author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 03/15/2020
-ms.author: mihansen
-ms.openlocfilehash: bf05ede858c86fa82e199c800ea42747745c9c19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: matjazl
+ms.reviewer: dseven
+ms.openlocfilehash: c4a78168f2759f9d7bb9e50165b8cf03c71ecab5
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871175"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87845944"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configuración de RBAC de Azure para FHIR 
 
-En este artículo se aprende a usar [Control de acceso basado en rol (RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/) para asignar acceso al plano de datos de Azure API for FHIR. RBAC de Azure es el método preferido para asignar acceso al plano de datos cuando los usuarios del plano de datos se administran en el inquilino de Azure Active Directory asociado a la suscripción de Azure. Si usa un inquilino de Azure Active Directory externo, vea la [referencia de asignación de RBAC local](configure-local-rbac.md).
+En este artículo aprenderá a usar el [Control de acceso basado en roles (Azure RBAC) de Azure](https://docs.microsoft.com/azure/role-based-access-control/) para asignar acceso al plano de datos de Azure API for FHIR. RBAC de Azure es el método preferido para asignar acceso al plano de datos cuando los usuarios del plano de datos se administran en el inquilino de Azure Active Directory asociado a la suscripción de Azure. Si usa un inquilino de Azure Active Directory externo, vea la [referencia de asignación de RBAC local](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confirmación del modo RBAC de Azure
 
@@ -30,7 +31,7 @@ Para usar RBAC de Azure, Azure API for FHIR debe estar configurado para usar el 
 
 Para conceder acceso a los usuarios, las entidades de servicio o los grupos al plano de datos de FHIR, haga clic en **Control de acceso (IAM)** , **Asignaciones de roles** y luego **+ Agregar**:
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Incorporación de asignación de roles de RBAC de Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Agregar asignación de roles de Azure":::
 
 En la selección de **Rol**, busque uno de los roles integrados para el plano de datos de FHIR:
 
@@ -53,8 +54,7 @@ Azure API for FHIR almacena en caché las decisiones durante un máximo de 5 min
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo ha aprendido a asignar roles de RBAC de Azure para el plano de datos de FHIR. A continuación obtenga más información sobre la configuración adicional para Azure API for FHIR:
+En este artículo aprendió a asignar roles de Azure para el plano de datos de FHIR. A continuación obtenga más información sobre la configuración adicional para Azure API for FHIR:
  
 >[!div class="nextstepaction"]
 >[Configuración adicional de Azure API for FHIR](azure-api-for-fhir-additional-settings.md)
-

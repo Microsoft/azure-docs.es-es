@@ -7,32 +7,32 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 040eeda3edc8aa1165915a157cb7e1bdd1594740
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 32905383b046148893492640fe42fc721d1944dd
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793812"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87810248"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Base de referencia de seguridad de Azure para Azure Functions
 
 La base de referencia de seguridad de Azure para Azure Functions contiene recomendaciones que le ayudarán a mejorar la estrategia de seguridad de la implementación.
 
-La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](https://docs.microsoft.com/azure/security/benchmarks/overview), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
+La base de referencia de este servicio se extrae de la [versión 1.0 de Azure Security Benchmark](../security/benchmarks/overview.md), que proporciona recomendaciones sobre cómo puede proteger las soluciones en la nube en Azure con nuestra guía de procedimientos recomendados.
 
-Para más información, consulte [Introducción a la línea de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+Para más información, consulte [Introducción a la línea de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).
 
 ## <a name="network-security"></a>Seguridad de las redes
 
-*Para más información, consulte [Control de seguridad: Seguridad de redes](https://docs.microsoft.com/azure/security/benchmarks/security-control-network-security).*
+*Para más información, consulte [Control de seguridad: Seguridad de redes](../security/benchmarks/security-control-network-security.md).*
 
 ### <a name="11-protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>1.1: Proteja los recursos mediante grupos de seguridad de red o Azure Firewall en su red virtual
 
 **Guía**: integre las aplicaciones de Azure Functions con una red virtual de Azure. Las aplicaciones de Functions que se ejecutan en el plan Premium tienen las mismas funcionalidades de hospedaje que las aplicaciones web de Azure App Service, entre las que se incluye la característica "Integración con red virtual".  Las redes virtuales de Azure le permiten colocar cualquier recurso de Azure, como Azure Functions, en una red enrutable que no sea Internet.
 
-- [Integración de Functions con una red virtual de Azure](https://docs.microsoft.com/azure/azure-functions/functions-create-vnet)
+- [Integración de Functions con una red virtual de Azure](./functions-create-vnet.md)
 
-- [Descripción de la característica Integración con red virtual de Azure Functions y Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet)
+- [Descripción de la característica Integración con red virtual de Azure Functions y Azure App Service](../app-service/web-sites-integrate-with-vnet.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -44,11 +44,11 @@ Para más información, consulte [Introducción a la línea de base de seguridad
 
 Si usa grupos de seguridad de red (NSG) con su implementación de Azure Functions, habilite los registros de flujo de estos grupos y envíe registros a una cuenta de Azure Storage para realizar auditorías del tráfico. También puede enviar registros de flujo de grupo de seguridad de red a un área de trabajo de Log Analytics y usar el Análisis de tráfico para proporcionar información detallada sobre el flujo de tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
-- [Descripción de la seguridad de red proporcionada por Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
+- [Descripción de la seguridad de red proporcionada por Azure Security Center](../security-center/security-center-network-recommendations.md)
 
-- [Habilitación de los registros de flujo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Habilitación de los registros de flujo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Habilitación y uso del Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Habilitación y uso del Análisis de tráfico](../network-watcher/traffic-analytics.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -65,9 +65,9 @@ Además, debe asegurarse de que la depuración remota esté deshabilitada en la 
 
 Considere la posibilidad de implementar el firewall de aplicaciones web (WAF) de Azure durante la configuración de las redes para realizar una inspección adicional del tráfico entrante. Habilite la configuración de diagnóstico para WAF e ingiera los registros en una cuenta de almacenamiento, un centro de eventos o un área de trabajo de análisis de registros. 
 
-- [Protección de los puntos de conexión de Azure Functions en producción](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Protección de los puntos de conexión de Azure Functions en producción](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Implementación de WAF de Azure](https://docs.microsoft.com/azure/web-application-firewall/ag/create-waf-policy-ag)
+- [Implementación de WAF de Azure](../web-application-firewall/ag/create-waf-policy-ag.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -78,25 +78,25 @@ Considere la posibilidad de implementar el firewall de aplicaciones web (WAF) de
 **Guía**: habilite el estándar DDoS Protection en las redes virtuales asociadas a las aplicaciones de Functions para protegerse de los ataques de denegación de servicio distribuido (DDoS). Use la inteligencia sobre amenazas integrada en Azure Security Center para denegar las comunicaciones con direcciones IP públicas malintencionadas conocidas o no utilizadas.
 Asimismo, configure una puerta de enlace front-end, como el firewall de aplicaciones web de Azure, para autenticar todas las solicitudes entrantes y filtrar el tráfico malintencionado. El firewall de aplicaciones web de Azure puede ayudarle a proteger las aplicaciones de Azure Functions inspeccionando el tráfico web entrante para bloquear las inyecciones de código SQL, los scripts de sitios, las cargas de malware y los ataques de denegación de servicio distribuido. Para incorporar un WAF, se necesita una instancia de App Service Environment o deben usarse puntos de conexión privados (versión preliminar). Asegúrese de que los puntos de conexión privados no tengan ya el estado de versión preliminar antes de usarlos con las cargas de trabajo de producción.
 
-- [Opciones de redes de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Opciones de redes de Azure Functions](./functions-networking-options.md)
 
-- [Plan Premium de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Plan Premium de Azure Functions](./functions-scale.md#premium-plan)
 
-- [Introducción a App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introducción a App Service Environment](../app-service/environment/intro.md)
 
-- [Consideraciones de red para un entorno de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Consideraciones de red para un entorno de App Service Environment](../app-service/environment/network-info.md)
 
-- [Configuración de la protección contra DDoS](https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection)
+- [Configuración de la protección contra DDoS](../virtual-network/manage-ddos-protection.md)
 
-- [Implementación de Azure Firewall](https://docs.microsoft.com/azure/firewall/tutorial-firewall-deploy-portal)
+- [Implementación de Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer)
+- [Descripción de la inteligencia sobre amenazas integrada de Azure Security Center](../security-center/threat-protection.md)
 
-- [Descripción de la protección de red adaptable de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-network-hardening)
+- [Descripción de la protección de red adaptable de Azure Security Center](../security-center/security-center-adaptive-network-hardening.md)
 
-- [Descripción del control de acceso de red Just-in-Time de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+- [Descripción del control de acceso de red Just-in-Time de Azure Security Center](../security-center/security-center-just-in-time.md)
 
-- [Uso de puntos de conexión privados con Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Uso de puntos de conexión privados con Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -106,11 +106,11 @@ Asimismo, configure una puerta de enlace front-end, como el firewall de aplicaci
 
 **Guía**: Si usa grupos de seguridad de red (NSG) con su implementación de Azure Functions, habilite los registros de flujo en estos grupos y envíe dichos registros a una cuenta de almacenamiento para auditar el tráfico. También puede enviar los registros de flujo a un área de trabajo de Log Analytics y usar Análisis de tráfico para obtener conclusiones sobre el flujo del tráfico en la nube de Azure. Algunas de las ventajas del Análisis de tráfico son la capacidad de visualizar la actividad de la red e identificar las zonas activas, identificar las amenazas de seguridad, comprender los patrones de flujo de tráfico y detectar configuraciones de red incorrectas.
 
-- [Habilitación de los registros de flujo de NSG](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+- [Habilitación de los registros de flujo de NSG](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
-- [Habilitación y uso del Análisis de tráfico](https://docs.microsoft.com/azure/network-watcher/traffic-analytics)
+- [Habilitación y uso del Análisis de tráfico](../network-watcher/traffic-analytics.md)
 
-- [Habilitación de Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-create)
+- [Habilitación de Network Watcher](../network-watcher/network-watcher-create.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -122,19 +122,19 @@ Asimismo, configure una puerta de enlace front-end, como el firewall de aplicaci
 
 Existen también otras opciones en el mercado, como el WAF de Barracuda para Azure, que están disponibles en Azure Marketplace con las características IDS/IPS.
 
-- [Opciones de redes de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Opciones de redes de Azure Functions](./functions-networking-options.md)
 
-- [Plan Premium de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Plan Premium de Azure Functions](./functions-scale.md#premium-plan)
 
-- [Introducción a App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introducción a App Service Environment](../app-service/environment/intro.md)
 
-- [Consideraciones de red para un entorno de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Consideraciones de red para un entorno de App Service Environment](../app-service/environment/network-info.md)
 
-- [Descripción del firewall de aplicaciones web de Azure](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Descripción del firewall de aplicaciones web de Azure](../web-application-firewall/index.yml)
 
-- [Uso de puntos de conexión privados con Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Uso de puntos de conexión privados con Azure Functions](../app-service/networking/private-endpoint.md)
 
-- [Descripción del servicio en la nube Barracuda WAF](https://docs.microsoft.com/azure/app-service/environment/app-service-app-service-environment-web-application-firewall#configuring-your-barracuda-waf-cloud-service)
+- [Descripción del servicio en la nube Barracuda WAF](../app-service/environment/app-service-app-service-environment-web-application-firewall.md#configuring-your-barracuda-waf-cloud-service)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -144,19 +144,19 @@ Existen también otras opciones en el mercado, como el WAF de Barracuda para Azu
 
 **Instrucciones**: Configure una puerta de enlace front-end para la red, como el firewall de aplicaciones web de Azure con cifrado TLS de un extremo a otro. Para incorporar un WAF, se necesita una instancia de App Service Environment o deben usarse puntos de conexión privados (versión preliminar). Asegúrese de que los puntos de conexión privados no tengan ya el estado de versión preliminar antes de usarlos con las cargas de trabajo de producción.
 
-- [Opciones de redes de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Opciones de redes de Azure Functions](./functions-networking-options.md)
 
-- [Plan Premium de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Plan Premium de Azure Functions](./functions-scale.md#premium-plan)
 
-- [Introducción a App Service Environment](https://docs.microsoft.com/azure/app-service/environment/intro)
+- [Introducción a App Service Environment](../app-service/environment/intro.md)
 
-- [Consideraciones de red para un entorno de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Consideraciones de red para un entorno de App Service Environment](../app-service/environment/network-info.md)
 
-- [Descripción del firewall de aplicaciones web de Azure](https://docs.microsoft.com/azure/application-gateway/overview#web-application-firewall)
+- [Descripción del firewall de aplicaciones web de Azure](../web-application-firewall/index.yml)
 
-- [Configuración de TLS de un extremo a otro con Application Gateway mediante el portal](https://docs.microsoft.com/azure/application-gateway/end-to-end-ssl-portal)
+- [Configuración de TLS de un extremo a otro con Application Gateway mediante el portal](../application-gateway/end-to-end-ssl-portal.md)
 
-- [Uso de puntos de conexión privados con Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Uso de puntos de conexión privados con Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -166,7 +166,7 @@ Existen también otras opciones en el mercado, como el WAF de Barracuda para Azu
 
 **Instrucciones**: puede usar las etiquetas del servicio Red virtual para definir los controles de acceso a la red en los grupos de seguridad de red o Azure Firewall. Puede utilizar etiquetas de servicio en lugar de direcciones IP específicas al crear reglas de seguridad. Al especificar el nombre de la etiqueta de servicio (por ejemplo, AzureAppService) en el campo de origen o destino apropiado de una regla, puede permitir o denegar el tráfico en el servicio correspondiente. Microsoft administra los prefijos de direcciones que la etiqueta de servicio incluye y actualiza automáticamente dicha etiqueta a medida que las direcciones cambian.
 
-- [Más información sobre el uso de etiquetas de servicio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)
+- [Más información sobre el uso de etiquetas de servicio](../virtual-network/service-tags-overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -181,9 +181,9 @@ Existen también otras opciones en el mercado, como el WAF de Barracuda para Azu
 
 También puede utilizar Azure Blueprints para simplificar las implementaciones de Azure a gran escala mediante el empaquetado de artefactos de entorno clave, como plantillas de Azure Resource Manager (ARM), control de acceso basado en rol (RBAC) y directivas, en una única definición de plano técnico. Aplique fácilmente el plano técnico a nuevas suscripciones y entornos, y ajuste el control y la administración mediante el control de versiones.
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Creación de un plano técnico de Azure](https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal)
+- [Creación de un plano técnico de Azure](../governance/blueprints/create-blueprint-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -197,7 +197,7 @@ Use cualquiera de las definiciones de directiva de Azure integradas relacionadas
 
 Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en los recursos en función de sus etiquetas.
 
-- [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -207,9 +207,9 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 **Guía**: use el registro de actividad de Azure para supervisar las configuraciones de los recursos de red y detectar cambios en las opciones y recursos de red relacionados con las implementaciones de Azure Functions. Cree alertas en Azure Monitor que se desencadenen cuando se produzcan cambios en la configuraciones o recursos de red críticos. 
 
-- [Visualización y recuperación de eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+- [Visualización y recuperación de eventos del registro de actividad de Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
-- [Creación de alertas en Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Creación de alertas en Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -217,7 +217,7 @@ Puede usar Azure PowerShell o la CLI de Azure para buscar o realizar acciones en
 
 ## <a name="logging-and-monitoring"></a>Registro y supervisión
 
-*Para más información, consulte [Control de seguridad: registro y supervisión](https://docs.microsoft.com/azure/security/benchmarks/security-control-logging-monitoring).*
+*Para más información, consulte [Control de seguridad: registro y supervisión](../security/benchmarks/security-control-logging-monitoring.md).*
 
 ### <a name="21-use-approved-time-synchronization-sources"></a>2.1: Uso de orígenes de sincronización de hora aprobados
 
@@ -237,13 +237,13 @@ Si tiene un registro de auditoría o seguridad personalizado integrado en la apl
 
 Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en una herramienta de Administración de eventos e información de seguridad (SIEM) de terceros. 
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-- [Configuración de Azure Functions con Azure Application Insights](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Configuración de Azure Functions con Azure Application Insights](./functions-monitoring.md)
 
-- [Activación de la configuración de diagnóstico (registros generados por el usuario) en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Activación de la configuración de diagnóstico (registros generados por el usuario) en Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -255,9 +255,9 @@ Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en 
 
 Si tiene un registro de auditoría o seguridad personalizado integrado en la aplicación de Azure Functions, habilite la opción de diagnóstico "FunctionAppLogs" y envíe los registros a un área de trabajo de Log Analytics, a un centro de eventos de Azure o a una cuenta de almacenamiento de Azure para archivarlos. 
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-- [Activación de la configuración de diagnóstico (registros generados por el usuario) en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Activación de la configuración de diagnóstico (registros generados por el usuario) en Azure Functions](./functions-monitor-log-analytics.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -275,7 +275,7 @@ Si tiene un registro de auditoría o seguridad personalizado integrado en la apl
 
 **Guía**: En Azure Monitor, establezca el período de retención de registros en las áreas de trabajo de Log Analytics vinculadas a las aplicaciones de Azure Functions atendiendo a las normativas de cumplimiento de su organización.
 
-- [Establecimiento de parámetros de retención de registros](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Establecimiento de parámetros de retención de registros](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -291,13 +291,13 @@ Si tiene un registro de auditoría o seguridad personalizado integrado en la apl
 
 Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en una herramienta de Administración de eventos e información de seguridad (SIEM) de terceros. 
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-- [Activación de la configuración de diagnóstico en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Activación de la configuración de diagnóstico en Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Configuración de Azure Functions con Azure Application Insights y visualización de los datos de telemetría](https://docs.microsoft.com/azure/azure-functions/functions-monitoring)
+- [Configuración de Azure Functions con Azure Application Insights y visualización de los datos de telemetría](./functions-monitoring.md)
 
-- [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -311,15 +311,15 @@ Habilite Application Insights para que las aplicaciones de Azure Functions pueda
 
 Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en una herramienta de Administración de eventos e información de seguridad (SIEM) de terceros. 
 
-- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Habilitación de la configuración de diagnóstico para el registro de actividad de Azure](../azure-monitor/platform/activity-log.md)
 
-- [Activación de la configuración de diagnóstico en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitor-log-analytics)
+- [Activación de la configuración de diagnóstico en Azure Functions](./functions-monitor-log-analytics.md)
 
-- [Activación de Application Insights para Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-monitoring#enable-application-insights-integration)
+- [Activación de Application Insights para Azure Functions](./functions-monitoring.md#enable-application-insights-integration)
 
-- [Creación de alertas en Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response)
+- [Creación de alertas en Azure](../azure-monitor/learn/tutorial-response.md)
 
-- [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -351,15 +351,15 @@ Si lo desea, también puede habilitar e incorporar datos en Azure Sentinel o en 
 
 ## <a name="identity-and-access-control"></a>Control de identidades y acceso
 
-*Para más información, consulte [Control de seguridad: Identidad y control de acceso](https://docs.microsoft.com/azure/security/benchmarks/security-control-identity-access-control).*
+*Para más información, consulte [Control de seguridad: Identidad y control de acceso](../security/benchmarks/security-control-identity-access-control.md).*
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: Mantenga un inventario de cuentas administrativas
 
-**Guía**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos. 
+**Instrucciones**: Azure Active Directory (AD) tiene roles integrados que se deben asignar explícitamente y son consultables. Use el módulo de PowerShell de Azure AD para realizar consultas ad hoc para detectar cuentas que son miembros de grupos administrativos. 
 
-- [Obtención de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Obtención de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
-- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Obtención de los miembros de un rol de directorio en Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -373,11 +373,11 @@ El acceso al plano de datos se puede controlar a través de diversos medios, com
 
 Hay diversos métodos de implementación disponibles para las aplicaciones de Functions, algunos de los cuales pueden hacer uso de un conjunto de credenciales generadas. Revise los métodos de implementación que se usarán con la aplicación.
 
-- [Protección de un punto de conexión HTTP](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#secure-an-http-endpoint-in-production)
+- [Protección de un punto de conexión HTTP](./functions-bindings-http-webhook-trigger.md?tabs=csharp#secure-an-http-endpoint-in-production)
 
-- [Obtención y regeneración de claves de autorización](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=csharp#obtaining-keys)
+- [Obtención y regeneración de claves de autorización](./functions-bindings-http-webhook-trigger.md?tabs=csharp#obtaining-keys)
 
-- [Tecnologías de implementación en Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies)
+- [Tecnologías de implementación en Azure Functions](./functions-deployment-technologies.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -389,9 +389,9 @@ Hay diversos métodos de implementación disponibles para las aplicaciones de Fu
 
 Además, para ayudarle a realizar un seguimiento de las cuentas administrativas dedicadas, puede seguir las recomendaciones de Azure Security Center o las directivas integradas de Azure Policy, por ejemplo: Debería haber más de un propietario asignado a la suscripción. Las cuentas en desuso con permisos de propietario deben quitarse de la suscripción. Las cuentas externas con permisos de propietario deben quitarse de la suscripción.
 
-- [Uso de Azure Security Center para supervisar la identidad y el acceso (versión preliminar)](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Uso de Azure Security Center para supervisar la identidad y el acceso (versión preliminar)](../security-center/security-center-identity-access.md)
 
-- [Uso de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Uso de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -401,9 +401,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 **Guía**: siempre que sea posible, use el SSO de Azure Active Directory en lugar de configurar diferentes credenciales individuales en la aplicación de Functions para acceder a los datos. Use las recomendaciones de administración de identidades y acceso de Azure Security Center. Implemente el inicio de sesión único en las aplicaciones de Azure Functions utilizando la característica de autenticación y autorización de App Service.
 
-- [Descripción de la autenticación y la autorización en Azure Functions](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization#identity-providers)
+- [Descripción de la autenticación y la autorización en Azure Functions](../app-service/overview-authentication-authorization.md#identity-providers)
 
-- [Descripción del SSO con Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Descripción del SSO con Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -413,9 +413,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 **Guía**: Habilite Multi-Factor Authentication (MFA) de Azure Active Directory (AD) y siga las recomendaciones de administración de identidades y acceso de Azure Security Center.
 
-- [Procedimiento para habilitar la MFA en Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
-- [Supervisión de la identidad y el acceso en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-identity-access)
+- [Supervisión de la identidad y el acceso en Azure Security Center](../security-center/security-center-identity-access.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -423,11 +423,11 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 ### <a name="36-use-dedicated-machines-privileged-access-workstations-for-all-administrative-tasks"></a>3.6: Use máquinas dedicadas (estaciones de trabajo de acceso con privilegios) para todas las tareas administrativas
 
-**Guía**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
+**Instrucciones**: Utilice estaciones de trabajo de acceso con privilegios (PAW), con Multi-Factor Authentication (MFA) configurado para iniciar sesión en recursos de Azure y configurarlos.
 
-- [Más información sobre las estaciones de trabajo con privilegios de acceso](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)
+- [Más información sobre las estaciones de trabajo con privilegios de acceso](/windows-server/identity/securing-privileged-access/privileged-access-workstations)
 
-- [Procedimiento para habilitar la MFA en Azure](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)
+- [Procedimiento para habilitar la MFA en Azure](../active-directory/authentication/howto-mfa-getstarted.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -439,9 +439,9 @@ Además, para ayudarle a realizar un seguimiento de las cuentas administrativas 
 
 Además, use las detecciones de riesgo de Azure AD para ver alertas e informes sobre el comportamiento de los usuarios de riesgo.
 
-- [Cómo implementar Privileged Identity Management (PIM)](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Cómo implementar Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Información sobre las detecciones de riesgo de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Información sobre las detecciones de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -449,9 +449,9 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: Administre los recursos de Azure solo desde ubicaciones aprobadas
 
-**Instrucciones**: El cliente debe usar ubicaciones con nombre de acceso condicional para permitir el acceso a Azure Portal solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
+**Guía**: El cliente debe usar ubicaciones con nombre de acceso condicional para permitir el acceso a Azure Portal solo desde agrupaciones lógicas específicas de intervalos de direcciones IP o países o regiones.
 
-- [Configuración de ubicaciones con nombre en Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+- [Configuración de ubicaciones con nombre en Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -459,11 +459,11 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Uso de Azure Active Directory
 
-**Instrucciones**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización en las aplicaciones de Azure Functions. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
+**Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización en las aplicaciones de Azure Functions. Azure AD protege los datos mediante un cifrado seguro para los datos en reposo y en tránsito. Azure AD también cifra con sal, convierte en hash y almacena de forma segura las credenciales de los usuarios.
 
-- [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Creación y configuración de una instancia de AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Creación y configuración de una instancia de AAD](../active-directory/fundamentals/active-directory-access-create-new-tenant.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -473,9 +473,9 @@ Además, use las detecciones de riesgo de Azure AD para ver alertas e informes 
 
 **Guía**: Azure Active Directory (AD) proporciona registros para ayudar a descubrir cuentas obsoletas. Además, use las revisiones de acceso de identidad de Azure para administrar de forma eficiente las pertenencias a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado. 
 
-- [Descripción de los informes de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/)
+- [Descripción de los informes de Azure AD](../active-directory/reports-monitoring/index.yml)
 
-- [Procedimiento para usar las revisiones de acceso de identidad de Azure](https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview)
+- [Procedimiento para usar las revisiones de acceso de identidad de Azure](../active-directory/governance/access-reviews-overview.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -489,11 +489,11 @@ Tiene acceso a los orígenes de registro de eventos de actividad de inicio de se
 
 Para simplificar este proceso, cree una configuración de diagnóstico para las cuentas de usuario de Azure AD y envíe los registros de auditoría y los registros de inicio de sesión a un área de trabajo de Log Analytics. Puede configurar las alertas de registro deseadas en Log Analytics.
 
-- [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad)
+- [Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD](../app-service/configure-authentication-provider-aad.md)
 
-- [Integración de los registros de actividad de Azure en Azure Monitor](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integración de los registros de actividad de Azure en Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -503,11 +503,11 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: Use Azure Active Directory (AD) como sistema central de autenticación y autorización en las aplicaciones de Azure Functions. En caso de que se produzcan desviaciones en el comportamiento de inicio de sesión de la cuenta del plano de control (Azure Portal), use Azure Active Directory (AD) Identity Protection y las características de detección de riesgo para configurar respuestas automatizadas a las acciones sospechosas que se detecten en relación con las identidades de los usuarios. También puede hacer que Azure Sentinel ingiera los datos para investigarlos más.
 
-- [Visualización de los inicios de sesión de riesgo de Azure AD](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Visualización de los inicios de sesión de riesgo de Azure AD](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Configuración y habilitación de las directivas de riesgo de protección de identidad](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies)
+- [Configuración y habilitación de las directivas de riesgo de protección de identidad](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
-- [Incorporación de Azure Sentinel](https://docs.microsoft.com/azure/sentinel/quickstart-onboard)
+- [Incorporación de Azure Sentinel](../sentinel/quickstart-onboard.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -517,7 +517,7 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 **Guía**: no está disponible en este momento; Caja de seguridad del cliente no es compatible actualmente con Azure Functions.
 
-- [Lista de servicios admitidos por Caja de seguridad del cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista de servicios admitidos por Caja de seguridad del cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -525,13 +525,13 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 ## <a name="data-protection"></a>Protección de los datos
 
-*Para más información, consulte [Control de seguridad: Protección de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-protection).*
+*Para más información, consulte [Control de seguridad: Protección de datos](../security/benchmarks/security-control-data-protection.md).*
 
 ### <a name="41-maintain-an-inventory-of-sensitive-information"></a>4.1: Mantenimiento de un inventario de información confidencial
 
 **Instrucciones**: use etiquetas para ayudar a realizar el seguimiento de los recursos de Azure que almacenan o procesan información confidencial.
 
-- [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -543,19 +543,19 @@ Para simplificar este proceso, cree una configuración de diagnóstico para las 
 
 También se puede usar puntos de conexión privados para realizar el aislamiento de red. Un punto de conexión privado de Azure es una interfaz de red que permite conectarse de forma privada y segura a un servicio (por ejemplo, punto de conexión HTTPS de la aplicación de Azure Functions) con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual, colocando el servicio de manera eficaz en su red virtual. Los puntos de conexión privados se encuentran en versión preliminar en las aplicaciones de Functions que se ejecutan en el plan Premium. Asegúrese de que los puntos de conexión privados no tengan ya el estado de versión preliminar antes de usarlos con las cargas de trabajo de producción.
 
-- [Creación de suscripciones adicionales de Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Creación de grupos de administración](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Creación de grupos de administración](../governance/management-groups/create.md)
 
-- [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
-- [Opciones de redes de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Opciones de redes de Azure Functions](./functions-networking-options.md)
 
-- [Plan Premium de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Plan Premium de Azure Functions](./functions-scale.md#premium-plan)
 
-- [Descripción de puntos de conexión privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)
+- [Descripción de puntos de conexión privados](../private-link/private-endpoint-overview.md)
 
-- [Uso de puntos de conexión privados con Azure Functions](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)
+- [Uso de puntos de conexión privados con Azure Functions](../app-service/networking/private-endpoint.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -567,7 +567,7 @@ También se puede usar puntos de conexión privados para realizar el aislamiento
 
 Microsoft administra la infraestructura subyacente de Azure Functions y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
-- [Descripción de la protección de datos de los clientes en Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -587,7 +587,7 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 En el caso de la plataforma subyacente administrada por Microsoft, Microsoft trata todo el contenido de los clientes como confidencial y hace grandes esfuerzos para proteger a los clientes contra la pérdida y exposición de sus datos. Para garantizar la seguridad de los datos de los clientes dentro de Azure, Microsoft ha implementado y mantiene un conjunto de controles y funcionalidades eficaces de protección de datos.
 
-- [Descripción de la protección de datos de los clientes en Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -597,7 +597,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 **Guía**: Use el control de acceso basado en roles (RBAC) de Azure Active Directory (AD) para controlar el acceso al plano de control de Azure Functions (Azure Portal). 
 
-- [Configuración de RBAC en Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Configuración de RBAC en Azure](../role-based-access-control/role-assignments-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -609,7 +609,7 @@ En el caso de la plataforma subyacente administrada por Microsoft, Microsoft tra
 
 Microsoft administra la infraestructura subyacente de Azure Functions y ha implementado controles estrictos para evitar la pérdida o exposición de los datos de los clientes.
 
-- [Descripción de la protección de datos de los clientes en Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
+- [Descripción de la protección de datos de los clientes en Azure](../security/fundamentals/protection-customer-data.md)
 
 **Supervisión de Azure Security Center**: no disponible actualmente
 
@@ -619,9 +619,9 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 **Guía**: Al crear una aplicación de funciones, debe crear o vincular una cuenta de Azure Storage de uso general compatible con Blob, Queue y Table Storage. El motivo es que Azure Functions usa Azure Storage con ciertas operaciones; por ejemplo, para administrar los desencadenadores y ejecutar las funciones de registro. Azure Storage cifra todos los datos de las cuentas de almacenamiento en reposo. De manera predeterminada, los datos se cifran con claves administradas por Microsoft. Para tener un mayor control sobre las claves de cifrado, puede proporcionar claves administradas por el cliente que pueden usarse para cifrar datos de archivos y blobs. Estas claves deben estar presentes en Azure Key Vault para que la aplicación de Azure Functions pueda acceder a la cuenta de almacenamiento.
 
-- [Consideraciones de almacenamiento de Azure Functions](https://docs.microsoft.com/azure/azure-functions/storage-considerations)
+- [Consideraciones de almacenamiento de Azure Functions](./storage-considerations.md)
 
-- [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -631,7 +631,7 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 **Guía**: Use Azure Monitor con el registro de actividad de Azure para crear alertas cuando se produzcan cambios en las aplicaciones de producción de Azure Functions y en otros recursos críticos o relacionados.
 
-- [Creación de alertas para los eventos del registro de actividad de Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
+- [Creación de alertas para los eventos del registro de actividad de Azure](../azure-monitor/platform/alerts-activity-log.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -639,7 +639,7 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 ## <a name="vulnerability-management"></a>Administración de vulnerabilidades
 
-*Para más información, consulte [Control de seguridad: Administración de vulnerabilidades](https://docs.microsoft.com/azure/security/benchmarks/security-control-vulnerability-management).*
+*Para más información, consulte [Control de seguridad: Administración de vulnerabilidades](../security/benchmarks/security-control-vulnerability-management.md).*
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: Ejecute herramientas de análisis de vulnerabilidades automatizado
 
@@ -647,9 +647,9 @@ Microsoft administra la infraestructura subyacente de Azure Functions y ha imple
 
 Siga también las recomendaciones de Azure Security Center para ayudar a proteger las aplicaciones de Azure Functions.
 
-- [Incorporación de un mecanismo continuo para validar la seguridad en la canalización de CI/CD](https://docs.microsoft.com/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
+- [Incorporación de un mecanismo continuo para validar la seguridad en la canalización de CI/CD](/azure/devops/migrate/security-validation-cicd-pipeline?view=azure-devops)
 
-- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Implementación de las recomendaciones de evaluación de vulnerabilidades de Azure Security Center](../security-center/security-center-vulnerability-assessment-recommendations.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -683,7 +683,7 @@ Siga también las recomendaciones de Azure Security Center para ayudar a protege
 
 **Guía**: Microsoft se encarga de administrar las vulnerabilidades en los sistemas subyacentes que admiten Azure Functions. Sin embargo, puede utilizar la gravedad de las recomendaciones de Azure Security Center y la puntuación de seguridad para medir el riesgo de su entorno. La puntuación segura se basa en el número de recomendaciones de Security Center que ha mitigado. Para dar prioridad a las recomendaciones que deben resolverse en primer lugar, tenga en cuenta la gravedad de cada una.
 
-- [Guía de referencia sobre las recomendaciones de seguridad](https://docs.microsoft.com/azure/security-center/recommendations-reference)
+- [Guía de referencia sobre las recomendaciones de seguridad](../security-center/recommendations-reference.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -691,19 +691,19 @@ Siga también las recomendaciones de Azure Security Center para ayudar a protege
 
 ## <a name="inventory-and-asset-management"></a>Inventario y administración de recursos
 
-*Para más información, consulte [Control de seguridad: Administración de recursos y del inventario](https://docs.microsoft.com/azure/security/benchmarks/security-control-inventory-asset-management).*
+*Para más información, consulte [Control de seguridad: Administración de recursos y del inventario](../security/benchmarks/security-control-inventory-asset-management.md).*
 
 ### <a name="61-use-azure-asset-discovery"></a>6.1: Uso de la detección de recursos de Azure
 
-**Instrucciones**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
+**Guía**: Use Azure Resource Graph para consultar o detectar todos los recursos (por ejemplo, proceso, almacenamiento, red, puertos y protocolos, etc.) dentro de las suscripciones.  Asegúrese de que tiene los permisos adecuados (lectura) en el inquilino y enumere todas las suscripciones de Azure, así como los recursos de las suscripciones.
 
 Aunque los recursos clásicos de Azure se pueden detectar a través de Resource Graph, se recomienda encarecidamente crear y usar los recursos de Azure Resource Manager que figuran a continuación.
 
-- [Creación de consultas con Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Creación de consultas con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Visualización de las suscripciones de Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Visualización de las suscripciones de Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
 
-- [Descripción de Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)
+- [Descripción de Azure RBAC](../role-based-access-control/overview.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -713,7 +713,7 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 **Instrucciones**: Aplique etiquetas a los recursos de Azure que proporcionan metadatos para organizarlos de forma lógica en una taxonomía.
 
-- [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -721,15 +721,15 @@ Aunque los recursos clásicos de Azure se pueden detectar a través de Resource 
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: Eliminación de recursos de Azure no autorizados
 
-**Instrucciones**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
+**Guía**: use el etiquetado, los grupos de administración y las suscripciones independientes, si procede, para organizar y realizar un seguimiento de los recursos de Azure. Concilie el inventario periódicamente y asegúrese de que los recursos no autorizados se eliminan de la suscripción de manera oportuna.
 
 Además, use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas: tipos de recursos no permitidos y tipos de recursos permitidos
 
-- [Creación de suscripciones adicionales de Azure](https://docs.microsoft.com/azure/billing/billing-create-subscription)
+- [Creación de suscripciones adicionales de Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Creación de grupos de administración](https://docs.microsoft.com/azure/governance/management-groups/create)
+- [Creación de grupos de administración](../governance/management-groups/create.md)
 
-- [Creación y uso de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags)
+- [Creación y uso de etiquetas](../azure-resource-manager/management/tag-resources.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -737,7 +737,7 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 
 ### <a name="64-maintain-an-inventory-of-approved-azure-resources-and-software-titles"></a>6.4: Mantenimiento de un inventario de los recursos de Azure aprobados y títulos de software
 
-**Instrucciones**: Defina los recursos de Azure y el software aprobados para los recursos de proceso.
+**Guía**: Defina los recursos de Azure y el software aprobados para los recursos de proceso.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -749,9 +749,9 @@ Además, use Azure Policy para establecer restricciones sobre el tipo de recurso
 
 Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscripciones.  Asegúrese de que todos los recursos de Azure presentes en el entorno estén aprobados. 
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Creación de consultas con Azure Graph](https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal)
+- [Creación de consultas con Azure Graph](../governance/resource-graph/first-query-portal.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -775,7 +775,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 ### <a name="68-use-only-approved-applications"></a>6.8: Uso exclusivo de aplicaciones aprobadas
 
-**Instrucciones**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
+**Guía**: no aplicable; esta recomendación está diseñada para recursos de proceso de IaaS.
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -785,9 +785,9 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 **Guía**: use Azure Policy para establecer restricciones sobre el tipo de recursos que se pueden crear en las suscripciones del cliente con las siguientes definiciones de directiva integradas: Tipos de recursos no permitidos Tipos de recursos permitidos
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Denegación de un tipo de recurso específico con Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types)
+- [Denegación de un tipo de recurso específico con Azure Policy](../governance/policy/samples/index.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -805,7 +805,7 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 **Guía**: Configure el acceso condicional de Azure para limitar la capacidad de los usuarios de interactuar con Azure Resource Manager configurando "Bloquear acceso" en la aplicación Microsoft Azure Management.
 
-- [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management)
+- [Configuración del acceso condicional para bloquear el acceso a Azure Resource Manager](../role-based-access-control/conditional-access-azure-management.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -825,19 +825,19 @@ Use Azure Resource Graph para consultar o detectar recursos dentro de sus suscri
 
 Implemente aplicaciones de Azure Functions de alto riesgo en su propia red virtual (VNet). En Azure Functions, la seguridad perimetral se lleva a cabo utilizando redes virtuales. Las funciones que se ejecutan en el plan Premium o App Service Environment (ASE) se pueden integrar con redes virtuales. Elija la mejor arquitectura para su caso de uso.
 
-- [Opciones de redes de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-networking-options)
+- [Opciones de redes de Azure Functions](./functions-networking-options.md)
 
-- [Plan Premium de Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#premium-plan)
+- [Plan Premium de Azure Functions](./functions-scale.md#premium-plan)
 
-- [Consideraciones de red para un entorno de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/network-info)
+- [Consideraciones de red para un entorno de App Service Environment](../app-service/environment/network-info.md)
 
-- [Creación de una instancia externa de App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-external-ase)
+- [Creación de una instancia externa de App Service Environment](../app-service/environment/create-external-ase.md)
 
 Creación de un ASE interno:
 
-- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](https://docs.microsoft.com/azure/virtual-network/quick-create-portal)
+- [https://docs.microsoft.com/azure/app-service/environment/create-ilb-as](../virtual-network/quick-create-portal.md)
 
-- [Creación de un grupo de seguridad de red con una configuración de seguridad](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic)
+- [Creación de un grupo de seguridad de red con una configuración de seguridad](../virtual-network/tutorial-filter-network-traffic.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -845,7 +845,7 @@ Creación de un ASE interno:
 
 ## <a name="secure-configuration"></a>Configuración segura
 
-*Para más información, consulte [Control de seguridad: Configuración segura](https://docs.microsoft.com/azure/security/benchmarks/security-control-secure-configuration).*
+*Para más información, consulte [Control de seguridad: Configuración segura](../security/benchmarks/security-control-secure-configuration.md).*
 
 ### <a name="71-establish-secure-configurations-for-all-azure-resources"></a>7.1: Establezca configuraciones seguras para todos los recursos de Azure
 
@@ -854,9 +854,9 @@ Creación de un ASE interno:
 - Se debe desactivar la depuración remota para Function App
 - Acceso a Function App solo a través de HTTPS
 
-- [Visualización de los alias de Azure Policy disponibles](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Visualización de los alias de Azure Policy disponibles](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -874,9 +874,9 @@ Creación de un ASE interno:
 
 **Instrucciones**: Use la directiva de Azure [denegar] e [implementar si no existe] para aplicar la configuración segura en los recursos de Azure.
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Descripción de los efectos de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects)
+- [Descripción de los efectos de Azure Policy](../governance/policy/concepts/effects.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -886,7 +886,7 @@ Creación de un ASE interno:
 
 **Instrucciones**: no aplicable; aunque se pueden implementar funciones locales, esta guía está pensada para los recursos de proceso de IaaS. Si implementa funciones locales, la responsabilidad de crear una configuración segura en el entorno recaerá sobre usted.
 
-- [Descripción de las funciones locales](https://docs.microsoft.com/azure/azure-functions/functions-runtime-install)
+- [Descripción de las funciones locales](./functions-runtime-install.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -896,13 +896,13 @@ Creación de un ASE interno:
 
 **Instrucciones**: almacene y administre plantillas de ARM y definiciones de directivas personalizadas de Azure de forma segura en el control de código fuente.
 
-- [¿Qué es la infraestructura como código?](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code)
+- [¿Qué es la infraestructura como código?](/azure/devops/learn/what-is-infrastructure-as-code)
 
-- [Diseño de flujos de trabajo de directiva como código](https://docs.microsoft.com/azure/governance/policy/concepts/policy-as-code)
+- [Diseño de flujos de trabajo de directiva como código](../governance/policy/concepts/policy-as-code.md)
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -920,7 +920,7 @@ Creación de un ASE interno:
 
 **Guía**: Use las definiciones integradas en Azure Policy junto con los alias de esta misma aplicación en el espacio de nombres "Microsoft.Web" para crear directivas personalizadas que permitan auditar y aplicar las configuraciones, así como enviar alertas sobre ellas. Además, desarrolle un proceso y una canalización para administrar las excepciones de las directivas.
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -938,7 +938,7 @@ Creación de un ASE interno:
 
 **Guía**: Use las definiciones integradas en Azure Policy junto con los alias de esta misma aplicación en el espacio de nombres "Microsoft.Web" para crear directivas personalizadas que permitan auditar y aplicar las configuraciones, así como enviar alertas sobre ellas. Use la directiva de Azure [audit], [deny] y [deploy if not exist] para aplicar automáticamente las configuraciones en los recursos de Azure.
 
-- [Configuración y administración de Azure Policy](https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage)
+- [Configuración y administración de Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -956,13 +956,13 @@ Creación de un ASE interno:
 
 **Guía**: Utilice identidades administradas con Azure Key Vault para simplificar y proteger la administración de secretos de las aplicaciones en la nube. Las identidades administradas permiten que la aplicación de Functions se autentique en cualquier servicio que admita la autenticación de Azure AD, como Key Vault, sin necesidad de usar credenciales en el código.
 
-- [Creación de un almacén de claves](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
+- [Creación de un almacén de claves](../key-vault/secrets/quick-create-portal.md)
 
-- [Cómo usar identidades administradas para App Service y Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Cómo usar identidades administradas para App Service y Azure Functions](../app-service/overview-managed-identity.md)
 
-- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Cómo proporcionar la autenticación de Key Vault con una identidad administrada](../key-vault/general/managed-identity.md)
 
-- [Uso de referencias de Key Vault para App Service y Azure Functions](https://docs.microsoft.com/azure/app-service/app-service-key-vault-references)
+- [Uso de referencias de Key Vault para App Service y Azure Functions](../app-service/app-service-key-vault-references.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -972,7 +972,7 @@ Creación de un ASE interno:
 
 **Guía**: Use las identidades administradas para proporcionar a la aplicación de Azure Functions una identidad administrada automáticamente en Azure AD. Las identidades administradas le permiten autenticarse en cualquier servicio que admita la autenticación de Azure AD, incluyendo Key Vault, sin necesidad de credenciales en el código.
 
-- [Cómo usar identidades administradas para App Service y Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
+- [Cómo usar identidades administradas para App Service y Azure Functions](../app-service/overview-managed-identity.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -990,7 +990,7 @@ Creación de un ASE interno:
 
 ## <a name="malware-defense"></a>Defensa contra malware
 
-*Para más información, consulte [Control de seguridad: defensa contra malware](https://docs.microsoft.com/azure/security/benchmarks/security-control-malware-defense).*
+*Para más información, consulte [Control de seguridad: defensa contra malware](../security/benchmarks/security-control-malware-defense.md).*
 
 ### <a name="81-use-centrally-managed-anti-malware-software"></a>8.1: Use software antimalware administrado centralmente
 
@@ -1023,21 +1023,21 @@ Microsoft Antimalware está habilitado en el host subyacente que admite los serv
 
 ## <a name="data-recovery"></a>Recuperación de datos
 
-*Para más información, consulte [Control de seguridad: recuperación de datos](https://docs.microsoft.com/azure/security/benchmarks/security-control-data-recovery).*
+*Para más información, consulte [Control de seguridad: recuperación de datos](../security/benchmarks/security-control-data-recovery.md).*
 
 ### <a name="91-ensure-regular-automated-back-ups"></a>9.1: Garantía de copias de seguridad automáticas periódicas
 
-**Instrucciones**: utilice la característica Copias de seguridad y restauración para programar copias de seguridad periódicas de la aplicación. Las aplicaciones de Functions que se ejecutan en el plan Premium tienen las mismas funcionalidades de hospedaje que las aplicaciones web de Azure App Service, como la característica de copia de seguridad y restauración.
+**Guía**: utilice la característica Copias de seguridad y restauración para programar copias de seguridad periódicas de la aplicación. Las aplicaciones de Functions que se ejecutan en el plan Premium tienen las mismas funcionalidades de hospedaje que las aplicaciones web de Azure App Service, como la característica de copia de seguridad y restauración.
 
 También puede usar una solución de control de código fuente como Azure Repos y Azure DevOps para almacenar y administrar el código de forma segura. Azure DevOps Services utiliza muchas de las características de almacenamiento de Azure para garantizar la disponibilidad de los datos en caso de un error de hardware, una interrupción del servicio o un desastre en la región. Además, el equipo de Azure DevOps sigue los procedimientos para proteger los datos contra la eliminación accidental o malintencionada.
 
-- [Realizar una copia de seguridad de la aplicación en Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Realizar una copia de seguridad de la aplicación en Azure](../app-service/manage-backup.md)
 
-- [Descripción de la disponibilidad de los datos en Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Descripción de la disponibilidad de los datos en Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1049,15 +1049,15 @@ También puede usar una solución de control de código fuente como Azure Repos 
 
 También puede usar una solución de control de código fuente como Azure Repos y Azure DevOps para almacenar y administrar el código de forma segura. Azure DevOps Services utiliza muchas de las características de almacenamiento de Azure para garantizar la disponibilidad de los datos en caso de un error de hardware, una interrupción del servicio o un desastre en la región. Además, el equipo de Azure DevOps sigue los procedimientos para proteger los datos contra la eliminación accidental o malintencionada.
 
-- [Realizar una copia de seguridad de la aplicación en Azure](https://docs.microsoft.com/azure/app-service/manage-backup)
+- [Realizar una copia de seguridad de la aplicación en Azure](../app-service/manage-backup.md)
 
-- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
+- [Creación de una copia de seguridad de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
-- [Descripción de la disponibilidad de los datos en Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
+- [Descripción de la disponibilidad de los datos en Azure DevOps](/azure/devops/organizations/security/data-protection?view=azure-devops#data-availability)
 
-- [Almacenamiento de código en Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Almacenamiento de código en Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
 
-- [Documentación de Azure Repos](https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops)
+- [Documentación de Azure Repos](/azure/devops/repos/index?view=azure-devops)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1067,11 +1067,11 @@ También puede usar una solución de control de código fuente como Azure Repos 
 
 **Guía**: garantice la capacidad para restaurar los datos periódicamente desde la característica Copias de seguridad y restauración. Si usa otra ubicación sin conexión para realizar una copia de seguridad del código, no olvide realizar periódicamente restauraciones completas. Pruebe la restauración de las claves administradas por el cliente de la copia de seguridad.
 
-- [Restauración de una aplicación de Azure desde una copia de seguridad](https://docs.microsoft.com/azure/app-service/web-sites-restore)
+- [Restauración de una aplicación de Azure desde una copia de seguridad](../app-service/web-sites-restore.md)
 
-- [Restauración de una aplicación en Azure desde una instantánea](https://docs.microsoft.com/azure/app-service/app-service-web-restore-snapshots)
+- [Restauración de una aplicación en Azure desde una instantánea](../app-service/app-service-web-restore-snapshots.md)
 
-- [Restauración de las claves del almacén de claves en Azure](https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Restauración de las claves del almacén de claves en Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1083,9 +1083,9 @@ También puede usar una solución de control de código fuente como Azure Repos 
 
 Si usa claves administradas por el cliente, asegúrese de que la eliminación temporal esté habilitada en Key Vault para evitar la eliminación accidental o malintencionada de las claves.
 
-- [Cifrado de Azure Storage para datos en reposo](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)
+- [Cifrado de Azure Storage para datos en reposo](../storage/common/storage-service-encryption.md)
 
-- [Habilitación de la eliminación temporal en Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Habilitación de la eliminación temporal en Key Vault](../storage/blobs/soft-delete-overview.md?tabs=azure-portal)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1093,13 +1093,13 @@ Si usa claves administradas por el cliente, asegúrese de que la eliminación te
 
 ## <a name="incident-response"></a>Respuesta a los incidentes
 
-*Para más información, consulte [Control de seguridad: Respuesta a los incidentes](https://docs.microsoft.com/azure/security/benchmarks/security-control-incident-response).*
+*Para más información, consulte [Control de seguridad: Respuesta a los incidentes](../security/benchmarks/security-control-incident-response.md).*
 
 ### <a name="101-create-an-incident-response-guide"></a>10.1: Creación de una guía de respuesta ante incidentes
 
 **Instrucciones**: Cree una guía de respuesta a incidentes para su organización. Asegúrese de que haya planes de respuesta a incidentes escritos que definan todos los roles del personal, así como las fases de administración y gestión de los incidentes, desde la detección hasta la revisión posterior a la incidencia.
 
-- [Configuración de las automatizaciones de flujos de trabajo en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide)
+- [Configuración de las automatizaciones de flujos de trabajo en Azure Security Center](../security-center/security-center-planning-and-operations-guide.md)
 
 - [Guía para crear su propio proceso de respuesta a incidentes de seguridad](https://msrc-blog.microsoft.com/2019/07/01/inside-the-msrc-building-your-own-security-incident-response-process/)
 
@@ -1135,7 +1135,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 **Guía**: La información de contacto del incidente de seguridad la utilizará Microsoft para ponerse en contacto con usted si Microsoft Security Response Center (MSRC) detecta que un tercero no autorizado o ilegal ha accedido a los datos del cliente.  Revise los incidentes después del hecho para asegurarse de que se resuelven los problemas.
 
-- [Establecimiento del contacto de seguridad de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details)
+- [Establecimiento del contacto de seguridad de Azure Security Center](../security-center/security-center-provide-security-contact-details.md)
 
 **Supervisión de Azure Security Center**: Sí
 
@@ -1145,9 +1145,9 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 **Instrucciones**: Exporte sus alertas y recomendaciones de Azure Security Center mediante la característica de exportación continua. La exportación continua le permite exportar alertas y recomendaciones de forma manual o continua. Puede usar el conector de datos de Azure Security Center para transmitir las alertas a Azure Sentinel.
 
-- [Configuración de la exportación continua](https://docs.microsoft.com/azure/security-center/continuous-export)
+- [Configuración de la exportación continua](../security-center/continuous-export.md)
 
-- [Transmisión de alertas a Azure Sentinel](https://docs.microsoft.com/azure/sentinel/connect-azure-security-center)
+- [Transmisión de alertas a Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1157,7 +1157,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 **Guía**: utilice la característica Automatización de flujo de trabajo de Azure Security Center para desencadenar automáticamente respuestas a las alertas y recomendaciones de seguridad con Logic Apps.
 
-- [Configuración de la automatización de flujo de trabajo y Logic Apps](https://docs.microsoft.com/azure/security-center/workflow-automation)
+- [Configuración de la automatización de flujo de trabajo y Logic Apps](../security-center/workflow-automation.md)
 
 **Supervisión de Azure Security Center**: No aplicable
 
@@ -1165,7 +1165,7 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Pruebas de penetración y ejercicios del equipo rojo
 
-*Para más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](https://docs.microsoft.com/azure/security/benchmarks/security-control-penetration-tests-red-team-exercises).*
+*Para más información, consulte [Control de seguridad: Pruebas de penetración y ejercicios del equipo rojo](../security/benchmarks/security-control-penetration-tests-red-team-exercises.md).*
 
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings"></a>11.1: Realice pruebas de penetración periódicas de los recursos de Azure y asegúrese de corregir todos los resultados de seguridad críticos
 
@@ -1181,5 +1181,5 @@ Además, marque claramente las suscripciones (por ejemplo, producción, no produ
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la [prueba comparativa de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/overview).
-- Obtenga más información sobre las [líneas de base de seguridad de Azure](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview).
+- Consulte la [prueba comparativa de seguridad de Azure](../security/benchmarks/overview.md).
+- Obtenga más información sobre las [líneas de base de seguridad de Azure](../security/benchmarks/security-baselines-overview.md).

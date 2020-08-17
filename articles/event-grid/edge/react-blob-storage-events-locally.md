@@ -7,12 +7,12 @@ ms.author: arduppal
 ms.reviewer: spelluru
 ms.date: 07/08/2020
 ms.topic: article
-ms.openlocfilehash: 9389e0aff04baa18cb216f2a7ab6da42eb7031f2
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 230e158a970f8c815b1575403c013e30749124c5
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171438"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87462027"
 ---
 # <a name="tutorial-react-to-blob-storage-events-on-iot-edge-preview"></a>Tutorial: Reacción a eventos de Blob Storage en IoT Edge (versión preliminar)
 En este artículo se muestra cómo implementar Azure Blob Storage en el módulo IoT, que actuaría como publicador Event Grid para enviar eventos en la creación de blobs y la eliminación de blobs a Event Grid.  
@@ -341,7 +341,7 @@ El objeto data tiene las siguientes propiedades:
 | -------- | ---- | ----------- |
 | api | string | Operación que desencadenó el evento. Puede ser uno de los siguientes valores: <ul><li>BlobCreated: los valores permitidos son: `PutBlob` y `PutBlockList`</li><li>BlobDeleted: los valores permitidos son: `DeleteBlob`, `DeleteAfterUpload` y `AutoDelete`. <p>El evento `DeleteAfterUpload` se genera cuando se elimina el blob automáticamente porque la propiedad deseada deleteAfterUpload está establecida en "true". </p><p>El evento `AutoDelete` se genera cuando se elimina el blob automáticamente porque expiró el valor de la propiedad deseada deleteAfterMinutes.</p></li></ul>|
 | clientRequestId | string | Id. de solicitud que proporciona el cliente para la operación de la API de Storage. Dicho id. se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "client-request-id" en los registros y se puede proporcionar en las solicitudes de los clientes que usan el encabezado "x-ms-client-request-id". Para más detalles, vea [Formato de registro](/rest/api/storageservices/storage-analytics-log-format). |
-| requestId | string | Id. de solicitud generado por el servicio para la operación de la API de Storage. Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "request-id-header" en los registros y se devuelve cuando se inicia la llamada API en el encabezado "x-ms-request-id". Consulte [Storage Analytics Log Format](https://docs.microsoft.com/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics). |
+| requestId | string | Id. de solicitud generado por el servicio para la operación de la API de Storage. Se puede usar para establecer la correlación con los registros de diagnóstico de Azure Storage que usan el campo "request-id-header" en los registros y se devuelve cuando se inicia la llamada API en el encabezado "x-ms-request-id". Consulte [Storage Analytics Log Format](/rest/api/storageservices/storage-analytics-log-format) (Formato de registro de Storage Analytics). |
 | eTag | string | Valor que puede usar para realizar operaciones de manera condicional. |
 | contentType | string | Tipo de contenido especificado para el blob. |
 | contentLength | integer | Tamaño del blob en bytes. |

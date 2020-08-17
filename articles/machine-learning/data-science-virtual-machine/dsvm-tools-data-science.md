@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c414087270558e21340e50114c0563ff7e50064c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 15c3f3994b9d519a4144fa2c2e1418e92cdbd6ae
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80282314"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87012413"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Herramientas de aprendizaje automático y ciencia de datos en Azure Data Science Virtual Machines
 Azure Data Science Virtual Machine (DSVM) tiene un amplio conjunto de herramientas y bibliotecas para el aprendizaje automático, disponibles en lenguajes conocidos como Python, R o Julia.
@@ -26,7 +26,7 @@ A continuación se muestran algunas de las herramientas y bibliotecas de aprendi
 
 Consulte la referencia completa del [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml).
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   |   Azure Machine Learning es un servicio en la nube que puede usar para desarrollar e implementar modelos de aprendizaje automático. Puede realizar un seguimiento de los modelos mientras los compila, entrena, escala y administra mediante el SDK de Python. Implemente modelos como contenedores y ejecútelos en la nube, de forma local o en Azure IoT Edge.   |
 | Ediciones compatibles     | Windows (entorno de conda: AzureML), Linux (entorno de conda: py36)    |
@@ -38,7 +38,7 @@ Consulte la referencia completa del [SDK de Azure Machine Learning para Python](
 
 ## <a name="h2o"></a>H2O
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | Plataforma de IA de código abierto que admite aprendizaje automático en memoria, distribuido, rápido y escalable.  |
 | Versiones compatibles      | Linux   |
@@ -52,7 +52,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 
 ## <a name="lightgbm"></a>LightGBM
 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | Un marco de potenciación del gradiente (GBDT, GBRT, GBM o MART) rápido, distribuido y de alto rendimiento, basado en algoritmos de árbol de decisión. Se utiliza para la categorización, la clasificación y muchas otras tareas de aprendizaje automático.    |
 | Versiones compatibles      | Windows, Linux    |
@@ -62,7 +62,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 | Herramientas relacionadas      | MXNet y XgBoost  |
 
 ## <a name="rattle"></a>Rattle
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   |   Una interfaz gráfica de usuario para la minería de datos con R.   |
 | Ediciones compatibles     | Windows, Linux     |
@@ -72,7 +72,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 | Herramientas relacionadas      |LightGBM, Weka y XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   |   Una biblioteca de sistema de aprendizaje rápida, de código abierto y situada fuera de núcleo    |
 | Ediciones compatibles     | Windows, Linux     |
@@ -84,7 +84,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 
 
 ## <a name="weka"></a>Weka
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   |  Una colección de algoritmos de aprendizaje automático para las tareas de minería de datos. Los algoritmos se pueden aplicar directamente a un conjunto de datos o se pueden llamar desde su propio código de Java. Weka contiene herramientas para el preprocesamiento, la clasificación, la regresión, la agrupación en clústeres, las reglas de asociación y la visualización de datos. |
 | Ediciones compatibles     | Windows, Linux     |
@@ -94,7 +94,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 | Herramientas relacionadas      |LightGBM, Rattle y XGBoost   |
 
 ## <a name="xgboost"></a>XGBoost 
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   |   Una biblioteca de potenciación del gradiente (GBDT, GBRT o GBM) rápida, portátil y distribuida para Python, R, Java, Scala, C++, etc. Se ejecuta en una única máquina, y en Apache Hadoop y Spark.    |
 | Ediciones compatibles     | Windows, Linux     |
@@ -105,7 +105,7 @@ Hay otras bibliotecas de aprendizaje automático en DSVM, como el conocido paque
 | Herramientas relacionadas      | LightGBM y MXNet   |
 
 ## <a name="apache-drill"></a>Apache Drill
-|    |           |
+| Category | Value |
 | ------------- | ------------- |
 | ¿Qué es?   | Motor de consultas SQL de código abierto en macrodatos    |
 | Versiones de DSVM compatibles      | Windows 2019, Linux  |

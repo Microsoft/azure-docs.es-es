@@ -1,14 +1,14 @@
 ---
 title: Implementación del ejemplo de plano técnico ISO 27001
 description: Pasos de implementación para el ejemplo de plano técnico independiente ISO 27001, incluidos los detalles de los parámetros del artefacto de plano técnico.
-ms.date: 01/13/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 9eaf559f0c1e6c99d3a2469d63eddea1c1ae9867
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6580c4f8bc66238ad45fe3d969caa7a4b3b4ce82
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044658"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006813"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Implementación del ejemplo de plano técnico ISO 27001
 

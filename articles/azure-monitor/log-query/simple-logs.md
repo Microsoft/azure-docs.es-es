@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7bdb0ae813600f53df44ee1a61a4cbbb56bb0bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77660264"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87067504"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Experiencia Simple Logs en Azure Monitor (versión preliminar)
 Azure Monitor proporciona una [experiencia enriquecida](get-started-portal.md) para crear [consultas de registro](log-query-overview.md) mediante el lenguaje KQL. No obstante, es posible que no necesite toda la eficacia de KQL y prefiera una experiencia simplificada para los requisitos de consulta básicos. La experiencia de Simple Logs le permite crear consultas básicas sin interactuar directamente con KQL. También puede usar Simple Logs como herramienta de aprendizaje para KQL a medida que necesite consultas más sofisticadas.
@@ -24,7 +24,7 @@ Azure Monitor proporciona una [experiencia enriquecida](get-started-portal.md) p
 La experiencia de Simple Logs recupera datos de la tabla *AzureDiagnostics*, *AzureMetrics* y *AzureActivity* para el recurso seleccionado. 
 
 ## <a name="using-simple-logs"></a>Uso de Simple Logs
-Desplácese a cualquier instancia de Cosmos DB o Key Vault de su suscripción a Azure con [opciones de diagnóstico configuradas para recopilar registros en un área de trabajo de Log Analytics](../platform/resource-logs-collect-storage.md). Haga clic en **Registros** en el menú **Supervisión** para abrir la experiencia de Simple Logs.
+Desplácese a cualquier instancia de Cosmos DB o Key Vault de su suscripción a Azure con [opciones de diagnóstico configuradas para recopilar registros en un área de trabajo de Log Analytics](../platform/resource-logs.md#send-to-azure-storage). Haga clic en **Registros** en el menú **Supervisión** para abrir la experiencia de Simple Logs.
 
 ![Menú](media/simple-logs/menu.png)
 

@@ -8,15 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/04/2020
+ms.date: 07/30/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebf83807629cc56aa381c97a9ce36d90c94d61f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c0b6ba4045e1e92d395752f106258d3c0709108
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85388908"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87486750"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Personalización de la interfaz de usuario en Azure Active Directory B2C
 
@@ -187,7 +188,7 @@ Después de configurar la personalización de marca de la empresa, habilítela e
 
 1. En el menú izquierdo de Azure Portal, seleccione **Azure AD B2C**.
 1. En **Directivas**, seleccione**Flujos de usuario (directivas)** .
-1. Seleccione el flujo de usuario para el que desea habilitar la personalización de marca de empresa. La personalización de marca de la empresa **no es compatible** con los tipos de flujo de usuario *Inicio de sesión v1* y *Edición de perfiles v1*.
+1. Seleccione el flujo de usuario para el que desea habilitar la personalización de marca de empresa. La personalización de marca de la empresa **no es compatible** con los tipos de flujo de usuario *Inicio de sesión* estándar y *Edición de perfiles* estándar.
 1. En **Personalizar**, seleccione **Diseños de página** y, a continuación, seleccione el diseño en el que desea personalizar la marca. Por ejemplo, seleccione **Página unificada de inicio de sesión o de registro**.
 1. En **Versión de Diseño de página (versión preliminar)** , elija la versión **1.2.0** o posterior.
 1. Seleccione **Guardar**.

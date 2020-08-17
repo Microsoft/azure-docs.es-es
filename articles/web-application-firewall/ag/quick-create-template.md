@@ -1,39 +1,41 @@
 ---
-title: 'Inicio rápido: Creación de una instancia de WAF de Azure v2 en Application Gateway con la plantilla de Resource Manager'
+title: 'Inicio rápido: Creación de un firewall de aplicaciones web de Azure, versión 2, en Application Gateway: plantilla de Azure Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Aprenda a usar una plantilla de Resource Manager para crear un firewall de aplicaciones web v2 en Azure Application Gateway.
+description: Aprenda a usar una plantilla de Azure Resource Manager para crear un firewall de aplicaciones web, versión 2, en Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: quickstart
 ms.date: 04/02/2020
 ms.author: victorh
-ms.openlocfilehash: 6759071e73adfd3af4ac780da6db3a0e6e967ea1
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 081bab0cd930d90ca0d359461e4a41b15ba4911b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81617991"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075501"
 ---
-# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway---resource-manager-template"></a>Inicio rápido: Creación de una instancia de WAF de Azure v2 en Application Gateway con la plantilla de Resource Manager
+# <a name="quickstart-create-an-azure-waf-v2-on-application-gateway-using-an-arm-template"></a>Inicio rápido: Creación de un firewall de aplicaciones web de Azure, versión 2, en Application Gateway mediante una plantilla de Resource Manager
 
-En este artículo de inicio rápido, usará una plantilla de Resource Manager para crear una instancia de Firewall de aplicaciones web de Azure v2 en Application Gateway.
+En este inicio rápido, se usa una plantilla de Azure Resource Manager para crear un firewall de aplicaciones web de Azure, versión 2, en Application Gateway.
 
 [!INCLUDE [About Azure Resource Manager](../../../includes/resource-manager-quickstart-introduction.md)]
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Prerrequisitos
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fag-docs-wafv2%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 - Una cuenta de Azure con una suscripción activa. [Cree una cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="create-a-web-application-firewall"></a>Creación de un firewall de aplicaciones web
+## <a name="review-the-template"></a>Revisión de la plantilla
 
 Esta plantilla crea un sencillo firewall de aplicaciones web v2 en Azure Application Gateway Esto incluye una dirección IP de front-end de IP pública, la configuración de HTTP, una regla con un cliente de escucha básico en el puerto 80 y un grupo de back-end. Se crea una directiva de WAF con una regla personalizada para bloquear el tráfico hacia el grupo de back-end basado en un tipo de coincidencia de la dirección IP.
 
-### <a name="review-the-template"></a>Revisión de la plantilla
-
-La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates/blob/master/ag-docs-wafv2/azuredeploy.json).
+La plantilla usada en este inicio rápido forma parte de las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/ag-docs-wafv2/).
 
 :::code language="json" source="~/quickstart-templates/ag-docs-wafv2/azuredeploy.json" range="001-404" highlight="314-358":::
 
@@ -48,7 +50,7 @@ En la plantilla se definen varios recursos de Azure:
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): dos para las máquinas virtuales
 - [**Microsoft.Compute/virtualMachine/extensions**](/azure/templates/microsoft.compute/virtualmachines/extensions): para configurar las páginas web e IIS
 
-### <a name="deploy-the-template"></a>Implementación de la plantilla
+## <a name="deploy-the-template"></a>Implementación de la plantilla
 
 Implementación de la plantilla de Resource Manager en Azure:
 
@@ -61,7 +63,7 @@ Implementación de la plantilla de Resource Manager en Azure:
 
 ## <a name="validate-the-deployment"></a>Validación de la implementación
 
-Aunque no es necesario instalar IIS para crear la puerta de enlace de aplicaciones, se instaló en los servidores de back-end para comprobar si Azure creó correctamente un WAF v2 en la puerta de enlace de aplicaciones. 
+Aunque no es necesario instalar IIS para crear la puerta de enlace de aplicaciones, se instaló en los servidores de back-end para comprobar si Azure creó correctamente un WAF v2 en la puerta de enlace de aplicaciones.
 
 Use IIS para probar la puerta de enlace de aplicaciones:
 

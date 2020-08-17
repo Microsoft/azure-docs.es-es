@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 05/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3cac20e33ff865058ce41799ae8841a05716edc9
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f4f79a28dbe8a49e608ca6fae1781a1e19646619
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045083"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448875"
 ---
 # <a name="troubleshoot-input-connections"></a>Solución de problemas de conexiones de entrada
 
@@ -161,14 +161,18 @@ SELECT foo FROM DataTwo
 
 ```
 
+## <a name="readers-per-partition-exceeds-iot-hub-limit"></a>El número de lectores por partición supera el límite de IoT Hub
+
+Los trabajos de Stream Analytics usan el [punto de conexión compatible con Event Hub](../iot-hub/iot-hub-devguide-messages-read-builtin.md) integrado de IoT Hub para conectarse y leer eventos de IoT Hub. Si la lectura por partición supera los límites de IoT Hub, puede usar las [soluciones para Event Hub](#readers-per-partition-exceeds-event-hubs-limit) para resolverlo. Puede crear un grupo de consumidores para el punto de conexión integrado bien a través de la sesión del punto de conexión del portal de IoT Hub bien a través del [SDK de IoT Hub](https://docs.microsoft.com/rest/api/iothub/IotHubResource/CreateEventHubConsumerGroup).
+
 ## <a name="get-help"></a>Obtener ayuda
 
-Para más ayuda, pruebe nuestra [página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Para más ayuda, pruebe nuestra [Página de preguntas y respuestas de Microsoft sobre Azure Stream Analytics](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
 * [Introducción al uso de Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalado de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

@@ -3,12 +3,12 @@ title: Preguntas comunes sobre Azure Migrate Server Migration
 description: Obtenga respuestas a preguntas habituales sobre el uso de Azure Migrate Server Migration para migrar máquinas.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 282f7ab27eead59fc87a95ea7d397268177f4f2c
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: af40aecaa1614542074cf87ce95eb81492233bdc
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224135"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321231"
 ---
 # <a name="azure-migrate-server-migration-common-questions"></a>Azure Migrate Server Migration: Preguntas frecuentes
 
@@ -80,7 +80,7 @@ No. Azure Migrate solo admite la migración a discos administrados (HDD estánda
 
 ## <a name="how-many-vms-can-i-replicate-at-one-time-by-using-agentless-migration"></a>¿Cuántas máquinas virtuales se pueden replicar a la vez con la migración sin agente?
 
-Actualmente, se pueden migrar 100 máquinas virtuales por instancia de vCenter Server a la vez. Realice la migración en lotes de 10 VM.
+Actualmente, se pueden migrar 300 VM por instancia de vCenter Server a la vez. Realice la migración en lotes de 10 VM.
 
 ## <a name="how-do-i-throttle-replication-in-using-azure-migrate-appliance-for-agentless-vmware-replication"></a>¿Cómo puedo limitar la replicación en el uso del dispositivo de Azure Migrate para la replicación de VMware sin agente?  
 
@@ -106,7 +106,7 @@ La migración de máquinas tratándolas como servidores físicos es útil en var
 
 ## <a name="i-deployed-two-or-more-appliances-to-discover-vms-in-my-vcenter-server-however-when-i-try-to-migrate-the-vms-i-only-see-vms-corresponding-to-one-of-the-appliance"></a>He implementado dos (o más) dispositivos para detectar máquinas virtuales en mi instancia de vCenter Server. Sin embargo, cuando intento migrar las máquinas virtuales, solo veo las máquinas virtuales que corresponden a uno de los dispositivos.
 
-Aunque esto puede ser un buen caso de uso, actualmente no se admite. La implementación de dos (o más) dispositivos para detectar el mismo conjunto de máquinas virtuales produce un problema de servicio en el que la propiedad de la máquina virtual cambia entre los dos dispositivos. Este es el motivo por el que ve máquinas virtuales que aparecen y desaparecen. En tales casos, para resolver el problema, debe eliminar un dispositivo y realizar una actualización de hardware.
+Si hay varios dispositivos configurados, es necesario que no exista ninguna superposición entre las máquinas virtuales en las cuentas de vCenter proporcionadas. No se admiten los escenarios con detecciones con este tipo de superposición.
 
 ## <a name="do-i-need-vmware-vcenter-to-migrate-vmware-vms"></a>¿Necesito VMware vCenter para migrar máquinas virtuales de VMware?
 Para [migrar máquinas virtuales de VMware](server-migrate-overview.md) mediante la migración sin agente o basada en agentes de VMware. vCenter Server debe administrar los hosts de ESXi en los que se encuentran las máquinas virtuales. Si no tiene vCenter Server, puede migrar máquinas virtuales de VMware mediante su migración como servidores físicos. [Más información](migrate-support-matrix-physical-migration.md).

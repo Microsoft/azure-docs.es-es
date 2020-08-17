@@ -4,16 +4,16 @@ description: En este artículo se proporcionan las instrucciones necesarias para
 author: msmbaldwin
 ms.service: virtual-machines-windows
 ms.subservice: security
-ms.topic: article
+ms.topic: how-to
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b423cc4cd933f84fccae5c2116be7abbdc288c67
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8b2a8d552a2b9a1d6d3bb02bf02be95af031a5e4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86203666"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291962"
 ---
 # <a name="azure-disk-encryption-scenarios-on-windows-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Windows
 
@@ -140,6 +140,33 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | resizeOSDisk | Si se debería cambiar el tamaño de la partición del sistema operativo para ocupar el VHD del sistema operativo completo antes de dividir el volumen del sistema. |
 | ubicación | Ubicación para todos los recursos. |
 
+## <a name="enable-encryption-on-nvme-disks-for-lsv2-vms"></a>Habilitación del cifrado en discos de NVMe para VM Lsv2
+
+En este escenario se describe cómo habilitar Azure Disk Encryption en discos NVMe para VM de la serie Lsv2.  La serie Lsv2 incluye almacenamiento local NVMe. Los discos NVMe locales son efímeros y los datos se perderán en estos discos si se detiene o desasigna la VM (Consulte: [Serie Lsv2](../lsv2-series.md)).
+
+Para habilitar el cifrado en discos NVMe:
+
+1. Inicialice los discos NVMe y cree volúmenes NTFS.
+1. Habilite el cifrado en la VM con el parámetro VolumeType establecido en All. Esto habilitará el cifrado para todos los discos de sistemas operativos y datos, incluidos los volúmenes respaldados por discos NVMe. Para más información, consulte [Habilitación del cifrado en una VM Windows existente o en ejecución](#enable-encryption-on-an-existing-or-running-windows-vm).
+
+El cifrado se conservará en los discos NVMe en los escenarios siguientes:
+- Reinicio de máquina virtual
+- Restablecimiento de imagen inicial de VMSS
+- Cambio de sistema operativo
+
+Se anulará la inicialización de los discos NVMe en los siguientes escenarios:
+
+- Inicio de la VM después de la desasignación
+- Recuperación del servicio
+- Copia de seguridad
+
+En estos escenarios, los discos NVMe deben inicializarse después de que se inicie la VM. Para habilitar el cifrado en los discos NVMe, ejecute el comando para volver a habilitar Azure Disk Encryption después de inicializar los discos NVMe.
+
+Además de los escenarios que aparecen en la sección [Escenarios no admitidos](#unsupported-scenarios), no se admite el cifrado de discos NVMe para:
+
+- VM cifradas con Azure Disk Encryption con AAD (versión anterior)
+- Discos NVMe con espacios de almacenamiento
+- Azure Site Recovery de SKU con discos NVMe (consulte [Matriz de compatibilidad para la recuperación ante desastres de VM de Azure entre regiones de Azure: Máquinas replicadas: almacenamiento](../../site-recovery/azure-to-azure-support-matrix.md#replicated-machines---storage)).
 
 ## <a name="new-iaas-vms-created-from-customer-encrypted-vhd-and-encryption-keys"></a>Máquinas virtuales IaaS creadas a partir de discos duros virtuales cifrados por el cliente y claves de cifrado
 
@@ -236,9 +263,8 @@ Azure Disk Encryption no funciona para los siguientes escenarios, característic
 - Traslado de unas máquinas virtuales cifradas a otra suscripción o región.
 - Creación de una imagen o instantánea de una máquina virtual cifrada y su uso para implementar máquinas virtuales adicionales.
 - Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities))
-- Máquinas virtuales de serie Lsv2 (consulte: [serie Lsv2](../lsv2-series.md))
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
-- Aplicación de [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) a las máquinas virtuales cifradas por ADE y viceversa.
+- Aplicación de ADE a una VM que tiene un disco de datos cifrado con el [cifrado del lado del servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK) o la aplicación de SSE + CMK a un disco de datos en una VM cifrada con ADE.
 - Migración de una máquina virtual cifrada con ADE a [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
 
 

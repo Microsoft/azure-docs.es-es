@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: iainfou
-ms.openlocfilehash: 310527d8e98e474faa43f19406f037e1a3835756
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 62a2ffeea1d15a16c4ec4aa6a2b88c8e34763064
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040272"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87480414"
 ---
 # <a name="resource-forest-concepts-and-features-for-azure-active-directory-domain-services"></a>Conceptos y características del bosque de recursos en Azure Active Directory Domain Services
 
@@ -23,10 +23,7 @@ Azure Active Directory Domain Services (Azure AD DS) proporciona una experiencia
 
 Si bien este modo es seguro y aporta ventajas de seguridad adicionales, algunas organizaciones no pueden sincronizar los hash de contraseñas de usuario en Azure AD o Azure AD DS. Es posible, por ejemplo, que los usuarios de una organización no conozcan su contraseña porque solo usan la autenticación de tarjeta inteligente. Estas limitaciones impiden que algunas organizaciones usen Azure AD DS para migrar mediante lift-and-shift las aplicaciones clásicas locales a Azure.
 
-Para abordar estas necesidades y restricciones, puede crear un dominio administrado que use un bosque de recursos. En este artículo conceptual se explica qué son los bosques y cómo confían en otros recursos para proporcionar un método de autenticación seguro. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
-
-> [!IMPORTANT]
-> A día de hoy, los bosques de recursos de Azure AD DS no son compatibles con Azure HDInsight ni Azure Files. Los bosques de usuarios predeterminados de Azure AD DS sí admiten ambos servicios adicionales.
+Para abordar estas necesidades y restricciones, puede crear un dominio administrado que use un bosque de recursos. En este artículo conceptual se explica qué son los bosques y cómo confían en otros recursos para proporcionar un método de autenticación seguro.
 
 ## <a name="what-are-forests"></a>¿Qué son los bosques?
 
@@ -36,7 +33,7 @@ En un dominio administrado de Azure AD DS, el bosque solo contiene un dominio. L
 
 De forma predeterminada, un dominio administrado se crea como un bosque de *usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Las cuentas de usuario se pueden autenticar directamente en el dominio administrado, por ejemplo, para iniciar sesión en una máquina virtual unida a un dominio. Un bosque de usuarios funciona cuando se pueden sincronizar los hash de contraseña y los usuarios no usan métodos de inicio de sesión exclusivos, como la autenticación de tarjeta inteligente.
 
-En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional que procede del entorno de AD DS local. Con este enfoque, los objetos de usuario y los valores hash de contraseña no se sincronizan con el dominio administrado. Los objetos y las credenciales de usuario solo existen en el entorno de AD DS local. Esto permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, y que se olviden todos los problemas o las preocupaciones de autenticación. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
+En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional que procede del entorno de AD DS local. Con este enfoque, los objetos de usuario y los valores hash de contraseña no se sincronizan con el dominio administrado. Los objetos y las credenciales de usuario solo existen en el entorno de AD DS local. Esto permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, y que se olviden todos los problemas o las preocupaciones de autenticación.
 
 Los bosques de recursos también proporcionan la funcionalidad para migrar mediante lift-and-shift las aplicaciones, un componente a la vez. Muchas aplicaciones locales heredadas son de varios niveles, a menudo con un servidor web o front-end y muchos componentes relacionados con la base de datos. Estos niveles dificultan la migración mediante lift-and-shift de toda la aplicación a la nube en un solo paso. Gracias a los bosques de recursos, puede realizar esta operación en un enfoque por fases, lo que facilita el traslado de la aplicación a Azure.
 
@@ -116,7 +113,7 @@ La confianza proporciona este mecanismo para validar las solicitudes de autentic
 
 Para más información acerca de la confianza, consulte [Funcionamiento de la confianza de bosque en Azure AD DS][concepts-trust].
 
-Para empezar a crear un dominio administrado con un bosque de recursos, consulte [Crear y configurar un dominio administrado de Azure AD DS][tutorial-create-advanced]. Después puede continuar en [Creación de una confianza de bosque de salida a un dominio local (versión preliminar)][create-forest-trust].
+Para empezar a crear un dominio administrado con un bosque de recursos, consulte [Crear y configurar un dominio administrado de Azure AD DS][tutorial-create-advanced]. Después puede continuar en [Creación de una confianza de bosque de salida a un dominio local][create-forest-trust].
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

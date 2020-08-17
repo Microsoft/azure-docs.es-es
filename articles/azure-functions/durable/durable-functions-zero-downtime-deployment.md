@@ -6,16 +6,16 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 45f87898f7da432e5bdd09061e74c33a1a8fe41b
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 11bbc30179cc27f4799b1fd2869cb312dfa34473
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165709"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87093075"
 ---
 # <a name="zero-downtime-deployment-for-durable-functions"></a>Implementación sin tiempo de inactividad en Durable Functions
 
-El [modelo de ejecución confiable](durable-functions-checkpointing-and-replay.md) de Durable Functions requiere que las orquestaciones sean deterministas, lo que constituye un desafío adicional que debe tenerse en cuenta al implementar actualizaciones. Cuando una implementación contiene cambios en las signaturas de las funciones de actividad o la lógica del orquestador, las instancias de orquestación en curso producen errores. Esta situación supone especialmente un problema para las instancias de orquestaciones de larga ejecución, que pueden llevar horas o días de trabajo.
+El [modelo de ejecución confiable](./durable-functions-orchestrations.md) de Durable Functions requiere que las orquestaciones sean deterministas, lo que constituye un desafío adicional que debe tenerse en cuenta al implementar actualizaciones. Cuando una implementación contiene cambios en las signaturas de las funciones de actividad o la lógica del orquestador, las instancias de orquestación en curso producen errores. Esta situación supone especialmente un problema para las instancias de orquestaciones de larga ejecución, que pueden llevar horas o días de trabajo.
 
 Para evitar que se produzcan estos errores, tiene dos opciones: 
 - Retrasar la implementación hasta que se hayan completado todas las instancias de orquestación en ejecución.
@@ -52,7 +52,7 @@ Use el procedimiento siguiente para configurar este escenario.
 
 1. En cada espacio, establezca la [configuración de la aplicación AzureWebJobsStorage](../functions-app-settings.md#azurewebjobsstorage) en la cadena de conexión de una cuenta de almacenamiento compartida. Azure Functions Runtime usa esta cadena de conexión de la cuenta de almacenamiento. Azure Functions Runtime usará esta cuenta y administrará las claves de la función.
 
-1. Para cada espacio, cree un nuevo valor para la aplicación; por ejemplo, `DurableManagementStorage`. Establezca su valor en la cadena de conexión de distintas cuentas de almacenamiento. La extensión de Durable Functions usa estas cuentas de almacenamiento para una [ejecución confiable](durable-functions-checkpointing-and-replay.md). Use una cuenta de almacenamiento independiente para cada espacio. No marque este valor como un valor de ranura de implementación.
+1. Para cada espacio, cree un nuevo valor para la aplicación; por ejemplo, `DurableManagementStorage`. Establezca su valor en la cadena de conexión de distintas cuentas de almacenamiento. La extensión de Durable Functions usa estas cuentas de almacenamiento para una [ejecución confiable](./durable-functions-orchestrations.md). Use una cuenta de almacenamiento independiente para cada espacio. No marque este valor como un valor de ranura de implementación.
 
 1. En la [sección durableTask del archivo host.json](durable-functions-bindings.md#hostjson-settings) de la aplicación de funciones, especifique `azureStorageConnectionStringName` como nombre del valor de aplicación que creó en el paso 3.
 
@@ -172,4 +172,3 @@ Para más información, consulte [Administración de instancias con Durable Fun
 
 > [!div class="nextstepaction"]
 > [Control de versiones en Durable Functions](durable-functions-versioning.md)
-

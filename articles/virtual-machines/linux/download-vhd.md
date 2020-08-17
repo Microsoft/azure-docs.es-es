@@ -3,77 +3,48 @@ title: Descarga de un VHD de Linux desde Azure
 description: Descarga de un VHD de Linux mediante la CLI de Azure y Azure Portal.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
-ms.date: 08/21/2019
+ms.topic: how-to
+ms.date: 08/03/2020
 ms.author: cynthn
-ms.openlocfilehash: 14beeebe15193cbe2ef4684f97e4783810ad77a4
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 897cae53e589f4058e5499c0e6e941d4f1d9bb2f
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510563"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761077"
 ---
 # <a name="download-a-linux-vhd-from-azure"></a>Descarga de un VHD de Linux desde Azure
 
-En este artículo aprenderá a descargar un archivo de disco duro virtual (VHD) de Linux desde Azure mediante la CLI de Azure y Azure Portal. 
-
-Si aún no lo ha hecho, instale la [CLI de Azure](/cli/azure/install-az-cli2).
+En este artículo aprenderá a descargar un archivo de disco duro virtual (VHD) de Linux desde Azure mediante Azure Portal. 
 
 ## <a name="stop-the-vm"></a>Parada de la máquina virtual
 
-No se puede descargar un VHD desde Azure si está conectado a una máquina virtual en ejecución. Debe detener la máquina virtual para descargar un VHD. Si quiere usar un VHD como [imagen](tutorial-custom-images.md) para crear otras máquinas virtuales con discos nuevos, debe desaprovisionar y generalizar el sistema operativo incluido en el archivo y detener la máquina virtual. Para usar el VHD como disco para una nueva instancia de una máquina virtual o un disco de datos existente, basta con detener y cancelar la asignación de la máquina virtual.
-
-Para usar el VHD como imagen para crear otras máquinas virtuales, siga estos pasos:
-
-1. Use SSH, el nombre de la cuenta y la dirección IP pública de la máquina virtual para conectarse a ella y desaprovisionarla. Puede encontrar la dirección IP pública con [az network public-ip show](/cli/azure/network/public-ip#az-network-public-ip-show). El parámetro +user también quita la última cuenta de usuario aprovisionada. Si está creando credenciales de cuenta en la máquina virtual, ignore este parámetro +user. En el ejemplo siguiente se quita la última cuenta de usuario aprovisionada:
-
-    ```bash
-    ssh azureuser@<publicIpAddress>
-    sudo waagent -deprovision+user -force
-    exit 
-    ```
-
-2. Inicie sesión en su cuenta de Azure con [az login](/cli/azure/reference-index).
-3. Detenga y desasigne la máquina virtual.
-
-    ```azurecli
-    az vm deallocate --resource-group myResourceGroup --name myVM
-    ```
-
-4. Generalice la máquina virtual. 
-
-    ```azurecli
-    az vm generalize --resource-group myResourceGroup --name myVM
-    ``` 
-
-Para usar el VHD como disco para una nueva instancia de una máquina virtual o un disco de datos existente, realice estos pasos:
+No se puede descargar un VHD desde Azure si está conectado a una máquina virtual en ejecución. Debe detener la máquina virtual para descargar el VHD. 
 
 1.  Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2.  En el menú de la izquierda, seleccione **Máquinas virtuales**.
 3.  Seleccione la máquina virtual en la lista.
 4.  En la página de la máquina virtual, seleccione **Detener**.
 
-    ![Detención de la máquina virtual](./media/download-vhd/export-stop.png)
+    :::image type="content" source="./media/download-vhd/export-stop.PNG" alt-text="Muestra el botón de menú para detener la máquina virtual.":::
 
 ## <a name="generate-sas-url"></a>Generación de dirección URL de SAS
 
 Para descargar el archivo de VHD, debe generar una dirección URL de [firma de acceso compartido (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json). Una vez generada la dirección URL, se asigna un tiempo de expiración a la dirección URL.
 
-1.  En el menú de la página de la máquina virtual, seleccione **Discos**.
-2.  Seleccione el disco de sistema operativo de la máquina virtual y luego seleccione **Exportación del disco**.
-3.  Seleccione **Generar dirección URL**.
-
-    ![Generar dirección URL](./media/download-vhd/export-generate.png)
-
+1. En el menú de la página de la máquina virtual, seleccione **Discos**.
+2. Seleccione el disco de sistema operativo de la máquina virtual y luego seleccione **Exportación del disco**.
+1. Si es necesario, actualice el valor de **La dirección URL expira en (segundos)** para proporcionar suficiente tiempo para completar la descarga. El valor predeterminado es 3600 segundos (una hora).
+3. Seleccione **Generar dirección URL**.
+ 
+      
 ## <a name="download-vhd"></a>Descarga de VHD
 
 1.  En la dirección URL generada, seleccione **Descargar el archivo VHD**.
-**
-    ![Descargar VHD](./media/download-vhd/export-download.png)
+
+    :::image type="content" source="./media/download-vhd/export-download.PNG" alt-text="Muestra el botón para descargar el VHD.":::
 
 2.  Es posible que tenga que seleccionar **Guardar** en el explorador para iniciar la descarga. El nombre predeterminado del archivo de VHD es *abcd*.
-
-    ![Seleccione Guardar en el explorador](./media/download-vhd/export-save.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 06/18/2020
-ms.openlocfilehash: 2fb1f22fd555e8ddbdc04842906cddb990956fb5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 6d0a778dee31d93244479c08c7bb7b6f37cf49cb
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044522"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87319361"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Solución de problemas de Azure Stream Analytics mediante registros de recursos
 
@@ -59,7 +59,7 @@ Los registros de actividad están activados de forma predeterminada y proporcion
 
 Es muy recomendable activar los registros de recursos y enviarlos a los registros de Azure Monitor. De forma predeterminada están **desactivados**. Para activarlos, siga estos pasos:
 
-1.  [Cree un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) si no tiene ya una. Se recomienda disponer de un área de trabajo de Log Analytics en la misma región que el trabajo de Stream Analytics.
+1.  Cree un área de trabajo de Log Analytics, en caso de que no tenga una. Se recomienda disponer de un área de trabajo de Log Analytics en la misma región que el trabajo de Stream Analytics.
 
 2.  Inicie sesión en Azure Portal y vaya al trabajo de Stream Analytics. En **Supervisión**, seleccione **Registros de diagnóstico**. Después, seleccione **Activar diagnósticos**.
 
@@ -138,12 +138,9 @@ Nombre | Descripción
 Error | (opcional) Información de error. Normalmente, es información de la excepción, si está disponible.
 Message| Mensaje de registro.
 Tipo | Tipo de mensaje. Se asigna a la categorización interna de errores. Por ejemplo, **JobValidationError** o **BlobOutputAdapterInitializationFailure**.
-Id. de correlación | [GUID](https://en.wikipedia.org/wiki/Universally_unique_identifier) que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
+Id. de correlación | GUID que identifica de manera única la ejecución del trabajo. Todas las entradas de registros de ejecución desde el momento en que se inicia el trabajo hasta que se detiene tienen el mismo valor de **Id. de correlación**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Qué es Stream Analytics?](stream-analytics-introduction.md)
-* [Introducción a Stream Analytics](stream-analytics-real-time-fraud-detection.md)
-* [Escalado de trabajos de Stream Analytics](stream-analytics-scale-jobs.md)
-* [Referencia de lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
 * [Errores de datos de Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/data-errors)
+* [Referencia de lenguaje de consulta de Stream Analytics](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

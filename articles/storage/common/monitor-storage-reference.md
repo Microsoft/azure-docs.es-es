@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 12df9566dd3ddfedd1f4553ad8877258d840858c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 28a127b4debeacd2562867008bc594897558d50d
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85960221"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446834"
 ---
 # <a name="azure-storage-monitoring-data-reference"></a>Referencia de datos de supervisión de Azure Storage
 
@@ -46,6 +46,7 @@ En esta tabla se muestran [métricas de Blob Storage](https://docs.microsoft.com
 | ------------------- | ----------------- |
 | BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
 | BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType** y **BlobTier** ([Definition](#metrics-dimensions)) |
+| BlobProvisionedSize | Cantidad de almacenamiento aprovisionado en la cuenta de Storage. Esta métrica solo se puede aplicar a las cuentas de Storage Premium. <br/><br/> Unidad: bytes <br/> Tipo de agregación: Average |
 | ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 
@@ -78,6 +79,7 @@ En esta tabla se muestran [métricas de File Storage](https://docs.microsoft.com
 | FileCapacity | La cantidad de almacenamiento de archivos que utiliza la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | FileCount   | El número de archivos que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
 | FileShareCount | El número de recursos compartidos de archivo que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Count <br/> Tipo de agregación: Average <br/> Ejemplo de valor: 1024 |
+| FileShareProvisionedIOPS | El número de IOPS aprovisionadas en un recurso compartido de archivos. Esta métrica solo se puede aplicar a un almacenamiento de archivos Premium. <br/><br/> Unidad: bytes <br/> Tipo de agregación: Average |
 
 ### <a name="transaction-metrics"></a>Métricas de transacciones
 
@@ -102,7 +104,7 @@ Azure Storage admite los siguientes dimensiones para las métricas en Azure Moni
 
 | Nombre de dimensión | Descripción |
 | ------------------- | ----------------- |
-| **BlobType** | Solo el tipo de blob de las métricas de Blob. Los valores admitidos son **BlockBlob**, **PageBlob** y **Azure Data Lake Storage**. Anexar Blob se incluye en BlockBlob. |
+| **BlobType** | Solo el tipo de blob de las métricas de Blob. Los valores admitidos son **BlockBlob**, **PageBlob** y **Azure Data Lake Storage**. Los blobs en anexos se incluyen en **BlockBlob**. |
 | **BlobTier** | Azure Storage ofrece distintos niveles de acceso que le permiten almacenar datos de objeto de blob de la manera más rentable. Obtenga más información en [Nivel de blob de Azure Storage](../blobs/storage-blob-storage-tiers.md). Entre los valores admitidos se incluyen: <br/> <li>**Acceso frecuente**: nivel de acceso frecuente</li> <li>**Acceso esporádico**: nivel de acceso esporádico</li> <li>**Archivo**: nivel de archivo</li> <li>**Premium**: nivel Premium para blob en bloques</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: tipos de nivel para blob en páginas premium</li> <li>**Estándar**: tipo de nivel para blob en páginas estándar</li> <li>**Sin nivel**: Tipo de nivel para cuentas de almacenamiento de uso general v1</li> |
 | **GeoType** | Transacción de clúster principal o secundario. Los valores disponibles incluyen **Principal** y **Secundario**. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
 | **ResponseType** | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>**ServerOtherError**: todos los errores del servidor, excepto los descritos. </li> <li>**ServerBusyError**: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li>**ServerTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li>**AuthorizationError**: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li>**NetworkError**: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li><li>**ClientAccountBandwidthThrottlingError**: la solicitud está limitada por el ancho de banda para superar los [límites de escalabilidad de la cuenta de almacenamiento ](scalability-targets-standard-account.md).</li><li>**ClientAccountRequestThrottlingError**: la solicitud está limitada por la tasa de solicitud para superar los [límites de escalabilidad de la cuenta de almacenamiento ](scalability-targets-standard-account.md).<li>**ClientThrottlingError**: Otro error de limitación del lado del cliente. ClientAccountBandwidthThrottlingError y ClientAccountRequestThrottlingError se excluyen.</li> <li>**ClientTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li>**ClientOtherError**: todos los errores del lado cliente, excepto los descritos. </li> <li>**Correcto**: solicitud correcta.</li> <li> **SuccessWithThrottling**: solicitud correcta cuando un cliente SMB obtiene una limitación en el primer intento, pero se ejecuta correctamente después de varios reintentos.</li> |

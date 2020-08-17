@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 02d1bd9d204d88ba90218b1254c66ac0da80be85
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670923"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87323509"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Solución de problemas de las herramientas de análisis de comportamiento de usuario en Application Insights
 ¿Tiene alguna pregunta sobre las [herramientas de análisis de comportamiento de usuario en Application Insights](usage-overview.md): [usuarios, sesiones, eventos](usage-segmentation.md), [embudos](usage-funnels.md), [flujos de usuario](usage-flows.md), [retención](usage-retention.md) o cohortes? Estas son algunas respuestas.
@@ -19,13 +19,13 @@ ms.locfileid: "77670923"
 ## <a name="counting-users"></a>Recuento de usuarios
 **Las herramientas de análisis de comportamiento de usuario muestran que mi aplicación tiene una sesión y un usuario, pero sé que tiene varios usuarios y sesiones. ¿Cómo se solucionan estos recuentos incorrectos?**
 
-Todos los eventos de telemetría de Application Insights tienen un [identificador de usuario anónimo](../../azure-monitor/app/data-model-context.md) y un [identificador de sesión](../../azure-monitor/app/data-model-context.md) como parte de las propiedades estándares. De forma predeterminada, todas las herramientas de análisis de uso de recuento de usuarios y sesiones se basan en estos identificadores. Si estas propiedades estándares no se rellenan con identificadores únicos para cada usuario y sesión de la aplicación, verá un recuento incorrecto de usuarios y sesiones en las herramientas de análisis de uso.
+Todos los eventos de telemetría de Application Insights tienen un [identificador de usuario anónimo](./data-model-context.md) y un [identificador de sesión](./data-model-context.md) como parte de las propiedades estándares. De forma predeterminada, todas las herramientas de análisis de uso de recuento de usuarios y sesiones se basan en estos identificadores. Si estas propiedades estándares no se rellenan con identificadores únicos para cada usuario y sesión de la aplicación, verá un recuento incorrecto de usuarios y sesiones en las herramientas de análisis de uso.
 
-Si supervisa una aplicación web, la solución más sencilla consiste en agregar el [SDK de JavaScript de Application Insights](../../azure-monitor/app/javascript.md) a la aplicación y asegurarse de que el fragmento de código de script se carga en todas las páginas que desee supervisar. El SDK de JavaScript genera identificadores de usuario y sesión automáticamente y rellena los eventos de telemetría con ellos según se van enviando desde la aplicación.
+Si supervisa una aplicación web, la solución más sencilla consiste en agregar el [SDK de JavaScript de Application Insights](./javascript.md) a la aplicación y asegurarse de que el fragmento de código de script se carga en todas las páginas que desee supervisar. El SDK de JavaScript genera identificadores de usuario y sesión automáticamente y rellena los eventos de telemetría con ellos según se van enviando desde la aplicación.
 
 Si supervisa un servicio web (sin interfaz de usuario), [cree un inicializador de telemetría que rellene las propiedades de los identificadores de usuario anónimo y sesión](usage-send-user-context.md) según las nociones de su servicio sobre los usuarios únicos y las sesiones.
 
-Si la aplicación envía [identificadores de usuarios autenticados](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users), con la herramienta Usuarios puede realizar el recuento en función de estos. En la lista desplegable "Mostrar", seleccione "Usuarios autenticados".
+Si la aplicación envía [identificadores de usuarios autenticados](./api-custom-events-metrics.md#authenticated-users), con la herramienta Usuarios puede realizar el recuento en función de estos. En la lista desplegable "Mostrar", seleccione "Usuarios autenticados".
 
 Actualmente, las herramientas de análisis de comportamiento de usuario no admiten el recuento de usuarios o sesiones en función de propiedades distintas del identificador de usuario anónimo, el identificador de usuario autenticado o el identificador de sesión.
 

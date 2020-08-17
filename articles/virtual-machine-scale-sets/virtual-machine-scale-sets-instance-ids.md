@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 02/22/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 430c08fc318a89c4d11575eab90ee524b88a979a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07f72d54c0d62748196302ed1b77ea750dede8ff
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84607353"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080461"
 ---
 # <a name="understand-instance-ids-for-azure-vm-scale-set-vms"></a>Identificadores de instancia de máquinas virtuales del conjunto de escalado de máquinas virtuales de Azure
 En este artículo se describen los identificadores de instancia de los conjuntos de escalado y las distintas formas en que se muestran.
@@ -23,19 +23,19 @@ En este artículo se describen los identificadores de instancia de los conjuntos
 
 Cada máquina virtual de un conjunto de escala recibe un identificador de instancia que la identifica de forma única. Este identificador de instancia se usa en las API de conjunto de escalado para realizar operaciones en una máquina virtual determinada del conjunto de escalado. Por ejemplo, puede especificar un identificador de instancia específico para restablecer la imagen inicial cuando se usa la API de restablecimiento de imagen inicial:
 
-API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/reimage))
+API REST: `POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualmachines/{instanceId}/reimage?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](/rest/api/compute/virtualmachinescalesetvms/reimage))
 
-Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para más información, consulte la [documentación de Powershell](https://docs.microsoft.com/powershell/module/az.compute/set-azvmssvm))
+Powershell: `Set-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName} -InstanceId {instanceId} -Reimage` (para más información, consulte la [documentación de Powershell](/powershell/module/az.compute/set-azvmssvm))
 
-CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para más información, consulte la [documentación de la CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
+CLI: `az vmss reimage -g {resourceGroupName} -n {vmScaleSetName} --instance-id {instanceId}` (para más información, consulte la [documentación de la CLI](/cli/azure/vmss?view=azure-cli-latest))
 
 Para obtener la lista de identificadores de instancia, enumere todas las instancias de un conjunto de escalado:
 
-API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesetvms/list))
+API REST: `GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{vmScaleSetName}/virtualMachines?api-version={apiVersion}` (para más información, consulte la [documentación de API REST](/rest/api/compute/virtualmachinescalesetvms/list))
 
-Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para más información, consulte la [documentación de Powershell](https://docs.microsoft.com/powershell/module/az.compute/get-azvmssvm))
+Powershell: `Get-AzVmssVM -ResourceGroupName {resourceGroupName} -VMScaleSetName {vmScaleSetName}` (para más información, consulte la [documentación de Powershell](/powershell/module/az.compute/get-azvmssvm))
 
-CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para más información, consulte la [documentación de la CLI](https://docs.microsoft.com/cli/azure/vmss?view=azure-cli-latest))
+CLI: `az vmss list-instances -g {resourceGroupName} -n {vmScaleSetName}` (para más información, consulte la [documentación de la CLI](/cli/azure/vmss?view=azure-cli-latest))
 
 También puede usar [resources.azure.com](https://resources.azure.com) o los [Azure SDK](https://azure.microsoft.com/downloads/) para enumerar las máquinas virtuales de un conjunto de escalado.
 
@@ -66,7 +66,7 @@ Como puede ver, la propiedad "instanceId" es simplemente un número decimal. Los
 
 En la salida del ejemplo anterior, hay también un nombre para la máquina virtual. Este nombre tiene el formato "{scale-set-name}_{instance-id}". Este nombre es el que se ve en Azure Portal al enumerar las instancias de un conjunto de escalado:
 
-![](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
+![Captura de pantalla que muestra una lista de instancias de un conjunto de escalado de máquinas virtuales en Azure Portal.](./media/virtual-machine-scale-sets-instance-ids/vmssInstances.png)
 
 La parte {instance-id} del nombre es el mismo número decimal que la propiedad "instanceId" descrita anteriormente.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
-ms.sourcegitcommit: 537c539344ee44b07862f317d453267f2b7b2ca6
+ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/11/2020
-ms.locfileid: "84697833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87033649"
 ---
 # <a name="durable-orchestrations"></a>Orquestaciones de Durable Functions
 
@@ -41,9 +41,9 @@ El identificador de instancia de una orquestación es un parámetro necesario en
 
 ## <a name="reliability"></a>Confiabilidad
 
-Las funciones del orquestador mantienen de forma confiable su estado de ejecución mediante el patrón de diseño [origen de eventos](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). En lugar de almacenar directamente el estado actual de una orquestación, Durable Task Framework utiliza un almacén solo de anexión para registrar la serie completa de acciones que la orquestación de función realiza. Un almacén de solo anexar tiene muchas ventajas en comparación con el "volcado" del estado de tiempo de ejecución completo. Entre las ventajas se incluyen un mayor rendimiento, escalabilidad y capacidad de respuesta. También obtiene coherencia ocasional para los datos transaccionales y registros e historiales de auditoría completa. Los registros de auditoría son compatibles con las acciones de compensación confiables.
+Las funciones del orquestador mantienen de forma confiable su estado de ejecución mediante el patrón de diseño [origen de eventos](/azure/architecture/patterns/event-sourcing). En lugar de almacenar directamente el estado actual de una orquestación, Durable Task Framework utiliza un almacén solo de anexión para registrar la serie completa de acciones que la orquestación de función realiza. Un almacén de solo anexar tiene muchas ventajas en comparación con el "volcado" del estado de tiempo de ejecución completo. Entre las ventajas se incluyen un mayor rendimiento, escalabilidad y capacidad de respuesta. También obtiene coherencia ocasional para los datos transaccionales y registros e historiales de auditoría completa. Los registros de auditoría son compatibles con las acciones de compensación confiables.
 
-Durable Functions usa el aprovisionamiento de eventos transparente. En un segundo plano, el operador `await` (C#) o `yield` (JavaScript) en una función del orquestador devuelve el control del subproceso del orquestador al distribuidor de Durable Task Framework. El distribuidor, a continuación, confirma las nuevas acciones que la función de orquestador programó (como llamar a una o más funciones secundarias o programar un temporizador durable) al almacenamiento. Esta acción de confirmación transparente se anexa al historial de ejecución de la instancia de orquestación. El historial se guarda en una tabla de almacenamiento. La acción de confirmación, a continuación, agrega mensajes a una cola para programar el trabajo real. En este momento, la función del orquestador se puede descargar de la memoria.
+Durable Functions usa el aprovisionamiento de eventos transparente. En segundo plano, el operador `await` (C#) o `yield` (JavaScript y Python) en una función del orquestador devuelve el control del subproceso del orquestador al distribuidor de Durable Task Framework. El distribuidor, a continuación, confirma las nuevas acciones que la función de orquestador programó (como llamar a una o más funciones secundarias o programar un temporizador durable) al almacenamiento. Esta acción de confirmación transparente se anexa al historial de ejecución de la instancia de orquestación. El historial se guarda en una tabla de almacenamiento. La acción de confirmación, a continuación, agrega mensajes a una cola para programar el trabajo real. En este momento, la función del orquestador se puede descargar de la memoria.
 
 Cuando una función de orquestación recibe más trabajo para realizar (por ejemplo, se recibe un mensaje de respuesta o expira un temporizador durable), el orquestador se activa y vuelve a ejecutar toda la función desde el principio con el fin de recompliar el estado local. Durante esta reproducción, si el código intenta realizar una llamada a una función (o realizar cualquier otro trabajo asincrónico), Durable Task Framework consulta el historial de ejecución de la orquestación actual. Si descubre que la [función de actividad](durable-functions-types-features-overview.md#activity-functions) ya se ha ejecutado y ofrece un resultado, reproduce el resultado de esa función y el código del orquestador sigue ejecutándose. La reproducción continúa hasta que finaliza el código de función o hasta que se programa un nuevo trabajo asincrónico.
 
@@ -91,9 +91,23 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    result1 = yield context.call_activity('SayHello', "Tokyo")
+    result2 = yield context.call_activity('SayHello', "Seattle")
+    result3 = yield context.call_activity('SayHello', "London")
+    return [result1, result2, result3]
+
+main = df.Orchestrator.create(orchestrator_function)
+```
 ---
 
-En cada instrucción `await` (C#) o `yield` (JavaScript), Durable Task Framework establece los puntos de control del estado de ejecución de la función en un back-end de almacenamiento duradero (normalmente, en Azure Table Storage). Este estado es lo que se conoce como *historial de orquestación*.
+En cada instrucción `await` (C#) o `yield` (JavaScript y Python), Durable Task Framework establece los puntos de control del estado de ejecución de la función en un back-end de almacenamiento duradero (normalmente, en Azure Table Storage). Este estado es lo que se conoce como *historial de orquestación*.
 
 ### <a name="history-table"></a>Tabla del historial
 
@@ -110,7 +124,7 @@ Una vez completado el punto de control, la función de orquestador se puede quit
 
 Tras la finalización, el historial de la función mostrada anteriormente tiene un aspecto similar a la siguiente tabla en Azure Table Storage (abreviado con fines ilustrativos):
 
-| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Nombre             | Resultado                                                    | Status |
+| PartitionKey (InstanceId)                     | EventType             | Timestamp               | Entrada | Nombre             | Resultado                                                    | Estado |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -133,25 +147,25 @@ Notas sobre los valores de las columnas:
 
 * **PartitionKey**: contiene el identificador de instancia de la orquestación.
 * **EventType**: representa el tipo de evento. Puede ser uno de los siguientes tipos:
-  * **OrchestrationStarted**: la función de orquestador se reanuda desde una instrucción await o se ejecuta por primera vez. La columna `Timestamp` se usa para rellenar el valor determinista para las API `CurrentUtcDateTime` (.NET) y `currentUtcDateTime` (JavaScript).
+  * **OrchestrationStarted**: la función de orquestador se reanuda desde una instrucción await o se ejecuta por primera vez. La columna `Timestamp` se usa para rellenar el valor determinista para las API `CurrentUtcDateTime` (.NET), `currentUtcDateTime` (JavaScript) y `current_utc_datetime` (Python).
   * **ExecutionStarted**: la función de orquestador comenzó a ejecutarse por primera vez. Este evento también contiene la entrada de función en la columna `Input`.
   * **TaskScheduled**: se programó una función de actividad. El nombre de la función de actividad se captura en la columna `Name`.
   * **TaskCompleted**: función de actividad completada. El resultado de la función está en la columna `Result`.
   * **TimerCreated**: se ha creado un temporizador durable. La columna `FireAt` contiene la hora UTC programada a la que expira el temporizador.
   * **TimerFired**: se ha desencadenado un temporizador durable.
   * **EventRaised**: se envió un evento externo a la instancia de orquestación. La columna `Name` captura el nombre del evento y `Input`, la carga del evento.
-  * **OrchestratorCompleted**: función de orquestador esperada.
+  * **OrchestratorCompleted**: la función de orquestador esperada.
   * **ContinueAsNew**: la función de orquestador se ha completado y se ha reiniciado con el nuevo estado. La columna `Result` contiene el valor, que se utiliza como entrada en la instancia reiniciada.
   * **ExecutionCompleted**: la función de orquestador se ejecutó hasta finalizar o que se produjera un error. Las salidas de la función o los detalles del error se almacenan en la columna `Result`.
 * **Marca de tiempo**: marca de tiempo UTC del evento del historial.
-* **Nombre**: nombre de la aplicación de función invocada.
+* **Name**: nombre de la aplicación de función invocada.
 * **Entrada**: entrada de la función con formato JSON.
-* **Salida**: resultado de la función; es decir, el valor devuelto.
+* **Result**: resultado de la función; es decir, el valor devuelto.
 
 > [!WARNING]
 > Aunque es útil como herramienta de depuración, no confíe en esta tabla. Puede cambiar con el progreso de la extensión Durable Functions.
 
-Cada vez que se reanuda la función desde una instrucción `await` (C#) o `yield` (JavaScript), Durable Task Framework vuelve a ejecutar la función de orquestador desde el principio. Con cada nueva ejecución, consulta el historial de ejecución para determinar si se ha realizado la operación asincrónica actual.  En caso afirmativo, el marco reproduce la salida de esa operación inmediatamente y pasa a la siguiente instrucción `await` (C#) o `yield` (JavaScript). Este proceso continuará hasta que el historial entero se haya completado. Una vez que se haya reproducido el historial actual, las variables locales se restaurarán a sus valores anteriores.
+Cada vez que se reanuda la función desde una instrucción `await` (C#) o `yield` (JavaScript y Python), Durable Task Framework vuelve a ejecutar la función de orquestador desde el principio. Con cada nueva ejecución, consulta el historial de ejecución para determinar si se ha realizado la operación asincrónica actual.  En caso afirmativo, el marco reproduce la salida de esa operación inmediatamente y pasa a la siguiente instrucción `await` (C#) o `yield` (JavaScript y Python). Este proceso continuará hasta que el historial entero se haya completado. Una vez que se haya reproducido el historial actual, las variables locales se restaurarán a sus valores anteriores.
 
 ## <a name="features-and-patterns"></a>Características y patrones
 
@@ -165,7 +179,7 @@ Para más información y ejemplos, vea el artículo [Suborquestaciones](durable-
 
 ### <a name="durable-timers"></a>Temporizadores durables
 
-Las orquestaciones pueden programar *temporizadores duraderos* para implementar retrasos o configurar el control de tiempo de espera en acciones asincrónicas. Use temporizadores durables en funciones de orquestador en lugar de `Thread.Sleep` y `Task.Delay` (C#), o `setTimeout()` y `setInterval()` (JavaScript).
+Las orquestaciones pueden programar *temporizadores duraderos* para implementar retrasos o configurar el control de tiempo de espera en acciones asincrónicas. Use temporizadores durables en funciones de orquestador en lugar de `Thread.Sleep` y `Task.Delay` (C#), o `setTimeout()` y `setInterval()` (JavaScript), o `time.sleep()` (Python).
 
 Para más información y ejemplos, consulte el artículo [Temporizadores en Durable Functions](durable-functions-timers.md).
 
@@ -252,6 +266,18 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+# <a name="python"></a>[Python](#tab/python)
+
+```python
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    url = context.get_input()
+    res = yield context.call_http('GET', url)
+    if res.status_code >= 400:
+        # handing of error code goes here
+```
 ---
 
 Además de admitir patrones de solicitud y respuesta básicos, el método admite el control automático de los patrones de sondeo asincrónicos HTTP 202 y, además, admite la autenticación de servicios externos mediante [identidades administradas](../../active-directory/managed-identities-azure-resources/overview.md).
@@ -267,7 +293,7 @@ No es posible pasar varios parámetros a una función de actividad directamente.
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-En .NET también puede usar objetos [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples). El ejemplo siguiente utiliza las nuevas características de [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) agregado con [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples):
+En .NET también puede usar objetos [ValueTuples](/dotnet/csharp/tuples). El ejemplo siguiente utiliza las nuevas características de [ValueTuples](/dotnet/csharp/tuples) agregado con [C# 7](/dotnet/csharp/whats-new/csharp-7#tuples):
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -322,7 +348,7 @@ module.exports = df.orchestrator(function*(context) {
 };
 ```
 
-#### <a name="activity"></a>Actividad
+#### <a name="getweather-activity"></a>`GetWeather` Actividad
 
 ```javascript
 module.exports = async function (context, location) {
@@ -330,6 +356,36 @@ module.exports = async function (context, location) {
 
     // ...
 };
+```
+
+# <a name="python"></a>[Python](#tab/python)
+
+#### <a name="orchestrator"></a>Orquestador
+
+```python
+from collections import namedtuple
+import azure.functions as func
+import azure.durable_functions as df
+
+def orchestrator_function(context: df.DurableOrchestrationContext):
+    Location = namedtuple('Location', ['city', 'state'])
+    location = Location(city='Seattle', state= 'WA')
+
+    weather = yield context.call_activity("GetWeather", location)
+
+    # ...
+
+```
+#### <a name="getweather-activity"></a>`GetWeather` Actividad
+
+```python
+from collections import namedtuple
+
+Location = namedtuple('Location', ['city', 'state'])
+
+def main(location: Location) -> str:
+    city, state = location
+    return f"Hello {city}, {state}!"
 ```
 
 ---

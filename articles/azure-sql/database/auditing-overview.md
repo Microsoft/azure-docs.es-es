@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 4f5ad6fd0444c40d95bf4c2f1105959bde07245d
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: 24c3ec1ee16123cef0c4e2bd230bfdb66915fc9f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87040581"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoría para Azure SQL Database y Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -79,6 +79,9 @@ Puede configurar la auditoría de los distintos tipos de acciones y grupos de ac
 La auditoría de Azure SQL Database y Azure Synapse almacena 4000 caracteres de datos para los campos de caracteres en un registro de auditoría. Cuando los valores de **statement** o **data_sensitivity_information** devueltos por una acción auditable contienen más de 4000 caracteres, todos los datos a partir de los primeros 4000 caracteres **se truncan y no se auditan**.
 En la sección siguiente se describe la configuración de auditoría mediante Azure Portal.
 
+  > [!NOTE]
+  > No es posible habilitar la auditoría en un grupo de Synapse SQL en pausa. Para habilitar la auditoría, quite la pausa del grupo de Synapse SQL. Más información acerca del [grupo de Synapse SQL](https://docs.microsoft.com/azure/synapse-analytics/sql/best-practices-sql-pool).
+
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Vaya a **Auditoría** bajo el encabezado Seguridad en el panel de la **base de datos SQL** o el **servidor SQL**.
 3. Si prefiere configurar una directiva de auditoría de servidor, puede seleccionar el vínculo **Ver configuración del servidor** en la hoja de auditoría de base de datos. Después, puede ver o modificar la configuración de auditoría del servidor. Las directivas de auditoría de servidor se aplican a todas las bases de datos existentes y recién creadas en este servidor.
@@ -119,10 +122,6 @@ Para configurar la escritura de registros de auditoría en un área de trabajo d
 Para información más detallada sobre las áreas de trabajo de los registros de Azure Monitor, consulte [Diseño de la implementación de registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/design-logs-deployment).
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoría para un destino del centro de eventos
-
-> [!WARNING]
-> La habilitación de la auditoría en un servidor que tiene un grupo SQL Database **da lugar a que el grupo SQL Database se reanude y se vuelva a poner en pausa**, lo que puede suponer cargos de facturación.
-> No es posible habilitar la auditoría en un grupo SQL Database en pausa. Para habilitarla, anule la pausa del grupo SQL Database.
 
 Para configurar la escritura de registros de auditoría en un centro de eventos, seleccione **Centro de eventos (versión preliminar)** y abra **Detalles del centro de eventos**. Seleccione el centro de eventos donde se escribirán los registros y, luego, haga clic en **Aceptar**. Asegúrese de que el centro de eventos esté en la misma región que la base de datos y el servidor.
 

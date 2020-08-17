@@ -12,12 +12,12 @@ ms.date: 07/01/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aae292d97457ebe1d36a839b779b9233037ea60
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 28b04828bc778a2b9076c9ea1970ce80f231fbe3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055212"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386017"
 ---
 # <a name="what-is-application-management"></a>¿Qué es la administración de aplicaciones?
 
@@ -63,7 +63,7 @@ Hay cuatro tipos principales de aplicaciones que se pueden agregar a las **aplic
 
 - **Aplicaciones desarrolladas a medida**: al crear sus propias aplicaciones de línea de negocio, puede integrarlas con Azure AD para admitir el inicio de sesión único. Al registrar la aplicación con Azure AD, tendrá el control de la directiva de autenticación de dicha aplicación. Para más información, consulte las [instrucciones para desarrolladores](developer-guidance-for-integrating-applications.md).
 
-- **Aplicaciones que no son de la galería**: traiga sus propias aplicaciones. Admita el inicio de sesión único para otras aplicaciones agregándolas a Azure AD. Hay varias maneras de integrar una aplicación; algunas de ellas se enumeran a continuación. Para más información, consulte [Configuración del inicio de sesión único para aplicaciones que no sean de la galería](configure-single-sign-on-non-gallery-applications.md).
+- **Aplicaciones que no son de la galería**: traiga sus propias aplicaciones. Admita el inicio de sesión único para otras aplicaciones agregándolas a Azure AD. Hay varias maneras de integrar una aplicación; algunas de ellas se enumeran a continuación. Para más información, consulte [Configuración del inicio de sesión único de SAML](configure-saml-single-sign-on.md).
 
 >[!TIP]
 >Puede integrar Azure AD con una aplicación aunque no esté configurada previamente, y en la galería de aplicaciones. Puede **integrar Azure AD con cualquiera** de los siguientes:
@@ -93,8 +93,6 @@ En el caso de las aplicaciones de recursos humanos u otras aplicaciones con un g
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Visualización de las aplicaciones ya configuradas en el inquilino de Azure AD](view-applications-portal.md)
-- [Inicio rápido: Adición de una aplicación de la galería a su inquilino de Azure AD](add-application-portal.md)
-- [Adición de una aplicación de la galería a la organización de Azure AD](add-gallery-app.md)
+- [Series de guías de inicio rápido sobre la administración de aplicaciones en Azure AD](view-applications-portal.md)
 - [Introducción a la integración de aplicaciones](plan-an-application-integration.md)
 - [Obtenga información sobre cómo automatizar el aprovisionamiento](../app-provisioning/user-provisioning.md)

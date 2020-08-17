@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure
 ms.date: 06/29/2020
 ms.author: genli
-ms.openlocfilehash: ff4822b513ed2aea6a18ba45bffc1d060ee2410e
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: a843a42de6fc1e6cd8ef788552ab4a8ac17b4e25
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937476"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999061"
 ---
 # <a name="vhd-is-not-supported-when-you-create-a-virtual-machine-in-azure"></a>VHD no se admite al crear una máquina virtual en Azure
 
@@ -48,21 +48,21 @@ Este problema se produce por uno de los siguientes motivos:
 
 Para resolver este problema, cambie el tamaño del disco para que sea compatible con la alineación de 1 MB:
 
-- Para resolver el problema en Windows, use el [cmdlet de PowerShell Resize-VHD](https://docs.microsoft.com/powershell/module/hyper-v/resize-vhd). Tenga en cuenta que **Resize-VHD** no es un cmdlet de Azure PowerShell.
+- Para resolver el problema en Windows, use el [cmdlet de PowerShell Resize-VHD](/powershell/module/hyper-v/resize-vhd). Tenga en cuenta que **Resize-VHD** no es un cmdlet de Azure PowerShell.
 
-  1. [Instalación del rol de Hyper-V en Windows Server](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
-  1. [Conversión de un disco virtual en un VHD de tamaño fijo](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image#convert-the-virtual-disk-to-a-fixed-size-vhd)
+  1. [Instalación del rol de Hyper-V en Windows Server](/windows-server/virtualization/hyper-v/get-started/install-the-hyper-v-role-on-windows-server)
+  1. [Conversión de un disco virtual en un VHD de tamaño fijo](../windows/prepare-for-upload-vhd-image.md#convert-the-virtual-disk-to-a-fixed-size-vhd)
 
-- Para resolver el problema en Linux, use el [comando qemu-img](https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic).
+- Para resolver el problema en Linux, use el [comando qemu-img](../linux/create-upload-generic.md).
 
 Para más información sobre cómo crear y cargar un disco duro virtual para crear una VM de Azure, consulte los artículos siguientes:
 
-- [Carga y creación de una VM Linux a partir de una imagen de disco personalizada mediante la CLI de Azure 1.0](https://docs.microsoft.com/azure/virtual-machines/linux/upload-vhd)
-- [Crear y cargar un VHD de Windows Server a Azure](https://docs.microsoft.com/azure/virtual-machines/windows/upload-generalized-managed)
+- [Carga y creación de una VM Linux a partir de una imagen de disco personalizada mediante la CLI de Azure 1.0](../linux/upload-vhd.md)
+- [Crear y cargar un VHD de Windows Server a Azure](../windows/upload-generalized-managed.md)
 
 La persistencia de los problemas puede indicar que un disco duro virtual está dañado. En esta situación, se recomienda volver a crear el disco duro virtual desde cero.
 
 Para más información, consulte los siguientes artículos.
 
-- [Acerca de Windows VHD](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#about-vhds)
-- [Acerca de Linux VHD](https://docs.microsoft.com/azure/virtual-machines/linux/about-disks-and-vhds#about-vhds)
+- [Acerca de Windows VHD](../windows/managed-disks-overview.md)
+- [Acerca de Linux VHD](../linux/managed-disks-overview.md)

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: f9134dd3bc926e6e2f454e5187e03365e91ed22a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 93ef342ecee9bb9e2f32400655db0cacc01835c0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75780341"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87023116"
 ---
 # <a name="creating-filters-with-media-services-rest-api"></a>Creación de filtros con la API REST de Media Services
 
@@ -26,7 +26,7 @@ Al entregar su contenido a los clientes (streaming de eventos en directo o víde
 
 Para obtener una descripción detallada de esta característica y los escenarios donde se utiliza, vea [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
 
-En este tema se muestra cómo definir un filtro para un recurso Vídeo bajo demanda y usar las API REST para crear [Filtros de cuenta](https://docs.microsoft.com/rest/api/media/accountfilters) y [Filtros de recurso](https://docs.microsoft.com/rest/api/media/assetfilters). 
+En este tema se muestra cómo definir un filtro para un recurso Vídeo bajo demanda y usar las API REST para crear [Filtros de cuenta](/rest/api/media/accountfilters) y [Filtros de recurso](/rest/api/media/assetfilters). 
 
 > [!NOTE]
 > No olvide revisar [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -97,7 +97,7 @@ Seleccione **Enviar**.
 
 Se ha creado el filtro.
 
-Para más información, vea el tema sobre [creación o actualización](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Vea también la sección de [ejemplos de JSON para los filtros](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
+Para más información, vea el tema sobre [creación o actualización](/rest/api/media/accountfilters/createorupdate). Vea también la sección de [ejemplos de JSON para los filtros](/rest/api/media/accountfilters/createorupdate#create-an-account-filter).
 
 ## <a name="create-asset-filters"></a>Creación de filtros de recurso  
 
@@ -115,13 +115,13 @@ Seleccione **Enviar**.
 
 Se ha creado el filtro de recurso.
 
-Para más información sobre cómo crear o actualizar los filtros de recurso, vea el tema sobre [creación o actualización](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Vea también la sección de [ejemplos de JSON para los filtros](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
+Para más información sobre cómo crear o actualizar los filtros de recurso, vea el tema sobre [creación o actualización](/rest/api/media/assetfilters/createorupdate). Vea también la sección de [ejemplos de JSON para los filtros](/rest/api/media/assetfilters/createorupdate#create-an-asset-filter). 
 
 ## <a name="associate-filters-with-streaming-locator"></a>Asociación de filtros con localizadores de streaming
 
 Ahora puede especificar una lista de filtros de cuentas o recursos, que se aplicarían a su localizador de streaming. El [empaquetado dinámico (punto de conexión de streaming)](dynamic-packaging-overview.md) se aplica a esta lista de filtros junto con los que el cliente especifica en la dirección URL. Esta combinación genera un [manifiesto dinámico](filters-dynamic-manifest-overview.md), que se basa en los filtros de la dirección URL y en los filtros que especifique en el localizador de streaming. Se recomienda usar esta característica si quiere aplicar filtros, pero no quiere exponer los nombres de filtro en la dirección URL.
 
-Para crear y asociar filtros a un localizador de Streaming mediante REST, utilice la API [Streaming Locators - Create](https://docs.microsoft.com/rest/api/media/streaminglocators/create) y especifique `properties.filters` en el [Cuerpo de la solicitud](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body).
+Para crear y asociar filtros a un localizador de Streaming mediante REST, utilice la API [Streaming Locators - Create](/rest/api/media/streaminglocators/create) y especifique `properties.filters` en el [Cuerpo de la solicitud](/rest/api/media/streaminglocators/create#request-body).
                                 
 ## <a name="stream-using-filters"></a>Streaming con filtros
 

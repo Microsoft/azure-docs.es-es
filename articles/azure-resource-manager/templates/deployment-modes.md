@@ -2,13 +2,13 @@
 title: Modos de implementación
 description: Descripción de cómo especificar si desea usar un modo de implementación completa o incremental con Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 1077d92f076797fb03c4fe750b353e2306f9b6de
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/22/2020
+ms.openlocfilehash: e584acd4af1dc6adb5f5d383acd5d16da0815f32
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79460252"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87371590"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -22,11 +22,14 @@ El modo predeterminado es el incremental.
 
 En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla.
 
+> [!NOTE]
+> Use siempre la [operación what-if](template-deploy-what-if.md) antes de implementar una plantilla en el modo completo. What-if muestra qué recursos se crearán, eliminarán o modificarán. Use what-if para evitar la eliminación accidental de recursos.
+
 Si la plantilla incluye un recurso que no se ha implementado porque la [condición](conditional-resource-deployment.md) se evalúa como false, el resultado depende de la versión de API REST que use para implementar la plantilla. Si usa una versión anterior a 2019-05-10, el recurso **no se elimina**. Con 2019-05-10 o posterior, el recurso **se elimina**. Las versiones más recientes de Azure PowerShell y la CLI de Azure eliminan el recurso.
 
 Tenga cuidado al usar el modo completo con [bucles de copia](copy-resources.md). Se eliminan todos los recursos que no se especifican en la plantilla después de resolver el bucle de copia.
 
-Si implementa en [más de un grupo de recursos en una plantilla](cross-resource-group-deployment.md), se pueden eliminar los recursos del grupo de recursos especificado en la operación de implementación. Los recursos de los grupos de recursos secundarios no se eliminarán.
+Si implementa en [más de un grupo de recursos en una plantilla](cross-scope-deployment.md), se pueden eliminar los recursos del grupo de recursos especificado en la operación de implementación. Los recursos de los grupos de recursos secundarios no se eliminarán.
 
 Hay algunas diferencias en la forma en que los diferentes tipos de recursos controlan las eliminaciones en modo completo. Los recursos principales se eliminan automáticamente cuando no están en una plantilla implementada en modo completo. Por el contrario, algunos recursos secundarios no se eliminan automáticamente cuando no están en la plantilla. A pesar de ello, estos recursos secundarios sí se eliminan si también se elimina el recurso principal.
 
@@ -50,6 +53,8 @@ En el modo incremental, Resource Manager **deja sin modificar** los recursos que
 
 > [!NOTE]
 > Al volver a implementar un recurso existente en el modo incremental, se aplican todas las propiedades de nuevo. Las **propiedades no se agregan de manera incremental**. Suele pensarse erróneamente que las propiedades que no se especifican en la plantilla se mantienen sin cambios. Si no se especifican determinadas propiedades, Resource Manager interpreta la implementación como que sobrescribe esos valores. Las propiedades que no se incluyen en la plantilla se restablecen a los valores predeterminados. Especifique todos los valores no predeterminados del recurso, no solo los que vaya a actualizar. La definición del recurso en la plantilla siempre contiene el estado final del recurso. No puede representar una actualización parcial de un recurso existente.
+>
+> En raras ocasiones, las propiedades que se especifican para un recurso se implementan realmente como un recurso secundario. Por ejemplo, al proporcionar los valores de configuración del sitio para una aplicación web, esos valores se implementan en el tipo de recurso secundario `Microsoft.Web/sites/config`. Si vuelve a implementar la aplicación web y especifica un objeto vacío para los valores de configuración del sitio, el recurso secundario no se actualiza. Sin embargo, si proporciona nuevos valores de configuración de sitio, se actualiza el tipo de recurso secundario.
 
 ## <a name="example-result"></a>Resultado de ejemplo
 

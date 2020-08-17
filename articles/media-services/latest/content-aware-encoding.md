@@ -12,16 +12,16 @@ ms.topic: article
 ms.date: 04/29/2020
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 57a8d308955719be0d84b87fb3a23c6f510c2836
-ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+ms.openlocfilehash: 3669919a8ddf4ffcbcf0d3e7e060c62f4c8df1c6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/31/2020
-ms.locfileid: "84234892"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039149"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Use el valor predeterminado de la codificación en función del contenido para encontrar el valor de velocidad de bits óptimo para una resolución dada
 
-Para poder preparar el contenido para la entrega mediante [streaming con velocidad de bits adaptable](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), el vídeo debe codificarse en varias velocidades de bits (de alta a baja). Esto garantiza una degradación correcta de la calidad, ya que la resolución del vídeo disminuye a medida que lo hace la velocidad de bits. Esta codificación con velocidad de bits múltiple utiliza algo que se conoce como escalera de codificación (una table de resoluciones y velocidades de bits, consulte los [valores predeterminados de codificación integrados](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services).
+Para poder preparar el contenido para la entrega mediante [streaming con velocidad de bits adaptable](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), el vídeo debe codificarse en varias velocidades de bits (de alta a baja). Esto garantiza una degradación correcta de la calidad, ya que la resolución del vídeo disminuye a medida que lo hace la velocidad de bits. Esta codificación con velocidad de bits múltiple utiliza algo que se conoce como escalera de codificación (una table de resoluciones y velocidades de bits, consulte los [valores predeterminados de codificación integrados](/rest/api/media/transforms/createorupdate#encodernamedpreset) de Media Services).
 
 Debe tener en cuenta el contenido que va a procesar y personalizar o ajustar la escalera de codificación a la complejidad del vídeo individual. A cada resolución le corresponde una velocidad de bits más allá de la cual no se percibe un aumento en la calidad: el codificador funciona en este valor de velocidad de bits óptimo. El siguiente nivel de optimización consiste en seleccionar las resoluciones en función del contenido: por ejemplo, un vídeo de una presentación de PowerPoint no saca ningún provecho al bajar de 720p. Más adelante, el codificador puede encargarse de optimizar la configuración de cada captura dentro del vídeo. 
 

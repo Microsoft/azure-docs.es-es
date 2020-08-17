@@ -4,18 +4,20 @@ description: La API para recuperar el estado actual de la oferta.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
-ms.date: 04/08/2020
-ms.openlocfilehash: 897c2517c3836e1c3940db02efae0e5d94667a65
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 07/14/2020
+ms.openlocfilehash: 336f23f83c33bcee1887d0e41710e686b794a663
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86114081"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87272018"
 ---
 # <a name="retrieve-offer-status"></a>Recuperación del estado de la oferta
 
 > [!NOTE]
-> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando después de migrar las ofertas al Centro de partners. La integración presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de las API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la migración al Centro de partners.
+> Las API de Cloud Partner Portal se integran con el Centro de partners y seguirán funcionando en este. La transición presenta pequeños cambios. Revise los cambios que se muestran en la [referencia de API de Cloud Partner Portal](./cloud-partner-portal-api-overview.md) para asegurarse de que el código sigue funcionando después de la transición al Centro de partners. Las API de CPP solo deben usarse para los productos existentes que ya estaban integrados antes de la transición al Centro de partners. Los nuevos productos deben usar las API de envío del Centro de partners.
 
 Recupera el estado actual de la oferta.
 
@@ -30,7 +32,6 @@ Recupera el estado actual de la oferta.
 |  api-version    | Última versión de la API.                        |     Date       |
 |  |  |
 
-
 ## <a name="header"></a>Encabezado
 
 
@@ -41,7 +42,6 @@ Recupera el estado actual de la oferta.
 |  |  |
 
 ## <a name="body-example"></a>Ejemplo de cuerpo
-
 
 ### <a name="response"></a>Response
 
@@ -115,7 +115,6 @@ Recupera el estado actual de la oferta.
       liveLinks": [],
   }
 ```
-
 
 ### <a name="response-body-properties"></a>Propiedades del cuerpo de la respuesta
 

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: b85aab2491f4186cf4d6ee73144bc235a40cdeac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5ab8d45c12d7b2c408328e306b1a6961cbe5272a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478491"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010944"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -144,7 +144,7 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 * `timestamp` (opcional, entero de 32 bits) use este campo solo para desencadenar una nueva ejecución del script; para ello, cambie el valor de este campo.  Se acepta cualquier valor entero; solo debe ser distinto del valor anterior.
 * `storageAccountName` (opcional, cadena): nombre de la cuenta de almacenamiento. Si especifica credenciales de almacenamiento, todos los valores de `fileUris` deben ser direcciones URL de blobs de Azure.
 * `storageAccountKey` (opcional, cadena): clave de acceso de la cuenta de almacenamiento.
-* `managedIdentity`: (opcional, objeto JSON) la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos.
+* `managedIdentity`: (opcional, objeto JSON) la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para descargar archivos.
   * `clientId`: (opcional, cadena) el id. de cliente de la identidad administrada.
   * `objectId`: (opcional, cadena) el id. de objeto de la identidad administrada.
 
@@ -160,9 +160,9 @@ La configuración pública se envía en texto no cifrado a la máquina virtual d
 > [!NOTE]
 > Esta propiedad **debe** especificarse solo en la configuración protegida.
 
-CustomScript (versión 1.10 en adelante) admite la [identidad administrada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
+CustomScript (versión 1.10 en adelante) admite la [identidad administrada](../../active-directory/managed-identities-azure-resources/overview.md) para descargar archivos de las direcciones URL proporcionadas en el valor "fileUris". Permite a CustomScript acceder a blobs o contenedores privados de Azure Storage sin que el usuario tenga que enviar secretos como tokens de SAS o claves de cuenta de almacenamiento.
 
-Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-system-assigned-identity) o[asignada por el usuario](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet#add-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage#grant-access).
+Para usar esta característica, el usuario debe agregar una identidad [asignada por el sistema](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-system-assigned-identity) o[asignada por el usuario](../../app-service/overview-managed-identity.md?tabs=dotnet#add-a-user-assigned-identity) a la máquina virtual o VMSS donde se espera que se ejecute CustomScript y [conceder a la identidad administrada acceso al contenedor de Azure Storage o al blob](../../active-directory/managed-identities-azure-resources/tutorial-vm-windows-access-storage.md#grant-access).
 
 Para usar la identidad asignada por el sistema en la máquina virtual/VMSS de destino, establezca el campo "managedidentity" a un objeto JSON vacío. 
 
@@ -283,7 +283,7 @@ The response content cannot be parsed because the Internet Explorer engine is no
 ```
 ## <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
 
-Para implementar la extensión de script personalizado en un conjunto de escalado, consulte [Add-AzVmssExtension](https://docs.microsoft.com/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0).
+Para implementar la extensión de script personalizado en un conjunto de escalado, consulte [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension?view=azps-3.3.0).
 
 ## <a name="classic-vms"></a>Máquinas virtuales clásicas
 
@@ -301,7 +301,7 @@ En la página **Instalar extensión**, seleccione el archivo de PowerShell local
 
 ### <a name="powershell"></a>PowerShell
 
-Use el cmdlet [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure/set-azurevmcustomscriptextension) para agregar la extensión de script personalizado a una máquina virtual existente.
+Use el cmdlet [Set-AzureVMCustomScriptExtension](/powershell/module/servicemanagement/azure.service/set-azurevmcustomscriptextension) para agregar la extensión de script personalizado a una máquina virtual existente.
 
 ```powershell
 # define your file URI

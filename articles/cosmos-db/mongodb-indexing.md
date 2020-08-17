@@ -5,15 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 08/04/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: e0b14eefcc0b484c92faf1148ae2972f51b04d31
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: b8db9e2d8b58047ebe29865bb95d7f218732c88e
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260702"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87761168"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Administración de la indexación en la API de Azure Cosmos DB para MongoDB
 
@@ -318,7 +319,12 @@ Los detalles del progreso del índice muestran el porcentaje del progreso de la 
 
 Independientemente del valor especificado para la propiedad **Background** del índice, las actualizaciones de los índices siempre se hacen en segundo plano. Dado que las actualizaciones de índice consumen unidades de solicitud (RU) con una prioridad más baja que otras operaciones de base de datos, los cambios de índice no darán lugar a tiempo de inactividad para las escrituras, actualizaciones o eliminaciones.
 
-Cuando se agrega un índice nuevo, las consultas lo utilizarán de inmediato. Esto significa que es posible que las consultas no devuelvan todos los resultados coincidentes y que lo harán sin devolver ningún error. Cuando se complete la transformación del índice, los resultados de la consulta serán coherentes. Puede [hacer un seguimiento del progreso del índice](#track-index-progress).
+No afecta a la disponibilidad de lectura al agregar un índice nuevo. Las consultas solo utilizarán nuevos índices una vez completada la transformación del índice. Durante la transformación del índice, el motor de consulta seguirá usando los índices existentes, por lo que observará un rendimiento de lectura similar durante la transformación de indexación al que observó antes de iniciar el cambio de indexación. Al agregar índices nuevos, tampoco hay riesgo de resultados de consulta incompletos o incoherentes.
+
+Al quitar índices y ejecutar consultas de inmediato que tienen filtros en los índices quitados, es posible que los resultados sean incoherentes e incompletos hasta que finalice la transformación del índice. Si quita los índices, el motor de consultas no garantiza resultados coherentes o completos cuando las consultas filtran los índices recién quitados. La mayoría de los desarrolladores no coloca los índices e intenta ejecutar consultas que los usan de inmediato, por lo que, en la práctica, esta situación es poco probable.
+
+> [!NOTE]
+> Puede [hacer un seguimiento del progreso del índice](#track-index-progress).
 
 ## <a name="migrate-collections-with-indexes"></a>Migración de colecciones con índices
 

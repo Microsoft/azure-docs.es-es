@@ -36,7 +36,7 @@ landingContent:
     links:
     - text: Vídeos de Azure NetApp Files
       url: azure-netapp-files-videos.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: how-to-guide
     links:

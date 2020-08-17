@@ -4,16 +4,16 @@ description: En este artículo se proporcionan las instrucciones necesarias para
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: b55707612c34cb3c95eafd95780955bf991c409c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 7452a08125008e3d25ffb7d0eff59f55ca9be0b1
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206152"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372661"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Escenarios de Azure Disk Encryption en máquinas virtuales Linux
 
@@ -205,13 +205,13 @@ En la tabla siguiente figuran los parámetros de la plantilla de Resource Manage
 | forceUpdateTag | Cada vez que la operación tenga que ejecutarse, pase un valor único como GUID. |
 | ubicación | Ubicación para todos los recursos. |
 
-Para más información sobre la configuración de la plantilla de cifrado de discos de máquina virtual, consulte [Azure Disk Encryption para Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/azure-disk-enc-linux).
+Para más información sobre la configuración de la plantilla de cifrado de discos de máquina virtual, consulte [Azure Disk Encryption para Linux](../extensions/azure-disk-enc-linux.md).
 
 ## <a name="use-encryptformatall-feature-for-data-disks-on-linux-vms"></a>Uso de la característica EncryptFormatAll para discos de datos en máquinas virtuales Linux
 
 El parámetro **EncryptFormatAll** reduce el tiempo que se tardan en cifrar los discos de datos de Linux. Se formatearán las particiones que cumplan ciertos criterios, junto con sus sistemas de archivos actuales, y se volverán a montar en el lugar en que estaban antes de la ejecución del comando. Si quiere excluir un disco de datos que cumple los criterios, puede desmontarlo antes de ejecutar el comando.
 
- Después de ejecutar este comando, se dará formato a todas las unidades que se montaron previamente y el nivel de cifrado se iniciará encima de la unidad vacía. Cuando se selecciona esta opción, también se cifrará el disco temporal asociado a la máquina virtual. Si el disco temporal se restablece, la solución Azure Disk Encryption lo vuelve a formatear y cifrar para la máquina virtual en la siguiente oportunidad. Una vez que el disco de recursos se cifra, el [agente de Linux de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) no podrá administrarlo ni habilitar el archivo de intercambio, pero puede configurar este último manualmente.
+ Después de ejecutar este comando, se dará formato a todas las unidades que se montaron previamente y el nivel de cifrado se iniciará encima de la unidad vacía. Cuando se selecciona esta opción, también se cifrará el disco temporal asociado a la máquina virtual. Si el disco temporal se restablece, la solución Azure Disk Encryption lo vuelve a formatear y cifrar para la máquina virtual en la siguiente oportunidad. Una vez que el disco de recursos se cifra, el [agente de Linux de Microsoft Azure](../extensions/agent-linux.md) no podrá administrarlo ni habilitar el archivo de intercambio, pero puede configurar este último manualmente.
 
 >[!WARNING]
 > EncryptFormatAll no debe usarse cuando hay datos necesarios en los volúmenes de datos de una máquina virtual. Para excluir discos del cifrado, puede desmontarlos. Debe probar primero EncryptFormatAll en una máquina virtual de prueba y comprender el parámetro de característica y su implicación antes de intentar usarlo en la máquina virtual de producción. La opción EncryptFormatAll formatea el disco de datos, y todos los datos que contiene se pierden. Antes de continuar, compruebe que los discos que quiere excluir estén desmontados correctamente. </br></br>
@@ -262,7 +262,7 @@ Se recomienda una configuración LVM-on-crypt. En todos los ejemplos siguientes,
 
 1. Formatee, monte y agregue estos discos al archivo fstab.
 
-1. Elija una partición estándar, cree una partición que abarque toda la unidad y, a continuación, formatee la partición. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte el artículo [Solución de problemas de nombres de dispositivo](troubleshoot-device-names-problems.md).
+1. Elija una partición estándar, cree una partición que abarque toda la unidad y, a continuación, formatee la partición. Aquí se usarán symlinks generados por Azure. El uso de symlinks evita los problemas relacionados con el cambio de los nombres de dispositivo. Para más información, consulte el artículo [Solución de problemas de nombres de dispositivo](../troubleshooting/troubleshoot-device-names-problems.md).
     
     ```bash
     parted /dev/disk/azure/scsi1/lun0 mklabel gpt
@@ -332,7 +332,7 @@ Puede agregar un nuevo disco de datos mediante [az vm disk attach](add-disk.md),
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-cli"></a>Habilitación del cifrado en un disco recién agregado con la CLI de Azure
 
- Si la máquina virtual se cifró previamente con "All", el parámetro --volume-type debe permanecer como "All". All incluye los discos de datos y del SO. Si la máquina virtual se cifró previamente con el tipo de volumen "OS", el parámetro--volume-type se debe cambiar a "All", con el fin de que se incluyan tanto el nuevo disco de datos como el sistema operativo. Si la VM se cifró con el tipo de volumen de "Data", entonces puede permanecer como "Data", tal y como se muestra a continuación. Para preparar el cifrado, no es suficiente con agregar y asociar un nuevo disco de datos a una VM. El disco recién conectado también se debe formatear y montar correctamente en la VM antes de habilitar el cifrado. En Linux, el disco se debe montar en /etc/fstab con un [nombre de dispositivo de bloque persistente](troubleshoot-device-names-problems.md).  
+ Si la máquina virtual se cifró previamente con "All", el parámetro --volume-type debe permanecer como "All". All incluye los discos de datos y del SO. Si la máquina virtual se cifró previamente con el tipo de volumen "OS", el parámetro--volume-type se debe cambiar a "All", con el fin de que se incluyan tanto el nuevo disco de datos como el sistema operativo. Si la VM se cifró con el tipo de volumen de "Data", entonces puede permanecer como "Data", tal y como se muestra a continuación. Para preparar el cifrado, no es suficiente con agregar y asociar un nuevo disco de datos a una VM. El disco recién conectado también se debe formatear y montar correctamente en la VM antes de habilitar el cifrado. En Linux, el disco se debe montar en /etc/fstab con un [nombre de dispositivo de bloque persistente](../troubleshooting/troubleshoot-device-names-problems.md).  
 
 A diferencia de la sintaxis de PowerShell, la CLI no requiere que el usuario proporcione ninguna versión de secuencia única cuando se habilita el cifrado. La CLI genera y usa su propio valor de versión de secuencia único automáticamente.
 
@@ -409,11 +409,11 @@ Azure Disk Encryption no funciona en los siguientes escenarios, características
 - Volcado de memoria de kernel (kdump).
 - Oracle ACFS (ASM Cluster File System).
 - Máquinas virtuales de Gen2 (consulte: [Compatibilidad con máquinas virtuales de generación 2 en Azure](generation-2.md#generation-1-vs-generation-2-capabilities)).
-- Máquinas virtuales de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md)).
+- Discos de NVMe de las máquinas virtuales de serie Lsv2 (consulte: [Serie Lsv2](../lsv2-series.md)).
 - Una máquina virtual con "puntos de montaje anidados", es decir, varios puntos de montaje en una sola ruta de acceso (como "/1stmountpoint/data/2stmountpoint").
 - Una máquina virtual con una unidad de datos montada en la parte superior de una carpeta de sistema operativo.
 - Máquinas virtuales de la serie M con discos de Acelerador de escritura.
-- Aplicación del [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md) a VM cifradas por ADE y viceversa.
+- Aplicación de ADE a una VM que tiene un disco de datos cifrado con el [cifrado del lado del servidor con claves administradas por el cliente](disk-encryption.md) (SSE + CMK) o la aplicación de SSE + CMK a un disco de datos en una VM cifrada con ADE.
 - Migración de una VM cifrada con ADE al [cifrado del lado servidor con claves administradas por el cliente](disk-encryption.md).
 
 ## <a name="next-steps"></a>Pasos siguientes

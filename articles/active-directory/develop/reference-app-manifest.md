@@ -1,5 +1,6 @@
 ---
 title: Descripción del manifiesto de la aplicación de Azure Active Directory
+titleSuffix: Microsoft identity platform
 description: Cobertura detallada del manifiesto de aplicación de Azure Active Directory, que representa la configuración de identidad de una aplicación en un inquilino de Azure AD, y se usa para facilitar la autorización de OAuth, la experiencia de consentimiento y mucho más.
 services: active-directory
 author: rwike77
@@ -12,18 +13,18 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: e31c2c69e36b97f5584ee32e6c452525389f7f42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b94bcd1cfbbf215ed912d506d27311aae502656b
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85479256"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115074"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifiesto de aplicación de Azure Active Directory
 
-El manifiesto de la aplicación contiene una definición de todos los atributos de un objeto de la aplicación en la plataforma de identidad de Microsoft. También sirve como mecanismo para actualizar el objeto de la aplicación. Para más información sobre la entidad Application y su esquema, consulte la [documentación sobre la entidad Application de Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity).
+El manifiesto de la aplicación contiene una definición de todos los atributos de un objeto de la aplicación en la plataforma de identidad de Microsoft. También sirve como mecanismo para actualizar el objeto de la aplicación. Para más información sobre la entidad Application y su esquema, consulte la [documentación sobre la entidad Application de Graph API](/graph/api/resources/application).
 
-Los atributos de una aplicación pueden configurarse en Azure Portal o mediante programación con la [API de REST](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) o [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#applications). Sin embargo, hay algunos escenarios en los que será necesario editar el manifiesto de la aplicación para poder configurar los atributos de una aplicación. Entre los escenarios se incluyen los siguientes:
+Los atributos de una aplicación pueden configurarse en Azure Portal o mediante programación con la [API de REST](/graph/api/resources/application) o [PowerShell](/powershell/module/azuread/?view=azureadps-2.0#applications). Sin embargo, hay algunos escenarios en los que será necesario editar el manifiesto de la aplicación para poder configurar los atributos de una aplicación. Entre los escenarios se incluyen los siguientes:
 
 * Si registró la aplicación como una cuenta multiinquilino de Azure AD y una cuenta de Microsoft personal, no podrá cambiar las cuentas de Microsoft compatibles en la interfaz de usuario. En su lugar, tendrá que utilizar el editor de manifiesto de la aplicación para cambiar los tipos de cuenta compatibles.
 * Si necesita definir permisos y roles compatibles con la aplicación, tendrá que modificar el manifiesto de la aplicación.
@@ -433,7 +434,7 @@ Ejemplo:
 | parentalControlSettings | String |
 
 - `countriesBlockedForMinors` especifica los países o regiones en los que la aplicación se bloquea para menores de edad.
-- `legalAgeGroupRule` especifica la regla de grupo de edad legal que se aplica a los usuarios de la aplicación. Se puede establecer en `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` o `BlockMinors`.  
+- `legalAgeGroupRule` especifica la regla de grupo de edad legal que se aplica a los usuarios de la aplicación. Se puede establecer en `Allow`, `RequireConsentForPrivacyServices`, `RequireConsentForMinors`, `RequireConsentForKids` o `BlockMinors`.
 
 Ejemplo:
 
@@ -493,7 +494,7 @@ Ejemplo:
 | :--- | :--- |
 | publicClient | Boolean|
 
-Especifica si esta aplicación es un cliente público (como una aplicación instalada que se ejecuta en un dispositivo móvil). 
+Especifica si esta aplicación es un cliente público (como una aplicación instalada que se ejecuta en un dispositivo móvil).
 
 Esta propiedad solo está disponible en la experiencia **Registros de aplicaciones (heredados)** . Se reemplaza por `allowPublicClient` en la experiencia [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908).
 
@@ -531,8 +532,9 @@ Esta propiedad multivalor contiene la lista de valores de redirect_uri registrad
 
 - `Web`
 - `InstalledClient`
+- `Spa`
 
-Para obtener más información, consulte las [limitaciones y restricciones de las URL de respuesta](https://docs.microsoft.com/azure/active-directory/develop/reply-url).
+Para obtener más información, consulte las [limitaciones y restricciones de las URL de respuesta](./reply-url.md).
 
 Ejemplo:
 
@@ -669,7 +671,7 @@ Al intentar cargar un manifiesto descargado anteriormente, es posible que vea un
 
 Cuando vea uno de estos errores, se recomienda realizar las acciones siguientes:
 
-1. Edite los atributos de forma individualmente en el editor de manifiestos en lugar de cargar un manifiesto descargado anteriormente. Use la tabla de [referencia de manifiesto](#manifest-reference) para comprender la sintaxis y semántica de atributos antiguos y nuevos para que se puedan editar correctamente los atributos que le interesan. 
+1. Edite los atributos de forma individualmente en el editor de manifiestos en lugar de cargar un manifiesto descargado anteriormente. Use la tabla de [referencia de manifiesto](#manifest-reference) para comprender la sintaxis y semántica de atributos antiguos y nuevos para que se puedan editar correctamente los atributos que le interesan.
 1. Si el flujo de trabajo requiere guardar los manifiestos en el repositorio de origen para su uso posterior, se recomienda reorganizar los manifiestos guardados en el repositorio con el que ve en la experiencia **Registros de aplicaciones**.
 
 ## <a name="next-steps"></a>Pasos siguientes
@@ -684,14 +686,14 @@ Use la siguiente sección de comentarios para especificar opiniones que ayuden a
 [AAD-DEVELOPER-GLOSSARY]:developer-glossary.md
 [AAD-GROUPS-FOR-AUTHORIZATION]: http://www.dushyantgill.com/blog/2014/12/10/authorization-cloud-applications-using-ad-groups/
 [ADD-UPD-RMV-APP]:quickstart-v1-integrate-apps-with-azure-ad.md
-[APPLICATION-ENTITY]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity
-[APPLICATION-ENTITY-APP-ROLE]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#approle-type
-[APPLICATION-ENTITY-OAUTH2-PERMISSION]: https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#oauth2permission-type
+[APPLICATION-ENTITY]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity
+[APPLICATION-ENTITY-APP-ROLE]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#approle-type
+[APPLICATION-ENTITY-OAUTH2-PERMISSION]: /previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permission-type
 [AZURE-PORTAL]: https://portal.azure.com
 [DEV-GUIDE-TO-AUTH-WITH-ARM]: http://www.dushyantgill.com/blog/2015/05/23/developers-guide-to-auth-with-azure-resource-manager-api/
 [GRAPH-API]: active-directory-graph-api.md
 [IMPLICIT-GRANT]:v1-oauth2-implicit-grant-flow.md
-[INTEGRATING-APPLICATIONS-AAD]: https://azure.microsoft.com/documentation/articles/active-directory-integrating-applications/
-[O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
-[O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
+[INTEGRATING-APPLICATIONS-AAD]: ./quickstart-register-app.md
+[O365-PERM-DETAILS]: /graph/permissions-reference
+[O365-SERVICE-DAEMON-APPS]: /previous-versions/office/office-365-api/
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/

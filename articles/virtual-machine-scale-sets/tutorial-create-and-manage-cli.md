@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales de Azure'
+title: 'Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales de Azure: CLI de Azure'
 description: Obtenga información sobre cómo usar la CLI de Azure para crear un conjunto de escalado de máquinas virtuales, junto con algunas tareas de administración comunes, como cómo iniciar y detener una instancia, o cambiar la capacidad del conjunto de escalado.
 author: ju-shim
 ms.author: jushiman
@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: management
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: ff4a2b9cb66013900b5b9969a4281d1a20d9c122
-ms.sourcegitcommit: c4ad4ba9c9aaed81dfab9ca2cc744930abd91298
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: e7267ca90ea11e63c5523dec0a3ee414f7b655b2
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/12/2020
-ms.locfileid: "84736448"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501651"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con la CLI de Azure
 El conjunto de escalado de máquinas virtuales le permite implementar y administrar un conjunto de máquinas virtuales de escalado automático idénticas. Durante el ciclo de vida de la máquina virtual, es posible que deba ejecutar una o varias tareas de administración. En este tutorial, aprenderá a:
@@ -190,12 +190,12 @@ En la tabla siguiente se clasifican los tamaños de máquina virtual comunes en 
 
 | Tipo                     | Tamaños comunes           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Uso general](../virtual-machines/linux/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
-| [Proceso optimizado](../virtual-machines/linux/sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
-| [Memoria optimizada](../virtual-machines/linux/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
-| [Almacenamiento optimizado](../virtual-machines/linux/sizes-storage.md)      | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
-| [GPU](../virtual-machines/linux/sizes-gpu.md)          | NV, NC            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
-| [Alto rendimiento](../virtual-machines/linux/sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
+| [Uso general](../virtual-machines/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
+| [Proceso optimizado](../virtual-machines/sizes-compute.md)   | Fs, F             | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
+| [Memoria optimizada](../virtual-machines/sizes-memory.md)    | Esv3, Ev3, M, GS, G, DSv2, DS, Dv2, D   | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
+| [Almacenamiento optimizado](../virtual-machines/sizes-storage.md)      | LS                | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
+| [GPU](../virtual-machines/sizes-gpu.md)          | NV, NC            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
+| [Alto rendimiento](../virtual-machines/sizes-hpc.md) | H, A8-11          | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. 
 
 ### <a name="find-available-vm-instance-sizes"></a>Búsqueda de tamaños de instancia de máquina virtual disponibles
 Para ver una lista de tamaños de instancia de máquina virtual disponibles en una región determinada, use el comando [az vm list-sizes](/cli/azure/vm).

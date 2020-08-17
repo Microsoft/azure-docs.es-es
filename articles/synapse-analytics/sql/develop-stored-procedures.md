@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 0f88b994104ed8a2d80fb3b16f125f8a087cbe3c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85958385"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495002"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Uso de procedimientos almacenados en un grupo de SQL
 
@@ -27,7 +27,7 @@ El grupo de SQL admite muchas de las características de T-SQL que se usan en SQ
 
 Sin embargo, para mantener la escala y el rendimiento del grupo de SQL también hay algunas características y funcionalidades que tienen diferencias de comportamiento y otras que no son compatibles.
 
-## <a name="introducing-stored-procedures"></a>Introducción a los procedimientos almacenados
+## <a name="stored-procedures-in-sql-pool"></a>Procedimientos almacenados en un grupo de SQL
 
 Los procedimientos almacenados son una manera excelente para encapsular el código SQL y almacenarlo cerca de los datos en el almacenamiento de datos. Los procedimientos almacenados ayudan a los programadores a encapsular el código en unidades administrables para modularizar sus soluciones, de tal manera que facilitan una mayor reutilización del código. Cada procedimiento almacenado también puede aceptar parámetros para que sean todavía más flexibles.
 

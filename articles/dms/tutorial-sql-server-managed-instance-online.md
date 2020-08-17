@@ -3,21 +3,21 @@ title: 'Tutorial: Migración de SQL Server en línea a SQL Managed Instance'
 titleSuffix: Azure Database Migration Service
 description: Obtenga información sobre cómo realizar una migración en línea de una instancia local de SQL Server a una Instancia administrada de Azure SQL mediante Azure Database Migration Service.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 3d462fa0fa2afe5937c60985938c8268991dfa41
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.date: 08/04/2020
+ms.openlocfilehash: 5bd78f2db8ea1f2a26d26269822ec78978a3cfde
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084229"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87553315"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Tutorial: Migración de SQL Server a una Instancia administrada de Azure SQL en línea mediante DMS
 
@@ -88,6 +88,9 @@ Para completar este tutorial, necesita:
   > Azure Database Migration Service requiere el permiso de colaborador sobre la suscripción correspondiente al identificador de aplicación especificado. También puede crear roles personalizados que concedan los permisos específicos que Azure Database Migration Service requiere. A fin de obtener instrucciones paso a paso sobre el uso de roles personalizados, vea el artículo [Roles personalizados para las migraciones en línea de SQL Server a Instancias administradas de SQL](https://docs.microsoft.com/azure/dms/resource-custom-roles-sql-db-managed-instance).
 
 * Cree o anote el **nivel de rendimiento estándar**, cuenta de almacenamiento de Azure, que permite que el servicio DMS cargue los archivos de copia de seguridad de la base de datos a y los use para migrar las bases de datos.  Asegúrese de crear la cuenta Azure Storage en la misma región en la que se creó la instancia de Azure Database Migration Service.
+
+  > [!NOTE]
+  > Al migrar una base de datos protegida mediante [Cifrado de datos transparente](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview) a una instancia administrada con la opción de migración en línea, se debe migrar el certificado correspondiente del entorno local o la instancia de SQL Server de la VM de Azure antes de restaurar la base de datos. Para consultar los pasos detallados, consulte [Migración de un certificado TDE a Instancia administrada](https://docs.microsoft.com/azure/azure-sql/database/transparent-data-encryption-tde-overview).
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registro del proveedor de recursos Microsoft.DataMigration
 
@@ -259,6 +262,9 @@ Una vez restaurada la copia de seguridad de la base de datos completa en la inst
 4. Seleccione **Confirmar** y, después, **Aplicar**.
 
     ![Preparación de la migración completa](media/tutorial-sql-server-to-managed-instance-online/dms-complete-cutover.png)
+
+    > [!IMPORTANT]
+    > Después de la migración, la disponibilidad de SQL Managed Instance con un nivel de servicio crítico para la empresa puede tardar mucho más que para uso general, ya que se deben inicializar tres réplicas secundarias para el grupo de alta disponibilidad de AlwaysOn. La duración de esta operación depende del tamaño de los datos. Para obtener más información, consulte [Duración de las operaciones de administración](../azure-sql/managed-instance/management-operations-overview.md#management-operations-duration).
 
 5. Cuando el estado de la migración de la base de datos muestre **Completado**, conecte las aplicaciones a la nueva instancia destino de la Instancia administrada de SQL.
 

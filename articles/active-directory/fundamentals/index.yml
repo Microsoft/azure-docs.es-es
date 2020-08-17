@@ -31,7 +31,7 @@ landingContent:
     links:
     - text: Arquitectura de Azure AD
       url: active-directory-architecture.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

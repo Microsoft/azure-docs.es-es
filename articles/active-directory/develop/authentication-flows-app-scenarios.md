@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: d6cb8cf4b97ed3882d41a4eb179f11bf05f42118
-ms.sourcegitcommit: 3abadafcff7f28a83a3462b7630ee3d1e3189a0e
+ms.openlocfilehash: 99d16407d1cfadcb7d3a79968fae4436e7c631e3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82593172"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115652"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Flujos de autenticación y escenarios de aplicaciones
 
@@ -154,9 +154,9 @@ Algunos escenarios, como los que implican el acceso condicional relacionado con 
 Para más información, consulte [Aplicación móvil que llama a las API web](scenario-mobile-overview.md).
 
 > [!NOTE]
-> Una aplicación móvil que use MSAL.iOS, MSAL.Android o MSAL.NET en Xamarin puede tener aplicadas directivas de protección de aplicaciones. Por ejemplo, las directivas pueden impedir que un usuario copie texto protegido. Intune administra la aplicación móvil y reconoce este servicio como una aplicación administrada. Para más información, consulte [Introducción al SDK para aplicaciones de Microsoft Intune](https://docs.microsoft.com/intune/app-sdk).
+> Una aplicación móvil que use MSAL.iOS, MSAL.Android o MSAL.NET en Xamarin puede tener aplicadas directivas de protección de aplicaciones. Por ejemplo, las directivas pueden impedir que un usuario copie texto protegido. Intune administra la aplicación móvil y reconoce este servicio como una aplicación administrada. Para más información, consulte [Introducción al SDK para aplicaciones de Microsoft Intune](/intune/app-sdk).
 >
-> El [SDK de la aplicación Intune](https://docs.microsoft.com/intune/app-sdk-get-started) es independiente de las bibliotecas de MSAL e interactúa con Azure AD por sí solo.
+> El [SDK de la aplicación Intune](/intune/app-sdk-get-started) es independiente de las bibliotecas de MSAL e interactúa con Azure AD por sí solo.
 
 ### <a name="protected-web-api"></a>API web protegida
 
@@ -305,5 +305,5 @@ Para más información, consulte [Bibliotecas compatibles con Microsoft por sist
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre los [aspectos básicos de la autenticación](authentication-scenarios.md) y los [tokens de acceso de la plataforma de identidad de Microsoft](access-tokens.md).
+* Más información sobre los [aspectos básicos de la autenticación](./authentication-vs-authorization.md) y los [tokens de acceso de la plataforma de identidad de Microsoft](access-tokens.md).
 * Más información sobre la [protección del acceso a aplicaciones IoT](/azure/architecture/example-scenario/iot-aad/iot-aad).

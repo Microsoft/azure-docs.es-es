@@ -1,5 +1,5 @@
 ---
-title: 'Introducción: consulta de los datos en el almacenamiento mediante SQL a petición (versión preliminar)'
+title: Consulta de los datos en el almacenamiento mediante SQL a petición (versión preliminar)
 description: En este artículo se describe cómo consultar Azure Storage mediante el recurso de SQL a petición (versión preliminar) en Azure Synapse Analytics.
 services: synapse analytics
 author: azaricstefan
@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 4f78928c26b595caafd6709a200297d62ce1c361
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 93e6b373aa125facb3a3eddecc926438c919b335
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259681"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489748"
 ---
 # <a name="query-storage-files-using-sql-on-demand-preview-resources-within-synapse-sql"></a>Consulta de archivos de almacenamiento mediante recursos de SQL a petición (versión preliminar) en Synapse SQL
 
@@ -54,7 +54,7 @@ Para ver ejemplos de su uso, lea el artículo en el que se explica cómo [consul
 
 ## <a name="query-csv-files"></a>Consulta de archivo CSV
 
-Para consultar los datos de origen con formato CSV, use FORMAT = 'CSV' Cuando consulte archivos CSV puede especificar el esquema del archivo CSV como parte de la función `OPENROWSET`:
+Para consultar los datos de origen con formato CSV, use FORMAT = 'CSV'. Cuando consulte archivos CSV puede especificar el esquema del archivo CSV como parte de la función `OPENROWSET`:
 
 ```sql
 SELECT * FROM
@@ -90,7 +90,7 @@ WITH (
 ```
 
 Para cada columna debe especificar el nombre y el tipo de columna en la cláusula `WITH`.
-Para ver algunos ejemplos, consulte el artículo en el que se proporciona información acerca de cómo [leer archivos .csv sin especificar todas las columnas](query-single-csv-file.md#returning-subset-of-columns).
+Para ver algunos ejemplos, consulte el artículo en el que se proporciona información acerca de cómo [leer archivos .csv sin especificar todas las columnas](query-single-csv-file.md#return-a-subset-of-columns).
 
 ## <a name="schema-inference"></a>Inferencia de esquemas
 
@@ -186,7 +186,7 @@ De manera predeterminada, la función `OPENROWSET` hace coincidir el nombre de c
 - Si la propiedad no se puede encontrar en la línea de column_name especificada, la función devuelve un error.
 - Si la propiedad no se encuentra en la línea de column_path especificada, que depende del [modo de la ruta](/sql/relational-databases/json/json-path-expressions-sql-server?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#PATHMODE), la función devuelve un error cuando está en modo strict o NULL cuando está en modo lax.
 
-Para obtener ejemplos de consultas, revise la sección de acceso a elementos de columnas anidadas en el que se explica cómo [consultar tipos anidados con formato Parquet](query-parquet-nested-types.md#access-elements-from-nested-columns).
+Para obtener ejemplos de consultas, revise la sección de acceso a elementos de columnas anidadas en el que se explica cómo [consultar tipos anidados con formato Parquet](query-parquet-nested-types.md#read-properties-from-nested-object-columns).
 
 #### <a name="access-elements-from-repeated-columns"></a>Acceso a elementos de columnas repetidas
 

@@ -5,18 +5,18 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 07/12/2020
 ms.author: rogarana
-ms.openlocfilehash: 7999f042b8a67bed8ef01cccec5890b1a2d58ebb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ea1bfdf2c3b2dcfd49f87a5a75597a464b07913
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510227"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86999588"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Introducción: autenticación de Active Directory Domain Services local en SMB para recursos compartidos de archivos de Azure
 
-[Azure Files](storage-files-introduction.md) admite la autenticación basada en la identidad en el bloque de mensajes del servidor (SMB) mediante dos tipos de servicios de dominio: Azure Active Directory Domain Services (Azure AD DS) and Active Directory Domain Services (AD DS) local. El uso de un método de autenticación basado en identidad permite integrar el proceso de acceso a los recursos compartidos de archivos de Azure con el proceso de autenticación existente basado en la identidad, en lugar de tener que administrarlo por separado. Esta serie de artículos se centra en habilitar y configurar AD DS local para la autenticación con recursos compartidos de archivos de Azure.
+[Azure Files](storage-files-introduction.md) admite la autenticación basada en la identidad a través del protocolo Bloque de mensajes del servidor (SMB) mediante dos tipos de servicios de dominio: Active Directory Domain Services local (AD DS) y Azure Active Directory Domain Services (Azure AD DS). Le recomendamos encarecidamente que revise la sección [Funcionamiento](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) para seleccionar el servicio de dominio adecuado para la autenticación. La instalación es diferente en función del servicio de dominio que elija. Esta serie de artículos se centra en habilitar y configurar AD DS local para la autenticación con recursos compartidos de archivos de Azure.
 
 Si no está familiarizado con los recursos compartidos de archivos de Azure, se recomienda leer la [guía de plan](storage-files-planning.md) antes de leer la siguiente serie de artículos.
 
@@ -57,7 +57,7 @@ Antes de habilitar la autenticación de AD DS para los recursos compartidos de 
 
 ## <a name="regional-availability"></a>Disponibilidad regional
 
-La autenticación de Azure Files con AD DS está disponible en [todas las regiones públicas de Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+La autenticación de Azure Files con AD DS está disponible en [todas las regiones públicas y las de Azure Government](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Información general
 

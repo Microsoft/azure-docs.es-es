@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: kenwith
 ms.reviewer: jeeds
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a0b63c130d7d1e72bd3320e40213ae3cb1069a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 264d4afb50904be17624f8801b7b79fe4b232030
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763251"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386816"
 ---
 # <a name="create-an-azure-tenant-for-a-multi-tenant-application"></a>Crear un inquilino de Azure para una aplicación multiinquilino  
 
@@ -37,7 +37,7 @@ Puede crear la suscripción de Azure y Azure Active Directory de forma gratuita 
 
    a. **En aplicaciones de OIDC u Oath**, [registre la aplicación](../develop/quickstart-register-app.md) como una aplicación multiinquilino. Seleccione la opción Cuentas en cualquier directorio organizativo y cuentas Microsoft personales en Tipos de cuenta admitidos.
 
-   b. **En aplicaciones basadas en SAML y WS-Fed**, [configure el inicio de sesión único basado en SAML](configure-single-sign-on-non-gallery-applications.md) mediante una plantilla genérica de SAML en Azure AD.
+   b. **En aplicaciones basadas en SAML y WS-Fed**, [configure el inicio de sesión único basado en SAML](configure-saml-single-sign-on.md) mediante una plantilla genérica de SAML en Azure AD.
 
 También puede [convertir una aplicación de un solo inquilino en multiinquilino](../develop/howto-convert-app-to-be-multi-tenant.md) si fuera necesario.
 

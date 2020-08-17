@@ -1,6 +1,5 @@
 ---
-title: Uso de los conjuntos de datos de ejemplo
-titleSuffix: ML Studio (classic) - Azure
+title: 'ML Studio (clásico): Uso de los conjuntos de datos de ejemplo: Azure'
 description: Descripciones de los conjuntos de datos que se usan en los modelos de ejemplo incluidos en Machine Learning Studio (clásico). Puede usar estos conjuntos de datos de ejemplo para los experimentos.
 services: machine-learning
 ms.service: machine-learning
@@ -10,14 +9,17 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 3cd7d880efaa5c69301c25c69d55f4b21dd97242
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bb10b55aeeaa2d40d4ef4398dc06c9d4091f5ea
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321847"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432087"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Uso de los conjuntos de datos de ejemplo en Azure Machine Learning Studio (clásico)
+
+**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 [top]: #machine-learning-sample-datasets
 
@@ -94,7 +96,7 @@ Subconjunto de datos de la base de datos de donantes de sangre del Centro de ser
 <p></p>
 Los datos de los donantes incluyen los meses transcurridos desde la última donación y la frecuencia, o el número total de donaciones, el tiempo transcurrido desde la última donación y la cantidad de sangre donada.
 <p></p>
-<b>Uso:</b> El objetivo es predecir mediante la clasificación si el donante donó sangre en marzo de 2007, donde 1 hace referencia a un donante durante el período establecido como objetivo y 0 a un no donante. 
+<b>Uso:</b> el objetivo es predecir mediante la clasificación si el donante donó sangre en marzo de 2007, donde 1 hace referencia a un donante durante el período objetivo y 0 a un no donante. 
 <p></p>
 <b>Investigación relacionada:</b> Yeh, I.C., (2008). Repositorio de aprendizaje automático de UCI <a href="https://archive.ics.uci.edu/ml">https://archive.ics.uci.edu/ml</a>. Irvine, CA: Universidad de California, Facultad de Ciencias de la Computación y de la Información
 <p></p>

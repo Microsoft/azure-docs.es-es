@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: 6edc6facc884fc6469b75b63216d6e5036321ea8
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: ad9eb95c9e3a21cd33a367cc864a4d791888afb9
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86277894"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87124579"
 ---
 ## <a name="configure-the-sample-project"></a>Configuración del proyecto de ejemplo
 
-A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins. Si aún no ha descargado el proyecto de ejemplo, puede obtenerlo ahora en la página de aterrizaje de [Ejemplos de Azure Digital Twins](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples); para ello, seleccione el botón *Descargar ZIP* debajo del título.
+A continuación, configure una aplicación cliente de ejemplo que interactuará con su instancia de Azure Digital Twins. Si aún no ha descargado el proyecto de ejemplo, puede obtenerlo ahora en la página de aterrizaje [*Ejemplos de Azure Digital Twins*](https://docs.microsoft.com/samples/azure-samples/digital-twins-samples/digital-twins-samples); para ello, seleccione el botón *Descargar archivo ZIP* situado debajo del título.
 
 Vaya al archivo que ha descargado en la máquina y descomprímalo.
 

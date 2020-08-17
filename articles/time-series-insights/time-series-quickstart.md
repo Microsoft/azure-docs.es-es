@@ -5,38 +5,38 @@ ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
 ms.author: dpalled
-manager: cshankar
+manager: diviso
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/13/2020
-ms.openlocfilehash: 5bc160076e6a06c7ddcc99d989eb6d9c7fb3fe0f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 06/30/2020
+ms.openlocfilehash: 2140cbbc43af7f80c0c5fc2d7cea85cb31bd7bfe
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042295"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059350"
 ---
-# <a name="quickstart-explore-azure-time-series-insights"></a>Inicio rápido: Exploración de Azure Time Series Insights
+# <a name="quickstart-explore-azure-time-series-insights-gen1"></a>Inicio rápido: Exploración de Azure Time Series Insights Gen1
 
-Este inicio rápido del explorador de Azure Time Series Insights muestra cómo empezar a trabajar con Time Series Insights en un entorno de demostración gratuito. Con él, aprenderá a usar el explorador web para visualizar grandes volúmenes de datos de IoT y recorrerá las características clave que están disponibles de forma general en la actualidad.
+Esta guía de inicio rápido del explorador de Azure Time Series Insights muestra cómo empezar a trabajar con Azure Time Series Insights en un entorno de demostración gratuito. Con él, aprenderá a usar el explorador web para visualizar grandes volúmenes de datos de IoT y recorrerá las características clave que están disponibles de forma general en la actualidad.
 
 Azure Time Series Insights es un servicio de análisis, almacenamiento y administración totalmente administrado que facilita el análisis y la exploración de miles de millones de eventos de IoT de forma simultánea. Proporciona una visión global de los datos, con el fin de que se pueda validar rápidamente la solución de IoT y evitar el costoso tiempo de inactividad de los dispositivos críticos. Azure Time Series Insights facilita la detección de las tendencias ocultas, descubrir anomalías y realizar análisis de causa principal casi en tiempo real.
 
 Para mayor flexibilidad, Azure Time Series Insights se puede agregar a una aplicación existente previamente mediante sus eficaces [API REST](./concepts-query-overview.md) y [SDK de cliente](https://github.com/microsoft/tsiclient). Las API se pueden usar para almacenar, consultar y consumir datos de series temporales de la aplicación cliente que prefiera. También se puede usar el SDK de cliente para agregar los componentes de la interfaz de usuario a la aplicación existente.
 
-En este inicio rápido del explorador de Time Series Insights se ofrece un recorrido guiado por las características que ya están disponibles con carácter general.
+En esta guía de inicio rápido del explorador de Azure Time Series Insights se ofrece un recorrido guiado por las características.
 
 > [!IMPORTANT]
 > Si no tiene ninguna, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="prepare-the-demo-environment"></a>Preparación del entorno de demostración
 
-1. En el explorador, vaya a la [demostración de la disponibilidad general](https://insights.timeseries.azure.com/demo).
+1. En el explorador, vaya a la [demo de Gen1](https://insights.timeseries.azure.com/demo).
 
-1. Si se le solicita, inicie sesión en el explorador de Time Series Insights mediante las credenciales de la cuenta de Azure.
+1. Si se le solicita, inicie sesión en el explorador de Azure Time Series Insights mediante las credenciales de la cuenta de Azure.
 
-1. Aparece una página con un recorrido rápido por Time Series Insights. Seleccione **Siguiente** para comenzar el recorrido rápido.
+1. Aparece una página con un recorrido rápido por Azure Time Series Insights. Seleccione **Siguiente** para comenzar el recorrido rápido.
 
    [![Bienvenida del inicio rápido: seleccione Siguiente](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
@@ -50,7 +50,7 @@ En este inicio rápido del explorador de Time Series Insights se ofrece un rec
 
    [![Selección de un período de tiempo](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
-   Time Series Insights muestra una visualización de gráfico para el período de tiempo que especificó. Puede realizar diversas acciones en el gráfico de líneas. Por ejemplo, puede filtrar, anclar, ordenar y apilar.
+   Azure Time Series Insights muestra una visualización de gráfico para el período de tiempo que especificó. Puede realizar diversas acciones en el gráfico de líneas. Por ejemplo, puede filtrar, anclar, ordenar y apilar.
 
    Para volver al **panel de selección de hora**, seleccione la flecha hacia abajo como se muestra a continuación:
 
@@ -91,6 +91,4 @@ Ahora que ha completado el tutorial, limpie los recursos que ha creado:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ya está listo para crear su propio entorno de Time Series Insights:
-> [!div class="nextstepaction"]
-> [Planeamiento del entorno de Time Series Insights](time-series-insights-environment-planning.md)
+* Ya está listo para crear su propio entorno de Azure Time Series Insights. Consulte la [planeación del entorno de Azure Time Series Insights](time-series-insights-environment-planning.md).

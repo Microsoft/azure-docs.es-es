@@ -12,19 +12,19 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 73cdac1a372b42df5a8f52ea09f04ecc40031698
-ms.sourcegitcommit: d187fe0143d7dbaf8d775150453bd3c188087411
+ms.openlocfilehash: 5d88c685f1e55bd361ac50662d9eaf931cba15c3
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2020
-ms.locfileid: "80885725"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88115805"
 ---
 # <a name="azure-active-directory-graph-api"></a>Graph API de Azure Active Directory
 
 > [!IMPORTANT]
-> Le recomendamos encarecidamente que utilice [Microsoft Graph](https://developer.microsoft.com/graph) en lugar de Graph API de Azure AD para tener acceso a recursos de Azure Active Directory (Azure AD). Nuestros esfuerzos de desarrollo ahora se centran en Microsoft Graph y no están previstas realizar mejoras adicionales para Graph API de Azure AD. Hay un número muy limitado de escenarios para los que Graph API de Azure AD todavía podría ser adecuado. Para obtener más información, consulte la entrada de blog [Microsoft Graph o Graph de Azure AD](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) y [Migrar aplicaciones de Graph de Azure AD a Microsoft Graph](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview).
+> Le recomendamos encarecidamente que utilice [Microsoft Graph](https://developer.microsoft.com/graph) en lugar de Graph API de Azure AD para tener acceso a recursos de Azure Active Directory (Azure AD). Nuestros esfuerzos de desarrollo ahora se centran en Microsoft Graph y no están previstas realizar mejoras adicionales para Graph API de Azure AD. Hay un número muy limitado de escenarios para los que Graph API de Azure AD todavía podría ser adecuado. Para obtener más información, consulte la entrada de blog [Microsoft Graph o Graph de Azure AD](https://developer.microsoft.com/office/blogs/microsoft-graph-or-azure-ad-graph/) y [Migrar aplicaciones de Graph de Azure AD a Microsoft Graph](/graph/migrate-azure-ad-graph-overview).
 
-Este artículo se aplica a Azure AD Graph API. Para obtener información similar relacionada con Microsoft Graph API, consulte [Usar la API de Microsoft Graph](https://docs.microsoft.com/graph/use-the-api).
+Este artículo se aplica a Azure AD Graph API. Para obtener información similar relacionada con Microsoft Graph API, consulte [Usar la API de Microsoft Graph](/graph/use-the-api).
 
 Graph API de Azure Active Directory proporciona acceso mediante programación a Azure AD a través de los extremos de la API de REST. Las aplicaciones pueden usar Graph API de Azure AD para ejecutar operaciones de creación, lectura, actualización y eliminación (CRUD) en objetos y datos de directorio. Por ejemplo, Graph API de Azure AD admite las siguientes operaciones comunes en un objeto de usuario:
 
@@ -36,23 +36,23 @@ Graph API de Azure Active Directory proporciona acceso mediante programación a 
 
 Además, puede realizar las mismas operaciones en otros objetos, como grupos y aplicaciones. Para llamar a Graph API de Azure AD en un directorio, la aplicación debe registrarse con Azure AD. La aplicación también se debe conceder acceso a Graph API de Azure AD. Este acceso se logra normalmente mediante un flujo de consentimiento de usuario o administrador.
 
-Para empezar a usar Graph API de Azure Active Directory, consulte la [Guía de inicio rápido de Graph API de Azure AD](active-directory-graph-api-quickstart.md) o la [documentación interactiva de referencia sobre Graph API de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
+Para empezar a usar Graph API de Azure Active Directory, consulte la [Guía de inicio rápido de Graph API de Azure AD](./microsoft-graph-intro.md) o la [documentación interactiva de referencia sobre Graph API de Azure AD](/previous-versions/azure/ad/graph/api/api-catalog).
 
 ## <a name="features"></a>Características
 
 Graph API de Azure AD ofrece las siguientes características:
 
-* **Puntos de conexión de API REST**: Azure AD Graph API es un servicio RESTful que se compone de puntos de conexión a los que se accede con solicitudes HTTP estándar. Graph API de Azure AD admite tipos de contenido XML o notación de objetos JavaScript (JSON) en solicitudes y respuestas. Para obtener más información, consulte [Referencia de la API Graph de REST de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog).
-* **Autenticación con Azure AD**: Todas las solicitudes enviadas a Azure AD Graph API se tienen que autenticar anexando un token web JSON (JWT) al encabezado Authorization de la solicitud. Para conseguir este token, es necesario enviar una solicitud al punto de conexión de token de Azure AD y facilitar unas credenciales válidas. Puede usar el flujo de credenciales de cliente OAuth 2.0 o el flujo de concesión de código de autorización para conseguir un token con el que llamar a Graph. Para obtener más información, vea [OAuth 2.0 en Azure AD](https://msdn.microsoft.com/library/azure/dn645545.aspx).
-* **Autorización basada en roles (RBAC)** : En Azure AD Graph API se usan grupos de seguridad para llevar a cabo la RBAC. Por ejemplo, si quiere saber si un usuario tiene acceso a un recurso determinado, la aplicación puede llamar a la operación [Comprobar pertenencia a grupos (transitiva)](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) , que devuelve true o false.
-* **Consulta diferencial**: Una consulta diferencial le permite realizar el seguimiento de los cambios hechos en un directorio entre dos períodos de tiempo, sin tener que hacer consultas frecuentes a Azure AD Graph API. Este tipo de solicitud solo devolverá los cambios hechos entre la solicitud de consulta diferencial anterior y la solicitud actual. Para más información, vea [Consulta diferencial de Graph API de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query).
-* **Extensiones de directorio**: Puede agregar propiedades personalizadas a los objetos de directorio sin necesidad de un almacén de datos externo. Por ejemplo, si su aplicación necesita una propiedad de usuario de Skype para cada usuario, puede registrar la nueva propiedad en el directorio para que esté disponible para su uso en todos los objetos de usuario. Para obtener más información, consulte [Extensiones de esquema de directorio de Graph API de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+* **Puntos de conexión de API REST**: Azure AD Graph API es un servicio RESTful que se compone de puntos de conexión a los que se accede con solicitudes HTTP estándar. Graph API de Azure AD admite tipos de contenido XML o notación de objetos JavaScript (JSON) en solicitudes y respuestas. Para obtener más información, consulte [Referencia de la API Graph de REST de Azure AD](/previous-versions/azure/ad/graph/api/api-catalog).
+* **Autenticación con Azure AD**: Todas las solicitudes enviadas a Azure AD Graph API se tienen que autenticar anexando un token web JSON (JWT) al encabezado Authorization de la solicitud. Para conseguir este token, es necesario enviar una solicitud al punto de conexión de token de Azure AD y facilitar unas credenciales válidas. Puede usar el flujo de credenciales de cliente OAuth 2.0 o el flujo de concesión de código de autorización para conseguir un token con el que llamar a Graph. Para obtener más información, vea [OAuth 2.0 en Azure AD](/previous-versions/azure/dn645545(v=azure.100)).
+* **Autorización basada en roles (RBAC)** : En Azure AD Graph API se usan grupos de seguridad para llevar a cabo la RBAC. Por ejemplo, si quiere saber si un usuario tiene acceso a un recurso determinado, la aplicación puede llamar a la operación [Comprobar pertenencia a grupos (transitiva)](/previous-versions/azure/ad/graph/api/functions-and-actions#checkMemberGroups) , que devuelve true o false.
+* **Consulta diferencial**: Una consulta diferencial le permite realizar el seguimiento de los cambios hechos en un directorio entre dos períodos de tiempo, sin tener que hacer consultas frecuentes a Azure AD Graph API. Este tipo de solicitud solo devolverá los cambios hechos entre la solicitud de consulta diferencial anterior y la solicitud actual. Para más información, vea [Consulta diferencial de Graph API de Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-differential-query).
+* **Extensiones de directorio**: Puede agregar propiedades personalizadas a los objetos de directorio sin necesidad de un almacén de datos externo. Por ejemplo, si su aplicación necesita una propiedad de usuario de Skype para cada usuario, puede registrar la nueva propiedad en el directorio para que esté disponible para su uso en todos los objetos de usuario. Para obtener más información, consulte [Extensiones de esquema de directorio de Graph API de Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 * **Protegido por ámbitos de permiso**: Azure AD Graph API expone los ámbitos de permiso que permiten el acceso seguro a los datos de Azure AD mediante OAuth 2.0. Admite una variedad de tipos de aplicación cliente, entre ellos:
   
   * Interfaces de usuario que reciben acceso delegado a los datos a través de una autorización del usuario con sesión iniciada (delegado).
   * Aplicaciones de servicio o demonio que funcionan en segundo plano sin un usuario que haya iniciado sesión presente y utilicen el control de acceso basado en rol definidos por la aplicación.
     
-    Tanto los permisos delegados y de aplicación representan un privilegio que se expone mediante Graph API de Azure AD, y las aplicaciones cliente pueden solicitarlos a través de las características de permisos de registro de aplicación en [Azure Portal](https://portal.azure.com). Los [ámbitos de permiso de Graph API de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes) proporcionan información sobre lo que está disponible para su uso por la aplicación cliente.
+    Tanto los permisos delegados y de aplicación representan un privilegio que se expone mediante Graph API de Azure AD, y las aplicaciones cliente pueden solicitarlos a través de las características de permisos de registro de aplicación en [Azure Portal](https://portal.azure.com). Los [ámbitos de permiso de Graph API de Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes) proporcionan información sobre lo que está disponible para su uso por la aplicación cliente.
 
 ## <a name="scenarios"></a>Escenarios
 
@@ -65,5 +65,5 @@ Graph API de Azure AD admite muchos escenarios de aplicación. Los siguientes es
 
 Para empezar a usar Azure Active Directory Graph API, consulte los temas siguientes:
 
-* [Inicio rápido para Graph API de Azure AD](active-directory-graph-api-quickstart.md)
-* [Documentación de Graph de REST de Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
+* [Inicio rápido para Graph API de Azure AD](./microsoft-graph-intro.md)
+* [Documentación de Graph de REST de Azure AD](/previous-versions/azure/ad/graph/api/api-catalog)

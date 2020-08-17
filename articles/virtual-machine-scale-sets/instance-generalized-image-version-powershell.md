@@ -1,5 +1,5 @@
 ---
-title: Creación de un conjunto de escalado a partir de una imagen generalizada
+title: Creación de un conjunto de escalado a partir de una imagen generalizada con Azure PowerShell
 description: Cree un conjunto de escalado mediante una imagen generalizada en Shared Image Gallery.
 author: cynthn
 ms.service: virtual-machine-scale-sets
@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: f61977c1c1be07ffe744608c1bf8ec5a8013f8d0
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: 3b8c9d46a5bc5dde3e39bfa5673247ca752d2a89
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82793992"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077566"
 ---
 # <a name="create-a-scale-set-from-a-generalized-image"></a>Creación de un conjunto de escalado a partir de una imagen generalizada
 

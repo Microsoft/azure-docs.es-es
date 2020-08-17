@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f209a8b1d7ba5ab4fc213e43d56c04aebc3bd410
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: d2deb59b5a10177b1a6e57046c013ec9dac0fb06
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86224271"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87010808"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual de Key Vault para Linux
 
@@ -71,7 +71,7 @@ El siguiente JSON muestra el esquema para la extensión de máquina virtual de K
 > [!NOTE]
 > Las direcciones URL de los certificados observados deben tener el formato `https://myVaultName.vault.azure.net/secrets/myCertName`.
 > 
-> Esto se debe a que la ruta de acceso `/secrets` devuelve el certificado completo, incluida la clave privada, mientras que la ruta de acceso `/certificates` no. Se puede encontrar más información sobre los certificados aquí: [Certificados de Key Vault](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates)
+> Esto se debe a que la ruta de acceso `/secrets` devuelve el certificado completo, incluida la clave privada, mientras que la ruta de acceso `/certificates` no. Se puede encontrar más información sobre los certificados aquí: [Certificados de Key Vault](../../key-vault/general/about-keys-secrets-certificates.md)
 
 > [!NOTE]
 > La propiedad "authenticationSettings" es opcional para los escenarios en los que la máquina virtual tiene varias identidades asignadas.
@@ -204,7 +204,7 @@ La CLI de Azure puede usarse para implementar la extensión de máquina virtual 
 Tenga en cuenta las restricciones y los requisitos siguientes:
 - Restricciones de Key Vault:
   - Debe existir en el momento de la implementación. 
-  - La directiva de acceso de Key Vault está establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación de Key Vault con una identidad administrada](../../key-vault/managed-identity.md).
+  - La directiva de acceso de Key Vault está establecida para la identidad de VM/VMSS mediante una identidad administrada. Consulte [Autenticación de Key Vault con una identidad administrada](../../key-vault/general/managed-identity.md).
 
 
 ## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia

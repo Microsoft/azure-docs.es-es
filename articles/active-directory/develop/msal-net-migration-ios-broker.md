@@ -11,13 +11,13 @@ ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
-ms.custom: aaddev
-ms.openlocfilehash: de259daa7fd27cc4f138c294a7f347502ca482a4
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-csharp, aaddev
+ms.openlocfilehash: bc94c7be4e3979cf9aa7624a9aeadf156cc48035
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77185823"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88166083"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Migración de aplicaciones de iOS que usan Microsoft Authenticator de ADAL.NET a MSAL.NET
 
@@ -38,7 +38,7 @@ Habilitan lo siguiente:
 
 - Inicio de sesión único.
 - Identificación del dispositivo, que requieren algunas [directivas de acceso condicional](../conditional-access/overview.md). Para más información, consulte [Administración de dispositivos](../conditional-access/concept-conditional-access-conditions.md#device-platforms).
-- Comprobación de identificación de la aplicación, que también es necesaria en algunos escenarios empresariales. Para más información, consulte [Administración de aplicaciones móviles (MAM) de Intune](https://docs.microsoft.com/intune/mam-faq).
+- Comprobación de identificación de la aplicación, que también es necesaria en algunos escenarios empresariales. Para más información, consulte [Administración de aplicaciones móviles (MAM) de Intune](/intune/mam-faq).
 
 ## <a name="migrate-from-adal-to-msal"></a>Migración de ADAL a MSAL
 
@@ -241,4 +241,4 @@ Para más información sobre cómo registrar el URI de redirección en el portal
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre las [Consideraciones específicas de Xamarin iOS con MSAL.NET](msal-net-xamarin-ios-considerations.md). 
+Obtenga información sobre las [Consideraciones específicas de Xamarin iOS con MSAL.NET](msal-net-xamarin-ios-considerations.md).

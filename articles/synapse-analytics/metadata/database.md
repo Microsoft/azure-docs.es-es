@@ -1,5 +1,5 @@
 ---
-title: Base de datos compartida de Azure Synapse Analytics
+title: Base de datos compartida
 description: Azure Synapse Analytics proporciona un modelo de metadatos compartidos donde la creación de una tabla en Apache Spark hará que sea accesible desde sus motores de SQL a petición (versión preliminar) y de grupo de SQL.
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 68919457cc045f50ebef249ced9c117fea8d6984
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: 196577741ae1560232f8ae193aacd51a446431c8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85079027"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87385541"
 ---
 # <a name="azure-synapse-analytics-shared-database"></a>Base de datos compartida de Azure Synapse Analytics
 
@@ -34,7 +34,7 @@ Use Spark para administrar las bases de datos creadas con Spark. Por ejemplo, el
 
 Si crea objetos en una base de datos creada con Spark mediante SQL a petición, o intenta anular la base de datos, la operación se realizará correctamente. Pero la base de datos original de Spark no se cambiará.
 
-## <a name="handling-of-name-conflicts"></a>Tratamiento de los conflictos de nombres
+## <a name="how-name-conflicts-are-handled"></a>Control de los conflictos de nombres
 
 Si el nombre de una base de datos de Spark entra en conflicto con el nombre de una base de datos SQL a petición existente, se anexa un sufijo a la base de datos de Spark en SQL a petición. El sufijo de SQL a petición es `_<workspace name>-ondemand-DefaultSparkConnector`.
 
@@ -57,7 +57,7 @@ Si una entidad de seguridad requiere la capacidad de crear objetos o de anular o
 
 ## <a name="examples"></a>Ejemplos
 
-### <a name="create--connect-to-spark-database---sql-on-demand"></a>Creación y conexión a la base de datos de Spark: SQL a petición
+### <a name="create-and-connect-to-spark-database-with-sql-on-demand"></a>Creación y conexión a una base de datos de Spark con SQL a petición
 
 En primer lugar, cree una nueva base de datos de Spark denominada `mytestdb` con un clúster de Spark que ya haya creado en el área de trabajo. Puede lograrlo, por ejemplo, mediante un cuaderno C# de Spark con la siguiente instrucción .NET para Spark:
 

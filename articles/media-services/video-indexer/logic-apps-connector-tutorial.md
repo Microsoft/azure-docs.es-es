@@ -1,19 +1,19 @@
 ---
 title: Tutorial de los conectores de Video Indexer con Logic Apps y Power Automate
 description: En este tutorial se muestra cómo descubrir nuevas experiencias y oportunidades de monetización de los conectores de Video Indexer con Logic Apps y Power Automate.
-author: anikaz
+author: anzaman
 manager: johndeu
-ms.author: anzaman
+ms.author: alzam
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
 ms.date: 05/01/2020
-ms.openlocfilehash: 932f52aa694c13fd3696d82872135304a4e41bdc
-ms.sourcegitcommit: c8a0fbfa74ef7d1fd4d5b2f88521c5b619eb25f8
+ms.openlocfilehash: 5f29e616c0643914ca28921eee481105a5feb0c5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82801134"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87047092"
 ---
 # <a name="tutorial-use-video-indexer-with-logic-app-and-power-automate"></a>Tutorial: Uso de Video Indexer con Logic Apps y Power Automate
 
@@ -64,7 +64,7 @@ A continuación, vaya a la acción "Crear URI de SAS por ruta de acceso" y selec
 
 ![URI de SAS por ruta de acceso](./media/logic-apps-connector-tutorial/sas-uri-by-path.jpg)
 
-Rellene [la ubicación y el identificador de la cuenta](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) para obtener el token de la cuenta de Video Indexer.
+Rellene [la ubicación y el identificador de la cuenta](./video-indexer-use-apis.md#account-id) para obtener el token de la cuenta de Video Indexer.
 
 ![Obtención del token de acceso de la cuenta](./media/logic-apps-connector-tutorial/account-access-token.png)
 
@@ -90,7 +90,7 @@ Para configurar este flujo, debe proporcionar de nuevo la clave de API de Video 
 
 En el caso del desencadenador, verá un campo de dirección URL HTTP POST. La dirección URL no se generará hasta que se guarde el flujo; sin embargo, la necesitará en el futuro. Luego volveremos a esto. 
 
-Rellene [la ubicación y el identificador de la cuenta](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-use-apis#location) para obtener el token de la cuenta de Video Indexer.  
+Rellene [la ubicación y el identificador de la cuenta](./video-indexer-use-apis.md#account-id) para obtener el token de la cuenta de Video Indexer.  
 
 Vaya a la acción "Get Video Index" (Obtener índice de vídeo) y rellene los parámetros necesarios. Como identificador de vídeo, coloque la siguiente expresión: triggerOutputs()['queries']['id']. 
 

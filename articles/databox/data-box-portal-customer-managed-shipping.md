@@ -2,18 +2,18 @@
 title: Envío autoadministrado de Microsoft Azure Data Box | Microsoft Docs en datos
 description: Describe el flujo de trabajo de envío autoadministrado para dispositivos Azure Data Box.
 services: databox
-author: priestlg
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
-ms.date: 05/20/2020
-ms.author: v-grpr
-ms.openlocfilehash: 99c7021744467484656c52cf72378c6f553c3913
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.author: alkohli
+ms.openlocfilehash: cfa2dee41f07e273d933da356f74063453cb1775
+ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84608594"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88142543"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-in-the-azure-portal"></a>Uso del envío autoadministrado para Azure Data Box en Azure Portal
 
@@ -28,6 +28,8 @@ El envío autoadministrado está disponible como opción cuando [realiza un pedi
 * Japón
 * Singapur
 * Corea del Sur
+* India
+* Sudáfrica
 
 ## <a name="use-self-managed-shipping"></a>Uso del envío autoadministrado
 

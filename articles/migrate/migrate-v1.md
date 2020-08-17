@@ -7,22 +7,22 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7c4a148d68de8c57ed9237c05ba11eaf6c5e81e3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103966"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836010"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabajar con la versión anterior de Azure Migrate
 
-En este artículo se proporciona información sobre cómo trabajar con la versión anterior de Azure Migrate.
+En este artículo se proporciona información sobre cómo trabajar con la versión anterior de Azure Migrate. 
 
 
 Existen dos versiones del servicio Azure Migrate:
 
 - **Versión actual**: use esta versión para crear proyectos de Azure Migrate, detectar máquinas locales y organizar valoraciones y migraciones. [Obtenga más información](whats-new.md) sobre las novedades de esta versión.
-- **Versión anterior**: Si usaba la versión anterior de Azure Migrate (solo se admitía la valoración de máquinas virtuales de VMware locales), ahora debería usar la versión actual. Si todavía necesita usar proyectos de Azure Migrate creados en la versión anterior, esto es lo que puede y lo que no puede hacer:
+- **Versión anterior**: Si usaba la versión anterior de Azure Migrate (solo se admitía la valoración de máquinas virtuales de VMware locales), ahora debería usar la versión actual. En este artículo, los proyectos de la versión anterior se denominan proyectos clásicos. Si todavía necesita usar proyectos de Azure Migrate creados en la versión anterior, esto es lo que puede y lo que no puede hacer:
     - Ya no puede crear proyectos de migración.
     - Recomendamos no realizar nuevas detecciones.
     - Todavía puede obtener acceso a los proyectos existentes.
@@ -31,7 +31,7 @@ Existen dos versiones del servicio Azure Migrate:
 
 ## <a name="upgrade-between-versions"></a>Actualizar entre versiones
 
-No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un nuevo proyecto de Azure Migrate](how-to-add-tool-first-time.md) y agregarle herramientas de valoración y migración.
+No se pueden actualizar proyectos ni componentes de la versión anterior a la nueva versión. Tiene que [crear un proyecto de Azure Migrate](create-manage-projects.md) y [agregarle herramientas de valoración y migración](how-to-add-tool-first-time.md). Use los tutoriales para aprender a usar las herramientas de valoración y migración disponibles. Si tiene un área de trabajo Log Analytics asociada a un proyecto clásico, puede adjuntarla a un proyecto de la versión actual después de eliminar el proyecto clásico.
 
 ## <a name="find-projects-from-previous-version"></a>Buscar proyectos desde una versión anterior
 
@@ -39,7 +39,16 @@ Busque proyectos de la versión anterior de la siguiente manera:
 
 1. En Azure Portal > **Todos los servicios**, busque y seleccione **Azure Migrate**. 
 2. En el panel de Azure Migrate, hay una notificación y un vínculo para acceder a proyectos antiguos de Azure Migrate.
-3. Haga clic en el vínculo para abrir proyectos v1.
+3. Haga clic en el vínculo para abrir proyectos clásicos.
+
+## <a name="delete-projects-from-previous-version"></a>Eliminación de proyectos de una versión anterior
+
+Busque y elimine proyectos de la versión anterior de la siguiente manera:
+
+1. En Azure Portal > **Todos los servicios**, busque y seleccione **Azure Migrate**. 
+2. En el panel de Azure Migrate, hay una notificación y un vínculo para acceder a proyectos antiguos de Azure Migrate.
+3. Haga clic en el vínculo para abrir proyectos clásicos.
+4. Seleccione el proyecto que desea eliminar y elimínelo. 
 
 
 ## <a name="create-an-assessment"></a>Crear una evaluación
@@ -92,7 +101,7 @@ La preparación tiene en cuenta varias propiedades de máquina virtual para iden
 --- | --- | ---
 **Tipo de arranque** | BIOS compatible. UEFI no compatible. | Condicionalmente preparada si el tipo de arranque es UEFI.
 **Núcleos** | Núcleos de las máquinas <= número máximo de núcleos (128) admitidos para una máquina virtual de Azure.<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta los núcleos usados.<br/>Si se especifica un factor de confort en la configuración de evaluación, el número de núcleos utilizados se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial de rendimiento, Azure Migrate usa los núcleos asignados sin aplicar el factor de confort. | Preparada si es menor o igual a los límites.
-**Memoria** | Tamaño de memoria de la máquina <= memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) para una máquina virtual de Azure. [Más información](../virtual-machines/windows/sizes.md).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria usada.<br/><br/>Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se usa la memoria asignada sin aplicar el factor de confort.<br/><br/> | Preparada si está dentro de los límites.
+**Memoria** | Tamaño de memoria de la máquina <= memoria máxima (3892 GB en Azure M serie Standard_M128m&nbsp;<sup>2</sup>) para una máquina virtual de Azure. [Más información](../virtual-machines/sizes.md).<br/><br/> Si hay algún historial de rendimiento disponible, Azure Migrate tiene en cuenta la memoria usada.<br/><br/>Si se especifica un factor de confort, la memoria utilizada se multiplica por dicho factor de confort.<br/><br/> Si no hay ningún historial, se usa la memoria asignada sin aplicar el factor de confort.<br/><br/> | Preparada si está dentro de los límites.
 **Disco de almacenamiento** | El tamaño asignado de un disco debe ser de 4 TB (4096 GB) o menos.<br/><br/> El número de discos conectados a la máquina debe ser 65 o menos, incluido el disco de sistema operativo. | Preparada si está dentro de los límites.
 **Redes** | Una máquina debe tener 32 NIC o menos conectadas. | Preparada si está dentro de los límites.
 
@@ -118,7 +127,7 @@ Cliente de Windows 7, 8 y 10 | Azure solo proporciona compatibilidad con la [sus
 Windows 10 Pro Desktop | Azure proporciona compatibilidad con [derechos de hospedaje multiinquilino.](../virtual-machines/windows/windows-desktop-multitenant-hosting-deployment.md) | Condicionalmente preparada para Azure
 Windows Vista, XP Professional | Fuera de soporte técnico. La máquina puede arrancar en Azure, pero Azure no proporciona ningún sistema operativo. | Condicionalmente preparada para Azure, se recomienda actualizar el sistema operativo antes de migrar a Azure.
 Linux | Azure aprueba estos [sistemas operativos Linux](../virtual-machines/linux/endorsed-distros.md). Otros sistemas operativos Linux pueden arrancar en Azure, pero recomendamos actualizar el sistema operativo a una versión aprobada antes de migrar a Azure. | Preparada para Azure si la versión está aprobada.<br/><br/>Condicionalmente preparada si la versión no se ha aprobado.
-Otros sistemas operativos<br/><br/> Por ejemplo, Oracle Solaris, Apple Mac OS, FreeBSD, etc. | Azure no aprueba estos sistemas operativos. La máquina puede arrancar en Azure, pero Azure no proporciona ningún sistema operativo. | Condicionalmente preparada para Azure, se recomienda instalar un sistema operativo compatible antes de migrar a Azure.  
+Otros sistemas operativos<br/><br/> Por ejemplo, Oracle Solaris, Apple macOS, FreeBSD, etc. | Azure no aprueba estos sistemas operativos. La máquina puede arrancar en Azure, pero Azure no proporciona ningún sistema operativo. | Condicionalmente preparada para Azure, se recomienda instalar un sistema operativo compatible antes de migrar a Azure.  
 Sistema operativo especificado como **otro** en vCenter Server. | Azure Migrate no puede identificar el sistema operativo en este caso. | Preparación desconocida. Asegúrese de que el sistema operativo que se ejecuta dentro de la máquina virtual se admite en Azure.
 Sistemas operativos de 32 bits | La máquina puede arrancar en Azure, pero Azure no puede proporcionar soporte técnico completo. | Condicionalmente preparada para Azure, considere la posibilidad de actualizar el sistema operativo de la máquina de un sistema operativo de 32 bits a uno de 64 bits antes de migrar a Azure.
 
@@ -201,7 +210,7 @@ Para usar la visualización de dependencias, debe asociar un área de trabajo de
 1. Para asociar un área de trabajo de Log Analytics a un proyecto, en **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en **Requiere configuración**.
 2. Puede crear una nueva área de trabajo o adjuntar una existente:
   - Para crear una nueva área de trabajo, especifique un nombre. El área de trabajo se crea en una región en la misma [ubicación geográfica de Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que el proyecto de migración.
-  - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Solo se enumeran las áreas de trabajo que se crearon en una [región donde se admite Service Map](../azure-monitor/insights/vminsights-enable-overview.md#prerequisites). Para asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
+  - Al asociar un área de trabajo existente, puede elegir entre las disponibles en la misma suscripción del proyecto de migración. Solo se enumeran las áreas de trabajo que se crearon en una [región donde se admite Service Map](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions). Para asociar un área de trabajo, asegúrese de que tiene acceso de lectura a ella.
 
 > [!NOTE]
 > No se puede cambiar el área de trabajo asociada a un proyecto de migración.
@@ -254,7 +263,7 @@ Para las máquinas supervisadas por System Center Operations Manager 2012 R2 o v
     ```sh InstallDependencyAgent-Linux64.bin```
 
 - Obtenga más información sobre la [compatibilidad de Dependency Agent](../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) para los sistemas operativos Windows y Linux.
-- [Más información](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
+- [Más información](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent) acerca de cómo puede utilizar scripts para instalar el agente de dependencia.
 
 >[!NOTE]
 > El artículo Azure Monitor para VM al que se hace referencia para proporcionar información general sobre los requisitos previos del sistema y los métodos para implementar el agente de dependencia también son aplicables a la solución Service Map.

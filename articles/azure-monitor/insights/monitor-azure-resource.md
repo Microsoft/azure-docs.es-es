@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: 727653314104ee1b2a27a1342de9824d8f303e23
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87326178"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Supervisión de recursos de Azure con Azure Monitor
 Si tiene aplicaciones y procesos empresariales críticos que dependen de recursos de Azure, querrá supervisar esos recursos para su disponibilidad, rendimiento y funcionamiento. En este artículo se describen los datos de supervisión generados por los recursos de Azure y cómo puede usar las características de Azure Monitor para analizar y alertar sobre estos datos.
@@ -96,7 +96,7 @@ Muchos servicios incluirán datos de supervisión en su página **Información g
 
 
 ### <a name="insights-and-solutions"></a>Insights y soluciones 
-Algunos servicios proporcionarán herramientas más allá de las características estándar de Azure Monitor. [Insights](../insights/insights-overview.md) proporciona una experiencia de supervisión personalizada basada en la plataforma de datos de Azure Monitor y las características estándar. Las [soluciones](../insights/solutions.md) proporcionan lógica de supervisión predefinida basada en los registros de Azure Monitor. 
+Algunos servicios proporcionarán herramientas más allá de las características estándar de Azure Monitor. [Insights](./insights-overview.md) proporciona una experiencia de supervisión personalizada basada en la plataforma de datos de Azure Monitor y las características estándar. Las [soluciones](./solutions.md) proporcionan lógica de supervisión predefinida basada en los registros de Azure Monitor. 
 
 Si un servicio tiene una conclusión de Azure Monitor, puede acceder a ella desde la opción **Supervisión** en el menú de cada recurso. Puede acceder a todas las conclusiones y las soluciones desde el menú de **Azure Monitor**.
 
@@ -164,3 +164,4 @@ Use **Alertas** en el menú de un recurso para ver alertas y administrar las reg
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Consulte [Servicios, esquemas y categorías admitidos en los registros de recursos de Azure](../platform/resource-logs-schema.md) para más información sobre los registros de recursos para los distintos servicios de Azure.  
+

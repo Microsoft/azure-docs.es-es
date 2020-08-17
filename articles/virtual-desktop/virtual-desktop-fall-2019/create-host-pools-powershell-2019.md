@@ -1,24 +1,22 @@
 ---
-title: 'Creación de un grupo de hosts de Windows Virtual Desktop con PowerShell: Azure'
-description: Cómo crear un grupo de hosts en Windows Virtual Desktop con cmdlets de PowerShell.
-services: virtual-desktop
+title: 'Creación de un grupo de hosts de Windows Virtual Desktop (clásico) con PowerShell: Azure'
+description: Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con cmdlets de PowerShell.
 author: Heidilohr
-ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79bd13deb66998c8a1acde28774b47fd567d368c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c035a7fbafe9b3a42fbd16e3f8377014010ddd49
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85204717"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88003543"
 ---
-# <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
+# <a name="create-a-host-pool-in-windows-virtual-desktop-classic-with-powershell"></a>Creación de un grupo de hosts en Windows Virtual Desktop (clásico) con PowerShell
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../create-host-pools-powershell.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../create-host-pools-powershell.md).
 
 Los grupos hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilino de Windows Virtual Desktop. Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 

@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 07/23/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f234579c6fb2b6f1bc0cd518b87ea69fae30093a
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: f5a867a00fa28dcd03842d02be16d88e3a7d2e9f
+ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74869840"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87132660"
 ---
 # <a name="unique-key-constraints-in-azure-cosmos-db"></a>Restricciones de clave únicas de Azure Cosmos DB
 
@@ -20,13 +20,13 @@ Las claves únicas agregan una capa de integridad de datos a un contenedor de Az
 
 Después de crear un contenedor con una directiva de clave única, se impide la creación de una versión nueva o actualizada de un elemento existente que dé lugar a un elemento duplicado en una partición lógica, según especifique la restricción de clave única. La clave de partición combinada con la clave única garantiza la exclusividad de un elemento dentro del ámbito del contenedor.
 
-Por ejemplo, considere un contenedor de Azure Cosmos con la dirección de correo electrónico como restricción de clave única y `CompanyID` como clave de partición. Cuando configura la dirección de correo electrónico del usuario con una clave única, cada elemento tiene una dirección de correo electrónico única dentro de un ámbito `CompanyID` determinado. No se pueden crear dos elementos con direcciones de correo electrónico duplicadas y con el mismo valor de clave de partición. 
+Por ejemplo, considere un contenedor de Azure Cosmos con la dirección de correo electrónico como restricción de clave única y `CompanyID` como clave de partición. Cuando configura la dirección de correo electrónico del usuario con una clave única, cada elemento tiene una dirección de correo electrónico única dentro de un ámbito `CompanyID` determinado. No se pueden crear dos elementos con direcciones de correo electrónico duplicadas y con el mismo valor de clave de partición. En la API de SQL (Core) de Azure Cosmos DB, los elementos se almacenan como valores JSON. Los valores JSON distinguen entre mayúsculas y minúsculas. Al elegir una propiedad como clave única, puede insertar valores que distinguen mayúsculas de minúsculas para esa propiedad. Por ejemplo, si tiene una clave única definida en la propiedad name, "Gaby" es diferente a "gaby" y se pueden insertar ambos en el contenedor.
 
 Para crear elementos con la misma dirección de correo electrónico, pero no con el mismo nombre, apellidos y dirección de correo electrónico, agregue otras rutas de acceso a la directiva de claves únicas. En lugar de crear una clave única basada solo en la dirección de correo electrónico, puede crear también una clave única con una combinación de nombre, apellido y correo electrónico. Esta clave se conoce como clave única compuesta. En este caso, se permite cada combinación única de los tres valores dentro de un ámbito `CompanyID` determinado. 
 
 Por ejemplo, el contenedor puede contener elementos con los valores siguientes, donde cada elemento respeta la restricción de clave única.
 
-|CompanyID|Nombre|Apellidos|Dirección de correo electrónico|
+|CompanyID|Nombre|Apellido|Dirección de correo electrónico|
 |---|---|---|---|
 |Contoso|Gaby|Duperre|gaby@contoso.com |
 |Contoso|Gaby|Duperre|gaby@fabrikam.com|

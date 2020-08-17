@@ -7,13 +7,13 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.custom: tracking-python
-ms.openlocfilehash: 0ab8cb56b29460911f2cfe8b711a07329ee739d6
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.custom: devx-track-python
+ms.openlocfilehash: 12c2652b4dcef46c5affde2c3fb9ef9288176eb9
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84553178"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87852266"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>Inicio rápido: Biblioteca cliente de Azure Queue Storage v12 para Python
 
@@ -29,9 +29,14 @@ Use la biblioteca cliente de Azure Queue Storage v12 para Python para realizar 
 * Eliminación de mensajes de una cola
 * Eliminación de una cola
 
-[Documentación de referencia de API](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-queue/) | [Ejemplos](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+Recursos adicionales:
 
-## <a name="prerequisites"></a>Prerrequisitos
+* [Documentación de referencia de API](https://docs.microsoft.com/python/api/azure-storage-queue/index)
+* [Código fuente de la biblioteca](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue)
+* [Paquete (índice de paquetes de Python)](https://pypi.org/project/azure-storage-queue/)
+* [Muestras](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
+
+## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción a Azure: [cree una cuenta gratuita](https://azure.microsoft.com/free/)
 * Una cuenta de Azure Storage: [cree una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

@@ -3,19 +3,17 @@ title: Administración de Azure Data Lake Analytics con Python
 description: En este artículo se describe cómo usar Python para administrar cuentas, orígenes de datos, usuarios y trabajos de Data Lake Analytics.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: matt1883
-ms.author: saveenr
-ms.reviewer: jasonwhowell
+ms.reviewer: jasonh
 ms.assetid: d4213a19-4d0f-49c9-871c-9cd6ed7cf731
 ms.topic: how-to
 ms.date: 06/08/2018
-ms.custom: tracking-python
-ms.openlocfilehash: 23c2560d44dfeaa871c88d40175d60b3b29dc1b8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-python
+ms.openlocfilehash: dd3511fefe39f51a521aa211454a49763224a6d9
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86121272"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87876247"
 ---
 # <a name="manage-azure-data-lake-analytics-using-python"></a>Administración de Azure Data Lake Analytics con Python
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]

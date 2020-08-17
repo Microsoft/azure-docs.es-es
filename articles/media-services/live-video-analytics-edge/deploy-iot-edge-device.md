@@ -3,12 +3,12 @@ title: 'Implementación de Live Video Analytics en un dispositivo IoT Edge: Azur
 description: En este artículo se enumeran los pasos que ayudarán a implementar Live Video Analytics en el dispositivo IoT Edge. Hará esto, por ejemplo, si tiene acceso a una máquina Linux local o ha creado previamente una cuenta de Azure Media Services.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eaaa793bb5b84ac4ae352f242215b8d3e7d56cf1
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: ea7a1026f42cd3d8745559bc195a89b7fbcb69a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86026974"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87074457"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implementación de Live Video Analytics en un dispositivo IoT Edge
 
@@ -18,13 +18,13 @@ En este artículo se enumeran los pasos que ayudarán a implementar Live Video A
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una máquina Linux que cumpla las restricciones de hardware y software para Live Video Analytics.
-* Suscripción de Azure en la que tenga [privilegios de propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner).
-* [Creación y configuración de IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal).
-* [Registro de un dispositivo de IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-register-device).
-* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux)
+* Suscripción de Azure en la que tenga [privilegios de propietario](../../role-based-access-control/built-in-roles.md#owner).
+* [Creación y configuración de IoT Hub](../../iot-hub/iot-hub-create-through-portal.md).
+* [Registro de un dispositivo de IoT Edge](../../iot-edge/how-to-register-device.md).
+* [Instalación del entorno de ejecución de Azure IoT Edge en sistemas Linux basados en Debian](../../iot-edge/how-to-install-iot-edge-linux.md)
 * [Creación de una cuenta de Azure Media Services](../latest/create-account-howto.md)
     * Use una de estas regiones: Este de EE. UU. 2, Centro de EE. UU., Centro-norte de EE. UU., Japón Oriental, Oeste de EE. UU. 2, Centro-oeste de EE. UU., Este de Canadá, Sur de Reino Unido, Centro de Francia, Sur de Francia, Norte de Suiza, Oeste de Suiza y Japón Occidental.
-    * Se recomienda usar cuentas de almacenamiento V2 de uso general (GPv2).
+    * Se recomienda usar cuentas de almacenamiento v2 de uso general (GPv2).
 
 ## <a name="configuring-azure-resources-for-using-live-video-analytics"></a>Configuración de recursos de Azure para usar Live Video Analytics
 
@@ -34,7 +34,7 @@ Vea [Creación de un rol personalizado de Azure Resource Manager](create-custom-
 
 ### <a name="set-up-a-premium-streaming-endpoint"></a>Configuración de un punto de conexión de streaming premium
 
-Si tiene previsto usar Live Video Analytics para grabar vídeo en la nube y, posteriormente, reproducirlo, debe actualizar el Servicio multimedia para que use un [punto de conexión de streaming premium](../latest/streaming-endpoint-concept.md#types).  
+Si tiene previsto usar Live Video Analytics para grabar vídeo continuamente en la nube y, posteriormente, usar las [API de consulta](playback-recordings-how-to.md#query-api) antes de reproducirlo, se recomienda actualizar el servicio multimedia para que use un [punto de conexión de streaming premium](../latest/streaming-endpoint-concept.md#types).  
 
 Se trata de un paso opcional. Se puede usar este comando de la CLI de Azure para ello:
 
@@ -225,7 +225,7 @@ Después de crear la implementación, regresará a la página IoT Edge de IoT Hu
 2.  En los detalles del dispositivo, compruebe que el módulo de almacenamiento de blobs aparece como **Especificado en la implementación y Notificado por el dispositivo**.
 
 Puede tardar unos minutos para que el módulo se inicie en el dispositivo y, a continuación, notifique a IoT Hub. Actualice la página para ver el estado actualizado.
-Código de estado: 200: OK significa que [el entorno de ejecución de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime) es correcto y funciona bien.
+Código de estado: 200: OK significa que [el entorno de ejecución de Azure IoT Edge](../../iot-edge/iot-edge-runtime.md) es correcto y funciona bien.
 
 ![Estado](./media/deploy-iot-edge-device/status.png)
 

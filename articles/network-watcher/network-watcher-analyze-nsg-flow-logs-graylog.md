@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 406b02ee2e9c2f4e78ce50fc7160b382b9662303
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737434"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86497121"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Administre y analice registros de flujo de grupo de seguridad de red en Azure con Network Watcher y Graylog.
 
@@ -190,7 +190,7 @@ Ahora que hemos establecido una conexión a los registros de flujo mediante Logs
 
    Una vez que se inicia la entrada, debería ver que aparece bajo la sección **Entradas locales**, como se muestra en la siguiente imagen:
 
-   ![](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
+   ![Captura de pantalla en la que se muestra la sección de entradas locales que contiene la entrada que ha iniciado.](./media/network-watcher-analyze-nsg-flow-logs-graylog/local-inputs.png)
 
    Para más información sobre las entradas de mensaje de Graylog, consulte la [documentación](https://docs.graylog.org/en/2.2/pages/sending_data.html#what-are-graylog-message-inputs).
 

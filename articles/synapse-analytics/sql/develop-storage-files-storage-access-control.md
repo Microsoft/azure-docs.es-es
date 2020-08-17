@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: b54545708d21c876fb85e1795b26c34eece005dd
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b7005954b14a9263ec074c836180853a99812dd5
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255717"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534777"
 ---
 # <a name="control-storage-account-access-for-sql-on-demand-preview"></a>Control del acceso a la cuenta de almacenamiento para SQL a petición (versión preliminar)
 
@@ -87,6 +87,11 @@ Puede usar las siguientes combinaciones de tipos de autorización y almacenamien
 | *Identidad administrada* | Compatible      | Compatible        | Compatible     |
 | *Identidad del usuario*    | Compatible      | Compatible        | Compatible     |
 
+
+> [!IMPORTANT]
+> Al acceder al almacenamiento protegido con el firewall, solo se puede usar la identidad administrada. Debe establecer [Permitir servicios de Microsoft de confianza…](../../storage/common/storage-network-security.md#trusted-microsoft-services) y [asignar un rol de Azure](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights) de manera explícita a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) para esa instancia del recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
+>
+
 ## <a name="credentials"></a>Credenciales
 
 Para consultar un archivo ubicado en Azure Storage, el punto de conexión de SQL a petición necesita una credencial que contenga la información de autenticación. Se usan dos tipos de credenciales:
@@ -109,11 +114,7 @@ Para usar las credenciales, un usuario debe tener el permiso `REFERENCES` sobre 
 GRANT REFERENCES ON CREDENTIAL::[storage_credential] TO [specific_user];
 ```
 
-Para garantizar una experiencia de paso a través de Azure AD sin interrupciones, todos los usuarios tendrán, de forma predeterminada, derecho a usar la credencial de `UserIdentity`. Esto se logra mediante una ejecución automática de la siguiente instrucción en el aprovisionamiento del área de trabajo de Azure Synapse:
-
-```sql
-GRANT REFERENCES ON CREDENTIAL::[UserIdentity] TO [public];
-```
+Para garantizar una experiencia de paso a través de Azure AD sin interrupciones, todos los usuarios tendrán, de forma predeterminada, derecho a usar la credencial de `UserIdentity`.
 
 ## <a name="server-scoped-credential"></a>Credencial con ámbito en el servidor
 
@@ -218,7 +219,7 @@ WITH (    LOCATION   = 'https://<storage_account>.dfs.core.windows.net/<containe
 
 ## <a name="examples"></a>Ejemplos
 
-**Acceso a un origen de datos disponible públicamente**
+### <a name="access-a-publicly-available-data-source"></a>**Acceso a un origen de datos disponible públicamente**
 
 Use el siguiente script para crear una tabla que tenga acceso al origen de datos disponible públicamente.
 
@@ -243,11 +244,11 @@ SELECT TOP 10 * FROM dbo.userPublicData;
 GO
 SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet',
                                 DATA_SOURCE = [mysample],
-                                FORMAT=PARQUET) as rows;
+                                FORMAT='PARQUET') as rows;
 GO
 ```
 
-**Acceso al origen de datos mediante la credencial**
+### <a name="access-a-data-source-using-credentials"></a>**Acceso a un origen de datos mediante credenciales**
 
 Modifique el script siguiente para crear una tabla externa que tenga acceso a Azure Storage mediante el token de SAS, la identidad de Azure AD del usuario o la identidad administrada del área de trabajo.
 
@@ -288,7 +289,7 @@ El usuario de la base de datos puede leer el contenido de los archivos desde el 
 ```sql
 SELECT TOP 10 * FROM dbo.userdata;
 GO
-SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT=PARQUET) as rows;
+SELECT TOP 10 * FROM OPENROWSET(BULK 'parquet/user-data/*.parquet', DATA_SOURCE = [mysample], FORMAT='PARQUET') as rows;
 GO
 ```
 

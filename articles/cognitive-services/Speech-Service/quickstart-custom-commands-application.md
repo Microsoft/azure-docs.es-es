@@ -10,26 +10,36 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: sausin
-ms.openlocfilehash: 2ea850acf0ef581ea66733b0293ba044c87bb3a0
-ms.sourcegitcommit: f98ab5af0fa17a9bba575286c588af36ff075615
+ms.openlocfilehash: 05b47a786fe845460177b66b5bd54cdb140c246e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85362149"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289422"
 ---
 # <a name="create-a-voice-assistant-using-custom-commands"></a>Creación de un asistente de voz mediante comandos personalizados
 
 En este inicio rápido, creará y probará una aplicación básica de Comandos personalizados mediante Speech Studio. También podrá acceder a esta aplicación desde una aplicación cliente de Windows. **Comandos personalizados** facilita la creación de aplicaciones de comandos de voz enriquecidas y optimizadas para las experiencias de interacción que priorizan la voz. Proporcionan una experiencia de creación unificada, un modelo de hospedaje automático y una complejidad relativamente inferior, lo que ayuda a centrarse en la creación de la mejor solución para sus escenarios de comandos de voz.
 
+## <a name="region-availability"></a>Disponibilidad regional
+En este momento, los Comandos personalizados admiten suscripciones de Voz creadas en estas regiones:
+* Oeste de EE. UU.
+* Oeste de EE. UU. 2
+* Este de EE. UU.
+* Este de EE. UU. 2
+* Norte de Europa
+* Oeste de Europa
+* Centro-Oeste de EE. UU.
+* Centro de la India
+* Este de Asia
+* Sudeste de Asia
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 > [!div class="checklist"]
-> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Cree un recurso de Voz de Azure en una región que admita Comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+> * <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices" target="_blank">Cree un recurso de Voz de Azure en una región que admita Comandos personalizados.<span class="docon docon-navigate-external x-hidden-focus"></span></a> Consulte la sección **Disponibilidad regional** anterior para ver una lista de las regiones compatibles.
 > * Descargue el archivo JSON de ejemplo [Smart Room Lite](https://aka.ms/speech/cc-quickstart).
 > * Descargue la versión más reciente del [cliente de asistente de voz de Windows](https://aka.ms/speech/va-samples-wvac).
-
-> [!NOTE]
-> En este momento, Comandos personalizados solo admite suscripciones de voz en las regiones westus, westus2 y northeurope.
 
 ## <a name="go-to-the-speech-studio-for-custom-commands"></a>Navegación a Speech Studio para los comandos personalizados
 

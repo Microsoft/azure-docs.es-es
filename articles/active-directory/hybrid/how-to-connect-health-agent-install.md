@@ -16,12 +16,12 @@ ms.topic: how-to
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86e7f1fc18738eef39f8ec29da8763b862cdcc2b
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: c709fca3fbddb6fc16699052c5f01d1255c79dd8
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849966"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542100"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalación del agente de Azure AD Connect Health
 
@@ -34,7 +34,7 @@ En la tabla siguiente hay una lista de requisitos para utilizar Azure AD Connect
 | Requisito | Descripción |
 | --- | --- |
 | Azure AD Premium |Azure AD Connect Health es una característica de Azure AD Premium y, por tanto, requiere Azure AD Premium. <br /><br />Para más información, consulte [Introducción a Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md). <br />Para iniciar una evaluación gratuita de 30 días, consulte cómo [iniciar una evaluación](https://azure.microsoft.com/trial/get-started-active-directory/). |
-| Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health |De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para más información, consulte [Administración del directorio de Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> El uso de control de acceso basado en rol puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte cómo usar el [control de acceso basado en rol para Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). <br /><br />**Importante:** la cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa. No puede ser una cuenta Microsoft. Para más información, consulte [Inicio de sesión en Azure como una organización](../fundamentals/sign-up-organization.md). |
+| Debe ser un administrador global de su entorno de Azure AD para empezar a trabajar con Azure AD Connect Health |De forma predeterminada, solo los administradores globales pueden instalar y configurar los agentes de mantenimiento para empezar, acceder al portal y realizar operaciones en Azure AD Connect Health. Para más información, consulte [Administración del directorio de Azure AD](../fundamentals/active-directory-administer.md). <br /><br /> Con el control de acceso basado en rol de Azure (RBAC de Azure) puede permitir que otros usuarios de la organización accedan a Azure AD Connect Health. Para más información, consulte [Control de acceso basado en rol de Azure (RBAC de Azure) para Azure AD Connect Health](how-to-connect-health-operations.md#manage-access-with-role-based-access-control). <br /><br />**Importante:** la cuenta que utilice al instalar los agentes debe ser una cuenta profesional o educativa. No puede ser una cuenta Microsoft. Para más información, consulte [Inicio de sesión en Azure como una organización](../fundamentals/sign-up-organization.md). |
 | El agente de Azure AD Connect Health está instalado en cada servidor de destino. | Azure AD Connect Health requiere que se instalen y configuren agentes de mantenimiento en servidores de destino para recibir los datos y proporcionar las funcionalidades de supervisión y análisis. <br /><br />Por ejemplo, para obtener datos sobre su infraestructura de AD FS, el agente se debe instalar en los servidores proxy de AD FS y en los servidores proxy de aplicación web. De igual manera, para obtener datos sobre su infraestructura local de AD DS, el agente se debe instalar en los controladores de dominio. <br /><br /> |
 | Conectividad saliente a los extremos del servicio de Azure | Durante la instalación y el tiempo de ejecución, el agente requiere conectividad a los puntos de conexión del servicio de Azure AD Connect Health. Si la conectividad de salida está bloqueada mediante firewalls, asegúrese de agregar los siguientes puntos de conexión a la lista de elementos permitidos: Vea la sección sobre [conectividad de salida (puntos de conexión)](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Conectividad saliente basada en direcciones IP | Para el filtrado basado en direcciones IP en los firewalls, consulte los [intervalos de IP de Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
@@ -154,6 +154,7 @@ Para que la característica Análisis de uso pueda recopilar y analizar datos, e
 7. En el panel **Acciones**, haga clic en **Editar propiedades del servicio de federación**.
 8. En el cuadro de diálogo **Propiedades del servicio de federación**, haga clic en la pestaña **Eventos**.
 9. Active las casillas **Auditorías de aciertos y Auditorías de errores** y luego haga clic en **Aceptar**.
+10. El registro detallado se puede habilitar mediante PowerShell con el comando: ```Set-AdfsProperties -LOGLevel Verbose```.
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Para habilitar la auditoría de AD FS en Windows Server 2016
 
@@ -294,7 +295,7 @@ Después de instalar el ejecutable setup.exe del agente adecuado, puede realizar
 Estos comandos aceptan "Credential" como parámetro para completar el registro de forma no interactiva o en una máquina de Server Core.
 * El elemento Credential puede capturarse en una variable de PowerShell que se pasa como un parámetro.
 * Puede proporcionar cualquier identidad de Azure AD a la que tenga acceso para registrar los agentes y que no tenga MFA habilitado.
-* De forma predeterminada los administradores globales tienen acceso para realizar el registro del agente. También puede permitir otras identidades con menos privilegios para realizar este paso. Más información sobre el [control de acceso basado en rol](how-to-connect-health-operations.md#manage-access-with-role-based-access-control).
+* De forma predeterminada los administradores globales tienen acceso para realizar el registro del agente. También puede permitir otras identidades con menos privilegios para realizar este paso. Más información sobre el [Control de acceso basado en rol de Azure (RBAC de Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control).
 
 ```powershell
     $cred = Get-Credential
@@ -374,7 +375,7 @@ Get-AzureAdConnectHealthProxySettings
 
 Pueden surgir problemas que hagan que el agente de Azure AD Connect Health pierda la conectividad con el servicio Azure AD Connect Health, por ejemplo, problemas de red, problemas de permisos o de otro tipo.
 
-Si el agente no puede enviar datos al servicio Azure AD Connect Health durante más de dos horas, aparecerá la siguiente alerta en el portal: "Los datos del Servicio de mantenimiento no están actualizados". Puede confirmar si el agente de Azure AD Connect Health es capaz de cargar datos en el servicio de Azure AD Connect Health ejecutando el siguiente comando de PowerShell:
+Si el agente no puede enviar datos al servicio Azure AD Connect Health durante más de dos horas, aparecerá la siguiente alerta en el portal: "Los datos del servicio de mantenimiento no están actualizados". Puede confirmar si el agente de Azure AD Connect Health es capaz de cargar datos en el servicio de Azure AD Connect Health ejecutando el siguiente comando de PowerShell:
 
 ```powershell
 Test-AzureADConnectHealthConnectivity -Role ADFS

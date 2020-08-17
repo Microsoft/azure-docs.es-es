@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1a8023a700e83892fae9a16bb2bfbe2a2eb0b307
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b1fe78ac00b57d7627a64970e84ae8b717ae5c3
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85193420"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501923"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Protección del área de trabajo de Synapse (versión preliminar)
 
@@ -82,7 +82,7 @@ En Azure Portal, cree un área de trabajo de Synapse:
   - Asigne **WS1\_SparkAdmins** a los administradores de Spark de Synapse.
   - Asigne **WS1\_SQLAdmins** a los administradores de SQL de Synapse.
 
-## <a name="step-4-configuring-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASO 4: Configuración de Data Lake Storage Gen2 para su uso en el área de trabajo de Synapse
+## <a name="step-4-configure-data-lake-storage-gen2-for-use-by-synapse-workspace"></a>PASO 4: Configuración de Data Lake Storage Gen2 para que lo use el área de trabajo de Synapse
 
 El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar canalizaciones y realizar tareas del sistema.
 
@@ -100,7 +100,7 @@ El área de trabajo de Synapse necesita acceso a STG1 y CNT1 para que ejecutar c
 - En **Configuración**, haga clic en **SQL Active Directory admin** (Administrador de SQL Active Directory).
 - Haga clic en **Establecer administrador** y seleccione WS1\_SQLAdmins.
 
-## <a name="step-6-maintaining-access-control"></a>PASO 6: Mantenimiento al control de acceso
+## <a name="step-6-maintain-access-control"></a>PASO 6: Mantenimiento del control de acceso
 
 La configuración se ha finalizado.
 
@@ -112,7 +112,7 @@ Aunque puede asignar los usuarios manualmente a los roles de Synapse, al hacerlo
 
 Los usuarios de cada rol deben completar los siguientes pasos:
 
-|   | Paso | Administradores de áreas de trabajo | Administradores de Spark | Administradores de SQL |
+| Number | Paso | Administradores de áreas de trabajo | Administradores de Spark | Administradores de SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Cargar un archivo Parquet en CNT1 | SÍ | SÍ | SÍ |
 | 2 | Leer el archivo Parquet mediante SQL a petición | SÍ | No | SÍ |

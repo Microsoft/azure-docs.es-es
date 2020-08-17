@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.openlocfilehash: d997c6d4eae93290cbb1e4cafe6c7ad662a65933
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c12cfc21668a13586d94089a7049f6f0d6066d7
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85336864"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87336929"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integración y entrega continuas en Azure Data Factory
 
@@ -49,7 +49,7 @@ Aquí se muestra una descripción general de ejemplo del ciclo de vida de CI/CD 
 
 1.  Después de que la solicitud de incorporación de cambios se haya aprobado y los cambios se hayan combinado en la rama maestra, los cambios se publican en la fábrica de desarrollo.
 
-1.  Cuando el equipo está listo para implementar los cambios en una fábrica de pruebas o UAT, se dirige a su versión de Azure Pipelines e implementa la versión deseada de la fábrica de desarrollo en UAT. Esta implementación tiene lugar como parte de una tarea de Azure Pipelines y usa los parámetros de plantilla de Resource Manager para aplicar la configuración adecuada.
+1.  Cuando el equipo está listo para implementar los cambios en una fábrica UAT (pruebas de aceptación de usuario), se dirige a su versión de Azure Pipelines e implementa la versión deseada de la fábrica de desarrollo en UAT. Esta implementación tiene lugar como parte de una tarea de Azure Pipelines y usa los parámetros de plantilla de Resource Manager para aplicar la configuración adecuada.
 
 1.  Una vez comprobados los cambios en la fábrica de pruebas, realice la implementación en la fábrica de producción mediante la siguiente tarea de versión de canalizaciones.
 

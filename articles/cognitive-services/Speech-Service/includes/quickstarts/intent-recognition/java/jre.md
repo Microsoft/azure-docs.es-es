@@ -6,12 +6,12 @@ ms.date: 04/04/2020
 ms.topic: include
 ms.author: trbye
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 58f771120c5c81e27751af66b64e146c79bb6508
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 26b3b3bd061d3ec7c3efd5c613c5beec33867022
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81422240"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87298816"
 ---
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -68,6 +68,8 @@ Inserte este código debajo de `IntentRecognizer`. Asegúrese de reemplazar `"Yo
 > Si necesita ayuda para encontrar este valor, consulte [Creación de una aplicación de LUIS para el reconocimiento de la intención](#create-a-luis-app-for-intent-recognition).
 
 [!code-java[](~/samples-cognitive-services-speech-sdk/quickstart/java/jre/intent-recognition/src/speechsdk/quickstart/Main.java?range=33-35)]
+
+En este ejemplo se usa la función `addIntent()` para agregar intenciones individualmente. Si desea agregar todas las intenciones de un modelo, use `addAllIntents(model)` y pase el modelo.
 
 ## <a name="recognize-an-intent"></a>Reconocimiento de una intención
 

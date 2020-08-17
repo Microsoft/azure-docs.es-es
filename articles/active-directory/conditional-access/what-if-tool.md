@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30d9ca806a7ddaf7d6ba657d8224d312a6aae33b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
+ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253144"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88032890"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solución de problemas con la herramienta What If en el acceso condicional
 
@@ -76,7 +76,7 @@ Esta configuración imita la [condición de plataformas de dispositivo](concept-
 
 ### <a name="client-apps"></a>Aplicaciones cliente
 
-Esta configuración imita la [condición de aplicaciones cliente](concept-conditional-access-conditions.md#client-apps-preview).
+Esta configuración imita la [condición de aplicaciones cliente](concept-conditional-access-conditions.md#client-apps).
 De manera predeterminada, esta configuración genera una evaluación de todas las directivas con las opciones **Explorador** o **Aplicaciones móviles y clientes de escritorio** seleccionadas en conjunto o de manera individual. También detecta las directivas que aplican **Exchange ActiveSync (EAS)** . Para restringir esta configuración, seleccione:
 
 - **Explorador** para evaluar todas las directivas que tienen seleccionada al menos la opción **Explorador**. 

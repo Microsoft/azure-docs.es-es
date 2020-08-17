@@ -5,14 +5,14 @@ author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 08/06/2020
 ms.author: banders
-ms.openlocfilehash: 9979ced6d5bd71dd1a42d19c222111a76ed18428
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: b8e4c4188b0a3b862715a2e4eec2f31dd3f55ac9
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200238"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87902072"
 ---
 # <a name="azure-software-plan-discount"></a>Descuento del plan de software de Azure
 
@@ -98,37 +98,11 @@ Nombres de marketplace de Azure Portal:
 |SLES for SAP Prioritaria (3-4 vCPU) |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
 |SLES for SAP Prioritaria (más de 5 vCPU) |18ae79cd-dfce-48c9-897b-ebd3053c6058|2,41176|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-priority"></a>SUSE Linux Enterprise Server Prioritaria
-
-Nombres de marketplace de Azure Portal:
-
-- SLES 15 (Prioritaria)
-- SLES 12 SP3 (Prioritaria)
-- SLES 11 SP4 (Prioritaria)
-
-|VM SUSE | Id. del medidor | Relación|Tamaño de VM de ejemplo|
-| ------- |------------------------| --- |--- |
-|SLES 1 vCPU|462cd632-ec6b-4663-b79f-39715f4e8b38|1|B1ms|
-|SLES 2-4 vCPU |924bee71-5eb8-424f-83ed-a58823c33908|2|D4s_v3|
-|SLES 2-4 vCPU |60b3ae9d-e77a-46b2-9cdf-92fa87407969|2|D4s_v3|
-|SLES 6 vCPU |e8862232-6131-4dbe-bde4-e2ae383afc6f|3||
-|SLES 8 vCPU |e11331a8-fd32-4e71-b60e-4de2a818c67a|3.2|D8s_v3|
-|SLES 12 núcleos/vCPU |a5afd00d-d3ef-4bcd-8b42-f158b2799782|3.2||
-|SLES 16 vCPU |bb21066f-fe46-46d3-8006-b326b1663e52|3.2| D16s_v3|
-|SLES 20 vCPU |c5228804-1de6-4bd4-a61c-501d9003acc8|3.2| |
-|SLES 24 núcleos/vCPU |-005d-4075-ac11-822ccde9e8f6|3.2| ND24s|
-|SLES 32 vCPU |180c1a0a-b0a5-4de3-a032-f92925a4bf90|3.2| D32s_v3|
-|SLES 40 núcleos/vCPU |a161d3d3-0592-4956-9b64-6829678b6506|3.2||
-|SLES 64 vCPU |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2| D64s_v3|
-|SLES 72 núcleos/vCPU |93329a72-24d7-4faa-93d9-203f367ed334|3.2|F72s_v2|
-|SLES 96 núcleos/vCPU |2018c3a8-ff13-41f8-b64d-9558c5206547|3.2||
-|SLES 128 núcleos/vCPU |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128ms|
-
 ### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server Estándar
 
 Nombres de marketplace de Azure Portal:
 
-- SLES 15
+- SLES 15
 - SLES 15 (Estándar)
 - SLES 12 SP3 (Estándar)
 

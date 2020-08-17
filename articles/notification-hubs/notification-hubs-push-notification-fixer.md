@@ -16,12 +16,12 @@ ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 3bad65dbecd6e4a7d9bcb7fbdee6faafc31ead86
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77657590"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87078021"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Diagnóstico de notificaciones eliminadas en Azure Notification Hubs
 
@@ -104,7 +104,7 @@ Cada lote se envía al servicio de notificaciones push que, a su vez, acepta y v
 
 En este caso, el registro de errores se quita de la base de datos. A continuación, volvemos a intentar la entrega de notificaciones para el resto de los dispositivos de ese lote.
 
-Para obtener más información del error del intento de entrega erróneo en un registro, pude usar las API REST de Notification Hubs: [Telemetría por mensaje: Obtención de telemetría de mensaje de notificación](https://docs.microsoft.com/rest/api/notificationhubs/get-notification-message-telemetry) y [Comentarios de PNS](https://msdn.microsoft.com/library/azure/mt705560.aspx). Para ver un ejemplo de código, consulte el [ejemplo de REST de envío](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
+Para obtener más información del error del intento de entrega erróneo en un registro, pude usar las API REST de Notification Hubs: [Telemetría por mensaje: Obtención de telemetría de mensaje de notificación](/rest/api/notificationhubs/get-notification-message-telemetry) y [Comentarios de PNS](/previous-versions/azure/reference/mt705560(v=azure.100)). Para ver un ejemplo de código, consulte el [ejemplo de REST de envío](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/SendRestExample/).
 
 ## <a name="push-notification-service-issues"></a>Problemas del servicio de notificaciones push
 
@@ -126,7 +126,7 @@ Estas son rutas de acceso para diagnosticar la causa principal de las notificaci
 
 #### <a name="push-notification-service-developer-portal"></a>Portal para desarrolladores del servicio de notificaciones push
 
-Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification).
+Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte el [Tutorial: Envío de notificaciones a aplicaciones de Plataforma universal de Windows mediante Azure Notification Hubs](./notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
 #### <a name="azure-portal"></a>Portal de Azure
 
@@ -163,7 +163,7 @@ Puede usar la página **Envío de prueba** para enviar un mensaje de notificaci�
 ![Visual Studio: Envío de prueba](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
-> Use Visual Studio para editar registros solo durante las pruebas o el desarrollo, y con un número limitado de registros. Si necesita modificar sus registros en bloque, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Procedimiento: exportar y modificar registros en bloque](https://msdn.microsoft.com/library/dn790624.aspx).
+> Use Visual Studio para editar registros solo durante las pruebas o el desarrollo, y con un número limitado de registros. Si necesita modificar sus registros en bloque, considere la posibilidad de usar la función para exportar o importar registros que se describe en [Procedimiento: exportar y modificar registros en bloque](/previous-versions/azure/azure-services/dn790624(v=azure.100)).
 
 #### <a name="service-bus-explorer"></a>Explorador de Service Bus
 
@@ -185,7 +185,7 @@ También puede enviar notificaciones de prueba desde Visual Studio.
 
 Para más información acerca del uso de Notification Hubs con el Explorador de servidores de Visual Studio, consulte estos artículos:
 
-* [Cómo ver los registros de dispositivos de los centros de notificaciones](https://docs.microsoft.com/previous-versions/windows/apps/dn792122(v=win.10))
+* [Cómo ver los registros de dispositivos de los centros de notificaciones](/previous-versions/windows/apps/dn792122(v=win.10))
 * [En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
 * [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4] (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 
@@ -266,7 +266,7 @@ En el portal, puede obtener una rápida introducción de toda la actividad que t
 
 #### <a name="programmatic-access"></a>Acceso mediante programación
 
-Para más información sobre el acceso mediante programación, consulte [Acceso mediante programación](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100)).
+Para más información sobre el acceso mediante programación, consulte [Acceso mediante programación](/previous-versions/azure/azure-services/dn458823(v=azure.100)).
 
 > [!NOTE]
 > Varias características relacionadas con la telemetría, como la exportación e importación de registros y el acceso a la telemetría a través de API, solo están disponibles en el nivel de servicio Estándar. Si intenta usar estas características del nivel de servicio Gratis o Básico, recibirá un mensaje de excepción si usa el SDK. Si usa las características directamente desde las API REST, recibirá un error HTTP 403 (Prohibido).
@@ -288,13 +288,13 @@ Para más información sobre el acceso mediante programación, consulte [Acceso 
 <!-- LINKS -->
 [Introducción a Notification Hubs]: notification-hubs-push-notification-overview.md
 [Introducción a Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
-[Templates]: https://msdn.microsoft.com/library/dn530748.aspx (Plantillas [C++])
+[Templates]: /previous-versions/azure/azure-services/dn530748(v=azure.100) (Plantillas [C++])
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html (Introducción a Apple Push Notification Service)
 [Acerca de los mensajes de FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
-[Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
+[Export and modify registrations in bulk]: /previous-versions/azure/azure-services/dn790624(v=azure.100)
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[View device registrations for notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[View device registrations for notification hubs]: /previous-versions/windows/apps/dn792122(v=win.10)
 [En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
 [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
-[EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
-[Programmatic telemetry access]: https://msdn.microsoft.com/library/azure/dn458823.aspx
+[EnableTestSend]: /dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
+[Programmatic telemetry access]: /previous-versions/azure/azure-services/dn458823(v=azure.100)

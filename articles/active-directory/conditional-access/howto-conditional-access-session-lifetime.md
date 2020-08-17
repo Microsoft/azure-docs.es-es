@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf89864eb6e52baf925f82aa590619d7cfeabb2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85552108"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874782"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Configuración de la administración de las sesiones de autenticación con el acceso condicional
 
@@ -106,8 +106,6 @@ El acceso condicional es una funcionalidad de Azure AD Premium y requiere una l
 ![Directiva de acceso condicional configurada para la frecuencia de inicio de sesión](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
 
 En los dispositivos de Windows registrados en Azure AD, el inicio de sesión en el dispositivo se considera un aviso. Por ejemplo, si ha configurado la frecuencia de inicio de sesión a 24 horas para aplicaciones de Office, los usuarios de dispositivos de Windows registrados en Azure AD cumplirán la directiva de frecuencia de inicio de sesión por medio del inicio de sesión en el dispositivo, y no se les volverá a preguntar cuando abran las aplicaciones de Office.
-
-Si ha configurado una frecuencia de inicio de sesión diferente para distintas aplicaciones web que se ejecutan en la misma sesión del navegador, se aplicará la directiva más estricta a ambas aplicaciones porque todas las aplicaciones que se ejecutan en la misma sesión del explorador comparten un único token de sesión.
 
 ### <a name="policy-2-persistent-browser-session"></a>Directiva 2: Sesión del explorador persistente
 

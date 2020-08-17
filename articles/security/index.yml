@@ -4,7 +4,7 @@ summary: La seguridad se integra en todos los aspectos de Azure. Azure le ofrece
 brand: azure
 metadata:
   title: Documentación de Azure Security Center
-  description: La seguridad se integra en todos los aspectos de Azure. Azure le ofrece unas ventajas exclusivas en seguridad que se derivan de una inteligencia global de seguridad, unos sofisticados controles orientados al cliente y una infraestructura segura reforzada. Esta potente combinación le ayuda a proteger sus datos y aplicaciones, viene en ayuda de sus esfuerzos en cumplimiento normativo y proporciona una seguridad rentable para organizaciones de todos los tamaños.
+  description: Información acerca de la seguridad en Azure. Vea información sobre los fundamentos de seguridad, los procedimientos recomendados y los patrones, y Azure Security Center.
   services: security
   ms.service: security
   ms.subservice: na
@@ -14,12 +14,12 @@ metadata:
   ms.author: terrylan
   manager: rkarlin
   ms.date: 08/29/2019
-  ms.openlocfilehash: b3c5fb0dd15c1211132e627b507aa20a043f09ba
-  ms.sourcegitcommit: fb23286d4769442631079c7ed5da1ed14afdd5fc
+  ms.openlocfilehash: de2b3baae0ab999c0e3eb8ed76194632e7b066e6
+  ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 04/10/2020
-  ms.locfileid: "81115356"
+  ms.lasthandoff: 08/03/2020
+  ms.locfileid: "87540859"
 highlightedContent:
   items:
   - title: Introducción a la seguridad de Azure

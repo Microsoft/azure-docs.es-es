@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: iainfou
-ms.openlocfilehash: 4f1f6c60ef2e0ccdd3e166e2272fe917ead3ed2e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6266248b817485562c7ed2643b3dda5f32cecc53
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84735054"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87489680"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Conceptos de administración para cuentas de usuario, contraseñas y administración en Azure Active Directory Domain Services
 
@@ -70,7 +70,7 @@ En Azure AD DS, el bosque solo contiene un dominio. Los bosques de entornos de
 
 De forma predeterminada, un dominio administrado se crea como un bosque de *usuario*. Este tipo de bosque sincroniza todos los objetos de Azure AD, incluidas las cuentas de usuario creadas en un entorno de AD DS local. Las cuentas de usuario se pueden autenticar directamente en el dominio administrado, por ejemplo, para iniciar sesión en una máquina virtual unida a un dominio. Un bosque de usuarios funciona cuando se pueden sincronizar los hash de contraseña y los usuarios no usan métodos de inicio de sesión exclusivos, como la autenticación de tarjeta inteligente.
 
-En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional que procede del entorno de AD DS local. En esta estrategia, los objetos y hash de contraseña de los usuarios no se sincronizan con Azure AD DS. Los objetos y las credenciales de usuario solo existen en el entorno de AD DS local. Esto permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, y que se olviden todos los problemas o las preocupaciones de autenticación. Los bosques de recursos de Azure AD DS están actualmente en versión preliminar.
+En un bosque de *recursos* de Azure AD DS, los usuarios se autentican a través de una *confianza* de bosque unidireccional que procede del entorno de AD DS local. En esta estrategia, los objetos y hash de contraseña de los usuarios no se sincronizan con Azure AD DS. Los objetos y las credenciales de usuario solo existen en el entorno de AD DS local. Esto permite que las empresas hospeden en Azure recursos y plataformas de aplicaciones que dependen de la autenticación clásica, como LDAPS, Kerberos o NTLM, y que se olviden todos los problemas o las preocupaciones de autenticación.
 
 Para obtener más información sobre los tipos de bosque de Azure AD DS, consulte [¿Qué son los bosques de recursos?][concepts-forest] y [¿Cómo funcionan las confianzas de bosque en Azure AD DS?][concepts-trust]
 
@@ -102,7 +102,7 @@ A medida que el nivel de SKU aumente, lo hará también la frecuencia con la que
 
 ### <a name="outbound-forest-trusts"></a>Confianzas entre bosques de salida
 
-En la sección anterior, se detallan las relaciones de confianza unidireccionales de bosques de salida entre un dominio administrado y un entorno de AD DS local (actualmente en versión preliminar). La SKU determina el número máximo de relaciones de confianza entre bosques que puede crear para un dominio administrado. Analice los requisitos del negocio y la aplicación para determinar cuántas relaciones de confianza necesita realmente y elija la SKU de Azure AD DS adecuada. Como siempre, si los requisitos del negocio cambian y necesita crear otras relaciones de confianza entre bosques, puede cambiar a una SKU diferente.
+En la sección anterior, vimos las relaciones de confianza de bosques de salida unidireccionales entre un dominio administrado y un entorno de AD DS local. La SKU determina el número máximo de relaciones de confianza entre bosques que puede crear para un dominio administrado. Analice los requisitos del negocio y la aplicación para determinar cuántas relaciones de confianza necesita realmente y elija la SKU de Azure AD DS adecuada. Como siempre, si los requisitos del negocio cambian y necesita crear otras relaciones de confianza entre bosques, puede cambiar a una SKU diferente.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

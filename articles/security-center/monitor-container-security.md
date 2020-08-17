@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 76bf38c9d15e977b39922fdfbc7d30f533707cda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85801383"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87038621"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Supervisión de la seguridad de los contenedores
 
@@ -36,13 +36,11 @@ En esta página se explica cómo usar las características de seguridad del cont
 
 1. Para desencadenar el examen de una imagen, insértela en el repositorio. 
 
-    Cuando finaliza el examen (al cabo de 10 minutos aproximadamente), los resultados están disponibles en las recomendaciones de Security Center.
-    
+    Cuando finaliza el examen (al cabo de 2 minutos aproximadamente, aunque puede tardar hasta 15 minutos), los resultados están disponibles en recomendaciones de Security Center como esta:
 
 1. Para ver los resultados, vaya a la página **Recomendaciones**. Si se detectan problemas, verá la siguiente recomendación:
 
     ![Recomendación para corregir problemas ](media/monitor-container-security/acr-finding.png)
-
 
 1. Seleccione la recomendación. 
     Se abre la página de detalles de la recomendación con información adicional. Esta información incluye la lista de registros con imágenes vulnerables ("recursos afectados") y los pasos de corrección. 

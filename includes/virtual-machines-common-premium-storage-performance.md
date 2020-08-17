@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e10d1d5aa5b45c0ea0e31df4d5d847f8541838b9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 60053f24aa4231f1100d0b00cb6cf70b851b1939
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86218192"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86526048"
 ---
 ## <a name="application-performance-indicators"></a>Indicadores del rendimiento de las aplicaciones
 
@@ -138,7 +138,7 @@ Para obtener más información sobre los tamaños de máquina virtual y la IOPS,
 Una solicitud de E/S es una unidad de operación de entrada y salida que la aplicación va a realizar. La identificación de la naturaleza de las solicitudes de E/S, aleatorias o secuenciales, lectura o escritura, pequeñas o grandes, ayudará a determinar los requisitos de rendimiento de la aplicación. Es importante comprender la naturaleza de las solicitudes de E/S para tomar las decisiones correctas al diseñar la infraestructura de las aplicaciones. IOs se debe distribuir uniformemente para lograr el mejor rendimiento posible.
 
 El tamaño de E/S es uno de los factores más importantes. El tamaño de E/S es el tamaño de la solicitud de operación de entrada/salida generada por la aplicación. El tamaño de E/S tiene una repercusión considerable en el rendimiento, especialmente en la IOPS y el ancho de banda que la aplicación es capaz de lograr. La fórmula siguiente muestra la relación entre IOPS, tamaño de E/S y ancho de banda y rendimiento.  
-    ![](media/premium-storage-performance/image1.png)
+    ![Un diagrama que muestra la ecuación de IOPS multiplicado por el tamaño de IO es igual al rendimiento.](media/premium-storage-performance/image1.png)
 
 Algunas aplicaciones permiten modificar su tamaño de E/S, mientras que otras aplicaciones no lo permiten. Por ejemplo, SQL Server determina el tamaño de E/S óptimo en sí; no proporciona a los usuarios ningún botón para cambiarlo. Por otro lado, Oracle proporciona un parámetro llamado [DB\_BLOCK\_SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) con el que puede configurar el tamaño de la solicitud de E/S de la base de datos.
 
@@ -371,13 +371,13 @@ Por ejemplo, en SQL Server, si se establece el valor de MAXDOP en una consulta e
 
 *Profundidad de la cola óptima*  
 Un valor de profundidad de la cola muy alto también tiene sus inconvenientes. Si el valor de profundidad de la cola es demasiado alto, la aplicación intentará manejar una IOPS muy alta. A menos que la aplicación tiene discos persistentes con suficientes IOPS aprovisionada, esto puede afectar negativamente a las latencias de la aplicación. La siguiente fórmula muestra la relación entre la E/S por segundo, la latencia y la profundidad de la cola.  
-    ![](media/premium-storage-performance/image6.png)
+    ![Un diagrama que muestra la ecuación de IOPS multiplicado por la latencia es igual a la profundidad de la cola.](media/premium-storage-performance/image6.png)
 
 No debe configurar la profundidad de la cola en cualquier valor alto, sino en un valor óptimo, que puede ofrecer suficientes IOPS para la aplicación sin afectar a las latencias. Por ejemplo, si la latencia de la aplicación debe ser 1 milisegundo, la profundidad de la cola necesaria para lograr 5.000 IOPS es QD = 5000 x 0,001 = 5.
 
 *Profundidad de la cola para un volumen seccionado*  
 Para un volumen seccionado, mantenga una profundidad de la cola lo suficientemente alta para que cada disco tenga una profundidad de la cola máxima individual. Por ejemplo, imagine una aplicación que inserta una profundidad de cola de 2 y hay cuatro discos en la franja. Las dos solicitudes de E/S irán a dos discos y los dos discos restantes estarán inactivos. Por lo tanto, configure la profundidad de la cola de modo que todos los discos puedan estar ocupados. La siguiente fórmula muestra cómo determinar la profundidad de la cola de volúmenes seccionados.  
-    ![](media/premium-storage-performance/image7.png)
+    ![Un diagrama que muestra la ecuación de profundidad de la cola por disco multiplicado por el número de columnas por volumen es igual a la profundidad de la cola del volumen seleccionado.](media/premium-storage-performance/image7.png)
 
 ## <a name="throttling"></a>Limitaciones
 

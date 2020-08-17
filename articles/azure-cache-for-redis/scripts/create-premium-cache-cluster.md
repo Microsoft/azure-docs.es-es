@@ -8,12 +8,13 @@ ms.service: cache
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 08/30/2017
-ms.openlocfilehash: 68203fe2e054f32ce5764fe4f1b07013b0806104
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: ad29c7d12428d8f010017f9ef3a66cecb82db43a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75411142"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502841"
 ---
 # <a name="create-a-premium-azure-cache-for-redis-with-clustering"></a>Creación de una instancia de Azure Cache for Redis de nivel Premium con agrupación en clústeres
 

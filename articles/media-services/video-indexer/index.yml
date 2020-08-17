@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Información acerca de Video Indexer de Azure Media Services
-summary: Video Indexer de Azure Media Services es una aplicación en la nube creada sobre Azure Media Analytics, Azure Cognitive Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y el servicio Habla personalizada). Permite extraer conclusiones de los vídeos con los modelos de vídeo y audio de Video Indexer.
+summary: Video Indexer de Azure Media Services es una aplicación en la nube creada sobre Azure Media Analytics, Azure Cognitive Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y Custom Speech Service). Permite extraer conclusiones de los vídeos con los modelos de vídeo y audio de Video Indexer.
 metadata:
   title: Documentación de Video Indexer de Azure Media Services
-  description: Video Indexer de Azure Media Services es una aplicación en la nube creada sobre Azure Media Analytics, Azure Cognitive Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y el servicio Habla personalizada). Permite extraer conclusiones de los vídeos con los modelos de vídeo y audio de Video Indexer.
+  description: Video Indexer de Azure Media Services es una aplicación en la nube creada sobre Azure Media Analytics, Azure Cognitive Search y Cognitive Services (como Face API, Microsoft Translator, Computer Vision API y Custom Speech Service). Permite extraer conclusiones de los vídeos con los modelos de vídeo y audio de Video Indexer.
   services: media-services
   ms.service: media-services
   ms.subservice: 
@@ -35,7 +35,7 @@ landingContent:
     links:
     - text: Novedades de Video Indexer
       url: release-notes.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:

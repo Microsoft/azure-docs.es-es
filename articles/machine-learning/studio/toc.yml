@@ -165,5 +165,5 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/machine-learning/'
-    - name: 'Redes neuronales personalizadas (Net#)'
+    - name: Redes neuronales personalizadas (Net#)
       href: azure-ml-netsharp-reference-guide.md

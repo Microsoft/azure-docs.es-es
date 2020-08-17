@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 03/27/2018
 ms.reviewer: avverma
 ms.custom: avverma
-ms.openlocfilehash: d2e10c2a02bf14f7a01ce03bc70f6e3f43b96385
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 7ba6a059a35bee0b122659d8fc70466595112fca
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83700833"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87011042"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -99,7 +99,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
 ## <a name="create-a-rule-to-autoscale-in"></a>Creación de una regla de escalado automático horizontal de reducción
 La demanda de la aplicación puede reducirse por las tardes o durante los fines de semana. Si esta reducción es constante a lo largo de un período, puede configurar reglas de escalado automático para reducir el número de instancias de máquina virtual del conjunto de escalado. Esta acción de reducción horizontal permite rebajar el costo de ejecutar el conjunto de escalado ya que solo se ejecuta el número de instancias necesario para satisfacer la demanda actual.
 
-Cree otra regla con [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) que reduzca el número de instancias de máquina virtual de un conjunto de escalado cuando la carga promedio de la CPU sea inferior al 30 % durante un período de más de 5 minutos. Cuando la regla se desencadene, el número de instancias de máquina virtual se reducirá en una unidad. En el ejemplo siguiente se crea un objeto denominado *myRuleScaleDown* que contiene esta regla de escalado vertical. *- MetricResourceId* usa las variables definidas anteriormente para el identificador de la suscripción, el nombre del grupo de recursos y el nombre del conjunto de escalado:
+Cree otra regla con [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule) que reduzca el número de instancias de máquina virtual de un conjunto de escalado cuando la carga promedio de la CPU sea inferior al 30 % durante un período de más de 5 minutos. Cuando se desencadena la regla, el número de instancias de máquina virtual se reduce en una. En el ejemplo siguiente se crea un objeto denominado *myRuleScaleOut* que contiene esta regla de reducción vertical. *- MetricResourceId* usa las variables definidas anteriormente para el identificador de la suscripción, el nombre del grupo de recursos y el nombre del conjunto de escalado:
 
 ```azurepowershell-interactive
 $myRuleScaleIn = New-AzureRmAutoscaleRule `

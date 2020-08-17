@@ -1,19 +1,14 @@
 ---
 title: Administración del agente de Azure Arc para servidores (versión preliminar)
 description: En este artículo se describen las diferentes tareas de administración que normalmente realizará durante el ciclo de vida del agente de Connected Machine de Azure Arc para servidores.
-services: azure-arc
-ms.service: azure-arc
-ms.subservice: azure-arc-servers
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/18/2020
+ms.date: 07/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 086491484592c8015bdb519bb498e73da3836f6f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b7fcaca2188ef0e1e3c8c65226f8b383576082ba
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103915"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88121296"
 ---
 # <a name="managing-and-maintaining-the-connected-machine-agent"></a>Administración y mantenimiento del agente de Connected Machine
 
@@ -143,6 +138,9 @@ La herramienta Azcmagent (Azcmagent.exe) se usa para configurar el agente Connec
 
 Puede realizar una operación **Connect**, **Disconnect** y **Reconnect** manualmente mientras inicia sesión de forma interactiva, o bien utilizar la misma entidad de servicio que para incorporar varios agentes o con un [token de acceso](../../active-directory/develop/access-tokens.md) de la Plataforma de identidad de Microsoft. Si no usó una entidad de servicio para registrar la máquina con Azure Arc para servidores (versión preliminar), consulte el siguiente [artículo](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) para crear una entidad de servicio.
 
+>[!NOTE]
+>Debe tener permisos de acceso *raíz* en máquinas Linux para ejecutar **azcmagent**.
+
 ### <a name="connect"></a>Conectar
 
 Este parámetro especifica un recurso en Azure Resource Manager que representa la máquina que se crea en Azure. El recurso está en la suscripción y en el grupo de recursos solicitado, y los datos sobre la máquina se almacenan en la región de Azure especificada por la opción `--location`. El nombre predeterminado del recurso es el nombre de host de esta máquina si no se especifica.
@@ -178,6 +176,9 @@ Para desconectarse con sus credenciales de sesión iniciada elevadas (interactiv
 `azcmagent disconnect --tenant-id <tenantID>`
 
 ### <a name="reconnect"></a>Volver a conectar
+
+> [!WARNING]
+> El comando `reconnect` está en desuso y no se debe utilizar. El comando se quitará en una versión futura del agente y los agentes existentes no podrán completar la solicitud de reconexión. En su lugar, [desconecte](#disconnect) la máquina y vuelva a [conectarla](#connect).
 
 Este parámetro vuelve a conectar la máquina ya registrada o conectada con Azure Arc para servidores (versión preliminar). Esto puede ser necesario si la máquina se ha desactivado, al menos 45 días, para que su certificado expire. Este parámetro usa las opciones de autenticación proporcionadas para recuperar las credenciales nuevas correspondientes al recurso de Azure Resource Manager que representa a esta máquina.
 
@@ -314,6 +315,6 @@ sudo azcmagent_proxy remove
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-at-scale-policy.md) y mucho más.
+- Obtenga información sobre cómo administrar la máquina con [Azure Policy](../../governance/policy/overview.md) para, por ejemplo, la [configuración de invitado](../../governance/policy/concepts/guest-configuration.md) de VM, la comprobación de que la máquina informa al área de trabajo de Log Analytics esperada, la habilitación de la supervisión con [Azure Monitor con máquinas virtuales](../../azure-monitor/insights/vminsights-enable-policy.md) y mucho más.
 
 - Más información sobre el [agente de Log Analytics](../../azure-monitor/platform/log-analytics-agent.md). El agente de Log Analytics para Windows y Linux es necesario si desea supervisar de forma proactiva el sistema operativo y las cargas de trabajo que se ejecutan en la máquina, administrarlos mediante runbooks de Automation o características como Update Management, o bien usar otros servicios de Azure como [Azure Security Center](../../security-center/security-center-intro.md).

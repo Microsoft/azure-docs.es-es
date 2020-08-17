@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: e6257311473987ee053caeade6bfe14533353b73
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 432c92bcfa8a2e0df26adf1516f5bdc9ee73d267
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86134449"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87502382"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Conmutación por recuperación de una máquina virtual de Azure entre regiones de Azure
 
@@ -42,7 +42,7 @@ Una vez que las máquinas virtuales vuelven a estar protegidas, puede conmutar p
 
 1. En el almacén, haga clic en **Elementos replicados** y seleccione la máquina virtual que se ha vuelto a proteger.
 
-    ![Conmutación por recuperación a la región primaria](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
+    ![Captura de pantalla que muestra la conmutación por recuperación a la región principal en Azure Portal.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback.png)
 
 2. En **Elementos replicados**, seleccione la máquina virtual y luego seleccione **Conmutación por error**.
 3. En **Conmutación por error**, seleccione un punto de recuperación en el que realizar la conmutación por error:
@@ -55,10 +55,10 @@ Una vez que las máquinas virtuales vuelven a estar protegidas, puede conmutar p
 7. Después de haber comprobado la conmutación por error, seleccione **Commit the failover** (Confirmar la conmutación por error). Al hacerlo, se eliminarán los puntos de recuperación disponibles. La opción Cambiar punto de recuperación ya no está disponible.
 8. La máquina virtual debe mostrarse como conmutada por error y conmutada por recuperación.
 
-    ![Máquina virtual en regiones primarias y secundarias](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+    ![Captura de pantalla que muestra la máquina virtual en las regiones principal y secundaria.](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
 
 > [!NOTE]
-> En el caso de las máquinas que ejecutan la extensión de Site Recovery versión 9.28.x.x y posteriores [paquete acumulativo de actualizaciones 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery limpia las máquinas de la región de recuperación ante desastres secundaria una vez completada la conmutación por recuperación y se vuelven a proteger las máquinas virtuales. No hay necesidad de eliminar manualmente las máquinas virtuales y NIC de la región secundaria. Si deshabilita la replicación por completo después de la conmutación por recuperación, Site Recovery limpiará los discos de la región de recuperación ante desastres además de las máquinas virtuales y las NIC.
+> En el caso de las máquinas que usan discos administrados y ejecutan la extensión de Site Recovery versión 9.28.x.x y posteriores [paquete acumulativo de actualizaciones 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery), Site Recovery limpia las máquinas de la región de recuperación ante desastres secundaria una vez completada la conmutación por recuperación y se vuelven a proteger las máquinas virtuales. No hay necesidad de eliminar manualmente las máquinas virtuales y NIC de la región secundaria. Tenga en cuenta que las VM con discos no administrados no se limpian. Si deshabilita la replicación por completo después de la conmutación por recuperación, Site Recovery limpiará los discos de la región de recuperación ante desastres además de las máquinas virtuales y las NIC.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

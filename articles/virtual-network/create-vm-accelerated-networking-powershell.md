@@ -1,6 +1,6 @@
 ---
 title: 'Crear una VM Windows con redes aceleradas: Azure PowerShell'
-description: Aprenda a crear una máquina virtual Linux con redes aceleradas.
+description: Cree una máquina virtual (VM) Windows con redes aceleradas para mejorar considerablemente el rendimiento de la red.
 services: virtual-network
 documentationcenter: ''
 author: gsilva5
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 04/15/2020
 ms.author: gsilva
-ms.openlocfilehash: 2dc7b0447a97cdafc88d2cee4612aba22c1e0eea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd50af98fe0d7f20273c45e2b86c18215a3626f0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84975799"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289622"
 ---
 # <a name="create-a-windows-vm-with-accelerated-networking-using-azure-powershell"></a>Crear una VM Windows con redes aceleradas mediante Azure PowerShell
 
@@ -63,7 +63,7 @@ Se admiten las siguientes distribuciones de fábrica desde la galería de Azure:
 
 Las redes aceleradas son compatibles con la mayoría de los tamaños de instancia de uso general y optimizados para procesos con dos o más CPU virtuales (vCPU).  Estas series admitidas son: Dv2/DSv2 y F/Fs.
 
-En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de VM con cuatro o más vCPU. Las series admitidas son: D/Dsv3, D/Dsv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
+En instancias que admiten hyperthreading, las redes aceleradas se admiten en instancias de VM con cuatro o más vCPU. Las series admitidas son: D/Dsv3, D/Dsv4, Da/Dasv4, E/Esv3, Ea/Easv4, Fsv2, Lsv2, Ms/Mms y Ms/Mmsv2.
 
 Para obtener más información sobre instancias de VM, consulte [Tamaños de las máquinas virtuales Windows en Azure](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 

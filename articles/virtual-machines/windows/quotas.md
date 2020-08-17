@@ -5,26 +5,26 @@ author: cynthn
 ms.service: virtual-machines
 ms.subservice: sizes
 ms.workload: infrastructure-services
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 6640640248854d91078203012a01d8865845702a
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: 64491a4093cc7174e84737a7fe5021337ebe7e01
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83680938"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87286145"
 ---
 # <a name="virtual-machine-vcpu-quotas"></a>Cuotas de vCPU de máquinas virtuales
 
 Las cuotas de vCPU para máquinas virtuales y conjuntos de escalado de máquinas virtuales se organizan en dos niveles para cada suscripción en cada región. El primer nivel es el número de vCPU regionales totales y el segundo son los núcleos de las diversas familias de tamaños de máquina virtual, como las vCPU de la serie D estándar. Siempre que se implemente una máquina virtual nueva, las vCPU de dicha máquina virtual no deben exceder la cuota de vCPU de la familia de tamaños de máquina virtual o el total de la cuota de vCPU regional. Si se supera cualquiera de esas dos cuotas, no se permitirá la implementación de la máquina virtual. También hay una cuota para el número total de máquinas virtuales en la región. Se pueden ver los detalles de cada una de estas cuotas en la sección **Uso y cuotas** de la página **Suscripción** en [Azure Portal](https://portal.azure.com), o bien puede consultar los valores mediante PowerShell.
 
 > [!NOTE]
-> La cuota se calcula en función del número total de núcleos en uso tanto los asignados como los desasignados. Si necesita más núcleos, [solicite un aumento de la cuota](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) o elimine las máquinas virtuales que ya no sean necesarias. 
+> La cuota se calcula en función del número total de núcleos en uso tanto los asignados como los desasignados. Si necesita más núcleos, [solicite un aumento de la cuota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) o elimine las máquinas virtuales que ya no sean necesarias. 
  
 ## <a name="check-usage"></a>Comprobación del uso
 
-Puede usar el cmdlet [Get-AzVMUsage](https://docs.microsoft.com/powershell/module/az.compute/get-azvmusage) para comprobar el uso de la cuota.
+Puede usar el cmdlet [Get-AzVMUsage](/powershell/module/az.compute/get-azvmusage) para comprobar el uso de la cuota.
 
 ```azurepowershell-interactive
 Get-AzVMUsage -Location "East US"
@@ -76,8 +76,8 @@ Premium Storage Managed Disks                1 10000 Count
 ## <a name="reserved-vm-instances"></a>Instancias reservadas de máquina virtual
 Las instancias reservadas de máquina virtual, cuyo ámbito es una sola suscripción sin tamaño de máquina virtual flexible, agregarán un aspecto nuevo a las cuotas de vCPU. Estos valores describen el número de instancias del tamaño indicado que deben poderse implementar en la suscripción. Actúan como un marcador de posición en el sistema de cuotas para asegurarse de que esa cuota esté reservada y que las instancias reservadas de máquina virtual puedan implementarse en la suscripción. Por ejemplo, si una suscripción específica tiene diez instancias reservadas de máquina virtual Standard_D1, el límite de uso para las instancias reservadas de máquina virtual Standard_D1 será de diez. Esto hará que Azure se asegure de que siempre hay al menos 10 vCPU disponibles en el total de la cuota de vCPU regional que se utilizará para instancias de Standard_D1 y que hay al menos 10 vCPU disponibles en la cuota de vCPU de la Familia D estándar que se utilizará para las instancias de Standard_D1.
 
-Si es necesario un incremento de cuota para adquirir una instancia reservada de suscripción única, puede [solicitarlo](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) en su suscripción.
+Si es necesario un incremento de cuota para adquirir una instancia reservada de suscripción única, puede [solicitarlo](../../azure-portal/supportability/resource-manager-core-quotas-request.md) en su suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre facturación y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/billing/TOC.json).
+Para obtener más información sobre facturación y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/billing/TOC.json).

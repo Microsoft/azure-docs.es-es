@@ -4,16 +4,16 @@ description: En este artículo se ofrecen sugerencias para solucionar problemas 
 author: msmbaldwin
 ms.service: virtual-machines-linux
 ms.subservice: security
-ms.topic: article
+ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1be80defd7a4291d1224d5b0cb9f9e833dcf9af5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: f0ca50d137ef7e6378d2bf8d0ab03127d49a9a88
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510521"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373596"
 ---
 # <a name="azure-disk-encryption-on-an-isolated-network"></a>Azure Disk Encryption en una red aislada
 

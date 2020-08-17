@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 21/16/2020
-  ms.openlocfilehash: 16d0d86b18eb37f9435aa5818e4fd95e1e703f68
-  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+  ms.openlocfilehash: 09035b2e0b8440c8ab56c1c3a585957557a35d51
+  ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 07/23/2020
-  ms.locfileid: "87023099"
+  ms.lasthandoff: 08/06/2020
+  ms.locfileid: "87826014"
 landingContent:
 - title: Acerca de Media Services
   linkLists:
@@ -46,9 +46,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Crear una cuenta
-      url: create-account-cli-how-to.md
+      url: ./create-account-howto.md
     - text: Acceso a la API
-      url: access-api-cli-how-to.md
+      url: ./access-api-howto.md
   - linkListType: download
     links:
     - text: Ejemplos de SDK de .NET

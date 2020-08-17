@@ -4,14 +4,14 @@ description: Use la CLI de Azure para administrar la cuenta, la base de datos y 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 06/03/2020
+ms.date: 07/29/2020
 ms.author: mjbrown
-ms.openlocfilehash: fe348c2bbd901934c6365be6efefafb44ef8d875
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0ae29039702a6f73a33f73afc366532077aa4b71
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85262419"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432829"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Administración de recursos de Azure Cosmos mediante la CLI de Azure
 
@@ -19,7 +19,7 @@ En la siguiente guía, se describen los comandos comunes para automatizar la adm
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.6.0 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
+Si decide instalar y usar la CLI localmente, para este tema es preciso que ejecute la CLI de Azure versión 2.9.1 o posterior. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea [Instalación de la CLI de Azure](/cli/azure/install-azure-cli).
 
 ## <a name="azure-cosmos-accounts"></a>Cuentas de Azure Cosmos
 
@@ -274,7 +274,7 @@ az cosmosdb sql database throughput update \
 
 ### <a name="manage-lock-on-a-database"></a>Administración del bloqueo en una base de datos
 
-Coloque un bloqueo de eliminación en una base de datos. Para más información sobre cómo habilitar esto, consulte [Evitar cambios de SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Coloque un bloqueo de eliminación en una base de datos. Para más información sobre cómo habilitar esto, consulte [Evitar cambios de SDK](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'
@@ -308,6 +308,7 @@ az lock delete --ids $lockid
 En las siguientes secciones se muestra cómo administrar el contenedor de Azure Cosmos DB, lo que incluye:
 
 * [Creación de un contenedor](#create-a-container)
+* [Creación de un contenedor con escalabilidad automática](#create-a-container-with-autoscale)
 * [Creación de un contenedor con TTL habilitado](#create-a-container-with-ttl)
 * [Creación de un contenedor con una directiva de índice personalizada](#create-a-container-with-a-custom-index-policy)
 * [Cambio del rendimiento del contenedor](#change-container-throughput)
@@ -330,6 +331,25 @@ az cosmosdb sql container create \
     -a $accountName -g $resourceGroupName \
     -d $databaseName -n $containerName \
     -p $partitionKey --throughput $throughput
+```
+
+### <a name="create-a-container-with-autoscale"></a>Creación de un contenedor con escalabilidad automática
+
+Cree un contenedor de Cosmos con una directiva de índice predeterminada, una clave de partición y 4000 RU/s de escalabilidad automática.
+
+```azurecli-interactive
+# Create a SQL API container
+resourceGroupName='MyResourceGroup'
+accountName='mycosmosaccount'
+databaseName='database1'
+containerName='container1'
+partitionKey='/myPartitionKey'
+maxThroughput=4000
+
+az cosmosdb sql container create \
+    -a $accountName -g $resourceGroupName \
+    -d $databaseName -n $containerName \
+    -p $partitionKey --max-throughput $maxThroughput
 ```
 
 ### <a name="create-a-container-with-ttl"></a>Creación de un contenedor con TTL
@@ -433,7 +453,7 @@ az cosmosdb sql container throughput update \
 
 ### <a name="manage-lock-on-a-container"></a>Administración del bloqueo de un contenedor
 
-Coloque un bloqueo de eliminación en un contenedor. Para más información sobre cómo habilitar esto, consulte [Evitar cambios de SDK](role-based-access-control.md#preventing-changes-from-cosmos-sdk).
+Coloque un bloqueo de eliminación en un contenedor. Para más información sobre cómo habilitar esto, consulte [Evitar cambios de SDK](role-based-access-control.md#prevent-sdk-changes).
 
 ```azurecli-interactive
 resourceGroupName='myResourceGroup'

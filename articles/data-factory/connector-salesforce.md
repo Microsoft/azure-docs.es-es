@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 68480f5b3b52d2347369f878802c71672213940a
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/13/2020
+ms.openlocfilehash: 292d80f7fad796b2ee4f80478c55099148d7f855
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82146874"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87086717"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 
@@ -42,7 +42,7 @@ En concreto, este conector de Salesforce admite:
 - Ediciones de Salesforce Developer, Professional, Enterprise o Unlimited.
 - La copia de datos desde y hacia producción, espacio aislado y dominio personalizado de Salesforce.
 
-El conector de Salesforce se basa en la API REST/Bulk de Salesforce (el conector elige automáticamente uno para mejorar el rendimiento). De forma predeterminada, el conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos de Salesforce y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos en Salesforce. También puede establecer de forma explicita la versión de la API que se va a usar para leer y escribir datos a través de [`apiVersion` propiedad](#linked-service-properties) en el servicio vinculado.
+El conector de Salesforce se basa en la API REST/Bulk de Salesforce. De forma predeterminada, el conector usa [V45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos de Salesforce y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos en Salesforce. También puede establecer de forma explicita la versión de la API que se va a usar para leer y escribir datos a través de [`apiVersion` propiedad](#linked-service-properties) en el servicio vinculado.
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
@@ -55,7 +55,7 @@ Salesforce tiene límites para el número total de solicitudes de API y el de so
 - Si el número de solicitudes simultáneas supera el límite, se produce la limitación y verá errores aleatorios.
 - Si el número total de solicitudes supera el límite, la cuenta de Salesforce se bloqueará durante 24 horas.
 
-También podría recibir el mensaje de error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección "API Request Limits" (Límites de solicitudes de API) en [Salesforce Developer Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Límites de Salesforce Developer) para más información.
+También podría recibir el mensaje de error "REQUEST_LIMIT_EXCEEDED" en ambos escenarios. Consulte la sección "API Request Limits" (Límites de solicitudes de API) en [Salesforce Developer Limits](https://developer.salesforce.com/docs/atlas.en-us.218.0.salesforce_app_limits_cheatsheet.meta/salesforce_app_limits_cheatsheet/salesforce_app_limits_platform_api.htm) (Límites de Salesforce Developer) para más información.
 
 ## <a name="get-started"></a>Introducción
 
@@ -296,7 +296,7 @@ Para consultar los registros eliminados temporalmente de la papelera de reciclaj
 
 ### <a name="difference-between-soql-and-sql-query-syntax"></a>Diferencias entre la sintaxis de consulta SQL y SOQL
 
-Al copiar datos desde Salesforce, puede usar consultas SOQL o consultas SQL. Tenga en cuenta que estas dos tienen diferente compatibilidad con sintaxis y funciones, no las mezcle. Es recomendable que use la consulta SOQL que se admite de forma nativa en Salesforce. En la tabla siguiente se muestran las diferencias principales:
+Al copiar datos desde Salesforce, puede usar consultas SOQL o consultas SQL. Tenga en cuenta que estas dos tienen diferente compatibilidad con sintaxis y funciones, no las mezcle. Es recomendable usar la consulta SOQL, que se admite de forma nativa en Salesforce. En la tabla siguiente se muestran las diferencias principales:
 
 | Sintaxis | Modo SOQL | Modo SQL |
 |:--- |:--- |:--- |
@@ -314,7 +314,7 @@ Cuando se especifica la consulta SQL o SOQL, preste atención a la diferencia de
 * **Ejemplo SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Ejemplo de SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
 
-### <a name="error-of-malformed_querytruncated"></a>Error MALFORMED_QUERY:Truncated
+### <a name="error-of-malformed_query-truncated"></a>Error de MALFORMED_QUERY: Truncated
 
 Si aparece un error "MALFORMED_QUERY: Truncated", normalmente se debe a que tiene la columna de tipo JunctionIdList en datos y Salesforce tiene una restricción en cuanto a la admisión de tales datos con un gran número de filas. Para solucionarlo, pruebe a excluir la columna JunctionIdList o limite el número de filas que desea copiar (puede dividir el proceso en varias ejecuciones de la actividad de copia).
 
@@ -330,7 +330,7 @@ Al copiar datos desde Salesforce, se usan las siguientes asignaciones de tipos d
 | Date |DateTime |
 | Fecha y hora |DateTime |
 | Email |String |
-| Identificador |String |
+| ID |String |
 | Relación de búsqueda |String |
 | Lista desplegable de selección múltiple |String |
 | Number |Decimal |

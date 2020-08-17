@@ -5,15 +5,15 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/13/2020
+ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: e917c261392da6044391efc98a81c8f90b619514
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 88acb4fe31470dab3ca6f273fd8d942e7f84e687
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85513755"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87281895"
 ---
 # <a name="copy-data-from-amazon-s3-to-azure-storage-by-using-azcopy"></a>Copia de datos desde Amazon S3 a Azure Storage con AzCopy
 
@@ -50,9 +50,6 @@ Obtenga la clave de acceso de AWS y la clave de acceso secreta y, después, esta
 
 AzCopy usa la API [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), por lo que los datos se copian directamente entre AWS S3 y los servidores de almacenamiento. En estas operaciones de copia no se usa el ancho de banda de red del equipo.
 
-> [!IMPORTANT]
-> Esta funcionalidad actualmente está en su versión preliminar. Si decide quitar datos de los cubos S3 después de una operación de copia, asegúrese de comprobar que los datos se hayan copiado correctamente a la cuenta de almacenamiento antes de quitarlos.
-
 > [!TIP]
 > En los ejemplos de esta sección se delimitan los argumentos de ruta de acceso con comillas simples (''). Use comillas simples en todos los shells de comandos excepto en el shell de comandos de Windows (cmd.exe). Si usa un shell de comandos de Windows (cmd.exe), incluya los argumentos de la ruta de acceso entre comillas dobles ("") en lugar de comillas simples ('').
 
@@ -84,6 +81,19 @@ Use la misma sintaxis de URL (`blob.core.windows.net`) para las cuentas que tien
 | **Sintaxis** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
 | **Ejemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 | **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+
+> [!NOTE]
+> En este ejemplo se anexa la marca `--recursive` para copiar archivos en todos los subdirectorios.
+
+### <a name="copy-the-contents-of-a-directory"></a>Copia de los contenidos de un directorio
+
+Puede copiar el contenido de un directorio sin copiar el propio directorio contenedor mediante el carácter comodín (*).
+
+|    |     |
+|--------|-----------|
+| **Sintaxis** | `azcopy copy 'https://s3.amazonaws.com/<bucket-name>/<directory-name>/*' 'https://<storage-account-name>.blob.core.windows.net/<container-name>/<directory-name>' --recursive=true` |
+| **Ejemplo** | `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
+| **Ejemplo** (espacio de nombres jerárquico)| `azcopy copy 'https://s3.amazonaws.com/mybucket/mydirectory/*' 'https://mystorageaccount.blob.core.windows.net/mycontainer/mydirectory' --recursive=true` |
 
 ### <a name="copy-a-bucket"></a>Copia de un cubo
 
@@ -127,7 +137,7 @@ Además, como AzCopy copia sobre los archivos, comprueba si hay conflictos de no
 
 AWS S3 y Azure permiten distintos conjuntos de caracteres en los nombres de las claves de objeto. [Aquí](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys) puede leer sobre los caracteres que se usan en AWS S3. En Azure, las claves de objeto de blob se adhieren a las reglas de nomenclatura para los [ identificadores de C#](https://docs.microsoft.com/dotnet/csharp/language-reference/).
 
-Como parte de un comando `copy` de AzCopy, puede proporcionar un valor opcional para la marca `s2s-invalid-metadata-handle` que especifique cómo quiere controlar los archivos donde los metadatos del archivo contienen nombres de clave no compatibles. En la tabla siguiente se describe cada valor de marca.
+Como parte de un comando `copy` de AzCopy, puede proporcionar un valor opcional para la marca `s2s-handle-invalid-metadata` que especifique cómo quiere controlar los archivos donde los metadatos del archivo contienen nombres de clave no compatibles. En la tabla siguiente se describe cada valor de marca.
 
 | Valor de marca | Descripción  |
 |--------|-----------|

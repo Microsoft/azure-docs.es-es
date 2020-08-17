@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 9b70474a985cde1cd6d7d98e84f7f228fde7a812
-ms.sourcegitcommit: b55d7c87dc645d8e5eb1e8f05f5afa38d7574846
+ms.openlocfilehash: 24117e914afa0e443ce979ae71eb506156fa11b3
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81460110"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87830417"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>Tutorial: Uso de Azure Security Center para supervisar las máquinas virtuales Linux
 
@@ -57,7 +57,7 @@ El agente de recopilación de datos de Security Center se instala en todas las m
 
 ## <a name="set-up-a-security-policy"></a>Configuración de una directiva de seguridad
 
-Las directivas de seguridad se utilizan para definir los elementos para los que Security Center recopila datos y hace recomendaciones. Se pueden aplicar diferentes directivas de seguridad a distintos conjuntos de recursos de Azure. Aunque de forma predeterminada los recursos de Azure se evalúan con respecto a todos los elementos de la directiva, es posible desactivar elementos individuales de la directiva tanto para todos los recursos de Azure como para un solo grupo de recursos. Para más información acerca de las directivas de seguridad de Security Center, consulte [Establecimiento de directivas de seguridad en Azure Security Center](../../security-center/security-center-policies.md). 
+Las directivas de seguridad se utilizan para definir los elementos para los que Security Center recopila datos y hace recomendaciones. Se pueden aplicar diferentes directivas de seguridad a distintos conjuntos de recursos de Azure. Aunque de forma predeterminada los recursos de Azure se evalúan con respecto a todos los elementos de la directiva, es posible desactivar elementos individuales de la directiva tanto para todos los recursos de Azure como para un solo grupo de recursos. Para más información acerca de las directivas de seguridad de Security Center, consulte [Establecimiento de directivas de seguridad en Azure Security Center](../../security-center/tutorial-security-policy.md). 
 
 Para configurar una directiva de seguridad para una suscripción entera:
 
@@ -133,5 +133,4 @@ En este tutorial, configurará Azure Security Center y, luego, revisó las máqu
 Avance hasta el siguiente tutorial para obtener más información cómo crear una canalización de CI/CD con Jenkins, GitHub y Docker.
 
 > [!div class="nextstepaction"]
-> [Creación de una infraestructura de CI/CD con Jenkins, GitHub y Docker](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
-
+> [Creación de una infraestructura de CI/CD con Jenkins, GitHub y Docker](/azure/developer/jenkins/pipeline-with-github-and-docker)

@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 229df5d2f5186ad7cec08952f2a44790f9220dfe
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c896e617346c9bab598044cedfc475b471466cd0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82100318"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "86998857"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Tutorial: Creación y administración de máquinas virtuales Windows con Azure PowerShell
 
@@ -34,7 +34,7 @@ Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha 
 
 ## <a name="create-resource-group"></a>Creación de un grupo de recursos
 
-Cree un grupo de recursos con el comando [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup).
+Cree un grupo de recursos con el comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
 Un grupo de recursos de Azure es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Se debe crear un grupo de recursos antes de una máquina virtual. En el siguiente ejemplo, se crea un grupo de recursos denominado *myResourceGroupVM* en la región *EastUS*:
 
@@ -50,13 +50,13 @@ Se especifica el grupo de recursos al crear o modificar una máquina virtual, co
 
 Al crear una máquina virtual, hay varias opciones disponibles, como la imagen del sistema operativo, la configuración de red y las credenciales administrativas. En este ejemplo se crea una máquina virtual denominada *myVM* que ejecuta la versión predeterminada de Windows Server 2016 Datacenter.
 
-Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Establezca el nombre de usuario y la contraseña que se necesitan para la cuenta de administrador en la máquina virtual con [Get-Credential](/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Cree la máquina virtual con [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm).
+Cree la máquina virtual con [New-AzVM](/powershell/module/az.compute/new-azvm).
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -93,13 +93,13 @@ En la ventana **Seguridad de Windows**, seleccione **Más opciones** y, después
 
 Azure Marketplace incluye muchas imágenes que pueden usarse para crear una máquina virtual. En los pasos anteriores se creó una máquina virtual mediante la imagen de Windows Server 2016 Datacenter. En este paso, el módulo de PowerShell se usa para buscar en Marketplace otras imágenes de Windows, que también se pueden usar como base para nuevas máquinas virtuales. Este proceso consiste en buscar el publicador, la oferta, la SKU y, opcionalmente, un número de versión para [identificar](cli-ps-findimage.md#terminology) la imagen.
 
-Use el comando [Get-AzVMImagePublisher](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagepublisher) para devolver una lista de publicadores de imágenes:
+Use el comando [Get-AzVMImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) para devolver una lista de publicadores de imágenes:
 
 ```azurepowershell-interactive
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-Use el comando [Get-AzVMImageOffer](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimageoffer) para devolver una lista de ofertas de imágenes. Con este comando, la lista devuelta se filtra por el publicador especificado denominado `MicrosoftWindowsServer`:
+Use el comando [Get-AzVMImageOffer](/powershell/module/az.compute/get-azvmimageoffer) para devolver una lista de ofertas de imágenes. Con este comando, la lista devuelta se filtra por el publicador especificado denominado `MicrosoftWindowsServer`:
 
 ```azurepowershell-interactive
 Get-AzVMImageOffer `
@@ -117,7 +117,7 @@ WindowsServer     MicrosoftWindowsServer EastUS
 WindowsServer-HUB MicrosoftWindowsServer EastUS
 ```
 
-El comando [Get-AzVMImageSku](https://docs.microsoft.com/powershell/module/az.compute/get-azvmimagesku) filtrará entonces por el publicador y el nombre de la oferta para devolver una lista de nombres de imágenes.
+El comando [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku) filtrará entonces por el publicador y el nombre de la oferta para devolver una lista de nombres de imágenes.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku `
@@ -175,16 +175,16 @@ En la tabla siguiente se clasifican los tamaños en casos de uso.
 
 | Tipo                     | Tamaños comunes           |    Descripción       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
-| [Uso general](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
-| [Proceso optimizado](sizes-compute.md)   | Fsv2          | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
-| [Memoria optimizada](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
-| [Almacenamiento optimizado](sizes-storage.md)      | Lsv2, Ls              | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
-| [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
-| [Alto rendimiento](sizes-hpc.md) | H        | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. |
+| [Uso general](../sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Uso equilibrado de CPU y memoria. Ideal para desarrollo/pruebas, así como soluciones de datos y aplicaciones de tamaño pequeño a mediano.  |
+| [Proceso optimizado](../sizes-compute.md)   | Fsv2          | Uso elevado de la CPU respecto a la memoria. Adecuado para aplicaciones, dispositivos de red y procesos por lotes con tráfico mediano.        |
+| [Memoria optimizada](../sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Uso elevado de memoria respecto al núcleo. Excelente para bases de datos relacionales, memorias caché de capacidad de mediana a grande y análisis en memoria.                 |
+| [Almacenamiento optimizado](../sizes-storage.md)      | Lsv2, Ls              | Alto rendimiento de disco y E/S. Perfecto para bases de datos SQL y NoSQL y macrodatos.                                                         |
+| [GPU](../sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Máquinas virtuales especializadas para actividades intensas de representación de gráficos y edición de vídeo.       |
+| [Alto rendimiento](../sizes-hpc.md) | H        | Nuestras máquinas virtuales con CPU más eficaces e interfaces de red de alto rendimiento (RDMA) opcionales. |
 
 ### <a name="find-available-vm-sizes"></a>Búsqueda de los tamaños de máquina virtual disponibles
 
-Para ver una lista de tamaños de máquina virtual disponibles en una región determinada, use el comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize).
+Para ver una lista de tamaños de máquina virtual disponibles en una región determinada, use el comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize).
 
 ```azurepowershell-interactive
 Get-AzVMSize -Location "EastUS"
@@ -194,7 +194,7 @@ Get-AzVMSize -Location "EastUS"
 
 Una vez implementada una máquina virtual, se puede cambiar su tamaño para aumentar o disminuir la asignación de recursos.
 
-Antes de cambiar el tamaño de una máquina virtual, compruebe si el tamaño deseado está disponible en el clúster actual de máquinas virtuales. El comando [Get-AzVMSize](https://docs.microsoft.com/powershell/module/az.compute/get-azvmsize) devuelve una lista de tamaños.
+Antes de cambiar el tamaño de una máquina virtual, compruebe si el tamaño deseado está disponible en el clúster actual de máquinas virtuales. El comando [Get-AzVMSize](/powershell/module/az.compute/get-azvmsize) devuelve una lista de tamaños.
 
 ```azurepowershell-interactive
 Get-AzVMSize -ResourceGroupName "myResourceGroupVM" -VMName "myVM"
@@ -245,7 +245,7 @@ Una máquina virtual de Azure puede tener uno de muchos estados de energía.
 | - | Se desconoce el estado de la máquina virtual. |
 
 
-Para recuperar el estado de una máquina virtual concreta, use el comando [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm). Asegúrese de especificar un nombre válido para la máquina virtual y el grupo de recursos.
+Para recuperar el estado de una máquina virtual concreta, use el comando [Get-AzVM](/powershell/module/az.compute/get-azvm). Asegúrese de especificar un nombre válido para la máquina virtual y el grupo de recursos.
 
 ```azurepowershell-interactive
 Get-AzVM `
@@ -268,7 +268,7 @@ Durante el ciclo de vida de una máquina virtual, puede que desee ejecutar tarea
 
 ### <a name="stop-a-vm"></a>Detención de una máquina virtual
 
-Detenga y desasigne una máquina virtual con [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm):
+Detenga y desasigne una máquina virtual con [Stop-AzVM](/powershell/module/az.compute/stop-azvm):
 
 ```azurepowershell-interactive
 Stop-AzVM `

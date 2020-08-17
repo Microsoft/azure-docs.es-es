@@ -5,20 +5,22 @@ description: Aprenda a crear y usar una dirección IP pública estática para el
 services: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.openlocfilehash: f66a33f49d856abde97756a2b4b483cfa6050d0a
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 81b99478358ec3d670e8d783fba27603483614ea
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205789"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87563252"
 ---
-# <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>Usar una dirección IP pública estática para el tráfico de salida en Azure Kubernetes Service (AKS)
+# <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar una dirección IP pública estática para el tráfico de salida con un equilibrador de carga de la SKU *básico* en Azure Kubernetes Service (AKS)
 
-De forma predeterminada, la dirección IP de salida desde un clúster de Azure Kubernetes Service (AKS) se asigna aleatoriamente. Esta configuración no es la más idónea cuando, por ejemplo, es necesario identificar una dirección IP para acceder a servicios externos. En su lugar, es posible que tenga que asignar una dirección IP estática que puede estar en la lista blanca de acceso al servicio.
+De forma predeterminada, la dirección IP de salida desde un clúster de Azure Kubernetes Service (AKS) se asigna aleatoriamente. Esta configuración no es la más idónea cuando, por ejemplo, es necesario identificar una dirección IP para acceder a servicios externos. En su lugar, es posible que tenga que asignar una dirección IP estática que se va a agregar a una lista de permitidos de acceso al servicio.
 
 En este artículo se muestra cómo crear y usar una dirección IP pública estática para el tráfico de salida en un clúster de Azure Kubernetes Service (AKS).
 
 ## <a name="before-you-begin"></a>Antes de empezar
+
+En este artículo se supone que usa el equilibrador de carga básico de Azure.  Se recomienda usar el [equilibrador de carga estándar de Azure](../load-balancer/load-balancer-overview.md) y puede utilizar características más avanzadas para [controlar el tráfico de salida de AKS](./limit-egress-traffic.md).
 
 En este artículo se supone que ya tiene un clúster de AKS. Si necesita un clúster de AKS, consulte el inicio rápido de AKS [mediante la CLI de Azure][aks-quickstart-cli] o [mediante Azure Portal][aks-quickstart-portal].
 
@@ -105,7 +107,7 @@ Para comprobar que está usando la dirección IP pública estática, puede usar 
 Iniciar y asociar un pod *Debian* básico:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian --generator=run-pod/v1
+kubectl run -it --rm aks-ip --image=debian
 ```
 
 Para acceder a un sitio web desde dentro del contenedor, use `apt-get` para instalar `curl` en el contenedor.

@@ -16,19 +16,19 @@ ms.date: 01/15/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 251d156afbd367e83945397760a6afe98a1cfb98
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01e53b30a4c27296e30e031ffb771697afa8e1e9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356940"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019682"
 ---
 # <a name="azure-ad-connect-sync-technical-concepts"></a>Sincronización de Azure AD Connect: Conceptos técnicos
 Este artículo es un resumen del tema [Descripción de la arquitectura](how-to-connect-sync-technical-concepts.md).
 
 Sincronización de Azure AD Connect se basa en una sólida plataforma de sincronización de metadirectorios.
 Las secciones siguientes presentan los conceptos de sincronización de metadirectorio.
-Basándose en MIIS, ILM y FIM, Servicios de sincronización de Azure Active Directory proporciona la plataforma siguiente para conectarse a orígenes de datos, sincronizar datos de datos entre orígenes de datos y realizar el aprovisionamiento/desaprovisionamiento de identidades.
+Al compilar sobre MIIS (Microsoft Identity Integration Server), ILM (Identity Lifecycle Manager) y FIM (Forefront Identity Manager), los servicios de Azure Active Directory Sync proporcionan la plataforma de próxima generación para conectarse a orígenes de datos, sincronizar datos entre orígenes de datos, y aprovisionar y desaprovisionar identidades.
 
 ![Conceptos técnicos](./media/how-to-connect-sync-technical-concepts/scenario.png)
 

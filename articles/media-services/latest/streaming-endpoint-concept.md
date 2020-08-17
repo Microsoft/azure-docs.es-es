@@ -12,16 +12,16 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: 72cfdf172e4524e302ef2e22826d4f78ce32daf0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80582726"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87446219"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Puntos de conexión de streaming (origen) en Azure Media Services
 
-En Microsoft Azure Media Services, un [punto de conexión de streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) representa un servicio dinámico (Just-In-Time) de empaquetado y origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción cliente, mediante uno de los protocolos de streaming multimedia habituales (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector. 
+En Microsoft Azure Media Services, un [punto de conexión de streaming](/rest/api/media/streamingendpoints) representa un servicio dinámico (Just-In-Time) de empaquetado y origen que puede entregar directamente el contenido en directo y a petición a una aplicación de reproducción cliente, mediante uno de los protocolos de streaming multimedia habituales (HLS o DASH). Además, el **punto de conexión de streaming** proporciona cifrado dinámico (Just-In-Time) para los sistemas de DRM líderes del sector. 
 
 Cuando se crea una cuenta de Media Services, se genera automáticamente un punto de conexión de streaming **predeterminado** en estado detenido. No se puede eliminar el punto de conexión de streaming **predeterminado**. Es posible crear puntos de conexión de streaming adicionales en la cuenta (consulte [Cuotas y límites](limits-quotas-constraints.md)).
 
@@ -41,11 +41,13 @@ Al usar el punto de conexión de streaming predeterminado, se omite `servicename
 ### <a name="limitations"></a>Limitaciones
 
 * El nombre del punto de conexión de streaming tiene un valor máximo de 24 caracteres.
-* El nombre debe seguir este patrón [de expresión regular](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference): `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+* El nombre debe seguir este patrón [de expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference): `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
 
 ## <a name="types"></a>Tipos
 
 Existen dos tipos de **puntos de conexión de streaming**: **Estándar** (versión preliminar) y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming.
+
+El límite máximo de unidades de streaming suele ser diez. Póngase en contacto con nosotros [aquí](https://azure.microsoft.com/support/create-ticket/) para aumentar el límite de su cuenta.
 
 En la tabla se describen los tipos:
 
@@ -77,7 +79,7 @@ Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.
 
 ## <a name="streaming-endpoint-properties"></a>Propiedades del punto de conexión de streaming
 
-En esta sección se proporcionan detalles sobre algunas de las propiedades del punto de conexión de streaming. Para obtener ejemplos de cómo crear un nuevo punto de conexión de streaming y las descripciones de todas las propiedades, vea [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Punto de conexión de streaming).
+En esta sección se proporcionan detalles sobre algunas de las propiedades del punto de conexión de streaming. Para obtener ejemplos de cómo crear un nuevo punto de conexión de streaming y las descripciones de todas las propiedades, vea [Streaming Endpoint](/rest/api/media/streamingendpoints/create) (Punto de conexión de streaming).
 
 - `accessControl`: Se usa para configurar las siguientes opciones de seguridad para este punto de conexión de streaming: claves de autenticación de encabezado de firma de Akamai y direcciones IP que puedan conectarse a este punto de conexión. Esta propiedad solo se puede establecer cuando la propiedad `cdnEnabled` se establece en false.
 
@@ -92,7 +94,7 @@ En esta sección se proporcionan detalles sobre algunas de las propiedades del p
 
 - `cdnProfile`: Cuando la propiedad `cdnEnabled` está establecida en true, también puede pasar valores `cdnProfile`. El valor `cdnProfile` es el nombre del perfil CDN donde se creará el punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, se crea un nuevo perfil automáticamente.
 - `cdnProvider`: Cuando la red CDN está habilitada, también se pueden pasar valores `cdnProvider`. El valor `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si no se proporciona ningún valor y la propiedad `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, el valor predeterminado).
-- `crossSiteAccessPolicies`: Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx) (Hacer que un servicio esté disponible a través de los límites del dominio). La configuración se aplica solo a Smooth Streaming.
+- `crossSiteAccessPolicies`: Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](/previous-versions/azure/azure-services/gg185950(v=azure.100)) (Hacer que un servicio esté disponible a través de los límites del dominio). La configuración se aplica solo a Smooth Streaming.
 - `customHostNames`: se usa para configurar un punto de conexión de streaming para que acepte el tráfico dirigido a un nombre de host personalizado. Esta propiedad es válida para los puntos de conexión de streaming Estándar y Premium y se puede establecer cuando `cdnEnabled`: false.
 
     Media Services debe confirmar la propiedad del nombre de dominio. Media Services comprueba la propiedad del nombre de dominio mediante la solicitud de un registro `CName` que contenga el identificador de cuenta de Media Services como un componente para agregarlo al dominio en uso. Por ejemplo, para que "sports.contoso.com" se use como nombre de host personalizado para el punto de conexión de streaming, se debe configurar un registro para `<accountId>.contoso.com` que apunte a uno de los nombres de host de comprobación de Media Services. El nombre de host de comprobación está formado por verifydns.\<mediaservices-dns-zone>.

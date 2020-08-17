@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/11/2020
 ms.author: juliako
-ms.openlocfilehash: ef04b1b7b5030189482e89e26e4565397cbdd7c8
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 0d8a60d6c4b3fb66b46742fbd99e3a73a63fff45
+ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75779253"
+ms.lasthandoff: 08/12/2020
+ms.locfileid: "88136089"
 ---
 # <a name="create-filters-with-media-services-net-sdk"></a>Creación de filtros con el SDK de .NET de Media Services
 
@@ -26,7 +26,7 @@ Al entregar su contenido a los clientes (streaming de eventos en directo o víde
 
 Para obtener una descripción detallada de esta característica y los escenarios donde se utiliza, vea [Manifiestos dinámicos](filters-dynamic-manifest-overview.md) y [Filtros](filters-concept.md).
 
-En este tema se muestra cómo usar el SDK de .NET de Media Services para definir un filtro para un recurso Vídeo bajo demanda y crear [Filtros de cuenta](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) y [Filtros de recurso](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+En este tema se muestra cómo usar el SDK de .NET de Media Services para definir un filtro para un recurso Vídeo bajo demanda y crear [Filtros de cuenta](/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) y [Filtros de recurso](/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 > [!NOTE]
 > No olvide revisar [presentationTimeRange](filters-concept.md#presentationtimerange).
@@ -34,13 +34,13 @@ En este tema se muestra cómo usar el SDK de .NET de Media Services para definir
 ## <a name="prerequisites"></a>Prerrequisitos 
 
 - Consulte [Filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
-- [Cree una cuenta de Media Services](create-account-cli-how-to.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
-- Obtenga la información que necesita para [acceder a las API](access-api-cli-how-to.md)
-- Revise [Carga, codificación y transmisión con Azure Media Services](stream-files-tutorial-with-api.md) para ver cómo [empezar a usar el SDK de .NET](stream-files-tutorial-with-api.md#start_using_dotnet)
+- [Cree una cuenta de Media Services](./create-account-howto.md). Asegúrese de recordar el nombre del grupo de recursos y el nombre de la cuenta de Media Services. 
+- Obtenga la información que necesita para [acceder a las API](./access-api-howto.md)
+- Revise [Carga, codificación y transmisión con Azure Media Services](stream-files-tutorial-with-api.md) para ver cómo [empezar a usar el SDK de .NET](stream-files-tutorial-with-api.md#start-using-media-services-apis-with-net-sdk)
 
 ## <a name="define-a-filter"></a>Definición de un filtro  
 
-En .NET, configura selecciones de pista con las clases [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) y [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet). 
+En .NET, configura selecciones de pista con las clases [FilterTrackSelection](/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) y [FilterTrackPropertyCondition](/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet). 
 
 El siguiente código define un filtro que incluye las pistas de audio con EC-3 y las pistas de vídeo con velocidad de bits en el intervalo 0 a 1000000.
 
@@ -119,5 +119,3 @@ En la tabla siguiente se muestran algunos ejemplos de direcciones URL con filtro
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Streaming de vídeos](stream-files-tutorial-with-api.md) 
-
-

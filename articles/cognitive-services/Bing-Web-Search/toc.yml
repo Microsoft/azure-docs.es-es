@@ -11,9 +11,9 @@
   items:
     - name: API de REST
       items:
-        - name: 'C#'
+        - name: C#
           href: quickstarts/csharp.md
-        - name: Go
+        - name: Ir
           href: quickstarts/go.md
         - name: Java
           href: quickstarts/java.md
@@ -81,14 +81,14 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/websearch?view=azure-python'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-websearch/?view=azure-node-latest'
-        - name: Go
+        - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/websearch'
     - name: Requisitos de uso y visualización
       href: Use-display-requirements.md
 - name: Recursos
   items:
     - name: Obtener clave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: Punto de conexión de Bing Web Search
       href: web-search-endpoints.md
     - name: Precios

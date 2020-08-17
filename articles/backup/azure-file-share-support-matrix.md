@@ -4,26 +4,22 @@ description: Proporciona un resumen de opciones y limitaciones de compatibilidad
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5670f4702a8e8d199b9762d87793a053cf6e53b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806878"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87289506"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matriz de compatibilidad de copia de seguridad de recursos compartidos de archivos de Azure
 
-Puede usar el [servicio Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview) para realizar copias de seguridad de recursos compartidos de archivos de Azure. En este artículo se resumen las opciones de compatibilidad a la hora de realizar copias de seguridad de recursos compartidos de archivos de Azure con Azure Backup.
+Puede usar el [servicio Azure Backup](./backup-overview.md) para realizar copias de seguridad de recursos compartidos de archivos de Azure. En este artículo se resumen las opciones de compatibilidad a la hora de realizar copias de seguridad de recursos compartidos de archivos de Azure con Azure Backup.
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
 ### <a name="ga-regions-for-azure-file-shares-backup"></a>Regiones con disponibilidad general para las copias de seguridad de recursos compartidos de archivos de Azure
 
 La copia de seguridad de recursos compartidos de archivos de Azure está disponible en todas las regiones **salvo** las siguientes: Centro de Alemania (soberana), Nordeste de Alemania (soberana), Este de China, Este de China 2, Norte de China, Norte de China 2, US Gov Iowa
-
-### <a name="supported-regions-for-accidental-delete-protection"></a>Regiones admitidas para la protección contra eliminación accidental
-
-Centro-oeste de EE. UU., Sudeste de Australia, Centro de Canadá
 
 ## <a name="supported-storage-accounts"></a>Cuentas de almacenamiento admitidas
 

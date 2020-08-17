@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.topic: overview
 ms.date: 03/18/2020
 ms.author: victorh
-ms.openlocfilehash: 28cf8d9fd60cc6fc158812aa0a1dff3a4b0dced1
-ms.sourcegitcommit: 441db70765ff9042db87c60f4aa3c51df2afae2d
+ms.openlocfilehash: d56c57a12995e0ea94c10f371bf09a3b3f9733ba
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80754283"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87278631"
 ---
 # <a name="azure-web-application-firewall-on-azure-content-delivery-network"></a>Firewall de aplicaciones web de Azure en Azure Content Delivery Network
 
@@ -45,7 +45,7 @@ Una aplicación web hospedada en Azure CDN solo puede tener una directiva de WAF
 
 La directiva WAF se puede configurar para ejecutarse en los siguientes dos modos:
 
-- *Modo de detección*: cuando se ejecuta en el modo de detección, WAF no realiza ninguna acción que no sea supervisar y registrar la solicitud y sus reglas de WAF coincidentes en los registros de WAF. Puede activar los diagnósticos de registro para Front Door. Vaya a la sección **Diagnostics** del portal.
+- *Modo de detección*: cuando se ejecuta en el modo de detección, WAF no realiza ninguna acción que no sea supervisar y registrar la solicitud y sus reglas de WAF coincidentes en los registros de WAF. Puede activar los diagnósticos de registro para Azure CDN. Vaya a la sección **Diagnostics** del portal.
 
 - *Modo de prevención*: En el modo de prevención, WAF realiza la acción especificada si una solicitud coincide con una regla. Si se encuentra una coincidencia, no se evalúa ninguna otra regla con prioridad más baja. Todas las solicitudes coincidentes también se registran en los registros de WAF.
 

@@ -3,14 +3,14 @@ title: 'Terminología: Personalizer'
 description: Personalizer utiliza la terminología del aprendizaje de refuerzo. Estos términos se usan en Azure Portal y las API.
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.openlocfilehash: 3f819ff3305a7c7302eb56c83b98340946613a92
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 8177606ac6e968bd287a23554be7b9dd06d880a8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83586310"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87002869"
 ---
-# <a name="terminology"></a>Terminología
+# <a name="personalizer-terminology"></a>Terminología de Personalizer
 
 Personalizer utiliza la terminología del aprendizaje de refuerzo. Estos términos se usan en Azure Portal y las API.
 

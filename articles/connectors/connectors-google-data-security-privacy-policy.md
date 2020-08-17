@@ -6,16 +6,16 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: conceptual
 ms.date: 06/05/2020
-ms.openlocfilehash: 384335898c7cd6b379c6107152b49e9931cf513a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b82b79d076871b961d5c496bc70beac1b5067b2d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85194982"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288112"
 ---
 # <a name="data-security-and-privacy-policies-for-google-connectors-in-azure-logic-apps"></a>Directivas de privacidad y seguridad de datos para conectores de Google en Azure Logic Apps
 
-A partir del **1 de mayo de 2020**, los cambios debidos a las [directivas de privacidad y seguridad de datos](https://www.blog.google/technology/safety-security/project-strobe/) de Google pueden afectar a los flujos de trabajo de aplicaciones lógicas que usan el [conector de Gmail](https://docs.microsoft.com/connectors/gmail/). Si las aplicaciones lógicas usan el conector de Gmail con una cuenta de consumidor de Gmail (dirección de correo electrónico que termina con @gmail.com o @googlemail.com), las aplicaciones lógicas solo pueden usar [desencadenadores, acciones y conectores aprobados por Google](#approved-connectors) concretos.
+A partir del **1 de mayo de 2020**, los cambios debidos a las [directivas de privacidad y seguridad de datos](https://www.blog.google/technology/safety-security/project-strobe/) de Google pueden afectar a los flujos de trabajo de aplicaciones lógicas que usan el [conector de Gmail](/connectors/gmail/). Si las aplicaciones lógicas usan el conector de Gmail con una cuenta de consumidor de Gmail (dirección de correo electrónico que termina con @gmail.com o @googlemail.com), las aplicaciones lógicas solo pueden usar [desencadenadores, acciones y conectores aprobados por Google](#approved-connectors) concretos.
 
 > [!NOTE]
 > Si las aplicaciones lógicas usan el conector de Gmail con una cuenta de negocio de G-Suite (dirección de correo con un dominio personalizado), las aplicaciones lógicas no se ven afectadas y no tienen restricciones en el uso del conector de Gmail.
@@ -62,7 +62,7 @@ Estos son algunos ejemplos que usan el conector de Gmail con desencadenadores y 
 
   ![Aplicación lógica no compatible: ejemplo 3](./media/connectors-google-data-security-privacy-policy/not-compliant-logic-app-3.png)
 
-Para obtener la información más reciente, consulte la [documentación de referencia técnica del conector de Gmail](https://docs.microsoft.com/connectors/gmail/).
+Para obtener la información más reciente, consulte la [documentación de referencia técnica del conector de Gmail](/connectors/gmail/).
 
 <a name="update-affected-workflows"></a>
 
@@ -74,11 +74,11 @@ Si tiene que usar el conector de Gmail con una cuenta de consumidor de Gmail y l
 
 1. En el conector de Gmail, use los valores de identificador y secreto de cliente de la aplicación cliente de Google.
 
-Para obtener más información, consulte la [documentación de referencia técnica del conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+Para obtener más información, consulte la [documentación de referencia técnica del conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 ### <a name="create-google-client-app"></a>Creación de una aplicación cliente de Google
 
-Para configurar un proyecto para la aplicación cliente, use el [asistente para la Consola de APIs de Google](https://console.developers.google.com/start/api?id=gmail&credential=client_key) y siga las instrucciones. O bien, para obtener pasos detallados, revise las instrucciones de la [documentación de referencia técnica del conector de Gmail](https://docs.microsoft.com/connectors/gmail/#authentication-and-bring-your-own-application).
+Para configurar un proyecto para la aplicación cliente, use el [asistente para la Consola de APIs de Google](https://console.developers.google.com/start/api?id=gmail&credential=client_key) y siga las instrucciones. O bien, para obtener pasos detallados, revise las instrucciones de la [documentación de referencia técnica del conector de Gmail](/connectors/gmail/#authentication-and-bring-your-own-application).
 
 Cuando haya terminado, la pantalla tendrá un aspecto similar al de este ejemplo, pero tendrá sus propios valores de **id. de cliente** y **secreto de cliente**, que, posteriormente usará en la aplicación lógica.
 
@@ -117,4 +117,5 @@ Para usar el id. de cliente y el secreto de cliente desde la aplicación de clie
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información acerca del [conector de Gmail](https://docs.microsoft.com/connectors/gmail/)
+Más información acerca del [conector de Gmail](/connectors/gmail/)
+

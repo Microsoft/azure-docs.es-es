@@ -4,17 +4,17 @@ description: Este tutorial le guía por la configuración de la máquina de desa
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/11/2019
+ms.date: 07/30/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 58a63c9e11cf86318f0e9f051d034cbbaf7c40a9
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d4846a69f548c99de735cc9d9e06bd6bb263b4bd
+ms.sourcegitcommit: 14bf4129a73de2b51a575c3a0a7a3b9c86387b2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "76772247"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87439694"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Tutorial: Desarrollo de módulos IoT Edge para dispositivos Windows
 
@@ -133,7 +133,7 @@ La extensión Azure IoT Edge Tools proporciona plantillas de proyecto para tod
    | ----- | ----- |
    | Plantilla de Visual Studio | Seleccione **Módulo C#** . |
    | Nombre del módulo | Acepte el valor predeterminado **IotEdgeModule1**. |
-   | URL del repositorio | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor del servidor de inicio de sesión del registro de contenedor de Azure. Puede recuperar el valor de **Servidor de inicio de sesión** de la página **Información general** del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final será similar a \<nombre del Registro\>.azurecr.io/iotedgemodule1. |
+   | URL del repositorio | Un repositorio de imágenes incluye el nombre del registro de contenedor y el nombre de la imagen de contenedor. La imagen de contenedor se rellena previamente con el valor del nombre del proyecto del módulo. Reemplace **localhost:5000** por el valor de **Servidor de inicio de sesión** del registro de contenedor de Azure. Puede recuperar el valor de Servidor de inicio de sesión de la página Información general del registro de contenedor en Azure Portal. <br><br> El repositorio de imágenes final es similar a \<registry name\>.azurecr.io/iotedgemodule1. |
 
       ![Configuración del proyecto para el dispositivo de destino, el tipo de módulo y el registro de contenedor](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -179,7 +179,7 @@ El entorno de ejecución de IoT Edge necesita las credenciales del registro par
 
 La plantilla de solución que ha creado incluye código de ejemplo de un módulo IoT Edge. Dicho módulo simplemente recibe los mensajes y, después, los pasa. La funcionalidad de canalización muestra un concepto importante de IoT Edge, cómo se comunican los módulos entre sí.
 
-Cada módulo puede tener varias colas de *entrada* y *salida* declaran en su código. El centro de IoT Edge que se ejecuta en el dispositivo enruta los mensajes de la salida de un módulo en la entrada de uno o varios módulos. El lenguaje específico para declarar las entradas y salidas varía de un lenguaje a otro, pero el concepto es el mismo en todos los módulos. Para más información acerca del enrutamiento entre módulos, consulte [Declaración de rutas](module-composition.md#declare-routes).
+Cada módulo puede tener varias colas de *entrada* y *salida* declaran en su código. El centro de IoT Edge que se ejecuta en el dispositivo enruta los mensajes de la salida de un módulo en la entrada de uno o varios módulos. El código específico para declarar las entradas y salidas varía de un lenguaje a otro, pero el concepto es el mismo en todos los módulos. Para más información acerca del enrutamiento entre módulos, consulte [Declaración de rutas](module-composition.md#declare-routes).
 
 El código de C# de ejemplo que acompaña a la plantilla del proyecto usa la [clase ModuleClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet) del SDK de IoT Hub para .NET.
 
@@ -199,13 +199,13 @@ El código de C# de ejemplo que acompaña a la plantilla del proyecto usa la [cl
 
 6. Busque la propiedad **modules** de las propiedades deseadas de $edgeAgent.
 
-   Debería haber dos módulos. El primero es **SimulatedTemperatureSensor**, que se incluye en todas las plantillas de forma predeterminada para proporcionar datos de temperatura simulados que se pueden usar para probar los módulos. El segundo es el módulo **IotEdgeModule1** que creó como parte de este proyecto.
+   Debería haber dos módulos. Uno es el módulo **SimulatedTemperatureSensor**, que se incluye en todas las plantillas de forma predeterminada para proporcionar datos de temperatura simulados que se pueden usar para probar los módulos. El otro es el módulo **IotEdgeModule1** que creó como parte de este proyecto.
 
    Esta propiedad modules declara qué módulos se deben incluir en la implementación en el dispositivo o dispositivos.
 
 7. Busque la propiedad **routes** de las propiedades deseadas de $edgeHub.
 
-   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. La primera ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IotEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La segunda ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo SimulatedTemperatureSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1.
+   Una de las funciones del módulo del centro de IoT Edge es enrutar mensajes entre todos los módulos de una implementación. Revise los valores de la propiedad routes. Una ruta, **IotEdgeModule1ToIoTHub**, usa un carácter comodín ( **\*** ) para incluir todos los mensajes que procedan de cualquiera de las colas de salida del módulo IotEdgeModule1. Dichos mensajes van a *$upstream*, que es un nombre reservado que indica IoT Hub. La otra ruta, **sensorToIotEdgeModule1**, toma los mensajes procedentes del módulo SimulatedTemperatureSensor y los enruta a la cola de entrada *input1* del módulo IotEdgeModule1.
 
    ![Revisar las rutas de deployment.template.json](./media/tutorial-develop-for-windows/deployment-routes.png)
 
@@ -252,7 +252,7 @@ La máquina de desarrollo ahora tiene acceso al registro de contenedores y tambi
 
 6. Guarde los cambios en el archivo module.json.
 
-7. Vuelva a hacer clic con el botón derecho en **CSharpTutorialApp** y a seleccionar **Compilación e inserción de módulos IoT Edge**.
+7. Vuelva a hacer clic con el botón derecho en el proyecto **CSharpTutorialApp**, y vuelva a seleccionar **Build and Push IoT Edge Modules** (Compilación e inserción de módulos IoT Edge).
 
 8. Abra el archivo **deployment.windows-amd64.json** de nuevo. Observe que no se creó un nuevo archivo cuando ejecutó el comando de compilación e inserción de nuevo. Más bien, el mismo archivo se actualizó para reflejar los cambios. La imagen de IotEdgeModule1 ahora apunta a la versión 0.0.2 del contenedor. Este cambio en el manifiesto de implementación es cómo se puede saber el dispositivo IoT Edge que hay una nueva versión de un módulo de extracción.
 
@@ -267,7 +267,7 @@ La máquina de desarrollo ahora tiene acceso al registro de contenedores y tambi
 Si encuentra errores al compilar e insertar la imagen del módulo, a menudo tiene que ver con la configuración de Docker en la máquina de desarrollo. Utilice las siguientes comprobaciones para revisar la configuración:
 
 * ¿Ha ejecutado el comando `docker login` mediante las credenciales que copió del registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure.
-* ¿Es el repositorio de contenedor correcto? ¿Tiene el nombre correcto del registro de contenedor y el nombre correcto del módulo? Abra el archivo **module.json** de la carpeta IotEdgeModule1 que se va a comprobar. El valor del repositorio debería ser similar a **\<nombre del registro\>.azurecr.io/iotedgemodule1**.
+* ¿Es el repositorio de contenedor correcto? ¿Tiene el nombre correcto del registro de contenedor y el nombre correcto del módulo? Abra el archivo **module.json** de la carpeta IotEdgeModule1 que se va a comprobar. El valor del repositorio debería ser similar a **\<registry name\>.azurecr.io/iotedgemodule1**.
 * Si utilizó un nombre diferente a **IotEdgeModule1** para el módulo, ¿es coherente ese nombre en toda la solución?
 * ¿La máquina funciona con el mismo tipo de contenedores que está creando? Este tutorial es para dispositivos Windows IoT Edge, por lo que los archivos de Visual Studio deben tener la extensión **windows-amd64** y Docker Desktop debe ejecutar contenedores Windows.
 
@@ -328,6 +328,14 @@ Los comandos de esta sección son para el dispositivo IoT Edge, no en la máquin
    Los módulos IoT Edge distinguen mayúsculas de minúsculas.
 
    Los registros de SimulatedTemperatureSensor e IotEdgeModule1 deben mostrar los mensajes que están procesando. El módulo edgeAgent es responsable de iniciar los otros módulos, por lo que sus registros tendrá información sobre cómo implementar el manifiesto de implementación. Si algún módulo no aparece en la lista o no se está ejecutando, es probable que los registros de edgeAgent contengan los errores. El módulo edgeHub es responsable de las comunicaciones entre los módulos e IoT Hub. Si los módulos están en funcionamiento, pero los mensajes no llegan al centro de IoT, los registros de edgeHub probablemente contendrán los errores.
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si prevé seguir con el siguiente artículo recomendado, puede mantener los recursos y las configuraciones que ya ha creado y volverlos a utilizar. También puede seguir usando el mismo dispositivo de IoT Edge como dispositivo de prueba.
+
+En caso contrario, para evitar gastos, puede eliminar las configuraciones locales y los recursos de Azure que creó en este artículo.
+
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
 

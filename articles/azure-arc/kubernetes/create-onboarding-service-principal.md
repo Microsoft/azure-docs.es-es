@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: 'Creación de una entidad de servicio de incorporación habilitada para Azure Arc '
 keywords: Kubernetes, Arc, Azure, containers
-ms.openlocfilehash: 3c95c6bb85c7c1bc097b7751a560a658863c0afd
-ms.sourcegitcommit: 6fd8dbeee587fd7633571dfea46424f3c7e65169
+ms.openlocfilehash: 02689dba32c8cc91e4a4a4de4dee98bc990b4dd6
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83725608"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050082"
 ---
 # <a name="create-an-azure-arc-enabled-onboarding-service-principal-preview"></a>Creación de una entidad de servicio de incorporación habilitada para Azure Arc (versión preliminar)
 
@@ -45,7 +45,7 @@ az ad sp create-for-RBAC --skip-assignment --name "https://azure-arc-for-k8s-onb
 
 ## <a name="assign-permissions"></a>Asignación de permisos
 
-Después de crear la nueva entidad de servicio, asigne el rol "Azure Arc for Kubernetes Onboarding" ("Azure Arc para la incorporación de Kubernetes") a la entidad de seguridad recién creada. Se trata de un rol integrado de Azure con permisos limitados, que solo permite a la entidad de seguridad registrar clústeres en Azure. La entidad de seguridad no puede actualizar, eliminar ni modificar ningún otro clúster o recurso de la suscripción.
+Después de crear la nueva entidad de servicio, asigne el rol "Kubernetes Cluster - Azure Arc Onboarding" (Clúster de Kubernetes - Incorporación de Azure Arc) a la entidad de seguridad recién creada. Se trata de un rol integrado de Azure con permisos limitados, que solo permite a la entidad de seguridad registrar clústeres en Azure. La entidad de seguridad no puede actualizar, eliminar ni modificar ningún otro clúster o recurso de la suscripción.
 
 Dado que las capacidades son limitadas, los clientes pueden volver a usar fácilmente esta entidad de seguridad para incorporar varios clústeres.
 

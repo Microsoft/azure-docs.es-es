@@ -53,10 +53,14 @@
       href: ../../mysql/security-baseline.md
     - name: Base de referencia de seguridad de Azure Database for MariaDB
       href: ../../mariadb/security-baseline.md
-    - name: Base de referencia de seguridad de Azure Database for PostgreSQL
+    - name: 'Azure Database for PostgreSQL: línea de base de seguridad de un servidor individual'
       href: ../../postgresql/security-baseline.md
+    - name: 'Azure Database for PostgreSQL: línea de base de seguridad de Hiperescala'
+      href: ../../postgresql/postgresql-hyperscale-security-baseline.md
     - name: Base de referencia de seguridad de Azure Databricks
       href: ../../azure-databricks/security-baseline.md
+    - name: Línea de base de seguridad de Azure Firewall
+      href: ../../firewall/security-baseline.md
     - name: Base de referencia de seguridad de Azure Functions
       href: ../../azure-functions/security-baseline.md
     - name: Base de referencia de seguridad de Azure Policy
@@ -79,6 +83,10 @@
       href: ../../cosmos-db/security-baseline.md
     - name: Base de referencia de seguridad de Caja de seguridad del cliente
       href: ../fundamentals/customer-lockbox-security-baseline.md
+    - name: Línea de base de seguridad de Data Lake Analytics
+      href: ../../data-lake-analytics/security-baseline.md
+    - name: Línea de base de seguridad de DDOS Protection
+      href: ../fundamentals/ddos-protection-security-baseline.md
     - name: Base de referencia de seguridad de Event Hubs
       href: ../../event-hubs/security-baseline.md
     - name: Línea de base de seguridad de ExpressRoute
@@ -91,7 +99,17 @@
       href: ../../logic-apps/security-baseline.md
     - name: Línea base de seguridad de Network Watcher
       href: ../../network-watcher/security-baseline.md
+    - name: Línea de base de Security Center
+      href: ../../security-center/security-baseline.md
+    - name: Línea de base de Service Fabric
+      href: ../../service-fabric/security-baseline.md
     - name: Base de referencia de Stream Analytics
       href: ../../stream-analytics/security-baseline.md
     - name: Base de referencia de seguridad de Synapse Analytics
       href: ../../synapse-analytics/security-baseline.md
+    - name: Línea base de seguridad de Virtual Machine Scale Sets
+      href: ../../virtual-machine-scale-sets/security-baseline.md
+    - name: Línea base de seguridad de Virtual Machines en Linux
+      href: ../../virtual-machines/linux/security-baseline.md
+    - name: Línea base de seguridad de Virtual Machines en Windows
+      href: ../../virtual-machines/windows/security-baseline.md

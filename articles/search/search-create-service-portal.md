@@ -7,13 +7,13 @@ author: tchristiani
 ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/24/2020
-ms.openlocfilehash: f802ec10410d0a412e29d9ad51bb409a5d099f31
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.date: 07/14/2020
+ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85562545"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87554029"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Inicio rápido: Creación de un servicio Azure Cognitive Search en el portal
 
@@ -27,11 +27,11 @@ En este artículo, aprenderá a crear un recurso en [Azure Portal](https://porta
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Las siguientes propiedades de servicio son fijas para la vigencia del servicio y su cambio requiere un nuevo servicio. Cuando cree un servicio, piense en cómo lo usará:
+Las siguientes propiedades de servicio son fijas para la vigencia del servicio y su cambio requiere un nuevo servicio. Dado que son fijas, tenga en cuenta las implicaciones de uso al rellenar cada propiedad:
 
-* nombre (revise [estas sugerencias](#name-the-service) para los nombres de servicio)
-* nivel (Gratis, Básico, Estándar [afecta a la facturación](search-sku-tier.md) y establece un límite superior de capacidad)
-* región (elija una ubicación que tenga servicios relacionados. Para la integración con Cognitive Services o Azure Machine Learning, la colocación de servicios en la misma región es un requisito)
+* El nombre del servicio pasa a formar parte del punto de conexión de la dirección URL ([examine las sugerencias](#name-the-service) para elegir nombres de servicio útiles).
+* El nivel de servicio [afecta a la facturación](search-sku-tier.md) y establece un límite superior en la capacidad. Algunas características no están disponibles en el nivel gratuito.
+* La región del servicio puede determinar la disponibilidad de ciertos escenarios. Si necesita [características de alta seguridad](search-security-overview.md) o [enriquecimiento con IA](cognitive-search-concept-intro.md), Azure Cognitive Search deberá estar en la misma región que los restantes servicios, o bien en aquellas regiones que proporcionen la característica en cuestión. 
 
 ## <a name="subscribe-free-or-paid"></a>Suscripción (gratuita o de pago)
 
@@ -51,7 +51,7 @@ Opcionalmente, [puede activar los beneficios de suscriptores de MSDN](https://az
 
 ## <a name="choose-a-subscription"></a>Elija una suscripción
 
-Si tiene más de una suscripción, elija una para el servicio de búsqueda.
+Si tiene más de una suscripción, elija una para el servicio de búsqueda. Si va a implementar el [cifrado doble](search-security-overview.md#double-encryption), o cualesquiera otras características que dependan de identidades de servicio administradas, elija la misma suscripción que la que se usó para Azure Key Vault, u otros servicios para los que se usen identidades administradas.
 
 ## <a name="set-a-resource-group"></a>Configuración de un grupo de recursos
 
@@ -89,6 +89,8 @@ Azure Cognitive Search no está disponible en la mayoría de las regiones. Se pu
 
 > [!Note]
 > Centro de la India y Norte de Emiratos Árabes Unidos no están disponibles actualmente para los nuevos servicios. En el caso de los servicios que ya están disponibles en esas regiones, puede escalar verticalmente sin restricciones, y el servicio se admite completamente en dicha región. Las restricciones son temporales y se limitan solo a los nuevos servicios. Se eliminará esta nota cuando ya no se apliquen las restricciones.
+>
+> El cifrado doble solo está disponible en ciertas regiones. Para más información, consulte [Cifrado doble](search-security-overview.md#double-encryption).
 
 ### <a name="requirements"></a>Requisitos
 

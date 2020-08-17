@@ -7,23 +7,27 @@ ms.author: baanders
 ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 895e33a111fe5bb881d198ee4995b9534ca3d528
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.custom: devx-track-javascript
+ms.openlocfilehash: a93e0b6d29bb10e5e71f48134916cac9cd563fb2
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135870"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420046"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creación de SDK personalizados para Azure Digital Twins con AutoRest
 
-En este momento, el único SDK de plano de datos publicado para interactuar con las API de Azure Digital Twins es para .NET (C#). Puede leer sobre el SDK de .NET y las API en general, en [Procedimiento: Uso de las API y los SDK de Azure Digital Twins](how-to-use-apis-sdks.md). Si está trabajando en otro lenguaje, este artículo le mostrará cómo generar su propio SDK en el lenguaje de su elección mediante AutoRest.
+En este momento, el único SDK de plano de datos publicado para interactuar con las API de Azure Digital Twins es para .NET (C#). Puede leer sobre el SDK de .NET y las API en general, en [*Procedimiento: las API y los SDK de Azure Digital Twins*](how-to-use-apis-sdks.md). Si está trabajando en otro lenguaje, este artículo le mostrará cómo generar su propio SDK de plano de datos en el lenguaje de su elección mediante AutoRest.
+
+>[!NOTE]
+> También puede usar AutoRest para generar un SDK de plano de control si lo desea. Para ello, complete los pasos descritos en este artículo con el [archivo Swagger (OpenAPI) del plano de control](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) en lugar del plano de datos.
 
 ## <a name="set-up-your-machine"></a>Configuración de la máquina
 
 Para generar un SDK, necesitará:
 * [AutoRest](https://github.com/Azure/autorest) versión 2.0.4413 (la versión 3 no se admite actualmente)
 * [Node.js](https://nodejs.org) como requisito previo para AutoRest
-* El [archivo Swagger (OpenAPI) de Azure Digital Twins](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/preview/2020-03-01-preview) titulado *digitaltwins.json* y su correspondiente carpeta de ejemplos. Descargue el archivo Swagger y su carpeta de ejemplos en la máquina local.
+* El [archivo Swagger (OpenAPI) del plano de datos](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/preview/2020-05-31-preview) de Azure Digital Twins titulado *digitaltwins.json*, y su correspondiente carpeta de ejemplos. Descargue el archivo Swagger y su carpeta de ejemplos en la máquina local.
 
 Una vez que la máquina esté equipada con todos los elementos de la lista anterior, estará listo para usar AutoRest para crear el SDK.
 
@@ -37,19 +41,19 @@ npm install -g autorest@2.0.4413
 Para ejecutar AutoRest con el archivo Swagger de Azure Digital Twins, siga estos pasos:
 1. Copie el archivo Swagger de Azure Digital Twins y su correspondiente carpeta de ejemplos en un directorio de trabajo.
 2. Use una ventana del símbolo del sistema para cambiar a ese directorio de trabajo.
-3. Ejecute AutoRest con el siguiente comando. Reemplace el marcador `<language>` por el lenguaje que prefiera: `--python`, `--java`, `--go`, etc. (Puede encontrar la lista completa de opciones en el archivo [Léame de AutoRest](https://github.com/Azure/autorest)).
+3. Ejecute AutoRest con el siguiente comando. Reemplace el marcador de posición `<language>` por el lenguaje que prefiera: `--python`, `--java`, `--go`, etc. (Puede encontrar la lista completa de opciones en el archivo [Léame de AutoRest](https://github.com/Azure/autorest)).
 
 ```cmd/sh
 autorest --input-file=adtApiSwagger.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Como resultado, verá una nueva carpeta denominada *ADTApi* en el directorio de trabajo. Los archivos de SDK generados tendrán el espacio de nombres *ADTApi*, que seguirá usando con el resto de los ejemplos de uso de este artículo.
+Como resultado, verá una nueva carpeta denominada *ADTApi* en el directorio de trabajo. Los archivos de SDK generados tendrán el espacio de nombres *ADTApi*. Seguirá usando ese espacio de nombres en el resto de los ejemplos de uso de este artículo.
 
 AutoRest es compatible con una amplia gama de generadores de código de lenguaje.
 
 ## <a name="add-the-sdk-to-a-visual-studio-project"></a>Agregar el SDK a un proyecto de Visual Studio
 
-Puede incluir los archivos generados mediante AutoRest directamente en una solución de .NET. Sin embargo, dado que es probable que necesite el SDK de Azure Digital Twins en varios proyectos independientes (aplicaciones de cliente, aplicaciones de Azure Functions, etc.), puede resultar útil compilar un proyecto independiente (una biblioteca de clases .NET) a partir de los archivos generados. A continuación, puede incluir este proyecto de biblioteca de clases en varias soluciones como referencia de proyecto.
+Puede incluir los archivos generados mediante AutoRest directamente en una solución de .NET. Sin embargo, es probable que quiera incluir el SDK de Azure Digital Twins en varios proyectos independientes (aplicaciones cliente, aplicaciones de Azure Functions, etc.). Por esta razón, puede ser útil crear un proyecto independiente (una biblioteca de clases .NET) a partir de los archivos generados. A continuación, puede incluir este proyecto de biblioteca de clases en varias soluciones como referencia de proyecto.
 
 En esta sección se proporcionan instrucciones sobre cómo compilar el SDK como una biblioteca de clases, que es su propio proyecto y se puede incluir en otros proyectos. Estos pasos se basan en **Visual Studio** (puede instalar la versión más reciente desde [aquí](https://visualstudio.microsoft.com/downloads/)).
 
@@ -73,7 +77,7 @@ Para agregarlas, abra *Herramientas > Administrador de paquetes NuGet > Administ
 
 1. En el panel, asegúrese de que esté seleccionada la pestaña *Examinar*.
 2. Busque *Microsoft.Rest*.
-3. Seleccione los paquetes *ClientRuntime* y *ClientRuntime.Azure* y agréguelos a la solución.
+3. Seleccione los paquetes `ClientRuntime` y `ClientRuntime.Azure`, y agréguelos a la solución.
 
 Ahora puede compilar el proyecto e incluirlo como una referencia de proyecto en cualquier aplicación de Azure Digital Twins que escriba.
 
@@ -87,7 +91,7 @@ Todas las funciones del SDK cuentan con versiones sincrónicas y asincrónicas.
 
 ### <a name="typed-and-untyped-data"></a>Datos con tipo y sin tipo
 
-Por lo general, las llamadas API REST devuelven objetos fuertemente tipados. Sin embargo, dado que Azure Digital Twins permite a los usuarios definir sus propios tipos personalizados para gemelos, no hay ninguna manera de predefinir datos devueltos estáticos para muchas llamadas de Azure Digital Twins. En su lugar, las API devuelven tipos de contenedor fuertemente tipados donde corresponde y los datos de gemelos con tipos personalizados están en objetos Json.NET (que se usan siempre que aparece el tipo de datos "object" en las firmas de API). Puede convertir estos objetos según corresponda en el código.
+Por lo general, las llamadas API de REST devuelven objetos fuertemente tipados. Sin embargo, dado que Azure Digital Twins permite a los usuarios definir sus propios tipos personalizados para gemelos, no hay ninguna manera de predefinir datos devueltos estáticos para muchas llamadas de Azure Digital Twins. En su lugar, las API devuelven tipos de contenedor fuertemente tipados donde corresponde, y los datos de gemelos con tipos personalizados están en objetos Json.NET (que se usan siempre que aparece el tipo de datos "object" en las firmas de API). Puede convertir estos objetos según corresponda en el código.
 
 ### <a name="error-handling"></a>Control de errores
 
@@ -115,7 +119,7 @@ AutoRest genera dos tipos de patrones de paginación para el SDK:
 
 En el patrón de paginación que no es de consulta, hay dos versiones de cada llamada:
 * Una versión para establecer la llamada inicial (como `DigitalTwins.ListEdges()`)
-* Una versión para obtener las páginas siguientes, con el sufijo "Next" (por ejemplo, `DigitalTwins.ListEdgesNext()`)
+* Una versión para obtener las páginas siguientes. Estas llamadas tienen el sufijo "Next" (como `DigitalTwins.ListEdgesNext()`)
 
 A continuación se incluye un fragmento de código que muestra cómo recuperar una lista paginada de relaciones de salida de Azure Digital Twins:
 ```csharp
@@ -188,4 +192,4 @@ try
 ## <a name="next-steps"></a>Pasos siguientes
 
 Siga los pasos para crear una aplicación cliente donde pueda usar el SDK:
-* [Tutorial: Programación de una aplicación cliente](tutorial-code.md)
+* [*Tutorial: Programación de una aplicación cliente*](tutorial-code.md)

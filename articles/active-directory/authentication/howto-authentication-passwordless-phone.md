@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5dbf26bc636107576af15a0217eb16302f63f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5022dfc5811f3db59774a46a7034ff14c4dcf4a8
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85601639"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87428023"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Habilitar el inicio de sesión sin contraseña en Azure AD con la aplicación Microsoft Authenticator (versión preliminar)
 
@@ -45,7 +45,7 @@ Las características de registro de los métodos de autenticación sin contrase�
 
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>Habilitar métodos de autenticación de inicio de sesión en el teléfono sin contraseña
 
-1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con la cuenta de **administrador global**.
 1. Busque y seleccione *Azure Active Directory*. Seleccione **Seguridad** > **Métodos de autenticación** > **Directiva de métodos de autenticación (versión preliminar)** .
 1. En **Inicio de sesión telefónico sin contraseña**, elija las opciones siguientes:
    1. **Habilitar**: Sí o No

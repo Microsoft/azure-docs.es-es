@@ -9,16 +9,16 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 58a2657f6b9aee101384146c4ebb43023953bfcb
-ms.sourcegitcommit: b396c674aa8f66597fa2dd6d6ed200dd7f409915
+ms.openlocfilehash: efa54933ac7d57ec0dcff9ae11b6fb5c2c87a897
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2020
-ms.locfileid: "82891829"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87081396"
 ---
 # <a name="how-to-use-jsonpath-to-transform-json-data-in-workbooks"></a>Uso de JSONPath para transformar datos JSON en libros
 
-Los libros pueden consultar datos de muchos orígenes. Algunos puntos de conexión, como [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) o un punto de conexión personalizado, pueden devolver resultados en JSON. Si los datos JSON devueltos por el punto de conexión consultado no se han configurado en el formato deseado, se puede usar JSONPath para transformar los resultados.
+Los libros pueden consultar datos de muchos orígenes. Algunos puntos de conexión, como [Azure Resource Manager](../../azure-resource-manager/management/overview.md) o un punto de conexión personalizado, pueden devolver resultados en JSON. Si los datos JSON devueltos por el punto de conexión consultado no se han configurado en el formato deseado, se puede usar JSONPath para transformar los resultados.
 
 JSONPath es un lenguaje de consulta para JSON similar a XPath para XML. Al igual que XPath, JSONPath permite la extracción y el filtrado de datos a partir de una estructura JSON.
 

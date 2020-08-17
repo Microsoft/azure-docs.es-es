@@ -3,12 +3,12 @@ title: Reducción de los costos de servicio con Azure Advisor
 description: Utilice Azure Advisor para optimizar el costo de las implementaciones de Azure.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: ad8340595b10ce9c729c9c89f0099434c15a9ff2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e8f0e555f71c31bb3286cee59bb7161c3ce3986e
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078568"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284377"
 ---
 # <a name="reduce-service-costs-by-using-azure-advisor"></a>Reducción de los costos de servicio con Azure Advisor
 
@@ -89,7 +89,7 @@ Para ahorrar el 60 % del costo, se recomienda almacenar las instantáneas en un
 Al usar la inteligencia sobre el recuento de objetos de Azure Blob Storage, el tamaño total y las transacciones, Advisor detecta si debe habilitar la administración del ciclo de vida para almacenar los datos en el nivel de una o varias cuentas de almacenamiento. Se le pide que cree reglas de administración del ciclo de vida para organizar automáticamente los datos en un nivel de acceso esporádico o el de archivo para optimizar los costos de almacenamiento, al tiempo que conserva los datos en Azure Blob Storage para que sean compatibles con las aplicaciones.
 
 ## <a name="create-an-ephemeral-os-disk-recommendation"></a>Creación de una recomendación de disco del sistema operativo efímero
-[El disco del sistema operativo efímero](https://docs.microsoft.com/azure/virtual-machines/windows/ephemeral-os-disks) le permite: 
+[El disco del sistema operativo efímero](../virtual-machines/ephemeral-os-disks.md) le permite: 
 - Ahorrar en los costos de almacenamiento de los discos del sistema operativo. 
 - Reducir la latencia de lectura y escritura en los discos del sistema operativo. 
 - Realizar operaciones de restablecimiento de la imagen inicial de la máquina virtual más rápidas mediante el restablecimiento del sistema operativo (y del disco temporal) a su estado original.
@@ -114,4 +114,3 @@ Para aprender más sobre las recomendaciones de Advisor, consulte:
 * [Recomendaciones sobre alta disponibilidad de Advisor](advisor-high-availability-recommendations.md)
 * [Recomendaciones sobre seguridad de Advisor](advisor-security-recommendations.md)
 * [Recomendaciones de excelencia operativa de Advisor](advisor-operational-excellence-recommendations.md)
-

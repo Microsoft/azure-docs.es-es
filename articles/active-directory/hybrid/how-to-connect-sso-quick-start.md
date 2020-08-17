@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58e779e6feeba27711a1746fbf7d6878725790fa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
+ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358011"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87115760"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Guía de inicio rápido
 
@@ -163,8 +163,8 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 4. Escriba los siguientes valores en los campos apropiados y haga clic en **Aceptar**.
    - **Ruta de acceso de la clave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
    - **Nombre de valor**: ***https***.
-   - **Tipo de valor**: ***REG_DWORD***.
-   - **Información del valor**: ***00000001***.
+   - **Tipo de valor**: ***REG_DWORD***
+   - **Información del valor**: ***00000001***
  
      ![Inicio de sesión único](./media/how-to-connect-sso-quick-start/sso16.png)
  

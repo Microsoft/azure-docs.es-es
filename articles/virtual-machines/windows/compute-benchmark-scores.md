@@ -4,17 +4,17 @@ description: Comparación de puntuaciones de las pruebas comparativas de proceso
 author: cynthn
 ms.service: virtual-machines-windows
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/29/2020
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: c3e0fdc398d3b0b851c6f548119858e6c41a5a19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ccaf44f733958bff461e954c78196f7376a59771
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82583919"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87836214"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Puntuaciones de pruebas comparativas de proceso para máquinas virtuales Windows
 Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimiento de proceso para máquinas virtuales específicas que ejecutan Windows Server. Las puntuaciones de pruebas comparativas de proceso también están disponibles para las [máquinas virtuales Linux](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
@@ -389,5 +389,4 @@ Las siguientes puntuaciones de pruebas comparativas SPECInt muestran el rendimie
 Las cifras de Windows se calcularon mediante la ejecución de [SPECint 2006](https://www.spec.org/cpu2006/results/rint2006.html) en Windows Server. SPECint se ejecutó con la opción de tasa base (SPECint_rate2006), con una copia por vCPU. SPECint consta de 12 pruebas independientes y cada una se ejecuta tres veces, tomando el valor medio de cada prueba y ponderándolo para formar una puntuación compuesta. Se muestran las pruebas que se ejecutaron en varias máquinas virtuales para proporcionar las puntuaciones promedio.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para más información sobre las capacidades de almacenamiento, los detalles del disco y consideraciones adicionales para seleccionar tamaños de máquinas virtuales, consulte [Tamaños de máquinas virtuales](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
+* Para más información sobre las capacidades de almacenamiento, los detalles del disco y consideraciones adicionales para seleccionar tamaños de máquinas virtuales, consulte [Tamaños de máquinas virtuales](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).

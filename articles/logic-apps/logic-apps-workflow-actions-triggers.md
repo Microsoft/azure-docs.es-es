@@ -6,16 +6,17 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 06/10/2020
-ms.openlocfilehash: 7c220ff2882e12f5239dbd5abc5f87b900cb3807
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 7e809c1990f31687acb559b5ecd6684bfec52483
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84609423"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423276"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Guía de referencia de esquema para los tipos de desencadenador y de acción en Azure Logic Apps
 
-En esta referencia se describen los tipos generales que se usan para identificar desencadenadores y acciones en la definición de flujo de trabajo subyacente de la aplicación lógica, que el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) describe y valida. Para buscar los desencadenadores de conector específicos y las acciones que puede usar en las aplicaciones lógicas, vea la lista en [Introducción a los conectores](https://docs.microsoft.com/connectors/).
+En esta referencia se describen los tipos generales que se usan para identificar desencadenadores y acciones en la definición de flujo de trabajo subyacente de la aplicación lógica, que el [lenguaje de definición de flujo de trabajo](../logic-apps/logic-apps-workflow-definition-language.md) describe y valida. Para buscar los desencadenadores de conector específicos y las acciones que puede usar en las aplicaciones lógicas, vea la lista en [Introducción a los conectores](/connectors/).
 
 <a name="triggers-overview"></a>
 
@@ -569,7 +570,7 @@ Para más información sobre ejemplos de este desencadenador, consulte [Creació
 
 Este desencadenador hace que se pueda llamar a la aplicación lógica mediante la creación de un punto de conexión que puede aceptar solicitudes entrantes. Para este desencadenador, proporcione un esquema JSON que describa y valide la carga o las entradas que el desencadenador recibe de la solicitud entrante. El esquema también facilita la referencia a propiedades del desencadenador desde acciones posteriores del flujo de trabajo.
 
-Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se describe en [API REST de Servicio de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). Para información sobre cómo usar este desencadenador como punto de conexión HTTP, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md).
+Para llamar a este desencadenador, debe usar la `listCallbackUrl`API que se describe en [API REST de Servicio de flujo de trabajo](/rest/api/logic/workflows). Para información sobre cómo usar este desencadenador como punto de conexión HTTP, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md).
 
 ```json
 "manual": {
@@ -2657,7 +2658,7 @@ Para más información, consulte [Opciones de configuración del entorno en tiem
 
 ### <a name="run-actions-in-a-synchronous-operation-pattern"></a>Ejecución de acciones en un modelo de operación sincrónica
 
-De forma predeterminada, la acción HTTP y las acciones APIConnection de Azure Logic Apps siguen el [*modelo de operación asincrónica*](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply) estándar, mientras que la acción de respuesta sigue el *modelo de operación sincrónica*. El modelo asincrónico especifica que, después de que una acción llame a o envíe una solicitud al punto de conexión, servicio, sistema o API especificados, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica la dirección URL y un id. de actualización que el autor de la llamada puede usar para sondear o comprobar continuamente el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Para más información, vea [La integración de microservicio asincrónico aplica la autonomía de microservicios](https://docs.microsoft.com/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
+De forma predeterminada, la acción HTTP y las acciones APIConnection de Azure Logic Apps siguen el [*modelo de operación asincrónica*](/azure/architecture/patterns/async-request-reply) estándar, mientras que la acción de respuesta sigue el *modelo de operación sincrónica*. El modelo asincrónico especifica que, después de que una acción llame a o envíe una solicitud al punto de conexión, servicio, sistema o API especificados, el receptor devolverá inmediatamente una respuesta ["202 ACCEPTED"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.3). Este código confirma que el receptor aceptó la solicitud, pero no ha finalizado el procesamiento. La respuesta puede incluir un encabezado `location` que especifica la dirección URL y un id. de actualización que el autor de la llamada puede usar para sondear o comprobar continuamente el estado de la solicitud asincrónica hasta que el receptor detenga el procesamiento y devuelva una respuesta de operación correcta ["200 OK"](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1) u otra respuesta que no sea 202. Para más información, vea [La integración de microservicio asincrónico aplica la autonomía de microservicios](/azure/architecture/microservices/design/interservice-communication#synchronous-versus-asynchronous-messaging).
 
 * En el Diseñador de aplicación lógica, la acción HTTP, las acciones APIConnection y la acción de respuesta tienen la configuración **Modelo asincrónico**. Cuando está habilitada, esta configuración especifica que el autor de la llamada no espera a que finalice el procesamiento y puede pasar a la siguiente acción, pero continúa comprobando el estado hasta que se detiene el procesamiento. Si está deshabilitada, esta configuración especifica que el autor de la llamada espera a que finalice el procesamiento antes de pasar a la siguiente acción. Para buscar esta configuración, siga estos pasos:
 

@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: c3892cfe3f8bd6966f5bd00c0747590eef3bc50d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cdbce7c11bc3184b624fa00f3ac33db7ad8730d8
+ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83860533"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88077446"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configuración de una aplicación de App Service o Azure Functions para usar el inicio de sesión de Azure AD
 
@@ -103,7 +103,7 @@ Lleve a cabo los siguiente pasos:
     |Campo|Descripción|
     |-|-|
     |Id. de cliente| Use el **identificador de la aplicación (cliente)** del registro de aplicaciones. |
-    |Dirección URL del emisor| Use `<authentication-endpoint>/<tenant-id>/v2.0` y reemplace *\<authentication-endpoint>* por el [punto de conexión de autenticación del entorno de nube](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por ejemplo, "https://login.microsoft.com" para Azure global), y reemplace también *\<tenant-id>* por el **identificador de directorio (inquilino)** en el que se creó el registro de la aplicación. Este valor se usa para redirigir a los usuarios al inquilino de Azure AD correcto, así como para descargar los metadatos adecuados para determinar las claves de firma de tokens y el valor de notificación del emisor del token correspondientes, por ejemplo. Se puede omitir la sección `/v2.0` para las aplicaciones que usan AAD v1. |
+    |Dirección URL del emisor| Use `<authentication-endpoint>/<tenant-id>/v2.0` y reemplace *\<authentication-endpoint>* por el [punto de conexión de autenticación del entorno de nube](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por ejemplo, "https://login.microsoft.com" para Azure global), y reemplace también *\<tenant-id>* por el **identificador de directorio (inquilino)** en el que se creó el registro de la aplicación. Este valor se usa para redirigir a los usuarios al inquilino de Azure AD correcto, así como para descargar los metadatos adecuados para determinar las claves de firma de tokens y el valor de notificación del emisor del token correspondientes, por ejemplo. En las aplicaciones que usan Azure AD v1 y en las aplicaciones de Azure Functions, debe omitirse `/v2.0` en la dirección URL.|
     |Secreto de cliente (opcional)| Use el secreto de cliente que generó en el registro de la aplicación.|
     |Audiencias de token permitidas| Si se trata de una aplicación en la nube o una aplicación de servidor y quiere permitir tokens de autenticación desde una aplicación web, agregue aquí el valor de **URI de Id. de aplicación** de la aplicación web. De forma implícita, el **Id. de cliente** se considera *siempre* que es un público permitido. |
 
@@ -157,7 +157,7 @@ Ahora ha configurado una aplicación cliente demonio que puede acceder a la apli
 ## <a name="next-steps"></a><a name="related-content"> </a>Pasos siguientes
 
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
-* [Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service](app-service-web-tutorial-auth-aad.md)
+* [Tutorial: Autenticación y autorización de usuarios de extremo a extremo en Azure App Service](tutorial-auth-aad.md)
 <!-- URLs. -->
 
 [Azure Portal]: https://portal.azure.com/

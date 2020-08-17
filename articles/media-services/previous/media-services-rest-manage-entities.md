@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f18885634503cc65a5bf78d93bd84afd018956bd
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0e79469aa0e405a0096d483ae290d10415fe74f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170809"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87000064"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>Administración de entidades de Media Services con REST  
 
@@ -149,7 +149,7 @@ Host: media.windows.net
 ```
 
 ## <a name="updating-entities"></a>Actualización de entidades
-Según el tipo de entidad y el estado en el que se encuentre, puede actualizar las propiedades de entidad mediante solicitudes HTTP PATCH, PUT o MERGE. Para obtener más información acerca de estas operaciones, vea [PATCH, PUT, MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Según el tipo de entidad y el estado en el que se encuentre, puede actualizar las propiedades de entidad mediante solicitudes HTTP PATCH, PUT o MERGE. Para obtener más información acerca de estas operaciones, vea [PATCH, PUT, MERGE](/openspecs/windows_protocols/ms-odata/59d5abd3-7b12-490a-a0e2-9d9324b91893).
 
 En el ejemplo de código siguiente se muestra cómo actualizar la propiedad Name en una entidad Asset.
 
@@ -190,4 +190,3 @@ Content-Length: 0
 
 ## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-

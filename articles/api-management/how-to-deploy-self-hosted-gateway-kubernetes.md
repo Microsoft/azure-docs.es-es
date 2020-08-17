@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: 51ce2e0dec8b38c9285f4f4e71dd35056b292b66
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254289"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87056375"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implementación de una puerta de enlace autohospedada en Kubernetes
 
@@ -33,9 +33,9 @@ En este artículo se describen los pasos para implementar un componente de puert
 1. Seleccione **Puertas de enlace** en **Deployment and infrastructure** (Implementación e infraestructura).
 2. Seleccione el recurso de puerta de enlace autohospedada que quiere implementar.
 3. Seleccione **Implementación**.
-4. Se generó automáticamente un token de acceso en el cuadro de texto **Token** basado en los valores predeterminados de **Expiración** y **Clave secreta**. Si es necesario, elija valores en uno o ambos controles para generar un nuevo token.
+4. Se ha generado automáticamente un token de acceso en el cuadro de texto **Token** según los valores predeterminados de **Expiración** y **Clave secreta**. Si es necesario, elija valores en uno o ambos controles para generar un nuevo token.
 5. Seleccione la pestaña **Kubernetes** en **Scripts de implementación**.
-6. Seleccione el vínculo del archivo **<nombre-puertadeenlace>.yml** y descargue el archivo YAML.
+6. Seleccione el vínculo del archivo **\<gateway-name\>.yml** y descargue el archivo YAML.
 7. Seleccione el icono **copiar** situado en la esquina inferior derecha del cuadro de texto **Implementar** para guardar los comandos `kubectl` en el Portapapeles.
 8. Pegue los comandos en la ventana de terminal o comando. El primer comando crea un secreto de Kubernetes que contiene el token de acceso generado en el paso 4. El segundo comando aplica el archivo de configuración descargado en el paso 6 al clúster de Kubernetes y espera que el archivo esté en el directorio actual.
 9. Ejecute los comandos para crear los objetos de Kubernetes necesarios en el [espacio de nombres predeterminado](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e inicie los pods de la puerta de enlace autohospedada desde la [imagen de contenedor](https://aka.ms/apim/sputnik/dhub) descargada de Microsoft Azure Container Registry.
@@ -106,6 +106,12 @@ La resolución de nombres DNS desempeña un rol fundamental en la capacidad de u
 El archivo YAML proporcionado en Azure Portal aplica la directiva [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) predeterminada. Esta directiva hace que las solicitudes de resolución de nombres que el DNS del clúster no resuelve se reenvíen al servidor DNS ascendente heredado del nodo.
 
 Para obtener información acerca de la resolución de nombres en Kubernetes, consulte el [sitio web de Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Considere la posibilidad de personalizar la [directiva de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) o la [configuración de DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) según corresponda para su configuración.
+
+### <a name="custom-domain-names-and-ssl-certificates"></a>Nombres de dominio personalizados y certificados SSL
+
+Si usa nombres de dominio personalizados para los puntos de conexión de API Management, especialmente si usa un nombre de dominio personalizado para el punto de conexión de administración, es posible que tenga que actualizar el valor de `config.service.endpoint` en el archivo **\<gateway-name\>.yaml** para reemplazar el nombre de dominio predeterminado por el nombre de dominio personalizado. Asegúrese de que se puede acceder al punto de conexión de administración desde el pod de la puerta de enlace autohospedada del clúster de Kubernetes.
+
+En este escenario, si el certificado SSL que usa el punto de conexión de administración no está firmado por una entidad de certificación conocida, debe asegurarse de que el pod de la puerta de enlace autohospedada confíe en el certificado de CA.
 
 ### <a name="configuration-backup"></a>Copia de seguridad de configuración
 Para obtener información sobre el comportamiento de la puerta de enlace autohospedada en caso de interrupción temporal de la conectividad de Azure, consulte [Información general de la puerta de enlace autohospedada](self-hosted-gateway-overview.md#connectivity-to-azure).

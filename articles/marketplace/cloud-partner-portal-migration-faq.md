@@ -4,15 +4,15 @@ description: Respuestas a las preguntas más frecuentes sobre la transición de 
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-author: anbene
+author: mingshen-ms
 ms.author: mingshen
-ms.date: 06/29/2020
-ms.openlocfilehash: e708d9a32d63c306a2d1ee8d06b044652f108dde
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.date: 07/14/2020
+ms.openlocfilehash: 59f66b88c998a78f5bd3ccf3757cb791aea2521b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231886"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87279311"
 ---
 # <a name="frequently-asked-questions-about-transitioning-from-the-cloud-partner-portal-to-partner-center"></a>Preguntas más frecuentes sobre la transición de Cloud Partner Portal al Centro de partners
 
@@ -30,7 +30,7 @@ Puede seguir haciendo negocios como de costumbre en el Centro de partners:
 | Nuevas compras e implementaciones | Sin cambios. Los clientes pueden seguir comprando e implementando las ofertas sin interrupciones. |
 | Pagos | Todas las compras e implementaciones se le seguirán pagando de la forma habitual. Obtenga más información sobre la [Recepción de pagos en el marketplace comercial](partner-center-portal/get-paid.md). |
 | Integraciones de API con las [API de Cloud Partner Portal](cloud-partner-portal-api-overview.md) existentes | Todavía se admiten las API de Cloud Partner Portal existentes y las integraciones existentes siguen funcionando. Obtenga más información en [¿Se admitirán las API REST de Cloud Partner Portal?](#are-the-cloud-partner-portal-rest-apis-still-supported) |
-| Análisis | Mediante el examen de los análisis en el Centro de partners puede seguir supervisando las ventas, evaluando el rendimiento y optimizando las ofertas en el marketplace comercial. Más información en [Acceso a los informes de análisis del marketplace comercial en el Centro de partners](partner-center-portal/analytics.md). |
+| Análisis | Mediante el examen de los análisis en el Centro de partners puede seguir supervisando las ventas, evaluando el rendimiento y optimizando las ofertas en el marketplace comercial. Existen diferencias entre cómo se muestran los informes de análisis en CPP y en el Centro de partners. Por ejemplo, **Información para el vendedor** en CPP tiene una pestaña **Orders & Usage** (Pedidos y uso) que muestra los datos de las ofertas basadas y no en el uso, mientras que en el Centro de partners, la página **Pedidos** tiene una pestaña aparte para las ofertas SaaS. Más información en [Acceso a los informes de análisis del marketplace comercial en el Centro de partners](partner-center-portal/analytics.md). |
 |||
 
 ## <a name="do-i-need-to-create-a-new-account-to-manage-my-offers-in-partner-center"></a>¿Es necesario crear una cuenta para administrar las ofertas en el Centro de partners?
@@ -50,6 +50,19 @@ A continuación se muestran vínculos del Centro de partners de páginas que se 
 | Página Historial | [https://cloudpartner.azure.com/#history](https://cloudpartner.azure.com/#history) | La característica de Historial todavía no se admite en el Centro de partners. |
 | Panel de conclusiones | [https://cloudpartner.azure.com/#insights](https://cloudpartner.azure.com/#insights) | [https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary) |
 | Informe de pagos | [https://cloudpartner.azure.com/#insights/payout](https://cloudpartner.azure.com/#insights/payout) | [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
+|||
+
+## <a name="payout-report-differences"></a>Diferencias en el informe de pago
+
+Estas son las diferencias en el informe de pago entre Cloud Partner Portal (ya retirado) y el Centro de partners actual:
+
+| Cloud Partner Portal | Centro de partners |
+| --- | --- |
+| **Vínculo**: https://cloudpartner.azure.com/ | **Vínculo**: https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory y https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| **Navegación**: Informes de pago proporcionados en Insights Payout | **Navegación**: Informes de pago proporcionados en el Centro de Partners: icono de pago |
+| **Ámbito**:<ul><li>Transacción por artículo de línea visible, para cobros en curso, realizados y pagados.</li><li>Informes: se muestran todos los artículos de línea una vez creado el pedido de compra, incluidos los cobros y la facturación en curso; también se muestran el estado de cobro y los artículos de línea que aún no son válidos para su pago.</li></ul> | **Ámbito**:<ul><li>Muestra los artículos de línea después de que se consideran ganancias válidas.</li><li>Los clientes pagan primero a Microsoft y entonces los ISV pueden ver que se inicia el informe de pago.</li><li>El informe de pago no muestra ni el cobro ni la facturación en curso.</li></ul> |
+| **La transacción no está lista para el pago**: Facturación en curso | **La transacción no está lista para el pago**: Siguiente pago estimado: El estado del pago es sin procesar. |
+| **Estado del pago**: n/d | **Estado del pago**:<ul><li>Sin procesar: La ganancia es válida para el pago.</li><li>Próximamente: La ganancia se enviará al editor en el siguiente pago mensual.</li><li>Enviado: El pago se ha enviado al banco.</li></ul> |
 |||
 
 ## <a name="what-about-offers-i-published-in-the-cloud-partner-portal"></a>¿Qué ocurre con las ofertas publicadas en Cloud Partner Portal?
@@ -94,19 +107,19 @@ Las ofertas que haya creado en Cloud Partner Portal están disponibles en el Cen
 
     Si no ve el programa Marketplace comercial en el panel de navegación de la izquierda, es posible que esté en la cuenta equivocada. Siga los pasos que se describen en la sección siguiente para acceder a la cuenta correcta.
 
-    [![](media/cpp-pc-faq/overview-menu.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/overview-menu.png#lightbox)
+    [![Captura de pantalla que muestra el menú Información general del Centro de partners](media/cpp-pc-faq/overview-menu.png "Se muestra el menú Información general del Centro de partners")](media/cpp-pc-faq/overview-menu.png#lightbox)
 
 ### <a name="access-the-right-account-in-partner-center"></a>Acceso a la cuenta correcta en el Centro de partners
 
 Si forma parte de varias cuentas, en el Centro de partners verá un botón de selector de cuenta marcado con dos flechas en el menú de navegación de la izquierda. Seleccione el botón de selector de cuenta para ver una lista de todas las cuentas a las que pertenece. Seleccione cualquier cuenta de la lista para cambiar a ella y ver todos los programas e información correspondientes. Si no ve un botón de selector de cuenta en el menú de navegación, significa que solo es miembro de una cuenta.
 
-[![](media/cpp-pc-faq/picker-button.png "Shows the Partner Center account picker button")](media/cpp-pc-faq/picker-button.png#lightbox)
+[![Captura de pantalla que muestra el botón de selección de cuentas del Centro de partners](media/cpp-pc-faq/picker-button.png "Se muestra el botón de selector de cuentas del Centro de partners")](media/cpp-pc-faq/picker-button.png#lightbox)
 
 ## <a name="how-do-i-create-new-offers"></a>¿Cómo se crean las ofertas?
 
 Para crear ofertas, acceda al programa Marketplace comercial en el [Centro de partners](https://partner.microsoft.com/dashboard/commercial-marketplace/overview). En la página Información general, seleccione **+ Nueva oferta**.
 
-[![](media/cpp-pc-faq/new-offer.png "Shows the Partner Center Overview menu")](media/cpp-pc-faq/new-offer.png#lightbox)
+[![Captura de pantalla que muestra el menú Información general del Centro de partners](media/cpp-pc-faq/new-offer.png "Se muestra el menú Información general del Centro de partners")](media/cpp-pc-faq/new-offer.png#lightbox)
 
 ## <a name="i-cant-sign-in-and-need-to-open-a-support-ticket"></a>No puedo iniciar sesión y necesito abrir una incidencia de soporte técnico
 
@@ -114,7 +127,7 @@ Si no puede iniciar sesión en la cuenta, aquí puede abrir una [incidencia de s
 
 ## <a name="where-are-instructions-for-using-partner-center"></a>¿Dónde están las instrucciones para usa el Centro de partners?
 
-Vaya a la [documentación del marketplace comercial](index.yml) y, después, expanda **Portal Marketplace comercial en el Centro de partners**. Para ver artículos de ayuda sobre la creación de ofertas en el Centro de partners, expanda **Creación de una nueva oferta**.
+Vaya a la [documentación de marketplace comercial](index.yml) y, después, expanda la seción sobre el **portal de Marketplace comercial en el Centro de partners**. Para ver artículos de ayuda sobre la creación de ofertas en el Centro de partners, expanda **Creación de una nueva oferta**.
 
 ## <a name="what-are-the-publishing-and-offer-management-differences"></a>¿Cuáles son las diferencias de administración de publicación y ofertas?
 
@@ -124,7 +137,7 @@ Estas son algunas de las diferencias entre Cloud Partner Portal y el Centro de p
 
 El Centro de partners proporciona una opción de publicación modular que le permite seleccionar los cambios que desea publicar en lugar de publicar siempre todas las actualizaciones a la vez. Por ejemplo, en la pantalla siguiente se muestra que los únicos cambios seleccionados para publicar son los cambios en las **propiedades** y la **descripción de la oferta**. Los cambios que realice en la página de vista previa no se publicarán.
 
-[![](media/cpp-pc-faq/review-page.png "Shows the Partner Center Review and publish page")](media/cpp-pc-faq/review-page.png#lightbox)
+[![Captura de pantalla que muestra la página de revisión y publicación del Centro de partners](media/cpp-pc-faq/review-page.png "Se muestra la página Revisar y publicar del Centro de partners")](media/cpp-pc-faq/review-page.png#lightbox)
 
 Las actualizaciones que no publique se guardan como borradores. Siga usando la vista previa de la oferta para revisar su oferta antes de hacerla pública.
 
@@ -132,24 +145,24 @@ Las actualizaciones que no publique se guardan como borradores. Siga usando la v
 
 El Centro de partners incluye una [característica de comparación](partner-center-portal/update-existing-offer.md#compare-changes-to-marketplace-offers) con opciones de filtrado mejoradas. Esto le ofrece la posibilidad de comparar con la versión preliminar y las versiones publicadas de la oferta.
 
-[![](media/cpp-pc-faq/compare.png "Shows the Partner Center compare feature")](media/cpp-pc-faq/compare.png#lightbox)
+[![Captura de pantalla que muestra la característica de comparación del Centro de partners](media/cpp-pc-faq/compare.png "Se muestra la característica Comparar del Centro de partners")](media/cpp-pc-faq/compare.png#lightbox)
 
 ### <a name="branding-and-navigation-changes"></a>Cambios de personalización de marca y navegación
 
 Observará algunos cambios en la personalización de marca. Por ejemplo, las *SKU* aparecen como *Planes* en el Centro de partners:
 
-[![](media/cpp-pc-faq/plans.png "Shows the Partner Center Plans page")](media/cpp-pc-faq/plans.png#lightbox)
+[![Captura de pantalla que muestra la página Planes del Centro de partners](media/cpp-pc-faq/plans.png "Se muestra la página Planes del Centro de partners")](media/cpp-pc-faq/plans.png#lightbox)
 
 Además, la información que antes se proporcionaba en las páginas **Marketplace** o **Detalles del escaparate electrónico** (servicio de consultoría, aplicación Power BI) de Cloud Partner Portal, ahora se recopila en la página **Descripción de la oferta** del Centro de partners:
 
-[![](media/cpp-pc-faq/offer-listing.png "Shows the Partner Center Offer listing page")](media/cpp-pc-faq/offer-listing.png#lightbox)
+[![Captura de pantalla que muestra la página de listado de ofertas del Centro de partners](media/cpp-pc-faq/offer-listing.png "Se muestra la página Descripción de la oferta del Centro de partners")](media/cpp-pc-faq/offer-listing.png#lightbox)
 
 La información que antes se proporcionaba para las SKU en una única página de Cloud Partner Portal es posible que ahora se recopile en varias páginas del Centro de partners:
 
 - Página de configuración del plan
 - Página de descripción del plan
 - Página de disponibilidad del plan
-- Página de configuración técnica del plan, como se muestra aquí ![![](media/cpp-pc-faq/technical-configuration.png "Se muestra la Página de configuración técnica del plan en el Centro de partners")](media/cpp-pc-faq/technical-configuration.png#lightbox)
+- Página de configuración técnica del plan, como se muestra aquí: ![![Captura de pantalla que muestra la página de configuración técnica del Centro de partners.](media/cpp-pc-faq/technical-configuration.png "Muestra la página de configuración técnica del Centro de partners")](media/cpp-pc-faq/technical-configuration.png#lightbox)
 
 El identificador de la oferta ahora se muestra en la barra de navegación izquierda de la oferta:
 
@@ -159,7 +172,7 @@ El identificador de la oferta ahora se muestra en la barra de navegación izquie
 
 Puede solicitar [dejar de vender una oferta](partner-center-portal/update-existing-offer.md#stop-selling-an-offer-or-plan) en Marketplace directamente desde el portal del Centro de partners. La opción está disponible en la página **Información general de la oferta** de la oferta.
 
-[![](media/cpp-pc-faq/stop-sell.png "Shows the Partner Center page to stop selling an offer")](media/cpp-pc-faq/stop-sell.png#lightbox)
+[![Captura de pantalla que muestra la página para dejar de vender una oferta del Centro de partners](media/cpp-pc-faq/stop-sell.png "Se muestra la página del Centro de partners para dejar de vender una oferta")](media/cpp-pc-faq/stop-sell.png#lightbox)
 <br><br>
 
 ## <a name="are-the-cloud-partner-portal-rest-apis-still-supported"></a>¿Se siguen admitiendo las API REST de Cloud Partner Portal?

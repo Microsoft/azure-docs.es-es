@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 312723818c4cef82ad6c96b013d7ec81ede276cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: ed517f2f6e04f60ec1c9c808f2fdf03203fb891b
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130914"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498980"
 ---
 # <a name="prepare-azure-for-on-premises-disaster-recovery-to-azure"></a>Preparación de Azure para la recuperación ante desastres en el entorno local en Azure
 
@@ -62,7 +62,7 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 6. En **Región**, seleccione la región en la que debería estar el almacén. se va a usar **Oeste de Europa**.
 7. Seleccione **Revisar + crear**.
 
-   ![Crear un nuevo almacén](./media/tutorial-prepare-azure/new-vault-settings.png)
+   ![Captura de pantalla de la página Create Recovery Services vault (Crear almacén de Recovery Services).](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    El nuevo almacén aparecerá ahora en **Panel** > **Todos los recursos** y en la página principal de **Almacenes de Recovery Services**.
 
@@ -81,7 +81,7 @@ Las máquinas locales se replican en los discos administrados de Azure. Cuando s
 9. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio ni firewall en la red.
 9. Seleccione **Crear**.
 
-   ![Creación de una red virtual](media/tutorial-prepare-azure/create-network.png)
+   ![Captura de pantalla de las opciones de Crear red virtual.](media/tutorial-prepare-azure/create-network.png)
 
 La red virtual tarda unos segundos en crearse. Una vez creada, la verá en el panel de Azure Portal.
 

@@ -1,6 +1,6 @@
 ---
-title: Supervisión de aplicaciones de Apache Spark
-description: Use Azure Synapse Studio para supervisar sus aplicaciones de Apache Spark.
+title: Supervisión de aplicaciones Apache Spark con Synapse Studio
+description: Use Synapse Studio para supervisar sus aplicaciones de Apache Spark.
 services: synapse-analytics
 author: matt1883
 ms.service: synapse-analytics
@@ -9,14 +9,14 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 20c4216e7af0cb4100204ebae1b484a53e3c50a6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 4d6c50436ddf68e2610aeb10ddfaaab0a5d060f3
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85971244"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387360"
 ---
-# <a name="use-the-azure-synapse-studio-to-monitor-your-apache-spark-applications"></a>Use Azure Synapse Studio para supervisar sus aplicaciones de Apache Spark.
+# <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Uso de Synapse Studio para supervisar sus aplicaciones de Apache Spark
 
 Con Azure Synapse Analytics, puede usar Apache Spark para ejecutar cuadernos, trabajos y otros tipos de aplicaciones en los grupos de Apache Spark en su área de trabajo.
 
@@ -33,13 +33,13 @@ En este tutorial se describen las tareas siguientes:
 
 Antes de comenzar este tutorial, asegúrese de que se cumplen los requisitos siguientes:
 
-- Un área de trabajo de Azure Synapse Studio. Para obtener instrucciones, consulte [Creación de un área de trabajo de Azure Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
+- Un área de trabajo de Synapse Studio. Para instrucciones, consulte [Creación de un área de trabajo de Synapse Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
 - Un grupo de Apache Spark.
 
-## <a name="monitor-running-apache-spark-application"></a>Supervisión de la aplicación de Apache Spark en ejecución
+## <a name="monitor-running-apache-spark-application"></a>Supervisión de la aplicación de Apache Spark en ejecución
 
-Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark applications** (Aplicaciones de Apache Spark). Para ver los detalles sobre las aplicaciones de Apache Spark en ejecución, seleccione la aplicación de Apache Spark de envío y vea los detalles. Si la aplicación de Apache Spark todavía está en ejecución, puede supervisar el progreso.
+Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark applications** (Aplicaciones de Apache Spark). Para ver los detalles sobre las aplicaciones de Apache Spark en ejecución, seleccione la aplicación de Apache Spark de envío y consulte los detalles. Si la aplicación de Apache Spark todavía está en ejecución, puede supervisar el progreso.
 
   ![Seleccionar un trabajo en ejecución](./media/how-to-monitor-spark-applications/select-running-job.png)
 
@@ -147,4 +147,4 @@ Abra **Supervisar** y, a continuación, seleccione la opción **Apache Spark app
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para obtener más información sobre la supervisión de ejecuciones de canalizaciones, consulte el artículo [Supervisión de ejecuciones de canalizaciones en Azure Synapse Studio](how-to-monitor-pipeline-runs.md).  
+Para más información sobre la supervisión de ejecuciones de canalización, consulte el artículo [Supervisión de ejecuciones de canalización en Synapse Studio](how-to-monitor-pipeline-runs.md).  

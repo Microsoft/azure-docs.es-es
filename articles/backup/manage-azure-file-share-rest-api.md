@@ -3,16 +3,16 @@ title: Administración de copias de seguridad de recursos compartidos de archivo
 description: Aprenda a usar API REST para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha creado una copia de seguridad con Azure Backup.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 1e1d3463aa5d6ee10782e2ee17a7c17ffd64cb61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4d1ee187fd1c45dfd043b28c0d4b3d5935f50e1
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82184918"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87073244"
 ---
 # <a name="manage-azure-file-share-backup-with-rest-api"></a>Administración de copias de seguridad de recursos compartidos de archivos de Azure con API REST
 
-En este artículo se explica cómo realizar tareas para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha realizado una copia de seguridad mediante [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview).
+En este artículo se explica cómo realizar tareas para administrar y supervisar los recursos compartidos de archivos de Azure de los que se ha realizado una copia de seguridad mediante [Azure Backup](./backup-overview.md).
 
 ## <a name="monitor-jobs"></a>Supervisión de trabajos
 
@@ -38,7 +38,7 @@ Por ejemplo, la respuesta final de una [operación para desencadenar una copia d
 }
 ```
 
-El trabajo de copia de seguridad del recurso compartido de archivos se identifica mediante el campo **jobId** y se puede realizar su seguimiento como se menciona [aquí](https://docs.microsoft.com/rest/api/backup/jobdetails/) mediante una solicitud GET.
+El trabajo de copia de seguridad del recurso compartido de archivos se identifica mediante el campo **jobId** y se puede realizar su seguimiento como se menciona [aquí](/rest/api/backup/jobdetails/) mediante una solicitud GET.
 
 ### <a name="tracking-the-job"></a>Seguimiento del trabajo
 
@@ -190,7 +190,7 @@ GET https://management.azure.com/Subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af
 
 ## <a name="stop-protection-and-delete-data"></a>Detener la protección y eliminar los datos
 
-Para quitar la protección de un recurso compartido de archivos y eliminar también los datos de la copia de seguridad, realice una operación de eliminación como se detalla [aquí](https://docs.microsoft.com/rest/api/backup/protecteditems/delete).
+Para quitar la protección de un recurso compartido de archivos y eliminar también los datos de la copia de seguridad, realice una operación de eliminación como se detalla [aquí](/rest/api/backup/protecteditems/delete).
 
 ```http
 DELETE https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/protectionContainers/{containerName}/protectedItems/{protectedItemName}?api-version=2019-05-13

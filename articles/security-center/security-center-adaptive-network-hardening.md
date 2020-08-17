@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: a75be23e2e8215d86aebcfd7f4317f2f597d3c5b
-ms.sourcegitcommit: e040ab443f10e975954d41def759b1e9d96cdade
+ms.openlocfilehash: d12df01fe1506f7f5ade9cce60ae7af0412e3010
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2020
-ms.locfileid: "80385085"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87080818"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protección de red adaptable en Azure Security Center
 Obtenga información sobre cómo configurar la protección de red adaptable en Azure Security Center.
@@ -45,7 +45,7 @@ Por ejemplo, supongamos que la regla de NSG existente es permitir el tráfico de
    * **Recursos sin analizar** : VM en las que no se puede ejecutar el algoritmo de protección de red adaptable debido a uno de los motivos siguientes:
       * **Las VM son VM clásicas**: solo se admiten VM de Azure Resource Manager.
       * **No hay suficientes datos disponibles**: para generar recomendaciones de protección de tráfico precisas, Security Center requiere al menos 30 días de datos de tráfico.
-      * **La VM no está protegida por el estándar de ASC**: solo las VM virtuales que se establecen en el plan de tarifa estándar de Security Center son aptas para esta característica.
+      * **La VM no está protegida por el estándar de ASC**: solo las máquinas virtuales que están establecidas en el plan de tarifa estándar de Security Center son aptas para esta característica.
 
      ![Recursos con estado incorrecto](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 

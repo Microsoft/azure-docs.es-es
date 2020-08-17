@@ -5,22 +5,27 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42768c61cc46ba97e9bd16a06c85f20219672fdd
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: f76073a1ed98dcc51cf7e14219beca914b5b77a4
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83639796"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87027604"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>¿Cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña en Azure Active Directory?
 
 El autoservicio de restablecimiento de contraseña (SSPR) de Azure Active Directory (Azure AD) permite a los usuarios restablecer sus contraseñas en la nube, pero la mayoría de las empresas también tienen un entorno de Active Directory Domain Services (AD DS) local en el que existen los usuarios. La escritura diferida de contraseñas es una característica que se habilita con [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) y que permite que los cambios de contraseña en la nube se escriban en diferido en un directorio local existente en tiempo real. En esta configuración, a medida que los usuarios cambian o restablecen sus contraseñas mediante SSPR en la nube, las contraseñas actualizadas también se vuelven a escribir en el entorno de AD DS local.
+
+> [!IMPORTANT]
+> Este artículo teórico explica al administrador cómo funciona la escritura diferida del autoservicio de restablecimiento de contraseña. Los usuarios finales registrados para el restablecimiento de contraseña de autoservicio que necesiten volver a su cuenta deben ir a https://aka.ms/sspr.
+>
+> Si el equipo de TI no ha habilitado la capacidad para restablecer su propia contraseña, póngase en contacto con el departamento de soporte técnico para obtener ayuda adicional.
 
 La escritura diferida de contraseñas se admite en entornos que usan los siguientes modelos de identidad híbrida:
 
@@ -37,7 +42,12 @@ La escritura diferida de contraseñas ofrece las siguientes características:
 * **No requiere ninguna regla de firewall de entrada**: la escritura diferida de contraseñas usa una retransmisión de Azure Service Bus como canal de comunicación subyacente. Toda la comunicación es de salida a través del puerto 443.
 
 > [!NOTE]
-> Las cuentas de administrador que se encuentran dentro de grupos protegidos en AD local se pueden utilizar con la escritura diferida de contraseñas. Los administradores pueden cambiar su contraseña en la nube, pero no pueden usar el restablecimiento de contraseña para restablecer una contraseña olvidada. Para más información sobre los grupos protegidos, consulte [Cuentas y grupos protegidos en Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+> Las cuentas de administrador que se encuentran dentro de grupos protegidos en AD local se pueden utilizar con la escritura diferida de contraseñas. Los administradores pueden cambiar su contraseña en la nube, pero no pueden usar el restablecimiento de contraseña para restablecer una contraseña olvidada. Para obtener más información sobre los grupos protegidos, consulte [Cuentas y grupos protegidos en Active Directory](/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
+
+Para empezar a trabajar con la escritura diferida de SSPR, realice el siguiente tutorial:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Habilitación de la escritura diferida del autoservicio de restablecimiento de contraseña (SSPR)](tutorial-enable-writeback.md).
 
 ## <a name="how-password-writeback-works"></a>Funcionamiento de la escritura diferida de contraseñas
 
@@ -53,14 +63,14 @@ Si un usuario con federación o sincronización de hash de contraseñas cambia o
 1. Una vez que el mensaje llega a Service Bus, el punto de conexión de restablecimiento de contraseña se activa automáticamente y comprueba que tiene una solicitud de restablecimiento pendiente.
 1. A continuación, el servicio busca al usuario mediante el atributo delimitador de la nube. Para que esta búsqueda se realice correctamente, deben cumplirse las siguientes condiciones:
 
-   * El objeto de usuario debe existir en el espacio de conector de Active Directory.
+   * El objeto de usuario debe existir en el espacio del conector de AD DS.
    * El objeto de usuario debe estar vinculado al objeto de metaverso (MV) correspondiente.
-   * El objeto de usuario debe estar vinculado al objeto de conector de Azure Active Directory correspondiente.
-   * El vínculo del objeto de conector de Active Directory que lleva al objeto de MV debe tener la regla de sincronización `Microsoft.InfromADUserAccountEnabled.xxx` en ese vínculo.
+   * El objeto de usuario debe estar vinculado al objeto de conector de Azure AD correspondiente.
+   * El vínculo del objeto de conector de AD DS a la máquina virtual debe incluir la regla de sincronización `Microsoft.InfromADUserAccountEnabled.xxx`.
 
-   Cuando se recibe la llamada de la nube, el motor de sincronización usa el atributo **cloudAnchor** para buscar el objeto de espacio de conector de Azure Active Directory. A continuación, sigue el vínculo de vuelta al objeto de MV para volver a seguir el vínculo al objeto de Active Directory. Dado que podría haber varios objetos de Active Directory (bosque múltiple) para el mismo usuario, el motor de sincronización se basa en el vínculo `Microsoft.InfromADUserAccountEnabled.xxx` para seleccionar el objeto correcto.
+   Cuando la llamada procede de la nube, el motor de sincronización usa el atributo **cloudAnchor** para buscar el objeto de espacio de conector de Azure AD. A continuación, sigue el vínculo para volver al objeto de máquina virtual y, posteriormente, sigue el vínculo para volver al objeto de AD DS. Dado que puede haber varios objetos de AD DS (bosques múltiples) para un mismo usuario, el motor de sincronización se basa en el vínculo `Microsoft.InfromADUserAccountEnabled.xxx` para seleccionar el objeto correcto.
 
-1. Una vez que se encuentra la cuenta de usuario, se intenta restablecer la contraseña directamente en el bosque de Active Directory correspondiente.
+1. Una vez que se encuentre la cuenta de usuario, se intenta restablecer la contraseña directamente en el bosque de AD DS correspondiente.
 1. Si la operación de establecimiento de la contraseña se realiza correctamente, se notifica al usuario que se ha cambiado su contraseña.
 
    > [!NOTE]
@@ -69,7 +79,7 @@ Si un usuario con federación o sincronización de hash de contraseñas cambia o
 1. Si la operación de establecimiento de la contraseña no se realiza, un mensaje de error pide al usuario que vuelva a intentarla. La operación puede producir un error por los siguientes motivos:
     * El servicio estaba inactivo.
     * La contraseña seleccionada no cumple las directivas de la organización.
-    * No se encuentra el usuario en Active Directory local.
+    * No se ha podido encontrar el usuario en el entorno local de AD DS.
 
    Los mensajes de error ofrecen instrucciones a los usuarios para que pueden intentar resolver la situación sin intervención del administrador.
 
@@ -86,7 +96,7 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
    1. La contraseña cifrada se inserta en un mensaje HTTPS que se envía a Service Bus Relay a través de un canal cifrado con certificados TLS/SSL de Microsoft.
    1. Una vez que el mensaje llega a Service Bus, el agente local se activa y se autentica en Service Bus con la contraseña segura que se generó anteriormente.
    1. El agente local selecciona el mensaje cifrado y lo descifra con la clave privada.
-   1. El agente local intenta definir la contraseña con SetPassword API de AD DS. Este paso permite aplicar la directiva de contraseñas local de Active Directory (como, por ejemplo, complejidad, antigüedad, historial y filtros) en la nube.
+   1. El agente local intenta definir la contraseña con SetPassword API de AD DS. Este paso permite aplicar su directiva de contraseñas local de AD DS (por ejemplo, complejidad, antigüedad, historial y filtros) en la nube.
 * **Directivas de expiración de mensajes**
    * Si el mensaje se queda en Service Bus porque el servicio local está inactivo, se agotará el tiempo de espera y se eliminará después de varios minutos. El tiempo de espera y la eliminación del mensaje aumenta aún más la seguridad.
 
@@ -95,8 +105,8 @@ La escritura diferida de contraseñas es un servicio muy seguro. Para garantizar
 Después de que un usuario envíe un restablecimiento de contraseña, la solicitud de restablecimiento pasa por varias pasos de cifrado antes de que llegue al entorno local. Estos pasos de cifrado garantizan una seguridad y confiabilidad máximas del servicio. A continuación se detalla la descripción de estos pasos:
 
 1. **Cifrado de contraseña con clave RSA de 2048 bits**: cuando el usuario envía una contraseña para que se escriba en diferido en el entorno local, se cifra la propia contraseña enviada con una clave RSA de 2048 bits.
-1. **Cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. Este cifrado evita que cualquier persona con acceso directo al canal de ServiceBus subyacente vea o manipule el contenido.
-1. **Toda la comunicación se realiza a través de TLS/SSL**: toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
+1. **Cifrado a nivel de paquete con AES-GCM**: todo el paquete (la contraseña y los metadatos necesarios) se cifra mediante AES-GCM. El cifrado evita que cualquier persona que tenga acceso directo al canal subyacente de Service Bus vea o manipule el contenido.
+1. **Toda la comunicación se realiza a través de TLS/SSL**: Toda comunicación con Service Bus tiene lugar en un canal SSL/TLS. Este cifrado protege el contenido de terceras personas no autorizadas.
 1. **Sustitución de clave automática cada seis meses**: todas las claves se sustituyen cada seis meses, o cada vez que la escritura diferida de contraseñas se deshabilita y luego se vuelve a habilitar en Azure AD Connect, para garantizar la máxima seguridad y protección del servicio.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de ancho de banda de la escritura diferida de contraseñas

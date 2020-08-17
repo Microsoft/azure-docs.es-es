@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/07/2019
 ms.author: amverma
-ms.openlocfilehash: a4cd74c9c85ee7413cde9f0fb4cf3ffb54c9b3d0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7110f3417937b623260983a9d94e9e6834fc8fc9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76906748"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077372"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Introducción a las máquinas virtuales de la serie HC
 
@@ -63,6 +63,6 @@ En el siguiente diagrama se muestra la segregación de los núcleos reservados p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre los tamaños de máquina virtual de HPC para [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc) y [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc) en Azure.
+* Más información sobre los tamaños de máquina virtual de HPC para [Linux](../../sizes-hpc.md) y [Windows](../../sizes-hpc.md) en Azure.
 
-* Más información sobre [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) en Azure.
+* Más información sobre [HPC](/azure/architecture/topics/high-performance-computing/) en Azure.

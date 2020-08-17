@@ -1,21 +1,22 @@
 ---
-title: Creación de un laboratorio mediante Azure DevTest Labs y una plantilla de Resource Manager
-description: En este tutorial, creará un laboratorio en Azure DevTest Labs mediante una plantilla de Azure Resource Manager. Los administradores de laboratorio configuran laboratorios, crean máquinas virtuales en los laboratorios y configuran las directivas.
-ms.topic: tutorial
+title: Creación de un laboratorio mediante Azure DevTest Labs y una plantilla de Azure Resource Manager
+description: En este inicio rápido, creará un laboratorio en Azure DevTest Labs mediante una plantilla de Azure Resource Manager (plantilla de ARM). Los administradores de laboratorio configuran laboratorios, crean máquinas virtuales en los laboratorios y configuran las directivas.
+ms.topic: quickstart
+ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 22ba4ffeec22a45c07b096b0a754d08c8230dd8f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476213"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86537554"
 ---
-# <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs-resource-manager-template"></a>Tutorial: Configuración de un laboratorio mediante Azure DevTest Labs (plantilla de Resource Manager)
-En este tutorial, creará un laboratorio con una máquina virtual Windows Server 2019 Datacenter mediante el uso de una plantilla de Azure Resource Manager. 
+# <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Inicio rápido: Configuración de un laboratorio mediante una plantilla de ARM de Azure DevTest Labs
+En este inicio rápido, creará un laboratorio con una máquina virtual Windows Server 2019 Datacenter mediante el uso de una plantilla de Azure Resource Manager (ARM). 
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-En este tutorial realizará lo siguiente:
+En este inicio rápido, lleve a cabo las acciones siguientes:
 
 > [!div class="checklist"]
 > * Revisión de la plantilla 
@@ -23,11 +24,13 @@ En este tutorial realizará lo siguiente:
 > * Comprobación de la plantilla
 > * Limpieza de recursos
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si su entorno cumple los requisitos previos y está familiarizado con el uso de plantillas de Resource Manager, seleccione el botón **Implementar en Azure**. La plantilla se abrirá en Azure Portal.
+
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Ninguno.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="review-the-template"></a>Revisión de la plantilla
 
@@ -46,7 +49,7 @@ Para buscar más ejemplos de plantillas, consulte [Plantillas de inicio rápido 
 ## <a name="deploy-the-template"></a>Implementación de la plantilla
 Para ejecutar automáticamente la implementación, haga clic en el botón siguiente. 
 
-[![Implementación en Azure](./media/create-lab-windows-vm-template/deploy-button.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
+[![Implementación en Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-dtl-create-lab-windows-vm%2Fazuredeploy.json)
 
 1. Cree un **nuevo grupo de recursos** para que facilitar la limpieza más adelante.
 1. Seleccione una **ubicación** para el grupo de recursos. 
@@ -59,7 +62,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deploy-template-page.png" alt-text="Página de implementación de la plantilla":::
 
-## <a name="verify-the-deployment"></a>Comprobar la implementación
+## <a name="validate-the-deployment"></a>Validación de la implementación
 1. Seleccione **Notificaciones** en la parte superior para ver el estado de la implementación y haga clic en el vínculo **Implementación en curso**.
 
     :::image type="content" source="./media/create-lab-windows-vm-template/deployment-notification.png" alt-text="Notificación de implementación":::
@@ -76,7 +79,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
     > [!IMPORTANT] 
     > Mantenga esta página abierta y aplique las instrucciones de la sección siguiente para limpiar los recursos y evitar así los costos de ejecución del laboratorio y la máquina virtual en Azure. Si desea consultar el siguiente tutorial para probar el acceso a la máquina virtual en el laboratorio, limpie los recursos después de realizar el tutorial. 
 
-## <a name="cleanup-resources"></a>Limpieza de recursos
+## <a name="clean-up-resources"></a>Limpieza de recursos
 
 1. En primer lugar, elimine el laboratorio para poder eliminar el grupo de recursos. No podrá eliminar el grupo de recursos si este contiene un laboratorio. Para eliminar el laboratorio, seleccione **Eliminar** en la barra de herramientas. 
 
@@ -90,8 +93,7 @@ Para ejecutar automáticamente la implementación, haga clic en el botón siguie
     :::image type="content" source="./media/create-lab-windows-vm-template/delete-resource-group-button.png" alt-text="Botón Eliminar grupo de recursos":::
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este tutorial, ha creado un laboratorio con una máquina virtual. Para información acerca de cómo acceder al laboratorio, avance hasta el tutorial siguiente:
+En este inicio rápido, ha creado un laboratorio con una máquina virtual. Para información acerca de cómo acceder al laboratorio, avance hasta el tutorial siguiente:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Acceso al laboratorio](tutorial-use-custom-lab.md)
-

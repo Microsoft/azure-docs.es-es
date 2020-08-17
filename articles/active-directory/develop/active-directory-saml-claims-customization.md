@@ -1,32 +1,32 @@
 ---
-title: Personalización de las notificaciones de token de SAML para las aplicaciones en Azure AD
+title: Personalización de las notificaciones de token de SAML para las aplicaciones
 titleSuffix: Microsoft identity platform
-description: Aprenda a personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales en Azure AD.
+description: Aprenda a personalizar las notificaciones que emite la Plataforma de identidad de Microsoft en el token SAML para aplicaciones empresariales.
 services: active-directory
-author: rwike77
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: ryanwi
+ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 0b0efc7e5dd4a60e33ddd61c19283a048cf4ab78
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
+ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478304"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87552839"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Cómo: personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
-Hoy en día, Azure Active Directory (Azure AD) admite el inicio de sesión único (SSO) con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones previamente integradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación a través de Azure AD con el protocolo SAML 2.0, Azure AD envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como *notificaciones*.
+Hoy en día, la Plataforma de identidad de Microsoft admite el inicio de sesión único (SSO) con la mayoría de las aplicaciones empresariales, incluidas las aplicaciones preintegradas en la galería de aplicaciones de Azure AD, así como las aplicaciones personalizadas. Cuando un usuario se autentica en una aplicación mediante la Plataforma de identidad de Microsoft con el protocolo SAML 2.0, la Plataforma de identidad de Microsoft envía un token a la aplicación (mediante HTTP POST). A continuación, la aplicación valida y usa el token para que el usuario inicie sesión en lugar de solicitar un nombre de usuario y una contraseña. Estos tokens SAML contienen trozos de información sobre el usuario conocidos como *notificaciones*.
 
 Una *notificación* es información que un proveedor de identidades declara sobre un usuario dentro del token que se emite para dicho usuario. En [token SAML](https://en.wikipedia.org/wiki/SAML_2.0), estos datos suelen incluirse en la instrucción SAML Attribute. El identificador único del usuario suele representarse en SAML Subject, también denominado NameIdentifier.
 
-De forma predeterminada, Azure AD emite un token SAML a la aplicación que contiene una notificación `NameIdentifier` con un valor de nombre de usuario del usuario (también denominado nombre principal de usuario) en Azure AD, que puede identificar al usuario de forma única. El token SAML también contiene notificaciones adicionales con la dirección de correo electrónico, el nombre y el apellido del usuario.
+De forma predeterminada, la Plataforma de identidad de Microsoft emite un token SAML a la aplicación que contiene una notificación `NameIdentifier` con un valor del nombre de usuario (también denominado nombre principal de usuario) en Azure AD, que puede identificar al usuario de forma única. El token SAML también contiene notificaciones adicionales con la dirección de correo electrónico, el nombre y el apellido del usuario.
 
 Para ver o editar las notificaciones emitidas en el token SAML a la aplicación, abra la aplicación en Azure Portal. Después, abra la sección **Atributos y notificaciones de usuario**.
 
@@ -48,19 +48,19 @@ Para editar la notificación NameID (valor de identificador de nombre):
 
 ### <a name="nameid-format"></a>Formato de NameID
 
-Si la solicitud SAML contiene el elemento NameIDPolicy con un formato específico, Azure AD respetará el formato en la solicitud.
+Si la solicitud SAML contiene el elemento NameIDPolicy con un formato específico, la Plataforma de identidad de Microsoft respetará el formato en la solicitud.
 
-Si la solicitud SAML no contiene ningún elemento para NameIDPolicy, Azure AD emitirá la notificación NameID con el formato que especifique. Si no se especifica ningún formato, Azure AD usará el formato de origen predeterminado asociado con el origen de notificación seleccionado.
+Si la solicitud SAML no contiene ningún elemento para NameIDPolicy, la Plataforma de identidad de Microsoft emitirá la notificación NameID con el formato que especifique. Si no se especifica ningún formato, la Plataforma de identidad de Microsoft usará el formato de origen predeterminado asociado con el origen de notificación seleccionado.
 
 En el menú desplegable **Elija el formato del identificador de nombre**, puede seleccionar una de las opciones siguientes.
 
 | Formato de NameID | Descripción |
 |---------------|-------------|
-| **Valor predeterminado** | Azure AD usará el formato de origen predeterminado. |
-| **Persistent** | Azure AD usará Persistent como el formato de NameID. |
-| **EmailAddress** | Azure AD usará EmailAddress como el formato de NameID. |
-| **Unspecified** | Azure AD usará Unspecified como el formato de NameID. |
-| **Nombre completo del dominio de Windows** | Azure AD usará WindowsDomainQualifiedName como formato NameID. |
+| **Valor predeterminado** | La Plataforma de identidad de Microsoft usará el formato de origen predeterminado. |
+| **Persistent** | La Plataforma de identidad de Microsoft usará el valor Persistent como formato de NameID. |
+| **EmailAddress** | La Plataforma de identidad de Microsoft usará el valor EmailAddress como formato de NameID. |
+| **Unspecified** | La Plataforma de identidad de Microsoft usará el valor Unspecified como formato de NameID. |
+| **Nombre completo del dominio de Windows** | La Plataforma de identidad de Microsoft usará el valor WindowsDomainQualifiedName como formato de NameID. |
 
 También se admite NameID transitorio, pero no está disponible en la lista desplegable y no se puede configurar en Azure. Para obtener más información sobre el atributo NameIDPolicy, consulte [Protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
 
@@ -164,14 +164,14 @@ Para agregar una condición de notificaciones:
 
 1. En **Administrar notificaciones**, expanda las Condiciones de la notificación.
 2. Seleccione el tipo de usuario.
-3. Seleccione los grupos a los que debe pertenecer el usuario. Puede seleccionar hasta 10 grupos únicos en todas las notificaciones para una aplicación determinada. 
+3. Seleccione los grupos a los que debe pertenecer el usuario. Puede seleccionar hasta 50 grupos únicos en todas las notificaciones para una aplicación determinada. 
 4. Seleccione el **origen** en el que la notificación va a recuperar su valor. Puede seleccionar un atributo de usuario en la lista desplegable de atributos de origen o aplicar una transformación al atributo de usuario antes de emitirlo como una notificación.
 
 El orden en que se agregan las condiciones es importante. Azure AD evalúa las condiciones de arriba a abajo para decidir qué valor se va a emitir en la notificación. 
 
-Por ejemplo, Britta Simon es un usuario invitado en el suscriptor de Contoso. Pertenece a otra organización que también usa Azure AD. Dada la siguiente configuración para la aplicación de Fabrikam, cuando Britta intenta iniciar sesión en Fabrikam, Azure AD evaluará las condiciones como se indica a continuación.
+Por ejemplo, Britta Simon es un usuario invitado en el suscriptor de Contoso. Pertenece a otra organización que también usa Azure AD. Dada la siguiente configuración para la aplicación de Fabrikam, cuando Britta intenta iniciar sesión en Fabrikam, la Plataforma de identidad de Microsoft evaluará las condiciones como se indica a continuación.
 
-En primer lugar, Azure AD comprueba si el tipo de usuario de Britta es `All guests`. Como, esto es así Azure AD asigna el origen de la notificación a `user.extensionattribute1`. En segundo lugar, Azure AD comprueba si el tipo de usuario de Britta es `AAD guests`, ya que esto también se cumple, Azure AD asigna el origen de la notificación a `user.mail`. Por último, la notificación se emite con valor de `user.mail` para Britta.
+En primer lugar, la Plataforma de identidad de Microsoft comprueba si el tipo de usuario de Britta es `All guests`. Dado que lo es, la Plataforma de identidad de Microsoft asigna el origen de la notificación a `user.extensionattribute1`. En segundo lugar, la Plataforma de identidad de Microsoft comprueba si el tipo de usuario de Britta es `AAD guests`. Dado que también lo es, la Plataforma de identidad de Microsoft asigna el origen de la notificación a `user.mail`. Por último, la notificación se emite con valor de `user.mail` para Britta.
 
 ![Configuración condicional de notificaciones](./media/active-directory-saml-claims-customization/sso-saml-user-conditional-claims.png)
 

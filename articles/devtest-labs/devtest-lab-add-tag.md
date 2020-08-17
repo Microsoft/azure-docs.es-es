@@ -3,12 +3,12 @@ title: Agregar etiquetas a un laboratorio de Azure DevTest Labs | Microsoft Docs
 description: Obtenga información sobre cómo agregar una etiqueta a un laboratorio de Azure DevTest Labs
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: bf835cee705012fd175a3132edde1d241311c576
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30f0f2ed4b8cc98985326db652371b8ceb16bfb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85483013"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287588"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Agregar etiquetas a un laboratorio de Azure DevTest Labs
 
@@ -52,7 +52,7 @@ Se aplican las siguientes limitaciones a las etiquetas:
 * El nombre de etiqueta está limitado a 512 caracteres y el valor de la etiqueta, a 256. En las cuentas de almacenamiento, el nombre de etiqueta se limita a 128 caracteres y el valor de la etiqueta, a 256.
 * Los recursos de un grupo de recursos no heredan las etiquetas aplicadas a este.
 
-En [Uso de etiquetas para organizar los recursos de Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) encontrará más detalles sobre el uso de etiquetas en Azure, incluido cómo administrarlas con PowerShell o la CLI de Azure.
+En [Uso de etiquetas para organizar los recursos de Azure](../azure-resource-manager/management/tag-resources.md) encontrará más detalles sobre el uso de etiquetas en Azure, incluido cómo administrarlas con PowerShell o la CLI de Azure.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

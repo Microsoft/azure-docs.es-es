@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 203e5fcaa99f7aebeda34e6968f636ed72851ec8
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 5d0393ab5f2582efa2a4b727543bc799cdb1143e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921528"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87082875"
 ---
 # <a name="what-are-wrangling-data-flows"></a>¿Qué son los flujos de datos de limpieza y transformación?
 
@@ -28,7 +28,7 @@ El flujo de datos de limpieza y transformación traduce el código M generado po
 Los flujos de datos de limpieza y transformación son especialmente útiles para los ingenieros de datos o "integradores de datos de la ciudadanía".
 
 > [!NOTE]
-> El flujo de datos de limpieza y transformación está actualmente disponible en versión preliminar pública
+> El flujo de datos de limpieza y transformación está actualmente disponible en versión preliminar pública.
 
 ## <a name="use-cases"></a>Casos de uso
 

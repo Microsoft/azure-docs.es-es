@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/26/2020
 ms.author: v-mibufo
-ms.openlocfilehash: 67064cf694445acf8472b958660133c2f2d31db9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 33b4c59e14301e496d0eddafa7bdfdf201b7aa29
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85656807"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87005912"
 ---
 # <a name="windows-stop-error---status-no-memory"></a>Error de detención de Windows: estado, Sin memoria
 
@@ -27,7 +27,7 @@ En este artículo se indican los pasos de resolución de problemas cuando Window
 
 ## <a name="symptom"></a>Síntoma
 
-Cuando use [Diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la máquina virtual (VM), verá que muestra el código de error: `0xC0000017`. En función de la versión de Windows que ejecute, es posible que vea este código en **Administración de arranque de Windows** o en la **pantalla Recuperación**.
+Cuando use [Diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la máquina virtual (VM), verá que muestra el código de error: `0xC0000017`. En función de la versión de Windows que ejecute, es posible que vea este código en **Administración de arranque de Windows** o en la **pantalla Recuperación**.
 
    **Administración de arranque de Windows**
 
@@ -57,7 +57,7 @@ El disco del sistema operativo está lleno o demasiado fragmentado o el sistema 
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una máquina virtual de reparación y acceso a ella
 
-1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los [pasos 1 a 3 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 1. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="for-generation-2-vms-assign-a-letter-to-the-extensible-firmware-interface-efi-partition"></a>En el caso de las máquinas virtuales de generación 2, asigne una letra a la partición Extensible Firmware Interface (EFI):
@@ -94,7 +94,7 @@ Si utiliza una máquina virtual de generación 2, es posible que la partición 
 Ahora que el disco dañado está conectado a la máquina virtual de reparación, debe comprobar que el sistema operativo del disco tiene suficiente espacio para funcionar correctamente. 
 
 1. Compruebe si el disco está lleno. Para ello, haga clic con el botón derecho en la unidad y seleccione **Propiedades**.
-1. Si el disco tiene **menos de 300 MB de espacio libre**, [expándalo a un máximo de 1 TB con PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/expand-os-disk).
+1. Si el disco tiene **menos de 300 MB de espacio libre**, [expándalo a un máximo de 1 TB con PowerShell](../windows/expand-os-disk.md).
 1. Cuando el tamaño del disco sea **1 TB**, tendrá que realizar una limpieza de disco. Puede usar la [herramienta Liberador de espacio en disco](https://support.microsoft.com/help/4026616/windows-10-disk-cleanup) para liberar espacio.
 1. Abra una instancia de símbolo del sistema con privilegios elevados (ejecutar como administrador) y realice una desfragmentación en la unidad:
 
@@ -223,4 +223,4 @@ Para habilitar la recopilación de volcado de memoria y Serial Console, ejecute 
    
 ### <a name="rebuild-the-vm"></a>Recompilación de la máquina virtual
 
-Realice el [paso 5 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a crear la VM.
+Realice el [paso 5 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a crear la VM.

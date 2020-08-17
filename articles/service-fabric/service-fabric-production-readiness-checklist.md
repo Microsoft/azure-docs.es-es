@@ -3,12 +3,12 @@ title: Lista de comprobación sobre la preparación de producción de Azure Serv
 description: Prepare la producción del clúster y de la aplicación de Service Fabric mediante los procedimientos recomendados.
 ms.topic: conceptual
 ms.date: 6/05/2019
-ms.openlocfilehash: 7011860b8e1162b35cbfee3a9e796163710b7fdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a03df40a8ce213c5de9ed7017d47713c4de3449d
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610037"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87835874"
 ---
 # <a name="production-readiness-checklist"></a>Lista de comprobación sobre la preparación de producción
 
@@ -22,7 +22,7 @@ ms.locfileid: "85610037"
 1. Use una SKU D2v2 o una versión superior para el tipo de nodo principal. Se recomienda seleccionar una SKU con 50 GB de capacidad de disco duro como mínimo.
 1. Los clústeres de producción deben ser [seguros](service-fabric-cluster-security.md). Para obtener un ejemplo de cómo configurar un clúster seguro, consulte esta [plantilla del clúster](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG). Use nombres comunes para los certificados y evite el uso de certificados autofirmados.
 1. Agregue [restricciones de recursos en contenedores y servicios](service-fabric-resource-governance.md), de modo que no consuman más del 75 % de los recursos del nodo. 
-1. Conozca y establezca el [nivel de durabilidad](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Se recomienda el nivel de durabilidad Silver o superior para los tipos de nodos que ejecutan cargas de trabajo con estado. El tipo de nodo principal debe tener un nivel de durabilidad establecido en Silver o en un valor superior.
+1. Conozca y establezca el [nivel de durabilidad](service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster). Se recomienda el nivel de durabilidad Silver o superior para los tipos de nodos que ejecutan cargas de trabajo con estado.
 1. Comprenda y seleccione el [nivel de confiabilidad](service-fabric-cluster-capacity.md#reliability-characteristics-of-the-cluster) del tipo de nodo. Se recomienda el nivel de confiabilidad Silver o superior.
 1. Cargue las cargas de trabajo y pruebe de escalarlas para identificar [los requisitos de capacidad](service-fabric-cluster-capacity.md) para el clúster. 
 1. Mediante las alertas, se supervisan los servicios y las aplicaciones y se generan y almacenan registros de aplicaciones. Por ejemplo, consulte [Adición del registro a la aplicación de Service Fabric](service-fabric-how-to-diagnostics-log.md) y [Supervisión de contenedores con los registros de Azure Monitor](service-fabric-diagnostics-oms-containers.md).
@@ -35,7 +35,7 @@ ms.locfileid: "85610037"
 1. Establezca un objetivo de punto de recuperación (RPO) para el servicio y configure un [proceso de recuperación ante desastres](service-fabric-disaster-recovery.md) y pruébelo.
 1. Planee el [escalado](service-fabric-cluster-scaling.md) del clúster manualmente o mediante programación.
 1. Planee la [revisión](service-fabric-patch-orchestration-application.md) de los nodos de clúster. 
-1. Establezca una canalización de CI/CD para que los cambios más recientes se prueben continuamente. Por ejemplo, con [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+1. Establezca una canalización de CI/CD para que los cambios más recientes se prueben continuamente. Por ejemplo, con [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) o [Jenkins](/azure/developer/jenkins/deploy-to-service-fabric-cluster)
 1. Pruebe los clústeres de desarrollo y ensayo con carga con el [servicio de análisis de errores](service-fabric-testability-overview.md) e inducza [caos](service-fabric-controlled-chaos.md) controlado. 
 1. Planee el [escalado](service-fabric-concepts-scalability.md) de las aplicaciones. 
 

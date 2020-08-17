@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/30/2016
 ms.author: allensu
-ms.openlocfilehash: 6118763bf76795e30e862826f8f5b847f3382a5c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 135504ad4956836614bfc0f2cb107e610de17c0c
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84687980"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543493"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-portal"></a>Asignación de varias direcciones IP a máquinas virtuales con Azure Portal
 
@@ -30,7 +30,7 @@ ms.locfileid: "84687980"
 
 ## <a name="create-a-vm-with-multiple-ip-addresses"></a><a name = "create"></a>Creación de una máquina virtual con varias direcciones IP
 
-Si desea crear una máquina virtual con varias direcciones IP, o una privada estática, debe crearla mediante PowerShell o la CLI de Azure. Para saber cómo, haga clic en las opciones de PowerShell o de la CLI en la parte superior de este artículo. Puede crear una máquina virtual con una única dirección IP privada dinámica y (opcionalmente) una única dirección IP pública. En el portal, siga los pasos de los artículos [Crear una máquina virtual Windows](../virtual-machines/virtual-machines-windows-hero-tutorial.md) o [Crear una máquina virtual Linux](../virtual-machines/linux/quick-create-portal.md). Después de crear la máquina virtual, puede cambiar los tipos de direcciones IP de dinámicas a estáticas y agregar más mediante el portal siguiendo los pasos de la sección [Incorporación de direcciones IP a una VM](#add) de este artículo.
+Si desea crear una máquina virtual con varias direcciones IP, o una privada estática, debe crearla mediante PowerShell o la CLI de Azure. Para saber cómo, haga clic en las opciones de PowerShell o de la CLI en la parte superior de este artículo. Puede crear una máquina virtual con una única dirección IP privada dinámica y (opcionalmente) una única dirección IP pública. En el portal, siga los pasos de los artículos [Crear una máquina virtual Windows](../virtual-machines/windows/quick-create-portal.md) o [Crear una máquina virtual Linux](../virtual-machines/linux/quick-create-portal.md). Después de crear la máquina virtual, puede cambiar los tipos de direcciones IP de dinámicas a estáticas y agregar más mediante el portal siguiendo los pasos de la sección [Incorporación de direcciones IP a una VM](#add) de este artículo.
 
 ## <a name="add-ip-addresses-to-a-vm"></a><a name="add"></a>Incorporación de direcciones IP a una VM
 
@@ -48,7 +48,7 @@ Puede agregar direcciones IP públicas y privadas a una interfaz de red de Azure
 
 5. En el panel que aparece para la NIC que ha seleccionado, haga clic en **Configuraciones de IP**. Haga clic en **Agregar**, complete los pasos de una de las secciones siguientes según el tipo de dirección IP que desea agregar y, después, haga clic en **Aceptar**. 
 
-### <a name="add-a-private-ip-address"></a>**Incorporación de una dirección IP privada**
+### <a name="add-a-private-ip-address"></a>Incorporación de una dirección IP privada
 
 Complete los pasos siguientes para agregar una nueva dirección IP privada:
 

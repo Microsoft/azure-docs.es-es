@@ -5,7 +5,6 @@ services: virtual-network
 documentationcenter: na
 author: asudbring
 manager: KumudD
-editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: virtual-network
@@ -14,54 +13,66 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/08/2020
+ms.date: 07/29/2020
 ms.author: allensu
-ms.openlocfilehash: 0f71f845ef3209146ead79cafae2f3aa5c8c6d7d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 53dd6d2dda762b3cbf53f4aaec6cd3692a9656e9
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82144518"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87432580"
 ---
 # <a name="public-ip-address-prefix"></a>Prefijo de dirección IP pública
 
-Un prefijo de dirección IP pública es un intervalo reservado de direcciones IP para los puntos de conexión públicos de Azure. Azure asigna un intervalo contiguo de direcciones a la suscripción en función del número especificado. Si no está familiarizado con las direcciones públicas, consulte [Direcciones IP públicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
+Un prefijo de dirección IP pública es un rango reservado de direcciones IP en Azure. Azure proporciona a las suscripciones un rango contiguo de direcciones en función de la cantidad de ellas que se especifiquen. 
+
+Si no está familiarizado con las direcciones públicas, consulte [Direcciones IP públicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
 
 Las direcciones IP públicas se asignan desde un grupo de direcciones en cada región de Azure. Puede [descargar](https://www.microsoft.com/download/details.aspx?id=56519) la lista de intervalos que Azure usa para cada región. Por ejemplo, 40.121.0.0/16 es uno de los más de 100 intervalos que Azure usa en la región Este de EE. UU. El intervalo incluye las direcciones utilizables de 40.121.0.1 a 40.121.255.254.
 
-Especifique un nombre y cuántas direcciones desea que incluya el prefijo para crear un prefijo de dirección IP pública en una región de Azure y una suscripción. Por ejemplo, si crea un prefijo de dirección IP pública /28, Azure asigna 16 direcciones de uno de los intervalos. No se sabe qué intervalo asignará Azure hasta que se crea el intervalo, pero las direcciones son contiguas. Los prefijos de direcciones IP públicas tienen una cuota. Para más información, consulte [Precios de direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses).
+Especifique un nombre y cuántas direcciones desea que incluya el prefijo para crear un prefijo de dirección IP pública en una región de Azure y una suscripción. 
+
+Los rangos de direcciones IP públicas se asignan con el prefijo que elija. Si crea un prefijo de /28, Azure proporciona16 direcciones IP de uno de sus rangos.
+
+No se sabe qué intervalo asignará Azure hasta que se crea el intervalo, pero las direcciones son contiguas. 
+
+Los prefijos de direcciones IP públicas tienen una cuota; para más información, consulte los [precios de las direcciones IP públicas](https://azure.microsoft.com/pricing/details/ip-addresses).
 
 ## <a name="why-create-a-public-ip-address-prefix"></a>¿Por qué crear un prefijo de dirección IP pública?
 
-Al crear recursos de IP pública, Azure asigna una IP pública disponible de cualquiera de los rangos usados en la región. Una vez que Azure asigna la dirección, se sabe cuál es la dirección, pero hasta que Azure asigna la dirección, no se sabe qué dirección podría asignar. Esto puede ser problemático cuando, por ejemplo, usted o sus socios comerciales configuran reglas de firewall para permitir direcciones IP específicas. Cada vez que se asigna una nueva dirección IP pública a un recurso, la dirección se debe agregar a la regla de firewall. Al asignar direcciones a los recursos desde un prefijo de dirección IP pública, no es necesario actualizar las reglas de firewall cada vez que se asigna una de las direcciones, porque se puede agregar todo el intervalo a una regla.
+Cuando se crean recursos de dirección IP pública, Azure asigna una dirección IP pública disponible de cualquiera de los rangos que se usan en esa región. 
+
+Hasta que Azure asigne la dirección IP, no se conocerá la IP exacta. Este proceso puede resultar problemático cuando se crean reglas de firewall que permiten direcciones IP concretas. Para cada dirección IP agregada, se debe agregar una regla de firewall correspondiente.
+
+Si se asignan direcciones a los recursos desde un prefijo de dirección IP pública, no es preciso actualizar las reglas de firewall. Todo el rango se agrega a la regla.
 
 ## <a name="benefits"></a>Ventajas
 
-- Puede crear recursos de dirección IP pública desde un intervalo conocido.
-- Usted o sus socios comerciales pueden crear reglas de firewall con intervalos que incluyen direcciones IP públicas que ha asignado actualmente, así como direcciones que no se han asignado todavía. Esto elimina la necesidad de cambiar las reglas de firewall cuando se asignan direcciones IP a los nuevos recursos.
+- Los recursos de dirección IP pública se crean desde un rango conocido.
+- Configuración de reglas de firewall con rangos que incluyen direcciones IP públicas que ya se han asignado y direcciones que no se han asignado aún. Esta configuración elimina la necesidad de cambiar las reglas de firewall cuando se asignan direcciones IP a los nuevos recursos.
 - El tamaño predeterminado de un intervalo que se puede crear es /28 o 16 direcciones IP.
-- No existen límites sobre cuántos intervalos se pueden crear, sin embargo, hay límites en el número máximo de direcciones IP públicas estáticas que puede tener en una suscripción de Azure. Como resultado, el número de intervalos que se creen no puede abarcar más direcciones IP públicas de las que puede tener en la suscripción. Para más información, consulte [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
+- No hay límites en cuanto al número de rangos que se pueden crear. Hay límites en el número máximo de direcciones IP públicas estáticas que puede haber en una suscripción de Azure. El número de rangos que se crean no puede abarcar más direcciones IP públicas de las que se pueden tener en una suscripción. Para más información, consulte [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Las direcciones que se crean con direcciones del prefijo se pueden asignar a cualquier recurso de Azure al que se pueda asignar una dirección IP pública.
-- Puede ver fácilmente qué direcciones IP se han asignado y las que aún no se han asignado dentro del intervalo.
+- Puede ver fácilmente qué direcciones IP se han proporcionado y cuáles aún no se han proporcionado dentro del rango.
 
 ## <a name="scenarios"></a>Escenarios
 Puede asociar los siguientes recursos a una dirección IP pública estática desde un prefijo:
 
 |Resource|Escenario|Pasos|
 |---|---|---|
-|Virtual Machines| La asociación de direcciones IP públicas de un prefijo a las máquinas virtuales de Azure reduce la sobrecarga de administración en cuanto a la inclusión de direcciones IP en la lista de permitidos de un firewall. Puede simplemente incluir en la lista de permitidos un prefijo completo con una única regla de firewall. A medida que escala con máquinas virtuales de Azure, puede asociar direcciones IP del mismo prefijo para ahorrar costos, tiempo y sobrecarga de administración.| Para asociar direcciones IP de un prefijo a la máquina virtual: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. [Asocie la dirección IP a la interfaz de red de la máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses) También puede [asociar las direcciones IP a un conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
-| Standard Load Balancer | La asociación de direcciones IP públicas de un prefijo a la configuración IP de front-end o a la regla de salida de un equilibrador de carga garantiza la simplificación del espacio de direcciones IP públicas de Azure. Puede simplificar su escenario haciendo que las conexiones salientes se originen desde un intervalo de direcciones IP contiguas definido por el prefijo de direcciones IP públicas. | Para asociar direcciones IP de un prefijo al equilibrador de carga: 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Al crear el equilibrador de carga, seleccione o actualice la dirección IP que creó en el paso 2 anterior como la dirección IP de front-end del equilibrador de carga. |
-| Azure Firewall | Puede usar una dirección IP pública de un prefijo para la conexión SNAT de salida. Esto significa que todo tráfico de red virtual saliente se traduce a la dirección IP pública de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Puesto que esta dirección IP procede de un prefijo predeterminado, es muy fácil saber de antemano el aspecto que tendrá la superficie IP pública en Azure. | 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Cuando [implemente Azure Firewall](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), no olvide seleccionar la dirección IP asignada previamente desde el prefijo.|
-| Application Gateway v2 | Puede usar una dirección IP pública de un prefijo para el escalado automático y Application Gateway v2 con redundancia de zona. Puesto que esta dirección IP procede de un prefijo predeterminado, es muy fácil saber de antemano el aspecto que tendrá la superficie IP pública en Azure. | 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) 3. Cuando [implemente Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), asegúrese de seleccionar la dirección IP asignada previamente desde el prefijo.|
+|Máquinas virtuales| La asociación de direcciones IP públicas desde un prefijo a las máquinas virtuales en Azure reduce la sobrecarga de administración que se produce cuando se agregan direcciones IP a una lista de direcciones IP permitidas en el firewall. Puede agregar un prefijo completo con una única regla de firewall. A medida que escala con máquinas virtuales de Azure, puede asociar direcciones IP del mismo prefijo para ahorrar costos, tiempo y sobrecarga de administración.| Para asociar direcciones IP de un prefijo a la máquina virtual: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) </br> 3. [Asocie la dirección IP a la interfaz de red de la máquina virtual.](virtual-network-network-interface-addresses.md#add-ip-addresses) </br> También puede [asociar las direcciones IP a un conjunto de escalado de máquinas virtuales](https://azure.microsoft.com/resources/templates/101-vmms-with-public-ip-prefix/).
+| Equilibradores de carga estándar | La asociación de direcciones IP públicas de un prefijo a la configuración IP de front-end o a la regla de salida de un equilibrador de carga garantiza la simplificación del espacio de direcciones IP públicas de Azure. Para simplificar su escenario, limpie las conexiones salientes de un rango de direcciones IP contiguas. | Para asociar las direcciones IP de un prefijo a un equilibrador de carga: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) </br> 3. Al crear el equilibrador de carga, seleccione o actualice la dirección IP que creó en el paso 2 como dirección IP de front-end del equilibrador de carga. |
+| Azure Firewall | Puede usar una dirección IP pública de un prefijo para la conexión SNAT de salida. Todo el tráfico de red virtual saliente se traslada a la dirección IP pública de [Azure Firewall](../firewall/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). | Para asociar una dirección IP de un prefijo a su firewall: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) </br> 3. Cuando [implemente el firewall de Azure](../firewall/tutorial-firewall-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-the-firewall), no olvide seleccionar la dirección IP que previamente proporcionó desde el prefijo.|
+| Application Gateway v2 | Puede usar una dirección IP pública de un prefijo para el escalado automático y Application Gateway v2 con redundancia de zona. | Para asociar una dirección IP de un prefijo a su puerta de enlace: </br> 1. [Cree un prefijo.](manage-public-ip-address-prefix.md) </br> 2. [Cree una dirección IP del prefijo.](manage-public-ip-address-prefix.md) </br> 3. Cuando [implemente Application Gateway](../application-gateway/quick-create-portal.md#create-an-application-gateway), asegúrese de seleccionar la dirección IP que proporcionó previamente desde el prefijo.|
 
 ## <a name="constraints"></a>Restricciones
 
-- No se pueden especificar las direcciones IP del prefijo. Azure asigna las direcciones IP para el prefijo, según el tamaño que especifique.
+- No se pueden especificar las direcciones IP del prefijo. Azure proporciona las direcciones IP para el prefijo, en función del tamaño que especifique.
 - De manera predeterminada puede crear un prefijo de hasta 16 direcciones IP o un /28. Para más información, consulte [Solicitudes de aumento de los límites de redes](https://docs.microsoft.com/azure/azure-portal/supportability/networking-quota-requests) y [Límites de Azure](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 - Una vez que se ha creado el prefijo no se puede cambiar el intervalo.
 - Solo se pueden asignar direcciones IP públicas estáticas del intervalo del prefijo creadas con la SKU Estándar. Para más información sobre las SKU de direcciones IP públicas, consulte [Direcciones IP publicas](virtual-network-ip-addresses-overview-arm.md#public-ip-addresses).
-- Las direcciones del intervalo solo se pueden asignar a recursos de Azure Resource Manager. Las direcciones no se pueden asignar a recursos creados mediante el modelo de implementación clásica.
-- Todas las direcciones IP públicas creadas a partir del prefijo deben existir en la misma región y suscripción de Azure que el prefijo y se deben asignar a recursos de la misma región y suscripción.
+- Las direcciones del intervalo solo se pueden asignar a recursos de Azure Resource Manager. En el modelo de implementación clásico no se pueden asignar direcciones a recursos.
+- Todas las direcciones IP públicas creadas a partir del prefijo deben existir en la misma región y suscripción de Azure que el prefijo. Las direcciones se deben asignar a recursos de la misma región y suscripción.
 - No se puede eliminar un prefijo si tiene direcciones asignadas a recursos de dirección IP públicas asociados a un recurso. En primer lugar, debe desasociar todos los recursos de dirección IP pública que tienen asignadas direcciones IP del prefijo.
 
 

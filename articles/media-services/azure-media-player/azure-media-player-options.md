@@ -6,12 +6,13 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: reference
 ms.date: 04/20/2020
-ms.openlocfilehash: e26215115b4c4484e5e05a2fd94a4d2c6680a4d0
-ms.sourcegitcommit: acb82fc770128234f2e9222939826e3ade3a2a28
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 2b7acb1ad6fbe0beb4d79ee2a833561f0829664c
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/21/2020
-ms.locfileid: "81725877"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423038"
 ---
 # <a name="options"></a>Opciones #
 
@@ -101,7 +102,7 @@ La opción `playbackSpeed` permite establecer el valor de velocidad de la reprod
 `<video ... data-setup='{"playbackSpeed": {"enabled": true}}'>`
 
 
-Otras opciones del valor `playbackSpeed` se proporcionan mediante el objeto [PlaybackSpeedOptions](https://docs.microsoft.com/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions).
+Otras opciones del valor `playbackSpeed` se proporcionan mediante el objeto [PlaybackSpeedOptions](/javascript/api/azuremediaplayer/amp.player.playbackspeedoptions).
 
 Ejemplo de cómo configurar las opciones de velocidad de reproducción en JavaScript:
 

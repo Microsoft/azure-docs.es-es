@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2d73b87248fff2e99f05d2d6d6263f2bb3abba57
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 4338bc4a11b785b27f6316748f9cbc4eeaaddbea
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86185643"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87015109"
 ---
 # <a name="start-a-runbook-from-a-webhook"></a>Inicio de un runbook desde un webhook
 
@@ -133,7 +133,7 @@ Si la solicitud es correcta, la respuesta del webhook contiene el identificador 
 {"JobIds":["<JobId>"]}
 ```
 
-El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede conseguir esta información si usa el identificador de trabajo con otro mecanismo, como [Windows PowerShell](/powershell/module/servicemanagement/azure/get-azureautomationjob) o la [API de Azure Automation](/rest/api/automation/job).
+El cliente no puede determinar cuando se completa el trabajo del runbook ni su estado de finalización a partir del webhook. Sin embargo, puede conseguir esta información si usa el identificador de trabajo con otro mecanismo, como [Windows PowerShell](/powershell/module/servicemanagement/azure.service/get-azureautomationjob) o la [API de Azure Automation](/rest/api/automation/job).
 
 ## <a name="renew-a-webhook"></a>Renovación de webhooks
 

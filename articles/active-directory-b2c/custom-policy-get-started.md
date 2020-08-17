@@ -9,14 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 02/28/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 892e94ba1943b667ffeba63a80f4409b35ea5ec3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cb3bb363b1d6be72fe8941cad509b4c3525cfa15
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85389299"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87169436"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introducción a las directivas personalizadas en Azure Active Directory B2C
 
@@ -86,7 +87,7 @@ Para registrar una aplicación en el inquilino de Azure AD B2C, puede usar la ex
 
 A continuación, exponga la API agregando un ámbito:
 
-1. En **Administrar**, seleccione **Exponer una API**.
+1. En el menú de la izquierda, en **Administrar**, seleccione **Exponer una API**.
 1. Seleccione **agregar un ámbito** y, a continuación, **Guardar y continuar** para aceptar el URI de identificador de aplicación predeterminado.
 1. Escriba los valores siguientes para crear un ámbito que permita la ejecución de la directiva personalizada en el inquilino de Azure AD B2C:
     * **Nombre de ámbito**: `user_impersonation`
@@ -109,13 +110,13 @@ A continuación, exponga la API agregando un ámbito:
 
 A continuación, especifique que la aplicación se debe tratar como un cliente público:
 
-1. En **Administrar**, seleccione **Autenticación**.
+1. En el menú izquierdo, en **Administrar**, seleccione **Autenticación**.
 1. En **Configuración avanzada**, habilite **Trate la aplicación como cliente público** (seleccione **Sí**). Asegúrese de que **"allowPublicClient": true** esté establecido en el manifiesto de aplicación. 
 1. Seleccione **Guardar**.
 
 Ahora, conceda permisos al ámbito de la API que expuso anteriormente en el registro de *IdentityExperienceFramework*:
 
-1. En **Administrar**, seleccione **Permisos de API**.
+1. En el menú de la izquierda, en **Administrar**, seleccione **Permisos de API**.
 1. En **Permisos configurados**, seleccione **Agregar un permiso**.
 1. Seleccione la pestaña **Mis API** y, después, seleccione la aplicación **IdentityExperienceFramework**.
 1. En **Permiso**, seleccione el ámbito **user_impersonation** que definió anteriormente.

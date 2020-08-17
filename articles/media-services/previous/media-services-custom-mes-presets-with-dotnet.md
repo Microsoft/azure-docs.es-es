@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: 9509a38dbe9655cd7f70096bc5f3283f35c190f0
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 085a186ffd98220257ad912ede93f43d339707f2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956726"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87052929"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalización de valores preestablecidos de Media Encoder Standard  
 
@@ -30,7 +30,7 @@ En este artículo se muestra cómo realizar tareas de codificación avanzada con
 Este artículo le muestra cómo personalizar un valor preestablecido tomando el valor preestablecido [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) y reduciendo el número de capas. El artículo [Personalización de valores preestablecidos de Media Encoder Standard](media-services-advanced-encoding-with-mes.md) muestra valores preestablecidos personalizados que pueden usarse para realizar tareas de codificación avanzadas.
 
 > [!NOTE]
-> Los valores preestablecidos personalizados que se describen en este artículo no se pueden usar en las transformaciones de [Media Services V3](https://docs.microsoft.com/azure/media-services/latest/) o en los comandos de CLI. Para obtener más información, consulte la [Guía de migración de la v2 a v3](../latest/migrate-from-v2-to-v3.md).
+> Los valores preestablecidos personalizados que se describen en este artículo no se pueden usar en las transformaciones de [Media Services V3](../latest/index.yml) o en los comandos de CLI. Para obtener más información, consulte la [Guía de migración de la v2 a v3](../latest/migrate-from-v2-to-v3.md).
 
 ## <a name="customizing-a-mes-preset"></a><a id="customizing_presets"></a> Personalización de un valor preestablecido de MES
 

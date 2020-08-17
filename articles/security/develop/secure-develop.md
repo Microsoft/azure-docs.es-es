@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 34294bf29ec861d7bbb954ece7016de37769a332
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 7818ae36c785311466d2fb26ce45dcf50983145d
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86232702"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87283493"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Desarrollo de aplicaciones seguras en Azure
 En este artículo se presentan las actividades de seguridad y los controles que debe tener en cuenta al desarrollar aplicaciones para la nube. Se abarcan los conceptos y preguntas de seguridad que se deben tener en cuenta durante las fases de implementación y comprobación del [ciclo de vida de desarrollo de seguridad (SDL)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) de Microsoft. El objetivo es ayudarle a definir las actividades y los servicios de Azure que puede usar para desarrollar una aplicación más segura.
@@ -62,7 +62,7 @@ Estas tareas deben realizarse en el servidor, no en el lado cliente (o en el ser
 
 ### <a name="verify-your-applications-outputs"></a>Verificación de las salidas de la aplicación
 
-Cualquier salida que muestre visualmente o dentro de un documento siempre debe codificarse e incluir caracteres de escape. El [proceso de escape](https://www.owasp.org/index.php/Injection_Theory#Escaping_.28aka_Output_Encoding.29), también conocido como *codificación de salida*, se usa para ayudar a garantizar que los datos que no son de confianza no sean un vehículo para los ataques por inyección de código. El proceso de escape, combinado con la validación de datos, proporciona defensas por niveles para aumentar la seguridad del sistema como un todo.
+Cualquier salida que muestre visualmente o dentro de un documento siempre debe codificarse e incluir caracteres de escape. El [proceso de escape](https://owasp.org/www-community/Injection_Theory#Escaping_.28aka_Output_Encoding.29), también conocido como *codificación de salida*, se usa para ayudar a garantizar que los datos que no son de confianza no sean un vehículo para los ataques por inyección de código. El proceso de escape, combinado con la validación de datos, proporciona defensas por niveles para aumentar la seguridad del sistema como un todo.
 
 El proceso de escape garantiza que todo se muestra como *salida.* El proceso de escape también permite que el intérprete sepa que los datos no está diseñados para ejecutarse, y esto impide que los ataques funcionen. Es otra técnica de ataque común denominada *ataque de scripts entre sitios*.
 

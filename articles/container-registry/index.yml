@@ -27,7 +27,7 @@ landingContent:
       url: container-registry-intro.md
     - text: Registros, repositorios e imágenes
       url: container-registry-concepts.md
-- title: Introducción
+- title: Comenzar
   linkLists:
   - linkListType: quickstart
     links:

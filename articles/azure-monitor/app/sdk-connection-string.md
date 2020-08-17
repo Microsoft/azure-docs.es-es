@@ -5,13 +5,14 @@ ms.topic: conceptual
 author: timothymothra
 ms.author: tilee
 ms.date: 01/17/2020
+ms.custom: devx-track-javascript
 ms.reviewer: mbullwin
-ms.openlocfilehash: d9906e43bad296cc850942c01c83c6bfee2651fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 375929a983c5dfea01a88fb64fd5ab19bf105c0c
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482129"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87383637"
 ---
 # <a name="connection-strings"></a>Cadenas de conexión
 
@@ -31,12 +32,12 @@ Escenarios de cliente en los que se visualiza dónde tiene esto el mayor efecto:
 
 - Excepciones de firewall o redirecciones de proxy 
 
-    En los casos en los que es necesario supervisar el servidor web de la intranet, nuestra solución anterior solicitaba a los clientes que agregaran puntos de conexión de servicio individuales a la configuración. Para más información, consulte [esta página](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#can-i-monitor-an-intranet-web-server). 
+    En los casos en los que es necesario supervisar el servidor web de la intranet, nuestra solución anterior solicitaba a los clientes que agregaran puntos de conexión de servicio individuales a la configuración. Para más información, consulte [esta página](../faq.md#can-i-monitor-an-intranet-web-server). 
     Las cadenas de conexión ofrecen una mejor alternativa, ya que reducen esta labor a una única configuración. Una corrección de sufijos y prefijos simple permite el rellenado y la redirección automáticos de todos los puntos de conexión a los servicios adecuados. 
 
 - Entornos de nube soberana o híbrida
 
-    Los usuarios pueden enviar datos a una [región de Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) definida.
+    Los usuarios pueden enviar datos a una [región de Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) definida.
     Las cadenas de conexión permiten definir la configuración de punto de conexión de los servidores de la intranet o la configuración de la nube híbrida. 
 
 ## <a name="getting-started"></a>Introducción
@@ -274,14 +275,15 @@ tracer = Tracer(exporter=AzureExporter(connection_string='InstrumentationKey=000
 
 Comience en el tiempo de ejecución con:
 
-* [Aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure](../../azure-monitor/app/azure-vm-vmss-apps.md)
-* [Servidor IIS](../../azure-monitor/app/monitor-performance-live-website-now.md)
-* [Azure Web Apps](../../azure-monitor/app/azure-web-apps.md)
+* [Aplicaciones hospedadas en IIS en máquina virtual de Azure y conjunto de escalado de máquinas virtuales de Azure](./azure-vm-vmss-apps.md)
+* [Servidor IIS](./monitor-performance-live-website-now.md)
+* [Azure Web Apps](./azure-web-apps.md)
 
 Comience en el tiempo de desarrollo con:
 
-* [ASP.NET](../../azure-monitor/app/asp-net.md)
-* [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
-* [Java](../../azure-monitor/app/java-get-started.md)
-* [Node.js](../../azure-monitor/app/nodejs.md)
-* [Python](../../azure-monitor/app/opencensus-python.md)
+* [ASP.NET](./asp-net.md)
+* [ASP.NET Core](./asp-net-core.md)
+* [Java](./java-get-started.md)
+* [Node.js](./nodejs.md)
+* [Python](./opencensus-python.md)
+

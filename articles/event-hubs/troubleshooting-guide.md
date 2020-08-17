@@ -3,12 +3,12 @@ title: 'Solución de problemas de conectividad: Azure Event Hubs | Microsoft Doc
 description: En este artículo se proporciona información sobre cómo solucionar problemas de conectividad con Azure Event Hubs.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 15c93873a25e70b0f9a88fc5ea621b90d58e7581
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b85c0895d1c8f165f494d29013adea014187dd23
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322387"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87039334"
 ---
 # <a name="troubleshoot-connectivity-issues---azure-event-hubs"></a>Solución de problemas de conectividad: Azure Event Hubs
 Hay varias razones por las que las aplicaciones cliente no pueden conectarse a un centro de eventos. Los problemas de conectividad que experimenta pueden ser permanentes o transitorios. Si el problema sucede todo el tiempo (permanente), puede que desee comprobar la cadena de conexión, la configuración del firewall de la organización, la configuración del firewall de IP, la configuración de seguridad de la red (puntos de conexión de servicio, puntos de conexión privados, etc.), etc. En el caso de problemas transitorios, la actualización a la versión más reciente del SDK, la ejecución de comandos para comprobar los paquetes descartados y la obtención de seguimientos de red pueden ayudar a solucionar los problemas. 
@@ -48,7 +48,7 @@ telnet <yournamespacename>.servicebus.windows.net 5671
 ```
 
 ### <a name="verify-that-ip-addresses-are-allowed-in-your-corporate-firewall"></a>Compruebe que las direcciones IP se permiten en el firewall corporativo
-Cuando trabaja con Azure, en ocasiones tiene que permitir intervalos de direcciones IP específicos o direcciones URL en el firewall o proxy corporativo para tener acceso a todos los servicios de Azure que está usando o intentando usar. Compruebe que se permite el tráfico en las direcciones IP utilizadas por Event Hubs. En el caso de las direcciones IP utilizadas por Azure Event Hubs: consulte [Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519) y [Etiqueta de servicio: EventHub](network-security.md#service-tags).
+Cuando trabaja con Azure, en ocasiones tiene que permitir intervalos de direcciones IP específicos o direcciones URL en el firewall o proxy corporativo para tener acceso a todos los servicios de Azure que está usando o intentando usar. Compruebe que se permite el tráfico en las direcciones IP utilizadas por Event Hubs. En el caso de las direcciones IP usadas por Azure Event Hubs, vea [Intervalos de direcciones IP y etiquetas de servicio de Azure: nube pública](https://www.microsoft.com/download/details.aspx?id=56519).
 
 Además, compruebe que se permite la dirección IP del espacio de nombres. Para buscar las direcciones IP correctas para permitirlas para las conexiones, siga estos pasos:
 
@@ -75,13 +75,16 @@ Si usa la redundancia de zona para el espacio de nombres, deberá realizar algun
     ```
 3. Ejecute nslookup para cada uno con los sufijos s1, s2 y s3 para obtener las direcciones IP de las tres instancias que se ejecutan en tres zonas de disponibilidad. 
 
+### <a name="verify-that-azureeventgrid-service-tag-is-allowed-in-your-network-security-groups"></a>Compruebe que se permite la etiqueta de servicio AzureEventGrid en los grupos de seguridad de red
+Si la aplicación se ejecuta dentro de una subred y hay un grupo de seguridad de red asociado, confirme si se permite la salida de Internet o la etiqueta de servicio AzureEventGrid. Vea [Etiquetas de servicio de red virtual](../virtual-network/service-tags-overview.md) y busque `EventHub`.
+
 ### <a name="check-if-the-application-needs-to-be-running-in-a-specific-subnet-of-a-vnet"></a>Comprobar si la aplicación debe ejecutarse en una subred específica de una red virtual
 Confirme que la aplicación se está ejecutando en una subred de red virtual que tiene acceso al espacio de nombres. Si no es así, ejecute la aplicación en la subred que tenga acceso al espacio de nombres o agregue la dirección IP del equipo en el que se ejecuta la aplicación al [firewall de IP](event-hubs-ip-filtering.md). 
 
 Cuando se crea un punto de conexión de servicio de red virtual para un espacio de nombres del centro de eventos, el espacio de nombres solamente acepta tráfico de la subred enlazada al punto de conexión de servicio. Hay una excepción a este comportamiento. Puede agregar direcciones IP específicas en el firewall de IP para habilitar el acceso al punto de conexión público del centro de eventos. Para obtener más información, vea [Puntos de conexión de servicio de red](event-hubs-service-endpoints.md).
 
 ### <a name="check-the-ip-firewall-settings-for-your-namespace"></a>Comprobar la configuración del firewall de IP para su espacio de nombres
-Compruebe que el firewall de IP no bloquea la dirección IP de la máquina en la que se ejecuta la aplicación.  
+Compruebe que el firewall de IP no bloquea la dirección IP pública de la máquina en la que se ejecuta la aplicación.  
 
 De forma predeterminada, los espacios de nombres de Azure Event Hubs son accesibles desde Internet, siempre que la solicitud venga con una autenticación y una autorización válidas. Con el firewall de IP, puede restringirlo aún más a solo un conjunto de direcciones o intervalos de direcciones IPv4 en notación [CIDR (Enrutamiento de interdominios sin clases)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
 
@@ -110,7 +113,7 @@ Si el espacio de nombres de Event Hubs está configurado para ser accesible úni
 
 El [servicio Azure Private Link](../private-link/private-link-overview.md) permite el acceso a Azure Event Hubs a través de un **punto de conexión privado** en la red virtual. Un punto de conexión privado es una interfaz de red que le conecta de forma privada y segura a un servicio con la tecnología de Azure Private Link. El punto de conexión privado usa una dirección IP privada de la red virtual para incorporar el servicio de manera eficaz a su red virtual. Todo el tráfico dirigido al servicio se puede enrutar mediante el punto de conexión privado, por lo que no se necesita ninguna puerta de enlace, dispositivos NAT, conexiones de ExpressRoute o VPN ni direcciones IP públicas. El tráfico entre la red virtual y el servicio atraviesa la red troncal de Microsoft, eliminando la exposición a la red pública de Internet. Puede conectarse a una instancia de un recurso de Azure, lo que le otorga el nivel más alto de granularidad en el control de acceso.
 
-Para obtener más información, consulte [Configuración de puntos de conexión privados](private-link-service.md). 
+Para obtener más información, consulte [Configuración de puntos de conexión privados](private-link-service.md). Vea la sección **Validación de que la conexión del punto de conexión privado funciona** para confirmar que se usa un punto de conexión privado. 
 
 ### <a name="troubleshoot-network-related-issues"></a>Solución de problemas relacionados con la red
 Para solucionar problemas relacionados con la red con Event Hubs, siga estos pasos: 
@@ -160,7 +163,7 @@ Pueden producirse problemas de conectividad transitorios debido a actualizacione
 - Puede que las aplicaciones se desconecten del servicio durante unos segundos.
 - Puede que las solicitudes se limiten momentáneamente.
 
-Si el código de aplicación usa SDK, la directiva de reintento ya está integrada y activa. La aplicación se volverá a conectar sin un impacto significativo en la aplicación o el flujo de trabajo. De lo contrario, vuelva a intentar conectarse al servicio después de un par de minutos para ver si los problemas desaparecen. 
+Si el código de aplicación usa SDK, la directiva de reintento ya está integrada y activa. La aplicación se volverá a conectar sin un impacto significativo en la aplicación o el flujo de trabajo. La detección de estos errores transitorios, la interrupción y el posterior reintento de la llamada garantizará que el código sea resistente a estos problemas transitorios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Vea los artículos siguientes:

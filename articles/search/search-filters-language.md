@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: b0ebbbb64e173e1501f08f8385b14c365759a804
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82116288"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084201"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Filtro por idioma en Azure Cognitive Search 
 
@@ -34,7 +34,7 @@ En Azure Cognitive Search, las consultas tienen como destino un índice único. 
 
 El ejemplo siguiente procede del [ejemplo de una inmobiliaria](search-get-started-portal.md) que tiene varios campos de cadena que incluyen contenido en distintos idiomas. Observe las asignaciones del analizador de idioma en los campos de este índice. Los campos que contienen cadenas funcionan mejor en la búsqueda de texto completo cuando se emparejan con un analizador diseñado para administrar las reglas lingüísticas del idioma de destino.
 
-  ![](./media/search-filters-language/lang-fields.png)
+  ![Captura de pantalla que muestra la pantalla Campos del ejemplo de inmobiliaria real. Un grupo de campos se resalta para indicar cómo se corresponden las asignaciones del analizador de idioma con los idiomas de los campos resaltados.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
 > Para ver ejemplos de código que muestran definiciones de campo con analizadores de idiomas, consulte [Definición de un índice (. NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) y [Definición de un índice (REST)](search-create-index-rest-api.md).

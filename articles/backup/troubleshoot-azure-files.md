@@ -3,12 +3,12 @@ title: Solución de problemas de copia de seguridad de recursos compartidos de a
 description: Este artículo contiene información para solución de problemas que se producen al proteger recursos compartidos de archivos de Azure.
 ms.date: 02/10/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d09c89433be17e16ad768e2d28305819146e6b5e
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 7b007a9ef893bb772929584eb3137c7a5200d756
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079894"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86524495"
 ---
 # <a name="troubleshoot-problems-while-backing-up-azure-file-shares"></a>Solución de problemas al realizar copias de seguridad de recursos compartidos de archivos de Azure
 
@@ -57,6 +57,9 @@ En Azure Portal, abra su **Almacén** > **Infraestructura de Backup** > **Cuenta
 >Un almacén de Recovery Services solo se puede eliminar después de anular el registro de todas las cuentas de almacenamiento registradas en el almacén.
 
 ## <a name="common-backup-or-restore-errors"></a>Errores de copia de seguridad o restauración comunes
+
+>[!NOTE]
+>Consulte [este documento](./backup-rbac-rs-vault.md#minimum-role-requirements-for-the-azure-file-share-backup) para asegurarse de que dispone de los permisos necesarios para realizar operaciones de copia de seguridad o restauración.
 
 ### <a name="filesharenotfound--operation-failed-as-the-file-share-is-not-found"></a>FileShareNotFound: no se pudo realizar la operación porque no se encuentra el recurso compartido de archivos
 
@@ -313,7 +316,7 @@ Código de error: UserErrorBackupAFSInDeleteState
 
 Mensaje de error: No se pudo realizar la copia de seguridad porque el recurso compartido de archivos asociado de Azure se eliminó permanentemente
 
-Compruebe si se ha eliminado permanentemente el recurso compartido de archivos del que se ha realizado una copia de seguridad. En caso afirmativo, detenga la copia de seguridad de este recurso compartido de archivos para evitar errores repetidos de copia de seguridad. Para obtener información sobre cómo detener la protección, vea [Detención de la protección en un recurso compartido de archivos de Azure](https://docs.microsoft.com/azure/backup/manage-afs-backup#stop-protection-on-a-file-share).
+Compruebe si se ha eliminado permanentemente el recurso compartido de archivos del que se ha realizado una copia de seguridad. En caso afirmativo, detenga la copia de seguridad de este recurso compartido de archivos para evitar errores repetidos de copia de seguridad. Para obtener información sobre cómo detener la protección, vea [Detención de la protección en un recurso compartido de archivos de Azure](./manage-afs-backup.md#stop-protection-on-a-file-share).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

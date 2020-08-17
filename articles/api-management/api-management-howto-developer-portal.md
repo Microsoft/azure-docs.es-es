@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 03/15/2020
+ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: ecbd4d97bb092ccbdb286e4865bf04e770ca9473
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f5f4df58a4b147ccb73c7d69f5307a8328803442
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207896"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373154"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Introducción al portal para desarrolladores de Azure API Management
 
@@ -29,6 +29,9 @@ En este artículo se describen las diferencias entre las versiones autohospedada
 ![API Management developer portal](media/api-management-howto-developer-portal/cover.png)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+> [!NOTE]
+> <a name="migrate-from-legacy"></a> El nuevo portal para desarrolladores no es compatible con el portal para desarrolladores heredado y la migración automática no es posible. Debe volver a crear manualmente el contenido (páginas, texto, archivos multimedia) y personalizar la apariencia del nuevo portal. Consulte [el tutorial del portal para desarrolladores](api-management-howto-developer-portal-customize.md) para obtener instrucciones.
 
 ## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Versiones administradas y autohospedadas
 
@@ -82,19 +85,13 @@ Si no desea restablecer el contenido del portal, puede usar los widgets más rec
 
 Si el portal se aprovisionó después del anuncio de disponibilidad general, ya debería ofrecer el nuevo contenido predeterminado. No es necesario que realice ninguna acción.
 
-### <a name="how-can-i-migrate-from-the-old-developer-portal-to-the-developer-portal"></a>¿Cómo puedo migrar el portal para desarrolladores anterior a la nueva versión?
-
-Los portales son incompatibles y debe migrar el contenido manualmente.
-
-### <a name="does-the-portal-have-all-the-features-of-the-old-portal"></a>¿El portal tiene todas las características de la versión anterior?
+### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>¿El portal tiene todas las características del portal anterior?
 
 El portal para desarrolladores no es compatible con las *aplicaciones* ni con las *incidencias*.
 
-Todavía no se admite la autenticación con OAuth en la consola de desarrollador interactiva. Puede realizar un seguimiento del progreso a través [del problema de GitHub](https://github.com/Azure/api-management-developer-portal/issues/208).
+### <a name="has-the-legacy-portal-been-deprecated"></a>¿El portal heredado quedó en desuso?
 
-### <a name="has-the-old-portal-been-deprecated"></a>¿El portal antiguo quedó en desuso?
-
-Los antiguos portales para desarrolladores y anunciantes ahora son características *heredadas*: solo recibirán actualizaciones de seguridad. Las nuevas características se implementarán solo en el nuevo portal para desarrolladores.
+Los portales heredados para desarrolladores y anunciantes ahora son características *heredadas*: solo recibirán actualizaciones de seguridad. Las nuevas características se implementarán solo en el nuevo portal para desarrolladores.
 
 La retirada de los portales heredados se anunciará por separado. Si tiene preguntas, problemas o comentarios, plantéelos [en una incidencia de GitHub específica](https://github.com/Azure/api-management-developer-portal/issues/121).
 
@@ -108,7 +105,19 @@ Puede acceder al contenido del portal para desarrolladores y administrarlo media
 
 La API se documenta en [la sección wiki del repositorio de GitHub][2]. Se puede usar para automatizar las migraciones del contenido del portal entre entornos; por ejemplo, de un entorno de prueba al de producción. Puede obtener más información sobre este proceso [en este artículo de la documentación](https://aka.ms/apimdocs/migrateportal) en GitHub.
 
+### <a name="how-do-i-move-from-the-managed-to-the-self-hosted-version"></a>¿Cómo se puede pasar de la versión administrada a la versión autohospedada?
+
+Consulte el artículo detallado en [la sección Wiki del repositorio del portal para desarrolladores en GitHub][2].
+
+### <a name="can-i-have-multiple-developer-portals-in-one-api-management-service"></a>¿Puedo tener varios portales para desarrolladores en un servicio API Management?
+
+Puede tener un portal administrado y varios portales autohospedados. El contenido de todos los portales se almacena en el mismo servicio API Management, por lo que serán idénticos. Si quiere diferenciar la apariencia y la funcionalidad de los portales, puede autohospedarlos con sus propios widgets personalizados, que personalizan dinámicamente las páginas en runtime, por ejemplo, en función de la dirección URL.
+
 ### <a name="does-the-portal-support-azure-resource-manager-templates-andor-is-it-compatible-with-api-management-devops-resource-kit"></a>¿Admite el portal plantillas de Azure Resource Manager o es compatible con el kit de recursos de DevOps de API Management?
+
+No.
+
+### <a name="is-the-portals-content-saved-with-the-backuprestore-functionality-in-api-management"></a>¿Se guarda el contenido del portal con la funcionalidad de copia de seguridad y restauración en API Management?
 
 No.
 

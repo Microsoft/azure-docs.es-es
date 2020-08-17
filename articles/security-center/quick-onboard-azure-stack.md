@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 1f0a11616fe996f02d6464d23724156906176041
-ms.sourcegitcommit: 99d016949595c818fdee920754618d22ffa1cd49
+ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84771162"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87084014"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Inicio rápido: Incorporación de máquinas virtuales de Azure Stack a Security Center
 Después de incorporar la suscripción de Azure, puede habilitar Security Center para proteger las máquinas virtuales que se ejecutan en Azure Stack mediante la incorporación de la extensión de máquina virtual de **Azure Monitor, Update and Configuration Management** desde el Marketplace de Azure Stack.
@@ -29,7 +29,7 @@ En este tutorial de inicio rápido se muestra cómo agregar la extensión de má
 ## <a name="prerequisites"></a>Prerrequisitos
 Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscripción a Microsoft Azure. Si no tiene una suscripción, puede registrarse para obtener una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
-Debe tener una suscripción de Azure en el nivel de servicio Estándar de Security Center para poder iniciar este tutorial de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho nivel de Security Center se puede probar de forma gratuita durante 30 días. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
+Debe tener una suscripción de Azure en el nivel de servicio Estándar de Security Center para iniciar este tutorial de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho nivel de Security Center se puede probar de forma gratuita durante 30 días. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="select-your-workspace-in-azure-security-center"></a>Selección del área de trabajo en Azure Security Center
 

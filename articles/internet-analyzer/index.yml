@@ -23,7 +23,7 @@ landingContent:
     links:
     - text: ¿Qué es Azure Internet Analyzer?
       url: internet-analyzer-overview.md
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: tutorial
     links:

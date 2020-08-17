@@ -2,13 +2,13 @@
 title: Botón Implementación en Azure
 description: Use el botón para implementar plantillas de Azure Resource Manager desde un repositorio de GitHub.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: e403d095f7419ed13742dcfa8e8407a92ad10be0
-ms.sourcegitcommit: 3beb067d5dc3d8895971b1bc18304e004b8a19b3
+ms.date: 07/20/2020
+ms.openlocfilehash: 9fe69eba2a91bf19e0662ae071c222905c348666
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/04/2020
-ms.locfileid: "82744084"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079458"
 ---
 # <a name="use-a-deployment-button-to-deploy-templates-from-github-repository"></a>Usar un botón de implementación para implementar plantillas desde el repositorio de GitHub
 
@@ -28,7 +28,11 @@ La imagen aparece como:
 
 ## <a name="create-url-for-deploying-template"></a>Crear dirección URL para implementar una plantilla
 
-Para crear la dirección URL de la plantilla, comience con la dirección URL original de la plantilla en el repositorio:
+Para crear la dirección URL de la plantilla, comience con la dirección URL original de la plantilla en el repositorio. Para ver la dirección URL sin formato, seleccione **Sin formato**.
+
+:::image type="content" source="./media/deploy-to-azure-button/select-raw.png" alt-text="Seleccione sin procesar":::
+
+El formato de la dirección URL es:
 
 ```html
 https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json

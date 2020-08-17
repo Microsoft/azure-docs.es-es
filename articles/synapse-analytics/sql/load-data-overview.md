@@ -1,5 +1,5 @@
 ---
-title: En lugar de ETL, diseño de ELT para el grupo de SQL de Synapse | Microsoft Docs
+title: Diseño de una estrategia de carga de datos de PolyBase para el grupo de SQL
 description: En lugar de ETL, diseñe un proceso de extracción, carga y transformación (ETL) para cargar datos o e grupo de SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -10,24 +10,24 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 49ffb848dbcbed72776a5d767bb4b4872978af20
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 31e1eb952bb37f5864e296811ba6e61bb0e58320
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965406"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87490292"
 ---
-# <a name="designing-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Diseño de una estrategia de carga de datos de PolyBase para el grupo de SQL de Azure Synapse
+# <a name="design-a-polybase-data-loading-strategy-for-azure-synapse-sql-pool"></a>Diseño de una estrategia de carga de datos de PolyBase para el grupo de SQL de Azure Synapse
 
-Los almacenes de datos SMP tradicionales usan un proceso de extracción, carga y transformación (ETL) para cargar los datos. El grupo de SQL de Azure es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de MPP y eliminar los recursos necesarios para transformar los datos antes de cargarlos.
+Los almacenes de datos SMP tradicionales usan un proceso de extracción, transformación y carga (ETL) para cargar los datos. El grupo de SQL de Azure es una arquitectura de diseño de procesamiento paralelo masivo (MPP) que aprovecha la escalabilidad y la flexibilidad de los recursos de proceso y almacenamiento. El uso de un proceso de extracción, carga y transformación (ELT) puede aprovechar las ventajas de MPP y eliminar los recursos necesarios para transformar los datos antes de cargarlos.
 
 Mientras que el grupo de SQL es compatible con muchos métodos de carga, incluidas opciones que no son Polybase como BCP y SQL BulkCopy API, la manera más rápida y más escalable para cargar la fecha es a través de PolyBase.  PolyBase es una tecnología que tiene acceso a datos externos almacenados en Azure Blob Storage o Azure Data Lake Store mediante el lenguaje T-SQL.
 
 > [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
-## <a name="what-is-elt"></a>¿Qué es ELT?
+## <a name="extract-load-and-transform-elt"></a>Extracción, carga y transformación (ELT)
 
-Extracción, carga y transformación (ETL) es un proceso mediante el cual los datos se extraen de un sistema de origen, se cargan en un almacén de datos y, después, se transforman.
+Extracción, carga y transformación (ELT) es un proceso mediante el que se extraen datos se extraen de un sistema de origen, se cargan en un almacén de datos y, después, se transforman.
 
 Los pasos básicos para implementar un ELT de PolyBase para el grupo de SQL son:
 
@@ -50,7 +50,7 @@ La obtención de datos del sistema de origen depende de la ubicación del almace
 
 PolyBase carga los datos de los archivos de texto delimitados que están codificados mediante UTF-8 y UTF-16. Además de los archivos de texto delimitados, también carga datos desde formatos de archivos Hadoop como RC File, ORC y Parquet. Asimismo, PolyBase puede cargar datos desde Gzip y archivos comprimidos de Snappy. Hay que tener en cuenta que actualmente PolyBase no admite el formato ASCII extendido, el formato de ancho fijo y formatos anidados como WinZip, JSON y XML.
 
-Si está exportando desde SQL Server, puede usar la [herramienta de línea de comandos bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para exportar los datos en archivos de texto delimitados. La asignación de tipo de datos de Parquet a SQL Data Warehouse es la siguiente:
+Si está exportando desde SQL Server, puede usar la [herramienta de línea de comandos bcp](/sql/tools/bcp-utility?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) para exportar los datos en archivos de texto delimitados. La asignación de tipo de datos de Parquet a SQL DW es la siguiente:
 
 | **Tipo de datos de Parquet** |                      **Tipo de datos de SQL**                       |
 | :-------------------: | :----------------------------------------------------------: |
@@ -95,7 +95,7 @@ Deberá preparar y limpiar los datos de la cuenta de almacenamiento antes de car
 
 Antes de poder cargar los datos, debe definir tablas externas en el almacén de datos. PolyBase emplea tablas externas para obtener acceso y definir los datos en Azure Storage. Una tabla externa es similar a una vista de base de datos. La tabla externa contiene el esquema de tabla y apunta a los datos que se almacenan fuera del almacén de datos.
 
-Si define tablas externas debe especificar el origen de datos, el formato de los archivos de texto y las definiciones de tabla. Estos son los temas de sintaxis de T-SQL que necesitará:
+Si define tablas externas debe especificar el origen de datos, el formato de los archivos de texto y las definiciones de tabla. A continuación se muestran los temas de sintaxis de T-SQL que necesitará:
 
 - [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest)

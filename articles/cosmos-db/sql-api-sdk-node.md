@@ -8,12 +8,13 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 05/11/2020
 ms.author: anfeldma
-ms.openlocfilehash: 67b85c34c72d8c4b4dc7cecaeb74a9b164133702
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-javascript
+ms.openlocfilehash: ddbbb9f39dd17daf5c500bf582c100b4e1754a15
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85391968"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461364"
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Azure Cosmos DB para .NET para SQL API: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -36,7 +37,7 @@ ms.locfileid: "85391968"
 |---------|---------|
 |Descargar SDK  |   [NPM](https://www.npmjs.com/package/@azure/cosmos) 
 |Documentación de la API  |  [Documentación de referencia del SDK de JavaScript](https://docs.microsoft.com/javascript/api/%40azure/cosmos/?view=azure-node-latest)
-|Instrucciones de instalación del SDK  |  [Instrucciones de instalación](https://github.com/Azure/azure-cosmos-js#installation)
+|Instrucciones de instalación del SDK  |  [Instrucciones de instalación](https://github.com/Azure/azure-sdk-for-js)
 |Contribuya al SDK | [GitHub](https://github.com/Azure/azure-cosmos-js/tree/master)
 | Ejemplos | [Ejemplos de código Node.js](sql-api-nodejs-samples.md)
 | Tutorial de inicio | [Introducción al SDK de JavaScript](sql-api-nodejs-get-started.md)
@@ -409,17 +410,8 @@ No son siempre los cambios más visibles, pero ayudan a nuestro equipo a distrib
 * SDK de GA.
 
 ## <a name="release--retirement-dates"></a>Fechas de lanzamiento y de retirada
-Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente.
 
-Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
-
-El servicio rechazará cualquier solicitud realizada a Cosmos DB mediante un SDK retirado.
-
-> [!WARNING]
-> Todas las versiones **1.x** del SDK de cliente de Node para la API de SQL se retirarán el **30 de agosto de 2020**. Esto afecta solo al SDK de Node del lado cliente y no a los scripts de servidor (procedimientos almacenados, desencadenadores y UDF).
-> 
->
-<br/>
+Microsoft notifica la retirada de un SDK con al menos **12 meses** de antelación para facilitar la transición a una versión compatible o más reciente. Solo se agregan nuevas características, funcionalidad y optimizaciones al SDK actual, por lo que se recomienda actualizar siempre a la última versión del SDK tan pronto como sea posible.
 
 | Versión | Fecha de la versión | Fecha de retirada |
 | --- | --- | --- |

@@ -8,12 +8,14 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 18a37731171be5894a1481fb35569c9c7cf307f2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom:
+- 'Role: Cloud Development'
+ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84790524"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327725"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Uso del enrutamiento de mensajes de IoT Hub para enviar mensajes del dispositivo a la nube a distintos puntos de conexión
 
@@ -53,7 +55,7 @@ Puede usar la [integración y los SDK de Event Hubs](iot-hub-devguide-messages-r
 
 Hay dos servicios de almacenamiento a los que IoT Hub puede enrutar mensajes: a cuentas de [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) y [Azure Data Lake Storage Gen2 ](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Las cuentas de Azure Data Lake Storage son cuentas de almacenamiento habilitadas para [espacios de nombres jerárquicos](../storage/blobs/data-lake-storage-namespace.md) que se basan en Blob Storage. Ambas usan blobs para su almacenamiento.
 
-IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. El valor predeterminado es AVRO. El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. El formato no se puede editar para un punto de conexión existente. Cuando se usa la codificación JSON, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambos valores no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64. Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint?view=azps-1.3.0). En el siguiente diagrama se muestra cómo seleccionar el formato de codificación en Azure Portal.
+IoT Hub admite la escritura de datos en Azure Storage con los formatos [Apache Avro](https://avro.apache.org/) y JSON. El valor predeterminado es AVRO. El formato de codificación solo se puede establecer cuando se configura el punto de conexión de Blob Storage. El formato no se puede editar para un punto de conexión existente. Cuando se usa la codificación JSON, debe establecer contentType en **application/json** y contentEncoding en **UTF-8** en las [propiedades del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties) del mensaje. Ambos valores no distinguen mayúsculas de minúsculas. Si no está establecida la codificación del contenido, IoT Hub escribirá los mensajes en formato codificado de base 64. Puede seleccionar el formato de codificación mediante la API REST Crear o actualizar de IoT Hub, específicamente [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), Azure Portal, la [CLI de Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest) o [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). En el siguiente diagrama se muestra cómo seleccionar el formato de codificación en Azure Portal.
 
 ![Codificación de puntos de conexión de Blob Storage](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 

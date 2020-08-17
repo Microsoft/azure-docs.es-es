@@ -14,12 +14,12 @@ metadata:
   ms.author: mathoma
   ms.reviewer: carlrab
   ms.date: 10/30/2019
-  ms.openlocfilehash: b069cd8a027d5652ae68bbbbf21e03434daf1443
-  ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+  ms.openlocfilehash: 131be4c87e0274050b6c7b374f75757c8d3f94f2
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85318580"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167851"
 landingContent:
 - title: Azure SQL Database
   linkLists:
@@ -151,14 +151,16 @@ landingContent:
     links:
     - text: Recursos educativos de SQL
       url: /sql/sql-server/educational-sql-resources
+    - text: Aspectos básicos de Azure SQL
+      url: https://docs.microsoft.com/learn/paths/azure-sql-fundamentals/
   - linkListType: deploy
     links:
     - text: Ejemplos de la CLI de Azure
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/az-cli-script-samples-content-guide.md
     - text: Ejemplos de PowerShell
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/powershell-script-content-guide.md
     - text: Ejemplos de plantilla de Resource Manager
-      url: /sql/ssms/download-sql-server-management-studio-ssms
+      url: database/arm-templates-content-guide.md
   - linkListType: download
     links:
     - text: SQL Server Management Studio (SSMS)

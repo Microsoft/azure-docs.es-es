@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 04/10/2020
+ms.date: 07/30/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1ea11008155899e09bf461e56a8bb4981d37238d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8802d612f2497cc58c90856e9a5a5572a142f1
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385423"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87482845"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Protección de una API de Azure API Management con Azure AD B2C
 
@@ -60,7 +60,7 @@ Para registrar una aplicación en su inquilino de Azure AD B2C, puede usar la n
 A continuación, obtenga la conocida dirección URL de configuración de uno de los flujos de usuario de Azure AD B2C. También necesita el identificador URI del punto de conexión del emisor del token que desea admitir en Azure API Management.
 
 1. Vaya al inquilino de Azure AD B2C en [Azure Portal](https://portal.azure.com).
-1. En **Directivas**, seleccione**Flujos de usuario (directivas)** .
+1. En **Directivas**, seleccione**Flujos de usuario**.
 1. Seleccione una directiva existente, por ejemplo *B2C_1_signupsignin1* y, luego, seleccione **Ejecutar flujo de usuario**.
 1. Anote la dirección URL del hipervínculo que aparece en el encabezado **Ejecutar flujo de usuario** situado cerca de la parte superior de la página. Esta dirección URL es el conocido punto de conexión de detección de OpenID Connect del flujo de usuario y se usa en la sección siguiente cuando se configura la directiva de entrada en Azure API Management.
 
@@ -126,7 +126,7 @@ Para llamar a la API, necesita un token de acceso emitido por Azure AD B2C y u
 En primer lugar, necesita un token emitido por Azure AD B2C para usarlo en el encabezado `Authorization` de Postman. Puede obtener uno mediante la característica **Ejecutar ahora** del flujo de usuario de registro o de inicio de sesión que debe haber creado como uno de los requisitos previos.
 
 1. Vaya al inquilino de Azure AD B2C en [Azure Portal](https://portal.azure.com).
-1. En **Directivas**, seleccione**Flujos de usuario (directivas)** .
+1. En **Directivas**, seleccione**Flujos de usuario**.
 1. Seleccione un flujo de usuario de registro o de inicio de sesión existente, por ejemplo *B2C_1_signupsignin1*.
 1. En **Aplicación**, seleccione *webapp1*.
 1. Para **Dirección URL de respuesta**, elija `https://jwt.ms`.

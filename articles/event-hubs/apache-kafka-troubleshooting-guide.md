@@ -3,18 +3,18 @@ title: Solución de problemas con Azure Event Hubs para Apache Kafka
 description: En este artículo se muestra cómo solucionar problemas con Azure Event Hubs para Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: c2403fd51729ef8809b9a70383ad6f9fd91e52b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85322676"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090576"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guía de solución de problemas de Apache Kafka para Event Hubs
 En este artículo se proporcionan sugerencias para la solución de problemas que pueden aparecer al usar Event Hubs para Apache Kafka. 
 
 ## <a name="server-busy-exception"></a>Excepción de servidor ocupado
-Puede recibir una excepción de servidor ocupado que se deba a una limitación de Kafka. Con los clientes de AMQP, Event Hubs devuelve inmediatamente una excepción **Servidor ocupado** tras la limitación del servicio. Esto equivale a un mensaje de "inténtelo de nuevo más tarde". En Kafka, los mensajes se retrasan antes de que se completen. La duración del retraso se devuelve en milisegundos como `throttle_time_ms` en la respuesta de generación/captura. En la mayoría de los casos, estas solicitudes retrasadas no se registran como excepciones ServerBusy en los paneles de Event Hubs. En su lugar, se debe usar el valor `throttle_time_ms` de la respuesta como un indicador de que el rendimiento ha superado la cuota aprovisionada.
+Puede recibir una excepción de servidor ocupado que se deba a una limitación de Kafka. Con los clientes de AMQP, Event Hubs devuelve inmediatamente una excepción de **servidor ocupado** tras la limitación del servicio. Esto equivale a un mensaje de "inténtelo de nuevo más tarde". En Kafka, los mensajes se retrasan antes de que se completen. La duración del retraso se devuelve en milisegundos como `throttle_time_ms` en la respuesta de generación/captura. En la mayoría de los casos, estas solicitudes retrasadas no se registran como excepciones de servidor ocupado en los paneles de Event Hubs. En su lugar, se debe usar el valor `throttle_time_ms` de la respuesta como un indicador de que el rendimiento ha superado la cuota aprovisionada.
 
 Si el tráfico es excesivo, el servicio tiene el siguiente comportamiento:
 
@@ -49,13 +49,13 @@ Si ve problemas al usar Kafka en Event Hubs, compruebe los siguientes elementos.
 - **Firewall que bloquea el tráfico**: asegúrese de que el firewall no está bloqueando el puerto **9093**.
 - **TopicAuthorizationException**: las causas más comunes de esta excepción son:
     - Un error de escritura en la cadena de conexión del archivo de configuración, o
-    - Un intento de uso de Event Hubs para Kafka en un espacio de nombres de nivel básico. Event Hubs para Kafka [solo es compatible con los espacios de nombres de niveles Estándar y Dedicado](https://azure.microsoft.com/pricing/details/event-hubs/).
+    - Un intento de uso de Event Hubs para Kafka en un espacio de nombres de nivel básico. La característica Event Hubs para Kafka [solo es compatible con los espacios de nombres de niveles Estándar y Dedicado](https://azure.microsoft.com/pricing/details/event-hubs/).
 - **La versión de Kafka no coincide**: Event Hubs para ecosistemas de Kafka admite las versiones 1.0 y posteriores de Kafka. Algunas aplicaciones que usan la versión 0.10 de Kafka y versiones posteriores pueden funcionar ocasionalmente gracias a la compatibilidad con versiones anteriores del protocolo de Kafka, pero se recomienda seriamente no usar versiones antiguas de la API. Las versiones 0.9 y anteriores de Kafka no admiten los protocolos SASL necesarios y no se pueden conectar a Event Hubs.
 - **Codificaciones extrañas en encabezados de AMQP al consumir con Kafka**: al enviar eventos a un centro de eventos a través de AMQP, los encabezados de carga de AMQP se serializan en la codificación de AMQP. Los consumidores de Kafka no deserializan los encabezados de AMQP. Para leer los valores de encabezado, descodifique manualmente los encabezados AMQP. Como alternativa, puede evitar el uso de encabezados AMQP si sabe que va a consumir a través del protocolo Kafka. Para más información, consulte [este problema de GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Autenticación SASL**: la obtención de un marco para cooperar con el protocolo de autenticación SASL que requiere Event Hubs puede resultar más difícil de lo que parece. Vea si puede solucionar problemas relacionados con la configuración mediante los recursos del marco en la autenticación SASL. 
 
 ## <a name="limits"></a>límites
-Apache Kafka frente a Event Hubs Kafka. En su mayor parte, los ecosistemas de Event Hubs para Kafka tienen los mismos valores predeterminados, propiedades, códigos de error y comportamiento general que Apache Kafka. Las instancias en las que difieren explícitamente (o donde Event Hubs impone un límite que Kafka no tiene) se enumeran a continuación:
+Apache Kafka frente a Event Hubs Kafka. En su mayor parte, Event Hubs Kafka tienen los mismos valores predeterminados, propiedades, códigos de error y comportamiento general que Apache Kafka. Las instancias en las que difieren explícitamente (o donde Event Hubs impone un límite que Kafka no tiene) se enumeran a continuación:
 
 - La longitud máxima de la propiedad `group.id` es 256 caracteres
 - El tamaño máximo de `offset.metadata.max.bytes` es 1024 bytes
@@ -68,4 +68,4 @@ Para obtener más información acerca de Event Hubs y Event Hubs para Kafka, con
 - [Guía del desarrollador de Apache Kafka para Event Hubs](apache-kafka-developer-guide.md)
 - [Guía de migración de Kafka para Event Hubs](apache-kafka-migration-guide.md)
 - [Preguntas más frecuentes: Event Hubs para Apache Kafka](apache-kafka-frequently-asked-questions.md)
-- [Configuraciones recomendadas](https://github.com/Azure/azure-event-hubs-for-kafka/blob/master/CONFIGURATION.md)
+- [Configuraciones recomendadas](apache-kafka-configurations.md)

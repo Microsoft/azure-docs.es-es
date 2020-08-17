@@ -92,7 +92,7 @@
     - name: Preguntas más frecuentes
       href: relay-faq.md
     - name: Blog
-      href: 'https://blogs.msdn.microsoft.com/servicebus/'
+      href: /archive/blogs/servicebus/
     - name: Precios
       href: 'https://azure.microsoft.com/pricing/details/service-bus/'
     - name: Calculadora de precios

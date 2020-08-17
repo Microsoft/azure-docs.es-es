@@ -5,17 +5,18 @@ description: Aprenda a explicar los motivos por los que un modelo realiza predic
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
-ms.author: mesameki
-author: mesameki
+ms.topic: conceptual
+ms.custom: how-to
+ms.author: mithigpe
+author: minthigpen
 ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
-ms.openlocfilehash: 83fc13362a373686ee027fd642f03003b411cd63
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 533ecbaebc5d36f8a6660ce22e5cab3630e3655f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201446"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87306407"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-preview"></a>Capacidad de interpretación de modelos en Azure Machine Learning (versión preliminar)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -44,7 +45,7 @@ Las clases de interpretabilidad están disponibles través de varios paquetes de
 
 * `azureml.contrib.interpret`, versión preliminar, y las funcionalidades experimentales que puede probar.
 
-Obtenga los paquetes de interpretación mediante `pip install azureml-interpret` y `pip install azureml-interpret-contrib` para uso general y mediante `pip install azureml-contrib-interpret` para usarlos con AutoML.
+Use `pip install azureml-interpret` y `pip install azureml-contrib-interpret` para el uso general.
 
 
 > [!IMPORTANT]

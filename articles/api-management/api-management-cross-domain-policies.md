@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 07/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 6512edd26b59dac11f046e82940db4877728943c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 99784e43130b70554c05ff79a10993f2b6eebbde
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243599"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86499620"
 ---
 # <a name="api-management-cross-domain-policies"></a>Directivas entre dominios de API Management
 En este tema se proporciona una referencia para las siguientes directivas de API Management. Para obtener más información sobre cómo agregar y configurar directivas, consulte [Directivas en Administración de API](https://go.microsoft.com/fwlink/?LinkID=398186).
@@ -67,6 +67,8 @@ Esta directiva puede usarse en las siguientes [secciones](./api-management-howto
 La directiva `cors` agrega compatibilidad con el uso compartido de recursos entre orígenes (CORS) a una operación o a una API para permitir llamadas entre dominios desde clientes basados en explorador.
 
 CORS permite a un explorador y a un servidor interactuar y determinar si se permiten o no solicitudes específicas entre orígenes (por ejemplo, llamadas XMLHttpRequests realizadas desde JavaScript en una página web a otros dominios). Esto permite más flexibilidad que si solo se permiten solicitudes del mismo origen, pero es más seguro que permitir todas las solicitudes entre orígenes.
+
+Debe aplicar la directiva CORS para habilitar la consola interactiva en el portal para desarrolladores. Consulte la [documentación del portal para desarrolladores](./api-management-howto-developer-portal.md#cors) para obtener detalles.
 
 ### <a name="policy-statement"></a>Instrucción de la directiva
 
@@ -124,14 +126,14 @@ En este ejemplo se muestra cómo admitir solicitudes preparatorias, como aquella
 
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|cors|Elemento raíz.|Sí|N/D|
-|allowed-origins|Contiene elementos `origin` que describen los orígenes permitidos para las solicitudes entre dominios. `allowed-origins` puede contener un único elemento `origin` que especifica `*` para permitir cualquier origen, o uno o varios elementos `origin` que contienen un identificador URI.|Sí|N/D|
+|cors|Elemento raíz.|Sí|No aplicable|
+|allowed-origins|Contiene elementos `origin` que describen los orígenes permitidos para las solicitudes entre dominios. `allowed-origins` puede contener un único elemento `origin` que especifica `*` para permitir cualquier origen, o uno o varios elementos `origin` que contienen un identificador URI.|Sí|No aplicable|
 |origin|El valor puede ser `*` para permitir todos los orígenes o un identificador URI que especifica un único origen. El URI debe incluir un esquema, un host y un puerto.|Sí|Si se omite el puerto en un identificador URI, se usa el puerto 80 para HTTP y el puerto 443 para HTTPS.|
 |allowed-methods|Este elemento es necesario si se permiten métodos distintos de GET o POST. Contiene elementos `method` que especifican los verbos HTTP admitidos. El valor `*` indica todos los métodos.|No|Si esta sección no está presente, se admiten GET y POST.|
 |method|Especifica un verbo HTTP.|Al menos un elemento `method` es necesario si la sección `allowed-methods` está presente.|N/D|
 |allowed-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados que pueden incluirse en la solicitud.|No|N/D|
 |expose-headers|Este elemento contiene elementos `header` que especifican los nombres de los encabezados a los que tendrá acceso el cliente.|No|N/D|
-|encabezado|Especifica un nombre de encabezado.|Al menos un elemento `header` es necesario en `allowed-headers` o `expose-headers` si está presente la sección.|N/D|
+|header|Especifica un nombre de encabezado.|Al menos un elemento `header` es necesario en `allowed-headers` o `expose-headers` si está presente la sección.|N/D|
 
 ### <a name="attributes"></a>Atributos
 
@@ -167,7 +169,7 @@ Si agrega el parámetro de devolución de llamada `?cb=XXX`, devolverá un resul
 
 ### <a name="elements"></a>Elementos
 
-|Nombre|Descripción|Obligatorio|
+|Nombre|Descripción|Requerido|
 |----------|-----------------|--------------|
 |jsonp|Elemento raíz.|Sí|
 
@@ -175,7 +177,7 @@ Si agrega el parámetro de devolución de llamada `?cb=XXX`, devolverá un resul
 
 |Nombre|Descripción|Obligatorio|Valor predeterminado|
 |----------|-----------------|--------------|-------------|
-|callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|Sí|N/D|
+|callback-parameter-name|La llamada de función de JavaScript entre dominios prefijada con el nombre de dominio completo en donde reside la función.|Sí|No aplicable|
 
 ### <a name="usage"></a>Uso
 Esta directiva puede usarse en las siguientes [secciones](./api-management-howto-policies.md#sections) y [ámbitos](./api-management-howto-policies.md#scopes) de directiva.

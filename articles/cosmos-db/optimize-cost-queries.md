@@ -5,27 +5,29 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: dd75ad4ed1024292868f113e474fe8b8b73679b0
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.date: 07/24/2020
+ms.openlocfilehash: e1c60542ec16ca19d26a77c1b9fb9676cf875e3d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75445127"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318273"
 ---
 # <a name="optimize-query-cost-in-azure-cosmos-db"></a>Optimización de los costos de consulta de Azure Cosmos DB
 
-Azure Cosmos DB ofrece un amplio conjunto de operaciones de base de datos, incluidas las consultas jerárquicas y relacionales que se realizan en los elementos de un contenedor. El costo asociado a cada una de estas operaciones variará en función de la CPU, la E/S y la memoria necesarias para completar la operación. En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud. En este artículo se describe la evaluación de los cargos por las unidades de solicitud y la optimización de la consulta en términos de rendimiento y costo. 
+Azure Cosmos DB ofrece un amplio conjunto de operaciones de base de datos, incluidas las consultas jerárquicas y relacionales que se realizan en los elementos de un contenedor. El costo asociado a cada una de estas operaciones variará en función de la CPU, la E/S y la memoria necesarias para completar la operación. En lugar de administrar y pensar sobre los recursos de hardware, puede pensar en una unidad de solicitud (RU) como una medida única para los recursos necesarios para realizar varias operaciones de la base de datos y dar servicio a una solicitud. En este artículo se describe la evaluación de los cargos por las unidades de solicitud y la optimización de la consulta en términos de rendimiento y costo.
 
-Las consultas en Azure Cosmos DB se suelen ordenar de la más rápida o eficiente a la más lenta o menos eficiente en cuanto a capacidad de proceso, de la siguiente manera:  
+Las lecturas en Azure Cosmos DB se suelen ordenar de la más rápida o eficiente a la más lenta o menos eficiente en cuanto a capacidad de proceso, de la siguiente manera:  
 
-* La operación GET en una única clave de partición y una clave de elemento.
+* Lecturas puntuales (búsqueda de clave y valor en un único id. de elemento y clave de partición).
 
 * Consulta con una cláusula de filtro en una única clave de partición.
 
 * Consulta sin una cláusula de filtro de igualdad o intervalo en cualquier propiedad.
 
 * Consulta sin filtros.
+
+Dado que las búsquedas de clave y valor en el id. de elemento son el tipo de lectura más eficiente, debe asegurarse de que el identificador de elemento tiene un valor significativo.
 
 Las consultas que leen datos de una o varias particiones incurren en una latencia mayor y consumen un número mayor de unidades de solicitud. Puesto que cada partición tiene indexación automática en todas las propiedades, la consulta se puede atender eficazmente desde el índice. Puede realizar las consultas que abarcan varias particiones más rápido mediante las opciones de paralelismo. Para aprender más sobre la creación de particiones y las claves de particiones, consulte [Creación de particiones en Azure Cosmos DB](partitioning-overview.md).
 
@@ -36,7 +38,7 @@ Una vez que haya almacenado algunos datos en los contenedores de Azure Cosmos, p
 También puede obtener el costo de las consultas mediante programación usando los SDK. Para medir la sobrecarga de cualquier operación, como la creación, la actualización o la eliminación, consulte el encabezado `x-ms-request-charge` al usar la API REST. Si usa el SDK para .NET o para Java, la propiedad `RequestCharge` es equivalente a obtener el cargo de la solicitud y está presente en ResourceResponse o FeedResponse.
 
 ```csharp
-// Measure the performance (request units) of writes 
+// Measure the performance (request units) of writes
 ResourceResponse<Document> response = await client.CreateDocumentAsync(collectionSelfLink, myDocument); 
 
 Console.WriteLine("Insert of an item consumed {0} request units", response.RequestCharge); 

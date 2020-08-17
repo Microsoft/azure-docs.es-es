@@ -11,7 +11,7 @@
 - name: Guías paso a paso
   items:
     - name: Prerrequisitos
-      href: hpc-cache-prereqs.md
+      href: hpc-cache-prerequisites.md
     - name: Creación de la caché
       href: hpc-cache-create.md
     - name: Agregue almacenamiento
@@ -46,6 +46,8 @@
   items:
     - name: Abrir una incidencia de soporte técnico
       href: hpc-cache-support-ticket.md
+    - name: Configuración de la CLI de Azure para Azure HPC Cache
+      href: az-cli-prerequisites.md
     - name: Solución alternativa para la configuración del firewall de la cuenta de Blob Storage
       href: hpc-cache-blob-firewall-fix.md
     - name: Solución de problemas de creación de destinos de almacenamiento de NFS

@@ -2,13 +2,13 @@
 title: Referencia para desarrolladores de C# de Azure Functions
 description: Cómo desarrollar funciones de Azure con C#.
 ms.topic: conceptual
-ms.date: 09/12/2018
-ms.openlocfilehash: 038c1db2d4bb4d8bd80801d36cf5feec1905bbc1
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.date: 07/24/2020
+ms.openlocfilehash: 7c00dcd3648ef175d4e834fceef3444f7943e70b
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86254374"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87288202"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
 
@@ -31,7 +31,7 @@ Las versiones del entorno en tiempo de ejecución de Functions funcionan con ver
 | ---- | ---- |
 | Functions 3.x | .NET Core 3.1 |
 | Functions 2.x | .NET Core 2.2 |
-| Functions 1.x | .NET Framework 4.6 |
+| Functions 1.x | .NET Framework 4.7 |
 
 Para obtener más información, consulte [Introducción a las versiones de tiempo de ejecución de Azure Functions](functions-versions.md).
 
@@ -202,6 +202,28 @@ Core Tools se instala mediante npm, que no afecta a la versión de Core Tools qu
 [3/1/2018 9:59:53 AM] Starting Host (HostId=contoso2-1518597420, Version=2.0.11353.0, ProcessId=22020, Debug=False, Attempt=0, FunctionsExtensionVersion=)
 ```
 
+## <a name="readytorun"></a>ReadyToRun
+
+La aplicación de funciones se puede compilar como [archivos binarios de ReadyToRun](/dotnet/core/whats-new/dotnet-core-3-0#readytorun-images). ReadyToRun es una forma de compilación Ahead Of Time que puede mejorar el rendimiento de inicio para ayudar a reducir el impacto del [inicio en frío](functions-scale.md#cold-start) cuando se ejecuta en un [plan de consumo](functions-scale.md#consumption-plan).
+
+ReadyToRun está disponible en .NET 3.0 y requiere la [versión 3.0 del runtime de Azure Functions](functions-versions.md).
+
+Para compilar un proyecto como ReadyToRun, actualice el archivo del proyecto agregando los elementos `<PublishReadyToRun>` y `<RuntimeIdentifier>`. A continuación se encuentra la configuración para publicar en una aplicación de funciones de Windows de 32 bits.
+
+```xml
+<PropertyGroup>
+  <TargetFramework>netcoreapp3.1</TargetFramework>
+  <AzureFunctionsVersion>v3</AzureFunctionsVersion>
+  <PublishReadyToRun>true</PublishReadyToRun>
+  <RuntimeIdentifier>win-x86</RuntimeIdentifier>
+</PropertyGroup>
+```
+
+> [!IMPORTANT]
+> Actualmente, ReadyToRun no admite la compilación cruzada. Debe compilar la aplicación en la misma plataforma que el destino de implementación. Preste también atención al "valor de bits" que está configurado en la aplicación de funciones. Por ejemplo, si la aplicación de funciones de Azure es Windows de 64 bits, debe compilarla en Windows con `win-x64` como [identificador de runtime](/dotnet/core/rid-catalog).
+
+La aplicación también se puede compilar con ReadyToRun desde la línea de comandos. Para más información, consulte la opción `-p:PublishReadyToRun=true` en [`dotnet publish`](/dotnet/core/tools/dotnet-publish).
+
 ## <a name="supported-types-for-bindings"></a>Tipos compatibles para los enlaces
 
 Cada enlace tiene sus propios tipos compatibles; por ejemplo, un atributo desencadenador de blobs puede aplicarse a un parámetro de cadena, un parámetro POCO, un parámetro `CloudBlockBlob` o cualquiera de los demás tipos compatibles. En el [artículo de referencia sobre los enlaces de blobs](functions-bindings-storage-blob-trigger.md#usage) se enumeran todos los tipos de parámetros compatibles. Para obtener más información, vea el artículo sobre [desencadenadores y enlaces](functions-triggers-bindings.md) y los [documentos de referencia sobre enlaces para cada tipo de enlace](functions-triggers-bindings.md#next-steps).
@@ -238,7 +260,7 @@ public static class ICollectorExample
 
 ## <a name="logging"></a>Registro
 
-Para grabar la salida en los registros de streaming de C#, incluya un argumento de tipo [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). Le recomendamos que lo llame `log`, como en el ejemplo siguiente:  
+Para grabar la salida en los registros de streaming de C#, incluya un argumento de tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger). Le recomendamos que lo llame `log`, como en el ejemplo siguiente:  
 
 ```csharp
 public static class SimpleExample
@@ -257,7 +279,7 @@ Evite el uso de `Console.Write` en Azure Functions. Para más información, cons
 
 ## <a name="async"></a>Async
 
-Para convertir una función en [asincrónica](https://docs.microsoft.com/dotnet/csharp/programming-guide/concepts/async/), use la palabra clave `async` y devuelva un objeto `Task`.
+Para convertir una función en [asincrónica](/dotnet/csharp/programming-guide/concepts/async/), use la palabra clave `async` y devuelva un objeto `Task`.
 
 ```csharp
 public static class AsyncExample
@@ -330,7 +352,7 @@ public static class EnvironmentVariablesExample
 
 La configuración de la aplicación se puede leer de las variables de entorno tanto cuando se desarrolla de manera local como cuando se ejecuta en Azure. Cuando se desarrolla de manera local, la configuración de la aplicación procede de la colección `Values` en el archivo *local.settings.json*. En ambos entornos, tanto local como Azure, `GetEnvironmentVariable("<app setting name>")` recupera el valor de la configuración de aplicación con nombre. Por ejemplo, cuando se ejecuta de manera local, se devolvería "My Site Name" si el archivo *local.settings.json* contiene `{ "Values": { "WEBSITE_SITE_NAME": "My Site Name" } }`.
 
-La propiedad [System.Configuration.ConfigurationManager.AppSettings](https://docs.microsoft.com/dotnet/api/system.configuration.configurationmanager.appsettings) es una API alternativa para obtener los valores de configuración de la aplicación, pero se recomienda que use `GetEnvironmentVariable` como se muestra aquí.
+La propiedad [System.Configuration.ConfigurationManager.AppSettings](/dotnet/api/system.configuration.configurationmanager.appsettings) es una API alternativa para obtener los valores de configuración de la aplicación, pero se recomienda que use `GetEnvironmentVariable` como se muestra aquí.
 
 ## <a name="binding-at-runtime"></a>Enlace en tiempo de ejecución
 

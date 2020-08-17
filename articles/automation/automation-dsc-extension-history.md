@@ -1,20 +1,17 @@
 ---
 title: Trabajo con el historial de versiones de la extensión Desired State Configuration de Azure
 description: En este artículo se explica cómo trabajar con el historial de versiones para la extensión Desired State Configuration (DSC) de Azure.
-ms.date: 06/21/2018
+ms.date: 07/22/2020
 keywords: dsc, powershell, azure, extensión
-author: mgoedtel
-ms.author: magoedte
 services: automation
-ms.service: automation
 ms.subservice: dsc
 ms.topic: conceptual
-ms.openlocfilehash: 0bb82ce92a151bd8e955c136751d8e7f307bbf1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: b45512faf09cfe745023d29d32f89a4432cc3b2b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186425"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87079764"
 ---
 # <a name="work-with-azure-desired-state-configuration-extension-version-history"></a>Trabajo con el historial de versiones de la extensión Desired State Configuration de Azure
 
@@ -23,6 +20,29 @@ La extensión para máquinas virtuales Desired State Configuration (DSC) de Azur
 Este artículo ofrece información sobre cada versión de la extensión DSC de Azure para máquinas virtuales y los entornos con los que es compatible, así como comentarios sobre nuevas características o cambios.
 
 ## <a name="latest-version"></a>La versión más reciente
+
+### <a name="version-280"></a>Versión 2.80
+
+- **Fecha de publicación:**
+  - 26 de septiembre de 2019 (Azure) | 6 de julio de 2020 (Azure China ViaNet 21) | 20 de julio de 2020 (Azure Government)
+- **Sistemas operativos admitidos:**
+  - Windows Server 2019
+  - Windows Server 2016
+  - Windows Server 2012 R2
+  - Windows Server 2012
+  - Windows Server 2008 R2 SP1
+  - Cliente de Windows 7/8.1/10
+  - Nano Server
+- **Compatibilidad con WMF:**
+  - WMF 5.1
+  - WMF 5.0 RTM
+  - Actualización de WMF 4.0
+  - WMF 4.0
+- **Entorno:**
+  - Azure
+  - Azure China Vianet 21
+  - Azure Government
+- **Observaciones**: En esta versión no se incluye ninguna característica nueva.
 
 ### <a name="version-276"></a>Versión 2.76
 

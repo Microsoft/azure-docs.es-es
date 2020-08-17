@@ -6,27 +6,27 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: bfd25c2572e91c2984f2845e08941614fff65570
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e422b019dd17c8c56ba99b5826e9f6215459c382
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539778"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87825368"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores en la forma en que piensa en ellos: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
 
-En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Para obtener información sobre la configuración de los requisitos previos para esta solución, consulte [Introducción a la habilitación de Azure Monitor para VM](vminsights-enable-overview.md#prerequisites). En resumen, necesita lo siguiente:
+En este artículo se describen los detalles sobre la incorporación y utilización de Service Map. Los requisitos previos de la solución son los siguientes:
 
-* Un área de trabajo Log Analytics para habilitar esta solución.
+* Un área de trabajo de Log Analytics en una [región admitida](vminsights-configure-workspace.md#supported-regions).
 
-* El agente de Log Analytics instalado en el equipo Windows o en el servidor Linux configurado para generar informes de la misma área de trabajo con la que ha habilitado la solución.
+* El [agente de Log Analytics](vminsights-enable-overview.md#agents) instalado en el equipo Windows o en el servidor Linux conectado a la misma área de trabajo con la que ha habilitado la solución.
 
-* El agente de dependencia instalado en el equipo Windows o en el servidor Linux.
+* [Dependency Agent](vminsights-enable-overview.md#agents) instalado en el equipo con Windows o en el servidor Linux.
 
 >[!NOTE]
->Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](../../azure-monitor/insights/vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms).
+>Si ya ha implementado Service Map, ahora también puede ver las asignaciones en Azure Monitor para las máquinas virtuales, lo que incluye características adicionales para supervisar el rendimiento y el estado de la máquina virtual. Para obtener más información, consulte [¿Qué es Azure Monitor para máquinas virtuales?](./vminsights-overview.md) Para obtener información sobre las diferencias entre la solución de Service Map y la característica de asignación de Azure monitor para VM, consulte las siguientes [Preguntas más frecuentes](../faq.md#azure-monitor-for-vms).
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -35,7 +35,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 ## <a name="enable-service-map"></a>Habilitar Service Map
 
 1. Habilite la solución Service Map desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ServiceMapOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre la [adición de soluciones de supervisión desde la Galería de soluciones](solutions.md).
-1. [Instale Dependency Agent en Windows ](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-windows)o [en Linux](vminsights-enable-hybrid-cloud.md#install-the-dependency-agent-on-linux) en cada equipo en el que quiera obtener datos. Dependency Agent puede supervisar las conexiones a los vecinos inmediatos, por lo que es posible que no necesite un agente en cada equipo.
+1. [Instale Dependency Agent en Windows ](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-windows)o [en Linux](./vminsights-enable-hybrid.md#install-the-dependency-agent-on-linux) en cada equipo en el que quiera obtener datos. Dependency Agent puede supervisar las conexiones a los vecinos inmediatos, por lo que es posible que no necesite un agente en cada equipo.
 
 Se puede obtener acceso a Service Map en Azure Portal desde el área de trabajo de Log Analytics, y seleccionar la opción **Soluciones** en el panel de la izquierda.<br><br> ![Seleccione la opción Soluciones en el área de trabajo](./media/service-map/select-solution-from-workspace.png).<br> En la lista de soluciones, seleccione **ServiceMap(workspaceName)** y en la página de información general de la solución Service Map, haga clic en el mosaico de resumen Service Map.<br><br> ![Mosaico de resumen Service Map](./media/service-map/service-map-summary-tile.png).
 
@@ -304,7 +304,7 @@ En el panel **Machine Updates** (Actualizaciones de la máquina) se muestran dat
 
 ## <a name="log-analytics-records"></a>Registros de Log Analytics
 
-Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
+Los datos de inventario de equipos y procesos de Service Map están disponibles para [buscar](../log-query/log-query-overview.md) en Log Analytics. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
 
 Se genera un registro por hora para cada equipo y proceso únicos, además de los registros generados cuando un proceso o equipo se inicia o se integra en Service Map. Estos registros tienen las propiedades de las tablas siguientes. Los campos y valores de los eventos ServiceMapComputer_CL se asignan a los campos del recurso Equipo en la API ServiceMap de Azure Resource Manager. Los campos y valores de los eventos ServiceMapProcess_CL se asignan a los campos del recurso Proceso en la API ServiceMap de Azure Resource Manager. El campo ResourceName_s coincide con el campo de nombre del recurso correspondiente de Resource Manager. 
 
@@ -550,7 +550,7 @@ Para más información sobre el uso y la recopilación de datos, vea la [Declara
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Más información sobre las [búsquedas de registros](../../azure-monitor/log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
+Más información sobre las [búsquedas de registros](../log-query/log-query-overview.md) de Log Analytics para recuperar datos recopilados por Service Map.
 
 ## <a name="troubleshooting"></a>Solución de problemas
 

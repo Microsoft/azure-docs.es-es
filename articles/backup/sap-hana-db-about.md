@@ -3,12 +3,12 @@ title: Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas v
 description: En este artículo obtendrá información sobre cómo realizar copias de seguridad de bases de datos SAP HANA que se ejecutan en máquinas virtuales de Azure.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 980278b3cdb9c97a5a483354a004a8278a745b3b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a6c4f627059a8d536e1d006103650dca5d2f5109
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503513"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533451"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Acerca de la copia de seguridad de bases de datos SAP HANA en máquinas virtuales de Azure
 
@@ -60,7 +60,7 @@ Además de usar la copia de seguridad de SAP HANA en Azure, que proporciona copi
 
 La [solución de copia de seguridad de Azure SAP HANA con certificación BackInt](#backup-architecture) puede usarse para la copia de seguridad y recuperación de bases de datos.
 
-La [copia de seguridad de máquina virtual de Azure](backup-azure-vms-introduction.md) se puede usar para realizar copias de seguridad del sistema operativo y de otros discos que no sean de base de datos. La copia de seguridad de la máquina virtual se lleva a cabo una vez al día y realiza una copia de seguridad de todos los discos (excepto los **discos habilitados para el Acelerador de escritura** y los **discos Ultra**). Dado que se realiza una copia de seguridad de la base de datos mediante la solución de copia de seguridad de Azure SAP HANA, puede realizar una copia de seguridad coherente con el archivo solo del sistema operativo y de los discos que no sean de base de datos mediante la funcionalidad de excluir disco, que se encuentra actualmente en versión preliminar.
+La [copia de seguridad de máquina virtual de Azure](backup-azure-vms-introduction.md) se puede usar para realizar copias de seguridad del sistema operativo y de otros discos que no sean de base de datos. La copia de seguridad de la VM se lleva a cabo una vez al día y realiza una copia de seguridad de todos los discos (excepto los **discos habilitados para el Acelerador de escritura** y los **discos Ultra**). Dado que se realiza una copia de seguridad de la base de datos mediante la solución de copia de seguridad de Azure SAP HANA, puede realizar una copia de seguridad coherente con el archivo solo del sistema operativo y de los discos que no sean de la base de datos mediante la característica de [copias de seguridad y restauración de disco selectivas para las VM de Azure](selective-disk-backup-restore.md).
 
 >[!NOTE]
 > El uso de scripts previos y posteriores con la copia de seguridad de máquina virtual de Azure permitirá copias de seguridad coherentes con la aplicación de los volúmenes de datos de la base de datos. Sin embargo, si el área de registro reside en discos habilitados para el Acelerador de escritura, es posible que la toma de una instantánea de estos discos no garantice la coherencia del área de registro. HANA tiene una forma explícita de generar copias de seguridad de registros por este preciso motivo. Habilítela en SAP HANA para poder realizar una copia de seguridad mediante la copia de seguridad de SAP HANA de Azure.

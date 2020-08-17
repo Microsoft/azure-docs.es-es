@@ -5,16 +5,16 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/04/2020
-ms.openlocfilehash: 81040adf6cfbb8820ec7f306c7d614830e3a2613
-ms.sourcegitcommit: e0330ef620103256d39ca1426f09dd5bb39cd075
+ms.openlocfilehash: e2603d921973aefdcc1a6f4a76bdf70d69dcb68f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82791123"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320636"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Creación y ejecución de pruebas de disponibilidad personalizadas mediante Azure Functions
 
-En este artículo se explica cómo crear una función de Azure con TrackAvailability() que se ejecutará periódicamente según la configuración especificada en la función TimerTrigger con lógica de negocios propia. Los resultados de esta prueba se enviarán al recurso de Application Insights, donde podrá consultar los datos de los resultados de disponibilidad y generar alertas sobre ellos. Esto le permite crear pruebas personalizadas de forma parecida a lo que puede hacer mediante [Supervisión de la disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) en el portal. Las pruebas personalizadas le permitirán escribir pruebas de disponibilidad más complejas de las que puede crear con la interfaz de usuario del portal, supervisar una aplicación dentro de la red virtual de Azure, cambiar la dirección del punto de conexión o crear una prueba de disponibilidad incluso si esta característica no está disponible en su región.
+En este artículo se explica cómo crear una función de Azure con TrackAvailability() que se ejecutará periódicamente según la configuración especificada en la función TimerTrigger con lógica de negocios propia. Los resultados de esta prueba se enviarán al recurso de Application Insights, donde podrá consultar los datos de los resultados de disponibilidad y generar alertas sobre ellos. Esto le permite crear pruebas personalizadas de forma parecida a lo que puede hacer mediante [Supervisión de la disponibilidad](./monitor-web-app-availability.md) en el portal. Las pruebas personalizadas le permitirán escribir pruebas de disponibilidad más complejas de las que puede crear con la interfaz de usuario del portal, supervisar una aplicación dentro de la red virtual de Azure, cambiar la dirección del punto de conexión o crear una prueba de disponibilidad incluso si esta característica no está disponible en su región.
 
 > [!NOTE]
 > Este ejemplo se ha diseñado únicamente para mostrar la mecánica de cómo actúa la llamada a la API de TrackAvailability() en una función de Azure. No muestra cómo se escribe el código de prueba HTTP o la lógica de negocios subyacentes que se necesitarían para convertir esta llamada en una prueba de disponibilidad totalmente funcional. De forma predeterminada, si recorre este ejemplo, creará una prueba de disponibilidad que siempre generará un error.
@@ -23,7 +23,7 @@ En este artículo se explica cómo crear una función de Azure con TrackAvailabi
 
 - Si tiene un recurso de Application Insights:
     - De forma predeterminada Azure Functions crea un recurso de Application Insights, pero si desea usar uno de los recursos que ya ha creado, deberá especificarlo durante la creación.
-    - Siga las instrucciones sobre cómo [crear un recurso de Azure Functions y una función desencadenada por el temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (detener antes de la limpieza) con las siguientes opciones.
+    - Siga las instrucciones sobre cómo [crear un recurso de Azure Functions y una función desencadenada por el temporizador](../../azure-functions/functions-create-scheduled-function.md) (detener antes de la limpieza) con las siguientes opciones.
         -  Seleccione la pestaña **Supervisión** situada cerca de la parte superior.
 
             ![ Creación de una aplicación de Azure Functions con su propio recurso de App Insights](media/availability-azure-functions/create-function-app.png)
@@ -35,7 +35,7 @@ En este artículo se explica cómo crear una función de Azure con TrackAvailabi
         - Seleccionar **Revisar y crear**.
 - Si aún no tiene un recurso de Application Insights creado para la función desencadenada por el temporizador:
     - De forma predeterminada, si crea una aplicación de Azure Functions, se creará un recurso de Application Insights.
-    - Siga las instrucciones sobre cómo [crear un recurso de Azure Functions y una función desencadenada por el temporizador](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) (detener antes de la limpieza).
+    - Siga las instrucciones sobre cómo [crear un recurso de Azure Functions y una función desencadenada por el temporizador](../../azure-functions/functions-create-scheduled-function.md) (detener antes de la limpieza).
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -45,7 +45,7 @@ Copie el código siguiente en el archivo run.csx (esto reemplazará el código y
 >![Archivo run.csx de la función de Azure en Azure Portal](media/availability-azure-functions/runcsx.png)
 
 > [!NOTE]
-> Para la dirección del punto de conexión debería usar: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. A menos que el recurso se encuentre en una región como Azure Government o Azure China, en cuyo caso consulte este artículo sobre [sustitución de los puntos de conexión predeterminados](https://docs.microsoft.com/azure/azure-monitor/app/custom-endpoints#regions-that-require-endpoint-modification), seleccione el punto de conexión adecuado del canal de telemetría de su región.
+> Para la dirección del punto de conexión debería usar: `EndpointAddress= https://dc.services.visualstudio.com/v2/track`. A menos que el recurso se encuentre en una región como Azure Government o Azure China, en cuyo caso consulte este artículo sobre [sustitución de los puntos de conexión predeterminados](./custom-endpoints.md#regions-that-require-endpoint-modification), seleccione el punto de conexión adecuado del canal de telemetría de su región.
 
 ```C#
 #load "runAvailabilityTest.csx"
@@ -177,7 +177,7 @@ Si ejecutó todo tal cual (sin agregar lógica de negocios), verá que se produj
 
 ## <a name="query-in-logs-analytics"></a>Consulta en Registros (Analytics)
 
-Puede usar registros (Analytics) para ver los resultados de disponibilidad, dependencias, etc. Para más información acerca de los registros, visite [Introducción a las consultas de registros](../../azure-monitor/log-query/log-query-overview.md).
+Puede usar registros (Analytics) para ver los resultados de disponibilidad, dependencias, etc. Para más información acerca de los registros, visite [Introducción a las consultas de registros](../log-query/log-query-overview.md).
 
 >[!div class="mx-imgBorder"]
 >![Resultados de disponibilidad](media/availability-azure-functions/availabilityresults.png)
@@ -187,5 +187,6 @@ Puede usar registros (Analytics) para ver los resultados de disponibilidad, depe
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Mapa de aplicación](../../azure-monitor/app/app-map.md)
-- [Diagnósticos de transacción](../../azure-monitor/app/transaction-diagnostics.md)
+- [Mapa de aplicación](./app-map.md)
+- [Diagnósticos de transacción](./transaction-diagnostics.md)
+

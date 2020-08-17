@@ -1,15 +1,14 @@
 ---
 title: Solución de problemas del agente de Azure Backup
 description: En este artículo se explica cómo solucionar problemas de instalación y registro del agente de Azure Backup.
-ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/15/2019
-ms.openlocfilehash: ddff3ca8a89d8d5674be00fdebc70b0232cdbd13
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1afe437239ec7015bf3bbc195cf0b90e75698142
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539064"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87564119"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -42,7 +41,7 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 
 | Causa | Acciones recomendadas |
 | ---     | ---    |
-| **Las credenciales de almacén no son válidas** <br/> <br/> Los archivos de credenciales de almacén podrían estar dañados o es posible que hayan expirado (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| Descargue nuevas credenciales del almacén de Recovery Services en Azure Portal (vea el paso 6 de la sección [Descargar el agente de MARS](./install-mars-agent.md#download-the-mars-agent)). Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup y seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota**: Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
+| **Las credenciales de almacén no son válidas** <br/> <br/> Los archivos de credenciales de almacén podrían estar dañados o es posible que hayan expirado (por ejemplo, podrían haberse descargado más de 48 horas antes del momento del registro).| [Descargue nuevas credenciales](backup-azure-file-folder-backup-faq.md#where-can-i-download-the-vault-credentials-file) del almacén de Recovery Services en Azure Portal. Luego, realice estos pasos, según corresponda: <ul><li> Si ya ha instalado y registrado MARS, abra la consola MMC del agente de Microsoft Azure Backup. A continuación, seleccione **Registrar servidor** en el panel **Acciones** para completar el registro con las nuevas credenciales. <br/> <li> Si se produce un error en la nueva instalación, intente realizarla otra vez con las nuevas credenciales.</ul> **Nota**: Si se han descargado varios archivos de credenciales de almacén, solo el último archivo será válido las próximas 48 horas. Le recomendamos que descargue un nuevo archivo de credenciales de almacén.
 | **El servidor proxy o el firewall están bloqueando el registro** <br/>or <br/>**No hay conectividad de Internet** <br/><br/> Si la máquina o servidor proxy tiene una conectividad de Internet limitada y el acceso a las direcciones URL necesarias no está garantizado, se producirá un error en el registro.| Siga estos pasos:<br/> <ul><li> Acuda al equipo de TI para asegurarse de que el sistema tiene conectividad de Internet.<li> Si no tiene un servidor proxy, asegúrese de que la opción de proxy no está seleccionada al registrar el agente. [Compruebe la configuración de proxy](#verifying-proxy-settings-for-windows).<li> Si tiene un servidor proxy o un firewall, acuda al equipo de red para asegurarse de que estas direcciones URL y direcciones IP tienen acceso:<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**Direcciones IP**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>Intente realizar el registro de nuevo después de completar los pasos de solución de problemas anteriores.<br></br> Si la conexión se realiza a través de Azure ExpressRoute, asegúrese de que la configuración esté definida como se describe en [Compatibilidad con Azure ExpressRoute](backup-support-matrix-mars-agent.md#azure-expressroute-support).
 | **El software antivirus está bloqueando el registro** | Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas: <br/><ul> <li> CBengine.exe <li> CSC.exe<li> La carpeta temporal. La ubicación predeterminada es: C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch. <li> La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
 
@@ -75,6 +74,12 @@ Se recomienda confirmar lo siguiente antes de empezar a solucionar problemas del
 | Error  | Causa posible | Acciones recomendadas |
 | ---     | ---     | ---    |
 | <br /><ul><li>El Agente de servicios Microsoft Azure Recovery no se pudo conectar al servicio Microsoft Azure Backup. (Id.: 100050) Compruebe la configuración de red y asegúrese de que tiene conexión a Internet.<li>(407) Se requiere autenticación del proxy. |El proxy bloquea la conexión. |  <ul><li>En Internet Explorer, vaya a **Herramientas** > **Opciones de Internet** > **Seguridad** > **Internet**. Seleccione **Nivel personalizado** y desplácese hasta que vea la sección de **descarga de archivos**. Seleccione **Habilitar**.<p>También es posible que deba agregar [direcciones URL y direcciones IP](install-mars-agent.md#verify-internet-access) a los sitios de confianza en Internet Explorer.<li>Cambie la configuración para usar un servidor proxy. A continuación, proporcione los detalles del servidor proxy.<li> Si la máquina tiene limitado el acceso a Internet, asegúrese de que su configuración de firewall está establecida para permitir estas [direcciones URL y direcciones IP](install-mars-agent.md#verify-internet-access). <li>Si tiene un software antivirus instalado en el servidor, excluya estos archivos del examen: <ul><li>CBEngine.exe (en lugar de dpmra.exe).<li>CSC.exe (relacionado con .NET Framework). Hay un archivo CSC.exe por cada versión de .NET Framework instalada en el servidor. Excluya todos los archivos CSC.exe de todas las versiones de .NET Framework en el servidor afectado. <li>La ubicación de la memoria caché o la carpeta temporal. <br>La ubicación predeterminada de la carpeta temporal o la ruta de acceso a la memoria caché es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch.<li>La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin.
+
+## <a name="the-specified-vault-credential-file-cannot-be-used-as-it-is-not-downloaded-from-the-vault-associated-with-this-server"></a>El archivo de credenciales del almacén especificado no se puede usar, ya que no se descargó desde el almacén asociado a este servidor.
+
+| Error  | Causa posible | Acciones recomendadas |
+| ---     | ---     | ---    |
+| El archivo de credenciales del almacén especificado no se puede usar, ya que no se descargó desde el almacén asociado a este servidor. (Id.: 100110) Use las credenciales del almacén adecuado. | El archivo de credenciales del almacén es de un almacén diferente del que ya está registrado en este servidor. | Asegúrese de que tanto la máquina de destino como la máquina de origen están registradas en el mismo almacén de Recovery Services. Si el servidor de destino ya se ha registrado en otro almacén, use la opción **Registrar servidor** para registrarlo en el almacén correcto.  
 
 ## <a name="backup-jobs-completed-with-warning"></a>Trabajos de copia de seguridad completados con advertencias
 
@@ -217,7 +222,7 @@ Si la recuperación sigue sin funcionar, reinicie el cliente o el servidor. Si n
 
 Se puede producir un error en la operación de copia de seguridad si la carpeta de caché (también denominada carpeta temporal) no está configurada correctamente, tiene acceso restringido o faltan requisitos previos.
 
-### <a name="prerequisites"></a>Requisitos previos
+### <a name="prerequisites"></a>Prerrequisitos
 
 Para que las operaciones del agente de MARS se realicen correctamente, la carpeta de caché debe cumplir los siguientes requisitos:
 
@@ -229,7 +234,7 @@ Para que las operaciones del agente de MARS se realicen correctamente, la carpet
 
 ### <a name="increase-shadow-copy-storage"></a>Aumento del almacenamiento de instantáneas
 
-Se podrían producir errores en las operaciones de copia de seguridad si no hay suficiente espacio de almacenamiento de instantáneas para proteger el origen de datos. Para resolver este problema, aumente el espacio de almacenamiento de instantáneas en el volumen protegido mediante vssadmin, como se muestra a continuación:
+Se podrían producir errores en las operaciones de copia de seguridad si no hay suficiente espacio de almacenamiento de instantáneas para proteger el origen de datos. Para resolver este problema, aumente el espacio de almacenamiento de instantáneas en el volumen protegido mediante **vssadmin**, como se muestra a continuación:
 
 - Compruebe el espacio de almacenamiento de instantáneas actual desde el símbolo del sistema con privilegios elevados:<br/>
   `vssadmin List ShadowStorage /For=[Volume letter]:`
@@ -240,8 +245,8 @@ Se podrían producir errores en las operaciones de copia de seguridad si no hay 
 
 Si tiene un software antivirus instalado en el servidor, agregue al examen antivirus las reglas de exclusión necesarias correspondientes a los siguientes archivos y carpetas:  
 
-- La carpeta temporal. La ubicación predeterminada es C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Scratch
-- La carpeta Bin en C:\Archivos de programa\Microsoft Azure Recovery Services Agent\Bin
+- La carpeta temporal. Su ubicación predeterminada es `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch`.
+- La carpeta Bin se encuentra en `C:\Program Files\Microsoft Azure Recovery Services Agent\Bin`.
 - CBengine.exe
 - CSC.exe
 
@@ -252,25 +257,25 @@ En esta sección se tratan los errores que se suelen producir al usar el agente 
 ### <a name="salchecksumstoreinitializationfailed"></a>SalChecksumStoreInitializationFailed
 
 Mensaje de error | Acción recomendada
--- | --
+--|--
 El agente de Microsoft Azure Recovery Services no pudo acceder a la suma de comprobación de la copia de seguridad almacenada en la ubicación temporal | Para resolver este problema, realice los pasos siguientes y reinicie el servidor. <br/> - [Compruebe si hay un antivirus u otros procesos que bloqueen los archivos de ubicación temporal.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Compruebe si la ubicación temporal es válida y accesible para el agente de MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="salvhdinitializationerror"></a>SalVhdInitializationError
 
 Mensaje de error | Acción recomendada
--- | --
+--|--
 El agente de Microsoft Azure Recovery Services no pudo acceder a la ubicación temporal para inicializar el VHD | Para resolver este problema, realice los pasos siguientes y reinicie el servidor. <br/> - [Compruebe si hay un antivirus u otros procesos que bloqueen los archivos de ubicación temporal.](#another-process-or-antivirus-software-blocking-access-to-cache-folder)<br/> - [Compruebe si la ubicación temporal es válida y accesible para el agente de MARS.](backup-azure-file-folder-backup-faq.md#how-to-check-if-scratch-folder-is-valid-and-accessible)
 
 ### <a name="sallowdiskspace"></a>SalLowDiskSpace
 
 Mensaje de error | Acción recomendada
--- | --
+--|--
 No se pudo realizar la copia de seguridad debido a almacenamiento insuficiente en el volumen donde se encuentra la carpeta temporal | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/>- [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)<br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
 
 ### <a name="salbitmaperror"></a>SalBitmapError
 
 Mensaje de error | Acción recomendada
--- | --
+--|--
 No se puede buscar cambios en un archivo. Esto podría deberse a diversos motivos. Vuelva a intentar la operación y, | Para resolver este problema, compruebe lo siguiente y vuelva a intentar la operación:<br/> - [Asegúrese de que el agente de MARS es el más reciente.](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409) <br/> - [Compruebe y resuelva los problemas de almacenamiento que afecten al espacio de almacenamiento temporal de las copias de seguridad.](#prerequisites)
 
 ## <a name="next-steps"></a>Pasos siguientes

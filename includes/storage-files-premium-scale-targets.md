@@ -2,14 +2,14 @@
 author: roygara
 ms.service: storage
 ms.topic: include
-ms.date: 06/07/2019
+ms.date: 08/10/2020
 ms.author: rogarana
-ms.openlocfilehash: b28427b3ede0cfaeb9e08d3c73b15ea7f2961f1b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d704c6026e9d007a7365a3b72649ca509585da4d
+ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "71180073"
+ms.lasthandoff: 08/10/2020
+ms.locfileid: "88057633"
 ---
 #### <a name="additional-premium-file-share-level-limits"></a>Límites del nivel de recurso compartido de archivos prémium adicionales
 
@@ -23,11 +23,11 @@ ms.locfileid: "71180073"
 
 #### <a name="file-level-limits"></a>Límites de nivel de archivo
 
-|Área  |Archivo prémium  |Archivo estándar |
+|Área  |Archivo estándar  |Archivo prémium  |
 |---------|---------|---------|
-|Size                  |1 TiB         |1 TiB|
-|IOPS máximas por archivo     |5\.000         |1,000|
-|Identificadores simultáneos    |2\.000         |2\.000|
-|Salida  |300 MiB/s|      Consulte los valores de rendimiento de archivo estándar|
-|Entrada  |200 MiB/s| Consulte los valores de rendimiento de archivo estándar|
-|Throughput| Consulte los valores de entrada y salida de archivos prémium| Hasta 60 MiB/s|
+|Size     |1 TiB         |4 TiB         |
+|IOPS máximas por archivo      |1,000         |5\.000         |
+|Identificadores simultáneos     |2\.000         |2\.000         |
+|Salida     |Consulte los valores de rendimiento de archivo estándar         |300 MiB/s         |
+|Entrada     |Consulte los valores de rendimiento de archivo estándar         |200 MiB/s         |
+|Throughput     |Hasta 60 MiB/s         |Consulte los valores de entrada y salida de archivos prémium         |

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: dbb1d73fc2b19ef701cb08ced24c634bbbadb235
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86231597"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87500153"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Preguntas más frecuentes sobre Hiperescala de Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -204,7 +204,9 @@ Sí. Las páginas de datos asociadas a una determinada tabla pueden acabar en va
 
 ### <a name="can-i-move-my-existing-databases-in-azure-sql-database-to-the-hyperscale-service-tier"></a>¿Puedo trasladar las bases de datos existentes de Azure SQL al nivel de servicio Hiperescala?
 
-Sí. Puede trasladar las bases de datos existentes de Azure SQL a Hiperescala. Esta es una migración unidireccional. No puede trasladar las bases de datos del nivel de servicio Hiperescala a ningún otro. En el caso de las pruebas de concepto (POC), se recomienda hacer una copia de la base de datos y migrarla a Hiperescala.
+Sí. Puede trasladar las bases de datos existentes de Azure SQL a Hiperescala. Esta es una migración unidireccional. No puede trasladar las bases de datos del nivel de servicio Hiperescala a ningún otro. En el caso de las pruebas de concepto (POC), se recomienda hacer una copia de la base de datos y migrarla a Hiperescala. 
+
+El tiempo necesario para mover una base de datos existente a Hiperescala consta del tiempo para copiar los datos y el tiempo para reproducir los cambios realizados en la base de datos de origen mientras se copian los datos. El tiempo de la copia de datos es proporcional al tamaño de los datos. El tiempo de reproducción de los cambios será más breve si el movimiento se realiza durante un período de escasa actividad de escritura.
   
 ### <a name="can-i-move-my-hyperscale-databases-to-other-service-tiers"></a>¿Puedo mover mis bases de datos de Hiperescala a otros niveles de servicio?
 
@@ -329,7 +331,7 @@ Para la mayoría de los problemas de rendimiento, especialmente los que no tiene
 
 ### <a name="how-long-would-it-take-to-scale-up-and-down-a-compute-replica"></a>¿Cuánto tiempo se tarda en realizar un escalado y reducción vertical de una réplica de proceso?
 
-El proceso de escalado o reducción vertical tardará entre 5 y 10 minutos, independientemente del tamaño de los datos.
+El proceso de escalado o reducción vertical tarda hasta 2 minutos, independientemente del tamaño de los datos.
 
 ### <a name="is-my-database-offline-while-the-scaling-updown-operation-is-in-progress"></a>¿Está mi base de datos sin conexión mientras que la operación de escalado y reducción vertical está en curso?
 

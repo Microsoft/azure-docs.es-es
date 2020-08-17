@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 001dfbc78c0027249143e933684523d47af383d1
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 45b18352d88877a5d611f203d87da83fd0d58c6b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79096784"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077118"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>Prepararse para el cambio de formato a los registros de la plataforma Azure Monitor archivados en una cuenta de almacenamiento
 
 > [!WARNING]
-> Si va a enviar [registros o métricas de recursos de Azure Monitor a una cuenta de almacenamiento mediante la configuración de diagnóstico](resource-logs-collect-storage.md) o [registros de actividad a una cuenta de almacenamiento mediante perfiles de registro](resource-logs-collect-storage.md), el formato de los datos de la cuenta de almacenamiento cambió a Líneas JSON el 1 de noviembre de 2018. En las instrucciones siguientes se describe la repercusión y el modo de actualizar las herramientas para administrar el nuevo formato.
+> Si va a enviar [registros o métricas de recursos de Azure Monitor a una cuenta de almacenamiento mediante la configuración de diagnóstico](./resource-logs.md#send-to-azure-storage) o [registros de actividad a una cuenta de almacenamiento mediante perfiles de registro](./resource-logs.md#send-to-azure-storage), el formato de los datos de la cuenta de almacenamiento cambió a Líneas JSON el 1 de noviembre de 2018. En las instrucciones siguientes se describe la repercusión y el modo de actualizar las herramientas para administrar el nuevo formato.
 >
 
 ## <a name="what-changed"></a>Qué cambia
@@ -29,9 +29,9 @@ Azure Monitor ofrece una funcionalidad que permite enviar registros de recursos 
 * Si se establece una configuración de diagnóstico anterior al 1 de noviembre, los datos se seguirán emitiendo en el formato actual hasta el 1 de noviembre.
 * Este cambio se producirá al mismo tiempo en todas las regiones de la nube pública. El cambio no se producirá aún en Microsoft Azure operado por 21Vianet, Azure Alemania o nubes de Azure Government.
 * Este cambio afecta a los tipos de datos siguientes:
-  * [Registros de recursos de Azure](archive-diagnostic-logs.md) ([vea aquí la lista de los recursos](diagnostic-logs-schema.md)).
+  * [Registros de recursos de Azure](./resource-logs.md#send-to-azure-storage) ([vea aquí la lista de los recursos](./resource-logs-schema.md)).
   * [Métricas de recursos de Azure que se exportan mediante la configuración de diagnóstico](diagnostic-settings.md).
-  * [Datos del registro de actividad de Azure que se exportan mediante perfiles de registro](activity-log-collect.md).
+  * [Datos del registro de actividad de Azure que se exportan mediante perfiles de registro](./activity-log.md).
 * Este cambio no afecta a:
   * Los registros de flujo de red.
   * Los registros de servicio de Azure que todavía no están disponible mediante Azure Monitor (por ejemplo, los registros de recursos de Azure App Service y los de análisis de almacenamiento).
@@ -123,7 +123,7 @@ En el formato nuevo se usa [JSON Lines](http://jsonlines.org/), donde cada event
 {"time": "2016-01-05T01:33:56.5264523Z","resourceId": "/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CONTOSOGROUP/PROVIDERS/MICROSOFT.KEYVAULT/VAULTS/CONTOSOKEYVAULT","operationName": "VaultGet","operationVersion": "2015-06-01","category": "AuditEvent","resultType": "Success","resultSignature": "OK","resultDescription": "","durationMs": "83","callerIpAddress": "104.40.82.76","correlationId": "","identity": {"claim": {"http://schemas.microsoft.com/identity/claims/objectidentifier": "d9da5048-2737-4770-bd64-XXXXXXXXXXXX","http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn": "live.com#username@outlook.com","appid": "1950a258-227b-4e31-a9cf-XXXXXXXXXXXX"}},"properties": {"clientInfo": "azure-resource-manager/2.0","requestUri": "https://control-prod-wus.vaultcore.azure.net/subscriptions/361da5d4-a47a-4c79-afdd-XXXXXXXXXXXX/resourcegroups/contosoresourcegroup/providers/Microsoft.KeyVault/vaults/contosokeyvault?api-version=2015-06-01","id": "https://contosokeyvault.vault.azure.net/","httpStatusCode": 200}}
 ```
 
-Este formato nuevo permite que Azure Monitor inserte los archivos de registro mediante [blobs en anexos](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), que son más eficaces para anexar datos de eventos nuevos de forma continua.
+Este formato nuevo permite que Azure Monitor inserte los archivos de registro mediante [blobs en anexos](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-append-blobs), que son más eficaces para anexar datos de eventos nuevos de forma continua.
 
 ## <a name="how-to-update"></a>Cómo actualizar
 
@@ -133,6 +133,5 @@ Las herramientas personalizadas se deben actualizar para controlar el formato ac
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre cómo [archivar los registros de recursos en una cuenta de almacenamiento](./../../azure-monitor/platform/archive-diagnostic-logs.md).
-* Obtenga información sobre cómo [archivar los datos de registro de actividad en una cuenta de almacenamiento](./../../azure-monitor/platform/archive-activity-log.md)
-
+* Obtenga información sobre cómo [archivar los registros de recursos en una cuenta de almacenamiento](./resource-logs.md#send-to-azure-storage).
+* Obtenga información sobre cómo [archivar los datos de registro de actividad en una cuenta de almacenamiento](./activity-log.md#legacy-collection-methods)

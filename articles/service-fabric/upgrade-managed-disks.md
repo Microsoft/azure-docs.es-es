@@ -3,12 +3,12 @@ title: Actualización de nodos de clúster para usar discos administrados de Azu
 description: Aquí se muestra cómo actualizar un clúster de Service Fabric existente para usar Azure Managed Disks con poco o ningún tiempo de inactividad del clúster.
 ms.topic: how-to
 ms.date: 4/07/2020
-ms.openlocfilehash: cff0f99412f189f38f1b14d15c7285166a048c87
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 10863626945483e21aa264e2b05e94a6f08a22f6
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255904"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87542876"
 ---
 # <a name="upgrade-cluster-nodes-to-use-azure-managed-disks"></a>Actualización de nodos de clúster para usar Azure Managed Disks
 
@@ -165,7 +165,7 @@ Estas son las modificaciones sección por sección de la plantilla de implementa
 
 #### <a name="parameters"></a>Parámetros
 
-Agregue parámetros para el nombre de instancia, el recuento y el tamaño del nuevo conjunto de escalado. Tenga en cuenta que `vmNodeType1Name` es único para el nuevo conjunto de escalado, mientras que los valores de tamaño y recuento son idénticos a los del conjunto de escalado original.
+Agregue un parámetro para el nombre de instancia del nuevo conjunto de escalado. Tenga en cuenta que `vmNodeType1Name` es único para el nuevo conjunto de escalado, mientras que los valores de tamaño y recuento son idénticos a los del conjunto de escalado original.
 
 **Archivo de plantilla**
 
@@ -174,18 +174,7 @@ Agregue parámetros para el nombre de instancia, el recuento y el tamaño del nu
     "type": "string",
     "defaultValue": "NTvm2",
     "maxLength": 9
-},
-"nt1InstanceCount": {
-    "type": "int",
-    "defaultValue": 5,
-    "metadata": {
-        "description": "Instance count for node type"
-    }
-},
-"vmNodeType1Size": {
-    "type": "string",
-    "defaultValue": "Standard_D2_v2"
-},
+}
 ```
 
 **Archivo de parámetros**
@@ -193,12 +182,6 @@ Agregue parámetros para el nombre de instancia, el recuento y el tamaño del nu
 ```json
 "vmNodeType1Name": {
     "value": "NTvm2"
-},
-"nt1InstanceCount": {
-    "value": 5
-},
-"vmNodeType1Size": {
-    "value": "Standard_D2_v2"
 }
 ```
 
@@ -216,13 +199,13 @@ En la sección `variables` de la plantilla de implementación, agregue una entra
 
 En la sección *resources* de la plantilla de implementación, agregue el nuevo conjunto de escalado de máquinas virtuales, teniendo en cuenta lo siguiente:
 
-* El nuevo conjunto de escalado hace referencia al mismo tipo de nodo que el original:
+* El nuevo conjunto de escalado hace referencia al nuevo tipo de nodo:
 
     ```json
-    "nodeTypeRef": "[parameters('vmNodeType0Name')]",
+    "nodeTypeRef": "[parameters('vmNodeType1Name')]",
     ```
 
-* El nuevo conjunto de escalado hace referencia a la misma dirección y subred de back-end del equilibrador de carga (pero utiliza un grupo de NAT de entrada de equilibrador de carga diferente):
+* El nuevo conjunto de escalado hace referencia a la misma dirección y subred de back-end del equilibrador de carga que el original, pero utiliza un grupo de NAT de entrada de equilibrador de carga diferente:
 
    ```json
     "loadBalancerBackendAddressPools": [
@@ -253,6 +236,33 @@ En la sección *resources* de la plantilla de implementación, agregue el nuevo 
         "storageAccountType": "[parameters('storageAccountType')]"
     }
     ```
+
+A continuación, agregue una entrada a la lista `nodeTypes` del recurso *Microsoft.ServiceFabric/clusters*. Utilice los mismos valores que la entrada del tipo de nodo original, excepto el `name`, que debe hacer referencia al nuevo tipo de nodo (*vmNodeType1Name*).
+
+```json
+"nodeTypes": [
+    {
+        "name": "[parameters('vmNodeType0Name')]",
+        ...
+    },
+    {
+        "name": "[parameters('vmNodeType1Name')]",
+        "applicationPorts": {
+            "endPort": "[parameters('nt0applicationEndPort')]",
+            "startPort": "[parameters('nt0applicationStartPort')]"
+        },
+        "clientConnectionEndpointPort": "[parameters('nt0fabricTcpGatewayPort')]",
+        "durabilityLevel": "Silver",
+        "ephemeralPorts": {
+            "endPort": "[parameters('nt0ephemeralEndPort')]",
+            "startPort": "[parameters('nt0ephemeralStartPort')]"
+        },
+        "httpGatewayEndpointPort": "[parameters('nt0fabricHttpGatewayPort')]",
+        "isPrimary": true,
+        "vmInstanceCount": "[parameters('nt0InstanceCount')]"
+    }
+],
+```
 
 Una vez que haya implementado todos los cambios en los archivos de plantilla y de parámetros, continúe con la sección siguiente para adquirir las referencias de Key Vault e implementar las actualizaciones en el clúster.
 

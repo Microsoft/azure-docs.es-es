@@ -1,6 +1,6 @@
 - name: Documentación de Live Video Analytics on IoT Edge (versión preliminar)
   href: index.yml
-- name: Introducción
+- name: Información general
   items:
     - name: Acerca de Live Video Analytics on IoT Edge
       href: overview.md
@@ -64,6 +64,8 @@
       href: manage-recording-policy-how-to.md
     - name: Análisis de vídeo en directo con la inteligencia artificial preferida
       href: analyze-with-ai-your-choice-how-to.md
+    - name: Invocación de métodos directos con el portal
+      href: use-azure-portal-to-invoke-direct-methods.md
     - name: Solución de problemas
       href: troubleshoot-how-to.md
 - name: Referencia

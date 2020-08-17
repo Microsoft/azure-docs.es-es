@@ -1,5 +1,5 @@
 ---
-title: 'Uso del servidor de historial de Spark extendido para depurar aplicaciones: Apache Spark en Azure Synapse'
+title: Use el servidor de historial de Spark extendido para depurar aplicaciones
 description: Uso del servidor de historial de Spark extendido para depurar y diagnosticar aplicaciones Spark en Azure Synapse Analytics.
 services: synapse-analytics
 author: euangMS
@@ -9,12 +9,12 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: b4ee5d064d17d7b11305c6c86dc1d29ddccc642e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8dece3478e00c6f9279767e57e3bb8aca865f45
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85195001"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87059982"
 ---
 # <a name="use-extended-apache-spark-history-server-to-debug-and-diagnose-apache-spark-applications"></a>Uso del servidor de historial de Apache Spark extendido para depurar y diagnosticar aplicaciones Spark
 

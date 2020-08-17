@@ -3,19 +3,19 @@ title: Entrega de eventos de WebHook
 description: En este artículo se describe la entrega de eventos de webhook y la validación de puntos de conexión al usar webhooks.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: b616c82092ad896da82d0f98f37e3c45f3ba1014
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e9a52d0cb3e4e880d91e1b748d97ef3041298930
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118960"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461245"
 ---
 # <a name="webhook-event-delivery"></a>Entrega de eventos de webhook
 Los webhooks son una de las muchas maneras de recibir eventos de Azure Event Grid. Cuando un nuevo evento está preparado, el servicio EventGrid publica una solicitud HTTP en el punto de conexión configurado con el evento en el cuerpo de la solicitud.
 
 Al igual que muchos otros servicios que admiten webhooks, EventGrid requiere que demuestre la propiedad de su punto de conexión de Webhook antes de que comience a entregar eventos a ese punto de conexión. Este requisito evita que un usuario malintencionado sature el punto de conexión con eventos. Cuando utiliza cualquiera de los tres servicios de Azure enumerados a continuación, la infraestructura de Azure controla automáticamente esta validación:
 
-- Azure Logic Apps con el [conector de Event Grid](https://docs.microsoft.com/connectors/azureeventgrid/)
+- Azure Logic Apps con el [conector de Event Grid](/connectors/azureeventgrid/)
 - Azure Automation a través de [webhook](../event-grid/ensure-tags-exists-on-new-virtual-machines.md)
 - Azure Functions con el [desencadenador de Event Grid](../azure-functions/functions-bindings-event-grid.md)
 

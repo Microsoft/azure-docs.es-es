@@ -2,13 +2,13 @@
 title: Cómo solucionar problemas de Azure Monitor para contenedores | Microsoft Docs
 description: En este artículo se describe cómo se pueden detectar y solucionar problemas con Azure Monitor para contenedores.
 ms.topic: conceptual
-ms.date: 10/15/2019
-ms.openlocfilehash: bc4105dc23445c29364961501f93e42f8c3b683d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/21/2020
+ms.openlocfilehash: fcd799c63e4afb68d96f67d1c03016a4d3b10f34
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800450"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87092837"
 ---
 # <a name="troubleshooting-azure-monitor-for-containers"></a>Solución de problemas de Azure Monitor para contenedores
 
@@ -37,7 +37,7 @@ Si Azure Monitor para contenedores está habilitado y configurado correctamente,
 
     `kubectl get ds omsagent --namespace=kube-system`
 
-    Si la salida se parece a la siguiente, la implementación se ha realizado correctamente:
+    Si la salida se parece al ejemplo siguiente, la implementación se ha realizado correctamente:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system
@@ -48,7 +48,7 @@ Si Azure Monitor para contenedores está habilitado y configurado correctamente,
 
     `kubectl get ds omsagent-win --namespace=kube-system`
 
-    Si la salida se parece a la siguiente, la implementación se ha realizado correctamente:
+    Si la salida se parece al ejemplo siguiente, la implementación se ha realizado correctamente:
 
     ```
     User@aksuser:~$ kubectl get ds omsagent-win --namespace=kube-system
@@ -80,33 +80,6 @@ Si Azure Monitor para contenedores está habilitado y configurado correctamente,
     omsagent-484hw                      1/1       Running   0          1d
     omsagent-fkq7g                      1/1       Running   0          1d
     omsagent-win-6drwq                  1/1       Running   0          1d
-    ```
-
-5. Compruebe los registros del agente. Cuando se implementa el agente en contenedor, se ejecuta una comprobación rápida mediante la ejecución de comandos de OMI y se muestra la versión del agente y el proveedor.
-
-6. Para comprobar que el agente se ha implementado correctamente, ejecute el comando: `kubectl logs omsagent-484hw --namespace=kube-system`
-
-    El estado debe ser similar al ejemplo siguiente:
-
-    ```
-    User@aksuser:~$ kubectl logs omsagent-484hw --namespace=kube-system
-    :
-    :
-    instance of Container_HostInventory
-    {
-        [Key] InstanceID=3a4407a5-d840-4c59-b2f0-8d42e07298c2
-        Computer=aks-nodepool1-39773055-0
-        DockerVersion=1.13.1
-        OperatingSystem=Ubuntu 16.04.3 LTS
-        Volume=local
-        Network=bridge host macvlan null overlay
-        NodeRole=Not Orchestrated
-        OrchestratorType=Kubernetes
-    }
-    Primary Workspace: b438b4f6-912a-46d5-9cb1-b44069212abc    Status: Onboarded(OMSAgent Running)
-    omi 1.4.2.2
-    omsagent 1.6.0.23
-    docker-cimprov 1.0.0.31
     ```
 
 ## <a name="error-messages"></a>Mensajes de error

@@ -16,12 +16,12 @@ ms.date: 05/08/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 043c30af6d28e61a532c8030dabdc17b73303e7a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b139441adb02f5fb33ae8c4a70aaa9b423f0d0e
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360136"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87447101"
 ---
 # <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: habilitación de la escritura diferida de dispositivo
 > [!NOTE]
@@ -61,7 +61,7 @@ Instale Azure AD Connect mediante la configuración rápida o personalizada. Mic
 
     a. **Proporcionar credenciales de administrador de empresa**: si se proporcionan las credenciales de administrador de empresa para el bosque donde deben volver a escribirse los dispositivos, Azure AD Connect preparará el bosque automáticamente durante la configuración de la escritura diferida de dispositivos.
 
-    b. **Descargar el script de PowerShell**: Azure AD Connect genera automáticamente un script de PowerShell que puede preparar Active Directory para la escritura diferida de dispositivos. En caso de que no puedan proporcionarse las credenciales de administrador de empresa en Azure AD Connect, es recomendable descargar el script de PowerShell. Proporcione el script de PowerShell descargado **CreateDeviceContainer.psq** al administrador de empresa del bosque donde se volverán a escribir los dispositivos.
+    b. **Descargar el script de PowerShell**: Azure AD Connect genera automáticamente un script de PowerShell que puede preparar Active Directory para la escritura diferida de dispositivos. En caso de que no puedan proporcionarse las credenciales de administrador de empresa en Azure AD Connect, es recomendable descargar el script de PowerShell. Proporcione el script de PowerShell descargado **CreateDeviceContainer.ps1** al administrador de empresa del bosque donde se volverán a escribir los dispositivos.
     ![Preparar el bosque de Active Directory](./media/how-to-connect-device-writeback/devicecontainercreds.png)
     
     Para preparar el bosque de Active Directory, se realizan las siguientes operaciones:

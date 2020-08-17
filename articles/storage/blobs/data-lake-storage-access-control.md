@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 4f5be29dd42b03e86abb2be392ea42f875536fb5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 54867278b583124473b5b41c164714bf91f2f631
+ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193517"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87543306"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 implementa un modelo de control de acceso compatible con el control de acceso basado en rol (RBAC) de Azure y las listas de control de acceso (ACL) tipo POSIX. Este artículo resume los datos básicos del modelo de control de acceso de Data Lake Storage Gen2.
+Azure Data Lake Storage Gen2 implementa un modelo de control de acceso compatible con el control de acceso basado en rol (RBAC) de Azure y las listas de control de acceso (ACL) tipo POSIX. Este artículo resume los datos básicos del modelo de control de acceso de Data Lake Storage Gen2.
 
 <a id="azure-role-based-access-control-rbac"></a>
 
@@ -34,9 +34,9 @@ Para aprender a asignar roles a las entidades de seguridad en el ámbito de la c
 
 ### <a name="the-impact-of-role-assignments-on-file-and-directory-level-access-control-lists"></a>Impacto de las asignaciones de roles en las listas de control de acceso en el nivel de archivo y directorio
 
-Aunque el uso de las asignaciones de roles RBAC es un mecanismo eficaz para controlar los permisos de acceso, se trata de un mecanismo mucho más detallado en relación con las ACL. La granularidad más pequeña para RBAC es el nivel de contenedor y esto se evaluará con mayor prioridad que las listas ACL. Por lo tanto, si asigna un rol a una entidad de seguridad en el ámbito de un contenedor, esa entidad de seguridad tendrá el nivel de autorización asociado a ese rol para TODOS los directorios y archivos de ese contenedor, independientemente de las asignaciones de ACL.
+Aunque el uso de las asignaciones de roles de Azure es un mecanismo eficaz para controlar los permisos de acceso, se trata de un mecanismo mucho más detallado en relación con las ACL. La granularidad más pequeña para RBAC es el nivel de contenedor y esto se evaluará con mayor prioridad que las listas ACL. Por lo tanto, si asigna un rol a una entidad de seguridad en el ámbito de un contenedor, esa entidad de seguridad tendrá el nivel de autorización asociado a ese rol para TODOS los directorios y archivos de ese contenedor, independientemente de las asignaciones de ACL.
 
-Cuando a una entidad de seguridad se le conceden permisos de datos RBAC mediante un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues) o un rol personalizado, primero se evalúan estos permisos tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de RBAC de la entidad de seguridad, la autorización se resuelve de inmediato y no se realizan más comprobaciones de ACL. Como alternativa, si la entidad de seguridad no tiene una asignación RBAC, o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
+Cuando a una entidad de seguridad se le conceden permisos de datos RBAC mediante un [rol integrado](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues) o un rol personalizado, primero se evalúan estos permisos tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de roles de Azure de la entidad de seguridad, la autorización se resuelve inmediatamente y no se realiza ninguna comprobación adicional de la ACL. Como alternativa, si la entidad de seguridad no tiene una asignación de roles de Azure, o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si la entidad de seguridad está autorizada para realizar la operación solicitada.
 
 > [!NOTE]
 > Si se ha asignado a la entidad de seguridad la asignación de roles integrada de Propietario de datos de Storage Blob, a esta entidad de seguridad se le considera *superusuario* y se le concede acceso total a todas las operaciones de mutación, incluida la configuración del propietario de un directorio o archivo, así como las ACL de archivos y directorios de los que no es propietario. El acceso de superusuario es la única manera autorizada para cambiar el propietario de un recurso.
@@ -65,7 +65,7 @@ No puede usar listas de control de acceso para proporcionar un nivel de acceso q
 
 Para establecer permisos en el nivel de archivo y de directorio, consulte cualquiera de los siguientes artículos:
 
-|||
+| Entorno | Artículo |
 |--------|-----------|
 |Explorador de Azure Storage |[Uso del Explorador de Azure Storage para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
 |.NET |[Uso de .NET para administrar directorios, archivos y ACL en Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-dotnet.md)|
@@ -210,13 +210,12 @@ for entry in entries:
 member_count = 0
 perms = 0
 entries = get_acl_entries( path, NAMED_GROUP | OWNING_GROUP )
+mask = get_mask( path )
 for entry in entries:
 if (user_is_member_of_group(user, entry.identity)) :
-    member_count += 1
-    perms | =  entry.permissions
-if (member_count>0) :
-return ((desired_perms & perms & mask ) == desired_perms)
-
+    if ((desired_perms & entry.permissions & mask) == desired_perms)
+        return True 
+        
 # Handle other
 perms = get_perms_for_other(path)
 mask = get_mask( path )
@@ -333,7 +332,7 @@ Cuando tenga el OID correcto de la entidad de servicio, vaya a la página **Admi
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>¿Admite Data Lake Storage Gen2 la herencia de ACL?
 
-Las asignaciones de RBAC de Azure se heredan. Las asignaciones fluyen desde la suscripción, el grupo de recursos y los recursos de la cuenta de almacenamiento hasta el recurso del contenedor.
+Las asignaciones de roles de Azure se heredan. Las asignaciones fluyen desde la suscripción, el grupo de recursos y los recursos de la cuenta de almacenamiento hasta el recurso del contenedor.
 
 Las ACL no se heredan. Sin embargo, las ACL predeterminadas pueden usarse para establecer ACL para subdirectorios y archivos secundarios creados en el directorio principal. 
 

@@ -1,14 +1,14 @@
 ---
 title: Ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos, introducción
 description: Introducción y arquitectura del ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos. Este ejemplo de plano técnico de ejemplo ayuda a los clientes a evaluar determinados controles concretos de la norma ISO 27001.
-ms.date: 04/15/2020
+ms.date: 07/13/2020
 ms.topic: sample
-ms.openlocfilehash: 5a18af942e1d1088b681712f7035f57d354ecb19
-ms.sourcegitcommit: d662eda7c8eec2a5e131935d16c80f1cf298cb6b
+ms.openlocfilehash: 09309fe05200cf8c7a958324f3412967296a8dc9
+ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/01/2020
-ms.locfileid: "81458461"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "87927358"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
@@ -25,7 +25,7 @@ VDC es un conjunto probado de arquitecturas de referencia, herramientas de autom
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una infraestructura de servicios compartidos segura, totalmente supervisada y preparada para la empresa, que se basa en los estándares de la norma ISO 27001. Este entorno se compone de:
 
-- [Control de acceso basado en rol](../../../../role-based-access-control/overview.md) (RBAC): roles usados para la separación de funciones desde una perspectiva de plano de control. Antes de la implementación de cualquier infraestructura se definen tres roles:
+- [Roles de Azure](../../../../role-based-access-control/overview.md) que se usan para la segregación de controles desde una perspectiva del plano de control. Antes de la implementación de cualquier infraestructura se definen tres roles:
   - El rol NetOps tiene permisos para administrar el entorno de red, incluida la configuración del firewall, la del grupo de seguridad de red, el enrutamiento y otras funcionalidades de la red.
   - El rol SecOps incluye los permisos necesarios para implementar y administrar [Azure Security Center](../../../../security-center/security-center-intro.md), definir [directivas de Azure](../../../policy/overview.md) y otros permisos relacionados con la seguridad.
   - El rol SysOps incluye los permisos necesarios para definir [directivas de Azure](../../../policy/overview.md) dentro de la suscripción, administrar [Log Analytics](../../../../azure-monitor/overview.md) para todo el entorno, entre otros permisos operativos.

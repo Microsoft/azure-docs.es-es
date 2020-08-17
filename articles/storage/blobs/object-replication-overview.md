@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.date: 05/28/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2d8d4c369cef8bf996628e8c89a424f04dcdbe71
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 097b3c71b01a8ad0e930d7aa0d7be46a1e835e1a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84888066"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495172"
 ---
 # <a name="object-replication-for-block-blobs-preview"></a>Replicación de objetos para blobs en bloques (versión preliminar)
 
@@ -63,6 +64,8 @@ La replicación de objetos sólo es compatible con las cuentas de almacenamiento
 - Centro de Francia
 - Este de Canadá
 - Centro de Canadá
+- Este de EE. UU. 2
+- Centro de EE. UU.
 
 Tanto la cuenta de origen como la de destino deben residir en una de estas regiones para poder utilizar la replicación de objetos. Las cuentas pueden estar en dos regiones diferentes.
 
@@ -80,7 +83,7 @@ La replicación de objetos requiere que estén habilitadas las siguientes caract
 Antes de configurar la replicación de objetos, habilite los requisitos previos. La fuente de cambios debe estar habilitada en la cuenta de origen y el control de versiones de blob debe estar habilitadas tanto en la cuenta de origen como en la de destino. Para obtener más información sobre cómo habilitar estas características, consulte estos artículos:
 
 - [Habilitar y deshabilitar la fuente de cambios](storage-blob-change-feed.md#enable-and-disable-the-change-feed)
-- [Habilitar y administrar las versiones de blob](versioning-enable.md)
+- [Habilitación y administración de las versiones de blob](versioning-enable.md)
 
 Asegúrese de registrarse en la fuente de cambios y las versiones preliminares de los blob antes de habilitarlas.
 

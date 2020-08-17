@@ -117,7 +117,7 @@ landingContent:
     links:
     - text: Azure CLI
       url: https://docs.microsoft.com/cli/azure/network/express-route
-    - text: Azure PowerShell
+    - text: Azure PowerShell
       url: /powershell/module/az.network#expressroute
     - text: REST
       url: /rest/api/expressroute

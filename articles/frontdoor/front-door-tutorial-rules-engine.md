@@ -1,5 +1,5 @@
 ---
-title: Azure Front Door
+title: 'Tutorial: Configuración del motor de reglas: Azure Front Door'
 description: En este artículo se proporciona un tutorial sobre cómo configurar el motor de reglas en Azure Portal y la CLI.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/30/2020
 ms.author: mebeatty
-ms.openlocfilehash: a931a12889cec67baf6ef2db09091c8ec581ef08
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 2ab9bc72aa30ddb16d0719827b6d7baeab86c057
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321569"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87491313"
 ---
 # <a name="configure-your-rules-engine"></a>Configuración del motor de reglas
 

@@ -22,11 +22,7 @@
     - name: Uso del explorador
       href: luis-get-started-get-intent-from-browser.md
     - name: Uso de SDK
-      items:
-        - name: Creación de aplicaciones
-          href: sdk-authoring.md
-        - name: Consulta de un punto de conexión de predicción
-          href: sdk-query-prediction-endpoint.md
+      href: quickstart-sdk.md
     - name: Uso de API REST
       items:
         - name: Obtener intención

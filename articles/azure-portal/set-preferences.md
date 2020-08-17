@@ -5,22 +5,23 @@ services: azure-portal
 keywords: tiempo de espera, idioma, regional
 author: mgblythe
 ms.author: mblythe
-ms.date: 12/19/2019
+ms.date: 07/30/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: d4c675ab18a7a9231229ce0c7de9a7450dc1baa8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a8ce638bf61c69fb732d94d537218aabaeaa9a7c
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763965"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87461953"
 ---
 # <a name="set-your-azure-portal-preferences"></a>Configuración de las preferencias de Azure Portal
 
 Puede cambiar la configuración predeterminada del Azure Portal para que se adapte a sus propias preferencias. Se puede cambiar cada uno de los valores que se muestran a continuación:
 
 * [Tiempo de espera de la sesión inactiva](#change-the-idle-duration-for-inactive-sign-out)
+* [Suscripción predeterminada](#choose-your-default-subscription)
 * [Vista predeterminada](#choose-your-default-view)
 * [Modo de menú del portal](#choose-a-portal-menu-mode)
 * [Color y tema de contraste alto](#choose-a-theme)
@@ -55,9 +56,21 @@ Si el administrador ha habilitado una directiva de tiempo de espera de inactivid
 > Si es un administrador y desea aplicar un valor de tiempo de espera inactivo para todos los usuarios del Azure Portal, consulte [Establecer el tiempo de espera de inactividad en el nivel de directorio para los usuarios de la Azure Portal](admin-timeout.md)
 >
 
+### <a name="choose-your-default-subscription"></a>Elección de la suscripción predeterminada
+
+Puede cambiar la suscripción que se abre de forma predeterminada cuando inicia sesión en Azure Portal. Esto resulta útil si tiene una suscripción principal con la que trabaja, pero utiliza otras de vez en cuando. 
+
+:::image type="content" source="media/set-preferences/filter-subscription-default-view.png" alt-text="Filtre la lista de recursos por suscripción.":::
+
+1. Seleccione el icono de filtro de suscripciones y directorios en la navegación superior.
+1. Seleccione las suscripciones que desee que sean las predeterminadas al iniciar el portal. 
+
+    :::image type="content" source="media/set-preferences/default-directory-subscription-filter.png" alt-text="Seleccione las suscripciones que desee que sean las predeterminadas al iniciar el portal."::: 
+
+
 ### <a name="choose-your-default-view"></a>Elija la vista predeterminada 
 
-Puede cambiar la página que se abre de forma predeterminada cuando inicia sesión en el Azure Portal.
+Puede cambiar la página que se abre de forma predeterminada cuando inicia sesión en Azure Portal.
 
    ![Haga una captura de pantalla que muestre la configuración de Azure Portal con la vista predeterminada resaltada](./media/set-preferences/default-view.png)
 

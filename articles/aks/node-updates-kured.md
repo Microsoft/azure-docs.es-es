@@ -5,12 +5,12 @@ description: Aprenda a actualizar los nodos de Linux y a reiniciarlos automátic
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: 955e5323769a7b9bf80413c045aaa3d55547eb02
-ms.sourcegitcommit: 34a6fa5fc66b1cfdfbf8178ef5cdb151c97c721c
+ms.openlocfilehash: 35c9e76c234e4b09fbb090eda363506ee3e11130
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82208081"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88164247"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Aplicación de actualizaciones de kernel y seguridad a los nodos de Linux en Azure Kubernetes Service (AKS)
 
@@ -55,8 +55,8 @@ No puede permanecer en la misma versión de Kubernetes durante un evento de actu
 Para implementar el valor `kured` de DaemonSet, instale el siguiente gráfico oficial de Kured Helm. Esta acción crea un rol y un rol de clúster, enlaces y una cuenta de servicio y, luego, implementa DaemonSet con `kured`.
 
 ```console
-# Add the stable Helm repository
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+# Add the Kured Helm repository
+helm repo add kured https://weaveworks.github.io/kured
 
 # Update your local Helm chart repository cache
 helm repo update
@@ -65,7 +65,7 @@ helm repo update
 kubectl create namespace kured
 
 # Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
-helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
+helm install kured kured/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 También puede configurar parámetros adicionales para `kured`, como la integración con Prometheus o Slack. Para más información sobre los parámetros de configuración adicionales, consulte el [gráfico de Kured Helm][kured-install].
@@ -107,7 +107,7 @@ Para los clústeres de AKS que usan los nodos de Windows Server, consulte [Actu
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kured-install]: https://hub.helm.sh/charts/stable/kured
+[kured-install]: https://github.com/weaveworks/kured/tree/master/charts/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

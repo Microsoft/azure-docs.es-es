@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3007aa1fab8797d77e1edde83f22e359196641cc
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 91a92f9dd0eaf55b8ba35f38102ee30b8cda4bfa
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85248588"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053815"
 ---
 # <a name="tutorial-use-rest-api-to-create-an-azure-data-factory-pipeline-to-copy-data"></a>Tutorial: Uso de API REST para crear una canalización de Azure Data Factory 
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ pero cualquier canalización puede tener más de una actividad. También puede e
   2. Obtenga el **Id. de cliente** y la **Clave secreta**. 
   3. Obtenga el **Identificador de inquilino**. 
   4. Asigne la aplicación **ADFCopyTutorialApp** al rol **Colaborador de Data Factory**.  
-* Instale [Azure PowerShell](/powershell/azure/overview).  
+* Instale [Azure PowerShell](/powershell/azure/).  
 * Inicie **PowerShell** y realice los pasos siguientes. Mantenga Azure PowerShell abierto hasta el final de este tutorial. Si lo cierra y vuelve a abrirlo, deberá ejecutar los comandos de nuevo.
   
   1. Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en Azure Portal:

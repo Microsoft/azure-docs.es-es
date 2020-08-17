@@ -1,19 +1,19 @@
 ---
 title: Visualización y descarga de los datos de uso y los cargos de Azure
-description: En este artículo se describe cómo descargar o ver los datos de uso y los cargos diarios de Azure.
+description: Obtenga información acerca de cómo descargar o ver los cargos y el uso diario de Azure, y vea los recursos adicionales disponibles.
 keywords: billing usage, usage charges, usage download, view usage, azure invoice, azure usage
 author: bandersmsft
 ms.author: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 03/19/2020
-ms.openlocfilehash: 3a7e1e8670911d361b3c59aacc0973eac035fb70
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.date: 07/27/2020
+ms.openlocfilehash: d09f792e784c89e704691975d44cb3cbfa753cf4
+ms.sourcegitcommit: f988fc0f13266cea6e86ce618f2b511ce69bbb96
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "80065721"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87460514"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualización y descarga de los datos de uso y los cargos de Azure
 
@@ -21,7 +21,7 @@ Puede descargar un desglose diario del uso y los cargos de Azure en Azure Portal
 
 Si tiene un contrato de cliente de Microsoft (MCA), debe ser el propietario del perfil de facturación, colaborador, lector o administrador de facturación para ver los datos de uso y los cargos de Azure.  Si tiene un contrato Microsoft Partner Agreement (MPA), solo el administrador global o el agente de administrador de la organización asociada pueden ver y descargar el uso y los cargos de Azure. [Compruebe el tipo de la cuenta de facturación en Azure Portal](#check-your-billing-account-type).
 
-Según el tipo de suscripción que utilice, las opciones para descargar el uso y los cargos varían. 
+Según el tipo de suscripción que utilice, las opciones para descargar el uso y los cargos varían.
 
 ## <a name="download-usage-from-the-azure-portal-csv"></a>Descarga de uso en Azure Portal (.csv)
 
@@ -34,7 +34,6 @@ Según el tipo de suscripción que utilice, las opciones para descargar el uso y
 1. Seleccione el **icono de descargas** o los puntos suspensivos (`...`) de la derecha.  
   ![Captura de pantalla que muestra la ubicación de descarga del uso y los cargos](./media/download-azure-daily-usage/download-usage-others.png)  
 1. Se abre el panel de descarga a la derecha. Seleccione **Descargar** en la sección **Detalles de uso**.  
-
 
 ## <a name="download-usage-for-ea-customers"></a>Descarga del uso para los clientes de EA
 
@@ -54,10 +53,9 @@ Si tiene un contrato de cliente de Microsoft, puede descargar el uso mensual has
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Busque *Administración de costos + facturación*.
 3. Seleccione un perfil de facturación. En función de su acceso, es posible que tenga que seleccionar primero una cuenta de facturación.
-4. En el área **Información general**, busque los vínculos de descarga debajo de los cargos del mes hasta la fecha.
-5. Seleccione **Uso y cargos de Azure**.
-
-    ![Captura de pantalla que muestra la descarga de la hoja Información general](./media/download-azure-daily-usage/open-usage01.png)
+4. En el área **Información general**, busque los vínculos de descarga debajo de los cargos recientes.
+5. Seleccione **Descargar uso y precios**.  
+    :::image type="content" source="./media/download-azure-daily-usage/open-usage01.png" alt-text="Captura de pantalla que muestra la descarga desde Información general" lightbox="./media/download-azure-daily-usage/open-usage01.png" :::.
 
 ## <a name="check-your-billing-account-type"></a>Comprobación del tipo de cuenta de facturación
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]

@@ -3,12 +3,12 @@ title: 'Reproducción de vídeo: Azure'
 description: Marcador de posición
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 1fc65a00b2aa1e82c5585583ee9e0ccb97e5168f
-ms.sourcegitcommit: 223cea58a527270fe60f5e2235f4146aea27af32
+ms.openlocfilehash: 17b1f93c18dfb013916c4c0d3756fb97a73e2675
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84260178"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87042975"
 ---
 # <a name="video-playback"></a>Reproducción de vídeo 
 
@@ -46,7 +46,7 @@ Tal y como se describe en [Receptor de archivos de grafo multimedia](media-graph
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/)
+[Azure IoT Edge](../../iot-edge/index.yml)
 <!--
 ## Next steps
 

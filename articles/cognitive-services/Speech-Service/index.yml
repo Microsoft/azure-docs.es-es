@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 455f71c7fd9defd7a1187f6b5df6b5b3b9c3131b
-  ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+  ms.openlocfilehash: 74fd89633e4add1c577e44b822f1f90a86b3f498
+  ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/30/2020
-  ms.locfileid: "85563753"
+  ms.lasthandoff: 08/13/2020
+  ms.locfileid: "88167783"
 highlightedContent:
   items:
   - title: ¿Qué es Speech Service?
@@ -51,15 +51,15 @@ conceptualContent:
       url: index-speech-to-text.yml
   - title: Texto a voz
     links:
+    - itemType: overview
+      text: Acerca de la conversión de texto a voz
+      url: text-to-speech.md
     - itemType: quickstart
-      text: Síntesis de voz en un altavoz
-      url: quickstarts/text-to-speech.md
-    - itemType: quickstart
-      text: Síntesis de voz en un archivo de audio
-      url: quickstarts/text-to-speech-audio-file.md
+      text: Introducción a la conversión de texto a voz
+      url: get-started-text-to-speech.md
     - itemType: how-to-guide
-      text: Introducción a la síntesis de voz
-      url: text-to-speech-basics.md
+      text: Mejora de síntesis con SSML
+      url: speech-synthesis-markup.md
     footerLink:
       text: Más
       url: index-text-to-speech.yml
@@ -141,7 +141,7 @@ conceptualContent:
     - itemType: overview
       text: Acerca de Speech Studio (personalizaciones)
       url: https://speech.microsoft.com
-  - title: Hosting
+  - title: Hospedaje
     links:
     - itemType: how-to-guide
       text: Contenedores del servicio de voz

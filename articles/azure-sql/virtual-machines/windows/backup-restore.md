@@ -3,7 +3,7 @@ title: Copia de seguridad y restauración de SQL Server en VM de Azure | Microso
 description: Describe las consideraciones de copia de seguridad y restauración de bases de datos de SQL Server que se ejecutan en Azure Virtual Machines.
 services: virtual-machines-windows
 documentationcenter: na
-author: MikeRayMSFT
+author: MashaMSFT
 editor: ''
 tags: azure-resource-management
 ms.assetid: 95a89072-0edf-49b5-88ed-584891c0e066
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/04/2018
 ms.author: mikeray
-ms.openlocfilehash: 1a19bf26418d6a61d3aa2421957614abe6dd04e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6a03a91eeb9296e60aa147f97634a15e8d344209
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669212"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87293043"
 ---
 # <a name="backup-and-restore-for-sql-server-on-azure-vms"></a>Copia de seguridad y restauración de SQL Server en VM de Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -127,7 +127,7 @@ Para obtener más información, consulte uno de los siguientes artículos según
 
 En la tabla siguiente se resumen las capacidades de cada opción de copia de seguridad y restauración para las máquinas virtuales de SQL Server en Azure.
 
-|| **Automated Backup** | **Azure Backup para SQL** | **Copia de seguridad manual** |
+| Opción | Copia de seguridad automatizada | Azure Backup para SQL | Copia de seguridad manual |
 |---|---|---|---|
 | Requiere servicio adicional de Azure |   | ![Sí](./media/backup-restore/yes.png) |   |
 | Configurar la directiva de copia de seguridad en Azure Portal | ![Sí](./media/backup-restore/yes.png) | ![Sí](./media/backup-restore/yes.png) |   |

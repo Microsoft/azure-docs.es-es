@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es Apache Spark en Azure Synapse Analytics?
+title: ¿Qué es Apache Spark?
 description: En este artículo se proporciona una introducción a Apache Spark en Azure Synapse Analytics y los diferentes escenarios en los que puede usar Spark.
 services: synapse-analytics
 author: euangMS
@@ -9,14 +9,14 @@ ms.subservice: spark
 ms.date: 04/15/2020
 ms.author: euang
 ms.reviewer: euang
-ms.openlocfilehash: 0a9a89b6ff3d0e2d3987d4b4281b9e4e1605475f
-ms.sourcegitcommit: 1d9f7368fa3dadedcc133e175e5a4ede003a8413
+ms.openlocfilehash: 3a2ba65fcef2b6481835cb45243449870361c062
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/27/2020
-ms.locfileid: "85476791"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498929"
 ---
-# <a name="what-is-apache-spark-in-azure-synapse-analytics"></a>Qué es Apache Spark en Azure Synapse Analytics
+# <a name="apache-spark-in-azure-synapse-analytics"></a>Apache Spark en Azure Synapse Analytics
 
 Apache Spark es una plataforma de procesamiento paralelo que admite el procesamiento en memoria para mejorar el rendimiento de aplicaciones de análisis de macrodatos. Apache Spark en Azure Synapse Analytics es una de las implementaciones de Microsoft de Apache Spark en la nube. Azure Synapse facilita la creación y la configuración de un grupo de Spark (versión preliminar) en Azure. Los grupos de Spark en Azure Synapse son compatibles con Azure Storage y Azure Data Lake Storage Generation 2. Por lo tanto, puede usar grupos de Azure Spark para procesar los datos almacenados en Azure.
 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
-ms.openlocfilehash: 4d3d522de84ebd019fd432f5c4e5d89ac5ef8bcf
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 6d592064729bbdd64e485e0bd0373b2d471597e0
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263744"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282490"
 ---
 # <a name="azure-media-player-plugin-gallery"></a>Galería de complementos de Azure Media Player #
 
@@ -20,7 +20,7 @@ ms.locfileid: "84263744"
 | Nombre del complemento                         | URL de demostración                    | Código fuente                | Descripción    |
 |-------------------------------------|-----------------------------|----------------------------|----------------|
 | Características adicionales                 | | | |
-| **¡Nuevo!** AMP360Video                | [Demostración](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | El complemento le permite visualizar vídeo 360 º en Amp, ya sea en el escritorio o en los dispositivos compatibles con realidad virtual. La documentación completa está disponible [aquí](https://doc\.babylonjs\.com/extensions/amp360video): |
+| **¡Nuevo!** AMP360Video                | [Demostración](http://www.babylonjs.com/demos/amp360video/)                        | [GitHub](https://github.com/BabylonJS/Extensions/tree/master/Amp360Video)                     | El complemento le permite visualizar vídeo 360 º en Amp, ya sea en el escritorio o en los dispositivos compatibles con realidad virtual. La documentación completa está disponible [aquí](https://doc.babylonjs.com/extensions/amp360video): |
 |  Sprite Tip                         | [Demostración](http://www.skymedia.tv/asset/sprite)                        | [GitHub](https://github.com/RickShahid/SpriteTip)                    | Complemento de Azure Media Player (AMP) para la representación de escalas de tiempo de un sprite de imagen en miniatura de vídeo que se genera a partir de Media Encoder Standard (MES) de Azure Media Services (AMS). |
 | Diagnostics Overlay                 | [Demostración](https://openidconnectweb.azurewebsites.net/Diagnoverlay.html)                        | [GitHub](https://github.com/willzhan/diagnoverlay)                     | Este complemento muestra: todos los parámetros clave, estadísticas de vídeo, todos los eventos del ciclo de vida de reproducción de vídeo e información de protección DRM, como el identificador de clave, las direcciones URL de adquisición de licencias, si están protegidas.                                                                                                                                                                      |
 | Velocidad de fotogramas y calculadora de código de tiempo | No hay demostración disponible | [GitHub](https://github.com/mconverti/media-services-javascript-azure-media-player-framerate-timecode-calculator-plugin)                     | Este complemento calcula la velocidad de fotogramas de vídeo en función de los `tfhd`/`trun` cuadros MP4 del primer fragmento de vídeo MPEG-DASH, analiza el valor de la escala de tiempo del manifiesto de cliente MPEG-DASH y, además, proporciona una forma de generar el código de tiempo para una hora absoluta determinada desde el reproductor (y proporciona el tiempo absoluto del reproductor dado el código de tiempo) |

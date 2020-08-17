@@ -3,32 +3,35 @@ title: Archivo CreateUiDefinition.jso para el panel del portal
 description: Describe cómo crear definiciones de interfaz de usuario para Azure Portal. Se usa al definir Azure Managed Applications.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 2956c76f5bec353639b39228b982db21b6932deb
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 4ee489e8b596adf0767856e3358c9bdcb17fbb6a
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80294893"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87004379"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para la experiencia de creación de aplicaciones administradas de Azure
 
-Este documento presenta los conceptos básicos del archivo **createUiDefinition.json**, que Azure Portal utiliza para definir la interfaz de usuario al crear una aplicación administrada.
+En este documento se presentan los conceptos principales del archivo **createUiDefinition.json**. Azure Portal usa este archivo para generar la interfaz de usuario al crear una aplicación administrada.
 
 La plantilla es la siguiente:
 
 ```json
 {
-   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-   "handler": "Microsoft.Azure.CreateUIDef",
-   "version": "0.1.2-preview",
-   "parameters": {
-      "basics": [ ],
-      "steps": [ ],
-      "outputs": { },
-      "resourceTypes": [ ]
-   }
+    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+    "handler": "Microsoft.Azure.CreateUIDef",
+    "version": "0.1.2-preview",
+    "parameters": {
+        "config": {
+            "basics": { }
+        },
+        "basics": [ ],
+        "steps": [ ],
+        "outputs": { },
+        "resourceTypes": [ ]
+    }
 }
 ```
 
@@ -40,7 +43,7 @@ CreateUiDefinition siempre contiene tres propiedades:
 
 Handler siempre debería ser `Microsoft.Azure.CreateUIDef`, y la última versión admitida es `0.1.2-preview`.
 
-El esquema de la propiedad parameters depende de la combinación de los valores de handler y version especificados. Para las aplicaciones administradas, las propiedades admitidas son `basics`, `steps` y `outputs`. Las propiedades basics y steps contienen los [elementos](create-uidefinition-elements.md), como cuadros de texto y listas desplegables, que se mostrarán en Azure Portal. La propiedad outputs se utiliza para asignar los valores de salida de los elementos especificados a los parámetros de la plantilla de implementación de Azure Resource Manager.
+El esquema de la propiedad parameters depende de la combinación de los valores de handler y version especificados. En las aplicaciones administradas, las propiedades admitidas son `basics`, `steps`, `outputs` y `config`. Las propiedades basics y steps contienen los [elementos](create-uidefinition-elements.md), como cuadros de texto y listas desplegables, que se mostrarán en Azure Portal. La propiedad outputs se utiliza para asignar los valores de salida de los elementos especificados a los parámetros de la plantilla de Azure Resource Manager. Utilice `config` solo cuando necesite invalidar el comportamiento predeterminado del paso `basics`.
 
 Se recomienda incluir `$schema`, aunque es opcional. Si se especifica, el valor de `version` debe coincidir con la versión en el identificador URI de `$schema`.
 
@@ -48,11 +51,97 @@ Puede usar un editor de JSON para crear el valor createUiDefinition y luego prob
 
 ## <a name="basics"></a>Aspectos básicos
 
-El paso Aspectos básicos es el primer paso que se genera cuando Azure Portal analiza el archivo. Además de mostrar los elementos especificados en `basics`, el portal inserta elementos para que los usuarios elijan la suscripción, el grupo de recursos y la ubicación de la implementación. Cuando es posible, los elementos que consultan los parámetros de toda la implementación, como el nombre de un clúster o las credenciales del administrador, deben ir en este paso.
+El paso **Aspectos básicos** es el primer paso que se genera cuando Azure Portal analiza el archivo. De forma predeterminada, este paso permite a los usuarios elegir la suscripción, el grupo de recursos y la ubicación de la implementación.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Valor predeterminado de Aspectos básicos":::
+
+Puede agregar más elementos en esta sección. Cuando sea posible, agregue elementos que consulten los parámetros de toda la implementación, como el nombre de un clúster o las credenciales del administrador.
+
+En el ejemplo siguiente se muestra un cuadro de texto que se ha agregado a los elementos predeterminados.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
+
+## <a name="config"></a>Config
+
+Especifique el elemento de configuración cuando necesite invalidar el comportamiento predeterminado de los pasos de aspectos básicos. En el ejemplo siguiente se muestran las propiedades disponibles.
+
+```json
+"config": {  
+    "basics": {  
+        "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
+        "subscription": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid subscription."
+                    },
+                    {
+                        "permission": "<Resource Provider>/<Action>",
+                        "message": "Must have correct permission to complete this step."
+                    }
+                ]
+            },
+            "resourceProviders": [ "<Resource Provider>" ]
+        },
+        "resourceGroup": {
+            "constraints": {
+                "validations": [
+                    {
+                        "isValid": "[expression for checking]",
+                        "message": "Please select a valid resource group."
+                    }
+                ]
+            },
+            "allowExisting": true
+        },
+        "location": {  
+            "label": "Custom label for location",  
+            "toolTip": "provide a useful tooltip",  
+            "resourceTypes": [ "Microsoft.Compute/virtualMachines" ],
+            "allowedValues": [ "eastus", "westus2" ],  
+            "visible": true  
+        }  
+    }  
+},  
+```
+
+En `description`, proporcione una cadena habilitada para Markdown que describa el recurso. Se admiten vínculos y formato de varias líneas.
+
+En `location`, especifique las propiedades del control de ubicación que quiere invalidar. Cualquier propiedad que no se haya invalidado se establece en sus valores predeterminados. `resourceTypes` acepta una matriz de cadenas que contienen los nombres de tipo de recurso completos. Las opciones de ubicación están restringidas a solo las regiones que admiten los tipos de recursos.  `allowedValues`  acepta una matriz de cadenas de región. Solo esas regiones aparecen en la lista desplegable. Puede establecer tanto `allowedValues` como `resourceTypes`. El resultado es la intersección de ambas listas. Por último, la propiedad `visible` se puede utilizar para deshabilitar la lista desplegable de ubicación de forma condicional o por completo.  
+
+Los elementos `subscription` y `resourceGroup` permiten especificar validaciones adicionales. La sintaxis para especificar validaciones es idéntica a la de la validación personalizada de [cuadro de texto](microsoft-common-textbox.md). También puede especificar validaciones de `permission` en la suscripción o el grupo de recursos.  
+
+El control de suscripción acepta una lista de espacios de nombres del proveedor de recursos. Por ejemplo, puede especificar **Microsoft.Compute**. En este caso, se muestra un mensaje de error cuando el usuario selecciona una suscripción que no admite el proveedor de recursos. El error se produce cuando el proveedor de recursos no está registrado en esa suscripción y el usuario no tiene permiso para registrarlo.  
+
+El control de grupo de recursos tiene una opción `allowExisting`. Cuando es `true`, los usuarios pueden seleccionar grupos de recursos que ya tengan recursos. Esta marca se aplica principalmente a las plantillas de soluciones, donde el comportamiento predeterminado obliga a los usuarios a seleccionar un grupo de recursos nuevo o vacío. En la mayoría del resto de los escenarios, no es necesario especificar esta propiedad.  
 
 ## <a name="steps"></a>Pasos
 
-La propiedad steps puede contener cero o más pasos adicionales que se mostrarán después de basics, cada uno de los cuales contiene uno o más elementos. Considere la posibilidad de agregar pasos por rol o nivel de aplicación que se está implementando. Por ejemplo, agregue un paso para las entradas de los nodos principales y un paso para los nodos de trabajo de un clúster.
+La propiedad steps contiene cero o más pasos adicionales que se muestran después de los aspectos básicos. Cada paso contiene uno o varios elementos. Considere la posibilidad de agregar pasos por rol o nivel de aplicación que se está implementando. Por ejemplo, agregue un paso para las entradas de los nodos principales y un paso para los nodos de trabajo de un clúster.
+
+```json
+"steps": [
+    {
+        "name": "demoConfig",
+        "label": "Configuration settings",
+        "elements": [
+          ui-elements-needed-to-create-the-instance
+        ]
+    }
+]
+```
 
 ## <a name="outputs"></a>Salidas
 
@@ -80,9 +169,9 @@ Para limitar las ubicaciones disponibles a solo las que admiten los tipos de rec
     "handler": "Microsoft.Azure.CreateUIDef",
     "version": "0.1.2-preview",
     "parameters": {
-      "resourceTypes": ["Microsoft.Compute/disks"],
-      "basics": [
-        ...
+        "resourceTypes": ["Microsoft.Compute/disks"],
+        "basics": [
+          ...
 ```  
 
 ## <a name="functions"></a>Functions

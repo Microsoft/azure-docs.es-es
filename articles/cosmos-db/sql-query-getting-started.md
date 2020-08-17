@@ -4,22 +4,33 @@ description: Obtenga información sobre cómo usar consultas SQL para consultar 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 07/24/2020
 ms.author: tisande
-ms.openlocfilehash: 1d24261edea843fa928ad00e3ce7babcb84acd3b
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: d292b7cfcda73cb4cd6ac2535c7e27fc675e1030
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "74873342"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87308192"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introducción a las consultas SQL
 
-Las cuentas de la API SQL para Azure Cosmos DB admiten la realización de consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta de JSON. Los objetivos de diseño del lenguaje de consulta de Azure Cosmos DB son:
+En las cuentas de la API de SQL de Azure Cosmos DB, hay dos maneras de leer los datos:
 
-* Admitir SQL, uno de los lenguajes de consulta más conocidos, en lugar de inventar uno nuevo. SQL proporciona un modelo de programación formal para consultas enriquecidas a través de elementos JSON.  
+**Lecturas puntuales**: puede realizar una búsqueda de clave y valor en un único *id. de elemento* y clave de partición. La combinación de *id. de elemento* y clave de partición es la clave y el propio elemento es el valor. En el caso de un documento de 1 KB, las lecturas puntuales normalmente cuestan 1 [unidad de solicitud](request-units.md) con una latencia inferior a 10 ms. Las lecturas puntuales devuelven un único elemento.
 
-* Usar el modelo de programación de JavaScript como base para el lenguaje de consulta. El sistema de tipos de JavaScript, la evaluación de expresiones y la invocación de funciones son las bases de la API de SQL. Estas bases proporcionan un modelo de programación natural para características como las proyecciones relacionales, la navegación jerárquica por elementos JSON, autocombinaciones, las consultas espaciales y la invocación de funciones definidas por el usuario (UDF) escritas íntegramente en JavaScript.
+**Consultas SQL**: puede consultar datos escribiendo consultas mediante el Lenguaje de consulta estructurado (SQL) como lenguaje de consulta JSON. Las consultas siempre cuestan al menos 2,3 unidades de solicitud y, en general, tendrán una latencia mayor y más variable que las lecturas puntuales. Las consultas pueden devolver muchos elementos.
+
+La mayoría de las cargas de trabajo con mucha actividad de lectura en Azure Cosmos DB utilizan una combinación de lecturas puntuales y consultas SQL. Si solo necesita leer un único elemento, las lecturas puntuales son más baratas y rápidas que las consultas. Las lecturas puntuales no necesitan usar el motor de consultas para tener acceso a los datos y pueden leer los datos directamente. Por supuesto, no es posible que todas las cargas de trabajo lean los datos exclusivamente mediante lecturas puntuales, por lo que la compatibilidad con SQL como lenguaje de consulta y la [indexación independiente del esquema](index-overview.md) proporcionan una manera más flexible de acceder a los datos.
+
+Estos son algunos ejemplos de cómo realizar lecturas puntuales con cada SDK:
+
+- [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.container.readitemasync?view=azure-dotnet)
+- [SDK de Java](https://docs.microsoft.com/java/api/com.azure.cosmos.cosmoscontainer.readitem?view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
+- [SDK de Node.js](https://docs.microsoft.com/javascript/api/@azure/cosmos/item?view=azure-node-latest#read-requestoptions-)
+- [SDK de Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos.containerproxy?view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
+
+En el resto de este documento se muestra cómo empezar a escribir consultas SQL en Azure Cosmos DB. Las consultas SQL se pueden ejecutar mediante el SDK o Azure Portal.
 
 ## <a name="upload-sample-data"></a>Cargar datos de ejemplo
 
@@ -28,7 +39,6 @@ En la cuenta de la API de SQL para Cosmos DB, cree un contenedor denominado `Fa
 ### <a name="create-json-items"></a>Creación de elementos JSON
 
 Con el siguiente código se crean dos elementos JSON sencillos sobre familias. Los elementos JSON sencillos para las familias Andersen y Wakefield incluyen a los padres, los hijos, sus mascotas, la dirección y la información de registro. El primer elemento tiene cadenas, números, valores booleanos, matrices y propiedades anidadas.
-
 
 ```json
 {
@@ -72,7 +82,7 @@ El segundo elemento usa `givenName` y `familyName` en lugar de `firstName` y `la
             { "givenName": "Shadow" }
         ]
       },
-      { 
+      {
         "familyName": "Miller",
          "givenName": "Lisa",
          "gender": "female",
@@ -88,7 +98,7 @@ El segundo elemento usa `givenName` y `familyName` en lugar de `firstName` y `la
 
 Pruebe algunas consultas con los datos JSON para entender algunos aspectos clave del lenguaje de consulta SQL de Azure Cosmos DB.
 
-La consulta siguiente devuelve los elementos en los que el campo `id` coincide con `AndersenFamily`. Puesto que es una consulta `SELECT *`, la salida de la consulta es el elemento JSON completo. Para más información sobre la sintaxis de SELECT, consulte [Instrucción SELECT](sql-query-select.md). 
+La consulta siguiente devuelve los elementos en los que el campo `id` coincide con `AndersenFamily`. Puesto que es una consulta `SELECT *`, la salida de la consulta es el elemento JSON completo. Para más información sobre la sintaxis de SELECT, consulte [Instrucción SELECT](sql-query-select.md).
 
 ```sql
     SELECT *
@@ -96,7 +106,7 @@ La consulta siguiente devuelve los elementos en los que el campo `id` coincide c
     WHERE f.id = "AndersenFamily"
 ```
 
-Los resultados de la consulta son: 
+Los resultados de la consulta son:
 
 ```json
     [{

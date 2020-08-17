@@ -9,15 +9,15 @@ metadata:
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 10/10/2019
-  author: msmimart
-  ms.author: mimart
+  author: kenwith
+  ms.author: kenwith
   manager: celested
-  ms.openlocfilehash: ed81c8d5eda3a9db84d85d79b10c0a5ab76705a4
-  ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+  ms.openlocfilehash: dc056bbfb880b8cdfc2326edc3036657803f24d7
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/24/2020
-  ms.locfileid: "85339197"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88209113"
 landingContent:
 - title: Acerca de la administración de aplicaciones
   linkLists:
@@ -25,8 +25,12 @@ landingContent:
     links:
     - text: ¿Qué es la administración de aplicaciones?
       url: what-is-application-management.md
-    - text: Tutoriales de aplicaciones SaaS
-      url: /azure/active-directory/saas-apps/
+    - text: ¿Qué es el inicio de sesión único?
+      url: what-is-single-sign-on.md
+  - linkListType: quickstart
+    links:
+    - text: Series de inicios rápidos
+      url: view-applications-portal.md
 - title: Administración de aplicaciones en la nube e inicio de sesión único
   linkLists:
   - linkListType: concept
@@ -35,16 +39,10 @@ landingContent:
       url: what-is-single-sign-on.md
     - text: Experiencia del usuario final
       url: end-user-experiences.md
-  - linkListType: quickstart
-    links:
-    - text: Incorporación de una aplicación de la galería
-      url: add-application-portal.md
   - linkListType: how-to-guide
     links:
-    - text: Incorporación de una aplicación que no es de la galería
-      url: add-non-gallery-app.md
     - text: Configurar inicio de sesión único
-      url: configure-single-sign-on-non-gallery-applications.md
+      url: configure-saml-single-sign-on.md
     - text: Asignar un usuario o grupo a una aplicación
       url: assign-user-or-group-access-portal.md
 - title: Aprovisionamiento de usuarios y grupos en una aplicación

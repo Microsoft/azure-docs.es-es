@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: afcad5df1072f2eb474e54aaeca866735a12c5c8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 340eb1a983f074a5ab934a30c55649852ec08b62
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84424472"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325158"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solución Wire Data 2.0 (versión preliminar) en Azure Monitor
 
@@ -167,7 +167,7 @@ En las secciones siguientes se enumeran los sistemas operativos compatibles para
 
 Siga los pasos siguientes para configurar la solución Wire Data para las áreas de trabajo.
 
-1. Habilite la solución Activity Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) o mediante el proceso descrito en [Adición de soluciones de supervisión desde la Galería de soluciones](../../azure-monitor/insights/solutions.md).
+1. Habilite la solución Activity Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) o mediante el proceso descrito en [Adición de soluciones de supervisión desde la Galería de soluciones](./solutions.md).
 2. Instale Dependency Agent en cada equipo donde quiere obtener datos. Dependency Agent puede supervisar las conexiones a los vecinos inmediatos, por lo que es posible que no necesite un agente en cada equipo.
 
 > [!NOTE]
@@ -182,7 +182,7 @@ Dependency Agent se instala en equipos que ejecutan Windows mediante InstallDepe
 
 Use los pasos siguientes para instalar Dependency Agent en cada equipo que ejecute Windows:
 
-1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Windows computers hosted in your environment](../../azure-monitor/platform/agent-windows.md) (Recopilar datos de equipos Windows hospedados en el entorno).
+1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Windows computers hosted in your environment](../platform/agent-windows.md) (Recopilar datos de equipos Windows hospedados en el entorno).
 2. Descargue Dependency Agent de Windows mediante el vínculo de la sección anterior y, después, ejecútelo mediante el comando siguiente: `InstallDependencyAgent-Windows.exe`.
 3. Siga el asistente para instalar el agente.
 4. Si Dependency Agent no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es %Programfiles%\Microsoft Dependency Agent\logs.
@@ -208,7 +208,7 @@ Dependency Agent se instala en equipos Linux con InstallDependencyAgent-Linux64.
 
 Utilice los pasos siguientes para instalar Dependency Agent en cada equipo Linux:
 
-1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Linux computers hosted in your environment](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) (Recopilar datos de equipos Linux hospedados en el entorno).
+1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Linux computers hosted in your environment](../learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) (Recopilar datos de equipos Linux hospedados en el entorno).
 2. Descargue Dependency Agent de Linux mediante el vínculo de la sección anterior y, después, instálelo como raíz mediante el comando siguiente: sh InstallDependencyAgent-Linux64.bin
 3. Si Dependency Agent no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Linux, el directorio de registro es: /var/opt/microsoft/dependency-agent/log.
 
@@ -416,4 +416,5 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Búsquedas de registros en Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.
+- [Búsquedas de registros en Log Analytics](../log-query/log-query-overview.md) para más información sobre cómo ver registros de búsqueda de datos de conexión detallados.
+

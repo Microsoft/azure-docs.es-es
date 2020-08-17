@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: how-to
-ms.date: 05/08/2020
+ms.date: 07/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae584bdfa97b2c30cab5f15881323c26366592c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5326fd6adf12d53d836594c8e53bda14e0871e5
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253365"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87009125"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedimientos: Uso obligatorio de directivas de protección de aplicaciones y una aplicación aprobada por el cliente para el acceso a aplicaciones en la nube con acceso condicional
 
@@ -30,10 +30,11 @@ En este artículo se presentan tres escenarios a fin de configurar directivas de
 
 En el acceso condicional, estas aplicaciones cliente se conocen como directivas protegidas con una directiva de protección de aplicaciones. Puede encontrar más información sobre las directivas de protección de aplicaciones en el artículo [Introducción a las directivas de protección de aplicaciones](/intune/apps/app-protection-policy).
 
-Para obtener una lista de aplicaciones cliente aptas, consulte [Requisito de directiva de protección de aplicaciones](concept-conditional-access-grant.md).
+> [!WARNING]
+> No todas las aplicaciones se admiten como aplicaciones aprobadas ni admiten directivas de protección de aplicaciones. Para obtener una lista de aplicaciones cliente aptas, consulte [Requisito de directiva de protección de aplicaciones](concept-conditional-access-grant.md#require-app-protection-policy).
 
 > [!NOTE]
->    La cláusula OR se usa dentro de la directiva para que los usuarios puedan utilizar las aplicaciones que admiten los controles de concesión **Requerir directiva de protección de aplicaciones** o **Requerir aplicación cliente aprobada**. Para más información sobre las aplicaciones que admiten el control de concesión **Requerir directiva de protección de aplicaciones**, consulte el [requisito de la directiva de protección de aplicaciones](concept-conditional-access-grant.md).
+> "Requerir uno de los controles seleccionados" en Conceder controles es como una cláusula OR. Esta cláusula se usa dentro de la directiva para que los usuarios puedan utilizar aplicaciones que admitan los controles de concesión **Requerir directiva de protección de aplicaciones** o **Requerir aplicación cliente aprobada**. **Requerir directiva de protección de aplicaciones** se aplica si se admite una aplicación en ambas directivas. Para más información sobre las aplicaciones que admiten el control de concesión **Requerir directiva de protección de aplicaciones**, consulte el [requisito de la directiva de protección de aplicaciones](concept-conditional-access-grant.md#require-app-protection-policy).
 
 ## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Escenario 1: Las aplicaciones de Office 365 requieren aplicaciones aprobadas con directivas de protección de aplicaciones
 

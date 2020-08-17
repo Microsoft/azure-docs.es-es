@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.subservice: alerts
-ms.openlocfilehash: a5613198b404f629727f3040b308c030763a10b2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7e1073817013d45558a9679a4f70db0c002cfaa9
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515808"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87324087"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Cambio de la preferencia de API para las alertas de registro
 
@@ -115,4 +115,5 @@ De lo contrario, si el área de trabajo de Log Analytics especificada aún no se
 
 - Más información sobre las [Alertas de registro en Azure Monitor](alerts-unified-log.md).
 - Aprenda a crear [alertas de registro en Alertas de Azure](alerts-log.md).
-- Obtenga más información sobre la experiencia de [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
+- Obtenga más información sobre la experiencia de [Alertas de Azure](./alerts-overview.md).
+

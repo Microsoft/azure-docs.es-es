@@ -8,15 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/10/2020
+ms.date: 07/30/2020
+ms.custom: project-no-code, devx-track-javascript
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cbc0f607af31d0e3b3715e73ddbde19143bd1599
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58ddca6bb7844288aae0370f035bc4dfa2dc942f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85384148"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481700"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>JavaScript y versiones de diseño de página en Azure Active Directory B2C
 
@@ -40,7 +41,7 @@ En **Propiedades** del flujo de usuario puede habilitar JavaScript. La habilitac
 
 ## <a name="select-a-page-layout-version"></a>Selección de una versión de diseño de página
 
-Tanto si habilita JavaScript como si no lo hace en las propiedades de un flujo de usuario, puede especificar una versión del diseño de página para las páginas del flujo de usuario. Abra el flujo de usuario y seleccione **Diseños de página**. En **NOMBRE DEL DISEÑO**, seleccione una página del flujo de usuario y elija la **versión del diseño de página**.
+Tanto si habilita JavaScript como si no lo hace en las propiedades de un flujo de usuario, puede especificar una versión del diseño de página para las páginas del flujo de usuario. Abra el flujo de usuario y seleccione **Diseños de página**. En **Nombre del diseño**, seleccione una página del flujo de usuario y elija la **versión del diseño de página (versión preliminar)** .
 
 Para información sobre los distintos diseños de página, consulte el [registro de cambios en los diseños de página](page-layout.md).
 

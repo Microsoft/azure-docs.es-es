@@ -3,16 +3,16 @@ title: 'Azure Relay: Migrar a la autorización de Firma de acceso compartido'
 description: Describe la migración de aplicaciones de Azure Relay para pasar del uso de Azure Active Directory Access Control Service a la autorización de firma de acceso compartido.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 300a7eb5bb69db878b208be8c1e2b404717a6265
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b793173270b0ddf25f0e971dbb2fed97cb10a55
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314298"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87532873"
 ---
 # <a name="azure-relay---migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Azure Relay: Migrar desde Azure Active Directory Access Control Service a la autorización de Firma de acceso compartido
 
-Históricamente, las aplicaciones de Azure Relay tenían la posibilidad de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md), proporcionado directamente por el servicio Relay, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio de [Azure Active Directory](/azure/active-directory/) Access Control Service (ACS), y los tokens obtenidos de ACS se pasaban a Relay para autorizar el acceso a las funciones que se querían.
+Históricamente, las aplicaciones de Azure Relay tenían la posibilidad de usar dos modelos de autorización diferentes: el modelo de token de [Firma de acceso compartido (SAS)](../service-bus-messaging/service-bus-sas.md), proporcionado directamente por el servicio Relay, y un modelo federado donde la administración de las reglas de autorización ocurría de manera interna por medio de [Azure Active Directory](../active-directory/index.yml) Access Control Service (ACS), y los tokens obtenidos de ACS se pasaban a Relay para autorizar el acceso a las funciones que se querían.
 
 Hace tiempo que el modelo de autorización ACS se sustituyó por la [autorización de SAS](../service-bus-messaging/service-bus-authentication-and-authorization.md) como modelo preferido y en toda la documentación, instrucciones y ejemplos de hoy día se usa SAS única y exclusivamente. Es más, ya no se pueden crear espacios de nombres de Relay que se emparejen con ACS.
 
@@ -56,5 +56,3 @@ Para más información sobre la autenticación de Azure Relay, vea los siguiente
 
 * [Autenticación y autorización en Azure Relay](relay-authentication-and-authorization.md)
 * [Autenticación en Service Bus con Firmas de acceso compartido](../service-bus-messaging/service-bus-sas.md)
-
-

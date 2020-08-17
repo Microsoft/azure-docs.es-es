@@ -6,12 +6,12 @@ author: spelluru
 ms.topic: tutorial
 ms.date: 06/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 8f947489c2298e580ae455763709df1734687130
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.openlocfilehash: 0909fd95238051a6a50e582cb2543dd3bdd307bf
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85337057"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88067297"
 ---
 # <a name="tutorial-respond-to-azure-service-bus-events-received-via-azure-event-grid-by-using-azure-functions-and-azure-logic-apps"></a>Tutorial: Respuesta a eventos de Azure Service Bus recibidos a través de Azure Event Grid con Azure Functions y Azure Logic Apps
 En este tutorial, aprenderá a responder a eventos de Azure Service Bus que se reciben a través de Azure Event Grid con Azure Functions y Azure Logic Apps. 
@@ -355,10 +355,10 @@ En esta sección aprenderá cómo recibir y procesar los mensajes una vez que re
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre [Azure Event Grid](https://docs.microsoft.com/azure/event-grid/).
-* Más información acerca de [Azure Functions](https://docs.microsoft.com/azure/azure-functions/).
-* Más información acerca de la [característica Logic Apps de Azure App Service](https://docs.microsoft.com/azure/logic-apps/).
-* Aprenda más sobre [Azure Service Bus](https://docs.microsoft.com/azure/service-bus/).
+* Más información sobre [Azure Event Grid](../event-grid/index.yml).
+* Más información acerca de [Azure Functions](../azure-functions/index.yml).
+* Más información acerca de la [característica Logic Apps de Azure App Service](../logic-apps/index.yml).
+* Aprenda más sobre [Azure Service Bus](/azure/service-bus/).
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

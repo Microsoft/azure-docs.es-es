@@ -33,7 +33,7 @@
           href: media-services-powershell-create-and-configure-aad-app.md
     - name: Entrega de vídeos a petición
       items:
-        - name: Portal de Azure
+        - name: Azure portal
           href: media-services-portal-vod-get-started.md
         - name: .NET SDK
           href: media-services-dotnet-get-started.md
@@ -241,14 +241,14 @@
           items:
             - name: Codificadores locales recomendados
               href: media-services-recommended-encoders.md
-            - name: Portal de Azure
+            - name: Azure portal
               href: media-services-portal-live-passthrough-get-started.md
             - name: .NET
               href: media-services-dotnet-live-encode-with-onpremises-encoders.md
         - name: Streaming en vivo con un codificador en la nube
           href: media-services-manage-live-encoder-enabled-channels.md
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: media-services-portal-creating-live-encoder-enabled-channel.md
             - name: .NET
               href: media-services-dotnet-creating-live-encoder-enabled-channel.md
@@ -304,7 +304,7 @@
               href: media-services-rest-configure-asset-delivery-policy.md
         - name: Configuración de la directiva de autorización de claves de contenido
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: media-services-portal-configure-content-key-auth-policy.md
             - name: .NET
               href: media-services-dotnet-configure-content-key-auth-policy.md
@@ -357,7 +357,7 @@
         - name: Procesamiento multimedia
           href: media-services-scale-media-processing-overview.md
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: media-services-portal-scale-media-processing.md
             - name: .NET
               href: media-services-dotnet-encoding-units.md
@@ -381,7 +381,7 @@
           href: ../../cdn/cdn-caching-policy.md?toc=%2fazure%2fmedia-services%2ftoc.json
         - name: Publicación de contenido
           items:
-            - name: Portal de Azure
+            - name: Azure portal
               href: media-services-portal-publish.md
             - name: .NET
               href: media-services-deliver-streaming-content.md
@@ -445,11 +445,11 @@
     - name: Azure PowerShell (Resource Manager)
       href: /powershell/module/az.media
     - name: Azure PowerShell
-      href: /powershell/module/servicemanagement/azure/?view=azuresmps-3.7.0
+      href: /powershell/module/servicemanagement/azure.service/?view=azuresmps-3.7.0
     - name: .NET
       href: /dotnet/api/microsoft.windowsazure.mediaservices.client
     - name: REST
-      href: 'https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference'
+      href: /rest/api/media/operations/azure-media-services-rest-api-reference
     - name: Especificaciones
       items:
         - name: 'Ingesta en vivo: Especificación de ingesta en vivo de MP4 fragmentado'

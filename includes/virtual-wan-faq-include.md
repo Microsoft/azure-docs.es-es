@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 28ea1e68441a57d67fef1e78153e00eb1bd09211
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: dececd066597682e240e737727d3bcaf8f8f3619
+ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86143918"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87375267"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>¿El usuario necesita disponer de una topología radial con los dispositivos SD-WAN/VPN para usar Azure Virtual WAN?
 
@@ -233,9 +233,17 @@ Si un centro de conectividad virtual aprende la misma ruta de varios centros de 
 
 El tránsito entre ER y ER siempre se realiza a través de Global Reach. Las puertas de enlace de centro de conectividad virtual se implementan en las regiones de Azure o del controlador de dominio. Cuando dos circuitos ExpressRoute se conectan a través de Global Reach, no es necesario que el tráfico llegue desde los enrutadores perimetrales hasta el controlador de dominio del centro de conectividad.
 
-### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-circuits-or-vpn-connections"></a>¿Existe un concepto de peso en los circuitos de Azure Virtual WAN o en las conexiones VPN?
+### <a name="is-there-a-concept-of-weight-in-azure-virtual-wan-expressroute-circuits-or-vpn-connections"></a>¿Existe un concepto de peso en los circuitos ExpressRoute de Azure Virtual WAN o en las conexiones VPN?
 
 Cuando varios circuitos ExpressRoute están conectados a un centro de conectividad virtual, el peso del enrutamiento en la conexión proporciona un mecanismo para que ExpressRoute en el centro de conectividad virtual prefiera un circuito antes que el otro. No hay ningún mecanismo para establecer un peso en una conexión VPN. Azure siempre prefiere una conexión ExpressRoute antes que una conexión VPN en un solo centro de conectividad.
+
+### <a name="does-virtual-wan-prefer-expressroute-over-vpn-for-traffic-egressing-azure"></a>¿Virtual WAN prefiere ExpressRoute antes que una VPN para el tráfico que sale de Azure?
+
+Sí 
+
+### <a name="when-a-virtual-wan-hub-has-an-expressroute-circuit-and-a-vpn-site-connected-to-it-what-would-cause-a-vpn-connection-route-to-be-prefered-over-expressroute"></a>Cuando un concentrador de Virtual WAN tiene un circuito ExpressRoute y un sitio VPN conectados a él, ¿qué haría que una ruta de conexión VPN fuera preferida antes que ExpressRoute?
+
+Cuando un circuito ExpressRoute se conecta a un concentrador virtual, los enrutadores perimetrales de Microsoft son el primer nodo para la comunicación entre el entorno local y Azure. Estos enrutadores perimetrales se comunican con las puertas de enlace de ExpressRoute de Virtual WAN que, a su vez, aprenden las rutas del enrutador del concentrador virtual que controla todas las rutas entre todas las puertas de enlace en Virtual WAN. Los enrutadores perimetrales de Microsoft procesan las rutas de ExpressRoute del concentrador virtual con mayor preferencia sobre las rutas aprendidas del entorno local. Si la conexión VPN se convierte por cualquier motivo en el medio principal para que el concentrador virtual aprenda las rutas (por ejemplo, escenarios de conmutación por error entre ExpressRoute y VPN), a menos que el sitio VPN tenga una longitud de ruta AS mayor, el concentrador virtual seguirá compartiendo las rutas de VPN aprendidas con la puerta de enlace de ExpressRoute, lo que hará que los enrutadores perimetrales de Microsoft prefieran las rutas VPN antes que las rutas locales. 
 
 ### <a name="when-two-hubs-hub-1-and-2-are-connected-and-there-is-an-expressroute-circuit-connected-as-a-bow-tie-to-both-the-hubs-what-is-the-path-for-a-vnet-connected-to-hub-1-to-reach-a-vnet-connected-in-hub-2"></a>Cuando dos centros de conectividad (1 y 2) están conectados y hay un circuito ExpressRoute conectado como un lazo para ambos centros de conectividad, ¿cuál es la ruta de acceso de una red virtual conectada al centro de conectividad 1 para llegar a una red virtual conectada en el centro de conectividad 2?
 
@@ -244,6 +252,10 @@ El comportamiento actual es preferir la ruta de acceso del circuito ExpressRoute
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>¿Hay compatibilidad con IPv6 en un Virtual WAN?
 
 IPv6 no se admite en el centro de conectividad de Virtual WAN y sus puertas de enlace. Si tiene una red virtual compatible con IPv6 y quiere conectarla a Virtual WAN, este escenario tampoco se admite.
+
+### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionality-"></a>¿Cuál es la versión de API recomendada para utilizar en los scripts que automatizan varias funcionalidades de Virtual WAN?
+
+Se requiere una versión mínima de 05-01-2020 (1 de mayo de 2020). 
 
 ### <a name="what-are-the-differences-between-the-virtual-wan-types-basic-and-standard"></a>¿Cuáles son las diferencias entre los tipos de instancias de Virtual WAN (básico y estándar)?
 

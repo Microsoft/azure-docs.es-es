@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34608a085c0d60e0ce07e5d198622f80a43f8b38
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711296"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87284088"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Creación y administración de blobs en Azure Blob Storage con Azure Logic Apps
 
@@ -20,7 +20,7 @@ En este artículo se muestra cómo se puede acceder y administrar los archivos a
 
 Imagine que tiene una herramienta que se actualiza en un sitio web de Azure, que actúa como desencadenador para su aplicación lógica. Cuando se produce este evento, la aplicación lógica puede actualizar algunos archivos en el contenedor de Blob Storage, que es una acción de la aplicación lógica.
 
-Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Azure Blob Storage](https://docs.microsoft.com/connectors/azureblobconnector/).
+Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md) e [Inicio rápido: Creación de la primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Para obtener información técnica específica del conector, consulte la [referencia sobre el conector de Azure Blob Storage](/connectors/azureblobconnector/).
 
 > [!IMPORTANT]
 > Las aplicaciones lógicas no pueden acceder directamente a cuentas de almacenamiento que se encuentren detrás de un firewall si se encuentran en la misma región. Como alternativa, puede tener las aplicaciones lógicas y la cuenta de almacenamiento en diferentes regiones. Para más información sobre cómo habilitar el acceso desde Azure Logic Apps a cuentas de almacenamiento que se encuentran detrás de los firewalls, consulte la sección [Acceso a cuentas de almacenamiento detrás de firewalls](#storage-firewalls) más adelante en este tema.
@@ -137,7 +137,7 @@ En este ejemplo solo se obtiene el contenido de un blob. Para ver dicho contenid
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](https://docs.microsoft.com/connectors/azureblobconnector/).
+Si necesita más detalles técnicos sobre este conector, como los desencadenadores, las acciones y los límites que se describen en el archivo de Swagger del conector, vea la [página de referencia del conector](/connectors/azureblobconnector/).
 
 > [!NOTE]
 > En el caso de las aplicaciones lógicas de un [entorno de servicio de integración (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), la versión con la etiqueta ISE de este conector usa en su lugar los [límites de mensajes de ISE](../logic-apps/logic-apps-limits-and-config.md#message-size-limits).
@@ -194,7 +194,7 @@ Para configurar la excepción y la compatibilidad con identidad administrada, si
 1. En el flujo de trabajo de la aplicación lógica, agregue y configure la acción o el desencadenador HTTP para acceder a la entidad o la cuenta de almacenamiento.
 
    > [!IMPORTANT]
-   > En el caso de llamadas del desencadenador o la acción HTTP a las cuentas de Azure Storage, asegúrese de que el encabezado de la solicitud incluya la propiedad `x-ms-version` y la versión de API de la operación que quiere ejecutar en la cuenta de almacenamiento. Para más información, consulte [Autenticación del acceso con la identidad administrada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) y [Creación de versiones para los servicios de Azure Storage](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
+   > En el caso de llamadas del desencadenador o la acción HTTP a las cuentas de Azure Storage, asegúrese de que el encabezado de la solicitud incluya la propiedad `x-ms-version` y la versión de API de la operación que quiere ejecutar en la cuenta de almacenamiento. Para más información, consulte [Autenticación del acceso con la identidad administrada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) y [Creación de versiones para los servicios de Azure Storage](/rest/api/storageservices/versioning-for-the-azure-storage-services#specifying-service-versions-in-requests).
 
 1. En esa acción, [seleccione la identidad administrada](../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity) que se va a usar para la autenticación.
 
@@ -207,3 +207,4 @@ Si usa un nivel dedicado para [API Management](../api-management/api-management
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Obtenga más información sobre otros [conectores de Logic Apps](../connectors/apis-list.md)
+

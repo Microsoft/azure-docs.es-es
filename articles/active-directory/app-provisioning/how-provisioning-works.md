@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/20/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 38ddfad179a8ef459b5c10f84619a836193ee092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7dae16140c376bc9288fec5b8744ac6cd14051e5
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781657"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87445619"
 ---
 # <a name="how-provisioning-works"></a>Funcionamiento del aprovisionamiento
 
@@ -162,7 +162,7 @@ El trabajo de aprovisionamiento sale de la cuarentena después de que se hayan r
 
 ### <a name="how-long-provisioning-takes"></a>¿Cuánto tiempo tarda el aprovisionamiento?
 
-El rendimiento depende de si el trabajo de aprovisionamiento ejecuta un ciclo de aprovisionamiento inicial o un ciclo incremental. Para obtener detalles sobre el tiempo que tarda el aprovisionamiento y cómo supervisar el estado del servicio de aprovisionamiento, consulte [Averiguar cuándo un usuario específico podrá acceder a una aplicación](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md).
+El rendimiento depende de si el trabajo de aprovisionamiento ejecuta un ciclo de aprovisionamiento inicial o un ciclo incremental. Para obtener detalles sobre el tiempo que tarda el aprovisionamiento y cómo supervisar el estado del servicio de aprovisionamiento, consulte [Averiguar cuándo un usuario específico podrá acceder a una aplicación](application-provisioning-when-will-provisioning-finish-specific-user.md).
 
 ### <a name="how-to-tell-if-users-are-being-provisioned-properly"></a>¿Cómo sé si los usuarios se aprovisionan correctamente?
 

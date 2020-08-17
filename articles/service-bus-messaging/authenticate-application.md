@@ -3,12 +3,12 @@ title: Autenticación de una aplicación para acceder a entidades de Azure Servi
 description: En este artículo se proporciona información sobre cómo autenticar una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus (colas, temas, etc.).
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 707fbec4317b4c34349e04895f9c6a0bdf4f1b47
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f94f17a538fc86615f4ffeb8f351beb99e0cb33
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341519"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87372355"
 ---
 # <a name="authenticate-and-authorize-an-application-with-azure-active-directory-to-access-azure-service-bus-entities"></a>Autenticación y autorización de una aplicación con Azure Active Directory para acceder a entidades de Azure Service Bus
 Azure Service Bus admite el uso de Azure Active Directory (Azure AD) para autorizar solicitudes a entidades de Service Bus (colas, temas, suscripciones o filtros). Con Azure AD, puede usar el control de acceso basado en rol (RBAC) para conceder permisos a una entidad de seguridad, que puede ser un usuario, un grupo o una entidad de servicio de aplicación. Para más información sobre los roles y las asignaciones de roles, consulte [Descripción de los distintos roles](../role-based-access-control/overview.md).
@@ -21,18 +21,18 @@ Cuando una entidad de seguridad (un usuario, un grupo o una aplicación) intenta
 
 El paso de autenticación exige que una solicitud de aplicación contenga un token de acceso de OAuth 2.0 en tiempo de ejecución. Si una aplicación se está ejecutando dentro de una entidad de Azure, como puede ser una máquina virtual de Azure, un conjunto de escalado de máquinas virtuales o una aplicación de Azure Functions, puede usar una identidad administrada para acceder a los recursos. Para más información sobre cómo autenticar solicitudes realizadas por una identidad administrada al servicio Service Bus, consulte [Identidades administradas para recursos de Azure con Service Bus](service-bus-managed-service-identity.md). 
 
-El paso de autorización exige que se asignen uno o varios roles RBAC a la entidad de seguridad. Azure Service Bus proporciona roles RBAC que abarcan conjuntos de permisos para recursos de Service Bus. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de RBAC a Azure Service Bus, consulte [Roles RBAC integrados para Azure Service Bus](#built-in-rbac-roles-for-azure-service-bus). 
+El paso de autorización exige que se asignen uno o varios roles RBAC a la entidad de seguridad. Azure Service Bus proporciona roles RBAC que abarcan conjuntos de permisos para recursos de Service Bus. Los roles que se asignan a una entidad de seguridad determinan los permisos que tiene esa entidad de seguridad. Para más información sobre la asignación de roles de RBAC a Azure Service Bus, consulte [Roles integrados de Azure para Azure Service Bus](#azure-built-in-roles-for-azure-service-bus). 
 
 Las aplicaciones nativas y las aplicaciones web que realizan solicitudes a Service Bus también pueden autorizar con Azure AD. En este artículo se muestra cómo solicitar un token de acceso y usarlo para autorizar solicitudes de recursos de Service Bus. 
 
 
 ## <a name="assigning-rbac-roles-for-access-rights"></a>Asignación de roles RBAC para derechos de acceso
-Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md). Azure Service Bus define un conjunto de roles RBAC integrados que abarcan conjuntos de permisos comunes utilizados para acceder a las entidades Service Bus y también puede definir roles personalizados para acceder a los datos.
+Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../role-based-access-control/overview.md). Azure Service Bus define un conjunto de roles integrados de Azure que abarcan conjuntos de permisos comunes utilizados para acceder a las entidades Service Bus y también puede definir roles personalizados para acceder a los datos.
 
 Cuando un rol RBAC se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos a esa entidad de seguridad. El acceso puede tener como ámbito el nivel de suscripción, el grupo de recursos o el espacio de nombres de Service Bus. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación o una [identidad de servicio administrada para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
-## <a name="built-in-rbac-roles-for-azure-service-bus"></a>Roles RBAC integrados para Azure Service Bus
-Para Azure Service Bus, la administración de los espacios de nombres y de todos los recursos relacionados mediante Azure Portal y la API de administración de recursos de Azure, ya se ha protegido mediante el modelo de *control de acceso basado en rol* (RBAC). Azure proporciona los siguientes roles RBAC integrados para autorizar el acceso a un espacio de nombres de Service Bus:
+## <a name="azure-built-in-roles-for-azure-service-bus"></a>Roles integrados de Azure para Azure Service Bus
+Para Azure Service Bus, la administración de los espacios de nombres y de todos los recursos relacionados mediante Azure Portal y la API de administración de recursos de Azure, ya se ha protegido mediante el modelo de *control de acceso basado en rol* (RBAC). Azure proporciona los siguientes roles integrados de Azure para autorizar el acceso a un espacio de nombres de Service Bus:
 
 - [Propietario de los datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner): permite el acceso a datos en el espacio de nombres de Service Bus y sus entidades (colas, temas, suscripciones y filtros).
 - [Emisor de datos de Azure Service Bus](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender): use este rol para proporcionar acceso de envío al espacio de nombres de Service Bus y sus entidades.
@@ -51,7 +51,7 @@ En la lista siguiente se describen los niveles en los que puede definir el ámbi
 > [!NOTE]
 > Tenga en cuenta que las asignaciones de roles RBAC pueden tardar hasta cinco minutos en propagarse. 
 
-Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md#management-and-data-operations). Para obtener más información sobre la creación de roles RBAC personalizados, vea [Creación de roles personalizados para el control de acceso basado en roles de Azure](../role-based-access-control/custom-roles.md).
+Para más información sobre cómo se definen los roles integrados, consulte [Descripción de definiciones de roles](../role-based-access-control/role-definitions.md#management-and-data-operations). Para más información acerca de la creación de roles personalizados de Azure, consulte [Roles personalizados de Azure](../role-based-access-control/custom-roles.md).
 
 
 ## <a name="assign-rbac-roles-using-the-azure-portal"></a>Asignar roles RBAC con Azure Portal  
@@ -150,7 +150,7 @@ Al ejecutar la aplicación de consola, se le pedirá que seleccione un escenario
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Para más información sobre RBAC, consulte el artículo [¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?](../role-based-access-control/overview.md)
+- Para más información acerca de RBAC, consulte [¿Qué es el control de acceso basado en rol (RBAC) de Azure?](../role-based-access-control/overview.md).
 - Para información sobre cómo asignar y administrar las asignaciones de roles RBAC con Azure PowerShell, la CLI de Azure, o la API de REST, consulte estos artículos:
     - [Administración del control de acceso basado en rol (RBAC) con Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  
     - [Administración del control de acceso basado en rol (RBAC) con la CLI de Azure](../role-based-access-control/role-assignments-cli.md)

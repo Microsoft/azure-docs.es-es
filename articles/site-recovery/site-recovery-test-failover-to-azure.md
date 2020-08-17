@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: 26c734b7a2e9f5592ee6d51dfee4650a3998ab1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4233df62de48dd7a7253c488b0cd69c38cd8d445
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84699063"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503504"
 ---
 # <a name="run-a-test-failover-disaster-recovery-drill-to-azure"></a>Ejecución de una recuperación ante desastres de prueba (simulacro de recuperación ante desastres) en Azure 
 
@@ -25,7 +25,7 @@ La conmutación por error de prueba se ejecuta para validar la estrategia de rep
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 En este procedimiento se describe cómo ejecutar una conmutación por error de prueba para un plan de recuperación. Si desea ejecutar una conmutación por error de prueba para una sola máquina virtual, siga los pasos descritos [aquí](tutorial-dr-drill-azure.md#run-a-test-failover-for-a-single-vm)
 
-![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailover.png)
+![Captura de pantalla de la página Conmutación por error de prueba en Azure Portal.](./media/site-recovery-test-failover-to-azure/TestFailover.png)
 
 
 1. En Site Recovery en Azure Portal, haga clic en **Planes de recuperación** > *recoveryplan_name* > **Conmutación por error de prueba**.
@@ -48,7 +48,7 @@ En este procedimiento se describe cómo ejecutar una conmutación por error de p
 8. En **Notas**, registre y guarde las observaciones asociadas a la conmutación por error de prueba.
 
 
-![Test Failover](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
+![Captura de pantalla de la pestaña Trabajos de Conmutación por error de prueba.](./media/site-recovery-test-failover-to-azure/TestFailoverJob.png)
 
 Cuando se desencadena una conmutación por error de prueba, ocurre lo siguiente:
 

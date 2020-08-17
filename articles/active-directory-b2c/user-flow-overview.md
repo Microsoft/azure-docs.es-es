@@ -1,5 +1,6 @@
 ---
 title: Flujos de usuario de Azure Active Directory B2C | Microsoft Docs
+titleSuffix: Azure AD B2C
 description: Obtenga más información sobre el marco de directiva extensible de Azure Active Directory B2C y cómo crear distintos flujos de usuario.
 services: active-directory-b2c
 author: msmimart
@@ -7,23 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 07/30/2020
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c11bc48742c398d2048a236c7d00af044971f845
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 7a7736602fafb740d1d76fa09fd26da25e4ff9f5
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78185626"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87481604"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Flujos de usuario en Azure Active Directory B2C
 
-El marco de directiva extensible de Azure Active Directory B2C (Azure AD B2C) es la fortaleza esencial del servicio. Las directivas describen totalmente las experiencias de identidad tales como el registro, el inicio de sesión y la edición de perfil. Para ayudarle a configurar las tareas más comunes de identidad, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas **flujos de usuario**.
-
-## <a name="what-are-user-flows"></a>¿Qué son los flujos de usuario?
-
-Un flujo de usuario le permite controlar los comportamientos en sus aplicaciones al configurar los siguientes valores:
+Para ayudarle a configurar las tareas más comunes de identidad para sus aplicaciones, el portal de Azure AD B2C incluye directivas predefinidas y configurables denominadas **flujos de usuario**. Un flujo de usuario permite determinar cómo interactúan los usuarios con su aplicación cuando realizan acciones como iniciar sesión, registrarse, editar un perfil o restablecer una contraseña. Con los flujos de usuario, puede controlar las siguientes funcionalidades:
 
 - Tipos de cuenta utilizados para iniciar sesión, como cuentas de redes sociales (como Facebook) o cuentas locales
 - Atributos que se recopilarán del consumidor durante el registro, como el nombre, código postal y número de calzado
@@ -61,13 +59,21 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 
 ## <a name="user-flow-versions"></a>Versiones del flujo de usuario
 
-En Azure Portal, constantemente se agregan nuevas [versiones de flujos de usuario](user-flow-versions.md). Cuando empiece a trabajar con Azure AD B2C, se recomienda que use los flujos de usuario que ya se han probado. Cuando cree un nuevo flujo de usuario, elija el que necesite de la pestaña **Recomendados**.
+Azure AD B2C incluye varios tipos de flujos de usuario:
 
-Actualmente, se recomiendan los siguientes flujos de usuario:
-
-- **Registro e inicio de sesión**: controla las experiencias de registro y de inicio de sesión con una sola configuración. A los usuarios se les lleva por el proceso correcto según el contexto. Le recomendamos que use este flujo de usuario en vez de un flujo de usuario de **registro** y un flujo de usuario de **inicio de sesión**.
+- **Registro e inicio de sesión**: controla las experiencias de registro y de inicio de sesión con una sola configuración. A los usuarios se les lleva por el proceso correcto según el contexto. También se incluyen flujos de usuario de **registro** o **inicio de sesión** independientes. Sin embargo, suele recomendarse el flujo de usuario de registro o inicio de sesión combinado.
 - **Edición de perfiles**: permite a los usuarios editar su información de perfil.
 - **Restablecimiento de contraseña**: le permite configurar si es posible o no para los usuarios restablecer su contraseña y de qué forma pueden hacerlo.
+
+La mayoría de los tipos de flujo de usuario cuentan con una versión **Recomendada** y una versión **Estándar**. Para obtener detalles, consulte [Versiones del flujo de usuario](user-flow-versions.md).
+
+> [!IMPORTANT]
+> Si ha trabajado con flujos de usuario en Azure AD B2C antes, observará que hemos cambiado nuestra forma de hacer referencia a las versiones del flujo de usuario. Anteriormente, se ofrecían las versiones V1 (para entornos de producción) y V1.1 y V2 (preliminares). Ahora, hemos consolidado los flujos de usuario en dos versiones:
+>
+>- Los flujos de usuario **Recomendados** son las nuevas versiones preliminares de los flujos de usuario. Se prueban exhaustivamente y combinan todas las características de las versiones **V2** y **V1.1** heredadas. A partir de ahora, los nuevos flujos de usuario recomendados se mantendrán y actualizarán. Una vez que se traslade a estos nuevos flujos de usuario recomendados, tendrá acceso a las nuevas características a medida que se vayan lanzando.
+>- Los flujos de usuario **Estándar**, anteriormente conocidos como **V1**, son flujos de usuario disponibles con carácter general y para entornos de producción. Si sus flujos de usuario son críticos y dependen de versiones altamente estables, puede seguir usando flujos de usuario estándar, sabiendo que estas versiones no se mantendrán ni actualizarán.
+>
+>Todas las versiones preliminares de flujos de usuario heredadas (V1.1 y V2) estarán en proceso de desuso el **1 de agosto de 2021**. Siempre que sea posible, recomendamos encarecidamente que [cambie a los nuevos flujos de usuario **Recomendados**](user-flow-versions.md#how-to-switch-to-a-new-recommended-user-flow) lo antes posible para que pueda aprovechar siempre las últimas características y actualizaciones.
 
 ## <a name="linking-user-flows"></a>Vinculación de los flujos de usuario
 

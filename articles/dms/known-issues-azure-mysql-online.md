@@ -3,8 +3,8 @@ title: 'Problemas conocidos: Migraciones en línea a Azure Database for MySQL'
 titleSuffix: Azure Database Migration Service
 description: Obtenga información sobre limitaciones y problemas conocidos de migración con las migraciones en línea a Azure Database for MySQL al usar Azure Database Migration Service.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: arunkumarthiags
+ms.author: arthiaga
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -14,12 +14,12 @@ ms.custom:
 - seo-dt-2019
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 8c3de28ea934302086a5b14e61482e6a4ab9a7ca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9a2e28439efaa1983c4deeff4c6746108fc28e4e
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80235275"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87090712"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Limitaciones y problemas de migración en línea de Azure DB for MySQL con Azure Database Migration Service
 
@@ -135,6 +135,8 @@ Al intentar realizar una migración en línea desde AWS RDS MySQL hasta Azure Da
     ```
 
 - En Azure Database Migration Service, el número de bases de datos que se van a migrar en una única actividad de migración se limita a cuatro.
+
+- Azure DMS no admite la acción referencial CASCADE, que ayuda a eliminar o actualizar automáticamente una fila coincidente en la tabla secundaria cuando se elimina o se actualiza una fila en la tabla primaria. Para obtener más información, consulte la sección sobre acciones referenciales del artículo [FOREIGN KEY Constraints](https://dev.mysql.com/doc/refman/8.0/en/create-table-foreign-keys.html) en la documentación de MySQL. Azure DMS requiere que se quiten las restricciones de claves externas en el servidor de base de datos de destino durante la carga de datos inicial, y no se pueden usar acciones referenciales. Si la carga de trabajo depende de la actualización de una tabla secundaria relacionada a través de esta acción referencial, se recomienda realizar un [volcado y restauración](https://docs.microsoft.com/azure/mysql/concepts-migrate-dump-restore) en su lugar. 
 
 - **Error:** Tamaño de fila demasiado grande (> 8126). Puede ser útil cambiar algunas columnas a TEXTO o BLOB. En el formato de fila actual, el prefijo BLOB de 0 bytes se almacena en línea.
 

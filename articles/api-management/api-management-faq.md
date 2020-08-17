@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 72f9381a320dc0fb946dbf6f48c5bcab5390aed5
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c49e92cda89cfc1d72a0550c2a53430f3e6f2844
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86243603"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050333"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -77,7 +77,7 @@ A continuación se indica cómo agregar un usuario al grupo de administradores:
 2. Vaya al grupo de recursos que tiene la instancia de API Management que desea actualizar.
 3. En API Management, asigne el rol **Colaborador de Service API Management**.
 
-Ahora el colaborador recién agregado puede usar los [cmdlets](/powershell/azure/overview) de Azure PowerShell. A continuación se indica cómo iniciar sesión como administrador:
+Ahora el colaborador recién agregado puede usar los [cmdlets](/powershell/azure/) de Azure PowerShell. A continuación se indica cómo iniciar sesión como administrador:
 
 1. Utilice el cmdlet `Connect-AzAccount` para iniciar sesión.
 2. Establezca el contexto para la suscripción que tiene el servicio mediante `Set-AzContext -SubscriptionID <subscriptionGUID>`.

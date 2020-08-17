@@ -1,24 +1,22 @@
 ---
-title: 'Tipo de asignación de escritorio personal de Windows Virtual Desktop: Azure'
-description: Procedimiento para configurar el tipo de asignación para un grupo de host de escritorio personal de Windows Virtual Desktop.
-services: virtual-desktop
-author: HeidiLohr
-ms.service: virtual-desktop
+title: 'Tipo de asignación de escritorio personal de Windows Virtual Desktop (clásico): Azure'
+description: Procedimiento para configurar el tipo de asignación para un grupo de hosts de escritorio personal de Windows Virtual Desktop (clásico).
+author: Heidilohr
 ms.topic: how-to
 ms.date: 05/22/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6f4ee0a6ba028a6359a83f5130aca7c6f05ba08b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 669010d2de90498c98fc685fe931b084a11cd104
+ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259793"
+ms.lasthandoff: 08/07/2020
+ms.locfileid: "88008515"
 ---
-# <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>Configuración del tipo de asignación de grupo de host de escritorio personal
+# <a name="configure-the-personal-desktop-host-pool-assignment-type-for-windows-virtual-desktop-classic"></a>Configuración del tipo de asignación para un grupo de hosts de escritorio personal de Windows Virtual Desktop (clásico)
 
 >[!IMPORTANT]
->Este contenido se aplica a la versión Fall 2019 que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager introducidos en la actualización de Spring 2020, consulte [este artículo](../configure-host-pool-personal-desktop-assignment-type.md).
+>Este contenido se aplica a Windows Virtual Desktop (clásico), que no admite objetos de Windows Virtual Desktop para Azure Resource Manager. Si está tratando de administrar objetos de Windows Virtual Desktop para Azure Resource Manager, consulte [este artículo](../configure-host-pool-personal-desktop-assignment-type.md).
 
 Puede configurar el tipo de asignación del grupo de host de escritorio personal para ajustar el entorno de Windows Virtual Desktop para que se adapte mejor a sus necesidades. En este tema, se mostrará cómo configurar la asignación automática o directa para los usuarios.
 

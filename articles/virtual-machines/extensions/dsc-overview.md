@@ -3,8 +3,8 @@ title: Introducción a Desired State Configuration de Azure
 description: Aprenda a usar el controlador de extensiones de Microsoft Azure para Desired State Configuration (DSC) de PowerShell. El artículo incluye los requisitos previos, la arquitectura y los cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: bobbytreed
-manager: carmonm
+author: mgoedtel
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 keywords: dsc
@@ -13,14 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 05/02/2018
-ms.author: robreed
-ms.openlocfilehash: 82d268eedd73b8de670da93ad3a601b5e75e6444
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.date: 07/13/2020
+ms.author: magoedte
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 9b609fd81c9f1013d2308dccd8ed22fb82aac149
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82188542"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87503351"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introducción al controlador de extensiones de configuración de estado deseado de Azure
 
@@ -59,7 +60,7 @@ Cuando se llama a la extensión por primera vez, se instala una versión de WMF 
 - Si está especificada la propiedad **wmfVersion**, se instala esta versión de WMF, salvo que dicha versión sea incompatible con el SO de la máquina virtual.
 - Si no hay ninguna propiedad **wmfVersion** especificada, se instala la versión aplicable más reciente de WMF.
 
-La instalación de WMF requiere un reinicio. Después del reinicio, la extensión descarga el archivo .zip que se especifica en la propiedad **modulesUrl**, si se proporciona. Si esta ubicación se encuentra en Azure Blob Storage, se puede especificar un token de SAS en la propiedad **sasToken** para acceder al archivo. Después de que el archivo .zip se descargue y descomprima, se ejecuta la función de configuración definida en **configurationFunction** para generar un archivo .mof ([Managed Object Format](https://docs.microsoft.com/windows/win32/wmisdk/managed-object-format--mof-)). Luego, la extensión ejecuta `Start-DscConfiguration -Force` con el archivo .mof generado. La extensión captura la salida y la escribe en el canal de estado de Azure.
+La instalación de WMF requiere un reinicio. Después del reinicio, la extensión descarga el archivo .zip que se especifica en la propiedad **modulesUrl**, si se proporciona. Si esta ubicación se encuentra en Azure Blob Storage, se puede especificar un token de SAS en la propiedad **sasToken** para acceder al archivo. Después de que el archivo .zip se descargue y descomprima, se ejecuta la función de configuración definida en **configurationFunction** para generar un archivo .mof ([Managed Object Format](/windows/win32/wmisdk/managed-object-format--mof-)). Luego, la extensión ejecuta `Start-DscConfiguration -Force` con el archivo .mof generado. La extensión captura la salida y la escribe en el canal de estado de Azure.
 
 ### <a name="default-configuration-script"></a>Script de configuración predeterminada
 
@@ -81,7 +82,7 @@ Esta información se encuentra en Azure Portal, pero también se puede usar Powe
 ```
 
 Para el nombre de la configuración del nodo, asegúrese de que la configuración del nodo existe en Azure State Configuration.  Si no es así, la implementación de extensión devolverá un error.  Además, asegúrese de que usa el nombre de la *Configuración del nodo* y no de Configuración.
-La configuración se define en un script que se usa para [compilar la Configuración del nodo (archivo MOF)](https://docs.microsoft.com/azure/automation/automation-dsc-compile).
+La configuración se define en un script que se usa para [compilar la Configuración del nodo (archivo MOF)](../../automation/automation-dsc-compile.md).
 El nombre será siempre la Configuración seguida por un punto `.` y, o bien, `localhost`, o bien, un nombre de equipo específico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Extensión DSC en plantillas de Resource Manager
@@ -188,11 +189,11 @@ El portal recopila la siguiente información:
 
 - **Argumentos de configuración**: Si la función de configuración adopta argumentos, escríbalos aquí con el formato **nombreArgumento1=valor1,nombreArgumento2=valor2**. Este formato es un formato distinto en el que se aceptan argumentos de configuración en cmdlets de PowerShell o las plantillas de Resource Manager.
 
-- **Configuration Data PSD1 File** (Archivo PSD1 de datos de configuración): La configuración requiere un archivo de datos de configuración en .psd1, utilice este campo para seleccionar el archivo de datos y cargarlo en el almacenamiento de blobs de usuario. El archivo de datos de configuración se protege mediante un token SAS en el almacenamiento de blobs.
+- **Configuration Data PSD1 File** (Archivo PSD1 de datos de configuración): Si la configuración requiere un archivo de datos de configuración en `.psd1`, use este campo para seleccionar el archivo de datos y cargarlo en el almacenamiento de blobs de usuario. El archivo de datos de configuración se protege mediante un token SAS en el almacenamiento de blobs.
 
 - **Versión de WMF**: Especifica la versión de Windows Management Framework (WMF) que debe instalarse en la máquina virtual. Si se establece esta propiedad en latest, se instala la versión más reciente de WMF. Actualmente, los únicos valores posibles para esta propiedad son 4.0, 5.0, 5.1 y latest. Estos valores posibles están sujetos a actualizaciones. El valor predeterminado es **latest**.
 
-- **Recopilación de datos**: Determina si la extensión recopilará datos de telemetría. Para más información, consulte [Azure DSC extension data collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure).
+- **Recopilación de datos**: Determina si la extensión recopilará datos de telemetría. Para más información, consulte [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/) (Colección de datos de la extensión DSC de Azure).
 
 - **Versión**: Especifica la versión de la extensión DSC que se va a instalar. Para obtener información sobre las versiones, consulte [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory) (Historial de versiones de la extensión DSC).
 

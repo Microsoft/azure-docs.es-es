@@ -4,16 +4,16 @@ description: Uso del conector Ethereum Blockchain con Azure Logic Apps para dese
 ms.date: 10/14/2019
 ms.topic: how-to
 ms.reviewer: chrisseg
-ms.openlocfilehash: c7b45134e8b5c3e33e5d05d59c006abe103e5bda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85200739"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87077036"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Uso del conector Ethereum Blockchain con Azure Logic Apps
 
-Use el [conector Ethereum Blockchain](https://docs.microsoft.com/connectors/blockchainethereum/) con [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/) para realizar acciones y responder a eventos de contrato inteligente. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
+Use el [conector Ethereum Blockchain](/connectors/blockchainethereum/) con [Azure Logic Apps](../../logic-apps/index.yml) para realizar acciones y responder a eventos de contrato inteligente. Supongamos que desea crear un microservicio basado en REST que devuelva información de un libro de contabilidad de cadena de bloques. Mediante el uso de una aplicación lógica, puede aceptar solicitudes HTTP que consulten la información almacenada en un libro de contabilidad de cadena de bloques.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

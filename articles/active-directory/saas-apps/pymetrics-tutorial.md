@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/10/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea300148f421577e6f3ace961d06127fc9f2b536
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: 126ae74041bac5fa4a02285abff0ce115d297cf8
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85801179"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87058300"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pymetrics"></a>Tutorial: Integración del inicio de sesión único (SSO) de Azure Active Directory con pymetrics
 
@@ -96,11 +96,7 @@ Siga estos pasos para habilitar el inicio de sesión único de Azure AD en Azur
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con los valores reales de Identificador, URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de pymetrics](mailto:solutions-engineering@pymetrics.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. La aplicación pymetrics espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados.
-
-    ![imagen](common/default-attributes.png)
-
-1. Además de lo anterior, la aplicación pymetrics espera que se devuelvan algunos atributos más, que se muestran a continuación, en la respuesta de SAML. Estos atributos también se rellenan previamente, pero puede revisarlos según sus requisitos.
+1. La aplicación pymetrics espera las aserciones SAML en un formato específico, lo cual requiere que se añadan asignaciones de atributos personalizados a la configuración de atributos del token SAML. La tabla siguiente muestra la lista de atributos predeterminados. Estos atributos se han rellenado previamente, pero puede revisarlos con arreglo a sus requisitos.
     
     | Nombre | Atributo de origen|
     | --------------- | --------- |

@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Uso de Azure Policy para aplicar configuraciones de clúster a escala
 keywords: Kubernetes, Arc, Azure, K8s, contenedores
-ms.openlocfilehash: 26b291e2a957047361d4f52eeff58cbe8aa8c633
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e4279f3d89376320116067bf191e3196271918ce
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111276"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87050044"
 ---
 # <a name="use-azure-policy-to-apply-cluster-configurations-at-scale-preview"></a>Uso de Azure Policy para aplicar configuraciones de clúster a escala (versión preliminar)
 
@@ -22,6 +22,10 @@ ms.locfileid: "86111276"
 Use Azure Policy para exigir que cada recurso de `Microsoft.Kubernetes/connectedclusters` o `Microsoft.ContainerService/managedClusters` habilitado para operaciones de Git tenga aplicado un elemento `Microsoft.KubernetesConfiguration/sourceControlConfigurations` específico. Para usar Azure Policy, debe seleccionar una definición de directiva existente y crear una asignación de directiva. Al crear la asignación de directiva, establezca el ámbito de la asignación: será un grupo de recursos o una suscripción de Azure. También puede establecer los parámetros para el elemento `sourceControlConfiguration` que se creará. Una vez que se ha creado la asignación, el motor de directivas identificará todos los recursos `connectedCluster` o `managedCluster` que se encuentren dentro del ámbito y aplicará `sourceControlConfiguration` a cada uno de ellos.
 
 Si usa varios repositorios de Git como orígenes de verdad para cada clúster (por ejemplo, un repositorio para el operador de clúster o TI central, y otros para los equipos de la aplicación), puede habilitarlo mediante varias asignaciones de directiva, cada una configurada para utilizar un repositorio de Git diferente.
+
+## <a name="prerequisite"></a>Requisito previo
+
+Asegúrese de que tiene permisos `Microsoft.Authorization/policyAssignments/write` en el ámbito (suscripción o grupo de recursos) en el que quiere crear esta asignación de directiva.
 
 ## <a name="create-a-policy-assignment"></a>Creación de una asignación de directiva
 
@@ -42,7 +46,7 @@ Después de crear la asignación de directiva, para cualquier recurso `connected
 
 ## <a name="verify-a-policy-assignment"></a>Comprobación de una asignación de directiva
 
-1. En Azure Portal, vaya a uno de los recursos `connectedCluster` y, en la sección **Configuración** de la barra lateral, seleccione **Directivas**. (La experiencia de usuario para el clúster administrado de AKS todavía no se ha implementado, pero se hará en el futuro).
+1. En Azure Portal, vaya a uno de los recursos `connectedCluster` y, en la sección **Configuración** de la barra lateral, seleccione **Directivas**. (La experiencia de usuario del clúster de AKS todavía no se ha implementado, pero se hará en el futuro).
 2. En la lista, debería ver la asignación de directiva que ha creado antes y el valor de **Estado de cumplimiento** debe ser *Conforme*.
 3. En la sección **Configuración** de la barra lateral, seleccione **Configuraciones**.
 4. En la lista, debería ver el elemento `sourceControlConfiguration` creado por la asignación de directiva.

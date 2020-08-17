@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 285245e499cfe8a5d7e365044c188191325e4267
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84782864"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86519650"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Tutorial: Mejora del cumplimiento normativo
 ---
@@ -35,7 +35,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Prerrequisitos
 
-Para recorrer todas las características que se tratan en este tutorial debe tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita.
+Para recorrer las características que se tratan en este tutorial debe tener el plan de tarifa Estándar de Security Center. Dicho plan se puede probar de forma gratuita.
 Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/). En [Guía de inicio rápido de Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-get-started) le explicamos cómo realizar la actualización al plan de tarifa Estándar.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Mejora del cumplimiento de reglamentaciones

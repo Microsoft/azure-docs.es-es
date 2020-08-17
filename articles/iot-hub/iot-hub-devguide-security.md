@@ -11,12 +11,16 @@ ms.date: 07/18/2018
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2e1167c92dccdfa7600a4827c0081647c190d7d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- 'Role: Cloud Development'
+- 'Role: IoT Device'
+- 'Role: Operations'
+- devx-track-javascript
+ms.openlocfilehash: 223ec01165922702f8f8fa17b09e530b16fa79e5
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85252141"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423480"
 ---
 # <a name="control-access-to-iot-hub"></a>Control del acceso a IoT Hub
 

@@ -13,12 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 5d91514af9aea3dd7ea13b94681fbb27c53772fe
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "76696425"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120905"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>Diferencias entre MSAL JS y ADAL JS
 
@@ -30,7 +30,7 @@ En este artículo se describe cómo elegir entre la Biblioteca de autenticación
 
 En la mayoría de los casos deseará usar la plataforma de identidad de Microsoft y MSAL.js, que es la última generación de bibliotecas de autenticación de Microsoft. Mediante MSAL.js, adquiere tokens para los usuarios que inician sesión en su aplicación con Azure AD (cuentas profesionales y educativas), cuentas (personales) Microsoft (MSA) o Azure AD B2C.
 
-Si ya conoce el punto de conexión v1.0 (y ADAL.js), es posible que quiera consultar [¿Qué hay diferente en el punto de conexión v2.0?](active-directory-v2-compare.md).
+Si ya conoce el punto de conexión v1.0 (y ADAL.js), es posible que quiera consultar [¿Qué hay diferente en el punto de conexión v2.0?](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 Sin embargo, aun así deberá usar ADAL.js si la aplicación necesita iniciar sesión en los usuarios con versiones anteriores de [Servicios de federación de Active Directory (AD FS)](/windows-server/identity/active-directory-federation-services).
 
@@ -96,4 +96,4 @@ En la versión 2.0, si se usa la autoridad `https://login.microsoftonline.com/co
     ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información, consulte la [comparación entre la versión 1 y la versión 2](active-directory-v2-compare.md).
+Para más información, consulte la [comparación entre la versión 1 y la versión 2](../azuread-dev/azure-ad-endpoint-comparison.md).

@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 12/13/2019
 ms.author: rogardle
 ms.custom: ''
-ms.openlocfilehash: dd5e3cf8ce9e52768c28598a819a28ad1ec4413c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4be24d645d2145ee07f9b9a4696b825a26dcf5c9
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525524"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448764"
 ---
 # <a name="reference-architectures-for-oracle-database-enterprise-edition-on-azure"></a>Arquitecturas de referencia para Oracle Database Enterprise Edition en Azure
 
@@ -211,7 +211,7 @@ Durante la solicitud inicial, el servidor de aplicaciones se conecta al director
 
 Al implementar las cargas de trabajo de Oracle en Azure, Microsoft se encarga de todas las aplicaciones de revisión de nivel de sistema operativo del host. Cualquier mantenimiento planeado de nivel de sistema operativo se comunica a los clientes con anterioridad para facilitar el mantenimiento planeado del cliente. Nunca se aplican revisiones a dos servidores de dos Availability Zones diferentes simultáneamente. Consulte [Administración de la disponibilidad de las máquinas virtuales](../../../virtual-machines/linux/manage-availability.md) para obtener más detalles sobre el mantenimiento y la aplicación de revisión de VM. 
 
-La aplicación de revisión del sistema operativo de la máquina virtual se puede automatizar mediante [Azure Automation](../../../automation/automation-tutorial-update-management.md). La aplicación de revisión y el mantenimiento de la base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) o [Azure Automation](../../../automation/automation-tutorial-update-management.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/azure/devops/learn/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
+La aplicación de revisiones al sistema operativo de una máquina virtual se puede automatizar mediante [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md). La aplicación de revisiones y el mantenimiento de una base de datos de Oracle se pueden automatizar y programar mediante [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) o [Azure Automation Update Management](../../../automation/update-management/update-mgmt-overview.md) para minimizar el tiempo de inactividad. Consulte [Entrega continua e implementaciones de azul/verde](/azure/devops/learn/what-is-continuous-delivery) para entender cómo se puede usar en el contexto de las bases de datos de Oracle.
 
 ## <a name="architecture-and-design-considerations"></a>Consideraciones sobre la arquitectura y el diseño
 

@@ -5,12 +5,12 @@ author: ofirmanor
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: 951894bcd047d93809b41f47213ad670823a27e0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fff1aac5df50550e43ae3e87c63c2130c6b39644
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445379"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87013970"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
@@ -149,7 +149,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 ### <a name="log-alerts"></a>Alertas de registro
 
 > [!NOTE]
-> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar la consulta de búsqueda en conjunto con la [API de Log Analytics](https://docs.microsoft.com/rest/api/loganalytics/dataaccess/query/get). 
+> En el caso de las alertas de registro que tienen definida una carga de JSON o un asunto de correo electrónico personalizados, habilitar el esquema común revierte el esquema de la carga o el asunto de correo electrónico a los que se describen a continuación. Las alertas con el esquema común habilitado tienen un límite de tamaño superior de 256 KB por alerta. Los resultados de la búsqueda no se insertan en la carga de las alertas de registro si hicieron que el tamaño de la alerta superara este umbral. Para determinar esto, compruebe la marca `IncludeSearchResults`. Cuando no se incluyen los resultados de la búsqueda, se recomienda usar la consulta de búsqueda en conjunto con la [API de Log Analytics](/rest/api/loganalytics/dataaccess/query/get). 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -220,7 +220,7 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
                     "Heartbeat"
                 ]
             }
-        ]
+        ],
     "IncludeSearchResults": "True",
     "AlertType": "Metric measurement"
     }
@@ -500,5 +500,4 @@ Cualquier instancia de alerta describe el recurso afectado y la causa de la aler
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre el [esquema de alertas comunes](https://aka.ms/commonAlertSchemaDocs).
-- Obtenga información sobre [cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations). 
-
+- Obtenga información sobre [cómo crear una aplicación lógica que aproveche el esquema común de alertas para controlar todas las alertas](./alerts-common-schema-integrations.md). 

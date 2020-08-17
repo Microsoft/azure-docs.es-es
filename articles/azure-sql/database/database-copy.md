@@ -10,26 +10,23 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sashan
 ms.reviewer: carlrab
-ms.date: 02/24/2020
-ms.openlocfilehash: d92882014f66234be8a8b1d7063dae866ec6f230
-ms.sourcegitcommit: 053e5e7103ab666454faf26ed51b0dfcd7661996
+ms.date: 07/29/2020
+ms.openlocfilehash: 4189ea5fd0b2b52b5bf1e0614e4b43b9411df31d
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "84031476"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87530390"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-a-database-in-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos de Azure SQL Database
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database proporciona varios métodos para crear una copia transaccionalmente coherente de una [base de datos](single-database-overview.md) existente en el mismo servidor o en un servidor diferente. Una base de datos se puede copiar usando Azure Portal, PowerShell o T-SQL.
+Azure SQL Database proporciona varios métodos para crear una copia de una [base de datos](single-database-overview.md) existente en el mismo servidor o en un servidor diferente. Una base de datos se puede copiar usando Azure Portal, PowerShell, la CLI de Azure o T-SQL.
 
 ## <a name="overview"></a>Información general
 
-Una copia de la base de datos es una instantánea de la base de datos de origen en el momento de la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto, así como optar por conservar su nivel de servicio y tamaño de proceso, o un tamaño de proceso diferente dentro del mismo nivel de servicio (edición). Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Llegado a este punto, puede actualizar a cualquier edición o cambiar a una edición anterior. Los inicios de sesión, usuarios y permisos pueden administrarse de forma independiente. La copia se crea mediante la tecnología de replicación geográfica y, una vez completada la propagación, el vínculo de replicación geográfica finaliza automáticamente. Todos los requisitos para usar la replicación geográfica se aplican a la operación de copia de la base de datos. Consulte [Información general de la replicación geográfica activa](active-geo-replication-overview.md) para obtener más información.
-
-> [!NOTE]
-> Las [copias de seguridad de base de datos automatizadas](automated-backups-overview.md) se usan cuando se crea una copia de la base de datos.
+Una copia de base de datos es una instantánea coherente con las transacciones de la base de datos de origen a partir de un momento dado después de iniciarse la solicitud de copia. Puede seleccionar el mismo servidor u otro distinto para la copia. También puede optar por conservar el nivel de servicio y tamaño de proceso de la base de datos de origen, o usar un tamaño de proceso diferente dentro del mismo nivel de servicio o uno diferente. Cuando se complete la copia, esta se convierte en una base de datos independiente y completamente funcional. Los inicios de sesión, los usuarios y los permisos de la base de datos copiada se administran independientemente de la base de datos de origen. La copia se crea mediante la tecnología de replicación geográfica. Una vez completada la propagación de réplicas, el vínculo de replicación geográfica finaliza automáticamente. Todos los requisitos para usar la replicación geográfica se aplican a la operación de copia de la base de datos. Consulte [Información general de la replicación geográfica activa](active-geo-replication-overview.md) para obtener más información.
 
 ## <a name="logins-in-the-database-copy"></a>Inicios de sesión en la copia de la base de datos
 
@@ -120,6 +117,9 @@ Puede seguir los pasos descritos en la sección [Copiar una base de datos SQL e
 > [!NOTE]
 > [Azure Portal](https://portal.azure.com), PowerShell y la CLI de Azure no permiten copiar bases de datos en una suscripción diferente.
 
+> [!TIP]
+> La copia de base de datos mediante T-SQL permite copiar una base de datos de una suscripción en un inquilino de Azure diferente.
+
 ## <a name="monitor-the-progress-of-the-copying-operation"></a>Supervisión del progreso de la operación de copia
 
 Para supervisar el proceso de copia, consulte las vistas [sys.databases](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql), [sys.dm_database_copies](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-database-copies-azure-sql-database) y [sys.dm_operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). Mientras que la copia esté en curso, la columna **state_desc** de la vista sys.databases para la nueva base de datos se establece en **COPYING**.
@@ -133,7 +133,7 @@ Para supervisar el proceso de copia, consulte las vistas [sys.databases](https:/
 > [!IMPORTANT]
 > Si necesita crear una copia con un objetivo de servicio bastante más pequeño que el origen, es posible que la base de datos de destino no tenga suficientes recursos para completar el proceso de inicialización y que se produzca un error en la operación de copia. En este escenario, use una solicitud de restauración geográfica para crear una copia en un servidor o una región diferentes. Para más información, vea [Recuperación de una base de datos de Azure SQL mediante copias de seguridad de base de datos](recovery-using-backups.md#geo-restore).
 
-## <a name="rbac-roles-to-manage-database-copy"></a>Roles RBAC para administrar la copia de la base de datos
+## <a name="azure-roles-to-manage-database-copy"></a>Roles de Azure para administrar la copia de la base de datos
 
 Para crear una copia de la base de datos, debe tener los siguientes roles:
 
@@ -155,7 +155,7 @@ Para administrar la copia de la base de datos con Azure Portal, también necesit
 
    Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
 
-Si quiere ver las operaciones en implementaciones en el grupo de recursos en el portal, las operaciones en varios proveedores de recursos, incluidas las operaciones de SQL, necesitará estos roles RBAC adicionales:
+Si quiere ver las operaciones en implementaciones en el grupo de recursos en el portal, las operaciones en varios proveedores de recursos, incluidas las operaciones de SQL, necesitará estos roles de Azure adicionales:
 
    Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
 

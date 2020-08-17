@@ -10,12 +10,12 @@ ms.date: 04/15/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1db26e6e1308299325e15b4c856fc2ebbaed8326
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a56fdf8bc3bfa93c12cce66664e68b223fa97ff2
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807611"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87029542"
 ---
 # <a name="authorizing-access-to-data-in-azure-storage"></a>Autorización del acceso a datos en Azure Storage
 
@@ -23,11 +23,11 @@ Cada vez que accede a datos de la cuenta de almacenamiento, el cliente realiza u
 
 En la tabla siguiente se describen las opciones que ofrece Azure Storage para autorizar el acceso a los recursos:
 
-|  |Clave compartida (clave de cuenta de almacenamiento)  |Firma de acceso compartido (SAS)  |Azure Active Directory (Azure AD)  |Active Directory Domain Services local (versión preliminar) |Acceso de lectura anónimo  |
-|---------|---------|---------|---------|---------|---------|
+| Artefacto de Azure | Clave compartida (clave de cuenta de almacenamiento) | Firma de acceso compartido (SAS) | Azure Active Directory (Azure AD) | Active Directory Domain Services local (versión preliminar) | Acceso de lectura anónimo |
+| -------------- | -------------------------------- | ----------------------------- | --------------------------------- | ------------------------------------------------------ | ---------------------------- |
 |Azure Blobs     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |[Compatible](storage-auth-aad.md)         |No compatible|[Compatible](../blobs/storage-manage-access-to-resources.md)         |
 |Azure Files (SMB)     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |No compatible         |[Admitido, solo con AAD Domain Services](../files/storage-files-active-directory-overview.md)         |[Admitido, las credenciales deben sincronizarse con Azure AD](../files/storage-files-active-directory-overview.md)|No compatible         |
-|Azure Files (REST)     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |No compatible         |No compatible |No compatible         |
+|Azure Files (REST)     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |No compatible         |No compatible |No compatibles         |
 |Colas de Azure     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |[Compatible](storage-auth-aad.md)         |No compatible | No compatible         |
 |Azure Tables     |[Compatible](/rest/api/storageservices/authorize-with-shared-key/)         |[Compatible](storage-sas-overview.md)         |No compatible         |No compatible| No compatible         |
 

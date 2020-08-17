@@ -10,13 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f93a25854bc8b93e9bd75ea71037f6363d143914
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 0818ab782710e6a102d2034790ff8d997cd54f8e
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145723"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808446"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-azure-ad-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory (Azure AD)
 
@@ -53,13 +52,20 @@ Para agregar una aplicación a un inquilino de Azure AD:
 6. Puede buscar en la galería la aplicación que quiere agregar o escribir su nombre en el cuadro de búsqueda para localizarla. Después, seleccione la aplicación en los resultados. En el formulario, puede editar el nombre de la aplicación para que se ajuste a las necesidades de su organización. En este ejemplo, hemos seleccionado GitHub y hemos cambiado el nombre a **GitHub-test**.
     ![Se muestra cómo agregar una aplicación de la galería](media/add-application-portal/create-application.png).
     >[!TIP]
-    >Si la aplicación que está buscando no está en la galería, puede hacer clic en el vínculo **Cree su propia aplicación**. Microsoft ha trabajado con muchos desarrolladores de aplicaciones para configurar estas previamente con el fin de que funcionen con Azure AD. Estas son las aplicaciones que se muestran en la galería. Pero si la aplicación que quiere agregar no aparece en la lista, puede crear una nueva, genérica y configurarla usted mismo o siguiendo las instrucciones del desarrollador que la haya creado.
+    >Si la aplicación que está buscando no está en la galería, puede hacer clic en el vínculo **Cree su propia aplicación** y, a continuación, en **¿Cuál es el objetivo de utilizar la aplicación?** elija **Integrar cualquier otra aplicación que no se encuentre en la galería**. Microsoft ha trabajado con muchos desarrolladores de aplicaciones para configurar estas previamente con el fin de que funcionen con Azure AD. Estas son las aplicaciones que se muestran en la galería. Pero si la aplicación que quiere agregar no aparece en la lista, puede crear una nueva, genérica y configurarla usted mismo o siguiendo las instrucciones del desarrollador que la haya creado.
 7. Seleccione **Crear**. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
 
 Ha terminado de agregar una aplicación. El siguiente inicio rápido muestra cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
 
+> [!TIP]
+> La administración de aplicaciones se puede automatizar mediante Graph API, consulte el artículo sobre la [automatización de la administración de aplicaciones con Microsoft Graph API](https://docs.microsoft.com/graph/application-saml-sso-configure-api).
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Si no va a continuar con la serie de inicios rápidos, considere la posibilidad de eliminar la aplicación para limpiar el inquilino de prueba. La eliminación de la aplicación se trata en el último inicio rápido de esta serie, consulte [Eliminación de una aplicación](delete-application-portal.md).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de una aplicación](add-application-portal-configure.md)
-- [Configuración del inicio de sesión único](add-application-portal-setup-sso.md)
-- [Eliminación de una aplicación](delete-application-portal.md)
+Pase al siguiente artículo, donde aprenderá a configurar una aplicación.
+> [!div class="nextstepaction"]
+> [Configuración de una aplicación](add-application-portal-configure.md)

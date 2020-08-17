@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/20/2020
-ms.openlocfilehash: da9ec0fc421f0cb2f2a1e6fa65d8c936cfd5a3c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a14f7ca3e5a7b291e430db6ea536edc5396b5448
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515434"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87318902"
 ---
 # <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Cuentas de almacenamiento de propiedad del cliente para la ingesta de registros en Azure Monitor
 
@@ -236,3 +236,4 @@ Si la cuenta de almacenamiento registrada del área de trabajo está en otra reg
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para más información sobre cómo configurar un vínculo privado, consulte [Uso de Azure Private Link para conectar redes a Azure Monitor de forma segura](private-link-security.md).
+

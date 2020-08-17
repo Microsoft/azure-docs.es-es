@@ -3,12 +3,12 @@ title: 'Diseño de la implementación de Application Insights: uno frente a much
 description: Este artículo trata sobre el envío directo de la telemetría a los diferentes recursos para los sellos de desarrollo, prueba y producción.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: ff301887aebf64d26d0fb391a8a16adefc8a3860
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f539862432fcdc67632e91caadf71d6584fbc3e
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516726"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87420573"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>¿Cuántos recursos de Application Insights se deben implementar?
 
@@ -35,7 +35,7 @@ Cada recurso de Application Insights incluye métricas disponibles de serie. En 
 
 ### <a name="other-things-to-keep-in-mind"></a>Otros aspectos que se deben tener en cuenta
 
--   Es posible que tenga que agregar código personalizado para asegurarse de que se establezcan valores significativos en el atributo [Cloud_RoleName](./app-map.md?tabs=net#set-cloud-role-name). Sin valores significativos establecidos para este atributo, *NINGUNA* de las experiencias del portal va a funcionar.
+-   Es posible que tenga que agregar código personalizado para asegurarse de que se establezcan valores significativos en el atributo [Cloud_RoleName](./app-map.md?tabs=net#set-or-override-cloud-role-name). Sin valores significativos establecidos para este atributo, *NINGUNA* de las experiencias del portal va a funcionar.
 - En el caso de las aplicaciones de Service Fabric y los servicios en la nube clásicos, el SDK lee automáticamente del entorno de roles de Azure y los establece. En todos los demás tipos de aplicaciones, es probable que tenga que establecer esto de forma explícita.
 -   La experiencia de Live Metrics no admite la división por nombre de rol.
 

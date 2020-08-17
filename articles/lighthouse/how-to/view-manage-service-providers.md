@@ -1,18 +1,21 @@
 ---
 title: Visualización y administración de proveedores de servicios
 description: Los clientes pueden usar la página proveedores de servicios en Azure Portal para ver información acerca de los proveedores de servicios, ofertas de proveedores de servicios y recursos delegados.
-ms.date: 07/10/2020
+ms.date: 08/12/2020
 ms.topic: how-to
-ms.openlocfilehash: bc0de0d3fd7ac4fe7c00720aab41961d9100ff5a
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: c22408a52d973a244d67528a73d4eaa487f166ba
+ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86273785"
+ms.lasthandoff: 08/13/2020
+ms.locfileid: "88167171"
 ---
 # <a name="view-and-manage-service-providers"></a>Visualización y administración de proveedores de servicios
 
-Los clientes pueden usar la página de **Proveedores de servicios** de [Azure Portal](https://portal.azure.com) para ver detalles sobre proveedores de servicios y ofertas de proveedores de servicios, delegar recursos específicos a [Azure Lighthouse](../overview.md) y comprar nuevas ofertas de proveedores de servicios. Aunque aquí nos referiremos a los proveedores de servicios y clientes, las empresas que administren varios inquilinos pueden usar el mismo proceso para consolidar su experiencia de administración.
+Los clientes pueden usar la página de **Proveedores de servicios** de [Azure Portal](https://portal.azure.com) para ver detalles sobre proveedores de servicios y ofertas de proveedores de servicios, delegar recursos específicos a [Azure Lighthouse](../overview.md) y comprar nuevas ofertas de proveedores de servicios.
+
+> [!TIP]
+> Aunque aquí nos referiremos a los proveedores de servicios y clientes, las [empresas que administren varios inquilinos](../concepts/enterprise.md) pueden usar el mismo proceso para consolidar su experiencia de administración.
 
 Para acceder a la página **Proveedores de servicios** de Azure Portal, el cliente puede seleccionar **Todos los servicios** y, a continuación, buscar **Proveedores de servicios** y seleccionar esta opción. También pueden encontrarla si escribe "Proveedores de servicios" o "Azure Lighthouse" en el cuadro de búsqueda situado cerca de la parte superior de Azure Portal.
 

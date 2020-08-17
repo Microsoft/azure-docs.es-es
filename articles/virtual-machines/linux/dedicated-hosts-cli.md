@@ -3,15 +3,15 @@ title: Implementación de máquinas virtuales Linux en hosts dedicados mediante 
 description: Implemente máquinas virtuales en hosts dedicados mediante la CLI de Azure.
 author: cynthn
 ms.service: virtual-machines-linux
-ms.topic: article
+ms.topic: how-to
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: dc772368de1a0f7d8a7d4f44b47ecafda70f0a70
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 9435764d99476584680734817d55086f47e8216b
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714855"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87373630"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Implementación de máquinas virtuales en hosts dedicados mediante la CLI de Azure
  

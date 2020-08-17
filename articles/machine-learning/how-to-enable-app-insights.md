@@ -5,23 +5,23 @@ description: Supervisión de los servicios web implementados con Azure Machine L
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: how-to
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 06/09/2020
-ms.custom: tracking-python
-ms.openlocfilehash: d28cd3b1d8722970505eb313bd8e80589ce9ff87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 07/23/2020
+ms.topic: conceptual
+ms.custom: how-to, devx-track-python
+ms.openlocfilehash: ae66447e128b07ce942b8c2fcc66347a31cfe83f
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743519"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87848866"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Supervisión y recopilación de datos de los puntos de conexión del servicio web ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-En este artículo, aprenderá a recopilar datos y a supervisar los modelos implementados en los puntos de conexión de servicio web en Azure Kubernetes Service (AKS) o Azure Container Instances (ACI), para lo cual habilitará Azure Application Insights a través de: 
+En este artículo, aprenderá a recopilar datos y a realizar la supervisión de los modelos implementados en los puntos de conexión de servicio web en Azure Kubernetes Service (AKS) o Azure Container Instances (ACI), para lo cual consultará los registros y habilitará Azure Application Insights a través de: 
 * [SDK de Python de Azure Machine Learning](#python)
 * [Azure Machine Learning Studio](#studio) en https://ml.azure.com
 
@@ -42,6 +42,18 @@ Además de recopilar los datos de salida y la respuesta de un punto de conexión
 
 * Un modelo de Machine Learning entrenado para implementarse en Azure Kubernetes Service (AKS) o Azure Container Instance (ACI). Si no tiene uno, consulte el tutorial [Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).
 
+## <a name="query-logs-for-deployed-models"></a>Consulta de registros para modelos implementados
+
+Para recuperar los registros de un servicio web implementado anteriormente, cargue el servicio y use la función `get_logs()`. Los registros pueden contener información detallada sobre los errores que se produjeron durante la implementación.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
 ## <a name="web-service-metadata-and-response-data"></a>Metadatos de servicio web y datos de respuesta
 
 > [!IMPORTANT]
@@ -50,6 +62,7 @@ Además de recopilar los datos de salida y la respuesta de un punto de conexión
 Para registrar la información de una solicitud en el servicio web, agregue instrucciones `print` al archivo score.py. Cada instrucción `print` genera una entrada en la tabla de seguimientos en Application Insights, en el mensaje `STDOUT`. El contenido de la instrucción `print` se incluirá en `customDimensions` y, luego, `Contents` en la tabla de seguimientos. Si imprime una cadena JSON, se genera una estructura de datos jerárquica en el resultado de seguimientos, en `Contents`.
 
 Puede consultar Azure Application Insights directamente para acceder a estos datos o configurar una [exportación continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) a una cuenta de almacenamiento para una retención más larga o un procesamiento adicional. Los datos del modelo se pueden utilizar entonces en Azure Machine Learning para configurar el etiquetado, un nuevo entrenamiento, la capacidad de explicación, el análisis de datos u otro uso. 
+
 
 <a name="python"></a>
 
@@ -128,6 +141,8 @@ Si desea registrar seguimientos personalizados, siga el proceso de implementaci�
 
 3. Cree una imagen e impleméntela en [AKS o ACI](how-to-deploy-and-where.md).
 
+Para obtener más información sobre el registro y la recopilación de datos, vea [Habilitación del registro en Azure Machine Learning](how-to-enable-logging.md) y [Recopilación de datos de modelos en producción](how-to-enable-data-collection.md).
+
 ### <a name="disable-tracking-in-python"></a>Deshabilitación del seguimiento en Python
 
 Para deshabilitar Azure Application Insights, use el siguiente código:
@@ -153,15 +168,20 @@ También puede habilitar Azure Application Insights desde Azure Machine Learning
 1. Seleccione **Enable Application Insights diagnostics and data collection** (Habilitar la recopilación de datos y el diagnóstico de Application Insights).
 
     ![Habilitar Application Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
-## <a name="evaluate-data"></a>Evaluación de los datos
+
+## <a name="view-metrics-and-logs"></a>Visualización de métricas y registros
+
 Los datos del servicio se almacenan en la cuenta de Azure Application Insights en el mismo grupo de recursos de Azure Machine Learning.
 Para verlo:
 
-1. Vaya al área de trabajo de Azure Machine Learning en [Azure Portal](https://ms.portal.azure.com/) y haga clic en el vínculo de Application Insights.
+1. Vaya al área de trabajo de Azure Machine Learning en [Studio](https://ml.azure.com/).
+1. Seleccione **Puntos de conexión**.
+1. Seleccione el servicio implementado.
+1. Desplácese hacia abajo para buscar la **URL de Application Insights** y seleccione el vínculo.
 
-    [![AppInsightsLoc](./media/how-to-enable-app-insights/AppInsightsLoc.png)](././media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+    [![Localizar la dirección URL de Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. En la pestaña **Información general** o en la sección __Supervisión__ de la lista de la izquierda, seleccione __Registros__.
+1. En Application Insights, en la pestaña **Información general** o en la sección __Supervisión__ de la lista de la izquierda, seleccione __Registros__.
 
     [![Pestaña Información general de supervisión](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -186,7 +206,7 @@ Puede usar la [exportación continua](https://docs.microsoft.com/azure/azure-mon
 
 Se puede usar Azure Data Factory, canalizaciones de Azure Machine Learning u otras herramientas de procesamiento de datos para transformar los datos según sea necesario. Una vez transformados los datos, puede registrarlos en el área de trabajo de Azure Machine Learning como un conjunto de datos. Para ello, vea [Creación de conjuntos de datos y acceso a ellos (versión preliminar) en Azure Machine Learning](how-to-create-register-datasets.md).
 
-   [![Exportación continua](./media/how-to-enable-app-insights/continuous-export-setup.png)](././media/how-to-enable-app-insights/continuous-export-setup.png)
+:::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Exportación continua":::
 
 
 ## <a name="example-notebook"></a>Cuaderno de ejemplo

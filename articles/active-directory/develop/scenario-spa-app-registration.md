@@ -12,16 +12,18 @@ ms.workload: identity
 ms.date: 05/19/2020
 ms.author: hahamil
 ms.custom: aaddev
-ms.openlocfilehash: 9dc5b446e2ab26ca43c2a300e1af1237353325a3
-ms.sourcegitcommit: 50673ecc5bf8b443491b763b5f287dde046fdd31
+ms.openlocfilehash: efd51e90bb14f3d97b76eb6ac45b384192bb8da0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83682397"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87311575"
 ---
 # <a name="single-page-application-app-registration"></a>Aplicación de página única: Registro de aplicación
 
 Para registrar una aplicación de página única (SPA) en la Plataforma de identidad de Microsoft, complete los pasos siguientes. Los pasos de registro difieren entre MSAL.js 1.0, que admite el flujo de concesión implícita, y MSAL.js 2.0, que admite el flujo de código de autorización con PKCE.
+
+[!INCLUDE [MSAL.js 2.0 and Azure AD B2C temporary incompatibility notice](../../../includes/msal-b2c-cors-compatibility-notice.md)]
 
 ## <a name="create-the-app-registration"></a>Creación del registro de aplicaciones
 
@@ -38,7 +40,7 @@ Después, configure el registro de la aplicación con un **URI de redirección**
 - [MSAL.js 2.0 con flujo de código de autenticación](#redirect-uri-msaljs-20-with-auth-code-flow) (recomendado)
 - [MSAL.js 1.0 con flujo implícito](#redirect-uri-msaljs-10-with-implicit-flow)
 
-## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirección: MSAL.js 2.0 con flujo de código de autenticación
+## <a name="redirect-uri-msaljs-20-with-auth-code-flow"></a>URI de redirección: [MSAL.js 2.0 con flujo de código de autenticación](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-browser)
 
 Siga estos pasos para agregar un URI de redirección para una aplicación que use MSAL.js 2.0 o posterior. MSAL.js 2.0 o posterior admite el flujo de código de autorización con PKCE y CORS en respuesta a [restricciones de cookies de terceros en el explorador](reference-third-party-cookies-spas.md). El flujo de concesión implícita no se admite en MSAL.js 2.0 o posterior.
 
@@ -50,7 +52,9 @@ Siga estos pasos para agregar un URI de redirección para una aplicación que us
 
 Ya ha completado el registro de aplicación de la aplicación de página única (SPA) y ha configurado un URI de redirección al que se redirigirá al cliente y se enviarán los tokens de seguridad. Al configurar el URI de redirección con el icono **Aplicación de página única** en el panel **Agregar una plataforma**, el registro de aplicación se configura para admitir el flujo de código de autorización con PKCE y CORS.
 
-## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirección: MSAL.js 1.0 con flujo implícito
+Siga el [tutorial](tutorial-v2-javascript-auth-code.md) para obtener más información.
+
+## <a name="redirect-uri-msaljs-10-with-implicit-flow"></a>URI de redirección: [MSAL.js 1.0 con flujo implícito](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-core)
 
 Siga estos pasos para agregar un URI de redirección para una aplicación de página única que usa MSAL.js 1.3 o anterior y el flujo de concesión implícita. Las aplicaciones que usan MSAL.js 1.3 o anterior no admiten el flujo de código de autenticación.
 
@@ -64,6 +68,8 @@ Siga estos pasos para agregar un URI de redirección para una aplicación de pá
 1. Seleccione **Configurar** para terminar de agregar el URI de redirección.
 
 Ya ha completado el registro de aplicación de la aplicación de página única (SPA) y ha configurado un URI de redirección al que se redirigirá al cliente y se enviarán los tokens de seguridad. Al seleccionar uno o ambos entre **Tokens de id.** y **Tokens de acceso**, ha habilitado el flujo de concesión implícita.
+
+Siga el [tutorial](tutorial-v2-javascript-spa.md) para obtener más información.
 
 ## <a name="note-about-authorization-flows"></a>Nota sobre los flujos de autorización
 

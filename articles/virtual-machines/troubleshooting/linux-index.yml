@@ -10,12 +10,12 @@ metadata:
   author: genlin
   ms.author: genli
   ms.date: 09/09/2019
-  ms.openlocfilehash: f19ce0f1e088d2360f4afb2925d2a5d67b4c0252
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.openlocfilehash: b78ce7baf60431e0f9ee1b1218d2d57019b35359
+  ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "77920848"
+  ms.lasthandoff: 07/23/2020
+  ms.locfileid: "87068986"
 landingContent:
 - title: Solución de errores en la implementación
   linkLists:
@@ -24,39 +24,39 @@ landingContent:
     - text: Solución de problemas de errores de asignación al crear, reiniciar o cambiar el tamaño de una VM en Azure
       url: allocation-failure.md
     - text: Solución de problemas de implementación al crear una máquina virtual en Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-troubleshoot-deployment-new-vm
+      url: ./troubleshoot-deployment-new-vm-linux.md
     - text: Resolución de errores de plantilla no válida
       url: ../../azure-resource-manager/templates/error-invalid-template.md
     - text: Resolución de los errores de no disponibilidad de la SKU
-      url: https://docs.microsoft.com/azure/azure-resource-manager/templates/error-sku-not-available
+      url: ../../azure-resource-manager/templates/error-sku-not-available.md
 - title: Guía para la implementación de máquinas virtuales
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Preparación y carga de imágenes no aprobadas para Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/create-upload-generic
+      url: ../linux/create-upload-generic.md
     - text: Creación o clonación de una imagen de una máquina virtual generalizada en Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/capture-image
+      url: ../linux/capture-image.md
 - title: No puedo conectarme a mi máquina virtual
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Instrucciones de uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales Linux en Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+      url: ./boot-diagnostics.md
     - text: Restablecimiento de las contraseñas locales de Linux en máquinas virtuales de Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/reset-password
+      url: ./reset-password.md
     - text: Restablecimiento del acceso remoto mediante PowerShell o la CLI para solucionar los problemas del servidor remoto
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-ssh-connection
+      url: ./troubleshoot-ssh-connection.md
     - text: Pasos rápidos para diagnosticar y solucionar problemas de conexión SSH comunes
-      url: https://azure.microsoft.com/documentation/articles/virtual-machines-troubleshoot-ssh-connections/
+      url: ./troubleshoot-ssh-connection.md?toc=/azure/virtual-machines/linux/toc.json
 - title: Restablecimiento de contraseña
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Restablecimiento de la clave SSH o la contraseña mediante la extensión de acceso de la máquina virtual
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#ways-to-use-the-vmaccess-extension
+      url: ../extensions/vmaccess.md#ways-to-use-the-vmaccess-extension
     - text: Restablecimiento de la contraseña local de una máquina virtual Linux de Azure mediante un método sin conexión
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/troubleshooting/reset-password
+      url: ./reset-password.md
 - title: La máquina virtual no arranca.
   linkLists:
   - linkListType: how-to-guide
@@ -64,9 +64,9 @@ landingContent:
     - text: Solución de los errores de arranque que aparecen al iniciar la máquina virtual después de aplicar cambios específicos al kernel
       url: https://support.microsoft.com/help/4091524/how-recovery-azure-linux-vm-from-kernel-related-boot-related-issues
     - text: Uso de Serial Console para acceder a GRUB para modificar el modo de configuración del arranque
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode
+      url: ./serial-console-grub-single-user-mode.md
     - text: Instrucciones de uso de diagnósticos de arranque para solucionar problemas de máquinas virtuales Linux en Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics
+      url: ./boot-diagnostics.md
     - text: Descripción de los errores de FSTAB y pasos necesarios para su mitigación
       url: https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors
 - title: No se puede iniciar ni detener la máquina virtual
@@ -74,9 +74,9 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Solución de problemas de implementación de máquinas virtuales Windows en Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/windows/restart-resize-error-troubleshooting
+      url: ./restart-resize-error-troubleshooting.md
     - text: Solución de errores de asignación (modo de implementación clásica)
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure-classic
+      url: ./allocation-failure-classic.md
 - title: Reinicio inesperado de la máquina virtual
   linkLists:
   - linkListType: how-to-guide
@@ -88,52 +88,52 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Preguntas frecuentes sobre discos virtuales
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks
+      url: ../linux/faq-for-disks.md
     - text: Solución de errores de asignación al cambiar el tamaño de una máquina virtual
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/allocation-failure
+      url: ./allocation-failure.md
     - text: Descripción de la unidad temporal de la máquina virtual
-      url: https://docs.microsoft.com/azure/storage/storage-about-disks-and-vhds-linux#temporary-disk
+      url: ../linux/managed-disks-overview.md#temporary-disk
     - text: Introducción a Azure Managed Disks
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/managed-disks-overview
+      url: ../linux/managed-disks-overview.md
     - text: Preguntas frecuentes sobre los discos de máquina virtual de Azure y los discos prémium administrados y no administrados
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/convert-unmanaged-to-managed-disks
+      url: ../linux/convert-unmanaged-to-managed-disks.md
 - title: Problemas de cifrado de disco
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Escenarios de cifrado de discos Azure en máquinas virtuales Linux
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-linux
+      url: ../linux/disk-encryption-linux.md
     - text: Solución de problemas de cifrado de disco
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-troubleshooting
+      url: ../linux/disk-encryption-troubleshooting.md
     - text: Preguntas frecuentes sobre el cifrado de discos
-      url: https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption-faq
+      url: ../linux/disk-encryption-faq.md
 - title: Problemas de rendimiento de máquinas virtuales
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Solución de problemas de rendimiento de máquinas virtuales de Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/troubleshoot-performance-virtual-machine-linux-windows
+      url: ./troubleshoot-performance-virtual-machine-linux-windows.md
     - text: Diagnóstico de rendimiento de máquinas virtuales de Azure
-      url: https://docs.microsoft.com/azure/virtual-machines/troubleshooting/performance-diagnostics
+      url: ./performance-diagnostics.md
 - title: Problemas de extensiones de máquinas virtuales
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Pasos generales para solucionar problemas de extensiones
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/troubleshoot
+      url: ../extensions/troubleshoot.md
     - text: Instalación de la extensión en la máquina virtual
-      url: https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux#installing-the-extension-in-your-vm
+      url: ../extensions/diagnostics-linux.md#installing-the-extension-in-your-vm
     - text: Extensión de la secuencia de comandos personalizada para Windows
-      url: https://docs.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows#tips-and-tricks
+      url: ../extensions/custom-script-windows.md#tips-and-tricks
 - title: Copia de seguridad y restauración
   linkLists:
   - linkListType: how-to-guide
     links:
     - text: Solución de problemas de copia de seguridad de máquinas virtuales de Azure en Azure Portal
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot
+      url: ../../backup/backup-azure-vms-troubleshoot.md
     - text: Solución de problemas de Azure Backup Server
-      url: https://docs.microsoft.com/azure/backup/backup-azure-mabs-troubleshoot
+      url: ../../backup/backup-azure-mabs-troubleshoot.md
     - text: Revisión de características de Azure Backup
-      url: https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup
+      url: ../../backup/backup-overview.md
     - text: Descripción de cómo se realizan copias de seguridad de máquinas virtuales de Azure en almacenes de Recovery Services
-      url: https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm
+      url: ../../backup/backup-azure-vms-first-look-arm.md

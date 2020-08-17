@@ -9,16 +9,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 04/02/2020
+ms.date: 08/03/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 01/28/2019
-ms.openlocfilehash: 855a050afa14144f8963f24398c6b7b3939ef562
-ms.sourcegitcommit: 62c5557ff3b2247dafc8bb482256fef58ab41c17
+ms.openlocfilehash: 1455259bc42aea9d506a9a2a19d725cac3d643f8
+ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2020
-ms.locfileid: "80656469"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87562776"
 ---
 # <a name="change-pricing-tier-of-an-azure-notification-hubs-namespace"></a>Cambio del plan de tarifa de un espacio de nombres de Azure Notification Hubs
 
@@ -26,11 +26,11 @@ Notification Hubs se ofrece en tres niveles: **gratis**, **básico** y **estánd
 
 ## <a name="overview"></a>Información general
 
-En Azure Notification Hubs, un centro es la entidad o recurso más pequeño. Por lo general, se asigna a una aplicación y puede contener un certificado para cada Sistema de notificación de plataforma (PNS) que se admite en la aplicación. La aplicación puede ser híbrida, nativa o multiplataforma.
+En Azure Notification Hubs, un *centro de notificaciones* es la entidad o recurso más pequeño. Por lo general, se asigna a una aplicación y puede contener un certificado para cada Sistema de notificación de plataforma (PNS) que se admite en la aplicación. La aplicación puede ser híbrida, nativa o multiplataforma.
 
-Un **espacio de nombres** es una colección de centros de notificaciones. Por lo general, cada espacio de nombres consta de centros relacionados y que se usan con un propósito específico. Por ejemplo, puede tener tres espacios de nombres distintos con fines de desarrollo, prueba y producción, respectivamente.
+Un *espacio de nombres* es una colección de centros de notificaciones. Por lo general, cada espacio de nombres consta de centros relacionados y que se usan con un propósito específico. Por ejemplo, puede tener tres espacios de nombres distintos con fines de desarrollo, prueba y producción, respectivamente.
 
-Puede asociar un espacio de nombres con los planes de tarifa **gratis**, **básico** o **estándar**. Puede usar el nivel para un espacio de nombres que se adapte a sus requisitos. Las secciones siguientes muestran cómo cambiar el plan de tarifa de un espacio de nombres de Notification Hubs.
+Puede asociar un espacio de nombres con los planes de tarifa **gratis**, **básico** o **estándar**. Para los espacios de nombres, puede usar el nivel que se adapte a sus requisitos. Las secciones siguientes muestran cómo cambiar el plan de tarifa de un espacio de nombres de Notification Hubs.
 
 ## <a name="use-azure-portal"></a>Usar Azure Portal
 
@@ -42,7 +42,7 @@ El procedimiento siguiente le muestra cómo cambiar el plan de tarifa de un espa
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda.
-3. Seleccione **Espacios de nombres del centro de notificaciones** en la sección **Internet de las cosas**. Si selecciona el asterisco (`*`) que aparece junto al texto, se agrega en la barra de navegación de la izquierda bajo **FAVORITOS**. Le ayuda a tener acceso a la página del espacio de nombres que avanza con mayor rapidez. Una vez que lo agregue a FAVORITOS, seleccione **Espacios de nombre del centro de notificaciones**.
+3. Seleccione **Espacios de nombres del centro de notificaciones** en la sección **Internet de las cosas**. Si selecciona el asterisco (`*`) que aparece junto al texto, se agrega en la barra de navegación de la izquierda bajo **FAVORITOS**. Le ayuda a tener acceso a la página del espacio de nombres con mayor rapidez la próxima vez. Una vez que lo agregue a **FAVORITOS**, seleccione **Espacios de nombre del centro de notificaciones**.
 
     ![Todos los servicios -> Espacios de nombre del centro de notificaciones](./media/change-pricing-tier/all-services-nhub.png)
 
@@ -62,7 +62,7 @@ El procedimiento siguiente le muestra cómo cambiar el plan de tarifa de un espa
 
 ### <a name="change-tier-on-the-hub-page"></a>Cambio del nivel en la página del centro
 
-El procedimiento siguiente le muestra cómo cambiar el plan de tarifa de un espacio de nombres en la página del centro. Aunque lleve a cabo estos pasos desde la página del centro, en realidad cambia el plan de tarifa del espacio de nombres y todos los centros en el espacio de nombres.
+Siga estos pasos para cambiar el plan de tarifa de un espacio de nombres en la página del centro. Aunque lleve a cabo estos pasos desde la página del centro, en realidad cambia el plan de tarifa del espacio de nombres y todos los centros en el espacio de nombres:
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el menú de la izquierda.

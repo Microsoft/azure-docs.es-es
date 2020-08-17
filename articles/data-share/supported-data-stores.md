@@ -2,16 +2,16 @@
 title: Almacenes de datos admitidos en Azure Data Share
 description: Obtenga información sobre los almacenes de datos que se admiten para usar Azure Data Share.
 ms.service: data-share
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: 8263e2b2d3d8d029cd28f6c8ea6c556fb9fe23be
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/30/2020
+ms.openlocfilehash: 967b2dceab1f1702120cd3121ccd64b4e7286bc6
+ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108301"
+ms.lasthandoff: 08/02/2020
+ms.locfileid: "87511911"
 ---
 # <a name="supported-data-stores-in-azure-data-share"></a>Almacenes de datos admitidos en Azure Data Share
 

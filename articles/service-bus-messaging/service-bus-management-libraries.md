@@ -4,12 +4,12 @@ description: En este artículo se explica cómo usar las bibliotecas de administ
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 042edcd1851f86dd2a660673bc87884b68410bfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63a8f0f8ef299f9d27d3c1be2746052536c4e5e8
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341718"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88066175"
 ---
 # <a name="service-bus-management-libraries"></a>Bibliotecas de administración de Service Bus
 
@@ -26,11 +26,11 @@ Las bibliotecas de administración de Azure Service Bus pueden aprovisionar din�
 
 Para comenzar a usar las bibliotecas de administración de Service Bus, debe autenticarse con el servicio Azure Active Directory (Azure AAD). Azure AAD requiere que se autentique como una entidad de servicio que proporciona acceso a los recursos de Azure. Para más información sobre cómo crear una entidad de servicio, consulte uno de los siguientes artículos:  
 
-* [Uso de Azure Portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](/azure/azure-resource-manager/resource-group-create-service-principal-portal)
-* [Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal)
-* [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](/azure/azure-resource-manager/resource-group-authenticate-service-principal-cli)
+* [Uso de Azure Portal para crear una aplicación de Active Directory y una entidad de servicio con acceso a los recursos](../active-directory/develop/howto-create-service-principal-portal.md)
+* [Uso de Azure PowerShell para crear a una entidad de servicio para acceder a recursos](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+* [Uso de la CLI de Azure para crear a una entidad de servicio para acceder a recursos](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
-Estos tutoriales le proporcionan valores para `AppId` (identificador de cliente), `TenantId` y `ClientSecret` (clave de autenticación), que usan las bibliotecas de administración con fines de autenticación. Debe tener como mínimo los permisos [**propietario de datos**](/azure/role-based-access-control/built-in-roles#azure-service-bus-data-owner) o [**colaborador de Azure Service Bus**](/azure/role-based-access-control/built-in-roles#contributor) para el grupo de recursos en el que quiere realizar la ejecución.
+Estos tutoriales le proporcionan valores para `AppId` (identificador de cliente), `TenantId` y `ClientSecret` (clave de autenticación), que usan las bibliotecas de administración con fines de autenticación. Debe tener como mínimo los permisos [**propietario de datos**](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) o [**colaborador de Azure Service Bus**](../role-based-access-control/built-in-roles.md#contributor) para el grupo de recursos en el que quiere realizar la ejecución.
 
 ## <a name="programming-pattern"></a>Modelo de programación
 

@@ -3,12 +3,12 @@ title: Configurar un dispositivo de Azure Migrate para VMware
 description: Obtenga información sobre cómo configurar un dispositivo de Azure Migrate para evaluar y migrar VM de VMware.
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 272481640db739a458a19a2c9383ff45b54974b5
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24ba978d776da375b417fb67823651727836cb22
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112823"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87386748"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>Configuración de un dispositivo para máquinas virtuales de VMware
 
@@ -89,7 +89,7 @@ Configure el dispositivo por primera vez. Si se implementa el dispositivo median
         - Solo se admite un proxy HTTP.
     - **Time sync** (Sincronización de hora): Se comprueba la hora. Para que la detección funcione correctamente, la hora del dispositivo debe estar sincronizada con la hora de Internet.
     - **Instalación de actualizaciones**: Azure Migrate comprueba si están instaladas las últimas actualizaciones del dispositivo.
-    - **Install VDDK** (Instalar VDDK): Azure Migrate comprueba si VMWare vSphere Virtual Disk Development Kit (VDDK) está instalado.
+    - **Install VDDK** (Instalar VDDK): Azure Migrate comprueba si VMware vSphere Virtual Disk Development Kit (VDDK) está instalado.
         - Azure Migrate usa VDDK para replicar las máquinas durante la migración a Azure.
         - Descargue VDDK 6.7 de VMware y extraiga el contenido del archivo zip descargado en la ubicación especificada del dispositivo.
 

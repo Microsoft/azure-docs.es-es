@@ -23,6 +23,8 @@
       href: tutorial-access-api-with-certificates.md
     - name: Transmisión en secuencias de registros a un centro de eventos
       href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Asistente para el análisis de registros
+      href: tutorial-log-analytics-wizard.md
 - name: Conceptos
   items:
     - name: Planeación de una implementación de informes y supervisión
@@ -84,6 +86,8 @@
           href: troubleshoot-missing-data-download.md
         - name: No se puede acceder a Graph API para los informes
           href: troubleshoot-graph-api.md
+        - name: Auditoría de datos en un cambio de dominio comprobado
+          href: troubleshoot-audit-data-verified-domain.md
 - name: Referencia
   expanded: true
   items:

@@ -5,12 +5,12 @@ description: Aprenda a crear un volumen persistente de forma dinámica con Azure
 services: container-service
 ms.topic: article
 ms.date: 07/01/2020
-ms.openlocfilehash: 78bcd4925451125d5ab56a1da08cc307dc0fc236
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e9e686d8da420c650709d3bedc103d0043fa679
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831597"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287101"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>Creación dinámica y uso de un volumen persistente con Azure Files en Azure Kubernetes Service (AKS)
 
@@ -78,7 +78,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteMany
-  storageClassName: my-azurefile
+  storageClassName: azurefile
   resources:
     requests:
       storage: 5Gi
@@ -186,6 +186,8 @@ parameters:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para consultar los procedimientos recomendados asociados, consulte [Procedimientos recomendados para el almacenamiento y las copias de seguridad en Azure Kubernetes Service (AKS)][operator-best-practices-storage].
+
+Para obtener información sobre los parámetros de clase de almacenamiento, consulte [Aprovisionamiento dinámico](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/docs/driver-parameters.md#dynamic-provision).
 
 Obtenga más información sobre los volúmenes persistentes de Kubernetes con Azure Files.
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: a40c5512da40ede84251ec16345a3957c391bb71
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 8a5374bf15798fd7e53f0d93e69f2f40a2d57b94
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85965418"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87533825"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Instancias de clúster de conmutación por error con SQL Server en Azure Virtual Machines
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -48,10 +48,10 @@ SQL Server en VM de Azure ofrece varias opciones como solución de almacenamient
 
 ||[Discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md)|[Recursos compartidos de archivos Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) |[Espacios de almacenamiento directo (S2D)](/windows-server/storage/storage-spaces/storage-spaces-direct-overview)|
 |---------|---------|---------|---------|
-|**Versión mínima de sistema operativo**| Windows Server 2016|Windows Server 2012|Windows Server 2016|
-|**Versión de SQL Server mínima**|SQL Server 2019|SQL Server 2012|SQL Server 2016|
+|**Versión mínima de sistema operativo**| All |Windows Server 2012|Windows Server 2016|
+|**Versión de SQL Server mínima**|All|SQL Server 2012|SQL Server 2016|
 |**Disponibilidad de VM admitida** |Conjuntos de disponibilidad con grupos de selección de ubicación de proximidad |Conjuntos y zonas de disponibilidad|Conjuntos de disponibilidad |
-|**Admite FileStream**|No|No|Sí |
+|**Admite FileStream**|Sí|No|Sí |
 |**Caché de blobs de Azure**|No|No|Sí|
 
 En el resto de esta sección se enumeran las ventajas y las limitaciones de cada opción de almacenamiento disponible para SQL Server en las máquinas virtuales de Azure. 
@@ -60,18 +60,18 @@ En el resto de esta sección se enumeran las ventajas y las limitaciones de cada
 
 [Los discos compartidos de Azure](../../../virtual-machines/windows/disks-shared.md) son una característica de [Azure Managed Disks](../../../virtual-machines/windows/managed-disks-overview.md). Los clústeres de conmutación por error de Windows Server admiten el uso de discos compartidos de Azure con una instancia de clúster de conmutación por error. 
 
-**Sistema operativo compatible**: Windows Server 2019   
-**Versión de SQL compatible**: SQL Server 2019   
+**Sistema operativo compatible**: All   
+**Versión de SQL compatible**: All     
 
 **Ventajas** 
 - Resulta útil para las aplicaciones que desean migrar a Azure al tiempo que mantienen su arquitectura de alta disponibilidad y recuperación ante desastres (HADR) tal cual. 
 - Puede migrar las aplicaciones en clúster a Azure tal cual gracias a la compatibilidad con las reservas persistentes de SCSI (SCSI PR). 
 - Admite Azure SSD Premium compartido para todas las versiones de SQL Server y Almacenamiento en disco Ultra de Azure compartido para SQL Server 2019. 
 - Puede usar un único disco compartido o seccionar varios para crear un grupo de almacenamiento compartido. 
+- Admite FileStream.
 
 
 **Limitaciones**: 
-- solo está disponible para SQL Server 2019 y Windows Server 2019 durante la versión preliminar. 
 - Las máquinas virtuales se deben colocar en el mismo conjunto de disponibilidad y grupo de ubicación de proximidad.
 - Availability Zones no se admite.
 - El almacenamiento en caché de disco SSD Premium no se admite.
@@ -98,7 +98,7 @@ Para empezar, consulte [Creación de una FCI con discos compartidos de Azure (SQ
 - Se requiere un ancho de banda de red alto para lograr un gran rendimiento debido a la replicación de disco en curso. 
 - Necesita un tamaño de máquina virtual mayor y un doble pago por almacenamiento, ya que el almacenamiento está conectado a cada máquina virtual. 
 
-Para empezar, consulte [Instancia de clúster de conmutación por error de SQL Server con Espacios de almacenamiento directo](failover-cluster-instance-azure-shared-disks-manually-configure.md). 
+Para empezar, consulte [Instancia de clúster de conmutación por error de SQL Server con Espacios de almacenamiento directo](failover-cluster-instance-storage-spaces-direct-manually-configure.md). 
 
 ### <a name="premium-file-share"></a>Recurso compartido de archivos Premium
 

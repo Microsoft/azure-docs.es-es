@@ -4,14 +4,14 @@ description: Obtenga información sobre los operadores de SQL, por ejemplo, los 
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2020
+ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 8ef41edb687a5df39243880c897d12e83c008ec9
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: dd1652781d7eae8beb400c52137a8f16891e2b2a
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80063572"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87498844"
 ---
 # <a name="operators-in-azure-cosmos-db"></a>Operadores en Azure Cosmos DB
 
@@ -35,6 +35,14 @@ Para los operadores de comparación como `>`, `>=`, `!=`, `<` y `<=`, la compara
 
 Si el resultado de la expresión escalar es `Undefined`, el elemento no se incluye en el resultado, porque `Undefined` no es igual a `true`.
 
+Por ejemplo, la siguiente comparación de la consulta entre un número y un valor de cadena produce `Undefined`. Por lo tanto, el filtro no incluye ningún resultado.
+
+```sql
+SELECT *
+FROM c
+WHERE 7 = 'a'
+```
+
 ## <a name="logical-and-or-and-not-operators"></a>Operadores lógicos (Y, O y NO)
 
 Los operadores lógicos operan en valores booleanos. En las tablas siguientes se muestran las tablas de verdad lógica para estos operadores:
@@ -47,7 +55,7 @@ Devuelve `true` cuando alguna de las condiciones es `true`.
 | --- | --- | --- | --- |
 | **True** |True |True |True |
 | **False** |True |False |No definido |
-| **Undefined** |True |No definido |No definido |
+| **Undefined** |True |Sin definir |Sin definir |
 
 **operator AND**
 

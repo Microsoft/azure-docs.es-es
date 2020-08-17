@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: rohink
-ms.openlocfilehash: d84c4a9af366e9032604aef5531742eb790bb571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 09c04d727e42f88bb376a59d66a23688e16abb13
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711687"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87089065"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitación del registro de recursos en Azure Traffic Manager
 
@@ -68,9 +68,8 @@ Todos los registros de recursos disponibles a través de Azure Monitor comparten
 
 En la tabla siguiente se incluye el esquema de registros específico del recurso del perfil de Azure Traffic Manager.
 
-|||||
+|Nombre del campo|Tipo de campo|Definición|Ejemplo|
 |----|----|---|---|
-|**Nombre del campo**|**Tipo de campo**|**Definición**|**Ejemplo**|
 |EndpointName|String|El nombre del punto de conexión de Traffic Manager cuyo mantenimiento se está registrando.|*myPrimaryEndpoint*|
 |Status|String|El estado de mantenimiento del punto de conexión de Traffic Manager que se sondeó. El estado puede ser **Up** (Arriba) o **Down** (Abajo).|**Up** (Arriba)|
 |||||

@@ -4,24 +4,24 @@ description: Con la API REST de alertas de Log Analytics, se pueden crear y admi
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 07/29/2018
-ms.openlocfilehash: 38f2f671ecf426f6544f6faf934aec7071451b0d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: eec7aeab32aa071ce9d4476b15740c89210f0606
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86515757"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322336"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST 
 
 La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
 
 > [!IMPORTANT]
-> Como [se anunció anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), las áreas de trabajo de Log Analytics creadas después del *1 de junio de 2019* podrán administrar reglas de alerta **únicamente** mediante la [API REST](/rest/api/monitor/scheduledqueryrules/) scheduledQueryRules de Azure, la [plantilla de Azure Resource Manager](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) y el [cmdlet de PowerShell](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Los clientes pueden [cambiar fácilmente su forma preferida de administración de reglas de alertas](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para que las áreas de trabajo anteriores aprovechen scheduledQueryRules de Azure Monitor como valor predeterminado y consigan muchas de las [nuevas ventajas](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), como la posibilidad de usar cmdlets nativos de PowerShell, el aumento del período de retrospectiva en las reglas, la creación de reglas en un grupo de recursos o una suscripción independientes y mucho más.
+> Como [se anunció anteriormente](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), las áreas de trabajo de Log Analytics creadas después del *1 de junio de 2019* podrán administrar reglas de alerta **únicamente** mediante la [API REST](/rest/api/monitor/scheduledqueryrules/) scheduledQueryRules de Azure, la [plantilla de Azure Resource Manager](./alerts-log.md#managing-log-alerts-using-azure-resource-template) y el [cmdlet de PowerShell](./alerts-log.md#managing-log-alerts-using-powershell). Los clientes pueden [cambiar fácilmente su forma preferida de administración de reglas de alertas](./alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) para que las áreas de trabajo anteriores aprovechen scheduledQueryRules de Azure Monitor como valor predeterminado y consigan muchas de las [nuevas ventajas](./alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api), como la posibilidad de usar cmdlets nativos de PowerShell, el aumento del período de retrospectiva en las reglas, la creación de reglas en un grupo de recursos o una suscripción independientes y mucho más.
 
 La API de REST de búsqueda de Log Analytics es de tipo RESTful y se puede obtener acceso a ella a través de la API de REST de Azure Resource Manager. En este documento encontrará ejemplos donde se tiene acceso a la API desde una línea de comandos de PowerShell a través de [ARMClient](https://github.com/projectkudu/ARMClient), una herramienta de línea de comandos de código abierto que simplifica la tarea de invocar a la API de Azure Resource Manager. El uso de ARMClient y PowerShell es una de las muchas opciones para tener acceso a la API de búsqueda de Log Analytics. Con estas herramientas, puede usar la API de RESTful de Azure Resource Manager para realizar llamadas a las áreas de trabajo de Log Analytics y ejecutar comandos de búsqueda dentro de ellas. La API generará resultados de búsqueda, en formato JSON, lo que le permite usar los resultados de búsqueda de muchas formas distintas mediante programación.
 
 ## <a name="prerequisites"></a>Prerrequisitos
-Actualmente, solo se pueden crear alertas con una búsqueda guardada en Log Analytics.  Para obtener más información, consulte [API de búsqueda de registros de Log Analytics](../../azure-monitor/log-query/log-query-overview.md) .
+Actualmente, solo se pueden crear alertas con una búsqueda guardada en Log Analytics.  Para obtener más información, consulte [API de búsqueda de registros de Log Analytics](../log-query/log-query-overview.md) .
 
 ## <a name="schedules"></a>Programaciones
 Una búsqueda guardada puede tener una o varias programaciones. La programación define la frecuencia con que se realiza la búsqueda y el intervalo de tiempo en el que se identifican los criterios.
@@ -265,7 +265,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{ResourceGroupName
 #### <a name="action-groups"></a>Grupos de acciones
 Todas las alertas de Azure usan el grupo de acciones como el mecanismo predeterminado para controlar las acciones. Con el grupo de acciones, puede especificar las acciones una vez y, luego, asociar el grupo de acciones a varias alertas en todo Azure, sin la necesidad de declarar repetidamente una y otra vez las mismas acciones. Los grupos de acciones admiten varias acciones, incluido el correo electrónico, SMS, llamadas de voz, conexión ITSM, runbook de Automation, URI de webhook, etc. 
 
-Para los usuarios que han extendido sus alertas a Azure, ahora una programación tendrá los detalles del grupo de acciones junto con el umbral, para así poder crear una alerta. Antes de crear una alerta, es necesario definir los detalles de correo electrónico, las direcciones URL de webhooks, los detalles de automatización de runbooks y otras acciones dentro de un grupo de acciones. Es posible crear un [grupo de acciones desde Azure Monitor](../../azure-monitor/platform/action-groups.md) en el portal o usar la [API Action Group](/rest/api/monitor/actiongroups).
+Para los usuarios que han extendido sus alertas a Azure, ahora una programación tendrá los detalles del grupo de acciones junto con el umbral, para así poder crear una alerta. Antes de crear una alerta, es necesario definir los detalles de correo electrónico, las direcciones URL de webhooks, los detalles de automatización de runbooks y otras acciones dentro de un grupo de acciones. Es posible crear un [grupo de acciones desde Azure Monitor](./action-groups.md) en el portal o usar la [API Action Group](/rest/api/monitor/actiongroups).
 
 Para agregar la asociación de un grupo de acciones a una alerta, especifique el identificador de Azure Resource Manager único del grupo de acciones en la definición de la alerta. A continuación, aparece una ilustración de ejemplo:
 
@@ -345,7 +345,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 ```
 
 ##### <a name="customize-webhook-payload-for-action-group"></a>Personalización de la carga de Webhook para un grupo de acciones
-De manera predeterminada, el webhook enviado a través del grupo de acciones para Log Analytics tiene una estructura fija. Sin embargo, un usuario puede personalizar la carga de JSON si usa variables específicas admitidas para cumplir con los requisitos del punto de conexión del webhook. Para más información, consulte [Acciones de webhook para reglas de alertas de registro](../../azure-monitor/platform/alerts-log-webhook.md). 
+De manera predeterminada, el webhook enviado a través del grupo de acciones para Log Analytics tiene una estructura fija. Sin embargo, un usuario puede personalizar la carga de JSON si usa variables específicas admitidas para cumplir con los requisitos del punto de conexión del webhook. Para más información, consulte [Acciones de webhook para reglas de alertas de registro](./alerts-log-webhook.md). 
 
 Los detalles del webhook personalizado se deben enviar junto con los detalles de ActionGroup y se aplicarán a todo los URI del webhook especificados dentro del grupo de acciones, como se indica en el ejemplo a continuación.
 
@@ -387,6 +387,7 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Use la [API de búsqueda de registros de Log Analytics](../../azure-monitor/log-query/log-query-overview.md) en Log Analytics.
-* Más información sobre las [alertas de registro en Azure Monitor](../../azure-monitor/platform/alerts-unified-log.md)
-* [Creación, edición o administración de reglas de alertas de registro en Azure Monitor](../../azure-monitor/platform/alerts-log.md)
+* Use la [API de búsqueda de registros de Log Analytics](../log-query/log-query-overview.md) en Log Analytics.
+* Más información sobre las [alertas de registro en Azure Monitor](./alerts-unified-log.md)
+* [Creación, edición o administración de reglas de alertas de registro en Azure Monitor](./alerts-log.md)
+

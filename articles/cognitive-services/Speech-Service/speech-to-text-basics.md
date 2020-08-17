@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/14/2020
 ms.author: trbye
-ms.custom: tracking-python
+ms.custom: devx-track-python, devx-track-javascript
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 42d5e3082745d2f15cff455dd1ff31e634586860
-ms.sourcegitcommit: 1de57529ab349341447d77a0717f6ced5335074e
+ms.openlocfilehash: 92ba3127bfa3b4de67bef3f9b97b95a7713bed84
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84604820"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874595"
 ---
 # <a name="learn-the-basics-of-speech-recognition"></a>Aspectos básicos del reconocimiento de voz
 

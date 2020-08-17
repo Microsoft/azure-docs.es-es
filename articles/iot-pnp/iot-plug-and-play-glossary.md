@@ -1,58 +1,22 @@
 ---
 title: Glosario de términos - Versión preliminar de IoT Plug and Play | Microsoft Docs
 description: 'Conceptos: glosario de términos comunes relacionados con la versión preliminar de IoT Plug and Play.'
-author: Philmea
-ms.author: philmea
-ms.date: 12/23/2019
+author: dominicbetts
+ms.author: dobett
+ms.date: 07/22/2020
 ms.topic: conceptual
-ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
-manager: philmea
-ms.openlocfilehash: f0c21626c664f2d72b534ebae7f0a257620be07d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: d8efec0517cd0b4bdcba643a0936b474593d58c4
+ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81767068"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87475471"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Glosario de términos de la versión preliminar de IoT Plug and Play
 
 Definiciones de los términos comunes que se usan en los artículos de IoT Plug and Play.
-
-## <a name="azure-certified-for-iot-portal"></a>Portal de Azure Certified for IoT
-
-Puede usar el sitio web del [portal de Azure Certified for IoT](https://aka.ms/ACFI) para:
-
-- Completar el [proceso de certificación](#device-certification) del [dispositivo IoT Plug and Play](#iot-plug-and-play-device).
-- Buscar [modelos de funcionalidad del dispositivo](#device-capability-model).
-- Publicar un modelo de funcionalidad del dispositivo en el [repositorio de modelos público](#public-model-repository).
-
-## <a name="azure-cli"></a>Azure CLI
-
-La CLI de Azure es una herramienta de línea de comandos multiplataforma para administrar recursos de Azure. La extensión de Azure IOT para la CLI de Azure es una herramienta de línea de comandos para interactuar con los [dispositivos IoT Plug and Play](#iot-plug-and-play-device) y probarlos. Puede usar la extensión para lo siguiente:
-
-- Conectar con un dispositivo IoT Plug and Play.
-- Ver la [telemetría](#telemetry) que envía el dispositivo.
-- Trabajar con las [propiedades](#properties) del dispositivo.
-- Llamar a [comandos](#commands) del dispositivo.
-- Administrar [repositorios de modelos ](#model-repository), [interfaces](#interface) y [modelos de funcionalidad del dispositivo](#device-capability-model).
-
-## <a name="azure-iot-central"></a>Azure IoT Central
-
-Azure IoT Central es una solución de software como servicio totalmente administrada que facilita la conexión, la supervisión y la administración de sus [dispositivos IoT Plug and Play](#iot-plug-and-play-device). Puede usar los [modelos de funcionalidad del dispositivo](#device-capability-model) para configurar automáticamente una aplicación IoT Central a fin de supervisar y administrar los dispositivos.
-
-## <a name="azure-iot-certification-service"></a>Servicio de certificación de Azure IoT
-
-El servicio de certificación de Azure IoT ejecuta un conjunto de pruebas de certificación cuando se envía un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) para su certificación a través del [portal de Azure Certified for IoT](#azure-certified-for-iot-portal). Para agregar un dispositivo al [catálogo de dispositivos Certified for IoT](#certified-for-iot-device-catalog), el dispositivo debe estar certificado.
-
-## <a name="azure-iot-tools-extension"></a>Extensión de Azure IoT Tools
-
-Azure IoT Tools es una colección de extensiones en [Visual Studio Code](#visual-studio-code) que le ayuda a interactuar con IOT Hub y a desarrollar dispositivos IoT. Para el desarrollo de dispositivos IoT Plug and Play, le ayuda a:
-
-- Crear [modelos de funcionalidad del dispositivo](#device-capability-model) e [interfaces](#interface).
-- Publicar en [repositorios de modelos](#model-repository).
-- Generar código de esqueleto para implementar la aplicación de dispositivo.
 
 ## <a name="azure-iot-explorer-tool"></a>Herramienta Azure IoT Explorer
 
@@ -60,6 +24,7 @@ Azure IoT Explorer es una herramienta gráfica que puede usar para interactuar c
 
 - Ver los dispositivos conectados a su [centro de IoT](#azure-iot-hub).
 - Conectar con un dispositivo IoT Plug and Play.
+- Ver los [componentes](#component) del dispositivo.
 - Ver la [telemetría](#telemetry) que envía el dispositivo.
 - Trabajar con las [propiedades](#properties) del dispositivo.
 - Llamar a [comandos](#commands) del dispositivo.
@@ -73,23 +38,15 @@ IoT Hub es un servicio administrado, hospedado en la nube, que actúa como centr
 
 ## <a name="azure-iot-device-sdk"></a>SDK de dispositivos IoT de Azure
 
-Hay SDK de dispositivos para varios lenguajes que puede usar para crear aplicaciones cliente de dispositivos IoT Plug and Play. Uno de los requisitos para la [certificación de dispositivos](#device-certification) es que el código de cliente del dispositivo use uno de los SDK de dispositivo IoT de Azure.
-
-## <a name="certified-for-iot-device-catalog"></a>Catálogo de dispositivos Certified for IoT
-
-El [catálogo de dispositivos Certified for IoT](https://catalog.azureiotsolutions.com/) enumera los [dispositivos IoT Plug and Play](#iot-plug-and-play-device) que han superado las pruebas de [certificación de dispositivos](#device-certification). Los [modelos de funcionalidad del dispositivo](#device-capability-model) para los dispositivos IoT Plug and Play del catálogo se publican en el repositorio de modelos público.
+Hay SDK de dispositivos para varios lenguajes que puede usar para crear aplicaciones cliente de dispositivos IoT Plug and Play.
 
 ## <a name="commands"></a>Comandos:
 
 Los comandos definidos en una [interfaz](#interface) representan los métodos que se pueden ejecutar en el [gemelo digital](#digital-twin). Por ejemplo, un comando para restablecer un dispositivo.
 
-## <a name="common-interface"></a>Interfaz común
+## <a name="component"></a>Componente
 
-Se espera que todos los [dispositivos IoT Plug and Play](#iot-plug-and-play-device) implementen algunas [interfaces](#interface) comunes. Por ejemplo, la interfaz de información del dispositivo define la información del hardware y del sistema operativo del dispositivo. La [certificación del dispositivo](#device-certification) requiere que el dispositivo implemente varias interfaces comunes. Puede recuperar las definiciones de las interfaces comunes del repositorio de modelos público.
-
-## <a name="company-model-repository"></a>Repositorio de modelos de empresa
-
-Una organización puede usar un [repositorio de modelos](#model-repository) de empresa como almacén privado para [modelos de funcionalidad del dispositivo](#device-capability-model) e [interfaces](#interface).
+Los componentes permiten compilar una [interfaz](#interface) del modelo como un ensamblado de otras interfaces. Un [modelo de dispositivo](#device-model) puede combinar varias interfaces como componentes. Por ejemplo, un modelo podría incluir un componente interruptor y un componente termostato. Varios componentes de un modelo pueden usar también el mismo tipo de interfaz. Por ejemplo, un modelo puede incluir dos componentes termostato.
 
 ## <a name="connection-string"></a>Cadena de conexión
 
@@ -97,108 +54,75 @@ Una cadena de conexión encapsula la información necesaria para conectarse a un
 
 - Las cadenas de conexión de dispositivo permiten que los [dispositivos IoT Plug and Play](#iot-plug-and-play-device) se conecten a puntos de conexión orientados a dispositivos de un centro de IoT. El código de cliente en un dispositivo usa la cadena de conexión para establecer una conexión segura con un centro de IoT.
 - Las cadenas de conexión de IoT Hub permiten que las aplicaciones y herramientas de back-end se conecten de forma segura a puntos de conexión orientados a servicios de un centro de IoT. Estas soluciones y herramientas administran el centro de IoT y los dispositivos conectados a él.
-- Las cadenas de conexión del repositorio de modelos de la empresa permiten la conexión segura de soluciones y herramientas de back-end a un [repositorio de modelos de la empresa](#company-model-repository). Estas soluciones y herramientas consumen o administran los [modelos de funcionalidad del dispositivo](#device-capability-model) y las [interfaces](#interface) en el repositorio.
 
-## <a name="device-capability-model"></a>Modelo de funcionalidad del dispositivo
+## <a name="device-model"></a>Modelo de dispositivo
 
-Un modelo de funcionalidad del dispositivo describe un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) y define el conjunto de [interfaces](#interface) implementadas por este. Un modelo de funcionalidad del dispositivo se corresponde normalmente con un dispositivo físico, un producto o una SKU. Para definir un modelo de funcionalidad del dispositivo, se usa el [lenguaje de definición de gemelos digitales](#digital-twin-definition-language).
+Un modelo de dispositivo describe un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) y define los [componentes](#component) que lo forman. Un modelo de dispositivo simple no tiene componentes independientes y contiene una definición para una sola interfaz de nivel raíz. Un modelo de dispositivo más complejo incluye varios componentes. Un modelo de dispositivo se corresponde normalmente con un dispositivo físico, un producto o una SKU. Para definir un modelo de dispositivo, se usa el [Lenguaje de definición de Digital Twins, versión 2](#digital-twins-definition-language).
 
-## <a name="device-certification"></a>Certificación de dispositivos
+## <a name="device-builder"></a>Creador de dispositivos
 
-La certificación de dispositivos es el proceso de certificar un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) para que se pueda agregar al [catálogo de dispositivos Certified for IoT](#certified-for-iot-device-catalog) y que su [modelo de funcionalidad del dispositivo](#device-capability-model) y sus [interfaces](#interface) se agreguen al [repositorio de modelos públicos](#public-model-repository).
-
-## <a name="device-developer"></a>Desarrollador de dispositivo
-
-Un desarrollador de dispositivos usa un [modelo de funcionalidad del dispositivo](#device-capability-model), [interfaces](#interface) y un [SDK de dispositivo IOT de Azure](#azure-iot-device-sdk) para implementar el código que se ejecutará en un [dispositivo IoT Plug and Play](#iot-plug-and-play-device).
+Un creador de dispositivos usa un [modelo de dispositivo](#device-model) e [interfaces](#interface) al implementar código para que se ejecute en un [dispositivo IoT Plug and Play](#iot-plug-and-play-device). Los creadores de dispositivos usan normalmente uno de los [SDK de dispositivo IoT de Azure](#azure-iot-device-sdk) para implementar el cliente del dispositivo, pero no es necesario.
 
 ## <a name="device-modeling"></a>Modelado de dispositivos
 
-Un [desarrollador de dispositivos](#device-developer) usa el [lenguaje de definición de gemelos digitales](#digital-twin-definition-language) para modelar las funcionalidades de un [dispositivo IoT Plug and Play](#iot-plug-and-play-device). El modelo se puede compartir mediante un repositorio de modelos. Un desarrollador de dispositivos puede generar el código básico del dispositivo a partir del modelo. Un [desarrollador de soluciones](#solution-developer) puede configurar una solución de IOT a partir del modelo.
-
-## <a name="device-provisioning-service"></a>Servicio Device Provisioning
-
-[Azure IoT Central](#azure-iot-central) usa el servicio Device Provisioning para administrar el registro y la conexión de todos los dispositivos. Para obtener más información, consulte [Conectividad de dispositivos en Azure IoT Central](../iot-central/core/concepts-get-connected.md). También puede usar el servicio Device Provisioning para administrar el registro y la conexión de dispositivos a la solución de IoT basada en IoT Hub. Para obtener más información, consulte [Aprovisionamiento de dispositivos con el servicio Azure IoT Hub Device Provisioning](../iot-dps/about-iot-dps.md).
-
-## <a name="device-registration"></a>Registro de dispositivos
-
-Para que un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) pueda conectarse a una solución de IoT, debe registrarse con la solución. [Azure IoT Central](#azure-iot-central) usa el [servicio Device Provisioning](#device-provisioning-service) para administrar el registro de los dispositivos. En una solución de IoT personalizada, puede registrar dispositivos con su centro de IoT en Azure Portal o mediante programación.
-
-## <a name="device-first"></a>Dispositivo inicial
-
-[Azure IoT Central](#azure-iot-central) admite un escenario de conexión y registro del dispositivo inicial. En este escenario, un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) puede conectarse a una aplicación IoT Central sin registrarse con anterioridad. El registro se produce automáticamente cuando un dispositivo se conecta por primera vez a la aplicación.
+Un [creador de dispositivos](#device-builder) usa el [Lenguaje de definición de Digital Twins](#digital-twins-definition-language) para modelar las funcionalidades de un [dispositivo IoT Plug and Play](#iot-plug-and-play-device). Un [creador de soluciones](#solution-builder) puede configurar una solución de IOT a partir del modelo.
 
 ## <a name="digital-twin"></a>Gemelo digital
 
-Un gemelo digital es un modelo de [dispositivo IoT Plug and Play](#iot-plug-and-play-device). Un gemelo digital se modela mediante el [lenguaje de definición de gemelos digitales (DTDL)](#digital-twin-definition-language). Puede usar los [SDK de dispositivo IoT de Azure](#azure-iot-device-sdk) para interactuar con los gemelos digitales en tiempo de ejecución. Por ejemplo, puede establecer un valor de propiedad en un gemelo digital en un dispositivo y el SDK comunica este cambio a su solución de IoT en la nube.
+Un gemelo digital es un modelo de [dispositivo IoT Plug and Play](#iot-plug-and-play-device). Un gemelo digital se modela mediante el [Lenguaje de definición de Digital Twins (DTDL)](#digital-twins-definition-language). Puede usar los [SDK de dispositivo IoT de Azure](#azure-iot-device-sdk) para interactuar con los gemelos digitales en tiempo de ejecución. Por ejemplo, puede establecer un valor de propiedad en un gemelo digital en un dispositivo y el SDK comunica este cambio a su solución de IoT en la nube.
 
 ## <a name="digital-twin-change-events"></a>Eventos de cambio de gemelo digital
 
-Cuando un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) se conecta a un [centro de IoT](#azure-iot-hub), el centro puede usar su capacidad de enrutamiento para enviar notificaciones de cambios de gemelos digitales. Por ejemplo, cada vez que un valor de [propiedad](#properties) cambia en un dispositivo, IoT Hub puede enviar una notificación a un punto de conexión, como una cola de Service Bus.
+Cuando un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) se conecta a un [centro de IoT](#azure-iot-hub), el centro puede usar su capacidad de enrutamiento para enviar notificaciones de cambios de gemelos digitales. Por ejemplo, cada vez que un valor de [propiedad](#properties) cambia en un dispositivo, IoT Hub puede enviar una notificación a un punto de conexión, como un centro de eventos.
 
-## <a name="digital-twin-definition-language"></a>Lenguaje de definición de gemelos digitales
+## <a name="digital-twins-definition-language"></a>Lenguaje de definición de Digital Twins
 
-Lenguaje que sirve para describir los modelos y las interfaces de los [dispositivos IoT Plug and Play](#iot-plug-and-play-device). Use el [lenguaje de definición de gemelos digitales](https://aka.ms/DTDL) para describir las funcionalidades de un [gemelo digital](#digital-twin) y para habilitar la plataforma IoT y las soluciones IoT con el fin de aprovechar la semántica de la entidad.
+Lenguaje que sirve para describir los modelos y las interfaces de los [dispositivos IoT Plug and Play](#iot-plug-and-play-device). Use el [Lenguaje de definición de Digital Twins, versión 2](https://github.com/Azure/opendigitaltwins-dtdl) para describir las funcionalidades de un [gemelo digital](#digital-twin) y para habilitar la plataforma IoT y las soluciones IoT con el fin de aprovechar la semántica de la entidad.
 
 ## <a name="digital-twin-route"></a>Enrutamiento de gemelo digital
 
-Una ruta configurada en un [centro de IoT](#azure-iot-hub) para ofrecer [eventos de cambio de gemelo digital](#digital-twin-change-events) a un punto de conexión, como una cola de Service Bus.
+Una ruta configurada en un [centro de IoT](#azure-iot-hub) para ofrecer [eventos de cambio de gemelo digital](#digital-twin-change-events) a un punto de conexión, como un centro de eventos.
 
 ## <a name="interface"></a>Interfaz
 
-Una interfaz describe las funcionalidades relacionadas que un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) o un [gemelo digital](#digital-twin) implementa. Puede reutilizar las interfaces en distintos [modelos de funcionalidad del dispositivo](#device-capability-model).
+Una interfaz describe las funcionalidades relacionadas que un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) o un [gemelo digital](#digital-twin) implementa. Puede reutilizar las interfaces en distintos [modelos de dispositivo](#device-model). Cuando se usa una interfaz en un modelo de dispositivo, define un [componente](#component) del dispositivo.
 
 ## <a name="iot-hub-query-language"></a>Lenguaje de consulta de IoT Hub
 
-El lenguaje de consulta de IoT Hub se usa para varios propósitos. Por ejemplo, puede usar el lenguaje para buscar [dispositivos registrados](#device-registration) en su centro de IoT o para refinar el comportamiento de [enrutamiento del gemelo digital](#digital-twin-route).
+El lenguaje de consulta de IoT Hub se usa para varios propósitos. Por ejemplo, puede usar el lenguaje para buscar dispositivos registrados en su centro de IoT o para mejorar el comportamiento de [enrutamiento del gemelo digital](#digital-twin-route).
 
 ## <a name="iot-plug-and-play-device"></a>Dispositivo IoT Plug and Play
 
-Un dispositivo IoT Plug and Play suele ser un dispositivo informático independiente y a pequeña escala que recopila datos o controla otros dispositivos, y que ejecuta software o firmware que implementa un [modelo de funcionalidad del dispositivo](#device-capability-model).  Por ejemplo, un dispositivo IoT Plug and Play podría ser un dispositivo de supervisión ambiental o un controlador de un sistema de riego de agricultura inteligente. Puede escribir una solución de IoT hospedada en la nube para imponer, controlar y recibir datos de dispositivos IoT Plug and Play. El [catálogo de dispositivos Azure Certified for IoT](#certified-for-iot-device-catalog) enumera dispositivos IoT Plug and Play disponibles. Todos los dispositivos IoT Plug and Play del catálogo están validados y tienen un [modelo de funcionalidad del dispositivo](#device-capability-model).
+Un dispositivo IoT Plug and Play suele ser un dispositivo informático independiente y a pequeña escala que recopila datos o controla otros dispositivos, y que ejecuta software o firmware que implementa un [modelo de dispositivo](#device-model).  Por ejemplo, un dispositivo IoT Plug and Play podría ser un dispositivo de supervisión ambiental o un controlador de un sistema de riego de agricultura inteligente. Puede escribir una solución de IoT hospedada en la nube para imponer, controlar y recibir datos de dispositivos IoT Plug and Play.
 
-## <a name="microsoft-partner-center"></a>Centro de partners de Microsoft
+## <a name="iot-plug-and-play-conventions"></a>Convenciones de IoT Plug and Play
 
-El [centro de partners de Microsoft](https://docs.microsoft.com/partner-center/) es donde su organización administra su relación de un extremo a otro con Microsoft. Necesitará una cuenta del centro de partners de Microsoft para poder certificar el [dispositivo IoT Plug and Play](#iot-plug-and-play-device) en el [portal de Azure Certified for IoT](#azure-certified-for-iot-portal).
+Se espera que los [dispositivos](#iot-plug-and-play-device) IoT Plug and Play sigan un conjunto de [convenciones](concepts-convention.md) al intercambiar datos con una solución.
 
-## <a name="model-discovery"></a>Detección de modelo
+## <a name="model-id"></a>Id. de modelo
 
-Cuando un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) se conecta a una solución de IoT, la solución puede detectar las funcionalidades del dispositivo mediante la búsqueda del [modelo de funcionalidad del dispositivo](#device-capability-model). Un dispositivo puede enviar su modelo de funcionalidad a la solución, o la solución puede buscar un modelo de funcionalidad del dispositivo en un [repositorio de modelos](#model-repository).
+Cuando un dispositivo IoT Plug and Play se conecta a IoT Hub, envía el **Id. de modelo** del modelo de [DTDL](#digital-twins-definition-language) que implementa. Esto permite que la solución encuentre el modelo de dispositivo.
 
 ## <a name="model-repository"></a>Repositorio de modelos
 
-En el repositorio de modelos se almacenan las [interfaces](#interface) y los [modelos de funcionalidad del dispositivo](#device-capability-model). Hay un solo [repositorio de modelos públicos](#public-model-repository). Las organizaciones pueden crear sus propios repositorios de modelos organizativos.
+En el [repositorio de modelos](concepts-model-repository.md) se almacenan los [modelos de dispositivo](#device-model) y las [interfaces](#interface).
 
 ## <a name="model-repository-rest-api"></a>API REST del repositorio de modelos
 
-Una API para administrar e interactuar con los repositorios de modelos. Por ejemplo, puede usar la API para agregar [modelos de funcionalidad del dispositivo](#device-capability-model) y buscar modelos de funcionalidad.
+Una API para administrar e interactuar con el repositorio de modelos. Por ejemplo, puede usar la API para agregar y buscar [modelos de dispositivo](#device-model).
 
 ## <a name="properties"></a>Propiedades
 
 Las propiedades son campos de datos definidos en una [interfaz](#interface) que representan un estado de un gemelo digital. Las propiedades se pueden declarar como de solo lectura o de escritura. Las propiedades de solo lectura, como el número de serie, se establecen mediante código que se ejecuta en el propio [dispositivo IoT Plug and Play](#iot-plug-and-play-device).  Las propiedades que se pueden escribir, como un umbral de alarma, se establecen normalmente a partir de la solución de IoT basada en la nube.
 
-## <a name="public-model-repository"></a>Repositorio de modelos público
-
-Hay un único repositorio de modelos público donde se almacenan las [interfaces](#interface) y los [modelos de funcionalidad del dispositivo](#device-capability-model) de los [dispositivos certificados](#device-certification). El repositorio de modelos público almacena también las definiciones de las [interfaces comunes](#common-interface).
-
-## <a name="registration-id"></a>Identificador de registro
-
-Un identificador de registro identifica de forma única un dispositivo en el [servicio Device Provisioning](#device-provisioning-service). Este identificador no es el mismo que el identificador de dispositivo que es un identificador único para un dispositivo en un [centro de IoT](#azure-iot-hub).
-
-## <a name="scope-id"></a>Identificador de ámbito
-
-El identificador. de ámbito identifica de forma única una instancia del [servicio Device Provisioning](#device-provisioning-service).
-
 ## <a name="shared-access-signature"></a>Firma de acceso compartido
 
 Las firmas de acceso compartido son un mecanismo de autenticación basado en hash seguros SHA-256 o URI. La autenticación de firma de acceso compartido tiene dos componentes: una directiva de acceso compartido y una firma de acceso compartido (a menudo denominada token). Un [dispositivo IoT Plug and Play](#iot-plug-and-play-device) usa una firma de acceso compartido para autenticarse con un [centro de IoT](#azure-iot-hub).
 
-## <a name="solution-developer"></a>Desarrollador de soluciones
+## <a name="solution-builder"></a>Creador de soluciones
 
-Un desarrollador de soluciones crea el back-end de la solución. Normalmente, un desarrollador de soluciones trabaja con recursos de Azure, como [IoT Hub](#azure-iot-hub) y [repositorios de modelos](#model-repository), o funciona con [IoT Central](#azure-iot-central).
+Un creador de soluciones crea el back-end de la solución. Normalmente, un creador de soluciones trabaja con recursos de Azure, como [IoT Hub](#azure-iot-hub) y [repositorios de modelos](#model-repository).
 
 ## <a name="telemetry"></a>Telemetría
 
 Los campos de telemetría definidos en una [interfaz](#interface) representan medidas. Estas medidas suelen ser valores como lecturas de sensores que envía el [dispositivo IoT Plug and Play](#iot-plug-and-play-device) como un flujo de datos.
-
-## <a name="visual-studio-code"></a>Visual Studio Code
-
-Visual Studio Code es un moderno editor de código disponible para varias plataformas. Las extensiones, como las del paquete [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools), le permiten personalizar el editor para admitir una amplia gama de escenarios de desarrollo.

@@ -1,19 +1,20 @@
 ---
 title: Conexión a un servicio Web Feature Service (WFS) | Microsoft Azure Maps
 description: Obtenga información sobre cómo conectarse a un servicio WFS y consultar después el servicio WFS con el SDK web de Azure Maps y el módulo de E/S espacial.
-author: philmea
-ms.author: philmea
+author: anastasia-ms
+ms.author: v-stharr
 ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 8b511395eb61e8845aaa11e5ca7a490dc461424d
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.custom: devx-track-javascript
+ms.openlocfilehash: 890bf60ac794740716817094a60f2b4cb4ba5835
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80334198"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87282796"
 ---
 # <a name="connect-to-a-wfs-service"></a>Conexión a un servicio WFS
 
@@ -26,7 +27,7 @@ La clase `WfsClient` admite las características siguientes:
 - Las solicitudes solo se realizan mediante `HTTP GET`.
 - Operaciones compatibles:
 
-    | | |
+    | Operación | Descripción |
     | :-- | :-- |
     | GetCapabilities | Genera un documento de metadatos con operaciones y parámetros de WFS válidos |
     | GetFeature | Devuelve una selección de características de un origen de datos |

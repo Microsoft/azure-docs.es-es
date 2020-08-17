@@ -99,6 +99,8 @@
       href: concepts-security.md
     - name: Soporte técnico de TLS
       href: tls-support.md
+    - name: Soporte para redes virtuales
+      href: virtual-network-support.md
     - name: Servicio
       href: concepts-service.md
     - name: Descripción de las direcciones IP de DPS

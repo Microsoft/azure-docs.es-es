@@ -3,12 +3,13 @@ title: 'Inicio rápido: Envío de eventos personalizados a Event Hubs: Event Gri
 description: 'Inicio rápido: Use Azure Event Grid y la CLI de Azure para publicar un tema y suscribirse a ese evento. Para el punto de conexión se usa un centro de eventos de eventos.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 77268dde90959298c76813fb146e972ecfa3685d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 0965963e6527e625d0684821b977b05cb9f28657
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104102"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87497363"
 ---
 # <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a Azure Event Hubs con la CLI de Azure y Event Grid
 
@@ -97,8 +98,8 @@ Vaya al centro de eventos del portal y tenga en cuenta que Event Grid ha enviado
 
 Normalmente, se crea una aplicación que recupera los eventos del centro de eventos. Para crear una aplicación que reciba mensajes de un centro de eventos, consulte:
 
-* [Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md)
-* [Recepción de eventos desde Azure Event Hubs mediante Java](../event-hubs/event-hubs-java-get-started-receive-eph.md)
+* [Introducción a la recepción de mensajes con el Host del procesador de eventos en .NET Standard](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+* [Recepción de eventos desde Azure Event Hubs mediante Java](../event-hubs/event-hubs-java-get-started-send.md)
 * [Recepción de eventos desde Event Hubs mediante Apache Storm](../event-hubs/event-hubs-storm-getstarted-receive.md)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

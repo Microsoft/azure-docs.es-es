@@ -10,12 +10,13 @@ ms.date: 04/21/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 125f4188ed3f12f366c619af9efe3aa203987c19
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 84cbb6f099c7ca94ea7046bae3f4f40e784948fe
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81870528"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87504575"
 ---
 # <a name="require-secure-transfer-to-ensure-secure-connections"></a>Requisito de transferencia segura para garantizar conexiones seguras
 
@@ -51,7 +52,7 @@ Puede activar la propiedad **Se requiere transferencia segura** al crear una cue
 
 ## <a name="require-secure-transfer-from-code"></a>Requerir una transferencia segura desde el código
 
-Para requerir una transferencia segura mediante programación, establezca la propiedad _supportsHttpsTrafficOnly_ en la cuenta de almacenamiento. Puede establecer esta propiedad mediante la API REST del proveedor de recursos de almacenamiento, las bibliotecas de cliente o las herramientas siguientes:
+Para requerir una transferencia segura mediante programación, establezca la propiedad _enableHttpsTrafficOnly_ en _True_ en la cuenta de almacenamiento. Puede establecer esta propiedad mediante la API REST del proveedor de recursos de almacenamiento, las bibliotecas de cliente o las herramientas siguientes:
 
 * [REST API](/rest/api/storagerp/storageaccounts)
 * [PowerShell](/powershell/module/az.storage/set-azstorageaccount)

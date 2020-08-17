@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: ac72e3e232ec17c4c4d810f6d2c7fed6fa84fd02
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 84166e5523cdbdb9ccebf9a0cbfc5e4dee0eb9e8
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85981335"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387139"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell y la CLI de Azure: Habilitación de Cifrado de datos transparente con una clave administrada por el cliente de Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -32,7 +32,7 @@ En este artículo se explica cómo usar una clave de Azure Key Vault para Cifrad
 - Cree una instancia de Azure Key Vault y una clave para usar para TDE.
   - [Instrucciones para usar un módulo de seguridad de hardware (HSM) y Key Vault](../../key-vault/keys/hsm-protected-keys.md)
     - El almacén de claves debe tener la siguiente propiedad que se usará para TDE:
-  - [eliminación temporal](../../key-vault/general/overview-soft-delete.md) y protección de purgas
+  - [eliminación temporal](../../key-vault/general/soft-delete-overview.md) y protección de purgas
 - La clave debe tener los siguientes atributos que se usarán para TDE:
   - Sin fecha de expiración
   - No deshabilitado

@@ -1,6 +1,6 @@
 ---
-title: Reglas de acoplamiento y escape de JSON - Azure Time Series Insights | Microsoft Docs
-description: Obtenga información sobre el acoplamiento de JSON, el escape y el control de matrices en Azure Time Series Insights.
+title: 'Reglas de acoplamiento y escape de JSON: Azure Time Series Insights Gen2 | Microsoft Docs'
+description: Aprenda sobre el acoplamiento, el escape y el control de matrices de JSON en Azure Time Series Insights Gen2.
 author: lyrana
 ms.author: lyhughes
 manager: deepakpalled
@@ -8,19 +8,18 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 06/04/2020
-ms.custom: seodec18
-ms.openlocfilehash: 45eeebcc092513a0344acaff52c31c2cebfb377c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.date: 07/07/2020
+ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86049403"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87075686"
 ---
 # <a name="ingestion-rules"></a>Reglas de ingesta
 ### <a name="json-flattening-escaping-and-array-handling"></a>Acoplamiento de JSON, escape y control de matrices
 
-El entorno de Azure Time Series Insights creará dinámicamente las columnas de los almacenes intermedios y fríos, siguiendo un conjunto determinado de convenciones de nomenclatura. Cuando se ingiere un evento, se aplica un conjunto de reglas a la carga y los nombres de propiedad de JSON. Entre ellas se incluyen el escape de determinados caracteres especiales y el acoplamiento de objetos JSON anidados. Es importante conocer estas reglas para que comprenda cómo influirá la forma de JSON en cómo se almacenan y consultan los eventos. Consulte la tabla siguiente para ver la lista completa de reglas. En los ejemplos A y B también se muestra cómo se pueden procesar por lotes de forma eficaz varias series temporales en una matriz.
+El entorno de Azure Time Series Insights Gen2 crea dinámicamente las columnas de los almacenes intermedios y en reposo conforme a un conjunto determinado de convenciones de nomenclatura. Cuando se ingiere un evento, se aplica un conjunto de reglas a la carga y los nombres de propiedad de JSON. Entre ellas se incluyen el escape de determinados caracteres especiales y el acoplamiento de objetos JSON anidados. Es importante conocer estas reglas para que comprenda cómo influirá la forma de JSON en cómo se almacenan y consultan los eventos. Consulte la tabla siguiente para ver la lista completa de reglas. En los ejemplos A y B también se muestra cómo se pueden procesar por lotes de forma eficaz varias series temporales en una matriz.
 
 > [!IMPORTANT]
 >
@@ -28,8 +27,8 @@ El entorno de Azure Time Series Insights creará dinámicamente las columnas de 
 
 | Regla | Ejemplo de JSON |Nombre de la columna en el almacenamiento |
 |---|---|---|
-| El tipo de datos TSI se anexa al final del nombre de la columna como "_\<dataType\>" | ```"type": "Accumulated Heat"``` | type_string |
-| La [Propiedad marca de tiempo](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) de origen del evento se guardará en TSI como "marca de tiempo" en el almacenamiento y el valor almacenado en UTC. Puede personalizar la propiedad marca de tiempo de orígenes de eventos para satisfacer las necesidades de la solución, pero el nombre de la columna en el almacenamiento intermedio y en frío es "marca de tiempo". Otras propiedades datetime JSON que no sean la marca de tiempo de origen del evento se guardarán con "_datetime" en el nombre de columna, como se mencionó en la regla anterior.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
+| El tipo de datos de Azure Time Series Insights Gen2 se anexa al final del nombre de la columna como "_\<dataType\>" | ```"type": "Accumulated Heat"``` | type_string |
+| La [propiedad timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) del origen del evento se guarda en Azure Time Series Insights Gen2 como "timestamp" en el almacenamiento y el valor se almacena en UTC. Puede personalizar la propiedad marca de tiempo de orígenes de eventos para satisfacer las necesidades de la solución, pero el nombre de la columna en el almacenamiento intermedio y en frío es "marca de tiempo". Otras propiedades datetime JSON que no sean la marca de tiempo de origen del evento se guardarán con "_datetime" en el nombre de columna, como se mencionó en la regla anterior.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
 | Nombres de propiedad JSON que incluyen los caracteres especiales. [  \ y ' se convierten en caracteres de escape con [' y ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | ['id.wasp']_string |
 | Dentro de [' y '], hay un escape adicional de comillas simples y barras diagonales inversas. Una comilla simple se escribirá como \’ y una barra diagonal inversa, como \\\ | ```"Foo's Law Value": "17.139999389648"``` | ['Foo\'s Law Value']_double |
 | Los objetos JSON anidados se acoplan con un punto como separador. Se admite el anidamiento de hasta 10 niveles. |  ```"series": {"value" : 316 }``` | series.value_long |
@@ -186,4 +185,4 @@ La configuración y la carga anterior producirán tres columnas y un evento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Comprender las [limitaciones de rendimiento](concepts-streaming-throughput-limitations.md) del entorno
+* Comprender las [limitaciones de rendimiento](./concepts-streaming-ingress-throughput-limits.md) del entorno

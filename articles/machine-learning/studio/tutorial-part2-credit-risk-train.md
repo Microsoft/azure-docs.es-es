@@ -1,6 +1,5 @@
 ---
-title: 'Tutorial 2: Entrenamiento de modelos de riesgo crediticio'
-titleSuffix: ML Studio (classic) - Azure
+title: 'Tutorial 2 de ML Studio (clásico): Entrenamiento de modelos de riesgo crediticio: Azure'
 description: Tutorial detallado que muestra cómo crear una solución de análisis predictivo para la evaluación del riesgo de crédito en Azure Machine Learning Studio (clásico). Este tutorial es el segundo de una serie de tres partes. Muestra cómo entrenar y evaluar modelos.
 keywords: riesgo de crédito, solución de análisis predictivo, evaluación de riesgos
 author: sdgilley
@@ -10,16 +9,17 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 8feca17f10bb891f0ca5577b2363f95901da4a46
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f768d9cef0eb68084a472a7b7b867b1cb1528cf6
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "79217865"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429194"
 ---
 # <a name="tutorial-2-train-credit-risk-models---azure-machine-learning-studio-classic"></a>Tutorial 2: Entrenamiento de modelos de riesgo crediticio: Azure Machine Learning Studio (clásico)
 
-[!INCLUDE [Notebook deprecation notice](../../../includes/aml-studio-notebook-notice.md)]
+**SE APLICA A:**  ![yes](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (clásico)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+
 
 En este tutorial se explica con detalle el proceso de desarrollo de una solución de análisis predictivo. Va a desarrollar un modelo sencillo en Machine Learning Studio (clásico).  Después puede implementar el modelo como un servicio web de Azure Machine Learning.  Este modelo implementado puede hacer predicciones con datos nuevos. Se trata de la **segunda parte de un tutorial de tres**.
 
@@ -40,7 +40,7 @@ En esta parte del tutorial, se va a ver lo siguiente:
 
 En la [parte tres del tutorial](tutorial-part3-credit-risk-deploy.md) se implementará el modelo como servicio web.
 
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 Completar la [parte uno del tutorial](tutorial-part1-credit-risk.md).
 
@@ -65,11 +65,11 @@ En primer lugar, configure el modelo del árbol de decisión ampliado.
 
 1. Busque el módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) en la paleta de módulos y arrástrelo al lienzo.
 
-1. Busque el módulo [Entrenar modelo][train-model], arrástrelo al lienzo y conecte la salida del módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) al puerto de entrada izquierdo del módulo [Entrenar modelo][train-model].
+1. Busque el módulo [Train Model][train-model] (Entrenar modelo), arrástrelo al lienzo y conecte la salida del módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliados de dos clases) al puerto de entrada izquierdo del módulo [Train Model][train-model] (Entrenar modelo).
    
    El módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) inicializa el modelo genérico, y [Entrenar modelo][train-model] usa los datos de entrenamiento para entrenar el modelo. 
 
-1. Conecte la salida izquierda del módulo [Ejecutar script R][execute-r-script] izquierdo al puerto de entrada de la derecha del módulo [Entrenar modelo][train-model] (en este tutorial [usó los datos procedentes del lado izquierdo](#train) del módulo Split Data [Dividir datos] para el entrenamiento).
+1. Conecte la salida izquierda del módulo [Execute R Script (Ejecutar script R)][execute-r-script] izquierdo al puerto de entrada de la derecha del módulo [Train Model (Entrenar modelo)][train-model] (en este tutorial [usó los datos procedentes del lado izquierdo](#train) del módulo Split Data [Dividir datos] para el entrenamiento).
    
    > [!TIP]
    > No necesita dos de las entradas y una de las salidas del módulo [Execute R Script][execute-r-script] (Ejecutar script R) para este experimento, así que las puede dejar desconectadas. 
@@ -106,7 +106,7 @@ Para configurar el modelo SVM, realice lo siguiente:
 
 1. Busque el módulo [Normalizar datos][normalize-data] y arrástrelo al lienzo.
 
-1. Conecte la salida de la izquierda del módulo [Ejecutar script R][execute-r-script] de la izquierda a la entrada de este módulo (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
+1. Conecte la salida de la izquierda del módulo [Ejecutar script R][execute-r-script] de la izquierda a la entrada de este módulo (tenga en cuenta que el puerto de salida de un módulo puede estar conectado a más de un módulo distinto).
 
 1. Conecte el puerto de salida izquierdo del módulo [Normalize Data][normalize-data] (Normalizar datos) al puerto de entrada derecho del segundo módulo [Entrenar modelo][train-model].
 
@@ -137,18 +137,18 @@ Se utilizan los datos de prueba que se separaron mediante el módulo [Split Data
 
 1. Busque el módulo [Score Model][score-model] (Puntuar modelo) y arrástrelo al lienzo.
 
-1. Conecte el módulo [Entrenar modelo][train-model] que está conectado al módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión promovido por dos clases) al puerto de entrada izquierdo del módulo [Score Model][score-model] (Puntuar modelo).
+1. Conecte el módulo [Train Model][train-model] (Entrenar modelo) que está conectado al módulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] (Árbol de decisión ampliado de dos clases) al puerto de entrada izquierdo del módulo [Score Model][score-model] (Puntuar modelo).
 
 1. Conecte el módulo derecho [Ejecutar script R][execute-r-script] (los datos de prueba) al puerto de entrada derecho del módulo [Score Model][score-model] (Puntuar modelo).
 
     ![Módulo Score Model (Puntuar modelo) conectado](./media/tutorial-part2-credit-risk-train/score-model-connected.png)
 
    
-   El módulo [Score Model][score-model] (Puntuar modelo) ahora puede utilizar la información de crédito de los datos de prueba, ejecutarla con el modelo y comparar las predicciones que el modelo genera con la columna de riesgo de crédito real de los datos de prueba.
+   El módulo [Score Model][score-model] (Puntuar modelo) ahora puede utilizar la información de crédito de los datos de prueba, ejecutarla a través del modelo y comparar las predicciones que el modelo genera con la columna de riesgo de crédito real de los datos de prueba.
 
 1. Copie y pegue el módulo [Score Model][score-model] (Puntuar modelo) para crear una segunda copia.
 
-1. Conecte la salida del modelo SVM; es decir, el puerto de salida del módulo [Entrenar modelo][train-model] que está conectado al módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases) al puerto de entrada del segundo módulo [Score Model][score-model] (Puntuar modelo).
+1. Conecte la salida del modelo SVM; es decir, el puerto de salida del módulo [Train Model][train-model] (Entrenar modelo) que está conectado al módulo [Two-Class Support Vector Machine][two-class-support-vector-machine] (Máquina de vectores de soporte de dos clases), al puerto de entrada del segundo módulo [Score Model][score-model] (Puntuar modelo).
 
 1. En cuanto al modelo SVM, tiene que realizar la misma transformación en los datos de prueba que la que realizó con los datos de entrenamiento. Así pues, copie y pegue el módulo [Normalize Data][normalize-data] (Normalizar datos) para crear una segunda copia y conéctelo al módulo derecho [Ejecutar script R][execute-r-script].
 

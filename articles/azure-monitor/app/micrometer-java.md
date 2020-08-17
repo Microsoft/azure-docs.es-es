@@ -3,14 +3,15 @@ title: Cómo usar Micrometer con el SDK de Azure Application Insights para Java
 description: Guía paso a paso sobre cómo usar Micrometer con las aplicaciones Spring Boot y no Spring Boot de Application Insights.
 ms.topic: conceptual
 author: lgayhardt
+ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 2fbdf4e267e0f9a479a89d6f31e72f09d9e11bb0
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77670073"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322574"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Cómo usar Micrometer con el SDK de Azure Application Insights para Java
 La aplicación Micrometer supervisa las métricas de medidas para código de aplicación basado en JVM y le permite exportar los datos a los sistemas de supervisión que prefiera. Este artículo le mostrará cómo usar Micrometer con Application Insights tanto para las aplicaciones Spring Boot como para las que no sean Spring Boot.
@@ -20,7 +21,7 @@ Agregue las siguientes dependencias al archivo pom.xml o al archivo build.gradle
 * [Application Insights spring-boot-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) 2.5.0 o posterior
 * Micrometer Azure Registry 1.1.0 o posterior
 * [Micrometer Spring Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 o posterior (modifica el código de configuración automática en la plataforma de Spring).
-* [Recurso ApplicationInsights](../../azure-monitor/app/create-new-resource.md )
+* [Recurso ApplicationInsights](./create-new-resource.md)
 
 Pasos
 
@@ -58,7 +59,7 @@ Agregue las siguientes dependencias al archivo pom.xml o al archivo build.gradle
 
 * Application Insights Spring-boot-starter 2.1.2 o posterior
 * Azure-spring-boot-metrics-starters 2.0.7 o posterior
-* [Recurso de Application Insights](../../azure-monitor/app/create-new-resource.md )
+* [Recurso de Application Insights](./create-new-resource.md)
 
 Pasos:
 
@@ -117,7 +118,7 @@ Agregue las siguientes dependencias al archivo pom.xml o al archivo build.gradle
 
 * Application Insights Web Auto 2.5.0 o posterior
 * Micrometer Azure Registry 1.1.0 o posterior
-* [Recurso de Application Insights](../../azure-monitor/app/create-new-resource.md )
+* [Recurso de Application Insights](./create-new-resource.md)
 
 Pasos:
 
@@ -271,4 +272,5 @@ Agregue el siguiente código de enlace al archivo de configuración:
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Para obtener más información sobre Micrometer, vea la [documentación de Micrometer](https://micrometer.io/docs) oficial.
-* Para obtener información sobre Spring en Azure, vea la [documentación de Spring en Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable) oficial.
+* Para obtener información sobre Spring en Azure, vea la [documentación de Spring en Azure](/java/azure/spring-framework/?view=azure-java-stable) oficial.
+

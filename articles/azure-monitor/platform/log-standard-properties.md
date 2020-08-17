@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/01/2020
-ms.openlocfilehash: b0ec666f2cfadc3a1571f3ed1d26c92bcbbca3a2
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9c7e6733a9149008f6ed98ae7a7e0103f92f79f5
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83196231"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87325277"
 ---
 # <a name="standard-properties-in-azure-monitor-logs"></a>Propiedades estándar de los registros de Azure Monitor
 Los datos de los registros de Azure Monitor se [almacenan como un conjunto de registros en un área de trabajo de Log Analytics o una aplicación de Application Insights](../log-query/logs-structure.md), cada uno con un tipo de datos determinado que tiene un conjunto singular de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.
@@ -211,5 +211,6 @@ union withsource = tt *
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Obtenga más información sobre cómo se almacenan los [datos del registro de Azure Monitor](../log-query/log-query-overview.md).
-- Reciba una lección sobre [escritura de consultas de registro](../../azure-monitor/log-query/get-started-queries.md).
-- Reciba una lección sobre [la unión de tablas en consultas de registro](../../azure-monitor/log-query/joins.md).
+- Reciba una lección sobre [escritura de consultas de registro](../log-query/get-started-queries.md).
+- Reciba una lección sobre [la unión de tablas en consultas de registro](../log-query/joins.md).
+

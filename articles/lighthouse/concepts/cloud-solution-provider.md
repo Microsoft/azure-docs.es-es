@@ -1,14 +1,14 @@
 ---
 title: Consideraciones del programa de proveedor de soluciones en la nube
 description: En el caso de los asociados de CSP, la administración de recursos delegados de Azure ayuda a mejorar la seguridad y el control mediante la habilitación de permisos más específicos.
-ms.date: 07/06/2020
+ms.date: 07/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8dd40c5c4f7131554dcc3249777de9f0d92c35bb
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 0ae7ef0b78f2f37708c6b442a9591fcbcce25646
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131499"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87429458"
 ---
 # <a name="azure-lighthouse-and-the-cloud-solution-provider-program"></a>Azure Lighthouse y el programa Proveedor de soluciones en la nube
 
@@ -32,6 +32,9 @@ Con Azure Lighthouse, puede asignar grupos diferentes a distintos clientes o rol
 Para incorporar una suscripción creada desde el programa CSP, siga los pasos descritos en [Onboard a subscription to Azure Lighthouse](../how-to/onboard-customer.md) (Incorporación de una suscripción a Azure Lighthouse). Cualquier usuario que tenga el rol de agente de administración en el inquilino puede realizar esta incorporación.
 
 ![Administración de inquilinos mediante AOBO y la administración de recursos delegados de Azure](../media/csp-2.jpg)
+
+> [!TIP]
+> Las [ofertas de servicio administrado](managed-services-offers.md) no son compatibles con las suscripciones que se establecen a través de un revendedor del programa Proveedor de soluciones en la nube (CSP). Puede incorporar estas suscripciones a Azure Lighthouse [mediante el uso de plantillas de Azure Resource Manager](../how-to/onboard-customer.md).
 
 > [!NOTE]
 > La página [**Mis clientes** de Azure Portal](../how-to/view-manage-customers.md) ahora incluye la sección **Proveedor de soluciones en la nube (versión preliminar)** , que muestra la información de facturación y los recursos para los clientes de CSP que han [firmado el Contrato de cliente de Microsoft (MCA)](/partner-center/confirm-customer-agreement) y usan [el plan de Azure](/partner-center/azure-plan-get-started). Para obtener más información, consulte [Introducción a la cuenta de facturación para un contrato Microsoft Partner Agreement](../../cost-management-billing/understand/mpa-overview.md).

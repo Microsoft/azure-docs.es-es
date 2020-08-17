@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights
 ms.custom: seodec18
-ms.openlocfilehash: 3578710bf066e7745215d8efacafd2cf6c005eac
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 30b3832dfe3e1c4564d1d89b5c318421e48f554f
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81640487"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87501702"
 ---
 # <a name="summary-of-customer-data-request-features"></a>Resumen de características de solicitud de datos del cliente
 
@@ -36,7 +36,7 @@ Un administrador de inquilinos puede eliminar datos del cliente mediante Azure P
 
 Sin embargo, antes de eliminar datos del cliente a través del portal, debe quitar las directivas de acceso del usuario del entorno de Time Series Insights en Azure Portal. Para obtener más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](time-series-insights-data-access.md).
 
-También puede realizar operaciones de eliminación en las directivas de acceso mediante la API REST. Para obtener más información, lea [Directivas de acceso: eliminación](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/delete).
+También puede realizar operaciones de eliminación en las directivas de acceso mediante la API REST. Para obtener más información, lea [Directivas de acceso: eliminación](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/delete).
 
 Time Series Insights se integra con la hoja Directiva en Azure Portal. Tanto Time Series Insights como la hoja Directiva le permiten ver, exportar y eliminar datos del usuario almacenados en el servicio. Cualquier acción de eliminación realizada en la hoja Directiva de Azure Portal tiene como resultado la eliminación de los datos del usuario en Time Series Insights. Por ejemplo, si un usuario tiene guardada una consulta personal, esta se eliminará definitivamente del explorador de Time Series Insights. Si el usuario tiene guardada una consulta compartida, la consulta permanece, pero la información del usuario se elimina permanentemente. La nota siguiente contiene instrucciones sobre cómo realizar estas tareas.
 
@@ -48,7 +48,7 @@ De forma similar a la eliminación de datos, un administrador de inquilinos pued
 
 Si es un administrador de inquilinos, puede ver las directivas de acceso a datos del entorno de Time Series Insights en Azure Portal. Para obtener más información, consulte [Concesión de acceso a los datos de un entorno de Time Series Insights mediante Azure Portal](time-series-insights-data-access.md).
 
-También es posible realizar operaciones de exportación de directivas de acceso mediante la operación "lista por entorno" de la API REST proporcionada. Para obtener más información, consulte [Directivas de acceso: enumerar por entorno](https://docs.microsoft.com/rest/api/time-series-insights/management/accesspolicies/listbyenvironment).
+También es posible realizar operaciones de exportación de directivas de acceso mediante la operación "lista por entorno" de la API REST proporcionada. Para obtener más información, consulte [Directivas de acceso: enumerar por entorno](/rest/api/time-series-insights/management(gen1/gen2)/accesspolicies/listbyenvironment).
 
 ## <a name="to-delete-data-stored-within-time-series-insights"></a>Eliminación de los datos almacenados en Time Series Insights
 

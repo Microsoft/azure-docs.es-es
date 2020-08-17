@@ -2,19 +2,16 @@
 title: Solución de problemas de runbook de Azure Automation
 description: En este artículo se describe cómo solucionar y resolver problemas con runbooks de Azure Automation.
 services: automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 01/24/2019
+ms.date: 07/28/2020
 ms.topic: conceptual
 ms.service: automation
-manager: carmonm
 ms.custom: has-adal-ref
-ms.openlocfilehash: e0665a6aa55b998d54d076013a25e2efadaa2b06
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
+ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187190"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87904809"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Solución de incidencias de runbooks
 
@@ -416,13 +413,13 @@ $job = Start-AzAutomationRunbook -AutomationAccountName $automationAccountName -
 $pollingSeconds = 5
 $maxTimeout = 10800
 $waitTime = 0
-while((IsJobTerminalState $job.Status) -eq $false -and $waitTime -lt $maxTimeout) {
+while($false -eq (IsJobTerminalState $job.Status) -and $waitTime -lt $maxTimeout) {
    Start-Sleep -Seconds $pollingSeconds
    $waitTime += $pollingSeconds
-   $jobResults = $job | Get-AzAutomationJob
+   $job = $job | Get-AzAutomationJob
 }
 
-$jobResults | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
+$job | Get-AzAutomationJobOutput | Get-AzAutomationJobOutputRecord | Select-Object -ExpandProperty Value
 ```
 
 ## <a name="scenario-runbook-fails-because-of-deserialized-object"></a><a name="fails-deserialized-object"></a>Escenario: Error en runbook debido a un objeto deserializado
@@ -511,6 +508,24 @@ Si quiere usar más de 500 minutos de procesamiento por mes cambie la suscripci
 1. Seleccione **Settings** (Configuración) y luego **Pricing** (Precio).
 1. Haga clic en **Enable** (Habilitar) en la parte inferior de la página para actualizar la cuenta al nivel Basic (Básico).
 
+## <a name="scenario-runbook-output-stream-greater-than-1-mb"></a><a name="output-stream-greater-1mb"></a>Escenario: Flujo de salida de runbook superior a 1 MB
+
+### <a name="issue"></a>Incidencia
+
+Se produce el siguiente error en el runbook que se ejecuta en el espacio aislado de Azure:
+
+```error
+The runbook job failed due to a job stream being larger than 1MB, this is the limit supported by an Azure Automation sandbox.
+```
+
+### <a name="cause"></a>Causa
+
+Este error se produce porque el runbook intentó escribir demasiados datos de excepción en el flujo de salida.
+
+### <a name="resolution"></a>Resolución
+
+Hay un límite de 1 MB en el flujo de salida del trabajo. Asegúrese de que el runbook incluye las llamadas a un archivo ejecutable o a un subproceso mediante bloques `try` y `catch`. Si las operaciones producen una excepción, haga que el código escriba el mensaje de la excepción en una variable de Automation. Esta técnica impedirá que el mensaje se escriba en el flujo de salida del trabajo. En el caso de trabajos ejecutados de Hybrid Runbook Worker, el flujo de salida truncado en 1 MB se muestra sin ningún mensaje de error.
+
 ## <a name="scenario-runbook-job-start-attempted-three-times-but-fails-to-start-each-time"></a><a name="job-attempted-3-times"></a>Escenario: Se intentó iniciar el trabajo del runbook tres veces, pero en las tres se produjo un error
 
 ### <a name="issue"></a>Incidencia
@@ -526,20 +541,22 @@ The job was tried three times but it failed
 Este error se produce debido a uno de los siguientes problemas:
 
 * **Límite de memoria.** Un trabajo puede producir un error si emplea más de 400 MB de memoria. Los límites documentados sobre la memoria que se asigna a un espacio aislado se encuentran en [Límites del servicio Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). 
+
 * **Sockets de red.** Los espacios aislados de Azure están limitados a 1000 sockets de red simultáneos. Para más información, consulte [Límites de servicio de Automation](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits).
+
 * **Módulo incompatible.** Es posible que las dependencias del módulo no sean correctas. En este caso, el runbook suele devolver el mensaje `Command not found` o `Cannot bind parameter`.
+
 * **No se realizó ninguna autenticación con Active Directory de los espacios aislados.** El runbook intentó llamar a un archivo ejecutable o a un subproceso que se ejecuta en un espacio aislado de Azure. No se admite la configuración de runbooks para autenticarse con Azure AD mediante la Biblioteca de autenticación de Azure Active Directory (ADAL).
-* **Demasiados datos de excepción.** El runbook intentó escribir demasiados datos de excepción en el flujo de salida.
 
 ### <a name="resolution"></a>Resolución
 
 * **Límite de memoria, sockets de red.** Algunas formas sugeridas para trabajar dentro del límite de memoria son dividir la carga de trabajo entre varios runbooks, procesar menos datos en la memoria, evitar escribir resultados innecesarios de los runbooks y considerar cuántos puntos de control se escriben en los runbooks de flujo de trabajo de PowerShell. Use el método clear, como `$myVar.clear`, para borrar las variables y utilice `[GC]::Collect` para ejecutar inmediatamente la recolección de elementos no utilizados. Estas acciones reducen la superficie de memoria de su runbook en tiempo de ejecución.
+
 * **Módulo incompatible.** Actualice los módulos de Azure siguiendo los pasos en [Actualización de módulos de Azure PowerShell en Azure Automation](../automation-update-azure-modules.md).
+
 * **No se realizó ninguna autenticación con Active Directory de los espacios aislados.** Al autenticarse en Azure AD con un runbook, asegúrese de que el módulo de Azure AD está disponible en la cuenta de Automation. Asegúrese de conceder a la cuenta de ejecución los permisos necesarios para realizar las tareas que el runbook automatiza.
 
   Si el runbook no puede llamar a un archivo ejecutable o a un subproceso que se ejecuta en un espacio aislado de Azure, use el runbook en una instancia de [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Los roles de Hybrid Worker no están limitados por los límites de memoria y de red como lo están los espacios aislados de Azure.
-
-* **Demasiados datos de excepción.** Hay un límite de 1 MB en el flujo de salida del trabajo. Asegúrese de que el runbook incluye las llamadas a un archivo ejecutable o a un subproceso mediante bloques `try` y `catch`. Si las operaciones producen una excepción, haga que el código escriba el mensaje de la excepción en una variable de Automation. Esta técnica impedirá que el mensaje se escriba en el flujo de salida del trabajo.
 
 ## <a name="scenario-powershell-job-fails-with-cannot-invoke-method-error-message"></a><a name="cannot-invoke-method"></a>Escenario: Error en el trabajo de PowerShell con el mensaje de error "No se puede invocar el método"
 

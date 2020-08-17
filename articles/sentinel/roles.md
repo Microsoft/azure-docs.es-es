@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: a43b2282974e30cfcf9fa6950e32008c06da98d2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 95a966799b4cb66b74d998df9c58958b9b89ecdb
+ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956804"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87374225"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permisos de Azure Sentinel
 
@@ -85,7 +85,7 @@ En la siguiente tabla se resumen los roles y las acciones permitidas en Azure Se
 
 ## <a name="custom-roles-and-advanced-rbac"></a>Roles personalizados y RBAC avanzado
 
-- Además de usar roles de RBAC integrados (o en vez de ello), puede crear roles de RBAC personalizados para Azure Sentinel. Los roles de RBAC personalizados para Azure Sentinel se crean de la misma manera que se crean otros roles [personalizados de RBAC de Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) basados en [permisos específicos para los recursos de Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) y [Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
+- Además de usar roles integrados de Azure (o en vez de ello), puede crear roles personalizados de Azure para Azure Sentinel. Los roles personalizados de Azure para Azure Sentinel se crean de la misma manera que se crean otros roles [personalizados de RBAC de Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) basados en [permisos específicos para los recursos de Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) y [Azure Log Analytics](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
 - Puede usar el control de acceso basado en rol avanzado de Log Analytics en los datos del área de trabajo de Azure Sentinel. Incluye RBAC basado en el tipo de datos y RBAC centrado en recursos. Para más información sobre los roles de Log Analytics, consulte  [Administración de los datos de registro y las áreas de trabajo en Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
 

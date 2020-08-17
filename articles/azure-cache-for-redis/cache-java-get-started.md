@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: yegu
-ms.custom: mvc, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 02430e2dfa68ff0ce4bf116666d72a46e1120746
-ms.sourcegitcommit: 1f25aa993c38b37472cf8a0359bc6f0bf97b6784
+ms.custom: mvc, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 16a912b2530d567a11a81fc10e9e09eee572e7e6
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/26/2020
-ms.locfileid: "83848862"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87528842"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-java"></a>Inicio rápido: Uso de Azure Redis Cache con Java
 
@@ -30,12 +30,24 @@ En este inicio rápido incorporará Azure Redis Cache en una aplicación Java me
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Agregue variables de entorno para el **nombre de host** y la clave de acceso **Principal**. Utilizará estas variables desde el código en lugar de incluir la información confidencial directamente en el código.
+## <a name="setting-up-the-working-environment"></a>Configuración del entorno de trabajo 
+
+En función del sistema operativo, agregue variables de entorno en **Nombre de host** y **Clave de acceso primaria**. Abra un símbolo del sistema o una ventana de terminal y configure los siguientes valores:
 
 ```CMD 
-set REDISCACHEHOSTNAME=contosoCache.redis.cache.windows.net
-set REDISCACHEKEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+set REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+set REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
 ```
+
+```bash
+export REDISCACHEHOSTNAME=<YOUR_HOST_NAME>.redis.cache.windows.net
+export REDISCACHEKEY=<YOUR_PRIMARY_ACCESS_KEY>
+```
+
+Reemplace los marcadores de posición por los siguientes valores:
+
+- `<YOUR_HOST_NAME>`: El nombre de host DNS, que se obtiene en la sección *Propiedades* del recurso Azure Cache for Redis en Azure Portal.
+- `<YOUR_PRIMARY_ACCESS_KEY>`: El nombre de host DNS, que se obtiene en la sección *Claves de acceso* del recurso Azure Cache for Redis en Azure Portal.
 
 ## <a name="create-a-new-java-app"></a>Creación de una nueva aplicación Java
 

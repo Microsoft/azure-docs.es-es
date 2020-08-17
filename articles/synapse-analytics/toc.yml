@@ -6,6 +6,26 @@
   items:
     - name: ¿Qué es Azure Synapse Analytics?
       href: overview-what-is.md
+    - name: Introducción
+      items:
+        - name: Introducción
+          href: get-started.md
+        - name: 1 Creación de un área de trabajo de Synapse
+          href: get-started-create-workspace.md
+        - name: 2 Análisis mediante un grupo de SQL
+          href: get-started-analyze-sql-pool.md
+        - name: 3 Análisis mediante Spark
+          href: get-started-analyze-spark.md
+        - name: 4 Análisis mediante SQL a petición
+          href: get-started-analyze-sql-on-demand.md
+        - name: 5 Análisis de los datos de una cuenta de almacenamiento
+          href: get-started-analyze-storage.md
+        - name: 6 Orquestación con canalizaciones
+          href: get-started-pipelines.md
+        - name: 7 Visualización con Power BI
+          href: get-started-visualize-power-bi.md
+        - name: 8 Supervisión
+          href: get-started-monitor.md
     - name: Hoja de referencia rápida
       href: overview-cheat-sheet.md
     - name: Preguntas más frecuentes
@@ -14,9 +34,9 @@
       href: release-notes.md
 - name: Guías de inicio rápido
   items:
-    - name: Creación de un área de trabajo de Azure Synapse
+    - name: Creación de un área de trabajo de Synapse
       href: quickstart-create-workspace.md
-    - name: Uso de Azure Synapse Studio
+    - name: Uso de Synapse Studio
       href: quickstart-synapse-studio.md
     - name: Vinculación de un área de trabajo de Power BI
       href: quickstart-power-bi.md
@@ -46,8 +66,6 @@
       href: quickstart-connect-synapse-link-cosmos-db.md
 - name: Tutoriales
   items:
-    - name: Introducción
-      href: get-started.md
     - name: Ejecución de aplicaciones Apache Spark para grupos de Spark
       href: ./spark/intellij-tool-synapse.md
     - name: Definiciones de trabajos de Spark
@@ -248,6 +266,8 @@
                   href: /sql/t-sql/statements/alter-materialized-view-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Reglas de almacenamiento en caché
               href: /sql/t-sql/statements/set-result-set-caching-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Predicciones de Machine Learning
+              href: ./sql-data-warehouse/sql-data-warehouse-predict.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Tablas
               items:
                 - name: Información general
@@ -698,6 +718,8 @@
               href: ../data-factory/connector-web-table.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Xero
               href: ../data-factory/connector-xero.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Formato XML
+              href: ../data-factory/format-xml.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Zoho
               href: ../data-factory/connector-zoho.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
         - name: Mover datos
@@ -755,9 +777,11 @@
               href: ../data-factory/transform-data-using-spark.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Actividad de streaming de HDInsight
               href: ../data-factory/transform-data-using-hadoop-streaming.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Actividad de ejecución de lotes de Machine Learning
+            - name: Actividad de ejecución de canalización de Machine Learning
+              href: ../data-factory/transform-data-machine-learning-service.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Actividad de ejecución por lotes de Machine Learning Studio (clásico)
               href: ../data-factory/transform-data-using-machine-learning.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
-            - name: Actividad de actualización de recurso de ML
+            - name: Actividad de actualización de recursos de Machine Learning Studio (clásico)
               href: ../data-factory/update-machine-learning-models.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Actividad de procedimiento almacenado
               href: ../data-factory/transform-data-using-stored-procedure.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
@@ -825,6 +849,10 @@
               href: ../data-factory/data-factory-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
             - name: Solución de problemas del conector
               href: ../data-factory/connector-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Solución de problemas de la herramienta Copiar datos
+              href: ../data-factory/copy-data-tool-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+            - name: Solución de problemas de los entornos de ejecución de integración autohospedados
+              href: ../data-factory/self-hosted-integration-runtime-troubleshoot-guide.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: Conexión de herramientas a Synapse Analytics
       items:
         - name: SQL de Synapse
@@ -856,7 +884,7 @@
     - name: PowerShell
       href: /powershell/module/az.synapse?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: API de REST
-      href: ./sql-data-warehouse/sql-data-warehouse-manage-compute-rest-api.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
+      href: /rest/api/synapse/
     - name: Vistas del sistema
       href: sql/reference-tsql-system-views.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json
     - name: T-SQL

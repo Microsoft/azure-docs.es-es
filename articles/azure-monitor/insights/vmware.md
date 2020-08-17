@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: b9d27e602062ff2638d8eea23fe64497fd66512d
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77664786"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87322914"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Solución VMware Monitoring (en desuso) en Azure Monitor
 
@@ -27,7 +27,7 @@ La solución usa la función nativa syslog del host ESXi para insertar datos en 
 ## <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Utilice la siguiente información para instalar y configurar la solución.
 
-* Agregue la solución VMware Monitoring a la suscripción mediante el proceso que se describe en [Instalación de una solución de supervisión](../insights/solutions.md#install-a-monitoring-solution).
+* Agregue la solución VMware Monitoring a la suscripción mediante el proceso que se describe en [Instalación de una solución de supervisión](./solutions.md#install-a-monitoring-solution).
 
 #### <a name="supported-vmware-esxi-hosts"></a>Hosts ESXi de VMware compatibles
 Hosts ESXi de vSphere 5.5, 6.0 y 6.5
@@ -156,7 +156,7 @@ Guardar consultas de registro es una característica estándar de Azure Monitor 
 ![DockerDashboardView](./media/vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Creación de alertas a partir de las consultas
-Después de crear las consultas, recomendamos utilizarlas para saber cuando se producen eventos específicos. Consulte el artículo de [alertas de Log Analytics](../platform/alerts-overview.md) para obtener información sobre cómo crear alertas. Para ejemplos de consultas de alertas y otros ejemplos de consultas, consulte la entrada de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Supervisión de VMware mediante Log Analytics).
+Después de crear las consultas, recomendamos utilizarlas para saber cuando se producen eventos específicos. Consulte el artículo de [alertas de Log Analytics](../platform/alerts-overview.md) para obtener información sobre cómo crear alertas. Para ejemplos de consultas de alertas y otros ejemplos de consultas, consulte la entrada de blog [Monitor VMware using Log Analytics](/archive/blogs/msoms/monitor-vmware-using-oms-log-analytics) (Supervisión de VMware mediante Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>¿Qué se necesita en la configuración del host ESXi? ¿Qué impacto tendrá en mi entorno actual?
@@ -200,3 +200,4 @@ Puede haber varios motivos:
 * Utilice [consultas de registros](../log-query/log-query-overview.md) en Log Analytics para ver datos detallados sobre los hosts de VMware.
 * [Cree sus propios paneles](../learn/tutorial-logs-dashboards.md) que muestren datos de hosts de VMware.
 * [Cree alertas](../platform/alerts-overview.md) cuando se produzcan eventos específicos de hosts de VMware.
+

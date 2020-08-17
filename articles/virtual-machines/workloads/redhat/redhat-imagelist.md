@@ -1,5 +1,5 @@
 ---
-title: Imágenes de Red Hat Enterprise Linux en Azure | Microsoft Docs
+title: Imágenes de Red Hat Enterprise Linux disponibles en Azure
 description: Obtenga información sobre las imágenes de Red Hat Enterprise Linux en Microsoft Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/16/2020
 ms.author: alsin
-ms.openlocfilehash: 089858c789bb11245e98f32047cabb4117ece904
-ms.sourcegitcommit: 11572a869ef8dbec8e7c721bc7744e2859b79962
+ms.openlocfilehash: f4ebf433237193c0db7859b029bb224c72c92eae
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/05/2020
-ms.locfileid: "82838593"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291022"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Imágenes de Red Hat Enterprise Linux (RHEL) disponibles en Azure
 Azure ofrece una variedad de imágenes de RHEL para diferentes casos de uso.
@@ -55,10 +55,14 @@ RHEL          | 6.7      | RAW    | Agente Linux |
 |             | 78-gen2  | LVM    | Agente Linux | Conectada a repositorios normales (EUS no está disponible para RHEL 7,8)
 |             | 8-LVM    | LVM    | Agente Linux | Familia de imágenes de RHEL 8.x. Se adjunta a repositorios convencionales.
 |             | 8-lvm-gen2| LVM    | Agente Linux | Generación 2 de Hyper-V: familia de imágenes de RHEL 8.x. Se adjunta a repositorios convencionales.
-|             | 8        | LVM    | Agente Linux | Imágenes de RHEL 8.0
+|             | 8        | LVM    | Agente Linux | Imágenes de RHEL 8.0.
 |             | 8-gen2   | LVM    | Agente Linux | Hyper-V Generación 2: imágenes de RHEL 8.0.
-|             | 8.1      | LVM    | Agente Linux | Imágenes de RHEL 8.1. Actualmente adjunto a repositorios convencionales.
+|             | 8.1      | LVM    | Agente Linux | Imágenes de RHEL 8.2. Actualmente adjunto a repositorios convencionales.
 |             | 81gen2   | LVM    | Agente Linux | Hyper-V Generación 2: imágenes de RHEL 8.1. Actualmente adjunto a repositorios convencionales.
+|             | 8.1-ci   | LVM    | Agente Linux | Imágenes de RHEL 8.1 que usan cloud-init como agente de aprovisionamiento. Actualmente adjunto a repositorios convencionales.
+|             | 81-ci-gen2| LVM    | Agente Linux | Hyper-V de segunda generación: imágenes de RHEL 8.1 que usan cloud-init como agente de aprovisionamiento. Actualmente adjunto a repositorios convencionales.
+|             | 8,2      | LVM    | Agente Linux | Imágenes de RHEL 8.2. Actualmente adjunto a repositorios convencionales.
+|             | 82gen2   | LVM    | Agente Linux | Hyper-V Generación 2: imágenes de RHEL 8.1. Actualmente adjunto a repositorios convencionales.
 RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7.4 for SAP HANA y Business Apps. Se acopla a los repositorios de E4S, cobrará un recargo para SAP y RHEL, así como la tarifa de proceso básica.
 |             | 74sap-gen2| LVM    | Agente Linux | RHEL 7.4 for SAP HANA y Business Apps. Imagen de segunda generación. Se acopla a los repositorios de E4S, cobrará un recargo para SAP y RHEL, así como la tarifa de proceso básica.
 |             | 7.5       | LVM    | Agente Linux | RHEL 7.5 for SAP HANA y Business Apps. Se acopla a los repositorios de E4S, cobrará un recargo para SAP y RHEL, así como la tarifa de proceso básica.
@@ -84,8 +88,17 @@ RHEL-SAP-HA   | 7.4          | LVM    | Agente Linux | RHEL 7.4 for SAP con alt
 rhel-byos     |rhel-lvm74| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.4, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
 |             |rhel-lvm75| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.5, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
 |             |rhel-lvm76| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.6, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm76-gen2| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.6 de segunda generación, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
 |             |rhel-lvm77| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.7, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
-|             |rhel-lvm8 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8 (la versión secundaria de RHEL se muestra en el valor de la versión de la imagen), no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm77-gen2| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.7 de segunda generación, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm78| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.8, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm78-gen2| LVM    | Agente Linux | Las imágenes BYOS de RHEL 7.8 de segunda generación, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm8 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8.0, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm8-gen2 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8.0 de segunda generación, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm81 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8.1, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm81-gen2 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8.1 de segunda generación, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm82 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8.2, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
+|             |rhel-lvm82-gen2 | LVM    | Agente Linux | Las imágenes BYOS de RHEL 8.2 de segunda generación, no acopladas a ningún origen de actualizaciones, no cobrarán un recargo de RHEL.
 
 > [!NOTE]
 > Red Hat considera fin de la vida útil la oferta de productos RHEL-SAP-HANA. Las implementaciones existentes seguirán funcionando con normalidad, pero Red Hat recomienda que los clientes migren de las imágenes RHEL-SAP-HANA a las imágenes RHEL-SAP-HANA que incluyen los repositorios SAP HANA y el complemento HA. Más detalles sobre las ofertas de la nube SAP de Red Hat se encuentran disponibles [aquí](https://access.redhat.com/articles/3751271).

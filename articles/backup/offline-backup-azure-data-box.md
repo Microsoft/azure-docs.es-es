@@ -3,16 +3,16 @@ title: Copia de seguridad sin conexión con Azure Data Box
 description: Aprenda a usar Azure Data Box para propagar los datos de grandes copias de seguridad iniciales sin conexión desde el agente de MARS hasta un almacén de Recovery Services.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: e45b8e26d332019b03ac41c3993e311480494040
-ms.sourcegitcommit: be32c9a3f6ff48d909aabdae9a53bd8e0582f955
+ms.openlocfilehash: e377ccde714c1486ff731d24d5a0cd64364bca37
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/26/2020
-ms.locfileid: "82160962"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091035"
 ---
 # <a name="azure-backup-offline-backup-by-using-azure-data-box"></a>Copia de seguridad sin conexión de Azure Backup con Azure Data Box
 
-Puede usar [Azure Data Box](https://docs.microsoft.com/azure/databox/data-box-overview) para propagar sus grandes copias de seguridad de MARS iniciales sin conexión (sin usar la red) a un almacén de Recovery Services. Este proceso ahorra tiempo y ancho de banda de red que, de otro modo, se consumirían al mover grandes cantidades de datos de copia de seguridad en línea a través de una red de alta latencia. Esta mejora está actualmente en versión preliminar. La copia de seguridad sin conexión basada en Azure Data Box proporciona dos ventajas diferenciadas sobre la [copia de seguridad sin conexión basada en el servicio Azure Import/Export](https://docs.microsoft.com/azure/backup/backup-azure-backup-import-export):
+Puede usar [Azure Data Box](../databox/data-box-overview.md) para propagar sus grandes copias de seguridad de MARS iniciales sin conexión (sin usar la red) a un almacén de Recovery Services. Este proceso ahorra tiempo y ancho de banda de red que, de otro modo, se consumirían al mover grandes cantidades de datos de copia de seguridad en línea a través de una red de alta latencia. Esta mejora está actualmente en versión preliminar. La copia de seguridad sin conexión basada en Azure Data Box proporciona dos ventajas diferenciadas sobre la [copia de seguridad sin conexión basada en el servicio Azure Import/Export](./backup-azure-backup-import-export.md):
 
 - No es necesario adquirir sus propios discos y conectores compatibles con Azure. Azure Data Box envía los discos asociados a la [SKU de Data Box](https://azure.microsoft.com/services/databox/data/) seleccionada.
 - Azure Backup (agente de MARS) puede escribir directamente los datos de copia de seguridad en las SKU admitidas de Azure Data Box. Esta funcionalidad elimina la necesidad de aprovisionar una ubicación de almacenamiento provisional para los datos de copia de seguridad iniciales. Tampoco necesita utilidades para dar formato a los datos de los discos y copiarlos.
@@ -47,8 +47,8 @@ El proceso para propagar los datos desde el agente de MARS mediante Azure Data B
 
 | Tamaño de los datos de copia de seguridad (luego de la compresión por MARS)* por servidor | SKU de Azure Data Box admitidas                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| <=7,2 TB                                                    | [Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-overview) |
-| > 7,2 TB y <= 80 TB**                                      | [Azure Data Box (100 TB)](https://docs.microsoft.com/azure/databox/data-box-overview) |
+| <=7,2 TB                                                    | [Azure Data Box Disk](../databox/data-box-disk-overview.md) |
+| > 7,2 TB y <= 80 TB**                                      | [Azure Data Box (100 TB)](../databox/data-box-overview.md) |
 
 *Las tasas de compresión típicas varían entre el 10 y el 20 %. <br>
 **Póngase en contacto con [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com) si espera tener más de 80 TB de datos de copia de seguridad inicial para un único servidor MARS.
@@ -113,7 +113,7 @@ También se podría haber instalado Azure PowerShell mediante un archivo .msi. P
 
 ### <a name="order-and-receive-the-data-box-device"></a>Pedir y recibir el dispositivo Data Box
 
-El proceso de copia de seguridad sin conexión con MARS y Azure Data Box requiere que los dispositivos Data Box se encuentren en estado Entregado antes de desencadenar la copia de seguridad sin conexión mediante el agente de MARS. Consulte el artículo sobre el [tamaño de los datos de copia de seguridad y la SKU de Data Box admitidas](#backup-data-size-and-supported-data-box-skus) para pedir la SKU más adecuada para sus necesidades. Siga los pasos del [Tutorial: Solicitud de Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-ordered) para pedir y recibir dispositivos Data Box.
+El proceso de copia de seguridad sin conexión con MARS y Azure Data Box requiere que los dispositivos Data Box se encuentren en estado Entregado antes de desencadenar la copia de seguridad sin conexión mediante el agente de MARS. Consulte el artículo sobre el [tamaño de los datos de copia de seguridad y la SKU de Data Box admitidas](#backup-data-size-and-supported-data-box-skus) para pedir la SKU más adecuada para sus necesidades. Siga los pasos del [Tutorial: Solicitud de Azure Data Box Disk](../databox/data-box-disk-deploy-ordered.md) para pedir y recibir dispositivos Data Box.
 
 > [!IMPORTANT]
 > No seleccione *BlobStorage* como **Tipo de cuenta**. El agente de MARS requiere una cuenta que admita blobs en páginas, lo que no es posible cuando se selecciona *BlobStorage*. Seleccione **Storage V2 (uso general v2)** como **Tipo de cuenta** cuando cree la cuenta de almacenamiento de destino para el trabajo de Azure Data Box.
@@ -124,7 +124,7 @@ El proceso de copia de seguridad sin conexión con MARS y Azure Data Box requier
 
 1. Asegúrese de desinstalar toda instalación anterior del agente de MARS.
 1. Descargue la última versión del agente de MARS [desde este sitio web](https://aka.ms/azurebackup_agent).
-1. Ejecute *MARSAgentInstaller.exe* y siga *solo* los pasos de [instalación y registro del agente](https://docs.microsoft.com/azure/backup/install-mars-agent#install-and-register-the-agent) en el almacén de Recovery Services en el que quiere que se almacenen las copias de seguridad.
+1. Ejecute *MARSAgentInstaller.exe* y siga *solo* los pasos de [instalación y registro del agente](./install-mars-agent.md#install-and-register-the-agent) en el almacén de Recovery Services en el que quiere que se almacenen las copias de seguridad.
 
    > [!NOTE]
    > El almacén de Recovery Services debe estar en la misma suscripción que el trabajo de Azure Data Box.
@@ -137,14 +137,14 @@ En función de la SKU de Azure Data Box que haya pedido, siga los pasos que se d
 
 ### <a name="set-up-azure-data-box-disks"></a>Configuración de los discos de Azure Data Box
 
-Si ha pedido uno varios discos de Azure Data Box (hasta 8 TB cada uno), siga los pasos mencionados aquí sobre [Desempaquetado, conexión y desbloqueo de Azure Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-set-up).
+Si ha pedido uno varios discos de Azure Data Box (hasta 8 TB cada uno), siga los pasos mencionados aquí sobre [Desempaquetado, conexión y desbloqueo de Azure Data Box Disk](../databox/data-box-disk-deploy-set-up.md).
 
 >[!NOTE]
 >Es posible que el servidor con el agente de MARS no tenga un puerto USB. En tal caso, puede conectar el disco su instancia de Azure Data Box Disk a otro servidor o cliente y exponer la raíz del dispositivo como recurso compartido de red.
 
 ### <a name="set-up-azure-data-box"></a>Configuración de Azure Data Box
 
-Si solicitó una instancia de Azure Data Box (hasta 100 TB), siga los pasos que se indican aquí [para configurar la instancia de Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up).
+Si solicitó una instancia de Azure Data Box (hasta 100 TB), siga los pasos que se indican aquí [para configurar la instancia de Data Box](../databox/data-box-deploy-set-up.md).
 
 #### <a name="mount-your-azure-data-box-instance-as-a-local-system"></a>Montaje de la instancia de Azure Data Box como un sistema local
 
@@ -153,15 +153,15 @@ El agente de MARS funciona en el contexto del sistema local y, por tanto, requie
 Para asegurarse de que puede montar el dispositivo Data Box como un sistema local mediante el protocolo NFS:
 
 1. Habilite el cliente para la característica NFS en el servidor de Windows donde está instalado el agente de MARS. Especifique el origen alternativo *WIM:D:\Sources\Install.wim:4*.
-1. Descargue PSExec desde <https://download.sysinternals.com/files/PSTools.zip> en el servidor con el agente de MARS instalado.
+1. Descargue PsExec desde la página [Sysinternals](/sysinternals/downloads/psexec) del servidor con el agente de MARS instalado.
 1. Abra un símbolo del sistema con privilegios elevados y ejecute el comando siguiente con el directorio que contiene *PSExec.exe* como directorio actual.
 
     ```cmd
     psexec.exe  -s  -i  cmd.exe
     ```
 
-   La ventana de comandos que se abre como consecuencia del comando anterior se encuentra en el contexto del sistema local. Use esta ventana de comandos para ejecutar los pasos para montar el recurso compartido de blobs en páginas de Azure como unidad de red en el servidor de Windows.
-1. Para conectar el servidor con el agente de MARS al dispositivo Data Box a través de NFS, siga los pasos descritos en [Conexión a un dispositivo Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-nfs#connect-to-data-box). Ejecute el siguiente comando en el símbolo del sistema del sistema local para montar el recurso compartido de blobs en páginas de Azure.
+   La ventana de comandos que se abre porque el comando anterior se encuentra en el contexto del sistema local. Use esta ventana de comandos para ejecutar los pasos para montar el recurso compartido de blobs en páginas de Azure como unidad de red en el servidor de Windows.
+1. Para conectar el servidor con el agente de MARS al dispositivo Data Box a través de NFS, siga los pasos descritos en [Conexión a un dispositivo Data Box](../databox/data-box-deploy-copy-data-via-nfs.md#connect-to-data-box). Ejecute el siguiente comando en el símbolo del sistema del sistema local para montar el recurso compartido de blobs en páginas de Azure.
 
     ```cmd
     mount -o nolock \\<DeviceIPAddress>\<StorageAccountName_PageBlob X:  
@@ -238,9 +238,9 @@ Una vez finalizada la copia de seguridad de los datos, verá una página en el a
 
 En esta sección se explican los pasos que se deben llevar a cabo una vez que se complete correctamente la copia de seguridad de los datos en Azure Data Box Disk.
 
-- Siga los pasos de este artículo para [enviar el disco de Azure Data Box a Azure](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-picked-up). Si usó un dispositivo Azure Data Box de 100 TB, siga estos pasos para [enviar el dispositivo Azure Data Box a Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
+- Siga los pasos de este artículo para [enviar el disco de Azure Data Box a Azure](../databox/data-box-disk-deploy-picked-up.md). Si usó un dispositivo Azure Data Box de 100 TB, siga estos pasos para [enviar el dispositivo Azure Data Box a Azure](../databox/data-box-deploy-picked-up.md).
 
-- [Supervise el trabajo de Data Box](https://docs.microsoft.com/azure/databox/data-box-disk-deploy-upload-verify) en Azure Portal Una vez que el trabajo de Azure Data Box ha finalizado, el agente de MARS mueve automáticamente los datos de la cuenta de almacenamiento al almacén de Recovery Services cuando tenga lugar la siguiente copia de seguridad programada. A continuación, marca el trabajo de copia de seguridad como *Trabajo completado* si se ha creado correctamente un punto de recuperación.
+- [Supervise el trabajo de Data Box](../databox/data-box-disk-deploy-upload-verify.md) en Azure Portal Una vez que el trabajo de Azure Data Box ha finalizado, el agente de MARS mueve automáticamente los datos de la cuenta de almacenamiento al almacén de Recovery Services cuando tenga lugar la siguiente copia de seguridad programada. A continuación, marca el trabajo de copia de seguridad como *Trabajo completado* si se ha creado correctamente un punto de recuperación.
 
     >[!NOTE]
     >El agente de MARS desencadena las copias de seguridad a las horas programadas durante la creación de la directiva. Estos trabajos se marcan como "Waiting for Azure Data Box job to be completed" (Esperando a que se complete el trabajo de Azure Data Box) hasta que finaliza el trabajo.
@@ -249,7 +249,7 @@ En esta sección se explican los pasos que se deben llevar a cabo una vez que se
 
 ## <a name="troubleshooting"></a>Solución de problemas
 
-El agente de Microsoft Azure Backup (MAB) crea automáticamente una aplicación de Azure Active Directory (Azure AD) en su inquilino. Esta aplicación requiere un certificado para la autenticación, que se crea y se carga al configurar la directiva de propagación sin conexión. Se usará Azure PowerShell para crear y cargar el certificado en la aplicación de Azure AD.
+El agente de Microsoft Azure Recovery Services (MARS) crea automáticamente una aplicación de Azure Active Directory (Azure AD) en su inquilino. Esta aplicación requiere un certificado para la autenticación, que se crea y se carga al configurar la directiva de propagación sin conexión. Se usará Azure PowerShell para crear y cargar el certificado en la aplicación de Azure AD.
 
 ### <a name="problem"></a>Problema
 

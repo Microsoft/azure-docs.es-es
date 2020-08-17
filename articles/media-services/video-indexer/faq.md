@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/12/2020
 ms.author: juliako
-ms.openlocfilehash: bb57af37308badcd3123af3348178aaac061f376
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d533735af340b23e8a79b6c5953df748a548609c
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83652187"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87046970"
 ---
 # <a name="video-indexer-frequently-asked-questions"></a>Preguntas más frecuentes sobre Video Indexer
 
@@ -59,13 +59,13 @@ No, Video Indexer proporciona la integración de varios modelos de aprendizaje a
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>¿Qué formatos multimedia admite Video Indexer?
 
-Video Indexer es compatible con los formatos multimedia más comunes. Vea la lista de los [formatos estándar de Azure Media Encoder](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) para más detalles.
+Video Indexer es compatible con los formatos multimedia más comunes. Vea la lista de los [formatos estándar de Azure Media Encoder](../latest/media-encoder-standard-formats.md) para más detalles.
 
 ### <a name="how-do-i-upload-a-media-file-into-video-indexer-and-what-are-the-limitations"></a>¿Cómo cargo un archivo multimedia en Video Indexer y cuáles son las limitaciones?
 
 En el portal web de Video Indexer puede cargar un archivo multimedia mediante el cuadro de diálogo de carga de archivos o indicando una dirección URL que directamente hospede el archivo de origen (consulte el [ejemplo](https://nimbuscdn-nimbuspm.streaming.mediaservices.windows.net/2b533311-b215-4409-80af-529c3e853622/Ignite-short.mp4)). Cualquier dirección URL que hospede el contenido multimedia mediante iFrame o código para insertar no funcionará (consulte el [ejemplo](https://www.videoindexer.ai/accounts/7e1282e8-083c-46ab-8c20-84cae3dc289d/videos/5cfa29e152/?t=4.11)). 
 
-Para obtener más información, vea esta [guía paso a paso](https://docs.microsoft.com/azure/media-services/video-indexer/upload-index-videos).
+Para obtener más información, vea esta [guía paso a paso](./upload-index-videos.md).
 
 #### <a name="limitations"></a>Limitaciones
 
@@ -76,7 +76,7 @@ Para obtener la lista completa, consulte [Consideraciones y limitaciones para la
 
 ### <a name="how-long-does-it-take-video-indexer-to-extract-insights-from-media"></a>¿Cuánto tiempo tarda Video Indexer en extraer información de los archivos multimedia?
 
-El tiempo necesario para indexar un archivo de audio o vídeo, tanto mediante Video Indexer API como mediante la interfaz web, depende de varios parámetros, como la longitud del archivo y su calidad, la cantidad de información que se encuentra en él, el número de [unidades reservadas](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview) disponibles y si el [punto de conexión de streaming](https://docs.microsoft.com/azure/media-services/previous/media-services-streaming-endpoints-overview) está habilitado o no. Recomendamos que ejecute algunos archivos de prueba con su propio contenido y tome un promedio para obtener una idea más clara.
+El tiempo necesario para indexar un archivo de audio o vídeo, tanto mediante Video Indexer API como mediante la interfaz web, depende de varios parámetros, como la longitud del archivo y su calidad, la cantidad de información que se encuentra en él, el número de [unidades reservadas](../previous/media-services-scale-media-processing-overview.md) disponibles y si el [punto de conexión de streaming](../previous/media-services-streaming-endpoints-overview.md) está habilitado o no. Recomendamos que ejecute algunos archivos de prueba con su propio contenido y tome un promedio para obtener una idea más clara.
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>¿Puedo crear flujos de trabajo personalizados para automatizar los procesos con Video Indexer?
 

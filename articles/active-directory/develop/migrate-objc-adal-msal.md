@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 13923596b7ad0f6d3fdef24e847f469645b448ee
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "77085181"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88119936"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>Migración de aplicaciones a MSAL para iOS y macOS
 
@@ -45,7 +45,7 @@ La Plataforma de identidad de Microsoft tiene algunas diferencias importantes co
 * El punto de conexión de Azure Active Directory v1.0 requiere que todos los permisos se declaren por adelantado durante el registro de la aplicación. Esto significa que esos permisos son estáticos.
 * La Plataforma de identidad de Microsoft le permite solicitar permisos de forma dinámica. Las aplicaciones pueden pedir permisos solo según sea necesario y solicitar más cuando la aplicación los necesite.
 
-Para más información sobre las diferencias entre Azure Active Directory v1.0 y la Plataforma de identidad de Microsoft, consulte [Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)](https://docs.microsoft.com/azure/active-directory/develop/azure-ad-endpoint-comparison).
+Para más información sobre las diferencias entre Azure Active Directory v1.0 y la Plataforma de identidad de Microsoft, consulte [Motivos para actualizar a la Plataforma de identidad de Microsoft (v2.0)](../azuread-dev/azure-ad-endpoint-comparison.md).
 
 ## <a name="adal-and-msal-library-differences"></a>Diferencias entre las bibliotecas ADAL y MSAL
 
@@ -77,7 +77,7 @@ Este es el ámbito integrado para todas las aplicaciones. Hace referencia a la l
 
 Para usar el ámbito `/.default`, anexe `/.default` al identificador de recurso. Por ejemplo: `https://graph.microsoft.com/.default`. Aunque el recurso termine con una barra diagonal (`/`), hay que anexar `/.default`, incluida la barra diagonal inicial, lo que da lugar a un ámbito que tiene una doble barra diagonal (`//`).
 
-Puede leer más información sobre el uso del ámbito "/.default" [aquí](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#the-default-scope).
+Puede leer más información sobre el uso del ámbito "/.default" [aquí](./v2-permissions-and-consent.md#the-default-scope).
 
 ### <a name="supporting-different-webview-types--browsers"></a>Compatibilidad con distintos tipos de vistas web y exploradores
 
@@ -207,7 +207,7 @@ En iOS, MSAL también admite otros dos tipos de SSO:
 
 ## <a name="intune-mam-sdk"></a>ADK de MAM de Intune
 
-El [SDK de MAM de Intune](https://docs.microsoft.com/intune/app-sdk-get-started) admite MSAL para iOS a partir de la versión [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2).
+El [SDK de MAM de Intune](/intune/app-sdk-get-started) admite MSAL para iOS a partir de la versión [11.1.2](https://github.com/msintuneappsdk/ms-intune-app-sdk-ios/releases/tag/11.1.2).
 
 ## <a name="msal-and-adal-in-the-same-app"></a>MSAL y ADAL en la misma aplicación
 

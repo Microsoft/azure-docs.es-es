@@ -4,12 +4,12 @@ description: Patrones de escalado automático en Azure para Web Apps, conjunto d
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 47da813498ef2cd4d16aeaa5ab31eff24b1db267
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 414716fbbb36167e52c4f3b98c70ae7696ffea8f
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539540"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87327062"
 ---
 # <a name="best-practices-for-autoscale"></a>Procedimientos recomendados de escalado automático
 La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) y los [servicios de API Management](../../api-management/api-management-key-concepts.md).
@@ -22,7 +22,7 @@ La escalabilidad automática de Azure Monitor solo se aplica a [Virtual Machine 
   Una configuración de escalado automático presenta unos valores máximo, mínimo y predeterminado de instancias.
 * Un trabajo de escalado automático siempre lee la métrica asociada por la que realizar la escala y comprueba si se rebasó el umbral establecido para el escalado horizontal o la reducción horizontal. En [Métricas comunes de escalado automático de Azure Monitor](autoscale-common-metrics.md) encontrará una lista de métricas por las que el escalado automático puede escalar.
 * Todos los umbrales se calculan en el nivel de instancia. Por ejemplo, "escalar horizontalmente por una instancia cuando el uso medio de la CPU es superior al 80 % cuando el número de instancias es 2" significa escalar horizontalmente cuando el uso medio de la CPU en todas las instancias sea superior al 80 %.
-* Todos los errores de escalado automático se registran en el registro de actividad. Después, puede configurar una [alerta de registro de actividad](./../../azure-monitor/platform/activity-log-alerts.md) de forma que pueda recibir una notificación por correo electrónico, SMS o webhook siempre que haya un error de escalabilidad automática.
+* Todos los errores de escalado automático se registran en el registro de actividad. Después, puede configurar una [alerta de registro de actividad](./activity-log-alerts.md) de forma que pueda recibir una notificación por correo electrónico, SMS o webhook siempre que haya un error de escalabilidad automática.
 * De forma similar, todas las acciones de escalado correctas se publican en el registro de actividad. Después, puede configurar una alerta de registro de actividad de forma que pueda recibir una notificación por correo electrónico, SMS o webhook siempre que haya una acción de escalabilidad automática correcta. Puede configurar notificaciones de correo electrónico o webhook para recibir una notificación cada vez que se lleve a cabo una acción de escalado correcta a través de la pestaña de notificaciones de la configuración de escalado automático.
 
 ## <a name="autoscale-best-practices"></a>Procedimientos recomendados de escalado automático
@@ -151,3 +151,4 @@ Además de utilizar alertas de registro de actividad, puede configurar notificac
 ## <a name="next-steps"></a>Pasos siguientes
 - [Cree una alerta de registro de actividades para supervisar todas las operaciones del motor de escalado automático en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Cree una alerta de registro de actividades para supervisar todas las operaciones con errores de escalado automático y reducción horizontal en su suscripción.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+

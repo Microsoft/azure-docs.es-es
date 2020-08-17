@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/01/2020
+ms.date: 07/16/2020
 ms.author: tamram
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e8857da1410ca68a695a9d7995aeb375fb154cd2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a6f59fff351ecdae82ef7175d54e3b2ab1b7d30b
+ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080030"
+ms.lasthandoff: 08/03/2020
+ms.locfileid: "87534114"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -120,7 +120,7 @@ Puede configurar las cuentas de almacenamiento para permitir el acceso solo desd
 
 Habilite un [punto de conexión de servicio](/azure/virtual-network/virtual-network-service-endpoints-overview) para Azure Storage dentro de la red virtual. El punto de conexión de servicio enruta el tráfico desde la red virtual a través de una ruta de acceso óptima al servicio Azure Storage. Las identidades de la red virtual y la subred también se transmiten con cada solicitud. Luego, los administradores pueden configurar reglas de red para la cuenta de almacenamiento que permitan que se reciban solicitudes desde subredes específicas en una red virtual. Los clientes a los que se concedió acceso a través de estas reglas de red deben seguir cumpliendo los requisitos de autorización de la cuenta de almacenamiento para acceder a los datos.
 
-Cada cuenta de almacenamiento admite hasta 100 reglas de red virtual, que se pueden combinar con [reglas de red de IP](#grant-access-from-an-internet-ip-range).
+Cada cuenta de almacenamiento admite un máximo de 200 reglas de red virtual, que se pueden combinar con [reglas de red IP](#grant-access-from-an-internet-ip-range).
 
 ### <a name="available-virtual-network-regions"></a>Regiones de red virtual disponibles
 
@@ -365,7 +365,7 @@ Las reglas de red ayudan a crear un entorno seguro para las conexiones entre las
 Algunos servicios de Microsoft funcionan desde redes que no se pueden incluir en las reglas de red. Puede conceder a un subconjunto de estos servicios de Microsoft de confianza el acceso a la cuenta de almacenamiento, a la vez que mantiene las reglas de red para otras aplicaciones. Estos servicios de confianza usarán una autenticación sólida para conectarse a su cuenta de almacenamiento de forma segura. Hemos habilitado dos modos de acceso de confianza para los servicios de Microsoft.
 
 - Los recursos de algunos servicios, **cuando están registrados en su suscripción**, pueden acceder a su cuenta de almacenamiento **de la misma suscripción** para ciertas operaciones, como la escritura de registros o la realización de copias de seguridad.
-- A los recursos de algunos servicios se les puede conceder acceso explícito a su cuenta de almacenamiento mediante la **asignación de un rol de RBAC** a la identidad administrada que le asigna el sistema.
+- Los recursos de algunos servicios pueden conceder acceso explícito a su cuenta de almacenamiento. Para ello, **asignan un rol de Azure** a su identidad administrada asignada por el sistema.
 
 
 Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servicios de Microsoft de confianza), se concede acceso a los recursos de los siguientes servicios registrados en la misma suscripción que la cuenta de almacenamiento para un conjunto limitado de operaciones, tal como se describe:
@@ -384,10 +384,11 @@ Al habilitar la opción **Allow trusted Microsoft services...** (Permitir servic
 | Conexión a Azure         | Microsoft.Network          | Almacene y analice los registros de tráfico de red, incluidos los servicios de Network Watcher y Análisis de tráfico. [Más información](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Habilite la replicación para la recuperación ante desastres de máquinas virtuales de IaaS de Azure al usar la caché habilitada para firewall, el origen o las cuentas de almacenamiento de destino.  [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |
 
-La opción **Permitir servicios de Microsoft de confianza...** también permite que una instancia concreta de los servicios siguientes acceda a la cuenta de almacenamiento, si se [asigna explícitamente un rol de RBAC](storage-auth-aad.md#assign-rbac-roles-for-access-rights) a la [identidad administrada que el sistema ha asignado](../../active-directory/managed-identities-azure-resources/overview.md) para la instancia de ese recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de RBAC que se asigna a la identidad administrada.
+El valor **Permitir servicios de Microsoft de confianza...** también permite que una instancia concreta de los servicios siguientes acceda a la cuenta de almacenamiento si [asigna un rol de Azure ](storage-auth-aad.md#assign-azure-roles-for-access-rights) explícitamente a la [identidad administrada asignada por el sistema](../../active-directory/managed-identities-azure-resources/overview.md) de esa instancia de recurso. En ese caso, el ámbito de acceso de la instancia corresponde al rol de Azure que se asigna a la identidad administrada.
 
 | Servicio                        | Nombre del proveedor de recursos                 | Propósito            |
 | :----------------------------- | :------------------------------------- | :----------------- |
+| Azure API Management           | Microsoft.ApiManagement/service        | Habilita el acceso del servicio API Management a las cuentas de almacenamiento detrás del firewall mediante directivas. [Más información](/azure/api-management/api-management-authentication-policies#use-managed-identity-in-send-request-policy). |
 | Azure Cognitive Search         | Microsoft.Search/searchServices        | Habilita los servicios de Cognitive Search para acceder a las cuentas de almacenamiento con fines de indexación, proceso y consulta. |
 | Tareas de Azure Container Registry | Microsoft.ContainerRegistry/registries | ACR Tasks puede acceder a las cuentas de almacenamiento al compilar imágenes de contenedor. |
 | Azure Data Factory             | Microsoft.DataFactory/factories        | Permite el acceso a las cuentas de almacenamiento a través del tiempo de ejecución de ADF. |

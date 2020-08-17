@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/02/2019
 ms.author: rimayber
 ms.reviewer: dgoddard, stegag, steveesp, minale, btalb, prachank
-ms.openlocfilehash: dc77f3267813bd049274f44e43c4d64b0eb3801e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 67b635f09cb9407279e89b5f7b8526dab3c08946
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120286"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87068516"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>Optimización del rendimiento de TCP/IP para máquinas virtuales de Azure
 
@@ -125,9 +125,8 @@ Para Azure, se recomienda que establezca el bloqueo de MSS de TCP en 1 350 byt
 
 La latencia de red se rige por la velocidad de la luz en una red de fibra óptica. El rendimiento de red de TCP también se rige de forma eficaz por el tiempo de ida y vuelta (RTT) entre dos dispositivos de red.
 
-| | | | |
-|-|-|-|-|
-|**Route**|**Distancia**|**Tiempo unidireccional**|**RTT**|
+| Enrutar | Distancia | Tiempo unidireccional | RTT |
+| ----- | -------- | ------------ | --- |
 |De Nueva York a San Francisco|4 148 km|21 ms|42 ms|
 |De Nueva York a Londres|5 585 km|28 ms|56 ms|
 |De Nueva York a Sydney|15 993 km|80 ms|160 ms|
@@ -162,9 +161,8 @@ Esta es la fórmula para calcular el rendimiento máximo de una única conexión
 
 Esta tabla muestra el rendimiento máximo en megabytes por segundo de una única conexión TCP. (Para mejorar la legibilidad, se usan megabytes para la unidad de medida).
 
-| | | | |
-|-|-|-|-|
-|**Tamaño de la ventana de TCP (bytes)**|**Latencia de RTT (ms)**|**Rendimiento máximo en megabytes/segundo**|**Rendimiento máximo en megabits/segundo**|
+| Tamaño de la ventana de TCP (bytes) | Latencia de RTT (ms) | Rendimiento máximo en megabytes/segundo | Rendimiento máximo en megabits/segundo |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|1|65,54|524,29|
 |65 535|30|2,18|17,48|
 |65 535|60|1,09|8,74|
@@ -179,9 +177,8 @@ El escalado de la ventana de TCP es una técnica que aumenta dinámicamente el t
 
 Esta tabla muestra esas relaciones:
 
-| | | | |
-|-|-|-|-|
-|**Tamaño de la ventana de TCP (bytes)**|**Latencia de RTT (ms)**|**Rendimiento máximo en megabytes/segundo**|**Rendimiento máximo en megabits/segundo**|
+| Tamaño de la ventana de TCP (bytes) | Latencia de RTT (ms) | Rendimiento máximo en megabytes/segundo | Rendimiento máximo en megabits/segundo |
+| ----------------------- | ---------------- | ---------------------------------- | --------------------------------- |
 |65 535|30|2,18|17,48|
 |131 070|30|4.37|34,95|
 |262 140|30|8,74|69,91|
@@ -221,9 +218,8 @@ Set-NetTCPSetting
 
 Esta es la configuración de TCP eficaz para `AutoTuningLevel`:
 
-| | | | |
-|-|-|-|-|
-|**AutoTuningLevel**|**Factor de escalado**|**Multiplicador de escalado**|**Fórmula para<br/>calcular el tamaño máximo de la ventana**|
+| AutoTuningLevel | Factor de escalado | Multiplicador de escalado | Fórmula para<br/>calcular el tamaño máximo de la ventana |
+| --------------- | -------------- | ------------------ | -------------------------------------------- |
 |Disabled|None|None|Tamaño de la ventana|
 |Restringido|4|2^4|Tamaño de la ventana * (2^4)|
 |Muy restringido|2|2^2|Tamaño de la ventana * (2^2)|

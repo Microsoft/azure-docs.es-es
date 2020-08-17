@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 08579f7ba952bb4ebcba1595508612affb852528
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75980375"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87053111"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Administración de cuentas v3 de Azure Media Services
 
@@ -43,4 +43,4 @@ Si una cuenta de Media Services o una cuenta de Azure Storage asociada se "desco
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Crear una cuenta](create-account-cli-quickstart.md)
+[Crear una cuenta](./create-account-howto.md)

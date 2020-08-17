@@ -2,21 +2,21 @@
 title: Referencia de atributos de SuccessFactors de SAP
 description: Obtenga información sobre qué atributos de SuccessFactors se admiten con el aprovisionamiento controlado por RR. HH. de SuccessFactors.
 services: active-directory
-author: kenwith
+author: cmmdesai
 manager: celestedg
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
 ms.workload: identity
-ms.date: 12/06/2019
-ms.author: kenwith
+ms.date: 08/05/2020
+ms.author: chmutali
 ms.reviewer: celested
-ms.openlocfilehash: 25541b76dda55db1ec26f4d8e3ec63573a47e7b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ef2da377c7720cfb7b431d1ce0fed56656a2b8c7
+ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84781555"
+ms.lasthandoff: 08/05/2020
+ms.locfileid: "87808514"
 ---
 # <a name="sap-successfactors-attribute-reference"></a>Referencia de atributos de SuccessFactors de SAP
 
@@ -27,11 +27,12 @@ En este artículo se ofrece información sobre:
 
 ## <a name="supported-successfactors-entities-and-attributes"></a>Entidades y atributos admitidos de SuccessFactors
 
-En la tabla siguiente se incluye la lista de atributos de SuccessFactors compatibles con las dos aplicaciones de aprovisionamiento siguientes:
+En la tabla siguiente se captura la lista de atributos de SuccessFactors incluidos de manera predeterminada en las dos aplicaciones de aprovisionamiento siguientes:
 
 - [Aprovisionamiento de usuarios de SuccessFactors a Active Directory](../saas-apps/sap-successfactors-inbound-provisioning-tutorial.md)
 - [Aprovisionamiento de usuarios de SuccessFactors a Azure AD](../saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md)
 
+Consulte la [referencia de integración de SAP SuccessFactors](./sap-successfactors-integration-reference.md#retrieving-additional-attributes) para extender el esquema de atributos adicionales. 
 
 | \# | Entidad de SuccessFactors                  | Atributo de SuccessFactors     | Tipo de operación |
 |----|----------------------------------------|------------------------------|----------------|

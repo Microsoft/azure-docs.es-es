@@ -4,13 +4,13 @@ description: En este tutorial, obtendrá información sobre cómo crear aplicaci
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 86097603b8b17b0e474cef4b57171bb51d5a1420
-ms.sourcegitcommit: 61d92af1d24510c0cc80afb1aebdc46180997c69
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.openlocfilehash: 5447bea686db48157c721978f5510cd80e0924c6
+ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85338079"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88065801"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>Inicio rápido: Uso de colas de Azure Service Bus con Java para enviar y recibir mensajes
 
@@ -187,6 +187,6 @@ Ahora que ya conoce los aspectos básicos de las colas de Service Bus, consulte 
 Para obtener más información, consulte el [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/).
 
 [Azure SDK for Java]: /azure/developer/java/sdk/java-sdk-azure-get-started
-[Azure Toolkit for Eclipse]: https://docs.microsoft.com/azure/developer/java/toolkit-for-eclipse/installation
+[Azure Toolkit for Eclipse]: /azure/developer/java/toolkit-for-eclipse/installation
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

@@ -6,12 +6,12 @@ ms.author: harelbr
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.subservice: alerts
-ms.openlocfilehash: cefccd08ea66638f08f00e280fe2704444a7f916
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: c040958d9518485bc5d583fc01aedd50d5c6e57a
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "79369393"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321129"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Creación, visualización y administración de alertas de métricas mediante Azure Monitor
 
@@ -32,7 +32,7 @@ En el siguiente procedimiento se describe cómo crear una regla de alertas de m�
 
 3. Haga clic en **Seleccionar destino**, en el panel de contexto que se carga, y seleccione un recurso de destino sobre el que quiera alertar. Use los menús desplegables **Suscripción** y **Tipo de recurso** para buscar el recurso que quiere supervisar. También puede utilizar la barra de búsqueda para buscar su recurso.
 
-4. Si el recurso seleccionado tiene métricas para las que puede crear alertas, la sección **Available signals** (Señales disponibles) de la parte inferior derecha incluirá métricas. Puede ver la lista completa de tipos de recursos compatibles con las alertas de métricas en este [artículo](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
+4. Si el recurso seleccionado tiene métricas para las que puede crear alertas, la sección **Available signals** (Señales disponibles) de la parte inferior derecha incluirá métricas. Puede ver la lista completa de tipos de recursos compatibles con las alertas de métricas en este [artículo](./alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 5. Una vez haya seleccionado un recurso de destino, haga clic en **Agregar condición**.
 
@@ -90,7 +90,7 @@ Puede ver y administrar las reglas de alertas de métricas mediante la hoja Admi
 
 ## <a name="with-azure-cli"></a>Con la CLI de Azure
 
-En las secciones anteriores se describía cómo crear, ver y administrar las reglas de alertas de métricas mediante Azure Portal. En esta sección se describe cómo hacer lo mismo con la multiplataforma [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). La forma más rápida de comenzar a utilizar la CLI de Azure es a través de [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). En este artículo, usamos Cloud Shell.
+En las secciones anteriores se describía cómo crear, ver y administrar las reglas de alertas de métricas mediante Azure Portal. En esta sección se describe cómo hacer lo mismo con la multiplataforma [CLI de Azure](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). La forma más rápida de comenzar a utilizar la CLI de Azure es a través de [Azure Cloud Shell](../../cloud-shell/overview.md?view=azure-cli-latest). En este artículo, usamos Cloud Shell.
 
 1. Vaya a Azure Portal y haga clic en **Cloud Shell**.
 
@@ -136,8 +136,8 @@ En las secciones anteriores se describía cómo crear, ver y administrar las reg
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de alertas de métricas con plantillas de Azure Resource Manager](../../azure-monitor/platform/alerts-metric-create-templates.md).
+- [Creación de alertas de métricas con plantillas de Azure Resource Manager](./alerts-metric-create-templates.md).
 - [Comprender cómo funcionan las alertas de métricas](alerts-metric-overview.md).
 - [Cómo funcionan las alertas de métricas con la condición de umbrales dinámicos](alerts-dynamic-thresholds.md).
-- [Comprender el esquema de webhook para las alertas de métricas](../../azure-monitor/platform/alerts-metric-near-real-time.md#payload-schema)
+- [Comprender el esquema de webhook para las alertas de métricas](./alerts-metric-near-real-time.md#payload-schema)
 

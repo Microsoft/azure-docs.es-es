@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/08/2020
-ms.openlocfilehash: 415c624153971e88afac3b18920a3ba3a8f2cfae
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 53f151c63c85e958aad3bd0eaf16c50294bf250f
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86147039"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87287221"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>¿Qué es un área de trabajo de Azure Machine Learning?
 
@@ -47,13 +47,18 @@ En el diagrama se muestran los siguientes componentes de un área de trabajo:
 
 Puede interactuar con el área de trabajo de las siguientes formas:
 
+> [!IMPORTANT]
+> Las herramientas marcadas (versión preliminar) a continuación se encuentran actualmente en versión preliminar pública.
+> Se ofrece la versión preliminar sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 + En la Web:
     + [Azure Machine Learning Studio](https://ml.azure.com) 
     + [Diseñador de Azure Machine Learning (versión preliminar)](concept-designer.md): solo disponible en las áreas de trabajo de [Enterprise Edition](overview-what-is-azure-ml.md#sku).
 + En cualquier entorno de Python con el [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
-+ En cualquier entorno de R con el [SDK de Azure Machine Learning para R](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
++ En cualquier entorno de R con el [SDK de Azure Machine Learning para R (versión preliminar)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
 + En la línea de comandos con la [extensión de la CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) de Azure Machine Learning
 + [Extensión Azure Machine Learning para VS Code](how-to-manage-resources-vscode.md#workspaces)
+
 
 ## <a name="machine-learning-with-a-workspace"></a>Aprendizaje automático con un área de trabajo
 
@@ -111,6 +116,9 @@ Al crear una nueva área de trabajo, se crean automáticamente varios recursos d
 
 > [!NOTE]
 > Además de crear nuevas versiones, también puede usar los servicios de Azure existentes.
+
+> [!IMPORTANT]
+> Si quiere usar una cuenta de Azure Storage existente, no puede ser una cuenta Premium (Premium_LRS o Premium_GRS). Tampoco puede tener un espacio de nombres jerárquico (usado con Azure Data Lake Storage Gen2). No se admite Premium Storage ni el espacio de nombres jerárquico con la cuenta de almacenamiento _predeterminada_ del área de trabajo. Sin embargo, sí se admiten con cuentas de almacenamiento _no predeterminadas_.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

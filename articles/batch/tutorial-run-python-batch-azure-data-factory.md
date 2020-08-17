@@ -4,15 +4,15 @@ description: 'Tutorial: Aprenda a ejecutar scripts de Python como parte de una c
 author: mammask
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/11/2019
+ms.date: 07/29/2020
 ms.author: komammas
-ms.custom: mvc, tracking-python
-ms.openlocfilehash: a8f6fe49faf0624f6ef6d4fa8a346e22c69da599
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.custom: mvc, devx-track-python
+ms.openlocfilehash: 9b58aa06b67f01cf9ce0b30cef0326185124306c
+ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851726"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87853320"
 ---
 # <a name="tutorial-run-python-scripts-through-azure-data-factory-using-azure-batch"></a>Tutorial: Ejecución de scripts de Python mediante Azure Data Factory con Azure Batch
 
@@ -99,7 +99,7 @@ df = df[df['Species'] == "setosa"]
 df.to_csv("iris_setosa.csv", index = False)
 
 # Upload iris dataset
-blobService.create_blob_from_text(containerName, "iris_setosa.csv", "iris_setosa.csv")
+blobService.create_blob_from_path(containerName, "iris_setosa.csv", "iris_setosa.csv")
 ```
 
 Guarde el script como `main.py` y cárguelo en el contenedor de **Azure Storage**. Asegúrese de probar y asegurar su funcionalidad localmente antes de cargarlo en el contenedor de blobs:

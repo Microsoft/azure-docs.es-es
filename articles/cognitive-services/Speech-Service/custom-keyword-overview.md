@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: 0a6df626f9567b51a8371c17004b454f9c5b4597
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
+ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83202044"
+ms.lasthandoff: 08/04/2020
+ms.locfileid: "87760556"
 ---
 # <a name="what-is-a-keyword"></a>¿Qué es una palabra clave?
 
@@ -33,10 +33,30 @@ Con las características de personalización, rendimiento e integración de la P
 
 ## <a name="get-started-with-custom-keywords"></a>Introducción a las palabras clave personalizadas
 
-* Tutorial: Creación de una [palabra clave personalizada mediante Speech Studio](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws)
-* Tutorial: Cómo [activar el producto con la voz mediante el SDK de voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* Inicio rápido: [Reconocimiento de palabras clave con el SDK de voz, en la Plataforma universal de Windows mediante C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
-* Inicio rápido: [Reconocimiento de palabras clave con el SDK de voz, en Android mediante Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
+* Consulte los [conceptos básicos de palabras clave personalizadas](custom-keyword-basics.md) para ver los patrones de uso y diseño básicos.
+* Cómo [activar el producto con la voz mediante el SDK de voz, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+
+## <a name="choose-an-effective-keyword"></a>Elección de una palabra clave eficaz
+
+Crear una palabra clave efectiva es fundamental para garantizar que el dispositivo responda de forma coherente y precisa. La personalización de la palabra clave es una forma eficaz de diferenciar el dispositivo y de reforzar la marca. Tenga en cuenta las siguientes directrices al elegir una palabra clave:
+
+> [!div class="checklist"]
+> * La palabra clave debe ser una palabra o frase en inglés.
+> * No debería tardar más de dos segundos en decirse.
+> * Las palabras de 4 a 7 sílabas funcionan mejor. Por ejemplo, "Hey, Computer" es una buena palabra clave, mientras que "Hey" no es adecuada.
+> * Las palabras clave deben seguir las reglas comunes de pronunciación en inglés.
+> * Una palabra única o incluso inventada que siga las reglas comunes de pronunciación en inglés puede reducir los falsos positivos. Por ejemplo, "computerama" puede ser una buena palabra clave.
+> * No elija una palabra común. Por ejemplo, "eat" y "go" son palabras que la gente dice con frecuencia en una conversación ordinaria. Pueden ser desencadenadores falsos para su dispositivo.
+> * Evite usar una palabra clave que pueda tener pronunciaciones alternativas. Los usuarios tendrían que saber la pronunciación "correcta" para que su dispositivo respondiera. Por ejemplo, "509" puede pronunciarse como "cinco cero nueve" o "quinientos nueve". "R.E.I." puede pronunciarse como "r-e-i" o "rey". "Live" puede pronunciarse como "/līv/" o "/liv/".
+> * No utilice caracteres especiales, símbolos o dígitos. Por ejemplo, "Go#" y "20 + cats" podrían ser palabras clave problemáticas. Sin embargo, "go sharp" o "twenty plus cats" pueden funcionar. Todavía puede utilizar los símbolos en su marca y utilizar el marketing y la documentación para reforzar la pronunciación adecuada.
+
+> [!NOTE]
+> Si elige una palabra registrada como marca comercial como palabra clave, asegúrese de que es el propietario de esa marca comercial, o bien de tener el permiso del propietario para usar la palabra. Microsoft no es responsable de ningún problema legal que pueda surgir de su elección de la palabra clave.
+
+## <a name="see-samples-on-github"></a>Consulte los ejemplos en GitHub
+
+* [Reconocimiento de palabras clave con el SDK de voz, en la Plataforma universal de Windows mediante C#](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/uwp/keyword-recognizer)
+* [Reconocimiento de palabras clave con el SDK de voz, en Android mediante Java](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/java/android/keyword-recognizer)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

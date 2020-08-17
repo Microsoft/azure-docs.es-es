@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 095fd0b534c0dffaf80d2464fb9734f295335b84
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "77672402"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87317185"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Recopilación de datos de Azure Diagnostics Extension en los registros de Azure Monitor
 Azure Diagnostics Extension es un [agente de Azure Monitor](agents-overview.md) que recopila datos de supervisión del sistema operativo invitado de los recursos de proceso de Azure, incluidas las máquinas virtuales. En este artículo, se explica cómo se recopilan los datos obtenidos por la extensión de diagnóstico de Azure Storage en los registros de Azure Monitor.
@@ -63,6 +63,7 @@ En aproximadamente 30 minutos podrá ver los datos de la cuenta de almacenamient
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Recopilación de registros y métricas de los servicios de Azure](collect-azure-metrics-logs.md) para los servicios compatibles de Azure.
-* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../../azure-monitor/insights/solutions.md) para más información sobre los datos.
-* [Búsquedas de registros en Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para analizar los datos.
+* [Recopilación de registros y métricas de los servicios de Azure](./resource-logs.md#send-to-log-analytics-workspace) para los servicios compatibles de Azure.
+* [Incorporación de soluciones de Log Analytics desde la galería de soluciones](../insights/solutions.md) para más información sobre los datos.
+* [Búsquedas de registros en Log Analytics](../log-query/log-query-overview.md) para analizar los datos.
+

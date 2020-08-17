@@ -3,12 +3,12 @@ title: Cómo detener la supervisión del clúster híbrido de Kubernetes | Micro
 description: En este artículo se describe cómo puede detener la supervisión del clúster híbrido de Kubernetes con Azure Monitor para contenedores.
 ms.topic: conceptual
 ms.date: 06/16/2020
-ms.openlocfilehash: 86a774737d5269d77c4053ad61ab870b13288aa7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8369c82b83cfbaa7128383c6203aaf584916cae9
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84885848"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87091205"
 ---
 # <a name="how-to-stop-monitoring-your-hybrid-cluster"></a>Cómo detener la supervisión del clúster híbrido
 
@@ -120,4 +120,4 @@ El cambio de configuración puede tardar unos minutos en completarse. Dado que H
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si el área de trabajo de Log Analytics se creó solamente para admitir la supervisión del clúster y ya no es necesaria, tiene que eliminarla manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../../log-analytics/log-analytics-manage-del-workspace.md).
+Si el área de trabajo de Log Analytics se creó solamente para admitir la supervisión del clúster y ya no es necesaria, tiene que eliminarla manualmente. Si no está familiarizado con la eliminación de un área de trabajo, consulte [Eliminación de un área de trabajo de Azure Log Analytics](../platform/delete-workspace.md).

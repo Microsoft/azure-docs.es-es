@@ -3,12 +3,12 @@ title: Introducción a la arquitectura
 description: Proporciona información general sobre la arquitectura, los componentes y los procesos usados por el servicio Azure Backup.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 26f10f96cac412854f4bb0f732a0aec7f595c8ae
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: eab820c2a045c8602bfdbf77b5e2dba4cb2318af
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055263"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86514312"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Arquitectura y componentes de Azure Backup
 
@@ -42,10 +42,10 @@ Los almacenes de Recovery Services tienen las siguientes características:
 - Los almacenes facilitan la tarea de organizar los datos de copia de seguridad, al mismo tiempo que reducen al mínimo su sobrecarga administrativa.
 - En cada suscripción de Azure, puede crear hasta 500 almacenes.
 - Puede supervisar elementos de copia de seguridad de un almacén, como las máquinas virtuales de Azure y las máquinas locales.
-- Puede administrar el acceso del almacén con [control de acceso basado en rol (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de Azure.
+- Puede administrar el acceso del almacén con [control de acceso basado en rol (RBAC)](../role-based-access-control/role-assignments-portal.md) de Azure.
 - Especificará cómo se replican los datos en el almacén para la redundancia:
-  - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **Almacenamiento con redundancia local (LRS)** : Para protegerse frente a los errores de un centro de datos, puede usar LRS. LRS replica los datos en una unidad de escalado de almacenamiento. [Más información](../storage/common/storage-redundancy.md).
+  - **Almacenamiento con redundancia geográfica (GRS)** : Para protegerse contra las interrupciones de toda la región, puede usar GRS. GRS replica los datos en una región secundaria. [Más información](../storage/common/storage-redundancy.md).
   - De forma predeterminada, los almacenes de Recovery Services usan GRS.
 
 ## <a name="backup-agents"></a>Agentes de copia de seguridad
@@ -120,6 +120,17 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
 - Cuando se crea un almacén, también se crea una directiva "DefaultPolicy" que se puede usar para crear copias de seguridad de los recursos.
 - Cualquier cambio en el período de retención de una directiva de copia de seguridad se aplicará con efectos retroactivos a todos los puntos de recuperación anteriores, además de a los nuevos.
 
+### <a name="additional-reference"></a>Referencia adicional 
+
+-   Máquina virtual de Azure: ¿Cómo [crear](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) y [modificar](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) una directiva? 
+-   Base de datos de SQL Server en una máquina virtual de Azure: ¿Cómo [crear](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) y [modificar](./manage-monitor-sql-database-backup.md#modify-policy) una directiva? 
+-   Recurso compartido de archivos de Azure: ¿Cómo [crear](./backup-afs.md#discover-file-shares-and-configure-backup) y [modificar](./manage-afs-backup.md#modify-policy) una directiva? 
+-   SAP HANA: ¿Cómo [crear](./backup-azure-sap-hana-database.md#create-a-backup-policy) y [modificar](./sap-hana-db-manage.md#change-policy) una directiva? 
+-   MARS: ¿Cómo [crear](./backup-windows-with-mars-agent.md#create-a-backup-policy) y [modificar](./backup-azure-manage-mars.md#modify-a-backup-policy) una directiva? 
+-   [¿Existen límites sobre la programación de copia de seguridad en función del tipo de carga de trabajo?](./backup-azure-backup-faq.md#are-there-limits-on-backup-scheduling)
+- [¿Qué ocurre con los puntos de recuperación existentes cuando se cambia mi directiva de recuperación?](./backup-azure-backup-faq.md#what-happens-when-i-change-my-backup-policy)
+
+
 ## <a name="architecture-built-in-azure-vm-backup"></a>Arquitectura: Copia de seguridad integrada de máquina virtual de Azure
 
 1. Cuando se habilita la copia de seguridad de una máquina virtual de Azure, se ejecuta una copia de seguridad con la programación que especifique.
@@ -134,7 +145,7 @@ Copia de seguridad de discos desduplicados | | | ![Parcialmente][yellow]<br/><br
     - Solo se copian los bloques de datos que han cambiado desde la última copia de seguridad.
     - Los datos no se cifran. Azure Backup puede hacer una copia de seguridad de las máquinas virtuales de Azure que se cifraron mediante Azure Disk Encryption.
     - Es posible que los datos de las instantáneas no se copien inmediatamente en el almacén. En momentos de máxima actividad, la copia de seguridad podría durar horas. El tiempo total de copia de seguridad de una VM será inferior a 24 horas para las directivas de copia de seguridad diarias.
-1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability).
+1. Una vez enviados los datos al almacén, se crea un punto de recuperación. De manera predeterminada, las instantáneas se conservan durante dos días antes de ser eliminadas. Esta característica permite la operación de restauración a partir de estas instantáneas, lo cual reduce los tiempos de restauración. Reduce el tiempo necesario para transformar y copiar datos desde el almacén. Consulte [Funcionalidad de restauración instantánea de Azure Backup](./backup-instant-restore-capability.md).
 
 No es necesario permitir explícitamente la conectividad a Internet para realizar copias de seguridad de las VM de Azure.
 

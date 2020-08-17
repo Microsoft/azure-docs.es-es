@@ -14,12 +14,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.topic: conceptual
 ms.workload: identity
-ms.openlocfilehash: 6b31a03a6367c9c6f2025c1544b59c95b3f69175
-ms.sourcegitcommit: 318d1bafa70510ea6cdcfa1c3d698b843385c0f6
+ms.openlocfilehash: b1bfefb3b72c151e7a61068b3c0ad9f3e2bc4a6f
+ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83771084"
+ms.lasthandoff: 08/11/2020
+ms.locfileid: "88120633"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Instrucciones para desarrolladores para el acceso condicional de Azure Active Directory
 
@@ -33,7 +33,7 @@ Para obtener más información sobre las funcionalidades completas del acceso co
 
 Para desarrolladores que compilan aplicaciones para Azure AD, este artículo muestra cómo se puede usar el acceso condicional y también proporciona información sobre el impacto de acceder a los recursos sobre los que no se tiene control, y que pueden tener directivas de acceso condicional aplicadas. Este artículo explora además las implicaciones del acceso condicional en el flujo en el nombre de otra persona, aplicaciones web, el acceso a Microsoft Graph y las llamadas a las API.
 
-En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único](quickstart-register-app.md) y [multiinquilino](howto-convert-app-to-be-multi-tenant.md), además de sobre los [patrones comunes de autenticación](authentication-scenarios.md).
+En él se supone que tiene conocimientos sobre aplicaciones de inquilino [único](quickstart-register-app.md) y [multiinquilino](howto-convert-app-to-be-multi-tenant.md), además de sobre los [patrones comunes de autenticación](./authentication-vs-authorization.md).
 
 > [!NOTE]
 > Necesita una licencia de Azure AD Premium P1 para usar esta característica. Para obtener la licencia correcta para sus requisitos, consulte [Comparación de las características con disponibilidad general de las ediciones Gratis, Básico y Premium](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -52,7 +52,7 @@ En concreto, los escenarios siguientes requieren código para controlar los "des
 * Aplicaciones de una sola página que usan MSAL.js
 * Aplicaciones web que llaman a un recurso
 
-Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para averiguar cómo configurar una directiva de acceso condicional, consulte [Inicio rápido: Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../conditional-access/app-based-mfa.md).
+Las directivas de acceso condicional se pueden aplicar a la aplicación, pero también se pueden aplicar a una API web a la que accede la aplicación. Para averiguar cómo configurar una directiva de acceso condicional, consulte [Inicio rápido: Exigir MFA para aplicaciones específicas con acceso condicional de Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 
 Según el escenario, un cliente empresarial puede aplicar y quitar directivas de acceso condicional en cualquier momento. Con el fin de que la aplicación siga funcionando cuando se aplica una directiva nueva, es necesario implementar el control de "desafíos". En los ejemplos siguientes se ilustra el control de desafíos.
 
@@ -93,7 +93,7 @@ Los desarrolladores pueden tomar este desafío y anexarlo a una solicitud nueva 
 
 ### <a name="prerequisites"></a>Prerrequisitos
 
-El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-whatis). Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.
+El acceso condicional de Azure AD es una característica que se incluye en [Azure AD Premium](../fundamentals/active-directory-whatis.md). Los clientes con [licencias de Microsoft 365 Empresa](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) también tienen acceso a características de acceso condicional.
 
 ### <a name="considerations-for-specific-scenarios"></a>Consideraciones para escenarios específicos
 
@@ -180,7 +180,7 @@ Para probar el escenario, consulte el [ejemplo de código "en nombre de" de SPA 
 
 ## <a name="see-also"></a>Consulte también
 
-* Para más información sobre las funcionalidades, consulte [Acceso condicional en Azure Active Directory](/azure/active-directory/conditional-access/overview).
+* Para más información sobre las funcionalidades, consulte [Acceso condicional en Azure Active Directory](../conditional-access/overview.md).
 * Para obtener más información sobre los ejemplos de código de Azure AD, consulte los [ejemplos](sample-v2-code.md).
 * Para obtener más información sobre el SDK de MSAL y acceso a la documentación de referencia, consulte la [información general de la Biblioteca de autenticación de Microsoft](msal-overview.md).
 * Para más información sobre los escenarios multiinquilino, consulte el artículo sobre el [inicio de sesión de usuarios con el patrón multiinquilino](howto-convert-app-to-be-multi-tenant.md).

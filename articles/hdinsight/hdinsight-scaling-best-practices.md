@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/29/2020
-ms.openlocfilehash: fc14c3bd069162c390c09fddbfe9169b90bf66ce
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: a9d419052f000b220c993109e45d371398607275
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086014"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87006457"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Escala de clústeres de Azure HDInsight
 
 HDInsight proporciona elasticidad con opciones para escalar y reducir verticalmente el número de nodos de trabajo de los clústeres. Esta elasticidad permite reducir un clúster una vez finalizada la jornada laboral o durante los fines de semana. También permite expandirlo durante períodos de máxima demanda empresarial.
 
-Escale verticalmente el clúster antes del procesamiento por lotes periódico para que el clúster tenga los recursos adecuados.  Una vez completado el procesamiento y reducido el uso, reduzca verticalmente el clúster de HDInsight a menos nodos de trabajo.
+Escale verticalmente el clúster antes del procesamiento por lotes periódico para que el clúster tenga los recursos adecuados.   Una vez completado el procesamiento y reducido el uso, reduzca verticalmente el clúster de HDInsight a menos nodos de trabajo.
 
 Puede escalar un clúster manualmente con uno de los métodos que se describen a continuación. También puede usar opciones de [escalabilidad automática](hdinsight-autoscale-clusters.md) para escalar y reducir verticalmente de forma automática como respuesta a determinadas métricas.
 
@@ -106,6 +106,14 @@ A continuación se muestra cómo el efecto de cambiar el número de nodos de dat
 * Kafka
 
     debe volver a equilibrar réplicas de la partición después de las operaciones de escalado. Para más información, consulte el documento [Alta disponibilidad de los datos con Apache Kafka en HDInsight](./kafka/apache-kafka-high-availability.md).
+
+* LLAP de Apache Hive
+
+    Después de escalar a `N` nodos de trabajo, HDInsight definirá automáticamente las siguientes configuraciones y reiniciará Hive.
+
+  * Número máximo total de consultas simultáneas: `hive.server2.tez.sessions.per.default.queue = min(N, 32)`
+  * Número de nodos usados por LLAP de Hive: `num_llap_nodes  = N`
+  * Número de nodos para ejecutar el demonio LLAP de Hive: `num_llap_nodes_for_llap_daemons = N`
 
 ## <a name="how-to-safely-scale-down-a-cluster"></a>Reducción vertical segura de clústeres
 

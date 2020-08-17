@@ -8,16 +8,16 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: cf01e4baf96e4403dae443fa6c98f74c571641a8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2b88c053e1f9029f916d9a180221a3bb58629608
+ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86508325"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87448860"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Tutorial: Supervisión de cambios y actualización de una máquina virtual Windows en Azure
 
-Con Azure [Change Tracking](../../automation/change-tracking.md) y [Update Management](../../automation/automation-update-management.md), es fácil identificar los cambios realizados en las máquinas virtuales Windows en Azure y administrar las actualizaciones del sistema operativo de esas mismas máquinas virtuales.
+Con Azure [Change Tracking](../../automation/change-tracking.md) y [Update Management](../../automation/update-management/update-mgmt-overview.md), es fácil identificar los cambios realizados en las máquinas virtuales Windows en Azure y administrar las actualizaciones del sistema operativo de esas mismas máquinas virtuales.
 
 En este tutorial, aprenderá a:
 
@@ -112,10 +112,10 @@ Para programar una nueva implementación de actualizaciones en la máquina virtu
 | --- | --- |
 | **Nombre** |proporcione un nombre único para identificar la implementación de actualizaciones. |
 |**Sistema operativo**| Seleccione **Linux** o **Windows**.|
-| **Grupos que se deben actualizar** |En el caso de las máquinas virtuales hospedadas en Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas. Esta consulta crea un grupo dinámico de máquinas virtuales hospedadas en Azure que se van a incluir en la implementación. </br></br>En el caso de las máquinas virtuales no hospedadas en Azure, seleccione una búsqueda guardada existente. Con esta búsqueda, puede seleccionar un grupo de estas máquinas virtuales para incluirlas en la implementación. </br></br> Para más información, consulte [Grupos dinámicos](../../automation/automation-update-management-groups.md).|
+| **Grupos que se deben actualizar** |En el caso de las máquinas virtuales hospedadas en Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas. Esta consulta crea un grupo dinámico de máquinas virtuales hospedadas en Azure que se van a incluir en la implementación. </br></br>En el caso de las máquinas virtuales no hospedadas en Azure, seleccione una búsqueda guardada existente. Con esta búsqueda, puede seleccionar un grupo de estas máquinas virtuales para incluirlas en la implementación. </br></br> Para más información, consulte [Grupos dinámicos](../../automation/update-management/update-mgmt-groups.md).|
 | **Máquinas para actualizar** |Seleccione **Búsqueda guardada**, **Grupo importado** o **Máquinas**.<br/><br/>Si selecciona **Máquinas**, puede elegir máquinas individuales en la lista desplegable. La preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE** de la tabla.</br></br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../../azure-monitor/platform/computer-groups.md) |
 |**Clasificaciones de actualizaciones**|Elija todas las clasificaciones de actualizaciones necesarias.|
-|**Incluir o excluir las actualizaciones**|Seleccione esta opción para abrir el panel **Incluir o excluir**. Las actualizaciones que se van a incluir y las que se van a excluir están en pestañas separadas. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment). |
+|**Incluir o excluir las actualizaciones**|Seleccione esta opción para abrir el panel **Incluir o excluir**. Las actualizaciones que se van a incluir y las que se van a excluir están en pestañas separadas. Para más información sobre cómo se controla la inclusión, consulte [Programación de una implementación de actualizaciones](../../automation/update-management/update-mgmt-deploy-updates.md#schedule-an-update-deployment). |
 |**Configuración de la programación**|Elija la hora de inicio y seleccione **Una vez** o **Periódico**.|
 | **Scripts previos + scripts posteriores**|Elija los scripts que se van a ejecutar antes y después de la implementación.|
 | **Ventana de mantenimiento** | Escriba el número de minutos establecido para las actualizaciones. Los valores válidos oscilan entre 30 y 360 minutos. |

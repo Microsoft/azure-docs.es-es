@@ -3,16 +3,16 @@ title: Anotaciones de la versión de Application Insights | Microsoft Docs
 description: Agregue marcadores de implementación o compilación a sus gráficos del Explorador de métricas en Application Insights.
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.openlocfilehash: 0ad773ca6a7102ac718d43dfbbf6a4f834e681a0
-ms.sourcegitcommit: ae3d707f1fe68ba5d7d206be1ca82958f12751e8
+ms.openlocfilehash: 8e9e0cb49343524e8a45831566cf802b1c8c5d9b
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2020
-ms.locfileid: "81010747"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87320670"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Anotaciones sobre gráficos de métricas en Application Insights
 
-Las anotaciones muestran dónde ha implementado una nueva compilación u otros eventos importantes. Las anotaciones permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el sistema de compilación de [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/tasks/). También puede crear anotaciones para marcar los eventos que prefiera si los crea desde PowerShell.
+Las anotaciones muestran dónde ha implementado una nueva compilación u otros eventos importantes. Las anotaciones permiten ver fácilmente si los cambios tuvieron algún efecto en el rendimiento de la aplicación. Se pueden crear automáticamente con el sistema de compilación de [Azure Pipelines](/azure/devops/pipelines/tasks/). También puede crear anotaciones para marcar los eventos que prefiera si los crea desde PowerShell.
 
 ## <a name="release-annotations-with-azure-pipelines-build"></a>Anotaciones de la versión con una compilación de Azure Pipelines
 
@@ -34,7 +34,7 @@ Solo deberá instalar la extensión una vez para su organización de Azure DevOp
 
 Cree una clave de API independiente para cada una de las plantillas de versión de Azure Pipelines.
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. Si no tiene uno, [cree un nuevo recurso de Application Insights](../../azure-monitor/app/app-insights-overview.md).
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra el recurso de Application Insights que supervisa su aplicación. Si no tiene uno, [cree un nuevo recurso de Application Insights](./app-insights-overview.md).
    
 1. Abra la pestaña **Acceso de API** y copie el **Id. de Application Insights**.
    
@@ -115,5 +115,6 @@ El script se puede modificar (por ejemplo, para crear anotaciones para el pasado
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Crear elementos de trabajo](../../azure-monitor/app/diagnostic-search.md#create-work-item)
-* [Automation con PowerShell](../../azure-monitor/app/powershell.md)
+* [Crear elementos de trabajo](./diagnostic-search.md#create-work-item)
+* [Automation con PowerShell](./powershell.md)
+

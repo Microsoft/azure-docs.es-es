@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.workload: web
 ms.date: 12/09/2019
 ms.author: madsd
-ms.custom: seodec18
-ms.openlocfilehash: ee5e50bdba0a798d335641dc8a0c7ae69832d8f6
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: seodec18, devx-track-azurecli
+ms.openlocfilehash: 3ff268ca77fc855853b6506141a25c761341b451
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74979511"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87495512"
 ---
 # <a name="integrate-app-service-with-application-gateway-using-cli"></a>Integración de App Service con Application Gateway mediante la CLI
 

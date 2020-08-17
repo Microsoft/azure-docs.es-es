@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 06/01/2020
 ms.author: v-miegge
-ms.openlocfilehash: dea09b1ac29db99e1c52a31a605007fa4129e8ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f59903ed111be1fe414f4b3ded250d754c91d323
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84302607"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87069146"
 ---
 # <a name="troubleshoot-boot-error---disk-read-error-occurred"></a>Solución de un error de arranque: error de lectura de disco
 
@@ -27,7 +27,7 @@ En este artículo se proporcionan los pasos para resolver problemas en que el di
 
 ## <a name="symptoms"></a>Síntomas
 
-Cuando use los [diagnósticos de arranque](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) para ver la captura de pantalla de la VM, verá que en dicha captura de pantalla se muestra el mensaje siguiente: "Error de lectura de disco". Presione Ctrl+Alt+Supr para reiniciar".
+Cuando use los [diagnósticos de arranque](./boot-diagnostics.md) para ver la captura de pantalla de la VM, verá que en dicha captura de pantalla se muestra el mensaje siguiente: "Error de lectura de disco". Presione Ctrl+Alt+Supr para reiniciar".
 
    ![Mensaje de error: Error de lectura de disco. Presione Control + Alt + Supr para reiniciar.](./media/disk-read-error-occurred/1.png)
 
@@ -51,7 +51,7 @@ Este mensaje de error indica que la estructura del disco está dañada y es ileg
 
 ### <a name="create-and-access-a-repair-vm"></a>Creación de una máquina virtual de reparación y acceso a ella
 
-1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands) para preparar una VM de reparación.
+1. Siga los pasos 1 a 3 de los [comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md) para preparar una VM de reparación.
 1. Use Conexión a Escritorio remoto para conectarse a la VM de reparación.
 
 ### <a name="set-partition-status-to-active"></a>Establecimiento del estado de la partición en Activo
@@ -143,4 +143,4 @@ Las VM de generación 1 deben verificar primero que la partición del sistema o
    
 ### <a name="rebuild-the-vm"></a>Recompilación de la máquina virtual
 
-Realice el [paso 5 de los comandos de reparación de VM](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/repair-windows-vm-using-azure-virtual-machine-repair-commands#repair-process-example) para volver a crear la VM.
+Realice el [paso 5 de los comandos de reparación de VM](./repair-windows-vm-using-azure-virtual-machine-repair-commands.md#repair-process-example) para volver a crear la VM.

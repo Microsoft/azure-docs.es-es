@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 02/06/2019
-ms.openlocfilehash: e186b9713c8464f8f37e1e0bf112c4118621925c
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: ff6bd1a52e05d55d43969644141f39aed8c8eb63
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2020
-ms.locfileid: "75979407"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87072647"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Transformación de XML con asignaciones en Azure Logic Apps con Enterprise Integration Pack
 
@@ -43,7 +43,7 @@ Para conocer los límites relacionados con las cuentas de integración y artefac
     | [Explorador de Azure Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md) | Esta herramienta ayuda a administrar más fácilmente las cuentas de almacenamiento y los contenedores de blobs. Para usar el Explorador de Storage, [descargue e instale el Explorador de Azure Storage](https://www.storageexplorer.com/). Luego, para conectarlo con su cuenta de almacenamiento, siga los pasos que aparecen en [Introducción al Explorador de Storage](../vs-azure-tools-storage-manage-with-storage-explorer.md). Para más información, vea esta [Inicio rápido: Cree un blob en el almacenamiento de objetos con el Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md). <p>O bien, en Azure Portal, busque y seleccione la cuenta de almacenamiento. En el menú de la cuenta de almacenamiento, seleccione **Explorador de Storage**. |
     |||
 
-  * En el caso de las asignaciones, actualmente puede agregar asignaciones más grandes si usa las [asignaciones de la API REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+  * En el caso de las asignaciones, actualmente puede agregar asignaciones más grandes si usa las [asignaciones de la API REST de Azure Logic Apps](/rest/api/logic/maps/createorupdate).
 
 No necesita una aplicación lógica al crear y agregar asignaciones. Sin embargo, al usar una asignación, la aplicación lógica se debe vincular a una cuenta de integración donde se almacena esa asignación. Aprenda a [vincular aplicaciones lógicas a cuentas de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account). Si aún no tiene una aplicación lógica, obtenga información sobre [cómo crear aplicaciones lógicas](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
@@ -220,7 +220,7 @@ Después de cargar cualquier ensamblado al que hace referencia la asignación, a
 
 ### <a name="add-maps-more-than-2-mb"></a>Incorporación de asignaciones de más de 2 MB
 
-Actualmente, para agregar asignaciones más grandes, use las [asignaciones de la API REST de Azure Logic Apps](https://docs.microsoft.com/rest/api/logic/maps/createorupdate).
+Actualmente, para agregar asignaciones más grandes, use las [asignaciones de la API REST de Azure Logic Apps](/rest/api/logic/maps/createorupdate).
 
 <!--
 

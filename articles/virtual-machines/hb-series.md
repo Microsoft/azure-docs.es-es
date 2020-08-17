@@ -4,15 +4,15 @@ description: Especificaciones de las máquinas virtuales de la serie HB.
 author: ju-shim
 ms.service: virtual-machines
 ms.subservice: sizes
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b0ffd9af8df830c1bdacbfe3809d4086346679b6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34fbc0683ac39429193f488f3ade289996a67fb4
+ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84678569"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87291160"
 ---
 # <a name="hb-series"></a>Serie HB
 

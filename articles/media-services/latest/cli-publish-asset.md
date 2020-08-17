@@ -14,12 +14,13 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 44cf234fd8419164f7dd7f8320952a5c6c0842e0
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 95bdd3b3dddd1a04e00d705449681985400e9621
+ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74896112"
+ms.lasthandoff: 07/31/2020
+ms.locfileid: "87487639"
 ---
 # <a name="cli-example-publish-an-asset"></a>Ejemplo de CLI: publicación de un recurso
 
@@ -27,7 +28,7 @@ El script de la CLI de Azure de este artículo muestra cómo crear un localizado
 
 ## <a name="prerequisites"></a>Prerequisites 
 
-[Cree una cuenta de Media Services](create-account-cli-how-to.md).
+[Cree una cuenta de Media Services](./create-account-howto.md).
 
 [!INCLUDE [media-services-cli-instructions.md](../../../includes/media-services-cli-instructions.md)]
 

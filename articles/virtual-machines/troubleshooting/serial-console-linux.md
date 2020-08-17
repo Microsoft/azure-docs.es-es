@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: a9c2cee1478bc64c63b0d7ad09eec386b59678ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cacb517c783416994fa95bd0f6a6d15a95a52ab4
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509025"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87423463"
 ---
 # <a name="azure-serial-console-for-linux"></a>Consola serie de Azure para Linux
 
@@ -26,13 +26,14 @@ La consola serie de Azure Portal proporciona acceso a una consola basada en text
 
 La consola serie funciona de la misma manera para las máquinas virtuales y las instancias de conjunto de escalado de máquinas virtuales. En este documento, todas las menciones a las máquinas virtuales incluirán implícitamente las instancias de conjunto de escalado de máquinas virtuales, a menos que se indique lo contrario.
 
+La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
+
 Para la documentación sobre la consola serie para Windows, consulte [Consola serie para Windows](./serial-console-windows.md).
 
 > [!NOTE]
-> La consola serie está disponible con carácter general en regiones de Azure globales y en versión preliminar pública en Azure Government. Aún no está disponible en la nube de Azure en China.
+> Actualmente, la consola serie no es compatible con una cuenta de almacenamiento de diagnósticos de arranque administrado. Para usar la consola serie, asegúrese de que está usando una cuenta de almacenamiento personalizada.
 
-
-## <a name="prerequisites"></a>Prerrequisitos
+## <a name="prerequisites"></a>Requisitos previos
 
 - La máquina virtual o la instancia de conjunto de escalado de máquinas virtuales deben usar el modelo de implementación de Resource Manager. No se admiten las implementaciones clásicas.
 
@@ -122,7 +123,7 @@ La consola serie tiene integrada la compatibilidad con el lector de pantalla. Si
 ## <a name="known-issues"></a>Problemas conocidos
 Somos conscientes de que hay algunos problemas con la consola serie y el sistema operativo de la máquina virtual. Esta es una lista de dichos problemas y los pasos que puede realizar para corregirlos en máquinas virtuales Linux. Estos problemas y mitigaciones se aplican tanto a las máquinas virtuales como a las instancias de conjunto de escalado de máquinas virtuales. Si no coinciden con el error que observa, consulte los errores comunes de servicio de la consola serie en [Errores comunes en la consola serie](./serial-console-errors.md).
 
-Problema                           |   Mitigación
+Incidencia                           |   Mitigación
 :---------------------------------|:--------------------------------------------|
 Al presionar **Entrar** después del banner de conexión no se muestra ninguna solicitud de inicio de sesión. | GRUB puede no estar configurado correctamente. Ejecute los comandos siguientes: `grub2-mkconfig -o /etc/grub2-efi.cfg` y/o `grub2-mkconfig -o /etc/grub2.cfg`. Para obtener más información, consulte [Hitting enter does nothing](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md) (Al presionar Entrar, no se realiza ninguna acción). Este problema puede ocurrir si está ejecutando una máquina virtual personalizada, un dispositivo protegido o una configuración de GRUB que hace que Linux no pueda conectarse al puerto serie.
 El texto de la consola serie solo ocupa una parte de la pantalla (a menudo después de usar un editor de texto). | Las consolas serie no admiten operaciones para cambiar el tamaño de la ventana ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), lo que significa que no se enviará ninguna señal SIGWINCH para actualizar el tamaño de la pantalla y la máquina virtual no tendrá conocimiento del tamaño del terminal. Instale xterm o una utilidad similar que le proporcione el comando `resize` y, a continuación, ejecute `resize`.

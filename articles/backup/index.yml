@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 719fb5891fff560ba621b7af88f27387a4f7fce2
-  ms.sourcegitcommit: 34eb5e4d303800d3b31b00b361523ccd9eeff0ab
+  ms.openlocfilehash: f3d934a0f357cc98731b51c5abe61fff92cda3e5
+  ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 06/17/2020
-  ms.locfileid: "84906962"
+  ms.lasthandoff: 08/04/2020
+  ms.locfileid: "87562589"
 landingContent:
 - title: Información acerca de Azure Backup
   linkLists:
@@ -149,4 +149,4 @@ landingContent:
     - text: Actualizaciones del servicio Azure Backup
       url: https://azure.microsoft.com/updates/?product=backup
     - text: Página de preguntas y respuestas de Microsoft de Azure Backup
-      url: https://docs.microsoft.com/answers/topics/azure-backup.html
+      url: /answers/topics/azure-backup.html

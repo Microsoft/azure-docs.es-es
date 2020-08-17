@@ -11,13 +11,13 @@ metadata:
   ms.collection: collection
   author: mblythe
   ms.author: mblythe
-  ms.date: 12/19/2019
-  ms.openlocfilehash: 277326eb6b120c4cc1b456a17c6f58791c66dd16
-  ms.sourcegitcommit: 253d4c7ab41e4eb11cd9995190cd5536fcec5a3c
+  ms.date: 08/05/2020
+  ms.openlocfilehash: f45fc98073dcc6eeee10c691fe9f93860e0fb654
+  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
   ms.translationtype: HT
   ms.contentlocale: es-ES
-  ms.lasthandoff: 03/25/2020
-  ms.locfileid: "75890772"
+  ms.lasthandoff: 08/14/2020
+  ms.locfileid: "88212094"
 landingContent:
 - title: Acerca de Azure Portal
   linkLists:
@@ -51,7 +51,7 @@ landingContent:
       url: /learn/paths/manage-resources-in-azure/
     - text: Protección de los recursos de Azure con el control de acceso basado en rol (RBAC)
       url: /learn//modules/secure-azure-resources-with-rbac/
-- title: Introducción
+- title: Primeros pasos
   linkLists:
   - linkListType: quickstart
     links:
@@ -76,7 +76,7 @@ landingContent:
   - linkListType: how-to-guide
     links:
     - text: Activación del contraste alto
-      url: azure-portal-change-theme-high-contrast.md
+      url: set-preferences.md#choose-a-theme-or-enable-high-contrast
 - title: Creación y administración de solicitudes de soporte técnico
   linkLists:
   - linkListType: how-to-guide

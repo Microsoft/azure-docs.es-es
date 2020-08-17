@@ -3,12 +3,12 @@ title: Evaluación de grandes cantidades de máquinas virtuales de VMware para l
 description: Describe cómo evaluar grandes cantidades de máquinas virtuales de VMware para la migración a Azure mediante el servicio Azure Migrate.
 ms.topic: how-to
 ms.date: 03/23/2020
-ms.openlocfilehash: d404583b1bad474a5e24e8c7cf060aeb80d610bc
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 6490a5448bb68dcccd61784d149e9765107400c2
+ms.sourcegitcommit: d7bd8f23ff51244636e31240dc7e689f138c31f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "80336865"
+ms.lasthandoff: 07/24/2020
+ms.locfileid: "87171907"
 ---
 # <a name="assess-large-numbers-of-vmware-vms-for-migration-to-azure"></a>Evaluación de grandes cantidades de VM de VMware para la migración a Azure
 
@@ -34,8 +34,10 @@ Al planear la evaluación de un gran número de VM de VMware, hay un par de cosa
 
 - **Planeación de proyectos de Azure Migrate**: Averigüe cómo implementar proyectos de Azure Migrate. Por ejemplo, si los centros de datos están en zonas geográficas diferentes, o si necesita almacenar metadatos relacionados con la detección, la evaluación o la migración en una zona geográfica diferente, es posible que necesite varios proyectos. 
 - **Planear dispositivos**: Azure Migrate usa un dispositivo de Azure Migrate local, implementado como VM de VMware, para detectar continuamente VM. El dispositivo supervisa los cambios de entorno, como la incorporación de VM, discos o adaptadores de red. También envía metadatos y datos de rendimiento acerca de ellos a Azure. Debe averiguar el número de dispositivos que necesitará implementar.
-- **Planear cuentas para la detección**: El dispositivo Azure Migrate usa una cuenta con acceso a vCenter Server para detectar VM con fines de evaluación y migración. Si detecta más de 10 000 VM, configure varias cuentas.
+- **Planear cuentas para la detección**: El dispositivo Azure Migrate usa una cuenta con acceso a vCenter Server para detectar VM con fines de evaluación y migración. Si detecta más de 10 000 máquinas virtuales, configure varias cuentas, ya que no debe existir ninguna superposición entre las máquinas virtuales detectadas en dos dispositivos cualquiera de un proyecto. 
 
+> [!NOTE]
+> Si va a configurar varios dispositivos, asegúrese de que no exista ninguna superposición entre las máquinas virtuales en las cuentas de vCenter proporcionadas. No se admiten los escenarios con detecciones con este tipo de superposición. Si más de un dispositivo detecta la misma máquina virtual, habrá duplicados en la detección y se presentarán problemas al habilitar la replicación para la máquina virtual mediante Azure Portal durante la migración del servidor.
 
 ## <a name="planning-limits"></a>Límites de planeación
  
@@ -52,11 +54,12 @@ Teniendo en cuenta estos límites, estas son algunas implementaciones de ejemplo
 
 
 **Servidor vCenter** | **VM en el servidor** | **Recomendación** | **Acción**
----|---|---
+---|---|---|---
 Uno | < 10 000 | Un proyecto de Azure Migrate.<br/> Un dispositivo.<br/> Una cuenta de vCenter para la detección. | Configure el dispositivo y conéctese a vCenter Server con una cuenta.
-Uno | > 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Configure el dispositivo para cada 10 000 VM.<br/><br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
+Uno | > 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Configure el dispositivo para cada 10 000 VM.<br/><br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos. <br/> <br/> Asegúrese de que no exista ninguna superposición entre las máquinas virtuales en las cuentas de vCenter proporcionadas. No se admiten los escenarios con detecciones con este tipo de superposición. Si más de un dispositivo detecta la misma máquina virtual, habrá duplicados en la detección y se presentarán problemas al habilitar la replicación para la máquina virtual mediante Azure Portal durante la migración del servidor.
 Múltiple | < 10 000 |  Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Una cuenta de vCenter para la detección. | Configure los dispositivos y conéctese a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
-Múltiple | > 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Si vCenter Server detectó menos de 10 000 VM, configure un dispositivo para cada instancia de vCenter Server.<br/><br/> Si vCenter Server detectó más de 10 000 VM, configure un dispositivo para cada 10 000 VM.<br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos.
+Múltiple | > 10 000 | Un proyecto de Azure Migrate.<br/> Varios dispositivos.<br/> Varias cuentas de vCenter. | Si vCenter Server detectó menos de 10 000 VM, configure un dispositivo para cada instancia de vCenter Server.<br/><br/> Si vCenter Server detectó más de 10 000 VM, configure un dispositivo para cada 10 000 VM.<br/> Configure cuentas de vCenter y divida el inventario para limitar el acceso de una cuenta a menos de 10 000 VM.<br/> Conecte cada dispositivo a vCenter Server con una cuenta.<br/> Puede analizar las dependencias entre las máquinas que se detectan con diferentes dispositivos. <br/><br/> Asegúrese de que no exista ninguna superposición entre las máquinas virtuales en las cuentas de vCenter proporcionadas. No se admiten los escenarios con detecciones con este tipo de superposición. Si más de un dispositivo detecta la misma máquina virtual, habrá duplicados en la detección y se presentarán problemas al habilitar la replicación para la máquina virtual mediante Azure Portal durante la migración del servidor.
+
 
 
 ## <a name="plan-discovery-in-a-multi-tenant-environment"></a>Planeación de la detección en un entorno de varios inquilinos

@@ -1,5 +1,5 @@
 ---
-title: Modelo de metadatos compartidos de Azure Synapse Analytics
+title: Modelo de metadatos compartidos
 description: Azure Synapse Analytics permite que los diferentes motores de cálculo de áreas de trabajo compartan bases de datos y tablas entre los grupos de Spark (versión preliminar), el motor de SQL a petición (versión preliminar) y los grupos de SQL.
 services: synapse-analytics
 author: MikeRys
@@ -9,12 +9,12 @@ ms.subservice: metadata
 ms.date: 05/01/2020
 ms.author: mrys
 ms.reviewer: jrasnick
-ms.openlocfilehash: 26a65aef0d7524bf73c6dc2981bd71539e59ed76
-ms.sourcegitcommit: 971a3a63cf7da95f19808964ea9a2ccb60990f64
+ms.openlocfilehash: c11a0ccb08f03775a07716e6c547d849cda347dd
+ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/19/2020
-ms.locfileid: "85080153"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87387343"
 ---
 # <a name="azure-synapse-analytics-shared-metadata"></a>Metadatos compartidos de Azure Synapse Analytics
 
@@ -40,7 +40,7 @@ El modelo de metadatos compartidos admite el moderno patrón de almacenamiento d
 
 La sincronización de objetos se produce de forma asincrónica. Los objetos tendrán un ligero retraso de unos segundos hasta que aparezcan en el contexto de SQL. Una vez que aparecen, los motores de SQL que tienen acceso a ellos pueden consultarlos, pero no actualizarlos ni cambiarlos.
 
-## <a name="which-metadata-objects-are-shared"></a>Qué objetos de metadatos se comparten
+## <a name="shared-metadata-objects"></a>Objetos de metadatos compartidos
 
 Spark permite crear bases de datos, tablas externas, tablas administradas y vistas. Dado que las vistas de Spark requieren que un motor de Spark procese la instrucción SQL de Spark definitoria y que un motor SQL no las pueden procesar, las bases de datos y las tablas externas y administradas que contiene que usen el formato de almacenamiento de Parquet son las únicas que se comparten con el motor SQL del área de trabajo. Las vistas de Spark solo se comparten entre las instancias de grupo de Spark.
 

@@ -5,23 +5,24 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/13/2020
 ms.topic: how-to
-ms.openlocfilehash: 90653db4c572877a728964851a99beebf2e823a4
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 2e9cb216c100f1732230a90572284bd3f8462584
+ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80679290"
+ms.lasthandoff: 07/30/2020
+ms.locfileid: "87433138"
 ---
 # <a name="override-materials-during-model-conversion"></a>Reemplazo de materiales durante la conversión de modelos
 
-Durante la conversión, la configuración de materiales del modelo de origen se usa para definir los [materiales de PBR](../../overview/features/pbr-materials.md) que usa el representador.
+La configuración de materiales del modelo de origen se usa para definir los [materiales de PBR](../../overview/features/pbr-materials.md) que usa el representador.
 A veces, la [conversión predeterminada](../../reference/material-mapping.md) no proporciona los resultados deseados y es necesario realizar cambios.
 Cuando se convierte un modelo para su uso en Azure Remote Rendering, se puede proporcionar un archivo de invalidación de materiales para personalizar cómo se realiza la conversión de cada material.
 En la sección sobre la [configuración de la conversión de modelos](configure-model-conversion.md) se incluyen instrucciones para declarar el nombre de archivo de invalidación de material.
 
 ## <a name="the-override-file-used-during-conversion"></a>Archivo de invalidación usado durante la conversión
 
-Como ejemplo sencillo, supongamos que un modelo de cuadros tiene un único material, denominado "Default". El color albedo necesita ajustarse para usarse en ARR.
+Como ejemplo sencillo, supongamos que un modelo de cuadros tiene un único material, denominado "Default".
+Además, digamos que el color albedo debe ajustarse para usarse en ARR.
 En este caso, se puede crear un archivo `box_materials_override.json` de la siguiente manera:
 
 ```json
@@ -38,7 +39,7 @@ En este caso, se puede crear un archivo `box_materials_override.json` de la sigu
 ]
 ```
 
-El archivo `box_materials_override.json` se coloca en el contenedor de entrada y se agrega un elemento `ConversionSettings.json` junto a `box.fbx`, lo que indica a la conversión dónde encontrar el archivo de invalidación (consulte [Configuración de la conversión de modelos](configure-model-conversion.md)):
+El archivo `box_materials_override.json` se coloca en el contenedor de entrada y se agrega un elemento `box.ConversionSettings.json` junto a `box.fbx`, lo que indica a la conversión dónde encontrar el archivo de invalidación (consulte [Configuración de la conversión de modelos](configure-model-conversion.md)):
 
 ```json
 {
@@ -51,7 +52,7 @@ Cuando se convierta el modelo, se aplicará la nueva configuración.
 ### <a name="color-materials"></a>Materiales de color
 
 El modelo de [material de color](../../overview/features/color-materials.md) describe una superficie sombreada constantemente que es independiente de la iluminación.
-Esto resulta útil para los recursos que crean los algoritmos de fotogrametría, por ejemplo.
+Los materiales de color son útiles para los recursos que se crean con los algoritmos de fotogrametría, por ejemplo.
 En los archivos de invalidación de materiales, un material se puede declarar como material de color estableciendo `unlit` en `true`.
 
 ```json

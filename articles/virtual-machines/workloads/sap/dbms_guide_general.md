@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 44a41f43aa31c15b71d7b35ebd29bf935c7df966
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 34b7f4bc55fc8e33b7d66f53e6f2fc241801f965
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87827425"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -174,7 +174,7 @@ Las cuentas de Azure Storage son una construcción administrativa y también est
 
 Con el almacenamiento estándar, recuerde que hay un límite en el número de IOPS por cuenta de almacenamiento. Consulte la fila que contiene **Tasa de solicitud total** del artículo [Objetivos de escalabilidad y rendimiento de Azure Storage](../../../storage/common/scalability-targets-standard-account.md). Además, hay un límite inicial en el número de cuentas de almacenamiento por suscripción de Azure. Con infraestructuras de SAP más grandes, equilibre los discos duros virtuales entre diferentes cuentas de almacenamiento para evitar alcanzar los límites de estas cuentas de almacenamiento. Este es un trabajo tedioso cuando se trata de varios cientos de máquinas virtuales con más de mil discos duros virtuales.
 
-Puesto que no se recomienda usar almacenamiento estándar en implementaciones de DBMS en combinación con una carga de trabajo de SAP, las referencias y recomendaciones para el almacenamiento estándar se limitan a este breve [artículo](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+Puesto que no se recomienda usar almacenamiento estándar en implementaciones de DBMS en combinación con una carga de trabajo de SAP, las referencias y recomendaciones para el almacenamiento estándar se limitan a este breve [artículo](/archive/blogs/mast/configuring-azure-virtual-machines-for-optimal-storage-performance).
 
 Para evitar el trabajo administrativo de planear e implementar discos duros virtuales entre varias cuentas de Azure Storage, Microsoft presentó [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) en 2017. Los discos administrados están disponibles para almacenamiento estándar y almacenamiento premium. Las principales ventajas de los discos administrados en comparación con los discos no administrados son las siguientes:
 
@@ -327,7 +327,7 @@ El equilibrador de carga ofrece una opción de DirectServerReturn. Si se configu
 
 Se recomienda configurar DirectServerReturn en combinación con equilibradores de carga que estén colocados entre la capa de aplicación de SAP y la capa de DBMS. Esta configuración reduce la latencia de red entre las dos capas.
 
-Para ver un ejemplo de cómo realizar esta configuración con SQL Server Always On, consulte [Configuración de un cliente de escucha ILB para grupos de disponibilidad AlwaysOn en Azure](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
+Para ver un ejemplo de cómo realizar esta configuración con SQL Server Always On, consulte [Configuración de un cliente de escucha ILB para grupos de disponibilidad AlwaysOn en Azure](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-int-listener).
 
 Si usa las plantillas JSON publicadas en GitHub como referencia para las implementaciones de infraestructura SAP en Azure, debe estudiar esta [plantilla para un sistema SAP de tres niveles](https://github.com/Azure/azure-quickstart-templates/tree/4099ad9bee183ed39b88c62cd33f517ae4e25669/sap-3-tier-marketplace-image-converged-md). En esta plantilla, también puede ver la configuración correcta del equilibrador de carga.
 

@@ -3,12 +3,12 @@ title: 'Inicio rápido: Envío de eventos personalizados al punto de conexión w
 description: 'Inicio rápido: Use Azure Event Grid y Azure Portal para publicar un tema personalizado y suscribirse a eventos de ese tema. Los eventos se controlan mediante una aplicación web.'
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 21c3d043925d328c671de19444b0fed1c6950bf1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 592e2d6b7393da8cb55a457b022d6c2358048cfe
+ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115237"
+ms.lasthandoff: 07/29/2020
+ms.locfileid: "87421049"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-the-azure-portal-and-event-grid"></a>Inicio rápido: Enrutamiento de eventos personalizados a puntos de conexión web con Azure Portal y Event Grid
 
@@ -44,7 +44,8 @@ Un tema de cuadrícula de eventos proporciona un punto de conexión definido por
 5. Una vez finalizada la implementación, escriba **Temas de Event Grid** en la barra de búsqueda de nuevo y seleccione **Temas de Event Grid** en la lista desplegable como hizo anteriormente. 
 6. Seleccione en la lista el tema que creó. 
 
-    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selección del tema en la lista":::  
+    :::image type="content" source="./media/custom-event-quickstart-portal/select-event-grid-topic.png" alt-text="Selección del tema en la lista":::
+
 7. Ahora verá la página **Tema de Event Grid** del tema. Mantenga esta página abierta. La usará más adelante en este inicio rápido. 
 
     :::image type="content" source="./media/custom-event-quickstart-portal/event-grid-topic-home-page.png" alt-text="Página principal Tema de Event Grid":::
@@ -54,7 +55,7 @@ Antes de crear una suscripción para el tema personalizado, cree un punto de con
 
 1. En la página del artículo, seleccione **Implementar en Azure** para implementar la solución en su suscripción. En Azure Portal, proporcione valores para los parámetros.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"  alt="Button to Deploy to Aquent." /></a>
 1. La implementación puede tardar unos minutos en completarse. Después de que la implementación se haya realizado correctamente, puede ver la aplicación web para asegurarse de que se está ejecutando. En un explorador web, vaya a: `https://<your-site-name>.azurewebsites.net`
 
     Si se produce un error en la implementación, compruebe el mensaje de error. Puede deberse a que ya se ha utilizado el nombre del sitio web. Vuelva a implementar la plantilla y elija un nombre diferente para el sitio. 

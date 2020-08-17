@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/23/2019
+ms.date: 07/22/2020
 ms.author: kenwith
 ms.custom: it-pro
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34f3dcd607a7417932912528167a1120dbfd9b4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84764526"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87019529"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicación de Escritorio Remoto con el Proxy de aplicación de Azure AD
 
@@ -29,7 +29,7 @@ El Servicio de Escritorio remoto y el proxy de aplicación de Azure AD funcionan
 
 La audiencia objetivo para este artículo es:
 - Clientes del proxy de aplicación actuales que desean ofrecer más aplicaciones a los usuarios finales mediante la publicación de aplicaciones locales a través de Servicios de Escritorio remoto.
-- Clientes de Servicios de Escritorio remoto actuales que desean reducir la superficie expuesta a ataques de su implementación mediante el proxy de aplicación de Azure AD. Este escenario ofrece un conjunto limitado de controles de acceso condicional y verificación en dos pasos a RDS.
+- Clientes de Servicios de Escritorio remoto actuales que desean reducir la superficie expuesta a ataques de su implementación mediante el proxy de aplicación de Azure AD. Este escenario ofrece un conjunto dado de controles de acceso condicional y de verificación en dos pasos para RDS.
 
 ## <a name="how-application-proxy-fits-in-the-standard-rds-deployment"></a>Cómo se adapta el proxy de aplicación a la implementación de RDS estándar
 
@@ -46,17 +46,17 @@ En una implementación de RDS, el rol web de Escritorio remoto y el rol Puerta d
 
 ## <a name="requirements"></a>Requisitos
 
-- Use un cliente que no sea el cliente web de Escritorio remoto, ya que el cliente web no es compatible con el proxy de aplicación.
-
 - Los puntos de conexión de Acceso web y Puerta de enlace de Escritorio remoto deben estar en la misma máquina y compartir una raíz. Acceso de Escritorio remoto y Puerta de enlace de Escritorio remoto se publican como una sola aplicación con el proxy de aplicación para que pueda tener experiencia de inicio de sesión único entre las dos aplicaciones.
 
 - Ya debe tener [RDS implementados](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-in-azure) y el [proxy de aplicación habilitado](application-proxy-add-on-premises-application.md).
 
-- En este escenario se da por hecho que los usuarios finales acceden a través de Internet Explorer en escritorios de Windows 7 y Windows 10 que se conectan a través de la página Acceso web de Escritorio remoto. Si necesita compatibilidad con otros sistemas operativos, consulte [Compatibilidad con otras configuraciones de cliente](#support-for-other-client-configurations).
+- Los usuarios finales deben usar un explorador compatible para conectarse a Acceso web de Escritorio remoto o al cliente web de Escritorio remoto. Para más información, consulte [Compatibilidad con otras configuraciones de cliente](#support-for-other-client-configurations).
 
-- Al publicar la web del escritorio remoto, se recomienda usar el mismo FQDN interno y externo. Si el FQDN interno y externo son diferentes, debe desactivar la traducción del encabezado de solicitud para evitar que el cliente reciba enlaces no válidos. 
+- Al publicar la web del escritorio remoto, se recomienda usar el mismo FQDN interno y externo. Si el FQDN interno y externo son diferentes, debe desactivar la traducción del encabezado de solicitud para evitar que el cliente reciba enlaces no válidos.
 
-- En Internet Explorer, habilite el complemento ActiveX de RDS.
+- Si usa Acceso web de Escritorio remoto en Internet Explorer, deberá habilitar el complemento ActiveX de RDS.
+
+- Si usa el cliente web de Escritorio remoto, deberá utilizar la [versión del conector 1.5.1975 o posterior](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-release-version-history) de Application Proxy.
 
 - Para el flujo de autenticación previa de Azure AD, los usuarios solo pueden conectarse a los recursos publicados para ellos en el panel **RemoteApp y escritorios**. Los usuarios no se pueden conectar a un escritorio mediante el panel **Conectarse a un equipo remoto**.
 
@@ -72,7 +72,11 @@ Una vez configurados RDS y el proxy de aplicación de Azure AD para su entorno, 
    - Método de autenticación previa: Azure Active Directory
    - Traducir URL en encabezados: No
 2. Asigne usuarios a la aplicación publicada de RD. Asegúrese también de que todos tienen acceso a RDS.
-3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**. Se solicita a los usuarios que se autentiquen una vez en Azure AD y una vez en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
+3. Deje el método de inicio de sesión único de la aplicación como **Se desactivó el inicio de sesión único de Azure AD**.
+
+   >[!Note]
+   >Se solicita a los usuarios que se autentiquen una vez en Azure AD y otra en Acceso web de Escritorio remoto, pero tienen inicio de sesión único en Puerta de enlace de Escritorio remoto.
+
 4. Seleccione **Azure Active Directory** y **Registros de aplicaciones**. Elija la aplicación en la lista.
 5. En **Administrar**, seleccione **Personalización de marca**.
 6. Actualice el campo **Dirección URL de la página principal** para que apunte al punto de conexión web de Escritorio remoto (por ejemplo, `https://\<rdhost\>.com/RDWeb`).
@@ -111,6 +115,11 @@ Conéctese a la implementación de RDS como administrador y cambie el nombre del
 
 Ahora que ha configurado Escritorio remoto, el proxy de aplicación de Azure AD ha asumido el papel de componente accesible desde Internet de RDS. Puede quitar los otros puntos de conexión accesibles desde Internet públicos de sus máquinas Acceso web de Escritorio remoto y Puerta de enlace de Escritorio remoto.
 
+### <a name="enable-the-rd-web-client"></a>Habilitación del cliente web de Escritorio remoto
+Si también quiere que los usuarios puedan usar el cliente web de Escritorio remoto, siga los pasos descritos en [Configuración del cliente web de Escritorio remoto para los usuarios](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client-admin) para habilitarlo.
+
+El cliente web de Escritorio remoto permite a los usuarios acceder a la infraestructura de Escritorio remoto de su organización mediante un explorador web compatible con HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v55.0 y versiones posteriores).
+
 ## <a name="test-the-scenario"></a>Probar el escenario
 
 Pruebe el escenario con Internet Explorer en un equipo con Windows 7 o Windows 10.
@@ -122,11 +131,12 @@ Pruebe el escenario con Internet Explorer en un equipo con Windows 7 o Windows 1
 
 ## <a name="support-for-other-client-configurations"></a>Compatibilidad con otras configuraciones de cliente
 
-La configuración descrita en este artículo es para usuarios de Windows 7 o 10, con Internet Explorer y el complemento de ActiveX de RDS. No obstante, en caso necesario, también se ofrece compatibilidad con otros sistemas operativos o exploradores. La diferencia estriba en el método de autenticación que utilice.
+La configuración descrita en este artículo es para el acceso a RDS a través de Acceso web de Escritorio remoto o del cliente web de Escritorio remoto. No obstante, en caso necesario, también se ofrece compatibilidad con otros sistemas operativos o exploradores. La diferencia estriba en el método de autenticación que utilice.
 
 | Método de autenticación | Configuración de cliente compatible |
 | --------------------- | ------------------------------ |
-| Autenticación previa    | Windows 7/10 con Internet Explorer + complemento ActiveX de RDS |
+| Autenticación previa    | Acceso web de Escritorio remoto: Windows 7/10 con Internet Explorer + complemento ActiveX de RDS |
+| Autenticación previa    | Cliente web de escritorio remoto: explorador web compatible con HTML5, como Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v55.0 y versiones posteriores) |
 | Acceso directo | Cualquier otro sistema operativo compatible con la aplicación Escritorio remoto de Microsoft |
 
 El flujo de autenticación previa ofrece más ventajas de seguridad que el flujo de acceso directo. Con la autenticación previa, puede utilizar características de autenticación de Azure AD como el inicio de sesión único, el acceso condicional y la verificación en dos pasos para recursos locales. También garantiza que solo el tráfico autenticado alcance la red.
@@ -137,5 +147,5 @@ Para usar la autenticación de acceso directo, solo es necesario realizar dos mo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Habilitar el acceso remoto a SharePoint con el Proxy de aplicación de Azure AD](application-proxy-integrate-with-sharepoint-server.md)  
-[Consideraciones de seguridad al obtener acceso a aplicaciones de forma remota con el proxy de aplicación de Azure AD](application-proxy-security.md)
+[Habilitar el acceso remoto a SharePoint con Azure AD Application Proxy](application-proxy-integrate-with-sharepoint-server.md)
+[Consideraciones de seguridad para acceder a las aplicaciones de forma remota mediante Azure AD Application Proxy](application-proxy-security.md)

@@ -15,21 +15,21 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
-ms.sourcegitcommit: 2ec4b3d0bad7dc0071400c2a2264399e4fe34897
+ms.openlocfilehash: 58ea65e53f4a1262b448a3abd08807113d016fcb
+ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2020
-ms.locfileid: "78255473"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87833324"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilidad de SAP HANA dentro de una región de Azure
-En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) que usen la replicación del sistema HANA para la disponibilidad. 
+En este artículo se describen varios escenarios de disponibilidad dentro de una región de Azure. Azure tiene muchas regiones repartidas por todo el mundo. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/regions/). Para implementar SAP HANA en máquinas virtuales dentro de una región de Azure, Microsoft ofrece la implementación de una única máquina virtual con una instancia de HANA. Para una mayor disponibilidad, puede implementar dos máquinas virtuales con dos instancias de HANA dentro de un [conjunto de disponibilidad de Azure](../../windows/tutorial-availability-sets.md) que usen la replicación del sistema HANA para la disponibilidad. 
 
-Actualmente, Azure ofrece [Azure Availability Zones](https://docs.microsoft.com/azure/availability-zones/az-overview). En este artículo, no se describe esta funcionalidad de forma detallada. Sin embargo, sí se aborda con carácter general el uso de conjuntos de disponibilidad frente a zonas de disponibilidad.
+Actualmente, Azure ofrece [Azure Availability Zones](../../../availability-zones/az-overview.md). En este artículo, no se describe esta funcionalidad de forma detallada. Sin embargo, sí se aborda con carácter general el uso de conjuntos de disponibilidad frente a zonas de disponibilidad.
 
 Las regiones de Azure donde se ofrecen zonas de disponibilidad tienen varios centros de datos. La fuente de alimentación, la refrigeración y la red de los centros de datos es independiente. El motivo de ofrecer distintas zonas dentro de una única región de Azure es implementar aplicaciones entre dos o tres zonas de disponibilidad ofertadas. Al implementar entre zonas, los problemas de energía y red afectarán solo a la infraestructura de una zona de disponibilidad de Azure y la implementación de aplicaciones dentro de una región de Azure seguirá siendo funcional. Podría experimentarse una reducción de la capacidad. Por ejemplo, las máquinas virtuales de una zona podrían perderse, pero las máquinas virtuales de las otras dos zonas aún seguirían funcionando. 
  
-Un conjunto de disponibilidad de Azure es una funcionalidad de agrupación lógica que sirve para asegurarse de que los recursos de máquina virtual que coloque en el conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. En determinada documentación de Azure, a esta configuración se le conoce como ubicaciones en diferentes [dominios de actualización y error](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability). Estas ubicaciones están normalmente dentro de un centro de datos de Azure. Suponiendo que los problemas en las fuentes de alimentación o la red afectaran al centro de datos que está implementando, toda la capacidad de una región de Azure resultaría afectada.
+Un conjunto de disponibilidad de Azure es una funcionalidad de agrupación lógica que sirve para asegurarse de que los recursos de máquina virtual que coloque en el conjunto de disponibilidad estén aislados entre sí cuando se implementen en un centro de datos de Azure. Azure garantiza que las máquinas virtuales colocados en un conjunto de disponibilidad se ejecuten en varios servidores físicos, grupos de proceso, unidades de almacenamiento y conmutadores de red. En determinada documentación de Azure, a esta configuración se le conoce como ubicaciones en diferentes [dominios de actualización y error](../../windows/manage-availability.md). Estas ubicaciones están normalmente dentro de un centro de datos de Azure. Suponiendo que los problemas en las fuentes de alimentación o la red afectaran al centro de datos que está implementando, toda la capacidad de una región de Azure resultaría afectada.
 
 La ubicación de centros de datos que representan las zonas de disponibilidad de Azure es un equilibrio entre la entrega de latencia de red entre los servicios implementados en diferentes zonas que son aceptables para la mayoría de las aplicaciones y una determinada distancia entre los centros de datos. Idealmente, las catástrofes naturales no afectarían al suministro de energía y red, ni a la infraestructura de todas las zonas de disponibilidad de esta región. Sin embargo, como se ha demostrado en catástrofes naturales de gran alcance, las zonas de disponibilidad podrían no ser siempre capaces de proporcionar la disponibilidad deseada dentro de una región. Considérese, por ejemplo, el huracán María que alcanzó la isla de Puerto Rico el 20 de septiembre de 2017. Básicamente, el huracán causó un apagón casi en el 100 % de la isla de 145 km de superficie.
 
@@ -82,7 +82,7 @@ La arquitectura tiene el siguiente aspecto:
 
 Esta configuración no es adecuada para conseguir grandes tiempos de objetivo de punto de recuperación (RPO) y objetivo de tiempo de recuperación (RTO). En especial, los tiempos de RTO resultarían afectados debido a la necesidad de restaurar completamente la base de datos mediante los archivos de copia de seguridad copiados. Sin embargo, esta configuración es útil para recuperarse de la eliminación de datos no intencionada en las instancias principales. Con ella, puede restaurar en cualquier momento a un punto en el tiempo determinado, extraer los datos e importar los datos eliminados en la instancia principal. De ahí que tenga sentido usar este método de copia de seguridad en combinación con otra funcionalidad de alta disponibilidad. 
 
-Mientras se copian las copias de seguridad, es posible que pueda usar una máquina virtual más pequeña que la principal en la que se ejecuta la instancia de SAP HANA. Tenga en cuenta que a las máquinas virtuales más pequeñas puede adjuntar un menor número de VHD. Consulte [Tamaños de las máquinas virtuales Linux en Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes) para ver los límites de los tipos de máquina virtual individual.
+Mientras se copian las copias de seguridad, es posible que pueda usar una máquina virtual más pequeña que la principal en la que se ejecuta la instancia de SAP HANA. Tenga en cuenta que a las máquinas virtuales más pequeñas puede adjuntar un menor número de VHD. Consulte [Tamaños de las máquinas virtuales Linux en Azure](../../sizes.md) para ver los límites de los tipos de máquina virtual individual.
 
 ### <a name="sap-hana-system-replication-without-automatic-failover"></a>Replicación del sistema de SAP HANA sin conmutación automática por error
 
@@ -108,7 +108,7 @@ En este escenario, se cargan previamente los datos replicados en la instancia de
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>Replicación del sistema de SAP HANA con conmutación por error automática
 
-En la configuración de disponibilidad estándar más habitual dentro de una región de Azure, dos máquinas virtuales de Azure que ejecutan Linux SLES tienen definido un clúster de conmutación por error. El clúster de Linux SLES se basa en el marco [Pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) en combinación con un dispositivo [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device). 
+En la configuración de disponibilidad estándar más habitual dentro de una región de Azure, dos máquinas virtuales de Azure que ejecutan Linux SLES tienen definido un clúster de conmutación por error. El clúster de Linux SLES se basa en el marco [Pacemaker](./high-availability-guide-suse-pacemaker.md) en combinación con un dispositivo [STONITH](./high-availability-guide-suse-pacemaker.md#create-azure-fence-agent-stonith-device). 
 
 Desde una perspectiva de SAP HANA, el modo de replicación usado se sincroniza y se configura una conmutación por error automática. En la segunda máquina virtual, la instancia de SAP HANA actúa como un nodo en espera activa. El nodo en espera recibe una secuencia sincrónica de registros de cambios de la instancia principal de SAP HANA. A medida que las transacciones se confirman en la aplicación en el nodo principal de HANA, dicho nodo espera hasta que el nodo secundario de SAP HANA confirma que ha recibido el registro de confirmación. SAP HANA ofrece dos modos diferentes de replicación sincrónica. Para obtener más información y conocer las diferencias entre estos dos modos de replicación sincrónica, lea el artículo de SAP [Replication modes for SAP HANA system replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) (Modos de replicación en la replicación del sistema de SAP HANA).
 
@@ -127,5 +127,4 @@ Para obtener instrucciones paso a paso sobre cómo configurar estas configuracio
 
 Para más información sobre la disponibilidad de SAP HANA entre regiones de Azure, consulte:
 
-- [Disponibilidad de SAP HANA entre regiones de Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-across-regions) 
-
+- [Disponibilidad de SAP HANA entre regiones de Azure](./sap-hana-availability-across-regions.md) 

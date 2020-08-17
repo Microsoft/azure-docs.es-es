@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c97dafa80adedd64d45666eb98ef6b1e69850719
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0eac72832d75c0c26addaef283015155c09b3935
+ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84629389"
+ms.lasthandoff: 07/20/2020
+ms.locfileid: "86529376"
 ---
 # <a name="workflow-automation"></a>Automatización de flujos de trabajo
 
@@ -34,16 +34,13 @@ En este artículo se describe la característica de automatización de flujos de
     - **Rol de administrador de seguridad** en el grupo de recursos (o **Propietario**).
     - También debe tener permisos de escritura para el recurso de destino.
     - Además, para trabajar con flujos de trabajo de Azure Logic Apps, debe tener los siguientes roles o permisos de Logic Apps:
-
-        * Son necesarios los permisos del [Operador de aplicaciones lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) o el acceso de lectura o desencadenamiento de la aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo puede *ejecutar* las existentes).
-
-        * Los permisos del [Colaborador de la aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.
-
-        * Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).
+        - Son necesarios los permisos del [Operador de aplicaciones lógicas](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-operator) o el acceso de lectura o desencadenamiento de la aplicación lógica (este rol no puede crear ni editar aplicaciones lógicas, solo puede *ejecutar* las existentes).
+        - Los permisos del [Colaborador de la aplicación lógica](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#logic-app-contributor) son necesarios para la creación y modificación de aplicaciones lógicas.
+        - Si quiere usar conectores de aplicaciones lógicas, es posible que necesite credenciales adicionales para iniciar sesión en sus servicios respectivos (por ejemplo, en las instancias de Outlook, Teams o Slack).
 - Nubes: 
     - ✔ Nubes comerciales
-    - ✔ US Gov
-    - ✘ China Gov, otros gobiernos
+    - ✔ Nube del gobierno de EE. UU.
+    - ✘ Nube del gobierno de China, otras nubes gubernamentales
 
 
 ## <a name="create-a-logic-app-and-define-when-it-should-automatically-run"></a>Crear una aplicación lógica y definir cuándo debe ejecutarse automáticamente 

@@ -7,13 +7,13 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.reviewer: sngun
-ms.custom: tracking-python
-ms.openlocfilehash: 15f5ac1da6d24feceed3a9106b990ae31e3571e3
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.custom: devx-track-python, devx-track-javascript
+ms.openlocfilehash: 9498c4a0e0dc5b528066ffadd6a9638fe99b1135
+ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85851621"
+ms.lasthandoff: 08/06/2020
+ms.locfileid: "87874799"
 ---
 # <a name="tutorial-set-up-azure-cosmos-db-global-distribution-using-the-sql-api"></a>Tutorial: Configuración de la distribución global de Azure Cosmos DB con SQL API
 
@@ -28,34 +28,35 @@ En este artículo se tratan las tareas siguientes:
 <a id="portal"></a>
 [!INCLUDE [cosmos-db-tutorial-global-distribution-portal](../../includes/cosmos-db-tutorial-global-distribution-portal.md)]
 
-
 ## <a name="connecting-to-a-preferred-region-using-the-sql-api"></a><a id="preferred-locations"></a> Conexión a una región de preferencia con la API de SQL
 
-Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Esto puede hacerse estableciendo la directiva de conexión. Según la configuración de la cuenta de Azure Cosmos DB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK de SQL elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
+Para aprovechar las ventajas de la [distribución global](distribute-data-globally.md), las aplicaciones cliente pueden especificar la lista del orden de preferencia de regiones que se usará para llevar a cabo operaciones de documentos. Según la configuración de la cuenta de Azure Cosmos DB, la disponibilidad regional actual y la lista de preferencias especificada, el SDK de SQL elegirá el punto de conexión óptimo para realizar las operaciones de lectura y escritura.
 
-Esta lista de preferencias se especifica cuando se inicializa una conexión mediante los SDK de SQL. Los SDK aceptan un parámetro opcional "PreferredLocations", que es una lista ordenada de regiones de Azure.
+Esta lista de preferencias se especifica cuando se inicializa una conexión mediante los SDK de SQL. Los SDK aceptan un parámetro opcional `PreferredLocations`, que es una lista ordenada de regiones de Azure.
 
-El SDK enviará automáticamente todas las escrituras a la región de escritura actual.
+El SDK enviará automáticamente todas las escrituras a la región de escritura actual. Todas las lecturas se enviarán a la primera región disponible de la lista de ubicaciones preferidas. Si se produce un error en la solicitud, el cliente pasará a la siguiente región de la lista.
 
-Todas las lecturas se enviarán a la primera región disponible en la lista de PreferredLocations. Si se produce un error en la solicitud, el cliente pasará a la siguiente región de la lista y así sucesivamente.
+Los SDK solo intentarán leer en las regiones especificadas en las ubicaciones preferidas. Así que, por ejemplo, si la cuenta de Azure Cosmos DB está disponible en cuatro regiones, pero el cliente solo especifica dos de las regiones de lectura (no escritura) en `PreferredLocations`, no se atenderá ninguna lectura desde la región de lectura que no se especifique en `PreferredLocations`. Si las regiones de lectura especificadas en `PreferredLocations` no están disponibles, las lecturas se atenderán fuera de la región de escritura.
 
-Los SDK solo intentarán leer en las regiones especificadas en PreferredLocations. Así que, por ejemplo, si la cuenta de base de datos está disponible en cuatro regiones, pero el cliente solo especifica dos de las regiones de lectura (no escritura) para PreferredLocations, no se atenderá ninguna lectura desde la región de escritura que no se especifique en PreferredLocations. Si las regiones de lectura especificadas en PreferredLocations no están disponibles, las lecturas se atenderán fuera de la región de escritura.
+La aplicación puede comprobar los puntos de conexión de escritura y lectura actuales elegidos por el SDK. Para ello, comprueba dos propiedades, `WriteEndpoint` y `ReadEndpoint`, disponibles en el SDK 1.8 y versiones posteriores. Si la propiedad `PreferredLocations` no está establecida, atenderá todas las solicitudes procedentes de la región de escritura actual.
 
-La aplicación puede comprobar los puntos de conexión de escritura y lectura actuales elegidos por el SDK. Para ello, comprueba dos propiedades, WriteEndpoint y ReadEndpoint, disponibles en el SDK 1.8 y versiones posteriores.
-
-Si la propiedad PreferredLocations no está establecida, atenderá todas las solicitudes procedentes de la región de escritura actual.
+Si no se especifican las ubicaciones preferidas pero se usa el método `setCurrentLocation`, el SDK rellena automáticamente las ubicaciones preferidas en función de la región actual en la que se ejecute el cliente. El SDK ordena las regiones en función de la proximidad de una región a la región actual.
 
 ## <a name="net-sdk"></a>.NET SDK
+
 Se puede usar el SDK sin cambiar el código. En este caso, el SDK dirige automáticamente tanto las lecturas como las escrituras a la región de escritura actual.
 
-En la versión 1.8 y posteriores del SDK de .NET, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una propiedad denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propiedad es del tipo Collection `<string>` y debería contener una lista de nombres de región. Se da formato a los valores de cadena según la columna Nombre de región en la página [Regiones de Azure][regions], sin espacios antes ni después del primer y el último carácter, respectivamente.
+En la versión 1.8 y posteriores del SDK de .NET, el parámetro ConnectionPolicy para el constructor DocumentClient tiene una propiedad denominada Microsoft.Azure.Documents.ConnectionPolicy.PreferredLocations. Esta propiedad es del tipo Collection `<string>` y debería contener una lista de nombres de región. Se da formato a los valores de cadena según la columna de nombre de región en la página [Regiones de Azure][regions], sin espacios antes ni después del primer o el último carácter, respectivamente.
 
 Los puntos de conexión de lectura y escritura actuales están disponibles en DocumentClient.ReadEndpoint y DocumentClient.WriteEndpoint, respectivamente.
 
 > [!NOTE]
 > Las direcciones URL de los puntos de conexión no deben considerarse constantes de larga duración. El servicio puede actualizarlas en cualquier momento. El SDK administra este cambio automáticamente.
 >
->
+
+# <a name="net-sdk-v2"></a>[SDK para .NET V2](#tab/dotnetv2)
+
+Si emplea el SDK de .NET v2, use la propiedad `PreferredLocations` para establecer la región preferida.
 
 ```csharp
 // Getting endpoints from application settings or other configuration location
@@ -78,6 +79,54 @@ DocumentClient docClient = new DocumentClient(
 // connect to DocDB
 await docClient.OpenAsync().ConfigureAwait(false);
 ```
+
+Como alternativa, puede usar la propiedad `SetCurrentLocation` y dejar que el SDK elija la ubicación preferida en función de la proximidad.
+
+```csharp
+// Getting endpoints from application settings or other configuration location
+Uri accountEndPoint = new Uri(Properties.Settings.Default.GlobalDatabaseUri);
+string accountKey = Properties.Settings.Default.GlobalDatabaseKey;
+  
+ConnectionPolicy connectionPolicy = new ConnectionPolicy();
+
+connectionPolicy.SetCurrentLocation("West US 2"); /
+
+// initialize connection
+DocumentClient docClient = new DocumentClient(
+    accountEndPoint,
+    accountKey,
+    connectionPolicy);
+
+// connect to DocDB
+await docClient.OpenAsync().ConfigureAwait(false);
+```
+
+# <a name="net-sdk-v3"></a>[SDK para .NET V3](#tab/dotnetv3)
+
+Si emplea el SDK de .NET v3, use la propiedad `ApplicationPreferredRegions` para establecer la región preferida.
+
+```csharp
+
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+options.ApplicationPreferredRegions = new List<string> {Regions.WestUS, Regions.WestUS2};
+
+CosmosClient client = new CosmosClient(connectionString, options);
+
+```
+
+Como alternativa, puede usar la propiedad `ApplicationRegion` y dejar que el SDK elija la ubicación preferida en función de la proximidad.
+
+```csharp
+CosmosClientOptions options = new CosmosClientOptions();
+options.ApplicationName = "MyApp";
+// If the application is running in West US
+options.ApplicationRegion = Regions.WestUS;
+
+CosmosClient client = new CosmosClient(connectionString, options);
+```
+
+---
 
 ## <a name="nodejsjavascript"></a>Node.js o JavaScript
 

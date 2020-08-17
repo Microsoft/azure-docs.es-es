@@ -12,7 +12,7 @@
   items:
     - name: API DE REST
       items:
-        - name: 'Con C#'
+        - name: Con C#
           href: csharp.md
         - name: Usar Java
           href: java.md
@@ -72,7 +72,7 @@
           href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/newssearch?view=azure-python'
         - name: Node.js
           href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-newssearch/?view=azure-node-latest'
-        - name: Go
+        - name: Ir
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/newssearch'
     - name: Requisitos de uso y visualización
       href: ../Bing-Web-Search/use-display-requirements.md
@@ -92,7 +92,7 @@
     - name: Knowledge Base
       href: 'https://cognitive.uservoice.com/knowledgebase/topics/127875-bing-search-web-image-video-news-autosuggest'
     - name: Obtener clave de API
-      href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api'
+      href: 'https://azure.microsoft.com/free/cognitive-services'
     - name: ¡Pruébelo!
       href: 'https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553'
     - name: Puntos de conexión de Bing News Search

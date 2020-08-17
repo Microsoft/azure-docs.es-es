@@ -1,5 +1,5 @@
 ---
-title: Creación y actualización de estadísticas
+title: Creación y actualización de estadísticas mediante recursos de Azure Synapse SQL
 description: Recomendaciones y ejemplos para crear y actualizar las estadísticas de optimización de consultas en SQL de Synapse.
 services: synapse-analytics
 author: filippopovic
@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 1bc5f5f5ffe44cbefe5a131aa041e5afc2e8257f
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 25c92437b350d7329c340fe1ea13b3df40e231ba
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83659235"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87020606"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estadísticas en SQL de Synapse
 

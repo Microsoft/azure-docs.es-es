@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b2f4e7a16c967b26b545d1405f973bf8b8afaae
-ms.sourcegitcommit: 09a124d851fbbab7bc0b14efd6ef4e0275c7ee88
+ms.openlocfilehash: 217d5b060ca1b7d32cd334049db9b7c68b7949a0
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/23/2020
-ms.locfileid: "82086137"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87065080"
 ---
 # <a name="what-sap-software-is-supported-for-azure-deployments"></a>Qué software de SAP es compatible para su implementación en Azure
 En este artículo se describe cómo puede averiguar qué software de SAP es compatible para su implementación en Azure y cuáles son las versiones de sistemas operativos o de DBMS necesarias.
@@ -87,12 +87,12 @@ Como conoce las versiones de DBMS que son compatibles con la infraestructura de 
 En Azure hay dos servicios que se pueden usar para ejecutar la base de datos de HANA:
 
 - Azure Virtual Machines
-- [Instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [Instancias grandes de HANA](./hana-overview-architecture.md)
 
 Para ejecutar SAP HANA, SAP tiene que satisfacer unas necesidades de infraestructura cada más grandes para ejecutar NetWeaver u otras aplicaciones de SAP y DBMS. En consecuencia, un número menor de máquinas virtuales de Azure es apto para ejecutar DBMS de SAP HANA. La lista de la infraestructura de Azure compatible con SAP HANA se puede encontrar en el conocido como [Directorio de hardware de SAP HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure). 
 
 > [!NOTE]
-> Las unidades que comienzan por la letra "S" son unidades de [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture). 
+> Las unidades que comienzan por la letra "S" son unidades de [instancias grandes de HANA](./hana-overview-architecture.md). 
 
 > [!NOTE]
 > SAP no tiene ninguna certificación específica que dependa de las versiones principales de SAP HANA. Al contrario de la opinión común, la columna **Escenario de certificación** en las [plataformas IaaS certificadas de HANA](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure), la columna **no tiene ninguna instrucción sobre el certificado de versión principal o secundaria de HANA**. Debe suponer que todas las unidades enumeradas que se pueden usar para HANA 1.0 y HANA 2.0, siempre que las versiones de sistema operativo certificadas para las unidades específicas, también se admitan en las versiones de HANA 1.0. 
@@ -138,12 +138,11 @@ La compatibilidad con SAP BPC 10.1 SP08 se describe en la [Nota sobre compatibil
 La compatibilidad con la plataforma de comercio SAP Hybris en Azure se detalla en la [documentación de Hybris](https://help.sap.com/viewer/a74589c3a81a4a95bf51d87258c0ab15/1811/en-US/8c71300f866910149b40c88dfc0de431.html). A partir del DBMS compatible con la plataforma de comercio SAP Hybris, se muestra como:
 
 - SQL Server y Oracle en la plataforma del sistema operativo Windows. Se aplican las mismas versiones mínimas que para SAP NetWeaver. Para más información, consulte la [nota de soporte técnico de SAP 1928533](https://launchpad.support.sap.com/#/notes/1928533)
-- SAP HANA en Red Hat y SUSE Linux. Se requieren tipos de máquina virtual certificados para SAP HANA, tal como se documentó anteriormente en [este documento](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure#sap-hana-support). La plataforma de comercio SAP (Hybris) se considera una carga de trabajo de OLTP
+- SAP HANA en Red Hat y SUSE Linux. Se requieren tipos de máquina virtual certificados para SAP HANA, tal como se documentó anteriormente en [este documento](#sap-hana-support). La plataforma de comercio SAP (Hybris) se considera una carga de trabajo de OLTP
 - Base de datos de SQL Azure a partir de la versión 1811 de la plataforma de comercio SAP (Hybris)
 
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-Consulte los pasos siguientes en [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide).
-
+Consulte los pasos siguientes en [Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver](./planning-guide.md).

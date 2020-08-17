@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: 07c38cbd2d77a3cca594acd974705af35d8189b9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7718bd5cbc3c3fc3c9632818f769c05cd1617361
+ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516352"
+ms.lasthandoff: 07/28/2020
+ms.locfileid: "87321877"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Recopilación de registros de actividad de Azure en Azure Monitor en inquilinos de Azure Active Directory (heredado)
 
@@ -340,4 +340,5 @@ El último paso consiste en comprobar el área de trabajo de Log Analytics para 
 En este artículo, ha creado una aplicación lógica para leer los registros de actividad de Azure de un centro de eventos y enviarlos al área de trabajo de Log Analytics para su análisis. Para más información sobre cómo visualizar los datos en un área de trabajo, incluida la creación de paneles, revise el tutorial sobre la visualización de datos.
 
 > [!div class="nextstepaction"]
-> [Tutorial sobre la visualización de datos de búsqueda de registros](./../../azure-monitor/learn/tutorial-logs-dashboards.md)
+> [Tutorial sobre la visualización de datos de búsqueda de registros](../learn/tutorial-logs-dashboards.md)
+

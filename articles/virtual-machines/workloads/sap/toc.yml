@@ -84,6 +84,8 @@
           href: hana-setup-smt.md
         - name: Migración de HLI a una máquina virtual de Azure
           href: hana-large-instance-virtual-machine-migration.md
+        - name: Compra de una reserva de SAP HANA (instancias grandes)
+          href: ../../../cost-management-billing/reservations/prepay-hana-large-instances-reserved-capacity.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
 - name: SAP HANA en Azure Virtual Machines
   items:
     - name: Instalación de SAP HANA en máquinas virtuales de Azure
@@ -235,21 +237,41 @@
       href: ../../../site-recovery/site-recovery-workload.md#protect-sap
     - name: Grupos de selección de ubicación de proximidad de Azure para una latencia de red óptima con aplicaciones SAP
       href: sap-proximity-placement-scenarios.md
-- name: Integración de identidades de AAD SAP e inicio de sesión único
+- name: "Integración de Azure\_AD con aplicaciones de SAP"
   items:
-    - name: Integración con la nube de SAP
-      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integración de AAD con SAP Cloud Platform Identity Authentication
+    - name: Aprovisionamiento de usuarios de SAP SuccessFactors a Active Directory
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: "Aprovisionamiento de usuarios de SAP SuccessFactors a Azure\_AD"
+      href: ../../../active-directory/saas-apps/sap-successfactors-inbound-provisioning-cloud-only-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: "Escritura diferida de usuarios Azure\_AD a SAP SuccessFactors"
+      href: ../../../active-directory/saas-apps/sap-successfactors-writeback-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Aprovisionamiento de usuarios en SAP Cloud Platform Identity Authentication Service
+      href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Cloud Platform Identity Authentication Service
       href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP SuccessFactors
+      href: ../../../active-directory/saas-apps/successfactors-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Analytics Cloud
+      href: ../../../active-directory/saas-apps/sapboc-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Fiori
+      href: ../../../active-directory/saas-apps/sap-fiori-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Qualtrics
+      href: ../../../active-directory/saas-apps/qualtrics-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Ariba
+      href: ../../../active-directory/saas-apps/ariba-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Concur Travel and Expense
+      href: ../../../active-directory/saas-apps/concur-travel-and-expense-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
     - name: Configuración del inicio de sesión único con SAP Cloud Platform
       href: ../../../active-directory/saas-apps/sap-hana-cloud-platform-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integración de AAD con SAP NetWeaver
+    - name: Configuración del inicio de sesión único con SAP NetWeaver
       href: ../../../active-directory/saas-apps/sap-netweaver-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integración de AAD con SAP Business ByDesign
+    - name: Configuración del inicio de sesión único con SAP Business ByDesign
       href: ../../../active-directory/saas-apps/sapbusinessbydesign-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Integración de AAD con SAP HANA DBMS
+    - name: Configuración del inicio de sesión único con SAP HANA
       href: ../../../active-directory/saas-apps/saphana-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
-    - name: Inicio de sesión único basado en SAML para SAP Fiori Launchpad con Azure AD
+    - name: Configuración del inicio de sesión único con SAP Cloud for Customer
+      href: ../../../active-directory/saas-apps/sap-customer-cloud-tutorial.md?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json
+    - name: Configuración del inicio de sesión único con SAP Fiori Launchpad
       href: 'https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad'
 - name: Integración de servicios de Azure en SAP
   items:

@@ -6,12 +6,13 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 6f2c9a46d8b17a53d2dc43c0c8313c9357f502a1
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.custom: devx-track-java
+ms.openlocfilehash: ef202bb3ba82b48aca75c7f934aecb3f5fbe0a0b
+ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142163"
+ms.lasthandoff: 07/23/2020
+ms.locfileid: "87070761"
 ---
 # <a name="bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>Enlace de una instancia de Azure Database for MySQL con una aplicación de Azure Spring Cloud 
 

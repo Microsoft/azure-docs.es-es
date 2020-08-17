@@ -22,7 +22,7 @@
           href: bastion-create-host-portal.md
         - name: Azure PowerShell
           href: bastion-create-host-powershell.md
-        - name: Azure CLI
+        - name: CLI de Azure
           href: create-host-cli.md
     - name: Conexión a una máquina virtual
       items:
